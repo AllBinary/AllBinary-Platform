@@ -21,7 +21,7 @@ import org.allbinary.logic.system.security.licensing.LicensingException;
 
 public interface TagHelperFactoryInterface
 {
-   public Object getInstance(
+    Object getInstance(
       final HashMap hashMap, final PageContext pageContext) 
       throws Exception, LicensingException;
 }

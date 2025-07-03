@@ -145,10 +145,9 @@ public class BasketView extends HttpStoreComponentView implements DomNodeInterfa
       }
       catch(Exception e)
       {
-         String error = "Failed to view Mini Basket";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"view()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"view()",e));
          }
          throw e;
       }

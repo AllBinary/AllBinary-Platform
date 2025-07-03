@@ -84,7 +84,7 @@ public class OrderHistoryTag extends TableTag
          String error = "Failed to set Order Status";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"setOrderStatus()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"setOrderStatus()",e));
          }
          return error;
       }

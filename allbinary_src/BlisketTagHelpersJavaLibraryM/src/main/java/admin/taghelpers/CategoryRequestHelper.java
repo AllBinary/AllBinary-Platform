@@ -46,7 +46,7 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 
-public class CategoryRequestHelper implements ModifyTableInterface
+public class CategoryRequestHelper extends ModifyTable
 {
    /*
     <request>
@@ -58,7 +58,8 @@ public class CategoryRequestHelper implements ModifyTableInterface
        //any number of categories for insert or deletion
     <request>
     */
-   
+
+     
    private PageContext pageContext;
    private HashMap hashMap;
 
@@ -85,11 +86,9 @@ public class CategoryRequestHelper implements ModifyTableInterface
       }
       catch(Exception e)
       {
-         String error = "Failed to Construct CategoryRequestHelper";
-         
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"CategoryRequestHelper()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"CategoryRequestHelper()",e));
          }
       }
    }
@@ -186,11 +185,9 @@ public class CategoryRequestHelper implements ModifyTableInterface
       }
       catch(Exception e)
       {
-         String error = "Failed to getXMLData Category Command";
-         
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"getXmlData()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"getXmlData()",e));
          }
       }
    }
@@ -286,7 +283,7 @@ public class CategoryRequestHelper implements ModifyTableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"insert()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"insert()",e));
          }
          return error;
       }
@@ -318,12 +315,11 @@ public class CategoryRequestHelper implements ModifyTableInterface
       {
          try
          {
-            String error = "Failed to remove category: " + 
-               this.childCategoryInterface.getPath();
+            String error = "Failed to remove category: " + this.childCategoryInterface.getPath();
          
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-               LogUtil.put(LogFactory.getInstance(error, this, "delete()", e));
+               LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "delete()", e));
             }
             return error;
          }
@@ -333,7 +329,7 @@ public class CategoryRequestHelper implements ModifyTableInterface
          
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-               LogUtil.put(LogFactory.getInstance(error, this, "delete()", e2));
+               LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "delete()", e2));
             }
             return error;
          }
@@ -360,7 +356,7 @@ public class CategoryRequestHelper implements ModifyTableInterface
          String error = "Failed to get Category";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"viewCategory()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"viewCategory()",e));
          }
          return error;
       }
@@ -386,7 +382,7 @@ public class CategoryRequestHelper implements ModifyTableInterface
          String error = "Failed to view Categories table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"viewCategories()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"viewCategories()",e));
          }
          return error;
       }
@@ -413,7 +409,7 @@ public class CategoryRequestHelper implements ModifyTableInterface
          String error = "Failed to add Item";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"update()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"update()",e));
          }
          return error;
       }

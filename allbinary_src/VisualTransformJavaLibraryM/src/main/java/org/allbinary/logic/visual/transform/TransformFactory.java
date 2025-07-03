@@ -27,6 +27,7 @@ import org.allbinary.logic.visual.transform.info.TransformInfoHttpFactory;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoObjectFactory;
+import org.allbinary.string.CommonStrings;
 
 public class TransformFactory {
 
@@ -39,6 +40,9 @@ public class TransformFactory {
     private TransformFactory() {
     }
 
+
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+
     //create child instance from objectConfig data stored in 
     //another views info and do not use request info
     public TransformInterface getInstance(
@@ -47,7 +51,7 @@ public class TransformFactory {
         try {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
-                LogUtil.put(LogFactory.getInstance("Creating Transform: " + viewName,this, "getInstance()"));
+                LogUtil.put(LogFactory.getInstance("Creating Transform: " + viewName,this, commonStrings.GET_INSTANCE));
             }
 
             TransformInfoHttpInterface ownerTransformInfoHttpInterface =
@@ -79,16 +83,16 @@ public class TransformFactory {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
                 LogUtil.put(LogFactory.getInstance("Created Transform: " + viewName, this,
-                    "getInstance()"));
+                    commonStrings.GET_INSTANCE));
             }
 
             return (TransformInterface) object;
         } catch (Exception e) {
-            String error = "Failed To Get Instance: " + viewName + "->TransformFactory";
+            //String error = "Failed To Get Instance: " + viewName + "->TransformFactory";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR)) {
-                LogUtil.put(LogFactory.getInstance(error, this,
-                    "getInstance(HashMap, PageContext)", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this,
+                    commonStrings.GET_INSTANCE, e));
             }
             throw e;
         }
@@ -104,7 +108,7 @@ public class TransformFactory {
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
-                LogUtil.put(LogFactory.getInstance("Creating Transform: " + propertiesHashMap.get(transformInfoData.NAME),this, "getInstance(HashMap, PageContext)"));
+                LogUtil.put(LogFactory.getInstance("Creating Transform: " + propertiesHashMap.get(transformInfoData.NAME),this, commonStrings.GET_INSTANCE));
             }
 
             final TransformInfoEntity transformInfoEntity =
@@ -134,7 +138,7 @@ public class TransformFactory {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
                 LogUtil.put(LogFactory.getInstance("Created Transform: "
-                    + propertiesHashMap.get(transformInfoData.NAME), this, "getInstance(HashMap, PageContext)"));
+                    + propertiesHashMap.get(transformInfoData.NAME), this, commonStrings.GET_INSTANCE));
             }
             return (TransformInterface) object;
         } catch (Exception e) {
@@ -146,7 +150,7 @@ public class TransformFactory {
                 stringBuffer.append((String) propertiesHashMap.get(TransformInfoData.getInstance().NAME));
                 stringBuffer.append("->TransformFactory");
 
-                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "getInstance(HashMap, PageContext)", e));
+                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.GET_INSTANCE, e));
             }
             throw e;
         }
@@ -179,11 +183,11 @@ public class TransformFactory {
             }
             return (TransformInterface) object;
         } catch (Exception e) {
-            String error = "Failed To Get Instance: " + transformInfoInterface.getName();
+            //String error = "Failed To Get Instance: " + transformInfoInterface.getName();
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR)) {
-                LogUtil.put(LogFactory.getInstance(error, this, "getInstance(TransformInfoInterface)", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getInstance(TransformInfoInterface)", e));
             }
             throw e;
         }

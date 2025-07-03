@@ -31,9 +31,8 @@ import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 
 //TWB - Am I missing the correct Quote Request? Probably not
 public class QuoteRequestHelper
-    implements ModifyTableInterface
+    extends ModifyTable
 {
-    private final CommonStrings commonStrings = CommonStrings.getInstance();
 
    private WeblisketSession weblisketSession;
    
@@ -89,7 +88,7 @@ public class QuoteRequestHelper
          String error = "Failed to add QuoteRequest";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "add()", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "add()", e));
          }
          return error;
       }
@@ -117,7 +116,7 @@ public class QuoteRequestHelper
          String error = "Failed to update QuoteRequest";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"update()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"update()",e));
          }
          return error;
       }

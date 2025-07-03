@@ -51,12 +51,12 @@ public class UserEmailEventHandlerSingletons {
         UserInterface userInterface)
         throws Exception {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING)) {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "getInstance"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, commonStrings.GET_INSTANCE));
         }
 
         if (this.userEmailEventHandlerHashMap == null) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING)) {
-                LogUtil.put(LogFactory.getInstance("Initializing HashMap", this, "getInstance"));
+                LogUtil.put(LogFactory.getInstance("Initializing HashMap", this, commonStrings.GET_INSTANCE));
             }
 
             this.userEmailEventHandlerHashMap = new HashMap();
@@ -67,7 +67,7 @@ public class UserEmailEventHandlerSingletons {
 
         if (userEmailEventHandler == null) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING)) {
-                LogUtil.put(LogFactory.getInstance("Creating New Named UserEmailEventHandler", this, "getInstance"));
+                LogUtil.put(LogFactory.getInstance("Creating New Named UserEmailEventHandler", this, commonStrings.GET_INSTANCE));
             }
 
             //Create New Handler and add listeners
@@ -85,7 +85,7 @@ public class UserEmailEventHandlerSingletons {
             return newUserEmailEventHandler;
         } else {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING)) {
-                LogUtil.put(LogFactory.getInstance("Returning existing UserEmailEventHandler", this, "getInstance"));
+                LogUtil.put(LogFactory.getInstance("Returning existing UserEmailEventHandler", this, commonStrings.GET_INSTANCE));
             }
 
             //Return existing event Handler

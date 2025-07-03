@@ -21,6 +21,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.user.UserData;
 import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.string.CommonStrings;
 
 public class UserName
 {
@@ -73,6 +74,8 @@ public class UserName
    
    public Boolean isValid(String aUserName)
    {
+       final CommonStrings commonStrings = CommonStrings.getInstance();
+
       try
       {
          final BooleanFactory booleanFactory = BooleanFactory.getInstance();
@@ -80,14 +83,14 @@ public class UserName
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VALIDATION))
          {
-            LogUtil.put(LogFactory.getInstance("UserName: " + aUserName, this, "isValid()"));
+            LogUtil.put(LogFactory.getInstance("UserName: " + aUserName, this, commonStrings.IS_VALID));
          }
 
          if(!StringValidationUtil.getInstance().isValidRequired(aUserName, 5, UserData.MAXLEN))
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VALIDATION))
             {
-               LogUtil.put(LogFactory.getInstance("UserName is invalid", this, "isValid()"));
+               LogUtil.put(LogFactory.getInstance("UserName is invalid", this, commonStrings.IS_VALID));
             }
 
             valid = booleanFactory.FALSE;
@@ -99,7 +102,7 @@ public class UserName
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate form", this, "isValid()",e));
+            LogUtil.put(LogFactory.getInstance("Failed to validate form", this, commonStrings.IS_VALID,e));
          }
          return Boolean.FALSE;
       }

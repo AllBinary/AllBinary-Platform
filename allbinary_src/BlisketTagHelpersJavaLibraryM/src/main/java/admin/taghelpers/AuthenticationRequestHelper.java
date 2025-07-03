@@ -44,7 +44,7 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
 public class AuthenticationRequestHelper
-    implements TagHelperInterface
+    extends TagHelper
 {
     private final AbeClientInformationInterface abeClientInformation = 
         ServiceClientInformationInterfaceFactory.getInstance();
@@ -324,10 +324,9 @@ public class AuthenticationRequestHelper
       }
       catch(Exception e)
       {
-         String error = "Failed to check if Role is valid";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "isRoleValid()", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "isRoleValid()", e));
          }
          return Boolean.FALSE;
       }

@@ -16,7 +16,7 @@ package taghelpers;
 import java.util.HashMap;
 import javax.servlet.jsp.PageContext;
 
-import admin.taghelpers.TagHelperInterface;
+import admin.taghelpers.TagHelper;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -26,7 +26,7 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
 public class StoreTagWorkFlowHelper
-    implements TagHelperInterface
+    extends TagHelper
     //implements StoreWorkFlowInterface
 {
     private final AbeClientInformationInterface abeClientInformation = 
@@ -75,7 +75,7 @@ public class StoreTagWorkFlowHelper
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
          {
-            LogUtil.put(LogFactory.getInstance("Process",this,"process()"));
+            LogUtil.put(LogFactory.getInstance("Process",this,commonStrings.PROCESS));
          }
 
          return this.storeWorkFlowInterface.process();
@@ -88,7 +88,7 @@ public class StoreTagWorkFlowHelper
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"view()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"view()",e));
          }
          throw e;
       }

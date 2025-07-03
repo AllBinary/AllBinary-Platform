@@ -172,7 +172,7 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "get", e));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, commonStrings.GET, e));
             }
             return null;
         }
@@ -199,7 +199,7 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "get", e));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, commonStrings.GET, e));
             }
             return null;
         }

@@ -54,7 +54,7 @@ public class PickupBehavior implements PickupBehaviorInterface
             
             if(healthInterfaceCompositeInterface.getHealthInterface().isAlive())
             {
-            	//PreLogUtil.put("process", this, "doPickup(PickupProcessorInterface)");
+            	//PreLogUtil.put(commonStrings.PROCESS, this, "doPickup(PickupProcessorInterface)");
             	
             	pickupProcessorInterface.process(ownerLayerInterface);
             }

@@ -76,7 +76,7 @@ public class RaceTrackGeographicMap extends BaseRaceTrackGeographicMap {
             stringBuffer.append(" not in: ");
             stringBuffer.append(this.customMapGenerator.getCustomMapArray()[0].length);
 
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "isValid"));
+            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.IS_VALID));
 
             if (geographicMapCellPosition.getColumn() == this.customMapGenerator.getCustomMapArray()[0].length) {
                 return true;
@@ -90,7 +90,7 @@ public class RaceTrackGeographicMap extends BaseRaceTrackGeographicMap {
             stringBuffer.append(" not in: ");
             stringBuffer.append(this.customMapGenerator.getCustomMapArray().length);
 
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "isValid"));
+            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.IS_VALID));
 
             if (geographicMapCellPosition.getRow() == this.customMapGenerator.getCustomMapArray().length) {
                 return true;

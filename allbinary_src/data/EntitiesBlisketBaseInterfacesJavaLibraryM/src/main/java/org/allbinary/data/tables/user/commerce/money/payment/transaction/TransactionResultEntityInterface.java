@@ -14,10 +14,10 @@
 package org.allbinary.data.tables.user.commerce.money.payment.transaction;
 
 import org.allbinary.business.user.commerce.money.payment.gateway.transaction.TransactionResultInterface;
-import org.allbinary.data.tables.BasicTableInterface;
+import org.allbinary.data.tables.BasicDataTableInterface;
 
 public interface TransactionResultEntityInterface
-        extends BasicTableInterface
+        extends BasicDataTableInterface
 {
    public TransactionResultInterface getTransactionResultInterface(String orderNumber);
    

@@ -31,8 +31,9 @@ import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 
 public class BasketHelper
-    implements TagHelperInterface
+    extends TagHelper
 {
+    
    private WeblisketSession weblisketSession;
    
    private StoreFrontInterface storeFrontInterface;   
@@ -73,11 +74,9 @@ public class BasketHelper
       }
       catch(Exception e)
       {
-         String error = "Failed to add item from Basket";
-         
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"isBasketEmpty()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"isBasketEmpty()",e));
          }
          return Boolean.TRUE;         
       }

@@ -38,8 +38,7 @@ public class ImageTool
             }
             catch(Exception e)
             {
-               String error = "Error";
-               LogUtil.put(LogFactory.getInstance(error, "Main", commonStrings.RUN, e));
+               LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "Main", commonStrings.RUN, e));
             }
          }
       });

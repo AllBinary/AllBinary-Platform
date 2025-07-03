@@ -20,9 +20,13 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.commerce.shipping.modules.ShippingInterface;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.string.CommonStrings;
 
 public class ShippingMethods implements ShippingMethodsInterface
 {
+    
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private Vector shippingVector;
 
    private ShippingInterface defaultShippingMethodInterface;
@@ -54,7 +58,7 @@ public class ShippingMethods implements ShippingMethodsInterface
       String error = "Error Finding Shipping: " + name;
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SHIPPINGERROR))
       {
-         LogUtil.put(LogFactory.getInstance(error,this,"getShippingInterface(String name)"));
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"getShippingInterface(String name)"));
       }
 
       throw new Exception(error);

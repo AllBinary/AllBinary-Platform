@@ -13,24 +13,21 @@
 */
 package admin.tags;
 
+import javax.servlet.jsp.JspTagException;
+
 import org.allbinary.globals.AppUrlGlobals;
 import org.allbinary.globals.URLGLOBALS;
-
-import javax.servlet.jsp.tagext.TagSupport;
-
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.log.LogFactory;
-
 import org.allbinary.logic.system.security.licensing.LicensingException;
-
 import org.allbinary.logic.communication.log.LogUtil;
-import javax.servlet.jsp.JspTagException;
 import org.allbinary.globals.GLOBALS2;
 import org.allbinary.string.CommonStrings;
 
-public class CustomLoaderTag extends TagSupport
+import tags.CustomTagSupport;
+
+public class CustomLoaderTag extends CustomTagSupport
 {
-    protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
    private String command;
    private String webappPath;
@@ -61,10 +58,9 @@ public class CustomLoaderTag extends TagSupport
       }
       catch(Exception e)
       {
-         String error = "Failed to set WebappPath";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "setCustomLoaderWebappPath()", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "setCustomLoaderWebappPath()", e));
          }
       }
    }

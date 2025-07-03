@@ -16,6 +16,7 @@ package org.allbinary.input.automation.actions.script.condition.processors.input
 import org.allbinary.input.automation.robot.InputRobotInterface;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
 
 public class MouseInputAutomationProcessor
 {
@@ -27,11 +28,12 @@ public class MouseInputAutomationProcessor
         MouseActionScriptInputInterface mouseActionScriptInputInterface)
         throws Exception
     {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
         LogUtil.put(LogFactory.getInstance(
             "Start - Processing Mouse Input at: " +
             mouseActionScriptInputInterface.getPoint() +
             " clicks: " + mouseActionScriptInputInterface.getButtonClicks(),
-            "MouseInputAutomationProcessor", "process"));
+            "MouseInputAutomationProcessor", commonStrings.PROCESS));
 
         InputRobotInterface inputRobotInterface = 
             mouseActionScriptInputInterface.getInputRobotInterface();
@@ -58,6 +60,6 @@ public class MouseInputAutomationProcessor
 
         Thread.sleep(mouseActionScriptInputInterface.getTime());
         
-        //LogUtil.put(LogFactory.getInstance(this.commonStrings.END, "MouseInputAutomationProcessor", "process"));
+        //LogUtil.put(LogFactory.getInstance(this.commonStrings.END, "MouseInputAutomationProcessor", commonStrings.PROCESS));
     }
 }

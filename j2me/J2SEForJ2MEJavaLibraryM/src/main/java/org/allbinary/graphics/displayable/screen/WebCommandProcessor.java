@@ -55,7 +55,7 @@ public class WebCommandProcessor {
 
         } catch(Exception e) {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "process", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e));
         }
     }
 }

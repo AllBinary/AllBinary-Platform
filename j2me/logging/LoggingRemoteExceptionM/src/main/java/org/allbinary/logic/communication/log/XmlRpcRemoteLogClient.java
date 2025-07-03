@@ -101,7 +101,7 @@ public class XmlRpcRemoteLogClient extends XmlRpcAbeClient
             // {
             //String message = LogFormatUtil.getInstance().get(error, "", "", e);
             //System.out.println(message);
-            //LogUtil.put(LogFactory.getInstance(error, this, commonStrings.GET, e));
+            //LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET, e));
             // }
 
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
@@ -129,7 +129,7 @@ public class XmlRpcRemoteLogClient extends XmlRpcAbeClient
             //Can't log this since that is what the log is using
             //String message = LogFormatUtil.getInstance().get(error, StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING, e);
             //System.out.println(message);
-            //LogUtil.put(LogFactory.getInstance(error, this, commonStrings.GET, e));
+            //LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET, e));
             // }
             return this.tryAnother(object);
         } catch (Exception e)
@@ -140,7 +140,7 @@ public class XmlRpcRemoteLogClient extends XmlRpcAbeClient
             // {
             //String message = LogFormatUtil.getInstance().get(error, StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING, e);
             //System.out.println(message);
-            //LogUtil.put(LogFactory.getInstance(error, this, commonStrings.GET, e));
+            //LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET, e));
             // }
             return this.tryAnother(object);
         }

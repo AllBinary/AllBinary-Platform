@@ -13,15 +13,15 @@
 */
 package org.allbinary.data.tables.transform.info;
 
-import org.allbinary.data.tables.BasicTableInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
 import javax.servlet.jsp.PageContext;
 import java.util.HashMap;
 import java.util.Vector;
+import org.allbinary.data.tables.BasicDataTableInterface;
 
 public interface TransformInfoEntityInterface 
-   extends BasicTableInterface
+   extends BasicDataTableInterface
 {      
    public TransformInfoInterface get(String name, HashMap propertiesHashMap, PageContext pageContext) throws Exception;
    //public TransformInfoInterface get(String name) throws Exception;

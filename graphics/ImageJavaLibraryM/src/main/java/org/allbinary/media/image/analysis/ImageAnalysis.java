@@ -90,7 +90,7 @@ public class ImageAnalysis
          imageAnalysisResults.getImageColorRangeResults().addMatchingPixelsChecked();
       } else
       {
-         // LogUtil.put(LogFactory.getInstance("Invalid Color: " + color, "ImageAnalysis", "process"));
+         // LogUtil.put(LogFactory.getInstance("Invalid Color: " + color, "ImageAnalysis", commonStrings.PROCESS));
       }
       imageAnalysisResults.getImageColorRangeResults().addTotalPixelsChecked();
    }

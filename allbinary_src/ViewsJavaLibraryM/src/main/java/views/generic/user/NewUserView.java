@@ -48,7 +48,7 @@ public class NewUserView extends UserView
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate",this,"isValid()",e));
+            LogUtil.put(LogFactory.getInstance("Failed to validate",this,commonStrings.IS_VALID,e));
          }
          return Boolean.FALSE;
       }

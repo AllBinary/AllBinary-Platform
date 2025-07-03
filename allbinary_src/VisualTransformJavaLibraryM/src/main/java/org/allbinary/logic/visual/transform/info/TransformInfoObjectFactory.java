@@ -19,6 +19,7 @@ import org.allbinary.logic.system.loader.AbeFactory;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import org.allbinary.logic.visual.transform.TransformInterface;
+import org.allbinary.string.CommonStrings;
 
 public class TransformInfoObjectFactory
 {
@@ -42,7 +43,8 @@ public class TransformInfoObjectFactory
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY))
             {
-                LogUtil.put(LogFactory.getInstance("Creating View: " + transformInfoInterface.getName(), this, "getInstance()"));
+                final CommonStrings commonStrings = CommonStrings.getInstance();
+                LogUtil.put(LogFactory.getInstance("Creating View: " + transformInfoInterface.getName(), this, commonStrings.GET_INSTANCE));
             }
 
             //validate view data before creating view object
@@ -92,8 +94,8 @@ public class TransformInfoObjectFactory
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
             {
-                LogUtil.put(LogFactory.getInstance(
-                    error, this, "getInstance(HashMap, PageContext)", e));
+                final CommonStrings commonStrings = CommonStrings.getInstance();
+                LogUtil.put(LogFactory.getInstance(error, this, commonStrings.GET_INSTANCE, e));
             }
             throw e;
         } catch (Exception e)
@@ -108,8 +110,8 @@ public class TransformInfoObjectFactory
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
             {
-                LogUtil.put(LogFactory.getInstance(
-                    error, this, "getInstance(HashMap, PageContext)", e));
+                final CommonStrings commonStrings = CommonStrings.getInstance();
+                LogUtil.put(LogFactory.getInstance(error, this, commonStrings.GET_INSTANCE, e));
             }
             throw e;
         }
@@ -138,23 +140,21 @@ public class TransformInfoObjectFactory
     }
     catch(LicensingException e)
     {
-    String error = "Failed To Get Instance";
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
     org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
     {
-    LogUtil.put(error, propertiesHashMap.get(TransformInfoData.NAME) + "->ViewFactory",
-    "getInstance(HashMap, PageContext)",e);
+    LogUtil.put(commonStrings.EXCEPTION, propertiesHashMap.get(TransformInfoData.NAME) + "->ViewFactory",
+    commonStrings.GET_INSTANCE,e);
     }
     throw e;
     }
     catch(Exception e)
     {
-    String error = "Failed To Get Instance";
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
     org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
     {
-    LogUtil.put(error, propertiesHashMap.get(TransformInfoData.NAME) + "->TransformInfoFactory",
-    "getInstance(HashMap, PageContext)",e);
+    LogUtil.put(commonStrings.EXCEPTION, propertiesHashMap.get(TransformInfoData.NAME) + "->TransformInfoFactory",
+    commonStrings.GET_INSTANCE,e);
     }
     throw e;
     }

@@ -35,17 +35,16 @@ public class XmlValidationTransformTag extends TransformTag
       try
       {
          Class helperClass = this.getHelper().getClass();
-         Method method = helperClass.getMethod("isValid",null);
+         Method method = helperClass.getMethod(commonStrings.IS_VALID,null);
          Boolean result = (Boolean) method.invoke(this.getHelper(),null);
          return result.booleanValue();
       }
       catch(Exception e)
       {
-         String error = "Failed to validate Address";
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"isValid()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,commonStrings.IS_VALID,e));
          }
          throw e;
       }

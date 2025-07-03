@@ -13,6 +13,11 @@
 */
 package org.allbinary.logic.visual.transform.template.customizer.widgets.logo;
 
+import java.util.HashMap;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.logic.io.file.FileData;
 import org.allbinary.logic.io.path.AbPath;
@@ -21,17 +26,13 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.logic.communication.http.request.HttpRequestUtil;
-import org.allbinary.logic.control.validate.ValidationInterface;
+import org.allbinary.logic.control.validate.Validation;
 import org.apache.commons.fileupload.FileItem;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-import java.util.HashMap;
 import org.allbinary.logic.string.StringValidationUtil;
 
-public class LogoValidation implements ValidationInterface, DomNodeInterface
+public class LogoValidation extends Validation implements DomNodeInterface
 {
-
+    
     private FileItem logoFileItem;
     private AbPath logoAbPath;
     private String logoFile;
@@ -97,14 +98,14 @@ public class LogoValidation implements ValidationInterface, DomNodeInterface
             
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                LogUtil.put(LogFactory.getInstance("LogoValidation", this, "isValid()"));
+                LogUtil.put(LogFactory.getInstance("LogoValidation", this, commonStrings.IS_VALID));
             }
 
             if (!StringValidationUtil.getInstance().isValidRequired(this.logoAbPath.toString(), 0, 512))
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
-                    LogUtil.put(LogFactory.getInstance("logoPath is invalid: " + this.logoAbPath.toString(), this, "isValid()"));
+                    LogUtil.put(LogFactory.getInstance("logoPath is invalid: " + this.logoAbPath.toString(), this, commonStrings.IS_VALID));
                 }
                 return Boolean.FALSE;
             }
@@ -114,7 +115,7 @@ public class LogoValidation implements ValidationInterface, DomNodeInterface
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
-                    LogUtil.put(LogFactory.getInstance("logoFile is invalid: " + this.logoFile, this, "isValid()"));
+                    LogUtil.put(LogFactory.getInstance("logoFile is invalid: " + this.logoFile, this, commonStrings.IS_VALID));
                 }
                 return Boolean.FALSE;
             }
@@ -133,7 +134,7 @@ public class LogoValidation implements ValidationInterface, DomNodeInterface
                     {
                         LogUtil.put(LogFactory.getInstance("Image File Is Not The Right Size. "
                             + fileData.MINIMAGEFILESIZE + "< > "
-                            + fileData.MAXIMAGEFILESIZE, this, "isValid()"));
+                            + fileData.MAXIMAGEFILESIZE, this, commonStrings.IS_VALID));
                     }
                     return Boolean.FALSE;
                 }
@@ -141,7 +142,7 @@ public class LogoValidation implements ValidationInterface, DomNodeInterface
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                LogUtil.put(LogFactory.getInstance("Logo Validation: " + valid, this, "isValid()"));
+                LogUtil.put(LogFactory.getInstance("Logo Validation: " + valid, this, commonStrings.IS_VALID));
             }
 
             return valid;
@@ -149,7 +150,7 @@ public class LogoValidation implements ValidationInterface, DomNodeInterface
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                LogUtil.put(LogFactory.getInstance("Failed to validate form", this, "isValid()", e));
+                LogUtil.put(LogFactory.getInstance("Failed to validate form", this, commonStrings.IS_VALID, e));
             }
             return Boolean.FALSE;
         }

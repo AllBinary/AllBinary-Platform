@@ -56,10 +56,9 @@ public class GatewayView extends PaymentGatewayViewAbstract
       }
       catch(Exception e)
       {
-         String error = "Failed edit PaymentGateway";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "edit()", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "edit()", e));
          }
          throw e;
       }

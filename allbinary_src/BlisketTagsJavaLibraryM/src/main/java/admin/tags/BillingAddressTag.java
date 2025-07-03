@@ -66,7 +66,7 @@ public class BillingAddressTag extends TableTag
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"set()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"set()",e));
          }
          return error;
       }
@@ -95,7 +95,7 @@ public class BillingAddressTag extends TableTag
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"setToShippingAddress()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"setToShippingAddress()",e));
          }
          return error;
       }

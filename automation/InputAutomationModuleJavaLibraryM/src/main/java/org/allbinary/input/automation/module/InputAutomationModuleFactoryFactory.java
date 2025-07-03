@@ -29,6 +29,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.help.JavaHelpSetNotifier;
 import org.allbinary.input.automation.module.configuration.InputAutomationModuleConfigurationsSingletonFactory;
 import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.string.CommonStrings;
 
 public class InputAutomationModuleFactoryFactory
 {
@@ -84,10 +85,11 @@ public class InputAutomationModuleFactoryFactory
     
     public InputAutomationModuleFactoryInterface getInstance(final String moduleName)
     {
-        LogUtil.put(LogFactory.getInstance("Getting Module: " + moduleName, this, "getInstance"));
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+        LogUtil.put(LogFactory.getInstance("Getting Module: " + moduleName, this, commonStrings.GET_INSTANCE));
         final InputAutomationModuleFactoryInterface inputAutomationModuleFactoryInterface = (InputAutomationModuleFactoryInterface) this.hashMap.get(moduleName);
         if(inputAutomationModuleFactoryInterface == null) {
-            LogUtil.put(LogFactory.getInstance("Module: " + moduleName + " was null", this, "getInstance"));
+            LogUtil.put(LogFactory.getInstance("Module: " + moduleName + " was null", this, commonStrings.GET_INSTANCE));
         }
 
         return inputAutomationModuleFactoryInterface;

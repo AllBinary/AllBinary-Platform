@@ -13,19 +13,20 @@
 */
 package org.allbinary.logic.visual.transform.template.customizer.includes.style.css.template.retail;
 
+import java.util.HashMap;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.logic.control.validate.ValidationInterface;
 import org.allbinary.logic.visual.dhtml.style.StyleData;
 import org.allbinary.logic.visual.dhtml.style.color.ColorsView;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-import java.util.HashMap;
 
 import org.allbinary.logic.visual.dhtml.style.StylesData;
 
 public class EditCssStyleValidation extends CssStyleValidation 
-   implements ValidationInterface, DomNodeInterface
+    implements ValidationInterface, DomNodeInterface
 {
    public EditCssStyleValidation()
    {

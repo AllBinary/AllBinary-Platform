@@ -62,7 +62,7 @@ public class EmailsNotUsed implements DomNodeInterface
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
          {
-            LogUtil.put(LogFactory.getInstance("End", this, "toXmlNode()"));
+            LogUtil.put(LogFactory.getInstance(commonStrings.END, this, "toXmlNode()"));
          }
          return node;
       }

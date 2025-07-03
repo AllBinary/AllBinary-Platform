@@ -45,7 +45,8 @@ public class AbBasicCrypt implements CryptInterface
       {
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CRYPTERROR))
          //{
-            PreLogUtil.put("constructor Failed",this,"AbCrypt(alg,key)",e);
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            PreLogUtil.put(commonStrings.EXCEPTION, this, "AbCrypt(alg,key)", e);
          //}
       }
    }

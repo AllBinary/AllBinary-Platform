@@ -14,10 +14,12 @@
 package org.allbinary.logic.visual.dhtml.style.css.property.font;
 
 import org.allbinary.logic.visual.dhtml.style.css.property.CssPropertyView;
+import org.allbinary.string.CommonStrings;
 import org.w3c.dom.Node;
 
 public class FontFamilyView extends CssPropertyView
 {
+    
    public FontFamilyView()
    {
       super(FontFamilyData.getInstance().VALUE);

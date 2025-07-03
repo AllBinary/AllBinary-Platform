@@ -13,7 +13,6 @@
 */
 package org.allbinary.logic.visual.transform;
 
-import org.allbinary.logic.visual.transform.BasicTransformerInterface;
 import java.io.InputStream;
 import java.io.StringBufferInputStream;
 
@@ -25,7 +24,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tree.dom.XslHelper;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.info.objectConfig.generator.TransformInfoObjectConfigGeneratorFactory;
-import org.allbinary.logic.visual.transform.info.objectConfig.generator.TransformInfoObjectConfigGeneratorInterface;
+import org.allbinary.logic.visual.transform.info.objectConfig.generator.TransformInfoObjectConfigGenerator;
 
 public class AbTransformer implements BasicTransformerInterface
 {
@@ -92,7 +91,7 @@ public class AbTransformer implements BasicTransformerInterface
             LogUtil.put(LogFactory.getInstance("translated xml: " + result, this, "translate(String xmlDocumentStr)"));
          }
 
-         TransformInfoObjectConfigGeneratorInterface 
+         TransformInfoObjectConfigGenerator 
             transformInfoObjectConfigGeneratorInterface =
                TransformInfoObjectConfigGeneratorFactory.getInstance().getInstance(
                   this.getTransformInfoInterface());

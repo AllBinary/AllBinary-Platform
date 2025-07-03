@@ -54,7 +54,7 @@ public class PageValidationView extends PageView implements ValidationComponentI
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "isValid()"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, commonStrings.IS_VALID));
          }
 
          //Insert XML into the view specified by the Object Config for this view
@@ -157,7 +157,7 @@ public class PageValidationView extends PageView implements ValidationComponentI
                     stringBuffer.append(" to the following data:\n");
                     stringBuffer.append(documentString);
 
-                    LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "isValid()"));
+                    LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.IS_VALID));
                }
 
                //save xml data to specified view
@@ -170,7 +170,7 @@ public class PageValidationView extends PageView implements ValidationComponentI
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate",this,"isValid()",e));
+            LogUtil.put(LogFactory.getInstance("Failed to validate",this,commonStrings.IS_VALID,e));
          }
          return Boolean.FALSE;
       }

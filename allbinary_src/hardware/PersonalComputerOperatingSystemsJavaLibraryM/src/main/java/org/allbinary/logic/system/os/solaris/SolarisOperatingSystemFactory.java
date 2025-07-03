@@ -21,6 +21,7 @@ import org.allbinary.logic.system.os.NoOperatingSystem;
 import org.allbinary.logic.system.os.GenericOperatingSystem;
 import org.allbinary.logic.system.os.OperatingSystems;
 import org.allbinary.logic.system.os.SystemProperties;
+import org.allbinary.string.CommonStrings;
 
 public class SolarisOperatingSystemFactory
 {
@@ -67,8 +68,8 @@ public class SolarisOperatingSystemFactory
         {
             if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
             {
-                String error = "Failed to get instance";
-                LogUtil.put(LogFactory.getInstance(error, this, "getOperatingSystemInstance()", e));
+                final CommonStrings commonStrings = CommonStrings.getInstance();
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
             }
             return new NoOperatingSystem();
         }

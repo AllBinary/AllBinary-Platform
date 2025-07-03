@@ -33,7 +33,7 @@ public class ModifyTag extends HelperTag
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
       {
-         LogUtil.put(LogFactory.getInstance("Tag Constructed",this,this.commonStrings.CONSTRUCTOR));
+         LogUtil.put(LogFactory.getInstance(this.commonStrings.START,this, this.commonStrings.CONSTRUCTOR));
       }
    }
       
@@ -53,7 +53,7 @@ public class ModifyTag extends HelperTag
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"insert()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"insert()",e));
          }
          return error;
       }
@@ -75,7 +75,7 @@ public class ModifyTag extends HelperTag
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"delete()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"delete()",e));
          }
          return error;
       }
@@ -97,7 +97,7 @@ public class ModifyTag extends HelperTag
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"update()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"update()",e));
          }
          return error;
       }

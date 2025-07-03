@@ -133,10 +133,9 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
       }
       catch(Exception e)
       {
-         String error = "Failed to view DateRangeOrderHistory";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "view()", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "view()", e));
          }
          throw e;
       }
@@ -470,7 +469,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
         	 stringBuffer.append(this.toDate);
         	 stringBuffer.append(")");
 
-        	 LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "isValid"));
+        	 LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.IS_VALID));
          }
          
          return isValid;
@@ -480,7 +479,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("Exception in validation", this, "isValid()", e));
+            LogUtil.put(LogFactory.getInstance("Exception in validation", this, commonStrings.IS_VALID, e));
          }
          return Boolean.FALSE;
       }

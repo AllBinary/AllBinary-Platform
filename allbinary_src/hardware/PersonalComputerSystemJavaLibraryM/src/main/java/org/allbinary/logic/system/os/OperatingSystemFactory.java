@@ -107,10 +107,9 @@ public class OperatingSystemFactory
         }
         catch(Exception e)
         {
-            String error = "Failed to get instance";
             if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, commonStrings.GET_INSTANCE, e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
             }
             //throw e;
             return new NoOperatingSystem();

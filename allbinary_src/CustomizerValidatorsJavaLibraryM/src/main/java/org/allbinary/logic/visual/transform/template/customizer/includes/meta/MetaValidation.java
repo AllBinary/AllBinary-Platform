@@ -22,14 +22,15 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.logic.control.validate.Validation;
 import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.control.validate.ValidationInterface;
 import org.allbinary.logic.visual.dhtml.html.head.meta.HtmlMetaAttributeData;
 import org.allbinary.logic.visual.dhtml.html.head.meta.HtmlMetaAttributeDataFactory;
 import org.allbinary.logic.visual.dhtml.html.head.meta.HtmlMetaData;
 
-public class MetaValidation implements ValidationInterface, DomNodeInterface
+public class MetaValidation extends Validation implements DomNodeInterface
 {
+    
    private String label;
    private String name;
    private String httpEquiv;
@@ -87,7 +88,7 @@ public class MetaValidation implements ValidationInterface, DomNodeInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate form", this, "isValid()", e));
+            LogUtil.put(LogFactory.getInstance("Failed to validate form", this, commonStrings.IS_VALID, e));
          }
          return Boolean.FALSE;
       }

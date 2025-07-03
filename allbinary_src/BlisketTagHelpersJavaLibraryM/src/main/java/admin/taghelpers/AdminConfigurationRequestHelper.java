@@ -26,9 +26,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 import java.util.HashMap;
 import org.allbinary.string.CommonStrings;
 
-public class AdminConfigurationRequestHelper implements ModifyTableInterface
+public class AdminConfigurationRequestHelper extends ModifyTable
 {
-    protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
    private HttpServletRequest request;
 
@@ -71,7 +70,7 @@ public class AdminConfigurationRequestHelper implements ModifyTableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "insert()", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "insert()", e));
          }
          return error;
       }
@@ -96,7 +95,7 @@ public class AdminConfigurationRequestHelper implements ModifyTableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"delete()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"delete()",e));
          }
          return error;
       }
@@ -123,7 +122,7 @@ public class AdminConfigurationRequestHelper implements ModifyTableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"update()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"update()",e));
          }
          return error;
       }

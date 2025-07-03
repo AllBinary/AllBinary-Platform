@@ -24,10 +24,12 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import javax.servlet.jsp.JspTagException;
 
-import javax.servlet.jsp.tagext.TagSupport;
+import org.allbinary.string.CommonStrings;
+import tags.CustomTagSupport;
 
-public class BasicTextEmailTag extends TagSupport
+public class BasicTextEmailTag extends CustomTagSupport
 {
+    
    private String subject;
    private String body;
    
@@ -67,7 +69,7 @@ public class BasicTextEmailTag extends TagSupport
          String error = "Failed to Send Email.";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"send()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"send()",e));
          }
          return error;
       }

@@ -13,7 +13,7 @@
 */
 package org.allbinary.data.tables;
 
-public interface BasicTableInterface
+public interface BasicDataTableInterface
 {
    String createTable();
       

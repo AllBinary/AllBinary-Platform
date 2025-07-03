@@ -13,13 +13,11 @@
 */
 package org.allbinary.logic.visual.transform.info.objectConfig.generator;
 
-import org.allbinary.logic.visual.transform.info.objectConfig.generator.BasicGenerator;
-import org.allbinary.logic.visual.transform.info.objectConfig.generator.TransformInfoObjectConfigGeneratorInterface;
-import org.allbinary.logic.visual.transform.info.objectConfig.generator.TransformInfoObjectConfigGeneratorFactoryInterface;
 import org.allbinary.logic.io.InputOutputTypeData;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.string.CommonStrings;
 
 public class TransformInfoObjectConfigGeneratorFactory implements
     TransformInfoObjectConfigGeneratorFactoryInterface
@@ -39,7 +37,7 @@ public class TransformInfoObjectConfigGeneratorFactory implements
     {
     }
 
-    public TransformInfoObjectConfigGeneratorInterface getInstance(
+    public TransformInfoObjectConfigGenerator getInstance(
         TransformInfoInterface transformInfoInterface)
         throws Exception
     {
@@ -48,8 +46,8 @@ public class TransformInfoObjectConfigGeneratorFactory implements
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            LogUtil.put(LogFactory.getInstance("Generating Instance for type: " + type,
-                this, "getInstance()"));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance("Generating Instance for type: " + type,this, commonStrings.GET_INSTANCE));
         }
 
         if (type == null || type.compareTo(InputOutputTypeData.getInstance().RESPONSE) == 0

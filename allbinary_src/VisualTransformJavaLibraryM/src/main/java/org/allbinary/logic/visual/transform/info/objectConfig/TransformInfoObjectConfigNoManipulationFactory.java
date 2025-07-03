@@ -19,6 +19,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.crypt.file.CryptFileReader;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.string.CommonStrings;
 
 public class TransformInfoObjectConfigNoManipulationFactory
 {
@@ -40,9 +41,11 @@ public class TransformInfoObjectConfigNoManipulationFactory
    {
       try
       {
+          final TransformInfoObjectConfigData transformInfoObjectConfigData = TransformInfoObjectConfigData.getInstance();
+          
          String data = new CryptFileReader(
-               TransformInfoObjectConfigData.getInstance().UNCRYPTED_EXTENSION,
-               TransformInfoObjectConfigData.getInstance().ENCRYPTED_EXTENSION).get(
+               transformInfoObjectConfigData.UNCRYPTED_EXTENSION,
+               transformInfoObjectConfigData.getInstance().ENCRYPTED_EXTENSION).get(
                objectConfigFileAbPath);
 
          return new TransformInfoObjectConfig(
@@ -50,9 +53,10 @@ public class TransformInfoObjectConfigNoManipulationFactory
       }
       catch(Exception e)
       {
+          final CommonStrings commonStrings = CommonStrings.getInstance();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Could Not Load Object Config", this, "getInstance()", e));
+            LogUtil.put(LogFactory.getInstance("Could Not Load Object Config", this, commonStrings.GET_INSTANCE, e));
          }
          throw e;
       }

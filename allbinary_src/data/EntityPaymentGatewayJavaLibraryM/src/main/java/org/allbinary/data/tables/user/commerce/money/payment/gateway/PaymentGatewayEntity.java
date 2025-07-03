@@ -76,7 +76,7 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("End", this, "add"));
+                LogUtil.put(LogFactory.getInstance(commonStrings.END, this, "add"));
             }
         } catch (Exception e)
         {

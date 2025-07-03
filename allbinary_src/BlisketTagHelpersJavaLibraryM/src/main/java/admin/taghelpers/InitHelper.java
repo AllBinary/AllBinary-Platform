@@ -21,8 +21,9 @@ import org.allbinary.business.init.InitInfoEntity;
 import org.allbinary.logic.communication.log.LogFactory;
 import java.util.HashMap;
  
-public class InitHelper implements BasicTableInterface
+public class InitHelper extends BasicTable
 {
+     
    //private HttpServletRequest request;
         
    public InitHelper(HashMap hashMap, PageContext pageContext)
@@ -43,7 +44,7 @@ public class InitHelper implements BasicTableInterface
          String error = "Failed to drop log table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"drop()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,commonStrings.DROP,e));
          }
          return error;
       }
@@ -60,7 +61,7 @@ public class InitHelper implements BasicTableInterface
          String error = "Failed to create new log table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"create()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"create()",e));
          }
          return error;
       }
@@ -84,7 +85,7 @@ public class InitHelper implements BasicTableInterface
          String error = "Failed to view Log table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"view()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"view()",e));
          }
          return error;
       }
@@ -109,7 +110,7 @@ public class InitHelper implements BasicTableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"restore()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"restore()",e));
          }
          return error;
       }
@@ -134,7 +135,7 @@ public class InitHelper implements BasicTableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"backup()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"backup()",e));
          }
          return error;
       }

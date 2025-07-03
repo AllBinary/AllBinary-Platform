@@ -611,8 +611,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
                INPUTAUTOMATION_JFRAME.setVisible(true);
             } catch (Exception e)
             {
-               String error = "Error";
-               LogUtil.put(LogFactory.getInstance(error, this, commonStrings.RUN, e));
+               LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
             }
          }
       });

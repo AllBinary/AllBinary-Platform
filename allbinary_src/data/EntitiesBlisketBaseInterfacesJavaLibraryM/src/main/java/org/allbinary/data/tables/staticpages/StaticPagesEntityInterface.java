@@ -13,12 +13,12 @@
 */
 package org.allbinary.data.tables.staticpages;
 
-import org.allbinary.data.tables.BasicTableInterface;
 
 import java.util.HashMap;
 import java.util.Vector;
+import org.allbinary.data.tables.BasicDataTableInterface;
 
-public interface StaticPagesEntityInterface extends BasicTableInterface
+public interface StaticPagesEntityInterface extends BasicDataTableInterface
 {    
    public String getFile(String store, String keywords);
    

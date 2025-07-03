@@ -13,12 +13,12 @@
 */
 package org.allbinary.data.tables.advertisement.campaign.internal;
 
-import org.allbinary.data.tables.BasicTableInterface;
 
 import java.util.HashMap;
 import java.util.Vector;
+import org.allbinary.data.tables.BasicDataTableInterface;
 
-public interface AdvertisementCampaignInternalEntityInterface extends BasicTableInterface
+public interface AdvertisementCampaignInternalEntityInterface extends BasicDataTableInterface
 {
    //public AdvertisementCampaignInterface get(String name);
    

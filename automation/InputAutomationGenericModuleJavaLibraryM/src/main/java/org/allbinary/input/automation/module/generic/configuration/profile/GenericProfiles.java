@@ -34,6 +34,7 @@ import org.allbinary.input.automation.module.DefaultListModelHelper;
 import org.allbinary.input.automation.module.generic.configuration.profile.actions.GenericProfileActionData;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
 
 public class GenericProfiles
     implements DomNodeInterface, DomDocumentMappingInterface
@@ -125,8 +126,9 @@ public class GenericProfiles
         GenericProfile genericProfile = (GenericProfile) this.hashMap.get(name);
         if(genericProfile == null)
         {
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             LogUtil.put(LogFactory.getInstance("No Generic Profile Named: " + name + 
-                " availability was: " + this.hashMap, this, "get"));
+                " availability was: " + this.hashMap, this, commonStrings.GET));
         }
         return genericProfile;
     }

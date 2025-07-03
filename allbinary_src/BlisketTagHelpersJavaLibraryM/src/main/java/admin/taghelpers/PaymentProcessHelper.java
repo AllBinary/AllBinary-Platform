@@ -23,7 +23,7 @@ import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
 import views.admin.payment.PaymentProcessorComponent;
 
 public class PaymentProcessHelper
-    implements TagHelperInterface
+    extends TagHelper
 {
    private PaymentProcessorComponent paymentProcessorComponent;
 

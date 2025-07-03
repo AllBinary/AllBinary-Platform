@@ -18,6 +18,8 @@ import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
 
+import admin.taghelpers.Table;
+
 import org.allbinary.business.installer.Portion;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -30,9 +32,8 @@ import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 import org.allbinary.logic.communication.sql.AbSqlTableUtil;
 
-public class PaymentHelper implements TableInterface
+public class PaymentHelper extends Table
 {
-    protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
    private WeblisketSession weblisketSession;
    
@@ -87,7 +88,7 @@ public class PaymentHelper implements TableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"addPayment()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"addPayment()",e));
          }
          return error;
       }
@@ -118,7 +119,7 @@ public class PaymentHelper implements TableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"selectPayment()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"selectPayment()",e));
          }
          return error;
       }
@@ -159,7 +160,7 @@ public class PaymentHelper implements TableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"removePayment()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"removePayment()",e));
          }         
          return error;
       }
@@ -175,7 +176,7 @@ public class PaymentHelper implements TableInterface
          String success = paymentEntity.dropTable();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            LogUtil.put(LogFactory.getInstance(success,this,"drop()"));
+            LogUtil.put(LogFactory.getInstance(success,this,commonStrings.DROP));
          }
          return success;
       }
@@ -185,7 +186,7 @@ public class PaymentHelper implements TableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"drop()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,commonStrings.DROP,e));
          }
          return error;
       }
@@ -212,7 +213,7 @@ public class PaymentHelper implements TableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"create()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"create()",e));
          }
          return error;         
       }
@@ -236,7 +237,7 @@ public class PaymentHelper implements TableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"restore()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"restore()",e));
          }
          return error;
       }
@@ -260,7 +261,7 @@ public class PaymentHelper implements TableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"backup()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"backup()",e));
          }
          return error;
       }

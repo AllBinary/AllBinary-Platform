@@ -19,6 +19,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.control.validate.ValidationComponentInterface;
 
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
 
 //Replace when validation node is added
 public class ValidationOnlyTempUtil
@@ -36,6 +37,7 @@ public class ValidationOnlyTempUtil
    //TWB hack for no store in session for a new store
    public String view(ValidationComponentInterface validationComponentInterface) throws Exception
    {
+       final CommonStrings commonStrings = CommonStrings.getInstance();
       try
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
@@ -54,10 +56,10 @@ public class ValidationOnlyTempUtil
       }
       catch(Exception e)
       {
-         String error = "Failed to view: " + validationComponentInterface.getTransformInfoInterface().getName();
+         //String error = "Failed to view: " + validationComponentInterface.getTransformInfoInterface().getName();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "view()", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "view()", e));
          }
          throw e;
       }

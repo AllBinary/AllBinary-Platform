@@ -24,7 +24,7 @@ public interface TransformInfoObjectConfigInterface
 {
    //All of the following methods should eventually be removed when subclassing is setup for objectConfigs
    
-   //TransformInfoObjectConfigGeneratorInterface getGeneratorNode() throws Exception;
+   //TransformInfoObjectConfigGenerator getGeneratorNode() throws Exception;
    
    //void update(TransformInfoInterface transformInfoInterface, String newMapping) throws Exception;
    

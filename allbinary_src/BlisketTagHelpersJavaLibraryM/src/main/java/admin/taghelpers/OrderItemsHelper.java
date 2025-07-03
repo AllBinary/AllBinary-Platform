@@ -23,7 +23,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tables.user.commerce.inventory.order.OrderItemsEntityFactory;
 import org.allbinary.logic.communication.sql.AbSqlTableUtil;
 
-public class OrderItemsHelper implements BasicTableInterface
+public class OrderItemsHelper extends BasicTable
 {
 	private final Portion portion;
 	
@@ -40,7 +40,7 @@ public class OrderItemsHelper implements BasicTableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            LogUtil.put(LogFactory.getInstance(success,this,"drop()"));
+            LogUtil.put(LogFactory.getInstance(success,this,commonStrings.DROP));
          }
          return success;
       }
@@ -49,7 +49,7 @@ public class OrderItemsHelper implements BasicTableInterface
          String error = "Failed to drop order history table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"drop()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,commonStrings.DROP,e));
          }
          return error;
       }
@@ -72,7 +72,7 @@ public class OrderItemsHelper implements BasicTableInterface
          String error="Failed to create new order history table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"create()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"create()",e));
          }
          return error;         
       }
@@ -97,7 +97,7 @@ public class OrderItemsHelper implements BasicTableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"restore()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"restore()",e));
          }
          return error;
       }
@@ -121,7 +121,7 @@ public class OrderItemsHelper implements BasicTableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"backup()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"backup()",e));
          }
          return error;
       }

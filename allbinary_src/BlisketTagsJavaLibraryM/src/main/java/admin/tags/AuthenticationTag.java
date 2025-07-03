@@ -19,23 +19,25 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 import org.allbinary.logic.communication.http.request.session.WeblisketSessionData;
 
+import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Vector;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.JspTagException;
+
 import admin.taghelpers.AuthenticationHelperFactory;
 import admin.taghelpers.AuthenticationRequestHelperFactory;
+import javax.servlet.jsp.tagext.TagSupport;
 
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.log.LogFactory;
 
-import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.Vector;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.jsp.JspTagException;
+import tags.CustomTagSupport;
 
-import javax.servlet.jsp.tagext.TagSupport;
-
-public class AuthenticationTag extends TagSupport
+public class AuthenticationTag extends CustomTagSupport
 {
-
+    
     private String command;
     private String userName;
     private String password;
@@ -91,10 +93,9 @@ public class AuthenticationTag extends TagSupport
             throw e;
         } catch (Exception e)
         {
-            String error = "Failed to Invalidate Session";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "changePassword()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "changePassword()", e));
             }
             return false;
         }
@@ -117,10 +118,9 @@ public class AuthenticationTag extends TagSupport
             throw e;
         } catch (Exception e)
         {
-            String error = "Failed to Invalidate Session";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "newPassword()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "newPassword()", e));
             }
             return false;
         }
@@ -143,10 +143,9 @@ public class AuthenticationTag extends TagSupport
             throw e;
         } catch (Exception e)
         {
-            String error = "Failed to Invalidate Session";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "invalidateSession()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "invalidateSession()", e));
             }
             return TagSupport.SKIP_BODY;
         }
@@ -169,10 +168,9 @@ public class AuthenticationTag extends TagSupport
             throw e;
         } catch (Exception e)
         {
-            String error = "Failed to check if Session is old";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "isSessionOld()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "isSessionOld()", e));
             }
             return false;
         }
@@ -206,10 +204,9 @@ public class AuthenticationTag extends TagSupport
             throw e;
         } catch (Exception e)
         {
-            String error = "Failed to check if Role is valid";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "isRoleValid()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "isRoleValid()", e));
             }
             return false;
         }
@@ -235,7 +232,7 @@ public class AuthenticationTag extends TagSupport
             String error = "Failed to set valid role";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "validRole()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "validRole()", e));
             }
             return error;
         }
@@ -261,7 +258,7 @@ public class AuthenticationTag extends TagSupport
             String error = "Failed to set role invalid";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "invalidRole()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "invalidRole()", e));
             }
             return error;
         }
@@ -293,10 +290,9 @@ public class AuthenticationTag extends TagSupport
             throw e;
         } catch (Exception e)
         {
-            String error = "Failed to validate previously authenticated Session";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "isAuthenticationSessionValid()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "isAuthenticationSessionValid()", e));
             }
             return false;
         }
@@ -330,10 +326,9 @@ public class AuthenticationTag extends TagSupport
             throw e;
         } catch (Exception e)
         {
-            String error = "Failed to validate new login";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "processIfNewLogin()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "processIfNewLogin()", e));
             }
             return false;
         }
@@ -356,10 +351,9 @@ public class AuthenticationTag extends TagSupport
             throw e;
         } catch (Exception e)
         {
-            String error = "Failed check if already set to invalidate";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "isSetToInvalidate()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "isSetToInvalidate()", e));
             }
             return false;
         }

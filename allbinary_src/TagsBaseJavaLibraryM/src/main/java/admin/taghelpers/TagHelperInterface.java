@@ -18,5 +18,6 @@ package admin.taghelpers;
  * @author user
  */
 public interface TagHelperInterface {
-String toString();
+    
+    
 }

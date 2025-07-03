@@ -13,6 +13,7 @@
 */
 package taghelpers;
 
+import admin.taghelpers.TagHelper;
 import org.allbinary.logic.communication.log.LogFactory;
 import java.util.HashMap;
 
@@ -23,7 +24,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
 import org.allbinary.logic.communication.log.LogUtil;
-import admin.taghelpers.TagHelperInterface;
 
 import org.allbinary.business.user.address.StreetAddress;
 
@@ -44,7 +44,7 @@ import org.allbinary.logic.control.search.SearchParams;
 
 import org.allbinary.logic.visual.transform.info.TransformInfoData;
 
-public class InventoryHelper implements TagHelperInterface
+public class InventoryHelper extends TagHelper
 {
    private WeblisketSession weblisketSession;
    
@@ -105,7 +105,7 @@ public class InventoryHelper implements TagHelperInterface
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"viewSummary()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"viewSummary()",e));
          }
          return error + "<br>" + "Exception: " + e + "<br>";
       }
@@ -164,7 +164,7 @@ public class InventoryHelper implements TagHelperInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"searchSingleDynamicPage()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"searchSingleDynamicPage()",e));
          }
          return error + "<br>" + "Exception: " + e + "<br>";
       }

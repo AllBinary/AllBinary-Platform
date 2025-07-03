@@ -17,6 +17,7 @@ import org.allbinary.input.automation.robot.InputRobotInterface;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonLabels;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.time.TimeDelayHelper;
 
 public class KeyboardInputAutomationProcessor
@@ -28,8 +29,8 @@ public class KeyboardInputAutomationProcessor
    public static void process(KeyboardActionScriptInputInterface keyActionScriptInputInterface)
    throws Exception
    {
-      LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START + keyActionScriptInputInterface.toString(), 
-            "KeyInputAutomationProcessor", "process"));
+       final CommonStrings commonStrings = CommonStrings.getInstance();
+      LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START + keyActionScriptInputInterface.toString(), "KeyInputAutomationProcessor", commonStrings.PROCESS));
       
       InputRobotInterface inputRobotInterface = 
             keyActionScriptInputInterface.getInputRobotInterface();

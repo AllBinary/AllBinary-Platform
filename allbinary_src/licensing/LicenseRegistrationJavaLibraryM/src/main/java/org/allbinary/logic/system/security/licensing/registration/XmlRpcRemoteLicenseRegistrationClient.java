@@ -120,7 +120,7 @@ public class XmlRpcRemoteLicenseRegistrationClient extends XmlRpcAbeClient
             // {
             //String message = LogFormatUtil.get(error, "", "", e);
             //System.out.println(message);
-            //LogUtil.put(LogFactory.getInstance(error, this, GET, e));
+            //LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, GET, e));
             // }
 
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))

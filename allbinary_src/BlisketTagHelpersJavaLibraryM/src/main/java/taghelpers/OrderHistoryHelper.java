@@ -13,34 +13,30 @@
 */
 package taghelpers;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import javax.servlet.jsp.PageContext;
+import java.util.HashMap;
 
+import javax.servlet.jsp.PageContext;
 import javax.servlet.http.HttpServletRequest;
 
+import admin.taghelpers.TagHelper;
+
+import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import admin.taghelpers.TagHelperInterface;
-
 import org.allbinary.business.user.address.StreetAddress;
-
 import org.allbinary.data.tables.user.commerce.inventory.order.OrderHistoryEntityFactory;
 import org.allbinary.data.tables.user.commerce.inventory.order.OrderHistoryEntityInterface;
-
 import org.allbinary.business.user.commerce.inventory.order.OrderData;
 import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
 import org.allbinary.business.user.commerce.inventory.order.OrderHistoryFactory;
 import org.allbinary.business.user.commerce.inventory.order.OrderHistoryInterface;
-
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
-
 import org.allbinary.business.user.commerce.shipping.ShippingMethodData;
-
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
-import java.util.HashMap;
 
-public class OrderHistoryHelper implements TagHelperInterface
+
+public class OrderHistoryHelper extends TagHelper
 {
    private WeblisketSession weblisketSession;
    
@@ -132,7 +128,7 @@ public class OrderHistoryHelper implements TagHelperInterface
          String error = "Failed to set order status";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"setOrderStatus()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"setOrderStatus()",e));
          }
          return error + "<br/>" + "Exception: " + e + "<br/>";
       }

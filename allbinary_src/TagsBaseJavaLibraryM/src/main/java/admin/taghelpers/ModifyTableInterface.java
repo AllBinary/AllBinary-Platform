@@ -15,7 +15,7 @@ package admin.taghelpers;
 
 
 public interface ModifyTableInterface
-{  
+{
    String insert() throws Exception;
    
    String delete() throws Exception;

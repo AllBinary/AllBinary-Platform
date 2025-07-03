@@ -26,11 +26,12 @@ import admin.taghelpers.StoreFrontHelperFactory;
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.log.LogFactory;
 
+import tags.CustomTagSupport;
+
 import java.util.HashMap;
 import javax.servlet.jsp.JspTagException;
-import javax.servlet.jsp.tagext.TagSupport;
 
-public class StoreFrontTag extends TagSupport
+public class StoreFrontTag extends CustomTagSupport
 {
    private String command;
    private String storeName;
@@ -72,7 +73,7 @@ public class StoreFrontTag extends TagSupport
          String error = "Failed to retrieve current location";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"getCurrentLocation()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"getCurrentLocation()",e));
          }
          return error;
       }
@@ -99,7 +100,7 @@ public class StoreFrontTag extends TagSupport
          String error = "Failed to retrieve current home location";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"getCurrentHomeLocation()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"getCurrentHomeLocation()",e));
          }
          return error;
       }

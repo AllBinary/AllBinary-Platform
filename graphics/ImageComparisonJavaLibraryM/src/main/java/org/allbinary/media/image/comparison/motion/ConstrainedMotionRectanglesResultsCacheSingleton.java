@@ -28,19 +28,21 @@ public class ConstrainedMotionRectanglesResultsCacheSingleton
     static
     {
         final CommonStrings commonStrings = CommonStrings.getInstance();
+        final String STATIC_BLOCK = "Static Block";
+        final String instance = "MotionRectanglesResultsCacheSingleton";
         
         try
         {
             
-            LogUtil.put(LogFactory.getInstance(commonStrings.START, "MotionRectanglesResultsCacheSingleton", "Static Block"));
+            LogUtil.put(LogFactory.getInstance(commonStrings.START, instance,  STATIC_BLOCK));
             
             cacheInterface = CacheInterfaceFactory.getInstance(CacheTypeFactory.getInstance().CACHE, CachePolicyFactory.getInstance().ONE_MINUTE_FIVE_MAX);
             
-            LogUtil.put(LogFactory.getInstance(commonStrings.END, "MotionRectanglesResultsCacheSingleton", "Static Block"));
+            LogUtil.put(LogFactory.getInstance(commonStrings.END, instance, STATIC_BLOCK));
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "MotionRectanglesResultsCacheSingleton", "Static Block", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, instance, STATIC_BLOCK, e));
         }
     }
     

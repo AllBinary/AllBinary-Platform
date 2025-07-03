@@ -13,17 +13,16 @@
 */
 package org.allbinary.logic.visual.theme;
 
-import org.allbinary.logic.visual.theme.ThemesData;
-import org.allbinary.data.tree.dom.DomNodeInterface;
-import org.allbinary.logic.control.validate.ValidationInterface;
+import java.util.HashMap;
+import java.util.Vector;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
-import java.util.HashMap;
+import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.logic.control.validate.Validation;
 
-import java.util.Vector;
-
-public class ThemesValidation implements ValidationInterface, DomNodeInterface
+public class ThemesValidation extends Validation implements DomNodeInterface
 {
    private Vector themeVector;
    

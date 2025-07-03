@@ -14,12 +14,12 @@
 package org.allbinary.data.tables.advertisement.areas;
 
 import org.allbinary.business.advertisement.area.AdvertisementAreaInterface;
-import org.allbinary.data.tables.BasicTableInterface;
 
 import java.util.HashMap;
 import java.util.Vector;
+import org.allbinary.data.tables.BasicDataTableInterface;
 
-public interface AdvertisementAreasEntityInterface extends BasicTableInterface
+public interface AdvertisementAreasEntityInterface extends BasicDataTableInterface
 {   
    //AdvertisementAreaInterface
    public Vector get(String storeName) throws Exception;

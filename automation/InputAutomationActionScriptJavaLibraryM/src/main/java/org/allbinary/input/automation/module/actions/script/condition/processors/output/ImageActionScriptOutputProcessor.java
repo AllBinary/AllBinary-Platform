@@ -21,6 +21,7 @@ import org.allbinary.input.media.image.InputImageType;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.media.image.io.ImageIOInterface;
+import org.allbinary.string.CommonStrings;
 
 public class ImageActionScriptOutputProcessor
 {
@@ -32,9 +33,10 @@ public class ImageActionScriptOutputProcessor
         final ImageActionScriptOutputInterface imageActionScriptOutputInterface, final Long frame)
         throws Exception
     {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
         LogUtil.put(LogFactory.getInstance(
             "Start - Processing at: " + imageActionScriptOutputInterface.toString(),
-            "ImageActionScriptOutputProcessor", "process"));
+            "ImageActionScriptOutputProcessor", commonStrings.PROCESS));
 
         final ImageTypes imageTypes = imageActionScriptOutputInterface.getImageTypes();
         final Vector vector = imageTypes.getVector();

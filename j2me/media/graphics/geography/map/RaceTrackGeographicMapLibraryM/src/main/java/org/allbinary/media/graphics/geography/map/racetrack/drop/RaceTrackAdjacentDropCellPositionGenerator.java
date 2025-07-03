@@ -148,7 +148,6 @@ public class RaceTrackAdjacentDropCellPositionGenerator
 
         //StringMaker stringBuffer = new StringMaker();
         
-        //final String METHOD_NAME = "drop";
         //final String ROAD_LABEL = "Road: ";
         
         //stringBuffer.append("Dropping around ");
@@ -156,8 +155,8 @@ public class RaceTrackAdjacentDropCellPositionGenerator
         //stringBuffer.append(geographicMapCellPosition.toString());
         //stringBuffer.append(CommonSeps.getInstance().SPACE);
         //stringBuffer.append(geographicMapCellPosition.getPoint());
-        //PreLogUtil.put(stringBuffer.toString(), this, METHOD_NAME);
-        //LogUtil.put(, this, "drop"));
+        //PreLogUtil.put(stringBuffer.toString(), this, commonStrings.DROP);
+        //LogUtil.put(, this, commonStrings.DROP));
 
         final GeographicMapCellPosition randomGeographicMapCellPosition =
             this.getFirstNonRoadAdjacentCellPosition(
@@ -186,8 +185,8 @@ public class RaceTrackAdjacentDropCellPositionGenerator
             //stringBuffer.append(CommonSeps.getInstance().SPACE);
             //stringBuffer.append(direction);
 
-            //PreLogUtil.put(stringBuffer.toString(), this, METHOD_NAME);
-            //LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, METHOD_NAME));
+            //PreLogUtil.put(stringBuffer.toString(), this, commonStrings.DROP);
+            //LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.DROP));
 
             hashtable.put(DirectionFactory.getInstance().NAME, direction);
 
@@ -196,7 +195,7 @@ public class RaceTrackAdjacentDropCellPositionGenerator
             final int y = point.getY();
             final int z = point.getZ();
 
-            //LogUtil.put(LogFactory.getInstance("Dropping: " + randomGeographicMapCellPosition.toString() + " = " + randomGeographicMapCellPosition.getPoint(), this, "drop"));
+            //LogUtil.put(LogFactory.getInstance("Dropping: " + randomGeographicMapCellPosition.toString() + " = " + randomGeographicMapCellPosition.getPoint(), this, commonStrings.DROP));
 
             final AllBinaryLayer layerInterface =
                 RaceTrackAdjacentDropLayerFactory.getInstance().getRandomInstance().getInstance(
@@ -209,7 +208,7 @@ public class RaceTrackAdjacentDropCellPositionGenerator
 
             if (dropCellPositionHistory.anyCellPositionWithDrop(list))
             {
-                //PreLogUtil.put("Already Has A Drop", this, METHOD_NAME);
+                //PreLogUtil.put("Already Has A Drop", this, commonStrings.DROP);
                 return;
             }
             
@@ -223,12 +222,12 @@ public class RaceTrackAdjacentDropCellPositionGenerator
 
                 if (raceTrackGeographicMapCellTypeFactory.isPath(geographicMapCellType))
                 {
-                    //PreLogUtil.put("Can't Drop On a Road", this, METHOD_NAME);
+                    //PreLogUtil.put("Can't Drop On a Road", this, commonStrings.DROP);
                     return;
                 }
             }
 
-            //PreLogUtil.put("Dropping: " + layerInterface, this, METHOD_NAME);
+            //PreLogUtil.put("Dropping: " + layerInterface, this, commonStrings.DROP);
             
             dropCellPositionHistory.add(list, layerInterface);
 

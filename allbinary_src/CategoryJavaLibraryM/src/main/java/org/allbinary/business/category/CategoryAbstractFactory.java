@@ -48,10 +48,9 @@ public abstract class CategoryAbstractFactory implements CategoryFactoryInterfac
       }
       catch(Exception e)
       {
-         String error = "Failed to get instance";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(error, this, "getInstance(String, int)", e);
+            LogUtil.put(commonStrings.EXCEPTION, this, "getInstance(String, int)", e);
          }
          return null;
       }
@@ -73,10 +72,9 @@ public abstract class CategoryAbstractFactory implements CategoryFactoryInterfac
       }
       catch(Exception e)
       {
-         String error = "Failed to get instance";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(error, this, "getInstance(String, int)", e);
+            LogUtil.put(commonStrings.EXCEPTION, this, "getInstance(String, int)", e);
          }
          return null;
       }
@@ -103,10 +101,9 @@ public abstract class CategoryAbstractFactory implements CategoryFactoryInterfac
       }
       catch(Exception e)
       {
-         String error = "Failed to get instance";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "getInstance(String, int)", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getInstance(String, int)", e));
          }
          return null;
       }
@@ -128,10 +125,9 @@ public abstract class CategoryAbstractFactory implements CategoryFactoryInterfac
       }
       catch(Exception e)
       {
-         String error = "Failed to get instance";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(error, this, "getInstance(String, int)", e);
+            LogUtil.put(commonStrings.EXCEPTION, this, "getInstance(String, int)", e);
          }
          return null;
       }
@@ -160,10 +156,9 @@ public abstract class CategoryAbstractFactory implements CategoryFactoryInterfac
       }
       catch(Exception e)
       {
-         String error = "Failed to get instance";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "getInstance(CategoryInterface, CategoryInterface , String, int)", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getInstance(CategoryInterface, CategoryInterface , String, int)", e));
          }
          return null;
       }
@@ -186,10 +181,9 @@ public abstract class CategoryAbstractFactory implements CategoryFactoryInterfac
       }
       catch(Exception e)
       {
-         String error = "Failed to get instance";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "getInstance(Node, int)", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getInstance(Node, int)", e));
          }
          return null;
       }
@@ -208,10 +202,9 @@ public abstract class CategoryAbstractFactory implements CategoryFactoryInterfac
       }
       catch(Exception e)
       {
-         String error = "Failed to get instance";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(error, this, "getInstance(Node, int)", e);
+            LogUtil.put(commonStrings.EXCEPTION, this, "getInstance(Node, int)", e);
          }
          return null;
       }
@@ -239,10 +232,9 @@ public abstract class CategoryAbstractFactory implements CategoryFactoryInterfac
       }
       catch(Exception e)
       {
-         String error = "Failed to get instance";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this,
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this,
               "getInstance(CategoryInterface, CategoryInterface, Node, int)", e));
          }
          return null;
@@ -263,10 +255,9 @@ public abstract class CategoryAbstractFactory implements CategoryFactoryInterfac
       }
       catch(Exception e)
       {
-         String error = "Failed to get instance";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(error, this, "getInstance(HashMap)", e);
+            LogUtil.put(commonStrings.EXCEPTION, this, "getInstance(HashMap)", e);
          }
          return null;
       }
@@ -297,10 +288,9 @@ public abstract class CategoryAbstractFactory implements CategoryFactoryInterfac
       }
       catch(Exception e)
       {
-         String error = "Failed to get instance";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this,
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this,
                "getInstance(CategoryInterface, CategoryInterface, HashMap)", e));
          }
          return null;

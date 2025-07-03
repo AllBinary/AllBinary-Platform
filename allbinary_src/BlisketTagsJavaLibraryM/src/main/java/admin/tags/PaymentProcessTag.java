@@ -43,7 +43,7 @@ public class PaymentProcessTag extends StoreValidationTransformTag
 
          Class helperClass = object.getClass();
 
-         Method method = helperClass.getMethod("process",null);
+         Method method = helperClass.getMethod(commonStrings.PROCESS,null);
 
          String result = (String) method.invoke(object,null);
 
@@ -53,7 +53,7 @@ public class PaymentProcessTag extends StoreValidationTransformTag
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance("LicensingException", this, "process()", e));
+            LogUtil.put(LogFactory.getInstance("LicensingException", this, commonStrings.PROCESS, e));
          }         
          throw e;
       }
@@ -61,8 +61,7 @@ public class PaymentProcessTag extends StoreValidationTransformTag
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
          {
-            String error = "Failed to process a gateway to a store";
-            LogUtil.put(LogFactory.getInstance(error, this, "process()", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e));
          }
          throw e;
       }

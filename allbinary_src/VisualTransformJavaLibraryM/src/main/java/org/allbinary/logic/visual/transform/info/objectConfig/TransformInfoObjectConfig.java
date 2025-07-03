@@ -463,7 +463,7 @@ public class TransformInfoObjectConfig
    }
    
    /*
-   public TransformInfoObjectConfigGeneratorInterface getGeneratorNode() throws Exception
+   public TransformInfoObjectConfigGenerator getGeneratorNode() throws Exception
    {
       Node templateNode =
       this.document.getElementsByTagName(TemplateData.NAME).item(0);

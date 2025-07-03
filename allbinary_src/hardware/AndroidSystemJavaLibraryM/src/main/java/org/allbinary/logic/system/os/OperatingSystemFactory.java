@@ -68,8 +68,7 @@ public class OperatingSystemFactory
         {
             GenericOperatingSystem = new NoOperatingSystem();
             
-            String error = "Failed to get instance";
-            LogUtil.put(LogFactory.getInstance(error, this, commonStrings.GET_INSTANCE, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
         }
         
         return GenericOperatingSystem;

@@ -44,9 +44,8 @@ import org.allbinary.globals.GLOBALS2;
 import org.allbinary.string.CommonStrings;
 
 public class AuthenticationHelper
-    implements TagHelperInterface
+    extends TagHelper
 {
-    protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private WeblisketSession weblisketSession;
     private String authenticated;
@@ -97,10 +96,9 @@ public class AuthenticationHelper
             return new Integer(TagSupport.EVAL_BODY_INCLUDE);
         } catch (Exception e)
         {
-            String error = "Failed to invalidateSession";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATIONERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "invalidateSession()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "invalidateSession()", e));
             }
             return null;
         }
@@ -221,7 +219,7 @@ public class AuthenticationHelper
             String error = "Failed to set valid role";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATIONERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "validRole()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "validRole()", e));
             }
             return error;
         }
@@ -242,7 +240,7 @@ public class AuthenticationHelper
             String error = "Failed to set role invalid";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATIONERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "invalidRole()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "invalidRole()", e));
             }
             return error;
         }
@@ -306,10 +304,9 @@ public class AuthenticationHelper
             return Boolean.FALSE;
         } catch (Exception e)
         {
-            String error = "Failed to validate previously authenticated Session";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATIONERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "isAuthenticatedSessionValid()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "isAuthenticatedSessionValid()", e));
             }
             return Boolean.FALSE;
         }
@@ -382,10 +379,9 @@ public class AuthenticationHelper
             return Boolean.FALSE;
         } catch (Exception e)
         {
-            String error = "Failed to validate new login";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATIONERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "processIfNewLogin()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "processIfNewLogin()", e));
             }
             return Boolean.FALSE;
         }
@@ -406,10 +402,9 @@ public class AuthenticationHelper
             }
         } catch (Exception e)
         {
-            String error = "Failed check if already set to invalidate";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATIONERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "processInvalidation()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "processInvalidation()", e));
             }
             return Boolean.FALSE;
         }

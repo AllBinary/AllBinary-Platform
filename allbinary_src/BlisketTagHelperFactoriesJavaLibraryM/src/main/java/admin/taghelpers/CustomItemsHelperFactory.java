@@ -23,7 +23,7 @@ import javax.servlet.jsp.PageContext;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 
 
-public class CustomItemsHelperFactory implements TagHelperFactoryInterface
+public class CustomItemsHelperFactory extends TagHelperFactory
 {
    public CustomItemsHelperFactory()
    {
@@ -41,9 +41,7 @@ public class CustomItemsHelperFactory implements TagHelperFactoryInterface
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
             {
-                String error = "Failed To Get Instance";
-
-                LogUtil.put(LogFactory.getInstance(error, this, "getInstance(HashMap, PageContext)", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
             }
             return null;
         }

@@ -58,10 +58,9 @@ public class RootContextView extends HttpStoreComponentView
       }
       catch(Exception e)
       {
-         String error = "Failed To View Store Template Compound Component";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "view()", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "view()", e));
          }
          throw e;
       }
@@ -105,10 +104,9 @@ public class RootContextView extends HttpStoreComponentView
       }
       catch(Exception e)
       {
-         String error = "Failed To Get Root Template";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "getName()", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getName()", e));
          }
          throw e;
       }

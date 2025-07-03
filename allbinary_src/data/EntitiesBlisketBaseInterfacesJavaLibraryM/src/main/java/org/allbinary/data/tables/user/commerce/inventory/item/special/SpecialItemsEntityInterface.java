@@ -13,12 +13,12 @@
 */
 package org.allbinary.data.tables.user.commerce.inventory.item.special;
 
-import org.allbinary.data.tables.BasicTableInterface;
 
 import java.util.HashMap;
 import java.util.Vector;
+import org.allbinary.data.tables.BasicDataTableInterface;
 
-public interface SpecialItemsEntityInterface extends BasicTableInterface
+public interface SpecialItemsEntityInterface extends BasicDataTableInterface
 {
    public void delete(String value);
 

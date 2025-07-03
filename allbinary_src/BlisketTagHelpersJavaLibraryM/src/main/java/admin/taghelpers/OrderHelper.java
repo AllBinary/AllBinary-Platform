@@ -43,7 +43,7 @@ import java.util.HashMap;
 import java.util.Vector;
 
 public class OrderHelper
-    implements TagHelperInterface
+    extends TagHelper
 {
     private WeblisketSession weblisketSession;
     private StoreFrontInterface storeFrontInterface;
@@ -181,7 +181,7 @@ public class OrderHelper
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "process()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e));
             }
             return error;
         }
@@ -204,11 +204,9 @@ public class OrderHelper
     }
     catch(Exception e)
     {
-    String error = "Failed to Authorized Order: ";
-
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
     {
-    LogUtil.put(LogFactory.getInstance(error,this,"authorizeOrder()",e);
+    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"authorizeOrder()",e);
     }
     return Boolean.FALSE;
     }

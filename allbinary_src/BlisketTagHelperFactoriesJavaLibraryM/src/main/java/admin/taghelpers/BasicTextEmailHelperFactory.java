@@ -20,10 +20,11 @@ import java.util.HashMap;
 import javax.servlet.jsp.PageContext;
 
 import org.allbinary.logic.system.security.licensing.LicensingException;
+import org.allbinary.string.CommonStrings;
 
 
 
-public class BasicTextEmailHelperFactory implements TagHelperFactoryInterface
+public class BasicTextEmailHelperFactory extends TagHelperFactory
 {
    public BasicTextEmailHelperFactory()
    {
@@ -41,9 +42,7 @@ public class BasicTextEmailHelperFactory implements TagHelperFactoryInterface
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
             {
-                String error = "Failed To Get Instance";
-
-                LogUtil.put(LogFactory.getInstance(error, this, "getInstance(HashMap, PageContext)", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
             }
             return null;
         }

@@ -37,8 +37,9 @@ import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFac
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 
 public class BasketRequestHelper
-    implements TagHelperInterface
+    extends TagHelper
 {  
+
    private final WeblisketSession weblisketSession;
    
    private final StoreFrontInterface storeFrontInterface;   
@@ -105,11 +106,9 @@ public class BasketRequestHelper
       }
       catch(Exception e)
       {
-         String error = "Failed to add item from Basket";
-         
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"addItemToBasket()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"addItemToBasket()",e));
          }
          return Boolean.FALSE;
       }
@@ -132,11 +131,9 @@ public class BasketRequestHelper
       }
       catch(Exception e)
       {
-         String error = "Failed to remove item from Basket";
-         
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"removeItemFromBasket()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"removeItemFromBasket()",e));
          }
          return Boolean.FALSE;
       }
@@ -170,11 +167,9 @@ public class BasketRequestHelper
       }
       catch(Exception e)
       {
-         String error = "Failed to Adjust Basket";
-         
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"adjustBasket()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"adjustBasket()",e));
          }
          return Boolean.FALSE;         
       }

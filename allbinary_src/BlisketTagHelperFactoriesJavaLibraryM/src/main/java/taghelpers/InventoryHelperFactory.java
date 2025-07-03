@@ -21,6 +21,7 @@ import javax.servlet.jsp.PageContext;
 
 
 import org.allbinary.logic.system.security.licensing.LicensingException;
+import org.allbinary.string.CommonStrings;
 
 
 
@@ -42,9 +43,8 @@ public class InventoryHelperFactory
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
             {
-                String error = "Failed To Get Instance";
-
-                LogUtil.put(LogFactory.getInstance(error, this, "getInstance(HashMap, PageContext)", e));
+                final CommonStrings commonStrings = CommonStrings.getInstance();
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
             }
             return null;
         }

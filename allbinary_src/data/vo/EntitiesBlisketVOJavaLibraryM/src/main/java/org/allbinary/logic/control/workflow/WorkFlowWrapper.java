@@ -18,9 +18,12 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
 import java.lang.reflect.Method;
+import org.allbinary.string.CommonStrings;
 
 public class WorkFlowWrapper implements WorkFlowInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private Object object;
    
    public WorkFlowWrapper(Object object)
@@ -48,7 +51,7 @@ public class WorkFlowWrapper implements WorkFlowInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "getName()", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getName()", e));
          }
          throw new Exception(error);
       }
@@ -69,7 +72,7 @@ public class WorkFlowWrapper implements WorkFlowInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "getStoreName()", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getStoreName()", e));
          }
          throw new Exception(error);
       }
@@ -80,7 +83,7 @@ public class WorkFlowWrapper implements WorkFlowInterface
       try
       {
          Class helperClass = object.getClass();
-         Method method = helperClass.getMethod("process",null);
+         Method method = helperClass.getMethod(commonStrings.PROCESS,null);
          Integer result = (Integer) method.invoke(this.object,null);
          return result;
       }
@@ -90,7 +93,7 @@ public class WorkFlowWrapper implements WorkFlowInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "process()", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e));
          }
          throw new Exception(error);
       }

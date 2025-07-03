@@ -14,12 +14,12 @@
 package org.allbinary.data.tables.user.quoterequest;
 
 import org.allbinary.business.user.quoterequest.QuoteRequest;
-import org.allbinary.data.tables.BasicTableInterface;
 
 import java.util.HashMap;
 import java.util.Vector;
+import org.allbinary.data.tables.BasicDataTableInterface;
 
-public interface QuoteRequestEntityInterface extends BasicTableInterface
+public interface QuoteRequestEntityInterface extends BasicDataTableInterface
 {      
 	public QuoteRequest get(String userName, int id) throws Exception;
 	public Vector getIds(String userName);

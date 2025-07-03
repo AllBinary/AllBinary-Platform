@@ -93,12 +93,12 @@ public class PCComponentFactory
       }
       catch(Exception e)
       {
+         final CommonStrings commonStrings = CommonStrings.getInstance();
          if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
          {
-             String error = "Failed to getInstance for: " + component;
-            LogUtil.put(LogFactory.getInstance(error, this,"getInstance()",e));
+             //String error = "Failed to getInstance for: " + component;
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this,commonStrings.GET_INSTANCE,e));
          }
-         final CommonStrings commonStrings = CommonStrings.getInstance();
          return new Unknown(commonStrings.EXCEPTION);
       }
       

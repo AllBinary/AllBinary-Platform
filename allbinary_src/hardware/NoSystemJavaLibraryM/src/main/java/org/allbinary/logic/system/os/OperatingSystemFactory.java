@@ -16,6 +16,7 @@ package org.allbinary.logic.system.os;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
 
 public class OperatingSystemFactory
 {
@@ -37,6 +38,7 @@ public class OperatingSystemFactory
     
     public synchronized GenericOperatingSystem getOperatingSystemInstance()
     {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
         try
         {
             //String osName = SystemProperties.getName();
@@ -45,16 +47,15 @@ public class OperatingSystemFactory
 
             final String osString = new StringMaker().append("OperatingSystem Info: ").append(GenericOperatingSystem.toString()).toString();
             System.out.println(osString);
-            LogUtil.put(LogFactory.getInstance(osString, this, "getInstance()"));
+            LogUtil.put(LogFactory.getInstance(osString, this, commonStrings.GET_INSTANCE));
 
             //throw new Exception("OS Not Supported: ").append(osName);
         }
         catch(Exception e)
         {
-            String error = "Failed to get instance";
             //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FACTORYERROR))
             //{
-                LogUtil.put(LogFactory.getInstance(error, this, "getInstance()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
             //}
         }
         return GenericOperatingSystem;

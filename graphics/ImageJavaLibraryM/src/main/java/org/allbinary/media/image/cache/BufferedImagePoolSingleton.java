@@ -27,10 +27,13 @@ public class BufferedImagePoolSingleton
     
     static
     {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+        final String STATIC_BLOCK = "Static Block";
+        final String instance = "BufferedImagePoolSingleton";
+        
         try
         {
-            final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.START, "BufferedImagePoolSingleton", "Static Block"));
+            LogUtil.put(LogFactory.getInstance(commonStrings.START, instance, STATIC_BLOCK));
             
             poolInterface =
                 PoolInterfaceFactory.getInstance(
@@ -38,12 +41,11 @@ public class BufferedImagePoolSingleton
                 PoolTypeFactory.getInstance().VECTOR_POOL, 
                 CachePolicyFactory.getInstance().MAX_TIME_THOUSAND_MAX);
             
-            LogUtil.put(LogFactory.getInstance("End", "BufferedImagePoolSingleton", "Static Block"));
+            LogUtil.put(LogFactory.getInstance(commonStrings.END, instance, STATIC_BLOCK));
         }
         catch(Exception e)
         {
-            final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "BufferedImagePoolSingleton", "Static Block", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, instance, STATIC_BLOCK, e));
         }
     }
     

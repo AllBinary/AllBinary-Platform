@@ -32,7 +32,7 @@ import org.allbinary.logic.system.security.licensing.ServiceClientInformationInt
 import org.allbinary.logic.visual.transform.info.TransformInfoData;
 import org.allbinary.logic.visual.transform.info.TransformInfoFactoryInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigAndManipulatorFactoryInterface;
+import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigAndManipulatorFactoryBase;
 import org.allbinary.logic.visual.transform.info.objectConfig.generator.TransformInfoObjectConfigGeneratorFactoryInterface;
 
 public class TransformInfoEntity 
@@ -45,12 +45,12 @@ implements TransformInfoEntityInterface
         ServiceClientInformationInterfaceFactory.getInstance();    
 
     private final TransformInfoFactoryInterface transformInfoFactoryInterface;
-    private final TransformInfoObjectConfigAndManipulatorFactoryInterface transformInfoObjectConfigAndManipulatorFactoryInterface;
+    private final TransformInfoObjectConfigAndManipulatorFactoryBase transformInfoObjectConfigAndManipulatorFactoryInterface;
     private final TransformInfoObjectConfigGeneratorFactoryInterface transformInfoObjectConfigGeneratorFactoryInterface;
 
     public TransformInfoEntity(
         TransformInfoObjectConfigGeneratorFactoryInterface transformInfoObjectConfigGeneratorFactoryInterface,
-        TransformInfoObjectConfigAndManipulatorFactoryInterface transformInfoObjectConfigAndManipulatorFactoryInterface,
+        TransformInfoObjectConfigAndManipulatorFactoryBase transformInfoObjectConfigAndManipulatorFactoryInterface,
         TransformInfoFactoryInterface transformInfoFactoryInterface)
     {
         super(new UserDbInitInfo());

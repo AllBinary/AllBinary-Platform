@@ -13,13 +13,12 @@
 */
 package org.allbinary.business.user.commerce.money.payment.gateway.transaction;
 
-import org.allbinary.business.user.commerce.money.payment.gateway.transaction.PaymentTransactionInterface;
-import org.allbinary.business.user.commerce.money.payment.gateway.transaction.PaymentTransactionInterfaceFactoryInterface;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.user.commerce.inventory.order.OrderHistory;
 import org.allbinary.business.user.commerce.money.payment.types.PaymentType;
 import org.allbinary.business.user.commerce.money.payment.types.PaymentTypeUtil;
+import org.allbinary.string.CommonStrings;
 
 public class PaymentTransactionInterfaceFactory
 {
@@ -54,15 +53,14 @@ public class PaymentTransactionInterfaceFactory
             return paymentTransactionInterface;
          }
 
-         throw new Exception("Failed to create PaymentTransactionInterface: " +
-            "GatewayName is: " + gatewayName);
+         throw new Exception("Failed to create PaymentTransactionInterface: " + "GatewayName is: " + gatewayName);
       }
       catch(Exception e)
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENTERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to generate test data",
-               this, "getInstance()", e));
+             final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance("Failed to generate test data",this, commonStrings.GET_INSTANCE, e));
          }
          throw e;
       }

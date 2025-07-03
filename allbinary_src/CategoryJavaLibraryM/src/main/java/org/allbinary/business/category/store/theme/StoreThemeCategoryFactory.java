@@ -26,9 +26,12 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.w3c.dom.Node;
 
 import java.util.HashMap;
+import org.allbinary.string.CommonStrings;
 
 public class StoreThemeCategoryFactory implements CategoryFactoryInterface
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private TransformInfoInterface transformInfoInterface;
    
    public StoreThemeCategoryFactory(TransformInfoInterface transformInfoInterface)
@@ -57,10 +60,9 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
       }
       catch(Exception e)
       {
-         String error = "Failed to get instance";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "getRootInstance()", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getRootInstance()", e));
          }
          return null;
       }
@@ -83,10 +85,10 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
       }
       catch(Exception e)
       {
-         String error = "Failed to get instance";
+         
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "getRootInstance(String)", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getRootInstance(String)", e));
          }
          return null;
       }
@@ -111,10 +113,10 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
       }
       catch(Exception e)
       {
-         String error = "Failed to get instance";
+         
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "getRootInstance(node)", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getRootInstance(node)", e));
          }
          return null;
       }
@@ -136,10 +138,10 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
       }
       catch(Exception e)
       {
-         String error = "Failed to get instance";
+         
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "getInstance(String, int)", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getInstance(String, int)", e));
          }
          return null;
       }
@@ -164,10 +166,10 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
       }
       catch(Exception e)
       {
-         String error = "Failed to get instance";
+         
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this,
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this,
                "getInstance(CategoryInterface, CategoryInterface , String, int)", e));
          }
          return null;
@@ -187,10 +189,10 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
       }
       catch(Exception e)
       {
-         String error = "Failed to get instance";
+         
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "getInstance(Node, int)", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getInstance(Node, int)", e));
          }
          return null;
       }
@@ -213,10 +215,10 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
       }
       catch(Exception e)
       {
-         String error = "Failed to get instance";
+         
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this,
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this,
               "getInstance(CategoryInterface, CategoryInterface, Node, int)", e));
          }
          return null;
@@ -237,10 +239,10 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
       }
       catch(Exception e)
       {
-         String error = "Failed to get instance";
+         
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "getInstance(HashMap)", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getInstance(HashMap)", e));
          }
          return null;
       }
@@ -266,10 +268,10 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
       }
       catch(Exception e)
       {
-         String error = "Failed to get instance";
+         
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this,
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this,
                "getInstance(CategoryInterface, CategoryInterface, HashMap)", e));
          }
          return null;

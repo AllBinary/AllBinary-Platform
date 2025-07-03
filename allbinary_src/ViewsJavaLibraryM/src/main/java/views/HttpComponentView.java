@@ -95,10 +95,9 @@ public class HttpComponentView extends TransformInfoHttpComposite
             return this.getTransformDocumentInterface().getDoc();
         } catch (Exception e)
         {
-            String error = "Failed to get Doc";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "toXmlDoc()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "toXmlDoc()", e));
             }
             throw e;
         }
@@ -138,10 +137,9 @@ public class HttpComponentView extends TransformInfoHttpComposite
             return result;
         } catch (Exception e)
         {
-            String error = "Failed to Component view";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "view()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "view()", e));
             }
             throw e;
         }

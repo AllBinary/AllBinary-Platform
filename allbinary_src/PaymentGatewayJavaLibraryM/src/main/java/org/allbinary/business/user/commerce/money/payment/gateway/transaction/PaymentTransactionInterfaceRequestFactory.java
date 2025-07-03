@@ -40,6 +40,7 @@ import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.string.CommonStrings;
 
 public class PaymentTransactionInterfaceRequestFactory
 {
@@ -54,6 +55,8 @@ public class PaymentTransactionInterfaceRequestFactory
     {
     }
 
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     public PaymentTransactionInterface getInstance(TransformInfoInterface transformInfoInterface)
             throws Exception
     {
@@ -111,10 +114,9 @@ public class PaymentTransactionInterfaceRequestFactory
 
         }catch(Exception e)
         {
-            String error = "Error Getting PaymentTransactionInterface";
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENTERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "getPaymentTransactionInterface()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getPaymentTransactionInterface()", e));
             }
             throw e;
         }
@@ -221,10 +223,9 @@ public class PaymentTransactionInterfaceRequestFactory
             return paymentTransactionInterface;
         }catch(Exception e)
         {
-            String error = "Error Getting PaymentTransactionInterface";
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENTERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "generatePaymentTransactionInterfaceFromTestData()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "generatePaymentTransactionInterfaceFromTestData()", e));
             }
             throw e;
         }

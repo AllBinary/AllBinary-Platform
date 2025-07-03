@@ -13,21 +13,23 @@
 */
 package org.allbinary.logic.visual.transform.template.customizer.page;
 
+import java.util.HashMap;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tree.dom.DomNodeInterface;
-import org.allbinary.logic.control.validate.ValidationInterface;
 import org.allbinary.logic.visual.transform.template.customizer.widgets.title.TitleData;
 import org.allbinary.logic.visual.transform.template.customizer.widgets.title.TitleValidation;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-import java.util.HashMap;
 import org.allbinary.business.page.PageData;
+import org.allbinary.logic.control.validate.Validation;
 
-public class PageValidation implements ValidationInterface, DomNodeInterface
+public class PageValidation extends Validation implements DomNodeInterface
 {
+    
    private TitleValidation title;
    
    public PageValidation()
@@ -62,7 +64,7 @@ public class PageValidation implements ValidationInterface, DomNodeInterface
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("PageValidation", this, "isValid()"));
+            LogUtil.put(LogFactory.getInstance("PageValidation", this, commonStrings.IS_VALID));
          }
          
          if(!this.title.isValid().booleanValue())
@@ -72,7 +74,7 @@ public class PageValidation implements ValidationInterface, DomNodeInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("PageValidation: " + valid, this, "isValid()"));
+            LogUtil.put(LogFactory.getInstance("PageValidation: " + valid, this, commonStrings.IS_VALID));
          }
          
          return valid;
@@ -81,7 +83,7 @@ public class PageValidation implements ValidationInterface, DomNodeInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate form", this, "isValid()", e));
+            LogUtil.put(LogFactory.getInstance("Failed to validate form", this, commonStrings.IS_VALID, e));
          }
          return Boolean.FALSE;
       }

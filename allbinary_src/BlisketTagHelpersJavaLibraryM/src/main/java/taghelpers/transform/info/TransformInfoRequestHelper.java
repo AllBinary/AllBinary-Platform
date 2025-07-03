@@ -13,6 +13,7 @@
 */
 package taghelpers.transform.info;
 
+import admin.taghelpers.ModifyTable;
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -20,12 +21,11 @@ import javax.servlet.jsp.PageContext;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import admin.taghelpers.ModifyTableInterface;
 import org.allbinary.data.tables.transform.info.TransformInfoEntityBuilder;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpStoreNoManipulation;
 
-public class TransformInfoRequestHelper implements ModifyTableInterface
+public class TransformInfoRequestHelper extends ModifyTable
 {   
    private TransformInfoHttpInterface transformInfoInterface;
    
@@ -63,7 +63,7 @@ public class TransformInfoRequestHelper implements ModifyTableInterface
          String error = "Failed to update storefronts table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"update()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"update()",e));
          }
          return error;
       }
@@ -89,7 +89,7 @@ public class TransformInfoRequestHelper implements ModifyTableInterface
          String error = "Failed to add storefronts table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"insert()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"insert()",e));
          }
          return error;
       }
@@ -114,7 +114,7 @@ public class TransformInfoRequestHelper implements ModifyTableInterface
          String error = "Failed to delete storefronts table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"delete()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"delete()",e));
          }
          return error;
       }

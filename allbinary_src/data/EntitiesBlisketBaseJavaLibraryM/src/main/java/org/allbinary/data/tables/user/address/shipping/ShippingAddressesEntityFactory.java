@@ -16,6 +16,7 @@ package org.allbinary.data.tables.user.address.shipping;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tables.user.address.StreetAddressesEntity;
+import org.allbinary.string.CommonStrings;
 
 public class ShippingAddressesEntityFactory
 {
@@ -53,20 +54,20 @@ public class ShippingAddressesEntityFactory
       /*
       catch(LicensingException e)
       {
-         String error = "Failed to get instance";
+         final CommonStrings commonStrings = CommonStrings.getInstance();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(error,"ShippingAddressesEntityFactory","getInstance()",e);
+            LogUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE,e);
          }
          throw e;
       }
        */
       catch(Exception e)
       {
-         String error = "Failed to get instance";
+         final CommonStrings commonStrings = CommonStrings.getInstance();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, "ShippingAddressesEntityFactory", "getShippingAddressesEntityInstance()", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getShippingAddressesEntityInstance()", e));
          }
          return null;
       }

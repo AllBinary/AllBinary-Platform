@@ -13,14 +13,12 @@
 */
 package org.allbinary.business.category.properties;
 
-import org.allbinary.business.category.properties.CategoryPropertiesInterface;
-import org.allbinary.business.category.properties.CategoryPropertiesFactoryInterface;
-import org.allbinary.business.category.properties.CategoryProperties;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.w3c.dom.Node;
 
 import java.util.HashMap;
+import org.allbinary.string.CommonStrings;
 
 public class CategoryPropertiesFactory implements CategoryPropertiesFactoryInterface
 {
@@ -54,10 +52,10 @@ public class CategoryPropertiesFactory implements CategoryPropertiesFactoryInter
       }
       catch(Exception e)
       {
-         String error = "Failed to get instance";
+         final CommonStrings commonStrings = CommonStrings.getInstance();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "getInstance()", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
          }
          return null;
       }

@@ -13,8 +13,6 @@
 */
 package org.allbinary.business.context.modules.storefront;
 
-import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
-import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.user.commerce.inventory.basket.BasketData;
@@ -24,6 +22,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 import java.util.HashMap;
+import org.allbinary.string.CommonStrings;
 
 public class StoreFrontView implements DomNodeInterface
 {
@@ -33,7 +32,8 @@ public class StoreFrontView implements DomNodeInterface
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("Constructing: StoreFrontView for: " + storeFrontInterface.getName(), this, "getInstance()"));
+          final CommonStrings commonStrings = CommonStrings.getInstance();
+         LogUtil.put(LogFactory.getInstance("Constructing: StoreFrontView for: " + storeFrontInterface.getName(), this, commonStrings.GET_INSTANCE));
       }
 
       this.storeFrontInterface = storeFrontInterface;

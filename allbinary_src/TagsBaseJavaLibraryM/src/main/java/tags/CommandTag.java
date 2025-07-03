@@ -13,12 +13,10 @@
 */
 package tags;
 
-import javax.servlet.jsp.tagext.TagSupport;
-import org.allbinary.string.CommonStrings;
+import tags.CustomTagSupport;
 
-public class CommandTag extends TagSupport
+public class CommandTag extends CustomTagSupport
 {
-    protected CommonStrings commonStrings = CommonStrings.getInstance();
 
    private String command;
    

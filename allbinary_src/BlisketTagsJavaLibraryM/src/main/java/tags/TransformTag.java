@@ -38,7 +38,7 @@ public class TransformTag extends TransformInfoTag
         //this.helperObject = null;
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
         {
-            LogUtil.put(LogFactory.getInstance("Tag Constructed", this, this.commonStrings.CONSTRUCTOR));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR));
         }
     }
 
@@ -47,7 +47,7 @@ public class TransformTag extends TransformInfoTag
         super(tagHelperFactoryInterface);
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
         {
-            LogUtil.put(LogFactory.getInstance("Tag Constructed", this, "Constructor(Factory)"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR));
         }
     }
 
@@ -60,11 +60,10 @@ public class TransformTag extends TransformInfoTag
             return result;
         } catch (Exception e)
         {
-            String error = "Failed to View";
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "view()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "view()", e));
             }
             throw e;
         }

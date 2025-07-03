@@ -47,7 +47,7 @@ public class UpdateView extends WorkFlowView implements ValidationComponentInter
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               LogUtil.put(LogFactory.getInstance("WorkFlow does not exist.",this,"isValid()"));
+               LogUtil.put(LogFactory.getInstance("WorkFlow does not exist.",this,commonStrings.IS_VALID));
             }
             return Boolean.FALSE;
          }         
@@ -58,7 +58,7 @@ public class UpdateView extends WorkFlowView implements ValidationComponentInter
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate",this,"isValid()",e));
+            LogUtil.put(LogFactory.getInstance("Failed to validate",this,commonStrings.IS_VALID,e));
          }
          return Boolean.FALSE;
       }

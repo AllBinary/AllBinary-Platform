@@ -46,7 +46,7 @@ public class FontFamilyValidation extends FontFamilyView implements ValidationIn
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("FontFamilyValidation",this,"isValid()"));
+            LogUtil.put(LogFactory.getInstance("FontFamilyValidation",this,commonStrings.IS_VALID));
          }
 
          /*
@@ -58,7 +58,7 @@ public class FontFamilyValidation extends FontFamilyView implements ValidationIn
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("CssValidation: " + valid,this,"isValid()"));
+            LogUtil.put(LogFactory.getInstance("CssValidation: " + valid,this,commonStrings.IS_VALID));
          }
          
          return valid;
@@ -67,7 +67,7 @@ public class FontFamilyValidation extends FontFamilyView implements ValidationIn
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate data",this,"isValid()",e));
+            LogUtil.put(LogFactory.getInstance("Failed to validate data",this,commonStrings.IS_VALID,e));
          }
          return Boolean.FALSE;
       }

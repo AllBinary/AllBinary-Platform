@@ -20,6 +20,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import org.allbinary.logic.control.search.SearchRequest;
+import org.allbinary.string.CommonStrings;
 
 public class InventoryViewFactory
 {
@@ -53,22 +54,21 @@ public class InventoryViewFactory
       /*
       catch(LicensingException e)
       {
-         String error = "Failed To Get Instance";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, "InventoryViewFactory", "getInstance(SearchRequest)", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getInstance(SearchRequest)", e));
          }
          throw e;
       } 
       */     
       catch(Exception e)
       {
-         String error = "Failed To Get Instance";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,"InventoryViewFactory", "getInstance(SearchRequest)",e));
+             final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "InventoryViewFactory", "getInstance(SearchRequest)",e));
          }
          return null;
       }         

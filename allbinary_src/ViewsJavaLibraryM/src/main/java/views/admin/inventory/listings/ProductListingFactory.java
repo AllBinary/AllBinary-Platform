@@ -20,6 +20,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 
 import org.allbinary.logic.control.search.SearchRequest;
+import org.allbinary.string.CommonStrings;
 
 public class ProductListingFactory
 {
@@ -40,19 +41,20 @@ public class ProductListingFactory
       /*
       catch(LicensingException e)
       {
-         String error = "Failed to get instance";
+         final CommonStrings commonStrings = CommonStrings.getInstance();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FACTORYERROR))
          {
-            LogUtil.put(error,"ProductListingFactory","getInstance()",e);
+            LogUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE,e);
          }
          throw e;
       }*/
       catch(Exception e)
       {
-         String error = "Failed get Instance";
+          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, "ProductListingFactory", "getInstance()", e));
+             final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "ProductListingFactory", commonStrings.GET_INSTANCE, e));
          }
          return null;
       }

@@ -15,6 +15,7 @@ package org.allbinary.data.tables.user.commerce.inventory.item;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
 
 public class InventoryEntityFactory
 {
@@ -45,20 +46,20 @@ public class InventoryEntityFactory
       /*
       catch(LicensingException e)
       {
-         String error = "Failed to get instance";
+         final CommonStrings commonStrings = CommonStrings.getInstance();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(error,"InventoryEntityFactory","getInstance()",e);
+            LogUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE,e);
          }
          throw e;
       }
       */
       catch(Exception e)
       {
-         String error = "Failed to get instance";
+         final CommonStrings commonStrings = CommonStrings.getInstance();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, "InventoryEntityFactory","getInventoryEntityInstance()", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this,"getInventoryEntityInstance()", e));
          }
          return null;
       }

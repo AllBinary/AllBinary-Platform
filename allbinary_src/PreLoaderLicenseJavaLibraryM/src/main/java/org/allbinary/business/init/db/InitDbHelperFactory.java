@@ -20,7 +20,7 @@ import org.allbinary.logic.system.security.licensing.LicensingException;
 public class InitDbHelperFactory
 {
    private static final String CLASSNAME = "org.allbinary.business.installer.InitDbCrypted";
-   private static final String FACTORYNAME = "InitDbHelperFactory";
+   //private static final String FACTORYNAME = "InitDbHelperFactory";
 
    private InitDbHelperFactory()
    {

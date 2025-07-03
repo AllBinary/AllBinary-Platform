@@ -85,7 +85,7 @@ public class AddFileValidationView
                     stringBuffer.append(" or ");
                     stringBuffer.append(NEXTSTEP);
 
-                    LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "isValid()"));
+                    LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.IS_VALID));
                 }
                 return Boolean.FALSE;
             }
@@ -97,7 +97,7 @@ public class AddFileValidationView
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
-                    LogUtil.put(LogFactory.getInstance(basicItemValidation.validationInfo(), this, "isValid()"));
+                    LogUtil.put(LogFactory.getInstance(basicItemValidation.validationInfo(), this, commonStrings.IS_VALID));
                 }
 
                 return Boolean.FALSE;
@@ -122,7 +122,7 @@ public class AddFileValidationView
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
-                    LogUtil.put(LogFactory.getInstance("Category Does Not Exist: " + fullCategory, this, "isValid()"));
+                    LogUtil.put(LogFactory.getInstance("Category Does Not Exist: " + fullCategory, this, commonStrings.IS_VALID));
                 }
 
                 return Boolean.FALSE;
@@ -132,7 +132,7 @@ public class AddFileValidationView
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
-                    LogUtil.put(LogFactory.getInstance("Item Already Exists", this, "isValid()"));
+                    LogUtil.put(LogFactory.getInstance("Item Already Exists", this, commonStrings.IS_VALID));
                 }
 
                 return Boolean.FALSE;
@@ -161,7 +161,7 @@ public class AddFileValidationView
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
             {
-                LogUtil.put(LogFactory.getInstance("Exception in validation", this, "isValid()", e));
+                LogUtil.put(LogFactory.getInstance("Exception in validation", this, commonStrings.IS_VALID, e));
             }
             return Boolean.FALSE;
         }
@@ -301,7 +301,7 @@ public class AddFileValidationView
                     stringBuffer.append(fileData.MAXIMAGEFILESIZE);
 
                     LogUtil.put(LogFactory.getInstance(
-                        stringBuffer.toString(), this, "isValid()"));
+                        stringBuffer.toString(), this, commonStrings.IS_VALID));
 
                 }
                 return Boolean.FALSE;
@@ -319,7 +319,7 @@ public class AddFileValidationView
                 stringBuffer.append(fileData.MINIMAGEFILESIZE);
 
                 LogUtil.put(LogFactory.getInstance(
-                    stringBuffer.toString(), this, "isValid()"));
+                    stringBuffer.toString(), this, commonStrings.IS_VALID));
             }
             return Boolean.FALSE;
         }

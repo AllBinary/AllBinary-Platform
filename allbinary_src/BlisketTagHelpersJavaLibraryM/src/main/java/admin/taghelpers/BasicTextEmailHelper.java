@@ -32,7 +32,7 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
 public class BasicTextEmailHelper
-    implements TagHelperInterface
+    extends TagHelper
 {
     
     private final AbeClientInformationInterface abeClientInformation = 

@@ -29,7 +29,7 @@ import org.allbinary.data.tables.context.module.storefronts.StoreFrontsEntityFac
 import org.allbinary.logic.communication.sql.AbSqlTableUtil;
 import org.allbinary.logic.visual.dhtml.html.select.HtmlSelect;
 
-public class StoreFrontsHelper implements BasicTableInterface
+public class StoreFrontsHelper extends BasicTable
 {
     //private StoreFrontInterface storeFrontInterface;
 
@@ -49,7 +49,7 @@ public class StoreFrontsHelper implements BasicTableInterface
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
             {
-                LogUtil.put(LogFactory.getInstance(success, this, "drop()"));
+                LogUtil.put(LogFactory.getInstance(success, this, commonStrings.DROP));
             }
             return success;
         } catch (Exception e)
@@ -58,7 +58,7 @@ public class StoreFrontsHelper implements BasicTableInterface
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "drop()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.DROP, e));
             }
             return error;
         }
@@ -83,7 +83,7 @@ public class StoreFrontsHelper implements BasicTableInterface
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "create()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "create()", e));
             }
             return error;
         }
@@ -109,7 +109,7 @@ public class StoreFrontsHelper implements BasicTableInterface
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "restore()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "restore()", e));
             }
             return error;
         }
@@ -135,7 +135,7 @@ public class StoreFrontsHelper implements BasicTableInterface
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "backup()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "backup()", e));
             }
             return error;
         }
@@ -179,7 +179,7 @@ public class StoreFrontsHelper implements BasicTableInterface
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "generateSelect()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "generateSelect()", e));
             }
             return error;
         }

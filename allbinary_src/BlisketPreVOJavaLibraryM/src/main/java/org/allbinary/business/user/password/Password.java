@@ -24,6 +24,7 @@ import java.util.Random;
 import java.util.Vector;
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.string.CommonStrings;
 
 public class Password
 {
@@ -48,20 +49,22 @@ public class Password
 
    public Boolean isValid()
    {
+       final CommonStrings commonStrings = CommonStrings.getInstance();
+
       try
       {
          Boolean valid = Boolean.TRUE;
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VALIDATION))
          {
-            LogUtil.put(LogFactory.getInstance("Password: " + this.password, this, "isValid()"));
+            LogUtil.put(LogFactory.getInstance("Password: " + this.password, this, commonStrings.IS_VALID));
          }
 
          if(!StringValidationUtil.getInstance().isValidRequired(this.password, 6, UserData.MAXLEN))
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VALIDATION))
             {
-               LogUtil.put(LogFactory.getInstance("Password is invalid", this, "isValid()"));
+               LogUtil.put(LogFactory.getInstance("Password is invalid", this, commonStrings.IS_VALID));
             }
             valid = Boolean.FALSE;
          }
@@ -72,7 +75,7 @@ public class Password
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VALIDATIONERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate form","Password","isValid()",e));
+            LogUtil.put(LogFactory.getInstance("Failed to validate form","Password",commonStrings.IS_VALID,e));
          }
          return Boolean.FALSE;
       }

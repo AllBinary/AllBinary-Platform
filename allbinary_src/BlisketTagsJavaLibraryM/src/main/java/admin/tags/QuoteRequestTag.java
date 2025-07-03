@@ -66,7 +66,7 @@ public class QuoteRequestTag extends TableTag
          String error = "Failed to send QuoteRequest emails";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"sendEmail()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"sendEmail()",e));
          }
          return error;
       }

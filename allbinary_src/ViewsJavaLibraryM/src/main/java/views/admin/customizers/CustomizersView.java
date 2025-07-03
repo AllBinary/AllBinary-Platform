@@ -39,7 +39,7 @@ import org.allbinary.logic.visual.transform.template.util.TransformTemplateCusto
 
 public class CustomizersView extends HttpStoreComponentView implements DomNodeInterface {
 
-    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
 
     protected final Vector customizersVector;
 
@@ -106,9 +106,8 @@ public class CustomizersView extends HttpStoreComponentView implements DomNodeIn
             this.addDomNodeInterfaces();
             return super.view();
         } catch (Exception e) {
-            final String error = "Failed to view Mini Basket";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR)) {
-                LogUtil.put(LogFactory.getInstance(error, this, "view()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "view()", e));
             }
             throw e;
         }

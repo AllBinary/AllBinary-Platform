@@ -13,13 +13,14 @@
 */
 package org.allbinary.logic.visual.transform.template.customizer.widgets.title;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.control.validate.ValidationInterface;
+import java.util.HashMap;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
-import java.util.HashMap;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.control.validate.ValidationInterface;
 import org.allbinary.logic.string.StringValidationUtil;
 
 public class TitleNotRequiredValidation extends TitleView implements ValidationInterface
@@ -45,7 +46,7 @@ public class TitleNotRequiredValidation extends TitleView implements ValidationI
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "isValid()"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, commonStrings.IS_VALID));
          }
          
          Boolean valid = Boolean.TRUE;
@@ -64,7 +65,7 @@ public class TitleNotRequiredValidation extends TitleView implements ValidationI
              stringBuffer.append("End: ");
              stringBuffer.append(valid);
 
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "isValid()"));
+            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.IS_VALID));
          }
          
          return valid;
@@ -73,7 +74,7 @@ public class TitleNotRequiredValidation extends TitleView implements ValidationI
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate form", this, "isValid()", e));
+            LogUtil.put(LogFactory.getInstance("Failed to validate form", this, commonStrings.IS_VALID, e));
          }
          return Boolean.FALSE;
       }

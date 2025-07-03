@@ -56,7 +56,7 @@ public class StoreFrontsTag extends TableTag
             String error = "Failed to generate storefronts select";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "generateSelect()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "generateSelect()", e));
             }
             return error;
         }
@@ -80,7 +80,7 @@ public class StoreFrontsTag extends TableTag
             String error = "Failed to generate storefronts select";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "generateSelect()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "generateSelect()", e));
             }
             return error;
         }
@@ -104,7 +104,7 @@ public class StoreFrontsTag extends TableTag
             String error = "Failed to send email";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "sendStoreCreatedEmails()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "sendStoreCreatedEmails()", e));
             }
             return error;
         }

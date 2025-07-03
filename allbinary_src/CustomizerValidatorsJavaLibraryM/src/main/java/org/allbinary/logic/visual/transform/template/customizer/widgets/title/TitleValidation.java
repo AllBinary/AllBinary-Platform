@@ -13,13 +13,14 @@
 */
 package org.allbinary.logic.visual.transform.template.customizer.widgets.title;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.control.validate.ValidationInterface;
+import java.util.HashMap;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
-import java.util.HashMap;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.control.validate.ValidationInterface;
 import org.allbinary.logic.string.StringValidationUtil;
 
 public class TitleValidation extends TitleView implements ValidationInterface
@@ -45,7 +46,7 @@ public class TitleValidation extends TitleView implements ValidationInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("TitleValidation", this, "isValid()"));
+            LogUtil.put(LogFactory.getInstance("TitleValidation", this, commonStrings.IS_VALID));
          }
          
          Boolean valid = Boolean.TRUE;
@@ -57,7 +58,7 @@ public class TitleValidation extends TitleView implements ValidationInterface
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("TitleValidation: " + valid, this, "isValid()"));
+            LogUtil.put(LogFactory.getInstance("TitleValidation: " + valid, this, commonStrings.IS_VALID));
          }
          
          return valid;
@@ -66,7 +67,7 @@ public class TitleValidation extends TitleView implements ValidationInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate form", this, "isValid()", e));
+            LogUtil.put(LogFactory.getInstance("Failed to validate form", this, commonStrings.IS_VALID, e));
          }
          return Boolean.FALSE;
       }

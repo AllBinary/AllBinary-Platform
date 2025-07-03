@@ -179,7 +179,7 @@ public class ShippingMethodsView extends HttpStoreComponentView implements DomNo
          String error = "Failed to view ShippingMethods";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"view()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"view()",e));
          }
          return error;
       }

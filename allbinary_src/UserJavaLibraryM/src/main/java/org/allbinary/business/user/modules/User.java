@@ -39,6 +39,7 @@ import java.util.HashMap;
 import java.util.Vector;
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.string.CommonStrings;
 
 public class User implements UserInterface
 {
@@ -195,7 +196,8 @@ public class User implements UserInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VALIDATIONERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate form", this, "isValid()", e));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance("Failed to validate form", this, commonStrings.IS_VALID, e));
          }
          return Boolean.FALSE;
       }

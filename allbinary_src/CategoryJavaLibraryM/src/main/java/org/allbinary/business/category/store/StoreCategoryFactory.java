@@ -13,9 +13,6 @@
 */
 package org.allbinary.business.category.store;
 
-
-
-
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -58,10 +55,10 @@ public class StoreCategoryFactory extends CategoryAbstractFactory
       }
       catch(Exception e)
       {
-         String error = "Failed to get instance";
+         
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "getInstance(String, int)", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getInstance(String, int)", e));
          }
          return null;
       }
@@ -84,11 +81,11 @@ public class StoreCategoryFactory extends CategoryAbstractFactory
       }
       catch(Exception e)
       {
-         String error = "Failed to get instance";
+         
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                  org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "getInstance(String, int)", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getInstance(String, int)", e));
          }
          return null;
       }
@@ -113,10 +110,10 @@ public class StoreCategoryFactory extends CategoryAbstractFactory
       }
       catch(Exception e)
       {
-         String error = "Failed to get instance";
+         
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "getInstance(String, int)", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getInstance(String, int)", e));
          }
          return null;
       }

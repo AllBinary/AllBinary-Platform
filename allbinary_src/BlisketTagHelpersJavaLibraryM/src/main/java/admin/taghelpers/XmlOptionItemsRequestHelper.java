@@ -29,7 +29,7 @@ import org.allbinary.business.user.commerce.inventory.item.option.XmlOptionItemD
 
 import org.allbinary.data.tables.user.commerce.inventory.item.options.XmlOptionItemsEntityFactory;
 
-public class XmlOptionItemsRequestHelper implements ModifyTableInterface
+public class XmlOptionItemsRequestHelper extends ModifyTable
 {
    private HttpServletRequest request;
      
@@ -105,7 +105,7 @@ public class XmlOptionItemsRequestHelper implements ModifyTableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"inserts()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"inserts()",e));
          }
          return error;
       }
@@ -131,7 +131,7 @@ public class XmlOptionItemsRequestHelper implements ModifyTableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"delete()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"delete()",e));
          }
          return error;
       }
@@ -158,7 +158,7 @@ public class XmlOptionItemsRequestHelper implements ModifyTableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"update()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"update()",e));
          }
          return error;
       }

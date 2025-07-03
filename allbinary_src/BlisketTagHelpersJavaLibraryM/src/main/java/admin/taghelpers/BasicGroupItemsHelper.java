@@ -24,8 +24,9 @@ import org.allbinary.data.tables.user.commerce.inventory.item.groups.BasicGroupI
 import org.allbinary.data.tables.user.commerce.inventory.item.groups.BasicGroupItemsEntityFactory;
 import org.allbinary.logic.communication.sql.AbSqlTableUtil;
 
-public class BasicGroupItemsHelper implements BasicTableInterface 
+public class BasicGroupItemsHelper extends BasicTable 
 {
+    
 	private final Portion portion;
 	
    public BasicGroupItemsHelper(HashMap hashMap, PageContext pageContext)
@@ -51,7 +52,7 @@ public class BasicGroupItemsHelper implements BasicTableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"create()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"create()",e));
          }
          return error;
       }
@@ -65,7 +66,7 @@ public class BasicGroupItemsHelper implements BasicTableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            LogUtil.put(LogFactory.getInstance(success,this,"drop()"));
+            LogUtil.put(LogFactory.getInstance(success,this,commonStrings.DROP));
          }
          return success;
       }
@@ -75,7 +76,7 @@ public class BasicGroupItemsHelper implements BasicTableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"drop()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,commonStrings.DROP,e));
          }
          return error;
       }
@@ -104,7 +105,7 @@ public class BasicGroupItemsHelper implements BasicTableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"restore()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"restore()",e));
          }
          return error;
       }
@@ -129,7 +130,7 @@ public class BasicGroupItemsHelper implements BasicTableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"backup()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"backup()",e));
          }
          return error;
       }

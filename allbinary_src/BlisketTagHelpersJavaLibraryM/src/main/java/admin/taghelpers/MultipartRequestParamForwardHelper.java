@@ -13,18 +13,18 @@
 */
 package admin.taghelpers;
 
-import org.allbinary.string.CommonSeps;
-import org.allbinary.logic.string.StringValidationUtil;
 import java.util.HashMap;
-
+import java.util.Vector;
 import javax.servlet.jsp.PageContext;
 
 import tags.HelperTag;
+import org.allbinary.string.CommonSeps;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.globals.GLOBALS2;
 import org.allbinary.logic.communication.http.request.RequestMapInterface;
-import java.util.Vector;
+import org.allbinary.string.CommonStrings;
 
 public class MultipartRequestParamForwardHelper
 {
@@ -71,13 +71,11 @@ public class MultipartRequestParamForwardHelper
 
         } catch (Exception e)
         {
-            String error = "Failed to forward";
-
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "forward()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "forward()", e));
             }
-            //return error;
         }
     }
 

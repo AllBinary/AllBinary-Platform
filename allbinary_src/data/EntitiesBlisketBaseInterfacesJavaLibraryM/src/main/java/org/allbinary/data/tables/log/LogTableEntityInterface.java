@@ -13,11 +13,11 @@
 */
 package org.allbinary.data.tables.log;
 
-import org.allbinary.data.tables.BasicTableInterface;
 
 import java.util.Vector;
+import org.allbinary.data.tables.BasicDataTableInterface;
 
-public interface LogTableEntityInterface extends BasicTableInterface
+public interface LogTableEntityInterface extends BasicDataTableInterface
 {
    public void deleteWhere(String key,String value);
 

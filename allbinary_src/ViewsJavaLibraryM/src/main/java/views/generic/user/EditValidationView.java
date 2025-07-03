@@ -46,7 +46,7 @@ public class EditValidationView extends UserView
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               LogUtil.put(LogFactory.getInstance("Failed to validate username",this,"isValid()"));
+               LogUtil.put(LogFactory.getInstance("Failed to validate username",this,commonStrings.IS_VALID));
             }
             
             return Boolean.FALSE;
@@ -58,7 +58,7 @@ public class EditValidationView extends UserView
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               LogUtil.put(LogFactory.getInstance("User does not exist",this,"isValid()"));
+               LogUtil.put(LogFactory.getInstance("User does not exist",this,commonStrings.IS_VALID));
             }
             return Boolean.FALSE;
          }
@@ -67,7 +67,7 @@ public class EditValidationView extends UserView
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               LogUtil.put(LogFactory.getInstance("User exists but is invalid - Probably manually modified",this,"isValid()"));
+               LogUtil.put(LogFactory.getInstance("User exists but is invalid - Probably manually modified",this,commonStrings.IS_VALID));
             }
             return Boolean.FALSE;
          }
@@ -78,7 +78,7 @@ public class EditValidationView extends UserView
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate",this,"isValid()",e));
+            LogUtil.put(LogFactory.getInstance("Failed to validate",this,commonStrings.IS_VALID,e));
          }
          return Boolean.FALSE;
       }
@@ -103,7 +103,7 @@ public class EditValidationView extends UserView
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               LogUtil.put(LogFactory.getInstance("User does not exist",this,"isValid()"));
+               LogUtil.put(LogFactory.getInstance("User does not exist",this,commonStrings.IS_VALID));
             }
             stringBuffer.append("User profile does not exist - Your session data has been logged!");
          }
@@ -112,7 +112,7 @@ public class EditValidationView extends UserView
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               LogUtil.put(LogFactory.getInstance("User exists but is invalid - Probably manually modified",this,"isValid()"));
+               LogUtil.put(LogFactory.getInstance("User exists but is invalid - Probably manually modified",this,commonStrings.IS_VALID));
             }
             stringBuffer.append(this.user.validationInfo());
          }

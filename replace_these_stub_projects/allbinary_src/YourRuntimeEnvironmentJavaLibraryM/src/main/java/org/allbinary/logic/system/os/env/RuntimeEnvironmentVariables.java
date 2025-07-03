@@ -12,9 +12,12 @@ import org.allbinary.logic.system.os.OperatingSystemFactory;
 import org.allbinary.logic.system.os.GenericOperatingSystem;
 
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
 
 public class RuntimeEnvironmentVariables
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    public RuntimeEnvironmentVariables()
    {
    }
@@ -89,10 +92,9 @@ public class RuntimeEnvironmentVariables
       }
       catch(Exception e)
       {
-         String error = "Failed";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "get()", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "get()", e));
          }
          return null;
       }
@@ -106,10 +108,9 @@ public class RuntimeEnvironmentVariables
       }
       catch(Exception e)
       {
-         String error = "Failed";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"getTempDir()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"getTempDir()",e));
          }
          return null;         
       }
@@ -123,10 +124,9 @@ public class RuntimeEnvironmentVariables
       }
       catch(Exception e)
       {
-         String error = "Failed";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"getLibraryPath()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"getLibraryPath()",e));
          }         
          return null;
       }
@@ -140,10 +140,9 @@ public class RuntimeEnvironmentVariables
       }
       catch(Exception e)
       {
-         String error = "Failed";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"getClassPath()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"getClassPath()",e));
          }
          return null;
       }
@@ -158,10 +157,9 @@ public class RuntimeEnvironmentVariables
       }
       catch(Exception e)
       {
-         String error = "Failed";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"updateLibraryPath()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"updateLibraryPath()",e));
          }      
       }
    }   
@@ -174,10 +172,9 @@ public class RuntimeEnvironmentVariables
       }
       catch(Exception e)
       {
-         String error = "Failed";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"getUserHome()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"getUserHome()",e));
          }
          return null;
       }
@@ -191,10 +188,9 @@ public class RuntimeEnvironmentVariables
       }
       catch(Exception e)
       {
-         String error = "Failed";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"getUserDir()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"getUserDir()",e));
          }
          return null;
       }
@@ -207,10 +203,9 @@ public class RuntimeEnvironmentVariables
       }
       catch(Exception e)
       {
-         String error = "Failed";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"get()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"get()",e));
          }       
       }
    }
@@ -251,10 +246,9 @@ public class RuntimeEnvironmentVariables
       }
       catch(Exception e)
       {
-         String error = "Failed";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"setVariable()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"setVariable()",e));
          }      
          
       }

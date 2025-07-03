@@ -24,7 +24,7 @@ import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 
 public class StoreFrontHelper
-    implements TagHelperInterface
+    extends TagHelper
 {
    private final StoreFrontInterface storeFrontInterface;
    private final String currentLocation;

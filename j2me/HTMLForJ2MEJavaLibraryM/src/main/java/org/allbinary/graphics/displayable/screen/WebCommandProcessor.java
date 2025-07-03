@@ -49,7 +49,7 @@ public class WebCommandProcessor {
             PlayN.openURL((String) list.remove(0));
 
         } catch(Exception e) {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "process", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e));
         }
     }
 }

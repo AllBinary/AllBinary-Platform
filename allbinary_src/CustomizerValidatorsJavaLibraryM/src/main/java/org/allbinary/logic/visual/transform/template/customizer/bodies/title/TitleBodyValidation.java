@@ -20,7 +20,6 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tree.dom.DomData;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
-import org.allbinary.logic.control.validate.ValidationInterface;
 import org.allbinary.logic.visual.transform.template.customizer.bodies.BodyData;
 import org.allbinary.logic.visual.transform.template.customizer.widgets.title.TitleData;
 import org.allbinary.logic.visual.transform.template.customizer.widgets.title.TitleNotRequiredValidation;
@@ -31,11 +30,10 @@ import org.w3c.dom.NodeList;
 import java.util.HashMap;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.sql.AbSqlData;
-import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.control.validate.Validation;
 
-public class TitleBodyValidation implements ValidationInterface, DomNodeInterface
+public class TitleBodyValidation extends Validation implements DomNodeInterface
 {
-    protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
    private String body;
    private TitleNotRequiredValidation titleValidation;
@@ -109,7 +107,7 @@ public class TitleBodyValidation implements ValidationInterface, DomNodeInterfac
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("TitleBodyValidation", this, "isValid()"));
+            LogUtil.put(LogFactory.getInstance("TitleBodyValidation", this, commonStrings.IS_VALID));
          }
 
          if(!StringValidationUtil.getInstance().isValidNotRequired(this.body, BodyData.getInstance().MIN, AbSqlData.MAXBLOB))
@@ -124,7 +122,7 @@ public class TitleBodyValidation implements ValidationInterface, DomNodeInterfac
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("TitleBodyValidation: " + isValid,this,"isValid()"));
+            LogUtil.put(LogFactory.getInstance("TitleBodyValidation: " + isValid,this,commonStrings.IS_VALID));
          }
          
          return isValid;
@@ -133,7 +131,7 @@ public class TitleBodyValidation implements ValidationInterface, DomNodeInterfac
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate form", this, "isValid()", e));
+            LogUtil.put(LogFactory.getInstance("Failed to validate form", this, commonStrings.IS_VALID, e));
          }
          return Boolean.FALSE;
       }

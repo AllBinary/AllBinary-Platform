@@ -28,9 +28,12 @@ import org.allbinary.logic.visual.transform.TransformInterface;
 import org.allbinary.logic.visual.transform.data.TransformDocumentInterface;
 import org.allbinary.logic.visual.transform.data.TransformDocumentFactory;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.string.CommonStrings;
 
 public class BasicComponentView implements TransformInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     protected final AbeClientInformationInterface abeClientInformation = 
         ServiceClientInformationInterfaceFactory.getInstance();
     
@@ -41,8 +44,7 @@ public class BasicComponentView implements TransformInterface
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance(
-                 "View Name: " + transformInfoInterface.getName(), this, "ComponentView()"));
+         LogUtil.put(LogFactory.getInstance("View Name: " + transformInfoInterface.getName(), this, commonStrings.CONSTRUCTOR));
       }
 
       this.setTransformInfoInterface(transformInfoInterface);
@@ -109,10 +111,10 @@ public class BasicComponentView implements TransformInterface
       }
       catch(Exception e)
       {
-         String error = "Failed to Component view";
+         //String error = "Failed to Component view";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "view()", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "view()", e));
          }
          throw e;
       }

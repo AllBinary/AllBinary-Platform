@@ -14,9 +14,9 @@
 package org.allbinary.data.tables.user.address;
 
 import org.allbinary.business.user.address.StreetAddress;
-import org.allbinary.data.tables.BasicTableInterface;
+import org.allbinary.data.tables.BasicDataTableInterface;
 
-public interface StreetAddressesEntityInterface extends BasicTableInterface
+public interface StreetAddressesEntityInterface extends BasicDataTableInterface
 {      
    public void remove(Integer index);
    

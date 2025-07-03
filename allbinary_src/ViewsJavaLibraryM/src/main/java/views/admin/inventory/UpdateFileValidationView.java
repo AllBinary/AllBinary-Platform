@@ -60,7 +60,7 @@ public class UpdateFileValidationView
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
-                    LogUtil.put(LogFactory.getInstance("Invalid AdminCommand=" + command, this, "isValid()"));
+                    LogUtil.put(LogFactory.getInstance("Invalid AdminCommand=" + command, this, commonStrings.IS_VALID));
                 }
                 return Boolean.FALSE;
             }
@@ -69,7 +69,7 @@ public class UpdateFileValidationView
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
-                    LogUtil.put(LogFactory.getInstance("BasicItem is not valid", this, "isValid()"));
+                    LogUtil.put(LogFactory.getInstance("BasicItem is not valid", this, commonStrings.IS_VALID));
                 }
                 return Boolean.FALSE;
             }
@@ -91,7 +91,7 @@ public class UpdateFileValidationView
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
-                    LogUtil.put(LogFactory.getInstance("Category Does Not Exist: " + fullCategory, this, "isValid()"));
+                    LogUtil.put(LogFactory.getInstance("Category Does Not Exist: " + fullCategory, this, commonStrings.IS_VALID));
                 }
                 return Boolean.FALSE;
             }
@@ -126,7 +126,7 @@ public class UpdateFileValidationView
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                LogUtil.put(LogFactory.getInstance("Exception in validation", this, "isValid()", e));
+                LogUtil.put(LogFactory.getInstance("Exception in validation", this, commonStrings.IS_VALID, e));
             }
 
             return Boolean.FALSE;
@@ -229,7 +229,7 @@ public class UpdateFileValidationView
                     stringBuffer.append(">");
                     stringBuffer.append(fileData.MAXIMAGEFILESIZE);
 
-                    LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "isValid()"));
+                    LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.IS_VALID));
                 }
                 return Boolean.FALSE;
             }

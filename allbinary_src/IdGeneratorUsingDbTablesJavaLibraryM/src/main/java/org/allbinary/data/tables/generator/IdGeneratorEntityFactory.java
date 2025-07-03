@@ -18,6 +18,7 @@ package org.allbinary.data.tables.generator;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
 
 public class IdGeneratorEntityFactory
 {
@@ -33,8 +34,8 @@ public class IdGeneratorEntityFactory
       }
       catch(Exception e)
       {
-         String error = "Failed to get instance";
-         LogUtil.put(LogFactory.getInstance(error,"ServerLicenseRequestEntityFactory","getInstance()",e));
+         final CommonStrings commonStrings = CommonStrings.getInstance();
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "ServerLicenseRequestEntityFactory",commonStrings.GET_INSTANCE,e));
          return null;
       }
    }

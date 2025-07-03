@@ -23,6 +23,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.ai.ArtificialIntelligenceInterface;
 import org.allbinary.game.input.GameInput;
 import org.allbinary.layer.AllBinaryLayer;
+import org.allbinary.string.CommonStrings;
 
 public class NumberOnOwnGroupSequenceAIFactory
 {
@@ -55,7 +56,8 @@ public class NumberOnOwnGroupSequenceAIFactory
       stringBuffer.append(artificialIntelligenceInterface.length);
       stringBuffer.append(" + 1");
       
-      LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "getInstance"));
+      final CommonStrings commonStrings = CommonStrings.getInstance();
+      LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.GET_INSTANCE));
       
       if(artificialIntelligenceInterface.length - 1 > list.size())
       {

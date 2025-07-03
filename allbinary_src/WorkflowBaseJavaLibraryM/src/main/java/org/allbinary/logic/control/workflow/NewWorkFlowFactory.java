@@ -22,6 +22,7 @@ import org.allbinary.logic.system.loader.AbeFactory;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import org.allbinary.business.DynamicObjectData;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.string.CommonStrings;
 
 public class NewWorkFlowFactory
 {
@@ -30,7 +31,7 @@ public class NewWorkFlowFactory
     public static NewWorkFlowFactory getInstance() {
         return instance;
     }
-    
+
    private NewWorkFlowFactory()
    {
    }
@@ -64,23 +65,23 @@ public class NewWorkFlowFactory
       }
       catch(LicensingException e)
       {
-         String error = "Failed To Get Instance Args: HashMap=" +
-         hashMap.toString();
+         //String error = "Failed To Get Instance Args: HashMap=" + hashMap.toString();
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "getInstance(HashMap)",e));
+             final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getInstance(HashMap)",e));
          }
          throw e;
       }
       catch(Exception e)
       {
-         String error = "Failed To Get Instance";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "getInstance(HashMap)", e));
+             final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getInstance(HashMap)", e));
          }
          throw e;
       }
@@ -100,22 +101,21 @@ public class NewWorkFlowFactory
       }
       catch(LicensingException e)
       {
-         String error = "Failed To Get Instance Args";
-         
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "getInstance()",e));
+             final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE,e));
          }
          throw e;
       }
       catch(Exception e)
       {
-         String error = "Failed To Get Instance";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "getInstance()", e));
+             final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
          }
          throw e;
       }

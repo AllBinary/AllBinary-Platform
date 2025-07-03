@@ -23,18 +23,20 @@ import org.allbinary.business.context.modules.storefront.StoreFrontData;
 
 import org.allbinary.logic.communication.log.LogUtil;
 
+import java.util.HashMap;
+import javax.servlet.jsp.JspTagException;
+
 import admin.taghelpers.BasketHelperFactory;
 import admin.taghelpers.BasketRequestHelperFactory;
 
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.log.LogFactory;
 
-import java.util.HashMap;
-import javax.servlet.jsp.JspTagException;
-import javax.servlet.jsp.tagext.TagSupport;
+import tags.CustomTagSupport;
 
-public class BasketTag extends TagSupport
+public class BasketTag extends CustomTagSupport
 {
+    
    private String command;
    private String storeName;   
    
@@ -71,11 +73,9 @@ public class BasketTag extends TagSupport
       }
       catch(Exception e)
       {
-         String error = "Failed to add item from Basket";
-         
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"isBasketEmpty()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"isBasketEmpty()",e));
          }
          return true;
       }
@@ -102,7 +102,7 @@ public class BasketTag extends TagSupport
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"addItemToBasket()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"addItemToBasket()",e));
          }
          return false;
       }
@@ -129,7 +129,7 @@ public class BasketTag extends TagSupport
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"removeItemFromBasket()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"removeItemFromBasket()",e));
          }
          return false;
       }
@@ -156,7 +156,7 @@ public class BasketTag extends TagSupport
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"adjustBasket()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"adjustBasket()",e));
          }
          return false;
       }

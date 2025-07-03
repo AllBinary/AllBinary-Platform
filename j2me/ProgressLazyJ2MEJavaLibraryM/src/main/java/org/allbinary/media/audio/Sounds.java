@@ -27,6 +27,7 @@ import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 public class Sounds
 {
     private final CommonStrings commonStrings = CommonStrings.getInstance();
+    private final SoundStrings soundStrings = SoundStrings.getInstance();
     
     private final SoundsFactoryInterface soundsFactoryInterface;
 
@@ -39,15 +40,12 @@ public class Sounds
     {
         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.INIT));
 
-        final String SOUND = " Sound: ";
-        
+        final CommonLabels commonLabels = CommonLabels.getInstance();        
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         
         soundsFactoryInterface.init();
 
         final Sound[] soundInterfaceArray = soundsFactoryInterface.getSoundInterfaceArray();
-
-        final String INIT_SOUND = "Initializing Sound: ";
 
         final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
         
@@ -65,16 +63,16 @@ public class Sounds
                 indexString = indexInteger.toString();
                 
                 stringBuffer.delete(0, stringBuffer.length());
-                stringBuffer.append(CommonLabels.getInstance().INDEX_LABEL);
+                stringBuffer.append(commonLabels.INDEX_LABEL);
                 stringBuffer.append(indexString);
-                stringBuffer.append(SOUND);
+                stringBuffer.append(this.soundStrings.SOUND);
                 stringBuffer.append(soundInterface.getClass().getName());
 
                 LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.INIT));
                 
                 soundInterface.init();
                 
-                progressCanvas.addPortion(100, new StringMaker().append(INIT_SOUND).append(indexString).toString());
+                progressCanvas.addPortion(100, new StringMaker().append(this.soundStrings.INIT_SOUND).append(indexString).toString());
             }
         }
 
@@ -85,7 +83,7 @@ public class Sounds
 
     public void stopAll() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "stopAll"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, this.soundStrings.STOP_ALL));
 
         final Sound[] soundInterfaceArray = soundsFactoryInterface.getSoundInterfaceArray();
 
@@ -102,7 +100,7 @@ public class Sounds
                 {
                     player.stop();
 
-                    progressCanvas.addPortion(100, "Stopping Sound: ", index);
+                    progressCanvas.addPortion(100, this.soundStrings.STOPPING_SOUND, index);
                 }
             }
         }
@@ -111,7 +109,7 @@ public class Sounds
 
     public void closeAll() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "closeAll"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, this.soundStrings.CLOSE_ALL));
 
         final Sound[] soundInterfaceArray = soundsFactoryInterface.getSoundInterfaceArray();
 
@@ -127,7 +125,7 @@ public class Sounds
                 {
                     player.close();
 
-                    progressCanvas.addPortion(100, "Closing Sound: ", index);
+                    progressCanvas.addPortion(100, this.soundStrings.CLOSING_SOUND, index);
                 }
             }
         }

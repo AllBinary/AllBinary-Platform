@@ -45,10 +45,13 @@ import org.allbinary.business.user.UserData;
 import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.http.request.RequestParams;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 
 public class StoreFront implements StoreFrontInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private final Directory directory = Directory.getInstance();
     
     private String name;
@@ -1102,10 +1105,10 @@ public class StoreFront implements StoreFrontInterface
 
         } catch (Exception e)
         {
-            String error = "Failed to install storefront";
+            //String error = "Failed to install storefront";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "install()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "install()", e));
             }
             throw e;
         }

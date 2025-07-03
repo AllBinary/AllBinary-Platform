@@ -13,7 +13,6 @@
 */
 package org.allbinary.logic.control.workflow;
 
-import org.allbinary.logic.control.workflow.WorkFlowInterface;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.loader.AbeFactory;
@@ -23,6 +22,7 @@ import org.allbinary.business.DynamicObjectData;
 import javax.servlet.jsp.PageContext;
 import java.util.HashMap;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.string.CommonStrings;
 
 public class TagWorkFlowFactory
 {
@@ -70,13 +70,12 @@ public class TagWorkFlowFactory
                 stringBuffer.append("->");
                 stringBuffer.append(instance.getClass().getName());
 
-                LogUtil.put(LogFactory.getInstance(
-                    stringBuffer.toString(), this, "getInstance(HashMap, PageContext)", e));
+                final CommonStrings commonStrings = CommonStrings.getInstance();
+                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.GET_INSTANCE, e));
             }
             throw e;
         } catch (Exception e)
         {
-            //final String error = "Failed To Get Instance";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
             {
@@ -89,8 +88,8 @@ public class TagWorkFlowFactory
                 stringBuffer.append("->");
                 stringBuffer.append(instance.getClass().getName());
 
-                LogUtil.put(LogFactory.getInstance(
-                    stringBuffer.toString(), this, "getInstance(HashMap, PageContext)", e));
+                final CommonStrings commonStrings = CommonStrings.getInstance();
+                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.GET_INSTANCE, e));
             }
             throw e;
         }

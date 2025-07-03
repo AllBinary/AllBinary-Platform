@@ -81,7 +81,7 @@ public class InsertHeaderValidationView extends TopBarView implements Validation
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("topbarValidation",this,"isValid()"));
+            LogUtil.put(LogFactory.getInstance("topbarValidation",this,commonStrings.IS_VALID));
          }
          
          Boolean isValid = this.heading.isValid();
@@ -99,7 +99,7 @@ public class InsertHeaderValidationView extends TopBarView implements Validation
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate",this,"isValid()",e));
+            LogUtil.put(LogFactory.getInstance("Failed to validate",this,commonStrings.IS_VALID,e));
          }
          return Boolean.FALSE;
       }

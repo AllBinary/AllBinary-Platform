@@ -17,7 +17,6 @@ import admin.taghelpers.TagHelperFactoryInterface;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.string.CommonStrings;
 
 public class HelperTag extends PropertiesTag
 {    
@@ -29,7 +28,7 @@ public class HelperTag extends PropertiesTag
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
       {
-    	  LogUtil.put(LogFactory.getInstance(commonStrings.CONSTRUCTOR, this, "HelperTag(TagHelperFactoryInterface)"));
+    	  LogUtil.put(LogFactory.getInstance(commonStrings.START, this, this.commonStrings.CONSTRUCTOR));
       }
 
       this.tagHelperFactoryInterface = tagHelperFactoryInterface;

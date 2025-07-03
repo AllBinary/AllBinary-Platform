@@ -37,7 +37,7 @@ import org.allbinary.logic.visual.transform.info.TransformInfosData;
 import org.allbinary.string.CommonStrings;
 
 public class StoreFileGenerator 
-    implements TransformInfoObjectConfigGeneratorInterface
+    extends TransformInfoObjectConfigGenerator
 {
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
@@ -143,7 +143,7 @@ public class StoreFileGenerator
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            LogUtil.put(LogFactory.getInstance("Processing", this, "process()"));
+            LogUtil.put(LogFactory.getInstance("Processing", this, commonStrings.PROCESS));
         }
 
         if (!this.file.exists())
@@ -163,7 +163,7 @@ public class StoreFileGenerator
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            LogUtil.put(LogFactory.getInstance("Processed", this, "process()"));
+            LogUtil.put(LogFactory.getInstance("Processed", this, commonStrings.PROCESS));
         }
 
         return StringUtil.getInstance().EMPTY_STRING;

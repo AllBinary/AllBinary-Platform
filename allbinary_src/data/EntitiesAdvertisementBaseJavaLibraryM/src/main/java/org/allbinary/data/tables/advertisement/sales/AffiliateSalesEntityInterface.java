@@ -13,12 +13,12 @@
 */
 package org.allbinary.data.tables.advertisement.sales;
 
-import org.allbinary.data.tables.BasicTableInterface;
 
 import java.util.HashMap;
 import java.util.Vector;
+import org.allbinary.data.tables.BasicDataTableInterface;
 
-public interface AffiliateSalesEntityInterface extends BasicTableInterface
+public interface AffiliateSalesEntityInterface extends BasicDataTableInterface
 {      
    //public AffiliatesInterface get(String name);
    

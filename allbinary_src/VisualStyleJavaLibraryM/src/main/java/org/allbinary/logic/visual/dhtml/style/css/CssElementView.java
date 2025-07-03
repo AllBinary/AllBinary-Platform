@@ -90,13 +90,11 @@ public class CssElementView implements DomNodeInterface
          }
          else
          {
-            this.description = "";
+            this.description = StringUtil.getInstance().EMPTY_STRING;
          }
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-             final CommonStrings commonStrings = CommonStrings.getInstance();
-
             LogUtil.put(LogFactory.getInstance(new StringMaker().append("Value: ").append(this.value).append("\nTitle: ").append(this.title).append("\nDescription: ").append(this.description).toString(), this, commonStrings.CONSTRUCTOR));
          }
          

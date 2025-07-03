@@ -15,8 +15,6 @@ package org.allbinary.business.category.properties;
 
 
 
-import org.allbinary.business.category.properties.CategoryPropertiesView;
-import org.allbinary.business.category.properties.CategoryPropertiesInterface;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.validate.ValidationInterface;
@@ -24,7 +22,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 public class CategoryPropertiesValidationView extends CategoryPropertiesView 
-   implements ValidationInterface
+    implements ValidationInterface
 {
    public CategoryPropertiesValidationView(CategoryPropertiesInterface categoryPropertiesInterface)
    {

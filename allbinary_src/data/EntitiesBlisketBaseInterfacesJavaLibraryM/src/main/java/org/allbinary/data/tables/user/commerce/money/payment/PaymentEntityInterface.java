@@ -14,11 +14,11 @@
 package org.allbinary.data.tables.user.commerce.money.payment;
 
 import org.allbinary.business.user.commerce.money.payment.PaymentInterface;
-import org.allbinary.data.tables.BasicTableInterface;
 
 import java.util.Vector;
+import org.allbinary.data.tables.BasicDataTableInterface;
 
-public interface PaymentEntityInterface extends BasicTableInterface
+public interface PaymentEntityInterface extends BasicDataTableInterface
 {         
    public String getLastId(String userName);
    

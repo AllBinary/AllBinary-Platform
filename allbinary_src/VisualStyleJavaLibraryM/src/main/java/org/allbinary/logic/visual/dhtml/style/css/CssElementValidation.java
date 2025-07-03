@@ -46,7 +46,7 @@ public class CssElementValidation extends CssElementView implements ValidationIn
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("CssElementValidation",this,"isValid()"));
+            LogUtil.put(LogFactory.getInstance("CssElementValidation",this,commonStrings.IS_VALID));
          }
 
          /*
@@ -70,7 +70,7 @@ public class CssElementValidation extends CssElementView implements ValidationIn
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("CssElementValidation: " + valid,this,"isValid()"));
+            LogUtil.put(LogFactory.getInstance("CssElementValidation: " + valid,this,commonStrings.IS_VALID));
          }
          
          return valid;
@@ -79,7 +79,7 @@ public class CssElementValidation extends CssElementView implements ValidationIn
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate data",this,"isValid()",e));
+            LogUtil.put(LogFactory.getInstance("Failed to validate data",this,commonStrings.IS_VALID,e));
          }
          return Boolean.FALSE;
       }

@@ -13,11 +13,11 @@
 */
 package org.allbinary.business.user.commerce.money.payment;
 
-import org.allbinary.business.user.commerce.money.payment.PaymentInterface;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
 import javax.servlet.ServletRequest;
+import org.allbinary.string.CommonStrings;
 
 //import org.allbinary.logic.java.proxy.InterfaceCastProxy;
 
@@ -42,20 +42,20 @@ public class PaymentFactory
       /*
       catch(LicensingException e)
       {
-         String error = "Failed to get instance";
+         final CommonStrings commonStrings = CommonStrings.getInstance();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FACTORYERROR))
          {
-            LogUtil.put(error,"PaymentFactory","getInstance()",e);
+            LogUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE,e);
          }
          throw e;
       }
        */
       catch(Exception e)
       {
-         String error = "Failed to get instance";
+         final CommonStrings commonStrings = CommonStrings.getInstance();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, "PaymentFactory", "getInstance()", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "PaymentFactory", commonStrings.GET_INSTANCE, e));
          }
          return null;
       }

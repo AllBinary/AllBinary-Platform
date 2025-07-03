@@ -29,7 +29,7 @@ import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.sql.SqlStrings;
 
 public class TableTag extends PropertiesTag
-//implements TableInterface
+//extends Table
 {        
     private String enabled;
     private TagHelperFactoryInterface tagHelperFactoryInterface;
@@ -43,7 +43,7 @@ public class TableTag extends PropertiesTag
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
         {
-            LogUtil.put(LogFactory.getInstance("Tag Constructed", this, "TableTag()"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR));
         }
     }
 
@@ -129,7 +129,7 @@ public class TableTag extends PropertiesTag
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "drop()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.DROP, e));
             }
 
             return error;
@@ -154,7 +154,7 @@ public class TableTag extends PropertiesTag
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "create()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "create()", e));
             }
 
             return error;
@@ -179,7 +179,7 @@ public class TableTag extends PropertiesTag
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "restore()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "restore()", e));
             }
 
             return error;
@@ -204,7 +204,7 @@ public class TableTag extends PropertiesTag
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "backup()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "backup()", e));
             }
 
             return error;
@@ -226,7 +226,7 @@ public class TableTag extends PropertiesTag
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "insert()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "insert()", e));
             }
             return error;
         }
@@ -247,7 +247,7 @@ public class TableTag extends PropertiesTag
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "delete()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "delete()", e));
             }
             return error;
         }
@@ -274,7 +274,7 @@ public class TableTag extends PropertiesTag
 
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
     {
-    LogUtil.put(LogFactory.getInstance(error,this,"view()",e);
+    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"view()",e);
     }
     return error;
     }
@@ -300,7 +300,7 @@ public class TableTag extends PropertiesTag
 
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
     {
-    LogUtil.put(LogFactory.getInstance(error,this,"editPricing()",e);
+    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"editPricing()",e);
     }
     return error;
     }
@@ -321,7 +321,7 @@ public class TableTag extends PropertiesTag
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "update()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "update()", e));
             }
             return error;
         }

@@ -18,9 +18,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.util.cache.CacheInterface;
 import org.allbinary.logic.util.cache.CacheInterfaceFactory;
-import org.allbinary.logic.util.cache.CachePolicy;
 import org.allbinary.logic.util.cache.CachePolicyFactory;
-import org.allbinary.logic.util.cache.CacheType;
 import org.allbinary.logic.util.cache.CacheTypeFactory;
 
 public class AllMotionRectanglesResultsCacheSingleton
@@ -30,18 +28,20 @@ public class AllMotionRectanglesResultsCacheSingleton
     static
     {
         final CommonStrings commonStrings = CommonStrings.getInstance();
+        final String STATIC_BLOCK = "Static Block";
+        final String instance = "MotionRectanglesResultsCacheSingleton";
         try
         {
             
-            LogUtil.put(LogFactory.getInstance(commonStrings.START, "MotionRectanglesResultsCacheSingleton", "Static Block"));
+            LogUtil.put(LogFactory.getInstance(commonStrings.START, instance, STATIC_BLOCK));
             
             cacheInterface = CacheInterfaceFactory.getInstance(CacheTypeFactory.getInstance().CACHE, CachePolicyFactory.getInstance().ONE_MINUTE_FIVE_MAX);
             
-            LogUtil.put(LogFactory.getInstance(commonStrings.END, "MotionRectanglesResultsCacheSingleton", "Static Block"));
+            LogUtil.put(LogFactory.getInstance(commonStrings.END, instance, STATIC_BLOCK));
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "MotionRectanglesResultsCacheSingleton", "Static Block", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, instance, STATIC_BLOCK, e));
         }
     }
     

@@ -16,12 +16,12 @@ package org.allbinary.data.tables.user.commerce.inventory.item;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.commerce.inventory.item.ItemInterface;
 import org.allbinary.business.user.commerce.money.MoneyException;
-import org.allbinary.data.tables.BasicTableInterface;
 
 import java.util.HashMap;
 import java.util.Vector;
+import org.allbinary.data.tables.BasicDataTableInterface;
 
-public interface InventoryEntityInterface extends BasicTableInterface
+public interface InventoryEntityInterface extends BasicDataTableInterface
 {      
    public ItemInterface getItem(String id) throws MoneyException;
    public Vector getItems(StoreFrontInterface storeFrontInterface) throws Exception;

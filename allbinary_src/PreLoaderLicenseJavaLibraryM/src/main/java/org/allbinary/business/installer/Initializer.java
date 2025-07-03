@@ -26,6 +26,7 @@ import org.allbinary.business.init.db.UserDbInitInfo;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
 
 public class Initializer
 {
@@ -172,7 +173,8 @@ public class Initializer
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADERERROR))
             {
-                LogUtil.put(LogFactory.getInstance("Failed", this, "isValid", e));
+                final CommonStrings commonStrings = CommonStrings.getInstance();
+                LogUtil.put(LogFactory.getInstance("Failed", this, commonStrings.IS_VALID, e));
             }
             return false;
         }

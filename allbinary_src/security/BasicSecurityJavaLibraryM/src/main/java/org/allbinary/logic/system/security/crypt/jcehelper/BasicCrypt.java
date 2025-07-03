@@ -16,6 +16,7 @@ package org.allbinary.logic.system.security.crypt.jcehelper;
 import org.allbinary.init.crypt.jcehelper.CryptInterface;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.java.byteutil.ByteUtil;
+import org.allbinary.string.CommonStrings;
 
 public class BasicCrypt implements CryptInterface
 {
@@ -32,7 +33,8 @@ public class BasicCrypt implements CryptInterface
         {
             //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CRYPTERROR))
             //{
-            PreLogUtil.put("constructor Failed", this, "AbCrypt(alg,key)", e);
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            PreLogUtil.put(commonStrings.EXCEPTION, this, "AbCrypt(alg,key)", e);
             //}
         }
     }

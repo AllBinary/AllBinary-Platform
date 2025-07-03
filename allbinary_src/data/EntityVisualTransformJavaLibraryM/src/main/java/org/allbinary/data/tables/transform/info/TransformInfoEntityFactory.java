@@ -16,8 +16,9 @@ package org.allbinary.data.tables.transform.info;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoFactoryInterface;
-import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigAndManipulatorFactoryInterface;
+import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigAndManipulatorFactoryBase;
 import org.allbinary.logic.visual.transform.info.objectConfig.generator.TransformInfoObjectConfigGeneratorFactoryInterface;
+import org.allbinary.string.CommonStrings;
 
 public class TransformInfoEntityFactory
 {
@@ -27,7 +28,7 @@ public class TransformInfoEntityFactory
    
    public static TransformInfoEntity getInstance(
        TransformInfoObjectConfigGeneratorFactoryInterface transformInfoObjectConfigGeneratorFactoryInterface,
-       TransformInfoObjectConfigAndManipulatorFactoryInterface transformInfoObjectConfigAndManipulatorFactoryInterface,
+       TransformInfoObjectConfigAndManipulatorFactoryBase transformInfoObjectConfigAndManipulatorFactoryInterface,
        TransformInfoFactoryInterface transformInfoFactoryInterface
         ) //throws LicensingException
    {
@@ -44,20 +45,20 @@ public class TransformInfoEntityFactory
       /*
       catch(LicensingException e)
       {
-         String error = "Failed to get instance";
+         final CommonStrings commonStrings = CommonStrings.getInstance();
          if(allbinary.globals.LOG.LOGGING.contains(allbinary.globals.LOG.ENTITYFACTORYERROR))
          {
-            LogUtil.put(error,"StoreFrontsEntityFactory","getInstance()",e);
+            LogUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE,e);
          }
          throw e;
       } 
        */  
       catch(Exception e)
       {
-         String error = "Failed to get instance";
+         final CommonStrings commonStrings = CommonStrings.getInstance();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, "TransformInfoEntityFactory", "getInstance()", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "TransformInfoEntityFactory", commonStrings.GET_INSTANCE, e));
          }
          return null;
       }   

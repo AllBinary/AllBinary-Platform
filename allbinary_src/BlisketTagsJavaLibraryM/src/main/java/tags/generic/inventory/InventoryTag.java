@@ -60,7 +60,7 @@ public class InventoryTag extends StoreValidationTransformTag
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"search()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"search()",e));
          }
          try
          {
@@ -100,7 +100,7 @@ public class InventoryTag extends StoreValidationTransformTag
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"viewSummary()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"viewSummary()",e));
          }
          try
          {

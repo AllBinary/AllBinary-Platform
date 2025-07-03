@@ -1149,6 +1149,8 @@ public class NoDecimalTrigTable
     
     public int SCALE = 10000;
     
+    //private final String ANTITAN = "antiTan";
+    
     public short antiTan(int dx, int dy)
        throws Exception
     {
@@ -1161,11 +1163,11 @@ public class NoDecimalTrigTable
             //Major bug in Android?
             if(dx <= 0 && dy < 0)
             {
-            	//PreLogUtil.put("How is dx or dy not negative? " + PositionStrings + dx + PositionStrings + dy, this, "antiTan");
+            	//PreLogUtil.put("How is dx or dy not negative? " + PositionStrings + dx + PositionStrings + dy, this, ANTITAN);
             	ratio = mathUtil.abs(ratio);
             }
 
-            //LogUtil.put(LogFactory.getInstance("ratioUnscaled: " + ratioUnscaled, this, "antiTan"));
+            //LogUtil.put(LogFactory.getInstance("ratioUnscaled: " + ratioUnscaled, this, ANTITAN));
         }
 
         if ((dx >= 0 && dy < 0))
@@ -1176,7 +1178,7 @@ public class NoDecimalTrigTable
                 {
                     if(ratio > noDecimalTan[index - 1])
                     {
-                        //LogUtil.put(LogFactory.getInstance(Integer.toString(result), "", "antiTan"))
+                        //LogUtil.put(LogFactory.getInstance(Integer.toString(result), "", ANTITAN))
                         return index;
                     }
                     else
@@ -1194,7 +1196,7 @@ public class NoDecimalTrigTable
             {
                 if (ratio < noDecimalTan[index] && ratio >= noDecimalTan[index - 1])
                 {
-                    //LogUtil.put(LogFactory.getInstance(Integer.toString(result), "", "antiTan"))
+                    //LogUtil.put(LogFactory.getInstance(Integer.toString(result), "", ANTITAN))
                     return index;
                 }
             }
@@ -1208,7 +1210,7 @@ public class NoDecimalTrigTable
                 {
                     if(ratio >= noDecimalTan[index - 1])
                     {
-                        //LogUtil.put(LogFactory.getInstance(Integer.toString(result), "", "antiTan"))
+                        //LogUtil.put(LogFactory.getInstance(Integer.toString(result), "", ANTITAN))
                         return index;
                     }
                     else
@@ -1226,7 +1228,7 @@ public class NoDecimalTrigTable
             {
                 if (ratio < noDecimalTan[index] && ratio >= noDecimalTan[index - 1])
                 {
-                    //LogUtil.put(LogFactory.getInstance(Integer.toString(result), "", "antiTan"))
+                    //LogUtil.put(LogFactory.getInstance(Integer.toString(result), "", ANTITAN))
                     return index;
                 }
             }

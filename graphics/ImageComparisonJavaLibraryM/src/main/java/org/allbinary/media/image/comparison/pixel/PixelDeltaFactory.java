@@ -32,19 +32,22 @@ public class PixelDeltaFactory
     static
     {
         final CommonStrings commonStrings = CommonStrings.getInstance();
+        final String STATIC_BLOCK = "Static Block";
+        final String instance = "PixelDeltaFactory";
+        
         try
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.START, "PixelDeltaFactory", "Static Block"));
+            LogUtil.put(LogFactory.getInstance(commonStrings.START, instance, STATIC_BLOCK));
             
             cacheInterface = (AutomaticCacheInterface) 
                     CacheInterfaceFactory.getInstance(CacheTypeFactory.getInstance().CACHE, 
                 CachePolicyFactory.getInstance().THIRTY_MINUTES_TEN_THOUSAND_MAX);
             
-            LogUtil.put(LogFactory.getInstance(commonStrings.END, "PixelDeltaFactory", "Static Block"));
+            LogUtil.put(LogFactory.getInstance(commonStrings.END, instance, STATIC_BLOCK));
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "PixelDeltaFactory", "Static Block", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, instance, STATIC_BLOCK, e));
         }
     }
     

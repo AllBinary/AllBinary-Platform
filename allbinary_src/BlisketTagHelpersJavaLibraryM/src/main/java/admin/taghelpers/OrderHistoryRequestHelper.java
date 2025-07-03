@@ -36,7 +36,7 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
 public class OrderHistoryRequestHelper
-    implements TagHelperInterface
+    extends TagHelper
 {
     private final AbeClientInformationInterface abeClientInformation = 
         ServiceClientInformationInterfaceFactory.getInstance();
@@ -113,7 +113,7 @@ public class OrderHistoryRequestHelper
          String error = "Failed to set order status";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"setOrderStatus()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"setOrderStatus()",e));
          }
          return error;
       }
@@ -144,7 +144,7 @@ public class OrderHistoryRequestHelper
          String error = "Failed to view order table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"setOrderStatus(newStatus)",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"setOrderStatus(newStatus)",e));
          }
          return error;
       }
@@ -170,7 +170,7 @@ public class OrderHistoryRequestHelper
          String error = "Failed to set Payment Method";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"setPaymentMethod()",e);
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"setPaymentMethod()",e);
          }
          return error;
       }

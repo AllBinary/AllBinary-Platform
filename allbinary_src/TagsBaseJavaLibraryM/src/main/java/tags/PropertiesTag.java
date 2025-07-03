@@ -26,7 +26,7 @@ public class PropertiesTag extends CommandTag
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
       {
-         LogUtil.put(LogFactory.getInstance("Tag Constructed", this, this.commonStrings.CONSTRUCTOR));
+         LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR));
       }
       this.propertiesHashMap = new HashMap();
    }

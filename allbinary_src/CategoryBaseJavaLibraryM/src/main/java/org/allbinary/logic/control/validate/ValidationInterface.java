@@ -19,11 +19,11 @@ import org.w3c.dom.Node;
 public interface ValidationInterface
 {
    //Form or other data validation 
-   public Boolean isValid() throws Exception;
+   Boolean isValid() throws Exception;
 
-   public Node toValidationInfoNode(Document document) throws Exception;
+   Node toValidationInfoNode(Document document) throws Exception;
 
-   public Document toValidationInfoDoc() throws Exception;
+   Document toValidationInfoDoc() throws Exception;
 
-   public String validationInfo() throws Exception;
+   String validationInfo() throws Exception;
 }

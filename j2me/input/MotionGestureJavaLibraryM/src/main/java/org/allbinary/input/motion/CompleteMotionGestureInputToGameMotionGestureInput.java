@@ -102,7 +102,7 @@ public class CompleteMotionGestureInputToGameMotionGestureInput
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,"CompleteMotionGestureInputToGameMotionGestureInput", commonStrings.INIT, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.INIT, e));
         }
     }
 }

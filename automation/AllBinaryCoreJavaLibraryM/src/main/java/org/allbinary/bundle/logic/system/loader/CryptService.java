@@ -75,9 +75,7 @@ public class CryptService
    {
       try
       {
-         String error = "Licensing Exception";
-
-         LogUtil.put(LogFactory.getInstance(error, this, this.commonStrings.INIT, e));
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, this.commonStrings.INIT, e));
 
          final BasicTextJDialog basicTextJDialog = new BasicTextJDialog(e.getMessage());
 
@@ -94,15 +92,14 @@ public class CryptService
             }
          } catch (LicensingException e2)
          {
-            LogUtil.put(LogFactory.getInstance(error, this, this.commonStrings.INIT, e2));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, this.commonStrings.INIT, e2));
          }
 
          basicTextJDialog.addCloseListener(new ExitCloseListener());
          basicTextJDialog.setVisible(true);
       } catch (Exception e3)
       {
-         String error = "Error";
-         LogUtil.put(LogFactory.getInstance(error, this, this.commonStrings.INIT, e3));
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, this.commonStrings.INIT, e3));
       }
    }
 }

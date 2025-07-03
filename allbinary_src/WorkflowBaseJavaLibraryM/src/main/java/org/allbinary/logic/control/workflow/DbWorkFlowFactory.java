@@ -21,6 +21,7 @@ import org.allbinary.business.DynamicObjectData;
 
 import java.util.HashMap;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.string.CommonStrings;
 
 public class DbWorkFlowFactory
 {
@@ -60,8 +61,9 @@ public class DbWorkFlowFactory
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
-        	 String error = "Failed To Get Instance Args: HashMap=" + hashMap.toString();
-            LogUtil.put(LogFactory.getInstance(error, this, "getInstance(HashMap)",e));
+        	 //String error = "Failed To Get Instance Args: HashMap=" + hashMap.toString();
+             final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getInstance(HashMap)",e));
          }
          throw e;
       }
@@ -70,9 +72,8 @@ public class DbWorkFlowFactory
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
-        	 String error = "Failed To Get Instance";
-        	 
-            LogUtil.put(LogFactory.getInstance(error, this, "getInstance(HashMap)",e));
+             final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getInstance(HashMap)",e));
          }
          throw e;
       }

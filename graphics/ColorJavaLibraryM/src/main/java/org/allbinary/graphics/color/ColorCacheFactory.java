@@ -29,22 +29,23 @@ public class ColorCacheFactory
     
     static
     {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+        final String STATIC_BLOCK = "Static Block";
+
         try
-        {
-            final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.START, ColorCacheFactory.class, "Static Block"));
+        {            
+            LogUtil.put(LogFactory.getInstance(commonStrings.START, ColorCacheFactory.class, STATIC_BLOCK));
             
             cacheInterface = AutomaticCacheInterfaceFactory.getInstance(
                 new ColorCacheableFactory(),
                 CacheTypeFactory.getInstance().CACHE, 
                 CachePolicyFactory.getInstance().THIRTY_MINUTES_TEN_THOUSAND_MAX);
             
-            LogUtil.put(LogFactory.getInstance("End", ColorCacheFactory.class, "Static Block"));
+            LogUtil.put(LogFactory.getInstance(commonStrings.END, ColorCacheFactory.class, STATIC_BLOCK));
         }
         catch(Exception e)
         {
-            final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, ColorCacheFactory.class, "Static Block", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, ColorCacheFactory.class, STATIC_BLOCK, e));
         }
     }
     

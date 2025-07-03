@@ -62,7 +62,7 @@ public class InsertCssValidationView extends CssCustomizerView implements Valida
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("Started Validation",this,"isValid()"));
+            LogUtil.put(LogFactory.getInstance("Started Validation",this,commonStrings.IS_VALID));
          }
 
         //Boolean isValid = this.body.isValid();
@@ -81,7 +81,7 @@ public class InsertCssValidationView extends CssCustomizerView implements Valida
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate",this,"isValid()",e));
+            LogUtil.put(LogFactory.getInstance("Failed to validate",this,commonStrings.IS_VALID,e));
          }
          return Boolean.FALSE;
       }
@@ -125,10 +125,9 @@ public class InsertCssValidationView extends CssCustomizerView implements Valida
       }
       catch(Exception e)
       {
-         String error = "Failed to view";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"view()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"view()",e));
          }
          throw e;
       }

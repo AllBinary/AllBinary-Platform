@@ -20,9 +20,12 @@ import javax.servlet.jsp.PageContext;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import java.util.HashMap;
+import org.allbinary.string.CommonStrings;
 
 public class CustomLoaderHelper
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    public CustomLoaderHelper(HashMap hashMap, PageContext pageContext)
    {
    }
@@ -40,10 +43,9 @@ public class CustomLoaderHelper
       catch(Exception e)
       {
          /*
-         String error = "Failed to getWebappPath";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(error,this,"getWebappPath()",e);
+            LogUtil.put(commonStrings.EXCEPTION,this,"getWebappPath()",e);
          }*/
          return null;
       }
@@ -59,10 +61,9 @@ public class CustomLoaderHelper
       }
       catch(Exception e)
       {         
-         String error = "Failed to getWebappPath";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"setWebappPath()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"setWebappPath()",e));
          }
       }
    }

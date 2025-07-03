@@ -30,7 +30,7 @@ import org.allbinary.business.user.commerce.shipping.ShippingMethodData;
 import org.allbinary.data.tables.user.commerce.inventory.order.OrderItemsEntityFactory;
 
 public class OrderItemsRequestHelper
-    implements TagHelperInterface
+    extends TagHelper
 {
 
    private HttpServletRequest request;
@@ -71,7 +71,7 @@ public class OrderItemsRequestHelper
          String error = "Failed to view order table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"setOrderStatus(newStatus)",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"setOrderStatus(newStatus)",e));
          }
          return error;         
       }
@@ -95,7 +95,7 @@ public class OrderItemsRequestHelper
          String error = "Failed to view order table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"setOrderStatus(newStatus)",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"setOrderStatus(newStatus)",e));
          }
          return error;         
       }

@@ -14,13 +14,13 @@
 package org.allbinary.data.tables.context.module.storefronts;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
-import org.allbinary.data.tables.BasicTableInterface;
 
 import java.util.HashMap;
 import java.util.Vector;
+import org.allbinary.data.tables.BasicDataTableInterface;
 
 public interface StoreFrontsEntityInterface 
-   extends BasicTableInterface
+   extends BasicDataTableInterface
 {
    public StoreFrontInterface getStoreFrontInterface(String name) throws Exception;
       

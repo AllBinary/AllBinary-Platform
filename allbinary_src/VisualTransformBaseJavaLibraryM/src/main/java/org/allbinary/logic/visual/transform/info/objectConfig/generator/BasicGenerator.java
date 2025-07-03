@@ -17,7 +17,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
 public class BasicGenerator 
-   implements TransformInfoObjectConfigGeneratorInterface
+   extends TransformInfoObjectConfigGenerator
 {
    public BasicGenerator()
    {
@@ -28,7 +28,7 @@ public class BasicGenerator
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("Processing", this, "process()"));
+         LogUtil.put(LogFactory.getInstance("Processing", this, commonStrings.PROCESS));
       }      
       return input;
    }

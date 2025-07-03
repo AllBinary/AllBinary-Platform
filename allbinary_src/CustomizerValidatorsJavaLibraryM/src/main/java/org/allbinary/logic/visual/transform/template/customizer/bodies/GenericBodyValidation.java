@@ -15,6 +15,10 @@ package org.allbinary.logic.visual.transform.template.customizer.bodies;
 
 import java.util.HashMap;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -22,19 +26,13 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tree.dom.DomData;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
-import org.allbinary.logic.control.validate.ValidationInterface;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.sql.AbSqlData;
+import org.allbinary.logic.control.validate.Validation;
 import org.allbinary.logic.string.StringUtil;
-import org.allbinary.string.CommonStrings;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
-public class GenericBodyValidation implements ValidationInterface, DomNodeInterface
+public class GenericBodyValidation extends Validation implements DomNodeInterface
 {
-    protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
    private String body;
 
@@ -77,7 +75,7 @@ public class GenericBodyValidation implements ValidationInterface, DomNodeInterf
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "isValid()"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, commonStrings.IS_VALID));
          }
 
          if(!StringValidationUtil.getInstance().isValidNotRequired(this.body, BodyData.getInstance().MIN, AbSqlData.MAXBLOB))
@@ -87,7 +85,7 @@ public class GenericBodyValidation implements ValidationInterface, DomNodeInterf
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("BodyValidation: " + isValid, this, "isValid()"));
+            LogUtil.put(LogFactory.getInstance("BodyValidation: " + isValid, this, commonStrings.IS_VALID));
          }
          
          return isValid;
@@ -96,7 +94,7 @@ public class GenericBodyValidation implements ValidationInterface, DomNodeInterf
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate form", this, "isValid()", e));
+            LogUtil.put(LogFactory.getInstance("Failed to validate form", this, commonStrings.IS_VALID, e));
          }
          return Boolean.FALSE;
       }

@@ -26,11 +26,13 @@ import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.log.LogFactory;
 
+import tags.CustomTagSupport;
+
 import java.util.HashMap;
 import javax.servlet.jsp.JspTagException;
-import javax.servlet.jsp.tagext.TagSupport;
 
-public class ShippingTag extends TagSupport
+
+public class ShippingTag extends CustomTagSupport
 {
    private String command;  
    private String storeName;   
@@ -74,7 +76,7 @@ public class ShippingTag extends TagSupport
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"setShippingType()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"setShippingType()",e));
          }
          return error;
       }

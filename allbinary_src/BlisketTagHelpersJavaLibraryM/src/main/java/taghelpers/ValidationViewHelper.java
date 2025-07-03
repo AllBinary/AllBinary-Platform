@@ -36,7 +36,7 @@ public class ValidationViewHelper extends ViewHelper implements ValidationCompon
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
       {
-         LogUtil.put(LogFactory.getInstance("Constructed",this,this.commonStrings.CONSTRUCTOR));
+         LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this,this.commonStrings.CONSTRUCTOR));
       }      
    }
          
@@ -46,21 +46,21 @@ public class ValidationViewHelper extends ViewHelper implements ValidationCompon
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
          {
-            LogUtil.put(LogFactory.getInstance("Started",this,"isValid()"));
+            LogUtil.put(LogFactory.getInstance("Started",this,commonStrings.IS_VALID));
          }      
          
          return viewInterface.isValid();
       }
       catch(Exception e)
       {
-         String error = "Failed to check valid value: ";
+         //String error = "Failed to check valid value: ";
          //if(this.getTransformInfoFactoryInterface()!=null) error += this.getTransformInfoFactoryInterface().getName();
          //else 
-            error += "Unknown";
+            //error += "Unknown";
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"isValid()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,commonStrings.IS_VALID,e));
          }
          return Boolean.FALSE;
       }
@@ -74,15 +74,15 @@ public class ValidationViewHelper extends ViewHelper implements ValidationCompon
       }
       catch(Exception e)
       {
-         String error = "Failed to retrieve validation info for: ";
+         //String error = "Failed to retrieve validation info for: ";
          //if(this.getTransformInfoFactoryInterface()!=null) 
            // error += this.getTransformInfoFactoryInterface().getName();
          //else 
-            error += "Unknown";
+            //error += "Unknown";
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"validationInfo()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"validationInfo()",e));
          }
          return "Unknown Validation Error";
       }
@@ -96,15 +96,15 @@ public class ValidationViewHelper extends ViewHelper implements ValidationCompon
       }
       catch(Exception e)
       {
-         String error = "Failed to get validation info doc for: ";
+         //String error = "Failed to get validation info doc for: ";
          //if(this.getTransformInfoFactoryInterface()!=null) 
            // error += this.getTransformInfoFactoryInterface().getName();
          //else 
-         error += "Unknown";
+         //error += "Unknown";
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"toValidationInfoDoc()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"toValidationInfoDoc()",e));
          }
          return null;
       }
@@ -118,15 +118,15 @@ public class ValidationViewHelper extends ViewHelper implements ValidationCompon
       }
       catch(Exception e)
       {
-         String error = "Failed to get validation node for: ";
+         //String error = "Failed to get validation node for: ";
          //if(this.getTransformInfoFactoryInterface()!=null) 
            // error += this.getTransformInfoFactoryInterface().getName();
          //else 
-            error += "Unknown";
+            //error += "Unknown";
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"toValidationInfoNode()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"toValidationInfoNode()",e));
          }
          return null;
       }

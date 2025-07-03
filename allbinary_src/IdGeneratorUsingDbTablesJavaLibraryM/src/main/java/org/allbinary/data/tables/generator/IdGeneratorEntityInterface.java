@@ -18,9 +18,9 @@ package org.allbinary.data.tables.generator;
 
 import java.util.HashMap;
 import java.util.Vector;
-import org.allbinary.data.tables.BasicTableInterface;
+import org.allbinary.data.tables.BasicDataTableInterface;
 
-public interface IdGeneratorEntityInterface extends BasicTableInterface
+public interface IdGeneratorEntityInterface extends BasicDataTableInterface
 {
    public Long get(String name) throws Exception;
 

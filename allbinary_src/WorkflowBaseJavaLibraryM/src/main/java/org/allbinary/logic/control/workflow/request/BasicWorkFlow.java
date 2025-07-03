@@ -32,6 +32,7 @@ import java.util.Set;
 import java.util.Vector;
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.logic.control.workflow.WorkFlowData;
+import org.allbinary.string.CommonStrings;
 
 /*
  *This basic workflow is the workflow representation for the workflow Dom
@@ -40,6 +41,8 @@ import org.allbinary.logic.control.workflow.WorkFlowData;
  */
 public class BasicWorkFlow 
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private Document workFlowDoc;
    private String workFlowName;
    private String storeName;   
@@ -104,10 +107,9 @@ public class BasicWorkFlow
       }
       catch(Exception e)
       {
-         String error = "Failed to process workflow";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(error,this,"process()",e);
+            LogUtil.put(commonStrings.EXCEPTION,this,commonStrings.PROCESS,e);
          }
          return null;
       }
@@ -175,10 +177,9 @@ public class BasicWorkFlow
       }
       catch(Exception e)
       {
-         String error = "Failed to get node";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "toXmlNode()", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "toXmlNode()", e));
          }
          return null;
       }
@@ -192,10 +193,9 @@ public class BasicWorkFlow
       }
       catch(Exception e)
       {
-         String error = "Failed to get Doc";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"toXmlDoc()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"toXmlDoc()",e));
          }
          return null;
       }
@@ -213,7 +213,7 @@ public class BasicWorkFlow
          String error = "Failed to view WorkFlow";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(error,this,"view()",e);
+            LogUtil.put(commonStrings.EXCEPTION,this,"view()",e);
          }
          return error;
       }
@@ -237,7 +237,7 @@ public class BasicWorkFlow
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate",this,"isValid()",e));
+            LogUtil.put(LogFactory.getInstance("Failed to validate",this,commonStrings.IS_VALID,e));
          }
          return Boolean.FALSE;
       }

@@ -226,7 +226,7 @@ public class ThemeValidation
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START,this,"isValid()"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START,this,commonStrings.IS_VALID));
          }
 
          if(!StringValidationUtil.getInstance().isValidRequired(
@@ -248,7 +248,7 @@ public class ThemeValidation
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("End: " + isValid, this, "isValid()"));
+            LogUtil.put(LogFactory.getInstance("End: " + isValid, this, commonStrings.IS_VALID));
          }
          
          return isValid;
@@ -257,7 +257,7 @@ public class ThemeValidation
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate form",this,"isValid()",e));
+            LogUtil.put(LogFactory.getInstance("Failed to validate form",this,commonStrings.IS_VALID,e));
          }
          return Boolean.FALSE;
       }

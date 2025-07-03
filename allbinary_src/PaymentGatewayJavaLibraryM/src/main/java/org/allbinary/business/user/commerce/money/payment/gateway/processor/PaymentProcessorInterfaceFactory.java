@@ -21,6 +21,7 @@ import org.allbinary.business.user.commerce.money.payment.types.PaymentType;
 import org.allbinary.business.user.commerce.money.payment.types.PaymentTypeUtil;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.string.CommonStrings;
 
 public class PaymentProcessorInterfaceFactory
 {
@@ -78,10 +79,10 @@ public class PaymentProcessorInterfaceFactory
       }
       catch(Exception e)
       {
-         String error = "Error Getting PaymentProcessorInterface";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENTERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "getInstance()", e));
+             final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
          }
          throw e;
       }

@@ -16,6 +16,7 @@ package org.allbinary.globals;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.string.CommonStrings;
 
 public class UrlGlobalsViewFactory
 {
@@ -31,10 +32,10 @@ public class UrlGlobalsViewFactory
       }
       catch(Exception e)
       {
-         String error = "Failed to get instance";
+         final CommonStrings commonStrings = CommonStrings.getInstance();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,"GlobalsViewFactory","getInstance()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "GlobalsViewFactory",commonStrings.GET_INSTANCE,e));
          }
          return null;
       }

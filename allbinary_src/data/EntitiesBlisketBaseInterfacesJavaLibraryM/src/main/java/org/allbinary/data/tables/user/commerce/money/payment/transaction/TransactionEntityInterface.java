@@ -14,9 +14,9 @@
 package org.allbinary.data.tables.user.commerce.money.payment.transaction;
 
 import org.allbinary.business.user.commerce.money.payment.gateway.transaction.PaymentTransactionInterface;
-import org.allbinary.data.tables.BasicTableInterface;
+import org.allbinary.data.tables.BasicDataTableInterface;
 
-public interface TransactionEntityInterface extends BasicTableInterface
+public interface TransactionEntityInterface extends BasicDataTableInterface
 {
    //public PaymentTransactionInterface getTransactionInterface(String storeName, String orderNumber);
    

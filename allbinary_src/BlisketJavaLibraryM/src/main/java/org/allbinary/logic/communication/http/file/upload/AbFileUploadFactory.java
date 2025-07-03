@@ -25,6 +25,7 @@ import org.apache.commons.fileupload.FileItemUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.http.AbFileItemFactory;
+import org.allbinary.string.CommonStrings;
 
 public class AbFileUploadFactory
 {
@@ -63,8 +64,8 @@ public class AbFileUploadFactory
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPERROR))
             {
-                String error = "Failed to parse Uploaded Files";
-                LogUtil.put(LogFactory.getInstance(error, this, "get()", e));
+                final CommonStrings commonStrings = CommonStrings.getInstance();
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "get()", e));
             }
             throw e;
         }
@@ -79,11 +80,10 @@ public class AbFileUploadFactory
             return abFileUpload.parseRequest(httpServletRequest);
         } catch (Exception e)
         {
-            String error = "Failed to parse Uploaded Files";
-
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "get()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "get()", e));
             }
             throw e;
         }

@@ -29,7 +29,7 @@ import org.allbinary.business.user.commerce.inventory.item.ItemInterface;
 import org.allbinary.data.tables.TableMappingInterface;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFactory;
 
-public class InventoryRequestHelper implements ModifyTableInterface
+public class InventoryRequestHelper extends ModifyTable
 {
 
     //private final PageContext pageContext;
@@ -74,7 +74,7 @@ public class InventoryRequestHelper implements ModifyTableInterface
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "insert()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "insert()", e));
             }
             return error;
         }
@@ -111,7 +111,7 @@ public class InventoryRequestHelper implements ModifyTableInterface
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "doStartTag()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "doStartTag()", e));
             }
             return error;
         }
@@ -160,7 +160,7 @@ public class InventoryRequestHelper implements ModifyTableInterface
             String error = "Failed To Update Item";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "update()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "update()", e));
             }
             return error;
         }

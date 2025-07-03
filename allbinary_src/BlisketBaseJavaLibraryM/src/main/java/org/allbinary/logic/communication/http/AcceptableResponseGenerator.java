@@ -17,6 +17,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
 import javax.servlet.http.HttpServletRequest;
+import org.allbinary.string.CommonStrings;
 
 public class AcceptableResponseGenerator
 {
@@ -32,6 +33,7 @@ public class AcceptableResponseGenerator
    
    public String get(HttpServletRequest httpServletRequest) throws Exception
    {
+      final CommonStrings commonStrings = CommonStrings.getInstance();
       try
       {
     	  AcceptableResponseUtil acceptableResponseUtil =
@@ -42,7 +44,7 @@ public class AcceptableResponseGenerator
 
          if(  org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTP))
          {
-            LogUtil.put(LogFactory.getInstance("Request Type: " + acceptable, this, "get"));
+            LogUtil.put(LogFactory.getInstance("Request Type: " + acceptable, this, commonStrings.GET));
          }
          
          if(acceptable!=null)
@@ -61,18 +63,17 @@ public class AcceptableResponseGenerator
          
          if(  org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTP))
          {
-            LogUtil.put(LogFactory.getInstance("Response Type: " + result, this, "get"));
+            LogUtil.put(LogFactory.getInstance("Response Type: " + result, this, commonStrings.GET));
          }
          
          return result;
       }
       catch(Exception e)
       {
-         String error = "Failed to get AcceptableResponse Type";
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "get", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET, e));
          }
          throw e;
       }

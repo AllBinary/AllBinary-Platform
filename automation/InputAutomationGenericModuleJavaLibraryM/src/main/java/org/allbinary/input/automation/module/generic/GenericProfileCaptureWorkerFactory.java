@@ -41,7 +41,7 @@ public class GenericProfileCaptureWorkerFactory
             GenericProfileDataWorkerType genericProfileDataWorkerType = 
                 (GenericProfileDataWorkerType) vector.get(index);
             
-            //LogUtil.put(LogFactory.getInstance("Possible Capture Type: " + genericProfileDataWorkerType, "GenericProfileCaptureWorkerFactory", "getInstance"));
+            //LogUtil.put(LogFactory.getInstance("Possible Capture Type: " + genericProfileDataWorkerType, "GenericProfileCaptureWorkerFactory", commonStrings.GET_INSTANCE));
             if(genericProfileDataWorkerType == GenericProfileDataWorkerType.SCREEN_CAPTURE)
             {
                 return new ScreenCaptureImagesWorker();

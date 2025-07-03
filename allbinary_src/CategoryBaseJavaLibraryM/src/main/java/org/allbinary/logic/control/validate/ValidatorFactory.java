@@ -42,7 +42,6 @@ public class ValidatorFactory
       }
       catch(LicensingException e)
       {
-         String error = "Failed To Get Instance";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          GLOBALS2.TAGHELPERFACTORYERROR))
          {
@@ -54,7 +53,6 @@ public class ValidatorFactory
       }
       catch(Exception e)
       {
-         String error = "Failed To Get Instance";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          GLOBALS2.TAGHELPERFACTORYERROR))
          {

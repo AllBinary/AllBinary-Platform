@@ -16,6 +16,7 @@ package org.allbinary.data.tree.category;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.category.CategoryFactoryInterface;
+import org.allbinary.string.CommonStrings;
 
 public class CategoryLoaderFactory
 {
@@ -33,10 +34,10 @@ public class CategoryLoaderFactory
       }
       catch(Exception e)
       {
-         String error = "Failed to get instance";
+         final CommonStrings commonStrings = CommonStrings.getInstance();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,"CategoryNodeFactory","getInstance()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "CategoryNodeFactory",commonStrings.GET_INSTANCE,e));
          }
          return null;
       }

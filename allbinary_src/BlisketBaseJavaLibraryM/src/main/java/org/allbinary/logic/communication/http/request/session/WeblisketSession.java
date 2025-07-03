@@ -212,6 +212,7 @@ public class WeblisketSession implements WeblisketSessionInterface
    /*
    public BasketInterface getBasket() throws Exception
    {
+      final CommonStrings commonStrings = CommonStrings.getInstance();
       try
       {
          OrderInterface orderInterface = this.getOrder();
@@ -236,11 +237,9 @@ public class WeblisketSession implements WeblisketSessionInterface
       }
       catch(Exception e)
       {
-         String error = "Failed to View Basket:getBasket";
-         
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "getBasket()", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getBasket()", e));
          }
          throw e;
       }

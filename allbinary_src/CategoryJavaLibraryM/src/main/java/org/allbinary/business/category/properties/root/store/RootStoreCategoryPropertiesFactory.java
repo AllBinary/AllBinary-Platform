@@ -22,6 +22,7 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.w3c.dom.Node;
 
 import java.util.HashMap;
+import org.allbinary.string.CommonStrings;
 
 public class RootStoreCategoryPropertiesFactory 
    implements CategoryPropertiesFactoryInterface
@@ -70,11 +71,11 @@ public class RootStoreCategoryPropertiesFactory
       }
       catch(Exception e)
       {
-         String error = "Failed to get instance";
+         final CommonStrings commonStrings = CommonStrings.getInstance();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "getInstance()", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
          }
          return null;
       }

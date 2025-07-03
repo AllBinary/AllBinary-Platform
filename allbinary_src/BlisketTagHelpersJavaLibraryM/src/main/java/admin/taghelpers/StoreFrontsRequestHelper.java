@@ -37,7 +37,7 @@ import org.allbinary.logic.communication.smtp.info.StoreEmailInfo;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
-public class StoreFrontsRequestHelper implements ModifyTableInterface
+public class StoreFrontsRequestHelper extends ModifyTable
 {
     private final AbeClientInformationInterface abeClientInformation = 
         ServiceClientInformationInterfaceFactory.getInstance();
@@ -96,7 +96,7 @@ public class StoreFrontsRequestHelper implements ModifyTableInterface
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "update()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "update()", e));
             }
             return error;
         }
@@ -179,7 +179,7 @@ public class StoreFrontsRequestHelper implements ModifyTableInterface
             String error = "Failed to Install storefront";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "install()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "install()", e));
             }
             return error;
         }
@@ -205,7 +205,7 @@ public class StoreFrontsRequestHelper implements ModifyTableInterface
             String error = "Failed to add storefront";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "insert()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "insert()", e));
             }
             return error;
         }
@@ -228,7 +228,7 @@ public class StoreFrontsRequestHelper implements ModifyTableInterface
             String error = "Failed to delete storefronts table";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "delete()", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "delete()", e));
             }
             return error;
         }

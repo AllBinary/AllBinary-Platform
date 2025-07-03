@@ -36,6 +36,7 @@ import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
 import org.allbinary.logic.control.crypt.file.CryptFileReader;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigData;
+import org.allbinary.string.CommonStrings;
 
 public class TaxFactory
 {
@@ -44,7 +45,9 @@ public class TaxFactory
     public static TaxFactory getInstance() {
         return instance;
     }
-	
+
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private final String TAXATIONFILENAME = "taxationMethod.xml";
    
    private TaxFactory()
@@ -68,9 +71,10 @@ public class TaxFactory
 	 
       final AbPath abPath = new AbPath(stringBuffer.toString(), TAXATIONFILENAME);
       
+      final TransformInfoObjectConfigData transformInfoObjectConfigData = TransformInfoObjectConfigData.getInstance();
       final String data = new CryptFileReader(
-      TransformInfoObjectConfigData.getInstance().UNCRYPTED_EXTENSION,
-      TransformInfoObjectConfigData.getInstance().ENCRYPTED_EXTENSION).get(abPath);
+      transformInfoObjectConfigData.UNCRYPTED_EXTENSION,
+      transformInfoObjectConfigData.ENCRYPTED_EXTENSION).get(abPath);
       
       final Document document = DomDocumentHelper.create(data);
       
@@ -95,17 +99,17 @@ public class TaxFactory
             }
             else
             {
-               if(  org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAX))
+               if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAX))
                {
-                  LogUtil.put(LogFactory.getInstance("Class Node Null", this, "getInstance()"));
+                  LogUtil.put(LogFactory.getInstance("Class Node Null", this, commonStrings.GET_INSTANCE));
                }
             }
          }
          else
          {
-            if( org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAX))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAX))
             {
-               LogUtil.put(LogFactory.getInstance("Tax Name Node Node Children", this, "getInstance()"));
+               LogUtil.put(LogFactory.getInstance("Tax Name Node Node Children", this, commonStrings.GET_INSTANCE));
             }
          }
          

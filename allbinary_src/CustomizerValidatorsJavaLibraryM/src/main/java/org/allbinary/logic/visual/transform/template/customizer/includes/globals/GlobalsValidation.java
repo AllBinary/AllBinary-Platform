@@ -13,19 +13,21 @@
 */
 package org.allbinary.logic.visual.transform.template.customizer.includes.globals;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.context.modules.storefront.StoreFrontView;
 import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.logic.control.validate.Validation;
 import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.control.validate.ValidationInterface;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
 
-public class GlobalsValidation implements ValidationInterface, DomNodeInterface
+public class GlobalsValidation extends Validation implements DomNodeInterface
 {   
+    
    private StoreFrontInterface storeFrontInterface;
    
    //new
@@ -68,7 +70,8 @@ public class GlobalsValidation implements ValidationInterface, DomNodeInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate form", this, "isValid()", e));
+             
+            LogUtil.put(LogFactory.getInstance("Failed to validate form", this, commonStrings.IS_VALID, e));
          }
          return Boolean.FALSE;
       }

@@ -35,7 +35,7 @@ import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.data.tables.user.commerce.inventory.order.OrderHistoryEntityFactory;
 
 public class UpdateOrderHelper
-    implements TagHelperInterface
+    extends TagHelper
 {
    private HttpServletRequest request;
    
@@ -202,7 +202,7 @@ public class UpdateOrderHelper
          String error = "Failed to update order table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"update()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"update()",e));
          }
          return error;
       }

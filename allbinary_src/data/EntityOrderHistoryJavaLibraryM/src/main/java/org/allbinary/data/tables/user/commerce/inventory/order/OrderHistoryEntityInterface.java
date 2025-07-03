@@ -16,12 +16,12 @@ package org.allbinary.data.tables.user.commerce.inventory.order;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.commerce.inventory.order.Order;
 import org.allbinary.business.user.commerce.inventory.order.OrderHistory;
-import org.allbinary.data.tables.BasicTableInterface;
 
 import java.util.HashMap;
 import java.util.Vector;
+import org.allbinary.data.tables.BasicDataTableInterface;
 
-public interface OrderHistoryEntityInterface extends BasicTableInterface
+public interface OrderHistoryEntityInterface extends BasicDataTableInterface
 {
       
    public void insert(String userName, Order order);

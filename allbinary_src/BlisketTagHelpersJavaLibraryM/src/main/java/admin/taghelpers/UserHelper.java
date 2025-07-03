@@ -34,7 +34,7 @@ import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
 import org.allbinary.logic.communication.http.request.RequestParams;
 import org.allbinary.logic.communication.sql.AbSqlTableUtil;
 
-public class UserHelper implements TableInterface
+public class UserHelper extends Table
 {
    private final HashMap hashMap;
    private final PageContext pageContext;
@@ -96,7 +96,7 @@ public class UserHelper implements TableInterface
          String error = "Failed to remove user with " + UserData.USERNAME + " from User table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"delete()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"delete()",e));
          }
          return error;
       }
@@ -133,7 +133,7 @@ public class UserHelper implements TableInterface
          String error = "Failed to add User";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"add()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"add()",e));
          }
          return error;
       }
@@ -162,7 +162,7 @@ public class UserHelper implements TableInterface
          String error = "Failed to add User";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"update()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"update()",e));
          }
          return error;
       }
@@ -176,7 +176,7 @@ public class UserHelper implements TableInterface
          String success = UserEntityFactory.getInstance().dropTable();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
          {
-            LogUtil.put(LogFactory.getInstance(success,this,"drop()"));
+            LogUtil.put(LogFactory.getInstance(success,this,commonStrings.DROP));
          }
          return success;
       }
@@ -186,7 +186,7 @@ public class UserHelper implements TableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"drop()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,commonStrings.DROP,e));
          }
          return error;
       }
@@ -210,7 +210,7 @@ public class UserHelper implements TableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"create()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"create()",e));
          }
          return error;
       }
@@ -234,7 +234,7 @@ public class UserHelper implements TableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"restore()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"restore()",e));
          }
          return error;
       }
@@ -258,7 +258,7 @@ public class UserHelper implements TableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"backup()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"backup()",e));
          }
          return error;
       }

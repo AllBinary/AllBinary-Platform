@@ -17,11 +17,11 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.sql.AbSqlData;
-import org.allbinary.logic.control.validate.ValidationInterface;
+import org.allbinary.logic.control.validate.Validation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
-public class BasicItemValidation implements ValidationInterface
+public class BasicItemValidation extends Validation
 {
    private final int MAXWEIGHT = 14;
    private final int MAXPRICE = 14;
@@ -243,7 +243,7 @@ public class BasicItemValidation implements ValidationInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate form",this,"isValid()",e));
+            LogUtil.put(LogFactory.getInstance("Failed to validate form",this,commonStrings.IS_VALID,e));
          }
          return Boolean.FALSE;
       }

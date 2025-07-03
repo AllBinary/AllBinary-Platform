@@ -21,10 +21,11 @@ import javax.servlet.jsp.PageContext;
 
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import javax.servlet.http.HttpServletRequest;
+import org.allbinary.string.CommonStrings;
 
 
 
-public class AuthenticationHelperFactory implements TagHelperFactoryInterface
+public class AuthenticationHelperFactory extends TagHelperFactory
 {   
    public AuthenticationHelperFactory()
    {
@@ -42,9 +43,7 @@ public class AuthenticationHelperFactory implements TagHelperFactoryInterface
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
             {
-                String error = "Failed To Get Instance";
-
-                LogUtil.put(LogFactory.getInstance(error, this, "getInstance(HashMap, PageContext)", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
             }
             return null;
         }
@@ -62,9 +61,7 @@ public class AuthenticationHelperFactory implements TagHelperFactoryInterface
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
             {
-                String error = "Failed To Get Instance";
-
-                LogUtil.put(LogFactory.getInstance(error, this, "getInstance(HashMap, httpServletRequest)", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
             }
             return null;
         }

@@ -31,7 +31,7 @@ import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 import org.allbinary.logic.communication.http.request.session.WeblisketSessionData;
 import org.allbinary.logic.communication.sql.AbSqlTableUtil;
 
-public class ShippingAddressHelper implements BasicTableInterface
+public class ShippingAddressHelper extends BasicTable
 {
    private WeblisketSession weblisketSession;
    private HttpServletRequest request;
@@ -70,7 +70,7 @@ public class ShippingAddressHelper implements BasicTableInterface
          String success = new ShippingAddressesEntity("").drop();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            LogUtil.put(LogFactory.getInstance(success,this,"drop()"));
+            LogUtil.put(LogFactory.getInstance(success,this,commonStrings.DROP));
          }
          return success;
       }
@@ -80,7 +80,7 @@ public class ShippingAddressHelper implements BasicTableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"drop()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,commonStrings.DROP,e));
          }
          return error;
       }
@@ -104,7 +104,7 @@ public class ShippingAddressHelper implements BasicTableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"create()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"create()",e));
          }
          return error;
       }
@@ -128,7 +128,7 @@ public class ShippingAddressHelper implements BasicTableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"restore()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"restore()",e));
          }
          return error;
       }
@@ -152,7 +152,7 @@ public class ShippingAddressHelper implements BasicTableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"backup()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"backup()",e));
          }
          return error;
       }
@@ -178,7 +178,7 @@ public class ShippingAddressHelper implements BasicTableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"insert",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"insert",e));
          }
          return error;
       }
@@ -205,7 +205,7 @@ public class ShippingAddressHelper implements BasicTableInterface
          String error = "Failed update of a Users Shipping Address Table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"update",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"update",e));
          }
          return error;
       }
@@ -235,7 +235,7 @@ public class ShippingAddressHelper implements BasicTableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"setToBillingAddress()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"setToBillingAddress()",e));
          }
          return error;
       }
@@ -262,7 +262,7 @@ public class ShippingAddressHelper implements BasicTableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"remove()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"remove()",e));
          }
          return error;
       }
@@ -290,7 +290,7 @@ public class ShippingAddressHelper implements BasicTableInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"set()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"set()",e));
          }
          return error;
       }

@@ -13,12 +13,12 @@
 */
 package org.allbinary.data.tables.category;
 
-import org.allbinary.data.tables.BasicTableInterface;
 
 import java.util.HashMap;
 import java.util.Vector;
+import org.allbinary.data.tables.BasicDataTableInterface;
 
-public interface CategoryEntityInterface extends BasicTableInterface
+public interface CategoryEntityInterface extends BasicDataTableInterface
 {
    /*
    public Category getUpToLevel(Integer level);

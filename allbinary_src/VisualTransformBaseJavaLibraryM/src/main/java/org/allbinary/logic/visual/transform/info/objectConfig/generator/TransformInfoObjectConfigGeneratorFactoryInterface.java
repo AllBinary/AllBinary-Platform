@@ -21,7 +21,7 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
  */
 public interface TransformInfoObjectConfigGeneratorFactoryInterface {
 
-    TransformInfoObjectConfigGeneratorInterface getInstance(
+    TransformInfoObjectConfigGenerator getInstance(
         TransformInfoInterface transformInfoInterface)
         throws Exception;
 }

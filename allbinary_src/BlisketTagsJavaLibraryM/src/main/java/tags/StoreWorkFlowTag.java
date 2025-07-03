@@ -42,7 +42,7 @@ public class StoreWorkFlowTag extends HelperTag
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
       {
-         LogUtil.put(LogFactory.getInstance("Tag Constructed",this,"StoreWorkFlowTag()"));
+         LogUtil.put(LogFactory.getInstance(this.commonStrings.START,this,this.commonStrings.CONSTRUCTOR));
       }
    }
 
@@ -66,21 +66,19 @@ public class StoreWorkFlowTag extends HelperTag
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START,this,"process()"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START,this,commonStrings.PROCESS));
          }
          
          Class helperClass = this.getHelper().getClass();
-         Method method = helperClass.getMethod("process",null);
+         Method method = helperClass.getMethod(commonStrings.PROCESS,null);
          Integer result = (Integer) method.invoke(this.getHelper(),null);
          return result.intValue();
       }
       catch(Exception e)
-      {
-         String error = "Failed to process";
-         
+      {         
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"process()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,commonStrings.PROCESS,e));
          }
          throw e;
       }

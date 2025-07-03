@@ -72,7 +72,7 @@ public class StaticPagesTag extends TableTag
          String error = "Failed to generate staticpages table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"generateStaticPages()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"generateStaticPages()",e));
          }
          return error;
       }
@@ -102,7 +102,7 @@ public class StaticPagesTag extends TableTag
          String error = "Failed to makePublic";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"makePublic()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"makePublic()",e));
          }
          return error;
       }

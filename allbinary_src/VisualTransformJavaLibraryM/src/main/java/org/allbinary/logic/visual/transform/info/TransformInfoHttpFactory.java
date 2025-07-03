@@ -22,6 +22,7 @@ import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 import javax.servlet.jsp.PageContext;
 import java.util.HashMap;
 import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.string.CommonStrings;
 
 public class TransformInfoHttpFactory
 {
@@ -61,12 +62,12 @@ public class TransformInfoHttpFactory
       }
       catch(Exception e)
       {
-         String error = "Failed To Get Instance";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, "TransformInfoFactory",
-               "getInstance(HashMap, PageContext)", e));
+             final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "TransformInfoFactory",
+               commonStrings.GET_INSTANCE, e));
          }
          throw e;
       }

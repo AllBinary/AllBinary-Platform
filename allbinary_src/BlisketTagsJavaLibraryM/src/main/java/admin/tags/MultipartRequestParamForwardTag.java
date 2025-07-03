@@ -17,15 +17,15 @@ import java.util.HashMap;
 
 import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.tagext.Tag;
-import javax.servlet.jsp.tagext.TagSupport;
 
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import admin.taghelpers.MultipartRequestParamForwardHelper;
+import tags.CustomTagSupport;
 import java.util.Vector;
 import tags.HelperTag;
 
-public class MultipartRequestParamForwardTag extends TagSupport 
+public class MultipartRequestParamForwardTag extends CustomTagSupport 
 {
     private String page;
 

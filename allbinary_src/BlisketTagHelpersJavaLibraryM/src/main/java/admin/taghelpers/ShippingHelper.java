@@ -33,7 +33,7 @@ import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 
 public class ShippingHelper
-    implements TagHelperInterface
+    extends TagHelper
 {
    private WeblisketSession weblisketSession;
    
@@ -91,7 +91,7 @@ public class ShippingHelper
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,this,"setShippingType()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"setShippingType()",e));
          }
          return error;
       }

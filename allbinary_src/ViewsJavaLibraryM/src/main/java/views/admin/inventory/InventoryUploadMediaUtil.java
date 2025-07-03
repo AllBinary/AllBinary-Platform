@@ -33,6 +33,7 @@ import org.allbinary.logic.communication.http.file.upload.media.UploadMediaSingl
 import org.allbinary.logic.visual.media.MediaTypeData;
 import org.allbinary.logic.visual.media.MediaUtil;
 import java.io.ByteArrayInputStream;
+import org.allbinary.string.CommonStrings;
 import org.apache.commons.fileupload.FileItemUtil;
 
 public class InventoryUploadMediaUtil
@@ -241,7 +242,8 @@ public class InventoryUploadMediaUtil
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
         {
-            LogUtil.put(LogFactory.getInstance("End", this, "saveFiles()"));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.END, this, "saveFiles()"));
         }
         return this.itemInterface;
     }
@@ -472,7 +474,7 @@ public class InventoryUploadMediaUtil
 
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
     {
-    LogUtil.put(LogFactory.getInstance("End", this, "saveFiles()"));
+    LogUtil.put(LogFactory.getInstance(commonStrings.END, this, "saveFiles()"));
     }
     return this.itemInterface;
     }

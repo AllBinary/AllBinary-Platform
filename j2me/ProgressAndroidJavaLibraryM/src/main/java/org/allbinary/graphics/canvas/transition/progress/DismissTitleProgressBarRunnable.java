@@ -40,9 +40,8 @@ public class DismissTitleProgressBarRunnable extends ProgressRunnable
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(
-                    commonStrings.EXCEPTION, this,
-                    commonStrings.RUN, e));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this,commonStrings.RUN, e));
         }
     }
 }

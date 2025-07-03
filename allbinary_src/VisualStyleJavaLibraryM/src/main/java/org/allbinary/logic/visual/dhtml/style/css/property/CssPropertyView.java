@@ -14,11 +14,14 @@
 package org.allbinary.logic.visual.dhtml.style.css.property;
 
 import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.string.CommonStrings;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 public class CssPropertyView implements DomNodeInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private CssProperty cssProperty;
    
    public CssPropertyView(String name)

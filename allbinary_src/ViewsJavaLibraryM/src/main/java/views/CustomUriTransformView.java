@@ -29,10 +29,13 @@ import org.allbinary.logic.visual.transform.data.TransformDocumentFactory;
 import org.allbinary.logic.visual.transform.data.TransformDocumentInterface;
 
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.string.CommonStrings;
 
 public class CustomUriTransformView
    implements TransformInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     protected final AbeClientInformationInterface abeClientInformation = 
         ServiceClientInformationInterfaceFactory.getInstance();
     
@@ -115,10 +118,10 @@ public class CustomUriTransformView
       }
       catch(Exception e)
       {
-         String error = "Failed to view CustomUriTransformView";
+         //String error = "Failed to view CustomUriTransformView";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "view()", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "view()", e));
          }
          throw e;
       }

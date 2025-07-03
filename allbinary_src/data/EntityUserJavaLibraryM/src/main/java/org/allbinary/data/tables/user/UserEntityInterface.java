@@ -16,12 +16,12 @@ package org.allbinary.data.tables.user;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.UserInterface;
 import org.allbinary.business.user.role.UserRole;
-import org.allbinary.data.tables.BasicTableInterface;
 
 import java.util.HashMap;
 import java.util.Vector;
+import org.allbinary.data.tables.BasicDataTableInterface;
 
-public interface UserEntityInterface extends BasicTableInterface
+public interface UserEntityInterface extends BasicDataTableInterface
 {
    public Vector getAdministrators() throws Exception;
    
