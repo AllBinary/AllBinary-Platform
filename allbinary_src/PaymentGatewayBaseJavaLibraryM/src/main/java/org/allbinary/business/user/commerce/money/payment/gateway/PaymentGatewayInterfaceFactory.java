@@ -49,7 +49,7 @@ public class PaymentGatewayInterfaceFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENTERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION this, "getInstance(HttpServletRequest)", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getInstance(HttpServletRequest)", e));
          }
          throw e;
       }
@@ -90,7 +90,7 @@ public class PaymentGatewayInterfaceFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENTERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION this, commonStrings.GET_INSTANCE, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
          }
          throw e;
       }

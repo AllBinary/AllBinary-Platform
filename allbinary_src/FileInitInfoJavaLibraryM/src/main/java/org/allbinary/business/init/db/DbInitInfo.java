@@ -229,7 +229,7 @@ public class DbInitInfo extends DbConnectionInfo
         {
             if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR))
             {
-                PreLogUtil.put(commonStrings.EXCEPTION this, "updateIfNeeded", e);
+                PreLogUtil.put(commonStrings.EXCEPTION, this, "updateIfNeeded", e);
             }
         }
     }

@@ -275,7 +275,7 @@ public class Email
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION this, "toHashMap()", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "toHashMap()", e));
          }
          throw e;
       }

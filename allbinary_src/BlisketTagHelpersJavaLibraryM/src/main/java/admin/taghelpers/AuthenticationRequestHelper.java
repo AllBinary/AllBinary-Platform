@@ -155,7 +155,7 @@ public class AuthenticationRequestHelper
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION this, "newPassword()",e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "newPassword()",e));
          }
          
          return Boolean.FALSE;
