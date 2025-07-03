@@ -24,7 +24,7 @@ import org.allbinary.string.CommonStrings;
 
 import org.w3c.dom.Node;
 
-public abstract class CategoryAbstractFactory implements CategoryFactoryInterface
+public class CategoryAbstractFactory implements CategoryFactoryInterface
 {
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
@@ -32,9 +32,17 @@ public abstract class CategoryAbstractFactory implements CategoryFactoryInterfac
    {
    }
 
-   public abstract CategoryInterface getRootInstance();
-   public abstract CategoryInterface getRootInstance(AbPath categoryAbPath);
-   public abstract CategoryInterface getRootInstanceFromNode(Node node);
+   public CategoryInterface getRootInstance() {
+       throw new RuntimeException();
+   }
+   
+   public CategoryInterface getRootInstance(AbPath categoryAbPath) {
+       throw new RuntimeException();
+   }
+   
+   public CategoryInterface getRootInstanceFromNode(Node node) {
+       throw new RuntimeException();
+   }
    /*
    {
       try

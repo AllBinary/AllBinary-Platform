@@ -32,6 +32,7 @@ import org.allbinary.logic.visual.transform.info.TransformInfoData;
 import org.allbinary.logic.visual.transform.info.TransformInfoProperties;
 import org.allbinary.logic.visual.transform.info.TransformInfoPropertiesFactory;
 import org.allbinary.logic.visual.transform.info.TransformInfosData;
+import org.allbinary.string.CommonStrings;
 
 public class TransformInfoPropertiesDocument
 {
@@ -87,6 +88,7 @@ public class TransformInfoPropertiesDocument
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "toTransformInfoPropertiesHashMap()", e));
          }
          return null;

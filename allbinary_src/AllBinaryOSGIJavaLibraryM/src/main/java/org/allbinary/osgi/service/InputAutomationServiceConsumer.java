@@ -24,7 +24,7 @@ import org.allbinary.string.CommonStrings;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 
-abstract public class InputAutomationServiceConsumer
+public class InputAutomationServiceConsumer
 {
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
 

@@ -56,9 +56,11 @@ import org.allbinary.logic.io.file.directory.Directory;
 import org.allbinary.logic.communication.http.HttpData;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
+import org.allbinary.string.CommonStrings;
 
 public class DbInitInfo extends DbConnectionInfo
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final Directory directory = Directory.getInstance();
     private final HttpData httpData = HttpData.getInstance();
 

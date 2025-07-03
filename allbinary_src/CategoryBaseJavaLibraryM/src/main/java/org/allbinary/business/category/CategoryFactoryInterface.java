@@ -20,30 +20,30 @@ import java.util.HashMap;
 
 public interface CategoryFactoryInterface
 {
-   public abstract CategoryInterface getRootInstance();
-   public abstract CategoryInterface getRootInstance(AbPath categoryPath);
+   CategoryInterface getRootInstance();
+   CategoryInterface getRootInstance(AbPath categoryPath);
 
-   public abstract CategoryInterface getRootInstanceFromNode(Node node);
+   CategoryInterface getRootInstanceFromNode(Node node);
    
    //New Loner Category
-   //public CategoryInterface getInstance(String name, int level);
+   //CategoryInterface getInstance(String name, int level);
 
    //New Category With Parent Child Relationships
-   public CategoryInterface getInstance(      
+   CategoryInterface getInstance(      
       CategoryInterface rootCategoryInterface, 
       CategoryInterface parentCategoryInterface,
       String name);
    
-   //public CategoryInterface getInstance(Node node, int level);
+   //CategoryInterface getInstance(Node node, int level);
 
-   public CategoryInterface getInstance(      
+   CategoryInterface getInstance(      
       CategoryInterface rootCategoryInterface, 
       CategoryInterface parentCategoryInterface,
       Node node);
 
-   //public CategoryInterface getInstance(HashMap categoryPropertiesHashMap, int level);
+   //CategoryInterface getInstance(HashMap categoryPropertiesHashMap, int level);
 
-   public CategoryInterface getInstance(      
+   CategoryInterface getInstance(      
       CategoryInterface rootCategoryInterface, 
       CategoryInterface parentCategoryInterface,
       HashMap categoryPropertiesHashMap);

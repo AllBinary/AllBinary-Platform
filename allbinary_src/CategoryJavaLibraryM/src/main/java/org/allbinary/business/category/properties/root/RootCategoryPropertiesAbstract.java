@@ -13,7 +13,6 @@
 */
 package org.allbinary.business.category.properties.root;
 
-import org.allbinary.business.category.properties.root.RootCategoryPropertiesInterface;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.business.category.CategoryData;
@@ -28,7 +27,7 @@ import java.util.Vector;
  *Nothing more than a parent category reference to a category on the fs.  
  *i.e. unloaded category.
  */
-public abstract class RootCategoryPropertiesAbstract 
+public class RootCategoryPropertiesAbstract 
    implements RootCategoryPropertiesInterface
 {
    private final String category = CategoryData.getInstance().ROOTCATEGORY;
@@ -55,6 +54,10 @@ public abstract class RootCategoryPropertiesAbstract
       throw new Exception("No Value Allowed");
    }
 
+   public void setRootFilePath(AbPath value) throws Exception {
+       throw new RuntimeException();
+   }
+   
    public void setRootFilePath(String value) throws Exception
    {
       throw new Exception("No Value Allowed");

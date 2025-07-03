@@ -1,6 +1,6 @@
 package javax.microedition.khronos.egl;
 
-public abstract class EGLConfig {
+public class EGLConfig {
 
     public EGLConfig() {
         throw new RuntimeException();

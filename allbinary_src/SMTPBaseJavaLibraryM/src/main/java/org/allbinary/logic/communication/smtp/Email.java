@@ -45,6 +45,8 @@ import org.allbinary.string.CommonStrings;
 public class Email 
    implements EmailInterface
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private MimeMessage msg;
    private Properties properties;
    

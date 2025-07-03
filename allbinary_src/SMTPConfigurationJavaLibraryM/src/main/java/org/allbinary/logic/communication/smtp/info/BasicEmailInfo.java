@@ -17,7 +17,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.smtp.configuration.server.EmailServerConfigurationInterface;
 
-public abstract class BasicEmailInfo
+public class BasicEmailInfo
 {
    private String subject;
    private String textBody;
@@ -69,6 +69,8 @@ public abstract class BasicEmailInfo
       return stringBuffer.toString();
    }
    
-   protected abstract void init() throws Exception;
+   protected void init() throws Exception {
+       throw new RuntimeException();
+   }
 
 }
