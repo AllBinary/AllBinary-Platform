@@ -15,9 +15,12 @@ package org.allbinary.media.graphics.geography.map;
 
 import org.allbinary.game.layer.AllBinaryTiledLayer;
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.string.CommonStrings;
 
 public class SimpleGeographicMap
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private final Integer id;
     private final String name;
 
