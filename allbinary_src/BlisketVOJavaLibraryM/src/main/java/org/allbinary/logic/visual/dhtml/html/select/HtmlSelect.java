@@ -17,6 +17,7 @@ import org.allbinary.logic.io.LineReader;
 import org.allbinary.logic.visual.dhtml.html.HtmlTag;
 
 import java.util.Vector;
+import org.allbinary.logic.string.StringUtil;
 
 public class HtmlSelect extends HtmlTag
 {
@@ -90,14 +91,15 @@ public class HtmlSelect extends HtmlTag
    
    private String getOptions()
    {
-      String result = "";
+      final StringUtil stringUtil = StringUtil.getInstance();
+      String result = stringUtil.EMPTY_STRING;
       Object[] optionsArray = options.toArray();
       int optionsSize = optionsArray.length;
       
       for (int i = 0; i < optionsSize; i++)
       {
          String value = (String) optionsArray[i];
-         if(value!=null && value.compareTo("")!=0)
+         if(value!=null && value.compareTo(stringUtil.EMPTY_STRING)!=0)
          {
             result += STARTOPTION;
             result += END;
@@ -110,7 +112,8 @@ public class HtmlSelect extends HtmlTag
    
    public String toString()
    {
-      String result = "";
+      final StringUtil stringUtil = StringUtil.getInstance();
+      String result = stringUtil.EMPTY_STRING;
       Object[] attributeKeys = otherAttributes.keySet().toArray();
       int attributeSize = attributeKeys.length;
       result = before;
@@ -126,7 +129,7 @@ public class HtmlSelect extends HtmlTag
       {
          String key = (String) attributeKeys[i];
          String value = (String) otherAttributes.get(key);
-         if(value!=null && value.compareTo("")!=0)
+         if(value!=null && value.compareTo(stringUtil.EMPTY_STRING)!=0)
          {
             result += key;
             result += "=\"";

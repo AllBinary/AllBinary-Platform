@@ -24,6 +24,7 @@ import org.allbinary.string.CommonStrings;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.media.image.ImageStrings;
 import org.allbinary.media.image.MirrorImageUtil;
 
@@ -88,7 +89,7 @@ public class MirrorImageJPanel extends javax.swing.JPanel
                      
                      filePath = filePath.substring(0, extensionIndex) + "_mirror" + imageStrings.PNG_EXTENSION;
                      
-                     LogUtil.put(LogFactory.getInstance("Renamed File: " + filePath, this, ""));
+                     LogUtil.put(LogFactory.getInstance("Renamed File: " + filePath, this, commonStrings.RUN));
                      
                      file = new File(filePath);
                   }
@@ -97,7 +98,7 @@ public class MirrorImageJPanel extends javax.swing.JPanel
                         (RenderedImage) MirrorImageJPanel.this.result,
                         imageStrings.PNG, file);
                   
-                  LogUtil.put(LogFactory.getInstance("File: " + file + " Wrote: " + isWritten, this, ""));
+                  LogUtil.put(LogFactory.getInstance("File: " + file + " Wrote: " + isWritten, this, commonStrings.RUN));
                   MirrorImageJPanel.this.getParent().repaint();
                }
 

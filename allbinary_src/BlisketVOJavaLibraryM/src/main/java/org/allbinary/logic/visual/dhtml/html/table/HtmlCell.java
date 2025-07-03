@@ -13,6 +13,7 @@
 */
 package org.allbinary.logic.visual.dhtml.html.table;
 
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.visual.dhtml.html.HtmlTag;
 
 
@@ -48,7 +49,8 @@ public class HtmlCell extends HtmlTag
    
    public String toString()
    {
-      String result = "";
+      final StringUtil stringUtil = StringUtil.getInstance();
+      String result = stringUtil.EMPTY_STRING;
       Object[] attributeKeys = otherAttributes.keySet().toArray();
       int attributeSize = attributeKeys.length;
       result = before;
@@ -59,7 +61,7 @@ public class HtmlCell extends HtmlTag
       {
          String key = (String) attributeKeys[i];
          String value = (String) otherAttributes.get(key);
-         if(value!=null && value.compareTo("")!=0)
+         if(value!=null && value.compareTo(stringUtil.EMPTY_STRING)!=0)
          {
             result += key;
             result += "=\"";

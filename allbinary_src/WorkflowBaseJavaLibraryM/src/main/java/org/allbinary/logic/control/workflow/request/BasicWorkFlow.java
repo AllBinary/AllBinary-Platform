@@ -206,7 +206,7 @@ public class BasicWorkFlow
    {
       try
       {
-         return "";
+         return stringUtil.EMPTY_STRING;
       }
       catch(Exception e)
       {

@@ -22,6 +22,7 @@ import java.util.Set;
 import org.allbinary.string.CommonStrings;
 
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringUtil;
 
 public class Replace
 {
@@ -197,6 +198,7 @@ public class Replace
    {
       try
       {
+         final StringUtil stringUtil = StringUtil.getInstance();
        AppUrlGlobals appUrlGlobals = new AppUrlGlobals();
        appUrlGlobals.setWebappPath("G:/mnt/bc/mydev/work/allbinary_src/ToolsJavaLibrary/tools");
        URLGLOBALS.init(appUrlGlobals);
@@ -206,7 +208,7 @@ public class Replace
          System.out.println("Old String: " + testString);
          testString = replace.all(testString);
          System.out.println("New String: " + testString);
-         Replace replaceCat=new Replace("abcdefghijklmnopqrstuxwxyzabcdefghijklmnopqrstuxwxyz","");
+         Replace replaceCat=new Replace("abcdefghijklmnopqrstuxwxyzabcdefghijklmnopqrstuxwxyz",stringUtil.EMPTY_STRING);
          testString = replaceCat.all(testString);
          System.out.println("New String: " + testString);
       }catch(Exception e)

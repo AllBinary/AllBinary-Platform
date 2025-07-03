@@ -56,6 +56,7 @@ import org.allbinary.logic.io.file.directory.Directory;
 import org.allbinary.logic.communication.http.HttpData;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
 
 public class DbInitInfo extends DbConnectionInfo
@@ -183,13 +184,15 @@ public class DbInitInfo extends DbConnectionInfo
                     this.setServer(new WeakCrypt(6).decrypt(decryptedServer));
                     this.setPort(new WeakCrypt(7).decrypt(decryptedPort));
 
+                    final StringUtil stringUtil = StringUtil.getInstance();
+
             //this.setJdbcDriver("org.jiql.jdbc.Driver");
                     //this.setName(this.getClass().getName());
                     //this.setUserName("admin");
                     //this.setPassword("jiql");
                     //this.setSchema("jdbc:jiql");
                     //this.setServer("local");
-                    //this.setPort("");
+                    //this.setPort(stringUtil.EMPTY_STRING);
                 }finally
                 {
                     StreamUtil.getInstance().close(iData);

@@ -457,6 +457,7 @@ public class FileAuthenticationTag extends CustomTagSupport
     {
         try
         {
+            final StringUtil stringUtil = StringUtil.getInstance();
             this.request = (HttpServletRequest) pageContext.getRequest();
             this.weblisketSession = new BasicWeblisketSession(pageContext);
 
@@ -550,11 +551,11 @@ public class FileAuthenticationTag extends CustomTagSupport
                     }
 
                     /*
-                    if(userName==null || userName.compareTo("")==0)
+                    if(userName==null || userName.compareTo(stringUtil.EMPTY_STRING)==0)
                     pageContext.getOut().print("UserName Empty<br>");
-                    if(password==null  || password.compareTo("")==0)
+                    if(password==null  || password.compareTo(stringUtil.EMPTY_STRING)==0)
                     pageContext.getOut().print("Password Empty<br>");
-                    if(sessionUserName==null || sessionUserName.compareTo("")==0)
+                    if(sessionUserName==null || sessionUserName.compareTo(stringUtil.EMPTY_STRING)==0)
                     pageContext.getOut().print("Session UserName Null or Empty<br>");
                     if(authenticated!=null)
                     {
@@ -564,8 +565,8 @@ public class FileAuthenticationTag extends CustomTagSupport
                     }
                      */
 
-                    if ((userName == null || userName.compareTo("") == 0)
-                        && (password == null || password.compareTo("") == 0)
+                    if ((userName == null || userName.compareTo(stringUtil.EMPTY_STRING) == 0)
+                        && (password == null || password.compareTo(stringUtil.EMPTY_STRING) == 0)
                         && this.roles != null && this.isAuthenticationSessionValid())
                     {
                         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))

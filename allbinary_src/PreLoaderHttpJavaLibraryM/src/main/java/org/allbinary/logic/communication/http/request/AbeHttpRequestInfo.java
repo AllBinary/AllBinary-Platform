@@ -62,7 +62,8 @@ public class AbeHttpRequestInfo
    
    public AbeHttpRequestInfo(HttpServletRequest httpServletRequest)
    {
-      this.httpUserAgent = "";
+      final StringUtil stringUtil = StringUtil.getInstance();
+      this.httpUserAgent = stringUtil.EMPTY_STRING;
       Enumeration enumuration = httpServletRequest.getHeaderNames();
       while(enumuration.hasMoreElements())
       {
@@ -84,7 +85,7 @@ public class AbeHttpRequestInfo
       httpServletRequest.getProtocol()
       httpServletRequest.getQueryString()
       */
-      this.remoteHostByAddr = "";
+      this.remoteHostByAddr = stringUtil.EMPTY_STRING;
       this.remoteAddress = httpServletRequest.getRemoteAddr();
       this.remoteHost = httpServletRequest.getRemoteHost();
       /*

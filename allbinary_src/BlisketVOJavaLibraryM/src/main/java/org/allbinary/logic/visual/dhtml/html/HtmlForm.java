@@ -17,6 +17,7 @@ import org.allbinary.logic.visual.dhtml.html.input.HtmlInput;
 import org.allbinary.logic.visual.dhtml.html.table.HtmlTable;
 
 import java.util.Vector;
+import org.allbinary.logic.string.StringUtil;
 
 public class HtmlForm
 {
@@ -62,7 +63,8 @@ public class HtmlForm
    
    public String toString()
    {
-      String result = "";
+      final StringUtil stringUtil = StringUtil.getInstance();
+      String result = stringUtil.EMPTY_STRING;
       Object[] inputArray = inputs.toArray();
       int inputSize = inputArray.length;
       result = FORMBEGIN;      

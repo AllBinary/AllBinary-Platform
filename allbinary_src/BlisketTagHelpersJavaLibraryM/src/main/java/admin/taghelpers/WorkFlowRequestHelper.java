@@ -22,6 +22,7 @@ import org.allbinary.logic.control.workflow.WorkFlowData;
 import org.allbinary.logic.control.workflow.WorkFlowInterface;
 import org.allbinary.logic.control.workflow.NewWorkFlowFactory;
 import org.allbinary.data.tables.workflow.WorkFlowEntityFactory;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
@@ -41,8 +42,9 @@ public class WorkFlowRequestHelper extends ModifyTable
    {
       try
       {
+         final StringUtil stringUtil = StringUtil.getInstance();
          WorkFlowEntityFactory.getInstance().create2().delete(
-         this.workFlowInterface.getName(), "");
+         this.workFlowInterface.getName(), stringUtil.EMPTY_STRING);
          //this.workFlowInterface.getStoreName());
          
          String success = "Successfully Removed the workflow with " +

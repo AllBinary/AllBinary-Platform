@@ -26,6 +26,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.user.UserData;
 import org.allbinary.data.generator.QuoteRequestIdGenerator;
 import org.allbinary.logic.communication.sql.AbSqlData;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
 
 public class QuoteRequest
@@ -241,7 +242,8 @@ public class QuoteRequest
    public void setComments(String value)
    {
       this.comments = value;
-      if(this.comments==null) this.comments="";
+      final StringUtil stringUtil = StringUtil.getInstance();
+      if(this.comments==null) this.comments=stringUtil.EMPTY_STRING;
    }
    
    public String getUserName()

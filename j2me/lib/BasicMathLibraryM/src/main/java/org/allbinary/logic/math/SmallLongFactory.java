@@ -55,7 +55,7 @@ public class SmallLongFactory
             lastNegativeMin = negativeValue;
             //MIN = negativeValue;
         }
-        //LogUtil.put(LogFactory.getInstance("? " + NEGATIVE_INTEGER_ARRAY[5], "", "?????????"));
+        //LogUtil.put(LogFactory.getInstance("? " + NEGATIVE_INTEGER_ARRAY[5], stringUtil.EMPTY_STRING, "?????????"));
     }
 
     public void init()

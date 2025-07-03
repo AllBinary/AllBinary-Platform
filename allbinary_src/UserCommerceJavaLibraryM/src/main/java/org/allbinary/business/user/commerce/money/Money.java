@@ -21,8 +21,8 @@ public class Money
    private Long units;
    private final String DEFAULT_CURRENCY = "USD";
    
-      //   String dollarStr="";;
-    //  String centsStr="";;
+      //   String dollarStr=stringUtil.EMPTY_STRING;;
+    //  String centsStr=stringUtil.EMPTY_STRING;;
 
 //            dollarStr=new String(usDollarStr.substring(0,index));
   //    centsStr=new String(usDollarStr.substring(index+1));

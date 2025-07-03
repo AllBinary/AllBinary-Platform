@@ -23,6 +23,7 @@ import org.allbinary.input.automation.module.generic.configuration.profile.actio
 import org.allbinary.input.automation.module.generic.configuration.profile.actions.GenericProfileActionsJPanel;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
 
 /**
@@ -33,6 +34,7 @@ public class GenericModuleConfigurationJPanel
     extends javax.swing.JPanel
     implements GenericModuleConfigurationInterface
 {
+    private final StringUtil stringUtil = StringUtil.getInstance();
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private GenericProfiles genericProfiles;
@@ -122,7 +124,7 @@ public class GenericModuleConfigurationJPanel
 
         setMinimumSize(new java.awt.Dimension(400, 300));
         setPreferredSize(new java.awt.Dimension(700, 700));
-        genericJTabbedPane.setToolTipText("");
+        genericJTabbedPane.setToolTipText(stringUtil.EMPTY_STRING);
         genericJTabbedPane.setMinimumSize(new java.awt.Dimension(800, 600));
         genericProfilesJPanel.setMinimumSize(new java.awt.Dimension(400, 300));
         genericProfilesJPanel.setPreferredSize(new java.awt.Dimension(0, 0));

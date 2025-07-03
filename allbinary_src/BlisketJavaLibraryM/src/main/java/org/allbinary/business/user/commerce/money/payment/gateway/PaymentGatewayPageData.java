@@ -13,6 +13,8 @@
 */
 package org.allbinary.business.user.commerce.money.payment.gateway;
 
+import org.allbinary.logic.string.StringUtil;
+
 /**
  *
  * @author user
@@ -21,7 +23,7 @@ public class PaymentGatewayPageData
 {
     private final static String EXTENSION = ".jsp";
     //private final static String NAME = "PaymentGateway";
-    private final static String NAME = "";
+    private final static String NAME = StringUtil.getInstance().EMPTY_STRING;
     //Payment pages automatically added for each possible payment processor
     public final static String FORWARDMAKEPAYMENT = "MakePayment.jsp";
     public final String MAKEPAYMENT;

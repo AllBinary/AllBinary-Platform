@@ -28,7 +28,7 @@ public class JNDIUtil
         throws NamingException
     {
 
-        NamingEnumeration ncb = ctx.list("");
+        NamingEnumeration ncb = ctx.list(stringUtil.EMPTY_STRING);
         while (ncb.hasMore())
         {
             NameClassPair binding = (NameClassPair) ncb.next();
@@ -51,7 +51,7 @@ public class JNDIUtil
     NamingContext nc, String spaces)
     throws NamingException {
 
-    NamingEnumeration ncb = nc.list("");
+    NamingEnumeration ncb = nc.list(stringUtil.EMPTY_STRING);
 
     while (ncb.hasMore()) {
     NameClassPair binding = (NameClassPair) ncb.next();

@@ -41,6 +41,7 @@ import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 
 import org.allbinary.logic.control.search.SearchRequest;
 import org.allbinary.logic.control.search.SearchParams;
+import org.allbinary.logic.string.StringUtil;
 
 import org.allbinary.logic.visual.transform.info.TransformInfoData;
 
@@ -115,8 +116,10 @@ public class InventoryHelper extends TagHelper
    {
       try
       {
+          final StringUtil stringUtil = StringUtil.getInstance();
+          
          String keywords = (String) this.searchRequest.getParams().get().get(BasicItemData.KEYWORDS);
-         if(keywords == null || keywords.compareTo("") == 0)
+         if(keywords == null || keywords.compareTo(stringUtil.EMPTY_STRING) == 0)
          {
             return "Please enter a keyword in the search field above the Search button.";
          }
@@ -136,7 +139,7 @@ public class InventoryHelper extends TagHelper
          /*
          String fileName = inventoryDomNodeInterface.searchStatic();
          
-         if(fileName==null || fileName.compareTo("")==0)
+         if(fileName==null || fileName.compareTo(stringUtil.EMPTY_STRING)==0)
          {
             String result = inventoryDomNodeInterface.searchSingleDynamicPage();
             

@@ -55,7 +55,7 @@ public class InputAutomationConfiguration
         /*
         LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
 
-        //AbPath abPath = new AbPath("", FILENAME);
+        //AbPath abPath = new AbPath(stringUtil.EMPTY_STRING, FILENAME);
         byte bytes[]= new byte[100000];
         FileInputStream idFile = new FileInputStream(FILENAME);
         int length = idFile.read(bytes);

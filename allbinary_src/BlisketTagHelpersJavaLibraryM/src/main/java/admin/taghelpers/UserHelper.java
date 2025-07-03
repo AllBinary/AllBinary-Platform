@@ -57,7 +57,7 @@ public class UserHelper extends Table
       
       /*
       String role = (String) hashMap.get(UserRoleData.NAME);
-      if(role!=null && role.compareTo("")!=0)
+      if(role!=null && role.compareTo(stringUtil.EMPTY_STRING)!=0)
       {
          this.user.setRole(role);
       }

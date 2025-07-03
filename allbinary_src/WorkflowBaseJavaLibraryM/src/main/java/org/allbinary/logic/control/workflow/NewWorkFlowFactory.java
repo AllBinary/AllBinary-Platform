@@ -21,6 +21,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.loader.AbeFactory;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import org.allbinary.business.DynamicObjectData;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.string.CommonStrings;
 
@@ -92,7 +93,8 @@ public class NewWorkFlowFactory
    {
       try
       {
-         if(className != null && className.compareTo("")!=0)
+         final StringUtil stringUtil = StringUtil.getInstance();
+         if(className != null && className.compareTo(stringUtil.EMPTY_STRING)!=0)
          {
             final Object object = AbeFactory.getInstance().getInstance(abeClientInformation, className, null, null);
             return (WorkFlowInterface) new WorkFlowWrapper(object);

@@ -25,31 +25,32 @@ public class SpecialCharacterUtil {
 
    public static HashMap getHashMap()
    {
-      HashMap hashMap = new HashMap();
-      hashMap.put("!","");
-      hashMap.put("@","");
-      hashMap.put("#","");
-      hashMap.put("$","");
-      hashMap.put("%","");
-      hashMap.put("^","");
-      hashMap.put(CommonSeps.getInstance().AMP,"");
-      hashMap.put("*","");
-      hashMap.put("(","");
-      hashMap.put(")","");
-      hashMap.put("-","");
-      hashMap.put("_","");
-      hashMap.put("+","");
-      hashMap.put("=","");
-      hashMap.put("\\","");
-      hashMap.put("|","");
-      hashMap.put(AbPathData.getInstance().EXTENSION_SEP,"");
-      hashMap.put(",","");
-      hashMap.put("<","");
-      hashMap.put(">","");
-      hashMap.put("?","");
-      hashMap.put(AbPathData.getInstance().SEPARATOR,"");
-      hashMap.put("~","");
-      hashMap.put("`","");
+      final StringUtil stringUtil = StringUtil.getInstance();
+      final HashMap hashMap = new HashMap();
+      hashMap.put("!",stringUtil.EMPTY_STRING);
+      hashMap.put("@",stringUtil.EMPTY_STRING);
+      hashMap.put("#",stringUtil.EMPTY_STRING);
+      hashMap.put("$",stringUtil.EMPTY_STRING);
+      hashMap.put("%",stringUtil.EMPTY_STRING);
+      hashMap.put("^",stringUtil.EMPTY_STRING);
+      hashMap.put(CommonSeps.getInstance().AMP,stringUtil.EMPTY_STRING);
+      hashMap.put("*",stringUtil.EMPTY_STRING);
+      hashMap.put("(",stringUtil.EMPTY_STRING);
+      hashMap.put(")",stringUtil.EMPTY_STRING);
+      hashMap.put("-",stringUtil.EMPTY_STRING);
+      hashMap.put("_",stringUtil.EMPTY_STRING);
+      hashMap.put("+",stringUtil.EMPTY_STRING);
+      hashMap.put("=",stringUtil.EMPTY_STRING);
+      hashMap.put("\\",stringUtil.EMPTY_STRING);
+      hashMap.put("|",stringUtil.EMPTY_STRING);
+      hashMap.put(AbPathData.getInstance().EXTENSION_SEP,stringUtil.EMPTY_STRING);
+      hashMap.put(",",stringUtil.EMPTY_STRING);
+      hashMap.put("<",stringUtil.EMPTY_STRING);
+      hashMap.put(">",stringUtil.EMPTY_STRING);
+      hashMap.put("?",stringUtil.EMPTY_STRING);
+      hashMap.put(AbPathData.getInstance().SEPARATOR,stringUtil.EMPTY_STRING);
+      hashMap.put("~",stringUtil.EMPTY_STRING);
+      hashMap.put("`",stringUtil.EMPTY_STRING);
       return hashMap;
    }
    

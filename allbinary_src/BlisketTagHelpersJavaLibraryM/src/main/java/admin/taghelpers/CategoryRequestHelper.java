@@ -244,7 +244,7 @@ public class CategoryRequestHelper extends ModifyTable
          String[] values = (String[]) map.get(key);
     
          HashMap hashMap = new HashMap();
-         hashMap.put("";,new String(values[0]));
+         hashMap.put(stringUtil.EMPTY_STRING;,new String(values[0]));
          if(key.startsWith(
          addVector.add(new Category(hashMap));
          //LogUtil.put(LogFactory.getInstance("key: " + key + " Value: " + values[0],this,"getFormData()");

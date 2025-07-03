@@ -85,7 +85,7 @@ public class DbInitInfo extends DbConnectionInfo
             //this.setPassword("jiql");
             //this.setSchema("jdbc:jiql");
             //this.setServer("local");
-            //this.setPort("");
+            //this.setPort(stringUtil.EMPTY_STRING);
             
             //PreLogUtil.put("Host: " + this.getHost(), this, "load");
    }

@@ -151,7 +151,7 @@ public class ModDomHelper
       for (int i = 0; i < size; i++)
       {
          String value = stringUtil.getInstance((String) valueVector.get(i));
-         //LogUtil.put(LogFactory.getInstance("Adding: " + name + "=" + value ,this,"");
+         //LogUtil.put(LogFactory.getInstance("Adding: " + name + "=" + value ,this,stringUtil.EMPTY_STRING);
          
          node.appendChild(
          ModDomHelper.createNameValueNodes(
@@ -172,7 +172,7 @@ public class ModDomHelper
       for (int index = 0; index < size; index++)
       {
          String value = stringUtil.getInstance((String) valueVector.get(index));
-         //LogUtil.put(LogFactory.getInstance("Adding: " + name + "=" + value ,this,"");
+         //LogUtil.put(LogFactory.getInstance("Adding: " + name + "=" + value ,this,stringUtil.EMPTY_STRING);
 
          node.appendChild(
          ModDomHelper.createNameValueIndexNodes(

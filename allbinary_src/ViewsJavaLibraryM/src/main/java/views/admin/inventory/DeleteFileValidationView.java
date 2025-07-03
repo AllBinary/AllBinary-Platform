@@ -32,15 +32,17 @@ import org.allbinary.logic.communication.http.request.RequestParams;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
 import org.allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.string.StringUtil;
 
 
 public class DeleteFileValidationView extends InventoryItemView implements ValidationComponentInterface
 {
+    
    private String id;
       
    public DeleteFileValidationView(TransformInfoInterface transformInfoInterface) throws Exception
    {
-      super(transformInfoInterface,"");
+      super(transformInfoInterface,StringUtil.getInstance().EMPTY_STRING);
       
       this.getFormData();
    }

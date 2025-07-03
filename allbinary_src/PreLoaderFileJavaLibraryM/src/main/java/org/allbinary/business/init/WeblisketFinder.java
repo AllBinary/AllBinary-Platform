@@ -19,6 +19,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 
@@ -86,8 +87,9 @@ public class WeblisketFinder
     }
     
     public static void main(String[] args) throws Exception {
+        final StringUtil stringUtil = StringUtil.getInstance();
         final BasicArrayList vector = WeblisketFinder.getInstance().findAll(
-                ""
+                stringUtil.EMPTY_STRING
         );
         System.out.println(vector.size());
     }

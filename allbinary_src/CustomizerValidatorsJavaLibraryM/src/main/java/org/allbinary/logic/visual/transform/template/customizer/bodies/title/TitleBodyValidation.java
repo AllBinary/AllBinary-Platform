@@ -31,6 +31,7 @@ import java.util.HashMap;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.sql.AbSqlData;
 import org.allbinary.logic.control.validate.Validation;
+import org.allbinary.logic.string.StringUtil;
 
 public class TitleBodyValidation extends Validation implements DomNodeInterface
 {
@@ -45,7 +46,8 @@ public class TitleBodyValidation extends Validation implements DomNodeInterface
          LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR));
       }
 
-      this.body = "";
+      final StringUtil stringUtil = StringUtil.getInstance();
+      this.body = stringUtil.EMPTY_STRING;
       this.titleValidation = new TitleNotRequiredValidation();
    }
 

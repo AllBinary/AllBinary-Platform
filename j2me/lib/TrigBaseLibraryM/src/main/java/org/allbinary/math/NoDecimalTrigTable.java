@@ -1178,7 +1178,7 @@ public class NoDecimalTrigTable
                 {
                     if(ratio > noDecimalTan[index - 1])
                     {
-                        //LogUtil.put(LogFactory.getInstance(Integer.toString(result), "", ANTITAN))
+                        //LogUtil.put(LogFactory.getInstance(Integer.toString(result), this, ANTITAN))
                         return index;
                     }
                     else
@@ -1196,7 +1196,7 @@ public class NoDecimalTrigTable
             {
                 if (ratio < noDecimalTan[index] && ratio >= noDecimalTan[index - 1])
                 {
-                    //LogUtil.put(LogFactory.getInstance(Integer.toString(result), "", ANTITAN))
+                    //LogUtil.put(LogFactory.getInstance(Integer.toString(result), this, ANTITAN))
                     return index;
                 }
             }
@@ -1210,7 +1210,7 @@ public class NoDecimalTrigTable
                 {
                     if(ratio >= noDecimalTan[index - 1])
                     {
-                        //LogUtil.put(LogFactory.getInstance(Integer.toString(result), "", ANTITAN))
+                        //LogUtil.put(LogFactory.getInstance(Integer.toString(result), this, ANTITAN))
                         return index;
                     }
                     else
@@ -1228,7 +1228,7 @@ public class NoDecimalTrigTable
             {
                 if (ratio < noDecimalTan[index] && ratio >= noDecimalTan[index - 1])
                 {
-                    //LogUtil.put(LogFactory.getInstance(Integer.toString(result), "", ANTITAN))
+                    //LogUtil.put(LogFactory.getInstance(Integer.toString(result), this, ANTITAN))
                     return index;
                 }
             }

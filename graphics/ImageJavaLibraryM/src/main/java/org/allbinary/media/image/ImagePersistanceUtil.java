@@ -98,7 +98,7 @@ public class ImagePersistanceUtil {
                     generatedBufferedImageArray[index],
                     "PNG",
                     files[index]);
-                    LogUtil.put(LogFactory.getInstance("Wrote: " + isWritten, this, ""));
+                    LogUtil.put(LogFactory.getInstance("Wrote: " + isWritten, this, stringUtil.EMPTY_STRING));
                      */
 
         /*

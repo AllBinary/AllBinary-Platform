@@ -33,6 +33,8 @@ import org.allbinary.logic.communication.sql.AbSqlTableUtil;
 
 public class BillingAddressHelper extends Table
 {
+    protected final StringUtil stringUtil = StringUtil.getInstance();
+    
    private WeblisketSession weblisketSession;
    private HttpServletRequest request;
    
@@ -69,7 +71,7 @@ public class BillingAddressHelper extends Table
    {
       try
       {
-         String success = new BillingAddressesEntity("").drop();
+         String success = new BillingAddressesEntity(stringUtil.EMPTY_STRING).drop();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,commonStrings.DROP));
@@ -92,7 +94,7 @@ public class BillingAddressHelper extends Table
    {
       try
       {
-         String success = new BillingAddressesEntity("").createTable();
+         String success = new BillingAddressesEntity(stringUtil.EMPTY_STRING).createTable();
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {

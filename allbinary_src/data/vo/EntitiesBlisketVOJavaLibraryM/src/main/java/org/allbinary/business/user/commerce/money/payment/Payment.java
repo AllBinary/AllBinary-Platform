@@ -105,23 +105,25 @@ public class Payment implements PaymentInterface, DomNodeInterface
    
    public Boolean isValid()
    {
+      final StringUtil stringUtil = StringUtil.getInstance();
+
       Boolean aFalse = Boolean.FALSE;
-      if(this.name==null || this.name.compareTo("")==0)
+      if(this.name==null || this.name.compareTo(stringUtil.EMPTY_STRING)==0)
       {
          return aFalse;
       }
       
-      if(this.type==null || this.type.compareTo("")==0)
+      if(this.type==null || this.type.compareTo(stringUtil.EMPTY_STRING)==0)
       {
          return aFalse;
       }
       
-      if(this.expiration==null || this.expiration.compareTo("")==0)
+      if(this.expiration==null || this.expiration.compareTo(stringUtil.EMPTY_STRING)==0)
       {
          return aFalse;
       }
 
-      if(this.number==null || this.number.compareTo("")==0)
+      if(this.number==null || this.number.compareTo(stringUtil.EMPTY_STRING)==0)
       {
          return aFalse;
       }

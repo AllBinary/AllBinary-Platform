@@ -118,7 +118,7 @@ public class XmlRpcRemoteHighScoresClient extends XmlRpcAbeClient
         {
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSINGERROR))
             // {
-            //String message = LogFormatUtil.get(error, "", "", e);
+            //String message = LogFormatUtil.get(error, stringUtil.EMPTY_STRING, stringUtil.EMPTY_STRING, e);
             //System.out.println(message);
             //LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET, e));
             // }
@@ -144,7 +144,7 @@ public class XmlRpcRemoteHighScoresClient extends XmlRpcAbeClient
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSINGERROR))
             // {
             //Can't log this since that is what the log is using
-            //String message = LogFormatUtil.get(error, "", "", e);
+            //String message = LogFormatUtil.get(error, stringUtil.EMPTY_STRING, stringUtil.EMPTY_STRING, e);
             //System.out.println(message);
             LogUtil.put(LogFactory.getInstance(SERVER_REPORTED_ERROR, this, commonStrings.GET, e));
             // }
@@ -153,7 +153,7 @@ public class XmlRpcRemoteHighScoresClient extends XmlRpcAbeClient
         {
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSINGERROR))
             // {
-            //String message = LogFormatUtil.get(error, "", "", e);
+            //String message = LogFormatUtil.get(error, stringUtil.EMPTY_STRING, stringUtil.EMPTY_STRING, e);
             //System.out.println(message);
             LogUtil.put(LogFactory.getInstance(UNKNOWN_ERROR, this, commonStrings.GET, e));
             // }

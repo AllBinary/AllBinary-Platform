@@ -32,6 +32,7 @@ import javax.servlet.jsp.tagext.TagSupport;
 
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.string.StringUtil;
 
 import tags.CustomTagSupport;
 
@@ -363,6 +364,7 @@ public class AuthenticationTag extends CustomTagSupport
     {
         try
         {
+            final StringUtil stringUtil = StringUtil.getInstance();
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
             {
                 HttpServletRequest request =
@@ -476,11 +478,11 @@ public class AuthenticationTag extends CustomTagSupport
                     }
 
                     /*
-                    if(userName==null || userName.compareTo("")==0)
+                    if(userName==null || userName.compareTo(stringUtil.EMPTY_STRING)==0)
                     pageContext.getOut().print("UserName Empty<br>");
-                    if(password==null  || password.compareTo("")==0)
+                    if(password==null  || password.compareTo(stringUtil.EMPTY_STRING)==0)
                     pageContext.getOut().print("Password Empty<br>");
-                    if(sessionUserName==null || sessionUserName.compareTo("")==0)
+                    if(sessionUserName==null || sessionUserName.compareTo(stringUtil.EMPTY_STRING)==0)
                     pageContext.getOut().print("Session UserName Null or Empty<br>");
                     if(authenticated!=null)
                     {
@@ -490,8 +492,8 @@ public class AuthenticationTag extends CustomTagSupport
                     }
                      */
 
-                    if ((userName == null || userName.compareTo("") == 0)
-                        && (password == null || password.compareTo("") == 0)
+                    if ((userName == null || userName.compareTo(stringUtil.EMPTY_STRING) == 0)
+                        && (password == null || password.compareTo(stringUtil.EMPTY_STRING) == 0)
                         && this.roles != null && this.isAuthenticationSessionValid())
                     {
                         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
@@ -553,7 +555,7 @@ public class AuthenticationTag extends CustomTagSupport
                             LogUtil.put(LogFactory.getInstance("Invalid Login", this, "doStartTag()"));
                         }
 
-                        if (userName != null && userName.compareTo("") != 0 && password != null && password.compareTo("") != 0)
+                        if (userName != null && userName.compareTo(stringUtil.EMPTY_STRING) != 0 && password != null && password.compareTo(stringUtil.EMPTY_STRING) != 0)
                         {
                             pageContext.getOut().print("Sorry your username and/or password is invalid.<p/>");
                         }

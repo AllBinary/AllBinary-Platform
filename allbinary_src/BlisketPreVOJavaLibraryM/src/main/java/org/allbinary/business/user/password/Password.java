@@ -88,7 +88,8 @@ public class Password
          return "Please enter a Password with more than 6 characters.<br />";
       }
 
-      return "";
+      final StringUtil stringUtil = StringUtil.getInstance();
+      return stringUtil.EMPTY_STRING;
    }
 
    public Vector toVector(String secret)

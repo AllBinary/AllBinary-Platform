@@ -85,7 +85,7 @@ public class StringValidationUtil
 
     public boolean isValidRequired(String value, int min, int max)
     {
-        //value.compareTo("")==0 ||
+        //value.compareTo(stringUtil.EMPTY_STRING)==0 ||
         if (value == null || value.length() < min || value.length() > max)
         {
             return false;
@@ -110,7 +110,7 @@ public class StringValidationUtil
 
     public boolean isValidNotRequired(String value, int min, int max)
     {
-        //value.compareTo("")==0 ||
+        //value.compareTo(stringUtil.EMPTY_STRING)==0 ||
         if (value != null)
         {
             if (value.length() < min || value.length() > max)

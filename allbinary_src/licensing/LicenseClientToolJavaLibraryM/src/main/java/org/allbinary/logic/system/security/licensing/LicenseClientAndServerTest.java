@@ -147,7 +147,7 @@ public class LicenseClientAndServerTest
             licensingTest.test();
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, "", "main()", e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, "main()", "main()", e));
         }
     }
 }

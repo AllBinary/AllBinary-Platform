@@ -13,6 +13,8 @@
 */
 package org.allbinary.logic.visual.dhtml.html.input;
 
+import org.allbinary.logic.string.StringUtil;
+
 public class HtmlValueInput extends HtmlInput
 {   
    private String value;
@@ -21,7 +23,8 @@ public class HtmlValueInput extends HtmlInput
    public HtmlValueInput(String before, String type, String name, String value, String after)
    {
       super(before,type,name,after);
-      this.value = "";
+      final StringUtil stringUtil = StringUtil.getInstance();
+      this.value = stringUtil.EMPTY_STRING;
       addAttribute(VALUE,value);
    }
    
