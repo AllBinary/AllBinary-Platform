@@ -17,6 +17,7 @@ import java.awt.event.KeyEvent;
 import java.util.Hashtable;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
 
 public class KeySingletonFactory
 {
@@ -220,6 +221,8 @@ public class KeySingletonFactory
    
    static
    {
+       final CommonStrings commonStrings = CommonStrings.getInstance();
+       final String STATIC_BLOCK = "Static Block";
       try
       {
          for(int index = 0; index < keyArray.length; index++)
@@ -236,7 +239,7 @@ public class KeySingletonFactory
       }
       catch(Exception e)
       {
-         LogUtil.put(LogFactory.getInstance("Static Exception", "KeySingleFactory", "static", e));
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "KeySingleFactory", STATIC_BLOCK, e));
       }
    }
    

@@ -80,8 +80,7 @@ public class VectorRotationGenerator
             int[][][] newPoints = vectorAnimationUtil
                     .toAnimationArrayFromBasicArrayListOfPointBasicArrayList(pointsBasicArrayList,
                             pointBasicArrayList.size());
-            // LogUtil.put(LogFactory.getInstance(IntArrayUtil.toString(newPoints),
-            // "BabyFighterBasicArrayListData", "static"));
+            // LogUtil.put(LogFactory.getInstance(IntArrayUtil.toString(newPoints), this, commonStrings.GET_INSTANCE));
             return newPoints;
         } catch (Exception e)
         {

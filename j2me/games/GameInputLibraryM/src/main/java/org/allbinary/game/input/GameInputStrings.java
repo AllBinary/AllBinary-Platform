@@ -38,5 +38,7 @@ public class GameInputStrings
     
     public final String STRAFE_LEFT = "strafeLeft";
     public final String STRAFE_RIGHT = "strafeRight";
-        
+    
+    public final String PROCESS_MOTION_INPUT = "processMotionInput";
+    
 }

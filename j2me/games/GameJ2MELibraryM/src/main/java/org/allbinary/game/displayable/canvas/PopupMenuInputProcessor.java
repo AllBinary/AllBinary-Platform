@@ -36,7 +36,7 @@ import org.allbinary.time.TimeDelayHelper;
 public class PopupMenuInputProcessor extends BasicMenuInputProcessor
 {
     private final RectangleCollisionUtil rectangleCollisionUtil = RectangleCollisionUtil.getInstance();
-    //private final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
+    private final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
     
     private final int CLICK_DELAY = 120;
     private final TimeDelayHelper clickTimeHelper = new TimeDelayHelper(CLICK_DELAY);
@@ -145,11 +145,11 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
     protected void processMotionInput(final MotionGestureEvent motionGestureEvent)
         throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "processMotionInput"));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, gameInputStrings.PROCESS_MOTION_INPUT));
 
         if(motionGestureEvent == null)
         {
-            LogUtil.put(LogFactory.getInstance("Exception: Bug", this, "processMotionInput"));
+            LogUtil.put(LogFactory.getInstance("Exception: Bug", this, gameInputStrings.PROCESS_MOTION_INPUT));
             return;
         }
         
@@ -162,7 +162,7 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
         {
             GPoint point = motionGestureEvent.getCurrentPoint();
             
-            //PreLogUtil.put(new StringMaker().append("Rect: ").append(rectangle.toString()).append(CommonSeps.getInstance().SPACE).append(point.toString()).toString(), this, "processMotionInput");
+            //PreLogUtil.put(new StringMaker().append("Rect: ").append(rectangle.toString()).append(CommonSeps.getInstance().SPACE).append(point.toString()).toString(), this, gameInputStrings.PROCESS_MOTION_INPUT);
             
             GPoint rectPoint = rectangle.getPoint();
             if (rectangleCollisionUtil.isInside(
@@ -174,7 +174,7 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
             {
                 if (this.clickTimeHelper.isTime())
                 {
-                    //PreLogUtil.put("Toggle Menu: ").append(motionGestureInput.toString(), this, "processMotionInput");
+                    //PreLogUtil.put("Toggle Menu: ").append(motionGestureInput.toString(), this, gameInputStrings.PROCESS_MOTION_INPUT);
 
                     ((AllBinaryGameCanvas) this.getCanvas()).toggleMenu();
                 }

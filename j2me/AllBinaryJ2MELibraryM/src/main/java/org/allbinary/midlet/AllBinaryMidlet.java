@@ -29,8 +29,8 @@ import javax.microedition.lcdui.Display;
 import javax.microedition.lcdui.Displayable;
 import javax.microedition.midlet.MIDlet;
 import javax.microedition.midlet.MIDletStateChangeException;
-import org.allbinary.string.CommonLabels;
 
+import org.allbinary.string.CommonLabels;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
@@ -46,6 +46,11 @@ public class AllBinaryMidlet extends MIDlet
 implements CommandListener
 {
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    private final String SET_DISPLAY = "setDisplay";
+    
+    private final String SETTING_ = "Setting: ";
+    private final String _DISPLAY_ = " Display: ";
+    private final String SETTING_NO_TITLE = "Setting: No Title, Display: ";
     
     private Hashtable hashtable = new Hashtable();
     private boolean destroyed;
@@ -65,11 +70,11 @@ implements CommandListener
             
             if (title != null)
             {
-                LogUtil.put(LogFactory.getInstance(new StringMaker().append("Setting: ").append(title).append(" Display: ").append(StringUtil.getInstance().toString(newDisplay)).toString(), this, "setDisplay"));
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append(SETTING_).append(title).append(_DISPLAY_).append(StringUtil.getInstance().toString(newDisplay)).toString(), this, SET_DISPLAY));
             }
             else
             {
-                LogUtil.put(LogFactory.getInstance(new StringMaker().append("Setting: No Title, Display: ").append(StringUtil.getInstance().toString(newDisplay)).toString(), this, "setDisplay"));
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append(SETTING_NO_TITLE).append(StringUtil.getInstance().toString(newDisplay)).toString(), this, SET_DISPLAY));
             }            
         }
         final Display display = getDisplay();
@@ -113,10 +118,9 @@ implements CommandListener
 
     protected void destroyApp(boolean unconditional)
     {
+        final String METHOD_NAME = "AllBinaryMidlet::destroyApp";
         try
-        {
-            final String METHOD_NAME = "AllBinaryMidlet::destroyApp";
-            
+        {   
             LogUtil.put(LogFactory.getInstance(commonStrings.START, this, METHOD_NAME));
             
             PreLogUtil.put(Memory.getInfo(), this, METHOD_NAME);
@@ -125,7 +129,7 @@ implements CommandListener
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "AllBinaryMidlet::destroyApp", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, METHOD_NAME, e));
         }
     }
     

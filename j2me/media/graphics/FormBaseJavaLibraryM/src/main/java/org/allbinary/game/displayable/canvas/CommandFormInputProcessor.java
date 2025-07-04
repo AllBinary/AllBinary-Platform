@@ -44,6 +44,8 @@ import org.allbinary.time.TimeDelayHelper;
 //In general allow scrolling of the menu and selection the center item
 public class CommandFormInputProcessor extends BasicMenuInputProcessor
 {
+    protected final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
+
    private final int MOTION_GESTURE_SOURCE_ID = GameKeyEventFactory.getInstance().MOTION_GESTURE_SOURCE_ID;
     
    private final int CLICK_DELAY = 150;
@@ -205,9 +207,9 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
    protected void processMotionInput(final MotionGestureEvent motionGestureEvent)
            throws Exception
    {
-       //LogUtil.put(LogFactory.getInstance(new StringMaker().append(Thread.currentThread().getName()).append(commonStrings.START).append(motionGestureEvent).toString(), this, "processMotionInput"));
-       //LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.START).append(motionGestureEvent).toString(), this, "processMotionInput"));
-       //PreLogUtil.put(commonStrings.START, this, "processMotionInput");
+       //LogUtil.put(LogFactory.getInstance(new StringMaker().append(Thread.currentThread().getName()).append(commonStrings.START).append(motionGestureEvent).toString(), this, gameInputStrings.PROCESS_MOTION_INPUT));
+       //LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.START).append(motionGestureEvent).toString(), this, gameInputStrings.PROCESS_MOTION_INPUT));
+       //PreLogUtil.put(commonStrings.START, this, gameInputStrings.PROCESS_MOTION_INPUT);
        
       final TouchMotionGestureFactory touchMotionGestureFactory = TouchMotionGestureFactory.getInstance();
       final MotionGestureInput motionGestureInput = motionGestureEvent.getMotionGesture();
@@ -221,7 +223,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
 
             if (index != -1)
             {
-               //LogUtil.put(LogFactory.getInstance("Form Selected Index: ").append(index, this, "processMotionInput"));
+               //LogUtil.put(LogFactory.getInstance("Form Selected Index: ").append(index, this, gameInputStrings.PROCESS_MOTION_INPUT));
 
                PrimaryPlayerQueueFactory.getInstance().add(
                        SelectSound.getInstance());
@@ -237,15 +239,15 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
                   this.form.setSelectedIndex(index);
                }
             } else {
-                //LogUtil.put(LogFactory.getInstance("No Form Selected Index: ").append(index, this, "processMotionInput"));
+                //LogUtil.put(LogFactory.getInstance("No Form Selected Index: ").append(index, this, gameInputStrings.PROCESS_MOTION_INPUT));
             }
          }
 
-         // LogUtil.put(LogFactory.getInstance("No Double Press Time: ").append(this.doubleClickTimeHelper.getElapsed(), this, "processMotionInput"));
+         // LogUtil.put(LogFactory.getInstance("No Double Press Time: ").append(this.doubleClickTimeHelper.getElapsed(), this, gameInputStrings.PROCESS_MOTION_INPUT));
 
          if(this.hasPressed) {
              if (!this.doubleClickTimeHelper.isTime()) {
-                 LogUtil.put(LogFactory.getInstance("Double Press", this, "processMotionInput"));
+                 LogUtil.put(LogFactory.getInstance("Double Press", this, gameInputStrings.PROCESS_MOTION_INPUT));
                  this.processCommand();
              }
 

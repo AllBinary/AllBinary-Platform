@@ -84,15 +84,8 @@ public class VectorExplosionGenerator
 
                 BasicArrayList pointBasicArrayList = getInstance(
                         tempBasicArrayList, points, howMuch, type);
-                // LogUtil.put(LogFactory.getInstance("Adding Point
-                // BasicArrayList
-                // commonStrings.TOTAL_LABEL +
-                // pointBasicArrayList.size() + " should be == " +
-                // firstPointBasicArrayList.size(), "static",
-                // commonStrings.GET_INSTANCE));
-                // LogUtil.put(LogFactory.getInstance("Point BasicArrayList: " +
-                // pointBasicArrayList.toString(), "static",
-                // commonStrings.GET_INSTANCE));
+                // LogUtil.put(LogFactory.getInstance("Adding Point BasicArrayList commonStrings.TOTAL_LABEL + pointBasicArrayList.size() + " should be == " + firstPointBasicArrayList.size(), this, commonStrings.GET_INSTANCE));
+                // LogUtil.put(LogFactory.getInstance("Point BasicArrayList: " + pointBasicArrayList.toString(), this, commonStrings.GET_INSTANCE));
                 pointsBasicArrayList.add(pointBasicArrayList);
 
                 frameIndex++;
@@ -103,16 +96,13 @@ public class VectorExplosionGenerator
                 pointsBasicArrayList.remove(0);
             }
 
-            // LogUtil.put(LogFactory.getInstance(IntArrayUtil.toString(newPoints),
-            // "static", commonStrings.GET_INSTANCE));
+            // LogUtil.put(LogFactory.getInstance(IntArrayUtil.toString(newPoints), this, commonStrings.GET_INSTANCE));
             return pointsBasicArrayList;
 
         }
         catch (Exception e)
         {
-            // LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,
-            // "BabyFighterBasicArrayListData",
-            // "static", e));
+            //LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
             throw e;
         }
     }
