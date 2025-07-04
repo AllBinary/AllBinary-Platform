@@ -48,7 +48,7 @@ public class GameFeatureItemCommandListener implements ItemCommandListener
         try
         {
             String itemLabel = item.getLabel();
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Item: ").append(itemLabel).toString(), this, MidletStrings.getInstance().COMMAND_ACTION));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonLabels.ITEM_LABEL).append(itemLabel).toString(), this, MidletStrings.getInstance().COMMAND_ACTION));
 
             if (item instanceof GameConfigurationGauge)
             {

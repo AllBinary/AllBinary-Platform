@@ -57,7 +57,7 @@ extends CollidableDestroyableDamageableBehavior
        {
           if (this.ownerLayer.getGroupInterface()[0] != collisionLayer.getGroupInterface()[0])
           {
-              //LogUtil.put(LogFactory.getInstance("isCollision: " + this.getGroupInterface().getGroupName() + "==" + collisionLayer.getGroupInterface().getGroupName(), this, "isCollision"));
+              //LogUtil.put(LogFactory.getInstance("isCollision: " + this.getGroupInterface().getGroupName() + "==" + collisionLayer.getGroupInterface().getGroupName(), this, damageUtil.IS_COLLISION));
               return super.isCollision(collisionLayer);
           }
        }
@@ -81,7 +81,7 @@ extends CollidableDestroyableDamageableBehavior
        {
           final AllBinaryLayer layerInterface = (AllBinaryLayer) collidableInterfaceCompositeInterface;
 
-          //LogUtil.put(LogFactory.getInstance("isCollision: " + this.getGroupInterface().getGroupName() + "==" + layerInterface.getGroupInterface().getGroupName(), this, "isCollision"));
+          //LogUtil.put(LogFactory.getInstance("isCollision: " + this.getGroupInterface().getGroupName() + "==" + layerInterface.getGroupInterface().getGroupName(), this, damageUtil.IS_COLLISION));
           if (this.ownerLayer.getGroupInterface()[0] != layerInterface.getGroupInterface()[0])
           {
              if (layerCollisionUtil.isCollision(this.ownerLayer, layerInterface))

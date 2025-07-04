@@ -59,7 +59,7 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
                 // LogUtil.put(LogFactory.getInstance("isCollision: " +
                 // this.getGroupInterface().getGroupName() + "==" +
                 // collisionLayer.getGroupInterface().getGroupName(), this,
-                // "isCollision"));
+                // damageUtil.IS_COLLISION));
                 return super.isCollision(collisionLayer);
             }
         }
@@ -89,7 +89,7 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
             // LogUtil.put(LogFactory.getInstance("isCollision: " +
             // this.getGroupInterface().getGroupName() + "==" +
             // layerInterface.getGroupInterface().getGroupName(),
-            // this, "isCollision"));
+            // this, damageUtil.IS_COLLISION));
             if (this.ownerLayer.getGroupInterface()[0] != layerInterface.getGroupInterface()[0])
             {
                 if (layerCollisionUtil.isCollision(this.ownerLayer, layerInterface))

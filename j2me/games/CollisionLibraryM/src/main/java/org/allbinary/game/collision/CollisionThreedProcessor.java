@@ -13,7 +13,7 @@ extends CollisionProcessor
 //            PreLogUtil.put(new StringMaker().append(myLayer.getName()).append(':').append(myLayer.getX()).append(';').append(myLayer.getX2())
 //                .append(',').append(myLayer.getY()).append(';').append(myLayer.getY2()).append(',').append(myLayer.getZ()).append(';').append(myLayer.getZ2())
 //                .append('?').append(myLayer2.getName()).append(':').append(myLayer2.getX()).append(';').append(myLayer2.getX2())
-//                .append(',').append(myLayer2.getY()).append(';').append(myLayer2.getY2()).append(',').append(myLayer2.getZ()).append(';').append(myLayer2.getZ2()).toString(), this, "isCollision");
+//                .append(',').append(myLayer2.getY()).append(';').append(myLayer2.getY2()).append(',').append(myLayer2.getZ()).append(';').append(myLayer2.getZ2()).toString(), this, damageUtil.IS_COLLISION);
 //        }
 
         if (myLayer2.getX() >= myLayer.getX2() || myLayer2.getY() >= myLayer.getY2() || 
@@ -24,7 +24,7 @@ extends CollisionProcessor
         }
         else
         {
-                //PreLogUtil.put(myLayer2.getZ() + " > " + myLayer.getZ2() + " || " + myLayer2.getZ2() + " < " + myLayer.getZ(), this, "isCollision");
+                //PreLogUtil.put(myLayer2.getZ() + " > " + myLayer.getZ2() + " || " + myLayer2.getZ2() + " < " + myLayer.getZ(), this, damageUtil.IS_COLLISION);
                 return true;
         }
     }

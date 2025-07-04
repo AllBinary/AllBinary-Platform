@@ -40,5 +40,9 @@ public class GameInputStrings
     public final String STRAFE_RIGHT = "strafeRight";
     
     public final String PROCESS_MOTION_INPUT = "processMotionInput";
+    public final String UDPATE_CURRENT_TOUCH_INPUT_FACTORY = "updateCurrentTouchInputFactory";
+    
+    public final String ENABLE_PLAYER_GAME_INPUTS = "Enabling PlayerGameInputs: ";
+    public final String ENABLE_PLAYER_GAME_INPUT = "Enabling PlayerGameInput: ";
     
 }

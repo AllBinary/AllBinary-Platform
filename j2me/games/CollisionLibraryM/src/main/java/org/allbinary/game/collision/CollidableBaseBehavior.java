@@ -76,8 +76,8 @@ implements CollidableInterface
         }
         else
         {
-            //LogUtil.put(LogFactory.getInstance("y: " + this.y + " " + this.getY2() + " other y: " + collisionLayer.getY() + " " + collisionLayer.getY2(), this, "isCollision"));
-            //LogUtil.put(LogFactory.getInstance("viewy: " + this.getViewPosition().getY() + " " + this.getViewPosition().getY2() + " other viewy: " + ((AllBinaryLayer) collisionLayer).getViewPosition().getY() + " " + ((AllBinaryLayer) collisionLayer).getViewPosition().getY2(), this, "isCollision"));
+            //LogUtil.put(LogFactory.getInstance("y: " + this.y + " " + this.getY2() + " other y: " + collisionLayer.getY() + " " + collisionLayer.getY2(), this, damageUtil.IS_COLLISION));
+            //LogUtil.put(LogFactory.getInstance("viewy: " + this.getViewPosition().getY() + " " + this.getViewPosition().getY2() + " other viewy: " + ((AllBinaryLayer) collisionLayer).getViewPosition().getY() + " " + ((AllBinaryLayer) collisionLayer).getViewPosition().getY2(), this, damageUtil.IS_COLLISION));
             
             return true;
         }

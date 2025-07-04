@@ -39,12 +39,12 @@ public class LogUtil
         Object object,
         String functionName)
     {
-        String className = commonStrings.EMPTY;
-
-        if (object.getClass().getName() != null)
-        {
-            className = new String(new StringMaker().append(object.getClass().getName()).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(object.hashCode())).toString());
-        }
+//        String className = CommonStrings.getInstance().EMPTY;
+//
+//        if (object.getClass().getName() != null)
+//        {
+//            className = new String(new StringMaker().append(object.getClass().getName()).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(object.hashCode())).toString());
+//        }
 
         FileLog.put(specialMessage, object, functionName);
     }
@@ -58,12 +58,12 @@ public class LogUtil
         String functionName,
         Throwable exception)
     {
-        String className = commonStrings.EMPTY;
-
-        if (object.getClass().getName() != null)
-        {
-            className = new String(new StringMaker().append(object.getClass().getName()).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(object.hashCode())).toString());
-        }
+//        String className = CommonStrings.getInstance().EMPTY;
+//
+//        if (object.getClass().getName() != null)
+//        {
+//            className = new String(new StringMaker().append(object.getClass().getName()).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(object.hashCode())).toString());
+//        }
 
         FileLog.put(specialMessage, object, functionName, exception);
     }

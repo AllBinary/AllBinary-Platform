@@ -24,6 +24,7 @@ import org.allbinary.util.HashtableUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonLabels;
 
 public class GameFeatureUtil
 {
@@ -186,8 +187,7 @@ public class GameFeatureUtil
     private void updateExclusive(String selectedChoiceLabel)
             throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(
-                new StringMaker().append("Item: ").append(selectedChoiceLabel).toString(), this, "updateExclusive"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonLabels.getInstance().ITEM_LABEL).append(selectedChoiceLabel).toString(), this, "updateExclusive"));
 
         Feature gameFeature = Feature.getInstance(selectedChoiceLabel);
 

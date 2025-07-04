@@ -107,6 +107,7 @@ import org.allbinary.time.GameTickTimeDelayHelperFactory;
 import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.business.advertisement.GameAdStateFactory;
 import org.allbinary.game.GameAdState;
+import org.allbinary.game.GameStrings;
 import org.allbinary.game.input.GameInputStrings;
 import org.allbinary.game.layer.SWTUtil;
 import org.allbinary.game.resource.ResourceLoadingLevel;
@@ -144,6 +145,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     protected final OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
     protected final TouchButtonFactory touchButtonFactory = TouchButtonFactory.getInstance();
     protected final GameAdStateFactory gameAdStateFactory = GameAdStateFactory.getInstance();
+    protected final GameStrings gameStrings = GameStrings.getInstance();
     protected final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
 
     private final GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
@@ -384,9 +386,10 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
      *
      * super.setRunning(running); }
      */
+    //private final String PROCESS_SLEEP = "processSleep";
     public void processSleep() throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "processSleep"));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, PROCESS_SLEEP));
 
         super.processSleep();
 
@@ -400,7 +403,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         if (this.menuInputProcessor.processInput() != -1)
         {
-            // LogUtil.put(LogFactory.getInstance("Menu Processing While Sleeping", this, "processSleep"));
+            // LogUtil.put(LogFactory.getInstance("Menu Processing While Sleeping", this, PROCESS_SLEEP));
 
             // this.processPaintable.process();
             this.runnableCanvasRefreshHelper.process();
@@ -560,8 +563,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public synchronized void unPause()
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "unPause"));
-        // PreLogUtil.put(commonStrings.START, this, "unPause");
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, gameStrings.UNPAUSE));
+        // PreLogUtil.put(commonStrings.START, this, gameStrings.UNPAUSE);
 
         this.closeMenu();
         System.gc();
@@ -604,7 +607,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public void toggleMenu() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "toggleMenu"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, this.gameStrings.TOGGLE_MENU));
 
         if (this.getMenuPaintable() == this.getOpenMenuPaintable())
         {
@@ -835,9 +838,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         {
             this.currentTouchInputFactory = nextTouchInput;
 
-            // LogUtil.put(LogFactory.getInstance(this.currentTouchInputFactory,
-            // this, "updateCurrentTouchInputFactory"));
-            PreLogUtil.put(this.currentTouchInputFactory.toString(), this, "updateCurrentTouchInputFactory");
+            // LogUtil.put(LogFactory.getInstance(this.currentTouchInputFactory, this, this.gameInputStrings.UDPATE_CURRENT_TOUCH_INPUT_FACTORY));
+            PreLogUtil.put(this.currentTouchInputFactory.toString(), this, this.gameInputStrings.UDPATE_CURRENT_TOUCH_INPUT_FACTORY);
 
             touchButtonFactory.toggle(this.isPaused(),
                     this.currentTouchInputFactory.getList());
@@ -919,7 +921,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         {
             final String itemLabel = item.getLabel();
 
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Item: ").append(itemLabel).toString(), this, "itemStateChanged"));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonLabels.ITEM_LABEL).append(itemLabel).toString(), this, "itemStateChanged"));
 
             if (item instanceof ChoiceGroup)
             {
@@ -974,8 +976,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         }
         else if (features.isFeature(touchFeatureFactory.SHOW_SCREEN_BUTTONS))
         {
-            // PreLogUtil.put(touchFeatureFactory.SHOW_SCREEN_BUTTONS.getName(),
-            // this, "updateScreenButtonPaintable");
+            // PreLogUtil.put(touchFeatureFactory.SHOW_SCREEN_BUTTONS.getName(), this, "updateScreenButtonPaintable");
 
             // If touch buttons are visible
             this.setTouchPaintable(this.getTouchButtonsPaintable());
@@ -1013,9 +1014,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public void setGameOver() throws Exception
     {
-        PreLogUtil.put(commonStrings.START, this, "setGameOver");
-        // LogUtil.put(LogFactory.getInstance(commonStrings.START,
-        // this, "setGameOver"));
+        PreLogUtil.put(commonStrings.START, this, this.gameStrings.SET_GAME_OVER);
+        // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, this.gameStrings.SET_GAME_OVER));
 
         this.setGameOver(true);
 
@@ -1060,8 +1060,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public void setGameState(final GameState gameState) throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Game State: ").append(this.stringUtil.toString(gameState)).toString(), this, "setGameState"));
-        // PreLogUtil.put("Game State: ").append(gameState, this, "setGameState");
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.gameStrings.GAME_STATE).append(this.stringUtil.toString(gameState)).toString(), this, this.gameStrings.SET_GAME_STATE));
+        // PreLogUtil.put("Game State: ").append(gameState, this, this.gameStrings.SET_GAME_STATE);
 
         this.gameState = gameState;
         this.gameStateTimeHelper.setStartTime();
@@ -1146,7 +1146,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected void cleanupGame() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "cleanupGame"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, this.commonStrings.CLEANUP));
 
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         progressCanvas.addPortion(10, "Cleaning Up");
@@ -1263,13 +1263,13 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public void buildGame2() {
         //LogUtil.put(LogFactory.getInstance("Clearing Keys From Last Level", this, BUILD_GAME));
-        PreLogUtil.put(new StringMaker().append("Enabling PlayerGameInputs: ").append(this.localPlayerGameInputList.size()).toString(), this, BUILD_GAME);
+        PreLogUtil.put(new StringMaker().append(this.gameInputStrings.ENABLE_PLAYER_GAME_INPUTS).append(this.localPlayerGameInputList.size()).toString(), this, BUILD_GAME);
 
         PlayerGameInput playerGameInput;
         for (int index = this.localPlayerGameInputList.size() - 1; index >= 0; index--) {
             playerGameInput = (PlayerGameInput) this.localPlayerGameInputList.get(index);
 
-            PreLogUtil.put(new StringMaker().append("Enabling PlayerGameInput: ").append(playerGameInput.toString()).toString(), this, BUILD_GAME);
+            PreLogUtil.put(new StringMaker().append(this.gameInputStrings.ENABLE_PLAYER_GAME_INPUT).append(playerGameInput.toString()).toString(), this, BUILD_GAME);
 
             playerGameInput.removeNonAIInputGameKeyEvents();
             this.addKeyInputListener(playerGameInput);
@@ -1291,7 +1291,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public void loadState() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "loadState"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.LOAD));
         Hashtable hashtable = getLoadStateHashtable();
 
         if (hashtable != null && hashtable.size() > 0)
@@ -1497,7 +1497,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
          * long totalTimeElapsed = currentTime) - debugInterface.getStartTime();
          *
          * LogUtil.put(LogFactory.getInstance( "Elapsed Time: " +
-         * totalTimeElapsed, this, "processGame"));
+         * totalTimeElapsed, this, "processPlayingGame"));
          *
          * if (totalTimeElapsed > debugInterface.getMaxTime()) { PreLogUtil.put(
          * //LogFactory.getInstance( "Elapsed Time: ").append(totalTimeElapsed, this,

@@ -114,7 +114,6 @@ public class ScrollSelectionForm extends PaintableForm
     }
 
     private static final String GET_SELECTED_INDEX = "getSelectedIndex";
-    private static final String ITEM_LABEL = "Item: ";
     
     public int getSelectedIndex(final GPoint point) throws Exception
     {
@@ -178,7 +177,7 @@ public class ScrollSelectionForm extends PaintableForm
             {
                 stringBuffer.delete(0, stringBuffer.length());
                 
-                stringBuffer.append(ITEM_LABEL);
+                stringBuffer.append(commonLabels.ITEM_LABEL);
                 stringBuffer.append(item.getLabel());
                 stringBuffer.append(CommonSeps.getInstance().SPACE);
                 stringBuffer.append(commonLabels.INDEX_LABEL);

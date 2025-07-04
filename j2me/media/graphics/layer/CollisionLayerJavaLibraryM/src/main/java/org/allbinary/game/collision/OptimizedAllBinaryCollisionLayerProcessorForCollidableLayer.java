@@ -69,16 +69,17 @@ public class OptimizedAllBinaryCollisionLayerProcessorForCollidableLayer
         }
     }
 
+    //private final String IS_PROCESSING_LAYER = "isProcessorLayer";
     public boolean isProcessorLayer(AllBinaryLayer layerInterface)
     {
-        //LogUtil.put(LogFactory.getInstance(layerInterface.toString(), this, "isProcessorLayer"));
+        //LogUtil.put(LogFactory.getInstance(layerInterface.toString(), this, IS_PROCESSING_LAYER));
         if (layerInterface.implmentsCollidableInterface())
         {
-            //LogUtil.put(LogFactory.getInstance("implmentsCollidableInterface - true: " + layerInterface.toString(), this, "isProcessorLayer"));
+            //LogUtil.put(LogFactory.getInstance("implmentsCollidableInterface - true: " + layerInterface.toString(), this, IS_PROCESSING_LAYER));
             return true;
         } else
         {
-            //LogUtil.put(LogFactory.getInstance("implmentsCollidableInterface - false: " + layerInterface.toString(), this, "isProcessorLayer"));
+            //LogUtil.put(LogFactory.getInstance("implmentsCollidableInterface - false: " + layerInterface.toString(), this, IS_PROCESSING_LAYER));
             return false;
         }
     }

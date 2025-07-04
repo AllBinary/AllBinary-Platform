@@ -26,4 +26,11 @@ public class GameStrings
     public final String ON_GAME_INITIALIZED = "onGameInitialized";
     public final String UPDATESURFACE = "updateSurface";
     public final String ON_SET_DISPLAYABLE = "onSetDisplayable";
+    
+    public final String UNPAUSE = "unPause";
+    public final String TOGGLE_MENU = "toggleMenu";
+    public final String SET_GAME_OVER = "setGameOver";
+    public final String GAME_STATE = "Game State: ";
+    public final String SET_GAME_STATE = "setGameState";
+
 }

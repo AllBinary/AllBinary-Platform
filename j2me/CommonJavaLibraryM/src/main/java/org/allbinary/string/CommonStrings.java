@@ -38,6 +38,8 @@ public class CommonStrings
     public final String EXCEPTION = "Exception";
     public final String EXCEPTION_LABEL = "Exception: ";
     
+    public final String CLEANUP = "cleanup";
+    
     public final String INIT = "init";
     public final String CLOSE = "close";
 

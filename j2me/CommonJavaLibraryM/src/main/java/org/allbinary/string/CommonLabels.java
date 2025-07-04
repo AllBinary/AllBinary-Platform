@@ -42,5 +42,6 @@ public class CommonLabels {
     public final String START = START_LABEL;
     public final String ELAPSED = " Elapsed: ";
     public final String CURRENT = " Current: ";
+    public final String ITEM_LABEL = "Item: ";
     
 }

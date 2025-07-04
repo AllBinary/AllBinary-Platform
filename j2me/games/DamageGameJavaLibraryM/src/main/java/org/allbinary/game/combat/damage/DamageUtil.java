@@ -33,6 +33,7 @@ public class DamageUtil
     }
 
     public final String COLLIDE = "collide";
+    //public final String IS_COLLISION = "isCollision";
     
    private DamageUtil()
    {

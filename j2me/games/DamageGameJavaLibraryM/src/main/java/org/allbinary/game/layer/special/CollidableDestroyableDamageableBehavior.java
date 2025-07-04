@@ -59,7 +59,7 @@ extends CollidableBaseBehavior
         if (this.ownerLayer.getGroupInterface() != groupInterfaceCompositeInterface.getGroupInterface())
         {
         //if(this.getTeamInterface() == Team.GOOD)
-          // LogUtil.put(LogFactory.getInstance("isCollision: " + this.getTeamInterface().getName() + "==" + teamInterfaceCompositeInterface.getTeamInterface().getName(), this, "isCollision"));
+          // LogUtil.put(LogFactory.getInstance("isCollision: " + this.getTeamInterface().getName() + "==" + teamInterfaceCompositeInterface.getTeamInterface().getName(), this, damageUtil.IS_COLLISION));
            
             if (LayerCollisionUtil.isCollision(this.ownerLayer, (AllBinaryLayer) collidableInterfaceCompositeInterface))
             {

@@ -79,7 +79,7 @@ public class GameFeatureItemStateListener implements ItemStateListener
         {
             String itemLabel = item.getLabel();
 
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Item: ").append(itemLabel).toString(), this, "itemStateChanged"));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonLabels.ITEM_LABEL).append(itemLabel).toString(), this, "itemStateChanged"));
 
             if (item instanceof GameConfigurationGauge)
             {

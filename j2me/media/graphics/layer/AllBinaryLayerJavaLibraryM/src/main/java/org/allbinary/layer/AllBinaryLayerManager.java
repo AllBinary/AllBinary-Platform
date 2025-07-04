@@ -165,7 +165,7 @@ public class AllBinaryLayerManager extends LayerManager
 
     public void cleanup() throws Exception
     {
-         //PreLogUtil.put(new Integer(this.getSize()).toString(), this, "cleanup");
+         //PreLogUtil.put(new Integer(this.getSize()).toString(), this, this.commonStrings.CLEANUP);
         LayerProcessor layerProcessorInterface;
 
         int size = this.basicLayerProcessorArray.length;

@@ -85,7 +85,7 @@ public class LayerManager
 
     public void cleanup() throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance("cleanup", this, "cleanup"));
+        //LogUtil.put(LogFactory.getInstance(this.commonStrings.CLEANUP, this, this.commonStrings.CLEANUP));
         
     	synchronized(object)
     	{

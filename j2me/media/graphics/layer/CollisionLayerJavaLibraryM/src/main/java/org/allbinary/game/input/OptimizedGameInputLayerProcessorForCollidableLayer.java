@@ -31,8 +31,9 @@ public class OptimizedGameInputLayerProcessorForCollidableLayer extends LayerPro
 		gameInputInterface.processInput(allBinaryLayerManager);
 	}
 
+        //private final String IS_PROCESSING_LAYER = "isProcessorLayer";
 	public boolean isProcessorLayer(final AllBinaryLayer layerInterface) {
-                //LogUtil.put(LogFactory.getInstance(new StringMaker().append("isProcessorLayer: ").append(layerInterface).toString(), this, "isProcessorLayer"));
+                //LogUtil.put(LogFactory.getInstance(new StringMaker().append("isProcessorLayer: ").append(layerInterface).toString(), this, IS_PROCESSING_LAYER));
 		if (layerInterface.implmentsGameInputInterface()) {
 			return true;
 		} else {

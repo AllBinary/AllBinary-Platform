@@ -47,13 +47,15 @@ public class GameFeatureFormUtil
 
         final Features features = Features.getInstance();
         
+        final String ADD_CHOICE = ": Adding Choice: ";
+        final String GET_CHOICE_GROUP = "getChoiceGroup";
         final int size = list.size();
         for (int index = 0; index < size; index++)
         {
             final Feature gameFeature = (Feature) list.objectArray[index];
             
             stringMaker.delete(0, stringMaker.length());
-            LogUtil.put(LogFactory.getInstance(stringMaker.append(name).append(": Adding Choice: ").append(gameFeature.toString()).toString(), this, "getChoiceGroup"));
+            LogUtil.put(LogFactory.getInstance(stringMaker.append(name).append(ADD_CHOICE).append(gameFeature.toString()).toString(), this, GET_CHOICE_GROUP));
             choiceGroup.append(gameFeature.toString(), null);
             if (features.isFeature(gameFeature))
             {
@@ -67,6 +69,9 @@ public class GameFeatureFormUtil
     {
         final StringMaker stringMaker = new StringMaker();
 
+        final String ADDING_CHOICE_GROUP = "Adding Choice Group: ";
+        final String ADD_CHOICE_GROUP = "addChoiceGroup";
+        
         final int size = hashtable.size();
         final Object[] objectArray = HashtableUtil.getInstance().getKeysAsArray(hashtable);
         for (int index = 0; index < size; index++)
@@ -74,7 +79,7 @@ public class GameFeatureFormUtil
             String name = (String) objectArray[index];
 
             stringMaker.delete(0, stringMaker.length());
-            LogUtil.put(LogFactory.getInstance(stringMaker.append("Adding Choice Group: ").append(name).toString(), this, "addChoiceGroup"));
+            LogUtil.put(LogFactory.getInstance(stringMaker.append(ADDING_CHOICE_GROUP).append(name).toString(), this, ADD_CHOICE_GROUP));
 
             form.append(this.getChoiceGroup(hashtable, name, option));
         }
