@@ -22,11 +22,23 @@ import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
 
 public class DamageUtil
 {
+
+    protected static final DamageUtil instance = new DamageUtil();
+    
+    /**
+     * @return the instance
+     */
+    public static DamageUtil getInstance() {
+        return instance;
+    }
+
+    public final String COLLIDE = "collide";
+    
    private DamageUtil()
    {
    }
    
-   public static void process(
+   public void process(
       DamageableInterface damageableInterface, 
       DamageableInterface damageableInterface2)
    throws Exception
@@ -44,7 +56,7 @@ public class DamageUtil
       }*/
    }
 
-   public static void debugDamage(CollidableCompositeLayer collidableInterfaceCompositeInterface1, CollidableCompositeLayer collidableInterfaceCompositeInterface) 
+   public void debugDamage(CollidableCompositeLayer collidableInterfaceCompositeInterface1, CollidableCompositeLayer collidableInterfaceCompositeInterface) 
        throws Exception
    {
            int damage = ((CollidableDestroyableDamageableLayer) collidableInterfaceCompositeInterface).getDamage(0);
@@ -59,7 +71,7 @@ public class DamageUtil
                stringBuffer.append(" damage: ");
                stringBuffer.append(damage);
                
-               LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), collidableInterfaceCompositeInterface1, "collide"));
+               LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), collidableInterfaceCompositeInterface1, COLLIDE));
            }
    }
 }

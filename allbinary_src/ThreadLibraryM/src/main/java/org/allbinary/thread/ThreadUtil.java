@@ -25,6 +25,8 @@ public class ThreadUtil
         return instance;
     }
 
+    public final String JOIN = "join";
+    
     public boolean isRunning(Thread thread)
     {
         if(thread != null && thread.isAlive())
@@ -42,13 +44,13 @@ public class ThreadUtil
     {
         if (ThreadUtil.getInstance().isRunning(thread))
         {
-            //PreLogUtil.put("Waiting for Thread To Join/End", this, "join");
-            LogUtil.put(LogFactory.getInstance("Waiting for Thread To Join/End", this, "join"));
+            //PreLogUtil.put("Waiting for Thread To Join/End", this, JOIN);
+            LogUtil.put(LogFactory.getInstance("Waiting for Thread To Join/End", this, JOIN));
 
             //If loading in background then go ahead and show progress while if
             //it is still initializing
             thread.join();
-            //PreLogUtil.put("Done waiting for Thread To Join/End", this, "join");
+            //PreLogUtil.put("Done waiting for Thread To Join/End", this, JOIN);
         }
     }
 }

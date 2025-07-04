@@ -69,7 +69,7 @@ extends BasicAI
     public void processAI(AllBinaryLayerManager allBinaryLayerManager)
     throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "processAI"));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.PROCESS));
 
         super.processAI(this.keyDirection);
 
@@ -81,16 +81,14 @@ extends BasicAI
 
 			// if(this.firedIndex > 0)
 			// {
-			// PreLogUtil.put("Fire: " + currentOwnerLayerX + " < " +
-			// this.firingX + " > " + -layerInterface.getWidth() + " index: " +
-			// this.firedIndex, this, "processAI");
+			// PreLogUtil.put("Fire: " + currentOwnerLayerX + " < " + this.firingX + " > " + -layerInterface.getWidth() + " index: " + this.firedIndex, this, commonStrings.PROCESS);
 			// }
 
 			if (currentOwnerLayerX < -layerInterface.getWidth())
 			{
 				int y = MyRandomFactory.getInstance().getAbsoluteNextIntAllowZero(50);
 
-				// PreLogUtil.put(PositionStrings.getInstance().Y_LABEL + y, this, "processAI");
+				// PreLogUtil.put(PositionStrings.getInstance().Y_LABEL + y, this, commonStrings.PROCESS);
 
 				layerInterface.setPosition(displayInfoSingleton.getLastWidth() + layerInterface.getWidth() + 50, y, layerInterface.getZ());
 
@@ -106,7 +104,7 @@ extends BasicAI
 					&& currentOwnerLayerX > -layerInterface.getWidth())
 			// if (this.changedDirection)
 			{
-				// PreLogUtil.put("Fire: " + currentOwnerLayerX +"<" + this.firingX + " index: " + this.firedIndex, this, "processAI");
+				// PreLogUtil.put("Fire: " + currentOwnerLayerX +"<" + this.firingX + " index: " + this.firedIndex, this, commonStrings.PROCESS);
 				super.processAI(Canvas.KEY_NUM1);
 
 				// this.changedDirection = false;

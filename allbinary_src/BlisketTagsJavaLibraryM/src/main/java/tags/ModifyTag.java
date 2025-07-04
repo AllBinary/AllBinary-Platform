@@ -64,7 +64,7 @@ public class ModifyTag extends HelperTag
       try
       {
          Class helperClass = this.getHelper().getClass();
-         Method method = helperClass.getMethod("delete",null);
+         Method method = helperClass.getMethod(commonStrings.delete,null);
          
          String result = (String) method.invoke(this.getHelper(),null);
          return result;

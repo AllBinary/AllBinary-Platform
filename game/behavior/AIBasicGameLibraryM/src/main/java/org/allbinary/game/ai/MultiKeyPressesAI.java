@@ -71,7 +71,7 @@ public class MultiKeyPressesAI extends KeyPressesAI
                     gameInput.addForRemoval(gameKeyEventFactory.getInstance(this, key));
                 }
             }
-            // LogUtil.put(LogFactory.getInstance("remove", this, "processAI"));
+            // LogUtil.put(LogFactory.getInstance("remove", this, commonStrings.PROCESS));
         }
     }
 

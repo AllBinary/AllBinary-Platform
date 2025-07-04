@@ -64,7 +64,7 @@ public class CommandForm extends Form
 
     public void close() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "close"));
+        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, commonStrings.CLOSE));
     }
 
     public void update() throws Exception {

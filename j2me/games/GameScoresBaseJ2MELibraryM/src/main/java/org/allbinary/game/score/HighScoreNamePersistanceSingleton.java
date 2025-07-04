@@ -81,7 +81,7 @@ public class HighScoreNamePersistanceSingleton
         RecordStore recordStore = null;
         try {
 
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Deleting: ").append(deleteId).toString(), this, "delete"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Deleting: ").append(deleteId).toString(), this, commonStrings.delete));
 
         recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
@@ -89,7 +89,7 @@ public class HighScoreNamePersistanceSingleton
 
         } finally {
             if(recordStore != null) {
-                PreLogUtil.put("Closing RecordStore", this, "delete");
+                PreLogUtil.put("Closing RecordStore", this, commonStrings.delete);
                 recordStore.closeRecordStore();
             }
         }
@@ -102,9 +102,7 @@ public class HighScoreNamePersistanceSingleton
     }
 
     public String load(final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo)
-    {
-        final String LOAD = "load";
-        
+    {        
         RecordStore recordStore = null;
 
         try
@@ -127,7 +125,7 @@ public class HighScoreNamePersistanceSingleton
                 {
                     final int id = recordEnum.nextRecordId();
 
-                    LogUtil.put(LogFactory.getInstance(new StringMaker().append(LOADING_ID).append(id).toString(), this, LOAD));
+                    LogUtil.put(LogFactory.getInstance(new StringMaker().append(LOADING_ID).append(id).toString(), this, commonStrings.LOAD));
 
                     recordAsBytes = recordStore.getRecord(id);
                     byteArrayInputStream = new ByteArrayInputStream(recordAsBytes);
@@ -146,15 +144,15 @@ public class HighScoreNamePersistanceSingleton
         } catch (Exception e)
         {
             this.save(abeClientInformation, gameInfo, this.name);
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(ExceptionUtil.getInstance().getStackTrace(e)).toString(), this, LOAD));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(ExceptionUtil.getInstance().getStackTrace(e)).toString(), this, commonStrings.LOAD));
         } finally {
             try {
                 if (recordStore != null) {
-                    PreLogUtil.put("Closing RecordStore", this, LOAD);
+                    PreLogUtil.put("Closing RecordStore", this, commonStrings.LOAD);
                     recordStore.closeRecordStore();
                 }
             } catch(RecordStoreException e) {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, LOAD, e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.LOAD, e));
             }
         }
 
@@ -166,7 +164,7 @@ public class HighScoreNamePersistanceSingleton
         RecordStore recordStore = null;
         try
         {
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Saving: ").append(name).toString(), this, "save"));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Saving: ").append(name).toString(), this, commonStrings.SAVE));
 
             recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
@@ -184,15 +182,15 @@ public class HighScoreNamePersistanceSingleton
             
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "save", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.SAVE, e));
         } finally {
             try {
                 if (recordStore != null) {
-                    PreLogUtil.put("Closing RecordStore", this, "save");
+                    PreLogUtil.put("Closing RecordStore", this, commonStrings.SAVE);
                     recordStore.closeRecordStore();
                 }
             } catch(RecordStoreException e) {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "save", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.SAVE, e));
             }
         }
 

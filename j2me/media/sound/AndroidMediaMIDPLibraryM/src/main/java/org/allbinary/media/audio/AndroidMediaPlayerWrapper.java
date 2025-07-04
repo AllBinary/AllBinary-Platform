@@ -117,7 +117,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "close", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.CLOSE, e));
         }
     }
 

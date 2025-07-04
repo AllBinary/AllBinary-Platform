@@ -28,6 +28,7 @@ import org.allbinary.layer.AllBinaryLayer;
 
 public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBehavior
 {
+    
     private boolean collided;
     protected CollisionHelper collisionHelper;
 
@@ -69,7 +70,7 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
     public void collide(CollidableCompositeLayer collisionLayer) throws Exception
     {
         // LogUtil.put(LogFactory.getInstance(this.getName() + " collided with "
-        // + collisionLayer.getName(), this, "collide"));
+        // + collisionLayer.getName(), this, damageUtil.COLLIDE));
         //this.slow();
 
         super.collide(collisionLayer);
@@ -103,13 +104,13 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
     public void collide(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
             throws Exception
     {
-        // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "collide"));
+        // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, damageUtil.COLLIDE));
         
         //this.slow();
         
         // if (collidableInterfaceCompositeInterface was instance of
         // DamageableInterface) {
-        DamageUtil.process((DamageableInterface) this.ownerLayer,
+        damageUtil.process((DamageableInterface) this.ownerLayer,
                 (DamageableInterface) collidableInterfaceCompositeInterface);
         this.collided = true;
         // }

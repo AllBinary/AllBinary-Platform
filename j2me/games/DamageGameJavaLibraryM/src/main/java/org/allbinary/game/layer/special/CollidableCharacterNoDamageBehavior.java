@@ -33,7 +33,7 @@ extends CollidableDestroyableDamageableBehavior
     public void collide(CollidableCompositeLayer collidableInterfaceCompositeInterface)
     throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance("collidableLayer", this, "collide"));        
+        //LogUtil.put(LogFactory.getInstance("collidableLayer", this, damageUtil.COLLIDE));        
         CollisionTypeFactory collisionTypeFactory = CollisionTypeFactory.getInstance();
         CollisionType collisionType = collidableInterfaceCompositeInterface.getCollidableInferface().getCollisionTypeWith(this.ownerLayer);
 
@@ -52,7 +52,7 @@ extends CollidableDestroyableDamageableBehavior
     public void collide(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
         throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance("collideInterface", this, "collide"));
+        //LogUtil.put(LogFactory.getInstance("collideInterface", this, damageUtil.COLLIDE));
         ForcedLogUtil.log(commonStrings.NOT_IMPLEMENTED, this);
     }
 }

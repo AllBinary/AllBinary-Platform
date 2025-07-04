@@ -13,16 +13,18 @@
 */
 package org.allbinary.media.image.comparison;
 
+import java.awt.image.BufferedImage;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.number.LongUtil;
 import org.allbinary.input.automation.ImageOutputData;
 import org.allbinary.media.image.cache.BufferedImageCacheable;
 import org.allbinary.media.image.io.ImageIOInterface;
-import java.awt.image.BufferedImage;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.util.cache.AutomaticCacheInterface;
 import org.allbinary.logic.visual.media.MediaDataFactory;
 import org.allbinary.media.image.ImagePersistanceUtil;
+import org.allbinary.string.CommonStrings;
 
 public class ComparisonImageInputOutput implements ImageIOInterface
 {
@@ -35,6 +37,7 @@ public class ComparisonImageInputOutput implements ImageIOInterface
     
     public void save(final Long frame) throws Exception
     {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
         if(frame > 0)
         {
             final ImageComparisonResultFrameCacheable imageComparisonResultFrameCacheable =
@@ -52,19 +55,20 @@ public class ComparisonImageInputOutput implements ImageIOInterface
             else
             {
                 LogUtil.put(LogFactory.getInstance("Comparison Results Not Available for Output: " +
-                    frame, this, "save"));
+                    frame, this, commonStrings.SAVE));
             }
         }
         else
         {
             LogUtil.put(LogFactory.getInstance("No Comparison Results: for first frame: " +
-                frame, this, "save"));
+                frame, this, commonStrings.SAVE));
         }
     }
     
     public void save(final ImageComparisonResult imageComparisonResult, final Long frame)
     throws Exception
     {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
         final StringBuffer filePathStringBuffer = new StringBuffer();
         filePathStringBuffer.append(ImageOutputData.SAVE_PATH);
         filePathStringBuffer.append(LongUtil.fillIn(frame.toString()));
@@ -86,8 +90,8 @@ public class ComparisonImageInputOutput implements ImageIOInterface
             ChangedPixelsUtil.generateBufferedImageChacheables(
             imageComparisonResult);
         
-        LogUtil.put(LogFactory.getInstance("Comparison Image File Path 1: " + filePath1, this, "save"));
-        LogUtil.put(LogFactory.getInstance("Comparison Image File Path 2: " + filePath2, this, "save"));
+        LogUtil.put(LogFactory.getInstance("Comparison Image File Path 1: " + filePath1, this, commonStrings.SAVE));
+        LogUtil.put(LogFactory.getInstance("Comparison Image File Path 2: " + filePath2, this, commonStrings.SAVE));
         
         final BufferedImage[] bufferedImageArray = new BufferedImage[2];
         

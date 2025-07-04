@@ -100,8 +100,6 @@ public class StreamUtil
 //        return new String(byteArray);
 //    }
     
-    private final String CLOSE = "close";
-    
     public boolean close(Closeable closeable)
     {
         try
@@ -115,7 +113,7 @@ public class StreamUtil
         } catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, CLOSE, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.CLOSE, e));
             return false;
         }
     }

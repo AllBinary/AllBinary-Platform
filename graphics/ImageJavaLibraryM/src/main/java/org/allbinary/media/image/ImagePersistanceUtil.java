@@ -39,7 +39,7 @@ public class ImagePersistanceUtil {
         return instance;
     }
     
-    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
     
    public void saveWithBatik(AbFile file, BufferedImage bufferedImage)
       throws Exception
@@ -61,7 +61,7 @@ public class ImagePersistanceUtil {
     	  StreamUtil.getInstance().close(fileOutputStream);
       }
       
-      LogUtil.put(LogFactory.getInstance("Wrote Image: " + file.getAbsolutePath(), "ImageUtil", "save"));
+      LogUtil.put(LogFactory.getInstance("Wrote Image: " + file.getAbsolutePath(), this, commonStrings.SAVE));
    }
 
                         /*
@@ -252,7 +252,7 @@ public class ImagePersistanceUtil {
          // Validate existence of writer.
          if (!iter.hasNext())
          {
-            LogUtil.put(LogFactory.getInstance("Unable to save image to jpeg file type.", this, "save"));
+            LogUtil.put(LogFactory.getInstance("Unable to save image to jpeg file type.", this, commonStrings.SAVE));
             return;
          }
 
@@ -282,11 +282,11 @@ public class ImagePersistanceUtil {
 
          //poolInterface.add(iioImageCacheable);
 
-         LogUtil.put(LogFactory.getInstance("Wrote Image: " + file.getAbsolutePath(), this, "save"));
+         LogUtil.put(LogFactory.getInstance("Wrote Image: " + file.getAbsolutePath(), this, commonStrings.SAVE));
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "save", e));
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.SAVE, e));
       }
       finally
       {
@@ -303,12 +303,12 @@ public class ImagePersistanceUtil {
         {
             if (ios != null)
             {
-                LogUtil.put(LogFactory.getInstance("Closing: " + ios, ios, "close"));
+                LogUtil.put(LogFactory.getInstance(ios.toString(), ios, commonStrings.CLOSE));
                 ios.close();
             }
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, ios, "close", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, ios, commonStrings.CLOSE, e));
         }               
             }
 
@@ -319,7 +319,7 @@ public class ImagePersistanceUtil {
          }
          catch (IOException e2)
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "save", e2));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, commonStrings.SAVE, e2));
          }
       }
    }

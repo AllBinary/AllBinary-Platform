@@ -182,7 +182,7 @@ public class RecordStoreHighScores extends HighScores
 
             if (bestHighScore.getId() != -1)
             {
-                LogUtil.put(LogFactory.getInstance(new StringMaker().append("Removing Lowest HighScore: ").append(bestHighScore.getScore()).toString(), this, "load"));
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append("Removing Lowest HighScore: ").append(bestHighScore.getScore()).toString(), this, commonStrings.LOAD));
                 recordStore.deleteRecord(bestHighScore.getId());
             }
 
@@ -217,13 +217,13 @@ public class RecordStoreHighScores extends HighScores
         try
         {
             recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
-            //LogUtil.put(LogFactory.getInstance(recordStore.getName(), this, "load"));
+            //LogUtil.put(LogFactory.getInstance(recordStore.getName(), this, commonStrings.LOAD));
 
             this.setList(new BasicArrayList());
 
             final RecordEnumeration recordEnum = recordStore.enumerateRecords(null,null, true);
             // recordStore.enumerateRecords(null, (RecordComparator) this, true);
-            //LogUtil.put(LogFactory.getInstance("first hasNextElement: " + recordEnum.hasNextElement(), this, "load"));
+            //LogUtil.put(LogFactory.getInstance("first hasNextElement: " + recordEnum.hasNextElement(), this, commonStrings.LOAD));
 
             byte[] recordAsBytes;
             ByteArrayInputStream byteArrayInputStream;
@@ -231,11 +231,11 @@ public class RecordStoreHighScores extends HighScores
             while (recordEnum.hasNextElement())
             {
                 final int id = recordEnum.nextRecordId();
-                //LogUtil.put(LogFactory.getInstance("id: " + id, this, "load"));
+                //LogUtil.put(LogFactory.getInstance("id: " + id, this, commonStrings.LOAD));
 
                 recordAsBytes = recordStore.getRecord(id);
                 
-                //LogUtil.put(LogFactory.getInstance("recordAsBytes: " + recordAsBytes, this, "load"));
+                //LogUtil.put(LogFactory.getInstance("recordAsBytes: " + recordAsBytes, this, commonStrings.LOAD));
                 
                 if(recordAsBytes != null) {
                     byteArrayInputStream = new ByteArrayInputStream(recordAsBytes);
@@ -261,44 +261,44 @@ public class RecordStoreHighScores extends HighScores
                             }
                         }
 
-                        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Loading HighScore: ").append(newHighScore.getScore()).append(" for: ").append(this.getName()).toString(), this, "load"));
+                        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Loading HighScore: ").append(newHighScore.getScore()).append(" for: ").append(this.getName()).toString(), this, commonStrings.LOAD));
                         list.add(lastIndex, newHighScore);
 
-                        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Loaded HighScores Ordered: ").append(this.toString()).toString(), this, "load"));
+                        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Loaded HighScores Ordered: ").append(this.toString()).toString(), this, commonStrings.LOAD));
                     } catch (EOFException e) {
-                        LogUtil.put(LogFactory.getInstance("EOF", this, "load", e));
+                        LogUtil.put(LogFactory.getInstance("EOF", this, commonStrings.LOAD, e));
                         throw e;
                     }
                 }
             }
 
             // LogUtil.put(LogFactory.getInstance("Loaded HighScores Ordered: " +
-            // this.toString(), this, "load"));
+            // this.toString(), this, commonStrings.LOAD));
 
         }
         catch (RecordStoreNotFoundException e)
         {
-            LogUtil.put(LogFactory.getInstance("No High Scores", this, "load", e));
+            LogUtil.put(LogFactory.getInstance("No High Scores", this, commonStrings.LOAD, e));
         }
         catch (RecordStoreException e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.UNKNOWN, this, "load", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.UNKNOWN, this, commonStrings.LOAD, e));
         }
         catch (IOException e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.UNKNOWN, this, "load", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.UNKNOWN, this, commonStrings.LOAD, e));
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.UNKNOWN, this, "load", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.UNKNOWN, this, commonStrings.LOAD, e));
         } finally {
             try {
                 if (recordStore != null) {
-                    PreLogUtil.put("Closing RecordStore", this, "load");
+                    PreLogUtil.put("Closing RecordStore", this, commonStrings.LOAD);
                     recordStore.closeRecordStore();
                 }
             } catch(RecordStoreException e) {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "load", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.LOAD, e));
             }
         }
 

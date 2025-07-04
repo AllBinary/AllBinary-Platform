@@ -156,8 +156,8 @@ public class InputPersistance extends BasicPersitance
         try {
 
         final StringMaker stringBuffer = new StringMaker();
-        PreLogUtil.put(stringBuffer.append(this.persistanceStrings.SAVING).append(StringUtil.getInstance().toString(hashtable)).toString(), this, this.persistanceStrings.SAVE);
-        //LogUtil.put(LogFactory.getInstance("Saving: ").append(hashtable, this, "save"));
+        PreLogUtil.put(stringBuffer.append(this.persistanceStrings.SAVING).append(StringUtil.getInstance().toString(hashtable)).toString(), this, this.commonStrings.SAVE);
+        //LogUtil.put(LogFactory.getInstance("Saving: ").append(hashtable, this, commonStrings.SAVE));
 
         recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
@@ -196,7 +196,7 @@ public class InputPersistance extends BasicPersitance
                 outputStream.writeUTF(inputIdAsString);
                 
                 //final String string = stringBuffer.toString();
-                //PreLogUtil.put(string, this, "save");
+                //PreLogUtil.put(string, this, commonStrings.SAVE);
                 
                 //stringBuffer.append("Save Mapping from: ");
                 //stringBuffer.append(input.toString());
@@ -205,20 +205,20 @@ public class InputPersistance extends BasicPersitance
                 
                 //LogUtil.put(LogFactory.getInstance("Save Mapping from: "
                 //     ).append(input.toString()).append(" to: "
-                  //   ).append(gameActionInput.toString(), this, "save"));
+                  //   ).append(gameActionInput.toString(), this, commonStrings.SAVE));
             }
         }
 
         //TWB - new String(byte[]).getBytes() is not working correctly for Avain
         //savedGameBytes = byteArrayOutputStream.toString().getBytes();
         savedGameBytes = byteArrayOutputStream.toByteArray();
-        //PreLogUtil.put("bytes out: " + ArrayUtil.getInstance().toString(savedGameBytes), this, "save");
+        //PreLogUtil.put("bytes out: " + ArrayUtil.getInstance().toString(savedGameBytes), this, commonStrings.SAVE);
 
         recordStore.addRecord(savedGameBytes, 0, savedGameBytes.length);
 
         } finally {
             if(recordStore != null) {
-                PreLogUtil.put(this.persistanceStrings.CLOSING_RECORDSTORE, this, this.persistanceStrings.SAVE);
+                PreLogUtil.put(this.persistanceStrings.CLOSING_RECORDSTORE, this, this.commonStrings.SAVE);
                 recordStore.closeRecordStore();
             }
         }

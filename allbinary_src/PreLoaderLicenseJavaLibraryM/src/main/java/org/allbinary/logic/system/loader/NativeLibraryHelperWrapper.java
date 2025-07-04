@@ -15,6 +15,7 @@ package org.allbinary.logic.system.loader;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
+import org.allbinary.string.CommonStrings;
 
 public class NativeLibraryHelperWrapper
 {
@@ -42,7 +43,8 @@ public class NativeLibraryHelperWrapper
         Constructor constructor = myClass.getConstructor(classes);
         this.object = constructor.newInstance(params);
         
-        Method method = object.getClass().getMethod("load", null);
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+        Method method = object.getClass().getMethod(commonStrings.LOAD, null);
         method.invoke(object, null);
     }
     

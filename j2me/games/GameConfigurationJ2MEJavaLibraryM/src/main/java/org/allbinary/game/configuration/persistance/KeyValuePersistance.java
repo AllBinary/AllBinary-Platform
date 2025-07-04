@@ -105,7 +105,7 @@ public class KeyValuePersistance extends BasicPersitance
         
         try {
 
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.persistanceStrings.SAVING).append(StringUtil.getInstance().toString(hashtable)).toString(), this, this.persistanceStrings.SAVE));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.persistanceStrings.SAVING).append(StringUtil.getInstance().toString(hashtable)).toString(), this, this.commonStrings.SAVE));
         
         recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
@@ -132,7 +132,7 @@ public class KeyValuePersistance extends BasicPersitance
 
         } finally {
             if(recordStore != null) {
-                PreLogUtil.put(this.persistanceStrings.CLOSING_RECORDSTORE, this, this.persistanceStrings.SAVE);
+                PreLogUtil.put(this.persistanceStrings.CLOSING_RECORDSTORE, this, this.commonStrings.SAVE);
                 recordStore.closeRecordStore();
             }
         }

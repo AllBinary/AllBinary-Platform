@@ -107,7 +107,7 @@ public class CategoryModifierTree extends CategoryPrivateTree implements Categor
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "delete", e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, commonStrings.delete, e));
          }
       }
    }

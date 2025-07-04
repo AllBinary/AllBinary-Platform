@@ -35,11 +35,9 @@ public class PersistanceStrings {
     public final String LOAD_ALL = "loadAll";
     
     public final String DELETING_WITH_ID = "Deleting data with id: ";
-    public final String DELETE = "delete";
     public final String CLOSING_RECORDSTORE = "Closing RecordStore";
     
     public final String NOT_SAVING = "Not Saving: ";
-    public final String SAVE = "save";
 
     public final String ERROR_LOADING = "Error Loading gameActionInput: ";
     public final String ERROR_LOADING_ID = "Error Loading id: ";

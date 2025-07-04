@@ -140,8 +140,8 @@ public class InputPersistance extends BasicPersitance
 
     public void save(final AbeClientInformationInterface abeClientInformation, Hashtable hashtable) throws Exception
     {
-        PreLogUtil.put(new StringMaker().append(this.persistanceStrings.NOT_SAVING).append(StringUtil.getInstance().toString(hashtable)).toString(), this, this.persistanceStrings.SAVE);
-        //LogUtil.put(LogFactory.getInstance("Saving: ").append(hashtable, this, "save"));
+        PreLogUtil.put(new StringMaker().append(this.persistanceStrings.NOT_SAVING).append(StringUtil.getInstance().toString(hashtable)).toString(), this, this.commonStrings.SAVE);
+        //LogUtil.put(LogFactory.getInstance("Saving: ").append(hashtable, this, commonStrings.SAVE));
         
         final RecordStore recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
@@ -181,11 +181,11 @@ public class InputPersistance extends BasicPersitance
                 //stringBuffer.append(" to: ");
                 //stringBuffer.append(gameActionInput.toString());
 
-                //PreLogUtil.put(stringBuffer.toString(), this, "save");
+                //PreLogUtil.put(stringBuffer.toString(), this, commonStrings.SAVE);
                 
                 //LogUtil.put(LogFactory.getInstance("Save Mapping from: "
                 //     ).append(input.toString()).append(" to: "
-                  //   ).append(gameActionInput.toString(), this, "save"));
+                  //   ).append(gameActionInput.toString(), this, commonStrings.SAVE));
             }
         }
 

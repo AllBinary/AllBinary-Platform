@@ -124,7 +124,7 @@ public class CustomTextBox extends GameCommandCanvas
             }
             
         } catch(Exception e) {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "keyPressed", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, gameInputStrings.KEY_PRESSED, e));
         }
     }
 

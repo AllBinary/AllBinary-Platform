@@ -63,13 +63,13 @@ public class DownloadItemsEntity extends AbSqlBean implements DownloadItemsEntit
             super.deleteWhere(DownloadItemData.ID, value);
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, DELETE));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, commonStrings.delete));
             }
         }catch(Exception e)
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, DELETE, e));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, commonStrings.delete, e));
             }
         }
     }

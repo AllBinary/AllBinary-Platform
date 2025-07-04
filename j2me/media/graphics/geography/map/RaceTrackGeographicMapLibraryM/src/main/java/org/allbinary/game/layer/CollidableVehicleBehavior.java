@@ -93,7 +93,7 @@ extends CollidableDestroyableDamageableBehavior
         if (impactVelocityX != 0)
         {
             // LogUtil.put(LogFactory.getInstance("Transfering X Velocity: " +
-            // impactVelocityX, this, "collide"));
+            // impactVelocityX, this, damageUtil.COLLIDE));
             halfImpactVelocityX = (impactVelocityX >> 1);
             ownerVehicleProperties.getVelocityProperties().getVelocityXBasicDecimal().add(halfImpactVelocityX);
             vehicleProperties.getVelocityProperties().getVelocityXBasicDecimal().add(halfImpactVelocityX);
@@ -108,14 +108,14 @@ extends CollidableDestroyableDamageableBehavior
         } else
         {
             // LogUtil.put(LogFactory.getInstance("No X Velocity Transfer",
-            // this, "collide"));
+            // this, damageUtil.COLLIDE));
         }
 
         // Basic bounce off
         if (impactVelocityY != 0)
         {
             // LogUtil.put(LogFactory.getInstance("Transfering Y Velocity: " +
-            // impactVelocityY, this, "collide"));
+            // impactVelocityY, this, damageUtil.COLLIDE));
             halfImpactVelocityY = (impactVelocityY >> 1);
             ownerVehicleProperties.getVelocityProperties().getVelocityYBasicDecimal().add(halfImpactVelocityY);
             vehicleProperties.getVelocityProperties().getVelocityXBasicDecimal().add(halfImpactVelocityY);
@@ -130,7 +130,7 @@ extends CollidableDestroyableDamageableBehavior
         } else
         {
             // LogUtil.put(LogFactory.getInstance("No Y Velocity Transfer",
-            // this, "collide"));
+            // this, damageUtil.COLLIDE));
         }
 
         // Slow Down
@@ -171,19 +171,19 @@ extends CollidableDestroyableDamageableBehavior
      * 
      * // Basic bounce off if (impactVelocityX != 0) { //
      * LogUtil.put(LogFactory.getInstance("Transfering X Velocity: " +
-     * impactVelocityX, // this, "collide"));
+     * impactVelocityX, // this, damageUtil.COLLIDE));
      * xBasicDecimal.add((impactVelocityX >> 1));
      * otherXBasicDecimal.add((impactVelocityX >> 1)); } else { //
      * LogUtil.put(LogFactory.getInstance("No X Velocity Transfer", this,
-     * "collide")); }
+     * damageUtil.COLLIDE)); }
      * 
      * // Basic bounce off if (impactVelocityY != 0) { //
      * LogUtil.put(LogFactory.getInstance("Transfering Y Velocity: " +
-     * impactVelocityY, // this, "collide"));
+     * impactVelocityY, // this, damageUtil.COLLIDE));
      * yBasicDecimal.add((impactVelocityY >> 1));
      * otherYBasicDecimal.add((impactVelocityY >> 1)); } else { //
      * LogUtil.put(LogFactory.getInstance("No Y Velocity Transfer", this,
-     * "collide")); }
+     * damageUtil.COLLIDE)); }
      */
 
     /*
@@ -200,24 +200,24 @@ extends CollidableDestroyableDamageableBehavior
      * 
      * // Basic bounce off if (impactVelocityX != 0) { //
      * LogUtil.put(LogFactory.getInstance("Transfering X Velocity: " +
-     * impactVelocityX, // this, "collide"));
+     * impactVelocityX, // this, damageUtil.COLLIDE));
      * this.getVehicleProperties().getVelocityProperties
      * ().getVelocityXBasicDecimal().add((impactVelocityX >> 1));
      * vehicleLayer.getVehicleProperties
      * ().getVelocityProperties().getVelocityXBasicDecimal
      * ().add((impactVelocityX >> 1)); } else { //
      * LogUtil.put(LogFactory.getInstance("No X Velocity Transfer", this,
-     * "collide")); }
+     * damageUtil.COLLIDE)); }
      * 
      * // Basic bounce off if (impactVelocityY != 0) { //
      * LogUtil.put(LogFactory.getInstance("Transfering Y Velocity: " +
-     * impactVelocityY, // this, "collide"));
+     * impactVelocityY, // this, damageUtil.COLLIDE));
      * this.getVehicleProperties().getVelocityProperties
      * ().getVelocityYBasicDecimal().add((impactVelocityY >> 1));
      * vehicleLayer.getVehicleProperties
      * ().getVelocityProperties().getVelocityYBasicDecimal
      * ().add((impactVelocityY >> 1)); } else { //
      * LogUtil.put(LogFactory.getInstance("No Y Velocity Transfer", this,
-     * "collide")); }
+     * damageUtil.COLLIDE)); }
      */       
 }

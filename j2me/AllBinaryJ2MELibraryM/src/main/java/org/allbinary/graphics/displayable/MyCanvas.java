@@ -183,7 +183,7 @@ public class MyCanvas extends Canvas
     
     public void destroy()
     {
-        LogUtil.put(LogFactory.getInstance("Destroyed MyCanvas", this, "MyCanvas::destroy"));
+        LogUtil.put(LogFactory.getInstance("Destroyed MyCanvas", this, "destroy"));
     }
 
     /*

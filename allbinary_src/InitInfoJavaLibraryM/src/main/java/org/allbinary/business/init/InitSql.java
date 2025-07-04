@@ -48,7 +48,6 @@ public class InitSql
 
     protected final String INSERT = "insert";
     protected final String UPDATE = "update";
-    protected final String DELETE = "delete";
     
    private DbConnectionInfo databaseConnectionInfoInterface;
 

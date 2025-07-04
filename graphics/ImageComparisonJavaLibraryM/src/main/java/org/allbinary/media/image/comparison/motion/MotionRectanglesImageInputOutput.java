@@ -33,6 +33,7 @@ import org.allbinary.logic.util.cache.AutomaticCacheInterface;
 import org.allbinary.logic.util.cache.PoolInterface;
 import org.allbinary.logic.visual.media.MediaDataFactory;
 import org.allbinary.media.image.ImagePersistanceUtil;
+import org.allbinary.string.CommonStrings;
 
 public class MotionRectanglesImageInputOutput implements ImageIOInterface
 {
@@ -44,6 +45,8 @@ public class MotionRectanglesImageInputOutput implements ImageIOInterface
     
     public void save(Long frame) throws Exception
     {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+        
         MotionRectanglesResultsFrameCacheable motionRectanglesResultsFrameCacheable =
             (MotionRectanglesResultsFrameCacheable)
             ((AutomaticCacheInterface) AllMotionRectanglesResultsCacheSingleton.getInstance()).get(frame);
@@ -75,14 +78,16 @@ public class MotionRectanglesImageInputOutput implements ImageIOInterface
         }
         else
         {
-            LogUtil.put(LogFactory.getInstance("No Motion Rectangle Results for Frame: " + frame, this, "save"));
+            LogUtil.put(LogFactory.getInstance("No Motion Rectangle Results for Frame: " + frame, this, commonStrings.SAVE));
         }
     }
     
     public void save(MotionRectangles motionRectangles, Long frame)
     throws Exception
     {
-        StringBuffer filePathStringBuffer = new StringBuffer();
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+        
+        final StringBuffer filePathStringBuffer = new StringBuffer();
         filePathStringBuffer.append(ImageOutputData.SAVE_PATH);
         filePathStringBuffer.append(LongUtil.fillIn(frame.toString()));
         filePathStringBuffer.append("_");
@@ -102,9 +107,9 @@ public class MotionRectanglesImageInputOutput implements ImageIOInterface
         filePathStringBuffer3.append(filePathStringBuffer.toString());
         filePathStringBuffer3.append(MediaDataFactory.getInstance().JPG.getExtension());
         
-        LogUtil.put(LogFactory.getInstance("Motion Image File Path 1: " + filePathStringBuffer1.toString(), this, "save"));
-        LogUtil.put(LogFactory.getInstance("Motion Image File Path 2: " + filePathStringBuffer2.toString(), this, "save"));
-        LogUtil.put(LogFactory.getInstance("Motion Image File Path 2: " + filePathStringBuffer3.toString(), this, "save"));
+        LogUtil.put(LogFactory.getInstance("Motion Image File Path 1: " + filePathStringBuffer1.toString(), this, commonStrings.SAVE));
+        LogUtil.put(LogFactory.getInstance("Motion Image File Path 2: " + filePathStringBuffer2.toString(), this, commonStrings.SAVE));
+        LogUtil.put(LogFactory.getInstance("Motion Image File Path 2: " + filePathStringBuffer3.toString(), this, commonStrings.SAVE));
         
         BufferedImageCacheable[] bufferedImageCacheables =
             new BufferedImageCacheable[NUMBER_OF_IMAGES];

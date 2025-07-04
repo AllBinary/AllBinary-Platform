@@ -24,9 +24,11 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.persistance.PlatformRecordIdUtil;
+import org.allbinary.string.CommonStrings;
 
 public class BasicPersitance
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
     protected final PersistanceStrings persistanceStrings = PersistanceStrings.getInstance();
     private final PlatformRecordIdUtil platformRecordIdUtil = PlatformRecordIdUtil.getInstance();
     
@@ -64,7 +66,7 @@ public class BasicPersitance
         
         try {
             
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.persistanceStrings.DELETING_WITH_ID).append(deleteId).toString(), this, this.persistanceStrings.DELETE));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.persistanceStrings.DELETING_WITH_ID).append(deleteId).toString(), this, this.commonStrings.delete));
         
         recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
@@ -72,7 +74,7 @@ public class BasicPersitance
 
         } finally {
             if(recordStore != null) {
-                PreLogUtil.put(this.persistanceStrings.CLOSING_RECORDSTORE, this, this.persistanceStrings.DELETE);
+                PreLogUtil.put(this.persistanceStrings.CLOSING_RECORDSTORE, this, this.commonStrings.delete);
                 recordStore.closeRecordStore();
             }
         }

@@ -58,6 +58,10 @@ public class CommonStrings
     public final String UPDATE = "Update";
     public final String DELETE = "Delete";
     
+    public final String delete = "delete";
+    public final String LOAD = "load";
+    public final String SAVE = "save";
+    
     public final String ADD = "Add";
     public final String DROP = "Drop";
     public final String INSERT = "Insert";

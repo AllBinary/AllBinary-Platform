@@ -47,7 +47,6 @@ public class AbSqlBasic
 
     protected final String INSERT = "insert";
     protected final String UPDATE = "update";
-    protected final String DELETE = "delete";
         
     protected final String FAILED_SQL_STATEMENT = "Failed\nSQL Statement: ";
     protected final String SUCCESS_SQL_STATEMENT = "Success\nSQL Statement: ";

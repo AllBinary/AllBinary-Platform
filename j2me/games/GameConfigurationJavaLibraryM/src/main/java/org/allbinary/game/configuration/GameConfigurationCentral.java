@@ -157,6 +157,7 @@ public class GameConfigurationCentral
     
     public void load(final AbeClientInformationInterface abeClientInformation)
     {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
         try
         {
             final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
@@ -177,12 +178,11 @@ public class GameConfigurationCentral
                 this.SCALE.setValue(smallIntegerSingletonFactory.getInstance(Integer.valueOf(value).intValue()));
             } else
             {
-                LogUtil.put(LogFactory.getInstance("No Game Configuration To Load", this, "load"));
+                LogUtil.put(LogFactory.getInstance("No Game Configuration To Load", this, commonStrings.LOAD));
             }
         } catch (Exception e)
         {
-            final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "load", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.LOAD, e));
         }
 
         // Load Scale Value

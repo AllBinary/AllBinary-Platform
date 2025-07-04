@@ -1007,7 +1007,7 @@ public class GameMidlet extends ProgressMidlet
 
     public void save() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, PersistanceStrings.getInstance().SAVE));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.SAVE));
 
         final Hashtable hashtable = this.getCurrentStateHashtable();
         GamePersistanceSingleton.getInstance().save(abeClientInformation, hashtable);

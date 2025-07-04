@@ -18,10 +18,13 @@ import org.allbinary.game.layer.CollidableCompositeLayer;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.game.collision.CollidableBaseBehavior;
 import org.allbinary.game.collision.CollidableInterfaceCompositeInterface;
+import org.allbinary.game.combat.damage.DamageUtil;
 
 public class CollidableDestroyableDamageableBehavior 
 extends CollidableBaseBehavior 
 {
+    protected final DamageUtil damageUtil = DamageUtil.getInstance();
+    
     public CollidableDestroyableDamageableBehavior(final CollidableCompositeLayer ownerLayer, final boolean collidable)
     {
         super(ownerLayer, collidable);
@@ -71,7 +74,7 @@ extends CollidableBaseBehavior
             throws Exception
     {
         ForcedLogUtil.log("No Longer Used", this);
-        //DamageUtil.process((DamageableInterface) this.ownerLayer, (DamageableInterface) collidableInterfaceCompositeInterface);
+        //DamageUtil.getInstance().process((DamageableInterface) this.ownerLayer, (DamageableInterface) collidableInterfaceCompositeInterface);
         
         //// if (collidableInterface was instance of DamageableInterface)
         // //{

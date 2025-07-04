@@ -115,10 +115,10 @@ public class HighScoreTextBox extends CustomTextBox
         this.update();
         
         if(this.submitted) {
-            //LogUtil.put(LogFactory.getInstance("Saving HighScores", this, "close"));
+            //LogUtil.put(LogFactory.getInstance("Saving HighScores", this, commonStrings.CLOSE));
             this.highScoreUtil.saveHighScore();
         } else {
-            //LogUtil.put(LogFactory.getInstance("Not Saving HighScores", this, "close"));
+            //LogUtil.put(LogFactory.getInstance("Not Saving HighScores", this, commonStrings.CLOSE));
         }
         
         this.paintable = NullPaintable.getInstance();

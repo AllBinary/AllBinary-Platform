@@ -65,11 +65,10 @@ public class PacePatrolAI extends BasePatrolAI
         DirectionFactory directionFactory = 
             DirectionFactory.getInstance();
 
-        // LogUtil.put(LogFactory.getInstance("Key: " + this.keyDirection, this,
-        // "processAI"));
+        // LogUtil.put(LogFactory.getInstance("Key: " + this.keyDirection, this, commonStrings.PROCESS));
         if (direction == directionFactory.LEFT)
         {
-            // LogUtil.put(LogFactory.getInstance("Fire", this, "processAI"));
+            // LogUtil.put(LogFactory.getInstance("Fire", this, commonStrings.PROCESS));
 
             //Turn around before firing or if in follow mode
             if(this.lastKeyDirection != keyDirection 
@@ -88,7 +87,7 @@ public class PacePatrolAI extends BasePatrolAI
         }
         else if (direction == directionFactory.RIGHT)
         {
-            // LogUtil.put(LogFactory.getInstance("Fire", this, "processAI"));
+            // LogUtil.put(LogFactory.getInstance("Fire", this, commonStrings.PROCESS));
 
             //Turn around before firing
             if(this.lastKeyDirection != keyDirection
@@ -136,9 +135,7 @@ public class PacePatrolAI extends BasePatrolAI
             int yDistance = ownerLayerInterface.getY() - y - ownerLayerInterface.getHeight();
             int xDistance = ownerLayerInterface.getX() - x - ownerLayerInterface.getWidth();
 
-            // LogUtil.put(LogFactory.getInstance("x: " + x + " y: " + y +
-            // " xDistance: " + xDistance + " yDistance: " + yDistance, this,
-            // "processAI"));
+            // LogUtil.put(LogFactory.getInstance("x: " + x + " y: " + y + " xDistance: " + xDistance + " yDistance: " + yDistance, this, commonStrings.PROCESS));
 
             int absXDistance = Math.abs(xDistance);
             int absYDistance = Math.abs(yDistance);
@@ -153,10 +150,7 @@ public class PacePatrolAI extends BasePatrolAI
                     DirectionCompositeInterface directionCompositeInterface = 
                             (DirectionCompositeInterface) this.getOwnerLayerInterface();
 
-                    // LogUtil.put(LogFactory.getInstance(" xDistance: " +
-                    // xDistance + " Direction: " +
-                    // directionCompositeInterface.getDirection(), this,
-                    // "processAI"));
+                    // LogUtil.put(LogFactory.getInstance(" xDistance: " + xDistance + " Direction: " + directionCompositeInterface.getDirection(), this, commonStrings.PROCESS));
                     // is direction the same as enemy
                     // if on the left side and pointing left
                     if (xDistance < 0

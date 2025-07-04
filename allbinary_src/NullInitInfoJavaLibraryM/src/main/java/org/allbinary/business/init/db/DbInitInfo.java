@@ -87,7 +87,7 @@ public class DbInitInfo extends DbConnectionInfo
             //this.setServer("local");
             //this.setPort(stringUtil.EMPTY_STRING);
             
-            //PreLogUtil.put("Host: " + this.getHost(), this, "load");
+            //PreLogUtil.put("Host: " + this.getHost(), this, commonStrings.LOAD);
    }
    
    public synchronized void setHasRead(boolean value)

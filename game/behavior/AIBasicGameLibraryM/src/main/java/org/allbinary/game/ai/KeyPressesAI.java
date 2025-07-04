@@ -43,7 +43,7 @@ public class KeyPressesAI extends BasicAI {
    public void processAI(AllBinaryLayerManager allBinaryLayerManager)
         throws Exception {
       if (on) {
-         //LogUtil.put(LogFactory.getInstance("pocessing", this, "processAI"));
+         //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.PROCESS));
          for (int index = 0; index < keys.length; index++) {
             super.processAI(keys[index].intValue());
          }

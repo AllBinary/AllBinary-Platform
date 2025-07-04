@@ -243,7 +243,7 @@ public class GameCommandCanvas
     
     public void close() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "close"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CLOSE));
 
         BasicMotionGesturesHandler.getInstance().removeListener(this.getMenuInputProcessor());
         GameKeyEventHandler.getInstance().removeListener(this.getMenuInputProcessor());

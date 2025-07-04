@@ -237,7 +237,7 @@ public class TableTag extends PropertiesTag
         try
         {
             Class helperClass = requestObject.getClass();
-            Method method = helperClass.getMethod("delete", null);
+            Method method = helperClass.getMethod(commonStrings.delete, null);
 
             String result = (String) method.invoke(requestObject, null);
             return result;
