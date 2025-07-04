@@ -48,8 +48,7 @@ public class TweenedImageAnimation extends IndexedAnimation //implements AutoClo
         
         this.circularIndexUtil = CircularIndexUtil.getInstance(this.totalFrames);
         
-        // LogUtil.put(LogFactory.getInstance("Constructing", this,
-        // "AllBinaryImageRotationAnimation"));
+        // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
     }
 
     public int getAnimationSize() throws Exception

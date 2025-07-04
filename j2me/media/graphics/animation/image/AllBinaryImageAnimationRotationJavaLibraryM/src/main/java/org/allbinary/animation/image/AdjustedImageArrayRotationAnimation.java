@@ -63,8 +63,7 @@ public class AdjustedImageArrayRotationAnimation extends
     {
         super(imageArray, angleInfo, totalAngle, animationBehavior);
 
-        // LogUtil.put(LogFactory.getInstance("Constructing", this,
-        // "AllBinaryImageRotationAnimation"));
+        // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
 
         this.init(dx, dy);
     }
@@ -74,7 +73,7 @@ public class AdjustedImageArrayRotationAnimation extends
     {
         super(imageArray, angleInfo, totalAngle, animationBehavior);
 
-        // LogUtil.put(LogFactory.getInstance("Constructing", this, "AllBinaryImageRotationAnimation"));
+        // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
 
         this.init(-(imageArray[0].getWidth() >> 2), -(imageArray[0].getHeight() >> 2));
     }

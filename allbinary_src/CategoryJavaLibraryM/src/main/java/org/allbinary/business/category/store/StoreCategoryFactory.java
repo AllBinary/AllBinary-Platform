@@ -35,7 +35,7 @@ public class StoreCategoryFactory extends CategoryAbstractFactory
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
       {
-         LogUtil.put(LogFactory.getInstance("Constructing", this, "StoreCategoryFactory(TransformInfoInterface transformInfoInterface)"));
+         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "StoreCategoryFactory(TransformInfoInterface transformInfoInterface)"));
       }
 
       this.transformInfoInterface = transformInfoInterface;

@@ -15,6 +15,7 @@ package org.allbinary.logic.communication.smtp.info;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
 
 public class EmailInfo
 {
@@ -28,7 +29,8 @@ public class EmailInfo
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
-         LogUtil.put(LogFactory.getInstance("Constructing", this, "EmailInfo"));
+         final CommonStrings commonStrings = CommonStrings.getInstance();
+         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
       }
       
       this.init(basicEmailInfo, null, null);
@@ -42,7 +44,8 @@ public class EmailInfo
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
-         LogUtil.put(LogFactory.getInstance("Constructing", this, "EmailInfo"));
+         final CommonStrings commonStrings = CommonStrings.getInstance();
+         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
       }
       
       this.init(basicEmailInfo, null, null);

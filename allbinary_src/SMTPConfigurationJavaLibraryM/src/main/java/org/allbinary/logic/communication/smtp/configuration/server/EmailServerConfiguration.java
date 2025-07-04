@@ -13,12 +13,12 @@
 */
 package org.allbinary.logic.communication.smtp.configuration.server;
 
-import org.allbinary.logic.communication.smtp.configuration.server.EmailServerConfigurationData;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
 import java.util.HashMap;
+import org.allbinary.string.CommonStrings;
 
 public class EmailServerConfiguration implements EmailServerConfigurationInterface
 {
@@ -31,7 +31,8 @@ public class EmailServerConfiguration implements EmailServerConfigurationInterfa
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
-         LogUtil.put(LogFactory.getInstance("Constructing Empty", this, "EmailServerConfiguration"));
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
       }
 
       this.setSmtpServer(StringUtil.getInstance().EMPTY_STRING);
@@ -41,7 +42,8 @@ public class EmailServerConfiguration implements EmailServerConfigurationInterfa
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
-         LogUtil.put(LogFactory.getInstance("Constructing", this, "EmailServerConfiguration(HashMap)"));
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "EmailServerConfiguration(HashMap)"));
       }
 
       this.setAccountName((String) hashMap.get(EmailServerConfigurationData.ACCOUNT));
@@ -55,7 +57,8 @@ public class EmailServerConfiguration implements EmailServerConfigurationInterfa
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
-         LogUtil.put(LogFactory.getInstance("Constructing", this, "EmailServerConfiguration(HashMap)"));
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "EmailServerConfiguration(HashMap)"));
       }
 
       this.setAccountName(account);

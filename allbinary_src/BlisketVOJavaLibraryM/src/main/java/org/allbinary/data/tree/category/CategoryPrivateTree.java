@@ -21,6 +21,7 @@ import org.allbinary.business.category.CategoryData;
 import org.allbinary.business.category.CategoryFactoryInterface;
 import org.allbinary.business.category.CategoryInterface;
 import org.allbinary.logic.control.crypt.file.CryptFileWriter;
+import org.allbinary.string.CommonStrings;
 import org.w3c.dom.Document;
 
 public class CategoryPrivateTree
@@ -31,7 +32,8 @@ public class CategoryPrivateTree
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
       {
-         LogUtil.put(LogFactory.getInstance("Constructing", this, "CategoryPrivateTree(CategoryFactoryInterface categoryFactoryInterface)"));
+         final CommonStrings commonStrings = CommonStrings.getInstance();
+         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "CategoryPrivateTree(CategoryFactoryInterface categoryFactoryInterface)"));
       }
 
       this.categoryFactoryInterface = categoryFactoryInterface;

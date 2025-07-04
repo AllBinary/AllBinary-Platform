@@ -47,8 +47,7 @@ public class ImageArrayRotationAnimation extends
     {
         super(imageArray, angleInfo, animationBehavior);
 
-        // LogUtil.put(LogFactory.getInstance("Constructing", this,
-        // "AllBinaryImageRotationAnimation"));
+        // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
 
         this.init(imageArray, angleInfo, totalAngle);
     }

@@ -32,7 +32,7 @@ public class CategoryModifierTree extends CategoryPrivateTree implements Categor
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
       {
-         LogUtil.put(LogFactory.getInstance("Constructing", this, "CategoryModifierTree(CategoryFactoryInterface categoryFactoryInterface)"));
+         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "CategoryModifierTree(CategoryFactoryInterface categoryFactoryInterface)"));
       }
    }
 

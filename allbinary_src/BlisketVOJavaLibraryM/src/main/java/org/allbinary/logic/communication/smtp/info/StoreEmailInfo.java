@@ -18,6 +18,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.configuration.ContextConfigurationInterface;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.logic.communication.smtp.configuration.server.EmailServerConfigurationInterface;
+import org.allbinary.string.CommonStrings;
 
 public class StoreEmailInfo extends BasicEmailInfo
 {
@@ -32,7 +33,8 @@ public class StoreEmailInfo extends BasicEmailInfo
     
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
-         LogUtil.put(LogFactory.getInstance("Constructing", this, "StoreEmailInfo"));
+         final CommonStrings commonStrings = CommonStrings.getInstance();
+         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
       }
 
       this.storeFrontInterface = storeFrontInterface;

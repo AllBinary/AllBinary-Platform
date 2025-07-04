@@ -26,15 +26,17 @@ import org.allbinary.logic.control.crypt.file.CryptFileWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
+import org.allbinary.string.CommonStrings;
 
 public class AdminConfiguration implements AdminConfigurationInterface
 {
-
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private ContextConfigurationInterface contextConfigurationInterface;
 
     public AdminConfiguration() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Constructing", this, "AdminConfiguration"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
 
         this.contextConfigurationInterface
                 = ContextConfigurationInterfaceFactory.getInstance(AdminConfigurationData.CONTEXTNAME);
@@ -42,21 +44,21 @@ public class AdminConfiguration implements AdminConfigurationInterface
 
     public AdminConfiguration(HttpServletRequest request) throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Constructing", this, "AdminConfiguration"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
 
         this.getFormData(new RequestParams(request).toHashMap());
     }
 
     public AdminConfiguration(HashMap storeHashMap) throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Constructing", this, "AdminConfiguration"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
 
         this.getFormData(storeHashMap);
     }
 
     private void getFormData(HashMap storeHashMap) throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Constructing", this, "getFormData"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "getFormData"));
 
         this.setContextConfigurationInterface(
                 (ContextConfigurationInterface) new ContextConfiguration(storeHashMap));

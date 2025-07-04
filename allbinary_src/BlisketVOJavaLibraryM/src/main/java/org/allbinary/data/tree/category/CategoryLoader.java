@@ -40,7 +40,7 @@ public class CategoryLoader
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
         {
-            LogUtil.put(LogFactory.getInstance("Constructing", this, "CategoryLoader(CategoryFactoryInterface categoryFactoryInterface)"));
+            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "CategoryLoader(CategoryFactoryInterface categoryFactoryInterface)"));
         }
     }
 

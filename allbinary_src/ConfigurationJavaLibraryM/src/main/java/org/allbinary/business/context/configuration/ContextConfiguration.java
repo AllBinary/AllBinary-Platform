@@ -19,22 +19,24 @@ import org.allbinary.logic.communication.smtp.configuration.server.EmailServerCo
 import org.allbinary.logic.communication.smtp.configuration.server.EmailServerConfigurationInterface;
 
 import java.util.HashMap;
+import org.allbinary.string.CommonStrings;
 
 public class ContextConfiguration implements ContextConfigurationInterface
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
 
     private EmailServerConfigurationInterface emailServerConfigurationInterface;
 
     public ContextConfiguration()
     {
-        LogUtil.put(LogFactory.getInstance("Constructing Empty", this, "ContextConfiguration"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "ContextConfiguration"));
 
         this.setEmailServerConfigurationInterface((EmailServerConfigurationInterface) new EmailServerConfiguration());
     }
 
     public ContextConfiguration(HashMap hashMap)
     {
-        LogUtil.put(LogFactory.getInstance("Constructing", this, "ContextConfiguration(HashMap)"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "ContextConfiguration(HashMap)"));
 
         this.setEmailServerConfigurationInterface((EmailServerConfigurationInterface) new EmailServerConfiguration(hashMap));
     }
