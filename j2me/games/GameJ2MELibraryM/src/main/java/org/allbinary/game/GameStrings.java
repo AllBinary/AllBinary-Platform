@@ -32,5 +32,5 @@ public class GameStrings
     public final String SET_GAME_OVER = "setGameOver";
     public final String GAME_STATE = "Game State: ";
     public final String SET_GAME_STATE = "setGameState";
-
+    public final String STOP_GAME_CANVAS_RUNNABLE_INTERFACE = "stopGameCanvasRunnableInterface";
 }

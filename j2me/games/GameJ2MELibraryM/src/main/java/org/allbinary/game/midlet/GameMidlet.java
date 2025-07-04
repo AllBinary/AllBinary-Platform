@@ -96,7 +96,7 @@ import org.allbinary.thread.ThreadFactoryUtil;
 import org.allbinary.thread.ThreadUtil;
 import org.allbinary.time.TimeDelayHelper;
 import javax.microedition.lcdui.Canvas;
-import org.allbinary.game.configuration.persistance.PersistanceStrings;
+import org.allbinary.game.GameStrings;
 import org.allbinary.game.displayable.canvas.DemoCanvas;
 import org.allbinary.game.input.TextNotificationUtil;
 import org.allbinary.game.score.displayable.HighScoreTextBox;
@@ -117,6 +117,7 @@ public class GameMidlet extends ProgressMidlet
     protected final HTMLFeatureFactory htmlFeatureFactory = HTMLFeatureFactory.getInstance();
     protected final MidletStrings midletStrings = MidletStrings.getInstance();
     protected final MyCommandsFactory myCommandsFactory = MyCommandsFactory.getInstance();
+    protected final GameStrings gameStrings = GameStrings.getInstance();
     protected final GameAdStateFactory gameAdStateFactory = GameAdStateFactory.getInstance();
 
     private final String DISPLAYABLE = " Displayable: ";
@@ -920,7 +921,7 @@ public class GameMidlet extends ProgressMidlet
 
     protected void stopGameCanvasRunnableInterface() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "stopGameCanvasRunnableInterface"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE));
 
         GameNotificationEventHandler.getInstance().removeAllListeners();
         ColorChangeEventHandler.getInstance().removeAllListeners();
@@ -934,14 +935,12 @@ public class GameMidlet extends ProgressMidlet
             this.allbinaryGameCanvasRunnableInterface;
         if (gameCanvasRunnableInterface != null)
         {
-            LogUtil.put(LogFactory.getInstance("Set Running False", this,
-                "stopGameCanvasRunnableInterface"));
+            LogUtil.put(LogFactory.getInstance("Set Running False", this,gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE));
             gameCanvasRunnableInterface.setRunning(false);
         }
         else
         {
-            LogUtil.put(LogFactory.getInstance("StopGame - Could Not Stop", this,
-                "stopGameCanvasRunnableInterface"));
+            LogUtil.put(LogFactory.getInstance("StopGame - Could Not Stop", this,gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE));
         }
 
         // Wait for the thread to end then continue
@@ -958,7 +957,7 @@ public class GameMidlet extends ProgressMidlet
         }
         
 
-        LogUtil.put(LogFactory.getInstance(commonStrings.END, this, "stopGameCanvasRunnableInterface"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.END, this, gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE));
     }
 
     public GameCanvasRunnableInterface getGameCanvasRunnableInterface()
