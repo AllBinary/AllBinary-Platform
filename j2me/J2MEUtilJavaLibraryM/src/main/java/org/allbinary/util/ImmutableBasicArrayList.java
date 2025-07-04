@@ -17,6 +17,8 @@ import org.allbinary.logic.communication.log.ForcedLogUtil;
 
 public class ImmutableBasicArrayList extends BasicArrayList
 {
+    private final String IMMUTABLE = "Immutable";
+
     public ImmutableBasicArrayList(int size)
     {
         super(size);
@@ -25,13 +27,13 @@ public class ImmutableBasicArrayList extends BasicArrayList
     @Override
     public boolean add(Object e)
     {
-        ForcedLogUtil.log("Immutable", this);
+        ForcedLogUtil.log(IMMUTABLE, this);
         return true;
     }
 
     @Override
     public void add(int index, Object element)
     {
-        ForcedLogUtil.log("Immutable", this);
+        ForcedLogUtil.log(IMMUTABLE, this);
     }    
 }

@@ -13,6 +13,14 @@
 */
 package org.allbinary.logic.visual.transform.info.objectConfig;
 
+import java.util.Vector;
+
+import org.w3c.dom.Attr;
+import org.w3c.dom.Document;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
@@ -22,21 +30,16 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoDomNode;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-import org.w3c.dom.Attr;
-import org.w3c.dom.Document;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
-
-import java.util.Vector;
 import org.allbinary.logic.visual.transform.info.TransformInfoData;
 import org.allbinary.logic.visual.transform.info.TransformInfosData;
 import org.allbinary.logic.visual.transform.template.XslData;
+import org.allbinary.string.CommonStrings;
 
 public class TransformInfoObjectConfig 
    implements TransformInfoObjectConfigInterface
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private final TransformInfoInterface ownerTransformInfoInterface;
    /**
     * <OBJECTCONFIG_NAME OBJECTCONFIG_NAME="GenericStoreCompoundTransformInfoConfig" >
@@ -456,7 +459,7 @@ public class TransformInfoObjectConfig
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("DOM Document error", this, "toString()"));
+            LogUtil.put(LogFactory.getInstance("DOM Document error", this, commonStrings.TOSTRING));
          }
          return null;
       }

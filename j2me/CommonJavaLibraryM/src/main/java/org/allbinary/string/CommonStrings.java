@@ -90,4 +90,5 @@ public class CommonStrings
     public final String ON_EVENT = "onEvent";
 
     public final String IS_VALID = "isValid";
+    public final String TOSTRING = "toString";
 }

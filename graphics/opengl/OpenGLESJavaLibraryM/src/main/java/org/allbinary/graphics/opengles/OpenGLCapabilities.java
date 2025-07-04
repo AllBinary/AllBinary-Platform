@@ -343,7 +343,7 @@ public class OpenGLCapabilities
         catch(Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            PreLogUtil.put(commonStrings.EXCEPTION, this, "toString", e);
+            PreLogUtil.put(commonStrings.EXCEPTION, this, commonStrings.TOSTRING, e);
         }
         
         return stringBuffer.toString();

@@ -149,7 +149,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
                 stringBuffer.append(LISTENER_LABEL);
                 stringBuffer.append(eventListenerInterface);
             } catch (Exception e) {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "toString", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.TOSTRING, e));
             }
         }
         return stringBuffer.toString();
