@@ -35,6 +35,9 @@ public class GameFeatureUtil
         return instance;
     }
 
+    public final String ON_GAME_FEATURE_CHANGE = "onGameFeatureChange";
+    public final String GAME_FEATURE_CHANGED = "Game Feature Changed: ";
+    
     public void setDefault(ChoiceGroup choiceGroup)
         throws Exception
     {
