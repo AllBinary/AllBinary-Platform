@@ -22,11 +22,14 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.configuration.feature.Feature;
 import org.allbinary.game.configuration.feature.Features;
+import org.allbinary.game.configuration.feature.GameFeatureFactory;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 
 public class BaseChangedGameFeatureListener implements GameFeatureListenerInterface
 {
+    protected final GameFeatureFactory gameFeatureFactory = GameFeatureFactory.getInstance();
+
     protected final BasicArrayList list = new BasicArrayList();
     private boolean changed = true;
 
@@ -37,7 +40,7 @@ public class BaseChangedGameFeatureListener implements GameFeatureListenerInterf
 
     public void onGameFeatureChange(GameFeatureEvent gameFeatureEvent)
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Game Feature Changed: ").append(gameFeatureEvent.getWhatChanged()).toString(), this, "onGameFeatureChange"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(gameFeatureFactory.GAME_FEATURE_CHANGED).append(gameFeatureEvent.getWhatChanged()).toString(), this, gameFeatureFactory.ON_GAME_FEATURE_CHANGE));
 
        list.add(gameFeatureEvent.getGameOption());
 

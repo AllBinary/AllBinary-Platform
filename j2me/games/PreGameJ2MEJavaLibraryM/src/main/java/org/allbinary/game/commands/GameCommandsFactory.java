@@ -32,7 +32,7 @@ public class GameCommandsFactory
     
     public final Command SET_MENU_DISPLAYABLE  = new Command("Set Menu Displayable", Command.SCREEN, 1);
 
-    public final Command APPLICATION_UPDATE  = new Command("Update", Command.SCREEN, 1);
+    public final Command APPLICATION_UPDATE  = new Command(CommonStrings.getInstance().UPDATE, Command.SCREEN, 1);
 
     public final Command DISPLAY_ABOUT  = new Command(CanvasStrings.getInstance().ABOUT, Command.SCREEN, 2);
     public final Command OPEN_WEB_URL  = new Command("Open Web URL", Command.SCREEN, 2);

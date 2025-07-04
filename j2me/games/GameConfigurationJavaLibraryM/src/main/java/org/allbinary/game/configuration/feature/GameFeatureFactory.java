@@ -66,5 +66,8 @@ public class GameFeatureFactory
     
     public final GameFeature COLLISIONS_FORCED_TWO_DIMENSIONAL = 
             new GameFeature("Collisions Forced Two Dimensional");
-    
+
+    public final String ON_GAME_FEATURE_CHANGE = "onGameFeatureChange";
+    public final String GAME_FEATURE_CHANGED = "Game Feature Changed: ";
+
 }

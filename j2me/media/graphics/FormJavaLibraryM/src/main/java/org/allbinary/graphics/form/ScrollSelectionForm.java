@@ -216,8 +216,8 @@ public class ScrollSelectionForm extends PaintableForm
 
     public int processInput(final int gameKeyCode) throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance("Start - Selected ").append(commonStrings.INDEX_LABEL).append(this.getSelectedIndex()).append(" of: ").append(this.size(), this, GameInputStrings.getInstance()));
-        //PreLogUtil.put("Start - Selected " commonStrings.INDEX_LABEL).append(this.getSelectedIndex()).append(" of: ").append(this.size(), this, GameInputStrings.getInstance());
+        //LogUtil.put(LogFactory.getInstance("Start - Selected ").append(commonLabels.INDEX_LABEL).append(this.getSelectedIndex()).append(" of: ").append(this.size(), this, GameInputStrings.getInstance()));
+        //PreLogUtil.put("Start - Selected " commonLabels.INDEX_LABEL).append(this.getSelectedIndex()).append(" of: ").append(this.size(), this, GameInputStrings.getInstance());
 
         final FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
         
@@ -272,8 +272,8 @@ public class ScrollSelectionForm extends PaintableForm
             this.setSelectedIndex(index);
         }
 
-        //PreLogUtil.put("End - Selected ").append(commonStrings.INDEX_LABEL).append(this.getSelectedIndex(), this, GameInputStrings.getInstance());
-        //LogUtil.put(LogFactory.getInstance("End - Selected ").append(commonStrings.INDEX_LABEL).append(this.getSelectedIndex(), this, GameInputStrings.getInstance()));
+        //PreLogUtil.put("End - Selected ").append(commonLabels.INDEX_LABEL).append(this.getSelectedIndex(), this, GameInputStrings.getInstance());
+        //LogUtil.put(LogFactory.getInstance("End - Selected ").append(commonLabels.INDEX_LABEL).append(this.getSelectedIndex(), this, GameInputStrings.getInstance()));
         return -1;
     }
 

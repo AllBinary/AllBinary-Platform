@@ -42,7 +42,7 @@ public class ImageToRotationImageArrayUtil
         
         for (int index = 1; index < totalFrames; index++)
         {
-            //PreLogUtil.put("Index: " + index + "/" + totalFrames + " Angle: " + index * angleIncrement, this, "generate");
+            //PreLogUtil.put(commonLabels.INDEX_LABEL + index + "/" + totalFrames + " Angle: " + index * angleIncrement, this, "generate");
             imageArray[index] = imageRotationUtil.createRotatedImage(image, index * angleIncrement);
         }
 

@@ -35,13 +35,14 @@ import org.allbinary.globals.GLOBALS2;
 import org.allbinary.logic.communication.http.file.upload.HttpFileUploadUtil;
 import org.allbinary.logic.control.validate.ValidationComponentInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.string.CommonStrings;
 
 public class UpdateFileValidationView 
     extends InventoryItemView
     implements ValidationComponentInterface
 {
 
-    private static final String UPDATEPRODUCT = "Update";
+    private static final String UPDATEPRODUCT = CommonStrings.getInstance().UPDATE;
 
     //itemInterface = InventoryEntityFactory.getInstance().getItem(id);
     public UpdateFileValidationView(TransformInfoInterface transformInfoInterface) throws Exception

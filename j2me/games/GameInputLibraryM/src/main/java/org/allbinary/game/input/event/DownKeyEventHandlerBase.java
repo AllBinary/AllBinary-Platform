@@ -35,7 +35,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
 
             list.add(playerGameInput);
             
-            //ForcedLogUtil.log(this.toString(), "addListener");
+            //ForcedLogUtil.log(this.toString(), commonStrings.ADD_LISTENER);
         }
     }
 
@@ -62,7 +62,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
         this.list.remove(eventListenerInterface);
         super.removeListener(eventListenerInterface);
         
-        //ForcedLogUtil.log(this.toString(), "removeListener");
+        //ForcedLogUtil.log(this.toString(), commonStrings.REMOVE_LISTENER);
     }
 
     public void fireEvent(final Integer eventObject) throws Exception {

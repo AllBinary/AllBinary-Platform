@@ -134,7 +134,7 @@ extends ImageBaseRotationAnimation
 
     public void setFrame(final int index)
     {
-        //LogUtil.put(LogFactory.getInstance("index: " + index, this, "setRotation"));
+        //LogUtil.put(LogFactory.getInstance(commonLabels.INDEX_LABEL + index, this, "setRotation"));
 
         final int currentFrame = this.circularIndexUtil.getIndex();
         //LogUtil.put(LogFactory.getInstance("currentFrame: " + currentFrame, this, "setRotation"));

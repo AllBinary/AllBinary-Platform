@@ -97,4 +97,8 @@ public class CommonStrings
 
     public final String IS_VALID = "isValid";
     public final String TOSTRING = "toString";
+    
+    public final String ADD_LISTENER = "addListener";
+    public final String REMOVE_LISTENER = "removeListener";
+    
 }

@@ -247,7 +247,7 @@ public class OpenGLCapabilities
                     stringBuffer.append("Found: ");
                     stringBuffer.append(OpenGLFeatureFactory.getInstance().OPENGL_DRAW_TEXTURE);
                     
-                    PreLogUtil.put(stringBuffer.toString(), this, "initGLCapabilities");
+                    PreLogUtil.put(stringBuffer.toString(), this, METHOD_NAME);
      
                     openGLImageSpecificFactory.setImageFactory(new OpenGLESGL11ExtImageFactory());
                 }

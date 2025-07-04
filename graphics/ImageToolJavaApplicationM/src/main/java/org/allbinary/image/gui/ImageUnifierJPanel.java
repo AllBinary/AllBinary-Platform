@@ -369,7 +369,7 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
 
         avgRatioJTextField.setEditable(false);
 
-        jButton2.setText("Update");
+        jButton2.setText(commonStrings.UPDATE);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);

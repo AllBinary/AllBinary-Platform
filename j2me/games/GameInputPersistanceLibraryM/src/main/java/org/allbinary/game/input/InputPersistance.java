@@ -110,7 +110,7 @@ public class InputPersistance extends BasicPersitance
                             stringBuffer.append(this.persistanceStrings.GAME_ACTION_INPUT);
                             stringBuffer.append(gameActionInputId);
 
-                            //LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "loadAll"));
+                            //LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, persistanceStrings.LOAD_ALL));
                             PreLogUtil.put(stringBuffer.toString(), this, this.persistanceStrings.LOAD_ALL);
                         }
                         if (gameActionInput == null) {
@@ -121,13 +121,13 @@ public class InputPersistance extends BasicPersitance
                             stringBuffer.append(this.persistanceStrings.ID);
                             stringBuffer.append(inputId);
 
-                            //LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "loadAll"));
+                            //LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, persistanceStrings.LOAD_ALL));
                             PreLogUtil.put(stringBuffer.toString(), this, this.persistanceStrings.LOAD_ALL);
                         }
                     } else {
                         //LogUtil.put(LogFactory.getInstance("Load Mapping from: "
                         //     ).append(input.toString()).append(" to: "
-                        //   ).append(gameActionInput.toString(), this, "loadAll"));
+                        //   ).append(gameActionInput.toString(), this, persistanceStrings.LOAD_ALL));
                     }
 
                     hashtable.put(input, gameActionInput);
