@@ -49,6 +49,8 @@
         <module>../j2me/media/graphics/animation/image/ImageSwtJ2SEJavaLibraryM</module>
         
         <module>../j2me/media/graphics/geography/map/GeographicMapLibraryM</module>
+        <module>../j2me/media/graphics/geography/map/BasicTopViewGeographicMapJavaLibraryM</module>
+        <module>../j2me/games/arcade/platformer/TopViewGameBehaviorJavaLibraryM</module>
 
     </modules>
 
