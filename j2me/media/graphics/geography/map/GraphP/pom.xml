@@ -57,7 +57,7 @@
         
         <module>../../../../../../physics/FrictionJavaLibraryM</module>
 
-        <module>../RaceTrackGeographicMapLibraryM</module>
+<!--        <module>../RaceTrackGeographicMapLibraryM</module>-->
 
         <module>../StaticPathFindingRaceTrackJavaLibraryM</module>
         <!--
