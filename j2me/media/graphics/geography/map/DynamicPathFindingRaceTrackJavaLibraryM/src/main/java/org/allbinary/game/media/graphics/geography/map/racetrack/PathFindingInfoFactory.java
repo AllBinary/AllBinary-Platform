@@ -184,7 +184,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
                  //RaceTrackGeographicMapCellType
                  //nextBorderingRaceGameGeographicMapCellType =
                  //RaceTrackGeographicMapCellType.getInstance(
-                 //this.i_Map2DArray[goingToGeographicMapCellPosition.getRow()]
+                 //this.mapTwoDArray[goingToGeographicMapCellPosition.getRow()]
                  //[goingToGeographicMapCellPosition.getColumn()]);
 
                 costFromStart = raceTrackGeographicMapCellType.getTravelCost();

@@ -56,7 +56,7 @@ public class BasePathFindingInfoFactory {
 
                 //LogUtil.put(LogFactory.getInstance(
                   // "Race Track Map Array: ").append(PathFindingInfoFactory.this.getName() +
-                   //" columns: ").append(this.i_Map2DArray.length).append(" rows: ").append(this.i_Map2DArray[0].length, this, commonStrings.CONSTRUCTOR));
+                   //" columns: ").append(this.mapTwoDArray.length).append(" rows: ").append(this.mapTwoDArray[0].length, this, commonStrings.CONSTRUCTOR));
             }
 
             public void visit(final AllBinaryTiledLayer tiledLayer, final GeographicMapCellPosition cellPosition) throws Exception
@@ -117,7 +117,7 @@ public class BasePathFindingInfoFactory {
                 else
                 {
                     // LogUtil.put(LogFactory.getInstance("Not Added For Tracking: " +
-                    // cellPosition).append(" Type: ").append(this.i_Map2DArray[row][col],
+                    // cellPosition).append(" Type: ").append(this.mapTwoDArray[row][col],
                     // this, "setMap"));
                 }
                 
