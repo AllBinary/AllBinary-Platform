@@ -1,18 +1,15 @@
 /*
- *Copyright (c) 2007 All Binary
- *All Rights Reserved.
- *Don't Duplicate or Distributed.
- *Trade Secret Information
- *For Internal Use Only
- *Confidential
- *Unpublished
- *
- *Created By: Travis Berthelot
- *Date: Sep 9, 2007, 10:48:03 PM
- *
- *
- *Modified By         When       ?
- *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2007 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ * 
  */
 package org.allbinary.logic.util.cache;
 
