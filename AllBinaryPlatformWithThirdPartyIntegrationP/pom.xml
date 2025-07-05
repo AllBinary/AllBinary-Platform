@@ -48,6 +48,8 @@
         <module>../graphics/opengl/OpenGLESJavaLibraryM</module>
         <module>../j2me/media/graphics/animation/image/ImageSwtJ2SEJavaLibraryM</module>
         
+        <module>../j2me/media/graphics/LazyGameResourceNoneJavaLibraryM</module>
+
     </modules>
 
     <dependencies>

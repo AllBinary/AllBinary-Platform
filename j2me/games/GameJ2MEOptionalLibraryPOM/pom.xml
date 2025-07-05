@@ -38,7 +38,7 @@
 -->
         <module>../../media/graphics/ImageCacheJ2MEJavaLibraryM</module>
         <module>../../media/graphics/ImageCacheLazyJ2MEJavaLibraryM</module>
-        <module>../../media/graphics/ImageCacheOpenGLESJavaLibraryM</module>
+<!--        <module>../../media/graphics/ImageCacheOpenGLESJavaLibraryM</module>-->
         <module>../../media/graphics/LazyGameResourceNoneJavaLibraryM</module>
 
 <!--
