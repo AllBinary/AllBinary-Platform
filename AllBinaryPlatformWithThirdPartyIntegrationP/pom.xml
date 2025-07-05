@@ -41,9 +41,12 @@
         <module>../j2me/FullScreenJavaLibraryM</module>
 
         <module>../j2me/SWTToJ2MELibraryM</module>
-        <module>../j2me/media/graphics/animation/image/ImageSwtJ2SEJavaLibraryM</module>
         
+        <module>../j2me/media/graphics/ImageCacheOpenGLESJavaLibraryM</module>
+        <module>../graphics/opengl/Min3dForNullJavaLibraryM</module>
+        <module>../graphics/opengl/OpenGLESFileConfigurationJavaLibraryM</module>
         <module>../graphics/opengl/OpenGLESJavaLibraryM</module>
+        <module>../j2me/media/graphics/animation/image/ImageSwtJ2SEJavaLibraryM</module>
         
     </modules>
 
