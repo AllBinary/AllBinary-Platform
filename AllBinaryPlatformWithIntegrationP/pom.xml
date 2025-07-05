@@ -50,6 +50,7 @@
 
         <module>../j2me/media/graphics/layer/AllBinaryTiledLayerJavaLibraryM</module>        
         <module>../j2me/media/graphics/geography/map/GeographicMapLibraryM</module>
+        <module>../j2me/media/graphics/geography/GeographicPathFindingLibraryM</module>
         <module>../j2me/media/graphics/geography/map/RaceTrackGeographicMapLibraryM</module>
         <module>../j2me/media/graphics/geography/map/BasicTopViewGeographicMapJavaLibraryM</module>
         <module>../j2me/games/arcade/platformer/TopViewGameBehaviorJavaLibraryM</module>
