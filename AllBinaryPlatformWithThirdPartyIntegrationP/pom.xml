@@ -40,6 +40,8 @@
         
         <module>../j2me/FullScreenJavaLibraryM</module>
 
+        <module>../j2me/SWTToJ2MELibraryM</module>
+        <module>../j2me/media/graphics/animation/image/ImageSwtJ2SEJavaLibraryM</module>
         
     </modules>
 
