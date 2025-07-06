@@ -55,6 +55,8 @@
         <module>../j2me/media/graphics/geography/map/BasicTopViewGeographicMapJavaLibraryM</module>
         <module>../j2me/games/arcade/platformer/TopViewGameBehaviorJavaLibraryM</module>
 
+        <module>../j2me/games/GameJ2MEOptionalLibraryPOM</module>
+
         <module>../j2me/media/graphics/geography/map/GraphP</module>
         <module>../j2me/games/strategy/rts/RTSGameJavaLibraryP</module>
 
