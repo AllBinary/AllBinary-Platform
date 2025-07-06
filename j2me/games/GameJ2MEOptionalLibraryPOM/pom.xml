@@ -29,6 +29,8 @@
     </properties>
 
     <modules>
+        
+        <module>../../ProgressLazyJ2MEJavaLibraryM</module>
         <!--
                 <module>../../games/GameScoresBaseHTMLLibraryM</module>
                 <module>../../games/GameScoresJ2MEJavaLibraryM</module>
