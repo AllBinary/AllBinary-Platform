@@ -36,15 +36,15 @@
         ../../
         -->
 
-        <module>../../../../../../../work/j2me/media/graphics/geography/GeographicPathFinderJGraphTJavaLibraryM</module>
-        <module>../../../../../../../work/j2me/media/graphics/geography/GeographicPathFinderJGraphTJavaLibrary_1_4_2M</module>
+<!--        <module>../../../../../../../work/j2me/media/graphics/geography/GeographicPathFinderJGraphTJavaLibraryM</module>
+        <module>../../../../../../../work/j2me/media/graphics/geography/GeographicPathFinderJGraphTJavaLibrary_1_4_2M</module>-->
         
-        <module>../../../../../../../work/j2me/media/graphics/geography/PathFindingNodeCostJavaLibraryM</module>
+        <module>../../PathFindingNodeCostJavaLibraryM</module>
         
-        <module>../../../../../../../work/j2me/media/graphics/geography/GeographicPathFinderHack1JavaLibraryM</module>
+<!--        <module>../../../../../../../work/j2me/media/graphics/geography/GeographicPathFinderHack1JavaLibraryM</module>
         <module>../../../../../../../work/j2me/media/graphics/geography/GeographicPathFinderHack2JavaLibraryM</module>
-        <module>../../../../../../../work/j2me/media/graphics/geography/GeographicPathFinderHack3JavaLibraryM</module>
-        <module>../../../../../../../work/j2me/media/graphics/geography/GeographicPathFinderPriorityQueueJavaLibraryM</module>
+        <module>../../../../../../../work/j2me/media/graphics/geography/GeographicPathFinderHack3JavaLibraryM</module>-->
+        <module>../../GeographicPathFinderPriorityQueueJavaLibraryM</module>
 
 <!--        <module>../../GeographicPathFindingLibraryM</module>-->
 
@@ -52,18 +52,21 @@
         ../../
         -->
 
-        <module>../../../../../../../work/j2me/media/graphics/geography/PathFindingNodeCostPerformantJavaLibraryM</module>
-        <module>../../../../../../../work/j2me/media/graphics/geography/PathFindingNodeCostComplexJavaLibraryM</module>
+        <module>../../PathFindingNodeCostPerformantJavaLibraryM</module><!--
+        <module>../../../../../../../work/j2me/media/graphics/geography/PathFindingNodeCostComplexJavaLibraryM</module>-->
         
         <module>../../../../../../physics/FrictionJavaLibraryM</module>
+<!--    
+        <module>../StaticPathFindingRaceTrackJavaLibraryM</module>
+        <module>../DynamicPathFindingRaceTrackJavaLibraryM</module>
+-->
 
 <!--        <module>../RaceTrackGeographicMapLibraryM</module>-->
+        
 
-        <module>../StaticPathFindingRaceTrackJavaLibraryM</module>
+<!--        <module>../../../../../../../work/j2me/media/graphics/geography/map/DynamicPathFindingRaceTrackJavaLibrary_1_4_2M</module>-->
         <!--
-        -->
-        <module>../DynamicPathFindingRaceTrackJavaLibraryM</module>
-        <module>../../../../../../../work/j2me/media/graphics/geography/map/DynamicPathFindingRaceTrackJavaLibrary_1_4_2M</module>
+        -->        
         
         <module>../BasicPlatformGeographicMapJavaLibraryM</module>
     </modules>
