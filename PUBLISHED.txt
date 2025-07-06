@@ -1,3 +1,9 @@
-1. Each product submission cost 1 USD and must be paid via Paypal to: support@allbinary.com.
+1. Each product release cost 1 USD and must be paid via Paypal to: support@allbinary.com.
 2. You must submit each product release via email to support@allbinary.com
-   A product release includes the binaries, screenshots, videos, name, and description when available.
+   A product release includes the released builds (release builds can be excluded as defined below), released demos builds, 
+   screenshots, videos, name, and description.
+   You may exclude the released builds if they are not free to download or you may supply release build pricing info.
+   AllBinary will respect the pricing info provided for released builds.  
+   You give AllBinary the right to showcase the product on AllBinary sites.
+
+   
