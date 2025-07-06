@@ -1,0 +1,49 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary.game.strategy.realtime</groupId>
+    <artifactId>RTSGameJavaLibraryP</artifactId>
+    <packaging>pom</packaging>
+    <!-- AllBinary Platform Version Start -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
+    <name>RTSGameJavaLibraryP</name>
+    <url>http://maven.apache.org</url>
+
+    <modules>
+
+<!--
+../../../
+-->
+        <module>../../../../../../working/j2me/games/PreGameSelectionJavaLibraryM</module>
+<!--
+../../../
+-->
+        <module>../../../../../../working/j2me/games/MapSelectionGameJavaLibraryM</module>
+
+<!--
+../../../../
+<module>../../../../../../working/j2me/input/TrackingEventJavaLibraryM</module>
+-->
+
+        <module>../RTSGameSoundsJavaLibraryM</module>
+
+        <module>../RTSTouchJavaLibraryM</module>
+
+        <module>../RTSGameJavaLibraryM</module>
+        
+        <module>../AdvancedRTSGameSoundsJavaLibraryM</module>
+        
+        <module>../AdvancedRTSGameJavaLibraryM</module>
+
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>

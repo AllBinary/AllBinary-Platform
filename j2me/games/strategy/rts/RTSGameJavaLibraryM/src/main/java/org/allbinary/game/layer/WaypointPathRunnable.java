@@ -1,0 +1,72 @@
+/*
+ * AllBinary Open License Version 1
+ * Copyright (c) 2003 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ * 
+ */
+package org.allbinary.game.layer;
+
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
+
+/**
+ *
+ * @author user
+ */
+public class WaypointPathRunnable extends WaypointPathRunnableBase
+{
+    
+    public WaypointPathRunnable()
+    {
+    }
+        
+    public void run()
+    {
+        try
+        {
+            pathFindingLayer.getWaypointRunnableLogHelper().start(pathFindingLayer);
+
+            final WaypointBehaviorBase waypointBehavior = 
+                pathFindingLayer.getWaypointBehavior();
+            
+            final GeographicMapCellPosition geographicMapCellPosition = 
+                pathFindingLayer.getCurrentGeographicMapCellPosition();
+            
+            if (geographicMapCellPosition == null) {
+                throw new Exception("Should never be running here");
+            }
+            
+            waypointBehavior.setWaypointPathsList(
+                this.targetLayer.getWaypointBehavior().getWaypoint().getPathsList(
+                    geographicMapCellPosition)
+                );
+
+            pathFindingLayer.getWaypointRunnableLogHelper().end(pathFindingLayer);
+            
+            //this.actuallyRunning = false;
+            
+            Thread.sleep(15 + (this.priority * 2));
+        }
+        catch (Exception e)
+        {
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
+            //LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "run", e));
+            this.setRunning(false);
+        }
+    }
+ 
+    public boolean isDone() {
+        return true;
+    }
+
+}
