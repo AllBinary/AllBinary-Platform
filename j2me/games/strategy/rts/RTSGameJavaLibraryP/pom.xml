@@ -12,18 +12,11 @@
 
     <modules>
 
-<!--
-../../../
--->
         <module>../../../../../j2me/games/PreGameSelectionJavaLibraryM</module>
-<!--
-../../../
--->
         <module>../../../../../j2me/games/MapSelectionGameJavaLibraryM</module>
 
 <!--
-../../../../
-<module>../../../../../j2me/input/TrackingEventJavaLibraryM</module>
+        <module>../../../../../j2me/input/TrackingEventJavaLibraryM</module>
 -->
 
         <module>../RTSGameSoundsJavaLibraryM</module>
