@@ -105,7 +105,7 @@ public class LogFormatUtil
     }
 
     private final ExceptionUtil exceptionUtil = ExceptionUtil.getInstance();
-    public String get(final Throwable exception)
+    public String get(final Object exception)
     {
         if (exception != null)
         {

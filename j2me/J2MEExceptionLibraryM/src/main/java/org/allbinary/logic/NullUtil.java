@@ -34,6 +34,5 @@ public class NullUtil {
     public final Object[] NULL_OBJECT_ARRAY = new Object[0];
     
     public final HashMap NULL_MAP = new HashMap();
-    public final Throwable NULL_THROWABLE = new Throwable();
     
 }

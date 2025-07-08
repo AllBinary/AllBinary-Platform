@@ -25,7 +25,7 @@ public class Log
     private final String specialMessage;
     private final Object object;
     private final String functionName;
-    private final Throwable exception;
+    private final Object exception;
 
     private Log()
     {
@@ -34,7 +34,7 @@ public class Log
         this.specialMessage = stringUtil.EMPTY_STRING;
         this.object = nullUtil.NULL_OBJECT;
         this.functionName = stringUtil.EMPTY_STRING;
-        this.exception = nullUtil.NULL_THROWABLE;
+        this.exception = nullUtil.NULL_OBJECT;
     }
     
     public Log(
@@ -57,7 +57,7 @@ public class Log
         this.specialMessage = specialMessage;
         this.object = object;
         this.functionName = functionName;
-        this.exception = nullUtil.NULL_THROWABLE;
+        this.exception = nullUtil.NULL_OBJECT;
 
     }
 
@@ -78,7 +78,7 @@ public class Log
 
     public Throwable getThrowable()
     {
-        return exception;
+        return (Throwable) exception;
     }
 
     public String toString()
@@ -91,6 +91,6 @@ public class Log
             className = clazz.getName();
         }
 
-        return logFormatUtil.get(className, this.functionName, this.specialMessage, this.exception);
+        return logFormatUtil.get(className, this.functionName, this.specialMessage, (Throwable) this.exception);
     }
 }
