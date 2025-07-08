@@ -40,7 +40,7 @@ public class ExceptionUtil
 
     private final String NONE = "No Stack Trace";
 
-    public String getStackTrace(Throwable e)
+    public String getStackTrace(Object e)
     {
         ByteArrayOutputStream bs = new ByteArrayOutputStream();
 

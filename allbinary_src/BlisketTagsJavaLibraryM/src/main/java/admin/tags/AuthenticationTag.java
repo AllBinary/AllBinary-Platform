@@ -48,8 +48,9 @@ public class AuthenticationTag extends CustomTagSupport
 
     public AuthenticationTag()
     {
-        this.userName = null;
-        this.password = null;
+        final StringUtil stringUtil = StringUtil.getInstance();
+        this.userName = stringUtil.EMPTY_STRING;
+        this.password = stringUtil.EMPTY_STRING;
     }
 
     public void setCommand(String command)

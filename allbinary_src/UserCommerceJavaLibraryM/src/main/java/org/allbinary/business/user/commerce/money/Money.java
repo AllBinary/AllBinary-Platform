@@ -14,6 +14,7 @@
 package org.allbinary.business.user.commerce.money;
 
 import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.StringValidationUtil;
 
 public class Money
@@ -148,17 +149,18 @@ public class Money
       long localUnit=0;
       int index = usDollarStr.indexOf(AbPathData.getInstance().EXTENSION_SEP);
       
-      String dollarStr=null;
-      String centsStr=null;
-      if(index<1)
+      final StringUtil stringUtil = StringUtil.getInstance();
+      String dollarStr = stringUtil.EMPTY_STRING;
+      String centsStr = stringUtil.EMPTY_STRING;
+      if(index < 1)
       {
-         dollarStr=new String(usDollarStr);
-         centsStr="00";
+         dollarStr = new String(usDollarStr);
+         centsStr = "00";
       }
       else
       {
-         dollarStr=new String(usDollarStr.substring(0,index));
-         centsStr=new String(usDollarStr.substring(index+1));
+         dollarStr = new String(usDollarStr.substring(0,index));
+         centsStr = new String(usDollarStr.substring(index+1));
       }
 
       localUnit = new Long(new Long(dollarStr).longValue()*100).longValue();

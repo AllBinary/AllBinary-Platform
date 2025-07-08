@@ -16,12 +16,14 @@ package admin.taghelpers;
 import java.util.HashMap;
 
 import javax.servlet.jsp.PageContext;
+import org.allbinary.business.context.modules.storefront.StoreFront;
 
 import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.regex.replace.Replace;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
+import org.allbinary.logic.string.StringUtil;
 
 public class StoreFrontHelper
     extends TagHelper
@@ -48,9 +50,10 @@ public class StoreFrontHelper
       }
       else
       {
-          this.storeFrontInterface = null;
-          this.currentLocation = null;
-          this.currentHomeLocation = null;
+          final StringUtil stringUtil = StringUtil.getInstance();
+          this.storeFrontInterface = new StoreFront();
+          this.currentLocation = stringUtil.EMPTY_STRING;
+          this.currentHomeLocation = stringUtil.EMPTY_STRING;
       }
    }
    

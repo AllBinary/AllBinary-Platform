@@ -14,20 +14,18 @@
 package org.allbinary.business.init;
 
 import org.allbinary.logic.communication.log.LogUtil;
-
 import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.logic.io.AbDataInputStream;
 import org.allbinary.logic.io.AbDataOutputStream;
 import org.allbinary.logic.io.AbFileLocalInputStream;
 import org.allbinary.logic.io.DataOutputStreamFactory;
-
 import org.allbinary.logic.io.file.AbFile;
-
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.system.security.crypt.DatabaseEncoder;
 import org.allbinary.logic.system.security.crypt.WeakCrypt;
 import org.allbinary.globals.PATH_GLOBALS;
+import org.allbinary.logic.string.StringUtil;
 
 public class InstallerInfo
 {
@@ -38,8 +36,8 @@ public class InstallerInfo
    //private static final String PACKAGE = "/allbinary//init/";
    private static final String PACKAGE = PATH_GLOBALS.getInstance().INIT_PATH;
    
-   private static String userName=null;
-   private static String password=null;
+   private static String userName = StringUtil.getInstance().EMPTY_STRING;
+   private static String password = StringUtil.getInstance().EMPTY_STRING;
       
    private static boolean hasRead = false;
    
