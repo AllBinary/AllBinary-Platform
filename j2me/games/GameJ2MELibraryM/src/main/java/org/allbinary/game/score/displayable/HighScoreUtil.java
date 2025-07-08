@@ -35,6 +35,8 @@ import org.allbinary.logic.string.StringUtil;
 
 public class HighScoreUtil implements HighScoresResultsListener
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
 
@@ -77,12 +79,12 @@ public class HighScoreUtil implements HighScoresResultsListener
 
     public void saveHighScore()
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.START).append(StringUtil.getInstance().toString(this.highScore)).toString(), this, "saveHighScore"));
+        logUtil.put(new StringMaker().append(commonStrings.START).append(StringUtil.getInstance().toString(this.highScore)).toString(), this, "saveHighScore");
         
         final int size = this.highScoresArray.length;
         
         if(firstTime && size == 0) {
-            LogUtil.put(LogFactory.getInstance("Games canvas did not give us any HighScores", this, "saveHighScore"));
+            logUtil.put("Games canvas did not give us any HighScores", this, "saveHighScore");
             highScoresFactoryInterface.fetchHighScores(gameInfo, this);
             return;
         }
@@ -94,7 +96,7 @@ public class HighScoreUtil implements HighScoresResultsListener
             highScores = highScoresArray[index];
             highScores.addHighScore(this.highScore);
             highScoresAsString = highScores.toString();
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Added/Adding Score: ").append(highScoresAsString).toString(), this, "saveHighScore"));
+            logUtil.put(new StringMaker().append("Added/Adding Score: ").append(highScoresAsString).toString(), this, "saveHighScore");
         }
         
         this.highScoresHelper.setHighScoresArray(highScoresArray);

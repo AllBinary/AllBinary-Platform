@@ -13,6 +13,8 @@ import org.allbinary.view.ViewPosition;
 public class TempExplosionWeaponLayer
 extends SimpleWeaponLayer
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     public final WeaponProperties weaponProperties = new WeaponProperties(0, 1000, (short) 0);
 
     private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(0);

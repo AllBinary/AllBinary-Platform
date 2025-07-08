@@ -32,6 +32,8 @@ public class ImageComparisonSearchWorker
     extends BasicEventHandler
     implements ImageComparisonResultsListener
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final Vector imageComparisonInfoVector;
@@ -80,7 +82,7 @@ public class ImageComparisonSearchWorker
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.RUN));
+            logUtil.put(this.commonStrings.START, this, this.commonStrings.RUN);
             
             this.setRunning(true);
             
@@ -91,7 +93,7 @@ public class ImageComparisonSearchWorker
             ImageComparisonResult imageComparisonInfo =
                 (ImageComparisonResult) this.imageComparisonInfoVector.get(0);
             
-            LogUtil.put(LogFactory.getInstance(imageComparisonInfo.toString(), this, this.commonStrings.RUN));
+            logUtil.put(imageComparisonInfo.toString(), this, this.commonStrings.RUN);
             
             BufferedImage latestBufferedImage =
                 imageComparisonInfo.getBufferedImages()[1];
@@ -109,16 +111,16 @@ public class ImageComparisonSearchWorker
             
             this.index++;
             
-            LogUtil.put(LogFactory.getInstance(
-                CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN));
+            logUtil.put(
+                CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN);
             
             this.setRunning(false);
             
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, this.commonStrings.RUN));
+            logUtil.put(this.commonStrings.END, this, this.commonStrings.RUN);
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
         }
     }
 }

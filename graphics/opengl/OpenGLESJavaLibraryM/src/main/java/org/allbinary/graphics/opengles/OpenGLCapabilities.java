@@ -33,6 +33,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class OpenGLCapabilities
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final OpenGLCapabilities instance = new OpenGLCapabilities();
     
     public static OpenGLCapabilities getInstance()
@@ -128,7 +130,7 @@ public class OpenGLCapabilities
                 }
             } catch(Exception e) {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, METHOD_NAME, e));
+                logUtil.put(commonStrings.EXCEPTION, this, METHOD_NAME, e);
             }
 
             glRenderer = gl.glGetString(GL10.GL_RENDERER);
@@ -285,7 +287,7 @@ public class OpenGLCapabilities
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, METHOD_NAME, e));
+            logUtil.put(commonStrings.EXCEPTION, this, METHOD_NAME, e);
         }
     }
     

@@ -57,6 +57,8 @@ import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackGeographicM
  */
 public class WaypointRTSFormInput extends RTSFormInput
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private boolean isPrimaryWaypointCreator;
 
     protected final GameNotificationEvent dragToSpotGameNotificationEvent;
@@ -242,8 +244,8 @@ public class WaypointRTSFormInput extends RTSFormInput
         final AllBinaryLayerManager layerManager, CustomItem item, int index)
         throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(
-            "Set Sticking Item: " + item, this, "processSticky"));
+        logUtil.put(
+            "Set Sticking Item: " + item, this, "processSticky");
 
         this.setSelectedStickyItem(item);
         this.setSelectedStickyItemIndex(index);
@@ -257,10 +259,10 @@ public class WaypointRTSFormInput extends RTSFormInput
         final AllBinaryLayerManager layerManager, final RTSLayer layerInterface, final int itemIndex) 
     throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Layer: " + layerInterface, this, "attemptBuild"));
+        logUtil.put("Layer: " + layerInterface, this, "attemptBuild");
 
         if(layerInterface == null) {
-            LogUtil.put(LogFactory.getInstance("Layer was null", this, "attemptBuild", new Exception()));
+            logUtil.put("Layer was null", this, "attemptBuild", new Exception());
             return false;
         }
         
@@ -270,7 +272,7 @@ public class WaypointRTSFormInput extends RTSFormInput
         BasicArrayList list =
             geographicMapCellPositionArea.getOccupyingGeographicMapCellPositionList();
 
-        //LogUtil.put(LogFactory.getInstance("List: " + list, this, "attemptBuild"));
+        //logUtil.put("List: " + list, this, "attemptBuild");
 
         if (DropCellPositionHistory.getInstance().anyCellPositionWithDrop(list) ||
             WaypointCellPositionHistory.getInstance().anyCellPositionWithDrop(list))
@@ -353,8 +355,8 @@ public class WaypointRTSFormInput extends RTSFormInput
         stringBuffer.append(" with ");
         stringBuffer.append(capital.getTotalMoney());
 
-        LogUtil.put(LogFactory.getInstance(
-                stringBuffer.toString(), this, "attemptBuild"));
+        logUtil.put(
+                stringBuffer.toString(), this, "attemptBuild");
 
         if (cost <= capital.getTotalMoney())
         {
@@ -438,11 +440,11 @@ public class WaypointRTSFormInput extends RTSFormInput
         int occupySize = occupyList.size();
         int surroundSize = surroundList.size();
 
-        LogUtil.put(LogFactory.getInstance(
+        logUtil.put(
             "occupySize: " + occupySize +
             " surroundSize: " + surroundSize +
             " surroundList: " + surroundList,
-            this, "isSurroundingCellsOffMap"));
+            this, "isSurroundingCellsOffMap");
 
         boolean isSurroundOffMap = false;
         if (occupySize == 1 && surroundSize != 8)

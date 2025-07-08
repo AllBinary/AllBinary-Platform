@@ -27,6 +27,8 @@ import org.allbinary.graphics.paint.StatePaintable;
 public class BasicGameDemoPaintable 
     extends StatePaintable
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final Paintable mainDemoStatePaintable;
     private final Paintable ownershipPaintable;
     private final Paintable helpPaintableInterface;
@@ -47,21 +49,21 @@ public class BasicGameDemoPaintable
     {
         if (state == 0)
         {
-            //LogUtil.put(LogFactory.getInstance("Setting Main Demo State Paintable", this, "setState"));
+            //logUtil.put("Setting Main Demo State Paintable", this, "setState");
             this.setCurrentStatePaintable(this.getMainDemoStatePaintable());
         }
         else if (state == 1)
         {
-            //LogUtil.put(LogFactory.getInstance("Setting Help Paintable", this, "setState"));
+            //logUtil.put("Setting Help Paintable", this, "setState");
             this.setCurrentStatePaintable(this.helpPaintableInterface);
         }
         else
         {
-            //LogUtil.put(LogFactory.getInstance("Setting Null Paintable", this, "setState"));
+            //logUtil.put("Setting Null Paintable", this, "setState");
             //this.currentStatePaintable = NullPaintable.getInstance();
             this.setCurrentStatePaintable(this.ownershipPaintable);
         }
-        //LogUtil.put(LogFactory.getInstance("Paintable is now: ").append(this.currentStatePaintable, this, "setState"));
+        //logUtil.put("Paintable is now: ").append(this.currentStatePaintable, this, "setState");
     }
 
     public void paint(Graphics graphics)

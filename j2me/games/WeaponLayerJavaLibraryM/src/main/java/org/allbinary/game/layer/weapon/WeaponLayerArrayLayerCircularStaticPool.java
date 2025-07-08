@@ -17,6 +17,8 @@ import org.allbinary.util.CircularIndexUtil;
 
 public class WeaponLayerArrayLayerCircularStaticPool
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final WeaponLayerArrayLayerCircularStaticPool instance = 
         new WeaponLayerArrayLayerCircularStaticPool();
 
@@ -53,9 +55,9 @@ public class WeaponLayerArrayLayerCircularStaticPool
         // Object[] objectArray = (Object[]) ALL_WEAPONLAYER_ARRAY[size];
         // WeaponLayer[] weaponLayerArray = (WeaponLayer[]) objectArray[index];
 
-        // LogUtil.put(LogFactory.getInstance("WeaponLayer[] Length: " +
+        // logUtil.put("WeaponLayer[] Length: " +
         // weaponLayerArray.length, this,
-        // commonStrings.GET_INSTANCE));
+        // commonStrings.GET_INSTANCE);
 
         circularIndexUtil.next();
 

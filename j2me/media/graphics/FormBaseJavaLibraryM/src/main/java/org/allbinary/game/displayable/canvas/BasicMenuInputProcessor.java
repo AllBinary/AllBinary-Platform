@@ -27,6 +27,8 @@ import org.allbinary.logic.communication.log.PreLogUtil;
 public class BasicMenuInputProcessor extends PlayerGameInput
     implements BaseMotionGestureEventListener
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     public final BasicArrayList motionGestureEventList = new BasicArrayList();
     private MyCanvas canvas;
     

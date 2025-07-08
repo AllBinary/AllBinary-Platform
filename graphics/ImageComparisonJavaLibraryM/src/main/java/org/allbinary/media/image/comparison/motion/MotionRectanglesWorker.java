@@ -33,6 +33,8 @@ public class MotionRectanglesWorker
     extends BasicEventHandler
     implements ImageComparisonResultsListener
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final Vector imageComparisonInfoVector = new Vector();
@@ -74,7 +76,7 @@ public class MotionRectanglesWorker
     {
         try
         {            
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.RUN));
+            logUtil.put(this.commonStrings.START, this, this.commonStrings.RUN);
             
             this.setRunning(true);
             
@@ -89,7 +91,7 @@ public class MotionRectanglesWorker
             final ImageComparisonResult imageComparisonInfo = (ImageComparisonResult) 
                imageComparisonResultsEvent.getImageComparisonResult();
 
-            LogUtil.put(LogFactory.getInstance(imageComparisonInfo.toString(), this, this.commonStrings.RUN));
+            logUtil.put(imageComparisonInfo.toString(), this, this.commonStrings.RUN);
             
             //final BufferedImage latestBufferedImage = imageComparisonInfo.getBufferedImages()[1];
             
@@ -129,15 +131,15 @@ public class MotionRectanglesWorker
             
             this.index++;
             
-            LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN));
+            logUtil.put(CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN);
             
             this.setRunning(false);
             
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, this.commonStrings.RUN));
+            logUtil.put(this.commonStrings.END, this, this.commonStrings.RUN);
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
         }
     }
 }

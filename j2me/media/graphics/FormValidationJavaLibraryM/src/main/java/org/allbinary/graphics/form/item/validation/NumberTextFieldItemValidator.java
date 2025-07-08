@@ -25,6 +25,8 @@ import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 
 public class NumberTextFieldItemValidator extends ValidatorBase
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final TextFieldItem textFieldItem;
     private final int min;
     private final int max;

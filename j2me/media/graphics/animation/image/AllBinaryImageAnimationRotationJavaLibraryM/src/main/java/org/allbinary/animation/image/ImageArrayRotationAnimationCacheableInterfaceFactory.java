@@ -20,10 +20,12 @@ import org.allbinary.logic.util.cache.CacheableInterfaceFactoryInterface;
 public class ImageArrayRotationAnimationCacheableInterfaceFactory 
 implements CacheableInterfaceFactoryInterface
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     public CacheableInterface getInstance(final Object key)
     throws Exception
     {
-    	//LogUtil.put(LogFactory.getInstance("Creating new Instance", this, commonStrings.GET_INSTANCE));
+    	//logUtil.put("Creating new Instance", this, commonStrings.GET_INSTANCE);
         return new ImageArrayRotationAnimationCacheable(key, AnimationBehavior.getInstance());
     }	
 }

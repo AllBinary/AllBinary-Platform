@@ -28,6 +28,8 @@ import org.allbinary.data.resource.ResourceUtil;
 
 public class LicenseServerInitFileUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final CommonStrings commonStrings = CommonStrings.getInstance();
 
     public final void init()
@@ -38,7 +40,7 @@ public class LicenseServerInitFileUtil
             // File file = this.getFilesDir();
             // String path = file.getAbsolutePath() + FilePathData.SEPARATOR;
 
-            // LogUtil.put(LogFactory.getInstance("Path: " + path, this, AndroidStrings.getInstance().START));
+            // logUtil.put("Path: " + path, this, AndroidStrings.getInstance().START);
 
             String filePath = LicenseInitInfoUtil.getInstance().INITFILENAME;
             LicenseInitInfoUtil.getInstance().setFilePath(StringUtil.getInstance().EMPTY_STRING);
@@ -47,14 +49,14 @@ public class LicenseServerInitFileUtil
 
             if (FileFactory.getInstance().isFile(filePath))
             {
-                LogUtil.put(LogFactory.getInstance("Using Existing License File", this, commonStrings.INIT));
+                logUtil.put("Using Existing License File", this, commonStrings.INIT);
             } else
             {
                 write();
             }
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.INIT, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
         }
     }
 
@@ -69,7 +71,7 @@ public class LicenseServerInitFileUtil
 
             InputStream inputStream = resourceUtil.getResourceAsStream(filePath);
 
-            LogUtil.put(LogFactory.getInstance("Writing Default License File", this, commonStrings.INIT));
+            logUtil.put("Writing Default License File", this, commonStrings.INIT);
 
             FileStreamFactory fileStreamFactory = FileStreamFactory.getInstance();
 
@@ -84,12 +86,12 @@ public class LicenseServerInitFileUtil
                 index++;
             }
 
-            LogUtil.put(LogFactory.getInstance("Wrote Bytes: " + index, this, commonStrings.INIT));
+            logUtil.put("Wrote Bytes: " + index, this, commonStrings.INIT);
 
             fileOutputStream.flush();
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.INIT, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
         } finally
         {
             StreamUtil.getInstance().close(fileOutputStream);

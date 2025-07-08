@@ -33,6 +33,8 @@ import org.allbinary.string.CommonStrings;
 
 public class InputAutomationModuleFactoryFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private HashMap hashMap;
     private DefaultListModelHelper defaultListModelHelper;
     private HelpSetListener helpSetListenerInterface;
@@ -58,7 +60,7 @@ public class InputAutomationModuleFactoryFactory
         }
         
         this.defaultListModelHelper.initDefaultModelList();
-        LogUtil.put(LogFactory.getInstance("Loaded " + this.hashMap.size() + "/" + this.defaultListModelHelper.getListModel().getSize() + " Input Automation Modules", this,"Contructor"));
+        logUtil.put("Loaded " + this.hashMap.size() + "/" + this.defaultListModelHelper.getListModel().getSize() + " Input Automation Modules", this,"Contructor");
     }
     
     private void add(final InputAutomationModuleConfiguration inputAutomationModuleConfiguration)
@@ -86,10 +88,10 @@ public class InputAutomationModuleFactoryFactory
     public InputAutomationModuleFactoryInterface getInstance(final String moduleName)
     {
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        LogUtil.put(LogFactory.getInstance("Getting Module: " + moduleName, this, commonStrings.GET_INSTANCE));
+        logUtil.put("Getting Module: " + moduleName, this, commonStrings.GET_INSTANCE);
         final InputAutomationModuleFactoryInterface inputAutomationModuleFactoryInterface = (InputAutomationModuleFactoryInterface) this.hashMap.get(moduleName);
         if(inputAutomationModuleFactoryInterface == null) {
-            LogUtil.put(LogFactory.getInstance("Module: " + moduleName + " was null", this, commonStrings.GET_INSTANCE));
+            logUtil.put("Module: " + moduleName + " was null", this, commonStrings.GET_INSTANCE);
         }
 
         return inputAutomationModuleFactoryInterface;

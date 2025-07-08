@@ -28,6 +28,8 @@ import org.allbinary.string.CommonStrings;
 
 public class BasicPersitance
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     protected final PersistanceStrings persistanceStrings = PersistanceStrings.getInstance();
     private final PlatformRecordIdUtil platformRecordIdUtil = PlatformRecordIdUtil.getInstance();
@@ -66,7 +68,7 @@ public class BasicPersitance
         
         try {
             
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.persistanceStrings.DELETING_WITH_ID).append(deleteId).toString(), this, this.commonStrings.delete));
+        logUtil.put(new StringMaker().append(this.persistanceStrings.DELETING_WITH_ID).append(deleteId).toString(), this, this.commonStrings.delete);
         
         recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 

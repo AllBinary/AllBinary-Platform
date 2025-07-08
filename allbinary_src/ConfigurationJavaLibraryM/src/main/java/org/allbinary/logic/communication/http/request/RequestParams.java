@@ -30,6 +30,8 @@ import org.allbinary.string.CommonStrings;
 //Note: if request is destroyed or messed up this will not work. Use fileRequestParams
 public class RequestParams
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
@@ -37,21 +39,21 @@ public class RequestParams
 
     public RequestParams()
     {
-        LogUtil.put(LogFactory.getInstance("New RequestParams Size: 0", this, this.commonStrings.CONSTRUCTOR));
+        logUtil.put("New RequestParams Size: 0", this, this.commonStrings.CONSTRUCTOR);
     }
 
     public RequestParams(HttpServletRequest request)
     {
         map = request.getParameterMap();
 
-        LogUtil.put(LogFactory.getInstance("RequestParams Size: " + this.getMap().keySet().size(), this, this.commonStrings.CONSTRUCTOR));
+        logUtil.put("RequestParams Size: " + this.getMap().keySet().size(), this, this.commonStrings.CONSTRUCTOR);
     }
 
     public RequestParams(PageContext pageContext)
     {
         map = pageContext.getRequest().getParameterMap();
 
-        LogUtil.put(LogFactory.getInstance("Request Params Size: " + this.getMap().keySet().size(), this, this.commonStrings.CONSTRUCTOR));
+        logUtil.put("Request Params Size: " + this.getMap().keySet().size(), this, this.commonStrings.CONSTRUCTOR);
     }
 
     protected void setMap(Map map)
@@ -91,7 +93,7 @@ public class RequestParams
                 stringBuffer.append(VALUE);
                 stringBuffer.append(values[0]);
 
-                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "toXmlNode(document)"));
+                logUtil.put(stringBuffer.toString(), this, "toXmlNode(document)");
 
                 node.appendChild(ModDomHelper.createNameValueNodes(
                         document, RequestData.PARAMETER, new String(key), new String(values[0])));
@@ -99,7 +101,7 @@ public class RequestParams
             return node;
         }catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "toXmlNode(document)", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "toXmlNode(document)", e);
 
             //throw e;
             return null;
@@ -123,7 +125,7 @@ public class RequestParams
 
             //Object[] value = (Object[]) map.get(key);
 
-            //LogUtil.put(LogFactory.getInstance("Class: " + value.getClass().getName(), this, "toHashMap()"));
+            //logUtil.put("Class: " + value.getClass().getName(), this, "toHashMap()");
             //stringBuffer.delete(0, stringBuffer.length());
 
             //stringBuffer.append(KEY);
@@ -131,7 +133,7 @@ public class RequestParams
             //stringBuffer.append(VALUE);
             //stringBuffer.append(value[0]);
 
-            //LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "toHashMap()"));
+            //logUtil.put(stringBuffer.toString(), this, "toHashMap()");
 
             //At some point they made them all String[] but you never know if they will go back or what
             String[] values = (String[]) map.get(key);
@@ -158,7 +160,7 @@ public class RequestParams
         stringBuffer.append("\ntoHashMap: ");
         stringBuffer.append(hashMap.toString());
 
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "toHashMap()"));
+        logUtil.put(stringBuffer.toString(), this, "toHashMap()");
 
         return hashMap;
     }

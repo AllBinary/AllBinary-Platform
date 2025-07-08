@@ -20,6 +20,8 @@ import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
 
 public class OpenGLESGL11VBOImageFactory extends OpenGLImageFactory
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     @Override
     public Image getInstance(final Image image, final PlatformBitmapBaseFactory bitmapFactory, 
         final PlatformTextureBaseFactory textureFactory)

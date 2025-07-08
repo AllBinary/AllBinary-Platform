@@ -20,6 +20,8 @@ import java.util.Vector;
 
 public class LogBuffer
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    Vector logEntryVector;
    
    public LogBuffer()
@@ -60,7 +62,7 @@ public class LogBuffer
       for(int index = 0; index < size; index++)
       {
           Log log = (Log) this.logEntryVector.get(index);
-          LogUtil.put(log);
+          logUtil.put(log);
       }
    }
 }

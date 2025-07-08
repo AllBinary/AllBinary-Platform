@@ -28,6 +28,8 @@ import org.allbinary.logic.util.event.AllBinaryEventObject;
 
 public class GameMotionGestureListener implements MotionGestureEventListener
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private BasicArrayList motionGestureCollection = new BasicArrayList();
@@ -37,7 +39,7 @@ public class GameMotionGestureListener implements MotionGestureEventListener
     public GameMotionGestureListener(
             CompleteMotionGestureListenerInterface signed)
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
+        logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
         this.signed = signed;
     }
 
@@ -109,7 +111,7 @@ public class GameMotionGestureListener implements MotionGestureEventListener
            stringBuffer.append(commonStrings.EXCEPTION_LABEL);
            stringBuffer.append(StringUtil.getInstance().toString(ev.getMotionGesture()));
 
-           LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "release", e));
+           logUtil.put(stringBuffer.toString(), this, "release", e);
         }
     }
 
@@ -141,7 +143,7 @@ public class GameMotionGestureListener implements MotionGestureEventListener
            stringBuffer.append(commonStrings.EXCEPTION_LABEL);
            stringBuffer.append(StringUtil.getInstance().toString(ev.getMotionGesture()));
 
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "onMotionGestureEvent", e));
+            logUtil.put(stringBuffer.toString(), this, "onMotionGestureEvent", e);
         }
     }
 }

@@ -21,6 +21,8 @@ import org.w3c.dom.Node;
 
 public class DomSearchHelper
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
    private DomSearchHelper()
    {
    }

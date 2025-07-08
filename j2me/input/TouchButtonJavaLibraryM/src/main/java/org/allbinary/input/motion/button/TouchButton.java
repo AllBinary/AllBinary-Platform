@@ -30,6 +30,8 @@ import org.allbinary.logic.string.StringUtil;
 
 public class TouchButton extends Paintable
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final TouchButtonInput touchButtonInput;
@@ -79,7 +81,7 @@ public class TouchButton extends Paintable
         
         this.updateRectangle();
         
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Created: ").append(this.toString()).toString(), this, commonStrings.CONSTRUCTOR));
+        logUtil.put(new StringMaker().append("Created: ").append(this.toString()).toString(), this, commonStrings.CONSTRUCTOR);
     }
     
     public void paintHint(Graphics graphics)
@@ -114,7 +116,7 @@ public class TouchButton extends Paintable
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "updateRectangle", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "updateRectangle", e);
         }
     }
 

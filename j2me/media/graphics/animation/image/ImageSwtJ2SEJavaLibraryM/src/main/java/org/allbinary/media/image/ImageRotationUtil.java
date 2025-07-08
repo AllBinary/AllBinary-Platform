@@ -26,6 +26,8 @@ import org.microemu.device.swt.SwtImmutableImage;
 import org.microemu.device.swt.SwtMutableImage;
 
 public class ImageRotationUtil {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final ImageRotationUtil instance = new ImageRotationUtil();
 

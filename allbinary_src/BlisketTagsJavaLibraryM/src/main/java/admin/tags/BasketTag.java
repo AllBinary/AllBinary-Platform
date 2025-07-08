@@ -36,6 +36,8 @@ import tags.CustomTagSupport;
 
 public class BasketTag extends CustomTagSupport
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     
    private String command;
    private String storeName;   
@@ -75,7 +77,7 @@ public class BasketTag extends CustomTagSupport
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"isBasketEmpty()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"isBasketEmpty()",e);
          }
          return true;
       }
@@ -102,7 +104,7 @@ public class BasketTag extends CustomTagSupport
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"addItemToBasket()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"addItemToBasket()",e);
          }
          return false;
       }
@@ -129,7 +131,7 @@ public class BasketTag extends CustomTagSupport
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"removeItemFromBasket()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"removeItemFromBasket()",e);
          }
          return false;
       }
@@ -156,7 +158,7 @@ public class BasketTag extends CustomTagSupport
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"adjustBasket()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"adjustBasket()",e);
          }
          return false;
       }

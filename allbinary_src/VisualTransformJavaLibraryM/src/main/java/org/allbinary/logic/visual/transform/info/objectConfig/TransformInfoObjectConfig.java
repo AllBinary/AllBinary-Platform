@@ -38,6 +38,8 @@ import org.allbinary.string.CommonStrings;
 public class TransformInfoObjectConfig 
    implements TransformInfoObjectConfigInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
    private final TransformInfoInterface ownerTransformInfoInterface;
@@ -88,7 +90,7 @@ public class TransformInfoObjectConfig
     	  stringBuffer.append("\nConstructed with document: ");
     	  stringBuffer.append(this.toString());
     	  
-          LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "Constructor(TransformInfoInterface)"));
+          logUtil.put(stringBuffer.toString(), this, "Constructor(TransformInfoInterface)");
       }
    }
 
@@ -124,7 +126,7 @@ public class TransformInfoObjectConfig
     	  stringBuffer.append("\nConstructed with document: ");
     	  stringBuffer.append(this.toString());
     	  
-         LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "Constructor(TransformInfoInterface, Document)"));
+         logUtil.put(stringBuffer.toString(), this, "Constructor(TransformInfoInterface, Document)");
       }
    }
 
@@ -165,7 +167,7 @@ public class TransformInfoObjectConfig
     	  stringBuffer.append("\nConstructed with document: ");
     	  stringBuffer.append(this.toString());
     	  
-         LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "Constructor(TransformInfoInterface, name, type)"));
+         logUtil.put(stringBuffer.toString(), this, "Constructor(TransformInfoInterface, name, type)");
       }
    }
 
@@ -262,9 +264,9 @@ public class TransformInfoObjectConfig
 	              stringBuffer.append(" Nodes: ");
 	              stringBuffer.append(numberOfViews);
 
-	             LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "getNodeVector(nodename)"));
-	             //LogUtil.put(LogFactory.getInstance("Document: " +
-	             //DomHelper.toString(this.document), this, "getComponents()"));
+	             logUtil.put(stringBuffer.toString(), this, "getNodeVector(nodename)");
+	             //logUtil.put("Document: " +
+	             //DomHelper.toString(this.document), this, "getComponents()");
 	          }
 	          return viewNodeVector;
 	       }
@@ -311,7 +313,7 @@ public class TransformInfoObjectConfig
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("Started: " + group, this, "getTransformsGroup()"));
+         logUtil.put("Started: " + group, this, "getTransformsGroup()");
       }
 
       Vector viewVector = new Vector();
@@ -347,8 +349,8 @@ public class TransformInfoObjectConfig
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("Number Of Nodes: " + numberOfViews, this, "getTransformsGroup()"));
-            //LogUtil.put(LogFactory.getInstance("Document: " +
+            logUtil.put("Number Of Nodes: " + numberOfViews, this, "getTransformsGroup()");
+            //logUtil.put("Document: " +
             //DomHelper.toString(this.document), this, "getTransformsGroup()");
          }
 
@@ -366,11 +368,11 @@ public class TransformInfoObjectConfig
          {
         	 if(componentsNodeList == null)
         	 {
-        		 LogUtil.put(LogFactory.getInstance("Number Of Nodes: NULL", this, "getTransformsGroup()")); 
+        		 logUtil.put("Number Of Nodes: NULL", this, "getTransformsGroup()"); 
         	 }
         	 else
         	 {
-        		 LogUtil.put(LogFactory.getInstance("Number Of Nodes: 0", this, "getTransformsGroup()"));
+        		 logUtil.put("Number Of Nodes: 0", this, "getTransformsGroup()");
         	 }
          }
       }
@@ -459,7 +461,7 @@ public class TransformInfoObjectConfig
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("DOM Document error", this, commonStrings.TOSTRING));
+            logUtil.put("DOM Document error", this, commonStrings.TOSTRING);
          }
          return null;
       }

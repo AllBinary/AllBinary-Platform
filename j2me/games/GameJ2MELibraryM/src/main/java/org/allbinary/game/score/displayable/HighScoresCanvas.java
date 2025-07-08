@@ -48,6 +48,8 @@ import org.allbinary.thread.SecondaryThreadPool;
 public class HighScoresCanvas extends GameCommandCanvas
         implements HighScoresResultsListener
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     public static final String NAME = "HighScoresCanvas";
     
     private Paintable paintable;
@@ -94,7 +96,7 @@ public class HighScoresCanvas extends GameCommandCanvas
                 allBinaryGameLayerManager.getBackgroundBasicColor(),
                 allBinaryGameLayerManager.getForegroundBasicColor());
 
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
+        logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
         this.highScoresPaintable = paintable;
 
@@ -120,7 +122,7 @@ public class HighScoresCanvas extends GameCommandCanvas
         if(this.highScoresHelper.getHighScoresArray() == NoHighScoresFactory.getInstance().NO_HIGH_SCORES) {
             this.setPaintable(this.waitPaintable);
         } else {
-            LogUtil.put(LogFactory.getInstance("Show HighScores that are already loaded", this, commonStrings.CONSTRUCTOR));
+            logUtil.put("Show HighScores that are already loaded", this, commonStrings.CONSTRUCTOR);
             this.updateCommand(this.currentCommand);
             this.setPaintable(this.getHighScoresPaintable());
         }
@@ -138,23 +140,23 @@ public class HighScoresCanvas extends GameCommandCanvas
                         hasPainted = false;
                     }
                     final StringMaker stringMaker = new StringMaker();
-                    LogUtil.put(LogFactory.getInstance(stringMaker.append("HighScoresCanvas - Request repaint to be sure: ").append(System.currentTimeMillis()).toString(), this, commonStrings.RUN));
+                    logUtil.put(stringMaker.append("HighScoresCanvas - Request repaint to be sure: ").append(System.currentTimeMillis()).toString(), this, commonStrings.RUN);
                     repaintBehavior.onChangeRepaint(HighScoresCanvas.this);
                     if (!isHTML) {
                         while (!hasPainted) {
                         }
                     }
                     stringMaker.delete(0, stringMaker.length());
-                    LogUtil.put(LogFactory.getInstance(stringMaker.append("HighScoresCanvas - Now that the canvas has completed repaint go ahead and fetch the scores: ").append(System.currentTimeMillis()).toString(), this, commonStrings.RUN));
+                    logUtil.put(stringMaker.append("HighScoresCanvas - Now that the canvas has completed repaint go ahead and fetch the scores: ").append(System.currentTimeMillis()).toString(), this, commonStrings.RUN);
                     executeUpdate();
                 } catch (Exception e) {
-                    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
+                    logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
                 }
                 
             }
         });
         
-        //LogUtil.put(LogFactory.getInstance(commonStrings.END, this, commonStrings.CONSTRUCTOR));
+        //logUtil.put(commonStrings.END, this, commonStrings.CONSTRUCTOR);
     }
 
     public void initCommands(CommandListener cmdListener)
@@ -205,7 +207,7 @@ public class HighScoresCanvas extends GameCommandCanvas
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e);
         }
     }
 
@@ -218,9 +220,9 @@ public class HighScoresCanvas extends GameCommandCanvas
     {
         try {
             if (highScoresArray != null) {
-                LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.START).append(highScoresArray.length).toString(), this, "setHighScoresArray"));
+                logUtil.put(new StringMaker().append(commonStrings.START).append(highScoresArray.length).toString(), this, "setHighScoresArray");
             } else {
-                LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "setHighScoresArray"));
+                logUtil.put(commonStrings.START, this, "setHighScoresArray");
             }
 
             this.highScoresHelper.setHighScoresArray(highScoresArray);
@@ -229,13 +231,13 @@ public class HighScoresCanvas extends GameCommandCanvas
             this.setPaintable(this.getHighScoresPaintable());
             
         } catch(Exception e) {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e);
         }
     }
 
     public void updateCommand(Command command) throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.START).append(this.stringUtil.toString(command)).toString(), this, commonStrings.UPDATE));
+        logUtil.put(new StringMaker().append(commonStrings.START).append(this.stringUtil.toString(command)).toString(), this, commonStrings.UPDATE);
 
         final GameCommandsFactory gameCommandsFactory = 
             GameCommandsFactory.getInstance();
@@ -247,7 +249,7 @@ public class HighScoresCanvas extends GameCommandCanvas
         {
             final int index = highScoreCommandsFactory.getIndex(command);
             
-            //LogUtil.put(LogFactory.getInstance(commonStrings.START).append(index, this, commonStrings.UPDATE));
+            //logUtil.put(commonStrings.START).append(index, this, commonStrings.UPDATE);
             
             int nextIndex = index + 1;
 

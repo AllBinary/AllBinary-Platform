@@ -22,6 +22,8 @@ import org.w3c.dom.Node;
 
 public class NoShippingModuleView extends NoShippingModule implements DomNodeInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    public NoShippingModuleView()
    {
    }
@@ -68,7 +70,7 @@ public class NoShippingModuleView extends NoShippingModule implements DomNodeInt
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "toXmlNode", e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, "toXmlNode", e);
          }
          //throw e;
          return null;

@@ -39,6 +39,8 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 public class HighScoreTextBox extends CustomTextBox
 // BasicTextBox
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final VirtualKeyboardEventHandler virtualKeyboardEventHandler = 
                 VirtualKeyboardEventHandler.getInstance();
     
@@ -64,7 +66,7 @@ public class HighScoreTextBox extends CustomTextBox
 
         highScoreUtil = new HighScoreUtil(highScoresFactoryInterface, highScoresHelper, abeClientInformation, gameInfo, cmdListener, name, highScore);
         
-        //LogUtil.put(LogFactory.getInstance("Score: ").append(score, this, "compare"));
+        //logUtil.put("Score: ").append(score, this, "compare");
 
         final GenericOperatingSystem operatingSystemInterface
                 = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
@@ -115,10 +117,10 @@ public class HighScoreTextBox extends CustomTextBox
         this.update();
         
         if(this.submitted) {
-            //LogUtil.put(LogFactory.getInstance("Saving HighScores", this, commonStrings.CLOSE));
+            //logUtil.put("Saving HighScores", this, commonStrings.CLOSE);
             this.highScoreUtil.saveHighScore();
         } else {
-            //LogUtil.put(LogFactory.getInstance("Not Saving HighScores", this, commonStrings.CLOSE));
+            //logUtil.put("Not Saving HighScores", this, commonStrings.CLOSE);
         }
         
         this.paintable = NullPaintable.getInstance();

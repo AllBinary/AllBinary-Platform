@@ -23,7 +23,9 @@ import org.allbinary.graphics.color.BasicColorSetUtil;
 public class Animation implements AnimationInterface,
 //implements 
 OpenGLSurfaceChangedInterface
-{    
+{
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+    
     protected final BasicColorSetUtil basicSetColorUtil = 
         BasicColorSetUtil.getInstance();
 
@@ -67,7 +69,7 @@ OpenGLSurfaceChangedInterface
 
     public void setBasicColor(final BasicColor basicColor)
     {
-        //LogUtil.put(LogFactory.getInstance("setBasicColor", this, basicColor.toString()));
+        //logUtil.put("setBasicColor", this, basicColor.toString());
         this.basicColor = basicColor;
         this.color = this.basicColor.intValue();
     }
@@ -79,7 +81,7 @@ OpenGLSurfaceChangedInterface
 
     public void changeBasicColor(final BasicColor basicColor)
     {
-        //LogUtil.put(LogFactory.getInstance("setBasicColor", this, basicColor.toString()));
+        //logUtil.put("setBasicColor", this, basicColor.toString());
         this.changeBasicColor = basicColor;
         this.changeColor = this.changeBasicColor.intValue();
     }

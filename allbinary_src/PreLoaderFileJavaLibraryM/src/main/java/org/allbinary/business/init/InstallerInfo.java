@@ -29,6 +29,8 @@ import org.allbinary.logic.string.StringUtil;
 
 public class InstallerInfo
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 	private static final InstallerInfo instance = new InstallerInfo();
 	
    private static final String INITFILENAME = "installerdata.dat";    
@@ -68,7 +70,7 @@ public class InstallerInfo
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADERERROR))
          {         
-            LogUtil.put(LogFactory.getInstance("Failed", this, "write"));
+            logUtil.put("Failed", this, "write");
          }
          throw e;
       }      
@@ -96,7 +98,7 @@ public class InstallerInfo
          {
             if( org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADER))
             {
-               LogUtil.put(LogFactory.getInstance("Not a File - Failed Loading: " + FILEABPATH.toString(), this, "read"));
+               logUtil.put("Not a File - Failed Loading: " + FILEABPATH.toString(), this, "read");
             }
          }         
       }
@@ -104,7 +106,7 @@ public class InstallerInfo
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADERERROR))
          {         
-            LogUtil.put(LogFactory.getInstance("Failed", this, "read"));
+            logUtil.put("Failed", this, "read");
          }
       }
    }
@@ -134,7 +136,7 @@ public class InstallerInfo
          {
             if( org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADER))
             {
-               LogUtil.put(LogFactory.getInstance("Failed", this, "updateIfNeeded"));
+               logUtil.put("Failed", this, "updateIfNeeded");
             }
             //throw new InitException();
          }

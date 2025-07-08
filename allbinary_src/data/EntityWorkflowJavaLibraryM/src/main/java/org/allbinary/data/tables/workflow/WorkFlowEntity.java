@@ -33,6 +33,8 @@ import org.allbinary.logic.system.security.licensing.ServiceClientInformationInt
 
 public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final AbeClientInformationInterface abeClientInformation = 
         ServiceClientInformationInterfaceFactory.getInstance();
 
@@ -55,13 +57,13 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, INSERT));
+                logUtil.put(this.commonStrings.SUCCESS, this, INSERT);
             }
         }catch(Exception e)
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, INSERT, e));
+                logUtil.put(this.commonStrings.FAILURE, this, INSERT, e);
             }
         }
     }
@@ -79,13 +81,13 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, commonStrings.delete));
+                logUtil.put(this.commonStrings.SUCCESS, this, commonStrings.delete);
             }
         }catch(Exception e)
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, commonStrings.delete, e));
+                logUtil.put(this.commonStrings.FAILURE, this, commonStrings.delete, e);
             }
         }
     }
@@ -104,14 +106,14 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, METHOD_GET, e));
+                logUtil.put(this.commonStrings.FAILURE, this, METHOD_GET, e);
             }
             throw e;
         }catch(Exception e)
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, METHOD_GET, e));
+                logUtil.put(this.commonStrings.FAILURE, this, METHOD_GET, e);
             }
             throw e;
         }
@@ -143,7 +145,7 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, this.METHOD_GET, e));
+                logUtil.put(this.commonStrings.FAILURE, this, this.METHOD_GET, e);
             }
             return null;
         }
@@ -164,7 +166,7 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, METHOD_UPDATE, e));
+                logUtil.put(this.commonStrings.FAILURE, this, METHOD_UPDATE, e);
             }
         }
     }

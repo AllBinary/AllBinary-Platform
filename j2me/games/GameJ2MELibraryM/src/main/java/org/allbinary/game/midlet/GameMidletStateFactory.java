@@ -7,6 +7,8 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 
 public class GameMidletStateFactory {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
 	private static final GameMidletStateFactory INSTANCE = new GameMidletStateFactory();
 	
@@ -27,7 +29,7 @@ public class GameMidletStateFactory {
 	}
 
 	public void setCurrentGameState(GameState currentGameState) {
-		LogUtil.put(LogFactory.getInstance(new StringMaker().append("Current GameState: ").append(StringUtil.getInstance().toString(currentGameState)).toString(), this, "setCurrentGameState"));
+		logUtil.put(new StringMaker().append("Current GameState: ").append(StringUtil.getInstance().toString(currentGameState)).toString(), this, "setCurrentGameState");
 		this.currentGameState = currentGameState;
 	}
 	

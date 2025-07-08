@@ -28,15 +28,17 @@ import org.allbinary.media.image.io.ImageIOInterface;
 import org.allbinary.string.CommonStrings;
 
 public class CapturedImageInputOutput implements ImageIOInterface {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     public void save(Long frame) throws Exception {
         final CommonStrings commonStrings = CommonStrings.getInstance();
         
         final BufferedImageFrameCacheable capturedBufferedImageCacheable
                 = ((BufferedImageFrameCacheable) (Object) ((AutomaticCacheInterface) CapturedBufferedImagesCacheSingleton.getInstance()).get(frame));
-        LogUtil.put(LogFactory.getInstance(("Saving: "
+        logUtil.put(("Saving: "
                 + capturedBufferedImageCacheable.toString()),
-                this, commonStrings.SAVE));
+                this, commonStrings.SAVE);
         save(capturedBufferedImageCacheable.getBufferedImage(), frame);
     }
 
@@ -50,9 +52,9 @@ public class CapturedImageInputOutput implements ImageIOInterface {
         filePathStringBuffer.append(LongUtil.fillIn(frame.toString()));
         filePathStringBuffer.append(MediaDataFactory.getInstance().JPG.getExtension());
         String filePath = filePathStringBuffer.toString();
-        LogUtil.put(LogFactory.getInstance(("Image File Path: " + filePath
+        logUtil.put(("Image File Path: " + filePath
                 + imageUtil.toString(bufferedImage)),
-                this, commonStrings.SAVE));
+                this, commonStrings.SAVE);
         final ImagePersistanceUtil imagePersistanceUtil = ImagePersistanceUtil.getInstance();
         imagePersistanceUtil.saveWithImageIO(filePath, bufferedImage);
     }

@@ -26,6 +26,8 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
 public class StoreCustomizerComponentUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final StoreCustomizerComponentUtil instance = new StoreCustomizerComponentUtil();
     
     public static StoreCustomizerComponentUtil getInstance() {
@@ -42,7 +44,7 @@ public class StoreCustomizerComponentUtil
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            LogUtil.put(LogFactory.getInstance("Generating Modified Views For: " + transformInfoInterface.getName(), this, "generateModifiedViews()"));
+            logUtil.put("Generating Modified Views For: " + transformInfoInterface.getName(), this, "generateModifiedViews()");
         }
 
         final CustomizerUtil customizerUtil = CustomizerUtil.getInstance();
@@ -63,10 +65,10 @@ public class StoreCustomizerComponentUtil
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                LogUtil.put(LogFactory.getInstance(
+                logUtil.put(
                     "View or component that was modified by a Customizer: "
                     + nextTransformInfoInterface.getName(),
-                    this, "generateModifiedViews()"));
+                    this, "generateModifiedViews()");
             }
 
             generate(abeClientInformation, transformInfoInterface, allViewsToBeModified);
@@ -93,7 +95,7 @@ public class StoreCustomizerComponentUtil
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                LogUtil.put(LogFactory.getInstance("Retrieved: " + specifiedTransformInfoInterface.getName(), this, "generateModifiedViews()"));
+                logUtil.put("Retrieved: " + specifiedTransformInfoInterface.getName(), this, "generateModifiedViews()");
             }
 
             //generate views with the new data
@@ -103,8 +105,8 @@ public class StoreCustomizerComponentUtil
     /*
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
     {
-    LogUtil.put(LogFactory.getInstance("Generate Result: " +
-    result,this,"generateModifiedViews()"));
+    logUtil.put("Generate Result: " +
+    result,this,"generateModifiedViews()");
     }
      **/
 
@@ -113,8 +115,8 @@ public class StoreCustomizerComponentUtil
     {
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
     {
-    LogUtil.put(LogFactory.getInstance("Generating Modified Views For: " +
-    this.getTransformInfoInterface().getName(),this,"generateModifiedViews()"));
+    logUtil.put("Generating Modified Views For: " +
+    this.getTransformInfoInterface().getName(),this,"generateModifiedViews()");
     }
 
     Vector allCustomizedViews =
@@ -129,8 +131,8 @@ public class StoreCustomizerComponentUtil
 
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
     {
-    LogUtil.put(LogFactory.getInstance("View or component that was modified by a Customizer: " +
-    transformInfoObjectConfigComponentNode.getName(),this,"generateModifiedViews()"));
+    logUtil.put("View or component that was modified by a Customizer: " +
+    transformInfoObjectConfigComponentNode.getName(),this,"generateModifiedViews()");
     }
 
     Vector allViewsToBeModified =
@@ -151,8 +153,8 @@ public class StoreCustomizerComponentUtil
 
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
     {
-    LogUtil.put(LogFactory.getInstance("Retrieved: " +
-    specifiedTransformInfoInterface.getName(),this,"generateModifiedViews()"));
+    logUtil.put("Retrieved: " +
+    specifiedTransformInfoInterface.getName(),this,"generateModifiedViews()");
     }
 
     //generate views with the new data
@@ -168,8 +170,8 @@ public class StoreCustomizerComponentUtil
     {
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
     {
-    LogUtil.put(LogFactory.getInstance("Generating Modified Views For: " +
-    this.getTransformInfoInterface().getName(),this,"generateModifiedViews()"));
+    logUtil.put("Generating Modified Views For: " +
+    this.getTransformInfoInterface().getName(),this,"generateModifiedViews()");
     }
 
     Vector allCustomizedViews =
@@ -184,8 +186,8 @@ public class StoreCustomizerComponentUtil
 
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
     {
-    LogUtil.put(LogFactory.getInstance("View or component that was modified by a Customizer: " +
-    transformInfoObjectConfigComponentNode.getName(),this,"generateModifiedViews()"));
+    logUtil.put("View or component that was modified by a Customizer: " +
+    transformInfoObjectConfigComponentNode.getName(),this,"generateModifiedViews()");
     }
 
     Vector allViewsToBeModified =
@@ -206,9 +208,9 @@ public class StoreCustomizerComponentUtil
 
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
     {
-    LogUtil.put(LogFactory.getInstance("Retrieved: " +
+    logUtil.put("Retrieved: " +
     specifiedTransformInfoInterface.getName(),
-    this, "generateModifiedViews()"));
+    this, "generateModifiedViews()");
     }
 
     //generate views with the new data
@@ -225,8 +227,8 @@ public class StoreCustomizerComponentUtil
     {
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
     {
-    LogUtil.put(LogFactory.getInstance("Generating Modified Views For: " +
-    this.getTransformInfoInterface().getName(),this,"generateModifiedViews()"));
+    logUtil.put("Generating Modified Views For: " +
+    this.getTransformInfoInterface().getName(),this,"generateModifiedViews()");
     }
 
     Vector allCustomizedViews =
@@ -241,8 +243,8 @@ public class StoreCustomizerComponentUtil
 
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
     {
-    LogUtil.put(LogFactory.getInstance("View or component that was modified by a Customizer: " +
-    transformInfoObjectConfigComponentNode.getName(),this,"generateModifiedViews()"));
+    logUtil.put("View or component that was modified by a Customizer: " +
+    transformInfoObjectConfigComponentNode.getName(),this,"generateModifiedViews()");
     }
 
     Vector allViewsToBeModified =
@@ -263,8 +265,8 @@ public class StoreCustomizerComponentUtil
 
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
     {
-    LogUtil.put(LogFactory.getInstance("Retrieved: " +
-    specifiedTransformInfoInterface.getName(),this,"generateModifiedViews()"));
+    logUtil.put("Retrieved: " +
+    specifiedTransformInfoInterface.getName(),this,"generateModifiedViews()");
     }
 
     //generate views with the new data

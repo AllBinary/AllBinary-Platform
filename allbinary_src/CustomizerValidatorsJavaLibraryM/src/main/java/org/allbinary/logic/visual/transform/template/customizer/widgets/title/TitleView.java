@@ -29,7 +29,9 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 public class TitleView implements DomNodeInterface
-{   
+{
+    protected final LogUtil logUtil = LogUtil.getInstance();
+   
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
    private String title;
@@ -62,7 +64,7 @@ public class TitleView implements DomNodeInterface
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("Title: " + this.getTitle(), this, "Consructor()"));
+         logUtil.put("Title: " + this.getTitle(), this, "Consructor()");
       }
    }
 
@@ -70,7 +72,7 @@ public class TitleView implements DomNodeInterface
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("HashMap: " + hashMap.toString(), this, this.commonStrings.CONSTRUCTOR));
+         logUtil.put("HashMap: " + hashMap.toString(), this, this.commonStrings.CONSTRUCTOR);
       }
       
       this.getFormData(hashMap);      
@@ -104,7 +106,7 @@ public class TitleView implements DomNodeInterface
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("TitleView HashMap: " + hashMap.toString(), this, "toXmlNode()"));
+         logUtil.put("TitleView HashMap: " + hashMap.toString(), this, "toXmlNode()");
       }
 
       return ModDomHelper.createNameValueNodes(document, TitleData.getInstance().NAME, hashMap);

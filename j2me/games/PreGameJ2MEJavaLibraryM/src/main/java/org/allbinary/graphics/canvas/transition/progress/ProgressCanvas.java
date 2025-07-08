@@ -39,6 +39,8 @@ import org.allbinary.thread.ThreadPool;
 public class ProgressCanvas extends RunnableCanvas
     implements PaintableInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     //protected static final String END_FROM_INITIAL_LAZY_LOADING_COMPLETE = "endFromInitialLazyLoadingComplete";
     
     protected boolean hasPainted;
@@ -132,7 +134,7 @@ public class ProgressCanvas extends RunnableCanvas
 
     public void start()
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.START_METHOD_NAME));
+        logUtil.put(commonStrings.START, this, commonStrings.START_METHOD_NAME);
         this.setBackground(true);
         this.gauge.setHeight(30);
         this.gauge.setLabel(commonStrings.PLEASE_WAIT);
@@ -149,7 +151,7 @@ public class ProgressCanvas extends RunnableCanvas
     
     public void startBackground(boolean background)
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, START_BACKGROUND));
+        logUtil.put(commonStrings.START, this, START_BACKGROUND);
         final MyFont myFont = MyFont.getInstance();
         this.setBackground(background);
         this.gauge.setHeight(myFont.DEFAULT_CHAR_HEIGHT + 2);
@@ -173,7 +175,7 @@ public class ProgressCanvas extends RunnableCanvas
 
     public void end()
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.END_METHOD_NAME));
+        logUtil.put(commonStrings.START, this, commonStrings.END_METHOD_NAME);
         this.gauge.setValue(this.getMaxValue());
         this.endActual();
         this.paintable = NullPaintable.getInstance();
@@ -181,7 +183,7 @@ public class ProgressCanvas extends RunnableCanvas
 
     public void endFromInitialLazyLoadingComplete()
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, END_FROM_INITIAL_LAZY_LOADING_COMPLETE));
+        //logUtil.put(commonStrings.START, this, END_FROM_INITIAL_LAZY_LOADING_COMPLETE);
         this.gauge.setValue(this.getMaxValue());
         this.inGameProcessor = IN_GAME_PROCESSOR;
     }
@@ -195,7 +197,7 @@ public class ProgressCanvas extends RunnableCanvas
     
     public void addEarlyPortion(int value, String text, int index)
     {
-        //LogUtil.put(LogFactory.getInstance(this.text, this, ADD_EARLY_PORTION));
+        //logUtil.put(this.text, this, ADD_EARLY_PORTION);
         //PreLogUtil.put(this.text, this, ADD_PORTION);
         
         this.setText(new StringMaker().append(text).append(SmallIntegerSingletonFactory.getInstance().getInstance(index)).toString());
@@ -208,7 +210,7 @@ public class ProgressCanvas extends RunnableCanvas
         this.setText(new StringMaker().append(text).append(SmallIntegerSingletonFactory.getInstance().getInstance(index)).toString());
         
         //commonStrings.START_LABEL).append(
-        //LogUtil.put(LogFactory.getInstance(this.text, this, ADD_PORTION));
+        //logUtil.put(this.text, this, ADD_PORTION);
         PreLogUtil.put(this.text, this, ADD_PORTION);
 
         this.gauge.setValue(this.gauge.getValue() + this.getMaxValue() / value);
@@ -220,7 +222,7 @@ public class ProgressCanvas extends RunnableCanvas
     public void addPortion(int value, String text)
     {   
         //commonStrings.START_LABEL).append(
-        //LogUtil.put(LogFactory.getInstance(text, this, ADD_PORTION));
+        //logUtil.put(text, this, ADD_PORTION);
         
         if(this.text != text) {
             PreLogUtil.put(text, this, ADD_PORTION);
@@ -266,20 +268,20 @@ public class ProgressCanvas extends RunnableCanvas
             int index = 0;
             while ((!this.isDisplayed()) && index < 50)
             {
-                LogUtil.put(LogFactory.getInstance(
+                logUtil.put(
                         "Waiting for it to be displayed", this,
-                        "waitUntilDisplayed"));
+                        "waitUntilDisplayed");
                 Thread.sleep(200);
                 index++;
             }
-            LogUtil.put(LogFactory.getInstance("Displayed", this,
-                    "waitUntilDisplayed"));
+            logUtil.put("Displayed", this,
+                    "waitUntilDisplayed");
 
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this,
-                    "waitUntilDisplayed", e));
+            logUtil.put(commonStrings.EXCEPTION, this,
+                    "waitUntilDisplayed", e);
         }
     }
     */

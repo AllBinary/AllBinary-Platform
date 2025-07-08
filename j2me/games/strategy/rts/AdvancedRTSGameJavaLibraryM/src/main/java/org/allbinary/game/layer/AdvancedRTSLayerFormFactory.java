@@ -24,6 +24,8 @@ import org.allbinary.graphics.form.item.ItemArraySingletonFactoryInterface;
 
 public class AdvancedRTSLayerFormFactory extends RTSLayerFormFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private ScrollSelectionForm scrollSelectionForm;
     
     protected AdvancedRTSLayerFormFactory(
@@ -40,7 +42,7 @@ public class AdvancedRTSLayerFormFactory extends RTSLayerFormFactory
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
         }
     }
     

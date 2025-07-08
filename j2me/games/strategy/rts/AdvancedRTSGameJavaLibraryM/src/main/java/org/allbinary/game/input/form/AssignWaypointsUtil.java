@@ -26,6 +26,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class AssignWaypointsUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final AssignWaypointsUtil instance = new AssignWaypointsUtil();
     
     public static AssignWaypointsUtil getInstance()
@@ -67,7 +69,7 @@ public class AssignWaypointsUtil
         catch(Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "set", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "set", e);
         }
     }
 }

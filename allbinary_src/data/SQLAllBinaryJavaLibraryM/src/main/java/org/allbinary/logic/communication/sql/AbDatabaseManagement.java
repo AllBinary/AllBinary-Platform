@@ -19,6 +19,8 @@ import org.allbinary.logic.communication.log.LogUtil;
  */
 public class AbDatabaseManagement extends AbSqlBean
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected CommonStrings commonStrings = CommonStrings.getInstance();
     
     protected final StringBuffer sqlCommandLog = new StringBuffer();
@@ -65,7 +67,7 @@ public class AbDatabaseManagement extends AbSqlBean
             return addr.getHostName();
         }catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.FAILED, this, GET_HOST_NAME, e));
+            logUtil.put(this.FAILED, this, GET_HOST_NAME, e);
             return null;
         }
     }
@@ -110,7 +112,7 @@ public class AbDatabaseManagement extends AbSqlBean
             return true;
         }catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.UNABLE_TO_CREATE_USER + userName, this, this.METHOD_ADD_USER, e));
+            logUtil.put(this.UNABLE_TO_CREATE_USER + userName, this, this.METHOD_ADD_USER, e);
             return false;
         }
     }
@@ -129,7 +131,7 @@ public class AbDatabaseManagement extends AbSqlBean
             return Boolean.TRUE;
         }catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(UNABLE_TO_CREATE_DATABASE + db, this, this.METHOD_ADD_DB, e));
+            logUtil.put(UNABLE_TO_CREATE_DATABASE + db, this, this.METHOD_ADD_DB, e);
             return Boolean.FALSE;
         }
     }

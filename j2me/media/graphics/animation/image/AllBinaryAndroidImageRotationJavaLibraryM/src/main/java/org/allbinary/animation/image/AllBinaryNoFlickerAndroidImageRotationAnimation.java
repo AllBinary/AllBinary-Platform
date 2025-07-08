@@ -28,6 +28,8 @@ import org.allbinary.media.image.ImageModifierUtil;
 public class AllBinaryNoFlickerAndroidImageRotationAnimation 
 extends ImageBaseRotationAnimation
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final ImageModifierUtil imageModifierUtil = ImageModifierUtil.getInstanceOrCreate();
     private final AndroidImageUtil androidImageUtil = AndroidImageUtil.getInstance();
     
@@ -69,7 +71,7 @@ extends ImageBaseRotationAnimation
         this.twoImages[0] = image;
         this.twoImages[1] = ImageCopyUtil.getInstance().createImage(image);
 
-        //LogUtil.put(LogFactory.getInstance(this.toString(), this, commonStrings.CONSTRUCTOR));
+        //logUtil.put(this.toString(), this, commonStrings.CONSTRUCTOR);
     }
 
     public void setBasicColor(final BasicColor basicColor) {
@@ -107,7 +109,7 @@ extends ImageBaseRotationAnimation
     public void nextRotation()
     {
         super.nextRotation();
-        //LogUtil.put(LogFactory.getInstance("Frame: " + this.getFrame(), this, "nextRotation"));
+        //logUtil.put("Frame: " + this.getFrame(), this, "nextRotation");
 
         matrix.setRotate(this.increment, this.halfWidth, this.halfHeight);
         //matrix.setRotate(this.angleInfo.getAngle(), this.halfWidth, this.halfHeight);
@@ -118,7 +120,7 @@ extends ImageBaseRotationAnimation
     public void previousRotation()
     {
         super.previousRotation();
-        //LogUtil.put(LogFactory.getInstance("Frame: " + this.getFrame(), this, "previousRotation"));
+        //logUtil.put("Frame: " + this.getFrame(), this, "previousRotation");
 
         matrix.setRotate(-this.increment, this.halfWidth, this.halfHeight);
         //matrix.setRotate(this.angleInfo.getAngle(), this.halfWidth, this.halfHeight);
@@ -134,21 +136,21 @@ extends ImageBaseRotationAnimation
 
     public void setFrame(final int index)
     {
-        //LogUtil.put(LogFactory.getInstance(commonLabels.INDEX_LABEL + index, this, "setRotation"));
+        //logUtil.put(commonLabels.INDEX_LABEL + index, this, "setRotation");
 
         final int currentFrame = this.circularIndexUtil.getIndex();
-        //LogUtil.put(LogFactory.getInstance("currentFrame: " + currentFrame, this, "setRotation"));
+        //logUtil.put("currentFrame: " + currentFrame, this, "setRotation");
 
         this.circularIndexUtil.setIndex(index);
 
         final int newFrame = this.circularIndexUtil.getIndex();
-        //LogUtil.put(LogFactory.getInstance("newFrame: " + newFrame, this, "setRotation"));
+        //logUtil.put("newFrame: " + newFrame, this, "setRotation");
 
         this.angleInfo.adjustAngle(newFrame);
         
         matrix.setRotate((newFrame - currentFrame) * increment, this.halfWidth, this.halfHeight);
         //final float result = (newFrame - currentFrame) * this.increment;
-        //LogUtil.put(LogFactory.getInstance("result: " + result, this, "setRotation"));
+        //logUtil.put("result: " + result, this, "setRotation");
         //matrix.setRotate(result, this.halfWidth, this.halfHeight);
         this.updateImage();
 

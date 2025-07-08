@@ -25,6 +25,8 @@ import org.allbinary.graphics.displayable.screen.CommandForm;
 
 public class SaveGameForm extends CommandForm
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static SaveGameForm FORM;
 
     public static SaveGameForm getInstance(CommandListener commandListener, String title,
@@ -46,7 +48,7 @@ public class SaveGameForm extends CommandForm
     {
         super(commandListener, title, backgrounBasicColor, foregroundBasicColor);
 
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
+        logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
         String timeString = Long.toString(System.currentTimeMillis());
         this.append(new TextField("Name: ", timeString, 30, TextField.ANY)); 

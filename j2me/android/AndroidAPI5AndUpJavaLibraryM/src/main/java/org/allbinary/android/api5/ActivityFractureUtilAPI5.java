@@ -23,6 +23,8 @@ import org.allbinary.input.motion.button.TouchScreenFactory;
 
 public class ActivityFractureUtilAPI5 extends ActivityFractureUtil
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final ActivityFractureUtilAPI5 instance = new ActivityFractureUtilAPI5();
 
     public static ActivityFractureUtilAPI5 getInstance()
@@ -60,7 +62,7 @@ public class ActivityFractureUtilAPI5 extends ActivityFractureUtil
         touchScreenTypeFactory.update(activity);
         
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        //LogUtil.put(LogFactory.getInstance(touchScreenFactory.toString(), this, commonStrings.PROCESS));
+        //logUtil.put(touchScreenFactory.toString(), this, commonStrings.PROCESS);
         PreLogUtil.put(touchScreenFactory.toString(), this, commonStrings.PROCESS);
     }
 

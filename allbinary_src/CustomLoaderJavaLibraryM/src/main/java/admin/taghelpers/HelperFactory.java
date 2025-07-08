@@ -29,6 +29,8 @@ import org.allbinary.string.CommonStrings;
 
 public class HelperFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     
    public HelperFactory()
    {
@@ -40,6 +42,7 @@ public class HelperFactory
        final HashMap hashMap, final HttpServletRequest httpServletRequest)
       throws LicensingException
    {
+       final LogUtil logUtil = LogUtil.getInstance();
       try
       {
          Object[] params = new Object[2];
@@ -67,8 +70,8 @@ public class HelperFactory
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, factoryName + "->HelperFactory",
-            "getInstance(String, String, HashMap, PageContext)", e));
+            logUtil.put(error, factoryName + "->HelperFactory",
+            "getInstance(String, String, HashMap, PageContext)", e);
          }
          throw e;
       }
@@ -78,8 +81,8 @@ public class HelperFactory
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error,factoryName + "->HelperFactory",
-            "getInstance(String, String, HashMap, PageContext)", e));
+            logUtil.put(error,factoryName + "->HelperFactory",
+            "getInstance(String, String, HashMap, PageContext)", e);
          }
          return null;
       }
@@ -91,6 +94,7 @@ public class HelperFactory
        final HashMap hashMap, final PageContext pageContext) 
       throws LicensingException
    {
+       final LogUtil logUtil = LogUtil.getInstance();
       try
       {
          Object[] params = new Object[2];
@@ -118,8 +122,8 @@ public class HelperFactory
              String error = "Failed To Get Instance Args: HashMap=" +
                  hashMap.toString() + " PageContext=" + pageContext;
 
-            LogUtil.put(LogFactory.getInstance(error, factoryName + "->HelperFactory",
-            "getInstance(String, String, HashMap, PageContext)", e));
+            logUtil.put(error, factoryName + "->HelperFactory",
+            "getInstance(String, String, HashMap, PageContext)", e);
          }
          throw e;
       }      
@@ -129,8 +133,8 @@ public class HelperFactory
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
              final CommonStrings commonStrings = CommonStrings.getInstance();
-             LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,factoryName + "->HelperFactory",
-                 "getInstance(String, String, HashMap, PageContext)", e));
+             logUtil.put(commonStrings.EXCEPTION,factoryName + "->HelperFactory",
+                 "getInstance(String, String, HashMap, PageContext)", e);
          }
          return null;
       }
@@ -142,6 +146,7 @@ public class HelperFactory
        final HashMap hashMap, final HashMap specialhashMap, final PageContext pageContext) 
       throws LicensingException
    {
+       final LogUtil logUtil = LogUtil.getInstance();
       try
       {
          Object[] params = new Object[3];
@@ -171,8 +176,8 @@ public class HelperFactory
              String error = "Failed To Get Instance Args: HashMap=" + 
                  hashMap.toString() + " PageContext=" + pageContext;
 
-             LogUtil.put(LogFactory.getInstance(error, factoryName + "->HelperFactory",
-                 "getInstance(String, String, HashMap, PageContext)",e));
+             logUtil.put(error, factoryName + "->HelperFactory",
+                 "getInstance(String, String, HashMap, PageContext)",e);
          }
          throw e;
       }      
@@ -182,8 +187,8 @@ public class HelperFactory
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,factoryName + "->HelperFactory",
-            "getInstance(String, String, HashMap, PageContext)",e));
+            logUtil.put(commonStrings.EXCEPTION,factoryName + "->HelperFactory",
+            "getInstance(String, String, HashMap, PageContext)",e);
          }
          return null;
       }
@@ -193,6 +198,7 @@ public class HelperFactory
        final String factoryName, final String className)
       throws LicensingException
    {
+       final LogUtil logUtil = LogUtil.getInstance();
       try
       {
          Object object = AbeFactory.getInstance().getInstance(abeClientInformation, className);
@@ -204,8 +210,8 @@ public class HelperFactory
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, factoryName + "->HelperFactory",
-            "getInstance(String, String, HashMap, PageContext)", e));
+            logUtil.put(commonStrings.EXCEPTION, factoryName + "->HelperFactory",
+            "getInstance(String, String, HashMap, PageContext)", e);
          }
          throw e;
       }      
@@ -215,8 +221,8 @@ public class HelperFactory
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,factoryName + "->HelperFactory",
-            "getInstance(String, String, HashMap, PageContext)", e));
+            logUtil.put(commonStrings.EXCEPTION,factoryName + "->HelperFactory",
+            "getInstance(String, String, HashMap, PageContext)", e);
          }
          return null;
       }

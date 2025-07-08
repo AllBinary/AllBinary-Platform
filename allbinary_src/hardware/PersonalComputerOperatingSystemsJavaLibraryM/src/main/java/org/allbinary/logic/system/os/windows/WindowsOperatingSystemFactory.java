@@ -25,6 +25,8 @@ import org.allbinary.string.CommonStrings;
 
 public class WindowsOperatingSystemFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final WindowsOperatingSystemFactory instance = new WindowsOperatingSystemFactory();
     
     public static WindowsOperatingSystemFactory getInstance()
@@ -99,7 +101,7 @@ public class WindowsOperatingSystemFactory
             if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
             {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
             }
             return new NoOperatingSystem();
         }

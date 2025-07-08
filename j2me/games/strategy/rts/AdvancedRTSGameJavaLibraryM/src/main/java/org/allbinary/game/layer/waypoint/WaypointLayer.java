@@ -36,6 +36,8 @@ import org.allbinary.media.audio.AttackSound;
  */
 public class WaypointLayer extends AdvancedRTSGameLayer
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected WaypointLayer(
         final RemoteInfo remoteInfo,
         final AdvancedRTSGameLayer parentLayer,
@@ -65,7 +67,7 @@ public class WaypointLayer extends AdvancedRTSGameLayer
             rectangle,
             x, y);
 
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
+        //logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
         
         this.setCollidableInferface(new CollidableWaypointBehavior(this, true));
         
@@ -106,7 +108,7 @@ public class WaypointLayer extends AdvancedRTSGameLayer
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "processTick", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "processTick", e);
         }
     }
 

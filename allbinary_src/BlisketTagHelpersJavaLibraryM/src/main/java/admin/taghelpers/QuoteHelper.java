@@ -46,6 +46,8 @@ import org.allbinary.logic.system.security.licensing.ServiceClientInformationInt
 
 public class QuoteHelper extends BasicTable
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final AbeClientInformationInterface abeClientInformation = 
         ServiceClientInformationInterfaceFactory.getInstance();
     
@@ -183,7 +185,7 @@ public class QuoteHelper extends BasicTable
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "email", e));
+            logUtil.put(this.commonStrings.FAILURE, this, "email", e);
          }
          return "Thank You For Your Business.<p>";
       }
@@ -197,7 +199,7 @@ public class QuoteHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            LogUtil.put(LogFactory.getInstance(success, this, commonStrings.DROP));
+            logUtil.put(success, this, commonStrings.DROP);
          }
          return success;
       }
@@ -206,7 +208,7 @@ public class QuoteHelper extends BasicTable
          String error = "Failed to drop QuoteRequest table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.DROP, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.DROP, e);
          }
          return error;
       }
@@ -220,7 +222,7 @@ public class QuoteHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            LogUtil.put(LogFactory.getInstance(success, this, "create()"));
+            logUtil.put(success, this, "create()");
          }
          
          return success;
@@ -230,7 +232,7 @@ public class QuoteHelper extends BasicTable
          String error= "Failed to create new QuoteRequest table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "create()", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "create()", e);
          }
          return error;
       }
@@ -245,7 +247,7 @@ public class QuoteHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            LogUtil.put(LogFactory.getInstance(success, this, "restore()"));
+            logUtil.put(success, this, "restore()");
          }
          
          return result;
@@ -256,7 +258,7 @@ public class QuoteHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "restore()", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "restore()", e);
          }
          
          return error;
@@ -271,7 +273,7 @@ public class QuoteHelper extends BasicTable
          final String result = AbSqlTableUtil.getInstance().backupTable(QuoteRequestEntityFactory.getInstance().getQuoteRequestEntityInstance());
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            LogUtil.put(LogFactory.getInstance(success, this, "backup()"));
+            logUtil.put(success, this, "backup()");
          }
          return result;
       }
@@ -281,7 +283,7 @@ public class QuoteHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "backup()", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "backup()", e);
          }
          return error;
       }

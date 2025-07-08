@@ -21,6 +21,8 @@ import org.apache.commons.fileupload.FileItemStream;
 
 public class HttpFileUploadUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final HttpFileUploadUtil instance = new HttpFileUploadUtil();
 
@@ -56,7 +58,8 @@ public class HttpFileUploadUtil
     public static void log(FileItemStream fileItem)
         throws Exception
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        final LogUtil logUtil = LogUtil.getInstance();
+        final StringBuffer stringBuffer = new StringBuffer();
 
         stringBuffer.append("FileItem Log:");
         stringBuffer.append("\n");
@@ -76,13 +79,14 @@ public class HttpFileUploadUtil
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTP))
         {
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), getInstance(), "log()"));
+            logUtil.put(stringBuffer.toString(), getInstance(), "log()");
         }
     }
 
     public static void log(FileItem fileItem)
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        final LogUtil logUtil = LogUtil.getInstance();
+        final StringBuffer stringBuffer = new StringBuffer();
 
         stringBuffer.append("FileItem Log:");
         stringBuffer.append("\n");
@@ -101,7 +105,7 @@ public class HttpFileUploadUtil
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
         {
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), getInstance(), "log()"));
+            logUtil.put(stringBuffer.toString(), getInstance(), "log()");
         }
     }
 }

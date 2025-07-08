@@ -20,20 +20,22 @@ import org.allbinary.logic.math.BasicDecimal;
  * @author user
  */
 public class DragVelocityBehavior extends VelocityBehaviorBase {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     public static final DragVelocityBehavior instance = new DragVelocityBehavior();
     
    public void reduce(final BasicVelocityProperties velocityProperties, final int nominator, final int denominator)
    {
-      //LogUtil.put(LogFactory.getInstance("VelocityX: " + this.getVelocityXBasicDecimal().getUnscaled(), this, "friction"));
-      //LogUtil.put(LogFactory.getInstance("VelocityY: " + this.getVelocityYBasicDecimal().getUnscaled(), this, "friction"));
+      //logUtil.put("VelocityX: " + this.getVelocityXBasicDecimal().getUnscaled(), this, "friction");
+      //logUtil.put("VelocityY: " + this.getVelocityYBasicDecimal().getUnscaled(), this, "friction");
       if(velocityProperties.getVelocityXBasicDecimal().getUnscaled() != 0)
       {
          final BasicDecimal basicDecimal = velocityProperties.getVelocityXBasicDecimal();
          basicDecimal.multiply(nominator);
          basicDecimal.divide(denominator);
          //this.setVelocityXBasicDecimal(basicDecimal);
-         //LogUtil.put(LogFactory.getInstance("After Friction VelocityX: " + this.getVelocityXBasicDecimal().getUnscaled(), this, "friction"));
+         //logUtil.put("After Friction VelocityX: " + this.getVelocityXBasicDecimal().getUnscaled(), this, "friction");
       }
 
       if (velocityProperties.getVelocityYBasicDecimal().getUnscaled() != 0)
@@ -42,7 +44,7 @@ public class DragVelocityBehavior extends VelocityBehaviorBase {
          basicDecimal.multiply(nominator);
          basicDecimal.divide(denominator);
          //this.setVelocityYBasicDecimal(basicDecimal);
-         //LogUtil.put(LogFactory.getInstance("After Friction VelocityY: " + this.getVelocityYBasicDecimal().getUnscaled(), this, "friction"));
+         //logUtil.put("After Friction VelocityY: " + this.getVelocityYBasicDecimal().getUnscaled(), this, "friction");
       }
    }   
 

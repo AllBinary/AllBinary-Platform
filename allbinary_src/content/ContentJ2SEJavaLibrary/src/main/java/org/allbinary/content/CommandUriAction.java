@@ -23,6 +23,8 @@ import org.allbinary.data.resource.ResourceUtil;
 
 public class CommandUriAction
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final CommandUriAction instance = new CommandUriAction();
  
     public static CommandUriAction getInstance()
@@ -59,7 +61,7 @@ public class CommandUriAction
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, commonStrings.PROCESS, e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
         }
     }
     

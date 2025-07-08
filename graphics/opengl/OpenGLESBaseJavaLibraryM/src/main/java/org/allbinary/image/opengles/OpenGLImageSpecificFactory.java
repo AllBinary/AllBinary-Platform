@@ -19,6 +19,8 @@ import org.allbinary.logic.string.StringUtil;
 
 public class OpenGLImageSpecificFactory
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final OpenGLImageSpecificFactory instance = new OpenGLImageSpecificFactory();
 
     private OpenGLImageFactory imageFactory;

@@ -25,6 +25,8 @@ import org.allbinary.string.CommonStrings;
 
 public class DbWorkFlowFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final DbWorkFlowFactory instance = new DbWorkFlowFactory();
 
     public static DbWorkFlowFactory getInstance() {
@@ -63,7 +65,7 @@ public class DbWorkFlowFactory
          {
         	 //String error = "Failed To Get Instance Args: HashMap=" + hashMap.toString();
              final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getInstance(HashMap)",e));
+            logUtil.put(commonStrings.EXCEPTION, this, "getInstance(HashMap)",e);
          }
          throw e;
       }
@@ -73,7 +75,7 @@ public class DbWorkFlowFactory
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
              final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getInstance(HashMap)",e));
+            logUtil.put(commonStrings.EXCEPTION, this, "getInstance(HashMap)",e);
          }
          throw e;
       }

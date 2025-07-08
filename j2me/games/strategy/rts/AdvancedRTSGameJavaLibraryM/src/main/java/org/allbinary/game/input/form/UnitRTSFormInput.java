@@ -48,6 +48,8 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCompositeInterfac
  */
 public class UnitRTSFormInput extends RTSFormInput
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     public static final Integer DECAL_ID = 
         SmallIntegerSingletonFactory.getInstance().getInstance(23);
 
@@ -167,7 +169,7 @@ public class UnitRTSFormInput extends RTSFormInput
         stringBuffer.append(" with ");
         stringBuffer.append(capital.getTotalMoney());
 
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "attemptBuild"));        
+        logUtil.put(stringBuffer.toString(), this, "attemptBuild");        
 
         if (cost <= capital.getTotalMoney())
         {

@@ -40,6 +40,8 @@ import org.allbinary.util.BasicArrayList;
 
 public class CurrentDisplayableFactory
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final CurrentDisplayableFactory instance = new CurrentDisplayableFactory();
 
     public static CurrentDisplayableFactory getInstance()

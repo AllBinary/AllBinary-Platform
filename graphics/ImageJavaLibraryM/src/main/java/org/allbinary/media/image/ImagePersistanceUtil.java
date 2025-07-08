@@ -32,13 +32,14 @@ import org.apache.batik.ext.awt.image.codec.png.PNGImageWriter;
  * @author user
  */
 public class ImagePersistanceUtil {
- 
+
     private static final ImagePersistanceUtil instance = new ImagePersistanceUtil();
     
     public static ImagePersistanceUtil getInstance() {
         return instance;
     }
     
+    protected final LogUtil logUtil = LogUtil.getInstance();
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
    public void saveWithBatik(AbFile file, BufferedImage bufferedImage)
@@ -61,7 +62,7 @@ public class ImagePersistanceUtil {
     	  StreamUtil.getInstance().close(fileOutputStream);
       }
       
-      LogUtil.put(LogFactory.getInstance("Wrote Image: " + file.getAbsolutePath(), this, commonStrings.SAVE));
+      logUtil.put("Wrote Image: " + file.getAbsolutePath(), this, commonStrings.SAVE);
    }
 
                         /*
@@ -98,7 +99,7 @@ public class ImagePersistanceUtil {
                     generatedBufferedImageArray[index],
                     "PNG",
                     files[index]);
-                    LogUtil.put(LogFactory.getInstance("Wrote: " + isWritten, this, stringUtil.EMPTY_STRING));
+                    logUtil.put("Wrote: " + isWritten, this, stringUtil.EMPTY_STRING);
                      */
 
         /*
@@ -180,7 +181,7 @@ public class ImagePersistanceUtil {
          */
     /*
     public void paint(Graphics graphics) {
-    LogUtil.put(LogFactory.getInstance(commonStrings.START, this, canvasStrings.PAINT));
+    logUtil.put(commonStrings.START, this, canvasStrings.PAINT);
      */
     //graphics.setColor(BasicColors.BLUE.toColor());
     //graphics.fillRect(0, 0, getWidth(),getHeight());
@@ -252,7 +253,7 @@ public class ImagePersistanceUtil {
          // Validate existence of writer.
          if (!iter.hasNext())
          {
-            LogUtil.put(LogFactory.getInstance("Unable to save image to jpeg file type.", this, commonStrings.SAVE));
+            logUtil.put("Unable to save image to jpeg file type.", this, commonStrings.SAVE);
             return;
          }
 
@@ -282,11 +283,11 @@ public class ImagePersistanceUtil {
 
          //poolInterface.add(iioImageCacheable);
 
-         LogUtil.put(LogFactory.getInstance("Wrote Image: " + file.getAbsolutePath(), this, commonStrings.SAVE));
+         logUtil.put("Wrote Image: " + file.getAbsolutePath(), this, commonStrings.SAVE);
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.SAVE, e));
+         logUtil.put(commonStrings.EXCEPTION, this, commonStrings.SAVE, e);
       }
       finally
       {
@@ -303,12 +304,12 @@ public class ImagePersistanceUtil {
         {
             if (ios != null)
             {
-                LogUtil.put(LogFactory.getInstance(ios.toString(), ios, commonStrings.CLOSE));
+                logUtil.put(ios.toString(), ios, commonStrings.CLOSE);
                 ios.close();
             }
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, ios, commonStrings.CLOSE, e));
+            logUtil.put(commonStrings.EXCEPTION, ios, commonStrings.CLOSE, e);
         }               
             }
 
@@ -319,7 +320,7 @@ public class ImagePersistanceUtil {
          }
          catch (IOException e2)
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, commonStrings.SAVE, e2));
+            logUtil.put(this.commonStrings.EXCEPTION, this, commonStrings.SAVE, e2);
          }
       }
    }

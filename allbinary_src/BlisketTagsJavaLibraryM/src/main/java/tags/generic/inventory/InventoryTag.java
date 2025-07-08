@@ -29,6 +29,8 @@ import javax.servlet.jsp.JspTagException;
 
 public class InventoryTag extends StoreValidationTransformTag
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    //private String id;
    
    public InventoryTag()
@@ -60,7 +62,7 @@ public class InventoryTag extends StoreValidationTransformTag
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"search()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"search()",e);
          }
          try
          {
@@ -71,7 +73,7 @@ public class InventoryTag extends StoreValidationTransformTag
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSINGERROR))
             {
-               LogUtil.put(LogFactory.getInstance("Exception in Exception Handling",this,"search()",e));
+               logUtil.put("Exception in Exception Handling",this,"search()",e);
             }
          }
       }
@@ -100,7 +102,7 @@ public class InventoryTag extends StoreValidationTransformTag
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"viewSummary()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"viewSummary()",e);
          }
          try
          {
@@ -112,7 +114,7 @@ public class InventoryTag extends StoreValidationTransformTag
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSINGERROR))
             {
-               LogUtil.put(LogFactory.getInstance("Exception in Exception Handling",this,"viewSummary())",e));
+               logUtil.put("Exception in Exception Handling",this,"viewSummary())",e);
             }
          }
       }

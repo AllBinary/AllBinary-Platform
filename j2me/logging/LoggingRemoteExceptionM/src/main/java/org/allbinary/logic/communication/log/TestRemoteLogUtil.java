@@ -21,6 +21,8 @@ import org.allbinary.string.CommonStrings;
  * @author user
  */
 public class TestRemoteLogUtil {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     
     public static final String PATH = "G:\\mnt\\bc\\mydev\\work\\allbinary_src\\licensing\\data\\";
@@ -30,7 +32,7 @@ public class TestRemoteLogUtil {
         Globals.getInstance().init(this.getClass().getClassLoader(), PATH);
         
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "Test", "TestClass", new Exception("Pretend Exception")));
+        logUtil.put(commonStrings.EXCEPTION, "Test", "TestClass", new Exception("Pretend Exception"));
     }
     
     /**

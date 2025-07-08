@@ -41,6 +41,8 @@ import org.allbinary.media.image.ImageStrings;
 public class ImageUnifierJPanel extends javax.swing.JPanel
    implements ImageProcessorInputCompositeInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final ImageStrings imageStrings = ImageStrings.getInstance();
     private final ImagesRatioUtil imagesRatioUtil = ImagesRatioUtil.getInstance();
@@ -94,7 +96,7 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, this.commonStrings.INIT, e));
+         logUtil.put(commonStrings.EXCEPTION, this, this.commonStrings.INIT, e);
       }
 
    }
@@ -156,7 +158,7 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "updateImage", e));
+         logUtil.put(commonStrings.EXCEPTION, this, "updateImage", e);
       }
 
    }
@@ -201,7 +203,7 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "updateImageWithFudgedImages", e));
+         logUtil.put(commonStrings.EXCEPTION, this, "updateImageWithFudgedImages", e);
       }
    }
 
@@ -542,14 +544,14 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
 
           filePath = new StringMaker().append(filePath.substring(0, extensionIndex)).append(CommonSeps.getInstance().UNDERSCORE).append(this.imageUnifierProperties.getColumns()).append("_By_").append(this.imageUnifierProperties.getRows()).append("_Unified").append(imageStrings.PNG_EXTENSION).toString();
 
-          LogUtil.put(LogFactory.getInstance("New File Path: " + filePath, this, StringUtil.getInstance().EMPTY_STRING));
+          logUtil.put("New File Path: " + filePath, this, StringUtil.getInstance().EMPTY_STRING);
           
           final File outputFile = new File(filePath);
           ImagePersistanceUtil.getInstance().saveWithBatik(FileWrapperUtil.wrapFile(outputFile), this.result);
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "jButton1ActionPerformed", e));
+         logUtil.put(commonStrings.EXCEPTION, this, "jButton1ActionPerformed", e);
       }
     }//GEN-LAST:event_jButton1ActionPerformed
 

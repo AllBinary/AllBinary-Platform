@@ -30,6 +30,8 @@ import org.allbinary.logic.communication.sql.AbSqlBean;
 
 public class AdvertisementsEntity extends AbSqlBean implements AdvertisementsEntityInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     protected final String tableName = "advertisements";
 
@@ -50,7 +52,7 @@ public class AdvertisementsEntity extends AbSqlBean implements AdvertisementsEnt
          
      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
      {
-     LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS,this,INSERT);
+     logUtil.put(this.commonStrings.SUCCESS,this,INSERT);
      }
      }
      catch(Exception e)
@@ -69,13 +71,13 @@ public class AdvertisementsEntity extends AbSqlBean implements AdvertisementsEnt
             super.deleteWhere(EntryData.getInstance().ID, value);
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, commonStrings.delete));
+                logUtil.put(this.commonStrings.SUCCESS, this, commonStrings.delete);
             }
         }catch(Exception e)
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, commonStrings.delete, e));
+                logUtil.put(this.commonStrings.FAILURE, this, commonStrings.delete, e);
             }
         }
     }

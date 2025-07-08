@@ -28,6 +28,8 @@ import org.allbinary.logic.util.event.EventStrings;
 public class GameNotificationHud extends BasicHud
 implements GameNotificationListenerInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    protected GameNotificationHud(int location, int direction,
        int maxHeight, int maxWidth, int bufferZone, BasicColor basicColor)
        throws Exception
@@ -50,10 +52,10 @@ implements GameNotificationListenerInterface
    {
        if(lastGameNotificationEvent != gameNotificationEvent) {
            lastGameNotificationEvent = gameNotificationEvent;
-           LogUtil.put(LogFactory.getInstance(
+           logUtil.put(
                //commonStrings.START_LABEL + 
                gameNotificationEvent.getString(),
-               this, METHOD_NAME));
+               this, METHOD_NAME);
        }
 
        this.add(

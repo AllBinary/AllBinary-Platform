@@ -28,6 +28,8 @@ import org.allbinary.logic.communication.log.LogFactory;
 public class NullInputRobot extends AbstractInputRobot
    implements InputRobotInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    public final static String LIBRARY_NAME = "null";
    public final static String NAME = "NULL";
 
@@ -52,27 +54,27 @@ public class NullInputRobot extends AbstractInputRobot
    
    public void keyPress(Integer keycode)
    {
-       LogUtil.put(LogFactory.getInstance("KeyCode: " + keycode, this, "keyPress"));
+       logUtil.put("KeyCode: " + keycode, this, "keyPress");
    }
    
    public void keyRelease(Integer keycode)
    {
-      LogUtil.put(LogFactory.getInstance("KeyCode: " + keycode, this, "keyRelease"));
+      logUtil.put("KeyCode: " + keycode, this, "keyRelease");
    }
    
    public void mouseMove(Integer x, Integer y)
    {
-      LogUtil.put(LogFactory.getInstance("X: " + x + " Y: " + y, this, "mouseMove"));
+      logUtil.put("X: " + x + " Y: " + y, this, "mouseMove");
    }
 
    public void mousePress(Integer buttons)
    {
-       LogUtil.put(LogFactory.getInstance("Buttons: " + buttons, this, "mousePress"));
+       logUtil.put("Buttons: " + buttons, this, "mousePress");
    }
    
    public void mouseRelease(Integer buttons)
    {
-      LogUtil.put(LogFactory.getInstance("Buttons: " + buttons, this, "mouseRelease"));
+      logUtil.put("Buttons: " + buttons, this, "mouseRelease");
    }
 
    public BufferedImage createScreenCapture(Rectangle screenRect)

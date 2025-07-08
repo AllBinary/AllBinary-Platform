@@ -24,7 +24,9 @@ import org.allbinary.logic.system.security.licensing.LicensingException;
 
 
 public class DownloadItemsRequestHelperFactory extends TagHelperFactory
-{   
+{
+    protected final LogUtil logUtil = LogUtil.getInstance();
+   
    public DownloadItemsRequestHelperFactory()
    {
    }
@@ -41,7 +43,7 @@ public class DownloadItemsRequestHelperFactory extends TagHelperFactory
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
             }
             return null;
         }

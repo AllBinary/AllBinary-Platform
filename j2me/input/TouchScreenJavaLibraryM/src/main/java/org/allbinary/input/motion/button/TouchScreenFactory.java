@@ -21,6 +21,8 @@ import org.allbinary.logic.string.StringUtil;
 
 public class TouchScreenFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final TouchScreenFactory SINGLETON = new TouchScreenFactory();
     
     private boolean touch;
@@ -67,7 +69,7 @@ public class TouchScreenFactory
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, SINGLETON, commonStrings.GET_INSTANCE, e));
+            logUtil.put(commonStrings.EXCEPTION, SINGLETON, commonStrings.GET_INSTANCE, e);
         }
     }
 

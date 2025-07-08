@@ -28,6 +28,8 @@ import org.allbinary.logic.util.event.EventStrings;
 public class GameKeyFromMotionGestureEventListener 
 extends CompleteMotionGestureInputEventListener
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private GameKeyEvent previousGameKeyEvent = GameKeyEvent.NONE;
 
     public void onEvent(AllBinaryEventObject eventObject)
@@ -48,7 +50,7 @@ extends CompleteMotionGestureInputEventListener
             GameKeyCompleteMotionGestureInputEvent gameKeyCompleteMotionGestureInputEvent = 
                 (GameKeyCompleteMotionGestureInputEvent) completeMotionGestureInputEvent;
 
-            //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL + gameKeyCompleteMotionGestureInputEvent.getGameKey(), this, "onCompleteMotionGestureInputEvent"));
+            //logUtil.put(commonStrings.START_LABEL + gameKeyCompleteMotionGestureInputEvent.getGameKey(), this, "onCompleteMotionGestureInputEvent");
             //PreLogUtil.put(commonStrings.START_LABEL + gameKeyCompleteMotionGestureInputEvent.getGameKey(), this, "onCompleteMotionGestureInputEvent");
             
             GameKeyEvent gameKeyEvent = gameKeyCompleteMotionGestureInputEvent.getGameKeyEvent();
@@ -58,7 +60,7 @@ extends CompleteMotionGestureInputEventListener
                 if (previousGameKeyEvent != GameKeyEvent.NONE)
                 //if (GameKeyCancelUtil.isGameKeyEventCancelledByAnother(previousGameKeyEvent, gameKeyEvent))
                 {
-                    //LogUtil.put(LogFactory.getInstance("Up: " + previousGameKeyEvent.toString(), this, "onCompleteMotionGestureInputEvent"));
+                    //logUtil.put("Up: " + previousGameKeyEvent.toString(), this, "onCompleteMotionGestureInputEvent");
 
                     UpGameKeyEventHandler.getInstance().fireEvent(
                             previousGameKeyEvent);
@@ -66,7 +68,7 @@ extends CompleteMotionGestureInputEventListener
                 /*
                 else
                 {
-                    LogUtil.put(LogFactory.getInstance("No Key", this, "onCompleteMotionGestureInputEvent"));
+                    logUtil.put("No Key", this, "onCompleteMotionGestureInputEvent");
                 }
                 */
 
@@ -75,7 +77,7 @@ extends CompleteMotionGestureInputEventListener
                 //if(gameKeyEvent != releaseGameKeyEvent)
                 if(gameKeyEvent != null && gameKeyEvent != GameKeyEvent.NONE)
                 {
-                    //LogUtil.put(LogFactory.getInstance("Down: " + gameKeyCompleteMotionGestureInputEvent.getGameKey(), this, "onCompleteMotionGestureInputEvent"));
+                    //logUtil.put("Down: " + gameKeyCompleteMotionGestureInputEvent.getGameKey(), this, "onCompleteMotionGestureInputEvent");
                     
                     DownGameKeyEventHandler.getInstance().fireEvent(gameKeyEvent);
                 }
@@ -84,7 +86,7 @@ extends CompleteMotionGestureInputEventListener
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "onCompleteMotionGestureInputEvent", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "onCompleteMotionGestureInputEvent", e);
         }
     }
 }

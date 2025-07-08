@@ -22,6 +22,8 @@ import org.allbinary.util.BasicArrayList;
 
 public class AllBinarySensorManager
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
     public final String ORIENTATION_SENSOR_INPUT = "Orientation Sensor Input";
@@ -37,7 +39,7 @@ public class AllBinarySensorManager
             AccelerometerSensorFactory.init();
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e);
         }
     }
 

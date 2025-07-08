@@ -33,6 +33,8 @@ import org.w3c.dom.NodeList;
 
 public class DomHelper
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final DomHelper instance = new DomHelper();
 
     /**
@@ -183,7 +185,7 @@ public class DomHelper
         for (int index = 0; index < numberOfNodes; index++)
         {
             Node node = nodeList.item(index);
-            LogUtil.put(LogFactory.getInstance("NodeName: " + node.getNodeName(), this, "searchNodeList"));
+            logUtil.put("NodeName: " + node.getNodeName(), this, "searchNodeList");
             if (node.getNodeName().compareTo(nodeName) == 0)
             {
                 return node;
@@ -198,7 +200,7 @@ public class DomHelper
         for (int index = 0; index < numberOfNodes; index++)
         {
             Node node = (Node) nodeList.get(index);
-            LogUtil.put(LogFactory.getInstance("NodeName: " + node.getNodeName(), this, "searchNodeList"));
+            logUtil.put("NodeName: " + node.getNodeName(), this, "searchNodeList");
             if (node.getNodeName().compareTo(nodeName) == 0)
             {
                 return node;

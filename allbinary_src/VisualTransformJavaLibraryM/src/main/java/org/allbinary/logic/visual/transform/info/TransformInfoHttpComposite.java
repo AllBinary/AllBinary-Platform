@@ -23,6 +23,8 @@ import org.allbinary.string.CommonStrings;
 
 public class TransformInfoHttpComposite
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
    private TransformInfoHttpInterface transformInfoInterface;
@@ -31,7 +33,7 @@ public class TransformInfoHttpComposite
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("View Name: " + transformInfoInterface.getName(), this, this.commonStrings.CONSTRUCTOR));
+         logUtil.put("View Name: " + transformInfoInterface.getName(), this, this.commonStrings.CONSTRUCTOR);
       }
 
       this.transformInfoInterface = (TransformInfoHttpInterface) transformInfoInterface;

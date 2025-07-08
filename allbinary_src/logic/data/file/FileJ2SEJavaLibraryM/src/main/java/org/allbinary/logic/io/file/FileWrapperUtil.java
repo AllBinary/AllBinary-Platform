@@ -17,6 +17,8 @@ import org.allbinary.logic.communication.log.PreLogUtil;
 import java.io.File;
 
 public class FileWrapperUtil {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     public static AbFile[] wrapFiles(Object[] files)
     {

@@ -46,6 +46,8 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 public class RootStoreCategoryProperties 
    implements RootCategoryPropertiesInterface, CategoryPropertiesInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private AbPath fileAbPath;
    private AbPath abPath;
    private String category;
@@ -244,11 +246,11 @@ public class RootStoreCategoryProperties
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
       {
-         LogUtil.put(LogFactory.getInstance(new StringMaker()
+         logUtil.put(new StringMaker()
              .append("filePath = ").append(this.fileAbPath.toString())
              .append("\npath = ").append(this.abPath.toString())
              .append("\ncategory = ").append(this.category).toString(), 
-                 this, "log()"));
+                 this, "log()");
       }
    }
 }

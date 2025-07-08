@@ -38,6 +38,8 @@ import views.business.context.modules.storefront.HttpStoreComponentView;
 
 public class UsersView extends HttpStoreComponentView implements DomNodeInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    protected Vector userVector;
    
    public UsersView(TransformInfoInterface transformInfoInterface) throws Exception
@@ -64,7 +66,7 @@ public class UsersView extends HttpStoreComponentView implements DomNodeInterfac
             }
             else
             {
-               LogUtil.put(LogFactory.getInstance("UserHelper",this,"toXmlNode"));
+               logUtil.put("UserHelper",this,"toXmlNode");
             }
          }
          
@@ -74,7 +76,7 @@ public class UsersView extends HttpStoreComponentView implements DomNodeInterfac
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XSLLOGGINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "toXmlNode", e));
+            logUtil.put(this.commonStrings.FAILURE, this, "toXmlNode", e);
          }
          return null;
       }
@@ -96,7 +98,7 @@ public class UsersView extends HttpStoreComponentView implements DomNodeInterfac
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"view()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"view()",e);
          }
          throw e;
       }

@@ -26,6 +26,8 @@ import java.util.HashMap;
 
 public class TransformInfoHttpContext extends TransformInfoHttp
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     ///TWB - the propertiesHashmap has properties set in the tag
     //It can still be used even though the name of the transformInfo is
@@ -49,7 +51,7 @@ public class TransformInfoHttpContext extends TransformInfoHttp
             stringBuffer.append("\nProperties HashMap: ");
             stringBuffer.append(propertiesHashMap.toString());
 
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, this.commonStrings.CONSTRUCTOR));
+            logUtil.put(stringBuffer.toString(), this, this.commonStrings.CONSTRUCTOR);
         }
         this.setStoreName(StringUtil.getInstance().EMPTY_STRING);
     }
@@ -60,7 +62,7 @@ public class TransformInfoHttpContext extends TransformInfoHttp
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            LogUtil.put(LogFactory.getInstance("Properties HashMap: " + propertiesHashMap.toString(), this, this.commonStrings.CONSTRUCTOR));
+            logUtil.put("Properties HashMap: " + propertiesHashMap.toString(), this, this.commonStrings.CONSTRUCTOR);
         }
 
         this.setStoreName(StringUtil.getInstance().EMPTY_STRING);

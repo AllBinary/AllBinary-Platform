@@ -33,6 +33,8 @@ import org.allbinary.logic.visual.transform.info.template.TransformInfoTemplateD
 
 public class StoreUriResolver implements URIResolver
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private BasicUriResolver basicURIResolver;
    
    private TransformInfoInterface parentTransformInfoInterface;
@@ -59,13 +61,13 @@ public class StoreUriResolver implements URIResolver
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XMLLOGGING))
          {
             
-            LogUtil.put(LogFactory.getInstance(
+            logUtil.put(
                     "attempt to use xsl:import: href=" + href +
                "\nBase= " + base +
                "\nNew path= " + fileAbPath.toString() +
                "\nNote: " + FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH + " is a urlglobal" +
                "\nRequired Extension: " + this.basicURIResolver.getExtension(),
-               this, "resolve"));
+               this, "resolve");
          }
          
          return new StreamSource(new CryptFileReader(

@@ -19,6 +19,8 @@ import org.allbinary.image.GameFeatureImageCacheFactory;
 
 public class ImageCreationUtil
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final ImageCreationUtil instance = new ImageCreationUtil();
 
     public static ImageCreationUtil getInstance()
@@ -40,7 +42,7 @@ public class ImageCreationUtil
     public Image createImage(final int width, final int height, final float maxScaleX, final float maxScaleY) 
     throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(": " + scaleNominatorX + " / " + scaleDenominatorX + " = " + scaleX, this, "createImage"));
+        //logUtil.put(": " + scaleNominatorX + " / " + scaleDenominatorX + " = " + scaleX, this, "createImage");
         final Image image = GameFeatureImageCacheFactory.getInstance().get(this.getClass().getName(), (int) (width * maxScaleX) + 1, (int) (height * maxScaleY) + 1);
         return image;
     }

@@ -20,13 +20,15 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class PropertiesTag extends CommandTag
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private HashMap propertiesHashMap;
    
    public PropertiesTag()
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
       {
-         LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR));
+         logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
       }
       this.propertiesHashMap = new HashMap();
    }
@@ -40,7 +42,7 @@ public class PropertiesTag extends CommandTag
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
       {
-         LogUtil.put(LogFactory.getInstance("Tag Ended", this, "doEndTag"));
+         logUtil.put("Tag Ended", this, "doEndTag");
       }
       this.propertiesHashMap = new HashMap();
       return EVAL_PAGE;

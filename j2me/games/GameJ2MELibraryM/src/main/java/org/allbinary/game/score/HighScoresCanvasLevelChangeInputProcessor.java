@@ -28,6 +28,8 @@ import org.allbinary.graphics.font.MyFont;
 public class HighScoresCanvasLevelChangeInputProcessor extends
         HighScoresCanvasInputProcessor
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private final DisplayInfoSingleton displayInfoSingleton = 
             DisplayInfoSingleton.getInstance();

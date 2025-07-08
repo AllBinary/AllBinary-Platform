@@ -27,6 +27,8 @@ import taghelpers.ValidatedViewHelperFactory;
 
 public class ValidationTransformTag extends TransformTag
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private String xslFile;
    private boolean logic;
    
@@ -61,7 +63,7 @@ public class ValidationTransformTag extends TransformTag
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,commonStrings.IS_VALID,e));
+            logUtil.put(commonStrings.EXCEPTION,this,commonStrings.IS_VALID,e);
          }
          throw e;
       }
@@ -82,7 +84,7 @@ public class ValidationTransformTag extends TransformTag
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"validationInfo()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"validationInfo()",e);
          }
          throw e;
       }
@@ -106,7 +108,7 @@ public class ValidationTransformTag extends TransformTag
              stringBuffer.append("\nRequest URI: ");
              stringBuffer.append(request.getRequestURI());
 
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "doStartTag"));
+            logUtil.put(stringBuffer.toString(), this, "doStartTag");
          }
          
          this.setHelper();
@@ -124,7 +126,7 @@ public class ValidationTransformTag extends TransformTag
              stringBuffer.append("\nLogic includes body if true=");
              stringBuffer.append(this.logic);
 
-             LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "doStartTag"));
+             logUtil.put(stringBuffer.toString(), this, "doStartTag");
             }
             
             if(this.logic)
@@ -152,7 +154,7 @@ public class ValidationTransformTag extends TransformTag
                 stringBuffer.append("\nLogic skips body if true=");
                 stringBuffer.append(this.logic);
                 
-                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "doStartTag"));
+                logUtil.put(stringBuffer.toString(), this, "doStartTag");
             }
             
             if(this.logic)
@@ -181,7 +183,7 @@ public class ValidationTransformTag extends TransformTag
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
       {
-         LogUtil.put(LogFactory.getInstance("Tag Ended",this,"doEndTag"));
+         logUtil.put("Tag Ended",this,"doEndTag");
       }
       this.logic = true;
       return super.doEndTag();

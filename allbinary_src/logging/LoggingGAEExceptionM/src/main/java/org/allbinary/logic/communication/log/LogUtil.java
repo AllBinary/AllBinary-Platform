@@ -10,16 +10,22 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.logic.communication.log;
 
 import java.util.logging.Logger;
+
 import org.allbinary.string.CommonStrings;
 
-public class LogUtil
-{
+public class LogUtil {
 
-    private static final Logger logger = Logger.getLogger(LogUtil.class.getName());
+    private static final LogUtil instance = new LogUtil();
+
+    public static final LogUtil getInstance() {
+        return instance;
+    }
+
+    private final Logger logger = Logger.getLogger(LogUtil.class.getName());
 
     /*
     private final static String DEFAULT_PATH;
@@ -38,25 +44,20 @@ public class LogUtil
     LogUtil.init();
     }
      */
-    private LogUtil()
-    {
+    private LogUtil() {
     }
 
-    public static void init()
-    {
+    public void init() {
         //String message = "The Logging path is: " + LogUtil.getFilePatternPath();
         //PreLogUtil.put(message, "LogUtil", "init()");
         PreLogUtil.put("Loggin Initialized", "LogUtil", "init()");
     }
 
-    public static void put(Log log)
-    {
+    public void put(Log log) {
         Object exception = log.getThrowable();
 
-        try
-        {
-            if (exception != null)
-            {
+        try {
+            if (exception != null) {
                 String specialMessage = log.getSpecialMessage();
                 Object object = log.getObject();
                 String functionName = log.getFunctionName();
@@ -64,8 +65,7 @@ public class LogUtil
                 String className = CommonStrings.getInstance().EMPTY;
 
                 Class clazz = object.getClass();
-                if (clazz.getName() != null)
-                {
+                if (clazz.getName() != null) {
                     className = clazz.getName();
                 }
 
@@ -75,11 +75,10 @@ public class LogUtil
                 //logger.warning(message);
                 logger.severe(message);
             }
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
         }
     }
-    
+
     //private final static String LOG_SUCCESS = "org.allbinary: ";
 
     /*

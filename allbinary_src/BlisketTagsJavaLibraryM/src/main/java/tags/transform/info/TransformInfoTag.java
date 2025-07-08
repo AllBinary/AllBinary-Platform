@@ -35,6 +35,8 @@ import taghelpers.transform.info.TransformInfoRequestHelperFactory;
 
 public class TransformInfoTag extends ModifyTag
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private String name;
    private String storeName;
 
@@ -143,7 +145,7 @@ public class TransformInfoTag extends ModifyTag
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
       {
-         LogUtil.put(LogFactory.getInstance("TransformInfoTag type set: " + this.type,this,"setType"));
+         logUtil.put("TransformInfoTag type set: " + this.type,this,"setType");
       }
    }   
 

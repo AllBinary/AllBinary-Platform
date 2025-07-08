@@ -27,6 +27,8 @@ import org.allbinary.logic.string.StringUtil;
 public class DemoCanvasBasicStartInputProcessor
     extends BasicMenuInputProcessor
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     public DemoCanvasBasicStartInputProcessor(
         BasicArrayList gameKeyEventList, RunnableCanvas gameCanvas)
@@ -54,7 +56,7 @@ public class DemoCanvasBasicStartInputProcessor
         {
             gameKeyEvent = (GameKeyEvent) list.objectArray[index];
 
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Start GameKey: ").append(StringUtil.getInstance().toString(gameKeyEvent)).toString(), this, GameInputStrings.getInstance().PROCESS_INPUT));
+            logUtil.put(new StringMaker().append("Start GameKey: ").append(StringUtil.getInstance().toString(gameKeyEvent)).toString(), this, GameInputStrings.getInstance().PROCESS_INPUT);
         }
         this.getCanvas().getCustomCommandListener().commandAction(
                 GameCommandsFactory.getInstance().START_COMMAND, null);

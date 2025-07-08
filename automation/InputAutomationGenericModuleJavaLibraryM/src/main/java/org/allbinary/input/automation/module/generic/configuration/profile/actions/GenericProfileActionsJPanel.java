@@ -25,6 +25,8 @@ import org.allbinary.string.CommonStrings;
  */
 public class GenericProfileActionsJPanel extends javax.swing.JPanel
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private GenericProfileActions genericProfileActions;
@@ -215,7 +217,7 @@ public class GenericProfileActionsJPanel extends javax.swing.JPanel
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "saveJButtonActionPerformed", e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, "saveJButtonActionPerformed", e);
         }
     }//GEN-LAST:event_saveJButtonActionPerformed
     
@@ -257,8 +259,8 @@ public class GenericProfileActionsJPanel extends javax.swing.JPanel
                 javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 );
             
-            LogUtil.put(LogFactory.getInstance("Setting Configuration Profile Actions JPanel", this,
-                "genericProfileActionsJListValueChanged"));
+            logUtil.put("Setting Configuration Profile Actions JPanel", this,
+                "genericProfileActionsJListValueChanged");
         }
     }
     
@@ -274,7 +276,7 @@ public class GenericProfileActionsJPanel extends javax.swing.JPanel
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "genericProfileActionsJListValueChanged", e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, "genericProfileActionsJListValueChanged", e);
         }
     }//GEN-LAST:event_genericProfileActionsJListValueChanged
     
@@ -296,7 +298,7 @@ public class GenericProfileActionsJPanel extends javax.swing.JPanel
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "okNewProfileActionJButtonActionPerformed", e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, "okNewProfileActionJButtonActionPerformed", e);
         }
     }//GEN-LAST:event_okNewProfileActionJButtonActionPerformed
     
@@ -316,7 +318,7 @@ public class GenericProfileActionsJPanel extends javax.swing.JPanel
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "deleteActionJButtonActionPerformed", e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, "deleteActionJButtonActionPerformed", e);
         }
     }//GEN-LAST:event_deleteActionJButtonActionPerformed
     

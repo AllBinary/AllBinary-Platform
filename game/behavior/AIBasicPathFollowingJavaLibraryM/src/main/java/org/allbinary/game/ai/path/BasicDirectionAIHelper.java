@@ -44,7 +44,7 @@ public class BasicDirectionAIHelper
       
       int degrees = Math.abs(directionAngle - angle);
 
-      //LogUtil.put(LogFactory.getInstance(this.getName() + " Direction Angle: " + directionAngle + " Angle: " + this.getAngleInfo().getAngle() + " degrees: " + degrees, this, "turnAI"));
+      //logUtil.put(this.getName() + " Direction Angle: " + directionAngle + " Angle: " + this.getAngleInfo().getAngle() + " degrees: " + degrees, this, "turnAI");
       
       if(degrees < 180)
       {
@@ -75,8 +75,8 @@ public class BasicDirectionAIHelper
    
    private int getAIKeyPressed(Integer frame)
    {
-      //LogUtil.put(LogFactory.getInstance("this.getAngle(): " + this.getAngleInfo().getAngle(), this, "getAIKeyPressed"));
-      //LogUtil.put(LogFactory.getInstance("this.getFrameAngle(frame): " + this.getAngleInfo().getFrameAngle(frame), this, "getAIKeyPressed"));
+      //logUtil.put("this.getAngle(): " + this.getAngleInfo().getAngle(), this, "getAIKeyPressed");
+      //logUtil.put("this.getFrameAngle(frame): " + this.getAngleInfo().getFrameAngle(frame), this, "getAIKeyPressed");
       
       if(this.angleInfo.getAngle() != this.angleInfo.getAngleIncrementInfo().getFrameAngle(frame.intValue()))
       {
@@ -86,7 +86,7 @@ public class BasicDirectionAIHelper
       }
       else
       {
-         //LogUtil.put(LogFactory.getInstance("Accelerate", this, "getAIKeyPressed"));
+         //logUtil.put("Accelerate", this, "getAIKeyPressed");
          return Canvas.UP;
       }
    }
@@ -95,7 +95,7 @@ public class BasicDirectionAIHelper
    {
       int keyDirection = -1;
 
-      //LogUtil.put(LogFactory.getInstance(this.getName() + " geographicMapDirectionData: " + geographicMapDirectionData, this, "getAIKeyPressedFromDirection"));
+      //logUtil.put(this.getName() + " geographicMapDirectionData: " + geographicMapDirectionData, this, "getAIKeyPressedFromDirection");
       
       AngleIncrementInfo angleIncrementInfo = this.angleInfo.getAngleIncrementInfo();
       

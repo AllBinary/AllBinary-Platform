@@ -25,6 +25,8 @@ import org.allbinary.logic.string.StringMaker;
 
 public class ImageComparisonResult
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final BufferedImage[] bufferedImages = new BufferedImage[2];
@@ -106,9 +108,9 @@ public class ImageComparisonResult
         if(!isSameWidth || !isSameHeight)
         {
             final ImageUtil imageUtil = ImageUtil.getInstance();
-            LogUtil.put(LogFactory.getInstance("Images were not the same size? Most likely a resolution change.", this, this.commonStrings.CONSTRUCTOR));
-            LogUtil.put(LogFactory.getInstance("1: " + imageUtil.toString(bufferedImage), this, this.commonStrings.CONSTRUCTOR));
-            LogUtil.put(LogFactory.getInstance("2: " + imageUtil.toString(bufferedImage2), this, this.commonStrings.CONSTRUCTOR));
+            logUtil.put("Images were not the same size? Most likely a resolution change.", this, this.commonStrings.CONSTRUCTOR);
+            logUtil.put("1: " + imageUtil.toString(bufferedImage), this, this.commonStrings.CONSTRUCTOR);
+            logUtil.put("2: " + imageUtil.toString(bufferedImage2), this, this.commonStrings.CONSTRUCTOR);
         }
     }
     

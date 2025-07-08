@@ -41,6 +41,8 @@ import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackGeographicM
 public class RaceTrackAdjacentDropCellPositionGenerator
     extends RaceTrackDropCellPositionGenerator
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static RaceTrackAdjacentDropCellPositionGenerator SINGLETON =
         new RaceTrackAdjacentDropCellPositionGenerator();
 
@@ -186,7 +188,7 @@ public class RaceTrackAdjacentDropCellPositionGenerator
             //stringBuffer.append(direction);
 
             //PreLogUtil.put(stringBuffer.toString(), this, commonStrings.DROP);
-            //LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.DROP));
+            //logUtil.put(stringBuffer.toString(), this, commonStrings.DROP);
 
             hashtable.put(DirectionFactory.getInstance().NAME, direction);
 
@@ -195,7 +197,7 @@ public class RaceTrackAdjacentDropCellPositionGenerator
             final int y = point.getY();
             final int z = point.getZ();
 
-            //LogUtil.put(LogFactory.getInstance("Dropping: " + randomGeographicMapCellPosition.toString() + " = " + randomGeographicMapCellPosition.getPoint(), this, commonStrings.DROP));
+            //logUtil.put("Dropping: " + randomGeographicMapCellPosition.toString() + " = " + randomGeographicMapCellPosition.getPoint(), this, commonStrings.DROP);
 
             final AllBinaryLayer layerInterface =
                 RaceTrackAdjacentDropLayerFactory.getInstance().getRandomInstance().getInstance(

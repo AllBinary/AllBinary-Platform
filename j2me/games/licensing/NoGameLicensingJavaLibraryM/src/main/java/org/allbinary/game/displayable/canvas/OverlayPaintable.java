@@ -23,6 +23,8 @@ import org.allbinary.graphics.paint.InitUpdatePaintable;
 public class OverlayPaintable
 extends InitUpdatePaintable
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     //private final GameNotificationHud gameNotificationHud;
     
     public OverlayPaintable()
@@ -41,13 +43,13 @@ extends InitUpdatePaintable
     {
         try
         {
-            //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.UPDATE));
+            //logUtil.put(commonStrings.START, this, commonStrings.UPDATE);
             //this.gameNotificationHud.processTick();
         }
         catch(Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e);
         }
     }
 

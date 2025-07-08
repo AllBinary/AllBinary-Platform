@@ -19,6 +19,8 @@ import org.allbinary.string.CommonStrings;
 
 public class WorkFlowEntityFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final WorkFlowEntityFactory instance = new WorkFlowEntityFactory();
 
     public static WorkFlowEntityFactory getInstance() {
@@ -54,7 +56,7 @@ public class WorkFlowEntityFactory
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                  org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
          }
          return null;
       }   

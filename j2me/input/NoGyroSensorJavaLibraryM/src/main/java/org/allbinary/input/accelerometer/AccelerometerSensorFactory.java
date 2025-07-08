@@ -19,6 +19,8 @@ import org.allbinary.input.gyro.AllBinaryOrientationSensor;
 
 public class AccelerometerSensorFactory
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     //private static final AccelerometerSensorFactory instance = new AccelerometerSensorFactory();
     
     private static AllBinaryOrientationSensor allBinaryAccelerometerSensor;

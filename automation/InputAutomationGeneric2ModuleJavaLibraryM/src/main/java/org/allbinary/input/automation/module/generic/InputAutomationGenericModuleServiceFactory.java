@@ -21,6 +21,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 public class InputAutomationGenericModuleServiceFactory
     extends InputAutomationModuleServiceFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static InputAutomationGenericModuleServiceFactory
         inputAutomationGenericModuleServiceFactory =
         new InputAutomationGenericModuleServiceFactory();
@@ -38,7 +40,7 @@ public class InputAutomationGenericModuleServiceFactory
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e);
         }
     }
     

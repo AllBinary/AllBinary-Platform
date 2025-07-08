@@ -28,6 +28,8 @@ import org.allbinary.logic.util.event.AllBinaryEventObject;
 
 public class BaseChangedGameFeatureListener implements GameFeatureListenerInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final GameFeatureUtil gameFeatureUtil = GameFeatureUtil.getInstance();
 
     protected final BasicArrayList list = new BasicArrayList();
@@ -40,7 +42,7 @@ public class BaseChangedGameFeatureListener implements GameFeatureListenerInterf
 
     public void onGameFeatureChange(GameFeatureEvent gameFeatureEvent)
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(gameFeatureUtil.GAME_FEATURE_CHANGED).append(gameFeatureEvent.getWhatChanged()).toString(), this, gameFeatureUtil.ON_GAME_FEATURE_CHANGE));
+        logUtil.put(new StringMaker().append(gameFeatureUtil.GAME_FEATURE_CHANGED).append(gameFeatureEvent.getWhatChanged()).toString(), this, gameFeatureUtil.ON_GAME_FEATURE_CHANGE);
 
        list.add(gameFeatureEvent.getGameOption());
 
@@ -80,7 +82,7 @@ public class BaseChangedGameFeatureListener implements GameFeatureListenerInterf
         stringBuffer.append(" isChanged: ");
         stringBuffer.append(isChanged);
         
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "isChanged"));
+        logUtil.put(stringBuffer.toString(), this, "isChanged");
         
         return isChanged;
     }

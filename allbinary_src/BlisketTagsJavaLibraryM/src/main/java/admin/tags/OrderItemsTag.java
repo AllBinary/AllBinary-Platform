@@ -30,6 +30,8 @@ import javax.servlet.jsp.JspTagException;
 
 public class OrderItemsTag extends TableTag
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private String status;
    
    public OrderItemsTag()
@@ -79,7 +81,7 @@ public class OrderItemsTag extends TableTag
          String error = "Failed to set Order status to: " + this.status;
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"setOrderStatus()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"setOrderStatus()",e);
          }
          return error;
       }

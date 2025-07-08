@@ -32,6 +32,8 @@ import org.allbinary.util.BasicArrayList;
 
 public class LoggingInitInfo
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
    private static final String INITFILENAME = "logConfig.xml";
    
    private static final String PACKAGE = PATH_GLOBALS.getInstance().INIT_PATH;

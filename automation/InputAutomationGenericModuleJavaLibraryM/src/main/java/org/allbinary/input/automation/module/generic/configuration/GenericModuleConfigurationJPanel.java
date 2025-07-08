@@ -34,6 +34,8 @@ public class GenericModuleConfigurationJPanel
     extends javax.swing.JPanel
     implements GenericModuleConfigurationInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final StringUtil stringUtil = StringUtil.getInstance();
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
@@ -299,7 +301,7 @@ public class GenericModuleConfigurationJPanel
         {
             if(this.savedCaptureJRadioButton.isSelected())
             {
-                LogUtil.put(LogFactory.getInstance("Selected", this, "savedCaptureJRadioButtonActionPerformed"));
+                logUtil.put("Selected", this, "savedCaptureJRadioButtonActionPerformed");
                 
                 this.getSelectedGenericProfile().add(
                     GenericProfileDataWorkerType.SAVED_CAPTURE);
@@ -311,7 +313,7 @@ public class GenericModuleConfigurationJPanel
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "savedCaptureJRadioButtonActionPerformed", e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, "savedCaptureJRadioButtonActionPerformed", e);
         }
     }//GEN-LAST:event_savedCaptureJRadioButtonActionPerformed
 
@@ -321,7 +323,7 @@ public class GenericModuleConfigurationJPanel
         {
             if(this.screenCaptureJRadioButton.isSelected())
             {
-                LogUtil.put(LogFactory.getInstance("Selected", this, "screenCaptureJRadioButtonActionPerformed"));
+                logUtil.put("Selected", this, "screenCaptureJRadioButtonActionPerformed");
                 
                 this.getSelectedGenericProfile().add(
                     GenericProfileDataWorkerType.SCREEN_CAPTURE);
@@ -333,7 +335,7 @@ public class GenericModuleConfigurationJPanel
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "screenCaptureJRadioButtonActionPerformed", e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, "screenCaptureJRadioButtonActionPerformed", e);
         }
     }//GEN-LAST:event_screenCaptureJRadioButtonActionPerformed
     
@@ -355,7 +357,7 @@ public class GenericModuleConfigurationJPanel
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "captureComparisonJCheckBoxActionPerformed", e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, "captureComparisonJCheckBoxActionPerformed", e);
         }
     }//GEN-LAST:event_captureMotionAnalysisJCheckBoxActionPerformed
     
@@ -378,7 +380,7 @@ public class GenericModuleConfigurationJPanel
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "captureComparisonJCheckBoxActionPerformed", e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, "captureComparisonJCheckBoxActionPerformed", e);
         }
     }//GEN-LAST:event_captureComparisonJCheckBoxActionPerformed
     
@@ -432,12 +434,12 @@ public class GenericModuleConfigurationJPanel
             //Set selected profile options
             this.updateProfileOptions();
             
-            LogUtil.put(LogFactory.getInstance("Setting Configuration Profile JPanel", this,
-                "updateProfileUI"));
+            logUtil.put("Setting Configuration Profile JPanel", this,
+                "updateProfileUI");
         }
         else
         {
-            LogUtil.put(LogFactory.getInstance("Null Configuration Profile", this, "updateProfileUI"));
+            logUtil.put("Null Configuration Profile", this, "updateProfileUI");
         }
     }
     
@@ -459,7 +461,7 @@ public class GenericModuleConfigurationJPanel
     private void updateProfileOptions()
     throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "updateProfileOptions"));
+        logUtil.put(this.commonStrings.START, this, "updateProfileOptions");
         
         GenericProfile genericProfile = this.getSelectedGenericProfile();
         Vector vector = genericProfile.getGenericProfileDataWorkerTypeVector();
@@ -475,30 +477,30 @@ public class GenericModuleConfigurationJPanel
             GenericProfileDataWorkerType genericProfileDataWorkerType =
                 (GenericProfileDataWorkerType) vector.get(index);
             
-            LogUtil.put(LogFactory.getInstance(genericProfile.getName() + " has GenericProfileDataWorkerType: " + genericProfileDataWorkerType.toString(), 
-                this, "updateProfileOptions"));
+            logUtil.put(genericProfile.getName() + " has GenericProfileDataWorkerType: " + genericProfileDataWorkerType.toString(), 
+                this, "updateProfileOptions");
             
             if(genericProfileDataWorkerType == GenericProfileDataWorkerType.SCREEN_CAPTURE)
             {
-                LogUtil.put(LogFactory.getInstance("Screen Capture Selected", this, "updateProfileOptions"));
+                logUtil.put("Screen Capture Selected", this, "updateProfileOptions");
                 this.screenCaptureJRadioButton.setSelected(true);
             }
             else
             if(genericProfileDataWorkerType == GenericProfileDataWorkerType.SAVED_CAPTURE)
             {
-                LogUtil.put(LogFactory.getInstance("Saved Capture Selected", this, "updateProfileOptions"));
+                logUtil.put("Saved Capture Selected", this, "updateProfileOptions");
                 this.savedCaptureJRadioButton.setSelected(true);
             }
             else
                 if(genericProfileDataWorkerType == GenericProfileDataWorkerType.COMPARISON)
                 {
-                LogUtil.put(LogFactory.getInstance("Checking Comparison Box", this, "updateProfileOptions"));
+                logUtil.put("Checking Comparison Box", this, "updateProfileOptions");
                 this.captureComparisonJCheckBox.setSelected(true);
                 }
                 else
                     if(genericProfileDataWorkerType == GenericProfileDataWorkerType.MOTION)
                     {
-                LogUtil.put(LogFactory.getInstance("Checking Motion Box", this, "updateProfileOptions"));
+                logUtil.put("Checking Motion Box", this, "updateProfileOptions");
                 this.captureMotionAnalysisJCheckBox.setSelected(true);
                     }
         }
@@ -511,7 +513,7 @@ public class GenericModuleConfigurationJPanel
                 GenericProfileDataWorkerType.SCREEN_CAPTURE);
         }
 
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, "updateProfileOptions"));
+        logUtil.put(this.commonStrings.END, this, "updateProfileOptions");
     }
     
     public javax.swing.JPanel getBlankGenericProfileActionsJPanel()
@@ -556,7 +558,7 @@ public class GenericModuleConfigurationJPanel
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "genericProfilesJListValueChanged", e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, "genericProfilesJListValueChanged", e);
         }
     }//GEN-LAST:event_genericProfilesJListValueChanged
     
@@ -576,7 +578,7 @@ public class GenericModuleConfigurationJPanel
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "deleteProfileJButtonActionPerformed", e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, "deleteProfileJButtonActionPerformed", e);
         }
     }//GEN-LAST:event_deleteProfileJButtonActionPerformed
     
@@ -599,7 +601,7 @@ public class GenericModuleConfigurationJPanel
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "okNewProfileJButtonActionPerformed", e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, "okNewProfileJButtonActionPerformed", e);
         }
     }//GEN-LAST:event_okNewProfileJButtonActionPerformed
     

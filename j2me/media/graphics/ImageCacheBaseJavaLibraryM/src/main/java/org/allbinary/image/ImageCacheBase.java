@@ -27,6 +27,8 @@ import org.allbinary.util.BasicArrayList;
 
 public class ImageCacheBase
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final Hashtable hashtable = new Hashtable();
 
     protected final int SIZE = 128;
@@ -62,7 +64,7 @@ public class ImageCacheBase
             availableListOfList[index].clear();
             availableListOfList[index].addAll(listOfList[index]);            
         }
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append("ImageCache: ").append(this.toString()).toString(), this, "releaseAll"));
+        logUtil.put(new StringMaker().append("ImageCache: ").append(this.toString()).toString(), this, "releaseAll");
     }
 
     protected int getIndex(final int width, final int height)
@@ -125,7 +127,7 @@ public class ImageCacheBase
     {
         final Image image = Image.createImage(inputStream);
         //image.setName((String) key + image.getName());
-        //LogUtil.put(LogFactory.getInstance(image.getName(), this, "createImage"));
+        //logUtil.put(image.getName(), this, "createImage");
         //image.init(image.getImage());
         return image;
     }

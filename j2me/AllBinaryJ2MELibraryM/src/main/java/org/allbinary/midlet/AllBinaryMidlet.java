@@ -45,6 +45,8 @@ import org.allbinary.system.Memory;
 public class AllBinaryMidlet extends MIDlet 
 implements CommandListener
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     private final String SET_DISPLAY = "setDisplay";
     
@@ -57,8 +59,8 @@ implements CommandListener
 
     public AllBinaryMidlet()
     {
-        LogUtil.put(LogFactory.getInstance(
-                commonStrings.CONSTRUCTOR, this, "AllBinaryMidlet::AllBinaryMidlet"));
+        logUtil.put(
+                commonStrings.CONSTRUCTOR, this, "AllBinaryMidlet::AllBinaryMidlet");
     }
 
     protected void setDisplay(final Displayable newDisplay)
@@ -70,11 +72,11 @@ implements CommandListener
             
             if (title != null)
             {
-                LogUtil.put(LogFactory.getInstance(new StringMaker().append(SETTING_).append(title).append(_DISPLAY_).append(StringUtil.getInstance().toString(newDisplay)).toString(), this, SET_DISPLAY));
+                logUtil.put(new StringMaker().append(SETTING_).append(title).append(_DISPLAY_).append(StringUtil.getInstance().toString(newDisplay)).toString(), this, SET_DISPLAY);
             }
             else
             {
-                LogUtil.put(LogFactory.getInstance(new StringMaker().append(SETTING_NO_TITLE).append(StringUtil.getInstance().toString(newDisplay)).toString(), this, SET_DISPLAY));
+                logUtil.put(new StringMaker().append(SETTING_NO_TITLE).append(StringUtil.getInstance().toString(newDisplay)).toString(), this, SET_DISPLAY);
             }            
         }
         final Display display = getDisplay();
@@ -121,7 +123,7 @@ implements CommandListener
         final String METHOD_NAME = "AllBinaryMidlet::destroyApp";
         try
         {   
-            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, METHOD_NAME));
+            logUtil.put(commonStrings.START, this, METHOD_NAME);
             
             PreLogUtil.put(Memory.getInfo(), this, METHOD_NAME);
             
@@ -129,25 +131,25 @@ implements CommandListener
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, METHOD_NAME, e));
+            logUtil.put(commonStrings.EXCEPTION, this, METHOD_NAME, e);
         }
     }
     
     public void setStartStateHashtable(Hashtable hashtable) throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(hashtable)).toString(), this, "setStartStateHashtable"));
+        logUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(hashtable)).toString(), this, "setStartStateHashtable");
         this.hashtable = hashtable;
     }
 
     public Hashtable getStartStateHashtable() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(hashtable)).toString(), this, "getStartStateHashtable"));
+        logUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(hashtable)).toString(), this, "getStartStateHashtable");
         return this.hashtable;
     }
 
     public Hashtable getCurrentStateHashtable() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "getStateHashtable"));
+        logUtil.put(commonStrings.START, this, "getStateHashtable");
         return new Hashtable();
     }
 

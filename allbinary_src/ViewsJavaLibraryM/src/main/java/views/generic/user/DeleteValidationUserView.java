@@ -38,6 +38,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 public class DeleteValidationUserView extends UserView 
    implements ValidationComponentInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private String userName;
    
    public DeleteValidationUserView(
@@ -55,7 +57,7 @@ public class DeleteValidationUserView extends UserView
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("User Name: " + this.userName,this,this.commonStrings.CONSTRUCTOR));
+         logUtil.put("User Name: " + this.userName,this,this.commonStrings.CONSTRUCTOR);
       }
    }
 
@@ -76,7 +78,7 @@ public class DeleteValidationUserView extends UserView
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate form",this,commonStrings.IS_VALID,e));
+            logUtil.put("Failed to validate form",this,commonStrings.IS_VALID,e);
          }
          return Boolean.FALSE;
       }
@@ -101,7 +103,7 @@ public class DeleteValidationUserView extends UserView
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to generate validation error info",this,"validationInfo()",e));
+            logUtil.put("Failed to generate validation error info",this,"validationInfo()",e);
          }
          return "Error Validating Form";
       }

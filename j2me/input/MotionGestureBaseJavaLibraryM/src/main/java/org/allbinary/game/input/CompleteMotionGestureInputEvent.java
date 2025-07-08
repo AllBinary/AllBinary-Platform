@@ -22,6 +22,8 @@ import org.allbinary.logic.util.event.AllBinaryEventObject;
 public class CompleteMotionGestureInputEvent extends AllBinaryEventObject 
 implements CompleteMotionGestureInputInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private String name;
     
     private MotionGestureInput motionGestureInput;
@@ -37,7 +39,7 @@ implements CompleteMotionGestureInputInterface
         catch(Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "InputToGameKeyEventAction", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "InputToGameKeyEventAction", e);
         }        
     }
     

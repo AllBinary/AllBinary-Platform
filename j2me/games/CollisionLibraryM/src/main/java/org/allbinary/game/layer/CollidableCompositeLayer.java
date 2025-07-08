@@ -39,6 +39,8 @@ public class CollidableCompositeLayer
 extends AllBinaryGameLayer
 implements CollidableInterfaceCompositeInterface
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private CollidableBaseBehavior collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance();
 
     public CollidableCompositeLayer(

@@ -10,50 +10,50 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.logic.communication.log;
 
 import org.allbinary.string.CommonStrings;
 
 import playn.core.PlayN;
 
-public class LogUtil
-{
-    
-    private final static String LOG_SUCCESS = "org.allbinary: ";
-    
-   private LogUtil()
-   {
-   }
-   
-    public static void put(final Log log)
-    {
+public class LogUtil {
+
+    private static final LogUtil instance = new LogUtil();
+
+    public static final LogUtil getInstance() {
+        return instance;
+    }
+
+    private final String LOG_SUCCESS = "org.allbinary: ";
+
+    private LogUtil() {
+    }
+
+    public void put(final Log log) {
         final String specialMessage = log.getSpecialMessage();
         final Object object = log.getObject();
         final String functionName = log.getFunctionName();
         final Object exception = log.getThrowable();
 
-        put(specialMessage, object, functionName, exception);
+        this.put(specialMessage, object, functionName, exception);
     }
 
-    private static void put(
+    public void put(
         final String specialMessage,
         final Object object,
-        final String functionName)
-    {
+        final String functionName) {
         String className = PreLogUtil.getClassName(object);
-        
-        if(className == null) {
+
+        if (className == null) {
             className = CommonStrings.getInstance().EMPTY;
         }
 
 //        String className = EMPTY;
-
 //        if (object.getClass().getName() != null)
 //        {
 //            className = new String(object.getClass().getName());
 //        }
-
         final String message = LogFormatUtil.getInstance().get(
             className, functionName, specialMessage);
 
@@ -62,38 +62,31 @@ public class LogUtil
         //System.out.println(message);
     }
 
-    //TWB - Public or Private?
-    private static void put(
+    public void put(
         final String specialMessage,
         final Object object,
         final String functionName,
-        final Object exception)
-    {
+        final Object exception) {
         String className = PreLogUtil.getClassName(object);
-        
-        if(className == null) {
+
+        if (className == null) {
             className = CommonStrings.getInstance().EMPTY;
         }
 
 //        String className = EMPTY;
-
 //        if (object.getClass().getName() != null)
 //        {
 //            className = new String(object.getClass().getName());
 //        }
-
         final String message = LogFormatUtil.getInstance().get(
             className, functionName, specialMessage, exception);
 
-        if(exception != null)
-        {
+        if (exception != null) {
             PlayN.log().error(LOG_SUCCESS + message, (Throwable) exception);
-        }
-        else
-        {
+        } else {
             PlayN.log().debug(LOG_SUCCESS + message);
         }
-        
-    }  
-    
+
+    }
+
 }

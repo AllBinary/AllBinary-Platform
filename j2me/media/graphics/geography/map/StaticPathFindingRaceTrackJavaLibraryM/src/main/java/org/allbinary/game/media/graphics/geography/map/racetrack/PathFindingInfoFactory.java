@@ -26,6 +26,8 @@ import org.allbinary.media.graphics.geography.pathfinding.PathFindingInfo;
  */
 public class PathFindingInfoFactory extends BasePathFindingInfoFactory
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final PathFindingInfoFactory instance =
         new PathFindingInfoFactory();
 

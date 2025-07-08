@@ -39,6 +39,8 @@ import views.business.context.modules.storefront.HttpStoreComponentView;
 
 public class WorkFlowsView extends HttpStoreComponentView implements DomNodeInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private Vector workFlowsVector;
    
    public WorkFlowsView(TransformInfoInterface transformInfoInterface) throws Exception, LicensingException
@@ -64,7 +66,7 @@ public class WorkFlowsView extends HttpStoreComponentView implements DomNodeInte
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"view()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"view()",e);
          }
          throw e;
       }
@@ -88,7 +90,7 @@ public class WorkFlowsView extends HttpStoreComponentView implements DomNodeInte
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"toXmlNode()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"toXmlNode()",e);
          }
          return null;
       }

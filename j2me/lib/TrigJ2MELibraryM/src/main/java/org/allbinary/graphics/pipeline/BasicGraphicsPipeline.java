@@ -22,6 +22,8 @@ import org.allbinary.math.NoDecimalTrigTable;
 
 public class BasicGraphicsPipeline
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
    protected BasicArrayList pointBasicArrayList;
 
    public BasicGraphicsPipeline(BasicArrayList points)

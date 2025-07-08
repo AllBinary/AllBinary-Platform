@@ -30,6 +30,8 @@ import javax.servlet.jsp.JspTagException;
 
 public class ShippingAddressTag extends TableTag
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private String value;
    
    public ShippingAddressTag()
@@ -66,7 +68,7 @@ public class ShippingAddressTag extends TableTag
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"set()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"set()",e);
          }
          return error;
       }
@@ -95,7 +97,7 @@ public class ShippingAddressTag extends TableTag
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"setShippingAddressToBillingAddress()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"setShippingAddressToBillingAddress()",e);
          }
          return error;
       }

@@ -27,6 +27,8 @@ import org.microemu.device.swt.SwtImmutableImage;
 import org.microemu.device.swt.SwtMutableImage;
 
 public class ImageSwtRotationUtil {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final ImageSwtRotationUtil instance = new ImageSwtRotationUtil();
 
@@ -51,7 +53,7 @@ public class ImageSwtRotationUtil {
     public org.eclipse.swt.graphics.Image getRotatedImage(final org.eclipse.swt.graphics.Image bufferedImage, final int totalAngle) {
 
         if(!features.isFeature(gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
-            LogUtil.put(LogFactory.getInstance(NO_COPY, this, commonStrings.CONSTRUCTOR));
+            logUtil.put(NO_COPY, this, commonStrings.CONSTRUCTOR);
             return bufferedImage;
         }
         
@@ -81,11 +83,11 @@ public class ImageSwtRotationUtil {
     private org.eclipse.swt.graphics.Image getRotatedImage2(final org.eclipse.swt.graphics.Image bufferedImage, final org.eclipse.swt.graphics.Image newBufferedImage, final GC gc, final float angle) {
         
         if(!features.isFeature(gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
-            LogUtil.put(LogFactory.getInstance(NO_COPY, this, commonStrings.CONSTRUCTOR));
+            logUtil.put(NO_COPY, this, commonStrings.CONSTRUCTOR);
             return bufferedImage;
         }
 
-        //LogUtil.put(LogFactory.getInstance("angle: " + angle, this, "getRotatedImage2"));
+        //logUtil.put("angle: " + angle, this, "getRotatedImage2");
         
 //        final Transform affineTransform = new Transform(gc.getDevice());
 //        final int width = bufferedImage.getBounds().width;

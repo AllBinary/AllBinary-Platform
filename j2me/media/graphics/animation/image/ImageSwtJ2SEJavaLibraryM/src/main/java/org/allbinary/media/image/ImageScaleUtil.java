@@ -28,6 +28,8 @@ import org.microemu.device.swt.SwtImmutableImage;
 import org.microemu.device.swt.SwtMutableImage;
 
 public class ImageScaleUtil {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final ImageScaleUtil instance = new ImageScaleUtil();
 
@@ -65,7 +67,7 @@ public class ImageScaleUtil {
         throws Exception {
         
         if(!features.isFeature(gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
-            LogUtil.put(LogFactory.getInstance(NO_COPY, this, commonStrings.CONSTRUCTOR));
+            logUtil.put(NO_COPY, this, commonStrings.CONSTRUCTOR);
             return originalImage;
         }
         
@@ -108,7 +110,7 @@ public class ImageScaleUtil {
 //    private void scale(final Image originalImage, final Image newMaxSizeImage, final float scaleX, final float scaleY) {
 //
 //        if(!features.isFeature(gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
-//            LogUtil.put(LogFactory.getInstance(NO_COPY, this, commonStrings.CONSTRUCTOR));
+//            logUtil.put(NO_COPY, this, commonStrings.CONSTRUCTOR);
 //            return;
 //        }
 

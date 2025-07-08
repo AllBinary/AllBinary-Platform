@@ -26,6 +26,8 @@ import org.allbinary.string.CommonStrings;
 public class InputAutomationModuleOSGIServiceVisitor
     implements OSGIServiceVisitorInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
     public InputAutomationModuleOSGIServiceVisitor()
@@ -57,7 +59,7 @@ public class InputAutomationModuleOSGIServiceVisitor
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "visit", e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, "visit", e);
             return Boolean.FALSE;
         }
     }

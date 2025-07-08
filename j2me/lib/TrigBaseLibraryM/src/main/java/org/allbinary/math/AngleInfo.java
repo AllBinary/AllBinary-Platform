@@ -20,6 +20,8 @@ import org.allbinary.logic.string.StringUtil;
 
 public class AngleInfo
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
    private final AngleIncrementInfo angleIncrementInfo;
 
    private short angle;
@@ -32,7 +34,7 @@ public class AngleInfo
    private AngleInfo(AngleIncrementInfo angleIncrementInfo)
    {
       this.angleIncrementInfo = angleIncrementInfo;
-      //LogUtil.put(LogFactory.getInstance(this.angleIncrementInfo.toString(), this, "getAngleIncrementInfo()"));
+      //logUtil.put(this.angleIncrementInfo.toString(), this, "getAngleIncrementInfo()");
    }
    
    private final FrameUtil frameUtil = FrameUtil.getInstance();
@@ -50,13 +52,13 @@ public class AngleInfo
    
    public void setAngle(short angle)
    {
-      //LogUtil.put(LogFactory.getInstance("Set Angle: " + angle, this, "setAngle"));
+      //logUtil.put("Set Angle: " + angle, this, "setAngle");
       this.angle = angle;
    }
 
    public AngleIncrementInfo getAngleIncrementInfo()
    {
-	  //LogUtil.put(LogFactory.getInstance(angleIncrementInfo.toString(), this, "getAngleIncrementInfo()"));
+	  //logUtil.put(angleIncrementInfo.toString(), this, "getAngleIncrementInfo()");
       return this.angleIncrementInfo;
    }
    

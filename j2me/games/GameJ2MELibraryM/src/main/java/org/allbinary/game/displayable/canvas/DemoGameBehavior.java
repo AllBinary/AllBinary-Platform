@@ -25,6 +25,8 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
  * @author User
  */
 public class DemoGameBehavior {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     
     private static final DemoGameBehavior instance = new DemoGameBehavior();
 
@@ -75,7 +77,7 @@ public class DemoGameBehavior {
     //Don't keep running thread if in bot/demo mode
     public void run(final AllBinaryGameCanvas allBinaryGameCanvas) throws Exception {
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        LogUtil.put(LogFactory.getInstance(GameTypeFactory.getInstance().BOT.toString(), this, commonStrings.RUN));
+        logUtil.put(GameTypeFactory.getInstance().BOT.toString(), this, commonStrings.RUN);
     }
     
     public void setHighScore(final AbeClientInformationInterface abeClientInformation, final AllBinaryGameCanvas allBinaryGameCanvas, final String name, final long score, final boolean autoSubmit, final boolean isLast) throws Exception {

@@ -31,6 +31,8 @@ import views.business.context.modules.storefront.HttpStoreComponentView;
 
 public class CssCustomizerView extends HttpStoreComponentView //implements DomNodeInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    protected ValidationInterface styleValidationInterface;
    
    public CssCustomizerView(TransformInfoInterface transformInfoInterface) throws Exception
@@ -67,7 +69,7 @@ public class CssCustomizerView extends HttpStoreComponentView //implements DomNo
          //String error = "Failed to view Css Retail Template";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"view()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"view()",e);
          }
          throw e;
       }

@@ -23,13 +23,16 @@ import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.string.CommonStrings;
 
 public class StoreFrontViewFactory
-{   
+{
+    protected final LogUtil logUtil = LogUtil.getInstance();
+   
    private StoreFrontViewFactory()
    {
    }
    
    public static DomNodeInterface getInstance(String storeName) //throws LicensingException
    {
+       final LogUtil logUtil = LogUtil.getInstance();
       try
       {
          StoreFrontsEntity storeFronts = 
@@ -54,7 +57,7 @@ public class StoreFrontViewFactory
          final CommonStrings commonStrings = CommonStrings.getInstance();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "StoreFrontFactory",commonStrings.GET_INSTANCE,e));
+            logUtil.put(commonStrings.EXCEPTION, "StoreFrontFactory",commonStrings.GET_INSTANCE,e);
          }
          return null;
       }

@@ -22,6 +22,8 @@ import org.allbinary.logic.util.event.AllBinaryEventObjectFactoryInterface;
 
 public class MotionEventFactory implements AllBinaryEventObjectFactoryInterface
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static int index;
     
     private final Object source;
@@ -39,7 +41,7 @@ public class MotionEventFactory implements AllBinaryEventObjectFactoryInterface
     {   
         final InputFactory inputFactory = InputFactory.getInstance();
         final Input input = inputFactory.getInstance(index++);
-        //LogUtil.put(LogFactory.getInstance("Input: " + input, this, commonStrings.GET_INSTANCE));
+        //logUtil.put("Input: " + input, this, commonStrings.GET_INSTANCE);
         
         if(input == inputFactory.NO_INPUT) {
             return new MotionGestureEvent(this.source, this.id, (MotionGestureInput) null);

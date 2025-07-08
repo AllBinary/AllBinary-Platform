@@ -23,6 +23,8 @@ import org.allbinary.logic.string.StringMaker;
  * @author User
  */
 public class HighScoresHelperBase implements HighScoresResultsListener {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     
     protected HighScores[] highScoresArray = 
         LastFetchHighScoresFactory.getInstance().highScoresArray;
@@ -31,10 +33,10 @@ public class HighScoresHelperBase implements HighScoresResultsListener {
     {
         if (highScoresArray != null) {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.START).append(highScoresArray.length).toString(), this, "setHighScoresArray"));
+            logUtil.put(new StringMaker().append(commonStrings.START).append(highScoresArray.length).toString(), this, "setHighScoresArray");
         } else {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "setHighScoresArray"));
+            logUtil.put(commonStrings.START, this, "setHighScoresArray");
         }
 
         this.highScoresArray = highScoresArray;

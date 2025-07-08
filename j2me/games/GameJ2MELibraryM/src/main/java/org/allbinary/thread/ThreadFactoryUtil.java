@@ -29,6 +29,8 @@ import org.allbinary.logic.string.StringUtil;
 
 public class ThreadFactoryUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final ThreadFactoryUtil instance = new ThreadFactoryUtil();
 
     public static ThreadFactoryUtil getInstance()
@@ -77,7 +79,7 @@ public class ThreadFactoryUtil
         }
 
         final Thread thread = new Thread(runnable, runnable.toString());
-        LogUtil.put(LogFactory.getInstance(thread.toString(), this, commonStrings.CONSTRUCTOR));
+        logUtil.put(thread.toString(), this, commonStrings.CONSTRUCTOR);
         return thread;
     }
     

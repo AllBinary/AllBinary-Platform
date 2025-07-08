@@ -46,6 +46,8 @@ import org.allbinary.string.CommonStrings;
 public class AuthenticationHelper
     extends TagHelper
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     
     private WeblisketSession weblisketSession;
     private String authenticated;
@@ -73,7 +75,7 @@ public class AuthenticationHelper
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATION))
         {
-            LogUtil.put(LogFactory.getInstance(this.outputSessionInfo(), this, this.commonStrings.CONSTRUCTOR));
+            logUtil.put(this.outputSessionInfo(), this, this.commonStrings.CONSTRUCTOR);
         }
     }
 
@@ -98,7 +100,7 @@ public class AuthenticationHelper
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATIONERROR))
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "invalidateSession()", e));
+                logUtil.put(commonStrings.EXCEPTION, this, "invalidateSession()", e);
             }
             return null;
         }
@@ -127,7 +129,7 @@ public class AuthenticationHelper
                     stringBuffer.append(" > ");
                     stringBuffer.append(timeCreated);
 
-                    LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "isSessionOld()"));
+                    logUtil.put(stringBuffer.toString(), this, "isSessionOld()");
                 }
 
                 return Boolean.TRUE;
@@ -136,7 +138,7 @@ public class AuthenticationHelper
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATION))
             {
-                LogUtil.put(LogFactory.getInstance("Role Is Not In Session", this, "isSessionOld()"));
+                logUtil.put("Role Is Not In Session", this, "isSessionOld()");
             }
         }
 
@@ -168,7 +170,7 @@ public class AuthenticationHelper
                 stringBuffer.append(" > ");
                 stringBuffer.append(inactivityAllowed);
 
-                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "isRarelyUsedSession()"));
+                logUtil.put(stringBuffer.toString(), this, "isRarelyUsedSession()");
             }
             
             /*
@@ -185,7 +187,7 @@ public class AuthenticationHelper
                     stringBuffer.append(" > ");
                     stringBuffer.append(inactivityAllowed);
 
-                    LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "isRarelyUsedSession()"));
+                    logUtil.put(stringBuffer.toString(), this, "isRarelyUsedSession()");
                 }
 
                 return Boolean.TRUE;
@@ -195,7 +197,7 @@ public class AuthenticationHelper
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATION))
             {
-                LogUtil.put(LogFactory.getInstance("Role Is Not In Session", this, "isRarelyUsedSession()"));
+                logUtil.put("Role Is Not In Session", this, "isRarelyUsedSession()");
             }
         }
 
@@ -219,7 +221,7 @@ public class AuthenticationHelper
             String error = "Failed to set valid role";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATIONERROR))
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "validRole()", e));
+                logUtil.put(commonStrings.EXCEPTION, this, "validRole()", e);
             }
             return error;
         }
@@ -240,7 +242,7 @@ public class AuthenticationHelper
             String error = "Failed to set role invalid";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATIONERROR))
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "invalidRole()", e));
+                logUtil.put(commonStrings.EXCEPTION, this, "invalidRole()", e);
             }
             return error;
         }
@@ -297,7 +299,7 @@ public class AuthenticationHelper
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATION))
                 {
-                    LogUtil.put(LogFactory.getInstance("Role Is Not In Session", this, "isAuthenticationSessionValid()"));
+                    logUtil.put("Role Is Not In Session", this, "isAuthenticationSessionValid()");
                 }
             }
 
@@ -306,7 +308,7 @@ public class AuthenticationHelper
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATIONERROR))
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "isAuthenticatedSessionValid()", e));
+                logUtil.put(commonStrings.EXCEPTION, this, "isAuthenticatedSessionValid()", e);
             }
             return Boolean.FALSE;
         }
@@ -329,7 +331,7 @@ public class AuthenticationHelper
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATIONERROR))
             {
-                LogUtil.put(LogFactory.getInstance("Starting: " + userName, this, "processIfNewLogin()"));
+                logUtil.put("Starting: " + userName, this, "processIfNewLogin()");
             }
 
             if (userName != null && userName.compareTo(StringUtil.getInstance().EMPTY_STRING) != 0
@@ -381,7 +383,7 @@ public class AuthenticationHelper
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATIONERROR))
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "processIfNewLogin()", e));
+                logUtil.put(commonStrings.EXCEPTION, this, "processIfNewLogin()", e);
             }
             return Boolean.FALSE;
         }
@@ -404,7 +406,7 @@ public class AuthenticationHelper
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATIONERROR))
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "processInvalidation()", e));
+                logUtil.put(commonStrings.EXCEPTION, this, "processInvalidation()", e);
             }
             return Boolean.FALSE;
         }

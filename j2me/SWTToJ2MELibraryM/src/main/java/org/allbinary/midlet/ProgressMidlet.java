@@ -25,6 +25,8 @@ import org.allbinary.thread.ThreadPool;
 
 public class ProgressMidlet extends AllBinaryMidlet
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     public final AbeClientInformationInterface abeClientInformation;
     
     public ProgressMidlet(final ClientInformationFactory clientInformationFactory)
@@ -51,14 +53,14 @@ public class ProgressMidlet extends AllBinaryMidlet
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "exit", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "exit", e);
             try
             {
                 processor.process();
             }
             catch (Exception e2)
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "exit", e));
+                logUtil.put(commonStrings.EXCEPTION, this, "exit", e);
             }
         }
     }

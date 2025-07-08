@@ -21,6 +21,8 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.string.CommonStrings;
 
 public class ImageJPanel extends javax.swing.JPanel {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final CanvasStrings canvasStrings = CanvasStrings.getInstance();
@@ -38,7 +40,7 @@ public class ImageJPanel extends javax.swing.JPanel {
 
     public void paint(Graphics graphics) {
         if (!isDrawn) {
-            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, canvasStrings.PAINT));
+            logUtil.put(commonStrings.START, this, canvasStrings.PAINT);
 
             graphics.drawImage(bufferedImage, 0, 0,
                     this.bufferedImage.getWidth(null),

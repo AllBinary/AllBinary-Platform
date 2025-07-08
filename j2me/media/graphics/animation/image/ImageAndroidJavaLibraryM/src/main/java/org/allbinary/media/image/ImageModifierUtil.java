@@ -25,6 +25,8 @@ import org.allbinary.graphics.color.BasicColor;
  * @author User
  */
 public class ImageModifierUtil {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     
     public static ImageModifierUtil getInstanceOrCreate() {
         return new ImageModifierUtil();
@@ -37,7 +39,7 @@ public class ImageModifierUtil {
     
     
     public void setColor(final Image unusedOriginalImage, final Image image, final int imageIndex, final BasicColor basicColor) {
-        //LogUtil.put(LogFactory.getInstance(new StringBuilder().append(SET_COLOR).append(basicColor.toString()).toString(), this, commonStrings.PROCESS));
+        //logUtil.put(new StringBuilder().append(SET_COLOR).append(basicColor.toString()).toString(), this, commonStrings.PROCESS);
 
         paint.setColorFilter(new PorterDuffColorFilter(basicColor.intValue(), PorterDuff.Mode.SRC_IN));
         //paint.setColorFilter(new LightingColorFilter(basicColor.intValue(), 0));
@@ -63,7 +65,7 @@ public class ImageModifierUtil {
     public void setAlpha(final Image originalImage, final Image image, final int imageIndex, final int alphaInt) {
         if(alphaInt != paint.getAlpha()) {
             paint.setAlpha(alphaInt);
-            //LogUtil.put(LogFactory.getInstance(new StringBuilder().append(SET_ALPHA).append(alpha).append('/').append(alpha).toString(), this, commonStrings.PROCESS));
+            //logUtil.put(new StringBuilder().append(SET_ALPHA).append(alpha).append('/').append(alpha).toString(), this, commonStrings.PROCESS);
         }
     }
     

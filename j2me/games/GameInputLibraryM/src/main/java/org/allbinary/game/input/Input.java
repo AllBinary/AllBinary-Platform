@@ -17,7 +17,9 @@ import org.allbinary.logic.string.StringMaker;
 
 
 public class Input
-{    
+{
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+    
     private int id;
     private String name;
 
@@ -28,9 +30,9 @@ public class Input
         this.setId(id);
         this.setName(name);
 
-        //LogUtil.put(LogFactory.getInstance(
+        //logUtil.put(
           //      "Name: " + this.getName() + " = " + this.getId(), this,
-            //    commonStrings.CONSTRUCTOR));
+            //    commonStrings.CONSTRUCTOR);
     }
     
     public int getId()

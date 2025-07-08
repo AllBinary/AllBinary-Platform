@@ -27,6 +27,8 @@ import org.allbinary.logic.communication.sql.AbSqlBean;
 
 public class SpecialItemsEntity extends AbSqlBean implements SpecialItemsEntityInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     protected final String tableName = "specialitems";
 
@@ -44,13 +46,13 @@ public class SpecialItemsEntity extends AbSqlBean implements SpecialItemsEntityI
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, INSERT));
+                logUtil.put(this.commonStrings.SUCCESS, this, INSERT);
             }
         }catch(Exception e)
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, INSERT, e));
+                logUtil.put(this.commonStrings.FAILURE, this, INSERT, e);
             }
         }
     }
@@ -62,13 +64,13 @@ public class SpecialItemsEntity extends AbSqlBean implements SpecialItemsEntityI
             super.deleteWhere(BasicItemData.ID, value);
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, commonStrings.delete));
+                logUtil.put(this.commonStrings.SUCCESS, this, commonStrings.delete);
             }
         }catch(Exception e)
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, commonStrings.delete, e));
+                logUtil.put(this.commonStrings.FAILURE, this, commonStrings.delete, e);
             }
         }
     }

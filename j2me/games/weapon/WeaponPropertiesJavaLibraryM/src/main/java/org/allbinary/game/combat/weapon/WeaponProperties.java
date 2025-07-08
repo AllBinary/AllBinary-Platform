@@ -25,6 +25,8 @@ import org.allbinary.logic.math.BasicDecimal;
  */
 public class WeaponProperties extends SimpleWeaponProperties
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private long reloadTime;
     private long targetingTime;
     private BasicDecimal speed;

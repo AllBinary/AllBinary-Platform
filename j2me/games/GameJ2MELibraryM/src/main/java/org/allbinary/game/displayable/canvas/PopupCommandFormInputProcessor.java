@@ -24,6 +24,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 public class PopupCommandFormInputProcessor 
 extends CommandFormInputProcessor 
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     //private PopupMenuInputProcessor popupMenuInputProcessor;
 
     public PopupCommandFormInputProcessor(
@@ -35,14 +37,14 @@ extends CommandFormInputProcessor
     {
         super(gameKeyEventList, playerInputId, gameCanvas, form);
 
-        //LogUtil.put(LogFactory.getInstance(commonStrings.CONSTRUCTOR, this, commonStrings.CONSTRUCTOR));
+        //logUtil.put(commonStrings.CONSTRUCTOR, this, commonStrings.CONSTRUCTOR);
         
         //this.popupMenuInputProcessor = popupMenuInputProcessor;
     }
 
     public int processInput(int key) throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL).append(" Canvas.").append(CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance()));
+        //logUtil.put(commonStrings.START_LABEL).append(" Canvas.").append(CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance());
         //this.popupMenuInputProcessor.processInput(key);
         return super.processInput(key);
     }

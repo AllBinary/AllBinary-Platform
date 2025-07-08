@@ -39,7 +39,9 @@ import org.allbinary.time.TimeDelayHelper;
 public class UnitWaypointBehavior 
     extends WaypointBehaviorBase
     implements WaypointEventListenerInterface
-{    
+{
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+    
     protected CommonSeps commonSeps = CommonSeps.getInstance();
     
     private int longWeaponRange = 0;
@@ -228,15 +230,15 @@ public class UnitWaypointBehavior
     {
         if (this.targetList.size() > 4)
         {
-            //LogUtil.put(LogFactory.getInstance(
+            //logUtil.put(
             //  this.getName() + " has Too Many Waypoints of: " +
-            //rtsLayer.getName(), this, "insertWaypoint"));
+            //rtsLayer.getName(), this, "insertWaypoint");
         }
         else if (this.targetList.contains(rtsLayer))
         {
-            //LogUtil.put(LogFactory.getInstance(
+            //logUtil.put(
             //  this.getName() + " Already Contains Same Waypoint: " +
-            //rtsLayer.getName(), this, "insertWaypoint"));
+            //rtsLayer.getName(), this, "insertWaypoint");
         }
         else
         {

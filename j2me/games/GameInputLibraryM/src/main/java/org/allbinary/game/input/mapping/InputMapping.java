@@ -26,7 +26,9 @@ import org.allbinary.string.CommonLabels;
 import org.allbinary.logic.string.StringUtil;
 
 public class InputMapping
-{    
+{
+    protected final LogUtil logUtil = LogUtil.getInstance();
+    
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
 
    //TWB - Use MapList someday
@@ -69,7 +71,7 @@ public class InputMapping
         stringBuffer.append(" == ");
         stringBuffer.append(stringUtil.toString(mappedToInput));
         
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "InputMapping::remove"));
+        logUtil.put(stringBuffer.toString(), this, "InputMapping::remove");
         
         BasicArrayList list = this.getMappedInput(input);
         if(list.contains(mappedToInput))
@@ -83,7 +85,7 @@ public class InputMapping
             stringBuffer.append(" == ");
             stringBuffer.append(stringUtil.toString(mappedToInput));
             
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "InputMapping::remove"));
+            logUtil.put(stringBuffer.toString(), this, "InputMapping::remove");
         }
         else
         {
@@ -93,7 +95,7 @@ public class InputMapping
             stringBuffer.append(" == ");
             stringBuffer.append(stringUtil.toString(mappedToInput));
             
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "InputMapping::remove"));
+            logUtil.put(stringBuffer.toString(), this, "InputMapping::remove");
         }
     }
     
@@ -105,7 +107,7 @@ public class InputMapping
     
     public void add(Input input, Input mappedToInput)
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL + input + " == " + mappedToInput, this, "InputMapping::add"));
+        //logUtil.put(commonStrings.START_LABEL + input + " == " + mappedToInput, this, "InputMapping::add");
         BasicArrayList list = this.getMappedInput(input);
         if(!list.contains(mappedToInput))
         {

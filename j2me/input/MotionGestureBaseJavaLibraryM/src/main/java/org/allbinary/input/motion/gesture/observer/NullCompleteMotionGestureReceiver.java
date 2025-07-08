@@ -22,10 +22,12 @@ import org.allbinary.logic.communication.log.LogUtil;
 public class NullCompleteMotionGestureReceiver
 implements CompleteMotionGestureListenerInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     public NullCompleteMotionGestureReceiver()
     {
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        LogUtil.put(LogFactory.getInstance("Null Gesture Reciever", this, commonStrings.CONSTRUCTOR));
+        logUtil.put("Null Gesture Reciever", this, commonStrings.CONSTRUCTOR);
     }
 
     public void onMotionGestureCompleted(BasicArrayList list)

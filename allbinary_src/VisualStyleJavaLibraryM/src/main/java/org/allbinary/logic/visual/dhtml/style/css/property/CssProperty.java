@@ -27,6 +27,8 @@ import java.util.HashMap;
 
 public class CssProperty implements DomNodeInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private String propertyName;
    private CssPropertyValues cssPropertyValues;
    
@@ -57,7 +59,7 @@ public class CssProperty implements DomNodeInterface
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().STYLE))
       {
-         LogUtil.put(LogFactory.getInstance("Name: " + this.getName(),this,"CssProperty()"));
+         logUtil.put("Name: " + this.getName(),this,"CssProperty()");
       }
 
       Node propertyValuesNode =
@@ -75,7 +77,7 @@ public class CssProperty implements DomNodeInterface
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().STYLE))
       {
-         LogUtil.put(LogFactory.getInstance("Name: " + this.getName(),this,"CssProperty()");
+         logUtil.put("Name: " + this.getName(),this,"CssProperty()");
       }
 
       HashMap propertyValuesHashMap = 
@@ -103,7 +105,7 @@ public class CssProperty implements DomNodeInterface
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("CssView HashMap: " + hashMap.toString(),this,"toXmlNode()"));
+         logUtil.put("CssView HashMap: " + hashMap.toString(),this,"toXmlNode()");
       }
 
       Node node = ModDomHelper.createNameValueNodes(

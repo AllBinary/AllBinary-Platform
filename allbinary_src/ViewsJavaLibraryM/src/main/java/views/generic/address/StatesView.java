@@ -33,6 +33,8 @@ import org.allbinary.string.CommonStrings;
 
 public class StatesView implements DomNodeInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private final CommonStrings commonStrings = CommonStrings.getInstance();
     
    public StatesView()
@@ -66,7 +68,7 @@ public class StatesView implements DomNodeInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE,this,"toXmlNode",e));
+            logUtil.put(this.commonStrings.FAILURE,this,"toXmlNode",e);
          }
          //throw e;
          return null;

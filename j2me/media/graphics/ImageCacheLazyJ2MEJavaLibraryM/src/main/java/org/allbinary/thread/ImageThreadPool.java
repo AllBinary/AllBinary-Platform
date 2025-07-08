@@ -22,6 +22,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 //This is mainly for network communications.
 public class ImageThreadPool extends ThreadPool
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final ThreadPool instance = new ImageThreadPool("ImageLoader", 1);
 
     public static ThreadPool getInstance()
@@ -35,19 +37,19 @@ public class ImageThreadPool extends ThreadPool
 
     public synchronized void runTask(Runnable task)
     {
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append(task).append(System.currentTimeMillis()).toString(), this, this.threadPoolStrings.ADD_TASK));
+        //logUtil.put(new StringMaker().append(task).append(System.currentTimeMillis()).toString(), this, this.threadPoolStrings.ADD_TASK);
 
         super.runTask(task);
     }
 
     protected void startTask(Runnable task)
     {
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.threadPoolStrings.START_TASK).append(task).append(System.currentTimeMillis()).toString(), this, this.commonStrings.RUN));
+        //logUtil.put(new StringMaker().append(this.threadPoolStrings.START_TASK).append(task).append(System.currentTimeMillis()).toString(), this, this.commonStrings.RUN);
     }
 
     protected void completedTask(Runnable task)
     {
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.threadPoolStrings.COMPLETE_TASK).append(task).append(System.currentTimeMillis()).toString(), this, this.commonStrings.RUN));
+        //logUtil.put(new StringMaker().append(this.threadPoolStrings.COMPLETE_TASK).append(task).append(System.currentTimeMillis()).toString(), this, this.commonStrings.RUN);
     }
 
 }

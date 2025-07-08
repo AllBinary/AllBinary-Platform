@@ -18,6 +18,8 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellType;
 
 public class RaceTrackGeographicMapCellType extends GeographicMapCellType
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
    /*
    public long northTravelCostBetweenArray[][] = {
        //MAX 
@@ -139,35 +141,35 @@ public class RaceTrackGeographicMapCellType extends GeographicMapCellType
          Direction.UP,
          (RaceTrackGeographicMapCellType) raceTrackGeographicMapCellTypeFactory.EMPTY_CELL_TYPE,
          RaceTrackGeographicMapCellType.BOTTOM_LEFT_TURN_ROAD_CELL_TYPE);
-      LogUtil.put(LogFactory.getInstance(message, this, commonStrings.INIT));
+      logUtil.put(message, this, commonStrings.INIT);
 
       message = 
          "max = Road to Empty: " + RaceTrackGeographicMapCellType.getTravelCostBetween(
          Direction.UP,
          RaceTrackGeographicMapCellType.BOTTOM_LEFT_TURN_ROAD_CELL_TYPE,
          (RaceTrackGeographicMapCellType) raceTrackGeographicMapCellTypeFactory.EMPTY_CELL_TYPE);
-      LogUtil.put(LogFactory.getInstance(message, this, commonStrings.INIT));
+      logUtil.put(message, this, commonStrings.INIT);
 
       message = 
          "0 = BOTTOM_LEFT_TURN EAST to BOTTOM_RIGHT_TURN: " + RaceTrackGeographicMapCellType.getTravelCostBetween(
          Direction.RIGHT,
          RaceTrackGeographicMapCellType.BOTTOM_LEFT_TURN_ROAD_CELL_TYPE,
          RaceTrackGeographicMapCellType.BOTTOM_RIGHT_TURN_ROAD_CELL_TYPE);
-      LogUtil.put(LogFactory.getInstance(message, this, commonStrings.INIT));
+      logUtil.put(message, this, commonStrings.INIT);
       
       message = 
          "max = BOTTOM_LEFT_TURN WEST to BOTTOM_RIGHT_TURN: " + RaceTrackGeographicMapCellType.getTravelCostBetween(
          Direction.LEFT,
          RaceTrackGeographicMapCellType.BOTTOM_LEFT_TURN_ROAD_CELL_TYPE,
          RaceTrackGeographicMapCellType.BOTTOM_RIGHT_TURN_ROAD_CELL_TYPE);
-      LogUtil.put(LogFactory.getInstance(message, this, commonStrings.INIT));
+      logUtil.put(message, this, commonStrings.INIT);
 
       message = 
          "max = HORIZONTAL (Any Direction) to VERTICAL: " + RaceTrackGeographicMapCellType.getTravelCostBetween(
          Direction.LEFT,
          RaceTrackGeographicMapCellType.HORIZONTAL_STRAIGHT_ROAD_CELL_TYPE,
          RaceTrackGeographicMapCellType.VERTICAL_STRAIGHT_ROAD_CELL_TYPE);
-      LogUtil.put(LogFactory.getInstance(message, this, commonStrings.INIT));
+      logUtil.put(message, this, commonStrings.INIT);
     */
    //}
    

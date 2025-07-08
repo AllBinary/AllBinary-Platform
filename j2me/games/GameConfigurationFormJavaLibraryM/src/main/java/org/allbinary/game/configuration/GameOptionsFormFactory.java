@@ -22,6 +22,8 @@ import org.allbinary.graphics.color.BasicColor;
 
 public class GameOptionsFormFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final GameOptionsFormFactory instance = new GameOptionsFormFactory();
     
     private GameOptionsFormFactory()
@@ -51,7 +53,7 @@ public class GameOptionsFormFactory
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.INIT, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
             return null;
         }
 

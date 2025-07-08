@@ -23,6 +23,8 @@ import org.allbinary.logic.string.StringUtil;
 
 public class GameInfo 
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    public static final String LEVEL_NAME = "LEVEL";
    
    private final GameInfoData gameInfoData = GameInfoData.getInstance();
@@ -90,7 +92,7 @@ public class GameInfo
    public void setCurrentLevel(final int currentLevel)
    {
       this.currentLevel = currentLevel;
-      LogUtil.put(LogFactory.getInstance(new StringMaker().append(NEW_LEVEL).append(this.getCurrentLevel()).toString(), this, SET_CURRENT_LEVEL));
+      logUtil.put(new StringMaker().append(NEW_LEVEL).append(this.getCurrentLevel()).toString(), this, SET_CURRENT_LEVEL);
    }
 
    private final String NEXT = "Next ";
@@ -103,7 +105,7 @@ public class GameInfo
           this.currentLevel++;
       }
 
-      LogUtil.put(LogFactory.getInstance(new StringMaker().append(NEXT).append(NEW_LEVEL).append(this.getCurrentLevel()).toString(), this, NEXT_GAME_LEVEL));
+      logUtil.put(new StringMaker().append(NEXT).append(NEW_LEVEL).append(this.getCurrentLevel()).toString(), this, NEXT_GAME_LEVEL);
    }
    
    public void previousGameLevel()

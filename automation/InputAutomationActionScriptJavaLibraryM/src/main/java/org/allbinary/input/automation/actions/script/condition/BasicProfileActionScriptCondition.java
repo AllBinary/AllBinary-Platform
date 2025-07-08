@@ -45,6 +45,8 @@ public class BasicProfileActionScriptCondition
     extends ProfileActionScriptItem
     implements ProfileActionScriptConditionInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     //TWB - add inherited dialog boxes and remove inherited default nodes
     //private BasicProfileActionScriptProcessorNode basicProfileActionScriptProcessorNode;
     private Vector profileActionProcessorInterfaceVector;
@@ -198,7 +200,7 @@ public class BasicProfileActionScriptCondition
     public void addProcessor
         (ProfileActionScriptProcessorInterface profileActionProcessorInterface)
     {
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "addInput"));
+        logUtil.put(this.commonStrings.START, this, "addInput");
         this.getProfileActionProcessorInterfaceVector().add(
             profileActionProcessorInterface);
         this.add(profileActionProcessorInterface);
@@ -207,7 +209,7 @@ public class BasicProfileActionScriptCondition
     public void removeProcessor(
         ProfileActionScriptProcessorInterface profileActionProcessorInterface)
     {
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "removeInput"));
+        logUtil.put(this.commonStrings.START, this, "removeInput");
         this.getProfileActionProcessorInterfaceVector().remove(
             profileActionProcessorInterface);
         this.remove(profileActionProcessorInterface);
@@ -216,7 +218,7 @@ public class BasicProfileActionScriptCondition
     public void removeCondition(
         ProfileActionScriptNodeInterface profileActionScriptNodeInterface)
     {
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "removeCondition"));
+        logUtil.put(this.commonStrings.START, this, "removeCondition");
         this.getProfileActionConditionInterfaceVector().remove(
             profileActionScriptNodeInterface);
         this.remove(profileActionScriptNodeInterface);
@@ -226,7 +228,7 @@ public class BasicProfileActionScriptCondition
     public void addCondition(
         ProfileActionScriptNodeInterface profileActionScriptNodeInterface)
     {
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "addCondition"));
+        logUtil.put(this.commonStrings.START, this, "addCondition");
         this.getProfileActionConditionInterfaceVector().add(
             profileActionScriptNodeInterface);
         this.add(profileActionScriptNodeInterface);
@@ -331,7 +333,7 @@ public class BasicProfileActionScriptCondition
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Error", this, "actionPerformed", e));
+            logUtil.put("Error", this, "actionPerformed", e);
         }
     }
     
@@ -374,10 +376,10 @@ public class BasicProfileActionScriptCondition
     public void process(Long frame)
     throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(
+        logUtil.put(
             new StringMaker().append("Start - Processing ").append(
             this.getProfileActionProcessorInterfaceVector().size()).append(
-            " inputs").toString(), this, commonStrings.PROCESS));
+            " inputs").toString(), this, commonStrings.PROCESS);
         
         final Vector profileActionProcessorInterfaceVector = this.getProfileActionProcessorInterfaceVector();
         final int size = profileActionProcessorInterfaceVector.size();

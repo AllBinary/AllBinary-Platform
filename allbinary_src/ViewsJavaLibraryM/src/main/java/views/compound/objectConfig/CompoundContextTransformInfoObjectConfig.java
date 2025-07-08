@@ -39,6 +39,8 @@ import org.allbinary.logic.visual.transform.info.objectConfig.GenericStoreTransf
 public class CompoundContextTransformInfoObjectConfig
     extends GenericStoreTransformInfoObjectConfig
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    public CompoundContextTransformInfoObjectConfig(
        final AbeClientInformationInterface abeClientInformation,
        TransformInfoInterface transformInfoInterface)
@@ -96,9 +98,9 @@ public class CompoundContextTransformInfoObjectConfig
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance(
+         logUtil.put(
              "Root View Called with: " + viewVector.size(),
-             this, "get(transformInfoInterface)"));
+             this, "get(transformInfoInterface)");
       }
 
       String rootView = rootComponentInterface.view();
@@ -140,7 +142,7 @@ public class CompoundContextTransformInfoObjectConfig
              stringBuffer.append(" with ");
              stringBuffer.append(templateValue);
         	 
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this,"get()"));
+            logUtil.put(stringBuffer.toString(), this,"get()");
          }
          
          Replace replace = new Replace(templateKey, templateValue);
@@ -150,7 +152,7 @@ public class CompoundContextTransformInfoObjectConfig
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("End: Result of a compound view: " + rootView, this,"get()"));
+         logUtil.put("End: Result of a compound view: " + rootView, this,"get()");
       }
 
       return rootView;
@@ -165,7 +167,7 @@ public class CompoundContextTransformInfoObjectConfig
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("Template: " + new String(completeTemplateViewBytes).toString(),this,"createInputStream()"));
+         logUtil.put("Template: " + new String(completeTemplateViewBytes).toString(),this,"createInputStream()");
       }
       
       return bais;

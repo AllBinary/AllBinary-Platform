@@ -29,6 +29,8 @@ import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
 
 public class OpenGLESGL10Image extends OpenGLESImage
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
     private final GLUtil glUtil = GLUtil.getInstance();
     

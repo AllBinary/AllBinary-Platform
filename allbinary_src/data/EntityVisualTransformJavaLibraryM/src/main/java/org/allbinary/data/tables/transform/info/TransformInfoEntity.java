@@ -39,6 +39,8 @@ public class TransformInfoEntity
 extends AbSqlBean 
 implements TransformInfoEntityInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final String tableName = "transforminfo";
     
     private final AbeClientInformationInterface abeClientInformation = 
@@ -70,13 +72,13 @@ implements TransformInfoEntityInterface
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, INSERT));
+                logUtil.put(this.commonStrings.SUCCESS, this, INSERT);
             }
         } catch (Exception e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, INSERT, e));
+                logUtil.put(this.commonStrings.FAILURE, this, INSERT, e);
             }
         }
     }
@@ -88,13 +90,13 @@ implements TransformInfoEntityInterface
             super.deleteWhere(TransformInfoData.getInstance().NAME, value);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, commonStrings.delete));
+                logUtil.put(this.commonStrings.SUCCESS, this, commonStrings.delete);
             }
         } catch (Exception e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, commonStrings.delete, e));
+                logUtil.put(this.commonStrings.FAILURE, this, commonStrings.delete, e);
             }
         }
     }

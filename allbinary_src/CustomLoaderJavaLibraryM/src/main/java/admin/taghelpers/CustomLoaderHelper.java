@@ -24,6 +24,8 @@ import org.allbinary.string.CommonStrings;
 
 public class CustomLoaderHelper
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
    public CustomLoaderHelper(HashMap hashMap, PageContext pageContext)
@@ -63,7 +65,7 @@ public class CustomLoaderHelper
       {         
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"setWebappPath()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"setWebappPath()",e);
          }
       }
    }

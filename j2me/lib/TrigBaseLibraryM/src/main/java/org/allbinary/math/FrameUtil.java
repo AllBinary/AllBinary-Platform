@@ -17,6 +17,8 @@ import org.allbinary.logic.communication.log.PreLogUtil;
 
 public class FrameUtil
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final FrameUtil instance = new FrameUtil();
 
     public static FrameUtil getInstance()

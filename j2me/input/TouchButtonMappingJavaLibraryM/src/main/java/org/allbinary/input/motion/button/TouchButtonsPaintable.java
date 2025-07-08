@@ -23,6 +23,8 @@ import org.allbinary.graphics.paint.Paintable;
 
 public class TouchButtonsPaintable extends Paintable
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final BasicColor foregroundBasicColor;
     protected final int foregroundColor;
     

@@ -23,6 +23,8 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
 
 public class OpenGLUtil {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final OpenGLUtil instance = new OpenGLUtil();
 
@@ -52,7 +54,7 @@ public class OpenGLUtil {
             }
 
         } catch (Exception e) {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, this.renderStrings.ON_SURFACE_CREATED, e));
+            logUtil.put(commonStrings.EXCEPTION, this, this.renderStrings.ON_SURFACE_CREATED, e);
         }
     }
 
@@ -76,7 +78,7 @@ public class OpenGLUtil {
             OpenGLLogUtil.getInstance().logError(gl);
 
         } catch (Exception e) {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, this.renderStrings.ON_SURFACE_CREATED, e));
+            logUtil.put(commonStrings.EXCEPTION, this, this.renderStrings.ON_SURFACE_CREATED, e);
         }
     }
     
@@ -111,13 +113,13 @@ public class OpenGLUtil {
         if (encapsulateImage != image) {
 
 //            final Thread thread = Thread.currentThread();
-//            LogUtil.put(LogFactory.getInstance(new StringMaker().append("add image ").append(thread.getName()).toString(), this, this.renderStrings.ON_SURFACE_CHANGED));
+//            logUtil.put(new StringMaker().append("add image ").append(thread.getName()).toString(), this, this.renderStrings.ON_SURFACE_CHANGED);
 
             synchronized(object) {
                 list.add(encapsulateImage);
             }
 
-            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("add image: ").append(encapsulateImage).append(CommonSeps.getInstance().SPACE).append(thread.getName()).toString(), this, this.renderStrings.ON_SURFACE_CHANGED));
+            //logUtil.put(new StringMaker().append("add image: ").append(encapsulateImage).append(CommonSeps.getInstance().SPACE).append(thread.getName()).toString(), this, this.renderStrings.ON_SURFACE_CHANGED);
             return encapsulateImage;
         }
 
@@ -127,7 +129,7 @@ public class OpenGLUtil {
     public void clear() {
 
 //        final Thread thread = Thread.currentThread();
-//        LogUtil.put(LogFactory.getInstance(new StringMaker().append("clear: ").append(thread.getName()).toString(), this, RendererStrings.getInstance().ON_SURFACE_CHANGED));
+//        logUtil.put(new StringMaker().append("clear: ").append(thread.getName()).toString(), this, RendererStrings.getInstance().ON_SURFACE_CHANGED);
         synchronized(object) {
             list.clear();
         }
@@ -138,9 +140,9 @@ public class OpenGLUtil {
         
         synchronized (lockObject) {
             
-            //LogUtil.put(LogFactory.getInstance("try to add", this, RendererStrings.getInstance().ON_SURFACE_CHANGED));
+            //logUtil.put("try to add", this, RendererStrings.getInstance().ON_SURFACE_CHANGED);
             if(!this.runnableList.contains(runnable)) {
-                //LogUtil.put(LogFactory.getInstance("add", this, RendererStrings.getInstance().ON_SURFACE_CHANGED));
+                //logUtil.put("add", this, RendererStrings.getInstance().ON_SURFACE_CHANGED);
                 this.runnableList.add(runnable);
                 displayInfoSingleton.add(this.canvasStrings.SCALED_IMAGES);
             }
@@ -154,7 +156,7 @@ public class OpenGLUtil {
             
             Runnable runnable;
             final int size = this.runnableList.size();
-            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("size: ").append(size).toString(), this, RendererStrings.getInstance().ON_SURFACE_CHANGED));
+            //logUtil.put(new StringMaker().append("size: ").append(size).toString(), this, RendererStrings.getInstance().ON_SURFACE_CHANGED);
             for (int index = 0; index < size; index++) {
                 runnable = (Runnable) this.runnableList.get(index);
                 runnable.run();
@@ -174,7 +176,7 @@ public class OpenGLUtil {
 //        final StringMaker stringMaker = new StringMaker();
 //        final String THREAD = "thread: ";
 //        stringMaker.delete(0, stringMaker.length());
-//        LogUtil.put(LogFactory.getInstance(stringMaker.append("size: ").append(THREAD).append(size).append(thread.getName()).toString(), this, this.renderStrings.ON_SURFACE_CHANGED));
+//        logUtil.put(stringMaker.append("size: ").append(THREAD).append(size).append(thread.getName()).toString(), this, this.renderStrings.ON_SURFACE_CHANGED);
 
 //        final String IMAGE = "image: ";
 
@@ -182,7 +184,7 @@ public class OpenGLUtil {
         for (int index2 = 0; index2 < size; index2++) {
             image = this.list.get(index2);
 //            stringMaker.delete(0, stringMaker.length());
-//            LogUtil.put(LogFactory.getInstance(stringMaker.append(index2).append(IMAGE).append(image).append(CommonSeps.getInstance().SPACE).append(thread.getName()).toString(), this, this.renderStrings.ON_SURFACE_CHANGED));
+//            logUtil.put(stringMaker.append(index2).append(IMAGE).append(image).append(CommonSeps.getInstance().SPACE).append(thread.getName()).toString(), this, this.renderStrings.ON_SURFACE_CHANGED);
             ((OpenGLESImage) image).set(gl);
         }
 

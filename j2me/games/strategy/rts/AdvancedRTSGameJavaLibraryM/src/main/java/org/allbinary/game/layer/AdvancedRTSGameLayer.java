@@ -63,6 +63,8 @@ import org.allbinary.view.ViewPosition;
 public class AdvancedRTSGameLayer extends RTSLayer
     implements DestroyedEventListenerInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final ShakeAnimationListener shakeListener;
     protected final AllBinaryVibrationME vibration;
     protected final int duration;
@@ -435,10 +437,10 @@ public class AdvancedRTSGameLayer extends RTSLayer
         
         if(this.isSelected())
         {
-        LogUtil.put(LogFactory.getInstance(
+        logUtil.put(
                 geographicMapCellPosition.toString() + " and " +  
                 " path: " + this.getCurrentGeographicMapCellHistory().getTracked().toString(), 
-                this, "buildingChase"));
+                this, "buildingChase");
         }
         
         if (geographicMapCellPosition != null)
@@ -469,7 +471,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
                     //this.getCurrentGeographicMapCellHistory().getFirstUnvisited();
                     if(this.isSelected())
                     {
-                        LogUtil.put(LogFactory.getInstance("Not handled", this, "buildingChase"));
+                        logUtil.put("Not handled", this, "buildingChase");
                     }
                     
                     return;
@@ -500,9 +502,9 @@ public class AdvancedRTSGameLayer extends RTSLayer
 
             if(this.isSelected())
             {
-            LogUtil.put(LogFactory.getInstance(
+            logUtil.put(
                     "Direction Around Building path: " + pathDirection.toString(), 
-                    this, "buildingChase"));
+                    this, "buildingChase");
             }
             
             if (pathDirection == DirectionFactory.getInstance().DOWN_LEFT
@@ -510,8 +512,8 @@ public class AdvancedRTSGameLayer extends RTSLayer
             {
                 if(this.isSelected())
                 {
-                LogUtil.put(LogFactory.getInstance(
-                        "Moving Around Building to the Right", this, "buildingChase"));
+                logUtil.put(
+                        "Moving Around Building to the Right", this, "buildingChase");
                 }
                 this
                         .getGameKeyEventList()
@@ -523,8 +525,8 @@ public class AdvancedRTSGameLayer extends RTSLayer
             {
                 if(this.isSelected())
                 {                
-                LogUtil.put(LogFactory.getInstance(
-                        "Moving Around Building to the Left", this, "buildingChase"));
+                logUtil.put(
+                        "Moving Around Building to the Left", this, "buildingChase");
                 }
 
                 this
@@ -594,7 +596,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "onDestroyed", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "onDestroyed", e);
         }
     }
 }

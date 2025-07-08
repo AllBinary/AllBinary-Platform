@@ -30,6 +30,8 @@ import org.allbinary.string.CommonStrings;
 
 public class StoreThemeCategoryFactory implements CategoryFactoryInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
    private TransformInfoInterface transformInfoInterface;
@@ -38,7 +40,7 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
       {
-         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "StoreCategoryFactory(TransformInfoInterface transformInfoInterface)"));
+         logUtil.put(commonStrings.START, this, "StoreCategoryFactory(TransformInfoInterface transformInfoInterface)");
       }
 
       this.transformInfoInterface = transformInfoInterface;
@@ -62,7 +64,7 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getRootInstance()", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "getRootInstance()", e);
          }
          return null;
       }
@@ -88,7 +90,7 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getRootInstance(String)", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "getRootInstance(String)", e);
          }
          return null;
       }
@@ -116,7 +118,7 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getRootInstance(node)", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "getRootInstance(node)", e);
          }
          return null;
       }
@@ -141,7 +143,7 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getInstance(String, int)", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "getInstance(String, int)", e);
          }
          return null;
       }
@@ -169,8 +171,8 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this,
-               "getInstance(CategoryInterface, CategoryInterface , String, int)", e));
+            logUtil.put(commonStrings.EXCEPTION, this,
+               "getInstance(CategoryInterface, CategoryInterface , String, int)", e);
          }
          return null;
       }
@@ -192,7 +194,7 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getInstance(Node, int)", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "getInstance(Node, int)", e);
          }
          return null;
       }
@@ -218,8 +220,8 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this,
-              "getInstance(CategoryInterface, CategoryInterface, Node, int)", e));
+            logUtil.put(commonStrings.EXCEPTION, this,
+              "getInstance(CategoryInterface, CategoryInterface, Node, int)", e);
          }
          return null;
       }
@@ -242,7 +244,7 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getInstance(HashMap)", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "getInstance(HashMap)", e);
          }
          return null;
       }
@@ -271,8 +273,8 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this,
-               "getInstance(CategoryInterface, CategoryInterface, HashMap)", e));
+            logUtil.put(commonStrings.EXCEPTION, this,
+               "getInstance(CategoryInterface, CategoryInterface, HashMap)", e);
          }
          return null;
       }

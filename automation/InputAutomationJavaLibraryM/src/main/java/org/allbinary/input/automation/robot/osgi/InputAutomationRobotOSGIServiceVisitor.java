@@ -27,6 +27,8 @@ import org.allbinary.osgi.OSGIServiceVisitorInterface;
 public class InputAutomationRobotOSGIServiceVisitor
     implements OSGIServiceVisitorInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     public InputAutomationRobotOSGIServiceVisitor()
@@ -42,7 +44,7 @@ public class InputAutomationRobotOSGIServiceVisitor
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "visit"));
+            logUtil.put(this.commonStrings.START, this, "visit");
             
             final InputAutomationRobotServiceInterface
                 inputAutomationRobotServiceInterface =
@@ -53,15 +55,15 @@ public class InputAutomationRobotOSGIServiceVisitor
             
             for(int index = 0; index < inputRobotInterfaceArray.length; index++)
             {
-                LogUtil.put(LogFactory.getInstance("Adding: " + 
-                    inputRobotInterfaceArray[index].getName(), this, "visit"));
+                logUtil.put("Adding: " + 
+                    inputRobotInterfaceArray[index].getName(), this, "visit");
                 InputRobotFactory.getInstance().add(inputRobotInterfaceArray[index]);
             }
             return Boolean.TRUE;
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "visit", e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, "visit", e);
             return Boolean.FALSE;
         }
     }

@@ -35,6 +35,8 @@ import org.xml.sax.InputSource;
  * @author User
  */
 public class XmlDocumentHelper {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     
     private static final XmlDocumentHelper instance = new XmlDocumentHelper();
 
@@ -64,7 +66,7 @@ public class XmlDocumentHelper {
             transformer.setOutputProperty(OutputKeys.INDENT, booleanFactory.YES);
         } catch(Exception e) {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.INIT, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
         }
     }   
         

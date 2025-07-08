@@ -9,6 +9,8 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 
 public class BasicHighScoresFactory extends HighScoresBase
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final AbeClientInformationInterface abeClientInformation;
     
     public BasicHighScoresFactory(final AbeClientInformationInterface abeClientInformation, 
@@ -28,7 +30,7 @@ public class BasicHighScoresFactory extends HighScoresBase
     
     public void fetchHighScores(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener) {
         
-        LogUtil.put(LogFactory.getInstance("Getting Local HighScores", this, FETCH));
+        logUtil.put("Getting Local HighScores", this, FETCH);
         this.fetchHighScores(gameInfo, highScoresResultsListener, true);
     }
     
@@ -42,7 +44,7 @@ public class BasicHighScoresFactory extends HighScoresBase
 
             highScoresResultsListener.setHighScoresArray(highScoresArray);
         } catch (Exception e) {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, FETCH, e));
+            logUtil.put(commonStrings.EXCEPTION, this, FETCH, e);
 
             //super.createHighScores(gameInfo);
         }

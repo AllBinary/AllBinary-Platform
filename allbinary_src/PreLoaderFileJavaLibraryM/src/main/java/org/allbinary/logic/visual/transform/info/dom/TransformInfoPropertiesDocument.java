@@ -36,6 +36,8 @@ import org.allbinary.string.CommonStrings;
 
 public class TransformInfoPropertiesDocument
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private Document document;
    
    public TransformInfoPropertiesDocument(String filePath) throws Exception
@@ -67,7 +69,7 @@ public class TransformInfoPropertiesDocument
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("Size: " + transformInfoNodeVector.size(), this, "toTransformInfoPropertiesHashMap()"));
+            logUtil.put("Size: " + transformInfoNodeVector.size(), this, "toTransformInfoPropertiesHashMap()");
          }
 
          for(int index = 0; index < transformInfoNodeVector.size(); index++)
@@ -89,7 +91,7 @@ public class TransformInfoPropertiesDocument
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "toTransformInfoPropertiesHashMap()", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "toTransformInfoPropertiesHashMap()", e);
          }
          return null;
       }

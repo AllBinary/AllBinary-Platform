@@ -85,9 +85,9 @@ public class IndexedBasicArrayListCache
 
     public void clear()
     {
-        //LogUtil.put(LogFactory.getInstance("List: " + this.log(), this, "clear"));
+        //logUtil.put("List: " + this.log(), this, "clear");
         
-        //LogUtil.put(LogFactory.getInstance("PathWrapper count: " + this.index, this, "release"));
+        //logUtil.put("PathWrapper count: " + this.index, this, "release");
         //PreLogUtil.put("abstractPathElementList: " + BasicArrayListUtil.log(this.abstractPathElementList), this, "release");
 
         index = 0;

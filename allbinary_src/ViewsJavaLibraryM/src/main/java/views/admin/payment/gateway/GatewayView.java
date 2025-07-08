@@ -26,6 +26,8 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
 public class GatewayView extends PaymentGatewayViewAbstract
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    public GatewayView(TransformInfoInterface transformInfoInterface) //throws Exception
    {
       super(transformInfoInterface);
@@ -58,7 +60,7 @@ public class GatewayView extends PaymentGatewayViewAbstract
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "edit()", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "edit()", e);
          }
          throw e;
       }

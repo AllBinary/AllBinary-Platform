@@ -25,6 +25,8 @@ import org.allbinary.logic.communication.log.LogUtil;
  * @author User
  */
 public class ImageArrayRotationUtil {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final ImageArrayRotationUtil instance = new ImageArrayRotationUtil();
 
@@ -56,7 +58,7 @@ public class ImageArrayRotationUtil {
 
         for (int index = 0; index < bufferedImageArray.length; index++) {
 
-            LogUtil.put(LogFactory.getInstance(TOTAL_ANGLE + totalAngle, this, commonStrings.RUN));
+            logUtil.put(TOTAL_ANGLE + totalAngle, this, commonStrings.RUN);
 
             generatedBufferedImage = ImageJ2SERotationUtil.getInstance().getRotatedImage(
                     bufferedImageArray[index], totalAngle.intValue());

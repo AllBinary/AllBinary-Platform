@@ -27,6 +27,8 @@ import org.w3c.dom.Node;
 public class ProfileActionScriptItem extends DefaultMutableTreeNode
     implements ProfileActionScriptItemInterface, ActionListener
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private JPopupMenu jPopupMenu;
@@ -54,7 +56,7 @@ public class ProfileActionScriptItem extends DefaultMutableTreeNode
         super(label);
         this.init();
         
-        LogUtil.put(LogFactory.getInstance("Label: " + label, this, this.commonStrings.CONSTRUCTOR));
+        logUtil.put("Label: " + label, this, this.commonStrings.CONSTRUCTOR);
     }
     
     public ProfileActionScriptItem(
@@ -63,7 +65,7 @@ public class ProfileActionScriptItem extends DefaultMutableTreeNode
         super(label);
         this.init();
         
-        LogUtil.put(LogFactory.getInstance("Label: " + label, this, this.commonStrings.CONSTRUCTOR));
+        logUtil.put("Label: " + label, this, this.commonStrings.CONSTRUCTOR);
     }
 
     private void init()

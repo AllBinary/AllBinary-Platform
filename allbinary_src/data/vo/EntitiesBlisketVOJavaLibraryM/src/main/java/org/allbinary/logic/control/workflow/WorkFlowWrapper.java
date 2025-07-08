@@ -22,6 +22,8 @@ import org.allbinary.string.CommonStrings;
 
 public class WorkFlowWrapper implements WorkFlowInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
    private Object object;
@@ -51,7 +53,7 @@ public class WorkFlowWrapper implements WorkFlowInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getName()", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "getName()", e);
          }
          throw new Exception(error);
       }
@@ -72,7 +74,7 @@ public class WorkFlowWrapper implements WorkFlowInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getStoreName()", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "getStoreName()", e);
          }
          throw new Exception(error);
       }
@@ -93,7 +95,7 @@ public class WorkFlowWrapper implements WorkFlowInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
          }
          throw new Exception(error);
       }

@@ -19,6 +19,8 @@ import android.media.MediaPlayer;
 
 public class MediaPlayerUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final MediaPlayerUtil instance = new MediaPlayerUtil();
     
     public static MediaPlayerUtil getInstance() {
@@ -33,7 +35,7 @@ public class MediaPlayerUtil
         int index = 0;
         while (mediaPlayer.isPlaying() && index < 50)
         {
-            LogUtil.put(LogFactory.getInstance(MESSAGE, this, METHOD_NAME));
+            logUtil.put(MESSAGE, this, METHOD_NAME);
             Thread.sleep(100);
             index++;
         }

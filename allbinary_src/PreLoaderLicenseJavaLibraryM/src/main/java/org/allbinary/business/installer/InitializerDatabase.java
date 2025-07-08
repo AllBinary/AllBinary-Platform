@@ -29,6 +29,8 @@ import org.allbinary.string.CommonStrings;
 
 public class InitializerDatabase
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     //private HttpServletRequest request;
 
     private String adminDbUserName;
@@ -67,7 +69,7 @@ public class InitializerDatabase
             stringBuffer.append(" Value: ");
             stringBuffer.append(values[0]);
             
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "getFormData()"));
+            logUtil.put(stringBuffer.toString(), this, "getFormData()");
         }
         this.getFormData(abeClientInformation, hashMap);
     }
@@ -107,7 +109,7 @@ public class InitializerDatabase
 
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Unable to get form data", this, "getFormData()", e));
+            logUtil.put("Unable to get form data", this, "getFormData()", e);
         }
     }
 
@@ -122,7 +124,7 @@ public class InitializerDatabase
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADERERROR))
             {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.IS_VALID, e));
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.IS_VALID, e);
             }
             return false;
         }
@@ -203,7 +205,7 @@ public class InitializerDatabase
             return true;
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Unable to Create Users", this, "createUsers()", e));
+            logUtil.put("Unable to Create Users", this, "createUsers()", e);
             return false;
         }
     }
@@ -216,7 +218,7 @@ public class InitializerDatabase
             return true;
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Unable to Create Databases", this, "createDatabases()", e));
+            logUtil.put("Unable to Create Databases", this, "createDatabases()", e);
             return false;
         }
     }
@@ -229,7 +231,7 @@ public class InitializerDatabase
             return true;
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Unable to Create Tables", this, "createTables()", e));
+            logUtil.put("Unable to Create Tables", this, "createTables()", e);
             return false;
         }
     }

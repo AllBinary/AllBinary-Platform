@@ -28,6 +28,8 @@ import org.allbinary.logic.system.security.licensing.ServiceClientInformationInt
 
 public class WorkFlowRequestHelper extends ModifyTable
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final AbeClientInformationInterface abeClientInformation = 
         ServiceClientInformationInterfaceFactory.getInstance();
     
@@ -54,7 +56,7 @@ public class WorkFlowRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            LogUtil.put(LogFactory.getInstance(success,this,"delete()"));
+            logUtil.put(success,this,"delete()");
          }
          return success;
       }
@@ -69,7 +71,7 @@ public class WorkFlowRequestHelper extends ModifyTable
             //this.workFlowInterface.getStoreName();
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-               LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"delete()",e));
+               logUtil.put(commonStrings.EXCEPTION,this,"delete()",e);
             }
             throw new Exception(e);
          }
@@ -79,7 +81,7 @@ public class WorkFlowRequestHelper extends ModifyTable
             
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-               LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"delete()",ex));
+               logUtil.put(commonStrings.EXCEPTION,this,"delete()",ex);
             }
             return error;
          }         
@@ -98,7 +100,7 @@ public class WorkFlowRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            LogUtil.put(LogFactory.getInstance(success,this,"add()"));
+            logUtil.put(success,this,"add()");
          }
          return success;
       }
@@ -107,7 +109,7 @@ public class WorkFlowRequestHelper extends ModifyTable
          String error = "Failed to add User";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"add()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"add()",e);
          }
          return error;
       }
@@ -125,7 +127,7 @@ public class WorkFlowRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            LogUtil.put(LogFactory.getInstance(success,this,"update()"));
+            logUtil.put(success,this,"update()");
          }
          return success;
       }
@@ -134,7 +136,7 @@ public class WorkFlowRequestHelper extends ModifyTable
          String error = "Failed to update WorkFlow";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"update()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"update()",e);
          }
          return error;
       }

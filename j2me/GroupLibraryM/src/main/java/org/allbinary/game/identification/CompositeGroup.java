@@ -23,6 +23,8 @@ import org.allbinary.logic.string.StringUtil;
 
 public class CompositeGroup
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final Group groupInterface;
     private final BasicArrayList list = new BasicArrayList();
 
@@ -49,7 +51,7 @@ public class CompositeGroup
         stringBuffer.append(TO_LABEL);
         stringBuffer.append(StringUtil.getInstance().toString(this.groupInterface));
         
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.ADD));
+        logUtil.put(stringBuffer.toString(), this, commonStrings.ADD);
         
         this.list.add(groupInterface);
     }

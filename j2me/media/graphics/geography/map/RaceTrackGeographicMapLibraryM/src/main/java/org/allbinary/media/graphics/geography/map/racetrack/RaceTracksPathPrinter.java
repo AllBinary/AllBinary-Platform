@@ -24,6 +24,8 @@ import org.allbinary.logic.communication.log.PreLogUtil;
  * Used for generating static paths.  Use in the build game method
  */
 public class RaceTracksPathPrinter {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
 
 
     private void printPath(BasicArrayList list)

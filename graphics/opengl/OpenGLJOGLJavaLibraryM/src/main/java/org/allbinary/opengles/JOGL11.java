@@ -20,6 +20,8 @@ package org.allbinary.opengles;
 //JOGLEToKhronosGL11
 public class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengles.GL11
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     //private final StringBuilder stringBuilder = new StringBuilder();
 

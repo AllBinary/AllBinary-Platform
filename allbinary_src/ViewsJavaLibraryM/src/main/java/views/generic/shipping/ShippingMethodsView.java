@@ -59,6 +59,8 @@ import views.business.context.modules.storefront.HttpStoreComponentView;
 public class ShippingMethodsView extends HttpStoreComponentView implements DomNodeInterface
 //extends allbinary.business.component.user.commerce.inventory.shipping.ShippingMethods
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
    private ShippingMethods shippingMethods;
    private StoreFrontInterface storeFrontInterface;
@@ -156,7 +158,7 @@ public class ShippingMethodsView extends HttpStoreComponentView implements DomNo
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XSLLOGGINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE,this,"toXmlNode",e));
+            logUtil.put(this.commonStrings.FAILURE,this,"toXmlNode",e);
          }
          throw e;
       }
@@ -179,7 +181,7 @@ public class ShippingMethodsView extends HttpStoreComponentView implements DomNo
          String error = "Failed to view ShippingMethods";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"view()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"view()",e);
          }
          return error;
       }

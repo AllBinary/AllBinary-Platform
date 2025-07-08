@@ -40,7 +40,7 @@ public class BasicErrorNodeUtil
          /*
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XMLLOGGINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Error Node Creation Failure","BasicErrorNodeUtil","get()",e);
+            logUtil.put("Error Node Creation Failure","BasicErrorNodeUtil","get()",e);
          }
           */
          throw new Exception("Error Node Creation Failure");

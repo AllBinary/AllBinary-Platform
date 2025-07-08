@@ -25,6 +25,8 @@ import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
 
 public class ReleaseTouchInputToGameKeyEventAction extends GameKeyCompleteMotionGestureInputEvent
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final GameKeyCompleteMotionGestureInputEvent SINGLETON = new ReleaseTouchInputToGameKeyEventAction();
     
     public static GameKeyCompleteMotionGestureInputEvent getInstance()
@@ -48,7 +50,7 @@ public class ReleaseTouchInputToGameKeyEventAction extends GameKeyCompleteMotion
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
         }
     }
     

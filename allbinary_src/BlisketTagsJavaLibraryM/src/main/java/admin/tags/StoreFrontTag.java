@@ -33,6 +33,8 @@ import javax.servlet.jsp.JspTagException;
 
 public class StoreFrontTag extends CustomTagSupport
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private String command;
    private String storeName;
 
@@ -73,7 +75,7 @@ public class StoreFrontTag extends CustomTagSupport
          String error = "Failed to retrieve current location";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"getCurrentLocation()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"getCurrentLocation()",e);
          }
          return error;
       }
@@ -100,7 +102,7 @@ public class StoreFrontTag extends CustomTagSupport
          String error = "Failed to retrieve current home location";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"getCurrentHomeLocation()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"getCurrentHomeLocation()",e);
          }
          return error;
       }

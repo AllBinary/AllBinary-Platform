@@ -30,6 +30,8 @@ import org.allbinary.string.CommonStrings;
 public class DirectionalAnalogLocationInputProcessor
         extends AnalogLocationInputProcessor
         implements GameKeyEventSourceInterface {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private final GameInputProcessor[] inputProcessorArray;
 
@@ -56,7 +58,7 @@ public class DirectionalAnalogLocationInputProcessor
             this.rightTriggerGameKeyEvent = GameKeyEventFactory.getInstance().getInstance(this, gameKeyFactory.KEY_NUM5);
         } catch (Exception e) {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
         }
     }
 
@@ -86,8 +88,8 @@ public class DirectionalAnalogLocationInputProcessor
                 inputProcessorArray[this.upGameKeyEvent.getKey()].process(allbinaryLayerManager, this.upGameKeyEvent, y);
             }
             
-            //LogUtil.put(LogFactory.getInstance(RIGHT_TRIGGER_VALUE + rightTrigger, this, commonStrings.PROCESS));
-            //LogUtil.put(LogFactory.getInstance(LEFT_TRIGGER_VALUE + leftTrigger, this, commonStrings.PROCESS));
+            //logUtil.put(RIGHT_TRIGGER_VALUE + rightTrigger, this, commonStrings.PROCESS);
+            //logUtil.put(LEFT_TRIGGER_VALUE + leftTrigger, this, commonStrings.PROCESS);
             
             if (leftTrigger > 0) {
                 inputProcessorArray[this.leftTriggerGameKeyEvent.getKey()].process(allbinaryLayerManager, this.leftTriggerGameKeyEvent, leftTrigger);
@@ -99,7 +101,7 @@ public class DirectionalAnalogLocationInputProcessor
             
         } catch (Exception e) {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance("Unable to process analog input", this, commonStrings.PROCESS, e));
+            logUtil.put("Unable to process analog input", this, commonStrings.PROCESS, e);
         }
     }
 

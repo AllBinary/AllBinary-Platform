@@ -28,6 +28,8 @@ import org.allbinary.string.CommonStrings;
 
 public class ComparisonImageInputOutput implements ImageIOInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     
     private final static String ROOT_NAME = "_Changed_";
     
@@ -54,14 +56,14 @@ public class ComparisonImageInputOutput implements ImageIOInterface
             }
             else
             {
-                LogUtil.put(LogFactory.getInstance("Comparison Results Not Available for Output: " +
-                    frame, this, commonStrings.SAVE));
+                logUtil.put("Comparison Results Not Available for Output: " +
+                    frame, this, commonStrings.SAVE);
             }
         }
         else
         {
-            LogUtil.put(LogFactory.getInstance("No Comparison Results: for first frame: " +
-                frame, this, commonStrings.SAVE));
+            logUtil.put("No Comparison Results: for first frame: " +
+                frame, this, commonStrings.SAVE);
         }
     }
     
@@ -90,8 +92,8 @@ public class ComparisonImageInputOutput implements ImageIOInterface
             ChangedPixelsUtil.generateBufferedImageChacheables(
             imageComparisonResult);
         
-        LogUtil.put(LogFactory.getInstance("Comparison Image File Path 1: " + filePath1, this, commonStrings.SAVE));
-        LogUtil.put(LogFactory.getInstance("Comparison Image File Path 2: " + filePath2, this, commonStrings.SAVE));
+        logUtil.put("Comparison Image File Path 1: " + filePath1, this, commonStrings.SAVE);
+        logUtil.put("Comparison Image File Path 2: " + filePath2, this, commonStrings.SAVE);
         
         final BufferedImage[] bufferedImageArray = new BufferedImage[2];
         

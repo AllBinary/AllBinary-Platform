@@ -19,6 +19,8 @@ import org.allbinary.string.CommonStrings;
 
 public class PermissionItemsEntityFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final PermissionItemsEntityFactory instance =
             new PermissionItemsEntityFactory();
 
@@ -37,6 +39,7 @@ public class PermissionItemsEntityFactory
    
    public static PermissionItemsEntity getPermissionItemsEntityInstance() //throws LicensingException
    {
+       final LogUtil logUtil = LogUtil.getInstance();
       try
       {
          //Object object = AbeFactory.getInstance().getInstance(CLASSNAME);
@@ -59,7 +62,7 @@ public class PermissionItemsEntityFactory
          final CommonStrings commonStrings = CommonStrings.getInstance();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "PermissionItemsEntityFactory",commonStrings.GET_INSTANCE,e));
+            logUtil.put(commonStrings.EXCEPTION, "PermissionItemsEntityFactory",commonStrings.GET_INSTANCE,e);
          }
          return null;
       }

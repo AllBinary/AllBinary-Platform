@@ -39,6 +39,8 @@ import org.allbinary.string.CommonSeps;
 
 public class InputMappingHelpPaintable extends HelpPaintable 
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     protected StringUtil stringUtil = StringUtil.getInstance();
     
@@ -83,7 +85,7 @@ public class InputMappingHelpPaintable extends HelpPaintable
     {
         final StringMaker stringMaker = new StringMaker();
         
-        LogUtil.put(LogFactory.getInstance(stringMaker.append(CommonLabels.getInstance().START_LABEL).append("selected GameKey: ").append(this.stringUtil.toString(selectedGameKey)).append(" Input: ").append(this.stringUtil.toString(selectedInput)).toString(), this, commonStrings.UPDATE));
+        logUtil.put(stringMaker.append(CommonLabels.getInstance().START_LABEL).append("selected GameKey: ").append(this.stringUtil.toString(selectedGameKey)).append(" Input: ").append(this.stringUtil.toString(selectedInput)).toString(), this, commonStrings.UPDATE);
         
         final PersistentInputMapping gameKeyMapping = 
             PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance();
@@ -114,13 +116,13 @@ public class InputMappingHelpPaintable extends HelpPaintable
             if(gameKey == selectedGameKey)
             {
                 stringMaker.delete(0, stringMaker.length());
-                LogUtil.put(LogFactory.getInstance(stringMaker.append("Found: selected GameKey: ").append(this.stringUtil.toString(selectedGameKey)).toString(), this, commonStrings.UPDATE));
+                logUtil.put(stringMaker.append("Found: selected GameKey: ").append(this.stringUtil.toString(selectedGameKey)).toString(), this, commonStrings.UPDATE);
                 actionBasicColor[index] = this.selectedBasicColor;
                 int indexOfSelectedInput = list.indexOf(selectedInput);
                 if(indexOfSelectedInput >= 0)
                 {
                     stringMaker.delete(0, stringMaker.length());
-                    LogUtil.put(LogFactory.getInstance(stringMaker.append("Found: selected Input: ").append(this.stringUtil.toString(selectedInput)).toString(), this, commonStrings.UPDATE));
+                    logUtil.put(stringMaker.append("Found: selected Input: ").append(this.stringUtil.toString(selectedInput)).toString(), this, commonStrings.UPDATE);
                     inputBasicColorArray[index][indexOfSelectedInput] = this.selectedBasicColor; 
                 }
             }

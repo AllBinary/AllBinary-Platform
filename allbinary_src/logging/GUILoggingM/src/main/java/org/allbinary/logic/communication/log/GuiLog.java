@@ -21,6 +21,8 @@ import org.allbinary.string.CommonStrings;
 
 public class GuiLog
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final GuiLog instance = new GuiLog();
 
     /**

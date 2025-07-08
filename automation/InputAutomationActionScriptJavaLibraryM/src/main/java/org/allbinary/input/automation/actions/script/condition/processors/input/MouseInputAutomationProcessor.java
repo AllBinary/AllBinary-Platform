@@ -14,12 +14,14 @@
 package org.allbinary.input.automation.actions.script.condition.processors.input;
 
 import org.allbinary.input.automation.robot.InputRobotInterface;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonStrings;
 
 public class MouseInputAutomationProcessor
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private MouseInputAutomationProcessor()
     {
     }
@@ -28,12 +30,13 @@ public class MouseInputAutomationProcessor
         MouseActionScriptInputInterface mouseActionScriptInputInterface)
         throws Exception
     {
+        final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        LogUtil.put(LogFactory.getInstance(
-            "Start - Processing Mouse Input at: " +
-            mouseActionScriptInputInterface.getPoint() +
-            " clicks: " + mouseActionScriptInputInterface.getButtonClicks(),
-            "MouseInputAutomationProcessor", commonStrings.PROCESS));
+        logUtil.put(
+            new StringMaker().append("Start - Processing Mouse Input at: ")
+                .append(mouseActionScriptInputInterface.getPoint().toString())
+                .append(" clicks: ").append(mouseActionScriptInputInterface.getButtonClicks()).toString(),
+            "MouseInputAutomationProcessor", commonStrings.PROCESS);
 
         InputRobotInterface inputRobotInterface = 
             mouseActionScriptInputInterface.getInputRobotInterface();
@@ -60,6 +63,6 @@ public class MouseInputAutomationProcessor
 
         Thread.sleep(mouseActionScriptInputInterface.getTime());
         
-        //LogUtil.put(LogFactory.getInstance(this.commonStrings.END, "MouseInputAutomationProcessor", commonStrings.PROCESS));
+        //logUtil.put(this.commonStrings.END, "MouseInputAutomationProcessor", commonStrings.PROCESS);
     }
 }

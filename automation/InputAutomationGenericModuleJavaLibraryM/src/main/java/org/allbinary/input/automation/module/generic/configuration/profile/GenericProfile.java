@@ -28,6 +28,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class GenericProfile
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private String name;
     private Vector vector;
     private GenericProfileActions genericProfileActions;
@@ -39,7 +41,7 @@ public class GenericProfile
         
         NodeList nodeList = node.getChildNodes();
         
-        LogUtil.put(LogFactory.getInstance("Name: " + this.getName() + " Child Nodes: " + nodeList.getLength(), this,"Contructor"));
+        logUtil.put("Name: " + this.getName() + " Child Nodes: " + nodeList.getLength(), this,"Contructor");
         
         for(int index = 0; index < nodeList.getLength(); index++)
         {
@@ -49,8 +51,8 @@ public class GenericProfile
             {
                 GenericProfileDataWorkerType genericProfileDataWorkerType =
                      GenericProfileDataWorkerType.getInstance(profileNode);
-                LogUtil.put(LogFactory.getInstance("Adding GenericProfileDataWorkerType: " + 
-                    genericProfileDataWorkerType.toString(), this,"Contructor"));
+                logUtil.put("Adding GenericProfileDataWorkerType: " + 
+                    genericProfileDataWorkerType.toString(), this,"Contructor");
                 this.vector.add(genericProfileDataWorkerType);
             }
         }

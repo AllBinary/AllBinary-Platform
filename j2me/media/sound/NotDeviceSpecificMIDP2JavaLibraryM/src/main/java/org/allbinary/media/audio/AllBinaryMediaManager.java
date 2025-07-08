@@ -31,6 +31,8 @@ import org.allbinary.string.CommonStrings;
 
 public class AllBinaryMediaManager
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final String THIS = "AllBinaryMediaManagerNoMIPD2";
     
@@ -62,8 +64,9 @@ public class AllBinaryMediaManager
     public static void init(SoundsFactoryInterface soundsFactoryInterface)
             throws Exception
     {
+        final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonString = CommonStrings.getInstance();
-        LogUtil.put(LogFactory.getInstance(commonString.START, THIS, commonString.INIT));
+        logUtil.put(commonString.START, THIS, commonString.INIT);
         ProgressCanvasFactory.getInstance().addPortion(50, "Media Manager");
 
         new Sounds(soundsFactoryInterface).init();

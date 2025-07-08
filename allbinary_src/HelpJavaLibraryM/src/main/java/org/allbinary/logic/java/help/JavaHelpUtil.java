@@ -30,6 +30,8 @@ import org.allbinary.string.CommonStrings;
 
 public class JavaHelpUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final JavaHelpUtil instance = new JavaHelpUtil();
 
     /**
@@ -53,7 +55,7 @@ public class JavaHelpUtil
                 if (helpBroker.getHelpSet().getNavigatorView(navigatorViewName) != null)
                 {
                     helpBroker.setCurrentView(navigatorViewName);
-                    LogUtil.put(LogFactory.getInstance("SetCurrentView", this, "show"));
+                    logUtil.put("SetCurrentView", this, "show");
                 }
      */
     
@@ -71,7 +73,7 @@ public class JavaHelpUtil
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, getInstance(), "set", e));
+            logUtil.put(this.commonStrings.EXCEPTION, getInstance(), "set", e);
             return null;
         }
     }
@@ -84,7 +86,7 @@ public class JavaHelpUtil
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, getInstance(), "set", e));
+            logUtil.put(this.commonStrings.EXCEPTION, getInstance(), "set", e);
             return null;
         }
     }
@@ -99,11 +101,11 @@ public class JavaHelpUtil
             helpBroker.setSize(dimension);
             
             new CSH.DisplayHelpFromSource(helpBroker).actionPerformed(contextSensitiveHelpActionEvent);
-            LogUtil.put(LogFactory.getInstance("CSH Action", getInstance(), "show"));
+            logUtil.put("CSH Action", getInstance(), "show");
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, getInstance(), "show", e));
+            logUtil.put(this.commonStrings.EXCEPTION, getInstance(), "show", e);
         }
     }
     

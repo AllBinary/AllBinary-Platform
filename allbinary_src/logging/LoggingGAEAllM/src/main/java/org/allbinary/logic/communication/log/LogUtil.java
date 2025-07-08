@@ -10,18 +10,26 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.logic.communication.log;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.allbinary.logic.NullUtil;
+
 import org.allbinary.string.CommonStrings;
 
-public class LogUtil
-{   
-   private static final Logger logger = Logger.getLogger(LogUtil.class.getName());
+public class LogUtil {
 
-   /*
+    private static final LogUtil instance = new LogUtil();
+
+    public static final LogUtil getInstance() {
+        return instance;
+    }
+
+    private final Logger logger = Logger.getLogger(LogUtil.class.getName());
+
+    /*
    private final static String DEFAULT_PATH;
 
    static
@@ -37,73 +45,68 @@ public class LogUtil
 
        LogUtil.init();
    }
-    */
-   
-   private LogUtil()
-   {
-   }
+     */
+    private LogUtil() {
+    }
 
-   /*
+    /*
    public static void init()
    {      
       String message = "The Logging path is: " + LogUtil.getFilePatternPath();
       PreLogUtil.put(message, "LogUtil", "init()");
    }
-   */
+     */
+    public void put(final Log log) {
+        final String specialMessage = log.getSpecialMessage();
+        final Object object = log.getObject();
+        final String functionName = log.getFunctionName();
+        final Object exception = log.getThrowable();
 
-   public static void put(Log log)
-   {
-      String specialMessage = log.getSpecialMessage();
-      Object object = log.getObject();
-      String functionName = log.getFunctionName();
-      Object exception = log.getThrowable();
+        this.put(specialMessage, object, functionName, exception);
+    }
 
-      put(specialMessage, object, functionName, exception);
-   }
-
+    public void put(
+        final String specialMessage,
+        final Object object,
+        final String functionName) {
+        
+        this.put(specialMessage, object, functionName, NullUtil.getInstance().NULL_OBJECT);
+        
+    }
     
     //private final static String LOG_SUCCESS = "org.allbinary: ";
-   
-   private static void put(
-      String specialMessage,
-      Object object,
-      String functionName,
-      Object exception)
-   {
-      try
-      {
-         String className = CommonStrings.getInstance().EMPTY;
+    public void put(
+        final String specialMessage,
+        final Object object,
+        final String functionName,
+        final Object exception) {
+        try {
+            String className = CommonStrings.getInstance().EMPTY;
 
-         Class clazz = object.getClass();
-         if(clazz.getName() != null)
-         {
-            className = clazz.getName();
-         }
-                  
-         String message = LogFormatUtil.getInstance().get(
-             className, functionName, specialMessage);
+            Class clazz = object.getClass();
+            if (clazz.getName() != null) {
+                className = clazz.getName();
+            }
+
+            String message = LogFormatUtil.getInstance().get(
+                className, functionName, specialMessage);
             //className, functionName, specialMessage, exception);
-         
-         if(exception != null)
-         {
-            //logger.warning(message);
-            //logger.severe(message);
-             logger.log(Level.SEVERE, message, exception);
-         }
-         else
-         {
-             //Change this back to warning when I get a stable version of gaefv without massive warnings
-             logger.log(Level.INFO, message);
-             //logger.log(Level.WARNING, message);
-             //logger.info(message);
-         }
-      }
-      catch (Exception e)
-      {
-      }
-   }
 
-   /*
+            if (exception != null) {
+                //logger.warning(message);
+                //logger.severe(message);
+                logger.log(Level.SEVERE, message, exception);
+            } else {
+                //Change this back to warning when I get a stable version of gaefv without massive warnings
+                logger.log(Level.INFO, message);
+                //logger.log(Level.WARNING, message);
+                //logger.info(message);
+            }
+        } catch (Exception e) {
+        }
+    }
+
+    /*
    static String getFilePatternPath()
    {
       try
@@ -127,5 +130,5 @@ public class LogUtil
          return DEFAULT_PATH;
       }
    }
-   */
+     */
 }

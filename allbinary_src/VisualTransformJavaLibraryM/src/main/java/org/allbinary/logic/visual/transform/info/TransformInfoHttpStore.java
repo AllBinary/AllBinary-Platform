@@ -29,6 +29,8 @@ import java.util.HashMap;
 public class TransformInfoHttpStore extends TransformInfoHttp 
    implements TransformInfoHttpStoreInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     //TWB - for Inserting transforms into database
    public TransformInfoHttpStore(
@@ -39,7 +41,7 @@ public class TransformInfoHttpStore extends TransformInfoHttp
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("Properties HashMap: " + propertiesHashMap.toString(), this, this.commonStrings.CONSTRUCTOR));
+         logUtil.put("Properties HashMap: " + propertiesHashMap.toString(), this, this.commonStrings.CONSTRUCTOR);
       }
    }
 
@@ -64,7 +66,7 @@ public class TransformInfoHttpStore extends TransformInfoHttp
           stringBuffer.append("\nProperties HashMap: ");
           stringBuffer.append(propertiesHashMap.toString());
           
-         LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "Constructor(HashMap, HashMap , PageContext)"));
+         logUtil.put(stringBuffer.toString(), this, "Constructor(HashMap, HashMap , PageContext)");
       }
 
       this.setStoreName((String) databaseHashMap.get(StoreFrontData.getInstance().NAME));
@@ -76,7 +78,7 @@ public class TransformInfoHttpStore extends TransformInfoHttp
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("Properties HashMap: " + propertiesHashMap.toString(), this, this.commonStrings.CONSTRUCTOR));
+         logUtil.put("Properties HashMap: " + propertiesHashMap.toString(), this, this.commonStrings.CONSTRUCTOR);
       }
       
       this.setStoreName(storeFrontInterface.getName());

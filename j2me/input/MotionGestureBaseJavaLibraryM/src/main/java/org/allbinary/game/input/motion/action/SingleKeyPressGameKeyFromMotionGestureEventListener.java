@@ -27,6 +27,8 @@ import org.allbinary.logic.util.event.EventStrings;
 public class SingleKeyPressGameKeyFromMotionGestureEventListener 
 extends CompleteMotionGestureInputEventListener
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     public void onEvent(AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
@@ -36,19 +38,19 @@ extends CompleteMotionGestureInputEventListener
     {
         try
         {
-            //LogUtil.put(LogFactory.getInstance("Start GameKey: " + ((GameKeyCompleteMotionGestureInputEvent) completeMotionGestureInputEvent).getGameKey(), this, "onCompleteMotionGestureInputEvent"));
+            //logUtil.put("Start GameKey: " + ((GameKeyCompleteMotionGestureInputEvent) completeMotionGestureInputEvent).getGameKey(), this, "onCompleteMotionGestureInputEvent");
             
             GameKeyEvent gameKeyEvent = 
                 ((GameKeyCompleteMotionGestureInputEvent) completeMotionGestureInputEvent).getGameKeyEvent();
 
-            //LogUtil.put(LogFactory.getInstance("gameKeyEvent: " + gameKeyEvent, this, "onCompleteMotionGestureInputEvent"));
+            //logUtil.put("gameKeyEvent: " + gameKeyEvent, this, "onCompleteMotionGestureInputEvent");
 
             PressGameKeyEventHandler.getInstance().fireEvent(gameKeyEvent);
         }
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "onCompleteMotionGestureInputEvent", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "onCompleteMotionGestureInputEvent", e);
         }
     }
 }

@@ -26,6 +26,8 @@ import org.allbinary.logic.util.event.EventStrings;
 
 public class GameAdState implements VirtualKeyboardEventListenerInterface
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final AdConfiguration adConfiguration;
     
     private final Advertisements advertisements = new Advertisements();

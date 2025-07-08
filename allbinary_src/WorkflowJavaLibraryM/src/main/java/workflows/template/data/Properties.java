@@ -24,6 +24,8 @@ import org.allbinary.string.CommonStrings;
 
 public class Properties
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
    private HashMap propertiesHashMap;
@@ -32,7 +34,7 @@ public class Properties
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
       {
-         LogUtil.put(LogFactory.getInstance("Start/Tag",this,this.commonStrings.CONSTRUCTOR));
+         logUtil.put("Start/Tag",this,this.commonStrings.CONSTRUCTOR);
       }
       this.propertiesHashMap = new HashMap();
    }
@@ -46,7 +48,7 @@ public class Properties
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
       {
-         LogUtil.put(LogFactory.getInstance("Tag Ended",this,"doEndTag"));
+         logUtil.put("Tag Ended",this,"doEndTag");
       }
       this.propertiesHashMap = new HashMap();
       return TagSupport.EVAL_PAGE;

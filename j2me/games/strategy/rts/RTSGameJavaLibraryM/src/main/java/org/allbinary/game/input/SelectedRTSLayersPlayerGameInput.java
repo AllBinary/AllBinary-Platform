@@ -51,6 +51,8 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCompositeInterfac
  */
 public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final GameInputProcessor[] inputProcessorArray = 
         new GameInputProcessor[InputFactory.getInstance().MAX];
     
@@ -278,7 +280,7 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
 
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, gameInputStrings.PROCESS_INPUT, e));
+            logUtil.put(commonStrings.EXCEPTION, this, gameInputStrings.PROCESS_INPUT, e);
         }
     }
 
@@ -324,8 +326,8 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
             stringBuffer.append(selectedLayer.getName());
         }
          
-        LogUtil.put(LogFactory.getInstance(
-                stringBuffer.toString(), this, "setSelectedRTSLayer"));
+        logUtil.put(
+                stringBuffer.toString(), this, "setSelectedRTSLayer");
 
         this.paintSelectedRTSLayersList = BasicArrayListUtil.getInstance().getImmutableInstance();
         
@@ -342,7 +344,7 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
             this.preSelectedRTSLayersList = this.selectedRTSLayersList;
             this.selectedRTSLayersList = tempList;
             
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Preselected: ").append(this.preSelectedRTSLayersList.toString()).toString(), this, "setSelectedRTSLayer"));
+            logUtil.put(new StringMaker().append("Preselected: ").append(this.preSelectedRTSLayersList.toString()).toString(), this, "setSelectedRTSLayer");
         }
         
         //this.selectedRTSLayersList.clear();
@@ -374,8 +376,8 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
         stringBuffer.append("Select all Preselected: ");
         stringBuffer.append(this.preSelectedRTSLayersList.toString());
 
-        LogUtil.put(LogFactory.getInstance(
-                stringBuffer.toString(), this, "selectAllPreselected"));
+        logUtil.put(
+                stringBuffer.toString(), this, "selectAllPreselected");
 
         for(int index = this.preSelectedRTSLayersList.size() - 1; index >= 0; index--)
         {
@@ -391,8 +393,8 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
         stringBuffer.append("Deselect all Preselected: ");
         stringBuffer.append(this.preSelectedRTSLayersList.toString());
 
-        LogUtil.put(LogFactory.getInstance(
-                stringBuffer.toString(), this, "deselectAllPreselected"));
+        logUtil.put(
+                stringBuffer.toString(), this, "deselectAllPreselected");
 
         for(int index = this.preSelectedRTSLayersList.size() - 1; index >= 0; index--)
         {

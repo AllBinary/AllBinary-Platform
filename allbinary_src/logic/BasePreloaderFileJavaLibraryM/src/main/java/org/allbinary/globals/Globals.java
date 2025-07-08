@@ -22,6 +22,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.loader.WebappClassLoaderInfo;
 
 public class Globals {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final Globals instance = new Globals();
     
@@ -50,7 +52,7 @@ public class Globals {
         stringBuffer.append(" ClassLoader: ");
         stringBuffer.append(classLoader.getClass().getName());
         
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.INIT));
+        logUtil.put(stringBuffer.toString(), this, commonStrings.INIT);
 
         final StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
         
@@ -66,7 +68,7 @@ public class Globals {
         	stringBuffer.append(org.allbinary.globals.URLGLOBALS.getWebappPath());
 
             //pathString = WebappPathCmdLineFile.getPath("./");
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.INIT));
+            logUtil.put(stringBuffer.toString(), this, commonStrings.INIT);
         }
 
     	stringBuffer.delete(0, stringBuffer.length());
@@ -74,6 +76,6 @@ public class Globals {
     	stringBuffer.append("Webapp Path Set To: ");
     	stringBuffer.append(org.allbinary.globals.URLGLOBALS.getWebappPath());
 
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.INIT));
+        logUtil.put(stringBuffer.toString(), this, commonStrings.INIT);
     }
 }

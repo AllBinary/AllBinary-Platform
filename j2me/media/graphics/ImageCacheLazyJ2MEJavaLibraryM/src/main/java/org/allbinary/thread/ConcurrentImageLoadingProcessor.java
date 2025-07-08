@@ -25,6 +25,8 @@ import org.allbinary.string.CommonStrings;
  * @author User
  */
 public class ConcurrentImageLoadingProcessor extends BaseImageLoadingProcessor {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
@@ -35,11 +37,11 @@ public class ConcurrentImageLoadingProcessor extends BaseImageLoadingProcessor {
         public void run() {
             try {
                 this.setRunning(true);
-                //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.RUN));
+                //logUtil.put(commonStrings.START, this, commonStrings.RUN);
 
                 imageCache.waitForLoadNow();
                 
-                //LogUtil.put(LogFactory.getInstance("found animation that has attempted to paint so load animations and images", this, commonStrings.RUN));
+                //logUtil.put("found animation that has attempted to paint so load animations and images", this, commonStrings.RUN);
                 
                 imageCache.loadImages();
                 imageCache.loadRemainingAnimations();
@@ -51,10 +53,10 @@ public class ConcurrentImageLoadingProcessor extends BaseImageLoadingProcessor {
                     progressCanvas.endFromInitialLazyLoadingComplete();
                 }
 
-//            LogUtil.put(LogFactory.getInstance(commonStrings.END, this, commonStrings.RUN));
+//            logUtil.put(commonStrings.END, this, commonStrings.RUN);
             } catch (Exception e) {
                 this.setRunning(false);
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
             }
         }
 

@@ -30,6 +30,8 @@ import org.allbinary.string.CommonStrings;
 public class CommandForm extends Form
         implements MyCommandInterface, MenuListener
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final Processor repaintProcessor =
@@ -49,19 +51,19 @@ public class CommandForm extends Form
            repaintProcessor.process();
 
        } catch (Exception e) {
-           LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e));
+           logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
        }
       
    }
 
     public void open()
     {
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "open"));
+        logUtil.put(this.commonStrings.START, this, "open");
     }
 
     public void close() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, commonStrings.CLOSE));
+        logUtil.put(this.commonStrings.START, this, commonStrings.CLOSE);
     }
 
     public void update() throws Exception {

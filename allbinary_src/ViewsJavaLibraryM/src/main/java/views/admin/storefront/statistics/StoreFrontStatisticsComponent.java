@@ -32,6 +32,8 @@ import views.business.context.modules.storefront.HttpStoreComponentView;
 
 public class StoreFrontStatisticsComponent extends HttpStoreComponentView
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    protected StoreFrontInterface newStoreFrontInterface;
    private DomNodeInterface domNodeInterface;
    
@@ -65,7 +67,7 @@ public class StoreFrontStatisticsComponent extends HttpStoreComponentView
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"view()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"view()",e);
          }
          throw e;
       }

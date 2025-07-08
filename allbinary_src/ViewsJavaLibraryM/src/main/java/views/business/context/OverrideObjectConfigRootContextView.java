@@ -32,13 +32,15 @@ import org.allbinary.logic.visual.transform.template.TransformTemplateInterface;
 
 public class OverrideObjectConfigRootContextView extends HttpStoreComponentView
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    public OverrideObjectConfigRootContextView(TransformInfoInterface transformInfoInterface) throws Exception
    {
       super(transformInfoInterface);
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("View Name: " + transformInfoInterface.getName(), this, "OverrideObjectRootContextView()"));
+         logUtil.put("View Name: " + transformInfoInterface.getName(), this, "OverrideObjectRootContextView()");
       }
    }
 
@@ -51,7 +53,7 @@ public class OverrideObjectConfigRootContextView extends HttpStoreComponentView
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("View Name: " + this.getTransformInfoInterface().getName(), this, "view()"));
+            logUtil.put("View Name: " + this.getTransformInfoInterface().getName(), this, "view()");
          }
 
          TransformInfoInterface rootTransformInfoInterface = (TransformInfoInterface)
@@ -88,7 +90,7 @@ public class OverrideObjectConfigRootContextView extends HttpStoreComponentView
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("Retrieved OverrideObjectConfig: " + DomDocumentHelper.toString(overrideObjectConfigDocument), this, "view()"));
+            logUtil.put("Retrieved OverrideObjectConfig: " + DomDocumentHelper.toString(overrideObjectConfigDocument), this, "view()");
          }
 
          final TransformFactory transformFactory = TransformFactory.getInstance();
@@ -117,7 +119,7 @@ public class OverrideObjectConfigRootContextView extends HttpStoreComponentView
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("Set OverrideObjectConfig: " + componentInterface.getTransformInfoInterface().getObjectConfigInterface().toString(), this, "view()"));
+            logUtil.put("Set OverrideObjectConfig: " + componentInterface.getTransformInfoInterface().getObjectConfigInterface().toString(), this, "view()");
          }
          
          return componentInterface.view();
@@ -126,7 +128,7 @@ public class OverrideObjectConfigRootContextView extends HttpStoreComponentView
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "view()", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "view()", e);
          }
          throw e;
       }

@@ -28,6 +28,8 @@ public class GameScrollMenuPaintable
 extends BasicGameDemoPaintable
 implements ColorChangeListener
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     public GameScrollMenuPaintable(Paintable mainDemoStatePaintable, 
             Paintable ownershipPaintable, 
             Paintable helpPaintableInterface, 
@@ -41,9 +43,9 @@ implements ColorChangeListener
 
     public void setState(int state)
     {
-        //LogUtil.put(LogFactory.getInstance("Setting Main Demo State Paintable", this, "setState"));
+        //logUtil.put("Setting Main Demo State Paintable", this, "setState");
         this.setCurrentStatePaintable(this.getMainDemoStatePaintable());
-        //LogUtil.put(LogFactory.getInstance("Paintable is now: ").append(this.currentStatePaintable, this, "setState"));
+        //logUtil.put("Paintable is now: ").append(this.currentStatePaintable, this, "setState");
     }
     
     public void onEvent(AllBinaryEventObject eventObject)

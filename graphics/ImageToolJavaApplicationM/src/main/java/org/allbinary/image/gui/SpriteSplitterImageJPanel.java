@@ -37,6 +37,8 @@ import org.allbinary.media.image.SpriteSplitterUtil;
  */
 public class SpriteSplitterImageJPanel extends javax.swing.JPanel
     implements ImageProcessedVisitor {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final CommonSeps commonSeps = CommonSeps.getInstance();
@@ -76,14 +78,14 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
                     spriteSplitterUtil.process(SpriteSplitterImageJPanel.this.getImageProcessorInput(), totalFrames, totalAnimations, widthReduction, heightReduction, increaseWidth, increaseHeight, spriteType, SpriteSplitterImageJPanel.this);
 
                 } catch (Exception e) {
-                    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
+                    logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
                 }
             }
         }.start();
     }
     /*
     public void paint(Graphics graphics) {
-    LogUtil.put(LogFactory.getInstance(commonStrings.START, this, canvasStrings.PAINT));
+    logUtil.put(commonStrings.START, this, canvasStrings.PAINT);
      */
     //graphics.setColor(BasicColors.BLUE.toColor());
     //graphics.fillRect(0, 0, getWidth(),getHeight());
@@ -385,7 +387,7 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
    @Override
    public void visit(final BufferedImage generatedBufferedImage, final String name, final int index) throws IOException {
        
-       LogUtil.put(LogFactory.getInstance(commonStrings.VISIT, this, commonStrings.VISIT));
+       logUtil.put(commonStrings.VISIT, this, commonStrings.VISIT);
        
        this.result = generatedBufferedImage;
        //ImageJ2SERotationUtil.getInstance().createSpriteImage(
@@ -405,7 +407,7 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
        final boolean isWritten = 
                ImageIO.write((RenderedImage) SpriteSplitterImageJPanel.this.result, imageStrings.PNG, file);
 
-       LogUtil.put(LogFactory.getInstance(new StringMaker().append("File: ").append(StringUtil.getInstance().toString(file)).append(" Wrote: ").append(isWritten).toString(), this, commonStrings.RUN));
+       logUtil.put(new StringMaker().append("File: ").append(StringUtil.getInstance().toString(file)).append(" Wrote: ").append(isWritten).toString(), this, commonStrings.RUN);
    }
    
 }

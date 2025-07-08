@@ -19,6 +19,8 @@ import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.layer.LayerProcessor;
 
 public class OptimizedGameInputLayerProcessorForCollidableLayer extends LayerProcessor {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     
 	public OptimizedGameInputLayerProcessorForCollidableLayer() {
             super(new OptimizedGameInputLayerManager());
@@ -27,13 +29,13 @@ public class OptimizedGameInputLayerProcessorForCollidableLayer extends LayerPro
 	public void process(final AllBinaryLayerManager allBinaryLayerManager,
 	        final AllBinaryLayer layerInterface, final int index) throws Exception {
 		final AllBinaryGameLayer gameInputInterface = (AllBinaryGameLayer) layerInterface;
-                //LogUtil.put(LogFactory.getInstance(new StringMaker().append("processInput: ").append(layerInterface).toString(), this, gameInputStrings.PROCESS_INPUT));
+                //logUtil.put(new StringMaker().append("processInput: ").append(layerInterface).toString(), this, gameInputStrings.PROCESS_INPUT);
 		gameInputInterface.processInput(allBinaryLayerManager);
 	}
 
         //private final String IS_PROCESSING_LAYER = "isProcessorLayer";
 	public boolean isProcessorLayer(final AllBinaryLayer layerInterface) {
-                //LogUtil.put(LogFactory.getInstance(new StringMaker().append("isProcessorLayer: ").append(layerInterface).toString(), this, IS_PROCESSING_LAYER));
+                //logUtil.put(new StringMaker().append("isProcessorLayer: ").append(layerInterface).toString(), this, IS_PROCESSING_LAYER);
 		if (layerInterface.implmentsGameInputInterface()) {
 			return true;
 		} else {

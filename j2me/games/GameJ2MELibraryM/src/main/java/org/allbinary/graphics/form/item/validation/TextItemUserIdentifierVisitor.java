@@ -24,6 +24,8 @@ import org.allbinary.logic.util.visitor.Visitor;
 
 public class TextItemUserIdentifierVisitor extends Visitor
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     public TextItemUserIdentifierVisitor()
     {
         
@@ -73,7 +75,7 @@ public class TextItemUserIdentifierVisitor extends Visitor
                 } catch (Exception e)
                 {
                     final CommonStrings commonStrings = CommonStrings.getInstance();
-                    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.VISIT, e));
+                    logUtil.put(commonStrings.EXCEPTION, this, commonStrings.VISIT, e);
                 }
                 
                 return BooleanFactory.getInstance().FALSE;

@@ -43,6 +43,8 @@ import org.osgi.framework.Constants;
 public class InputAutomationNewBundleRunnable
     implements RunnableInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private static final String FILE = "file:";
@@ -93,7 +95,7 @@ public class InputAutomationNewBundleRunnable
     private void updateModules()
     throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "updateModules"));
+        logUtil.put(this.commonStrings.START, this, "updateModules");
         
         final BasicArrayList list = this.findNewModules();
         final int size = list.size();
@@ -113,12 +115,12 @@ public class InputAutomationNewBundleRunnable
     private HashMap getAllJarSymbolicNameHashMap()
     throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "getAllJarSymbolicNameHashMap"));
+        logUtil.put(this.commonStrings.START, this, "getAllJarSymbolicNameHashMap");
         
         final HashMap hashMap = new HashMap();
         final BasicArrayList jarFileBasicArrayList = this.getJarModuleFileBasicArrayList();
         
-        LogUtil.put(LogFactory.getInstance("Jar Module Files: " + jarFileBasicArrayList, this, "getAllJarSymbolicNameHashMap"));
+        logUtil.put("Jar Module Files: " + jarFileBasicArrayList, this, "getAllJarSymbolicNameHashMap");
         
         final int size = jarFileBasicArrayList.size();
         File file;
@@ -150,7 +152,7 @@ public class InputAutomationNewBundleRunnable
     
     private BasicArrayList getJarModuleFileBasicArrayList()
     {
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "getJarModuleFileBasicArrayList"));
+        logUtil.put(this.commonStrings.START, this, "getJarModuleFileBasicArrayList");
         
         String baseJarPath = System.getProperty(JAR_DIR_PROP);
         
@@ -163,12 +165,12 @@ public class InputAutomationNewBundleRunnable
         
         String path = baseJarPath + INPUT_AUTMATION_MODULE_BUNDLE_JAR_PATH;
         
-        LogUtil.put(LogFactory.getInstance("Path: " + path, this, "getJarModuleFileBasicArrayList"));
+        logUtil.put("Path: " + path, this, "getJarModuleFileBasicArrayList");
         
         File file = new File(path);
         
-        LogUtil.put(LogFactory.getInstance("File: " + file.getAbsolutePath() +
-            " isDirectory: " + file.isDirectory(), this, "getJarModuleFileBasicArrayList"));
+        logUtil.put("File: " + file.getAbsolutePath() +
+            " isDirectory: " + file.isDirectory(), this, "getJarModuleFileBasicArrayList");
         
         return SubDirectory.getInstance().search(jarFileFilter, FileWrapperUtil.wrapFile(file));
     }
@@ -176,7 +178,7 @@ public class InputAutomationNewBundleRunnable
     private BasicArrayList getInstalledJarSymbolicNameBasicArrayList()
     throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "getInstalledJarSymbolicNameBasicArrayList"));
+        logUtil.put(this.commonStrings.START, this, "getInstalledJarSymbolicNameBasicArrayList");
         
         BasicArrayList vector = new BasicArrayList();
         
@@ -187,7 +189,7 @@ public class InputAutomationNewBundleRunnable
         
         if(bundleArray != null)
         {
-            LogUtil.put(LogFactory.getInstance("bundleArray: " + bundleArray.length,this, "getInputAutomationModuleServices"));
+            logUtil.put("bundleArray: " + bundleArray.length,this, "getInputAutomationModuleServices");
             
             for(int index = 0; index < bundleArray.length; index++)
             {
@@ -201,7 +203,7 @@ public class InputAutomationNewBundleRunnable
     private boolean isInstalled(String symbolicName)
     throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START + symbolicName, this, "isInstalled"));
+        logUtil.put(CommonLabels.getInstance().START + symbolicName, this, "isInstalled");
         
         final BasicArrayList list = this.getInstalledJarSymbolicNameBasicArrayList();
         final int size = list.size();
@@ -219,12 +221,12 @@ public class InputAutomationNewBundleRunnable
     
     private BasicArrayList findNewModules() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "findNewModules"));
+        logUtil.put(this.commonStrings.START, this, "findNewModules");
         
         BasicArrayList vector = new BasicArrayList();
         HashMap hashMap = this.getAllJarSymbolicNameHashMap();
         
-        LogUtil.put(LogFactory.getInstance("All: " + hashMap, this, "findNewModules"));
+        logUtil.put("All: " + hashMap, this, "findNewModules");
         
         Set set = hashMap.keySet();
         
@@ -243,7 +245,7 @@ public class InputAutomationNewBundleRunnable
     
     private Bundle install(URL url) throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START + url, this, "install"));
+        logUtil.put(CommonLabels.getInstance().START + url, this, "install");
         
         BundleContext bundleContext =
             InputAutomationBundleActivator.getBundleContext();
@@ -255,7 +257,7 @@ public class InputAutomationNewBundleRunnable
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.RUN));
+            logUtil.put(this.commonStrings.START, this, this.commonStrings.RUN);
             
             this.setRunning(true);
             
@@ -265,18 +267,18 @@ public class InputAutomationNewBundleRunnable
             {
                 timeHelper.setStartTime();
                 
-                LogUtil.put(LogFactory.getInstance(
-                    CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN));
+                logUtil.put(
+                    CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN);
                 
                 this.updateModules();
                 //Thread.sleep(10000);
                 break;
             }
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, this.commonStrings.RUN));
+            logUtil.put(this.commonStrings.END, this, this.commonStrings.RUN);
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
         }
     }
 }

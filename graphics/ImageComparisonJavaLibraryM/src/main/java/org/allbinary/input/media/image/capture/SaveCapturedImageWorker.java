@@ -27,6 +27,8 @@ import org.allbinary.time.TimeDelayHelper;
 public class SaveCapturedImageWorker extends BasicEventHandler
     implements CapturedImageWorkerResultsListener
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private boolean running;
@@ -55,7 +57,7 @@ public class SaveCapturedImageWorker extends BasicEventHandler
     
     public void run() {
 	try {
-	    LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.RUN));
+	    logUtil.put(this.commonStrings.START, this, this.commonStrings.RUN);
 	    setRunning(true);
 	    TimeDelayHelper timeHelper = new TimeDelayHelper(1000);
 	    timeHelper.setStartTime();
@@ -69,12 +71,12 @@ public class SaveCapturedImageWorker extends BasicEventHandler
 						    .getFrame());
 	    capturedImageWorkerResultsEventVector
 		.remove(capturedImageWorkerResultsEvent);
-	    LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(),
-				this, this.commonStrings.RUN));
+	    logUtil.put(CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(),
+				this, this.commonStrings.RUN);
 	    setRunning(false);
-	    LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, this.commonStrings.RUN));
+	    logUtil.put(this.commonStrings.END, this, this.commonStrings.RUN);
 	} catch (Exception e) {
-	    LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e));
+	    logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
 	}
     }
 }

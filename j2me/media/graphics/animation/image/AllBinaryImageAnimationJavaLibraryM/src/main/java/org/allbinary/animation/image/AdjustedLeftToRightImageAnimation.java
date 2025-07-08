@@ -21,6 +21,8 @@ import org.allbinary.animation.AnimationBehavior;
 public class AdjustedLeftToRightImageAnimation 
 extends LeftToRightImageAnimation
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private int dx;
     private int dy;
 
@@ -29,7 +31,7 @@ extends LeftToRightImageAnimation
     {
         super(image, sequenceArray, animationBehavior);
 
-        // LogUtil.put(LogFactory.getInstance(, this,));
+        // logUtil.put(, this,);
 
         this.init(dx, dy);
         //-(imageArray[0].getWidth() >> 2), -(imageArray[0].getHeight() >> 2)

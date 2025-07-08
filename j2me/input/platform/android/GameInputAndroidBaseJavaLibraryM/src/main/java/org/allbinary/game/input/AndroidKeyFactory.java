@@ -11,6 +11,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class AndroidKeyFactory extends ActivityFractureUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     public final AndroidGameKey UNKNOWN = new AndroidGameKey(KeyEvent.KEYCODE_UNKNOWN, "UNKNOWN");
 
      //Added in API level 16 
@@ -516,7 +518,7 @@ public class AndroidKeyFactory extends ActivityFractureUtil
     public void init()
     {
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        LogUtil.put(LogFactory.getInstance("Start/End", this, commonStrings.INIT));
+        logUtil.put("Start/End", this, commonStrings.INIT);
     }
 
     public boolean isSubmission(Input input)

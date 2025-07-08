@@ -23,6 +23,8 @@ import org.allbinary.view.ViewPosition;
 
 public class PointsLayer extends AllBinaryLayer
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
 	private final int points;
 	
    public PointsLayer(int points)

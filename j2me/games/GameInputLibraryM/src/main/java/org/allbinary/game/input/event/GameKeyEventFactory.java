@@ -22,6 +22,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class GameKeyEventFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final GameKeyEventFactory instance = new GameKeyEventFactory();
 
     public static GameKeyEventFactory getInstance()
@@ -45,7 +47,7 @@ public class GameKeyEventFactory
 
     public void init()
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START, "GameKeyEventFactory", commonStrings.INIT));
+        //logUtil.put(commonStrings.START, "GameKeyEventFactory", commonStrings.INIT);
         
         /*
         for (int index2 = 0; index2 < MAX; index2++)
@@ -68,7 +70,7 @@ public class GameKeyEventFactory
             GameKeyEventSourceInterface object, int key)
     throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, SOURCE_ID + object.getSourceId()));
+        //logUtil.put(commonStrings.START, this, SOURCE_ID + object.getSourceId());
 
         GameKeyEvent gameKeyEvent = ARRAY[object.getSourceId()][key];
         //GameKeyEvent gameKeyEvent = ARRAY[key];
@@ -80,7 +82,7 @@ public class GameKeyEventFactory
             GameKeyEventSourceInterface object, Input input)
     throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL, this, SOURCE_ID + object.getSourceId()));
+        //logUtil.put(commonStrings.START_LABEL, this, SOURCE_ID + object.getSourceId());
 
         GameKeyEvent gameKeyEvent = ARRAY[object.getSourceId()][input.getId()];
         //GameKeyEvent gameKeyEvent = ARRAY[gameKey.getKey().intValue()];

@@ -19,6 +19,8 @@ import org.allbinary.string.CommonStrings;
 
 public class IdGeneratorEntityFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private IdGeneratorEntityFactory()
    {
    }
@@ -32,7 +34,7 @@ public class IdGeneratorEntityFactory
       catch(Exception e)
       {
          final CommonStrings commonStrings = CommonStrings.getInstance();
-         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "ServerLicenseRequestEntityFactory",commonStrings.GET_INSTANCE,e));
+         logUtil.put(commonStrings.EXCEPTION, "ServerLicenseRequestEntityFactory",commonStrings.GET_INSTANCE,e);
          return null;
       }
    }

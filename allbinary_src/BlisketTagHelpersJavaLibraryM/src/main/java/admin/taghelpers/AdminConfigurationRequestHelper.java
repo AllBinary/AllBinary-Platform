@@ -28,6 +28,8 @@ import org.allbinary.string.CommonStrings;
 
 public class AdminConfigurationRequestHelper extends ModifyTable
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     
    private HttpServletRequest request;
 
@@ -35,7 +37,7 @@ public class AdminConfigurationRequestHelper extends ModifyTable
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
       {
-         LogUtil.put(LogFactory.getInstance(this.commonStrings.CONSTRUCTOR,this,this.commonStrings.CONSTRUCTOR));
+         logUtil.put(this.commonStrings.CONSTRUCTOR,this,this.commonStrings.CONSTRUCTOR);
       }
       
       this.request = (HttpServletRequest) pageContext.getRequest();
@@ -47,7 +49,7 @@ public class AdminConfigurationRequestHelper extends ModifyTable
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START,this,"insert()"));
+            logUtil.put(this.commonStrings.START,this,"insert()");
          }
          
          String success = "Successfully inserted AdminConfiguration";
@@ -59,7 +61,7 @@ public class AdminConfigurationRequestHelper extends ModifyTable
             
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            LogUtil.put(LogFactory.getInstance(success,this,"insert()"));
+            logUtil.put(success,this,"insert()");
          }
          
          return success;
@@ -70,7 +72,7 @@ public class AdminConfigurationRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "insert()", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "insert()", e);
          }
          return error;
       }
@@ -84,7 +86,7 @@ public class AdminConfigurationRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            LogUtil.put(LogFactory.getInstance(success,this,"delete()"));
+            logUtil.put(success,this,"delete()");
          }
          
          return success;
@@ -95,7 +97,7 @@ public class AdminConfigurationRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"delete()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"delete()",e);
          }
          return error;
       }
@@ -112,7 +114,7 @@ public class AdminConfigurationRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            LogUtil.put(LogFactory.getInstance(success,this,"update()"));
+            logUtil.put(success,this,"update()");
          }
          return success;
       }
@@ -122,7 +124,7 @@ public class AdminConfigurationRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"update()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"update()",e);
          }
          return error;
       }

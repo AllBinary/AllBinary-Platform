@@ -21,6 +21,8 @@ import org.allbinary.logic.string.StringMaker;
 public class MultipleScrollSelectionHorizontalForm 
 extends ScrollSelectionForm
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final int backgroundColor = BasicColorFactory.getInstance().TRANSPARENT_GREY.intValue();
     
     public MultipleScrollSelectionHorizontalForm(final String title, final CustomItem[] items, 
@@ -105,7 +107,7 @@ extends ScrollSelectionForm
         } catch (Exception e)
         {
             PreLogUtil.put(commonStrings.EXCEPTION, this, canvasStrings.PAINT);
-            //LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, canvasStrings.PAINT, e));
+            //logUtil.put(commonStrings.EXCEPTION, this, canvasStrings.PAINT, e);
         }
     }
 

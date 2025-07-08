@@ -24,6 +24,8 @@ import org.w3c.dom.Node;
 public class CategoryPropertiesValidationView extends CategoryPropertiesView 
     implements ValidationInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    public CategoryPropertiesValidationView(CategoryPropertiesInterface categoryPropertiesInterface)
    {
       super(categoryPropertiesInterface);
@@ -49,7 +51,7 @@ public class CategoryPropertiesValidationView extends CategoryPropertiesView
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                  org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to generate validation info error", this, "validationInfo()", e));
+            logUtil.put("Failed to generate validation info error", this, "validationInfo()", e);
          }
          return "Error Validating Data";
       }

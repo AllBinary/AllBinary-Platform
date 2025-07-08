@@ -19,6 +19,8 @@ import org.allbinary.android.input.motion.event.AnalogControllerConfigurationEve
 import org.allbinary.logic.math.ScaleFactorFactory;
 
 public class AnalogControllerConfigurationFactory {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final AnalogControllerConfigurationFactory instance = new AnalogControllerConfigurationFactory();
 
@@ -44,7 +46,7 @@ public class AnalogControllerConfigurationFactory {
 
     public void setAvailable(boolean available)
             throws Exception {
-            //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL + available, this, "setAvailable"));
+            //logUtil.put(commonStrings.START_LABEL + available, this, "setAvailable");
 
         this.available = available;
 

@@ -39,6 +39,8 @@ import org.allbinary.string.CommonStrings;
 public class StoreFileGenerator 
     extends TransformInfoObjectConfigGenerator
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final String output;
@@ -134,7 +136,7 @@ public class StoreFileGenerator
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            LogUtil.put(LogFactory.getInstance("File: " + this.fileAbPath.toString(), this, this.commonStrings.CONSTRUCTOR));
+            logUtil.put("File: " + this.fileAbPath.toString(), this, this.commonStrings.CONSTRUCTOR);
         }
     }
 
@@ -143,7 +145,7 @@ public class StoreFileGenerator
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            LogUtil.put(LogFactory.getInstance("Processing", this, commonStrings.PROCESS));
+            logUtil.put("Processing", this, commonStrings.PROCESS);
         }
 
         if (!this.file.exists())
@@ -163,7 +165,7 @@ public class StoreFileGenerator
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            LogUtil.put(LogFactory.getInstance("Processed", this, commonStrings.PROCESS));
+            logUtil.put("Processed", this, commonStrings.PROCESS);
         }
 
         return StringUtil.getInstance().EMPTY_STRING;

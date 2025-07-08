@@ -27,6 +27,8 @@ import org.allbinary.math.PositionStrings;
 
 public class BasicVelocityProperties implements BasicVelocityInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final BasicDecimal velocityXBasicDecimal;
     protected final BasicDecimal velocityYBasicDecimal;
     protected final BasicDecimal velocityZBasicDecimal;
@@ -134,7 +136,7 @@ public class BasicVelocityProperties implements BasicVelocityInterface
         final long yVector = (axisMathVectorUtil.calculateY(magnitude, angle) / velocityYBasicDecimal.getScaledFactorValue());
         final long zVector = (axisMathVectorUtil.calculateZ(magnitude, otherAngle) / velocityZBasicDecimal.getScaledFactorValue());
 
-        //LogUtil.put(LogFactory.getInstance(this.toString(), this, commonStrings.ADD));
+        //logUtil.put(this.toString(), this, commonStrings.ADD);
 
         // StringMaker stringBuffer = new StringMaker();
 
@@ -160,7 +162,7 @@ public class BasicVelocityProperties implements BasicVelocityInterface
         final long yVector = (axisMathVectorUtil.calculateY(magnitude, angle) / velocityYBasicDecimal.getScaledFactorValue());
         final long zVector = (axisMathVectorUtil.calculateZ(magnitude, otherAngle) / velocityZBasicDecimal.getScaledFactorValue());
         
-        //LogUtil.put(LogFactory.getInstance(this.toString(), this, commonStrings.ADD));
+        //logUtil.put(this.toString(), this, commonStrings.ADD);
         velocityXBasicDecimal.add(xVector);
         velocityYBasicDecimal.add(yVector);
         velocityZBasicDecimal.add(zVector);

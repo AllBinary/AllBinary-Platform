@@ -25,6 +25,8 @@ import org.allbinary.logic.util.event.handler.BasicEventHandler;
 
 public class UpKeyEventHandlerBase extends BasicEventHandler
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private final BasicArrayList list = new BasicArrayList();
    
    protected UpKeyEventHandlerBase()
@@ -70,7 +72,7 @@ public class UpKeyEventHandlerBase extends BasicEventHandler
            }
            catch (Exception e)
            {
-               LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
+               logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
            }
        }
 
@@ -84,7 +86,7 @@ public class UpKeyEventHandlerBase extends BasicEventHandler
             }
             catch (Exception e)
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
+                logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
         }
    }
@@ -119,7 +121,7 @@ public class UpKeyEventHandlerBase extends BasicEventHandler
             }
             catch (Exception e)
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.TOSTRING, e));
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.TOSTRING, e);
             }
         }
         return stringBuffer.toString();

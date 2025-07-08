@@ -30,6 +30,8 @@ import org.allbinary.util.BasicArrayList;
  * @author User
  */
 public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     protected static final Waypoint2SelectedLogHelper instance = new Waypoint2SelectedLogHelper();
 
@@ -65,7 +67,7 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
         stringBuffer.append(SENSOR_RANGE);
         stringBuffer.append(sensorRange);
 
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "selected: initRange"));
+        logUtil.put(stringBuffer.toString(), this, "selected: initRange");
 
     }
 
@@ -86,7 +88,7 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
             stringBuffer.append(CURRENT_TARGET_NOT_AVAILABLE);
             stringBuffer.append((waypointBehaviorBase.getCurrentTargetLayerInterface() == null));
 
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, PROCESS_POSSIBLE_TARGET));
+            logUtil.put(stringBuffer.toString(), this, PROCESS_POSSIBLE_TARGET);
         }
 
     }
@@ -104,7 +106,7 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
         stringBuffer.append(" anotherTargetDistance: ");
         stringBuffer.append(anotherTargetDistance);
 
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "selected: processPossibleTarget2"));
+        logUtil.put(stringBuffer.toString(), this, "selected: processPossibleTarget2");
 
     }
 
@@ -121,7 +123,7 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
         stringBuffer.append(" anotherTargetDistance: ");
         stringBuffer.append(anotherTargetDistance);
 
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "selected: processPossibleTarget3"));
+        logUtil.put(stringBuffer.toString(), this, "selected: processPossibleTarget3");
 
     }
 
@@ -140,13 +142,13 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
         stringBuffer.append(" instead of: ");
         stringBuffer.append(waypointBehaviorBase.getCurrentTargetingStateString());
 
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "selected: setTarget"));
+        logUtil.put(stringBuffer.toString(), this, "selected: setTarget");
 
     }
     
     //@Override
     public void setTargetPath(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
-        LogUtil.put(LogFactory.getInstance( "Target Destroyed", this, "selected: setTargetPath"));
+        logUtil.put( "Target Destroyed", this, "selected: setTargetPath");
     }
 
     //@Override
@@ -160,7 +162,7 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(stringUtil.toString(waypointBehaviorBase.getCurrentTargetLayerInterface()));
 
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "selected: setTargetPath"));
+        logUtil.put(stringBuffer.toString(), this, "selected: setTargetPath");
 
     }
 
@@ -181,7 +183,7 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
         stringBuffer.append(" WaypointOverridesAttacking: ");
         stringBuffer.append(waypointBehaviorBase.isWaypointOverridesAttacking());
 
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "selected: processWaypoint"));
+        logUtil.put(stringBuffer.toString(), this, "selected: processWaypoint");
 
     }
 
@@ -198,7 +200,7 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
         stringBuffer.append(" Tracked: ");
         stringBuffer.append(stringUtil.toString(waypointBehaviorBase.getCurrentGeographicMapCellHistory().getTracked()));
 
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "selected: processWaypoint"));
+        logUtil.put(stringBuffer.toString(), this, "selected: processWaypoint");
 
     }
 
@@ -211,23 +213,23 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
         stringBuffer.append(" Visited: ");
         stringBuffer.append(stringUtil.toString(geographicMapCellPosition));
 
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "selected: processWaypoint"));
+        logUtil.put(stringBuffer.toString(), this, "selected: processWaypoint");
         
     }
 
     //@Override
     public void processWaypointTrackedWithoutProgress(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final String reason) {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(reason).toString(), this, "turnTo"));
+        logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(reason).toString(), this, "turnTo");
     }
     
     //@Override
     public void wander(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
-        LogUtil.put(LogFactory.getInstance(associatedAdvancedRTSGameLayer.getName(), this, "wander"));
+        logUtil.put(associatedAdvancedRTSGameLayer.getName(), this, "wander");
     }
 
     //@Override
     public void targetDestroyed(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
-        LogUtil.put(LogFactory.getInstance( new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" Target Destroyed").toString(), this, "selected: processTargeting"));
+        logUtil.put( new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" Target Destroyed").toString(), this, "selected: processTargeting");
     }
     
     //@Override
@@ -243,7 +245,7 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
         stringBuffer.append(positionStrings.DY_LABEL);
         stringBuffer.append(dy);
 
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "selected: processTargeting"));
+        logUtil.put(stringBuffer.toString(), this, "selected: processTargeting");
         
     }
 
@@ -260,7 +262,7 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
         stringBuffer.append(positionStrings.DY_LABEL);
         stringBuffer.append(dy);
 
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "selected: processTargeting"));
+        logUtil.put(stringBuffer.toString(), this, "selected: processTargeting");
 
     }
 
@@ -277,7 +279,7 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
         stringBuffer.append(" because: ");
         stringBuffer.append(reason);
 
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "selected: removeWaypoint"));
+        logUtil.put(stringBuffer.toString(), this, "selected: removeWaypoint");
 
     }
     
@@ -291,19 +293,19 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
         stringBuffer.append(" Waypoints: ");
         stringBuffer.append(stringUtil.toString(list));
 
-        LogUtil.put(LogFactory.getInstance(
-            stringBuffer.toString(), this, "selected: removeWaypoint"));
+        logUtil.put(
+            stringBuffer.toString(), this, "selected: removeWaypoint");
     }
     
 
     //@Override
     public void removeWaypointClear(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
-        LogUtil.put(LogFactory.getInstance( new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" Clearing removed waypoint").toString(), this, "selected: removeWaypoint"));
+        logUtil.put( new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" Clearing removed waypoint").toString(), this, "selected: removeWaypoint");
     }
 
     //@Override
     public void clearTarget(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" Cleared Target").toString(), this, "selected: clearTarget"));
+        logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" Cleared Target").toString(), this, "selected: clearTarget");
     }
 
     //@Override
@@ -323,13 +325,13 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
                 stringBuffer.append(advancedRTSGameLayer.getParentLayer().getName());
             }
 
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this,"selected: onWaypointEvent"));
+            logUtil.put(stringBuffer.toString(), this,"selected: onWaypointEvent");
         
     }
 
     //@Override
     public void targetMovedSoRetarget(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" - target moved so retargeting").toString(), this, "turnTo"));
+        logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" - target moved so retargeting").toString(), this, "turnTo");
     }
     
 }

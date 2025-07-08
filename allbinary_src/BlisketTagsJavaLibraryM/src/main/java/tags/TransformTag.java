@@ -29,6 +29,8 @@ import tags.transform.info.TransformInfoTag;
 
 public class TransformTag extends TransformInfoTag
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     //The View HelperObject must contain a
     //view object that implements the view interface
 
@@ -38,7 +40,7 @@ public class TransformTag extends TransformInfoTag
         //this.helperObject = null;
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR));
+            logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         }
     }
 
@@ -47,7 +49,7 @@ public class TransformTag extends TransformInfoTag
         super(tagHelperFactoryInterface);
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR));
+            logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         }
     }
 
@@ -63,7 +65,7 @@ public class TransformTag extends TransformInfoTag
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "view()", e));
+                logUtil.put(commonStrings.EXCEPTION, this, "view()", e);
             }
             throw e;
         }
@@ -75,8 +77,8 @@ public class TransformTag extends TransformInfoTag
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
             {
-                LogUtil.put(LogFactory.getInstance(
-                    "Creating with: \n" + this.getPropertiesHashMap().toString(), this, "doStartTag"));
+                logUtil.put(
+                    "Creating with: \n" + this.getPropertiesHashMap().toString(), this, "doStartTag");
             }
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
@@ -88,7 +90,7 @@ public class TransformTag extends TransformInfoTag
                 stringBuffer.append("\nViewFile: ");
                 stringBuffer.append(this.getObjectFile());
 
-                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "doStartTag"));
+                logUtil.put(stringBuffer.toString(), this, "doStartTag");
             }
 
             this.setHelper();
@@ -97,7 +99,7 @@ public class TransformTag extends TransformInfoTag
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
             {
-                LogUtil.put(LogFactory.getInstance("Tag End", this, "doStartTag"));
+                logUtil.put("Tag End", this, "doStartTag");
             }
 
             return SKIP_BODY;

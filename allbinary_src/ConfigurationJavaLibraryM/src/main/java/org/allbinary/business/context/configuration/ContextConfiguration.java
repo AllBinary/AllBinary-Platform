@@ -23,20 +23,22 @@ import org.allbinary.string.CommonStrings;
 
 public class ContextConfiguration implements ContextConfigurationInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final CommonStrings commonStrings = CommonStrings.getInstance();
 
     private EmailServerConfigurationInterface emailServerConfigurationInterface;
 
     public ContextConfiguration()
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "ContextConfiguration"));
+        logUtil.put(commonStrings.START, this, "ContextConfiguration");
 
         this.setEmailServerConfigurationInterface((EmailServerConfigurationInterface) new EmailServerConfiguration());
     }
 
     public ContextConfiguration(HashMap hashMap)
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "ContextConfiguration(HashMap)"));
+        logUtil.put(commonStrings.START, this, "ContextConfiguration(HashMap)");
 
         this.setEmailServerConfigurationInterface((EmailServerConfigurationInterface) new EmailServerConfiguration(hashMap));
     }

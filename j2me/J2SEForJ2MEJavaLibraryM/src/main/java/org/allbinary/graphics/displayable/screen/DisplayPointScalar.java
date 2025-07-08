@@ -23,6 +23,8 @@ import org.allbinary.graphics.displayable.DisplayInfoSingleton;
  * @author User
  */
 public class DisplayPointScalar {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     
     private static final DisplayPointScalar instance = new DisplayPointScalar();
 
@@ -47,11 +49,11 @@ public class DisplayPointScalar {
     public GPoint process(final GPoint point) {
         return point;
         //final CommonStrings commonStrings = CommonStrings.getInstance();
-        //LogUtil.put(LogFactory.getInstance("point: " + point, this, commonStrings.PROCESS));
+        //logUtil.put("point: " + point, this, commonStrings.PROCESS);
         //800 by 480 is the default window.  I assume it is being scaled from that initial window.
         //final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
         //final float ratio = 480f / (float) (displayInfoSingleton.getLastHeight());
-        //LogUtil.put(LogFactory.getInstance("ratio: " + ratio, this, commonStrings.PROCESS));
+        //logUtil.put("ratio: " + ratio, this, commonStrings.PROCESS);
 //        return PointFactory.getInstance().getInstance(
 //                //(int) (point.getX() * ratio), 
 //                point.getX(),

@@ -31,6 +31,8 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 
 public class InputAutomationModuleConfigurations
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private HashMap hashMap;
         
     public InputAutomationModuleConfigurations(final AbeClientInformationInterface abeClientInformation, final File file)
@@ -51,7 +53,7 @@ public class InputAutomationModuleConfigurations
         {
             final NodeList nameNodeList = document.getElementsByTagName(InputAutomationModuleData.NAME);
             
-            LogUtil.put(LogFactory.getInstance("Number Of Module(s) Specified: " + nameNodeList.getLength(), this,"Contructor"));
+            logUtil.put("Number Of Module(s) Specified: " + nameNodeList.getLength(), this,"Contructor");
             
             for(int index = 0; index < nameNodeList.getLength(); index++)
             {
@@ -67,7 +69,7 @@ public class InputAutomationModuleConfigurations
         this.setHashMap(new HashMap());
         
         final NodeList nameNodeList = document.getElementsByTagName(InputAutomationModuleData.NAME);
-        LogUtil.put(LogFactory.getInstance("Number Of Module(s) Specified: " + nameNodeList.getLength(), this,"Contructor"));
+        logUtil.put("Number Of Module(s) Specified: " + nameNodeList.getLength(), this,"Contructor");
         
         for(int index = 0; index < nameNodeList.getLength(); index++)
         {

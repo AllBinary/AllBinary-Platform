@@ -15,6 +15,8 @@ package org.allbinary.game.input;
 
 public class J2MEKeyFactory
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final J2MEKeyFactory instance = new J2MEKeyFactory();
 
     public static final J2MEKeyFactory getInstance()

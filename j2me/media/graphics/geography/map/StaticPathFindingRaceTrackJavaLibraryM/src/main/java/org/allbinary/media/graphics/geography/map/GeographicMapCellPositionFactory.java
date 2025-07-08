@@ -23,6 +23,8 @@ import org.allbinary.logic.string.StringMaker;
 
 public class GeographicMapCellPositionFactory extends GeographicMapCellPositionBaseFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final static Hashtable hashtable = new Hashtable();
     
   //For the Non Caching version - Turning off caching here requires turning of caching of paths as well
@@ -38,18 +40,18 @@ public class GeographicMapCellPositionFactory extends GeographicMapCellPositionB
         if (geographicMapCellPositionFactory != null)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(
+            logUtil.put(
                 new StringMaker().append("Reusing GeographicMapCellPositionFactory for TileLayer: ").append(allBinaryTiledLayer.getDataId()).toString(), 
-                this, commonStrings.GET_INSTANCE));
+                this, commonStrings.GET_INSTANCE);
 
             return geographicMapCellPositionFactory;
         }
         else
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(
+            logUtil.put(
                 new StringMaker().append("Creating GeographicMapCellPositionFactory for TileLayer: ").append(allBinaryTiledLayer.getDataId()).toString(), 
-                    this,commonStrings.GET_INSTANCE));
+                    this,commonStrings.GET_INSTANCE);
 
             geographicMapCellPositionFactory = new BasicGeographicMapCellPositionFactory(
                 geographicMapInterface);

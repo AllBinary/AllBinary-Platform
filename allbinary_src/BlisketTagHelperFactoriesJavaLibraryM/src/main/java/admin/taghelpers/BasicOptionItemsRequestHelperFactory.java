@@ -24,6 +24,8 @@ import org.allbinary.string.CommonStrings;
 
 public class BasicOptionItemsRequestHelperFactory extends TagHelperFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    public BasicOptionItemsRequestHelperFactory()
    {
    }
@@ -40,7 +42,7 @@ public class BasicOptionItemsRequestHelperFactory extends TagHelperFactory
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
             }
             return null;
         }

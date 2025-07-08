@@ -25,6 +25,8 @@ import java.util.HashMap;
  */
 public class RotateJDialog extends javax.swing.JDialog 
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private HashMap hashMap = new HashMap();
     
     /** Creates new form RotateJDialog */
@@ -128,7 +130,7 @@ public class RotateJDialog extends javax.swing.JDialog
        catch(Exception e)
        {
            final CommonStrings commonStrings = CommonStrings.getInstance();
-          LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "jButton1ActionPerformed"));
+          logUtil.put(commonStrings.EXCEPTION, this, "jButton1ActionPerformed");
        }
     }//GEN-LAST:event_jButton1ActionPerformed
     

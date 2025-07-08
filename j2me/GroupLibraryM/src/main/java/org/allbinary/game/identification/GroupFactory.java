@@ -19,6 +19,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.util.BasicArrayList;
 
 public class GroupFactory {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
    private static GroupFactory instance = new GroupFactory();
 
@@ -33,7 +35,7 @@ public class GroupFactory {
    public Group getNextGroup()
    {
       Group group = (Group) list.objectArray[index];
-      //LogUtil.put(LogFactory.getInstance(new StringMaker().append("group: ").append(group).append(" index: ").append(index).toString(), this, "getNextGroup"));
+      //logUtil.put(new StringMaker().append("group: ").append(group).append(" index: ").append(index).toString(), this, "getNextGroup");
       index++;
       return group;
    }
@@ -41,7 +43,7 @@ public class GroupFactory {
    public Group getNextGroup(final String name)
    {
       final Group group = this.getNextGroup();
-      //LogUtil.put(LogFactory.getInstance(new StringMaker().append("group: ").append(group).append(" name: ").append(name).toString(), this, "getNextGroup"));
+      //logUtil.put(new StringMaker().append("group: ").append(group).append(" name: ").append(name).toString(), this, "getNextGroup");
       group.setName(name);
       return group;
    }
@@ -70,7 +72,7 @@ public class GroupFactory {
          size++;
       }
       
-      //LogUtil.put(LogFactory.getInstance("size: " + list.size(), this, this.commonStrings.INIT));
+      //logUtil.put("size: " + list.size(), this, this.commonStrings.INIT);
    }
    
 }

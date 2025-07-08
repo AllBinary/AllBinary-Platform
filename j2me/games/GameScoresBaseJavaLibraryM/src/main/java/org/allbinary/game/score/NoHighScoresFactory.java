@@ -19,6 +19,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class NoHighScoresFactory extends HighScoresBase
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final NoHighScoresFactory instance = new NoHighScoresFactory();
     
@@ -36,7 +38,7 @@ public class NoHighScoresFactory extends HighScoresBase
     
     public void fetchHighScores(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener)
     {   
-        LogUtil.put(LogFactory.getInstance("Getting No HighScores", this, "fetchHighScores"));
+        logUtil.put("Getting No HighScores", this, "fetchHighScores");
         highScoresResultsListener.setHighScoresArray(NO_HIGH_SCORES);
     }
     

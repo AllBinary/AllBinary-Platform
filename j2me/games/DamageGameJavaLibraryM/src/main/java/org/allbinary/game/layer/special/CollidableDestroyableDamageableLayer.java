@@ -53,6 +53,8 @@ implements DestroyableInterface, DamageableInterface,
 PickupCompositeInterface, SpecialGameInputInterface,
 OpenGLSurfaceChangedInterface
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private Group[] groupInterface;
     private boolean readyForExplosion;
@@ -105,7 +107,7 @@ OpenGLSurfaceChangedInterface
     //Should be overridden
     public void paint(final Graphics graphics)
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.NOT_IMPLEMENTED, this, canvasStrings.PAINT));
+        //logUtil.put(commonStrings.NOT_IMPLEMENTED, this, canvasStrings.PAINT);
         super.paint(graphics);
     }
 
@@ -144,7 +146,7 @@ OpenGLSurfaceChangedInterface
 
     public void setAllBinaryGameLayerManager(final AllBinaryGameLayerManager allBinaryGameLayerManager) throws Exception {
         this.allBinaryGameLayerManager = allBinaryGameLayerManager;
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.START).append(this.getName()).append(CommonSeps.getInstance().SPACE).append(allBinaryGameLayerManager).toString(), this, commonStrings.PROCESS));
+        //logUtil.put(new StringMaker().append(commonStrings.START).append(this.getName()).append(CommonSeps.getInstance().SPACE).append(allBinaryGameLayerManager).toString(), this, commonStrings.PROCESS);
         if (this.allBinaryGameLayerManager == null) {
             throw new RuntimeException();
         }

@@ -28,13 +28,15 @@ import org.allbinary.logic.communication.log.PreLogUtil;
  */
 public class EmulatorCustomRenderer //extends CustomRenderer
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     protected final RendererStrings renderStrings = RendererStrings.getInstance();
     
     //Wait until emulator is initialized
     public void onSurfaceCreated(final GL10 gl, final EGLConfig eglConfig)
     {        
-    	LogUtil.put(LogFactory.getInstance(commonStrings.START, this, this.renderStrings.ON_SURFACE_CREATED));
+    	logUtil.put(commonStrings.START, this, this.renderStrings.ON_SURFACE_CREATED);
 
         final InitEmulatorFactory initEmulatorFactory = InitEmulatorFactory.getInstance();
         
@@ -46,13 +48,13 @@ public class EmulatorCustomRenderer //extends CustomRenderer
 
                 while(!initEmulatorFactory.isInitEmulator())
                 {
-                    //LogUtil.put(LogFactory.getInstance(WAIT_FOR_EMULATOR, this, METHOD_NAME));
+                    //logUtil.put(WAIT_FOR_EMULATOR, this, METHOD_NAME);
                     PreLogUtil.put(WAIT_FOR_EMULATOR, this, this.renderStrings.ON_SURFACE_CREATED);
                     Thread.sleep(180);
                 }
             } catch (Exception e)
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, this.renderStrings.ON_SURFACE_CREATED, e));
+                logUtil.put(commonStrings.EXCEPTION, this, this.renderStrings.ON_SURFACE_CREATED, e);
             }
         }
         

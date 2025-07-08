@@ -23,6 +23,8 @@ import org.allbinary.string.CommonStrings;
  * @author User
  */
 public class TopViewGameLayerBehavior extends GameLayerBehavior {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     //private final CommonStrings commonStrings = CommonStrings.getInstance();
 
@@ -46,7 +48,7 @@ public class TopViewGameLayerBehavior extends GameLayerBehavior {
     }
 
     public void land(final VelocityProperties velocityProperties) {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "land"));
+        //logUtil.put(commonStrings.START, this, "land");
         velocityProperties.getVelocityYBasicDecimal().set(0);
         this.land();
         // Takes a long time - unknown
@@ -65,19 +67,19 @@ public class TopViewGameLayerBehavior extends GameLayerBehavior {
 
             if(gravityActionIndex < maxGravityActionIndex) {
                 final int acceleration2 = -acceleration.getForward() * accelerationMultiplier;
-                //LogUtil.put(LogFactory.getInstance("Jump: " + velocityProperties.getVelocityYBasicDecimal().getUnscaled(), this, commonStrings.UP));
-                //LogUtil.put(LogFactory.getInstance("Acceleration: " + acceleration2, this, commonStrings.UP));
+                //logUtil.put("Jump: " + velocityProperties.getVelocityYBasicDecimal().getUnscaled(), this, commonStrings.UP);
+                //logUtil.put("Acceleration: " + acceleration2, this, commonStrings.UP);
                 velocityProperties.getVelocityYBasicDecimal().add(acceleration2);
-                //LogUtil.put(LogFactory.getInstance("Jumping: " + velocityProperties.getVelocityYBasicDecimal().getUnscaled(), this, commonStrings.UP));
+                //logUtil.put("Jumping: " + velocityProperties.getVelocityYBasicDecimal().getUnscaled(), this, commonStrings.UP);
                 velocityProperties.limitXYToForwardAndReverseMaxVelocity();
 
                 // this.getVelocityProperties().addVelocity(this.acceleration.getForward(), angle);
                 gravityActionIndex++;
             } else {
-                //LogUtil.put(LogFactory.getInstance("Jump peaked", this, commonStrings.UP));
+                //logUtil.put("Jump peaked", this, commonStrings.UP);
             }
         } else {
-            //LogUtil.put(LogFactory.getInstance("Jump over", this, commonStrings.UP));
+            //logUtil.put("Jump over", this, commonStrings.UP);
         }
 
         if (isJumpAction) {
@@ -92,7 +94,7 @@ public class TopViewGameLayerBehavior extends GameLayerBehavior {
     
     public void inputFrames(final VelocityProperties velocityProperties) {
         if (this.gravityActionIndex > 0 && velocityProperties.getVelocityYBasicDecimal().getUnscaled() > 0) {
-            //LogUtil.put(LogFactory.getInstance("Falling from jump now", this, "inputFrames"));
+            //logUtil.put("Falling from jump now", this, "inputFrames");
             this.isJumpOver = true;
         }
     }

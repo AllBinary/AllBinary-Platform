@@ -25,6 +25,8 @@ import org.allbinary.math.FrameUtil;
 
 public class AllBinarySpriteRotationAnimation extends HackRotationSpriteIndexedAnimation
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     public AllBinarySpriteRotationAnimation(final Sprite sprite, final Image image, final AnimationBehavior animationBehavior)
     {
         super(sprite, image,
@@ -33,7 +35,7 @@ public class AllBinarySpriteRotationAnimation extends HackRotationSpriteIndexedA
                 animationBehavior);
 
         //(sprite.getWidth() / sprite.getHeight()) % 
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("sprite.getRawFrameCount(): ").append(sprite.getRawFrameCount()).toString(), this, commonStrings.CONSTRUCTOR));
+        //logUtil.put(new StringMaker().append("sprite.getRawFrameCount(): ").append(sprite.getRawFrameCount()).toString(), this, commonStrings.CONSTRUCTOR);
 
         this.angleInfo.adjustAngle(this.sprite.getFrame());
     }
@@ -52,21 +54,21 @@ public class AllBinarySpriteRotationAnimation extends HackRotationSpriteIndexedA
     
     public void nextRotation()
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "nextFrame"));
+        //logUtil.put(commonStrings.START, this, "nextFrame");
         this.sprite.nextFrame();
         this.angleInfo.adjustAngle(this.sprite.getFrame());
     }
 
     public void previousRotation()
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "previousFrame"));
+        //logUtil.put(commonStrings.START, this, "previousFrame");
         this.sprite.prevFrame();
         this.angleInfo.adjustAngle(this.sprite.getFrame());
     }
 
     public void setFrame(Direction direction)
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "setFrame"));
+        //logUtil.put(commonStrings.START, this, "setFrame");
         Angle angle = directionUtil.getFrameAngle(direction);
         this.adjustFrame(angle);
     }

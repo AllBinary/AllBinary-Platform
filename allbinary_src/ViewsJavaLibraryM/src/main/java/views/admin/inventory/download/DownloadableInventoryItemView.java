@@ -44,6 +44,8 @@ public class DownloadableInventoryItemView
     extends HttpStoreComponentView
     implements RequestMapInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final HttpServletRequest request;
     protected String id;
     protected ItemInterface itemInterface;
@@ -105,7 +107,7 @@ public class DownloadableInventoryItemView
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "view()", e));
+                logUtil.put(commonStrings.EXCEPTION, this, "view()", e);
             }
             throw e;
         }
@@ -123,10 +125,10 @@ public class DownloadableInventoryItemView
     {
     int size = this.processFile(fileKeyArray[index]);
 
-    LogUtil.put(LogFactory.getInstance("Size: " + size, this, "processFiles()"));
+    logUtil.put("Size: " + size, this, "processFiles()");
     if(index == 1)
     {
-    LogUtil.put(LogFactory.getInstance("set", this, "processFiles()"));
+    logUtil.put("set", this, "processFiles()");
     this.getRequestHashMap().put(DownloadItemData.SIZE, Integer.valueOf(size));
     }
     }
@@ -172,11 +174,11 @@ public class DownloadableInventoryItemView
         stringBuffer.append(fullPath);
         stringBuffer.append(fileName);
 
-        LogUtil.put(LogFactory.getInstance("FileName: " + fileName, this, "processFile()"));
+        logUtil.put("FileName: " + fileName, this, "processFile()");
 
         final AbFile file = new AbFile(stringBuffer.toString());
 
-        LogUtil.put(LogFactory.getInstance(file.getPath(), this, "processFiles()"));
+        logUtil.put(file.getPath(), this, "processFiles()");
 
         file.createNewFile();
 
@@ -199,11 +201,11 @@ public class DownloadableInventoryItemView
         stringBuffer.append(fullPath);
         stringBuffer.append(fileName);
 
-        LogUtil.put(LogFactory.getInstance("FileName: " + fileName, this, "unzip()"));
+        logUtil.put("FileName: " + fileName, this, "unzip()");
 
         final AbFile file = new AbFile(stringBuffer.toString());
 
-        LogUtil.put(LogFactory.getInstance(file.getPath(), this, "unzip()"));
+        logUtil.put(file.getPath(), this, "unzip()");
 
         ZipFileUtil.getInstance().unzip(fullPath, file, fileName);
     }

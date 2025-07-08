@@ -19,6 +19,8 @@ import org.allbinary.game.configuration.feature.MainFeatureFactory;
 
 public class ApplicationConfiguration
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final ApplicationConfiguration instance = 
         new ApplicationConfiguration();
 
@@ -56,7 +58,7 @@ public class ApplicationConfiguration
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
         }
     }
 
@@ -120,8 +122,8 @@ public class ApplicationConfiguration
         }
 
         //PreLogUtil.put("Read Configuration: " + this.toString(), this, "read");
-        LogUtil.put(LogFactory.getInstance(
-                "Read Configuration: " + this.toString(), this, "read"));
+        logUtil.put(
+                "Read Configuration: " + this.toString(), this, "read");
     }
 
     public void write() throws Exception
@@ -130,8 +132,8 @@ public class ApplicationConfiguration
         try
         {
         //PreLogUtil.put("Write Configuration: " + this.toString(), this, "write");
-        LogUtil.put(LogFactory.getInstance(
-                "Write Configuration: " + this.toString(), this, "write"));
+        logUtil.put(
+                "Write Configuration: " + this.toString(), this, "write");
         
         FileStreamFactory fileInputStreamFactory = 
             FileStreamFactory.getInstance();

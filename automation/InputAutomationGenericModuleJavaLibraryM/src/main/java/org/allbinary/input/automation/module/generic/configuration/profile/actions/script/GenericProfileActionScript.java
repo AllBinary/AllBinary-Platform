@@ -38,6 +38,8 @@ public class GenericProfileActionScript
     extends DefaultMutableTreeNode
     implements ProfileActionScriptNodeInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private GenericProfileActionJPanel genericProfileActionJPanel;
@@ -93,7 +95,7 @@ public class GenericProfileActionScript
     public void addCondition(
         ProfileActionScriptNodeInterface profileActionScriptNodeInterface)
     {
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "addCondition"));
+        logUtil.put(this.commonStrings.START, this, "addCondition");
         this.getProfileActionConditionInterfaceVector().add(
             profileActionScriptNodeInterface);
         this.add(profileActionScriptNodeInterface);
@@ -102,7 +104,7 @@ public class GenericProfileActionScript
     public void removeCondition(
         ProfileActionScriptNodeInterface profileActionScriptNodeInterface)
     {
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "removeCondition"));
+        logUtil.put(this.commonStrings.START, this, "removeCondition");
         this.getProfileActionConditionInterfaceVector().remove(
             profileActionScriptNodeInterface);
         this.remove(profileActionScriptNodeInterface);
@@ -112,7 +114,7 @@ public class GenericProfileActionScript
     {
         HashMap hashMap = new HashMap();
 
-        LogUtil.put(LogFactory.getInstance("HashMap: " + hashMap.toString(), this, "toHashMap()"));
+        logUtil.put("HashMap: " + hashMap.toString(), this, "toHashMap()");
         
         return hashMap;
     }

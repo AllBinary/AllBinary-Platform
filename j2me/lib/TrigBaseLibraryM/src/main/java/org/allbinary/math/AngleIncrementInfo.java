@@ -18,6 +18,8 @@ import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 
 public class AngleIncrementInfo
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
    private final short angleIncrement;
    
    public final Integer DOWN_FRAME;
@@ -40,13 +42,13 @@ public class AngleIncrementInfo
 
       /*
       String message = "DOWN_FRAME = " + this.DOWN_FRAME + " Angle: " + this.getFrameAngle(this.DOWN_FRAME);
-      LogUtil.put(LogFactory.getInstance(message, this, commonStrings.CONSTRUCTOR));
+      logUtil.put(message, this, commonStrings.CONSTRUCTOR);
       message = "UP_FRAME = " + this.UP_FRAME + " Angle: " + this.getFrameAngle(this.UP_FRAME);
-      LogUtil.put(LogFactory.getInstance(message, this, commonStrings.CONSTRUCTOR));
+      logUtil.put(message, this, commonStrings.CONSTRUCTOR);
       message = "LEFT_FRAME = " + this.LEFT_FRAME + " Angle: " + this.getFrameAngle(this.LEFT_FRAME);
-      LogUtil.put(LogFactory.getInstance(message, this, commonStrings.CONSTRUCTOR));
+      logUtil.put(message, this, commonStrings.CONSTRUCTOR);
       message = "RIGHT_FRAME = " + this.RIGHT_FRAME + " Angle: " + this.getFrameAngle(this.RIGHT_FRAME);
-      LogUtil.put(LogFactory.getInstance(message, this, commonStrings.CONSTRUCTOR));
+      logUtil.put(message, this, commonStrings.CONSTRUCTOR);
        */
    }
    

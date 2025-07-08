@@ -28,7 +28,9 @@ import org.allbinary.logic.communication.sql.AbSqlBean;
 
 public class QuoteRequestEntity extends AbSqlBean 
    implements QuoteRequestEntityInterface
-{   
+{
+    protected final LogUtil logUtil = LogUtil.getInstance();
+   
    private final String tableName = "quoterequest";
    
    public QuoteRequestEntity()
@@ -45,14 +47,14 @@ public class QuoteRequestEntity extends AbSqlBean
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS,this,INSERT));
+            logUtil.put(this.commonStrings.SUCCESS,this,INSERT);
          }
       }
       catch(Exception e)
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE,this,INSERT,e));
+            logUtil.put(this.commonStrings.FAILURE,this,INSERT,e);
          }
       }
    }
@@ -87,14 +89,14 @@ public class QuoteRequestEntity extends AbSqlBean
          super.deleteWhere(key,value);
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS,this,"deleteWhere"));
+            logUtil.put(this.commonStrings.SUCCESS,this,"deleteWhere");
          }
       }
       catch(Exception e)
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE,this,"deleteWhere",e));
+            logUtil.put(this.commonStrings.FAILURE,this,"deleteWhere",e);
          }
       }
    }

@@ -32,6 +32,8 @@ import org.allbinary.logic.math.BasicDecimal;
 
 public class GeographicMapCellHistory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final BooleanFactory booleanFactory = BooleanFactory.getInstance();
     
    private final BasicArrayList list;
@@ -88,7 +90,7 @@ public class GeographicMapCellHistory
          this.list.add(geographicMapCellPosition);
          this.visitedList.add(booleanFactory.FALSE);
       }
-   //LogUtil.put(LogFactory.getInstance("Position: " + geographicMapCellPosition, this, "track"));
+   //logUtil.put("Position: " + geographicMapCellPosition, this, "track");
    }
 
    public BasicArrayList getTracked()
@@ -190,7 +192,7 @@ public class GeographicMapCellHistory
       }
       else
       {
-         //LogUtil.put(LogFactory.getInstance(geographicMapCellPosition.toString() + " not being tracked", this, "visit"));
+         //logUtil.put(geographicMapCellPosition.toString() + " not being tracked", this, "visit");
       }
       return false;
    }
@@ -213,7 +215,7 @@ public class GeographicMapCellHistory
       }
       else
       {
-         //LogUtil.put(LogFactory.getInstance(geographicMapCellPosition.toString() + " not being tracked", this, "visit"));
+         //logUtil.put(geographicMapCellPosition.toString() + " not being tracked", this, "visit");
       }
       return false;
    }
@@ -272,10 +274,10 @@ public class GeographicMapCellHistory
       final int numberNotVisited = this.getSize() - 1 - this.totalVisited;
 
       /*
-      LogUtil.put(LogFactory.getInstance(
+      logUtil.put(
          "Total Visited: " + (size - numberNotVisited) +
          " out of " + size + " Number Required: " + numberRequired,
-         this, "isMostlyVisited"));
+         this, "isMostlyVisited");
       */
 
       if (size - numberNotVisited > numberRequired)
@@ -322,8 +324,8 @@ public class GeographicMapCellHistory
    /*
    if(currentTime - lastTime > 2000)
    {
-   //LogUtil.put(LogFactory.getInstance("x: " + x, this, "paintNotVisited"));
-   //LogUtil.put(LogFactory.getInstance("y: " + y, this, "paintNotVisited"));
+   //logUtil.put("x: " + x, this, "paintNotVisited");
+   //logUtil.put("y: " + y, this, "paintNotVisited");
    lastTime = currentTime;
    }
     */
@@ -365,7 +367,7 @@ public class GeographicMapCellHistory
       catch (Exception e)
       {
           final CommonStrings commonStrings = CommonStrings.getInstance();
-         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "paintNotVisited", e));
+         logUtil.put(commonStrings.EXCEPTION, this, "paintNotVisited", e);
       }
    }
    

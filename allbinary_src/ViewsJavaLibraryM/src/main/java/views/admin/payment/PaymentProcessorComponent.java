@@ -32,6 +32,8 @@ import views.business.context.modules.storefront.HttpStoreComponentView;
 public class PaymentProcessorComponent 
    extends HttpStoreComponentView
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    public PaymentProcessorComponent(TransformInfoInterface transformInfoInterface) 
       throws Exception
    {
@@ -66,7 +68,7 @@ public class PaymentProcessorComponent
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "view()", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "view()", e);
          }
          throw e;
       }

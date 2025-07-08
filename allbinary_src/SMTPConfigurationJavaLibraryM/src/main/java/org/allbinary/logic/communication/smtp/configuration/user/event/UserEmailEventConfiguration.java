@@ -21,7 +21,9 @@ import org.allbinary.logic.communication.log.LogUtil;
 import java.util.HashMap;
 
 public class UserEmailEventConfiguration implements UserEmailEventConfigurationInterface
-{  
+{
+    protected final LogUtil logUtil = LogUtil.getInstance();
+  
    private String name;
    
    //contains a vector of class paths to the event listeners
@@ -35,7 +37,7 @@ public class UserEmailEventConfiguration implements UserEmailEventConfigurationI
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
-         LogUtil.put(LogFactory.getInstance("New", this," Constructor"));
+         logUtil.put("New", this," Constructor");
       }
    }
    
@@ -46,7 +48,7 @@ public class UserEmailEventConfiguration implements UserEmailEventConfigurationI
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
-         LogUtil.put(LogFactory.getInstance("Log: " + this.log(), this," Constructor"));
+         logUtil.put("Log: " + this.log(), this," Constructor");
       }
    }
    

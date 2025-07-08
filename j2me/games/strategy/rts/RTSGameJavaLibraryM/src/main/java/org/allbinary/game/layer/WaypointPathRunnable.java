@@ -24,6 +24,8 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
  */
 public class WaypointPathRunnable extends WaypointPathRunnableBase
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     
     public WaypointPathRunnable()
     {
@@ -59,8 +61,8 @@ public class WaypointPathRunnable extends WaypointPathRunnableBase
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
-            //LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "run", e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+            //logUtil.put(commonStrings.EXCEPTION, this, "run", e);
             this.setRunning(false);
         }
     }

@@ -22,6 +22,8 @@ import org.allbinary.string.CommonPhoneStrings;
 
 public class AngleFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final AngleFactory instance = new AngleFactory();
 
     public static AngleFactory getInstance()
@@ -128,6 +130,6 @@ public class AngleFactory
                 .append(angleFactory.getClosestDirection(index).getValue())
                 .append(CommonSeps.getInstance().NEW_LINE);
         }
-        LogUtil.put(LogFactory.getInstance(stringMaker.toString(), "main", "main"));
+        LogUtil.getInstance().put(stringMaker.toString(), "main", "main");
     }
 }

@@ -22,7 +22,9 @@ import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
 
 public class LayerBounds implements BoundsChangeEventListener
-{   
+{
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+   
    protected Rectangle rectangle;
    
    protected LayerBounds(Rectangle rectangle)

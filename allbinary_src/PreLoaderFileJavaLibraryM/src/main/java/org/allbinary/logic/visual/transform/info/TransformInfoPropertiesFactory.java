@@ -25,6 +25,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class TransformInfoPropertiesFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final TransformInfoPropertiesFactory instance = new TransformInfoPropertiesFactory();
 
     public static TransformInfoPropertiesFactory getInstance() {
@@ -47,7 +49,7 @@ public class TransformInfoPropertiesFactory
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("Next View Name: " + name, this, "toTransformInfoPropertiesHashMap()"));
+         logUtil.put("Next View Name: " + name, this, "toTransformInfoPropertiesHashMap()");
       }
       
       final Node labelNode = DomSearchHelper.getNodeNoThrow(

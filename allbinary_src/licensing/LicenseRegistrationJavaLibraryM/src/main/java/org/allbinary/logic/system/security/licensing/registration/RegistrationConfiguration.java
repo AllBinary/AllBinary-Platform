@@ -30,6 +30,8 @@ import org.allbinary.logic.communication.log.PreLogUtil;
 
 public class RegistrationConfiguration
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final RegistrationConfiguration SINGLETON = new RegistrationConfiguration();
 
     private String registrationCode = "No Registration Code";
@@ -54,7 +56,7 @@ public class RegistrationConfiguration
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this,commonStrings.CONSTRUCTOR, e));
+            logUtil.put(commonStrings.EXCEPTION, this,commonStrings.CONSTRUCTOR, e);
         }
     }
 
@@ -86,8 +88,8 @@ public class RegistrationConfiguration
         try
         {
             
-        LogUtil.put(LogFactory.getInstance(
-                new StringMaker().append("Write Configuration: ").append(this.toString()).toString(), this, "write"));
+        logUtil.put(
+                new StringMaker().append("Write Configuration: ").append(this.toString()).toString(), this, "write");
         //PreLogUtil.put("Write Configuration: ").append(this.toString(), this, "write");
         
         FileStreamFactory fileInputStreamFactory = 

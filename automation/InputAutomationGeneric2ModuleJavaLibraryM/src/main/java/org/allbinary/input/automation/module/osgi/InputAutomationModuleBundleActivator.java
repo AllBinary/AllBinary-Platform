@@ -30,6 +30,8 @@ import org.osgi.framework.ServiceReference;
 public class InputAutomationModuleBundleActivator
     implements BundleActivator
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private InputAutomationModuleFactoryInterface[] inputAutomationModuleInterface;
@@ -68,8 +70,8 @@ public class InputAutomationModuleBundleActivator
         }
         else
         {
-            LogUtil.put(LogFactory.getInstance("No ServiceReference: " +
-                InputAutomationConfigurationModuleChangeListener.class.getName(), this, "addModules"));
+            logUtil.put("No ServiceReference: " +
+                InputAutomationConfigurationModuleChangeListener.class.getName(), this, "addModules");
             return null;
         }
     }
@@ -78,7 +80,7 @@ public class InputAutomationModuleBundleActivator
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "addModules"));
+            logUtil.put(this.commonStrings.START, this, "addModules");
             
             InputAutomationConfigurationModuleChangeListener
                 inputAutomationConfigurationModuleChangeListener =
@@ -100,7 +102,7 @@ public class InputAutomationModuleBundleActivator
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "addModules"));
+            logUtil.put(this.commonStrings.EXCEPTION, this, "addModules");
         }
     }
     
@@ -117,7 +119,7 @@ public class InputAutomationModuleBundleActivator
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "removeModules"));
+            logUtil.put(this.commonStrings.START, this, "removeModules");
             InputAutomationConfigurationModuleChangeListener
                 inputAutomationConfigurationModuleChangeListener =
                 this.getInputAutomationConfigurationModuleChangeListener(context);
@@ -138,14 +140,14 @@ public class InputAutomationModuleBundleActivator
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "removeModules"));
+            logUtil.put(this.commonStrings.EXCEPTION, this, "removeModules");
         }
     }
     
     public void start(BundleContext context)
     throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.START));
+        logUtil.put(this.commonStrings.START, this, this.commonStrings.START);
         
         this.addModules(context);
         
@@ -155,7 +157,7 @@ public class InputAutomationModuleBundleActivator
     public void stop(BundleContext context)
     throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "stop"));
+        logUtil.put(this.commonStrings.START, this, "stop");
         
         this.removeModules(context);
     }

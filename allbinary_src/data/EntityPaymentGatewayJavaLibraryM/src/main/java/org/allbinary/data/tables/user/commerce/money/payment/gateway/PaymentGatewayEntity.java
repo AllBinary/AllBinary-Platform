@@ -37,6 +37,8 @@ import org.allbinary.logic.control.crypt.SuperCrypt;
 
 public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEntityInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private final String tableName = "paymentgateways";
 
@@ -48,7 +50,7 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.CONSTRUCTOR, this, this.commonStrings.CONSTRUCTOR));
+            logUtil.put(this.commonStrings.CONSTRUCTOR, this, this.commonStrings.CONSTRUCTOR);
         }
     }
 
@@ -58,7 +60,7 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "add"));
+                logUtil.put(this.commonStrings.START, this, "add");
             }
 
             Vector vector = new Vector();
@@ -76,13 +78,13 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.END, this, "add"));
+                logUtil.put(commonStrings.END, this, "add");
             }
         } catch (Exception e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "add", e));
+                logUtil.put(this.commonStrings.FAILURE, this, "add", e);
             }
         }
     }
@@ -116,13 +118,13 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, "update"));
+                logUtil.put(this.commonStrings.SUCCESS, this, "update");
             }
         } catch (Exception e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "update", e));
+                logUtil.put(this.commonStrings.FAILURE, this, "update", e);
             }
         }
     }
@@ -224,7 +226,7 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
                 {
-                    LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, "getPaymentGatewayInterface()"));
+                    logUtil.put(this.commonStrings.SUCCESS, this, "getPaymentGatewayInterface()");
                 }
                 return paymentGatewayInterface;
             } else
@@ -235,7 +237,7 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Command Failed for paymentType: " + paymentType.getName(), this, "getPaymentGatewayInterface", e));
+                logUtil.put("Command Failed for paymentType: " + paymentType.getName(), this, "getPaymentGatewayInterface", e);
             }
             return null;
         }
@@ -268,7 +270,7 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
                 {
-                    LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, "findPaymentTypeVectorByStore()"));
+                    logUtil.put(this.commonStrings.SUCCESS, this, "findPaymentTypeVectorByStore()");
                 }
                 return paymentGatewayVector;
             } else
@@ -279,7 +281,7 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "findPaymentTypeVectorByStore", e));
+                logUtil.put(this.commonStrings.FAILURE, this, "findPaymentTypeVectorByStore", e);
             }
             return null;
         }
@@ -298,13 +300,13 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, "remove"));
+                logUtil.put(this.commonStrings.SUCCESS, this, "remove");
             }
         } catch (Exception e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "remove", e));
+                logUtil.put(this.commonStrings.FAILURE, this, "remove", e);
             }
         }
     }

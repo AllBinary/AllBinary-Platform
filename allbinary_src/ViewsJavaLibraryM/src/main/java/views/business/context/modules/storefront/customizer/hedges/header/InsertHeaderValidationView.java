@@ -42,6 +42,8 @@ import views.business.context.modules.storefront.customizer.CustomizerUtil;
 
 public class InsertHeaderValidationView extends TopBarView implements ValidationComponentInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private final String LOGOPATH = "logo/";
    
    public InsertHeaderValidationView(TransformInfoInterface transformInfoInterface) throws Exception
@@ -81,7 +83,7 @@ public class InsertHeaderValidationView extends TopBarView implements Validation
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("topbarValidation",this,commonStrings.IS_VALID));
+            logUtil.put("topbarValidation",this,commonStrings.IS_VALID);
          }
          
          Boolean isValid = this.heading.isValid();
@@ -99,7 +101,7 @@ public class InsertHeaderValidationView extends TopBarView implements Validation
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate",this,commonStrings.IS_VALID,e));
+            logUtil.put("Failed to validate",this,commonStrings.IS_VALID,e);
          }
          return Boolean.FALSE;
       }
@@ -119,7 +121,7 @@ public class InsertHeaderValidationView extends TopBarView implements Validation
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to generate validation error info",this,"validationInfo()",e));
+            logUtil.put("Failed to generate validation error info",this,"validationInfo()",e);
          }
          return "Error Getting Validation Info";
       }

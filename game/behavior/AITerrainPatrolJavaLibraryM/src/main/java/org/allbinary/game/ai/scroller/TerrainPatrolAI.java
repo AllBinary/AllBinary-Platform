@@ -36,6 +36,8 @@ import org.allbinary.math.AngleFactory;
  */
 public class TerrainPatrolAI extends PacePatrolAI
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final TerrainEventListener terrainEventListener = new TerrainEventListener();
     
     private final Angle DOWN = AngleFactory.getInstance().DOWN;
@@ -76,12 +78,12 @@ public class TerrainPatrolAI extends PacePatrolAI
 
             if (angle == DOWN)
             {
-                // LogUtil.put(LogFactory.getInstance("TerrainEvent: " + terrainEvent.getBasicTerrainInfo().getAngle().getValue(), this, commonStrings.PROCESS));
+                // logUtil.put("TerrainEvent: " + terrainEvent.getBasicTerrainInfo().getAngle().getValue(), this, commonStrings.PROCESS);
                 this.nextDirection();
 
                 if (!this.isFollowLimitedByTerrain)
                 {
-                    LogUtil.put(LogFactory.getInstance("Following Limited", this, "onTerrainEvent"));
+                    logUtil.put("Following Limited", this, "onTerrainEvent");
                     this.isFollowLimitedByTerrain = true;
                 }
 

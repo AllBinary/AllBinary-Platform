@@ -26,6 +26,8 @@ import org.allbinary.math.RectangleCollisionUtil;
 
 public class TouchButtonRecognizer
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final RectangleCollisionUtil rectangleCollisionUtil = RectangleCollisionUtil.getInstance();
     
     private final UpGameKeyEventHandler upGameKeyEventHandler = UpGameKeyEventHandler.getInstance();
@@ -93,9 +95,9 @@ public class TouchButtonRecognizer
                 // touchButtonInput ||
                 if (cancelTouchButtonInput == nextTouchButtonInput)
                 {
-                    // LogUtil.put(LogFactory.getInstance(
+                    // logUtil.put(
                     // "Release Associated Button Press", this,
-                    // "processTouchButtonInput"));
+                    // "processTouchButtonInput");
                     
                     GameKeyEvent gameKeyEvent = nextTouchButtonInput.getGameKeyEvent();
                     
@@ -132,8 +134,8 @@ public class TouchButtonRecognizer
          * (int index = list.size() - 1; index >= 0; index--) { TouchButton
          * touchButton = (TouchButton) list.get(index);
          * 
-         * LogUtil.put(LogFactory.getInstance(touchButton.toString(), this,
-         * commonStrings.CONSTRUCTOR)); }
+         * logUtil.put(touchButton.toString(), this,
+         * commonStrings.CONSTRUCTOR); }
          */
     }
 
@@ -146,9 +148,9 @@ public class TouchButtonRecognizer
             TouchButtonInput nextTouchButtonInput = (TouchButtonInput)
                this.currentlyPressedTouchButtonInputList.get(index);
 
-            // LogUtil.put(LogFactory.getInstance(
+            // logUtil.put(
             // "Release Associated Button Press", this,
-            // "processTouchButtonInput"));
+            // "processTouchButtonInput");
             UpGameKeyEventHandler.getInstance().fireEvent(
                     nextTouchButtonInput.getGameKeyEvent());
         }
@@ -162,7 +164,7 @@ public class TouchButtonRecognizer
         // Release associated button if not released
         this.releaseHelper.release(touchButtonInput, deviceId);
 
-        //LogUtil.put(LogFactory.getInstance("Event Inside Button Area - Action: " + touchButtonInput.getGameKeyEvent(), this, "processTouchButtonInput"));
+        //logUtil.put("Event Inside Button Area - Action: " + touchButtonInput.getGameKeyEvent(), this, "processTouchButtonInput");
         
         GameKeyEvent gameKeyEvent = touchButtonInput.getGameKeyEvent();
 
@@ -234,7 +236,7 @@ public class TouchButtonRecognizer
     public synchronized boolean pressTouchButtonInput(int x, int y, int deviceId)
         throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().CURRENT + x + commonStrings.SPACE + y, this, "processTouchButtonInput"));
+        //logUtil.put(CommonLabels.getInstance().CURRENT + x + commonStrings.SPACE + y, this, "processTouchButtonInput");
         
         /*
         StringMaker stringBuffer = new StringMaker();
@@ -291,7 +293,7 @@ public class TouchButtonRecognizer
                   //TWB - Debugging
                     //currentlyPressedTouchButtonSingleton.pressedAndFired(touchButtonInput);
 
-                    //LogUtil.put(LogFactory.getInstance("Event Inside Button Area - Action: " + touchButtonInput.getGameKey(), this, "processTouchButtonInput"));
+                    //logUtil.put("Event Inside Button Area - Action: " + touchButtonInput.getGameKey(), this, "processTouchButtonInput");
                     //PreLogUtil.put("Event Inside Button Area - Action: " + touchButtonInput.getGameKey(), this, "processTouchButtonInput");
 
                     GameKeyEvent gameKeyEvent = touchButtonInput.getGameKeyEvent();

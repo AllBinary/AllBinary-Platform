@@ -24,6 +24,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class UniqueIdGenerator implements IdGeneratorInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     public static final String EXT = ".unq";
     
     private final IdGeneratorEntity idGeneratorEntity;
@@ -48,7 +50,7 @@ public class UniqueIdGenerator implements IdGeneratorInterface
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().IDLOGGING))
          {
              final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "initialize", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "initialize", e);
          }
       }
    }
@@ -74,7 +76,7 @@ public class UniqueIdGenerator implements IdGeneratorInterface
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().IDLOGGING))
          {
              final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getNext", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "getNext", e);
          }
          return "Error";
       }

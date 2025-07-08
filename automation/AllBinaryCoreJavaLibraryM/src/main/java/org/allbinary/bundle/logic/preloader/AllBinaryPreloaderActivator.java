@@ -28,6 +28,8 @@ import org.allbinary.string.CommonStrings;
 public class AllBinaryPreloaderActivator
     implements BundleActivator
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static BundleContext context;
 
     public AllBinaryPreloaderActivator()
@@ -48,13 +50,13 @@ public class AllBinaryPreloaderActivator
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "start"));
+            logUtil.put(this.commonStrings.START, this, "start");
             AllBinaryPreloaderActivator.context = context;
             this.registerAsService();
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "start", e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, "start", e);
             throw e;
         }
     }
@@ -80,6 +82,6 @@ public class AllBinaryPreloaderActivator
     public void stop(BundleContext context)
     throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "stop"));
+        logUtil.put(this.commonStrings.START, this, "stop");
     }    
 }

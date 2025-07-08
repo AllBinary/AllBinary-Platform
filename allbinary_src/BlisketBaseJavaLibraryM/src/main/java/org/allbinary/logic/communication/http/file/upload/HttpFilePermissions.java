@@ -24,6 +24,8 @@ import org.allbinary.string.CommonStrings;
 
 public class HttpFilePermissions
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final AbFile file;
@@ -37,7 +39,7 @@ public class HttpFilePermissions
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
         {
-            LogUtil.put(LogFactory.getInstance("Loading Privileges: " + fullPath.toFileSystemString(), this, this.commonStrings.CONSTRUCTOR));
+            logUtil.put("Loading Privileges: " + fullPath.toFileSystemString(), this, this.commonStrings.CONSTRUCTOR);
         }
 
         if (this.isFile())
@@ -48,7 +50,7 @@ public class HttpFilePermissions
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
         {
-            LogUtil.put(LogFactory.getInstance("User Roles: " + userRoles, this, this.commonStrings.CONSTRUCTOR));
+            logUtil.put("User Roles: " + userRoles, this, this.commonStrings.CONSTRUCTOR);
         }
 
     }

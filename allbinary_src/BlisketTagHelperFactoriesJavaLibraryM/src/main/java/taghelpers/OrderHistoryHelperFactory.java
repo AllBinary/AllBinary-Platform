@@ -27,6 +27,8 @@ import org.allbinary.string.CommonStrings;
 
 public class OrderHistoryHelperFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    public OrderHistoryHelperFactory()
    {
    }
@@ -44,7 +46,7 @@ public class OrderHistoryHelperFactory
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
             {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
             }
             return null;
         }

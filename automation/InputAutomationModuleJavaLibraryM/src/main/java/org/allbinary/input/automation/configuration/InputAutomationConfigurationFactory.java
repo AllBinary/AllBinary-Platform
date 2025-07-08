@@ -31,6 +31,8 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 
 public class InputAutomationConfigurationFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static InputAutomationConfiguration inputAutomationConfiguration = null;
     
     private InputAutomationConfigurationFactory()
@@ -40,13 +42,14 @@ public class InputAutomationConfigurationFactory
     public static void init(final AbeClientInformationInterface abeClientInformation)
     throws Exception
     {
+        final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonStrings = CommonStrings.getInstance();
         final String INPUT_AUTOMATION_CONFIGURATION = "InputAutomationConfiguration";
 
         final File file = InputAutomationConfiguration.getFile();
         if(file.isFile())
         {
-            LogUtil.put(LogFactory.getInstance("LoadingConfiguration", INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT));
+            logUtil.put("LoadingConfiguration", INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT);
             final JAXBContext jaxbContext = JAXBContext.newInstance(InputAutomationConfiguration.class);
             final Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
             final JAXBElement<InputAutomationConfiguration> root = unmarshaller.unmarshal(new StreamSource(new FileInputStream(file)), InputAutomationConfiguration.class);
@@ -57,7 +60,7 @@ public class InputAutomationConfigurationFactory
             final List<InputAutomationModuleConfiguration> inputAutomationModuleConfigurationList = 
                     inputAutomationConfiguration.getInputAutomationModuleConfigurationList();
             
-            LogUtil.put(LogFactory.getInstance("isInstalled: " + inputAutomationConfiguration.isInstalled(), INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT));
+            logUtil.put("isInstalled: " + inputAutomationConfiguration.isInstalled(), INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT);
 
             final int size = inputAutomationModuleConfigurationList.size();
             InputAutomationModuleConfiguration inputAutomationModuleConfiguration;
@@ -66,11 +69,11 @@ public class InputAutomationConfigurationFactory
                 inputAutomationModuleConfiguration.init(abeClientInformation);
             }
             
-            LogUtil.put(LogFactory.getInstance("LoadedConfiguration", INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT));
+            logUtil.put("LoadedConfiguration", INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT);
         }
         else
         {
-            LogUtil.put(LogFactory.getInstance("New Configuration", INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT));
+            logUtil.put("New Configuration", INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT);
             inputAutomationConfiguration = new InputAutomationConfiguration();
         }
     }

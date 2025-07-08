@@ -25,6 +25,8 @@ import org.allbinary.logic.math.PrimitiveIntUtil;
 
 public class ImageArrayAnimation extends IndexedAnimation
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private Image[] imageArray;
 
     // private int totalAngle;
@@ -36,7 +38,7 @@ public class ImageArrayAnimation extends IndexedAnimation
     {
         super(animationBehavior);
 
-        // LogUtil.put(LogFactory.getInstance(, this, ));
+        // logUtil.put(, this, );
 
         this.setImageArray(imageArray);
     }

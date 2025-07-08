@@ -24,6 +24,8 @@ import org.allbinary.graphics.j2me.StatusFactory;
  */
 public class ToolFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final ToolFactory instance = new ToolFactory();
 
     /**
@@ -49,7 +51,7 @@ public class ToolFactory
             this.tool = tool;
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "setSelectionTool", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "setSelectionTool", e);
         }
     }
 
@@ -61,7 +63,7 @@ public class ToolFactory
         {
             this.selectedTool = GraphicItemFactory.getInstance().getInstance(tool);
 
-            LogUtil.put(LogFactory.getInstance("New Tool: " + this.selectedTool, this, "getSelectedToolFactory"));
+            logUtil.put("New Tool: " + this.selectedTool, this, "getSelectedToolFactory");
 
             return this.selectedTool;
         }

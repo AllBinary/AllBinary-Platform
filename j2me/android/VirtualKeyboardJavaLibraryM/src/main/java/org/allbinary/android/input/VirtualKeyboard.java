@@ -20,6 +20,8 @@ import org.allbinary.logic.util.event.EventStrings;
 
 public class VirtualKeyboard
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     public void onEvent(AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);

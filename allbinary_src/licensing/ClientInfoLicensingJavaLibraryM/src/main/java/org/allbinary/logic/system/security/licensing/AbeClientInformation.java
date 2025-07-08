@@ -26,6 +26,8 @@ import org.allbinary.logic.system.os.OperatingSystemFactory;
 // This is the information sent to the license server
 public class AbeClientInformation extends ClientInformation
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final String NONE = "No License Id";
     public AbeClientInformation(final String name, final String version, final String specialName, final String shortName)
     {
@@ -57,7 +59,7 @@ public class AbeClientInformation extends ClientInformation
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
         }
     }
 }

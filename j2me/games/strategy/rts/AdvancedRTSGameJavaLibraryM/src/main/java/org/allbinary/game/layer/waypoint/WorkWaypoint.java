@@ -30,6 +30,8 @@ import org.allbinary.logic.math.SmallIntegerSingletonFactory;
  */
 public class WorkWaypoint extends Waypoint
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     public static final Integer ID = 
         SmallIntegerSingletonFactory.getInstance().getInstance(25);
     
@@ -70,7 +72,7 @@ public class WorkWaypoint extends Waypoint
                 
                 if (geologicalResource.getTotal() >= 1)
                 {
-                  //LogUtil.put(LogFactory.getInstance(unitLayer.getName() + " loaded resource from " + geologicalGeographicMapCellPosition.toString(), this, "visit"));
+                  //logUtil.put(unitLayer.getName() + " loaded resource from " + geologicalGeographicMapCellPosition.toString(), this, "visit");
                     
                     outOfResources = false;
                     geologicalResource.remove(unitLayer.getMaxResourceLoad());
@@ -90,7 +92,7 @@ public class WorkWaypoint extends Waypoint
             //Stop if our of resources
             if(!outOfResources)
             {
-                //LogUtil.put(LogFactory.getInstance("Returning: " + unitLayer.getName(), this, "visit"));
+                //logUtil.put("Returning: " + unitLayer.getName(), this, "visit");
 
                 final UnitWaypointBehavior unitWaypointBehavior = 
                     (UnitWaypointBehavior) unitLayer.getWaypointBehavior();

@@ -26,6 +26,8 @@ import org.allbinary.string.CommonStrings;
 
 public class StoreTagWorkFlowFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final StoreTagWorkFlowFactory instance = new StoreTagWorkFlowFactory();
 
@@ -54,7 +56,7 @@ public class StoreTagWorkFlowFactory
                 stringBuffer.append(instance.getClass().getName());
 
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.GET_INSTANCE));
+                logUtil.put(stringBuffer.toString(), this, commonStrings.GET_INSTANCE);
             }
 
             Object params[] = new Object[2];
@@ -84,7 +86,7 @@ public class StoreTagWorkFlowFactory
                 stringBuffer.append(instance.getClass().getName());
 
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.GET_INSTANCE, e));
+                logUtil.put(stringBuffer.toString(), this, commonStrings.GET_INSTANCE, e);
             }
             throw e;
         } catch (Exception e)
@@ -102,7 +104,7 @@ public class StoreTagWorkFlowFactory
                 stringBuffer.append(instance.getClass().getName());
 
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.GET_INSTANCE, e));
+                logUtil.put(stringBuffer.toString(), this, commonStrings.GET_INSTANCE, e);
             }
             throw e;
         }

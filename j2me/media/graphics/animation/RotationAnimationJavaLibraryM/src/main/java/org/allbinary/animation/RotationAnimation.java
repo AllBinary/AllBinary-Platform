@@ -27,6 +27,8 @@ public class RotationAnimation
     extends IndexedAnimation 
     implements RotationAnimationInterface
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final DirectionUtil directionUtil = DirectionUtil.getInstance();
     protected final AngleInfo angleInfo;
     protected CircularIndexUtil circularIndexUtil;
@@ -86,14 +88,14 @@ public class RotationAnimation
         this.circularIndexUtil.setIndex(index);
 
         final int newFrame = this.circularIndexUtil.getIndex();
-        //LogUtil.put(LogFactory.getInstance("newFrame: " + newFrame, this, "setRotation"));
+        //logUtil.put("newFrame: " + newFrame, this, "setRotation");
         
         this.angleInfo.adjustAngle(newFrame);
     }
 
     public void setFrame(Direction direction)
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "setFrame"));
+        //logUtil.put(commonStrings.START, this, "setFrame");
 
         /*
         DirectionFactory directionFactory = DirectionFactory.getInstance();

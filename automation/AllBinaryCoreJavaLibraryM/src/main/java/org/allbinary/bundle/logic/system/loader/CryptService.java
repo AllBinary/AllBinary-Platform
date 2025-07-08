@@ -33,6 +33,8 @@ import org.allbinary.string.CommonStrings;
 
 public class CryptService
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final AbCryptUtil abCryptUtil = AbCryptUtil.getInstance();
 
@@ -40,7 +42,7 @@ public class CryptService
    {
       Globals.getInstance().init(this.getClass().getClassLoader(), "./");
 
-      LogUtil.put(LogFactory.getInstance("Set Globals: " + URLGLOBALS.getWebappPath(), this, this.commonStrings.CONSTRUCTOR));
+      logUtil.put("Set Globals: " + URLGLOBALS.getWebappPath(), this, this.commonStrings.CONSTRUCTOR);
    }
 
    public InputStream getDecryptedInputStream(final AbeClientInformationInterface abeClientInformation, final String name, final InputStream inputStream)
@@ -75,7 +77,7 @@ public class CryptService
    {
       try
       {
-         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, this.commonStrings.INIT, e));
+         logUtil.put(commonStrings.EXCEPTION, this, this.commonStrings.INIT, e);
 
          final BasicTextJDialog basicTextJDialog = new BasicTextJDialog(e.getMessage());
 
@@ -92,14 +94,14 @@ public class CryptService
             }
          } catch (LicensingException e2)
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, this.commonStrings.INIT, e2));
+            logUtil.put(commonStrings.EXCEPTION, this, this.commonStrings.INIT, e2);
          }
 
          basicTextJDialog.addCloseListener(new ExitCloseListener());
          basicTextJDialog.setVisible(true);
       } catch (Exception e3)
       {
-         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, this.commonStrings.INIT, e3));
+         logUtil.put(commonStrings.EXCEPTION, this, this.commonStrings.INIT, e3);
       }
    }
 }

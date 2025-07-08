@@ -27,6 +27,8 @@ import org.allbinary.input.motion.gesture.observer.MotionGestureReceiveInterface
  */
 public class TouchJ2ME
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final int DEVICE_ID = 0;
     private AllMotionRecognizer motionRecognizer = new AllMotionRecognizer();
 
@@ -49,7 +51,7 @@ public class TouchJ2ME
         catch(Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "pointerDragged", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "pointerDragged", e);
         }
     }
 
@@ -62,7 +64,7 @@ public class TouchJ2ME
         catch(Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "pointerPressed", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "pointerPressed", e);
         }
     }
 
@@ -75,7 +77,7 @@ public class TouchJ2ME
         catch(Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "pointerReleased", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "pointerReleased", e);
         }
     }
 }

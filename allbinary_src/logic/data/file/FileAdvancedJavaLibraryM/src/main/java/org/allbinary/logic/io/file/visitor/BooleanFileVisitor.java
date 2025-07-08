@@ -22,6 +22,8 @@ import org.allbinary.util.BasicArrayList;
 public class BooleanFileVisitor
    implements VisitorInterface
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
 
    private BasicArrayList filterStringBasicArrayList;

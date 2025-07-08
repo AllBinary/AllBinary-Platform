@@ -29,6 +29,8 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellPositionFacto
  * @author user
  */
 public class BasePathFindingInfoFactory {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     public void init(
         final BasicGeographicMap geographicMapInterface,
@@ -37,7 +39,7 @@ public class BasePathFindingInfoFactory {
         throws Exception
     {
         //TWB - PathFinding
-        //LogUtil.put(LogFactory.getInstance("Map Info: \n").append(ArrayUtil.toString(mapArray), this, commonStrings.INIT));
+        //logUtil.put("Map Info: \n").append(ArrayUtil.toString(mapArray), this, commonStrings.INIT);
 
         class RaceTrackGeographicMapCellPositionFactoryInitVisitor implements
            GeographicMapCellPositionFactoryInitVisitorInterface
@@ -54,9 +56,9 @@ public class BasePathFindingInfoFactory {
                 this.startLineId = raceTrackGeographicMapCellTypeFactory.getStartType();
                 this.finishLineId = raceTrackGeographicMapCellTypeFactory.getEndType();
 
-                //LogUtil.put(LogFactory.getInstance(
+                //logUtil.put(
                   // "Race Track Map Array: ").append(PathFindingInfoFactory.this.getName() +
-                   //" columns: ").append(this.mapTwoDArray.length).append(" rows: ").append(this.mapTwoDArray[0].length, this, commonStrings.CONSTRUCTOR));
+                   //" columns: ").append(this.mapTwoDArray.length).append(" rows: ").append(this.mapTwoDArray[0].length, this, commonStrings.CONSTRUCTOR);
             }
 
             public void visit(final AllBinaryTiledLayer tiledLayer, final GeographicMapCellPosition cellPosition) throws Exception
@@ -116,18 +118,18 @@ public class BasePathFindingInfoFactory {
                 }
                 else
                 {
-                    // LogUtil.put(LogFactory.getInstance("Not Added For Tracking: " +
+                    // logUtil.put("Not Added For Tracking: " +
                     // cellPosition).append(" Type: ").append(this.mapTwoDArray[row][col],
-                    // this, "setMap"));
+                    // this, "setMap");
                 }
                 
                 }
                 catch(Exception e)
                 {
-                    LogUtil.put(LogFactory.getInstance(
+                    logUtil.put(
                             new StringMaker().append("[").append(row).append("][").append(column).append("] in [").append(
                             mapArray.length).append("][").append(mapArray[0].length).append("]").toString(), 
-                            this, "visit", e));
+                            this, "visit", e);
                     throw e;
                 }
             }
@@ -141,7 +143,7 @@ public class BasePathFindingInfoFactory {
             final GeographicMapCellPosition startGeographicMapCellPosition)
        throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "addStartPathFindingNode"));
+        //logUtil.put(commonStrings.START, this, "addStartPathFindingNode");
 
         //int extraTravelCost = RaceTrackGeographicMapCellType.FINISH_LINE_ROAD_CELL_TYPE.getTravelCost();
         // Setup Start Node
@@ -161,7 +163,7 @@ public class BasePathFindingInfoFactory {
             final GeographicMapCellPosition endGeographicMapCellPosition)
        throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "addEndPathFindingNode"));
+        //logUtil.put(commonStrings.START, this, "addEndPathFindingNode");
 
         // Setup Start Node
         //int extraTravelCost = RaceTrackGeographicMapCellType.FINISH_LINE_ROAD_CELL_TYPE.getTravelCost();

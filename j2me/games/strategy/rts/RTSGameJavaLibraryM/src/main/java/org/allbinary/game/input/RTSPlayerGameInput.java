@@ -51,6 +51,8 @@ import org.allbinary.string.CommonLabels;
  */
 public class RTSPlayerGameInput extends PlayerGameInput
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final GameInputProcessor[] inputProcessorArray = 
         new GameInputProcessor[InputFactory.getInstance().MAX];
     protected final GameInputProcessor[] removeInputProcessorArray = 
@@ -128,13 +130,13 @@ public class RTSPlayerGameInput extends PlayerGameInput
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "onDisplayChangeEvent"));
+            logUtil.put(commonStrings.START, this, "onDisplayChangeEvent");
 
             this.getRTSLayerInfoPaintable().update();
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "onDisplayChangeEvent", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "onDisplayChangeEvent", e);
         }
     }
 
@@ -218,7 +220,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, gameInputStrings.PROCESS_INPUT, e));
+            logUtil.put(commonStrings.EXCEPTION, this, gameInputStrings.PROCESS_INPUT, e);
         }
     }
 
@@ -241,11 +243,11 @@ public class RTSPlayerGameInput extends PlayerGameInput
         final int y = point.getY() + allBinaryTiledLayer.getY();
 
         //final SpacialStrings commonLabels = SpacialStrings.getInstance();
-        //LogUtil.put(LogFactory.getInstance(
+        //logUtil.put(
         //      "CellPosition Selection: point x: ").append(point.getX() +
           //    " y: ").append(point.getY()).append(" x: ").append(x).append(" y: ").append(y).append(
         //commonLabels).append(allBinaryTiledLayer.getWidth() +
-        //commonLabels).append(allBinaryTiledLayer.getHeight(), this, "select"));
+        //commonLabels).append(allBinaryTiledLayer.getHeight(), this, "select");
 
         GeographicMapCellPosition geographicMapCellPosition =
             geographicMapInterface.getCellPositionAtNoThrow(x, y);
@@ -276,7 +278,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
         else
         {
             final CommonLabels commonLabels = CommonLabels.getInstance();
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Off Of Map -").append(commonLabels.WIDTH_LABEL).append(allBinaryTiledLayer.getWidth()).append(commonLabels.HEIGHT_LABEL).append(allBinaryTiledLayer.getHeight()).toString(), this, "select"));
+            logUtil.put(new StringMaker().append("Off Of Map -").append(commonLabels.WIDTH_LABEL).append(allBinaryTiledLayer.getWidth()).append(commonLabels.HEIGHT_LABEL).append(allBinaryTiledLayer.getHeight()).toString(), this, "select");
         }
     }
 
@@ -356,7 +358,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
      */
     public void setSelectedRtsFormInput(RTSFormInput selectedRtsFormInput)
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append("RTSFormInput: ").append(StringUtil.getInstance().toString(selectedRtsFormInput)).toString(), this, "setSelectedRtsFormInput"));
+        logUtil.put(new StringMaker().append("RTSFormInput: ").append(StringUtil.getInstance().toString(selectedRtsFormInput)).toString(), this, "setSelectedRtsFormInput");
         this.selectedRtsFormInput = selectedRtsFormInput;
     }
 

@@ -29,6 +29,8 @@ import org.allbinary.math.AngleFactory;
 public class CommonGameInitialization 
 extends BaseGameInitialization
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     protected CommonGameInitialization(final ResourceInitialization[] resourceInitializationArray,

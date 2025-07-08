@@ -20,6 +20,8 @@ import org.allbinary.logic.communication.log.PreLogUtil;
 
 public class TouchScreenTypeFactory
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final TouchScreenTypeFactory instance = new TouchScreenTypeFactory();
 
     public static TouchScreenTypeFactory getInstance()
@@ -55,7 +57,7 @@ public class TouchScreenTypeFactory
             
             if(!touchScreenFactory.isTouch())
             {
-                //LogUtil.put(LogFactory.getInstance("Not Really Exception: This indicates that a touch screen does exist but is not API8 so we will try it", this, commonStrings.PROCESS));
+                //logUtil.put("Not Really Exception: This indicates that a touch screen does exist but is not API8 so we will try it", this, commonStrings.PROCESS);
                 PreLogUtil.put("Not Really Exception: This indicates that a touch screen does exist but is not API8 so we will try it", this, commonStrings.PROCESS);
                 
                 touchScreenFactory.setTouch(true);
@@ -68,7 +70,7 @@ public class TouchScreenTypeFactory
                 
                 if(!touchScreenFactory.isTouch())
                 {
-                    //LogUtil.put(LogFactory.getInstance("Not Really Exception: This indicates that a touch screen does exist but is not API8 so we will try it", this, commonStrings.PROCESS));
+                    //logUtil.put("Not Really Exception: This indicates that a touch screen does exist but is not API8 so we will try it", this, commonStrings.PROCESS);
                     
                     PreLogUtil.put("Not Really Exception: This indicates that a touch screen does exist but is not API8 so we will try it", this, commonStrings.PROCESS);
                     

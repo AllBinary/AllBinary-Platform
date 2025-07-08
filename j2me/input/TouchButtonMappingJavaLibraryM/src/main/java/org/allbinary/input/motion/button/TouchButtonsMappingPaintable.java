@@ -26,6 +26,8 @@ import org.allbinary.graphics.paint.Paintable;
 
 public class TouchButtonsMappingPaintable extends Paintable
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected int foregroundColor;
     private Paintable[][] paintableTable;
 
@@ -61,7 +63,7 @@ public class TouchButtonsMappingPaintable extends Paintable
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "updateRectangle", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "updateRectangle", e);
         }
     }
 

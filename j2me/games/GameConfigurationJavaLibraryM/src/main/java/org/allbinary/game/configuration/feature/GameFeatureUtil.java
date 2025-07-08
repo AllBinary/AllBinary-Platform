@@ -28,6 +28,8 @@ import org.allbinary.string.CommonLabels;
 
 public class GameFeatureUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final GameFeatureUtil instance = new GameFeatureUtil();
 
     public static GameFeatureUtil getInstance()
@@ -53,7 +55,7 @@ public class GameFeatureUtil
         stringBuffer.append("Multiple Total Choices: ");
         stringBuffer.append(total);
         
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, METHOD_NAME));
+        logUtil.put(stringBuffer.toString(), this, METHOD_NAME);
 
         Features features = Features.getInstance();
 
@@ -68,7 +70,7 @@ public class GameFeatureUtil
             stringBuffer.append(SELECTED_SEP);
             stringBuffer.append(isSelected);
             
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, METHOD_NAME));
+            logUtil.put(stringBuffer.toString(), this, METHOD_NAME);
             
             String selectedChoiceLabel = choiceGroup.getString(index);
             Feature gameFeature = Feature.getInstance(selectedChoiceLabel);
@@ -100,7 +102,7 @@ public class GameFeatureUtil
         stringBuffer.append("Multiple Total Choices: ");
         stringBuffer.append(total);
         
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, METHOD_NAME));
+        logUtil.put(stringBuffer.toString(), this, METHOD_NAME);
 
         Features features = Features.getInstance();
 
@@ -115,7 +117,7 @@ public class GameFeatureUtil
             stringBuffer.append(SELECTED_SEP);
             stringBuffer.append(isSelected);
             
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, METHOD_NAME));
+            logUtil.put(stringBuffer.toString(), this, METHOD_NAME);
 
             String selectedChoiceLabel = choiceGroup.getString(index);
             Feature gameFeature = Feature.getInstance(selectedChoiceLabel);
@@ -146,7 +148,7 @@ public class GameFeatureUtil
         stringBuffer.append("Exclusive Total Choices: 1==");
         stringBuffer.append(total);
         
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, METHOD_NAME));
+        logUtil.put(stringBuffer.toString(), this, METHOD_NAME);
 
         for (int index = 0; index < selectedArray_return.length; index++)
         {
@@ -159,7 +161,7 @@ public class GameFeatureUtil
             stringBuffer.append(SELECTED_SEP);
             stringBuffer.append(isSelected);
 
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, METHOD_NAME));
+            logUtil.put(stringBuffer.toString(), this, METHOD_NAME);
 
             if (isSelected)
             {
@@ -190,7 +192,7 @@ public class GameFeatureUtil
     private void updateExclusive(String selectedChoiceLabel)
             throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonLabels.getInstance().ITEM_LABEL).append(selectedChoiceLabel).toString(), this, "updateExclusive"));
+        logUtil.put(new StringMaker().append(CommonLabels.getInstance().ITEM_LABEL).append(selectedChoiceLabel).toString(), this, "updateExclusive");
 
         Feature gameFeature = Feature.getInstance(selectedChoiceLabel);
 

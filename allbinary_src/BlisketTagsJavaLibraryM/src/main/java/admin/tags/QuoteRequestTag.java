@@ -30,6 +30,8 @@ import javax.servlet.jsp.JspTagException;
 
 public class QuoteRequestTag extends TableTag
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private String storeName;
    
    public QuoteRequestTag()
@@ -66,7 +68,7 @@ public class QuoteRequestTag extends TableTag
          String error = "Failed to send QuoteRequest emails";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"sendEmail()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"sendEmail()",e);
          }
          return error;
       }

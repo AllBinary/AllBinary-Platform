@@ -25,6 +25,8 @@ import org.mapeditor.core.TiledMap;
  * @author User
  */
 public class PropsTileMapPlacementVisitor extends TileMapPlacementVisitor {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private final MyRandomFactory randomFactory = MyRandomFactory.getInstance();
     
@@ -126,18 +128,18 @@ public class PropsTileMapPlacementVisitor extends TileMapPlacementVisitor {
                     for (int index5 = index3 + 1; index5 < index - 1; index5++) {
                         for (int index6 = index4 + 1; index6 < index2 - 1; index6++) {
                             if (mapArray[index5][index6] != 14 || mapData[index5][index6] != 0) {
-                                //LogUtil.put(LogFactory.getInstance("Room is already cluttered", this, commonStrings.PROCESS));
+                                //logUtil.put("Room is already cluttered", this, commonStrings.PROCESS);
                                 return;
                             }
                         }
                     }
                     
-                    //LogUtil.put(LogFactory.getInstance("Found Clearing", this, commonStrings.PROCESS));
+                    //logUtil.put("Found Clearing", this, commonStrings.PROCESS);
                     final int x = index - (countX / 2);
                     final int y = index2 - (countY / 2);
-                    //LogUtil.put(LogFactory.getInstance("x: " + x + " y: " + y, this, commonStrings.PROCESS));
+                    //logUtil.put("x: " + x + " y: " + y, this, commonStrings.PROCESS);
                     if (x >= 0 && y >= 0 && x < mapData.length && y < mapData[0].length) {
-                        //LogUtil.put(LogFactory.getInstance("Placing Middle of Room Prop", this, commonStrings.PROCESS));
+                        //logUtil.put("Placing Middle of Room Prop", this, commonStrings.PROCESS);
                         //mapData[x][y] = 49;
                     }
                 }

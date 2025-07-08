@@ -31,6 +31,8 @@ import javax.servlet.jsp.JspTagException;
 
 public class OrderHistoryTag extends StoreValidationTransformTag
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    //private String id;
    private String status;
    //private String groupId;
@@ -114,7 +116,7 @@ public class OrderHistoryTag extends StoreValidationTransformTag
          String error = "Failed to view order table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"setOrderStatus()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"setOrderStatus()",e);
          }
          return error;
       }

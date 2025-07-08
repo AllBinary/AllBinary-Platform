@@ -36,6 +36,8 @@ import org.allbinary.logic.string.StringMaker;
 
 public class CustomTextBox extends GameCommandCanvas
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
     private final DisplayInfoSingleton displayInfoSingleton = 
             DisplayInfoSingleton.getInstance();
@@ -69,7 +71,7 @@ public class CustomTextBox extends GameCommandCanvas
         
         this.textFieldItem = textFieldItem;
 
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
+        //logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
         this.setTitle(label);
         
     }
@@ -82,7 +84,7 @@ public class CustomTextBox extends GameCommandCanvas
     private final InputFactory inputFactory = InputFactory.getInstance();
 
     public void onEvent(final int keyCode, final int deviceId, final boolean repeated) {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.START).append(keyCode).toString(), this, "onEvent"));
+        logUtil.put(new StringMaker().append(commonStrings.START).append(keyCode).toString(), this, "onEvent");
         this.keyPressed(keyCode, deviceId);
     }
     
@@ -105,7 +107,7 @@ public class CustomTextBox extends GameCommandCanvas
     {
         try {
 
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonSeps.getInstance().SPACE).append(keyCode).toString(), this, gameInputStrings.KEY_PRESSED));
+            logUtil.put(new StringMaker().append(CommonSeps.getInstance().SPACE).append(keyCode).toString(), this, gameInputStrings.KEY_PRESSED);
 
             final PlatformKeyFactory platformKeyFactory = PlatformKeyFactory.getInstance();
 
@@ -124,13 +126,13 @@ public class CustomTextBox extends GameCommandCanvas
             }
             
         } catch(Exception e) {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, gameInputStrings.KEY_PRESSED, e));
+            logUtil.put(commonStrings.EXCEPTION, this, gameInputStrings.KEY_PRESSED, e);
         }
     }
 
     public void keyReleased(final int keyCode, final int deviceId)
     {
-        // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, gameInputStrings.KEY_RELEASED));
+        // logUtil.put(commonStrings.START, this, gameInputStrings.KEY_RELEASED);
     }
 
     public void paint(final Graphics graphics)

@@ -19,6 +19,8 @@ import org.allbinary.game.input.CompleteMotionGestureInputEvent;
 
 public class MotionGestureToMotionGestureActionAssociation
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private BasicArrayList list;
     private CompleteMotionGestureInputEvent motionGestureAction;
 
@@ -54,7 +56,7 @@ public class MotionGestureToMotionGestureActionAssociation
         int size = aList.size();
         if (this.list.size() != size)
         {
-            //LogUtil.put(LogFactory.getInstance("List Is Not The Same Size", this, "isMotionGestureArrayEquals"));
+            //logUtil.put("List Is Not The Same Size", this, "isMotionGestureArrayEquals");
             
             return false;
         }
@@ -63,7 +65,7 @@ public class MotionGestureToMotionGestureActionAssociation
         {
             if (aList.objectArray[i] != this.list.objectArray[i])
             {
-                //LogUtil.put(LogFactory.getInstance("List is different: aList: " + aList + " list: " + this.list, this, "isMotionGestureArrayEquals"));
+                //logUtil.put("List is different: aList: " + aList + " list: " + this.list, this, "isMotionGestureArrayEquals");
                 
                 return false;
             }

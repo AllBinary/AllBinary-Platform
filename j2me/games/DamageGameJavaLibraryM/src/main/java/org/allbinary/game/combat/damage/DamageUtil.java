@@ -22,6 +22,8 @@ import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
 
 public class DamageUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     protected static final DamageUtil instance = new DamageUtil();
     
@@ -72,7 +74,7 @@ public class DamageUtil
                stringBuffer.append(" damage: ");
                stringBuffer.append(damage);
                
-               LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), collidableInterfaceCompositeInterface1, COLLIDE));
+               logUtil.put(stringBuffer.toString(), collidableInterfaceCompositeInterface1, COLLIDE);
            }
    }
 }

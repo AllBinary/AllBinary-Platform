@@ -31,6 +31,8 @@ import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import org.allbinary.string.CommonStrings;
 
 public class AllBinaryMediaManager {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final String THIS = "AllBinaryMediaManagerPC";
     
@@ -61,8 +63,9 @@ public class AllBinaryMediaManager {
     public static void init(final SoundsFactoryInterface soundsFactoryInterface)
             throws Exception {
 
+        final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonString = CommonStrings.getInstance();
-        LogUtil.put(LogFactory.getInstance(commonString.START, THIS, commonString.INIT));
+        logUtil.put(commonString.START, THIS, commonString.INIT);
         ProgressCanvasFactory.getInstance().addPortion(50, "Media Manager");
 
         new Sounds(soundsFactoryInterface).init();
@@ -88,7 +91,7 @@ public class AllBinaryMediaManager {
         {
             try
             {
-                //LogUtil.put(LogFactory.getInstance(resource, THIS, CREATE_PLAYER));
+                //logUtil.put(resource, THIS, CREATE_PLAYER);
                 
                 final InputStream inputStream =
                     ResourceUtil.getInstance().getResourceAsStream(resource);
@@ -100,8 +103,9 @@ public class AllBinaryMediaManager {
             }
             catch (Exception e)
             {
+                final LogUtil logUtil = LogUtil.getInstance();
                 final CommonStrings commonString = CommonStrings.getInstance();
-                LogUtil.put(LogFactory.getInstance(commonString.EXCEPTION, THIS, CREATE_PLAYER, e));
+                logUtil.put(commonString.EXCEPTION, THIS, CREATE_PLAYER, e);
                 return new NoPlayer();
             }
         }

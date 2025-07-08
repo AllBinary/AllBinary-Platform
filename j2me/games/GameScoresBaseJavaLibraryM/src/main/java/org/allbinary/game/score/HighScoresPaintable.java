@@ -31,6 +31,8 @@ public class HighScoresPaintable
 extends Paintable
 implements ColorChangeListener
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final DisplayInfoSingleton displayInfoSingleton = 
             DisplayInfoSingleton.getInstance();
     
@@ -44,7 +46,7 @@ implements ColorChangeListener
     
     public void onEvent(AllBinaryEventObject eventObject)
     {
-        //LogUtil.put(LogFactory.getInstance("Color Change Event: " + basicColor.getName(), this, "onEvent"));
+        //logUtil.put("Color Change Event: " + basicColor.getName(), this, "onEvent");
         this.basicColor = ((ColorChangeEvent) eventObject).getBasicColor();
     }    
 

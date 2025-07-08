@@ -25,6 +25,8 @@ import org.allbinary.logic.string.StringMaker;
 public class BasicTouchInputFactory
 // extends BaseTouchInputFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final BasicTouchInputFactory SINGLETON = new BasicTouchInputFactory();
 
     public static BasicTouchInputFactory getInstance()
@@ -118,9 +120,9 @@ public class BasicTouchInputFactory
     public void updateAll(BasicArrayList list,
             InputToGameKeyMapping inputToGameKeyMapping)
     {
-        LogUtil.put(LogFactory.getInstance(
+        logUtil.put(
                 new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(list.size()).toString(), this,
-                "updateAll"));
+                "updateAll");
 
         TouchButtonInput touchButtonInput;
 

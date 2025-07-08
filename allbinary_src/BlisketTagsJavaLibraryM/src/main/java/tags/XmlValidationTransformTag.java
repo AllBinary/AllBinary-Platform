@@ -26,6 +26,8 @@ import org.allbinary.logic.communication.log.LogFactory;
 
 public class XmlValidationTransformTag extends TransformTag
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    public XmlValidationTransformTag()
    {
    }
@@ -44,7 +46,7 @@ public class XmlValidationTransformTag extends TransformTag
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,commonStrings.IS_VALID,e));
+            logUtil.put(commonStrings.EXCEPTION,this,commonStrings.IS_VALID,e);
          }
          throw e;
       }

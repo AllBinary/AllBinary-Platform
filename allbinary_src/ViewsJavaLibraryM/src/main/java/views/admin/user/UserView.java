@@ -27,6 +27,8 @@ import views.business.context.HttpContextView;
 
 public class UserView extends HttpContextView
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    protected UserInterface user;
    
    public UserView(TransformInfoInterface transformInfoInterface) 
@@ -51,7 +53,7 @@ public class UserView extends HttpContextView
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "view()", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "view()", e);
          }
          throw e;
       }

@@ -19,6 +19,8 @@ import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 
 public class CommonButtons
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final CommonButtons instance = new CommonButtons();
 
     public static CommonButtons getInstance()

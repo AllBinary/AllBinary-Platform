@@ -19,6 +19,8 @@ import org.allbinary.graphics.CellPosition;
 
 public class RaceTrackData
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private Image tileSetImage;
     private Image miniTileSetImage;
     private int cellWidth;
@@ -53,7 +55,7 @@ public class RaceTrackData
     
     protected void setMapArray(int[][] mapArray)
     {
-        //LogUtil.put(LogFactory.getInstance("Set Map Array: Rows: " + mapArray.length + "Cols:  " + mapArray[0].length, this, "setMapArray"));
+        //logUtil.put("Set Map Array: Rows: " + mapArray.length + "Cols:  " + mapArray[0].length, this, "setMapArray");
         this.mapArray = mapArray;
     }
 

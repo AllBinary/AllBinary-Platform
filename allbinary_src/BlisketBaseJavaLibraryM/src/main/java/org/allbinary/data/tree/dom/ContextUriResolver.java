@@ -31,6 +31,8 @@ import org.allbinary.logic.visual.transform.info.template.TransformInfoTemplateD
 
 public class ContextUriResolver implements URIResolver
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private BasicUriResolver basicURIResolver;
    
    public ContextUriResolver(BasicUriResolver basicURIResolver)
@@ -69,7 +71,7 @@ public class ContextUriResolver implements URIResolver
         	 stringBuffer.append("\nRequired Extension: ");
         	 stringBuffer.append(this.basicURIResolver.getExtension());
              
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "resolve"));
+            logUtil.put(stringBuffer.toString(), this, "resolve");
          }
          
          return new StreamSource(new CryptFileReader(

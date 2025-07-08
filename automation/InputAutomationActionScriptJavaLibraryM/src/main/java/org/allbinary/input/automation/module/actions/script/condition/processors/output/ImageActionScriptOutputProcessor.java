@@ -25,6 +25,8 @@ import org.allbinary.string.CommonStrings;
 
 public class ImageActionScriptOutputProcessor
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private ImageActionScriptOutputProcessor()
     {
     }
@@ -33,10 +35,11 @@ public class ImageActionScriptOutputProcessor
         final ImageActionScriptOutputInterface imageActionScriptOutputInterface, final Long frame)
         throws Exception
     {
+        final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        LogUtil.put(LogFactory.getInstance(
+        logUtil.put(
             "Start - Processing at: " + imageActionScriptOutputInterface.toString(),
-            "ImageActionScriptOutputProcessor", commonStrings.PROCESS));
+            "ImageActionScriptOutputProcessor", commonStrings.PROCESS);
 
         final ImageTypes imageTypes = imageActionScriptOutputInterface.getImageTypes();
         final Vector vector = imageTypes.getVector();

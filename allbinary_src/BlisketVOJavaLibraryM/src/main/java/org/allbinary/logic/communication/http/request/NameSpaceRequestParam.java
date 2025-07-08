@@ -25,6 +25,8 @@ import org.allbinary.util.BasicArrayList;
 
 public class NameSpaceRequestParam
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private Vector nameSpaceVector;
 
    //A hashmap of hashmaps
@@ -53,8 +55,8 @@ public class NameSpaceRequestParam
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
-         LogUtil.put(LogFactory.getInstance(
-                 "\nSep Tokens: " + nameSpaceWithPropertiesVector.toString(), this, "NameSpaceRequestParam()"));
+         logUtil.put(
+                 "\nSep Tokens: " + nameSpaceWithPropertiesVector.toString(), this, "NameSpaceRequestParam()");
       }
       
       Tokenizer nameSpaceAndPropertiesTokenizer = 
@@ -80,9 +82,9 @@ public class NameSpaceRequestParam
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
          {
-            LogUtil.put(LogFactory.getInstance("\nPackageName and PackageName Properties Tokens: " +
+            logUtil.put("\nPackageName and PackageName Properties Tokens: " +
                nameSpaceAndPropertiesVector.toString(),
-               this, "NameSpaceRequestParam()"));
+               this, "NameSpaceRequestParam()");
          }
 
          //add packageName and packageName properties
@@ -115,8 +117,8 @@ public class NameSpaceRequestParam
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
       org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
-         LogUtil.put(LogFactory.getInstance("NameSpace: " + this.nameSpaceVector.toString(),
-         this, "NameSpaceRequestParam()"));
+         logUtil.put("NameSpace: " + this.nameSpaceVector.toString(),
+         this, "NameSpaceRequestParam()");
       }
    }
    
@@ -125,8 +127,8 @@ public class NameSpaceRequestParam
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
       org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
-         LogUtil.put(LogFactory.getInstance("NameSpace: " + this.nameSpaceVector.toString(),
-         this, "getPackages()"));
+         logUtil.put("NameSpace: " + this.nameSpaceVector.toString(),
+         this, "getPackages()");
       }
       return this.nameSpaceVector;
    }
@@ -145,8 +147,8 @@ public class NameSpaceRequestParam
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
       org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
-         LogUtil.put(LogFactory.getInstance("Package Properties: " + packagePropertiesHashMap.toString(),
-            this, "getPackagesProperties()"));
+         logUtil.put("Package Properties: " + packagePropertiesHashMap.toString(),
+            this, "getPackagesProperties()");
       }
 
       return packagePropertiesHashMap;
@@ -157,7 +159,7 @@ public class NameSpaceRequestParam
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
-         LogUtil.put(LogFactory.getInstance("\nValue: " + this.value, this, "getValue()"));
+         logUtil.put("\nValue: " + this.value, this, "getValue()");
       }
       
       return this.value;
@@ -198,7 +200,7 @@ public class NameSpaceRequestParam
                if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                   org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
                {
-                  LogUtil.put(LogFactory.getInstance("\nProperty Name: " + propertyName + "\nProperty Value: " + propertyValue,this, "generatePackagePropertiesHashMap()"));
+                  logUtil.put("\nProperty Name: " + propertyName + "\nProperty Value: " + propertyValue,this, "generatePackagePropertiesHashMap()");
                }
                packagePropertiesHashMap.put(propertyName, propertyValue);
             }
@@ -228,7 +230,7 @@ public class NameSpaceRequestParam
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("\nNameSpace Param: " + stringBuffer.toString(), this, commonStrings.TOSTRING);
+         logUtil.put("\nNameSpace Param: " + stringBuffer.toString(), this, commonStrings.TOSTRING);
       }
       
       return stringBuffer.toString();

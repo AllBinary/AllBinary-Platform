@@ -33,6 +33,8 @@ import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 public class BasketHelper
     extends TagHelper
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     
    private WeblisketSession weblisketSession;
    
@@ -76,7 +78,7 @@ public class BasketHelper
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"isBasketEmpty()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"isBasketEmpty()",e);
          }
          return Boolean.TRUE;         
       }

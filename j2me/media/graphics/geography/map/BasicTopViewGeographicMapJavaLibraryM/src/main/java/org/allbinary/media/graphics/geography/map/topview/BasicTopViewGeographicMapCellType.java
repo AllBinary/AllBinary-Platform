@@ -25,6 +25,8 @@ import org.allbinary.util.BasicArrayList;
 
 public class BasicTopViewGeographicMapCellType //extends GeographicMapCellType
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     public final String name;
     public final int cost;
     private final int[] types;
@@ -67,7 +69,7 @@ public class BasicTopViewGeographicMapCellType //extends GeographicMapCellType
             new RaceTrackGeographicMapCellType(name, type, cost);
         } else {
             //final BasicTopViewGeographicMapStrings basicTopViewGeographicMapStrings = BasicTopViewGeographicMapStrings.getInstance();
-            //LogUtil.put(LogFactory.getInstance(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, commonStrings.CONSTRUCTOR));
+            //logUtil.put(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, commonStrings.CONSTRUCTOR);
         }
 
         this.name = name;
@@ -88,7 +90,7 @@ public class BasicTopViewGeographicMapCellType //extends GeographicMapCellType
                 new RaceTrackGeographicMapCellType(name, type, cost);
             } else {
                 //final BasicTopViewGeographicMapStrings basicTopViewGeographicMapStrings = BasicTopViewGeographicMapStrings.getInstance();
-                //LogUtil.put(LogFactory.getInstance(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, commonStrings.CONSTRUCTOR));
+                //logUtil.put(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, commonStrings.CONSTRUCTOR);
             }
             
         }
@@ -110,7 +112,7 @@ public class BasicTopViewGeographicMapCellType //extends GeographicMapCellType
                 new RaceTrackGeographicMapCellType(name, type, cost);
             } else {
                 //final BasicTopViewGeographicMapStrings basicTopViewGeographicMapStrings = BasicTopViewGeographicMapStrings.getInstance();
-                //LogUtil.put(LogFactory.getInstance(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, commonStrings.CONSTRUCTOR));
+                //logUtil.put(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, commonStrings.CONSTRUCTOR);
             }
             
             typeArray[index] = type;

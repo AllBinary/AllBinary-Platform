@@ -18,6 +18,8 @@ import org.allbinary.util.BasicArrayListUtil;
 
 public class TouchButtonFactory
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final TouchButtonFactory SINGLETON = new TouchButtonFactory();
 
     public static TouchButtonFactory getInstance()

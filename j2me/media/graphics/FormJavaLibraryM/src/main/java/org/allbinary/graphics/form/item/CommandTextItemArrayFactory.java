@@ -28,7 +28,9 @@ import org.allbinary.graphics.form.ScreenInfo;
 import org.allbinary.logic.util.visitor.Visitor;
 
 public class CommandTextItemArrayFactory
-{    
+{
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+    
     private final BasicArrayList list = new BasicArrayList();
  
     private final Visitor visitorInterface;
@@ -69,8 +71,8 @@ public class CommandTextItemArrayFactory
             //isNotPriority || command.getPriority() == 3
             if (command.getPriority() < priorityLimit)
             {
-                //LogUtil.put(LogFactory.getInstance("Label: "
-                  //      + command.getLabel(), this, commonStrings.GET_INSTANCE));
+                //logUtil.put("Label: "
+                  //      + command.getLabel(), this, commonStrings.GET_INSTANCE);
 
                 //PreLogUtil.put("Label: "
                   //      + command.getLabel(), this, commonStrings.GET_INSTANCE);

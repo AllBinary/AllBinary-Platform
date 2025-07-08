@@ -17,6 +17,8 @@ import org.allbinary.string.CommonStrings;
 
 public class LayerProcessor implements LayerProcessorInterface
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
 
     private final LayerManager layerManager;
@@ -59,7 +61,7 @@ public class LayerProcessor implements LayerProcessorInterface
         int size = layerManager.getSize();
         for (int index = 0; index < size; index++)
         {
-            //LogUtil.put(LogFactory.getInstance(commonStrings.TOTAL_LABEL + layerManager.getSize(), this, commonStrings.PROCESS));
+            //logUtil.put(commonStrings.TOTAL_LABEL + layerManager.getSize(), this, commonStrings.PROCESS);
             this.process(allBinaryLayerManager,
                (AllBinaryLayer) layerManager.getLayerAt(index), index);
         }

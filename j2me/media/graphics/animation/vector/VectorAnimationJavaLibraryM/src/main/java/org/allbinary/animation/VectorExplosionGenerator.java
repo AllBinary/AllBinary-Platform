@@ -22,6 +22,8 @@ import org.allbinary.graphics.pipeline.RandomTranslation;
 
 public class VectorExplosionGenerator
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final VectorExplosionGenerator instance = new VectorExplosionGenerator();
 
     public static VectorExplosionGenerator getInstance()
@@ -84,8 +86,8 @@ public class VectorExplosionGenerator
 
                 BasicArrayList pointBasicArrayList = getInstance(
                         tempBasicArrayList, points, howMuch, type);
-                // LogUtil.put(LogFactory.getInstance("Adding Point BasicArrayList commonStrings.TOTAL_LABEL + pointBasicArrayList.size() + " should be == " + firstPointBasicArrayList.size(), this, commonStrings.GET_INSTANCE));
-                // LogUtil.put(LogFactory.getInstance("Point BasicArrayList: " + pointBasicArrayList.toString(), this, commonStrings.GET_INSTANCE));
+                // logUtil.put("Adding Point BasicArrayList commonStrings.TOTAL_LABEL + pointBasicArrayList.size() + " should be == " + firstPointBasicArrayList.size(), this, commonStrings.GET_INSTANCE);
+                // logUtil.put("Point BasicArrayList: " + pointBasicArrayList.toString(), this, commonStrings.GET_INSTANCE);
                 pointsBasicArrayList.add(pointBasicArrayList);
 
                 frameIndex++;
@@ -96,13 +98,13 @@ public class VectorExplosionGenerator
                 pointsBasicArrayList.remove(0);
             }
 
-            // LogUtil.put(LogFactory.getInstance(IntArrayUtil.toString(newPoints), this, commonStrings.GET_INSTANCE));
+            // logUtil.put(IntArrayUtil.toString(newPoints), this, commonStrings.GET_INSTANCE);
             return pointsBasicArrayList;
 
         }
         catch (Exception e)
         {
-            //LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
+            //logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
             throw e;
         }
     }

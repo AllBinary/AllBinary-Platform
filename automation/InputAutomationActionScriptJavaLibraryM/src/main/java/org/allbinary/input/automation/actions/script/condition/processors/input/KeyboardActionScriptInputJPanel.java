@@ -34,6 +34,8 @@ import org.allbinary.string.CommonStrings;
  */
 public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
    private KeyboardActionScriptInputInterface keyActionScriptInputInterface;
@@ -42,7 +44,7 @@ public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
    public KeyboardActionScriptInputJPanel(KeyboardActionScriptInputInterface keyActionScriptInputInterface)
    throws Exception
    {
-      LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR));
+      logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
       
       initComponents();
       
@@ -450,7 +452,7 @@ public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
        }
        catch(Exception e)
        {
-          LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "okButtonActionPerformed", e));
+          logUtil.put(this.commonStrings.EXCEPTION, this, "okButtonActionPerformed", e);
        }
        
     }//GEN-LAST:event_okJButtonActionPerformed

@@ -29,6 +29,8 @@ import org.allbinary.string.CommonLabels;
 
 public class GameFeatureItemCommandListener implements ItemCommandListener
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     /*private static final GameFeatureItemCommandListener gameFeatureItemStateListener = new GameFeatureItemCommandListener();
 
     public static GameFeatureItemCommandListener getInstance()
@@ -49,7 +51,7 @@ public class GameFeatureItemCommandListener implements ItemCommandListener
         try
         {
             String itemLabel = item.getLabel();
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonLabels.getInstance().ITEM_LABEL).append(itemLabel).toString(), this, MidletStrings.getInstance().COMMAND_ACTION));
+            logUtil.put(new StringMaker().append(CommonLabels.getInstance().ITEM_LABEL).append(itemLabel).toString(), this, MidletStrings.getInstance().COMMAND_ACTION);
 
             if (item instanceof GameConfigurationGauge)
             {
@@ -61,7 +63,7 @@ public class GameFeatureItemCommandListener implements ItemCommandListener
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, MidletStrings.getInstance().COMMAND_ACTION, e));
+            logUtil.put(commonStrings.EXCEPTION, this, MidletStrings.getInstance().COMMAND_ACTION, e);
         }
     }
 }

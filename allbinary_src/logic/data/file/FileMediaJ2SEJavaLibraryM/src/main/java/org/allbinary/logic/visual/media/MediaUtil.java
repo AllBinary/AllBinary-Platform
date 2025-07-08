@@ -16,6 +16,8 @@ import org.allbinary.media.image.ImageUtil;
 
 public class MediaUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final MediaUtil instance = new MediaUtil();
 
     public static MediaUtil getInstance() {
@@ -46,7 +48,7 @@ public class MediaUtil
         if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
         {
             HashMap hashMap = this.getImageBufferPropertyHashMap(bufferedImage);
-            LogUtil.put(LogFactory.getInstance("Image Properties: " + hashMap.toString(), this, "saveImageFile()"));
+            logUtil.put("Image Properties: " + hashMap.toString(), this, "saveImageFile()");
         }
 
         final AbFile imageFile = new AbFile(category + newImageFileName);
@@ -94,8 +96,8 @@ public class MediaUtil
         	stringBuffer.append("\nNew File Length: ");
         	stringBuffer.append(imageFile.length());
 
-            LogUtil.put(LogFactory.getInstance(
-            		stringBuffer.toString(), this, "saveImageFile()"));        }
+            logUtil.put(
+            		stringBuffer.toString(), this, "saveImageFile()");        }
     }
 
     private static HashMap getImageBufferPropertyHashMap(

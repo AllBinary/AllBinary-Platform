@@ -30,6 +30,8 @@ import playn.core.CanvasSurface;
 public class AllBinaryHTMLImageRotationAnimation 
 extends ImageBaseRotationAnimation
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     //private final ImageCreationUtil imageCreationUtil = ImageCreationUtil.getInstance();
     private final ImageRotationUtil imageRotationUtil = ImageRotationUtil.getInstance();
     private final ImageModifierUtil imageModifierUtil = ImageModifierUtil.getInstanceOrCreate();
@@ -77,7 +79,7 @@ extends ImageBaseRotationAnimation
         this.canvasSurfaceArray[0] = this.getCanvasSurface(this.twoImages[0]);
         this.canvasSurfaceArray[1] = this.getCanvasSurface(this.twoImages[1]);
 
-        //LogUtil.put(LogFactory.getInstance(this.toString(), this, commonStrings.CONSTRUCTOR));
+        //logUtil.put(this.toString(), this, commonStrings.CONSTRUCTOR);
     }
 
     public CanvasSurface getCanvasSurface(final Image image) {
@@ -141,10 +143,10 @@ extends ImageBaseRotationAnimation
 
     public void setFrame(final int index)
     {
-        //LogUtil.put(LogFactory.getInstance(commonLabels.INDEX_LABEL + index, this, "setRotation"));
+        //logUtil.put(commonLabels.INDEX_LABEL + index, this, "setRotation");
 
         //final int currentFrame = this.circularIndexUtil.getIndex();
-        //LogUtil.put(LogFactory.getInstance("currentFrame: " + currentFrame, this, "setRotation"));
+        //logUtil.put("currentFrame: " + currentFrame, this, "setRotation");
         
         super.setFrame(index);
 

@@ -29,6 +29,8 @@ import org.allbinary.string.CommonStrings;
 
 public class DownloadableItemView implements DomNodeInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
    private DownloadableItem downloadableItem;
@@ -42,7 +44,7 @@ public class DownloadableItemView implements DomNodeInterface
    {
        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
        {
-          LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "toXmlNode"));
+          logUtil.put(this.commonStrings.START, this, "toXmlNode");
        }
 
       /*

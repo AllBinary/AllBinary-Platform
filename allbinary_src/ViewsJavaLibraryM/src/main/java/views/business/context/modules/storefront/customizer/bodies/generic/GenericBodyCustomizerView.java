@@ -33,6 +33,8 @@ import org.allbinary.logic.visual.transform.template.util.TransformTemplateCusto
 public class GenericBodyCustomizerView extends HttpStoreComponentView 
    implements DomNodeInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    protected GenericBodyValidation body;
    
    public GenericBodyCustomizerView(TransformInfoInterface transformInfoInterface) throws Exception
@@ -79,7 +81,7 @@ public class GenericBodyCustomizerView extends HttpStoreComponentView
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"view()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"view()",e);
          }
          throw e;
       }

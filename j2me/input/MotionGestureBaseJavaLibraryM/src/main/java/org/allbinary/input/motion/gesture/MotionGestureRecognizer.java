@@ -30,6 +30,8 @@ import org.allbinary.logic.util.event.handler.BasicEventHandler;
 
 public class MotionGestureRecognizer
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final J2SEMath j2seMath = J2SEMath.getInstance();
 
     private final GPoint origin = PointFactory.getInstance().ZERO_ZERO;
@@ -65,7 +67,7 @@ public class MotionGestureRecognizer
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
         }
         
         this.motionGesturesHandler = motionGesturesHandler;
@@ -75,7 +77,7 @@ public class MotionGestureRecognizer
     public boolean processPressedMotionEvent(final GPoint current, final int deviceId, final int button)
             throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL + current.toString(), this, "processPressedMotionEvent"));
+        //logUtil.put(commonStrings.START_LABEL + current.toString(), this, "processPressedMotionEvent");
         //PreLogUtil.put(commonStrings.START, this, "processPressedMotionEvent");
 
         intermediate = origin;
@@ -88,7 +90,7 @@ public class MotionGestureRecognizer
         event.setPreviousPoint(previous);
         event.setCurrentPoint(current);
 
-        //LogUtil.put(LogFactory.getInstance("Firing Event: " + event, this, "processReleasedMotionEvent"));
+        //logUtil.put("Firing Event: " + event, this, "processReleasedMotionEvent");
         
         motionGesturesHandler.fireEvent(event);
 
@@ -98,7 +100,7 @@ public class MotionGestureRecognizer
     public boolean processReleasedMotionEvent(final GPoint current, final int deviceId, final int button)
             throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL + current.toString(), this, "processReleasedMotionEvent"));
+        //logUtil.put(commonStrings.START_LABEL + current.toString(), this, "processReleasedMotionEvent");
 
         /*
          * if(this.touchButtonRecognizer.processTouchButtonInput(UpGameKeyEventHandler
@@ -113,7 +115,7 @@ public class MotionGestureRecognizer
         event.setPreviousPoint(previous);
         event.setCurrentPoint(current);
 
-        //LogUtil.put(LogFactory.getInstance("Firing Event: " + event, this, "processReleasedMotionEvent"));
+        //logUtil.put("Firing Event: " + event, this, "processReleasedMotionEvent");
         
         motionGesturesHandler.fireEvent(event);
 
@@ -192,8 +194,8 @@ public class MotionGestureRecognizer
             if (absGradient < Math.tan(Math.toRadians(diagonalToleranceLower)))
             {
 
-                // LogUtil.put(LogFactory.getInstance("Left Or Right: " +
-                // line.getDeltaX(), this, "processDraggedMotionEvent"));
+                // logUtil.put("Left Or Right: " +
+                // line.getDeltaX(), this, "processDraggedMotionEvent");
 
                 if (line.getDeltaX() > 0)
                 {
@@ -208,19 +210,19 @@ public class MotionGestureRecognizer
             else
             {
 
-                //LogUtil.put(LogFactory.getInstance("Diagonal: " + gradient + CommonStrings + PositionStrings + line.getDeltaX() + PositionStrings + line.getDeltaY(), this, "processDraggedMotionEvent"));
+                //logUtil.put("Diagonal: " + gradient + CommonStrings + PositionStrings + line.getDeltaX() + PositionStrings + line.getDeltaY(), this, "processDraggedMotionEvent");
                 
                 if (gradient > 0)
                 {
                     if (line.getDeltaX() > 0)
                     {
-                        //LogUtil.put(LogFactory.getInstance("Diagonal Up Left", this, "processDraggedMotionEvent"));
+                        //logUtil.put("Diagonal Up Left", this, "processDraggedMotionEvent");
                         
                         newMotionGesture = touchMotionGestureFactory.DIAGONAL_UP_LEFT;
                     }
                     else
                     {
-                        //LogUtil.put(LogFactory.getInstance("Diagonal Down Right", this, "processDraggedMotionEvent"));
+                        //logUtil.put("Diagonal Down Right", this, "processDraggedMotionEvent");
                         
                         newMotionGesture = touchMotionGestureFactory.DIAGONAL_DOWN_RIGHT;
                     }
@@ -229,13 +231,13 @@ public class MotionGestureRecognizer
                 {
                     if (line.getDeltaX() > 0)
                     {
-                        //LogUtil.put(LogFactory.getInstance("Diagonal Down Left", this, "processDraggedMotionEvent"));
+                        //logUtil.put("Diagonal Down Left", this, "processDraggedMotionEvent");
                         
                         newMotionGesture = touchMotionGestureFactory.DIAGONAL_DOWN_LEFT;
                     }
                     else
                     {
-                        //LogUtil.put(LogFactory.getInstance("Diagonal Up Right", this, "processDraggedMotionEvent"));
+                        //logUtil.put("Diagonal Up Right", this, "processDraggedMotionEvent");
                         
                         newMotionGesture = touchMotionGestureFactory.DIAGONAL_UP_RIGHT;
                     }
@@ -264,7 +266,7 @@ public class MotionGestureRecognizer
     public boolean processMovedMotionEvent(final GPoint current, final int deviceId, final int button)
             throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL + current.toString(), this, "processReleasedMotionEvent"));
+        //logUtil.put(commonStrings.START_LABEL + current.toString(), this, "processReleasedMotionEvent");
 
         final MotionGestureEvent event =
             this.motionEventCircularPool.getInstance(
@@ -273,7 +275,7 @@ public class MotionGestureRecognizer
         event.setPreviousPoint(previous);
         event.setCurrentPoint(current);
 
-        //LogUtil.put(LogFactory.getInstance("Firing Event: " + event, this, "processReleasedMotionEvent"));
+        //logUtil.put("Firing Event: " + event, this, "processReleasedMotionEvent");
         
         movedMotionGesturesHandler.fireEvent(event);
 

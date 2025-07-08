@@ -35,6 +35,8 @@ import views.business.context.HttpContextView;
 public class AddValidationUserView extends HttpContextView
    implements ValidationComponentInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    protected UserInterface user;
    
    public AddValidationUserView(TransformInfoInterface transformInfoInterface) 
@@ -53,7 +55,7 @@ public class AddValidationUserView extends HttpContextView
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               LogUtil.put(LogFactory.getInstance("User already in existance.",this,commonStrings.IS_VALID));
+               logUtil.put("User already in existance.",this,commonStrings.IS_VALID);
             }
             return Boolean.FALSE;
          }
@@ -69,7 +71,7 @@ public class AddValidationUserView extends HttpContextView
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate",this,commonStrings.IS_VALID,e));
+            logUtil.put("Failed to validate",this,commonStrings.IS_VALID,e);
          }
          return Boolean.FALSE;
       }
@@ -85,7 +87,7 @@ public class AddValidationUserView extends HttpContextView
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               LogUtil.put(LogFactory.getInstance("User already exists",this,"validationInfo()"));
+               logUtil.put("User already exists",this,"validationInfo()");
             }
             stringBuffer.append("The User Name you selected is already in use.<br/>  Please select another User Name.<br />");
             //stringBuffer.append("Unable to add since User Name already in use.<br />");
@@ -102,7 +104,7 @@ public class AddValidationUserView extends HttpContextView
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to generate validation error info",this,"validationInfo()",e));
+            logUtil.put("Failed to generate validation error info",this,"validationInfo()",e);
          }
          return "Error Getting Validation Info";
       }

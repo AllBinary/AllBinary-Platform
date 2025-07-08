@@ -20,6 +20,8 @@ import org.allbinary.logic.communication.log.PreLogUtil;
 
 public class Sound implements SoundInterface, Runnable
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private String resource;
     protected Player player;
     

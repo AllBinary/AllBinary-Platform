@@ -32,6 +32,8 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellType;
  * @author User
  */
 public class NonPlayerTopViewCharacterBehavior extends TopViewCharacterBehavior {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private final MultiGeographicMapBehavior geographicMapBehavior = new MultiGeographicMapBehavior();
 
@@ -68,8 +70,8 @@ public class NonPlayerTopViewCharacterBehavior extends TopViewCharacterBehavior 
             final boolean hasSolidBlock = this.hasSolidBlock(geographicMapInterfaceArray, geographicMapCellTypeArray);
 
             if (!hasSolidBlock) {
-                // LogUtil.put(LogFactory.getInstance("Cliff Found: " +
-                // nextTerrainGeographicMapCellPosition, this, "terrainEvent"));
+                // logUtil.put("Cliff Found: " +
+                // nextTerrainGeographicMapCellPosition, this, "terrainEvent");
                 final TerrainEvent terrainEvent = TerrainEventCircularStaticPool.getInstance().getInstance(this.CLIFF);
                 TerrainEventHandler.getInstance(layer).fireEvent(terrainEvent);
             }

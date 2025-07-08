@@ -24,6 +24,8 @@ import org.allbinary.string.CommonStrings;
 public class CryptServiceFactory
     implements ServiceFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private CryptService cryptService = new CryptService();
@@ -34,7 +36,7 @@ public class CryptServiceFactory
         
     public Object getService(final Bundle bundle, final ServiceRegistration registration)
     {
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "getService"));
+        logUtil.put(this.commonStrings.START, this, "getService");
 
         return this.cryptService;
     }

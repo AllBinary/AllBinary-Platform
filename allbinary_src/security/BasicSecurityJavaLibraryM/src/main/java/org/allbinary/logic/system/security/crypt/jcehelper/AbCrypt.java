@@ -29,6 +29,8 @@ import org.allbinary.logic.java.byteutil.ByteUtil;
 
 public class AbCrypt implements CryptInterface
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
    private final ByteUtil byteUtil = ByteUtil.getInstance();
     
    private Cipher cipher;

@@ -5,6 +5,8 @@ import org.allbinary.graphics.threed.min3d.renderer.processor.ObjectThreedOpenGL
 
 public class EnableFacesShaderOpenGLProcessor extends ObjectThreedOpenGLProcessor
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final EnableFacesShaderOpenGLProcessor instance = new EnableFacesShaderOpenGLProcessor();
 
     /**

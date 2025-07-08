@@ -34,6 +34,8 @@ import playn.core.ResourceCallback;
  * @author User
  */
 public class ImageModifierUtil {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     
     public static ImageModifierUtil getInstanceOrCreate() {
         return new ImageModifierUtil();
@@ -72,7 +74,7 @@ public class ImageModifierUtil {
 
     public void setAlpha2(final Image originalImage, final Image image, final int imageIndex, final float alpha) {
         
-            //LogUtil.put(LogFactory.getInstance("image: " + image, this, "setAlpha"));
+            //logUtil.put("image: " + image, this, "setAlpha");
 
 //            if(originalImage != null) {
                 final PlaynImage htmlImage = (PlaynImage) image;
@@ -80,9 +82,9 @@ public class ImageModifierUtil {
 //                if (htmlImage != null) {
                     final CanvasImage canvasImage = (CanvasImage) htmlImage.getImage();
 
-                    //LogUtil.put(LogFactory.getInstance("htmlImage: " + htmlImage, this, "setAlpha"));
+                    //logUtil.put("htmlImage: " + htmlImage, this, "setAlpha");
 //                    if (canvasImage != null) {
-                        //LogUtil.put(LogFactory.getInstance("alpha: " + alpha, this, "setAlpha"));
+                        //logUtil.put("alpha: " + alpha, this, "setAlpha");
                         final playn.core.Image originalPlaynImage = (playn.core.Image) ((PlaynImage) originalImage).getImage();
 //                        if(originalPlaynImage != null) {
                             final Canvas canvas = canvasImage.canvas();
@@ -90,16 +92,16 @@ public class ImageModifierUtil {
                             canvas.setAlpha(alpha);
                             canvas.drawImage(originalPlaynImage, 0, 0);
 //                        } else {
-//                            LogUtil.put(LogFactory.getInstance("originalPlaynImage: null", this, "setAlpha"));
+//                            logUtil.put("originalPlaynImage: null", this, "setAlpha");
 //                        }
 //                    } else {
-//                        LogUtil.put(LogFactory.getInstance("canvasImage: null", this, "setAlpha"));
+//                        logUtil.put("canvasImage: null", this, "setAlpha");
 //                    }
 //                } else {
-//                    LogUtil.put(LogFactory.getInstance("htmlImage: null", this, "setAlpha"));
+//                    logUtil.put("htmlImage: null", this, "setAlpha");
 //                }
 //            } else {
-//                LogUtil.put(LogFactory.getInstance("originalImage: null", this, "setAlpha"));
+//                logUtil.put("originalImage: null", this, "setAlpha");
 //            }
 
 
@@ -143,13 +145,13 @@ public class ImageModifierUtil {
                 final ResourceCallback callback = new ResourceCallback() {
                     @Override
                     public void done(Object resource) {
-                        LogUtil.put(LogFactory.getInstance(resourceCallbackStrings.DONE + image.getName(), this, resourceCallbackStrings.HANDLE_IMAGE));
+                        logUtil.put(resourceCallbackStrings.DONE + image.getName(), this, resourceCallbackStrings.HANDLE_IMAGE);
                         copy(imageArray, index, image, image3);
                     }
 
                     @Override
                     public void error(Throwable e) {
-                        LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(resourceCallbackStrings.ERROR).append(image.getName()).toString(), this, resourceCallbackStrings.HANDLE_IMAGE));
+                        logUtil.put(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(resourceCallbackStrings.ERROR).append(image.getName()).toString(), this, resourceCallbackStrings.HANDLE_IMAGE);
                     }
                 };
                 
@@ -158,7 +160,7 @@ public class ImageModifierUtil {
             }
 
         } else {
-            LogUtil.put(LogFactory.getInstance(resourceCallbackStrings.NULL + image.isMutable(), this, resourceCallbackStrings.HANDLE_IMAGE));
+            logUtil.put(resourceCallbackStrings.NULL + image.isMutable(), this, resourceCallbackStrings.HANDLE_IMAGE);
         }
         
     }
@@ -166,14 +168,14 @@ public class ImageModifierUtil {
     public void copy(final Image[] imageArray, final int index, final Image image, final playn.core.Image image3) {
         try {
             //final Image image2 = Image.createImage(image.getWidth(), image.getHeight());
-            //LogUtil.put(LogFactory.getInstance(DONE + image3.width() + ", " + image3.height(), this, HANDLE_IMAGE));
+            //logUtil.put(DONE + image3.width() + ", " + image3.height(), this, HANDLE_IMAGE);
             final Image image2 = Image.createImage(image3.width(), image3.height());
             final Graphics graphics = image2.getGraphics();
             graphics.drawImage(image, 0, 0, Anchor.TOP_LEFT);
             imageArray[index] = image2;
 
         } catch (Exception e) {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION_LABEL + resourceCallbackStrings.DONE, this, resourceCallbackStrings.HANDLE_IMAGE));
+            logUtil.put(commonStrings.EXCEPTION_LABEL + resourceCallbackStrings.DONE, this, resourceCallbackStrings.HANDLE_IMAGE);
         }
     }
     

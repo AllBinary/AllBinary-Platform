@@ -30,6 +30,8 @@ import org.allbinary.string.CommonSeps;
 
 public class CssPropertyValues implements DomNodeInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private Vector propertyValueVector;
    
    public CssPropertyValues()
@@ -51,8 +53,8 @@ public class CssPropertyValues implements DomNodeInterface
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().STYLE))
       {
-         LogUtil.put(LogFactory.getInstance("Number Of Properties: " +
-            cssPropertyNodeVector.size(),this,"CssProperties()"));
+         logUtil.put("Number Of Properties: " +
+            cssPropertyNodeVector.size(),this,"CssProperties()");
       }
       
       final int size = cssPropertyNodeVector.size();
@@ -70,7 +72,7 @@ public class CssPropertyValues implements DomNodeInterface
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().STYLE))
          {
-            LogUtil.put(LogFactory.getInstance("Property Value: " + propertyValue,this,"CssProperties()"));
+            logUtil.put("Property Value: " + propertyValue,this,"CssProperties()");
          }
 
          Node indexNode = 
@@ -142,7 +144,7 @@ public class CssPropertyValues implements DomNodeInterface
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          HashMap hashMap = this.toHashMap();
-         LogUtil.put(LogFactory.getInstance("CssPropertyValues HashMap: " + hashMap.toString(),this,"toXmlNode()"));
+         logUtil.put("CssPropertyValues HashMap: " + hashMap.toString(),this,"toXmlNode()");
       }
 
       return ModDomHelper.createNameValueIndexNodes(

@@ -26,6 +26,8 @@ import org.microemu.device.j2se.J2SEMutableImage;
 
 public class ImageScaleUtil
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final ImageScaleUtil instance = new ImageScaleUtil();
 
     public static ImageScaleUtil getInstance()
@@ -85,12 +87,12 @@ public class ImageScaleUtil
         //Set the max image size needed.
         if (maxScaleX * originalImage.getWidth() > originalImageArray[0].getWidth()
             || maxScaleY * originalImage.getHeight() > originalImageArray[0].getHeight()) {
-            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("scale canvas: ").append(maxScaleX).toString(), this, this.commonStrings.UPDATE));
+            //logUtil.put(new StringMaker().append("scale canvas: ").append(maxScaleX).toString(), this, this.commonStrings.UPDATE);
             originalImageArray[0] = this.imageCreationUtil.createImage(originalImage.getWidth(), originalImage.getHeight(), maxScaleX, maxScaleY);
         }
 
         //Set the new original image to the current scale
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("scaleX: ").append(scaleX).append("scaleY: ").append(scaleY).toString(), this, this.commonStrings.UPDATE));
+        //logUtil.put(new StringMaker().append("scaleX: ").append(scaleX).append("scaleY: ").append(scaleY).toString(), this, this.commonStrings.UPDATE);
         this.scale(originalImage, originalImageArray[0], scaleX, scaleY);
     }    
  

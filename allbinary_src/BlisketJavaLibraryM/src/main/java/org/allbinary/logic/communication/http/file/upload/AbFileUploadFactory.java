@@ -29,6 +29,8 @@ import org.allbinary.string.CommonStrings;
 
 public class AbFileUploadFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final AbFileUploadFactory instance = new AbFileUploadFactory();
 
     public static AbFileUploadFactory getInstance() {
@@ -65,7 +67,7 @@ public class AbFileUploadFactory
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPERROR))
             {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "get()", e));
+                logUtil.put(commonStrings.EXCEPTION, this, "get()", e);
             }
             throw e;
         }
@@ -83,7 +85,7 @@ public class AbFileUploadFactory
             final CommonStrings commonStrings = CommonStrings.getInstance();
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPERROR))
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "get()", e));
+                logUtil.put(commonStrings.EXCEPTION, this, "get()", e);
             }
             throw e;
         }

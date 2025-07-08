@@ -45,6 +45,8 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCompositeInterfac
  */
 public class TechRTSFormInput extends RTSFormInput
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final AllBinaryEventObject EVENT = 
         new AllBinaryEventObject(this);
 
@@ -95,14 +97,14 @@ public class TechRTSFormInput extends RTSFormInput
 
         RTSInterface rtsInterface = technologyRTSInterfaceImageItem.getRtsInterface();
 
-        LogUtil.put(LogFactory.getInstance("isUpgradeable: " + rtsInterface.isUpgradeable(), this, commonStrings.PROCESS));
+        logUtil.put("isUpgradeable: " + rtsInterface.isUpgradeable(), this, commonStrings.PROCESS);
 
         if (rtsInterface.isUpgradeable())
         {
             int cost = rtsInterface.getUpgradeCost();
             Capital capital = rtsPlayerLayerInterface.getCapital();
 
-            LogUtil.put(LogFactory.getInstance(cost + "<=" + capital.getTotalMoney(), this, commonStrings.PROCESS));
+            logUtil.put(cost + "<=" + capital.getTotalMoney(), this, commonStrings.PROCESS);
 
             if (cost <= capital.getTotalMoney())
             {

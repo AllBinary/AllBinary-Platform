@@ -27,6 +27,8 @@ import org.allbinary.util.BasicArrayList;
  * @author User
  */
 public class WebCommandProcessor {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final WebCommandProcessor instance = new WebCommandProcessor();
 
@@ -49,7 +51,7 @@ public class WebCommandProcessor {
 
         } catch(Exception e) {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
         }
     }
 }

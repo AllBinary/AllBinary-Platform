@@ -27,6 +27,8 @@ import org.allbinary.logic.control.validate.ValidationComponentInterface;
 
 public class EditValidationStoreFrontView extends StoreFrontComponent implements ValidationComponentInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    public EditValidationStoreFrontView(TransformInfoInterface transformInfoInterface) throws Exception
    {
       super(transformInfoInterface);
@@ -56,7 +58,7 @@ public class EditValidationStoreFrontView extends StoreFrontComponent implements
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate form",this,commonStrings.IS_VALID,e));
+            logUtil.put("Failed to validate form",this,commonStrings.IS_VALID,e);
          }
          return Boolean.FALSE;
       }
@@ -84,7 +86,7 @@ public class EditValidationStoreFrontView extends StoreFrontComponent implements
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to generate validation error info",this,"validationInfo()",e));
+            logUtil.put("Failed to generate validation error info",this,"validationInfo()",e);
          }
          return "Error Validating Form";
       }

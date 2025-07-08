@@ -24,6 +24,8 @@ import org.allbinary.logic.communication.sql.AbSqlBean;
 
 public class IdGeneratorEntity extends AbSqlBean
         implements IdGeneratorEntityInterface {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private final String tableName = "idgenerator";
     private final String tableData;
@@ -79,9 +81,9 @@ public class IdGeneratorEntity extends AbSqlBean
 
             super.insert(values);
 
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, INSERT));
+            logUtil.put(this.commonStrings.SUCCESS, this, INSERT);
         } catch (Exception e) {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, INSERT, e));
+            logUtil.put(this.commonStrings.FAILURE, this, INSERT, e);
         }
     }
 
@@ -90,11 +92,11 @@ public class IdGeneratorEntity extends AbSqlBean
 
             super.deleteWhere(NAME, value);
 
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, commonStrings.delete));
+            logUtil.put(this.commonStrings.SUCCESS, this, commonStrings.delete);
 
         } catch (Exception e) {
 
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, commonStrings.delete, e));
+            logUtil.put(this.commonStrings.FAILURE, this, commonStrings.delete, e);
         }
     }
     

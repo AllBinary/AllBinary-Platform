@@ -27,6 +27,8 @@ import org.apache.commons.fileupload.FileUploadBase.InvalidContentTypeException;
 
 public class MultipartRequestParams extends RequestParams
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private boolean special = false;
 
    public MultipartRequestParams(HttpServletRequest request) //throws Exception
@@ -59,7 +61,7 @@ public class MultipartRequestParams extends RequestParams
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
             {
-               LogUtil.put(LogFactory.getInstance("FileItem List Size: " + multipartRequestList.size(), this, "processMultipartRequest()"));
+               logUtil.put("FileItem List Size: " + multipartRequestList.size(), this, "processMultipartRequest()");
             }
 
              final Object[] fileItemArray = multipartRequestList.toArray();
@@ -82,7 +84,7 @@ public class MultipartRequestParams extends RequestParams
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
             {
-                LogUtil.put(LogFactory.getInstance("Special Request Data: " + specialRequest.toString(), this, "processMultipartRequest()"));
+                logUtil.put("Special Request Data: " + specialRequest.toString(), this, "processMultipartRequest()");
             }
 
             this.setSpecial();
@@ -93,7 +95,7 @@ public class MultipartRequestParams extends RequestParams
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
          {
-            LogUtil.put(LogFactory.getInstance("Using Normal RequestParams", this, "processMultipartRequest()"));
+            logUtil.put("Using Normal RequestParams", this, "processMultipartRequest()");
          }
 
          super.setMap(request.getParameterMap());
@@ -102,7 +104,7 @@ public class MultipartRequestParams extends RequestParams
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUESTERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Should Not Occur", this, "processMultipartRequest()"));
+            logUtil.put("Should Not Occur", this, "processMultipartRequest()");
          }
 
          super.setMap(request.getParameterMap());

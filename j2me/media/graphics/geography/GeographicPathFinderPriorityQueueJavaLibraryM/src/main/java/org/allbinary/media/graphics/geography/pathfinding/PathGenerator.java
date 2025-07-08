@@ -23,6 +23,8 @@ import org.allbinary.util.BasicArrayList;
  */
 public class PathGenerator
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final PathGenerator SINGLETON = new PathGenerator();
 
     public static PathGenerator getInstance()

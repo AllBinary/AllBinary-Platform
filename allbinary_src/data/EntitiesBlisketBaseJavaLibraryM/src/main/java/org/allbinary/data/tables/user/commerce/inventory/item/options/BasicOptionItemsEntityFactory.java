@@ -19,6 +19,8 @@ import org.allbinary.string.CommonStrings;
 
 public class BasicOptionItemsEntityFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final BasicOptionItemsEntityFactory instance =
             new BasicOptionItemsEntityFactory();
 
@@ -59,7 +61,7 @@ public class BasicOptionItemsEntityFactory
          final CommonStrings commonStrings = CommonStrings.getInstance();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE,e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE,e);
          }
          return null;
       }

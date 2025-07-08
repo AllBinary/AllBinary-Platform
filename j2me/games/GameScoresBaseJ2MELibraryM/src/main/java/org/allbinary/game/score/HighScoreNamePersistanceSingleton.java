@@ -38,6 +38,8 @@ import org.allbinary.persistance.PlatformRecordIdUtil;
 
 public class HighScoreNamePersistanceSingleton
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static HighScoreNamePersistanceSingleton SINGLETON = new HighScoreNamePersistanceSingleton();
 
     public static HighScoreNamePersistanceSingleton getInstance()
@@ -81,7 +83,7 @@ public class HighScoreNamePersistanceSingleton
         RecordStore recordStore = null;
         try {
 
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Deleting: ").append(deleteId).toString(), this, commonStrings.delete));
+        logUtil.put(new StringMaker().append("Deleting: ").append(deleteId).toString(), this, commonStrings.delete);
 
         recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
@@ -125,7 +127,7 @@ public class HighScoreNamePersistanceSingleton
                 {
                     final int id = recordEnum.nextRecordId();
 
-                    LogUtil.put(LogFactory.getInstance(new StringMaker().append(LOADING_ID).append(id).toString(), this, commonStrings.LOAD));
+                    logUtil.put(new StringMaker().append(LOADING_ID).append(id).toString(), this, commonStrings.LOAD);
 
                     recordAsBytes = recordStore.getRecord(id);
                     byteArrayInputStream = new ByteArrayInputStream(recordAsBytes);
@@ -144,7 +146,7 @@ public class HighScoreNamePersistanceSingleton
         } catch (Exception e)
         {
             this.save(abeClientInformation, gameInfo, this.name);
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(ExceptionUtil.getInstance().getStackTrace(e)).toString(), this, commonStrings.LOAD));
+            logUtil.put(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(ExceptionUtil.getInstance().getStackTrace(e)).toString(), this, commonStrings.LOAD);
         } finally {
             try {
                 if (recordStore != null) {
@@ -152,7 +154,7 @@ public class HighScoreNamePersistanceSingleton
                     recordStore.closeRecordStore();
                 }
             } catch(RecordStoreException e) {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.LOAD, e));
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.LOAD, e);
             }
         }
 
@@ -164,7 +166,7 @@ public class HighScoreNamePersistanceSingleton
         RecordStore recordStore = null;
         try
         {
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Saving: ").append(name).toString(), this, commonStrings.SAVE));
+            logUtil.put(new StringMaker().append("Saving: ").append(name).toString(), this, commonStrings.SAVE);
 
             recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
@@ -182,7 +184,7 @@ public class HighScoreNamePersistanceSingleton
             
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.SAVE, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.SAVE, e);
         } finally {
             try {
                 if (recordStore != null) {
@@ -190,7 +192,7 @@ public class HighScoreNamePersistanceSingleton
                     recordStore.closeRecordStore();
                 }
             } catch(RecordStoreException e) {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.SAVE, e));
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.SAVE, e);
             }
         }
 

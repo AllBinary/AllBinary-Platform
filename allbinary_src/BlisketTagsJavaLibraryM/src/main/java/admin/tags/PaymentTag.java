@@ -33,6 +33,8 @@ import javax.servlet.jsp.JspTagException;
 
 public class PaymentTag extends TableTag
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private String storeName;
    
    private HashMap propertiesHashMap;
@@ -72,7 +74,7 @@ public class PaymentTag extends TableTag
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"selectPayment()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"selectPayment()",e);
          }
          return error;
       }

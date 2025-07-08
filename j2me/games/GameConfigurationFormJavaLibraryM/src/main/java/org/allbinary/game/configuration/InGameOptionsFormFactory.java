@@ -23,6 +23,8 @@ import org.allbinary.init.Init;
 
 public class InGameOptionsFormFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final InGameOptionsFormFactory instance = new InGameOptionsFormFactory();
 
     public static InGameOptionsFormFactory getInstance() {
@@ -44,7 +46,7 @@ public class InGameOptionsFormFactory
         } catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.INIT, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
         }
     }
     

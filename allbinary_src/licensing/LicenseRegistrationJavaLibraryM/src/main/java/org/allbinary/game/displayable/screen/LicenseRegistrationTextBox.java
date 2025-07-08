@@ -35,6 +35,8 @@ public class LicenseRegistrationTextBox
     extends CustomTextBox 
     //implements MyCommandInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     public static final Command DISPLAY_COMMAND = 
         new Command("Register", Command.SCREEN, 3);
     
@@ -77,7 +79,7 @@ public class LicenseRegistrationTextBox
 
        } catch (Exception e)
        {
-           LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "open", e));
+           logUtil.put(commonStrings.EXCEPTION, this, "open", e);
        }
        
        super.open();
@@ -98,7 +100,7 @@ public class LicenseRegistrationTextBox
            
        } catch (Exception e)
        {
-           LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "open", e));
+           logUtil.put(commonStrings.EXCEPTION, this, "open", e);
        }
 
        this.paintable = this.pleaseWaitPaintable;

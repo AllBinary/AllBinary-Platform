@@ -26,15 +26,25 @@ import org.allbinary.string.CommonStrings;
 
 public class ImageAnalysis
 {
+    protected static final ImageAnalysis instance = new ImageAnalysis();
+
+    /**
+     * @return the instance
+     */
+    public static ImageAnalysis getInstance() {
+        return instance;
+    }
+    
+    protected final LogUtil logUtil = LogUtil.getInstance();
 
    private ImageAnalysis()
    {
    }
 
-   public static ImageAnalysisResults[] process(BufferedImage[] bufferedImageArray, ColorRangeInterface colorRangeInterface) throws Exception
+   public ImageAnalysisResults[] process(BufferedImage[] bufferedImageArray, ColorRangeInterface colorRangeInterface) throws Exception
    {
        final CommonStrings commonStrings = CommonStrings.getInstance();
-      LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START + colorRangeInterface.toString(), "ImageAnalysis", commonStrings.PROCESS));
+      logUtil.put(CommonLabels.getInstance().START + colorRangeInterface.toString(), this, commonStrings.PROCESS);
 
       ImageAnalysisResults[] imageAnalysisResultsArray = new ImageAnalysisResults[bufferedImageArray.length];
 
@@ -90,7 +100,7 @@ public class ImageAnalysis
          imageAnalysisResults.getImageColorRangeResults().addMatchingPixelsChecked();
       } else
       {
-         // LogUtil.put(LogFactory.getInstance("Invalid Color: " + color, "ImageAnalysis", commonStrings.PROCESS));
+         // logUtil.put("Invalid Color: " + color, "ImageAnalysis", commonStrings.PROCESS);
       }
       imageAnalysisResults.getImageColorRangeResults().addTotalPixelsChecked();
    }

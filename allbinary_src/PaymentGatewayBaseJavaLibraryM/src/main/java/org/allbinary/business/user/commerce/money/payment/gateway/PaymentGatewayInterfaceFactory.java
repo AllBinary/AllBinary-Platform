@@ -27,6 +27,8 @@ import org.allbinary.string.CommonStrings;
 public class PaymentGatewayInterfaceFactory
    implements PaymentGatewayInterfaceFactoryInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    public PaymentGatewayInterfaceFactory()
    {
    }
@@ -39,7 +41,7 @@ public class PaymentGatewayInterfaceFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
          {
-            LogUtil.put(LogFactory.getInstance("Getting", this, commonStrings.GET_INSTANCE));
+            logUtil.put("Getting", this, commonStrings.GET_INSTANCE);
          }
          
          return this.getInstance(
@@ -49,7 +51,7 @@ public class PaymentGatewayInterfaceFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENTERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getInstance(HttpServletRequest)", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "getInstance(HttpServletRequest)", e);
          }
          throw e;
       }
@@ -76,8 +78,8 @@ public class PaymentGatewayInterfaceFactory
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
          {
-            LogUtil.put(LogFactory.getInstance("Getting PaymentGatewayInterface for PaymentType: " +
-               paymentType.getName() + " with: " + hashMap, this, commonStrings.GET_INSTANCE));
+            logUtil.put("Getting PaymentGatewayInterface for PaymentType: " +
+               paymentType.getName() + " with: " + hashMap, this, commonStrings.GET_INSTANCE);
          }
 
          PaymentGatewayInterfaceFactoryInterface paymentGatewayInterfaceFactoryInterface =
@@ -90,7 +92,7 @@ public class PaymentGatewayInterfaceFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENTERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
          }
          throw e;
       }

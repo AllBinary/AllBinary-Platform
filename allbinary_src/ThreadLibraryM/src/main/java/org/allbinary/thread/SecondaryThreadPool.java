@@ -23,6 +23,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 //This is mainly for network communications.
 public class SecondaryThreadPool extends ThreadPool
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final ThreadPool instance = new SecondaryThreadPool("Secondary", 1);
 
     public static ThreadPool getInstance()
@@ -36,19 +38,19 @@ public class SecondaryThreadPool extends ThreadPool
 
     public synchronized void runTask(Runnable task)
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(StringUtil.getInstance().toString(task)).append(System.currentTimeMillis()).toString(), this, this.threadPoolStrings.ADD_TASK));
+        logUtil.put(new StringMaker().append(StringUtil.getInstance().toString(task)).append(System.currentTimeMillis()).toString(), this, this.threadPoolStrings.ADD_TASK);
 
         super.runTask(task);
     }
 
     protected void startTask(Runnable task)
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.threadPoolStrings.START_TASK).append(StringUtil.getInstance().toString(task)).append(System.currentTimeMillis()).toString(), this, this.commonStrings.RUN));
+        logUtil.put(new StringMaker().append(this.threadPoolStrings.START_TASK).append(StringUtil.getInstance().toString(task)).append(System.currentTimeMillis()).toString(), this, this.commonStrings.RUN);
     }
 
     protected void completedTask(Runnable task)
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.threadPoolStrings.COMPLETE_TASK).append(StringUtil.getInstance().toString(task)).append(System.currentTimeMillis()).toString(), this, this.commonStrings.RUN));
+        logUtil.put(new StringMaker().append(this.threadPoolStrings.COMPLETE_TASK).append(StringUtil.getInstance().toString(task)).append(System.currentTimeMillis()).toString(), this, this.commonStrings.RUN);
     }
 
 }

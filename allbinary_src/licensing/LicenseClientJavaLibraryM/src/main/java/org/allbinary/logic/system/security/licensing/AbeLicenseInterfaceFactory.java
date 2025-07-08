@@ -23,6 +23,8 @@ import org.allbinary.logic.system.security.licensing.client.AbeLicenseClient;
 
 public class AbeLicenseInterfaceFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final AbeLicenseInterfaceFactory SINGLETON = new AbeLicenseInterfaceFactory();
     
     public static AbeLicenseInterfaceFactory getInstance()
@@ -61,7 +63,7 @@ public class AbeLicenseInterfaceFactory
         {
             //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             //{
-                LogUtil.put(LogFactory.getInstance("Getting Keys", this, commonStrings.GET));
+                logUtil.put("Getting Keys", this, commonStrings.GET);
             //}
             
             abeLicenseInterface = AbeNoLicense.getInstance();
@@ -72,7 +74,7 @@ public class AbeLicenseInterfaceFactory
          //{
             if(abeLicenseInterface!=null)
             {
-                LogUtil.put(LogFactory.getInstance("Default Key: " + abeLicenseInterface.getKey(AbeClientInformationData.getInstance().KEY), this, commonStrings.GET));
+                logUtil.put("Default Key: " + abeLicenseInterface.getKey(AbeClientInformationData.getInstance().KEY), this, commonStrings.GET);
             }
          //}
  
@@ -82,7 +84,7 @@ public class AbeLicenseInterfaceFactory
         {
             //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSINGERROR))
             //{
-                LogUtil.put(LogFactory.getInstance("Licensing IO Error", this, commonStrings.GET, e));
+                logUtil.put("Licensing IO Error", this, commonStrings.GET, e);
             //}
             throw new LicensingException("License Server Connection Error");
         }
@@ -96,7 +98,7 @@ public class AbeLicenseInterfaceFactory
         {
             //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSINGERROR))
             //{
-                LogUtil.put(LogFactory.getInstance("Licensing Failure", this, commonStrings.GET, e));
+                logUtil.put("Licensing Failure", this, commonStrings.GET, e);
             //}
                 throw new LicensingException("Unknown License Failure: " + this.getClass().getName());
         }

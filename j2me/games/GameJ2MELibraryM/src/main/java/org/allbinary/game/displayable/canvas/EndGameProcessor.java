@@ -20,6 +20,8 @@ import org.allbinary.graphics.paint.NullPaintable;
 
 public class EndGameProcessor extends Processor
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private AllBinaryGameCanvas gameCanvas;
 
     private final int WAIT = 5000;
@@ -34,7 +36,7 @@ public class EndGameProcessor extends Processor
         // Only Show End of game for people
         if (this.gameCanvas.isHighScoreSubmitted())
         {
-            // LogUtil.put(LogFactory.getInstance("Score Submitted: Time In State: " + this.getGameStateTimeHelper().getElapsed(), this, "showEndOfGame"));
+            // logUtil.put("Score Submitted: Time In State: " + this.getGameStateTimeHelper().getElapsed(), this, "showEndOfGame");
             if (this.gameCanvas.getGameStateTimeHelper().isElapsed(WAIT))
             {
                 if (this.gameCanvas.getGameState() == AllBinaryGameCanvas.SHOW_END_RESULT_GAME_STATE)

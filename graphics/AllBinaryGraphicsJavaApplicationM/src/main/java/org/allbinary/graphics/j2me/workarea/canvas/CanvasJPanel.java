@@ -61,6 +61,8 @@ public class CanvasJPanel extends javax.swing.JPanel
         java.awt.event.KeyListener,
         MyGraphicItemEventListener
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static int frame = 0;
  
     private final GuiLog guiLog = GuiLog.getInstance();
@@ -696,7 +698,7 @@ public class CanvasJPanel extends javax.swing.JPanel
         } catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, gameInputStrings.KEY_PRESSED, e));
+            logUtil.put(commonStrings.EXCEPTION, this, gameInputStrings.KEY_PRESSED, e);
         }
 
         if (this.getSelectedTool() != null && this.getSelectedTool().isActive())

@@ -35,6 +35,8 @@ import org.allbinary.media.graphics.geography.pathfinding.PathFindingNode;
  */
 public class PathFinderGraphHackVisitor<V, E> extends BasePathFinderGraphVisitor<V, E>
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     //RaceTrackGeographicMap raceTrackGeographicMap
     public PathFinderGraphHackVisitor(
@@ -85,7 +87,7 @@ public class PathFinderGraphHackVisitor<V, E> extends BasePathFinderGraphVisitor
                    geographicMapCellPositionFactory.getInstance(
                    column, nextRow);
 
-                //LogUtil.put(LogFactory.getInstance("geographicMapCellPositionNeighbor: " + geographicMapCellPositionNeighbor.toString() , this, "fixStart"));
+                //logUtil.put("geographicMapCellPositionNeighbor: " + geographicMapCellPositionNeighbor.toString() , this, "fixStart");
 
                 graph.removeEdge(
                    geographicMapCellPosition,
@@ -153,7 +155,7 @@ public class PathFinderGraphHackVisitor<V, E> extends BasePathFinderGraphVisitor
             CellPosition overPassGeographicMapCellPosition =
                CellPositionArray[index];
 
-            LogUtil.put(LogFactory.getInstance("Fixing Over Pass: " + overPassGeographicMapCellPosition.getColumn() + ", " + overPassGeographicMapCellPosition.getRow(), this, "fixOverPassEdges"));
+            logUtil.put("Fixing Over Pass: " + overPassGeographicMapCellPosition.getColumn() + ", " + overPassGeographicMapCellPosition.getRow(), this, "fixOverPassEdges");
 
             GeographicMapCellPosition underPassGeographicMapCellPosition =
                geographicMapCellPositionFactory.getInstance(
@@ -190,7 +192,7 @@ public class PathFinderGraphHackVisitor<V, E> extends BasePathFinderGraphVisitor
        BasicArrayList endPathFindingNodeList, BasicArrayList pathList)
        throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance("Path: " + pathList, this, "fixPath"));
+        //logUtil.put("Path: " + pathList, this, "fixPath");
 
         for (int index = startPathFindingNodeList.size() - 1; index >= 0; index--)
         {

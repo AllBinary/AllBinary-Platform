@@ -26,6 +26,8 @@ import org.allbinary.game.input.mapping.InputToGameKeyMapping;
 public final class TouchButtonInput extends Input 
     implements GameKeyEventSourceInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
     private final int TOUCH_BUTTON_SOURCE_ID = this.gameKeyEventFactory.TOUCH_BUTTON_SOURCE_ID;
     
@@ -37,7 +39,7 @@ public final class TouchButtonInput extends Input
 
         this.inputFactory.add(this.getId(), this);
         
-        //LogUtil.put(LogFactory.getInstance("Created", this, commonStrings.CONSTRUCTOR));
+        //logUtil.put("Created", this, commonStrings.CONSTRUCTOR);
     }
 
     public void update(InputToGameKeyMapping inputToGameKeyMapping)
@@ -50,7 +52,7 @@ public final class TouchButtonInput extends Input
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e);
         }
     }
 

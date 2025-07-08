@@ -24,6 +24,8 @@ import views.business.context.modules.storefront.HttpStoreComponentView;
 
 public class CompoundComponentView extends HttpStoreComponentView 
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     public CompoundComponentView(TransformInfoInterface transformInfoInterface) throws Exception
    {
       super(transformInfoInterface);
@@ -63,7 +65,7 @@ public class CompoundComponentView extends HttpStoreComponentView
          //String error = "Failed To View Store Template Compound Component";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"view()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"view()",e);
          }
          throw e;
       }

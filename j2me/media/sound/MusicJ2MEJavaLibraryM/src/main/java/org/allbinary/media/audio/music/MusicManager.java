@@ -19,6 +19,8 @@ import org.allbinary.time.GameTickTimeDelayHelperFactory;
 import org.allbinary.time.TimeDelayHelper;
 
 public class MusicManager {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final CommonSeps commonSeps = CommonSeps.getInstance();

@@ -22,6 +22,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 public class AllBinarySensor
 implements AllBinarySensorListener
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private static int max = 100;
@@ -58,7 +60,7 @@ implements AllBinarySensorListener
     
     public void shutdown()
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "shutdown"));
+        logUtil.put(commonStrings.START, this, "shutdown");
     }
     
     public void onSensorChange()

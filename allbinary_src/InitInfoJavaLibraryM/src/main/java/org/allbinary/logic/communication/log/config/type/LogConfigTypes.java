@@ -29,6 +29,8 @@ import org.allbinary.util.BasicArrayList;
 
 public class LogConfigTypes
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
    public static final String JSP_ERROR_NO_FUNCTION = "in JSP Not In Function";
 
    public static BasicArrayList LOGGING = new BasicArrayList();

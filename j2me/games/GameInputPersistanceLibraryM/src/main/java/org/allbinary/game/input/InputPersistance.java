@@ -37,6 +37,8 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 
 public class InputPersistance extends BasicPersitance
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final HashtableUtil hashtableUtil = HashtableUtil.getInstance();
 
     public InputPersistance(final String name)
@@ -76,7 +78,7 @@ public class InputPersistance extends BasicPersitance
             final int id = recordEnum.nextRecordId();
 
             stringBuffer.delete(0, stringBuffer.length());
-            LogUtil.put(LogFactory.getInstance(stringBuffer.append(this.persistanceStrings.LOADING_ID).append(id).toString(), this, this.persistanceStrings.LOAD_ALL));
+            logUtil.put(stringBuffer.append(this.persistanceStrings.LOADING_ID).append(id).toString(), this, this.persistanceStrings.LOAD_ALL);
 
             recordAsBytes = recordStore.getRecord(id);
             if(recordAsBytes != null) {
@@ -110,7 +112,7 @@ public class InputPersistance extends BasicPersitance
                             stringBuffer.append(this.persistanceStrings.GAME_ACTION_INPUT);
                             stringBuffer.append(gameActionInputId);
 
-                            //LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, persistanceStrings.LOAD_ALL));
+                            //logUtil.put(stringBuffer.toString(), this, persistanceStrings.LOAD_ALL);
                             PreLogUtil.put(stringBuffer.toString(), this, this.persistanceStrings.LOAD_ALL);
                         }
                         if (gameActionInput == null) {
@@ -121,23 +123,23 @@ public class InputPersistance extends BasicPersitance
                             stringBuffer.append(this.persistanceStrings.ID);
                             stringBuffer.append(inputId);
 
-                            //LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, persistanceStrings.LOAD_ALL));
+                            //logUtil.put(stringBuffer.toString(), this, persistanceStrings.LOAD_ALL);
                             PreLogUtil.put(stringBuffer.toString(), this, this.persistanceStrings.LOAD_ALL);
                         }
                     } else {
-                        //LogUtil.put(LogFactory.getInstance("Load Mapping from: "
+                        //logUtil.put("Load Mapping from: "
                         //     ).append(input.toString()).append(" to: "
-                        //   ).append(gameActionInput.toString(), this, persistanceStrings.LOAD_ALL));
+                        //   ).append(gameActionInput.toString(), this, persistanceStrings.LOAD_ALL);
                     }
 
                     hashtable.put(input, gameActionInput);
                 }
 
-                //LogUtil.put(LogFactory.getInstance("Add mapping for id", this, METHOD_NAME));
+                //logUtil.put("Add mapping for id", this, METHOD_NAME);
                 this.valueList.add(hashtable);
                 this.idList.add(smallIntegerSingletonFactory.getInstance(id));
             } else {
-                //LogUtil.put(LogFactory.getInstance("No bytes for id", this, METHOD_NAME));
+                //logUtil.put("No bytes for id", this, METHOD_NAME);
             }
         }
         
@@ -157,7 +159,7 @@ public class InputPersistance extends BasicPersitance
 
         final StringMaker stringBuffer = new StringMaker();
         PreLogUtil.put(stringBuffer.append(this.persistanceStrings.SAVING).append(StringUtil.getInstance().toString(hashtable)).toString(), this, this.commonStrings.SAVE);
-        //LogUtil.put(LogFactory.getInstance("Saving: ").append(hashtable, this, commonStrings.SAVE));
+        //logUtil.put("Saving: ").append(hashtable, this, commonStrings.SAVE);
 
         recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
@@ -203,9 +205,9 @@ public class InputPersistance extends BasicPersitance
                 //stringBuffer.append(" to: ");
                 //stringBuffer.append(gameActionInput.toString());
                 
-                //LogUtil.put(LogFactory.getInstance("Save Mapping from: "
+                //logUtil.put("Save Mapping from: "
                 //     ).append(input.toString()).append(" to: "
-                  //   ).append(gameActionInput.toString(), this, commonStrings.SAVE));
+                  //   ).append(gameActionInput.toString(), this, commonStrings.SAVE);
             }
         }
 

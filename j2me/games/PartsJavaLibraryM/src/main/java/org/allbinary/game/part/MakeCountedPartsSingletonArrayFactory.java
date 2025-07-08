@@ -24,6 +24,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class MakeCountedPartsSingletonArrayFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final MakeCountedPartsSingletonArrayFactory instance = new MakeCountedPartsSingletonArrayFactory();
 
     public static MakeCountedPartsSingletonArrayFactory getInstance() {
@@ -62,7 +64,7 @@ public class MakeCountedPartsSingletonArrayFactory
         stringBuffer.append(countedBasicArrayList.size());
 
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.GET_INSTANCE));
+        logUtil.put(stringBuffer.toString(), this, commonStrings.GET_INSTANCE);
 
         PartInterface[] newPartInterfaceArray = new PartInterface[list.size()];
         return (PartInterface[]) list.toArray(newPartInterfaceArray);

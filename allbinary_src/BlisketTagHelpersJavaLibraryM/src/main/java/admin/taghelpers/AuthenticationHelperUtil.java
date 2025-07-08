@@ -27,6 +27,8 @@ import org.allbinary.string.CommonLabels;
 
 public class AuthenticationHelperUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final AuthenticationHelperUtil instance = new AuthenticationHelperUtil();
 
     public static AuthenticationHelperUtil getInstance()
@@ -40,7 +42,7 @@ public class AuthenticationHelperUtil
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
         {
-            LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START + filePath, this, "isAuthorized()"));
+            logUtil.put(CommonLabels.getInstance().START + filePath, this, "isAuthorized()");
         }
 
         int endIndex = HttpRequestUtil.getInstance().getLastSeparatorIndex(filePath);
@@ -59,7 +61,7 @@ public class AuthenticationHelperUtil
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                LogUtil.put(LogFactory.getInstance("Authorized", this, "isAuthorized()"));
+                logUtil.put("Authorized", this, "isAuthorized()");
             }
         	
             return true;
@@ -67,7 +69,7 @@ public class AuthenticationHelperUtil
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                LogUtil.put(LogFactory.getInstance("Not Authorized: " + basicUserRole.toString(), this, "isAuthorized()"));
+                logUtil.put("Not Authorized: " + basicUserRole.toString(), this, "isAuthorized()");
             }
 
             return false;

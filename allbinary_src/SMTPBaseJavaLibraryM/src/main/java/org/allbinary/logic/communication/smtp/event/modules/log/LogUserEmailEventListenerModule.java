@@ -21,6 +21,8 @@ import org.allbinary.logic.communication.smtp.event.UserEmailEventListenerInterf
 public class LogUserEmailEventListenerModule 
    implements UserEmailEventListenerInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    public LogUserEmailEventListenerModule()
    {
    }
@@ -31,7 +33,7 @@ public class LogUserEmailEventListenerModule
       {
          String message = "Logging EmailEvent - Temporary Listener for debugging.\n\n" + userEmailInfoEvent.toString();
 
-         LogUtil.put(LogFactory.getInstance(message, this, "onEmailSendRequest"));
+         logUtil.put(message, this, "onEmailSendRequest");
       }
    }
 }

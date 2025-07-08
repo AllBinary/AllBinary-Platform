@@ -18,6 +18,8 @@ import java.lang.reflect.Proxy;
 
 public class InterfaceCastProxy implements java.lang.reflect.InvocationHandler
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
    private Object object;
    
    private InterfaceCastProxy(Object object)

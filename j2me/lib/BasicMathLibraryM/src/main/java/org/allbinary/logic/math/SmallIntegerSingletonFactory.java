@@ -15,6 +15,8 @@ package org.allbinary.logic.math;
 
 public class SmallIntegerSingletonFactory
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final SmallIntegerSingletonFactory instance = new SmallIntegerSingletonFactory();
 
     public static SmallIntegerSingletonFactory getInstance()
@@ -55,7 +57,7 @@ public class SmallIntegerSingletonFactory
             lastNegativeMin = negativeValue;
             //MIN = negativeValue;
         }
-        //LogUtil.put(LogFactory.getInstance("? " + NEGATIVE_INTEGER_ARRAY[5], stringUtil.EMPTY_STRING, "?????????"));
+        //logUtil.put("? " + NEGATIVE_INTEGER_ARRAY[5], stringUtil.EMPTY_STRING, "?????????");
     }
 
     public void init()
@@ -72,7 +74,7 @@ public class SmallIntegerSingletonFactory
                 INTEGER_ARRAY[index] = new Integer(-index);
             }
 
-            //LogUtil.put(LogFactory.getInstance("? " + NEGATIVE_INTEGER_ARRAY[5], "2", "?????????"));
+            //logUtil.put("? " + NEGATIVE_INTEGER_ARRAY[5], "2", "?????????");
 
             lastMin = POSITIVE_MAX;
             lastNegativeMin = NEGATIVE_MAX;
@@ -137,12 +139,12 @@ public class SmallIntegerSingletonFactory
      * public Integer getInstance(int index) { if(index >= 0) { Integer
      * integer = INTEGER_ARRAY[index]; if(integer == null) { try { throw new
      * Exception("Out of Range: " + index); } catch(Exception e) {
-     * LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,
-     * this, commonStrings.GET_INSTANCE, e)); } } return integer;
+     * logUtil.put(commonStrings.EXCEPTION,
+     * this, commonStrings.GET_INSTANCE, e); } } return integer;
      * }else { Integer integer = NEGATIVE_INTEGER_ARRAY[-index]; if(integer ==
      * null) { try { throw new Exception("Out of Range: " + index); }
-     * catch(Exception e) { LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,
-     * this, commonStrings.GET_INSTANCE, e)); } } return integer; }
+     * catch(Exception e) { logUtil.put(commonStrings.EXCEPTION,
+     * this, commonStrings.GET_INSTANCE, e); } } return integer; }
      * }
      */
 }

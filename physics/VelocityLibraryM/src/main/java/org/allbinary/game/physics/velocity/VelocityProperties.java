@@ -17,6 +17,8 @@ public class VelocityProperties
 extends BasicVelocityProperties 
 implements VelocityInterface
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
    private int maxForwardVelocity;
    private int maxReverseVelocity;
 
@@ -112,7 +114,7 @@ implements VelocityInterface
    
    public void limitXYToForwardAndReverseMaxVelocity()
    {
-      //LogUtil.put(LogFactory.getInstance("Limit Velocity", this, "limitMaxVelocity"));
+      //logUtil.put("Limit Velocity", this, "limitMaxVelocity");
       this.limitMaxXYForwardVelocity();
       this.limitMaxXYReverseVelocity();
    }

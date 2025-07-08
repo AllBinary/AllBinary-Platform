@@ -24,6 +24,8 @@ import org.allbinary.logic.communication.log.LogFactory;
 
 public class ConstrainedMotionRectangles extends MotionRectangles
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final String NAME = "constrainedMotionRectangles_";
     
     private MotionRectangleConstraintsInterface motionRectangleConstraintsInterface;
@@ -38,15 +40,15 @@ public class ConstrainedMotionRectangles extends MotionRectangles
         
         this.setMotionRectangleConstraintsInterface(motionRectangleConstraintsInterface);
 
-        //LogUtil.put(LogFactory.getInstance(
-          //  "After - Number Of Rectangles: " + this.getVector().size(), this, this.commonStrings.CONSTRUCTOR));
+        //logUtil.put(
+          //  "After - Number Of Rectangles: " + this.getVector().size(), this, this.commonStrings.CONSTRUCTOR);
     }
     
     public void applyMotionRectangleConstraints(final MotionRectangles motionRectangles)
     throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Start - Size Before: " + motionRectangles.getVector().size(),
-            this, "applyMotionRectangleConstraints"));
+        logUtil.put("Start - Size Before: " + motionRectangles.getVector().size(),
+            this, "applyMotionRectangleConstraints");
 
         final BufferedImage[] bufferedImageArray =
             motionRectangles.getImageComparisonResult().getBufferedImages();
@@ -70,8 +72,8 @@ public class ConstrainedMotionRectangles extends MotionRectangles
             
             if(isTooSmall)
             {
-                //LogUtil.put(LogFactory.getInstance("Target is to small: " +
-                  //  rectangle, this, "getTargetableRectangles"));
+                //logUtil.put("Target is to small: " +
+                  //  rectangle, this, "getTargetableRectangles");
                 continue;
             }
 
@@ -81,8 +83,8 @@ public class ConstrainedMotionRectangles extends MotionRectangles
             
             if(isAreaTooSmall)
             {
-                //LogUtil.put(LogFactory.getInstance("Target area is to small: " +
-                  //  rectangle, this, "getTargetableRectangles"));
+                //logUtil.put("Target area is to small: " +
+                  //  rectangle, this, "getTargetableRectangles");
                 continue;
             }
             
@@ -92,8 +94,8 @@ public class ConstrainedMotionRectangles extends MotionRectangles
             
             if(isTooBig)
             {
-                //LogUtil.put(LogFactory.getInstance("Target is to big: " +
-                  //  rectangle, this, "getTargetableRectangles"));
+                //logUtil.put("Target is to big: " +
+                  //  rectangle, this, "getTargetableRectangles");
                 continue;
             }
         

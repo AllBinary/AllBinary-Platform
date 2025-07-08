@@ -41,6 +41,8 @@ import org.allbinary.logic.system.security.licensing.ServiceClientInformationInt
  */
 public class InventorySearch implements InventoryViewSearchInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final CommonStrings commonStrings = CommonStrings.getInstance();
 
     private final SearchRequest searchRequest;
@@ -91,7 +93,7 @@ public class InventorySearch implements InventoryViewSearchInterface
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "searchSingleStaticPage", e));
+                logUtil.put(this.commonStrings.FAILURE, this, "searchSingleStaticPage", e);
             }
             throw new Exception("Failed retrieve Single Product Page Static");
         }
@@ -109,7 +111,7 @@ public class InventorySearch implements InventoryViewSearchInterface
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "searchSingleDynamicPage", e));
+                logUtil.put(this.commonStrings.FAILURE, this, "searchSingleDynamicPage", e);
             }
             throw new Exception("Failed retrieve Single Product Page Dynamically");
         }

@@ -27,6 +27,8 @@ import org.allbinary.logic.util.event.handler.BasicEventHandler;
 public class GeographicMapCellPositionEventHandler 
 extends BasicEventHandler
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static GeographicMapCellPositionEventHandler instance = new GeographicMapCellPositionEventHandler();
 
     public static GeographicMapCellPositionEventHandler getInstance()
@@ -72,7 +74,7 @@ extends BasicEventHandler
             }
             catch (Exception e)
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
+                logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
         }
 
@@ -93,7 +95,7 @@ extends BasicEventHandler
             }
             catch (Exception e)
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
+                logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
         }
         
@@ -109,7 +111,7 @@ extends BasicEventHandler
 
             } catch (Exception e)
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
+                logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
         }
     }

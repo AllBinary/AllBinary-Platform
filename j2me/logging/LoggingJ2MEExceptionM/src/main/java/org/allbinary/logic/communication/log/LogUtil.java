@@ -10,65 +10,63 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.logic.communication.log;
 
 import org.allbinary.string.CommonStrings;
 
-public class LogUtil
-{
-    private final static String LOG_SUCCESS = "org.allbinary: ";
-    
-   private LogUtil()
-   {
-   }
-   
-   public static void put(Log log)
-   {
-       if(log == LogFactory.LOG)
-       {
-           return;
-       }
-       
-      Object exception = log.getThrowable();
-      
-      if(exception == null)
-      {
-          return;
-      }
-      
-      String specialMessage = log.getSpecialMessage();
-      Object object = log.getObject();
-      String functionName = log.getFunctionName();      
+public class LogUtil {
 
-      put(specialMessage, object, functionName, exception);
-   }
-   
-   private static void put(
-      String specialMessage,
-      Object object,
-      String functionName)
-   {
-   }
-   
-   
-   private static void put(
-      String specialMessage,
-      Object object,
-      String functionName,
-      Object exception)
-   {
-      String className = CommonStrings.getInstance().EMPTY;
-      
-      if(object.getClass().getName() != null)
-      {
-         className = new String(object.getClass().getName());
-      }
-      
-      String message = LogFormatUtil.getInstance().get(
-         className, functionName, specialMessage, exception);
-      
+    private static final LogUtil instance = new LogUtil();
+
+    public static final LogUtil getInstance() {
+        return instance;
+    }
+
+    private final String LOG_SUCCESS = "org.allbinary: ";
+
+    private LogUtil() {
+    }
+
+    public void put(final Log log) {
+        if (log == LogFactory.LOG) {
+            return;
+        }
+
+        final Object exception = log.getThrowable();
+
+        if (exception == null) {
+            return;
+        }
+
+        final String specialMessage = log.getSpecialMessage();
+        final Object object = log.getObject();
+        final String functionName = log.getFunctionName();
+
+        put(specialMessage, object, functionName, exception);
+    }
+
+    public void put(
+        final String specialMessage,
+        final Object object,
+        final String functionName) {
+    }
+
+    public void put(
+        final String specialMessage,
+        final Object object,
+        final String functionName,
+        final Object exception) {
+        String className = CommonStrings.getInstance().EMPTY;
+
+        if (object.getClass().getName() != null) {
+            className = new String(object.getClass().getName());
+        }
+
+        final String message = LogFormatUtil.getInstance().get(
+            className, functionName, specialMessage, exception);
+
         System.out.print(LOG_SUCCESS);
         System.out.println(message);
-   }   
+    }
 }

@@ -18,6 +18,8 @@ import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 
 public class TouchButtonLocationHelper
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final int totalColumns;
     private final int totalRows;
     

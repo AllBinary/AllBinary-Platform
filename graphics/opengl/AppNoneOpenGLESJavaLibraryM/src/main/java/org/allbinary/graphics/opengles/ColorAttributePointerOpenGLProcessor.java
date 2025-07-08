@@ -22,6 +22,8 @@ import org.allbinary.graphics.threed.min3d.renderer.processor.ObjectThreedOpenGL
  * @author User
  */
 public class ColorAttributePointerOpenGLProcessor extends ObjectThreedOpenGLProcessor {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     
     protected static final ColorAttributePointerOpenGLProcessor instance = new ColorAttributePointerOpenGLProcessor();
 

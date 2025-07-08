@@ -41,7 +41,7 @@ public class HorizontalManeuverAI extends BasicAI
       //int keyDirection = -1;
       int x = ownerLayerInterface.getX();
 
-      //LogUtil.put(LogFactory.getInstance("Angle: " + currentAngle + " X: " + x + " Y: " + y, this, commonStrings.PROCESS));
+      //logUtil.put("Angle: " + currentAngle + " X: " + x + " Y: " + y, this, commonStrings.PROCESS);
       if (ownerLayerInterface.getX() - currentSpeed <= 0)
       {
          this.reverse();

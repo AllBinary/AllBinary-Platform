@@ -24,6 +24,8 @@ import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.util.BasicArrayList;
 
 public class DownKeyEventHandlerBase extends BasicEventHandler {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private final BasicArrayList list = new BasicArrayList();
 
@@ -74,7 +76,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
                 PlayerGameInput playerGameInput = (PlayerGameInput) this.list.objectArray[index];
                 playerGameInput.onDownKeyEvent(eventObject);
             } catch (Exception e) {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
+                logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
         }
 
@@ -88,7 +90,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
             }
             catch (Exception e)
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
+                logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
         }
 
@@ -103,7 +105,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
                 PlayerGameInput playerGameInput = (PlayerGameInput) this.list.objectArray[index];
                 playerGameInput.onDownKeyEvent(eventObject);
             } catch (Exception e) {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
+                logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
         }
 
@@ -117,7 +119,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
             }
             catch (Exception e)
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
+                logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
         }
 
@@ -149,7 +151,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
                 stringBuffer.append(LISTENER_LABEL);
                 stringBuffer.append(eventListenerInterface);
             } catch (Exception e) {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.TOSTRING, e));
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.TOSTRING, e);
             }
         }
         return stringBuffer.toString();

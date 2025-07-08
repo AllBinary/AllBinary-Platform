@@ -26,6 +26,8 @@ import org.allbinary.media.image.analysis.ColorRangeInterface;
 public class ColorAtActionScriptConditionJPanel
     extends javax.swing.JPanel
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private ColorAtActionScriptConditionInterface colorAtActionScriptConditionInterface;
@@ -34,7 +36,7 @@ public class ColorAtActionScriptConditionJPanel
     public ColorAtActionScriptConditionJPanel(
         ColorAtActionScriptConditionInterface colorAtActionScriptConditionInterface)
     {
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR));
+        logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         
         initComponents();
         

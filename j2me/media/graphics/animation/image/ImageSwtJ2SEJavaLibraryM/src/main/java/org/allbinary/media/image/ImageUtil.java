@@ -33,6 +33,8 @@ import org.eclipse.swt.widgets.Display;
 import org.microemu.app.BareMain;
 
 public class ImageUtil {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final ImageUtil instance = new ImageUtil();
 
@@ -53,7 +55,7 @@ public class ImageUtil {
 
     private ImageUtil() {
         try {
-            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
+            logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
             /*
          poolInterface =
@@ -63,7 +65,7 @@ public class ImageUtil {
          CachePolicy.MAX_TIME_THOUSAND_MAX);
              */
         } catch (Exception e) {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
         }
     }
 
@@ -151,39 +153,39 @@ public class ImageUtil {
             ratioY = heightRatio;
         }
 
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(width).append(this.commonSeps.FORWARD_SLASH).append(height)
+        logUtil.put(new StringMaker().append(width).append(this.commonSeps.FORWARD_SLASH).append(height)
             .append(this.commonSeps.COLON).append(newWidth).append(this.commonSeps.FORWARD_SLASH).append(newHeight).append(this.commonSeps.COLON)
-            .append(widthRatio).append(this.commonSeps.FORWARD_SLASH).append(heightRatio).toString(), this, CREATE_BUFFERED_IMAGE));
+            .append(widthRatio).append(this.commonSeps.FORWARD_SLASH).append(heightRatio).toString(), this, CREATE_BUFFERED_IMAGE);
 
         float dx = 0;
         float dy = 0;
         if (!scale && allowTranslate) {
             dx = (newWidth - width) / 2;
             dy = (newHeight - height) / 2;
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Translate dx: ").append(dx).append(" dy: ").append(dy).toString(), this, CREATE_BUFFERED_IMAGE));
+            logUtil.put(new StringMaker().append("Translate dx: ").append(dx).append(" dy: ").append(dy).toString(), this, CREATE_BUFFERED_IMAGE);
 
 //          if (newWidth < width) {
 //              final double translate = -(width - newWidth);
-//              LogUtil.put(LogFactory.getInstance("Translating to keep image centered x3: " + translate, this, CREATE_BUFFERED_IMAGE));
+//              logUtil.put("Translating to keep image centered x3: " + translate, this, CREATE_BUFFERED_IMAGE);
 //              affineTransform.translate(translate, 0);
 //          }
 //          if (newHeight < height) {
 //              //final double translate = -(height - newHeight) / 2;
 //              final double translate = -(height - newHeight);
-//              LogUtil.put(LogFactory.getInstance("Translating to keep image centered y0: " + translate, this, CREATE_BUFFERED_IMAGE));
+//              logUtil.put("Translating to keep image centered y0: " + translate, this, CREATE_BUFFERED_IMAGE);
 //              affineTransform.translate(0, translate);
 //          }
 //
 //          //if(newHeight > height && widthRatio <= 1) {
 //          if (newHeight > height) {
 //              final double translate = (newHeight - height) / 2;
-//              LogUtil.put(LogFactory.getInstance("Translating to keep image centered y1: " + translate, this, CREATE_BUFFERED_IMAGE));
+//              logUtil.put("Translating to keep image centered y1: " + translate, this, CREATE_BUFFERED_IMAGE);
 //              affineTransform.translate(0, translate);
 //          }
 //          //if(newWidth > width && heightRatio <= 1) {
 //          if (newWidth > width) {
 //              final double translate = (newWidth - width) / 2;
-//              LogUtil.put(LogFactory.getInstance("Translating to keep image centered x2: " + translate, this, CREATE_BUFFERED_IMAGE));
+//              logUtil.put("Translating to keep image centered x2: " + translate, this, CREATE_BUFFERED_IMAGE);
 //              affineTransform.translate(translate, 0);
 //          }
         }

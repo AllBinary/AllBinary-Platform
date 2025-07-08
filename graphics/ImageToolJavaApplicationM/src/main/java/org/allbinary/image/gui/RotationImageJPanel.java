@@ -31,6 +31,8 @@ import org.allbinary.media.image.ImageStrings;
 
 public class RotationImageJPanel extends javax.swing.JPanel
         implements ImageProcessedVisitor {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final ImageStrings imageStrings = ImageStrings.getInstance();
@@ -60,14 +62,14 @@ public class RotationImageJPanel extends javax.swing.JPanel
                     ImageArrayRotationUtil.getInstance().process(RotationImageJPanel.this.getImageProcessorInput(), angleAsString, RotationImageJPanel.this);                        
 
                 } catch (Exception e) {
-                    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
+                    logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
                 }
             }
         }.start();
     }
     /*
     public void paint(Graphics graphics) {
-    LogUtil.put(LogFactory.getInstance(commonStrings.START, this, canvasStrings.PAINT));
+    logUtil.put(commonStrings.START, this, canvasStrings.PAINT);
      */
     //graphics.setColor(BasicColors.BLUE.toColor());
     //graphics.fillRect(0, 0, getWidth(),getHeight());
@@ -265,6 +267,6 @@ private void totalAngleJComboBoxActionPerformed(java.awt.event.ActionEvent evt) 
        final boolean isWritten
                = ImageIO.write((RenderedImage) RotationImageJPanel.this.result, imageStrings.PNG, file);
 
-       LogUtil.put(LogFactory.getInstance("File: " + file + " Wrote: " + isWritten, this, commonStrings.RUN));
+       logUtil.put("File: " + file + " Wrote: " + isWritten, this, commonStrings.RUN);
    }
 }

@@ -32,6 +32,8 @@ import org.allbinary.logic.communication.log.PreLogUtil;
 
 public class ResourceUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final ResourceUtil instance = new ResourceUtil();
 
     public static ResourceUtil getInstance()
@@ -128,7 +130,7 @@ public class ResourceUtil
 
     public void setResources(final Resources resources)
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Resource Loader: ").append(resources.getClass().getName()).toString(), this, "setResources"));
+        logUtil.put(new StringMaker().append("Resource Loader: ").append(resources.getClass().getName()).toString(), this, "setResources");
 
         this.resources = resources;
     }
@@ -140,7 +142,7 @@ public class ResourceUtil
     public InputStream getResourceAsStream(final String resource) // , Object emulatorObject)
         throws Exception
     {   
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append(GETTING).append(resource).toString(), this, METHOD_NAME));
+        //logUtil.put(new StringMaker().append(GETTING).append(resource).toString(), this, METHOD_NAME);
 
         // Try getting resource with normal resource access
         // AssetManager assetManager = resources.getAssets();
@@ -151,7 +153,7 @@ public class ResourceUtil
 
         if (inputStream != null)
         {
-            //LogUtil.put(LogFactory.getInstance(RESOURCE, this, METHOD_NAME));
+            //logUtil.put(RESOURCE, this, METHOD_NAME);
 
             return inputStream;
         }

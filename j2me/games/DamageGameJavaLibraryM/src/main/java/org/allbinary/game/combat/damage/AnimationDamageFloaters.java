@@ -26,6 +26,8 @@ import org.allbinary.view.ViewPosition;
 
 public class AnimationDamageFloaters extends DamageFloaters
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private AllBinaryLayer layerInterface;
     private IndexedAnimation[] animationInterfaceArray;
 
@@ -101,7 +103,7 @@ public class AnimationDamageFloaters extends DamageFloaters
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
             final CanvasStrings canvasStrings = CanvasStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, canvasStrings.PAINT, e));
+            logUtil.put(commonStrings.EXCEPTION, this, canvasStrings.PAINT, e);
         }
     }
 }

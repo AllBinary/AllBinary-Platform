@@ -30,6 +30,8 @@ import org.allbinary.string.CommonStrings;
 
 public class BasicWorkFlow implements WorkFlowInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
 
     private final AbeClientInformationInterface abeClientInformation = 
@@ -43,7 +45,7 @@ public class BasicWorkFlow implements WorkFlowInterface
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().WORKFLOW))
       {
-         LogUtil.put(LogFactory.getInstance("Properties: " + propertiesHashMap.toString(), this, "BasicWorkFlow()"));
+         logUtil.put("Properties: " + propertiesHashMap.toString(), this, "BasicWorkFlow()");
       }
       
       this.propertiesHashMap = propertiesHashMap;
@@ -72,7 +74,7 @@ public class BasicWorkFlow implements WorkFlowInterface
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().WORKFLOW))
       {
-         LogUtil.put(LogFactory.getInstance(this.commonStrings.START,this,commonStrings.PROCESS));
+         logUtil.put(this.commonStrings.START,this,commonStrings.PROCESS);
       }
       
       if(this.validationDomNodeInterface.isValid().booleanValue())

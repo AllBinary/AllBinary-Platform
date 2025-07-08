@@ -18,6 +18,8 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 
 public class PathFindingNodeCostInfoFactory
     extends PathFindingNodeCostInfoFactoryBase {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private final PathFindingNodeCostInfo[][] pathFindingNodeCostInfoAdjacencyList;
 
@@ -79,7 +81,7 @@ public class PathFindingNodeCostInfoFactory
         // [goingToFromGeographicMapCellPosition.getId().intValue()];
         //if(pathFindingNodeCostInfo == null)
         //{
-        // LogUtil.put(LogFactory.getInstance("Unable to get PathFindingNodeCostInfo: " + pathFindingNodeCostInfoKey, this, commonStrings.GET_INSTANCE));
+        // logUtil.put("Unable to get PathFindingNodeCostInfo: " + pathFindingNodeCostInfoKey, this, commonStrings.GET_INSTANCE);
         //}
         //return pathFindingNodeCostInfo;
         return this.pathFindingNodeCostInfoAdjacencyList[geographicMapCellPosition.getId()][goingToFromGeographicMapCellPosition.getId()];

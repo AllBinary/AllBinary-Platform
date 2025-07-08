@@ -37,7 +37,7 @@ public class AbSqlTablePresentation extends AbSqlBasic
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getTable",e);
+            logUtil.put("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getTable",e);
          }
          return "Get Table Failed";
       }
@@ -173,7 +173,7 @@ public class AbSqlTablePresentation extends AbSqlBasic
             String columnName = rsmd.getColumnName(i);
             String columnValue = rset.getString(i);
             if(columnValue==null || columnValue.compareTo("null)==0) columnValue=stringUtil.EMPTY_STRING;
-            stringBuff.append(new HtmlTextInput(columnName + ": ",columnName,columnValue,"<br>\n").toString());
+            stringBuff.append(new HtmlTextInput(columnName + ": ",columnName,columnValue,"<br>\n").toString();
          }                  
          
          String form = stringBuff.toString();
@@ -183,7 +183,7 @@ public class AbSqlTablePresentation extends AbSqlBasic
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getInputWhere",e);
+            logUtil.put("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getInputWhere",e);
          }
          return "Get Html Inputs Failed";
       }

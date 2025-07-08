@@ -17,6 +17,8 @@ import org.allbinary.logic.communication.log.ForcedLogUtil;
 
 public class ImmutableBasicArrayList extends BasicArrayList
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final String IMMUTABLE = "Immutable";
 
     public ImmutableBasicArrayList(int size)

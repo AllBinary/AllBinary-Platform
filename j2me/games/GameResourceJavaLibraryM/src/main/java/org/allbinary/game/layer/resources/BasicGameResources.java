@@ -21,6 +21,8 @@ import org.allbinary.game.configuration.GameConfigurationCentral;
 
 public class BasicGameResources
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected static final StringMaker stringBuffer = new StringMaker();
     
     public String RESOURCE;
@@ -44,11 +46,11 @@ public class BasicGameResources
                 throw new Exception(new StringMaker().append("Invalid Value: ").append(scale).toString());
             }
 
-            //LogUtil.put(LogFactory.getInstance("Resource: ").append(this.RESOURCE).append(" Destroy: ").append(this.RESOURCE_DESTROY, this, commonStrings.INIT));
+            //logUtil.put("Resource: ").append(this.RESOURCE).append(" Destroy: ").append(this.RESOURCE_DESTROY, this, commonStrings.INIT);
         } catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.INIT, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
         }
     }
 

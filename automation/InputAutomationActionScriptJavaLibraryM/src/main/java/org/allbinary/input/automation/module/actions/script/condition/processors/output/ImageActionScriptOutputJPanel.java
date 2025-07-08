@@ -30,6 +30,8 @@ import org.allbinary.string.CommonStrings;
 public class ImageActionScriptOutputJPanel
     extends javax.swing.JPanel
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private ImageActionScriptOutputInterface capturedImageActionScriptOutputInterface;
@@ -39,7 +41,7 @@ public class ImageActionScriptOutputJPanel
         ImageActionScriptOutputInterface capturedImageActionScriptOutputInterface)
         throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR));
+        logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         
         initComponents();
         

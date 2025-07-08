@@ -39,7 +39,9 @@ import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 
 public class BasketRequestHelper
     extends TagHelper
-{  
+{
+    protected final LogUtil logUtil = LogUtil.getInstance();
+  
 
    private final WeblisketSession weblisketSession;
    
@@ -100,7 +102,7 @@ public class BasketRequestHelper
          }
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            LogUtil.put(LogFactory.getInstance("Successfully added item to Basket",this,"addItemToBasket()"));
+            logUtil.put("Successfully added item to Basket",this,"addItemToBasket()");
          }
          return Boolean.TRUE;
       }
@@ -108,7 +110,7 @@ public class BasketRequestHelper
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"addItemToBasket()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"addItemToBasket()",e);
          }
          return Boolean.FALSE;
       }
@@ -125,7 +127,7 @@ public class BasketRequestHelper
          }
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            LogUtil.put(LogFactory.getInstance("Successfully removed item from Basket",this,"removeItemFromBasket()"));
+            logUtil.put("Successfully removed item from Basket",this,"removeItemFromBasket()");
          }
          return Boolean.TRUE;
       }
@@ -133,7 +135,7 @@ public class BasketRequestHelper
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"removeItemFromBasket()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"removeItemFromBasket()",e);
          }
          return Boolean.FALSE;
       }
@@ -161,7 +163,7 @@ public class BasketRequestHelper
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            LogUtil.put(LogFactory.getInstance("Successfull Adjusted Basket",this,"adjustBasket()"));
+            logUtil.put("Successfull Adjusted Basket",this,"adjustBasket()");
          }
          return Boolean.TRUE;
       }
@@ -169,7 +171,7 @@ public class BasketRequestHelper
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"adjustBasket()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"adjustBasket()",e);
          }
          return Boolean.FALSE;
       }

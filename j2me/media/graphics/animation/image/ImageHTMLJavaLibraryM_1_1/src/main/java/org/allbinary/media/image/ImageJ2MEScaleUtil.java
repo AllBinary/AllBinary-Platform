@@ -28,6 +28,8 @@ import playn.core.CanvasSurface;
  * @author user
  */
 public class ImageJ2MEScaleUtil {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final ImageJ2MEScaleUtil instance = new ImageJ2MEScaleUtil();
 
@@ -77,7 +79,7 @@ public class ImageJ2MEScaleUtil {
         final CanvasImage canvasImage = (CanvasImage) htmlImage.getImage();
         final CanvasSurface canvasSurface = htmlImage.getCanvasSurface(canvasImage);
         
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("TWB w:").append(image.getWidth()).append(" h: ").append(image.getHeight()).append(" w: ").append(scaledImage.getWidth()).append(" h: ").append(scaledImage.getHeight()).toString(), this, "scale"));
+        //logUtil.put(new StringMaker().append("TWB w:").append(image.getWidth()).append(" h: ").append(image.getHeight()).append(" w: ").append(scaledImage.getWidth()).append(" h: ").append(scaledImage.getHeight()).toString(), this, "scale");
         
         canvasSurface.drawImage(originalPlayNImage, 0, 0, scaledImage.getWidth(), scaledImage.getHeight(), 0, 0, image.getWidth(), image.getHeight());
 

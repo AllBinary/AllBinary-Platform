@@ -24,6 +24,8 @@ import org.allbinary.logic.util.queue.BasicQueue;
 public class BasicEmailQueue extends BasicQueue
    implements EmailQueueInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 	private static final BasicEmailQueue instance = new BasicEmailQueue();
 	
    private static BasicEmailQueue basicEmailQueue;
@@ -92,14 +94,14 @@ public class BasicEmailQueue extends BasicQueue
          //Should start thread here
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Sending: " + emailInterface.log(), this, "send"));
+            logUtil.put("Sending: " + emailInterface.log(), this, "send");
          }
          
          Transport.send(emailInterface.getMimeMessage());
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Email Send Debug: " + emailInterface.getDebugInfo(), this, "send"));
+            logUtil.put("Email Send Debug: " + emailInterface.getDebugInfo(), this, "send");
          }
          return true;
       }
@@ -109,7 +111,7 @@ public class BasicEmailQueue extends BasicQueue
          //Should fire email send event error
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Failed Email Send Debug: " + emailInterface.getDebugInfo(), this, "send", e));
+            logUtil.put("Failed Email Send Debug: " + emailInterface.getDebugInfo(), this, "send", e);
          }
          return false;
       }

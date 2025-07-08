@@ -26,6 +26,8 @@ import org.allbinary.string.CommonStrings;
 
 public class TransformInfoHttpFactory
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
    private TransformInfoHttpFactory()
    {
    }
@@ -34,6 +36,7 @@ public class TransformInfoHttpFactory
       HashMap propertiesHashMap, PageContext pageContext) 
       throws Exception
    {
+       final LogUtil logUtil = LogUtil.getInstance();
       try
       {
          WeblisketSession weblisketSession = new WeblisketSession(
@@ -66,8 +69,7 @@ public class TransformInfoHttpFactory
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
              final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "TransformInfoFactory",
-               commonStrings.GET_INSTANCE, e));
+            logUtil.put(commonStrings.EXCEPTION, "TransformInfoFactory",commonStrings.GET_INSTANCE, e);
          }
          throw e;
       }

@@ -41,6 +41,8 @@ public class UpdateFileValidationView
     extends InventoryItemView
     implements ValidationComponentInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final String UPDATEPRODUCT = CommonStrings.getInstance().UPDATE;
 
@@ -61,7 +63,7 @@ public class UpdateFileValidationView
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
-                    LogUtil.put(LogFactory.getInstance("Invalid AdminCommand=" + command, this, commonStrings.IS_VALID));
+                    logUtil.put("Invalid AdminCommand=" + command, this, commonStrings.IS_VALID);
                 }
                 return Boolean.FALSE;
             }
@@ -70,7 +72,7 @@ public class UpdateFileValidationView
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
-                    LogUtil.put(LogFactory.getInstance("BasicItem is not valid", this, commonStrings.IS_VALID));
+                    logUtil.put("BasicItem is not valid", this, commonStrings.IS_VALID);
                 }
                 return Boolean.FALSE;
             }
@@ -92,7 +94,7 @@ public class UpdateFileValidationView
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
-                    LogUtil.put(LogFactory.getInstance("Category Does Not Exist: " + fullCategory, this, commonStrings.IS_VALID));
+                    logUtil.put("Category Does Not Exist: " + fullCategory, this, commonStrings.IS_VALID);
                 }
                 return Boolean.FALSE;
             }
@@ -127,7 +129,7 @@ public class UpdateFileValidationView
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                LogUtil.put(LogFactory.getInstance("Exception in validation", this, commonStrings.IS_VALID, e));
+                logUtil.put("Exception in validation", this, commonStrings.IS_VALID, e);
             }
 
             return Boolean.FALSE;
@@ -168,7 +170,7 @@ public class UpdateFileValidationView
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            LogUtil.put(LogFactory.getInstance("Category: " + fullCategory, this, "validationInfo()"));
+            logUtil.put("Category: " + fullCategory, this, "validationInfo()");
         }
 
         try
@@ -182,7 +184,7 @@ public class UpdateFileValidationView
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                LogUtil.put(LogFactory.getInstance("Existing Item With MoneyException", this, "validationInfo()"));
+                logUtil.put("Existing Item With MoneyException", this, "validationInfo()");
             }
         }
 
@@ -230,7 +232,7 @@ public class UpdateFileValidationView
                     stringBuffer.append(">");
                     stringBuffer.append(fileData.MAXIMAGEFILESIZE);
 
-                    LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.IS_VALID));
+                    logUtil.put(stringBuffer.toString(), this, commonStrings.IS_VALID);
                 }
                 return Boolean.FALSE;
             }

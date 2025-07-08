@@ -25,6 +25,8 @@ import org.allbinary.logic.util.event.handler.BasicEventHandler;
 
 public class AnalogControllerConfigurationEventHandler extends BasicEventHandler
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final AnalogControllerConfigurationEventHandler instance = new AnalogControllerConfigurationEventHandler();
 
     public static AnalogControllerConfigurationEventHandler getInstance()
@@ -72,7 +74,7 @@ public class AnalogControllerConfigurationEventHandler extends BasicEventHandler
             }
             catch (Exception e)
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
+                logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
         }
 

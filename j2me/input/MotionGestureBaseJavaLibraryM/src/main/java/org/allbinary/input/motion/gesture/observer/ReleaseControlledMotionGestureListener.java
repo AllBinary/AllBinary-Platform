@@ -35,6 +35,8 @@ import org.allbinary.logic.util.event.AllBinaryEventObject;
  */
 public class ReleaseControlledMotionGestureListener implements MotionGestureEventListener
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private MotionGestureInput currentMotionGesture = TouchMotionGestureFactory.getInstance().NO_MOTION;
@@ -45,7 +47,7 @@ public class ReleaseControlledMotionGestureListener implements MotionGestureEven
 
     public ReleaseControlledMotionGestureListener(CompleteMotionGestureListenerInterface signed)
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
+        logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
         this.signed = signed;
     }
 
@@ -109,7 +111,7 @@ public class ReleaseControlledMotionGestureListener implements MotionGestureEven
                 return;
             isMouseGestureOccurring = false;
             
-            //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL).append(ev.getMotionGesture(), this, "release"));
+            //logUtil.put(commonStrings.START_LABEL).append(ev.getMotionGesture(), this, "release");
             signed.onMotionGestureCompleted(motionGestureCollection);
             //List is only compared and not referenced again so it is safe just to clear
             //TWB - Although this could be dangerous
@@ -117,13 +119,13 @@ public class ReleaseControlledMotionGestureListener implements MotionGestureEven
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(StringUtil.getInstance().toString(ev.getMotionGesture())).toString(), this, "release", e));
+            logUtil.put(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(StringUtil.getInstance().toString(ev.getMotionGesture())).toString(), this, "release", e);
         }
     }
 
     public void onMotionGestureEvent(MotionGestureEvent ev)
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL).append(ev.getMotionGesture(), this, "onMotionGestureEvent"));
+        //logUtil.put(commonStrings.START_LABEL).append(ev.getMotionGesture(), this, "onMotionGestureEvent");
 
         //currentMotionGesture == TouchMotionGestureFactory.getInstance().NO_MOTION &&
         if (isMouseGestureOccurring == false)

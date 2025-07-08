@@ -52,6 +52,8 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
  * @author user
  */
 public class InventorySearchUtil {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final  InventorySearchUtil instance = new InventorySearchUtil();
 
@@ -96,7 +98,7 @@ public class InventorySearchUtil {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
         {
-            LogUtil.put(LogFactory.getInstance("Number Of Items Found: " + column.size(), this, "search"));
+            logUtil.put("Number Of Items Found: " + column.size(), this, "search");
         }
 
         BasicArrayList subStoreVector = storeFrontInterface.getSubStores();
@@ -115,8 +117,8 @@ public class InventorySearchUtil {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
         {
-            LogUtil.put(LogFactory.getInstance("Number Of Items Found Including SubStores: "
-                + column.size(), this, "search"));
+            logUtil.put("Number Of Items Found Including SubStores: "
+                + column.size(), this, "search");
         }
 
         return column;
@@ -137,8 +139,8 @@ public class InventorySearchUtil {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
         {
-            LogUtil.put(LogFactory.getInstance(
-                "No Results Xml: " + success, this, "search"));
+            logUtil.put(
+                "No Results Xml: " + success, this, "search");
         }
 
         return success;
@@ -183,7 +185,7 @@ public class InventorySearchUtil {
                 stringBuffer.append(PAGE_LENGTH);
                 stringBuffer.append(pageLength);
 
-                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "search"));
+                logUtil.put(stringBuffer.toString(), this, "search");
             }
             */
 
@@ -233,7 +235,7 @@ public class InventorySearchUtil {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                     org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
                 {
-                    LogUtil.put(LogFactory.getInstance("Initial Document Created", this, "search"));
+                    logUtil.put("Initial Document Created", this, "search");
                 }
                 */
 
@@ -259,7 +261,7 @@ public class InventorySearchUtil {
                         stringBuffer.append(WITH);
                         stringBuffer.append(keywords);
 
-                        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "search"));
+                        logUtil.put(stringBuffer.toString(), this, "search");
                     }
                     */
 
@@ -294,7 +296,7 @@ public class InventorySearchUtil {
                             stringBuffer.append(" last: ");
                             stringBuffer.append(lastPage);
 
-                            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "search"));
+                            logUtil.put(stringBuffer.toString(), this, "search");
                         }
                         */
 
@@ -317,7 +319,7 @@ public class InventorySearchUtil {
                                     //stringBuffer.append(XML_COLON);
                                     //stringBuffer.append(DomDocumentHelper.toString(viewDocumentInterface.getDoc()));
 
-                                    LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "search"));
+                                    logUtil.put(stringBuffer.toString(), this, "search");
                                 }
                                 */
 
@@ -391,7 +393,7 @@ public class InventorySearchUtil {
                         //stringBuffer.append(XML_COLON);
                         //stringBuffer.append(DomDocumentHelper.toString(viewDocumentInterface.getDoc()));
 
-                        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "search"));
+                        logUtil.put(stringBuffer.toString(), this, "search");
                     }
                     */
 
@@ -437,7 +439,7 @@ public class InventorySearchUtil {
                             stringBuffer.append(XML_COLON);
                             stringBuffer.append(DomDocumentHelper.toString(tempDocument));
 
-                            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "search"));
+                            logUtil.put(stringBuffer.toString(), this, "search");
                         }
                         */
 
@@ -491,7 +493,7 @@ public class InventorySearchUtil {
                             stringBuffer.append(XML_COLON);
                             stringBuffer.append(success);
 
-                            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "search"));
+                            logUtil.put(stringBuffer.toString(), this, "search");
                         }
                         */
 
@@ -527,7 +529,7 @@ public class InventorySearchUtil {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "search", e));
+                logUtil.put(this.commonStrings.FAILURE, this, "search", e);
             }
             return null;
         }

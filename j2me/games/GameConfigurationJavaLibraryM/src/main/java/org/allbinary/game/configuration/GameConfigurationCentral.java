@@ -29,6 +29,8 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 
 public class GameConfigurationCentral
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final GameConfigurationCentral SINGLETON = new GameConfigurationCentral();
 
     public static GameConfigurationCentral getInstance()
@@ -178,11 +180,11 @@ public class GameConfigurationCentral
                 this.SCALE.setValue(smallIntegerSingletonFactory.getInstance(Integer.valueOf(value).intValue()));
             } else
             {
-                LogUtil.put(LogFactory.getInstance("No Game Configuration To Load", this, commonStrings.LOAD));
+                logUtil.put("No Game Configuration To Load", this, commonStrings.LOAD);
             }
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.LOAD, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.LOAD, e);
         }
 
         // Load Scale Value

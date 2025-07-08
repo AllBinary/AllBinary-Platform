@@ -17,6 +17,8 @@ import org.allbinary.time.TimeDelayHelper;
 
 public class MusicManager
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final String PLAY = "Play ";
     private final String FOR = " for: ";
 

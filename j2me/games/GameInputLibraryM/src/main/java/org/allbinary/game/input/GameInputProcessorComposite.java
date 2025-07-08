@@ -23,6 +23,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class GameInputProcessorComposite extends PlayerGameInput
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final String name;
     private final GameInputProcessorInterface gameInputProcessorInterface;
     
@@ -44,7 +46,7 @@ public class GameInputProcessorComposite extends PlayerGameInput
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e);
         }
     }
     

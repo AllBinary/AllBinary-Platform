@@ -43,6 +43,8 @@ import org.allbinary.time.TimeDelayHelper;
 public class PreGameSelectionGameInputProcessor extends Processor implements
         GameInputProcessorInterface, PlayerGameInputCompositeInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final AllBinaryGameCanvas gameCanvas;
     private final PreGameSelectorPaintable preGameSelectorPaintable;
     private final TimeDelayHelper inputTimeHelper = new TimeDelayHelper(650);
@@ -69,7 +71,7 @@ public class PreGameSelectionGameInputProcessor extends Processor implements
             } catch (Exception e) {
                 this.setRunning(false);
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
             }
         }
     };

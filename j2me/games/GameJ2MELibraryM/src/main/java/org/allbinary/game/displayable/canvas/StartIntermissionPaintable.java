@@ -28,6 +28,8 @@ import org.allbinary.logic.string.StringMaker;
 
 public class StartIntermissionPaintable extends InitUpdatePaintable
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final FontDebugFactory fontDebugFactory = FontDebugFactory.getInstance();
     protected final BasicColorSetUtil basicSetColorUtil = 
         BasicColorSetUtil.getInstance();
@@ -68,7 +70,7 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
     
     public void paint(Graphics graphics)
     {
-        //LogUtil.put(LogFactory.getInstance("Intermission Processing: ", this, "draw"));
+        //logUtil.put("Intermission Processing: ", this, "draw");
         
         final Font existingFont = graphics.getFont();
         

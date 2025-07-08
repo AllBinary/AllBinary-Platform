@@ -26,6 +26,8 @@ import org.allbinary.logic.communication.sql.AbSqlTableUtil;
 
 public class TransformInfoHelper extends BasicTable
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final Portion portion;
 
    public TransformInfoHelper(HashMap hashMap, PageContext pageContext)
@@ -44,7 +46,7 @@ public class TransformInfoHelper extends BasicTable
          String error = "Failed to drop view info table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,commonStrings.DROP,e));
+            logUtil.put(commonStrings.EXCEPTION,this,commonStrings.DROP,e);
          }
          return error;  
       }
@@ -61,7 +63,7 @@ public class TransformInfoHelper extends BasicTable
          String error = "Failed to create view info table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"create()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"create()",e);
          }
          return error;  
       }
@@ -76,7 +78,7 @@ public class TransformInfoHelper extends BasicTable
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            LogUtil.put(LogFactory.getInstance(success,this,"restore()"));
+            logUtil.put(success,this,"restore()");
          }
          return result;
       }
@@ -86,7 +88,7 @@ public class TransformInfoHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"restore()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"restore()",e);
          }
          return error;
       }
@@ -100,7 +102,7 @@ public class TransformInfoHelper extends BasicTable
          final String result = AbSqlTableUtil.getInstance().backupTable(TransformInfoEntityBuilder.getInstance());
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            LogUtil.put(LogFactory.getInstance(success,this,"backup()"));
+            logUtil.put(success,this,"backup()");
          }
          return result;
       }
@@ -110,7 +112,7 @@ public class TransformInfoHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"backup()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"backup()",e);
          }
          return error;
       }

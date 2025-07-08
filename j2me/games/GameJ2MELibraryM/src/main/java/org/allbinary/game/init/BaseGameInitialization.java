@@ -35,6 +35,8 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 
 public class BaseGameInitialization implements GameInitializationInterface
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final ResourceInitialization[] resourceInitializationArray;
 
     private final int portion;

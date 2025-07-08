@@ -15,6 +15,8 @@ package org.allbinary.logic.communication.log;
 
 public class LogFactory
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     public static final Log getInstance(
             String specialMessage,
             Object object,

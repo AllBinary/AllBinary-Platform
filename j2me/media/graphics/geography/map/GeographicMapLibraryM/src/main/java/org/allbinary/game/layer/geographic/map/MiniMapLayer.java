@@ -41,6 +41,8 @@ public class MiniMapLayer
 extends AllBinaryLayer 
 implements GeographicMapCellPositionEventListenerInterface
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
    //private final SimpleGeographicMap simpleGeographicMap;
    protected final AllBinaryTiledLayer allBinaryTiledLayer;
    private final BasicGeographicMapCellPositionFactory geographicMapCellPositionFactory;
@@ -72,7 +74,7 @@ implements GeographicMapCellPositionEventListenerInterface
       
       // allBinaryTiledLayer.setPosition(0, this.getY());
 
-      //LogUtil.put(LogFactory.getInstance("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Alpha: " + this.bufferedImage.getBitmap().getPixel(0,0), this, "updateBufferedImage"));
+      //logUtil.put("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Alpha: " + this.bufferedImage.getBitmap().getPixel(0,0), this, "updateBufferedImage");
 
       this.list = new BasicArrayList();
       this.basicColorList = new BasicArrayList();
@@ -117,7 +119,7 @@ implements GeographicMapCellPositionEventListenerInterface
       GeographicMapCellPositionEvent geographicMapCellPositionEvent)
       throws Exception
    {
-      //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "onEvent"));
+      //logUtil.put(commonStrings.START, this, "onEvent");
 
        ColorCompositeInterface colorCompositeInterface =
            (ColorCompositeInterface) geographicMapCellPositionEvent.getSource();
@@ -188,7 +190,7 @@ implements GeographicMapCellPositionEventListenerInterface
                  //localY 
                  point.getY() + this.y);
 
-      //LogUtil.put(LogFactory.getInstance("X: " + x + " Y: " + y + " Color: " + color, this, "updateBufferedImage"));
+      //logUtil.put("X: " + x + " Y: " + y + " Color: " + color, this, "updateBufferedImage");
       }
 
    }

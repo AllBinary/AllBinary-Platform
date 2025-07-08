@@ -24,6 +24,8 @@ import org.allbinary.string.CommonStrings;
 //Replace when validation node is added
 public class ValidationOnlyTempUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final ValidationOnlyTempUtil instance = new ValidationOnlyTempUtil();
     
     public static ValidationOnlyTempUtil getInstance() {
@@ -42,7 +44,7 @@ public class ValidationOnlyTempUtil
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("View Name: " + validationComponentInterface.getTransformInfoInterface().getName(), this, "view()"));
+            logUtil.put("View Name: " + validationComponentInterface.getTransformInfoInterface().getName(), this, "view()");
          }
 
 /*
@@ -59,7 +61,7 @@ public class ValidationOnlyTempUtil
          //String error = "Failed to view: " + validationComponentInterface.getTransformInfoInterface().getName();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "view()", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "view()", e);
          }
          throw e;
       }

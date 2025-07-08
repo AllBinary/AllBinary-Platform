@@ -22,6 +22,7 @@ import org.allbinary.logic.java.exception.ExceptionUtil;
 
 public class LogFormatUtil
 {
+
     private static final LogFormatUtil instance = new LogFormatUtil();
 
     public static LogFormatUtil getInstance()

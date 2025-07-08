@@ -22,6 +22,8 @@ import org.allbinary.time.TimeDelayHelper;
 
 public class KeyboardInputAutomationProcessor
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
    private KeyboardInputAutomationProcessor()
    {
    }
@@ -29,8 +31,9 @@ public class KeyboardInputAutomationProcessor
    public static void process(KeyboardActionScriptInputInterface keyActionScriptInputInterface)
    throws Exception
    {
+       final LogUtil logUtil = LogUtil.getInstance();
        final CommonStrings commonStrings = CommonStrings.getInstance();
-      LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START + keyActionScriptInputInterface.toString(), "KeyInputAutomationProcessor", commonStrings.PROCESS));
+      logUtil.put(CommonLabels.getInstance().START + keyActionScriptInputInterface.toString(), "KeyInputAutomationProcessor", commonStrings.PROCESS);
       
       InputRobotInterface inputRobotInterface = 
             keyActionScriptInputInterface.getInputRobotInterface();

@@ -28,6 +28,8 @@ import org.allbinary.logic.visual.transform.template.customizer.widgets.title.Ti
 
 public class TransformTemplateCustomizerUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final TransformTemplateCustomizerUtil instance = new TransformTemplateCustomizerUtil();
 
     public static TransformTemplateCustomizerUtil getInstance()
@@ -71,33 +73,33 @@ public class TransformTemplateCustomizerUtil
         //Current ViewName: storeName + SPACE + nextViewPrefix + SPACE + nextPage + SPACE + nViewTypes + SPACE + CustomizerTransformInfoData.NAME
         //Convert to: nextPage
 
-        final String EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
+        final String[] ONE_EMPTY_STRING_ARRAY = StringUtil.getInstance().ONE_EMPTY_STRING_ARRAY;
 
         HashMap hashMap = new HashMap();
         //hashMap.put(selectedTemplate + SPACE, EMPTY_STRING);
-        hashMap.put(viewName + SPACE, EMPTY_STRING);
-        hashMap.put(storeName + SPACE, EMPTY_STRING);
+        hashMap.put(new String[] {viewName + SPACE}, ONE_EMPTY_STRING_ARRAY);
+        hashMap.put(new String[] {storeName + SPACE}, ONE_EMPTY_STRING_ARRAY);
 
         //Remove N # of Types
-        hashMap.put(CUSTOMIZER_NAME, EMPTY_STRING); //Customizer
-        hashMap.put(BODY_VIEWNAMEKEY, EMPTY_STRING); //Body
-        hashMap.put(TITLE_VIEWNAMEKEY, EMPTY_STRING); //Title
+        hashMap.put(new String[] {CUSTOMIZER_NAME}, ONE_EMPTY_STRING_ARRAY); //Customizer
+        hashMap.put(new String[] {BODY_VIEWNAMEKEY}, ONE_EMPTY_STRING_ARRAY); //Body
+        hashMap.put(new String[] {TITLE_VIEWNAMEKEY}, ONE_EMPTY_STRING_ARRAY); //Title
 
         //Remove Prefix
-        hashMap.put(GLOBALS_NEW, EMPTY_STRING);
-        hashMap.put(GLOBALS_INSERT, EMPTY_STRING);
-        hashMap.put(GLOBALS_DELETE, EMPTY_STRING);
-        hashMap.put(GLOBALS_EDIT, EMPTY_STRING);
-        hashMap.put(GLOBALS_UPDATE, EMPTY_STRING);
+        hashMap.put(new String[] {GLOBALS_NEW}, ONE_EMPTY_STRING_ARRAY);
+        hashMap.put(new String[] {GLOBALS_INSERT}, ONE_EMPTY_STRING_ARRAY);
+        hashMap.put(new String[] {GLOBALS_DELETE}, ONE_EMPTY_STRING_ARRAY);
+        hashMap.put(new String[] {GLOBALS_EDIT}, ONE_EMPTY_STRING_ARRAY);
+        hashMap.put(new String[] {GLOBALS_UPDATE}, ONE_EMPTY_STRING_ARRAY);
 
-        Replace replace = new Replace(hashMap);
+        Replace replace = null; //new Replace(hashMap);
 
         String rootViewName = replace.all(viewName);
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            LogUtil.put(LogFactory.getInstance("RootViewName for ObjectConfig: " + rootViewName, this, "getPageNameHack"));
+            logUtil.put("RootViewName for ObjectConfig: " + rootViewName, this, "getPageNameHack");
         }
 
         return rootViewName;

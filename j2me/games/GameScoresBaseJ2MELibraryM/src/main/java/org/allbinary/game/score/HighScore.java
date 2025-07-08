@@ -22,6 +22,8 @@ import org.allbinary.logic.string.StringMaker;
 
 public class HighScore
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final int id;
     private String name;
     private final GameInfo gameInfo;
@@ -37,7 +39,7 @@ public class HighScore
         this.score = score;
         this.scoreString = Long.toString(this.score);
         
-        //LogUtil.put(LogFactory.getInstance(this.toString(), this, commonStrings.CONSTRUCTOR));
+        //logUtil.put(this.toString(), this, commonStrings.CONSTRUCTOR);
     }
 
     public int getId()

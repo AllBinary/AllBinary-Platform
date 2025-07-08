@@ -19,6 +19,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class GeographicMapCellTypeFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final GeographicMapCellTypeFactory instance = new GeographicMapCellTypeFactory();
     
     public static GeographicMapCellTypeFactory getInstance()
@@ -32,7 +34,7 @@ public class GeographicMapCellTypeFactory
     {
 //        final GeographicMapCellType geographicMapCellType = geographicMapCellTypeArray[type];
 //        if(geographicMapCellType == null) {
-//            LogUtil.put(LogFactory.getInstance("missing type: " + type, this, commonStrings.PROCESS));
+//            logUtil.put("missing type: " + type, this, commonStrings.PROCESS);
 //            throw new RuntimeException();
 //        }
 //        return geographicMapCellType;

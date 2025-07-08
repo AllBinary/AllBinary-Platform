@@ -31,6 +31,8 @@ import org.allbinary.logic.string.StringMaker;
  */
 public class DrawStringUtil
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final DrawStringUtil instance = new DrawStringUtil();
 
     public static DrawStringUtil getInstance()

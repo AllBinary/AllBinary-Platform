@@ -24,6 +24,8 @@ import org.allbinary.logic.string.StringMaker;
  * @author User
  */
 public class WaypointRunnableSelectedLogHelper extends WaypointRunnableLogHelper {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     protected static final WaypointRunnableSelectedLogHelper instance = new WaypointRunnableSelectedLogHelper();
 
@@ -38,12 +40,12 @@ public class WaypointRunnableSelectedLogHelper extends WaypointRunnableLogHelper
 
     //@Override
     public void start(final PathFindingLayerInterface pathFindingLayerInterface) {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(pathFindingLayerInterface.getName()).append(commonStrings.START_RUNNABLE).toString(), this, commonStrings.RUN));
+        logUtil.put(new StringMaker().append(pathFindingLayerInterface.getName()).append(commonStrings.START_RUNNABLE).toString(), this, commonStrings.RUN);
     }
 
     //@Override
     public void end(final PathFindingLayerInterface pathFindingLayerInterface) {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(pathFindingLayerInterface.getName()).append(commonStrings.END_RUNNABLE).toString(), this, commonStrings.RUN));
+        logUtil.put(new StringMaker().append(pathFindingLayerInterface.getName()).append(commonStrings.END_RUNNABLE).toString(), this, commonStrings.RUN);
     }
     
 }

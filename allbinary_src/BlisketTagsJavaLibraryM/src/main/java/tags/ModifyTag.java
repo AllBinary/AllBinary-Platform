@@ -27,13 +27,15 @@ import org.allbinary.string.CommonStrings;
 
 public class ModifyTag extends HelperTag 
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    public ModifyTag(TagHelperFactoryInterface tagHelperFactoryInterface)
    {
       super(tagHelperFactoryInterface);
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
       {
-         LogUtil.put(LogFactory.getInstance(this.commonStrings.START,this, this.commonStrings.CONSTRUCTOR));
+         logUtil.put(this.commonStrings.START,this, this.commonStrings.CONSTRUCTOR);
       }
    }
       
@@ -53,7 +55,7 @@ public class ModifyTag extends HelperTag
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"insert()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"insert()",e);
          }
          return error;
       }
@@ -75,7 +77,7 @@ public class ModifyTag extends HelperTag
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"delete()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"delete()",e);
          }
          return error;
       }
@@ -97,7 +99,7 @@ public class ModifyTag extends HelperTag
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"update()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"update()",e);
          }
          return error;
       }
@@ -119,7 +121,7 @@ public class ModifyTag extends HelperTag
               stringBuffer.append(" Request URI: ");
               stringBuffer.append(request.getRequestURI());
 
-              LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "doStartTag()"));
+              logUtil.put(stringBuffer.toString(), this, "doStartTag()");
           }
     	  
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))

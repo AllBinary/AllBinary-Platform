@@ -21,6 +21,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class BasicLayerProcessor
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final BasicArrayList list = new BasicArrayList();
 
     protected BasicLayerProcessor()
@@ -32,7 +34,7 @@ public class BasicLayerProcessor
         if(!list.contains(layerInterface))
         {
             //if(layerInterface.getName().indexOf("debrish") >= 0) {
-                //LogUtil.put(LogFactory.getInstance("Adding: " + layerInterface, this, "add", new Exception()));
+                //logUtil.put("Adding: " + layerInterface, this, "add", new Exception());
             //}
             list.add(layerInterface);
         }

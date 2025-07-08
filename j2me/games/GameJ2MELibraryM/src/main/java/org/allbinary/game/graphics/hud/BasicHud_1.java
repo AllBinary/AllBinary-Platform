@@ -33,6 +33,8 @@ import org.allbinary.logic.util.event.EventStrings;
 
 public class BasicHud_1 //implements DisplayChangeEventListener
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CanvasStrings canvasStrings = CanvasStrings.getInstance();
     
    private int location;
@@ -167,7 +169,7 @@ public class BasicHud_1 //implements DisplayChangeEventListener
    {
        try
        {
-           //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL).append(DisplayInfoSingleton.getInstance().toString(), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT));
+           //logUtil.put(commonStrings.START_LABEL).append(DisplayInfoSingleton.getInstance().toString(), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
            
            final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
 
@@ -180,7 +182,7 @@ public class BasicHud_1 //implements DisplayChangeEventListener
        catch(Exception e)
        {
            final CommonStrings commonStrings = CommonStrings.getInstance();
-           LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT, e));
+           logUtil.put(commonStrings.EXCEPTION, this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT, e);
        }
    }
    

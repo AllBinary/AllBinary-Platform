@@ -20,6 +20,8 @@ import org.allbinary.string.CommonStrings;
 
 public class OperatingSystemFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final OperatingSystemFactory instance = new OperatingSystemFactory();
 
     /**
@@ -47,7 +49,7 @@ public class OperatingSystemFactory
 
             final String osString = new StringMaker().append("OperatingSystem Info: ").append(GenericOperatingSystem.toString()).toString();
             System.out.println(osString);
-            LogUtil.put(LogFactory.getInstance(osString, this, commonStrings.GET_INSTANCE));
+            logUtil.put(osString, this, commonStrings.GET_INSTANCE);
 
             //throw new Exception("OS Not Supported: ").append(osName);
         }
@@ -55,7 +57,7 @@ public class OperatingSystemFactory
         {
             //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FACTORYERROR))
             //{
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
             //}
         }
         return GenericOperatingSystem;

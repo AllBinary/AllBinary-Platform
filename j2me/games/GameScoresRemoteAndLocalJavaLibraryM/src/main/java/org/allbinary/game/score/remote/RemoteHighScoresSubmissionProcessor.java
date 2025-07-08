@@ -31,6 +31,8 @@ import org.allbinary.util.HashtableUtil;
 public class RemoteHighScoresSubmissionProcessor
         implements RemoteHighScoresSubmissionProcessorInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final NoCrypt noCrypt = new NoCrypt();
@@ -44,7 +46,7 @@ public class RemoteHighScoresSubmissionProcessor
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance("Begin Remote HighScores Submission", this, commonStrings.PROCESS));
+            logUtil.put("Begin Remote HighScores Submission", this, commonStrings.PROCESS);
 
             final GameInfoData gameInfoData = GameInfoData.getInstance();
             
@@ -90,7 +92,7 @@ public class RemoteHighScoresSubmissionProcessor
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
         }
     }
 }

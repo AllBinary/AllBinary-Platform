@@ -61,6 +61,8 @@ import org.allbinary.string.CommonStrings;
 
 public class DbInitInfo extends DbConnectionInfo
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final Directory directory = Directory.getInstance();
     private final HttpData httpData = HttpData.getInstance();

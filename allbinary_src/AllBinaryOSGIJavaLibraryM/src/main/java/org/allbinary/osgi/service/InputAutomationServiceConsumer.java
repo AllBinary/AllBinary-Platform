@@ -26,15 +26,18 @@ import org.osgi.framework.ServiceReference;
 
 public class InputAutomationServiceConsumer
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    protected final OSGIServiceUtil osgiServiceUtil = OSGIServiceUtil.getInstance();
 
     private String registryName;
     private BundleContext bundleContext;
     private OSGIServiceVisitorInterface osgiServiceVisitorInterface;
         
     public InputAutomationServiceConsumer(
-        String registryName, BundleContext bundleContext,
-        OSGIServiceVisitorInterface osgiServiceVisitorInterface)
+        final String registryName, final BundleContext bundleContext,
+        final OSGIServiceVisitorInterface osgiServiceVisitorInterface)
     {
         this.setRegistryName(registryName);
         this.setBundleContext(bundleContext);
@@ -44,13 +47,13 @@ public class InputAutomationServiceConsumer
     public void process()
     throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, commonStrings.PROCESS));
+        logUtil.put(this.commonStrings.START, this, commonStrings.PROCESS);
         
-        Vector vector = OSGIServiceUtil.getServicesObjectVector(
+        final Vector vector = osgiServiceUtil.getServicesObjectVector(
             this.getBundleContext(),
             this.getServiceReferences());
         
-        LogUtil.put(LogFactory.getInstance("Processing " + vector.size() + " Services", this, commonStrings.PROCESS));
+        logUtil.put("Processing " + vector.size() + " Services", this, commonStrings.PROCESS);
         final int size = vector.size();
         OSGIServiceInterface osgiServiceInterface;
         for(int index = 0; index < size; index++)

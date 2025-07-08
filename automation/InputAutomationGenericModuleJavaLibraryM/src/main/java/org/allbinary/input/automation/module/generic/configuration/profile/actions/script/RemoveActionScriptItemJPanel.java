@@ -25,6 +25,8 @@ import org.allbinary.logic.communication.log.LogUtil;
  */
 public class RemoveActionScriptItemJPanel extends java.awt.Panel
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     
     private GenericProfileActionJPanel genericProfileActionJPanel;
     private ProfileActionScriptConditionInterface profileActionScriptConditionInterface;
@@ -71,7 +73,7 @@ public class RemoveActionScriptItemJPanel extends java.awt.Panel
             this.genericProfileActionJPanel.getGenericProfileAction();
 
         if(genericProfileAction == null) {
-            LogUtil.put(LogFactory.getInstance("GenericProfileAction was null", this, "removeJButtonActionPerformed"));
+            logUtil.put("GenericProfileAction was null", this, "removeJButtonActionPerformed");
             return;
         }
         

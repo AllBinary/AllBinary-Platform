@@ -44,6 +44,8 @@ import org.allbinary.string.CommonStrings;
 
 public class PaymentTransactionInterfaceRequestFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final PaymentTransactionInterfaceRequestFactory instance
             = new PaymentTransactionInterfaceRequestFactory();
 
@@ -103,7 +105,7 @@ public class PaymentTransactionInterfaceRequestFactory
 
                 if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
                 {
-                    LogUtil.put(LogFactory.getInstance(orderReview.getId(), this, "getPaymentTransactionInterface()"));
+                    logUtil.put(orderReview.getId(), this, "getPaymentTransactionInterface()");
                 }
             //HashMap hashMap = new HashMap(httpServletRequest.getParameterMap());
                 //this.paymentGatewayInterface = new PaymentGateway(hashMap);
@@ -116,7 +118,7 @@ public class PaymentTransactionInterfaceRequestFactory
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENTERROR))
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getPaymentTransactionInterface()", e));
+                logUtil.put(commonStrings.EXCEPTION, this, "getPaymentTransactionInterface()", e);
             }
             throw e;
         }
@@ -225,7 +227,7 @@ public class PaymentTransactionInterfaceRequestFactory
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENTERROR))
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "generatePaymentTransactionInterfaceFromTestData()", e));
+                logUtil.put(commonStrings.EXCEPTION, this, "generatePaymentTransactionInterfaceFromTestData()", e);
             }
             throw e;
         }

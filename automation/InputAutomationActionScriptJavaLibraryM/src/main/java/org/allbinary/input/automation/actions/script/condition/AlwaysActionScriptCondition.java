@@ -29,6 +29,8 @@ public class AlwaysActionScriptCondition
     extends BasicProfileActionScriptCondition
     implements AlwaysActionScriptConditionInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private AlwaysActionScriptConditionJPanel alwaysActionScriptConditionJPanel;
     
     private boolean isOn;
@@ -103,7 +105,7 @@ public class AlwaysActionScriptCondition
 
         hashMap.put(AlwaysActionScriptConditionData.IS_ON, Boolean.toString(this.isIsOn()));
 
-        LogUtil.put(LogFactory.getInstance("HashMap: " + hashMap.toString(), this, "toHashMap()"));
+        logUtil.put("HashMap: " + hashMap.toString(), this, "toHashMap()");
 
         return hashMap;
     }
@@ -130,6 +132,6 @@ public class AlwaysActionScriptCondition
     
     public void log()
     {
-        LogUtil.put(LogFactory.getInstance("Is On: " + this.isIsOn(), this, "log"));
+        logUtil.put("Is On: " + this.isIsOn(), this, "log");
     }
 }

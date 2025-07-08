@@ -24,12 +24,14 @@ import org.allbinary.animation.NullAnimationFactory;
 public class BasicNeededTouchButtonsBuilder
     extends BaseTouchInput
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     
     public BasicArrayList getList()
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
+            logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
             
             final BasicArrayList list = new BasicArrayList();
             
@@ -87,7 +89,7 @@ public class BasicNeededTouchButtonsBuilder
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_LIST, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_LIST, e);
             return BasicArrayListUtil.getInstance().getImmutableInstance();
         }
     }

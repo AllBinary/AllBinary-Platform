@@ -18,6 +18,8 @@ import java.util.Hashtable;
 
 public class HashtableUtil
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final HashtableUtil instance = new HashtableUtil();
 
     public static HashtableUtil getInstance()

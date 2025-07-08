@@ -52,6 +52,8 @@ import org.allbinary.util.BasicArrayList;
 
 public class StoreFront implements StoreFrontInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final Directory directory = Directory.getInstance();
@@ -93,6 +95,7 @@ public class StoreFront implements StoreFrontInterface
     private static final String RESOURCES = " Resources" + AbPathData.getInstance().SEPARATOR;
 
     private final String EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
+    private final String[] ONE_EMPTY_STRING_ARRAY = StringUtil.getInstance().ONE_EMPTY_STRING_ARRAY;
 
     public StoreFront()
     {
@@ -105,7 +108,7 @@ public class StoreFront implements StoreFrontInterface
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
         {
-            LogUtil.put(LogFactory.getInstance("TWB- needs update for adding and updating context configuration - currently defaults to admin context config", this, "StoreFront"));
+            logUtil.put("TWB- needs update for adding and updating context configuration - currently defaults to admin context config", this, "StoreFront");
         }
 
         //TWB - Define Context From request HashMap - new Imp
@@ -270,7 +273,7 @@ public class StoreFront implements StoreFrontInterface
             if (isSpacesContained || isEscapedCharactersContained)
             {
                 final HashMap hashMap = SpecialCharacterUtil.getHashMap();
-                hashMap.put(CommonSeps.getInstance().SPACE, EMPTY_STRING);
+                hashMap.put(new String[] {CommonSeps.getInstance().SPACE}, ONE_EMPTY_STRING_ARRAY);
                 this.name = new Replace(hashMap).all(this.name);
             }
 
@@ -646,7 +649,7 @@ public class StoreFront implements StoreFrontInterface
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                LogUtil.put(LogFactory.getInstance("Failed to generate validation error info", this, "validationInfo()", e));
+                logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
             }
             return "Error Validating Form";
         }
@@ -1114,7 +1117,7 @@ public class StoreFront implements StoreFrontInterface
             //String error = "Failed to install storefront";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "install()", e));
+                logUtil.put(commonStrings.EXCEPTION, this, "install()", e);
             }
             throw e;
         }

@@ -25,6 +25,8 @@ import org.allbinary.logic.communication.log.LogUtil;
  * @author User
  */
 public class LazyProgressCanvas extends ProgressCanvas {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     
     protected LazyProgressCanvas(final String title, final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor) {
         super(title, backgroundBasicColor, foregroundBasicColor);        
@@ -41,12 +43,12 @@ public class LazyProgressCanvas extends ProgressCanvas {
     public void end()
     {
         try {
-            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.END_METHOD_NAME));
+            logUtil.put(commonStrings.START, this, commonStrings.END_METHOD_NAME);
             this.endActual();
             this.paintable = GAUGE_PAINTABLE;
             ImageCacheFactory.getInstance().runTask();
         } catch(Exception e) {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.END_METHOD_NAME));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.END_METHOD_NAME);
         }
     }
     
@@ -57,7 +59,7 @@ public class LazyProgressCanvas extends ProgressCanvas {
     public void endFromInitialLazyLoadingComplete()
     {
         super.endFromInitialLazyLoadingComplete();
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, END_FROM_INITIAL_LAZY_LOADING_COMPLETE));
+        //logUtil.put(commonStrings.START, this, END_FROM_INITIAL_LAZY_LOADING_COMPLETE);
         this.paintable = NullPaintable.getInstance();
     }
     

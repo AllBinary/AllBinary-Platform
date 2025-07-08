@@ -38,6 +38,8 @@ import views.business.context.modules.storefront.HttpStoreComponentView;
 
 public class PaymentView  extends HttpStoreComponentView implements DomNodeInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    public PaymentView(TransformInfoInterface transformInfoInterface) throws Exception
    {
       super(transformInfoInterface);      
@@ -65,7 +67,7 @@ public class PaymentView  extends HttpStoreComponentView implements DomNodeInter
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE,this,"toXmlNode",e));
+            logUtil.put(this.commonStrings.FAILURE,this,"toXmlNode",e);
          }
          throw e;
       }
@@ -88,7 +90,7 @@ public class PaymentView  extends HttpStoreComponentView implements DomNodeInter
          String error = "Failed to view Payment";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"view()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"view()",e);
          }
          return error;
       }

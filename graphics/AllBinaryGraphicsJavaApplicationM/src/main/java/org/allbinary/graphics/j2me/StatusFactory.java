@@ -21,6 +21,8 @@ import org.allbinary.logic.communication.log.LogUtil;
  * @author user
  */
 public class StatusFactory {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final StatusFactory instance = new StatusFactory();
 
@@ -43,7 +45,7 @@ public class StatusFactory {
     public void setStatus(String status)
     {
         setStatusNoLog(status);
-        LogUtil.put(LogFactory.getInstance(STATUS_LABEL + status, this, SETSTATUS));
+        logUtil.put(STATUS_LABEL + status, this, SETSTATUS);
     }
 
 }

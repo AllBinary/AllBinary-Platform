@@ -23,6 +23,8 @@ import org.allbinary.string.CommonStrings;
 
 public class CaptureWorkerUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     public CaptureWorkerUtil()
     {
     }
@@ -30,8 +32,9 @@ public class CaptureWorkerUtil
     public static void processProfileActionConditions(Vector vector, Long frame)
         throws Exception
     {
+        final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, "CaptureWorkerUtil", "processProfileActionConditions"));
+        logUtil.put(commonStrings.START, "CaptureWorkerUtil", "processProfileActionConditions");
 
         final int size = vector.size();
         for(int index = 0; index < size; index++)
@@ -40,12 +43,12 @@ public class CaptureWorkerUtil
                 (ProfileActionScriptConditionInterface) vector.get(index);
             if(profileActionConditionInterface.shouldProcess(frame))
             {
-                //LogUtil.put(LogFactory.getInstance("Should Process", this, "processProfileActionConditions"));
+                //logUtil.put("Should Process", this, "processProfileActionConditions");
                 profileActionConditionInterface.process(frame);
             }
             else
             {
-                //LogUtil.put(LogFactory.getInstance("Should Not Process", this, "processProfileActionConditions"));
+                //logUtil.put("Should Not Process", this, "processProfileActionConditions");
             }
         }
     }

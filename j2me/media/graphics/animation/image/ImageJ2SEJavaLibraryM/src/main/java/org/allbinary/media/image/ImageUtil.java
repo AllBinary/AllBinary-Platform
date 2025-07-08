@@ -30,6 +30,8 @@ import org.allbinary.string.CommonLabels;
 
 public class ImageUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final ImageUtil instance = new ImageUtil();
 
     /**
@@ -51,7 +53,7 @@ public class ImageUtil
    {
       try
       {
-         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
+         logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
          /*
          poolInterface =
@@ -64,7 +66,7 @@ public class ImageUtil
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e));
+         logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
       }
    }
 
@@ -165,38 +167,38 @@ public class ImageUtil
       
       final AffineTransform affineTransform = AffineTransform.getScaleInstance(ratioX, ratioY);
       
-      LogUtil.put(LogFactory.getInstance(new StringMaker().append((float) width).append(this.commonSeps.FORWARD_SLASH).append((float) height)
+      logUtil.put(new StringMaker().append((float) width).append(this.commonSeps.FORWARD_SLASH).append((float) height)
               .append(this.commonSeps.COLON).append(newWidth).append(this.commonSeps.FORWARD_SLASH).append(newHeight).append(this.commonSeps.COLON)
-              .append((float) widthRatio).append(this.commonSeps.FORWARD_SLASH).append((float) heightRatio).toString(), this, CREATE_BUFFERED_IMAGE));
+              .append((float) widthRatio).append(this.commonSeps.FORWARD_SLASH).append((float) heightRatio).toString(), this, CREATE_BUFFERED_IMAGE);
 
       if(!scale && allowTranslate) {
           final double dx = (newWidth - width) / 2;
           final double dy = (newHeight - height) / 2;
-          LogUtil.put(LogFactory.getInstance(new StringMaker().append("Translate dx: ").append((float) dx).append(" dy: ").append((float) dy).toString(), this, CREATE_BUFFERED_IMAGE));
+          logUtil.put(new StringMaker().append("Translate dx: ").append((float) dx).append(" dy: ").append((float) dy).toString(), this, CREATE_BUFFERED_IMAGE);
           affineTransform.translate(dx, dy);
           
 //          if (newWidth < width) {
 //              final double translate = -(width - newWidth);
-//              LogUtil.put(LogFactory.getInstance("Translating to keep image centered x3: " + translate, this, CREATE_BUFFERED_IMAGE));
+//              logUtil.put("Translating to keep image centered x3: " + translate, this, CREATE_BUFFERED_IMAGE);
 //              affineTransform.translate(translate, 0);
 //          }
 //          if (newHeight < height) {
 //              //final double translate = -(height - newHeight) / 2;
 //              final double translate = -(height - newHeight);
-//              LogUtil.put(LogFactory.getInstance("Translating to keep image centered y0: " + translate, this, CREATE_BUFFERED_IMAGE));
+//              logUtil.put("Translating to keep image centered y0: " + translate, this, CREATE_BUFFERED_IMAGE);
 //              affineTransform.translate(0, translate);
 //          }
 //
 //          //if(newHeight > height && widthRatio <= 1) {
 //          if (newHeight > height) {
 //              final double translate = (newHeight - height) / 2;
-//              LogUtil.put(LogFactory.getInstance("Translating to keep image centered y1: " + translate, this, CREATE_BUFFERED_IMAGE));
+//              logUtil.put("Translating to keep image centered y1: " + translate, this, CREATE_BUFFERED_IMAGE);
 //              affineTransform.translate(0, translate);
 //          }
 //          //if(newWidth > width && heightRatio <= 1) {
 //          if (newWidth > width) {
 //              final double translate = (newWidth - width) / 2;
-//              LogUtil.put(LogFactory.getInstance("Translating to keep image centered x2: " + translate, this, CREATE_BUFFERED_IMAGE));
+//              logUtil.put("Translating to keep image centered x2: " + translate, this, CREATE_BUFFERED_IMAGE);
 //              affineTransform.translate(translate, 0);
 //          }
       }

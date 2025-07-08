@@ -23,6 +23,8 @@ import org.allbinary.string.CommonStrings;
 
 public class DatabaseEncoder
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
    
    private DatabaseEncoder()
    {

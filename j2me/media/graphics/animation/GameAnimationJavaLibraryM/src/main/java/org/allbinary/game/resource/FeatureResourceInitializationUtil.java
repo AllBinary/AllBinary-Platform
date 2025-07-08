@@ -20,6 +20,8 @@ import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory
 
 public class FeatureResourceInitializationUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final FeatureResourceInitializationUtil instance = 
         new FeatureResourceInitializationUtil();
  
@@ -31,7 +33,7 @@ public class FeatureResourceInitializationUtil
     public void init(int level) throws Exception
     {
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.INIT));
+        logUtil.put(commonStrings.START, this, commonStrings.INIT);
 
         FeaturedResourceFactory featuredResourceFactory = 
             FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance();

@@ -30,13 +30,15 @@ import org.allbinary.string.CommonStrings;
 
 public class AdminConfiguration implements AdminConfigurationInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private ContextConfigurationInterface contextConfigurationInterface;
 
     public AdminConfiguration() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
+        logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
         this.contextConfigurationInterface
                 = ContextConfigurationInterfaceFactory.getInstance().getInstance(AdminConfigurationData.CONTEXTNAME);
@@ -44,21 +46,21 @@ public class AdminConfiguration implements AdminConfigurationInterface
 
     public AdminConfiguration(HttpServletRequest request) throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
+        logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
         this.getFormData(new RequestParams(request).toHashMap());
     }
 
     public AdminConfiguration(HashMap storeHashMap) throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
+        logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
         this.getFormData(storeHashMap);
     }
 
     private void getFormData(HashMap storeHashMap) throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "getFormData"));
+        logUtil.put(commonStrings.START, this, "getFormData");
 
         this.setContextConfigurationInterface(
                 (ContextConfigurationInterface) new ContextConfiguration(storeHashMap));

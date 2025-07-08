@@ -20,6 +20,8 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
 public class BasicGeographicMapUtil {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final BasicGeographicMapUtil instance = new BasicGeographicMapUtil();
     
@@ -121,7 +123,7 @@ public class BasicGeographicMapUtil {
     public void setPosition(final BasicGeographicMap[] geographicMapInterfaceArray, final int x, final int y) {
 
         //final CommonStrings commonStrings = CommonStrings.getInstance();
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("x: ").append(x).append(" y: ").append(y).toString(), this, commonStrings.PROCESS));
+        //logUtil.put(new StringMaker().append("x: ").append(x).append(" y: ").append(y).toString(), this, commonStrings.PROCESS);
         BasicGeographicMap geographicMapInterface;
         final int size = geographicMapInterfaceArray.length;
         for(int index = size; --index >= 0;) {

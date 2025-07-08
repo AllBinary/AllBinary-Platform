@@ -22,6 +22,8 @@ import org.allbinary.string.CommonLabels;
 
 public class NoDecimalTrigTable
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final NoDecimalTrigTable instance = new NoDecimalTrigTable();
 
     public static NoDecimalTrigTable getInstance()
@@ -1167,7 +1169,7 @@ public class NoDecimalTrigTable
             	ratio = mathUtil.abs(ratio);
             }
 
-            //LogUtil.put(LogFactory.getInstance("ratioUnscaled: " + ratioUnscaled, this, ANTITAN));
+            //logUtil.put("ratioUnscaled: " + ratioUnscaled, this, ANTITAN);
         }
 
         if ((dx >= 0 && dy < 0))
@@ -1178,7 +1180,7 @@ public class NoDecimalTrigTable
                 {
                     if(ratio > noDecimalTan[index - 1])
                     {
-                        //LogUtil.put(LogFactory.getInstance(Integer.toString(result), this, ANTITAN))
+                        //logUtil.put(Integer.toString(result), this, ANTITAN))
                         return index;
                     }
                     else
@@ -1228,13 +1230,13 @@ public class NoDecimalTrigTable
             {
                 if (ratio < noDecimalTan[index] && ratio >= noDecimalTan[index - 1])
                 {
-                    //LogUtil.put(LogFactory.getInstance(Integer.toString(result), this, ANTITAN))
+                    //LogUtil.put(LogFactory.getInstance(Integer.toString(result), this, ANTITAN);
                     return index;
                 }
             }
         }
 
-        StringBuffer stringBuffer = new StringBuffer();
+        final StringBuffer stringBuffer = new StringBuffer();
         
         stringBuffer.append("Invalid Ratio: ");
         stringBuffer.append(ratio);

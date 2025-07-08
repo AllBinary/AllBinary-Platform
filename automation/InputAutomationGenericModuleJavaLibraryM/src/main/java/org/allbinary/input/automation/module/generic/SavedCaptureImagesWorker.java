@@ -40,6 +40,8 @@ public class SavedCaptureImagesWorker
     extends BasicEventHandler
     implements CaptureWorkerInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private static long index;
@@ -79,7 +81,7 @@ public class SavedCaptureImagesWorker
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.RUN));
+            logUtil.put(this.commonStrings.START, this, this.commonStrings.RUN);
             
             this.setRunning(true);
             
@@ -100,7 +102,7 @@ public class SavedCaptureImagesWorker
                 
                 String filePath = filePathStringBuffer.toString();
                 
-                LogUtil.put(LogFactory.getInstance("Loading Image File Path: " + filePath, this, this.commonStrings.RUN));
+                logUtil.put("Loading Image File Path: " + filePath, this, this.commonStrings.RUN);
                 
                 File file = new File(filePath);
                 if(file.isFile())
@@ -120,22 +122,22 @@ public class SavedCaptureImagesWorker
                 }
                 else
                 {
-                    LogUtil.put(LogFactory.getInstance(
-                        "Could Not Load File: " + filePath, this, this.commonStrings.RUN));
+                    logUtil.put(
+                        "Could Not Load File: " + filePath, this, this.commonStrings.RUN);
                 }
                 
-                LogUtil.put(LogFactory.getInstance(
-                    CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN));
+                logUtil.put(
+                    CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN);
                 
                 this.setRunning(false);
             }
             
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, this.commonStrings.RUN));
+            logUtil.put(this.commonStrings.END, this, this.commonStrings.RUN);
             
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
         }
     }
 }

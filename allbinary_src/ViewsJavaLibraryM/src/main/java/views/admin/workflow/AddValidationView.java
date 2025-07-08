@@ -38,6 +38,8 @@ import org.allbinary.logic.system.security.licensing.ServiceClientInformationInt
 
 public class AddValidationView extends WorkFlowView implements ValidationComponentInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final AbeClientInformationInterface abeClientInformation = 
         ServiceClientInformationInterfaceFactory.getInstance();
     
@@ -59,7 +61,7 @@ public class AddValidationView extends WorkFlowView implements ValidationCompone
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               LogUtil.put(LogFactory.getInstance("WorkFlow already in existance.",this,commonStrings.IS_VALID);
+               logUtil.put("WorkFlow already in existance.",this,commonStrings.IS_VALID);
             }
             return Boolean.FALSE;
          }
@@ -72,7 +74,7 @@ public class AddValidationView extends WorkFlowView implements ValidationCompone
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate",this,commonStrings.IS_VALID,e));
+            logUtil.put("Failed to validate",this,commonStrings.IS_VALID,e);
          }
          return Boolean.FALSE;
       }
@@ -88,7 +90,7 @@ public class AddValidationView extends WorkFlowView implements ValidationCompone
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               LogUtil.put(LogFactory.getInstance("Workflow already exist",this,"validationInfo()"));
+               logUtil.put("Workflow already exist",this,"validationInfo()");
             }
             stringBuffer.append("The WorkFlow name you selected is already in use.<br/>  Please select another Name.<br />");            
          }
@@ -106,7 +108,7 @@ public class AddValidationView extends WorkFlowView implements ValidationCompone
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to generate validation error info",this,"validationInfo()",e));
+            logUtil.put("Failed to generate validation error info",this,"validationInfo()",e);
          }
          return "Error Getting Validation Info";
       }

@@ -31,6 +31,8 @@ import org.allbinary.util.HashtableUtil;
 public class RemoteHighScoresProcessor 
    implements RemoteHighScoresProcessorInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
@@ -44,7 +46,7 @@ public class RemoteHighScoresProcessor
    public synchronized void process(final RemoteHighScores remoteHighScores, final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo)
            throws Exception
    {
-      LogUtil.put(LogFactory.getInstance("Begin Remote HighScores Retrieval", this, commonStrings.PROCESS));
+      logUtil.put("Begin Remote HighScores Retrieval", this, commonStrings.PROCESS);
 
       final GameInfoData gameInfoData = GameInfoData.getInstance();
 

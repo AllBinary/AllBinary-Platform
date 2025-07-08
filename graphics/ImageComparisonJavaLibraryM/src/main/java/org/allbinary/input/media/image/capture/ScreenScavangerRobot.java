@@ -27,13 +27,15 @@ import org.allbinary.string.CommonStrings;
 
 public class ScreenScavangerRobot
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     public ScreenScavangerRobot() throws Exception {
     }
     
     public BufferedImage[] getScreenAsBufferedImages() throws Exception {
-	LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "getScreenAsBufferedImages"));
+	logUtil.put(this.commonStrings.START, this, "getScreenAsBufferedImages");
 	Dimension dimScreenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	Rectangle rectScreenSize = new Rectangle(dimScreenSize);
 	Hashtable robotHashtable = InputRobotFactory.getInstance().get();
@@ -43,7 +45,7 @@ public class ScreenScavangerRobot
 	    = (InputRobotInterface) robotHashtable.get("Java Robot");
 	bufferedImageArray[index]
 	    = inputRobotInterface.createScreenCapture(rectScreenSize);
-	LogUtil.put(LogFactory.getInstance("Finish", this, "getScreenAsBufferedImages"));
+	logUtil.put("Finish", this, "getScreenAsBufferedImages");
 	return bufferedImageArray;
     }
 }

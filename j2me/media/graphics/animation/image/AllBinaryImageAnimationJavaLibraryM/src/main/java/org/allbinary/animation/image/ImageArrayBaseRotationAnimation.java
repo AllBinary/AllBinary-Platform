@@ -30,6 +30,8 @@ import org.allbinary.media.image.ImageModifierUtil;
 
 public class ImageArrayBaseRotationAnimation extends RotationAnimation //implements AutoCloseable
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final ImageModifierUtil imageModifierUtil = ImageModifierUtil.getInstanceOrCreate();
     
     private final Image[] originalImageArray;
@@ -44,7 +46,7 @@ public class ImageArrayBaseRotationAnimation extends RotationAnimation //impleme
         
         super(angleInfo, animationBehavior);
 
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
+        //logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
         this.originalImageArray = originalImageArray;
         this.setImageArray(imageModifierUtil.getImageArray(originalImageArray));

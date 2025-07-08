@@ -27,6 +27,8 @@ import org.allbinary.util.BasicArrayList;
  */
 public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private boolean done = false;
     private BasicArrayList list;
     
@@ -50,7 +52,7 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
 
                 pathFindingInfo = targetLayer.getWaypointBehavior().getWaypoint().getPathFindingInfo(geographicMapCellPosition);
                 
-//                LogUtil.put(LogFactory.getInstance("first set: " + pathFindingInfo, this, "getPathsList"));
+//                logUtil.put("first set: " + pathFindingInfo, this, "getPathsList");
                                 
                 list = targetLayer.getWaypointBehavior().getWaypoint().getPathsList(geographicMapCellPosition, pathFindingInfo, multipassState);
                 
@@ -61,8 +63,8 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
                 }
             } catch (Exception e) {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
-                //LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "run", e));
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                //logUtil.put(commonStrings.EXCEPTION, this, "run", e);
                 setRunning(false);
                 finish();
             }
@@ -79,7 +81,7 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
 
 //                if(first) {
 //                    first = false;
-//                    LogUtil.put(LogFactory.getInstance("second set: " + pathFindingInfo, this, "getPathsList"));
+//                    logUtil.put("second set: " + pathFindingInfo, this, "getPathsList");
 //                }
                 
                 final GeographicMapCellPosition geographicMapCellPosition = 
@@ -93,8 +95,8 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
                 
             } catch (Exception e) {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
-                //LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "run", e));
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                //logUtil.put(commonStrings.EXCEPTION, this, "run", e);
                 setRunning(false);
                 finish();
             }
@@ -108,7 +110,7 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
             try {
                 final WaypointBehaviorBase waypointBehavior = pathFindingLayer.getWaypointBehavior();
                 
-//                LogUtil.put(LogFactory.getInstance("end: " + pathFindingInfo, this, "getPathsList"));
+//                logUtil.put("end: " + pathFindingInfo, this, "getPathsList");
 
                 waypointBehavior.setWaypointPathsList(list);
 
@@ -116,8 +118,8 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
                 
             } catch (Exception e) {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
-                //LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "run", e));
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                //logUtil.put(commonStrings.EXCEPTION, this, "run", e);
                 setRunning(false);
             }
 
@@ -160,8 +162,8 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
-            //LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "run", e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+            //logUtil.put(commonStrings.EXCEPTION, this, "run", e);
             this.setRunning(false);
         }
     }

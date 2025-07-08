@@ -25,6 +25,8 @@ import org.allbinary.string.CommonStrings;
 
 public class ImageCopyUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final ImageCopyUtil instance = new ImageCopyUtil();
     
     public static ImageCopyUtil getInstance()
@@ -56,7 +58,7 @@ public class ImageCopyUtil
             throws Exception
     {
         if(!features.isFeature(gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
-            LogUtil.put(LogFactory.getInstance(NO_COPY, this, commonStrings.CONSTRUCTOR, new Exception()));
+            logUtil.put(NO_COPY, this, commonStrings.CONSTRUCTOR, new Exception());
             return originalImage;
         }
         
@@ -79,12 +81,12 @@ public class ImageCopyUtil
             throws Exception
     {
         if(!features.isFeature(gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
-            LogUtil.put(LogFactory.getInstance(NO_COPY, this, commonStrings.CONSTRUCTOR, new Exception()));
+            logUtil.put(NO_COPY, this, commonStrings.CONSTRUCTOR, new Exception());
             return originalImage;
         }
         
         //final CommonLabels commonLabels = CommonLabels.getInstance();
-        //LogUtil.put(LogFactory.getInstance(commonLabels + originalImage.getWidth() + commonLabels + originalImage.getHeight(), this, commonStrings.CONSTRUCTOR));
+        //logUtil.put(commonLabels + originalImage.getWidth() + commonLabels + originalImage.getHeight(), this, commonStrings.CONSTRUCTOR);
         
         int newWidth = (int) (originalImage.getWidth() * canvasScale);
         int newHeight = (int) (originalImage.getHeight() * canvasScale);
@@ -99,7 +101,7 @@ public class ImageCopyUtil
             }
         }
         
-        //LogUtil.put(LogFactory.getInstance("newWidth: " + newWidth + " newHeight: " + newHeight, this, commonStrings.CONSTRUCTOR));
+        //logUtil.put("newWidth: " + newWidth + " newHeight: " + newHeight, this, commonStrings.CONSTRUCTOR);
         
         final Image image = imageCreationUtil.getInstance(newWidth, newHeight);
 
@@ -108,7 +110,7 @@ public class ImageCopyUtil
             final int halfWidthDelta = (newWidth - originalImage.getWidth()) / 2;
             final int halfHeightDelta = (newHeight - originalImage.getHeight()) / 2;
             //final CommonLabels commonLabels = CommonLabels.getInstance();
-            //LogUtil.put(LogFactory.getInstance("deltas" + commonLabels + halfWidthDelta + commonLabels + halfHeightDelta, this, commonStrings.CONSTRUCTOR));
+            //logUtil.put("deltas" + commonLabels + halfWidthDelta + commonLabels + halfHeightDelta, this, commonStrings.CONSTRUCTOR);
             final Graphics graphics = image.getGraphics();
             graphics.drawImage(originalImage, halfWidthDelta, halfHeightDelta, anchor);
             //this.basicSetColorUtil.setBasicColor(graphics, BasicColorFactory.getInstance().YELLOW);

@@ -23,6 +23,8 @@ import org.allbinary.thread.RunnableInterface;
  * @author User
  */
 public class WaypointPathRunnableBase implements RunnableInterface, PriorityRunnable {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private final LayerDistanceUtil layerDistanceUtil = LayerDistanceUtil.getInstance();
     
@@ -74,7 +76,7 @@ public class WaypointPathRunnableBase implements RunnableInterface, PriorityRunn
             final int distanceCategory = distance / 70;
             this.priority = distanceCategory;
 
-            //LogUtil.put(LogFactory.getInstance(new StringMaker().append(SET_PRIORITY).append(this.priority).toString(), this, SET_TARGET));
+            //logUtil.put(new StringMaker().append(SET_PRIORITY).append(this.priority).toString(), this, SET_TARGET);
         }
     }
     

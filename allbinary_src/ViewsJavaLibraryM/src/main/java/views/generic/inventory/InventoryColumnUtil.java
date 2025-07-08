@@ -24,6 +24,8 @@ import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntity;
 
 public class InventoryColumnUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final InventoryColumnUtil instance = new InventoryColumnUtil();
 
     public static InventoryColumnUtil getInstance()
@@ -37,7 +39,7 @@ public class InventoryColumnUtil
     public Vector getColumnWhereLike(
         InventoryEntity inventoryEntity, String category, String column)
     {
-        LogUtil.put(LogFactory.getInstance("Start Category: " + category, this, "getKeywords"));
+        logUtil.put("Start Category: " + category, this, "getKeywords");
 
         /////////
         // TWB - GAE upgrade uses JIQL and it doesn't like LIKE in the SQL so I
@@ -57,7 +59,7 @@ public class InventoryColumnUtil
 
             String categoryName = (String) hashMap.get(BasicItemData.CATEGORY);
 
-            //LogUtil.put(LogFactory.getInstance(NEXTCATEGORY + categoryName, this, "getKeywords"));
+            //logUtil.put(NEXTCATEGORY + categoryName, this, "getKeywords");
 
             if (!StringValidationUtil.getInstance().isEmpty(categoryName)
                 && categoryName.startsWith(category))

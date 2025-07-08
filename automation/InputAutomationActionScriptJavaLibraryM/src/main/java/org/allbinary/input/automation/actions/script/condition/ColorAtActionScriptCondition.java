@@ -39,6 +39,8 @@ public class ColorAtActionScriptCondition
     extends BasicProfileActionScriptCondition
     implements ColorAtActionScriptConditionInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private ColorAtActionScriptConditionJPanel colorAtActionScriptConditionJPanel;
     
     private Point point;
@@ -169,7 +171,7 @@ public class ColorAtActionScriptCondition
         hashMap.put(ColorAtActionScriptConditionData.MIN_BLUE, Integer.toString(this.getColorRangeInterface().getMinBlue()));
         hashMap.put(ColorAtActionScriptConditionData.MAX_BLUE, Integer.toString(this.getColorRangeInterface().getMaxBlue()));
 
-        LogUtil.put(LogFactory.getInstance("HashMap: " + hashMap.toString(), this, "toHashMap()"));
+        logUtil.put("HashMap: " + hashMap.toString(), this, "toHashMap()");
 
         return hashMap;
     }
@@ -217,7 +219,7 @@ public class ColorAtActionScriptCondition
             "getPoint(): " + this.getPoint() +
             "\n" + this.getColorRangeInterface().toString();
 
-        LogUtil.put(LogFactory.getInstance(message, this, "log"));
+        logUtil.put(message, this, "log");
     }
 
     public ColorRangeInterface getColorRangeInterface()

@@ -46,6 +46,8 @@ import org.allbinary.string.CommonStrings;
 
 public class TransformInfo implements TransformInfoInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final AbeClientInformationInterface abeClientInformation = 
@@ -118,7 +120,7 @@ public class TransformInfo implements TransformInfoInterface
             stringBuffer.append("\n properties: ");
             stringBuffer.append(hashMap);
 
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "override(HashMap hashMap)"));
+            logUtil.put(stringBuffer.toString(), this, "override(HashMap hashMap)");
         }
         
         String aStoreName = (String) hashMap.get(StoreFrontData.getInstance().NAME);
@@ -148,9 +150,9 @@ public class TransformInfo implements TransformInfoInterface
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                LogUtil.put(LogFactory.getInstance(
+                logUtil.put(
                     "TransformInfo override view Object for: " + this.getName(),
-                    this, "override(HashMap hashMap)"));
+                    this, "override(HashMap hashMap)");
             }
 
             String fileDataString = new CryptFileReader(
@@ -169,9 +171,9 @@ public class TransformInfo implements TransformInfoInterface
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                LogUtil.put(LogFactory.getInstance(
+                logUtil.put(
                     "TransformInfo override ObjectConfig for: " + this.getName(),
-                    this, "override(HashMap hashMap)"));
+                    this, "override(HashMap hashMap)");
             }
             this.setObjectConfig((String) hashMap.get(transformInfoData.OBJECTCONFIG));
         }
@@ -183,9 +185,9 @@ public class TransformInfo implements TransformInfoInterface
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                LogUtil.put(LogFactory.getInstance(
+                logUtil.put(
                     "TransformInfo override ObjectConfig File for: " + this.getName(),
-                    this, "override(HashMap hashMap)"));
+                    this, "override(HashMap hashMap)");
             }
             this.setObjectConfigFile(objectConfigFileName);
         }
@@ -215,9 +217,9 @@ public class TransformInfo implements TransformInfoInterface
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                LogUtil.put(LogFactory.getInstance(
+                logUtil.put(
                     "TransformInfo override Template for: " + this.getName(),
-                    this, "override(HashMap hashMap)"));
+                    this, "override(HashMap hashMap)");
             }
 
             String fileDataString = new CryptFileReader(
@@ -243,9 +245,9 @@ public class TransformInfo implements TransformInfoInterface
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                LogUtil.put(LogFactory.getInstance(
+                logUtil.put(
                     "TransformInfo override Data for: " + this.getName(),
-                    this, "override(HashMap hashMap)"));
+                    this, "override(HashMap hashMap)");
             }
 
             String fileDataString = new CryptFileReader(
@@ -280,13 +282,13 @@ public class TransformInfo implements TransformInfoInterface
             stringBuffer.append(this.getObjectFile());
             stringBuffer.append("->TransformInfo");
 
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(),
-                this, "TransformInfoInterface(HashMap)"));
+            logUtil.put(stringBuffer.toString(),
+                this, "TransformInfoInterface(HashMap)");
         }
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY))
         {
-            LogUtil.put(LogFactory.getInstance(this.log(), this, "override"));
+            logUtil.put(this.log(), this, "override");
         }
     }
 
@@ -446,8 +448,8 @@ public class TransformInfo implements TransformInfoInterface
                 {
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                     {
-                        LogUtil.put(LogFactory.getInstance(
-                            "Data File overriding existing data: " + this.getDataFilePath(), this, "getData()"));
+                        logUtil.put(
+                            "Data File overriding existing data: " + this.getDataFilePath(), this, "getData()");
                     }
                 }
 
@@ -456,7 +458,7 @@ public class TransformInfo implements TransformInfoInterface
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
                 {
-                    LogUtil.put(LogFactory.getInstance("Could Not Load Data from: " + this.getDataFile(), this, "getData()", e));
+                    logUtil.put("Could Not Load Data from: " + this.getDataFile(), this, "getData()", e);
                 }
             }
         }
@@ -467,8 +469,8 @@ public class TransformInfo implements TransformInfoInterface
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
                 {
-                    LogUtil.put(LogFactory.getInstance(
-                        "Data: " + DomDocumentHelper.toString(DomDocumentHelper.create(data)), this, "getData()"));
+                    logUtil.put(
+                        "Data: " + DomDocumentHelper.toString(DomDocumentHelper.create(data)), this, "getData()");
                 }
             } else
             {
@@ -487,7 +489,7 @@ public class TransformInfo implements TransformInfoInterface
 
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
                     {
-                    	LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "getData()"));
+                    	logUtil.put(stringBuffer.toString(), this, "getData()");
                     }
                     //ForcedLogUtil.log(stringBuffer.toString(), this);
                 }
@@ -496,8 +498,8 @@ public class TransformInfo implements TransformInfoInterface
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
             {
-                LogUtil.put(LogFactory.getInstance(
-                    "Could Not Preview Data: " + this.data, this, "getData()", e));
+                logUtil.put(
+                    "Could Not Preview Data: " + this.data, this, "getData()", e);
             }
         }
 
@@ -515,7 +517,7 @@ public class TransformInfo implements TransformInfoInterface
     	{
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
             {
-            	LogUtil.put(LogFactory.getInstance("No Data So Creating New Document", this, "getDataDocument()"));
+            	logUtil.put("No Data So Creating New Document", this, "getDataDocument()");
             }
     		
     		return DomDocumentHelper.create();

@@ -25,11 +25,22 @@ import org.allbinary.osgi.OSGIServiceInterface;
 
 public class OSGIServiceUtil
 {
+    private static final OSGIServiceUtil instance = new OSGIServiceUtil();
+
+    /**
+     * @return the instance
+     */
+    public static OSGIServiceUtil getInstance() {
+        return instance;
+    }
+    
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private OSGIServiceUtil()
     {
     }
     
-    public static Vector getServicesObjectVector(
+    public Vector getServicesObjectVector(
         final BundleContext bundleContext, final ServiceReference[] serviceReferences)
         throws Exception
     {
@@ -38,13 +49,13 @@ public class OSGIServiceUtil
         if(serviceReferences != null)
         {
             final int size = serviceReferences.length;
-            LogUtil.put(LogFactory.getInstance("Service References: " + size, "OSGIServiceUtil", "getServicesObjectVector"));
+            logUtil.put("Service References: " + size, this, "getServicesObjectVector");
             
             for(int index = 0; index < size; index++)
             {
                 ServiceReference serviceReference = serviceReferences[index];
 
-                //LogUtil.put(LogFactory.getInstance("Service Reference Properties: " + stringBuffer.toString(), this, "getInputAutomationModuleServices"));
+                //logUtil.put("Service Reference Properties: " + stringBuffer.toString(), this, "getInputAutomationModuleServices");
                 
                 if(serviceReference != null)
                 {

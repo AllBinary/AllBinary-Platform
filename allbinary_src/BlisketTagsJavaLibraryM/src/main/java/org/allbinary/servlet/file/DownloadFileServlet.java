@@ -43,6 +43,8 @@ import org.allbinary.string.CommonStrings;
  */
 public class DownloadFileServlet extends HttpServlet
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final String DOWNLOAD = "download";
@@ -144,7 +146,7 @@ public class DownloadFileServlet extends HttpServlet
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "processRequest()", e));
+                logUtil.put(this.commonStrings.EXCEPTION, this, "processRequest()", e);
             }
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         } finally

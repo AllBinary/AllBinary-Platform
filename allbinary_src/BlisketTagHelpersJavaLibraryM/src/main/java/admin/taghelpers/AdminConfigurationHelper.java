@@ -21,6 +21,8 @@ import java.util.HashMap;
 
 public class AdminConfigurationHelper extends BasicTable 
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     
    public AdminConfigurationHelper(HashMap hashMap, PageContext pageContext)
    {
@@ -34,7 +36,7 @@ public class AdminConfigurationHelper extends BasicTable
                   
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            LogUtil.put(LogFactory.getInstance(success,this,"create()"));
+            logUtil.put(success,this,"create()");
          }
          return success;
       }
@@ -44,7 +46,7 @@ public class AdminConfigurationHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"create()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"create()",e);
          }
          return error;
       }
@@ -58,7 +60,7 @@ public class AdminConfigurationHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            LogUtil.put(LogFactory.getInstance(success,this,commonStrings.DROP));
+            logUtil.put(success,this,commonStrings.DROP);
          }
          return success;
       }
@@ -68,7 +70,7 @@ public class AdminConfigurationHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,commonStrings.DROP,e));
+            logUtil.put(commonStrings.EXCEPTION,this,commonStrings.DROP,e);
          }
          return error;
       }
@@ -87,7 +89,7 @@ public class AdminConfigurationHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"restore()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"restore()",e);
          }
          return error;
       }
@@ -101,7 +103,7 @@ public class AdminConfigurationHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            LogUtil.put(LogFactory.getInstance(success,this,"backup()"));
+            logUtil.put(success,this,"backup()");
          }
          return success;
       }
@@ -111,7 +113,7 @@ public class AdminConfigurationHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"backup()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"backup()",e);
          }
          return error;
       }

@@ -22,6 +22,8 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellPositionFacto
 import org.allbinary.media.graphics.geography.map.GeographicMapCellTypeFactory;
 
 public class RaceTrackGeographicMap extends BaseRaceTrackGeographicMap {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private final CustomMapGeneratorBase customMapGenerator;
 
@@ -76,7 +78,7 @@ public class RaceTrackGeographicMap extends BaseRaceTrackGeographicMap {
             stringBuffer.append(" not in: ");
             stringBuffer.append(this.customMapGenerator.getCustomMapArray()[0].length);
 
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.IS_VALID));
+            logUtil.put(stringBuffer.toString(), this, commonStrings.IS_VALID);
 
             if (geographicMapCellPosition.getColumn() == this.customMapGenerator.getCustomMapArray()[0].length) {
                 return true;
@@ -90,7 +92,7 @@ public class RaceTrackGeographicMap extends BaseRaceTrackGeographicMap {
             stringBuffer.append(" not in: ");
             stringBuffer.append(this.customMapGenerator.getCustomMapArray().length);
 
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.IS_VALID));
+            logUtil.put(stringBuffer.toString(), this, commonStrings.IS_VALID);
 
             if (geographicMapCellPosition.getRow() == this.customMapGenerator.getCustomMapArray().length) {
                 return true;

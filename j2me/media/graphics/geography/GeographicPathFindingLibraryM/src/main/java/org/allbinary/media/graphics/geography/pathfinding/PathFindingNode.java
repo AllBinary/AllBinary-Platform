@@ -19,6 +19,8 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 
 public class PathFindingNode
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
    public PathFindingNode parent;
 
    public GeographicMapCellPosition geographicMapCellPosition;
@@ -33,7 +35,7 @@ public class PathFindingNode
       /*
       if(this.getParent() == null)
       {
-         LogUtil.put(LogFactory.getInstance("No Parent", this, commonStrings.CONSTRUCTOR));
+         logUtil.put("No Parent", this, commonStrings.CONSTRUCTOR);
       }
       */
 

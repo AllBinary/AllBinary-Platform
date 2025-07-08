@@ -18,6 +18,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class ThreadUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final ThreadUtil instance = new ThreadUtil();
     
     public static ThreadUtil getInstance()
@@ -45,7 +47,7 @@ public class ThreadUtil
         if (ThreadUtil.getInstance().isRunning(thread))
         {
             //PreLogUtil.put("Waiting for Thread To Join/End", this, JOIN);
-            LogUtil.put(LogFactory.getInstance("Waiting for Thread To Join/End", this, JOIN));
+            logUtil.put("Waiting for Thread To Join/End", this, JOIN);
 
             //If loading in background then go ahead and show progress while if
             //it is still initializing

@@ -20,6 +20,8 @@ import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
 
 public class OpenGLESGL11ExtImageFactory extends OpenGLImageFactory
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     /*
     public Image getInstance(GL10 gl, Image image, boolean matchColor)
     {

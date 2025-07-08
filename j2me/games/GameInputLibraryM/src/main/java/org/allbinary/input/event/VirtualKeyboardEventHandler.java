@@ -23,6 +23,8 @@ import org.allbinary.logic.util.event.handler.BasicEventHandler;
 
 public class VirtualKeyboardEventHandler extends BasicEventHandler
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private static final VirtualKeyboardEventHandler gameKeyEventHandler = 
       new VirtualKeyboardEventHandler();
 
@@ -58,7 +60,7 @@ public class VirtualKeyboardEventHandler extends BasicEventHandler
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "open", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "open", e);
         }
 
     }
@@ -72,7 +74,7 @@ public class VirtualKeyboardEventHandler extends BasicEventHandler
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.CLOSE, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CLOSE, e);
         }
 
     }

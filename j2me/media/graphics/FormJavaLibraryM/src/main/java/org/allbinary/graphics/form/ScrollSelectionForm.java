@@ -32,6 +32,8 @@ import org.allbinary.math.RectangleCollisionUtil;
 
 public class ScrollSelectionForm extends PaintableForm
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final RectangleCollisionUtil rectangleCollisionUtil = RectangleCollisionUtil.getInstance();
     
     protected final int border;
@@ -133,7 +135,7 @@ public class ScrollSelectionForm extends PaintableForm
         stringBuffer.append(commonLabels.TOTAL_LABEL);
         stringBuffer.append(size);
         
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, GET_SELECTED_INDEX));
+        logUtil.put(stringBuffer.toString(), this, GET_SELECTED_INDEX);
 
         CustomItemInterface item;
         int width;
@@ -162,12 +164,12 @@ public class ScrollSelectionForm extends PaintableForm
                 throw new Exception(formTypeFactory.UNK);
             }
             
-//            LogUtil.put(LogFactory.getInstance(new StringBuilder().append("Checking: ")
+//            logUtil.put(new StringBuilder().append("Checking: ")
 //                    .append(diffX).append(CommonSeps.getInstance().COMMA)
 //                    .append((dy - this.halfBorder)).append(CommonSeps.getInstance().COMMA)
 //                    .append((diffX + width + this.border)).append(CommonSeps.getInstance().COMMA)
 //                    .append((dy + height + this.halfBorder + 1))
-//                    .append(" with ").append(point.toString()).toString(), this, GET_SELECTED_INDEX));
+//                    .append(" with ").append(point.toString()).toString(), this, GET_SELECTED_INDEX);
 
             //if (RectangleCollisionUtil.isInside(dx, dy, dx + width, this.rectangle.getMaxY(),
             
@@ -183,7 +185,7 @@ public class ScrollSelectionForm extends PaintableForm
                 stringBuffer.append(commonLabels.INDEX_LABEL);
                 stringBuffer.append(index);
                 
-                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, GET_SELECTED_INDEX));
+                logUtil.put(stringBuffer.toString(), this, GET_SELECTED_INDEX);
 
                 return index;
             }
@@ -216,7 +218,7 @@ public class ScrollSelectionForm extends PaintableForm
 
     public int processInput(final int gameKeyCode) throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance("Start - Selected ").append(commonLabels.INDEX_LABEL).append(this.getSelectedIndex()).append(" of: ").append(this.size(), this, GameInputStrings.getInstance()));
+        //logUtil.put("Start - Selected ").append(commonLabels.INDEX_LABEL).append(this.getSelectedIndex()).append(" of: ").append(this.size(), this, GameInputStrings.getInstance());
         //PreLogUtil.put("Start - Selected " commonLabels.INDEX_LABEL).append(this.getSelectedIndex()).append(" of: ").append(this.size(), this, GameInputStrings.getInstance());
 
         final FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
@@ -273,7 +275,7 @@ public class ScrollSelectionForm extends PaintableForm
         }
 
         //PreLogUtil.put("End - Selected ").append(commonLabels.INDEX_LABEL).append(this.getSelectedIndex(), this, GameInputStrings.getInstance());
-        //LogUtil.put(LogFactory.getInstance("End - Selected ").append(commonLabels.INDEX_LABEL).append(this.getSelectedIndex(), this, GameInputStrings.getInstance()));
+        //logUtil.put("End - Selected ").append(commonLabels.INDEX_LABEL).append(this.getSelectedIndex(), this, GameInputStrings.getInstance());
         return -1;
     }
 
@@ -282,12 +284,12 @@ public class ScrollSelectionForm extends PaintableForm
     
     public boolean isInForm(final GPoint point)
     {
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Checking: Rectangle: ").append(this.rectangle).append(" to ").append(point).toString(), this, IS_IN_FORM));
+        //logUtil.put(new StringMaker().append("Checking: Rectangle: ").append(this.rectangle).append(" to ").append(point).toString(), this, IS_IN_FORM);
 
         //- halfBorder
         if (rectangleCollisionUtil.isInside(x, y - halfBorder, this.rectangle.getMaxX() + border, this.rectangle.getMaxY() + border,point.getX(), point.getY()))
         {
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append(StringUtil.getInstance().toString(point)).append(INSIDE_FORM).toString(), this, IS_IN_FORM));
+            logUtil.put(new StringMaker().append(StringUtil.getInstance().toString(point)).append(INSIDE_FORM).toString(), this, IS_IN_FORM);
             return true;
         }
         return false;

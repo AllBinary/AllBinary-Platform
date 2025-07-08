@@ -27,6 +27,8 @@ public class AllBinaryTiledLayer extends Layer
     implements NamedInterface, PaintableInterface
 //LayerInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private int cellWidth;
     private int cellHeight;
     
@@ -48,16 +50,16 @@ public class AllBinaryTiledLayer extends Layer
         
         this.setLayerWidth(width);
         this.setLayerHeight(height);
-        //LogUtil.put(LogFactory.getInstance("TiledLayer: w: " + width + " h: " + height, this, commonStrings.CONSTRUCTOR));
+        //logUtil.put("TiledLayer: w: " + width + " h: " + height, this, commonStrings.CONSTRUCTOR);
         super.setPosition(0, 0, 0);
-        //LogUtil.put(LogFactory.getInstance("TiledLayer: x: " + this.x + " y: " + this.y, this, commonStrings.CONSTRUCTOR));
+        //logUtil.put("TiledLayer: x: " + this.x + " y: " + this.y, this, commonStrings.CONSTRUCTOR);
 
         this.cellWidth = cellWidth;
         this.cellHeight = cellHeight;
         
         this.halfWidth = (this.getWidth() >> 1);
         this.halfHeight = (this.getHeight() >> 1);
-        //LogUtil.put(LogFactory.getInstance("TiledLayer: hw: " + this.halfWidth + " hh: " + this.halfHeight, this, commonStrings.CONSTRUCTOR));
+        //logUtil.put("TiledLayer: hw: " + this.halfWidth + " hh: " + this.halfHeight, this, commonStrings.CONSTRUCTOR);
         
         this.halfCellWidth = (cellWidth >> 1);
         this.halfCellHeight = (cellHeight >> 1);
@@ -77,7 +79,7 @@ public class AllBinaryTiledLayer extends Layer
         stringBuffer.append(" columns: ");
         stringBuffer.append(this.getColumns());
 
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "setCells"));
+        logUtil.put(stringBuffer.toString(), this, "setCells");
 
         final int rows = this.getRows();
         final int columns = this.getColumns();
@@ -98,7 +100,7 @@ public class AllBinaryTiledLayer extends Layer
 //        final String UPDATE_CELLS = "updateCells";
 //        final String TO = " -> ";
 //        final String AT = " at:";
-//        LogUtil.put(LogFactory.getInstance(stringBuffer.append(fromTileId).append(TO).append(toTileId).toString(), this, UPDATE_CELLS));
+//        logUtil.put(stringBuffer.append(fromTileId).append(TO).append(toTileId).toString(), this, UPDATE_CELLS);
 
         final int rows = this.getRows();
         final int columns = this.getColumns();
@@ -109,7 +111,7 @@ public class AllBinaryTiledLayer extends Layer
             {
                 if(fromTileId == mapTwoDArray[row][col]) {
 //                    stringBuffer.delete(0, stringBuffer.length());
-//                    LogUtil.put(LogFactory.getInstance(stringBuffer.append(fromTileId).append(TO).append(toTileId).append(AT).append(col).append(',').append(row).toString(), this, UPDATE_CELLS));
+//                    logUtil.put(stringBuffer.append(fromTileId).append(TO).append(toTileId).append(AT).append(col).append(',').append(row).toString(), this, UPDATE_CELLS);
                     mapTwoDArray[row][col] = toTileId;
                     this.setCell(col, row, mapTwoDArray[row][col]);
                 }

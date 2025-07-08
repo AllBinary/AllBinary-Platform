@@ -29,6 +29,8 @@ public class VectorBaseRotationAnimation
     extends RotationAnimation
     implements VectorAnimationInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private int[][][] currentPoints;
 
     private BasicColor basicColor;
@@ -139,12 +141,12 @@ public class VectorBaseRotationAnimation
                 
                 if (nextPointX != 1000)
                 {
-                    // LogUtil.put(LogFactory.getInstance("Next Line: x1: " +
+                    // logUtil.put("Next Line: x1: " +
                     // this.currentPoints[this.currentFrame][index][0] + x +
                     // " y1: "
                     // + this.currentPoints[this.currentFrame][index][1] + y,
                     // this,
-                    // canvasStrings.PAINT));
+                    // canvasStrings.PAINT);
 
                     graphics.drawLine(point[0] + x, point[1] + y, nextPointX + x, nextPointY + y);
                 }
@@ -156,7 +158,7 @@ public class VectorBaseRotationAnimation
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "paintVectors", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "paintVectors", e);
         }
     }
     

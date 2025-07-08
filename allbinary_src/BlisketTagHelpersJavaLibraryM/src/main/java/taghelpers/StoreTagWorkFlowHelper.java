@@ -29,6 +29,8 @@ public class StoreTagWorkFlowHelper
     extends TagHelper
     //implements StoreWorkFlowInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final AbeClientInformationInterface abeClientInformation = 
         ServiceClientInformationInterfaceFactory.getInstance();
     
@@ -62,7 +64,7 @@ public class StoreTagWorkFlowHelper
      
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
       {
-         LogUtil.put(LogFactory.getInstance("Properties: " + hashMap.toString(), this, "StoreTagWorkFlowHelper()"));
+         logUtil.put("Properties: " + hashMap.toString(), this, "StoreTagWorkFlowHelper()");
       }
       
       this.storeWorkFlowInterface = StoreTagWorkFlowFactory.getInstance().getInstance(this.abeClientInformation, hashMap, pageContext);
@@ -75,7 +77,7 @@ public class StoreTagWorkFlowHelper
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
          {
-            LogUtil.put(LogFactory.getInstance("Process",this,commonStrings.PROCESS));
+            logUtil.put("Process",this,commonStrings.PROCESS);
          }
 
          return this.storeWorkFlowInterface.process();
@@ -88,7 +90,7 @@ public class StoreTagWorkFlowHelper
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"view()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"view()",e);
          }
          throw e;
       }

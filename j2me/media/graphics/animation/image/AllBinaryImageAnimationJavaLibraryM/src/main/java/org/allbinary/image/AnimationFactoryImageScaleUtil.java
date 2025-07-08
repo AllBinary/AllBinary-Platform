@@ -25,6 +25,8 @@ import org.allbinary.media.image.ImageJ2MEScaleUtil;
  * @author User
  */
 public class AnimationFactoryImageScaleUtil {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     
     private static final AnimationFactoryImageScaleUtil instance = new AnimationFactoryImageScaleUtil();
 
@@ -47,30 +49,30 @@ public class AnimationFactoryImageScaleUtil {
 //        final StringMaker stringMaker = new StringMaker();
 //        stringMaker.delete(0, stringMaker.length());
 //        final CommonLabels commonLabels = CommonLabels.getInstance();
-//        LogUtil.put(LogFactory.getInstance(stringMaker.append("before scale").append(commonLabels.WIDTH_LABEL).append(width).append(commonLabels.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS));
+//        logUtil.put(stringMaker.append("before scale").append(commonLabels.WIDTH_LABEL).append(width).append(commonLabels.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS);
 
         if (scaleWidth != 0 && scaleHeight != 0) {
             final float scaleX = ((float) scaleWidth) / ((float) width);
             final float scaleY = ((float) scaleHeight) / ((float) height);
 //            stringMaker.delete(0, stringMaker.length());
-//            LogUtil.put(LogFactory.getInstance(stringMaker.append("0scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS));
+//            logUtil.put(stringMaker.append("0scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS);
             if ((scaleX == 1 && scaleY == 1) || (scaleX == 0 || scaleY == 0)) {
                 //scaledImage = this.imageCopyUtil.createImage(image);
                 scaledImage = image;
             } else {
 //                stringMaker.delete(0, stringMaker.length());
-//                LogUtil.put(LogFactory.getInstance(stringMaker.append("scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS));
+//                logUtil.put(stringMaker.append("scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS);
                 //scaledImage = this.imageScaleUtil.createImage(this.imageCache, image, scaleX, 1, scaleY, 1, true);
                 scaledImage = this.imageScaleUtil.scale(image, (int) (scaleX * width), (int) (scaleY * height));
 //                stringMaker.delete(0, stringMaker.length());
-//                LogUtil.put(LogFactory.getInstance(stringMaker.append("scaledImage.getHeight(): ").append(scaledImage.getHeight()).append(" this.height * scaleY: ").append((height * scaleY)).toString(), this, commonStrings.PROCESS));
+//                logUtil.put(stringMaker.append("scaledImage.getHeight(): ").append(scaledImage.getHeight()).append(" this.height * scaleY: ").append((height * scaleY)).toString(), this, commonStrings.PROCESS);
             }
 
         } else {
            //scaledImage = this.imageCopyUtil.createImage(image);
            scaledImage = image;
 //           stringMaker.delete(0, stringMaker.length());
-//           LogUtil.put(LogFactory.getInstance(stringMaker.append("unscaledImage.getHeight(): ").append(scaledImage.getHeight()).append(" this.height: ").append(height).toString(), this, commonStrings.PROCESS));
+//           logUtil.put(stringMaker.append("unscaledImage.getHeight(): ").append(scaledImage.getHeight()).append(" this.height: ").append(height).toString(), this, commonStrings.PROCESS);
         }
         
         return scaledImage;

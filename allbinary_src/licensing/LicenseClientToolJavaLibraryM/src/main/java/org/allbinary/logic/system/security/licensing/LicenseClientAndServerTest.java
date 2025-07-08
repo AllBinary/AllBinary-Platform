@@ -26,6 +26,8 @@ import org.allbinary.util.BasicArrayList;
 
 public class LicenseClientAndServerTest
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private BasicArrayList vector = new BasicArrayList();
 
     public LicenseClientAndServerTest(String[] options) throws Exception
@@ -106,22 +108,22 @@ public class LicenseClientAndServerTest
 
                 stringBuffer.append(END);
 
-                LogUtil.put(LogFactory.getInstance(RESULT + stringBuffer.toString(), this, "test"));
+                logUtil.put(RESULT + stringBuffer.toString(), this, "test");
                 
                 stringBuffer.delete(0, stringBuffer.length());
 
         } catch (Exception e)
         {
             list.add(serverName);
-            LogUtil.put(LogFactory.getInstance("Test Error: " + stringBuffer.toString(), this, "test", e));
+            logUtil.put("Test Error: " + stringBuffer.toString(), this, "test", e);
         }
 
             }
 
-            LogUtil.put(LogFactory.getInstance("Total Servers Failed: " + list.size() + " Failed Servers: " + list.toString(), this, "test"));
+            logUtil.put("Total Servers Failed: " + list.size() + " Failed Servers: " + list.toString(), this, "test");
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Test Error: " + stringBuffer.toString(), this, "test", e));
+            logUtil.put("Test Error: " + stringBuffer.toString(), this, "test", e);
         }
     }
 
@@ -135,7 +137,7 @@ public class LicenseClientAndServerTest
     System.out.println(licenseInfo);
     } catch (Exception e)
     {
-    LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "test()", e));
+    logUtil.put(this.commonStrings.EXCEPTION, this, "test()", e);
     }
     }
      */
@@ -147,7 +149,7 @@ public class LicenseClientAndServerTest
             licensingTest.test();
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, "main()", "main()", e));
+            logUtil.put(this.commonStrings.EXCEPTION, "main()", "main()", e);
         }
     }
 }

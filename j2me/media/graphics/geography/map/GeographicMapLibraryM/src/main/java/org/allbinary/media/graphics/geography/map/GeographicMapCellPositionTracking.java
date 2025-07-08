@@ -18,6 +18,8 @@ import org.allbinary.layer.AllBinaryLayer;
 
 public class GeographicMapCellPositionTracking
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private GeographicMapCellPosition currentGeographicMapCellPosition;
     private GeographicMapCellPosition previousGeographicMapCellPosition;
     private GeographicMapCellPosition newGeographicMapCellPosition;
@@ -38,7 +40,7 @@ public class GeographicMapCellPositionTracking
         {
             // Get the location of this vehicle relative to the top righ corner of the tileLayer location
             this.currentCellType = geographicMap.getCellTypeAt(geographicMapCellPosition);
-            // LogUtil.put(LogFactory.getInstance("currentCellType: " + currentCellType, this, "getCurrentCellType"));
+            // logUtil.put("currentCellType: " + currentCellType, this, "getCurrentCellType");
         }
         return this.currentCellType;
     }

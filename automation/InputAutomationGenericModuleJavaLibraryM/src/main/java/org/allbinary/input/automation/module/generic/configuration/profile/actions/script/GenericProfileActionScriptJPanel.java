@@ -32,6 +32,8 @@ import org.allbinary.string.CommonStrings;
 public class GenericProfileActionScriptJPanel
     extends javax.swing.JPanel implements JTreeInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private DefaultMutableTreeNode defaultMutableTreeNode =
@@ -42,7 +44,7 @@ public class GenericProfileActionScriptJPanel
     /** Creates new form GenericProfileActionScriptJPanel */
     public GenericProfileActionScriptJPanel()
     {
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR));
+        logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         
         initComponents();
     }
@@ -56,7 +58,7 @@ public class GenericProfileActionScriptJPanel
         
         this.repaint();
         
-        LogUtil.put(LogFactory.getInstance("Updated UI", this, "updateJTree"));
+        logUtil.put("Updated UI", this, "updateJTree");
     }
     
     public GenericProfileActionScript getGenericProfileActionScript()

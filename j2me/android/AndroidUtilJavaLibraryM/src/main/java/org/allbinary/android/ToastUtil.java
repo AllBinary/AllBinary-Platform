@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Toast;
 
 public class ToastUtil {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
 	private static final ToastUtil instance = new ToastUtil();
 
@@ -30,7 +32,7 @@ public class ToastUtil {
 	        {
 	            try
 	            {
-	            	//LogUtil.put(LogFactory.getInstance("Trying to Toast: "+ string, this, commonStrings.RUN));
+	            	//logUtil.put("Trying to Toast: "+ string, this, commonStrings.RUN);
 	            	//PreLogUtil.put("Trying to Toast: "+ string, this, commonStrings.RUN);
 	                
 	                Toast.makeText(context, string, time).show();
@@ -38,7 +40,7 @@ public class ToastUtil {
 	            catch(Exception e)
 	            {
                         final CommonStrings commonStrings = CommonStrings.getInstance();
-	                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
+	                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
 	            }
 	        }
 	    }

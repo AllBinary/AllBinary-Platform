@@ -23,6 +23,8 @@ import org.allbinary.graphics.pipeline.BasicGraphicsPipeline;
 
 public class VectorMirrorGenerator
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final VectorMirrorGenerator instance = new VectorMirrorGenerator();
 
     public static VectorMirrorGenerator getInstance()
@@ -69,13 +71,13 @@ public class VectorMirrorGenerator
             int[][][] newPoints = vectorAnimationUtil.toAnimationArrayFromBasicArrayListOfPointBasicArrayList(
                     pointsBasicArrayList);
 
-            // LogUtil.put(LogFactory.getInstance(IntArrayUtil.toString(newPoints), this, commonStrings.GET_INSTANCE));
+            // logUtil.put(IntArrayUtil.toString(newPoints), this, commonStrings.GET_INSTANCE);
             return newPoints;
 
         } catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
             // throw e;
             return null;
         }

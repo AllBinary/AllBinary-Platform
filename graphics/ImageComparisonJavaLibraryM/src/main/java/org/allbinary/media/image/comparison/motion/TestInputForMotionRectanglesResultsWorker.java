@@ -34,6 +34,8 @@ import org.allbinary.time.TimeDelayHelper;
 public class TestInputForMotionRectanglesResultsWorker
    implements MotionRectanglesResultsListener
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
    private long index;
@@ -83,7 +85,7 @@ public class TestInputForMotionRectanglesResultsWorker
    {
       try
       {
-         LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.RUN));
+         logUtil.put(this.commonStrings.START, this, this.commonStrings.RUN);
          
          this.setRunning(true);
          
@@ -154,14 +156,14 @@ public class TestInputForMotionRectanglesResultsWorker
          
          this.getMotionRectanglesVector().remove(motionRectangles);
 
-         LogUtil.put(LogFactory.getInstance(
-            CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN));
+         logUtil.put(
+            CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN);
          
-         LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, this.commonStrings.RUN));
+         logUtil.put(this.commonStrings.END, this, this.commonStrings.RUN);
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e));
+         logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
       }
    }
    

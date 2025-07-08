@@ -23,6 +23,8 @@ import java.io.InputStream;
  * @author user
  */
 public class CloudStreamUtil {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final CloudStreamUtil instance = new CloudStreamUtil();
 
@@ -45,7 +47,7 @@ public class CloudStreamUtil {
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                LogUtil.put(LogFactory.getInstance("Cloud File Bytes: " + available, this, "processRequest()"));
+                logUtil.put("Cloud File Bytes: " + available, this, "processRequest()");
             }
         }
 
@@ -63,7 +65,7 @@ public class CloudStreamUtil {
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                LogUtil.put(LogFactory.getInstance("Local File Bytes: " + available, this, "processRequest()"));
+                logUtil.put("Local File Bytes: " + available, this, "processRequest()");
             }
         } else
         {
@@ -75,7 +77,7 @@ public class CloudStreamUtil {
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
                 {
-                    LogUtil.put(LogFactory.getInstance("Cloud File Bytes: " + available, this, "processRequest()"));
+                    logUtil.put("Cloud File Bytes: " + available, this, "processRequest()");
                 }
             }
         }
@@ -94,7 +96,7 @@ public class CloudStreamUtil {
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                LogUtil.put(LogFactory.getInstance("Local File Bytes: " + available, this, "processRequest()"));
+                logUtil.put("Local File Bytes: " + available, this, "processRequest()");
             }
         }
 

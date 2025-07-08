@@ -47,6 +47,8 @@ import views.business.context.modules.storefront.HttpStoreComponentView;
 
 public class AdvertisementAreaView extends HttpStoreComponentView implements DomNodeInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    //private HashMap propertiesHashMap;
    //this.propertiesHashMap = hashMap;
    //private HttpServletRequest request;
@@ -88,7 +90,7 @@ public class AdvertisementAreaView extends HttpStoreComponentView implements Dom
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XSLLOGGINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE,this,"toXmlNode",e));
+            logUtil.put(this.commonStrings.FAILURE,this,"toXmlNode",e);
          }
          throw e;
       }
@@ -110,7 +112,7 @@ public class AdvertisementAreaView extends HttpStoreComponentView implements Dom
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"view()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"view()",e);
          }
          throw e;
       }

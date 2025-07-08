@@ -24,6 +24,8 @@ import org.allbinary.logic.string.StringMaker;
 public class CollidableBaseBehavior 
 implements CollidableInterface
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private boolean collidable = true;
@@ -76,8 +78,8 @@ implements CollidableInterface
         }
         else
         {
-            //LogUtil.put(LogFactory.getInstance("y: " + this.y + " " + this.getY2() + " other y: " + collisionLayer.getY() + " " + collisionLayer.getY2(), this, damageUtil.IS_COLLISION));
-            //LogUtil.put(LogFactory.getInstance("viewy: " + this.getViewPosition().getY() + " " + this.getViewPosition().getY2() + " other viewy: " + ((AllBinaryLayer) collisionLayer).getViewPosition().getY() + " " + ((AllBinaryLayer) collisionLayer).getViewPosition().getY2(), this, damageUtil.IS_COLLISION));
+            //logUtil.put("y: " + this.y + " " + this.getY2() + " other y: " + collisionLayer.getY() + " " + collisionLayer.getY2(), this, damageUtil.IS_COLLISION);
+            //logUtil.put("viewy: " + this.getViewPosition().getY() + " " + this.getViewPosition().getY2() + " other viewy: " + ((AllBinaryLayer) collisionLayer).getViewPosition().getY() + " " + ((AllBinaryLayer) collisionLayer).getViewPosition().getY2(), this, damageUtil.IS_COLLISION);
             
             return true;
         }

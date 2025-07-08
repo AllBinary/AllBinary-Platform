@@ -22,6 +22,8 @@ import org.allbinary.logic.system.security.licensing.LicensingException;
 
 public class AbKeys
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final AbKeys instance = new AbKeys();
 
     public static AbKeys getInstance() {
@@ -38,7 +40,7 @@ public class AbKeys
       {
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))
          //{
-            LogUtil.put(LogFactory.getInstance("Getting Key: " + keyName, this, "getKey"));
+            logUtil.put("Getting Key: " + keyName, this, "getKey");
          //}
 
          //TWB - Replace with key from server
@@ -60,7 +62,7 @@ public class AbKeys
       {
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSINGERROR))
          //{
-            LogUtil.put(LogFactory.getInstance("Licensing Failure", this, "getKey()", e));
+            logUtil.put("Licensing Failure", this, "getKey()", e);
          //}
          throw new LicensingException("Unknown License Failure");
       }

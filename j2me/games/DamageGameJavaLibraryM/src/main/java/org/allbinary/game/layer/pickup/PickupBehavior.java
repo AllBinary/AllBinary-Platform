@@ -31,6 +31,8 @@ import org.allbinary.game.part.CountedLayerInterfaceFactoryPart;
 
 public class PickupBehavior implements PickupBehaviorInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final int countedIndex;
     
     private final CollidableDestroyableDamageableLayer ownerLayerInterface;
@@ -62,7 +64,7 @@ public class PickupBehavior implements PickupBehaviorInterface
         catch(Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "doPickup", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "doPickup", e);
         }
     }
     
@@ -100,7 +102,7 @@ public class PickupBehavior implements PickupBehaviorInterface
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            //LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "doPickup"));
+            //logUtil.put(commonStrings.EXCEPTION, this, "doPickup");
             PreLogUtil.put(commonStrings.EXCEPTION, this, "doPickup", e);
         }
     }

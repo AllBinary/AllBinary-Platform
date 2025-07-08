@@ -19,6 +19,8 @@ import org.allbinary.logic.communication.log.PreLogUtil;
 //implements
 public class AppUrlGlobals extends UrlGlobalsInterface
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
    private String path;
    
    public boolean isTestingMode()

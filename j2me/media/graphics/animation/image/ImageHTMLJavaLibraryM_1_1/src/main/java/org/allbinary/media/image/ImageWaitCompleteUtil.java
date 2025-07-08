@@ -31,6 +31,8 @@ import org.microemu.device.playn.PlaynImage;
  * @author User
  */
 public class ImageWaitCompleteUtil extends ImageCompleteUtil {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     
     //private final String WAIT = "Waiting to load image";
 
@@ -41,7 +43,7 @@ public class ImageWaitCompleteUtil extends ImageCompleteUtil {
     
     public ImageWaitCompleteUtil() {
         //final CommonStrings commonStrings = CommonStrings.getInstance();
-        //LogUtil.put(LogFactory.getInstance(commonStrings.CONSTRUCTOR, this, commonStrings.CONSTRUCTOR));
+        //logUtil.put(commonStrings.CONSTRUCTOR, this, commonStrings.CONSTRUCTOR);
     }
     
     @Override

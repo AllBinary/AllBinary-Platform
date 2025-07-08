@@ -17,9 +17,11 @@ import org.allbinary.game.input.mapping.InputToGameKeyMapping;
 
 public class LaptopGameInputMapping  extends PCGameInputMapping
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected InputToGameKeyMapping getDefault()
     {
-        //LogUtil.put(LogFactory.getInstance("Use Default GameKey Mappings", this, "addDefault"));
+        //logUtil.put("Use Default GameKey Mappings", this, "addDefault");
 
         return new LaptopDefaultGameInputMapping().getInputMapping();
     }

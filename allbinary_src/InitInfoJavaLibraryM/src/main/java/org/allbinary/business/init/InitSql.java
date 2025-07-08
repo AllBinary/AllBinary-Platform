@@ -41,6 +41,8 @@ import org.allbinary.logic.communication.sql.SqlTypeStrings;
 
 public class InitSql
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final StringUtil stringUtil = StringUtil.getInstance();
     protected final CommonSeps commonSeps = CommonSeps.getInstance();
     protected final SqlTypeStrings sqlTypeStrings = SqlTypeStrings.getInstance();

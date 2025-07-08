@@ -48,6 +48,8 @@ import org.allbinary.logic.communication.sql.AbDatabaseManagement;
 public class InitDbCrypted extends AbDatabaseManagement
 //extends InitSql
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private UserDbInitInfo userDbInitInfo;
     private InventoryDbInitInfo inventoryDbInitInfo;
@@ -68,7 +70,7 @@ public class InitDbCrypted extends AbDatabaseManagement
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.METHOD_ADD_USERS));
+            logUtil.put(this.commonStrings.START, this, this.METHOD_ADD_USERS);
 
             userDbInitInfo = new UserDbInitInfo();
             inventoryDbInitInfo = new InventoryDbInitInfo();
@@ -82,7 +84,7 @@ public class InitDbCrypted extends AbDatabaseManagement
 
             if(!this.addDbUser(CUSTOMERDB, CUSTOMERDBUSER, CUSTOMERDBPASSWORD))
             {
-                LogUtil.put(LogFactory.getInstance(this.UNABLE_TO_CREATE_USER + CUSTOMERDBUSER, this, this.METHOD_ADD_USERS));
+                logUtil.put(this.UNABLE_TO_CREATE_USER + CUSTOMERDBUSER, this, this.METHOD_ADD_USERS);
                 return Boolean.FALSE;
             }
 
@@ -92,7 +94,7 @@ public class InitDbCrypted extends AbDatabaseManagement
 
             if(!this.addDbUser(INVENTORYDB, INVENTORYDBUSER, INVENTORYDBPASSWORD))
             {
-                LogUtil.put(LogFactory.getInstance(this.UNABLE_TO_CREATE_USER + INVENTORYDBUSER, this, this.METHOD_ADD_USERS));
+                logUtil.put(this.UNABLE_TO_CREATE_USER + INVENTORYDBUSER, this, this.METHOD_ADD_USERS);
                 return Boolean.FALSE;
             }
 
@@ -102,7 +104,7 @@ public class InitDbCrypted extends AbDatabaseManagement
 
             if(!this.addDbUser(HISTORYDB, HISTORYDBUSER, HISTORYDBPASSWORD))
             {
-                LogUtil.put(LogFactory.getInstance(this.UNABLE_TO_CREATE_USER + HISTORYDBUSER, this, this.METHOD_ADD_USERS));
+                logUtil.put(this.UNABLE_TO_CREATE_USER + HISTORYDBUSER, this, this.METHOD_ADD_USERS);
                 return Boolean.FALSE;
             }
 
@@ -112,7 +114,7 @@ public class InitDbCrypted extends AbDatabaseManagement
 
             if(!this.addDbUser(STATICPAGESDB, STATICPAGESDBUSER, STATICPAGESDBPASSWORD))
             {
-                LogUtil.put(LogFactory.getInstance(this.UNABLE_TO_CREATE_USER + STATICPAGESDBUSER, this, this.METHOD_ADD_USERS));
+                logUtil.put(this.UNABLE_TO_CREATE_USER + STATICPAGESDBUSER, this, this.METHOD_ADD_USERS);
                 return Boolean.FALSE;
             }
 
@@ -122,16 +124,16 @@ public class InitDbCrypted extends AbDatabaseManagement
 
             if(!this.addDbUser(LOGDB, LOGDBUSER, LOGDBPASSWORD))
             {
-                LogUtil.put(LogFactory.getInstance(this.UNABLE_TO_CREATE_USER + LOGDBUSER, this, this.METHOD_ADD_USERS));
+                logUtil.put(this.UNABLE_TO_CREATE_USER + LOGDBUSER, this, this.METHOD_ADD_USERS);
                 return Boolean.FALSE;
             }
 
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, this.METHOD_ADD_USERS));
+            logUtil.put(this.commonStrings.END, this, this.METHOD_ADD_USERS);
 
             return Boolean.TRUE;
         }catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, this.METHOD_ADD_USERS, e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, this.METHOD_ADD_USERS, e);
             //return Boolean.FALSE;
             return Boolean.TRUE;
         }
@@ -141,7 +143,7 @@ public class InitDbCrypted extends AbDatabaseManagement
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.METHOD_ADD_DATABASES));
+            logUtil.put(this.commonStrings.START, this, this.METHOD_ADD_DATABASES);
 
             userDbInitInfo = new UserDbInitInfo();
             inventoryDbInitInfo = new InventoryDbInitInfo();
@@ -152,35 +154,35 @@ public class InitDbCrypted extends AbDatabaseManagement
             String CUSTOMERDB = userDbInitInfo.getName();
             if(!this.addDb(CUSTOMERDB))
             {
-                LogUtil.put(LogFactory.getInstance(this.UNABLE_TO_CREATE_DATABASE + CUSTOMERDB, this, this.METHOD_ADD_DATABASES));
+                logUtil.put(this.UNABLE_TO_CREATE_DATABASE + CUSTOMERDB, this, this.METHOD_ADD_DATABASES);
                 return Boolean.FALSE;
             }
 
             String INVENTORYDB = inventoryDbInitInfo.getName();
             if(!this.addDb(INVENTORYDB))
             {
-                LogUtil.put(LogFactory.getInstance(this.UNABLE_TO_CREATE_DATABASE + INVENTORYDB, this, this.METHOD_ADD_DATABASES));
+                logUtil.put(this.UNABLE_TO_CREATE_DATABASE + INVENTORYDB, this, this.METHOD_ADD_DATABASES);
                 return Boolean.FALSE;
             }
 
             String HISTORYDB = historyDbInitInfo.getName();
             if(!this.addDb(HISTORYDB))
             {
-                LogUtil.put(LogFactory.getInstance(this.UNABLE_TO_CREATE_DATABASE + HISTORYDB, this, this.METHOD_ADD_DATABASES));
+                logUtil.put(this.UNABLE_TO_CREATE_DATABASE + HISTORYDB, this, this.METHOD_ADD_DATABASES);
                 return Boolean.FALSE;
             }
 
             String STATICPAGESDB = staticpagesDbInitInfo.getName();
             if(!this.addDb(STATICPAGESDB))
             {
-                LogUtil.put(LogFactory.getInstance(this.UNABLE_TO_CREATE_DATABASE + STATICPAGESDB, this, this.METHOD_ADD_DATABASES));
+                logUtil.put(this.UNABLE_TO_CREATE_DATABASE + STATICPAGESDB, this, this.METHOD_ADD_DATABASES);
                 return Boolean.FALSE;
             }
 
             String LOGDB = logDbInitInfo.getName();
             if(!this.addDb(LOGDB))
             {
-                LogUtil.put(LogFactory.getInstance(this.UNABLE_TO_CREATE_DATABASE + LOGDB, this, this.METHOD_ADD_DATABASES));
+                logUtil.put(this.UNABLE_TO_CREATE_DATABASE + LOGDB, this, this.METHOD_ADD_DATABASES);
                 return Boolean.FALSE;
             }
 
@@ -195,7 +197,7 @@ public class InitDbCrypted extends AbDatabaseManagement
             return Boolean.TRUE;
         }catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, this.METHOD_ADD_DATABASES, e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, this.METHOD_ADD_DATABASES, e);
             //return Boolean.FALSE;
             return Boolean.TRUE;
         }
@@ -207,7 +209,7 @@ public class InitDbCrypted extends AbDatabaseManagement
         {
             StringBuffer stringBuffer = new StringBuffer();
 
-            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, this.METHOD_ADD_TABLES));
+            logUtil.put(commonStrings.START, this, this.METHOD_ADD_TABLES);
 
             stringBuffer.append(UserEntityFactory.getInstance().createTable());
 
@@ -243,12 +245,12 @@ public class InitDbCrypted extends AbDatabaseManagement
             stringBuffer.append(TransformInfoEntityBuilder.getInstance().createTable());
             //ViewTemplateEntityFactory.getInstance().createTable());
 
-            LogUtil.put(LogFactory.getInstance(ADD_TABLES_RESULTS_LABEL + stringBuffer.toString(), this, this.METHOD_ADD_TABLES));
+            logUtil.put(ADD_TABLES_RESULTS_LABEL + stringBuffer.toString(), this, this.METHOD_ADD_TABLES);
 
             return Boolean.TRUE;
         }catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, this.METHOD_ADD_TABLES, e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, this.METHOD_ADD_TABLES, e);
             return Boolean.FALSE;
         }
     }
@@ -258,13 +260,13 @@ public class InitDbCrypted extends AbDatabaseManagement
      {
      try
      {
-     LogUtil.put(LogFactory.getInstance("Set Temp Main Path",this,"setTemporaryMainPath()");
+     logUtil.put("Set Temp Main Path",this,"setTemporaryMainPath()");
      URLGLOBALS.useTemporaryMainPath();
      return Boolean.TRUE;
      }
      catch(Exception e)
      {
-     LogUtil.put(LogFactory.getInstance("Unable to set temp main path",this,"setTemporaryMainPath()",e);
+     logUtil.put("Unable to set temp main path",this,"setTemporaryMainPath()",e);
      return Boolean.FALSE;
      }
      }
@@ -273,13 +275,13 @@ public class InitDbCrypted extends AbDatabaseManagement
      {
      try
      {
-     LogUtil.put(LogFactory.getInstance("Set Temp Main Path",this,"setTemporaryMainPath()");
+     logUtil.put("Set Temp Main Path",this,"setTemporaryMainPath()");
      URLGLOBALS.useNormalMainPath();
      return Boolean.TRUE;
      }
      catch(Exception e)
      {
-     LogUtil.put(LogFactory.getInstance("Unable to set temp main path",this,"setTemporaryMainPath()",e);
+     logUtil.put("Unable to set temp main path",this,"setTemporaryMainPath()",e);
      return Boolean.FALSE;
      }
      }

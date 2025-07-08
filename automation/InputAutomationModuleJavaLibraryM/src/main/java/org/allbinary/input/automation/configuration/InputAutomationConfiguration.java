@@ -41,6 +41,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 @XmlType(name="InputAutomationConfiguration")
 public class InputAutomationConfiguration
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final static String FILENAME = "InputAutomationConfig.xml";
     
     @XmlElement(name="INPUT_AUTOMATION_INSTALLATION")
@@ -53,7 +55,7 @@ public class InputAutomationConfiguration
     throws Exception
     {
         /*
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
+        logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
 
         //AbPath abPath = new AbPath(stringUtil.EMPTY_STRING, FILENAME);
         byte bytes[]= new byte[100000];
@@ -63,7 +65,7 @@ public class InputAutomationConfiguration
         int endIndex = data.lastIndexOf('>');
         
         //String data = new CryptFileReader("xml","grx").get(abPath);
-        Document document = DomDocumentHelper.create(data.substring(0, endIndex + 1));
+        Document document = DomDocumentHelper.create(data.substring(0, endIndex + 1);
         
         NodeList nodeList = document.getElementsByTagName(InputAutomationData.NAME);
         
@@ -94,10 +96,10 @@ public class InputAutomationConfiguration
         InputAutomationModuleConfiguration inputAutomationModuleConfiguration)
         throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Adding: " + inputAutomationModuleConfiguration.getName(), this, "add");
+        logUtil.put("Adding: " + inputAutomationModuleConfiguration.getName(), this, "add");
 
         Node newNode = inputAutomationModuleConfiguration.toDomNode(
-            this.getDocument());
+            this.getDocument();
         NodeList nodeList = this.getDocument().getElementsByTagName(
             InputAutomationModulesData.NAME);
         
@@ -115,7 +117,7 @@ public class InputAutomationConfiguration
     public void remove(InputAutomationModuleFactoryInterface inputAutomationModuleInterface)
         throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Removing: " + inputAutomationModuleInterface.getName(), this, "remove");
+        logUtil.put("Removing: " + inputAutomationModuleInterface.getName(), this, "remove");
 
         Document document = this.getDocument();
         
@@ -176,7 +178,7 @@ public class InputAutomationConfiguration
     public void setInstalled(boolean installed)
     {
         this.installed = installed;
-        LogUtil.put(LogFactory.getInstance("Installed: " + installed, this, "setIntalled"));
+        logUtil.put("Installed: " + installed, this, "setIntalled");
     }
  
     /**

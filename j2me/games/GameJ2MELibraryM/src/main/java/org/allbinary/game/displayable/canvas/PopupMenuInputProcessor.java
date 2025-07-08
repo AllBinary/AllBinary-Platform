@@ -35,6 +35,8 @@ import org.allbinary.time.TimeDelayHelper;
 
 public class PopupMenuInputProcessor extends BasicMenuInputProcessor
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final RectangleCollisionUtil rectangleCollisionUtil = RectangleCollisionUtil.getInstance();
     private final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
     
@@ -61,12 +63,12 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
     
     public int processInput(final int key) throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL).append("Canvas.").append(CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance()));
+        //logUtil.put(commonStrings.START_LABEL).append("Canvas.").append(CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance());
 
         //4,8,KEY_STAR
         if (key == Canvas.KEY_STAR)
         {
-            //LogUtil.put(LogFactory.getInstance("Key: ").append(key, this, GameInputStrings.getInstance()));
+            //logUtil.put("Key: ").append(key, this, GameInputStrings.getInstance());
             //PreLogUtil.put("Key: ").append(key, this, GameInputStrings.getInstance());
                         
             ((AllBinaryGameCanvas) this.getCanvas()).toggleMenu();
@@ -118,7 +120,7 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, GameInputStrings.getInstance().PROCESS_INPUT, e));
+            logUtil.put(commonStrings.EXCEPTION, this, GameInputStrings.getInstance().PROCESS_INPUT, e);
             return -1;
         }
     }
@@ -145,11 +147,11 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
     protected void processMotionInput(final MotionGestureEvent motionGestureEvent)
         throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, gameInputStrings.PROCESS_MOTION_INPUT));
+        //logUtil.put(commonStrings.START, this, gameInputStrings.PROCESS_MOTION_INPUT);
 
         if(motionGestureEvent == null)
         {
-            LogUtil.put(LogFactory.getInstance("Exception: Bug", this, gameInputStrings.PROCESS_MOTION_INPUT));
+            logUtil.put("Exception: Bug", this, gameInputStrings.PROCESS_MOTION_INPUT);
             return;
         }
         

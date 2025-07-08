@@ -36,6 +36,8 @@ import org.allbinary.media.ScaleProperties;
  * @author User
  */
 public class LazyImageRotationAnimation extends RotationAnimation {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
 
@@ -86,7 +88,7 @@ public class LazyImageRotationAnimation extends RotationAnimation {
                     ImageCacheFactory.getInstance().insertFirst(LazyImageRotationAnimation.this);
                     animation = NULL_INDEX_ANIMATION;
                 } catch (Exception e) {
-                    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e));
+                    logUtil.put(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
                 }
 
             }
@@ -97,7 +99,7 @@ public class LazyImageRotationAnimation extends RotationAnimation {
                     ImageCacheFactory.getInstance().insertFirst(LazyImageRotationAnimation.this);
                     animation = NULL_INDEX_ANIMATION;
                 } catch (Exception e) {
-                    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e));
+                    logUtil.put(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
                 }
                 
             }
@@ -115,9 +117,9 @@ public class LazyImageRotationAnimation extends RotationAnimation {
             this.animation = (IndexedAnimation) this.animationInterfaceFactoryInterface.getInstance(this.instanceId);
             this.animation.setState(animation);
             //this.animation.setScale(this.scaleX, this.scaleY);
-            //LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.toString()).append(this.animation.getClass().getName()).toString(), this, SET_REAL_ANIMATION));
+            //logUtil.put(new StringMaker().append(this.toString()).append(this.animation.getClass().getName()).toString(), this, SET_REAL_ANIMATION);
         } catch (Exception e) {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, SET_REAL_ANIMATION, e));
+            logUtil.put(commonStrings.EXCEPTION, this, SET_REAL_ANIMATION, e);
         }
     }
 
@@ -272,7 +274,7 @@ public class LazyImageRotationAnimation extends RotationAnimation {
         try {
             this.animation.paint(graphics, x, y);
         } catch (Exception e) {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, this.commonStrings.PROCESS, e));
+            logUtil.put(commonStrings.EXCEPTION, this, this.commonStrings.PROCESS, e);
         }
 
     }
@@ -282,7 +284,7 @@ public class LazyImageRotationAnimation extends RotationAnimation {
         try {
             this.animation.paintThreed(graphics, x, y, z);
         } catch (Exception e) {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, this.commonStrings.PROCESS, e));
+            logUtil.put(commonStrings.EXCEPTION, this, this.commonStrings.PROCESS, e);
         }
 
     }

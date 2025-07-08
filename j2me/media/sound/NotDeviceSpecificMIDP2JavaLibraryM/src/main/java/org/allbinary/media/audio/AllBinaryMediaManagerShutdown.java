@@ -19,14 +19,17 @@ import org.allbinary.string.CommonStrings;
 
 public class AllBinaryMediaManagerShutdown
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final AllBinaryMediaManagerShutdown instance =
             new AllBinaryMediaManagerShutdown();
 
     public static void shutdown(SoundsFactoryInterface soundsFactoryInterface)
         throws Exception
     {
+        final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, instance, "shutdown"));
+        logUtil.put(commonStrings.START, instance, "shutdown");
         AllBinaryMediaManager.shutdown(soundsFactoryInterface);
     }
     

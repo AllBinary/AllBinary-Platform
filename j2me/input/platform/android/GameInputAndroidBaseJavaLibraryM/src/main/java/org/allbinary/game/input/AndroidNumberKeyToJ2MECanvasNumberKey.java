@@ -6,6 +6,8 @@ import android.view.KeyEvent;
 
 public class AndroidNumberKeyToJ2MECanvasNumberKey
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final int[] androidtoJavaMicroEditionKeyMap = new int[17];
 
@@ -31,10 +33,10 @@ public class AndroidNumberKeyToJ2MECanvasNumberKey
     //since Canvas number keys are used instead of
     public static int getKey(int key)
     {
-        // LogUtil.put(LogFactory.getInstance("Canvas Left: " + Canvas.LEFT +
+        // logUtil.put("Canvas Left: " + Canvas.LEFT +
         // "== " + KeyEvent.KEYCODE_DPAD_LEFT + "==" +
         // KeyEvent.KEYCODE_SOFT_LEFT + " key: " + key, "AndroidToJ2MEKey",
-        // "getKey"));
+        // "getKey");
 
         if (key < androidtoJavaMicroEditionKeyMap.length)
         {

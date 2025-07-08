@@ -22,6 +22,8 @@ import org.allbinary.logic.control.validate.ValidatorBase;
 
 public class TextFieldItemValidator extends ValidatorBase
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final TextFieldItem textFieldItem;
 
     private int min;

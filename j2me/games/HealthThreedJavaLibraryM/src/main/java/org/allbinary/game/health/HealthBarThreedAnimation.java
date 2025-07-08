@@ -32,6 +32,8 @@ import org.allbinary.view.ViewPosition;
 public class HealthBarThreedAnimation
 extends HealthBarAnimation
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
 	private Rectangle rectangle;
 	
     private final BasicColorFactory basicColorFactory = 

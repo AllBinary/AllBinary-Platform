@@ -24,6 +24,8 @@ import org.allbinary.logic.communication.log.LogFactory;
 
 public class ConsolidateMotionRectangles extends MotionRectangles
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final String NAME = "consolidatedMotionRectangles_";
     
     public ConsolidateMotionRectangles(
@@ -42,15 +44,15 @@ public class ConsolidateMotionRectangles extends MotionRectangles
 
         consolidateMotionRectangles();
 
-        //LogUtil.put(LogFactory.getInstance(
-          //  "After - Number Of Rectangles: " + vector.size(), this, this.commonStrings.CONSTRUCTOR));
+        //logUtil.put(
+          //  "After - Number Of Rectangles: " + vector.size(), this, this.commonStrings.CONSTRUCTOR);
     }
 
     private void consolidateMotionRectangles()
     {
         final Vector vector = this.getVector();
-        LogUtil.put(LogFactory.getInstance("Start - Size Before: " + vector.size(),
-            this, "consolidateMotionRectangleConstraints"));
+        logUtil.put("Start - Size Before: " + vector.size(),
+            this, "consolidateMotionRectangleConstraints");
         
         final Vector removeVector = new Vector();
         
@@ -76,9 +78,9 @@ public class ConsolidateMotionRectangles extends MotionRectangles
                         x2 >= rightX && y2 >= bottomY)
                     {
                         /*
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Should Consolidating: " + rectangle.x + "<" + rectangle2.x + " " + 
+        logUtil.put(new StringMaker().append("Should Consolidating: " + rectangle.x + "<" + rectangle2.x + " " + 
             rectangle.y + "<" + rectangle2.y + " " + x2 + ">" + rightX + " " + y2 + ">" + bottomY,
-            this, "consolidateMotionRectangleConstraints"));
+            this, "consolidateMotionRectangleConstraints");
                         */
                         removeVector.add(motionRectangle2);
                     }

@@ -56,6 +56,8 @@ import org.allbinary.logic.system.security.licensing.ServiceClientInformationInt
 
 public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final String tableName = "orderhistory";
 
     public OrderHistoryEntity()
@@ -188,13 +190,13 @@ public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityI
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, INSERT));
+                logUtil.put(this.commonStrings.SUCCESS, this, INSERT);
             }
         } catch (Exception e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Command Failed: " + vector, this, INSERT, e));
+                logUtil.put("Command Failed: " + vector, this, INSERT, e);
             }
         }
     }
@@ -207,13 +209,13 @@ public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityI
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, INSERT));
+                logUtil.put(this.commonStrings.SUCCESS, this, INSERT);
             }
         } catch (Exception e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, INSERT, e));
+                logUtil.put(this.commonStrings.FAILURE, this, INSERT, e);
             }
         }
     }
@@ -244,7 +246,7 @@ public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityI
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "setStatus", e));
+                logUtil.put(this.commonStrings.FAILURE, this, "setStatus", e);
             }
         }
     }
@@ -266,7 +268,7 @@ public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityI
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "setPaymentMethod", e));
+                logUtil.put(this.commonStrings.FAILURE, this, "setPaymentMethod", e);
             }
         }
     }

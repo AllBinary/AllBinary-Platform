@@ -29,6 +29,8 @@ import org.microemu.device.j2se.J2SEMutableImage;
  * @author User
  */
 public class ImageModifierUtil {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     
     private static final ImageModifierUtil instance = new ImageModifierUtil();
 

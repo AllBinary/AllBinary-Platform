@@ -32,6 +32,8 @@ public class MouseActionScriptInput
     extends BasicProfileActionScriptInput
     implements MouseActionScriptInputInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private Point point;
     private int buttons;
     
@@ -44,7 +46,7 @@ public class MouseActionScriptInput
     {
         super(NAME, node);
 
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR));
+        logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         
         this.point = new Point();
         
@@ -154,7 +156,7 @@ public class MouseActionScriptInput
         
         hashMap.put(MouseActionScriptInputData.BUTTONS, Integer.toString(this.getButtonClicks()));
 
-        LogUtil.put(LogFactory.getInstance("HashMap: " + hashMap.toString(), this, "toHashMap()"));
+        logUtil.put("HashMap: " + hashMap.toString(), this, "toHashMap()");
 
         return hashMap;
     }
@@ -224,9 +226,9 @@ public class MouseActionScriptInput
             buttonStringBuffer.append(Boolean.FALSE);
         }
         
-        LogUtil.put(LogFactory.getInstance(
+        logUtil.put(
             "Input Type: " + this.getInputRobotInterface().getName() + 
             " Point: " + this.getPoint() + " Buttons Clicked: " + 
-            buttonStringBuffer.toString(), this, "log"));
+            buttonStringBuffer.toString(), this, "log");
     }
 }

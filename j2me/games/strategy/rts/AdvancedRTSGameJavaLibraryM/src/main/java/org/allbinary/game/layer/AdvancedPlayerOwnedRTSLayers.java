@@ -21,6 +21,8 @@ import org.allbinary.game.layer.AllBinaryGameLayer;
 public class AdvancedPlayerOwnedRTSLayers
     extends PlayerOwnedRTSLayers
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final BasicArrayList unitsList = new BasicArrayList();
 
     private final BasicArrayList waypointsList = new BasicArrayList();
@@ -112,7 +114,7 @@ public class AdvancedPlayerOwnedRTSLayers
         //stringBuffer.append("removeHouse: ");
         //stringBuffer.append(layerInterface.getName());
         
-        //LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "removeHouse"));
+        //logUtil.put(stringBuffer.toString(), this, "removeHouse");
         
         this.houseList.remove(layerInterface);
         this.rtsLayerList.remove(layerInterface);
@@ -204,7 +206,7 @@ public class AdvancedPlayerOwnedRTSLayers
         stringBuffer.append("removeBuilding: ");
         stringBuffer.append(layerInterface.getName());
         
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "removeBuilding"));
+        logUtil.put(stringBuffer.toString(), this, "removeBuilding");
         */
         
         if(this.getBaseList().remove(layerInterface))

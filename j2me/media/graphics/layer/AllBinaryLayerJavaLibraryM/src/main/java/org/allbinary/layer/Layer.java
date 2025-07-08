@@ -24,7 +24,9 @@ import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.math.PositionStrings;
 
 public class Layer
-{    
+{
+    protected final LogUtil logUtil = LogUtil.getInstance();
+    
     //- These methods are for optimizing to concrete classes
     public static final Integer ID = SmallIntegerSingletonFactory.getInstance().getInstance(0);
 
@@ -66,25 +68,25 @@ public class Layer
     {
         //final PositionStrings positionStrings = PositionStrings.getInstance();
         //final StringMaker stringMaker = new StringMaker();
-        //LogUtil.put(LogFactory.getInstance(stringMaker.append(
+        //logUtil.put(stringMaker.append(
                 //positionStrings.DX_LABEL).append(dx)
                 //.append(positionStrings.DY_LABEL).append(dy)
                 ////.append(positionStrings.DZ_LABEL).append(dz)
-                //.toString(), this, MOVE));
+                //.toString(), this, MOVE);
 
         this.x += dx;
         this.y += dy;
         
         //stringMaker.delete(0, stringMaker.length());
         //this.toString(stringMaker);
-        //LogUtil.put(LogFactory.getInstance(stringMaker.toString(), this, MOVE));
+        //logUtil.put(stringMaker.toString(), this, MOVE);
     }
     
     public void move(int dx, int dy, int dz)
     {
         //final PositionStrings positionStrings = PositionStrings.getInstance();
         //final StringMaker stringMaker = new StringMaker();
-        //LogUtil.put(LogFactory.getInstance(stringMaker.append(positionStrings.DX_LABEL).append(dx).append(positionStrings.DY_LABEL).append(dy).append(positionStrings.DZ_LABEL).append(dz).toString(), this, "move"));
+        //logUtil.put(stringMaker.append(positionStrings.DX_LABEL).append(dx).append(positionStrings.DY_LABEL).append(dy).append(positionStrings.DZ_LABEL).append(dz).toString(), this, "move");
         this.x += dx;
         this.y += dy;
         this.z += dz;
@@ -137,7 +139,7 @@ public class Layer
         final CommonStrings commonStrings = CommonStrings.getInstance();
         final CanvasStrings canvasStrings = CanvasStrings.getInstance();
         
-        LogUtil.put(LogFactory.getInstance(commonStrings.NOT_IMPLEMENTED, this, canvasStrings.PAINT));
+        logUtil.put(commonStrings.NOT_IMPLEMENTED, this, canvasStrings.PAINT);
         
         //graphics.setColor(BasicColor.RED.intValue());
         //graphics.drawRect(x, y, width, height);

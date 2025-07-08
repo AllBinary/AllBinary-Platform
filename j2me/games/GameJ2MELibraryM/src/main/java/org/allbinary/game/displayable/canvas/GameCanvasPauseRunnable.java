@@ -19,6 +19,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class GameCanvasPauseRunnable extends GameRunnable
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final AllBinaryGameCanvas allBinaryGameCanvas;
     
     public GameCanvasPauseRunnable(AllBinaryGameCanvas allBinaryGameCanvas)
@@ -40,7 +42,7 @@ public class GameCanvasPauseRunnable extends GameRunnable
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
         }        
         //allBinaryGameCanvas.processLoopSleep();
     }

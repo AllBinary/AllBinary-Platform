@@ -17,6 +17,8 @@ import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.string.CommonStrings;
 
 public class CompleteMotionGestureInputToGameMotionGestureInput {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final CompleteMotionGestureInputToGameMotionGestureInput instance =
         new CompleteMotionGestureInputToGameMotionGestureInput();

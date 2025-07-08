@@ -28,6 +28,8 @@ import org.allbinary.util.BasicArrayList;
 
 public class ImageScaleUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final ImageScaleUtil instance = new ImageScaleUtil();
 
     public static ImageScaleUtil getInstance()
@@ -77,7 +79,7 @@ public class ImageScaleUtil
     {
         final Bitmap originalBitmap = originalImage.getBitmap();
 
-        //LogUtil.put(LogFactory.getInstance(": " + scaleNominatorX + " / " + scaleDenominatorX + " = " + scaleX, this, commonStrings.CREATE_IMAGE));
+        //logUtil.put(": " + scaleNominatorX + " / " + scaleDenominatorX + " = " + scaleX, this, commonStrings.CREATE_IMAGE);
 
         final int width = (int) (originalBitmap.getWidth() * scaleX);
         final int height = (int) (originalBitmap.getHeight() * scaleY);
@@ -96,7 +98,7 @@ public class ImageScaleUtil
         }
         
         if (alreadyAvailable) {
-            //LogUtil.put(LogFactory.getInstance("Using existing scaled image at: " + index, this, commonStrings.CREATE_IMAGE));
+            //logUtil.put("Using existing scaled image at: " + index, this, commonStrings.CREATE_IMAGE);
             return (Image) this.scaledImageBasicArrayList.get(index);
         } else {
             final Image scaledImage = this.getScaledImage(imageCache, originalImage, scaleX, scaleY, width, height, cached);

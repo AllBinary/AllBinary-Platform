@@ -55,6 +55,8 @@ import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackGeographicM
  */
 public class BuildingRTSFormInput extends RTSFormInput
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private boolean isUnitProducer;
 
     private final GameNotificationEvent buildOnPathGameNotificationEvent;
@@ -218,7 +220,7 @@ public class BuildingRTSFormInput extends RTSFormInput
         throws Exception
     {
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "buildFromMotionInput"));
+        logUtil.put(commonStrings.START, this, "buildFromMotionInput");
 
         if(layerManager == null) {
             throw new RuntimeException();
@@ -316,7 +318,7 @@ public class BuildingRTSFormInput extends RTSFormInput
             final RTSLayer layerInterface, final int itemIndex)
     throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Layer: ").append(StringUtil.getInstance().toString(layerInterface)).toString(), this, "attemptBuild"));
+        logUtil.put(new StringMaker().append("Layer: ").append(StringUtil.getInstance().toString(layerInterface)).toString(), this, "attemptBuild");
 
         final GeographicMapCellPositionArea geographicMapCellPositionArea =
             layerInterface.geographicMapCellPositionArea;
@@ -324,7 +326,7 @@ public class BuildingRTSFormInput extends RTSFormInput
         final BasicArrayList occupyList =
             geographicMapCellPositionArea.getOccupyingGeographicMapCellPositionList();
 
-        //LogUtil.put(LogFactory.getInstance("List: ").append(list, this, "attemptBuild"));
+        //logUtil.put("List: ").append(list, this, "attemptBuild");
 
         if(!this.isBuildAttemptValid(rtsPlayerLayerInterface, layerInterface))
         {
@@ -371,7 +373,7 @@ public class BuildingRTSFormInput extends RTSFormInput
         stringBuffer.append(" with ");
         stringBuffer.append(capital.getTotalMoney());
 
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "attemptBuild"));
+        logUtil.put(stringBuffer.toString(), this, "attemptBuild");
 
         if (cost <= capital.getTotalMoney())
         {
@@ -517,8 +519,8 @@ public class BuildingRTSFormInput extends RTSFormInput
         stringBuffer.append(" surroundList: ");
         stringBuffer.append(StringUtil.getInstance().toString(surroundList));
 
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(),
-            this, "isSurroundingCellsOffMap"));
+        logUtil.put(stringBuffer.toString(),
+            this, "isSurroundingCellsOffMap");
 
         boolean isSurroundOffMap = false;
         if (occupySize == 1 && surroundSize != 8)

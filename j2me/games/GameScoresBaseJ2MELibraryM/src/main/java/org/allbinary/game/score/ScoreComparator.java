@@ -28,6 +28,8 @@ public class ScoreComparator
       implements //RecordFilter,
       RecordComparator
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private final boolean isHighestBest;
    
    //private String searchName;
@@ -60,15 +62,15 @@ public class ScoreComparator
       }
       catch (EOFException e)
       {
-         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "matches", e));
+         logUtil.put(commonStrings.EXCEPTION, this, "matches", e);
       }
       catch (IOException e)
       {
-         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "matches", e));
+         logUtil.put(commonStrings.EXCEPTION, this, "matches", e);
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "matches", e));
+         logUtil.put(commonStrings.EXCEPTION, this, "matches", e);
       }
       return (this.searchName.equals(name));
    }
@@ -96,17 +98,17 @@ public class ScoreComparator
       catch (EOFException e)
       {
          final CommonStrings commonStrings = CommonStrings.getInstance();
-         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "compare", e));
+         logUtil.put(commonStrings.EXCEPTION, this, "compare", e);
       }
       catch (IOException e)
       {
           final CommonStrings commonStrings = CommonStrings.getInstance();
-         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "compare", e));
+         logUtil.put(commonStrings.EXCEPTION, this, "compare", e);
       }
       catch (Exception e)
       {
           final CommonStrings commonStrings = CommonStrings.getInstance();
-         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "compare", e));
+         logUtil.put(commonStrings.EXCEPTION, this, "compare", e);
       }
 
       if(this.isHighestBest)
@@ -124,18 +126,18 @@ public class ScoreComparator
    {
       if (scoreOne > scoreTwo)
       {
-          //LogUtil.put(LogFactory.getInstance(scoreOne + " Follows2 " + scoreTwo, this, "compare"));
+          //logUtil.put(scoreOne + " Follows2 " + scoreTwo, this, "compare");
           return RecordComparator.PRECEDES;
       }
       else
          if (scoreOne < scoreTwo)
          {
-            //LogUtil.put(LogFactory.getInstance(scoreOne + " Precedes2 " + scoreTwo, this, "compare"));
+            //logUtil.put(scoreOne + " Precedes2 " + scoreTwo, this, "compare");
             return RecordComparator.FOLLOWS;
          }
          else
          {
-            //LogUtil.put(LogFactory.getInstance(scoreOne + " ==2 " + scoreTwo, this, "compare"));
+            //logUtil.put(scoreOne + " ==2 " + scoreTwo, this, "compare");
             return RecordComparator.EQUIVALENT;
          }
    }
@@ -145,18 +147,18 @@ public class ScoreComparator
    {
       if (scoreOne < scoreTwo)
       {
-         //LogUtil.put(LogFactory.getInstance(scoreOne + " Precedes2 " + scoreTwo, this, "compare"));
+         //logUtil.put(scoreOne + " Precedes2 " + scoreTwo, this, "compare");
          return RecordComparator.PRECEDES;
       }
       else
          if (scoreOne > scoreTwo)
          {
-         //LogUtil.put(LogFactory.getInstance(scoreOne + " Follows2 " + scoreTwo, this, "compare"));
+         //logUtil.put(scoreOne + " Follows2 " + scoreTwo, this, "compare");
          return RecordComparator.FOLLOWS;
          }
          else
          {
-         //LogUtil.put(LogFactory.getInstance(scoreOne + " ==2 " + scoreTwo, this, "compare"));
+         //logUtil.put(scoreOne + " ==2 " + scoreTwo, this, "compare");
          return RecordComparator.EQUIVALENT;
          }
    }

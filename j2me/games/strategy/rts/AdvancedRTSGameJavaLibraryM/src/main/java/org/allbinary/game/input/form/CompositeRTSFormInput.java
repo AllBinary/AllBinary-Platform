@@ -35,6 +35,8 @@ import org.allbinary.string.CommonLabels;
  */
 public class CompositeRTSFormInput extends RTSFormInput
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final RTSFormInput[] rtsFormInputArray;
     private final int[] itemIndex;
     private final boolean isPrimaryWaypointCreator;
@@ -96,7 +98,7 @@ public class CompositeRTSFormInput extends RTSFormInput
 
         if (this.isStickyItemSelected() && associatedRtsLayer == null)
         {
-            //LogUtil.put(LogFactory.getInstance(index +"<="+ this.itemIndex[0], this, commonStrings.CONSTRUCTOR));
+            //logUtil.put(index +"<="+ this.itemIndex[0], this, commonStrings.CONSTRUCTOR);
 
             //Make sure your not drag and dropping units yet
             if(this.getSelectedStickyItemIndex() <= this.itemIndex[0])
@@ -123,10 +125,10 @@ public class CompositeRTSFormInput extends RTSFormInput
         throws Exception
     {
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        LogUtil.put(LogFactory.getInstance(
+        logUtil.put(
              //commonLabels.ITEM_LABEL + item.getLabel() +
              CommonLabels.getInstance().INDEX_LABEL + index + " > " + this.itemIndex[0],
-             this, commonStrings.PROCESS));
+             this, commonStrings.PROCESS);
 
         if (this.isStickyItemSelected() &&
             associatedRtsLayer == null)

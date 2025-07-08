@@ -42,6 +42,8 @@ import org.microemu.device.swt.SwtSystemFont;
 
 public class TrueTypeFontUtil extends TrueTypeFontUtilBase
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final TrueTypeFontUtil instance = new TrueTypeFontUtil();
 
     public static TrueTypeFontUtil getInstance()
@@ -106,7 +108,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
     public void saveFontAtlasAsFile() {
         
         //final CommonStrings commonStrings = CommonStrings.getInstance();
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "saveFontAtlasAsFile"));
+        //logUtil.put(commonStrings.START, this, "saveFontAtlasAsFile");
         
         final Image image = this.getFontBitmap2(null, cellSize, BasicColorFactory.getInstance().WHITE);
         final ImageLoader imageLoader = new ImageLoader();
@@ -122,7 +124,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
         
         //final String GET_FONT_BITMAP = "getFontBitmap";
         //final CommonStrings commonStrings = CommonStrings.getInstance();
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, GET_FONT_BITMAP));
+        //logUtil.put(commonStrings.START, this, GET_FONT_BITMAP);
         
         final int cellsPerRow2 = CELLS_PER_ROW * 2;
         final int cellsPerRow3 = CELLS_PER_ROW * 3;
@@ -135,15 +137,15 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
         //Typeface.createFromAsset(ResourceUtil.getInstance().getContext().getAssets(), filename);
 
         //Must make bitmap as texture for GL so it must be as a texture size. 
-        //LogUtil.put(LogFactory.getInstance("textureSize: " + textureSize, this, GET_FONT_BITMAP));
+        //logUtil.put("textureSize: " + textureSize, this, GET_FONT_BITMAP);
 
         final Image image = Image.createImage(textureSize, textureSize);
 
         final Graphics graphics = image.getGraphics();
         graphics.setColor(basicColor.intValue());
         
-        //LogUtil.put(LogFactory.getInstance("basicColor: " + basicColor, this, GET_FONT_BITMAP));
-        //LogUtil.put(LogFactory.getInstance("graphics: " + graphics, this, GET_FONT_BITMAP));
+        //logUtil.put("basicColor: " + basicColor, this, GET_FONT_BITMAP);
+        //logUtil.put("graphics: " + graphics, this, GET_FONT_BITMAP);
         
         int biggestHeight = 0;
         final Rectangle bounds = new Rectangle(PointFactory.getInstance().getInstance(0, 0), cellSize, cellSize);
@@ -293,10 +295,10 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
             } else {
                 final int shortPatternIndex = this.shortPattern.indexOf(characterArray[0]);
                 final int w = (int) (widthFloatArray[shortPatternIndex] / 75) + 19;
-//                LogUtil.put(LogFactory.getInstance(new StringMaker().append('w').append(' ').append(characterArray[0]).append(w).append(';')
+//                logUtil.put(new StringMaker().append('w').append(' ').append(characterArray[0]).append(w).append(';')
 //                    //.append(_characterWidth[index])
 //                    .append(bounds.getMaxX())
-//                    .toString(), this, commonStrings.START));
+//                    .toString(), this, commonStrings.START);
 
                 _characterWidth[index] = (int) w;
                 

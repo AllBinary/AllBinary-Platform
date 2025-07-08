@@ -32,6 +32,8 @@ import org.allbinary.util.BasicArrayList;
 
 public class BlisketBackupFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final BlisketBackupFactory instance = new BlisketBackupFactory();
 
     public static BlisketBackupFactory getInstance()
@@ -56,7 +58,7 @@ public class BlisketBackupFactory
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "backup()"));
+            logUtil.put(this.commonStrings.START, this, "backup()");
 
             StringBuffer stringBuffer = new StringBuffer();
 
@@ -73,7 +75,7 @@ public class BlisketBackupFactory
 
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "backup()", e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, "backup()", e);
         }
     }
 
@@ -81,7 +83,7 @@ public class BlisketBackupFactory
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "backupViews()"));
+            logUtil.put(this.commonStrings.START, this, "backupViews()");
 
             StringBuffer stringBuffer = new StringBuffer();
 
@@ -128,7 +130,7 @@ public class BlisketBackupFactory
 
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "backupViews()", e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, "backupViews()", e);
         }
     }
 
@@ -136,7 +138,7 @@ public class BlisketBackupFactory
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "backupResources()"));
+            logUtil.put(this.commonStrings.START, this, "backupResources()");
 
             StringBuffer stringBuffer = new StringBuffer();
 
@@ -188,7 +190,7 @@ public class BlisketBackupFactory
 
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "backupResources()", e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, "backupResources()", e);
         }
     }
 
@@ -196,7 +198,7 @@ public class BlisketBackupFactory
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "backupJsps()"));
+            logUtil.put(this.commonStrings.START, this, "backupJsps()");
 
             StringBuffer stringBuffer = new StringBuffer();
 
@@ -235,7 +237,7 @@ public class BlisketBackupFactory
 
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "backupJsps()", e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, "backupJsps()", e);
         }
     }
 
@@ -251,18 +253,18 @@ public class BlisketBackupFactory
             stringBuffer.append(" BasicArrayList: ");
             stringBuffer.append(fileBasicArrayList.size());
 
-            //LogUtil.put(LogFactory.getInstance(
-              //  "Creating Backup Zip File: " + stringBuffer.toString(), this, "backup()"));
+            //logUtil.put(
+              //  "Creating Backup Zip File: " + stringBuffer.toString(), this, "backup()");
             PreLogUtil.put("Creating Backup Zip File: " + stringBuffer.toString(), this, "backup()");
 
             ZipFileUtil.getInstance().create(zipFile, fileBasicArrayList);
 
-            LogUtil.put(LogFactory.getInstance(
-                "Created Backup Zip File", this, "backup()"));
+            logUtil.put(
+                "Created Backup Zip File", this, "backup()");
 
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "backup()", e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, "backup()", e);
         }
     }
 }

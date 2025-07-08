@@ -30,6 +30,8 @@ public class TimeIntervalActionScriptCondition
     extends BasicProfileActionScriptCondition
     implements TimeIntervalActionScriptConditionInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private TimeIntervalActionScriptConditionJPanel timeIntervalActionScriptConditionJPanel;
     
     private TimeDelayHelper timeHelper;
@@ -98,7 +100,7 @@ public class TimeIntervalActionScriptCondition
         hashMap.put(TimeIntervalActionScriptConditionData.TIME, 
             Integer.toString(this.timeHelper.delay));
 
-        LogUtil.put(LogFactory.getInstance("HashMap: " + hashMap.toString(), this, "toHashMap()"));
+        logUtil.put("HashMap: " + hashMap.toString(), this, "toHashMap()");
 
         return hashMap;
     }
@@ -115,7 +117,7 @@ public class TimeIntervalActionScriptCondition
     
     public void log()
     {
-        LogUtil.put(LogFactory.getInstance("Time Interval: " + this.timeHelper.delay, this, "log"));
+        logUtil.put("Time Interval: " + this.timeHelper.delay, this, "log");
     }
 
     public TimeDelayHelper getTimeDelayHelper()

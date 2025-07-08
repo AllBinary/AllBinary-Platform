@@ -39,6 +39,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class AddTaxValidationView extends ShippingAddressView implements ValidationComponentInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    public AddTaxValidationView(TransformInfoInterface transformInfoInterface) throws Exception
    {
       super(transformInfoInterface);
@@ -95,7 +97,7 @@ public class AddTaxValidationView extends ShippingAddressView implements Validat
       {
 	 if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
 	 {
-	    LogUtil.put(LogFactory.getInstance("Failed to validate",this,commonStrings.IS_VALID,e));
+	    logUtil.put("Failed to validate",this,commonStrings.IS_VALID,e);
 	 }
 	 return Boolean.FALSE;
       }
@@ -147,7 +149,7 @@ public class AddTaxValidationView extends ShippingAddressView implements Validat
       {
 	 if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
 	 {
-	    LogUtil.put(LogFactory.getInstance("Failed to create validateInfo",this,"validationInfo()",e));
+	    logUtil.put("Failed to create validateInfo",this,"validationInfo()",e);
 	 }
 	 return "Error Creating ValidationInfo";
       }

@@ -24,7 +24,9 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 //Used to correct user input for paths
 public class AbPathUtilOld
-{  
+{
+    protected final LogUtil logUtil = LogUtil.getInstance();
+  
     private static final AbPathUtilOld instance = new AbPathUtilOld();
 
     public static final AbPathUtilOld getInstance() {
@@ -66,7 +68,7 @@ public class AbPathUtilOld
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("FileExtension: " + extension, this, "getExtension()"));
+         logUtil.put("FileExtension: " + extension, this, "getExtension()");
       }
 
       return extension;
@@ -98,7 +100,7 @@ public class AbPathUtilOld
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("FileWithoutExtension: " + pathWithoutExtension, this, "getWithoutExtension()"));
+         logUtil.put("FileWithoutExtension: " + pathWithoutExtension, this, "getWithoutExtension()");
       }
       return pathWithoutExtension;
    }
@@ -178,7 +180,7 @@ public class AbPathUtilOld
       /*
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FILE))
       {
-         LogUtil.put(LogFactory.getInstance("Path: " + path, this, "adjust"));
+         logUtil.put("Path: " + path, this, "adjust");
       }
        */
       return path;

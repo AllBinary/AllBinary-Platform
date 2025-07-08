@@ -30,6 +30,8 @@ import org.allbinary.logic.string.StringMaker;
 
 public class GameFeatureFormUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final GameFeatureFormUtil instance = new GameFeatureFormUtil();
     
     public static GameFeatureFormUtil getInstance()
@@ -55,7 +57,7 @@ public class GameFeatureFormUtil
             final Feature gameFeature = (Feature) list.objectArray[index];
             
             stringMaker.delete(0, stringMaker.length());
-            LogUtil.put(LogFactory.getInstance(stringMaker.append(name).append(ADD_CHOICE).append(gameFeature.toString()).toString(), this, GET_CHOICE_GROUP));
+            logUtil.put(stringMaker.append(name).append(ADD_CHOICE).append(gameFeature.toString()).toString(), this, GET_CHOICE_GROUP);
             choiceGroup.append(gameFeature.toString(), null);
             if (features.isFeature(gameFeature))
             {
@@ -79,7 +81,7 @@ public class GameFeatureFormUtil
             String name = (String) objectArray[index];
 
             stringMaker.delete(0, stringMaker.length());
-            LogUtil.put(LogFactory.getInstance(stringMaker.append(ADDING_CHOICE_GROUP).append(name).toString(), this, ADD_CHOICE_GROUP));
+            logUtil.put(stringMaker.append(ADDING_CHOICE_GROUP).append(name).toString(), this, ADD_CHOICE_GROUP);
 
             form.append(this.getChoiceGroup(hashtable, name, option));
         }

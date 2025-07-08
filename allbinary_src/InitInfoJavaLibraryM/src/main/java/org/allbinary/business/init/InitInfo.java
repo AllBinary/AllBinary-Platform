@@ -25,6 +25,8 @@ import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class InitInfo
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
 	private static final InitInfo instance = new InitInfo();
 	
 	public static InitInfo getInstance() {

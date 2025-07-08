@@ -31,6 +31,8 @@ import org.allbinary.string.CommonStrings;
 
 public class QuoteRequest
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
    private String id;
@@ -59,7 +61,7 @@ public class QuoteRequest
 
       if(  org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
       {
-         LogUtil.put(LogFactory.getInstance("Created with: " + this.toHashMap(), this, this.commonStrings.CONSTRUCTOR));
+         logUtil.put("Created with: " + this.toHashMap(), this, this.commonStrings.CONSTRUCTOR);
       }
    }   
    
@@ -77,7 +79,7 @@ public class QuoteRequest
 
       if(  org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
       {
-         LogUtil.put(LogFactory.getInstance("Created with: " + this.toHashMap(), this, this.commonStrings.CONSTRUCTOR));
+         logUtil.put("Created with: " + this.toHashMap(), this, this.commonStrings.CONSTRUCTOR);
       }
    }   
   
@@ -122,7 +124,7 @@ public class QuoteRequest
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate form",this,commonStrings.IS_VALID,e));
+            logUtil.put("Failed to validate form",this,commonStrings.IS_VALID,e);
          }
          return Boolean.FALSE;
       }
@@ -169,7 +171,7 @@ public class QuoteRequest
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to generate validation error info",this,"validationInfo()",e));
+            logUtil.put("Failed to generate validation error info",this,"validationInfo()",e);
          }
          return "Error Validating Form";
       }

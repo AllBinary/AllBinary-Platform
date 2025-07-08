@@ -34,6 +34,8 @@ import org.allbinary.input.motion.touch.action.UpTouchInputToGameKeyEventAction;
 
 public class CompleteMotionGestureInputToGameMotionGestureInput
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private static final CompleteMotionGestureInputToGameMotionGestureInput instance =
            new CompleteMotionGestureInputToGameMotionGestureInput();
 
@@ -102,7 +104,7 @@ public class CompleteMotionGestureInputToGameMotionGestureInput
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.INIT, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
         }
     }
 }

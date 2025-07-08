@@ -30,6 +30,8 @@ import org.osgi.framework.BundleContext;
 public class InputAutomationBundleActivator
     implements BundleActivator, InputAutomationBundleActivatorListenerInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private static Thread moduleManagementThread;
@@ -45,7 +47,7 @@ public class InputAutomationBundleActivator
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.START));
+            logUtil.put(this.commonStrings.START, this, this.commonStrings.START);
             
             this.bundleContext = bundleContext;
         /*
@@ -54,13 +56,13 @@ public class InputAutomationBundleActivator
         {
             public Object addingService(ServiceReference serviceReference)
             {
-                LogUtil.put(LogFactory.getInstance("Start Name: " + serviceReference.getBundle().getSymbolicName(), this, "addingService"));
+                logUtil.put("Start Name: " + serviceReference.getBundle().getSymbolicName(), this, "addingService");
                 Object obj = super.addingService(serviceReference);
                 return obj;
             }
             public void removedService(ServiceReference serviceReference, Object service)
             {
-                LogUtil.put(LogFactory.getInstance("Start Name: " + serviceReference.getBundle().getSymbolicName(), this, "removedService"));
+                logUtil.put("Start Name: " + serviceReference.getBundle().getSymbolicName(), this, "removedService");
                 super.removedService(serviceReference, service);
             }
         };
@@ -83,7 +85,7 @@ public class InputAutomationBundleActivator
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, this.commonStrings.START, e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.START, e);
             throw e;
         }
     }
@@ -111,14 +113,14 @@ public class InputAutomationBundleActivator
     public void stop(final BundleContext context)
     throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "stop"));
+        logUtil.put(this.commonStrings.START, this, "stop");
         if(InputAutomationJFrame.getInstance() != null)
         {
             InputAutomationJFrame.destroy();
         }
         else
         {
-            LogUtil.put(LogFactory.getInstance("Nothing to stop", this, "stop"));
+            logUtil.put("Nothing to stop", this, "stop");
         }
     }
 }

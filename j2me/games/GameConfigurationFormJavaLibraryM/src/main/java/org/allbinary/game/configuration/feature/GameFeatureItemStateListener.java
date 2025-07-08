@@ -30,6 +30,8 @@ import org.allbinary.string.CommonLabels;
 
 public class GameFeatureItemStateListener implements ItemStateListener
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     //private static final GameFeatureItemStateListener gameFeatureItemStateListener = new GameFeatureItemStateListener();
 
     private static BasicArrayList toggleList = new BasicArrayList();
@@ -40,7 +42,7 @@ public class GameFeatureItemStateListener implements ItemStateListener
     {
         this.gameOptionsForm = gameOptionsForm;
         
-        // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
+        // logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
         GameFeatureFactory gameFeatureFactory = 
             GameFeatureFactory.getInstance();
@@ -80,7 +82,7 @@ public class GameFeatureItemStateListener implements ItemStateListener
         {
             String itemLabel = item.getLabel();
 
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonLabels.getInstance().ITEM_LABEL).append(itemLabel).toString(), this, "itemStateChanged"));
+            logUtil.put(new StringMaker().append(CommonLabels.getInstance().ITEM_LABEL).append(itemLabel).toString(), this, "itemStateChanged");
 
             if (item instanceof GameConfigurationGauge)
             {
@@ -106,7 +108,7 @@ public class GameFeatureItemStateListener implements ItemStateListener
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "itemStateChanged", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "itemStateChanged", e);
         }
     }
 }

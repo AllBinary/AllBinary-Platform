@@ -25,6 +25,8 @@ import org.allbinary.business.context.modules.storefront.StoreFrontData;
 
 public class BasicStoreFrontsEntity extends InitSql
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    protected final String tableName = "storefronts";
 
    public BasicStoreFrontsEntity()
@@ -42,7 +44,7 @@ public class BasicStoreFrontsEntity extends InitSql
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FACTORYERROR))
       {
-         LogUtil.put(LogFactory.getInstance("StoreFront: " + storeHashMap.toString(), this, "getStore()"));
+         logUtil.put("StoreFront: " + storeHashMap.toString(), this, "getStore()");
       }
       
       return (BasicStoreFrontInterface) new BasicStoreFront(storeHashMap);

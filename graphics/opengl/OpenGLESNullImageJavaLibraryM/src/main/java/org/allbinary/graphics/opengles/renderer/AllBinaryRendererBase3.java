@@ -29,7 +29,7 @@ public class AllBinaryRendererBase3 {
     
     protected void update(final GL10 gl) throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START_LABEL + list, this, commonStrings.UPDATE));
+        //logUtil.put(CommonLabels.getInstance().START_LABEL + list, this, commonStrings.UPDATE);
         
         while(list.size() > 0)
         {

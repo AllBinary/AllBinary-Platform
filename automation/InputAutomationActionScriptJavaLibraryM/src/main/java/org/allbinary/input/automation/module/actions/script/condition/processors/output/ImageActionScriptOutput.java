@@ -29,6 +29,8 @@ public class ImageActionScriptOutput
     extends BasicProfileActionScriptOutput
     implements ImageActionScriptOutputInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final static String NAME = "Captures";
     
     private boolean saved = false;
@@ -43,7 +45,7 @@ public class ImageActionScriptOutput
     {
         super(NAME, node);
 
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR));
+        logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
 
         Node actionNode = DomSearchHelper.getNode(
             ImageActionScriptOutputData.NAME,
@@ -116,7 +118,7 @@ public class ImageActionScriptOutput
         hashMap.put(ImageActionScriptOutputData.SAVE, 
             Boolean.toString(this.isSaved()));
         
-        LogUtil.put(LogFactory.getInstance("HashMap: " + hashMap.toString(), this, "toHashMap()"));
+        logUtil.put("HashMap: " + hashMap.toString(), this, "toHashMap()");
 
         return hashMap;
     }
@@ -182,7 +184,7 @@ public class ImageActionScriptOutput
 
     public void log()
     {
-        LogUtil.put(LogFactory.getInstance(this.future_toString(), this, "log"));
+        logUtil.put(this.future_toString(), this, "log");
     }
     
     public ImageTypes getImageTypes()

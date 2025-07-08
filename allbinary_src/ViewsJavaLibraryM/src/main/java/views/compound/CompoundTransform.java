@@ -30,6 +30,8 @@ import views.compound.objectConfig.CompoundContextTransformInfoObjectConfig;
 
 public class CompoundTransform extends AbTransformer
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final AbeClientInformationInterface abeClientInformation = 
         ServiceClientInformationInterfaceFactory.getInstance();
     
@@ -50,7 +52,7 @@ public class CompoundTransform extends AbTransformer
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("\nObjectConfig: \n" + objectConfig.toString(), this, "CompoundTransform("));
+         logUtil.put("\nObjectConfig: \n" + objectConfig.toString(), this, "CompoundTransform(");
       }
 
       InputStream templateInputStream = objectConfig.createInputStream();

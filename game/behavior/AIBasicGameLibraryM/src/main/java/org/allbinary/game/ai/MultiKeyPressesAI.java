@@ -59,7 +59,7 @@ public class MultiKeyPressesAI extends KeyPressesAI
                     gameInput.add(gameKeyEventFactory.getInstance(this, key));
                 }
             }
-            // LogUtil.put(LogFactory.getInstance(, this, "update"));
+            // logUtil.put(, this, "update");
         }
         else
         {
@@ -71,7 +71,7 @@ public class MultiKeyPressesAI extends KeyPressesAI
                     gameInput.addForRemoval(gameKeyEventFactory.getInstance(this, key));
                 }
             }
-            // LogUtil.put(LogFactory.getInstance("remove", this, commonStrings.PROCESS));
+            // logUtil.put("remove", this, commonStrings.PROCESS);
         }
     }
 

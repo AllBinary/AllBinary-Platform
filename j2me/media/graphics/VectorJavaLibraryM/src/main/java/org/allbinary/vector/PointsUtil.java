@@ -16,6 +16,8 @@ package org.allbinary.vector;
 
 public class PointsUtil
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final PointsUtil instance = new PointsUtil();
 
     public static PointsUtil getInstance()
@@ -54,7 +56,7 @@ public class PointsUtil
             }
         }
 
-        // LogUtil.put(LogFactory.getInstance("New Points: " + stringBuffer, this, commonStrings.GET_INSTANCE));
+        // logUtil.put("New Points: " + stringBuffer, this, commonStrings.GET_INSTANCE);
         return newPoints;
     }
 

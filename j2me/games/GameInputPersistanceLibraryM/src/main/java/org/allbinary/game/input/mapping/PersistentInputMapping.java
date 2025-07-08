@@ -30,6 +30,8 @@ import org.allbinary.util.BasicArrayList;
 
 public class PersistentInputMapping
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     //_Default_Input_Mapping
@@ -101,7 +103,7 @@ public class PersistentInputMapping
     public void init(final AbeClientInformationInterface abeClientInformation) 
     throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.INIT));
+        logUtil.put(commonStrings.START, this, commonStrings.INIT);
         //Write out the default mappings and reload if something went wrong
         //This could happen if file is not deleted between versions and something changed
         try
@@ -110,7 +112,7 @@ public class PersistentInputMapping
         }
         catch(Exception e)
         {
-            //LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.INIT, e));
+            //logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
             PreLogUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
             inputPersistance.deleteRecoreStore(abeClientInformation);
             //inputPersistance.deleteAll(abeClientInformation);
@@ -122,14 +124,14 @@ public class PersistentInputMapping
         final BasicArrayList list = inputPersistance.getList();
 
         final int size = list.size();
-        //LogUtil.put(LogFactory.getInstance("size: " + size, this, commonStrings.INIT));
+        //logUtil.put("size: " + size, this, commonStrings.INIT);
         
         int totalMappedTo = 0;
         //TWB - Use selected profile/id for future imp
         for(int index = 0; index < size; index++)
         {
             final Hashtable hashtable = (Hashtable) list.objectArray[index];
-            //LogUtil.put(LogFactory.getInstance("hashtable.keySet().size(): " + hashtable.keySet().size(), this, commonStrings.INIT));
+            //logUtil.put("hashtable.keySet().size(): " + hashtable.keySet().size(), this, commonStrings.INIT);
             final Enumeration enumeration = hashtable.keys();
             
             while(enumeration.hasMoreElements())
@@ -152,7 +154,7 @@ public class PersistentInputMapping
         stringBuffer.append(" to: ");
         stringBuffer.append(totalMappedTo);
         
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.INIT));
+        logUtil.put(stringBuffer.toString(), this, commonStrings.INIT);
     }
 
     public void setInputMappingEventListenerInterface(

@@ -28,6 +28,8 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 
 public class EmailEventHandlerUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final EmailEventHandlerUtil instance = new EmailEventHandlerUtil();
     
     public static EmailEventHandlerUtil getInstance() {
@@ -71,7 +73,7 @@ public class EmailEventHandlerUtil
     	  stringBuffer.append(userVector.size());
     	  stringBuffer.append(" users.");
     	  
-    	  LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "getEventHandler"));
+    	  logUtil.put(stringBuffer.toString(), this, "getEventHandler");
       }
       
       final UserEmailEventHandler userEmailEventHandler = new UserEmailEventHandler();

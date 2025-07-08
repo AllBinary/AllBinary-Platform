@@ -6,6 +6,8 @@ import org.allbinary.util.BasicArrayList;
 public class BasicGeographicMapExtractedPathCacheFactory
     extends BaseBasicArrayListCache
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final  BasicGeographicMapExtractedPathCacheFactory instance =
         new  BasicGeographicMapExtractedPathCacheFactory();
 
@@ -60,6 +62,6 @@ public class BasicGeographicMapExtractedPathCacheFactory
         list.clear();
         this.getList().add(list);
 
-        //LogUtil.put(LogFactory.getInstance("List: " + this.log(), this, "clear"));
+        //logUtil.put("List: " + this.log(), this, "clear");
     }
 }

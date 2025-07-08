@@ -23,6 +23,8 @@ import org.allbinary.string.CommonLabels;
 
 public class LicenseRegistrationUtil
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private LicenseRegistrationUtil()
     {
     }

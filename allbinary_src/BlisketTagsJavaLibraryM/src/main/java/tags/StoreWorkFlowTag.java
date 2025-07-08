@@ -33,6 +33,8 @@ import taghelpers.StoreTagWorkFlowHelperFactory;
 //and hidden field removal
 public class StoreWorkFlowTag extends HelperTag
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private String viewName;
    private String viewFile;
 
@@ -42,7 +44,7 @@ public class StoreWorkFlowTag extends HelperTag
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
       {
-         LogUtil.put(LogFactory.getInstance(this.commonStrings.START,this,this.commonStrings.CONSTRUCTOR));
+         logUtil.put(this.commonStrings.START,this,this.commonStrings.CONSTRUCTOR);
       }
    }
 
@@ -66,7 +68,7 @@ public class StoreWorkFlowTag extends HelperTag
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START,this,commonStrings.PROCESS));
+            logUtil.put(this.commonStrings.START,this,commonStrings.PROCESS);
          }
          
          Class helperClass = this.getHelper().getClass();
@@ -78,7 +80,7 @@ public class StoreWorkFlowTag extends HelperTag
       {         
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,commonStrings.PROCESS,e));
+            logUtil.put(commonStrings.EXCEPTION,this,commonStrings.PROCESS,e);
          }
          throw e;
       }
@@ -90,7 +92,7 @@ public class StoreWorkFlowTag extends HelperTag
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START,this,"doStartTag()"));
+            logUtil.put(this.commonStrings.START,this,"doStartTag()");
          }
          
          this.setHelper();

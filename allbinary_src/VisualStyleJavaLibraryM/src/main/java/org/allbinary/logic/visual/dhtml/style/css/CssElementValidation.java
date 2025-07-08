@@ -21,6 +21,8 @@ import org.w3c.dom.Node;
 
 public class CssElementValidation extends CssElementView implements ValidationInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    public CssElementValidation()
    {
       super();
@@ -46,7 +48,7 @@ public class CssElementValidation extends CssElementView implements ValidationIn
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("CssElementValidation",this,commonStrings.IS_VALID));
+            logUtil.put("CssElementValidation",this,commonStrings.IS_VALID);
          }
 
          /*
@@ -70,7 +72,7 @@ public class CssElementValidation extends CssElementView implements ValidationIn
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("CssElementValidation: " + valid,this,commonStrings.IS_VALID));
+            logUtil.put("CssElementValidation: " + valid,this,commonStrings.IS_VALID);
          }
          
          return valid;
@@ -79,7 +81,7 @@ public class CssElementValidation extends CssElementView implements ValidationIn
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate data",this,commonStrings.IS_VALID,e));
+            logUtil.put("Failed to validate data",this,commonStrings.IS_VALID,e);
          }
          return Boolean.FALSE;
       }
@@ -100,7 +102,7 @@ public class CssElementValidation extends CssElementView implements ValidationIn
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to generate validation info error",this,"validationInfo()",e));
+            logUtil.put("Failed to generate validation info error",this,"validationInfo()",e);
          }
          return "Error Validating Data";
       }

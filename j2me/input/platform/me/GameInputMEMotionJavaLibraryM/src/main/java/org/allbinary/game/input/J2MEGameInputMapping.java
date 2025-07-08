@@ -23,9 +23,11 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 
 public class J2MEGameInputMapping extends PersistentInputMapping
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     public void init(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.INIT));
+        logUtil.put(commonStrings.START, this, commonStrings.INIT);
 
         J2MEKeyFactory.getInstance().init();
 

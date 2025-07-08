@@ -26,6 +26,8 @@ import org.allbinary.string.CommonStrings;
 
 public class UploadMediaSingleton
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
    private HashMap readerFileTypesHashMap;
@@ -77,7 +79,7 @@ public class UploadMediaSingleton
             stringBuffer.append(" Writers: ");
             stringBuffer.append(this.writerFileTypesHashMap.toString());
 
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, this.commonStrings.CONSTRUCTOR));
+            logUtil.put(stringBuffer.toString(), this, this.commonStrings.CONSTRUCTOR);
         }
    }
 

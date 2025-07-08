@@ -28,6 +28,8 @@ import org.allbinary.graphics.displayable.screen.CommandForm;
 
 public class InGameOptionsForm extends CommandForm
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     public static final Command DISPLAY  = new Command("Options In Game", Command.SCREEN, 1);
     public static final Command SAVE  = new Command("Save", Command.SCREEN, 1);
     public static final Command DEFAULT  = new Command("Default", Command.SCREEN, 1);
@@ -38,7 +40,7 @@ public class InGameOptionsForm extends CommandForm
     {
         super(commandListener, title, backgrounBasicColor, foregroundBasicColor);
 
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
+        logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
         GameFeatureFormUtil gameFeatureFormUtil = 
             GameFeatureFormUtil.getInstance();

@@ -37,6 +37,8 @@ import org.allbinary.time.TimeDelayHelper;
 public class RaceTrackDropCellPositionGenerator
     extends BaseDropCellPositionGenerator
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final BasicArrayList list = new BasicArrayList();
     // private BasicArrayList typeList = new BasicArrayList();
     private final TimeDelayHelper timeDelayHelper;
@@ -137,7 +139,7 @@ public class RaceTrackDropCellPositionGenerator
 
         int size = this.list.size();
         //PreLogUtil.put("Initial Dropping: " + size, this, commonStrings.UPDATE);
-        //LogUtil.put(LogFactory.getInstance("Initial Dropping: " + size, this, commonStrings.UPDATE));
+        //logUtil.put("Initial Dropping: " + size, this, commonStrings.UPDATE);
 
         //this.drop(allBinaryLayerManager, (size >> 1));
 

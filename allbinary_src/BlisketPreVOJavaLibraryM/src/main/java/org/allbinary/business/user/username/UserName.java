@@ -25,6 +25,8 @@ import org.allbinary.string.CommonStrings;
 
 public class UserName
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private static final UserName instance = new UserName();
 
    public static UserName getInstance() {
@@ -61,7 +63,7 @@ public class UserName
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate form", this, "isUserNameValid()", e));
+            logUtil.put("Failed to validate form", this, "isUserNameValid()", e);
          }
          return Boolean.FALSE;
       }
@@ -83,14 +85,14 @@ public class UserName
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VALIDATION))
          {
-            LogUtil.put(LogFactory.getInstance("UserName: " + aUserName, this, commonStrings.IS_VALID));
+            logUtil.put("UserName: " + aUserName, this, commonStrings.IS_VALID);
          }
 
          if(!StringValidationUtil.getInstance().isValidRequired(aUserName, 5, UserData.MAXLEN))
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VALIDATION))
             {
-               LogUtil.put(LogFactory.getInstance("UserName is invalid", this, commonStrings.IS_VALID));
+               logUtil.put("UserName is invalid", this, commonStrings.IS_VALID);
             }
 
             valid = booleanFactory.FALSE;
@@ -102,7 +104,7 @@ public class UserName
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate form", this, commonStrings.IS_VALID,e));
+            logUtil.put("Failed to validate form", this, commonStrings.IS_VALID,e);
          }
          return Boolean.FALSE;
       }

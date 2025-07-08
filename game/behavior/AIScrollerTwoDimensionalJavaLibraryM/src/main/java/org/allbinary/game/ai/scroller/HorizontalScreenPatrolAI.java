@@ -69,7 +69,7 @@ extends BasicAI
     public void processAI(AllBinaryLayerManager allBinaryLayerManager)
     throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.PROCESS));
+        //logUtil.put(commonStrings.START, this, commonStrings.PROCESS);
 
         super.processAI(this.keyDirection);
 

@@ -22,6 +22,8 @@ import org.allbinary.logic.system.os.OperatingSystems;
 
 public class HardwareFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final HardwareFactory instance = new HardwareFactory();
 
     public static HardwareFactory getInstance()
@@ -45,7 +47,7 @@ public class HardwareFactory
         } catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance("Ignoring Exception Returning NoHardware", this, commonStrings.GET_INSTANCE, e));
+            logUtil.put("Ignoring Exception Returning NoHardware", this, commonStrings.GET_INSTANCE, e);
             return new NoHardware();
         }
     }

@@ -34,6 +34,8 @@ import org.allbinary.logic.communication.sql.AbSqlData;
 public class TransformInfoHttp extends TransformInfo
     implements TransformInfoHttpInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final AbContext abContext;
 
     //TWB - for inserting transforms into database
@@ -47,9 +49,9 @@ public class TransformInfoHttp extends TransformInfo
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            LogUtil.put(LogFactory.getInstance(
+            logUtil.put(
                 "Properties HashMap: " + propertiesHashMap.toString(), 
-                this, "Constructor(HashMap, PageContext, boolean)"));
+                this, "Constructor(HashMap, PageContext, boolean)");
         }
 
         this.override(propertiesHashMap);
@@ -66,9 +68,9 @@ public class TransformInfoHttp extends TransformInfo
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            LogUtil.put(LogFactory.getInstance(
+            logUtil.put(
                 "Properties HashMap: " + propertiesHashMap.toString(), 
-                this, "Constructor(HttpServletRequest, HashMap, PageContext)"));
+                this, "Constructor(HttpServletRequest, HashMap, PageContext)");
         }
 
         this.set(new RequestParams((HttpServletRequest) request).toHashMap());
@@ -86,9 +88,9 @@ public class TransformInfoHttp extends TransformInfo
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            LogUtil.put(LogFactory.getInstance(
+            logUtil.put(
                 "Properties HashMap: " + propertiesHashMap.toString(), 
-                this, "Constructor(HashMap, HashMap, PageContext)"));
+                this, "Constructor(HashMap, HashMap, PageContext)");
         }
 
         this.set(databaseHashMap);
@@ -103,9 +105,9 @@ public class TransformInfoHttp extends TransformInfo
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            LogUtil.put(LogFactory.getInstance(
+            logUtil.put(
                 "Properties HashMap: " + propertiesHashMap.toString(), 
-                this, "Constructor(HashMap, PageContext)"));
+                this, "Constructor(HashMap, PageContext)");
         }
 
         this.set(propertiesHashMap);
@@ -129,7 +131,7 @@ public class TransformInfoHttp extends TransformInfo
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            LogUtil.put(LogFactory.getInstance("Properties HashMap: " + hashMap.toString(), this, "set()"));
+            logUtil.put("Properties HashMap: " + hashMap.toString(), this, "set()");
         }
 
     	TransformInfoData transformInfoData = 
@@ -165,7 +167,7 @@ public class TransformInfoHttp extends TransformInfo
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY))
         {
-            LogUtil.put(LogFactory.getInstance(this.log(), this, "set()"));
+            logUtil.put(this.log(), this, "set()");
         }
     }
 

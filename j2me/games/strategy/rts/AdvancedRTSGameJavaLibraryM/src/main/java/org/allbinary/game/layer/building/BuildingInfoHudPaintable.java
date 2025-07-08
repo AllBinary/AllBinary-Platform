@@ -33,6 +33,8 @@ import org.allbinary.logic.math.MathUtil;
  */
 public class BuildingInfoHudPaintable extends SelectionHudPaintable
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final BuildingInfoHudPaintable instance = new BuildingInfoHudPaintable();
     
     public static final BuildingInfoHudPaintable getInstance()
@@ -96,7 +98,7 @@ public class BuildingInfoHudPaintable extends SelectionHudPaintable
         catch(Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
         }
     }
 

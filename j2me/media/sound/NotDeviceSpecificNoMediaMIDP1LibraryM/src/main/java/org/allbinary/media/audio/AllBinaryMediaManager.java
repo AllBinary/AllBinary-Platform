@@ -23,6 +23,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 
 public class AllBinaryMediaManager {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final String THIS = "AllBinaryMediaManagerNoMediaMIDP1";
     
@@ -49,8 +51,9 @@ public class AllBinaryMediaManager {
 
     public static void init(SoundsFactoryInterface soundsFactoryInterface)
         throws Exception {
+        final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonString = CommonStrings.getInstance();
-        LogUtil.put(LogFactory.getInstance(commonString.START, THIS, commonString.INIT));
+        logUtil.put(commonString.START, THIS, commonString.INIT);
         ProgressCanvasFactory.getInstance().addPortion(50, "Media Manager");
 
         new Sounds(soundsFactoryInterface).init();
@@ -68,14 +71,16 @@ public class AllBinaryMediaManager {
 
     public static Player createPlayer(InputStream stream, String type) 
     {
+        final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonString = CommonStrings.getInstance();
-        LogUtil.put(LogFactory.getInstance(commonString.START, THIS, "creatPlayer(InputStream)"));
+        logUtil.put(commonString.START, THIS, "creatPlayer(InputStream)");
         return (Player) new NoPlayer();
     }
 
     public static Player createPlayer(String locator) {
+        final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonString = CommonStrings.getInstance();
-        LogUtil.put(LogFactory.getInstance(commonString.START, THIS, "creatPlayer(locator)"));
+        logUtil.put(commonString.START, THIS, "creatPlayer(locator)");
         return (Player) new NoPlayer();
     }
 

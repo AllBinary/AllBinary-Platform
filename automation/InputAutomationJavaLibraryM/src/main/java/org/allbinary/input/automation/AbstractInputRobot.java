@@ -22,6 +22,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class AbstractInputRobot
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private HelpSet helpSet;
     
     public AbstractInputRobot(HelpSet helpSet)
@@ -38,9 +40,9 @@ public class AbstractInputRobot
     {
         this.mouseMove(point.x, point.y);
         
-        LogUtil.put(LogFactory.getInstance(
+        logUtil.put(
             "Moved Mouse To: x: " + point.x + " y: " + point.y,
-            this, "moveMouse"));
+            this, "moveMouse");
     }
     
     public void mouseMoveToTarget(Rectangle rectangle, Integer x, Integer y) throws Exception
@@ -49,9 +51,9 @@ public class AbstractInputRobot
         
         this.mouseMove(point.x + x, point.y + y);
         
-        LogUtil.put(LogFactory.getInstance(
+        logUtil.put(
             "Moved Mouse To: x: " + point.x + " y: " + point.y + " in the middle of: " + rectangle,
-            this, "moveMouseToTarget"));
+            this, "moveMouseToTarget");
     }
     
     public void mouseMoveToTarget(Rectangle rectangle) throws Exception

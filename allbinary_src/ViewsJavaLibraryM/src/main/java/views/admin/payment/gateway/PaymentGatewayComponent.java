@@ -25,6 +25,8 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
 public class PaymentGatewayComponent extends HttpStoreComponentView
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private PaymentGatewayInterface paymentGatewayInterface;
    
    public PaymentGatewayComponent(
@@ -64,7 +66,7 @@ public class PaymentGatewayComponent extends HttpStoreComponentView
          String error = "Failed to view payment gateway";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "view()", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "view()", e);
          }
          return error;
       }

@@ -27,6 +27,8 @@ import org.allbinary.graphics.color.BasicColor;
 public class ScrollCurrentSelectionForm 
 extends ScrollSelectionForm
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private int dx;
     private int dy;
 
@@ -159,7 +161,7 @@ extends ScrollSelectionForm
             }
         } else
         {
-            LogUtil.put(LogFactory.getInstance(formTypeFactory.UNK, this, commonStrings.INIT));
+            logUtil.put(formTypeFactory.UNK, this, commonStrings.INIT);
         }
     }
 
@@ -231,7 +233,7 @@ extends ScrollSelectionForm
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, canvasStrings.PAINT, e));
+            logUtil.put(commonStrings.EXCEPTION, this, canvasStrings.PAINT, e);
         }
     }
 

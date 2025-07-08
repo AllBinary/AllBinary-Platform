@@ -27,6 +27,8 @@ import org.allbinary.logic.communication.log.LogUtil;
  * @author User
  */
 public class SpriteFactory {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     
     private static final SpriteFactory instance = new SpriteFactory();
     
@@ -43,7 +45,7 @@ public class SpriteFactory {
     
     public Sprite create(final Image image, final int frameWidth, final int frameHeight) {
         
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append(image.getWidth()).append(commonSeps.COLON).append(image.getHeight()).append(commonSeps.FORWARD_SLASH).append(frameWidth).append(frameHeight).toString(), this, commonStrings.PROCESS));
+        //logUtil.put(new StringMaker().append(image.getWidth()).append(commonSeps.COLON).append(image.getHeight()).append(commonSeps.FORWARD_SLASH).append(frameWidth).append(frameHeight).toString(), this, commonStrings.PROCESS);
         return new Sprite(image, frameWidth, frameHeight);
     } 
 

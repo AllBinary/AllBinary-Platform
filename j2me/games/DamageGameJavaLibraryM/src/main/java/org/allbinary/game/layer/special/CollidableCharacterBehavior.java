@@ -25,6 +25,8 @@ import org.allbinary.game.collision.CollisionTypeFactory;
 public class CollidableCharacterBehavior
 extends CollidableDestroyableDamageableBehavior 
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     public CollidableCharacterBehavior(CollidableCompositeLayer ownerLayer, boolean collidable)
     {
         super(ownerLayer, collidable);
@@ -33,7 +35,7 @@ extends CollidableDestroyableDamageableBehavior
     public void collide(CollidableCompositeLayer collidableInterfaceCompositeInterface)
     throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance("collidableLayer", this, damageUtil.COLLIDE));        
+        //logUtil.put("collidableLayer", this, damageUtil.COLLIDE);        
         CollisionTypeFactory collisionTypeFactory = CollisionTypeFactory.getInstance();
         CollisionType collisionType = collidableInterfaceCompositeInterface.getCollidableInferface().getCollisionTypeWith(this.ownerLayer);
 
@@ -52,7 +54,7 @@ extends CollidableDestroyableDamageableBehavior
     public void collide(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
         throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance("collideInterface", this, damageUtil.COLLIDE));
+        //logUtil.put("collideInterface", this, damageUtil.COLLIDE);
         ForcedLogUtil.log(commonStrings.NOT_IMPLEMENTED, this);
     }
 }

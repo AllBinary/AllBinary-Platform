@@ -22,7 +22,9 @@ import org.allbinary.math.FrameUtil;
 
 public class VectorRotationAnimation 
     extends VectorBaseRotationAnimation 
-{   
+{
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+   
    public VectorRotationAnimation(final int[][][] currentPoints, final BasicColor basicColor, final AnimationBehavior animationBehavior)
            throws Exception
    {
@@ -31,7 +33,7 @@ public class VectorRotationAnimation
 
       this.angleInfo.adjustAngle(this.getFrame());
       
-      //LogUtil.put(LogFactory.getInstance(this.getAngleInfo().toString(), this, commonStrings.CONSTRUCTOR));
+      //logUtil.put(this.getAngleInfo().toString(), this, commonStrings.CONSTRUCTOR);
    }
    
    public void setFrame(final Direction direction)

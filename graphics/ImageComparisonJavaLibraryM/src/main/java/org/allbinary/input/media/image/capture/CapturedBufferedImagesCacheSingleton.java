@@ -24,6 +24,8 @@ import org.allbinary.logic.util.cache.CacheTypeFactory;
 
 public class CapturedBufferedImagesCacheSingleton
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static AutomaticCacheInterface cacheInterface = null;
     
     private CapturedBufferedImagesCacheSingleton() {
@@ -34,18 +36,19 @@ public class CapturedBufferedImagesCacheSingleton
     }
     
     static {
+        final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonStrings = CommonStrings.getInstance();
         final String STATIC_BLOCK = "Static Block";
         final String instance = "CapturedBufferedImagesCacheSingleton";
 	try {
             
-	    LogUtil.put(LogFactory.getInstance(commonStrings.START, instance,STATIC_BLOCK));
+	    logUtil.put(commonStrings.START, instance,STATIC_BLOCK);
 	    cacheInterface = (AutomaticCacheInterface) 
                     CacheInterfaceFactory.getInstance((CacheTypeFactory.getInstance().SET),
 						    (CachePolicyFactory.getInstance().ONE_MINUTE_FIVE_MAX));
-	    LogUtil.put(LogFactory.getInstance(commonStrings.END, instance,STATIC_BLOCK));
+	    logUtil.put(commonStrings.END, instance,STATIC_BLOCK);
 	} catch (Exception e) {
-	    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, instance,STATIC_BLOCK, e));
+	    logUtil.put(commonStrings.EXCEPTION, instance,STATIC_BLOCK, e);
 	}
     }
 }

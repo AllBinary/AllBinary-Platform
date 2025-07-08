@@ -17,6 +17,8 @@ import javax.microedition.lcdui.Image;
 
 public class ImageToRotationImageArrayUtil
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final ImageToRotationImageArrayUtil instance = new ImageToRotationImageArrayUtil();
     
     public static ImageToRotationImageArrayUtil getInstance()

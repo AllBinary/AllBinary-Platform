@@ -29,11 +29,13 @@ import tags.StoreWorkFlowTag;
 //and remove the hidden fields
 public class BasicWorkFlowTag extends StoreWorkFlowTag
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    public BasicWorkFlowTag()
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
       {
-         LogUtil.put(LogFactory.getInstance(this.commonStrings.START,this,this.commonStrings.CONSTRUCTOR));
+         logUtil.put(this.commonStrings.START,this,this.commonStrings.CONSTRUCTOR);
       }
    }
    
@@ -43,7 +45,7 @@ public class BasicWorkFlowTag extends StoreWorkFlowTag
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START,this,"doStartTag()"));
+            logUtil.put(this.commonStrings.START,this,"doStartTag()");
          }
 
          //Temporary should be replaced by view in xml of workflow

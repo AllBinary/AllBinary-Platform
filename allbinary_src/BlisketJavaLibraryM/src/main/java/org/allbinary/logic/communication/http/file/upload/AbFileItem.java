@@ -37,6 +37,8 @@ import org.apache.commons.fileupload.FileItemUtil;
 public class AbFileItem
     implements FileItem
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final CommonStrings commonStrings = CommonStrings.getInstance();
 
     private final String name;
@@ -95,7 +97,7 @@ public class AbFileItem
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPERROR))
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getString", e));
+                logUtil.put(commonStrings.EXCEPTION, this, "getString", e);
             }
             return StringUtil.getInstance().EMPTY_STRING;
         }

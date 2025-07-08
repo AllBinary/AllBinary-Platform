@@ -42,6 +42,8 @@ public class WeaponLayer
 extends MultiPlayerGameLayer
 implements TickableInterface
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     // private static final int MIN = 200;
 
     private Animation animationInterface;
@@ -226,7 +228,7 @@ implements TickableInterface
     {
         //final GameStrings gameStrings = GameStrings.getInstance();
         
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, gameStrings.PROCESS_TICK));
+        //logUtil.put(commonStrings.START, this, gameStrings.PROCESS_TICK);
 
         if (this.isExhausted() && !this.isDestroyed())
         {
@@ -251,7 +253,7 @@ implements TickableInterface
                     indexedAnimationInterface.nextFrame();
                 } else
                 {
-                    //LogUtil.put(LogFactory.getInstance("Explosion - End", this, tickableStrings.PROCESS_TICK));
+                    //logUtil.put("Explosion - End", this, tickableStrings.PROCESS_TICK);
                     //PreLogUtil.put("Explosion - End", this, gameStrings.PROCESS_TICK);
 
                     this.setDestroyed(true);
@@ -260,7 +262,7 @@ implements TickableInterface
             {                
                 if (((CollidableWeaponBehavior) this.getCollidableInferface()).isCollided())
                 {
-                    // LogUtil.put(LogFactory.getInstance("Explosion - Begin", this, tickableStrings.PROCESS_TICK));
+                    // logUtil.put("Explosion - Begin", this, tickableStrings.PROCESS_TICK);
                     //PreLogUtil.put("Explosion - Begin", this, gameStrings.PROCESS_TICK);
                     
                     this.setAnimationInterface(this.destroyedAnimationInterface);
@@ -268,7 +270,7 @@ implements TickableInterface
                     this.setReadyForExplosion(true);
                 } else
                 {
-                    // LogUtil.put(LogFactory.getInstance("Explosion - Begin and End", this, tickableStrings.PROCESS_TICK));
+                    // logUtil.put("Explosion - Begin and End", this, tickableStrings.PROCESS_TICK);
                     //PreLogUtil.put("Explosion - Begin and End", this, gameStrings.PROCESS_TICK);
                     
                     this.setDestroyed(true);
@@ -309,9 +311,9 @@ implements TickableInterface
     public void damage(int damage, int damageType)
     {
         this.totalDamage += damage * damage;
-        // LogUtil.put(LogFactory.getInstance("Damage: " + damage +
+        // logUtil.put("Damage: " + damage +
         // " Points Left: " + (this.getInitDamage() - this.totalDamage), this,
-        // "damage"));
+        // "damage");
     }
 
     protected void givePoints(int total)
@@ -340,9 +342,9 @@ implements TickableInterface
             int total = this.getInitDamage() - this.totalDamage;
 
             // if(total > MAX)
-            // LogUtil.put(LogFactory.getInstance("Damage: " + total + " init: "
+            // logUtil.put("Damage: " + total + " init: "
             // + this.getInitDamage() + " totalDamage: " + totalDamage, this,
-            // "damage"));
+            // "damage");
 
             this.givePoints(total);
             return total;
@@ -425,13 +427,13 @@ implements TickableInterface
 
     public void paint(Graphics graphics)
     {
-        // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, canvasStrings.PAINT));
+        // logUtil.put(commonStrings.START, this, canvasStrings.PAINT);
 
         ViewPosition viewPosition = this.getViewPosition();
         // int viewX = viewPosition.getX();
         // int viewY = viewPosition.getY();
 
-        // LogUtil.put(LogFactory.getInstance("viewX: " + viewX + " viewY: " + viewY, this, canvasStrings.PAINT));
+        // logUtil.put("viewX: " + viewX + " viewY: " + viewY, this, canvasStrings.PAINT);
 
         //TWB - the offset does not make sense? is collision offset? 
         this.animationInterface.paint(graphics, 

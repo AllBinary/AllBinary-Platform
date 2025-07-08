@@ -21,6 +21,8 @@ import org.allbinary.string.CommonStrings;
  * @author User
  */
 public class LogConfigTypeFactory {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     
     private static final LogConfigTypeFactory instance = new LogConfigTypeFactory();
 

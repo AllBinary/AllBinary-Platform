@@ -27,6 +27,8 @@ import org.allbinary.string.CommonStrings;
  * @author User
  */
 public class RepaintBehavior {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final RepaintBehavior instance = new RepaintBehavior();
 
@@ -58,7 +60,7 @@ public class RepaintBehavior {
                         DisplayInfoSingleton.getInstance().process();
                     } catch (Exception e) {
                         final CommonStrings commonStrings = CommonStrings.getInstance();
-                        LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
+                        logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
                     }
                 }
             }, NAME);

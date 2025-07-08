@@ -24,6 +24,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class StreamUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final StreamUtil instance = new StreamUtil();
 
@@ -66,7 +68,7 @@ public class StreamUtil
         /*
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FILE))
         {
-        LogUtil.put(LogFactory.getInstance("Total Bytes Written: " + total, this, commonStrings.GET));
+        logUtil.put("Total Bytes Written: " + total, this, commonStrings.GET);
         }
          */
 
@@ -106,14 +108,14 @@ public class StreamUtil
         {
             if (closeable != null)
             {
-                //LogUtil.put(LogFactory.getInstance("Closing: " + closeable, this, CLOSE));
+                //logUtil.put("Closing: " + closeable, this, CLOSE);
                 closeable.close();
             }
             return true;
         } catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.CLOSE, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CLOSE, e);
             return false;
         }
     }

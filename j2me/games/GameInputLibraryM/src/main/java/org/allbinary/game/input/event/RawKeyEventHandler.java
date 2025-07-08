@@ -24,6 +24,8 @@ import org.allbinary.util.BasicArrayList;
  * @author User
  */
 public class RawKeyEventHandler {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final RawKeyEventHandler instance = new RawKeyEventHandler();
 
@@ -62,7 +64,7 @@ public class RawKeyEventHandler {
     {
         if (!this.eventListenerInterfaceList.contains(eventListenerInterface))
         {
-            //LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START + eventListenerInterface, this, commonStrings.ADD_LISTENER));
+            //logUtil.put(CommonLabels.getInstance().START + eventListenerInterface, this, commonStrings.ADD_LISTENER);
             this.eventListenerInterfaceList.add(eventListenerInterface);
         }
     }
@@ -71,15 +73,15 @@ public class RawKeyEventHandler {
     {
         if (!this.eventListenerInterfaceList.contains(eventListenerInterface))
         {
-            //LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START + eventListenerInterface, this, commonStrings.ADD_LISTENER));
+            //logUtil.put(CommonLabels.getInstance().START + eventListenerInterface, this, commonStrings.ADD_LISTENER);
             this.eventListenerInterfaceList.add(eventListenerInterface);
         }
     }
 
     public void removeListenerSingleThreaded(final RawKeyEventListener eventListenerInterface)
      {
-            //LogUtil.put(LogFactory.getInstance(
-              //      CommonLabels.getInstance().START + eventListenerInterface, this, commonStrings.ADD_LISTENER));
+            //logUtil.put(
+              //      CommonLabels.getInstance().START + eventListenerInterface, this, commonStrings.ADD_LISTENER);
 
         this.eventListenerInterfaceList.remove(eventListenerInterface);
     }
@@ -104,7 +106,7 @@ public class RawKeyEventHandler {
             catch (Exception e)
             {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
+                logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
         }
 
@@ -145,7 +147,7 @@ public class RawKeyEventHandler {
             catch (Exception e)
             {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.TOSTRING, e));
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.TOSTRING, e);
             }
         }
         return stringBuffer.toString();

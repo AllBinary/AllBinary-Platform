@@ -25,7 +25,9 @@ import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class InitInfoEntity extends InitSql
 //extends AbSqlBean
-{    
+{
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+    
     private final String NAME = "InitInfoEntity";
 
     private final String NOTHING = "NOTHING";

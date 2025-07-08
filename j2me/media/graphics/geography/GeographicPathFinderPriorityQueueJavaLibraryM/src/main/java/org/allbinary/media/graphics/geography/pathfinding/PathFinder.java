@@ -32,6 +32,8 @@ import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListUtil;
 
 public class PathFinder extends GeographicPathFinderBase {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private final BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();
     private final MathUtil mathUtil = MathUtil.getInstance();
@@ -79,7 +81,7 @@ public class PathFinder extends GeographicPathFinderBase {
             return this.search((PathFindingNode) startPathFindingNodeList.get(0), (PathFindingNode) endPathFindingNodeList.get(0));
         } catch(Exception e) {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "search", e));            
+            logUtil.put(commonStrings.EXCEPTION, this, "search", e);            
             return null;
         }
     }
@@ -92,11 +94,11 @@ public class PathFinder extends GeographicPathFinderBase {
         if(multipassState.step == 0) {
             multipassState.step++;
         } else if(multipassState.step == 1) {
-            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("step 1: ").append(multipassState.iteration).toString(), this, "search"));
+            //logUtil.put(new StringMaker().append("step 1: ").append(multipassState.iteration).toString(), this, "search");
             this.searchStart((PathFindingNode) startPathFindingNodeList.get(0), (PathFindingNode) endPathFindingNodeList.get(0), multipassState);
         } else if(multipassState.step == 2) {
-            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("step 2: ").append(multipassState.iteration).toString(), this, "search"));
-            //LogUtil.put(LogFactory.getInstance("step 2", this, "search"));
+            //logUtil.put(new StringMaker().append("step 2: ").append(multipassState.iteration).toString(), this, "search");
+            //logUtil.put("step 2", this, "search");
             return this.searchN((PathFindingNode) startPathFindingNodeList.get(0), (PathFindingNode) endPathFindingNodeList.get(0), multipassState);
         }
         return null;
@@ -116,7 +118,7 @@ public class PathFinder extends GeographicPathFinderBase {
         final BasicArrayList pathList = new BasicArrayList();
         pathList.add(list);
 
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("finish A* ").append(list.size()).append(' ').append(pathList.size()).append(' ').append(list.toString()).toString(), this, "search"));
+        //logUtil.put(new StringMaker().append("finish A* ").append(list.size()).append(' ').append(pathList.size()).append(' ').append(list.toString()).toString(), this, "search");
         
         return pathList;
 
@@ -147,7 +149,7 @@ public class PathFinder extends GeographicPathFinderBase {
         final BasicArrayList pathList = new BasicArrayList();
         pathList.add(list);
 
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("finish A* ").append(list.size()).append(' ').append(pathList.size()).append(' ').append(list.toString()).toString(), this, "search"));
+        //logUtil.put(new StringMaker().append("finish A* ").append(list.size()).append(' ').append(pathList.size()).append(' ').append(list.toString()).toString(), this, "search");
         
         multipassState.iteration = 0;
         multipassState.step = 0;

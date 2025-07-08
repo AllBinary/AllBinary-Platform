@@ -40,8 +40,8 @@ public class ImageComparator
       /*
       if(isCollsionWithAvoidRectangles)
       {
-      LogUtil.put(LogFactory.getInstance("Pixel Collided with 1 or more avoid Rectangle(s): " +
-      point, this, "compare"));
+      logUtil.put("Pixel Collided with 1 or more avoid Rectangle(s): " +
+      point, this, "compare");
       }
        */
 
@@ -85,7 +85,7 @@ public class ImageComparator
    
    public ImageComparisonResult compare(final BufferedImage bufferedImage1, final BufferedImage bufferedImage2, final Long frameOne, final Long frameTwo, final int tolerance, final String name) throws Exception
    {
-      //LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "compare"));
+      //logUtil.put(this.commonStrings.START, this, "compare");
       if (bufferedImage1 == null || bufferedImage2 == null)
       {
          throw new Exception("Input images must not be null.");
@@ -106,7 +106,7 @@ public class ImageComparator
          }
       }
 
-      //LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, "compare"));
+      //logUtil.put(this.commonStrings.END, this, "compare");
       return imageComparisonInfo;
    }
 }

@@ -19,6 +19,8 @@ import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 
 public class BottomLimiter
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final BottomLimiter instance = new BottomLimiter();
 
     public static BottomLimiter getInstance()

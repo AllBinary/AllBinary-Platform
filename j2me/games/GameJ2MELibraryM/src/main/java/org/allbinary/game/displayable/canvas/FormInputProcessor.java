@@ -36,7 +36,9 @@ import org.allbinary.string.CommonStrings;
 
 public class FormInputProcessor
 extends InputProcessor
-{   
+{
+    protected final LogUtil logUtil = LogUtil.getInstance();
+   
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     private final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
     
@@ -79,7 +81,7 @@ extends InputProcessor
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, this.gameInputStrings.ADD_KEY_EVENT, e));
+            logUtil.put(commonStrings.EXCEPTION, this, this.gameInputStrings.ADD_KEY_EVENT, e);
         }
     }
     
@@ -119,7 +121,7 @@ extends InputProcessor
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, this.gameInputStrings.ADD_KEY_EVENT, e));
+            logUtil.put(commonStrings.EXCEPTION, this, this.gameInputStrings.ADD_KEY_EVENT, e);
         }
         
     }

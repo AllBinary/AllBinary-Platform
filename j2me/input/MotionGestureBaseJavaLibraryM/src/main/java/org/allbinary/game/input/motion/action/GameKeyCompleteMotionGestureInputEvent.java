@@ -27,6 +27,8 @@ import org.allbinary.input.motion.gesture.MotionGestureInput;
 public class GameKeyCompleteMotionGestureInputEvent extends
         CompleteMotionGestureInputEvent implements GameKeyEventSourceInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
     private final int SOURCE_ID = gameKeyEventFactory.MOTION_GESTURE_SOURCE_ID;
     
@@ -45,7 +47,7 @@ public class GameKeyCompleteMotionGestureInputEvent extends
         GameKeyCompleteMotionGestureInputEventFactory.getInstance().add(this);
         
         this.update();
-        //LogUtil.put(LogFactory.getInstance(name + " mapped to gameKey: " + this.getGameKey(), this, commonStrings.CONSTRUCTOR));
+        //logUtil.put(name + " mapped to gameKey: " + this.getGameKey(), this, commonStrings.CONSTRUCTOR);
     }
 
     public int getSourceId()
@@ -65,7 +67,7 @@ public class GameKeyCompleteMotionGestureInputEvent extends
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e);
         }
     }
 

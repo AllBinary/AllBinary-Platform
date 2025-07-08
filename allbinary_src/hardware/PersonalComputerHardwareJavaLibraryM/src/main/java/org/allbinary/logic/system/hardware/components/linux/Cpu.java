@@ -31,6 +31,8 @@ import org.allbinary.util.BasicArrayList;
 
 public class Cpu implements CpuInterface, HardwareComponentInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
    private final String CPUFILE = "/proc/cpuinfo";
@@ -57,7 +59,7 @@ public class Cpu implements CpuInterface, HardwareComponentInterface
       {
          if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OS))
          {
-            LogUtil.put(LogFactory.getInstance("Cpu Data: " + this.toString(), this, this.commonStrings.CONSTRUCTOR, e));
+            logUtil.put("Cpu Data: " + this.toString(), this, this.commonStrings.CONSTRUCTOR, e);
          }
          throw e;
       }
@@ -79,7 +81,7 @@ public class Cpu implements CpuInterface, HardwareComponentInterface
             
             if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OS))
             {
-               LogUtil.put(LogFactory.getInstance("Cpu File Vector Size: " + fileVector.size(), this, this.commonStrings.CONSTRUCTOR));
+               logUtil.put("Cpu File Vector Size: " + fileVector.size(), this, this.commonStrings.CONSTRUCTOR);
             }
             
             //size() > 0

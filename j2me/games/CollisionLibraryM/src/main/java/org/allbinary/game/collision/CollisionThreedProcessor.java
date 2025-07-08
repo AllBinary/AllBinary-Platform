@@ -7,6 +7,8 @@ import org.allbinary.logic.string.StringMaker;
 public class CollisionThreedProcessor
 extends CollisionProcessor
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     public boolean isCollision(final AllBinaryLayer myLayer, final AllBinaryLayer myLayer2)
     {
 //        if(myLayer.getName().startsWith("TempExplosionWeaponLayer") || myLayer2.getName().startsWith("TempExplosionWeaponLayer")) {

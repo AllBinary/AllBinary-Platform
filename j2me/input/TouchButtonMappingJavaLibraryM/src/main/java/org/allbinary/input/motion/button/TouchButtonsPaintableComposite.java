@@ -36,6 +36,8 @@ import org.allbinary.time.TimeDelayHelper;
 public class TouchButtonsPaintableComposite extends ProcessPaintable
 implements CompleteMotionGestureInputEventListenerInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private InputMappingInterface inputMappingInterface;
@@ -71,7 +73,7 @@ implements CompleteMotionGestureInputEventListenerInterface
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "onCompleteMotionGestureInputEvent"));
+            logUtil.put(commonStrings.START, this, "onCompleteMotionGestureInputEvent");
          
             final TouchMotionGestureFactory touchMotionGestureFactory = TouchMotionGestureFactory.getInstance();
 
@@ -86,7 +88,7 @@ implements CompleteMotionGestureInputEventListenerInterface
             //Ignore Release only motionGesture
             if(motionGestureInput == touchMotionGestureFactory.RELEASED)
             {
-                LogUtil.put(LogFactory.getInstance(RELEASE, this, METHOD_NAME));
+                logUtil.put(RELEASE, this, METHOD_NAME);
                 released = true;
                 return;
             }
@@ -94,26 +96,26 @@ implements CompleteMotionGestureInputEventListenerInterface
             //When a motionGesture is repeated quickly change is never painted
             if(previousMotionGestureInput == motionGestureInput && !this.timeHelper.isTime())
             {
-                LogUtil.put(LogFactory.getInstance(FAST_REPEAT, this, METHOD_NAME));
+                logUtil.put(FAST_REPEAT, this, METHOD_NAME);
                 return;
             }
 
             //if(motionGestureInput != TouchMotionGestureFactory.getInstance().TOUCH && !released)
             if(!released)
             {
-                LogUtil.put(LogFactory.getInstance(IGNORE, this, METHOD_NAME));
+                logUtil.put(IGNORE, this, METHOD_NAME);
                 return;
             }
             
             released = false;
             
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append("GameKey: ").append(StringUtil.getInstance().toString(gameKey)).append(" MotionGestureInput: ").append(StringUtil.getInstance().toString(motionGestureInput)).toString(), this, METHOD_NAME));
+            logUtil.put(new StringMaker().append("GameKey: ").append(StringUtil.getInstance().toString(gameKey)).append(" MotionGestureInput: ").append(StringUtil.getInstance().toString(motionGestureInput)).toString(), this, METHOD_NAME);
             
             this.inputMappingInterface.process(gameKey, motionGestureInput);
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, METHOD_NAME, e));
+            logUtil.put(commonStrings.EXCEPTION, this, METHOD_NAME, e);
         }
     }
 

@@ -26,6 +26,8 @@ import android.net.Uri;
 
 public class CommandUriAction
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final CommandUriAction instance = new CommandUriAction();
  
     public static CommandUriAction getInstance()
@@ -63,7 +65,7 @@ public class CommandUriAction
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
         }
     }
     

@@ -19,6 +19,8 @@ import org.allbinary.logic.communication.log.ForcedLogUtil;
 
 public class Health implements HealthInterface
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     public static final String NAME = "Health Resource";
     
 	private int health;

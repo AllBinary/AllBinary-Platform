@@ -21,6 +21,8 @@ import org.allbinary.string.CommonStrings;
 
 public class KeySingletonFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private static Hashtable keyStringHashtable = new Hashtable();
    //private static Integer[] integerArray = new Integer[0xFF];
    
@@ -221,6 +223,7 @@ public class KeySingletonFactory
    
    static
    {
+       final LogUtil logUtil = LogUtil.getInstance();
        final CommonStrings commonStrings = CommonStrings.getInstance();
        final String STATIC_BLOCK = "Static Block";
       try
@@ -239,7 +242,7 @@ public class KeySingletonFactory
       }
       catch(Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "KeySingleFactory", STATIC_BLOCK, e));
+         logUtil.put(commonStrings.EXCEPTION, "KeySingleFactory", STATIC_BLOCK, e);
       }
    }
    

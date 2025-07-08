@@ -27,6 +27,8 @@ import org.allbinary.string.CommonStrings;
 
 public class NumberOnOwnGroupSequenceAIFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    public ArtificialIntelligenceInterface getInstance(Hashtable hashtable,
       ArtificialIntelligenceInterface[] artificialIntelligenceInterface,
       AllBinaryLayer ownerLayerInterface,
@@ -57,7 +59,7 @@ public class NumberOnOwnGroupSequenceAIFactory
       stringBuffer.append(" + 1");
       
       final CommonStrings commonStrings = CommonStrings.getInstance();
-      LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.GET_INSTANCE));
+      logUtil.put(stringBuffer.toString(), this, commonStrings.GET_INSTANCE);
       
       if(artificialIntelligenceInterface.length - 1 > list.size())
       {

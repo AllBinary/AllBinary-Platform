@@ -18,6 +18,8 @@ import org.allbinary.game.input.PlayerGameInputCompositeInterface;
 
 public class InputProcessor extends Processor
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final PlayerGameInputCompositeInterface playerGameInputCompositeInterface;
     
     public InputProcessor(PlayerGameInputCompositeInterface playerGameInputCompositeInterface)

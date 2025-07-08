@@ -38,13 +38,13 @@ public class AllMotionRectangles extends MotionRectangles
         while(iterator.hasNext())
         {
             MotionRectangle motionRectangle = (MotionRectangle) iterator.next();
-            LogUtil.put(LogFactory.getInstance(
-                "Rectangles: " + motionRectangle.getRectangle().toString(), this, this.commonStrings.CONSTRUCTOR));
+            logUtil.put(
+                "Rectangles: " + motionRectangle.getRectangle().toString(), this, this.commonStrings.CONSTRUCTOR);
         }
          */
         
-        //LogUtil.put(LogFactory.getInstance(
-        //  "After - Number Of Rectangles: " + this.getVector().size(), this, this.commonStrings.CONSTRUCTOR));
+        //logUtil.put(
+        //  "After - Number Of Rectangles: " + this.getVector().size(), this, this.commonStrings.CONSTRUCTOR);
     }
     
     private void createMotionRectangles(ImageComparisonResult imageComparisonInfo)
@@ -92,8 +92,8 @@ public class AllMotionRectangles extends MotionRectangles
                 /*
                 if(pixelDelta.getPoint().x > 560 && pixelDelta.getPoint().y > 330 &&
                     pixelDelta.getPoint().x < 600 && pixelDelta.getPoint().y < 365)
-                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("Adjusting existing motionRectangle: \n" +
-                        motionRectangle.getRectangle() + " for: " + pixelDelta.getPoint(), this, "addPixelDeltaToExistingMotionRectangle"));                
+                    logUtil.put(new StringMaker().append("Adjusting existing motionRectangle: \n" +
+                        motionRectangle.getRectangle() + " for: " + pixelDelta.getPoint(), this, "addPixelDeltaToExistingMotionRectangle");                
                 */
                 
                 //ModifyRectangle - extend it to the lower and/or right
@@ -115,8 +115,8 @@ public class AllMotionRectangles extends MotionRectangles
                 /*
                 if(pixelDelta.getPoint().x > 560 && pixelDelta.getPoint().y > 330 &&
                     pixelDelta.getPoint().x < 600 && pixelDelta.getPoint().y < 365)
-                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("Adjusted existing motionRectangle: \n" +
-                        motionRectangle.getRectangle() + " for: " + pixelDelta.getPoint(), this, "addPixelDeltaToExistingMotionRectangle"));                
+                    logUtil.put(new StringMaker().append("Adjusted existing motionRectangle: \n" +
+                        motionRectangle.getRectangle() + " for: " + pixelDelta.getPoint(), this, "addPixelDeltaToExistingMotionRectangle");                
                  */
 
                  return true;
@@ -155,9 +155,9 @@ public class AllMotionRectangles extends MotionRectangles
                         stringBuffer.append("\n");
                     }
                 }
-                LogUtil.put(LogFactory.getInstance(new StringMaker().append("Adding motionRectangle: " +
+                logUtil.put(new StringMaker().append("Adding motionRectangle: " +
                     motionRectangle.getRectangle() + " since it could not be added to: " +
-                    stringBuffer.toString(), this, "addPixelDeltaToAMotionRectangle"));
+                    stringBuffer.toString(), this, "addPixelDeltaToAMotionRectangle");
             }
             */
 
@@ -204,8 +204,8 @@ public class AllMotionRectangles extends MotionRectangles
              
             if(maxX > pixelDelta.getPoint().x && maxY > pixelDelta.getPoint().y)
             {
-//                LogUtil.put(LogFactory.getInstance("Target is to big: " +
-                //                  rectangle, this, "getTargetableRectangles"));
+//                logUtil.put("Target is to big: " +
+                //                  rectangle, this, "getTargetableRectangles");
                 throw new Exception("Does This Ever Happen");
              
                 //return true;
@@ -256,22 +256,22 @@ public class AllMotionRectangles extends MotionRectangles
             pixelDelta.getPoint().x < 600 && pixelDelta.getPoint().y < 365 &&
             (horizontalDistance < 25 && verticalDistance < 25))
             //&& this.getImageComparisonResult().getFrameTwo() == 19)
-            LogUtil.put(LogFactory.getInstance(
+            logUtil.put(
                 pixelDelta.getPoint() +
                 " motionRectangle: " + motionRectangle.getRectangle() +
                 " MaxX: " + maxX + " MaxY: " + maxY +
                 " horizontalDistance: " + horizontalDistance +
                 " verticalDistance: " + verticalDistance,
                 //" pixelDeltasInTheSameRow.size(): " + pixelDeltasInTheSameRow.size(),
-                this, "isPixelDeltaLikelyPartOfMotionRectangle"));
+                this, "isPixelDeltaLikelyPartOfMotionRectangle");
                      */
         
         /*
-        LogUtil.put(LogFactory.getInstance(
+        logUtil.put(
             "MaxX: " + maxX +
             " horizontalDistance: " + horizontalDistance +
             " pixelDeltasInTheSameRow.size(): " + pixelDeltasInTheSameRow.size(),
-            this, "isPixelDeltaLikelyPartOfMotionRectangle"));
+            this, "isPixelDeltaLikelyPartOfMotionRectangle");
          */
         
         if(horizontalDistance < MAX_PIXEL_DISTANCE_THRESHOLD &&

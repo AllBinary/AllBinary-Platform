@@ -52,6 +52,8 @@ import org.allbinary.logic.system.security.licensing.ServiceClientInformationInt
 
 public class ProductListing implements ProductListingInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final Directory directory = Directory.getInstance();
     
     private final StoreFrontsEntity storeFronts;
@@ -95,7 +97,7 @@ public class ProductListing implements ProductListingInterface
 
         //if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().S))
         //{
-        //  LogUtil.put(LogFactory.getInstance("Keyword/Categories: " + keywords, this, "generateAll()"));
+        //  logUtil.put("Keyword/Categories: " + keywords, this, "generateAll()");
         //}
 
         UniqueTokens uniqueTokens = new UniqueTokens();
@@ -109,7 +111,7 @@ public class ProductListing implements ProductListingInterface
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().STATICPAGEGENERATIONLOGGING))
         {
             //Creates a new File
-            LogUtil.put(LogFactory.getInstance("Creating File: " + file, this, "generateAll()"));
+            logUtil.put("Creating File: " + file, this, "generateAll()");
         }
 
         AbFile newFile = new AbFile(file);
@@ -131,7 +133,7 @@ public class ProductListing implements ProductListingInterface
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().STATICPAGEGENERATIONLOGGING))
         {
-            LogUtil.put(LogFactory.getInstance("Wrote Total Bytes: " + newFile.length(), this, "generateAll()"));
+            logUtil.put("Wrote Total Bytes: " + newFile.length(), this, "generateAll()");
         }
 
         } else
@@ -182,7 +184,7 @@ public class ProductListing implements ProductListingInterface
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().STATICPAGEGENERATIONLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Saving Listing: " + index, this, "generateAll()"));
+                logUtil.put("Saving Listing: " + index, this, "generateAll()");
             }
 
             String indexStr = StringUtil.getInstance().EMPTY_STRING;
@@ -254,7 +256,7 @@ public class ProductListing implements ProductListingInterface
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().STATICPAGEGENERATIONLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Store Static Pages Path: " + staticPath, this, "generateAll()"));
+                logUtil.put("Store Static Pages Path: " + staticPath, this, "generateAll()");
             }
 
             //compile a list of possible keywords

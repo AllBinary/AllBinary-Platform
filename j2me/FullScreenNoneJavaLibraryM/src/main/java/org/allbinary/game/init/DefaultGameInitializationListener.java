@@ -28,6 +28,8 @@ import org.allbinary.logic.util.event.EventStrings;
 public class DefaultGameInitializationListener
     implements GameInitializedListenerInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private final SWTJOGLProcessor swtJOGLProcessor = SWTJOGLProcessor.getInstance();
 
@@ -55,10 +57,10 @@ public class DefaultGameInitializationListener
         final CommonStrings commonStrings = CommonStrings.getInstance();
         try
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, ON_GAME_INITIALIZED));
+            logUtil.put(commonStrings.START, this, ON_GAME_INITIALIZED);
 
             while(!swtJOGLProcessor.glHolder.isCreated) {
-                LogUtil.put(LogFactory.getInstance(commonStrings.UPDATE, this, ON_GAME_INITIALIZED));
+                logUtil.put(commonStrings.UPDATE, this, ON_GAME_INITIALIZED);
                 Thread.sleep(20);
             }
             
@@ -73,7 +75,7 @@ public class DefaultGameInitializationListener
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, ON_GAME_INITIALIZED, e));
+            logUtil.put(commonStrings.EXCEPTION, this, ON_GAME_INITIALIZED, e);
         }
     }
 }

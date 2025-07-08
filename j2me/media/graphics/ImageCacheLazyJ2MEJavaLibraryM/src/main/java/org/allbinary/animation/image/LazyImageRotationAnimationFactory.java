@@ -23,6 +23,8 @@ import org.allbinary.media.ScaleProperties;
  * @author User
  */
 public class LazyImageRotationAnimationFactory implements AnimationInterfaceFactoryInterface {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     
     private final int layoutIndex;
     private final BaseImageAnimationFactory animationInterfaceFactoryInterface;
@@ -46,7 +48,7 @@ public class LazyImageRotationAnimationFactory implements AnimationInterfaceFact
     
     public void setInitialScale(final ScaleProperties scaleProperties) {
         //final CommonStrings commonStrings = CommonStrings.getInstance();
-        //LogUtil.put(LogFactory.getInstance(scaleProperties.toString(), this, commonStrings.CONSTRUCTOR));
+        //logUtil.put(scaleProperties.toString(), this, commonStrings.CONSTRUCTOR);
         this.scaleProperties = scaleProperties;
         //this.animationInterfaceFactoryInterface.setInitialScale(scaleProperties);
     }

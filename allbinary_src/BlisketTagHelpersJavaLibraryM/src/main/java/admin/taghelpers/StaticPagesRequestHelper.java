@@ -61,6 +61,8 @@ import org.allbinary.logic.system.security.licensing.ServiceClientInformationInt
 public class StaticPagesRequestHelper extends AbContext
     implements TagHelperInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final AbeClientInformationInterface abeClientInformation = 
         ServiceClientInformationInterfaceFactory.getInstance();
     
@@ -74,7 +76,7 @@ public class StaticPagesRequestHelper extends AbContext
    {
       super(propertiesHashMap, pageContext);
 
-      //LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR));
+      //logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
 
       this.request = (HttpServletRequest) pageContext.getRequest();
       this.xslFile = (String) propertiesHashMap.get(
@@ -94,7 +96,7 @@ public class StaticPagesRequestHelper extends AbContext
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Generated Static Pages Notification Email", this, "email"));
+            logUtil.put("Generated Static Pages Notification Email", this, "email");
          }
 
          StoreFrontInterface storeFrontInterface = 
@@ -131,7 +133,7 @@ public class StaticPagesRequestHelper extends AbContext
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "email", e));
+            logUtil.put(this.commonStrings.FAILURE, this, "email", e);
          }
          //throw e;
       }
@@ -141,7 +143,7 @@ public class StaticPagesRequestHelper extends AbContext
    {
       try
       {
-         //LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "generateStaticPages()"));
+         //logUtil.put(this.commonStrings.START, this, "generateStaticPages()");
 
          String contentType = AcceptableResponseGenerator.getInstance().get(this.request); 
          
@@ -156,7 +158,7 @@ public class StaticPagesRequestHelper extends AbContext
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            LogUtil.put(LogFactory.getInstance(success, this, "generateStaticPages()"));
+            logUtil.put(success, this, "generateStaticPages()");
          }
 
          return success;
@@ -166,7 +168,7 @@ public class StaticPagesRequestHelper extends AbContext
          String error = "Failed to generate staticpages table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"generateStaticPages()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"generateStaticPages()",e);
          }
          return error;
       }
@@ -191,7 +193,7 @@ public class StaticPagesRequestHelper extends AbContext
          String success = "Made Public";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            LogUtil.put(LogFactory.getInstance(success, this,"makePublic()"));
+            logUtil.put(success, this,"makePublic()");
          }
 
          return success;
@@ -201,7 +203,7 @@ public class StaticPagesRequestHelper extends AbContext
          String error = "Failed to makePublic";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"makePublic()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"makePublic()",e);
          }
          return error;
       }

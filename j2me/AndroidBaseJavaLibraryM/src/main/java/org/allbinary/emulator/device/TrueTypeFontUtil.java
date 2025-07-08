@@ -34,6 +34,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 
 public class TrueTypeFontUtil extends TrueTypeFontUtilBase {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final TrueTypeFontUtil instance = new TrueTypeFontUtil();
 
@@ -74,7 +76,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase {
             final CommonStrings commonStrings = CommonStrings.getInstance();
             final File file = ResourceUtil.getInstance().getContext().getFilesDir();
             final String path = file.getAbsolutePath() + CanvasStrings.getInstance().FONT_ATLAS;
-            LogUtil.put(LogFactory.getInstance(path, this, commonStrings.CONSTRUCTOR));
+            logUtil.put(path, this, commonStrings.CONSTRUCTOR);
             final FileOutputStream fos = new FileOutputStream(path);
             final Bitmap bitmap = this.fontImage.openGLBitmap.getImage().getBitmap();
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);

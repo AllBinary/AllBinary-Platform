@@ -25,6 +25,8 @@ import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 
 public class ResourceUtil {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final ResourceUtil instance = new ResourceUtil();
 
@@ -80,7 +82,7 @@ public class ResourceUtil {
 
         if (inputStream != null) {
 //            stringMaker.delete(0, stringMaker.length());
-//            LogUtil.put(LogFactory.getInstance(stringMaker.append(RESOURCE_FOUND).append(resource).toString(), this, METHOD_NAME));
+//            logUtil.put(stringMaker.append(RESOURCE_FOUND).append(resource).toString(), this, METHOD_NAME);
             final byte[] byteArray = new byte[inputStream.available()];
             StreamUtil.getInstance().getByteArray(inputStream, new ByteArrayOutputStream(), byteArray);
             return new ByteArrayInputStream(byteArray);

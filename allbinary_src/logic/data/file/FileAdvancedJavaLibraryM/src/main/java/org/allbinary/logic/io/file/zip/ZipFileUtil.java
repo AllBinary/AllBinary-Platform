@@ -35,6 +35,8 @@ import org.allbinary.util.BasicArrayList;
  */
 public class ZipFileUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final ZipFileUtil instance = new ZipFileUtil();
 
@@ -88,8 +90,8 @@ public class ZipFileUtil
                     stringBuffer.append(" Creating Zip File Entry: ");
                     stringBuffer.append(file.getPath());
 
-                    LogUtil.put(LogFactory.getInstance(
-                        stringBuffer.toString(), this, "create()"));
+                    logUtil.put(
+                        stringBuffer.toString(), this, "create()");
 
                     try
                     {
@@ -104,8 +106,8 @@ public class ZipFileUtil
                         streamUtil.close(fileInputStream);
                     } catch (Exception e)
                     {
-                        LogUtil.put(LogFactory.getInstance(
-                            "Skipping File (Probably Local): " + file.getPath(), this, "create()"));
+                        logUtil.put(
+                            "Skipping File (Probably Local): " + file.getPath(), this, "create()");
                     }
                 }
                 current++;
@@ -115,7 +117,7 @@ public class ZipFileUtil
 
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "create", e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, "create", e);
         }
     }
 
@@ -157,7 +159,7 @@ public class ZipFileUtil
                     stringBuffer.append(" getParent: ");
                     stringBuffer.append(entryFile.getParent());
 
-                    LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "unzip"));
+                    logUtil.put(stringBuffer.toString(), this, "unzip");
 
                     AbDataOutputStream dataOutputStream =
                         DataOutputStreamFactory.getInstance().getInstance(entryFile);

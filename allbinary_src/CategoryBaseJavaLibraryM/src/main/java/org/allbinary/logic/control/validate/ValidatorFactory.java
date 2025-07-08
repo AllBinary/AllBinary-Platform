@@ -15,6 +15,8 @@ package org.allbinary.logic.control.validate;
 
 public class ValidatorFactory
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
    private ValidatorFactory()
    {
       

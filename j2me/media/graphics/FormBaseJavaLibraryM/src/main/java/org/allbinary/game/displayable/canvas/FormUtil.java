@@ -24,6 +24,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class FormUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final FormUtil instance = new FormUtil();
 
     public static FormUtil getInstance()
@@ -43,7 +45,7 @@ public class FormUtil
                 displayInfo.getLastWidth() - 30,
                 displayInfo.getLastHeight() - 35);
         
-        //LogUtil.put(LogFactory.getInstance("form menu rectangle: " + rectangle.toString(), this, commonStrings.PROCESS));
+        //logUtil.put("form menu rectangle: " + rectangle.toString(), this, commonStrings.PROCESS);
 
         return rectangle;
     }
@@ -64,7 +66,7 @@ public class FormUtil
             popupMenuRectangle = new Rectangle(
                     PointFactory.getInstance().getInstance(0, 25), myFont.stringWidth(3), (myFont.DEFAULT_CHAR_HEIGHT * 4) + 2);
             
-            //LogUtil.put(LogFactory.getInstance("popupMenuRectangle: " + popupMenuRectangle.toString(), this, commonStrings.PROCESS));
+            //logUtil.put("popupMenuRectangle: " + popupMenuRectangle.toString(), this, commonStrings.PROCESS);
         }
         else
         {
@@ -72,7 +74,7 @@ public class FormUtil
                     PointFactory.getInstance().getInstance(
                     0, displayInfo.getLastHalfHeight() - 70), myFont.stringWidth(3), (myFont.DEFAULT_CHAR_HEIGHT * 5));
             
-            //LogUtil.put(LogFactory.getInstance("large popupMenuRectangle: " + popupMenuRectangle.toString(), this, commonStrings.PROCESS));
+            //logUtil.put("large popupMenuRectangle: " + popupMenuRectangle.toString(), this, commonStrings.PROCESS);
         }
         
         return popupMenuRectangle;

@@ -25,6 +25,8 @@ import playn.core.CanvasSurface;
 
 public class ImageScaleUtil
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final ImageScaleUtil instance = new ImageScaleUtil();
 
     public static ImageScaleUtil getInstance()

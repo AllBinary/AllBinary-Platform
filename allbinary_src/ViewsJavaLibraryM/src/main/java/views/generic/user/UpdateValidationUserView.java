@@ -38,6 +38,8 @@ import views.business.context.modules.storefront.HttpStoreComponentView;
 public class UpdateValidationUserView extends HttpStoreComponentView
    implements ValidationComponentInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private UserInterface user;
 
    public UpdateValidationUserView(TransformInfoInterface transformInfoInterface) throws Exception
@@ -56,7 +58,7 @@ public class UpdateValidationUserView extends HttpStoreComponentView
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               LogUtil.put(LogFactory.getInstance("User does not exist",this,commonStrings.IS_VALID));
+               logUtil.put("User does not exist",this,commonStrings.IS_VALID);
             }
             return Boolean.FALSE;
          }
@@ -72,7 +74,7 @@ public class UpdateValidationUserView extends HttpStoreComponentView
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate",this,commonStrings.IS_VALID,e));
+            logUtil.put("Failed to validate",this,commonStrings.IS_VALID,e);
          }
          return Boolean.FALSE;
       }
@@ -88,7 +90,7 @@ public class UpdateValidationUserView extends HttpStoreComponentView
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               LogUtil.put(LogFactory.getInstance("User does not exist",this,"validationInfo()"));
+               logUtil.put("User does not exist",this,"validationInfo()");
             }
             stringBuffer.append("Unable to update user that does not exist.<br />");
          }
@@ -104,7 +106,7 @@ public class UpdateValidationUserView extends HttpStoreComponentView
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to generate validation error info",this,"validationInfo()",e));
+            logUtil.put("Failed to generate validation error info",this,"validationInfo()",e);
          }
          return "Error Getting Validation Info";
       }

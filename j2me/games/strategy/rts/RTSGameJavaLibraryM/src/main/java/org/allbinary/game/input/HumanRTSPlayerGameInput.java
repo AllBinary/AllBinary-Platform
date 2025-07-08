@@ -67,6 +67,8 @@ public class HumanRTSPlayerGameInput
 extends RTSPlayerGameInput
 implements BaseMotionGestureEventListener
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private boolean isDragging = false;
 
     //private final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
@@ -240,7 +242,7 @@ implements BaseMotionGestureEventListener
         stringBuffer.append(SPACE);
         stringBuffer.append(rectY2);
 
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, METHOD));
+        logUtil.put(stringBuffer.toString(), this, METHOD);
         
         RTSLayer rtsLayer;
         
@@ -258,14 +260,14 @@ implements BaseMotionGestureEventListener
             stringBuffer.append(SPACE);
             stringBuffer.append((rtsLayer.getViewPosition().getY() + rtsLayer.getHalfHeight()));
 
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, METHOD));
+            logUtil.put(stringBuffer.toString(), this, METHOD);
 
             if(rectangleCollisionUtil.isInside(
                     rectX1, rectY1, rectX2, rectY2, 
                     rtsLayer.getViewPosition().getX() + rtsLayer.getHalfWidth(), 
                     rtsLayer.getViewPosition().getY() + rtsLayer.getHalfHeight()))
             {
-                LogUtil.put(LogFactory.getInstance(new StringMaker().append(ADDING).append(rtsLayer.getName()).toString(), this, METHOD));
+                logUtil.put(new StringMaker().append(ADDING).append(rtsLayer.getName()).toString(), this, METHOD);
                 
                 rtsLayer.select();
                 this.getSelectedBuildingPlayerGameInput().addSelectedRTSLayer(rtsLayer);                
@@ -334,7 +336,7 @@ implements BaseMotionGestureEventListener
     
     public void processMotionInput(AllBinaryLayerManager layerManager) throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, gameInputStrings.PROCESS_MOTION_INPUT));
+        //logUtil.put(commonStrings.START, this, gameInputStrings.PROCESS_MOTION_INPUT);
 
         if (this.getMotionGestureInputList().size() > 0)
         {
@@ -360,7 +362,7 @@ implements BaseMotionGestureEventListener
      */
     public void setSelectedRtsFormInput(RTSFormInput selectedRtsFormInput)
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonLabels.getInstance().START).append(StringUtil.getInstance().toString(selectedRtsFormInput)).toString(), this, "setSelectedRtsFormInput"));
+        logUtil.put(new StringMaker().append(CommonLabels.getInstance().START).append(StringUtil.getInstance().toString(selectedRtsFormInput)).toString(), this, "setSelectedRtsFormInput");
         
         super.setSelectedRtsFormInput(selectedRtsFormInput);
         this.setSelectedRtsLayer(null);
@@ -370,8 +372,8 @@ implements BaseMotionGestureEventListener
     {
         ScrollSelectionForm scrollSelectionForm = rtsLayer.getScrollSelectionForm();
 
-        //LogUtil.put(LogFactory.getInstance(
-          //      CommonLabels.getInstance().START).append(rtsLayer.getName()).append(" form: ").append(scrollSelectionForm, this, "updateForm"));
+        //logUtil.put(
+          //      CommonLabels.getInstance().START).append(rtsLayer.getName()).append(" form: ").append(scrollSelectionForm, this, "updateForm");
         
         // Waypoints are the only games objects still without menus currently
         if (scrollSelectionForm != null
@@ -461,7 +463,7 @@ implements BaseMotionGestureEventListener
         }
         else
         {
-            LogUtil.put(LogFactory.getInstance("Set Player Default Form", this, "setSelectedRTSLayer"));
+            logUtil.put("Set Player Default Form", this, "setSelectedRTSLayer");
 
             this.getRtsPlayerLayerInterface().setCurrentScrollSelectionForm(
                 this.getRtsPlayerLayerInterface().getBuildingScrollSelectionForm());
@@ -569,7 +571,7 @@ implements BaseMotionGestureEventListener
 
     public void onMotionGestureEvent(MotionGestureEvent motionGestureEvent)
     {
-        //LogUtil.put(LogFactory.getInstance("motionGestureEvent: ").append(motionGestureEvent, this, "onMotionGestureEvent"));
+        //logUtil.put("motionGestureEvent: ").append(motionGestureEvent, this, "onMotionGestureEvent");
 
         getMotionGestureInputList().add(motionGestureEvent);
     }

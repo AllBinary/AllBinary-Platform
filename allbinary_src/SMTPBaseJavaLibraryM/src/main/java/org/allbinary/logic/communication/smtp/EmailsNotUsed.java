@@ -27,6 +27,8 @@ import org.w3c.dom.Node;
 
 public class EmailsNotUsed implements DomNodeInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
    protected Vector emailInfoVector;
@@ -42,7 +44,7 @@ public class EmailsNotUsed implements DomNodeInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "toXmlNode"));
+            logUtil.put(this.commonStrings.START, this, "toXmlNode");
          }
 
          Node node = document.createElement(EmailData.NAME);
@@ -62,7 +64,7 @@ public class EmailsNotUsed implements DomNodeInterface
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.END, this, "toXmlNode()"));
+            logUtil.put(commonStrings.END, this, "toXmlNode()");
          }
          return node;
       }
@@ -70,7 +72,7 @@ public class EmailsNotUsed implements DomNodeInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "toXmlNode()", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "toXmlNode()", e);
          }
 
          String error = "Error Processing Order.  Please contact us if error persists.<p/>";

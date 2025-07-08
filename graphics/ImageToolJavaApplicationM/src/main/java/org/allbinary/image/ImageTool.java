@@ -20,6 +20,8 @@ import org.allbinary.logic.communication.log.LogFactory;
 
 public class ImageTool
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    public ImageTool()
    {
    }
@@ -30,15 +32,16 @@ public class ImageTool
       {
          public void run()
          {
+             final LogUtil logUtil = LogUtil.getInstance();
              final CommonStrings commonStrings = CommonStrings.getInstance();
             try
             {
-               LogUtil.put(LogFactory.getInstance("Running", this, commonStrings.RUN));
+               logUtil.put(commonStrings.START, this, commonStrings.RUN);
                new ImageToolJFrame().setVisible(true);
             }
             catch(Exception e)
             {
-               LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "Main", commonStrings.RUN, e));
+               logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
             }
          }
       });

@@ -34,6 +34,8 @@ import org.allbinary.thread.MusicThreadPool;
 
 public class PCClipWavPlayer extends BasicPlayer implements LineListener
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final CommonStrings commonStrings = CommonStrings.getInstance();
 
     private final AudioInputStream audioInputStream;
@@ -51,7 +53,7 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
             clip = this.create(audioInputStream);
 
             if(clip == null) {
-                LogUtil.put(LogFactory.getInstance("Clip was null", this, commonStrings.CONSTRUCTOR, new Exception()));
+                logUtil.put("Clip was null", this, commonStrings.CONSTRUCTOR, new Exception());
                 throw new RuntimeException();
             }
 
@@ -59,7 +61,7 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
         }
         
         this.audioInputStream = audioInputStream;
@@ -181,7 +183,7 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
 
     public void update(LineEvent event)
     {
-        //LogUtil.put(LogFactory.getInstance("LineEvent: " + event.getType(),  this, "update"));
+        //logUtil.put("LineEvent: " + event.getType(),  this, "update");
         if (event.getType().equals(LineEvent.Type.STOP))
         {
             //this.close();

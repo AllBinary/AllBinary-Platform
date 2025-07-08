@@ -45,6 +45,8 @@ import org.allbinary.logic.io.path.PathUtil;
 public class InventoryItemView extends HttpStoreComponentView
     implements RequestMapInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final HttpServletRequest request;
     private String imageFileName;
     private MediaData mediaData;
@@ -107,7 +109,7 @@ public class InventoryItemView extends HttpStoreComponentView
                     stringBuffer.append(" Extension: ");
                     stringBuffer.append(this.mediaData.getName());
 
-                    LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "getFormData()"));
+                    logUtil.put(stringBuffer.toString(), this, "getFormData()");
                 }
             }
         }
@@ -145,7 +147,7 @@ public class InventoryItemView extends HttpStoreComponentView
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "view()", e));
+                logUtil.put(commonStrings.EXCEPTION, this, "view()", e);
             }
             throw e;
         }

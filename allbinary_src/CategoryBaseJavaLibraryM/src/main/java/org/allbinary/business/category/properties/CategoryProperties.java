@@ -36,6 +36,8 @@ import org.allbinary.logic.communication.sql.AbSqlData;
  */
 public class CategoryProperties implements CategoryPropertiesInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private static final int MAXDEPTH = 100;
    private String category;
    
@@ -129,7 +131,7 @@ public class CategoryProperties implements CategoryPropertiesInterface
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
       {
-         LogUtil.put(LogFactory.getInstance("path = " + pathStringBuffer.toString(), this, "getPath"));
+         logUtil.put("path = " + pathStringBuffer.toString(), this, "getPath");
       }
       return new AbPath(pathStringBuffer.toString());
    }

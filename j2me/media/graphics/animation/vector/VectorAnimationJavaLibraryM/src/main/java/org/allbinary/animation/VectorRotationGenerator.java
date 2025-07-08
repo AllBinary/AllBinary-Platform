@@ -26,6 +26,8 @@ import org.allbinary.vector.VectorInfo;
 
 public class VectorRotationGenerator
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final VectorRotationGenerator instance = new VectorRotationGenerator();
 
     public static VectorRotationGenerator getInstance()
@@ -80,12 +82,12 @@ public class VectorRotationGenerator
             int[][][] newPoints = vectorAnimationUtil
                     .toAnimationArrayFromBasicArrayListOfPointBasicArrayList(pointsBasicArrayList,
                             pointBasicArrayList.size());
-            // LogUtil.put(LogFactory.getInstance(IntArrayUtil.toString(newPoints), this, commonStrings.GET_INSTANCE));
+            // logUtil.put(IntArrayUtil.toString(newPoints), this, commonStrings.GET_INSTANCE);
             return newPoints;
         } catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
             // throw e;
             return null;
         }

@@ -22,6 +22,8 @@ import org.allbinary.logic.communication.log.PreLogUtil;
 
 public class PlayerQueue
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final BasicArrayList list = new BasicArrayList();
@@ -42,7 +44,7 @@ public class PlayerQueue
             {
                 //final String message = "Adding: ").append(sound.getResource();
                 
-                //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Adding: ").append(sound.getResource()).toString(), this, commonStrings.ADD));
+                //logUtil.put(new StringMaker().append("Adding: ").append(sound.getResource()).toString(), this, commonStrings.ADD);
 
                 list.add(sound);
             }
@@ -68,7 +70,7 @@ public class PlayerQueue
                 if (sound != null)
                 {
                     //final String message = "Playing: ").append(sound.getResource();
-                    //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Playing: ").append(sound.getResource()).toString(), this, commonStrings.PROCESS));
+                    //logUtil.put(new StringMaker().append("Playing: ").append(sound.getResource()).toString(), this, commonStrings.PROCESS);
 
                     //For BB only
                     //SoundThreadPool.getInstance().runTask(sound);
@@ -91,8 +93,8 @@ public class PlayerQueue
             {
                 resource = sound.getResource();
             }
-            //LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION_LABEL).append(resource, this,
-            //      commonStrings.PROCESS, e));
+            //logUtil.put(commonStrings.EXCEPTION_LABEL).append(resource, this,
+            //      commonStrings.PROCESS, e);
 
             /*
             try

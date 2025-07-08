@@ -22,6 +22,8 @@ import org.allbinary.graphics.threed.min3d.renderer.processor.ObjectThreedOpenGL
  * @author User
  */
 public class TextureAttributePointerVBOOpenGLProcessor extends ObjectThreedOpenGLProcessor {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     
     private static final TextureAttributePointerVBOOpenGLProcessor instance = new TextureAttributePointerVBOOpenGLProcessor();
 

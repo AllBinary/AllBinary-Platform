@@ -32,6 +32,8 @@ import org.allbinary.util.BasicArrayList;
 public class OpenGLESImage extends Image
 implements OpenGLSurfaceChangedInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     public static final BasicArrayList texture2dList = new BasicArrayList();
     
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
@@ -52,7 +54,7 @@ implements OpenGLSurfaceChangedInterface
         super(image.getName(), null);
         //super(image);
 
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("opengl: create ").append(this).append(this.getName()).append(" from " ).append(image).toString(), this, commonStrings.INIT));
+        //logUtil.put(new StringMaker().append("opengl: create ").append(this).append(this.getName()).append(" from " ).append(image).toString(), this, commonStrings.INIT);
         this.openGLBitmap = (OpenGLBitmap) bitmapFactory.createBitmap(image);
         this.textureFactory = textureFactory;
         OpenGLImageCacheFactory.getInstance().init(this);
@@ -84,7 +86,7 @@ implements OpenGLSurfaceChangedInterface
             this.set(gl);
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e);
         }
     }
     */

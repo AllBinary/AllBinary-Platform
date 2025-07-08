@@ -25,6 +25,8 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
  * @author User
  */
 public class BaseGameBehavior extends DemoGameBehavior {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final BaseGameBehavior instance = new BaseGameBehavior();
 
@@ -55,11 +57,11 @@ public class BaseGameBehavior extends DemoGameBehavior {
 //                        allBinaryGameCanvas.processSleep();
 //                    } catch (Exception e) {
 //                        final CommonStrings commonStrings = CommonStrings.getInstance();
-//                        LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
+//                        logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
 //                    }
 //                }
 //            };
-//            LogUtil.put(LogFactory.getInstance("Set SWT Thread and assign runnable: " + runnable, this, "pause"));
+//            logUtil.put("Set SWT Thread and assign runnable: " + runnable, this, "pause");
 //
 //            final SWTProcessorUtil swtProcessorUtil = SWTProcessorUtil.getInstance();
 //            final SWTRunnableProcessor swtRunnableProcessor = SWTRunnableProcessor.getInstance();
@@ -75,7 +77,7 @@ public class BaseGameBehavior extends DemoGameBehavior {
                 //|| features.isDefault(HTMLFeatureFactory.getInstance().HTML)
                 ) {
             
-            //LogUtil.put(LogFactory.getInstance("pause", this, METHOD_NAME));
+            //logUtil.put("pause", this, METHOD_NAME);
 
             final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
 
@@ -95,11 +97,11 @@ public class BaseGameBehavior extends DemoGameBehavior {
 //                        allBinaryGameCanvas.run3();
 //                    } catch (Exception e) {
 //                        final CommonStrings commonStrings = CommonStrings.getInstance();
-//                        LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
+//                        logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
 //                    }
 //                }
 //            };
-//            LogUtil.put(LogFactory.getInstance("Set SWT Thread and assign runnable: " + runnable, this, gameStrings.UNPAUSE));
+//            logUtil.put("Set SWT Thread and assign runnable: " + runnable, this, gameStrings.UNPAUSE);
 //
 //            final SWTProcessorUtil swtProcessorUtil = SWTProcessorUtil.getInstance();
 //            final SWTRunnableProcessor swtRunnableProcessor = SWTRunnableProcessor.getInstance();
@@ -112,7 +114,7 @@ public class BaseGameBehavior extends DemoGameBehavior {
 //            
 //        } else 
             if (Features.getInstance().isDefault(OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD)) {
-            //LogUtil.put(LogFactory.getInstance(gameStrings.UNPAUSE, this, gameStrings.UNPAUSE));
+            //logUtil.put(gameStrings.UNPAUSE, this, gameStrings.UNPAUSE);
             final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
 
             currentDisplayableFactory.setRunnable(allBinaryGameCanvas.gameRunnable);

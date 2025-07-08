@@ -32,6 +32,8 @@ import org.allbinary.string.CommonStrings;
 public class Category
     implements CategoryInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
@@ -49,7 +51,7 @@ public class Category
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.CONSTRUCTOR, this, "Category(CategoryPropertiesFactoryInterface)"));
+            logUtil.put(this.commonStrings.CONSTRUCTOR, this, "Category(CategoryPropertiesFactoryInterface)");
         }
 
         this.categoryPropertiesInterface =
@@ -141,7 +143,7 @@ public class Category
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
         {
-            LogUtil.put(LogFactory.getInstance("adding", this, "addChild"));
+            logUtil.put("adding", this, "addChild");
         }
 
         //update relationship
@@ -365,7 +367,7 @@ public class Category
             stringBuffer.append("\nFile Path: ");
             stringBuffer.append(this.getFilePath());
 
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "log()"));
+            logUtil.put(stringBuffer.toString(), this, "log()");
         }
     }
 }

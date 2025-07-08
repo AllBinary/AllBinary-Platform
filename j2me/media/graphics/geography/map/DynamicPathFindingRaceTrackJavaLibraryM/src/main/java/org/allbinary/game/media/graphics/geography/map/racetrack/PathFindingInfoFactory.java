@@ -38,6 +38,8 @@ import org.allbinary.media.graphics.geography.pathfinding.PathFindingNodeCostInf
  */
 public class PathFindingInfoFactory extends BasePathFindingInfoFactory
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static PathFindingInfoFactory instance;
     
     /**
@@ -121,7 +123,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
 
         //int width = allBinaryTiledLayer.getWidth();
 
-        //LogUtil.put(LogFactory.getInstance(CommonLabels + allBinaryTiledLayer.getHeight() + commonStrings.SPACE + CommonLabels + width, this, commonStrings.INIT));
+        //logUtil.put(CommonLabels + allBinaryTiledLayer.getHeight() + commonStrings.SPACE + CommonLabels + width, this, commonStrings.INIT);
 
         this.buildPathFindingNodes(
             geographicMapInterface,
@@ -130,8 +132,8 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
 
         // String keys =
         // this.getPathFinder().getPathFindingNodeCostInfoFactoryInterface().getHashTable().toString();
-        // LogUtil.put(LogFactory.getInstance("All PathFindingNodeCostInfos in Hashtable: " +
-        // keys, this, commonStrings.INIT));
+        // logUtil.put("All PathFindingNodeCostInfos in Hashtable: " +
+        // keys, this, commonStrings.INIT);
     }
 
     private void buildPathFindingNodes(
@@ -230,7 +232,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
         final int[][] mapArray)
         throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(CommonSeps.getInstance().START, this, "buildPathFindingNode"));
+        //logUtil.put(CommonSeps.getInstance().START, this, "buildPathFindingNode");
 
         final BasicGeographicMapCellPositionFactory geographicMapCellPositionFactory =
             geographicMapInterface.getGeographicMapCellPositionFactory();

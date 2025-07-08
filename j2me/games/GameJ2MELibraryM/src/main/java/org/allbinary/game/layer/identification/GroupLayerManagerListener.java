@@ -33,6 +33,8 @@ import org.allbinary.logic.util.event.EventStrings;
 public class GroupLayerManagerListener
 extends LayerManagerEventListener
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static GroupLayerManagerListener SINGLETON = 
         new GroupLayerManagerListener();
 
@@ -86,7 +88,7 @@ extends LayerManagerEventListener
     {
         BasicArrayList groupList = (BasicArrayList) this.list.objectArray[groupId];
         //if(groupList == null) {
-            //LogUtil.put(LogFactory.getInstance("groupId: ").append(groupId, this, "getGroupSize"));
+            //logUtil.put("groupId: ").append(groupId, this, "getGroupSize");
         //}
         int size = groupList.size();
         return size;
@@ -105,8 +107,8 @@ extends LayerManagerEventListener
 
                 if (groupSize != 0)
                 {
-                    LogUtil.put(LogFactory.getInstance(
-                        new StringMaker().append("Group Size: ").append(groupSize).toString(), this, "areAllOtherGroupsEmpty"));
+                    logUtil.put(
+                        new StringMaker().append("Group Size: ").append(groupSize).toString(), this, "areAllOtherGroupsEmpty");
                     return false;
                 }
             }
@@ -162,8 +164,8 @@ extends LayerManagerEventListener
                     //stringBuffer.append(" -> ");
                     //stringBuffer.append(groupList);
 
-                    //LogUtil.put(LogFactory.getInstance(
-                      //      stringBuffer.toString(), this, "areAllOtherGroupsLessThan"));
+                    //logUtil.put(
+                      //      stringBuffer.toString(), this, "areAllOtherGroupsLessThan");
 
                     return false;
                 }
@@ -179,7 +181,7 @@ extends LayerManagerEventListener
             this.list.add(new BasicArrayList());
         }
         
-        //LogUtil.put(LogFactory.getInstance("size: ").append(total, this, this.commonStrings.INIT));
+        //logUtil.put("size: ").append(total, this, this.commonStrings.INIT);
         
     }
 
@@ -194,7 +196,7 @@ extends LayerManagerEventListener
 
         final AllBinaryLayer layerInterface = layerManagerEvent.getLayerInterface();
 
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "onCreateLayerManagerEvent: ").append(layerInterface.toString()));
+        //logUtil.put(commonStrings.START, this, "onCreateLayerManagerEvent: ").append(layerInterface.toString());
         
         //Ignore weapons
         /*
@@ -215,7 +217,7 @@ extends LayerManagerEventListener
             groupList = (BasicArrayList) this.list.objectArray[id];
 
             if(groupList == null) {
-                LogUtil.put(LogFactory.getInstance(new StringMaker().append("id: ").append(id).toString(), this, "onCreateLayerManagerEvent"));
+                logUtil.put(new StringMaker().append("id: ").append(id).toString(), this, "onCreateLayerManagerEvent");
             }
             
             //if(Group.ENEMY.getGroupId() == id)
@@ -240,7 +242,7 @@ extends LayerManagerEventListener
                     stringBuffer.append(" --> ");
                     stringBuffer.append(groupList);
 
-                    LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "onCreateLayerManagerEvent"));
+                    logUtil.put(stringBuffer.toString(), this, "onCreateLayerManagerEvent");
                 }
                 */
             }
@@ -254,7 +256,7 @@ extends LayerManagerEventListener
     public void onDeleteLayerManagerEvent(final LayerManagerEvent layerManagerEvent)
             throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "onDeleteLayerManagerEvent"));
+        //logUtil.put(commonStrings.START, this, "onDeleteLayerManagerEvent");
 
         final AllBinaryLayer layerInterface = layerManagerEvent.getLayerInterface();
 
@@ -296,7 +298,7 @@ extends LayerManagerEventListener
             stringBuffer.append(" --> ");
             stringBuffer.append(groupList);
 
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "onDeleteLayerManagerEvent"));
+            logUtil.put(stringBuffer.toString(), this, "onDeleteLayerManagerEvent");
         }
         */        
             
@@ -326,8 +328,8 @@ extends LayerManagerEventListener
             stringBuffer.append(groupList.size());
             stringBuffer.append(SPACE);
             
-            //LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "log"));
+            //logUtil.put(stringBuffer.toString(), this, "log");
         }
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "log"));
+        logUtil.put(stringBuffer.toString(), this, "log");
     }
 }

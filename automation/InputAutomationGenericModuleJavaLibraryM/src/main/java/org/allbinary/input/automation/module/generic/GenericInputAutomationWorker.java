@@ -38,6 +38,8 @@ import org.allbinary.media.image.comparison.motion.MotionRectanglesWorker;
 public class GenericInputAutomationWorker
     extends AbstractInputAutomationWorker
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     protected final String PROCESS_DATA_WORKER_RESULTS = "processDataWorkerResults";
 
@@ -57,7 +59,7 @@ public class GenericInputAutomationWorker
     {
         super(inputAutomationActionInterface);
 
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR));
+        logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         
         this.setCaptureWorker(
             GenericProfileCaptureWorkerFactory.getInstance(
@@ -81,7 +83,7 @@ public class GenericInputAutomationWorker
             final GenericProfileDataWorkerType genericProfileDataWorkerType = 
                 (GenericProfileDataWorkerType) vector.get(index);
 
-            LogUtil.put(LogFactory.getInstance("Adding Listener: " + genericProfileDataWorkerType, this, this.commonStrings.CONSTRUCTOR));
+            logUtil.put("Adding Listener: " + genericProfileDataWorkerType, this, this.commonStrings.CONSTRUCTOR);
             if(genericProfileDataWorkerType == GenericProfileDataWorkerType.COMPARISON)
             {
                 this.getCaptureWorker().addListener(
@@ -99,7 +101,7 @@ public class GenericInputAutomationWorker
     public void processDataWorkerResults()
     throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.PROCESS_DATA_WORKER_RESULTS));
+        logUtil.put(this.commonStrings.START, this, this.PROCESS_DATA_WORKER_RESULTS);
 
         this.waitForDataWorkers();
         
@@ -109,24 +111,24 @@ public class GenericInputAutomationWorker
         final Object[] keyArray = cacheInterface.keySet().toArray();
         if(keyArray.length > 0)
         {
-            LogUtil.put(LogFactory.getInstance("Image Available", this, this.PROCESS_DATA_WORKER_RESULTS));
+            logUtil.put("Image Available", this, this.PROCESS_DATA_WORKER_RESULTS);
             setFrame((Long) keyArray[keyArray.length - 1]);
 
             if(getFrame() > lastFrame)
             {
-                LogUtil.put(LogFactory.getInstance("Processing new frame: " + getFrame(), this, this.PROCESS_DATA_WORKER_RESULTS));
+                logUtil.put("Processing new frame: " + getFrame(), this, this.PROCESS_DATA_WORKER_RESULTS);
                 
                 final HashMap hashMap = this.getGenericProfile().getGenericProfileActions().getHashMap();
                 final Set set = hashMap.keySet();
                 
-                LogUtil.put(LogFactory.getInstance("Processing " + set.size() + "Actions", this, this.PROCESS_DATA_WORKER_RESULTS));
+                logUtil.put("Processing " + set.size() + "Actions", this, this.PROCESS_DATA_WORKER_RESULTS);
 
                 final Object[] actionNameArray = set.toArray();
                 final int size = actionNameArray.length;
                 for(int index = 0; index < size; index++)
                 {
                     String actionNameString = (String) actionNameArray[index];
-                    LogUtil.put(LogFactory.getInstance("Processing Action: " + actionNameString, this, this.PROCESS_DATA_WORKER_RESULTS));
+                    logUtil.put("Processing Action: " + actionNameString, this, this.PROCESS_DATA_WORKER_RESULTS);
                     final GenericProfileAction genericProfileAction =
                         (GenericProfileAction) hashMap.get(actionNameString);
                     final GenericProfileActionScript genericProfileActionScript =
@@ -139,13 +141,13 @@ public class GenericInputAutomationWorker
         }
         else
         {
-            LogUtil.put(LogFactory.getInstance("Image Not Available", this, this.PROCESS_DATA_WORKER_RESULTS));
+            logUtil.put("Image Not Available", this, this.PROCESS_DATA_WORKER_RESULTS);
         }
     }
 
     public void process() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.PROCESS));
+        logUtil.put(this.commonStrings.START, this, this.commonStrings.PROCESS);
         this.startDataWorkers();
         this.processDataWorkerResults();
     }

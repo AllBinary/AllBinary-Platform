@@ -35,6 +35,8 @@ import org.allbinary.media.graphics.geography.map.PathData;
  */
 public class StaticPathGenerator
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    public void init(
            BasicGeographicMap geographicMapInterface, int totalPaths)
       throws Exception
@@ -118,14 +120,14 @@ public class StaticPathGenerator
             pathCacheFactory.remove(smallIntegerSingletonFactory.getInstance(id));
          }
 
-         LogUtil.put(LogFactory.getInstance(new StringMaker().append("Using Cached Path(s): ").append(StringUtil.getInstance().toString(list)).toString(), this, commonStrings.GET_INSTANCE));
+         logUtil.put(new StringMaker().append("Using Cached Path(s): ").append(StringUtil.getInstance().toString(list)).toString(), this, commonStrings.GET_INSTANCE);
 
          return list;
 
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
+         logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
          return new BasicArrayList();
       }
    }

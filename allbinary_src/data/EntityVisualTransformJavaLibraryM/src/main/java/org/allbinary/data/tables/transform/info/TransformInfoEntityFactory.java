@@ -22,6 +22,8 @@ import org.allbinary.string.CommonStrings;
 
 public class TransformInfoEntityFactory
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
    private TransformInfoEntityFactory()
    {
    }
@@ -32,6 +34,7 @@ public class TransformInfoEntityFactory
        TransformInfoFactoryInterface transformInfoFactoryInterface
         ) //throws LicensingException
    {
+       final LogUtil logUtil = LogUtil.getInstance();
       try
       {
          //Object object = AbeFactory.getInstance().getInstance(CLASSNAME);
@@ -58,7 +61,7 @@ public class TransformInfoEntityFactory
          final CommonStrings commonStrings = CommonStrings.getInstance();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "TransformInfoEntityFactory", commonStrings.GET_INSTANCE, e));
+            logUtil.put(commonStrings.EXCEPTION, "TransformInfoEntityFactory", commonStrings.GET_INSTANCE, e);
          }
          return null;
       }   

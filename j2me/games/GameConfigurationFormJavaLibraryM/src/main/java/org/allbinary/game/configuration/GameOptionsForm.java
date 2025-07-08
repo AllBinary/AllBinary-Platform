@@ -45,6 +45,8 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 public class GameOptionsForm extends CommandForm
     //CommandForm
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     /*
     public static GameOptionsForm getInstance()
     {
@@ -58,7 +60,7 @@ public class GameOptionsForm extends CommandForm
     {
         super(commandListener, title, backgrounBasicColor, foregroundBasicColor);
 
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
+        logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
         this.addConfiguration();
 
@@ -139,7 +141,7 @@ public class GameOptionsForm extends CommandForm
             GameConfiguration gameConfiguration =
                 (GameConfiguration) list.objectArray[index];
 
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append(NAME).append(gameConfiguration.toString()).toString(), this, METHOD_NAME));
+            logUtil.put(new StringMaker().append(NAME).append(gameConfiguration.toString()).toString(), this, METHOD_NAME);
 
             GameConfigurationGauge gauge = new GameConfigurationGauge(gameConfiguration);
 

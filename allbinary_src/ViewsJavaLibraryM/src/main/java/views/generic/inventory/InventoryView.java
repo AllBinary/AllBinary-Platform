@@ -35,7 +35,9 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
 public class InventoryView extends HttpStoreComponentView 
    implements DomNodeInterface
-{   
+{
+    protected final LogUtil logUtil = LogUtil.getInstance();
+   
    public InventoryView(TransformInfoInterface transformInfoInterface) throws Exception
    {
       super(transformInfoInterface);
@@ -48,7 +50,7 @@ public class InventoryView extends HttpStoreComponentView
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("Starting",this,"toXmlNode"));
+            logUtil.put("Starting",this,"toXmlNode");
          }
          
          InventoryEntity inventoryEntityInterface = 
@@ -77,7 +79,7 @@ public class InventoryView extends HttpStoreComponentView
             }
             else
             {
-               LogUtil.put(LogFactory.getInstance("Inventory",this,"toXmlNode"));
+               logUtil.put("Inventory",this,"toXmlNode");
             }
          }
          
@@ -88,7 +90,7 @@ public class InventoryView extends HttpStoreComponentView
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE,this,"toXmlNode",e));
+            logUtil.put(this.commonStrings.FAILURE,this,"toXmlNode",e);
          }
          throw e;
       }
@@ -111,7 +113,7 @@ public class InventoryView extends HttpStoreComponentView
          String error = "Failed to view Inventory";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"view()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"view()",e);
          }
          return error;
       }

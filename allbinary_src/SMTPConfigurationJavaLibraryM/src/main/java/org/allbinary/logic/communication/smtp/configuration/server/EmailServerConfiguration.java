@@ -22,6 +22,8 @@ import org.allbinary.string.CommonStrings;
 
 public class EmailServerConfiguration implements EmailServerConfigurationInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private String accountName;
    private String password;
    
@@ -32,7 +34,7 @@ public class EmailServerConfiguration implements EmailServerConfigurationInterfa
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
         final CommonStrings commonStrings = CommonStrings.getInstance();
-         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
+         logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
       }
 
       this.setSmtpServer(StringUtil.getInstance().EMPTY_STRING);
@@ -43,7 +45,7 @@ public class EmailServerConfiguration implements EmailServerConfigurationInterfa
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
         final CommonStrings commonStrings = CommonStrings.getInstance();
-         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "EmailServerConfiguration(HashMap)"));
+         logUtil.put(commonStrings.START, this, "EmailServerConfiguration(HashMap)");
       }
 
       this.setAccountName((String) hashMap.get(EmailServerConfigurationData.ACCOUNT));
@@ -58,7 +60,7 @@ public class EmailServerConfiguration implements EmailServerConfigurationInterfa
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
         final CommonStrings commonStrings = CommonStrings.getInstance();
-         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "EmailServerConfiguration(HashMap)"));
+         logUtil.put(commonStrings.START, this, "EmailServerConfiguration(HashMap)");
       }
 
       this.setAccountName(account);
@@ -102,7 +104,7 @@ public class EmailServerConfiguration implements EmailServerConfigurationInterfa
     {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
-         LogUtil.put(LogFactory.getInstance(this.toString(), this, "EmailServerConfiguration"));
+         logUtil.put(this.toString(), this, "EmailServerConfiguration");
       }
     }
     

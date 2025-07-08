@@ -10,57 +10,60 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.logic.communication.log;
 
-public class LogUtil
-{
-   private LogUtil()
-   {
-   }
-   
-   public static void put(Log log)
-   {
-      if(log != null)
-      {
-      String specialMessage = log.getSpecialMessage();
-      Object object = log.getObject();
-      String functionName = log.getFunctionName();
-      Object exception = log.getThrowable();
+public class LogUtil {
 
-      put(specialMessage, object, functionName, exception);
-      }
-   }
-   
-   public static void put(
-      String specialMessage,
-      Object object,
-      String functionName)
-   {
-   }
-   private static final String LABEL = "org.allbinary";
-   private final static String LOG_SUCCESS = "org.allbinary: ";
-   
-   public static void put(
-      String specialMessage,
-      Object object,
-      String functionName,
-      Object exception)
-   {
-      String className = LABEL;
-      /*
+    private static final LogUtil instance = new LogUtil();
+
+    public static final LogUtil getInstance() {
+        return instance;
+    }
+
+    private final String LABEL = "org.allbinary";
+    private final String LOG_SUCCESS = "org.allbinary: ";
+    
+    private LogUtil() {
+    }
+
+    public void put(final Log log) {
+        final String specialMessage = log.getSpecialMessage();
+        final Object object = log.getObject();
+        final String functionName = log.getFunctionName();
+        final Object exception = log.getThrowable();
+
+        if (log != null) {
+            this.put(specialMessage, object, functionName, exception);
+        }
+    }
+    
+    public void put(
+        final String specialMessage,
+        final Object object,
+        final String functionName) {
+
+    }
+
+    public void put(
+        final String specialMessage,
+        final Object object,
+        final String functionName,
+        final Object exception) {
+        String className = LABEL;
+        /*
       if(object != null && object.getClass().getName() != null)
       {
          className = new String(object.getClass().getName());
       }
-      */
-      
-      className = object.getClass().getName();
+         */
 
-      String message = LogFormatUtil.getInstance().get(
-         className, functionName, specialMessage, exception);
-      
-      android.util.Log.i(LABEL, LOG_SUCCESS + message);
-      //android.util.Log.i(LABEL, message);
-   }
+        className = object.getClass().getName();
+
+        final String message = LogFormatUtil.getInstance().get(
+            className, functionName, specialMessage, exception);
+
+        android.util.Log.i(LABEL, LOG_SUCCESS + message);
+        //android.util.Log.i(LABEL, message);
+    }
 }

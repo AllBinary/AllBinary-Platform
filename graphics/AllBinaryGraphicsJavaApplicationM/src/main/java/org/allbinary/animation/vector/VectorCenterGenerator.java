@@ -30,6 +30,8 @@ import org.allbinary.string.CommonLabels;
 import org.allbinary.util.BasicArrayList;
 
 public class VectorCenterGenerator {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
@@ -59,7 +61,7 @@ public class VectorCenterGenerator {
             }
         }
 
-        LogUtil.put(LogFactory.getInstance("minX: " + minX + " minY: " + minY + " maxX: " + maxX + " maxY: " + maxY, this, commonStrings.GET_INSTANCE));
+        logUtil.put("minX: " + minX + " minY: " + minY + " maxX: " + maxX + " maxY: " + maxY, this, commonStrings.GET_INSTANCE);
 
         setWidth(maxX - minX);
         setHeight(maxY - minY);
@@ -75,7 +77,7 @@ public class VectorCenterGenerator {
 
         final CommonLabels commonLabels = CommonLabels.getInstance();
         final String s = new StringMaker().append(commonLabels.WIDTH_LABEL).append(getWidth()).append(commonLabels.HEIGHT_LABEL).append(getHeight()).append(" max: ").append(max).append(" middle: ").append(middle).toString();
-        LogUtil.put(LogFactory.getInstance(s, this, commonStrings.GET_INSTANCE));
+        logUtil.put(s, this, commonStrings.GET_INSTANCE);
 
         int currentMiddleX = minX + getWidth() / 2;
         int currentMiddleY = minY + getHeight() / 2;
@@ -88,7 +90,7 @@ public class VectorCenterGenerator {
     public void transform(HashMap hashMap) throws Exception {
 
         this.calculate(hashMap);
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(" dx: ").append(dx).append(" dy: ").append(dy).toString(), this, commonStrings.GET_INSTANCE));
+        logUtil.put(new StringMaker().append(" dx: ").append(dx).append(" dy: ").append(dy).toString(), this, commonStrings.GET_INSTANCE);
 
         final Object[] graphicItemArray = hashMap.keySet().toArray();
         final int size = graphicItemArray.length;
@@ -130,7 +132,7 @@ public class VectorCenterGenerator {
             }
 
         } catch (Exception e) {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
             throw e;
         }
     }

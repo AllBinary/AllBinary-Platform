@@ -40,6 +40,8 @@ import org.allbinary.util.BasicArrayList;
 
 public class LinesGraphicItem implements GraphicItemInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
     
@@ -72,7 +74,7 @@ public class LinesGraphicItem implements GraphicItemInterface
       this.active = true;
       } catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e));
+         logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
       }            
       
    }
@@ -199,7 +201,7 @@ public class LinesGraphicItem implements GraphicItemInterface
    {
       this.points.getPoints().add(point);
       
-      LogUtil.put(LogFactory.getInstance(point.toString(), this, "addPoint"));
+      logUtil.put(point.toString(), this, "addPoint");
       
       this.pointTreeNodeVector.add(new DefaultMutableTreeNode(point.toString()));
       this.treeNode.add((DefaultMutableTreeNode) this.pointTreeNodeVector.get(this.pointTreeNodeVector.size()-1));
@@ -312,7 +314,7 @@ public class LinesGraphicItem implements GraphicItemInterface
          
       } catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "mouseMoved", e));
+         logUtil.put(commonStrings.EXCEPTION, this, "mouseMoved", e);
       }
    }
 
@@ -367,7 +369,7 @@ public class LinesGraphicItem implements GraphicItemInterface
          this.currentMousePoint = mousePoint;
       } catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "mouseMoved", e));
+         logUtil.put(commonStrings.EXCEPTION, this, "mouseMoved", e);
       }
    }
 
@@ -400,7 +402,7 @@ public class LinesGraphicItem implements GraphicItemInterface
          this.currentMousePoint = point;
       } catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "mouseMoved", e));
+         logUtil.put(commonStrings.EXCEPTION, this, "mouseMoved", e);
       }
    }
 
@@ -437,7 +439,7 @@ public class LinesGraphicItem implements GraphicItemInterface
           }
       } catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, gameInputStrings.KEY_PRESSED, e));
+         logUtil.put(commonStrings.EXCEPTION, this, gameInputStrings.KEY_PRESSED, e);
       }
    }
 

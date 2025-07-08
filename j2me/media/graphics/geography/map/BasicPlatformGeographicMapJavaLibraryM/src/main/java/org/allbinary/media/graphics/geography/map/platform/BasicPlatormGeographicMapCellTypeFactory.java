@@ -28,6 +28,8 @@ import org.allbinary.util.BasicArrayList;
  * @author User
  */
 public class BasicPlatormGeographicMapCellTypeFactory extends GeographicMapCellTypeFactory {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     public final BasicPlatormGeographicMapCellType BLOCK_CELL_TYPE;
     public final BasicPlatormGeographicMapCellType JUMP_THRU_CELL_TYPE;
@@ -37,7 +39,7 @@ public class BasicPlatormGeographicMapCellTypeFactory extends GeographicMapCellT
     
     public BasicPlatormGeographicMapCellTypeFactory(final Hashtable tileTypeToTileIdsMap, final int maxTileId) {
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.INIT));
+        logUtil.put(commonStrings.START, this, commonStrings.INIT);
 
         this.maxTileId = maxTileId;
         
@@ -60,7 +62,7 @@ public class BasicPlatormGeographicMapCellTypeFactory extends GeographicMapCellT
         while(enumeration.hasMoreElements()) {
             key = (String) enumeration.nextElement();
             
-            LogUtil.put(LogFactory.getInstance(key, this, commonStrings.INIT));
+            logUtil.put(key, this, commonStrings.INIT);
             
             idsWithTypeList = (BasicArrayList) tileTypeToTileIdsMap.get(key);
 

@@ -36,6 +36,8 @@ import org.allbinary.view.event.ViewPositionEventListenerInterface;
 public class AllBinaryGameLayer extends AllBinaryLayer 
    implements ViewPositionEventListenerInterface
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
 
     protected final BasicColor RED = BasicColorFactory.getInstance().RED;
@@ -102,7 +104,7 @@ public class AllBinaryGameLayer extends AllBinaryLayer
     public void onChangeEvent(final ViewPositionEvent layerManagerEvent)
        throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "onChangeEvent"));
+        //logUtil.put(commonStrings.START, this, "onChangeEvent");
         if (GameLayerUtil.isOnScreen(this))
         {
             this.setVisible(true);
@@ -121,13 +123,13 @@ public class AllBinaryGameLayer extends AllBinaryLayer
     //Should be overridden
     public void paintDebug(final Graphics graphics)
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.NOT_IMPLEMENTED, this, canvasStrings.PAINT));
+        //logUtil.put(commonStrings.NOT_IMPLEMENTED, this, canvasStrings.PAINT);
 
         final ViewPosition viewPosition = this.getViewPosition();
         final int viewX = viewPosition.getX();
         final int viewY = viewPosition.getY();
 
-        //LogUtil.put(LogFactory.getInstance("viewX: ").append(viewX).append(" viewY: ").append(viewY, this, canvasStrings.PAINT));
+        //logUtil.put("viewX: ").append(viewX).append(" viewY: ").append(viewY, this, canvasStrings.PAINT);
 
         this.basicSetColorUtil.setBasicColor(graphics, RED);
 

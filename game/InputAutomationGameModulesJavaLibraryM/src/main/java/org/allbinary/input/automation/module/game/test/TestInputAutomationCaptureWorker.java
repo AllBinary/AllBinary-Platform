@@ -36,6 +36,8 @@ import org.allbinary.media.image.comparison.motion.MotionRectangleConstraintsInt
 public class TestInputAutomationCaptureWorker
     extends AbstractInputAutomationWorker
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     //private final Rectangle rectangle = new Rectangle(0, 0, 1024, 768);
     //private TimeHelper timeHelper;
     
@@ -55,7 +57,7 @@ public class TestInputAutomationCaptureWorker
     {
         super(inputAutomationActionInterface);
         
-        LogUtil.put(LogFactory.getInstance(MESSAGE, this, commonStrings.CONSTRUCTOR));
+        logUtil.put(MESSAGE, this, commonStrings.CONSTRUCTOR);
         
         this.setGenericProfileActions(genericProfileActions);
     }
@@ -68,7 +70,7 @@ public class TestInputAutomationCaptureWorker
 
         if(cacheInterface.keySet().size() > 0)
         {
-            LogUtil.put(LogFactory.getInstance(IMAGE_AVAILABLE_SO_PROCESSING, this, PROCESS_DATA_WORKER_RESULTS));
+            logUtil.put(IMAGE_AVAILABLE_SO_PROCESSING, this, PROCESS_DATA_WORKER_RESULTS);
             
             Object object = cacheInterface.keySet().toArray()[0];
             //BufferedImageFrameCacheable capturedBufferedImageCacheable = 
@@ -96,13 +98,13 @@ public class TestInputAutomationCaptureWorker
         }
         else
         {
-            LogUtil.put(LogFactory.getInstance(IMAGE_NOT_AVAILABLE, this, PROCESS_DATA_WORKER_RESULTS));
+            logUtil.put(IMAGE_NOT_AVAILABLE, this, PROCESS_DATA_WORKER_RESULTS);
         }
     }
     
     public void process() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.PROCESS));
+        logUtil.put(commonStrings.START, this, commonStrings.PROCESS);
         
         this.startDataWorkers();
         this.processDataWorkerResults();

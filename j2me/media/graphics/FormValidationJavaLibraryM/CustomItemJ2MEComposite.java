@@ -11,6 +11,8 @@ import org.allbinary.graphics.color.BasicColor;
 
 public class CustomItemJ2MEComposite extends CustomItem implements CustomItemInterface
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final Item item;
     
     public CustomItemJ2MEComposite(Item item, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)

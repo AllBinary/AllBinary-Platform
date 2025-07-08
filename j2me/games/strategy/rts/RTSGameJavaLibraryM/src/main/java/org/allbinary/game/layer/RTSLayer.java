@@ -74,6 +74,8 @@ public class RTSLayer
     RTSInterface,
     PathFindingLayerInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final boolean debug = true;
     public final boolean showMoreCaptionStates = debug;
     
@@ -278,7 +280,7 @@ public class RTSLayer
     
     public void select()
     {
-        //LogUtil.put(LogFactory.getInstance("selected: ", this, "selected: select"));
+        //logUtil.put("selected: ", this, "selected: select");
         
         this.rangeAnimation = this.initRangeAnimation;
         this.sensorRangeAnimation = this.initSensorRangeAnimation;
@@ -340,7 +342,7 @@ public class RTSLayer
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "processTick", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "processTick", e);
         }
     }
 
@@ -587,7 +589,7 @@ public class RTSLayer
             stringBuffer.append("setDestroyed: ");
             stringBuffer.append(this.getName());
             
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "setDestroyed"));
+            logUtil.put(stringBuffer.toString(), this, "setDestroyed");
             */
             
             DestroyedLayerProcessor.getInstance().add(this);

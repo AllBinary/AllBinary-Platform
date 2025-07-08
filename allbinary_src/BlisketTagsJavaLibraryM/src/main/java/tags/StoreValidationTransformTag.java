@@ -23,6 +23,8 @@ import javax.servlet.jsp.JspTagException;
 
 public class StoreValidationTransformTag extends ValidationTransformTag
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private String storeName;
 
     public StoreValidationTransformTag()
@@ -42,7 +44,7 @@ public class StoreValidationTransformTag extends ValidationTransformTag
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
             {
-                LogUtil.put(LogFactory.getInstance("Tag Start", this, "doStartTag"));
+                logUtil.put("Tag Start", this, "doStartTag");
             }
 
             return super.doStartTag();

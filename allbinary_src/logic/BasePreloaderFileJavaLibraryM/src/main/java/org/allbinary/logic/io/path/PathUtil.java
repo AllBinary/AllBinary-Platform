@@ -21,6 +21,8 @@ import org.allbinary.logic.communication.log.PreLogUtil;
 //Used to correct user input for paths
 public class PathUtil
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final PathUtil instance = new PathUtil();
 
     public static PathUtil getInstance()

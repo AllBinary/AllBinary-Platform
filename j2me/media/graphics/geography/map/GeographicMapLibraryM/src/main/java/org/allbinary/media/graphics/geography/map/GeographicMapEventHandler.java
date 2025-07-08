@@ -27,6 +27,8 @@ import org.allbinary.util.BasicArrayList;
  * @author User
  */
 public class GeographicMapEventHandler extends BasicEventHandler {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     
     private static GeographicMapEventHandler instance = new GeographicMapEventHandler();
 
@@ -72,7 +74,7 @@ public class GeographicMapEventHandler extends BasicEventHandler {
             }
             catch (Exception e)
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
+                logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
         }
 

@@ -15,6 +15,8 @@ package org.allbinary.logic.math;
 
 public class SmallLongFactory
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final SmallLongFactory instance = new SmallLongFactory();
 
     public static SmallLongFactory getInstance()
@@ -55,7 +57,7 @@ public class SmallLongFactory
             lastNegativeMin = negativeValue;
             //MIN = negativeValue;
         }
-        //LogUtil.put(LogFactory.getInstance("? " + NEGATIVE_INTEGER_ARRAY[5], stringUtil.EMPTY_STRING, "?????????"));
+        //logUtil.put("? " + NEGATIVE_INTEGER_ARRAY[5], stringUtil.EMPTY_STRING, "?????????");
     }
 
     public void init()
@@ -70,7 +72,7 @@ public class SmallLongFactory
                     INTEGER_ARRAY[index] = new Long(-index);
                 }
 
-                //LogUtil.put(LogFactory.getInstance("? " + NEGATIVE_INTEGER_ARRAY[5], "2", "?????????"));
+                //logUtil.put("? " + NEGATIVE_INTEGER_ARRAY[5], "2", "?????????");
                 lastMin = POSITIVE_MAX;
                 lastNegativeMin = NEGATIVE_MAX;
             }

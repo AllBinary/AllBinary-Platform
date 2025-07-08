@@ -33,6 +33,8 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 public class RaceTrackRandomDropCellPositionGenerator 
    extends RaceTrackDropCellPositionGenerator
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static RaceTrackRandomDropCellPositionGenerator SINGLETON = new RaceTrackRandomDropCellPositionGenerator();
 
     public static RaceTrackRandomDropCellPositionGenerator getInstance()
@@ -74,9 +76,9 @@ public class RaceTrackRandomDropCellPositionGenerator
         GeographicMapCellPosition geographicMapCellPosition = 
             (GeographicMapCellPosition) this.list.get(index);
 
-        //LogUtil.put(LogFactory.getInstance("Dropping: " + geographicMapCellPosition.toString()
+        //logUtil.put("Dropping: " + geographicMapCellPosition.toString()
           //      + " Point: " + geographicMapCellPosition.getPoint(), this,
-            //    commonStrings.DROP));
+            //    commonStrings.DROP);
 
         // RaceTrackGeographicMapCellType raceTrackGeographicMapCellType =
         // (RaceTrackGeographicMapCellType) this.typeList.get(index);

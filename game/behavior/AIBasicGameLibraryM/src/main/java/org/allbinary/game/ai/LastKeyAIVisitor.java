@@ -20,7 +20,9 @@ import org.allbinary.logic.util.visitor.Visitor;
 import org.allbinary.logic.java.bool.BooleanFactory;
 
 public class LastKeyAIVisitor extends Visitor
-{    
+{
+    protected final LogUtil logUtil = LogUtil.getInstance();
+    
     private final Boolean TRUE = BooleanFactory.getInstance().TRUE;
 
     protected LastKeyAIVisitor()
@@ -43,7 +45,7 @@ public class LastKeyAIVisitor extends Visitor
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.VISIT, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.VISIT, e);
         }
         return TRUE;
     }

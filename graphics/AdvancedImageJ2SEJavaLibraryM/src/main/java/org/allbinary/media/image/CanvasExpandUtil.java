@@ -25,6 +25,8 @@ import org.allbinary.logic.string.StringUtil;
  * @author User
  */
 public class CanvasExpandUtil {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     
     private static final CanvasExpandUtil instance = new CanvasExpandUtil();
 
@@ -50,7 +52,7 @@ public class CanvasExpandUtil {
         for (int index = 0; index < size; index++) {
 
             bufferedImage = bufferedImageArray[index];
-            //LogUtil.put(LogFactory.getInstance(spriteType, this, commonStrings.RUN));
+            //logUtil.put(spriteType, this, commonStrings.RUN);
                 
             subBufferedImageArray[index] = imageUtil.createBufferedImage(
                 bufferedImage, bufferedImage.getWidth() + increaseX, bufferedImage.getHeight() + increaseY, false);

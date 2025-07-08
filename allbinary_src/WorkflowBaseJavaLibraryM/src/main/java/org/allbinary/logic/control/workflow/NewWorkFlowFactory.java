@@ -27,6 +27,8 @@ import org.allbinary.string.CommonStrings;
 
 public class NewWorkFlowFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final NewWorkFlowFactory instance = new NewWorkFlowFactory();
 
     public static NewWorkFlowFactory getInstance() {
@@ -72,7 +74,7 @@ public class NewWorkFlowFactory
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
              final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getInstance(HashMap)",e));
+            logUtil.put(commonStrings.EXCEPTION, this, "getInstance(HashMap)",e);
          }
          throw e;
       }
@@ -82,7 +84,7 @@ public class NewWorkFlowFactory
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
              final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getInstance(HashMap)", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "getInstance(HashMap)", e);
          }
          throw e;
       }
@@ -107,7 +109,7 @@ public class NewWorkFlowFactory
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
              final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE,e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE,e);
          }
          throw e;
       }
@@ -117,7 +119,7 @@ public class NewWorkFlowFactory
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
              final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
          }
          throw e;
       }

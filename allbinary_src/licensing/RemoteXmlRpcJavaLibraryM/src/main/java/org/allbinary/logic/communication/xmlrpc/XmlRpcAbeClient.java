@@ -24,6 +24,8 @@ import org.allbinary.game.rand.MyRandomFactory;
 
 public class XmlRpcAbeClient
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final String remoteMethod;
@@ -93,7 +95,7 @@ public class XmlRpcAbeClient
         stringBuffer.append(SEP);
         stringBuffer.append(clientInfo.getLicenseServer(this.getServer()));
         
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.CONSTRUCTOR));
+        logUtil.put(stringBuffer.toString(), this, commonStrings.CONSTRUCTOR);
         // }
     }
 

@@ -24,6 +24,8 @@ import org.allbinary.string.CommonStrings;
 public class AlwaysActionScriptConditionJPanel
     extends javax.swing.JPanel
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private AlwaysActionScriptConditionInterface alwaysActionScriptConditionInterface;
@@ -32,7 +34,7 @@ public class AlwaysActionScriptConditionJPanel
     public AlwaysActionScriptConditionJPanel(
         AlwaysActionScriptConditionInterface alwaysActionScriptConditionInterface)
     {
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR));
+        logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         
         initComponents();
         

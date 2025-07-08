@@ -35,6 +35,8 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.info.template.TransformInfoTemplateData;
 
 public class BasicTransformer extends AbTransformer {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private final StreamUtil streamUtil = StreamUtil.getInstance();
 
@@ -63,9 +65,9 @@ public class BasicTransformer extends AbTransformer {
             final byte[] decrypted = abCrypt.decrypt(outputStream.toByteArray());
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
-                LogUtil.put(LogFactory.getInstance(
+                logUtil.put(
                     "Decrypted Template: \n" + new String(decrypted),
-                    this, "setEncryptedTemplateFileAsInputStream(file)"));
+                    this, "setEncryptedTemplateFileAsInputStream(file)");
             }
 
             this.setInputStream((InputStream) new ByteArrayInputStream(decrypted));
@@ -81,7 +83,7 @@ public class BasicTransformer extends AbTransformer {
                 stringBuffer.append(" \nName:");
                 stringBuffer.append(file.getName());
 
-                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "setEncryptedTemplateFileAsInputStream()", e));
+                logUtil.put(stringBuffer.toString(), this, "setEncryptedTemplateFileAsInputStream()", e);
             }
             throw e;
         } finally {
@@ -105,8 +107,8 @@ public class BasicTransformer extends AbTransformer {
             final byte[] decrypted = abCrypt.decrypt(outputStream.toByteArray());
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
-                LogUtil.put(LogFactory.getInstance(
-                    "Decrypted Template: \n" + decrypted.toString(), this, "setEncryptedTemplateAsInputStream()"));
+                logUtil.put(
+                    "Decrypted Template: \n" + decrypted.toString(), this, "setEncryptedTemplateAsInputStream()");
             }
 
             this.setInputStream((InputStream) new ByteArrayInputStream(decrypted));
@@ -114,10 +116,10 @@ public class BasicTransformer extends AbTransformer {
         } catch (Exception e) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR)) {
-                LogUtil.put(LogFactory.getInstance(
+                logUtil.put(
                     "Failed to set with template: "
                     + this.getTransformInfoInterface().getTemplateFilePath(),
-                    this, "setEncryptedTemplateFileAsInputStream()", e));
+                    this, "setEncryptedTemplateFileAsInputStream()", e);
             }
             throw e;
         } finally {
@@ -134,8 +136,8 @@ public class BasicTransformer extends AbTransformer {
 
         try {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
-                LogUtil.put(LogFactory.getInstance(
-                    this.getTransformInfoInterface().log(), this, "setTemplateAsInputStream()"));
+                logUtil.put(
+                    this.getTransformInfoInterface().log(), this, "setTemplateAsInputStream()");
             }
 
             final TransformInfoTemplateData transformInfoTemplateData =
@@ -150,8 +152,8 @@ public class BasicTransformer extends AbTransformer {
                     this.getTransformInfoInterface().getTemplateFilePath());
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
-                    LogUtil.put(LogFactory.getInstance(
-                        this.getTransformInfoInterface().log(), this, "setTemplateAsInputStream()"));
+                    logUtil.put(
+                        this.getTransformInfoInterface().log(), this, "setTemplateAsInputStream()");
                 }
 
                 if (extension.compareTo(transformInfoTemplateData.UNCRYPTED_EXTENSION) == 0) {
@@ -166,8 +168,8 @@ public class BasicTransformer extends AbTransformer {
                     final AbFile encFile = new AbFile(stringBuffer.toString());
 
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
-                        LogUtil.put(LogFactory.getInstance(
-                            this.getTransformInfoInterface().log(), this, "setTemplateAsInputStream()"));
+                        logUtil.put(
+                            this.getTransformInfoInterface().log(), this, "setTemplateAsInputStream()");
                     }
 
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
@@ -179,8 +181,8 @@ public class BasicTransformer extends AbTransformer {
                         stringBuffer.append("\nEncTemplateFilePath: ");
                         stringBuffer.append(encFile.getPath());
 
-                        LogUtil.put(LogFactory.getInstance(
-                            stringBuffer.toString(), this, "setTemplateAsInputStream()"));
+                        logUtil.put(
+                            stringBuffer.toString(), this, "setTemplateAsInputStream()");
                     }
 
                     if (encFile.isFile()) {
@@ -191,13 +193,13 @@ public class BasicTransformer extends AbTransformer {
                             new AbFile(this.getTransformInfoInterface().getTemplateFilePath());
 
                         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
-                            LogUtil.put(LogFactory.getInstance(
-                                this.getTransformInfoInterface().log(), this, "setTemplateAsInputStream()"));
+                            logUtil.put(
+                                this.getTransformInfoInterface().log(), this, "setTemplateAsInputStream()");
                         }
 
                         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
-                            LogUtil.put(LogFactory.getInstance(
-                                "Template File isFile=" + file.isFile(), this, "setTemplateAsInputStream()"));
+                            logUtil.put(
+                                "Template File isFile=" + file.isFile(), this, "setTemplateAsInputStream()");
                         }
 
                         if (file.isFile()) {
@@ -207,8 +209,8 @@ public class BasicTransformer extends AbTransformer {
                             outputStream = (ByteArrayOutputStream) this.streamUtil.get(inputStream, outputStream, new byte[16384]);
 
                             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
-                                LogUtil.put(LogFactory.getInstance(
-                                    "Template: " + outputStream.toString(), this, "getTemplateAsInputStream()"));
+                                logUtil.put(
+                                    "Template: " + outputStream.toString(), this, "getTemplateAsInputStream()");
                             }
 
                             this.setInputStream((InputStream) new ByteArrayInputStream(outputStream.toByteArray()));
@@ -241,8 +243,8 @@ public class BasicTransformer extends AbTransformer {
         } catch (Exception e) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR)) {
-                LogUtil.put(LogFactory.getInstance(
-                    "Failed to get Template Data", this, "setTemplateAsInputStream()", e));
+                logUtil.put(
+                    "Failed to get Template Data", this, "setTemplateAsInputStream()", e);
             }
             throw e;
         } finally {

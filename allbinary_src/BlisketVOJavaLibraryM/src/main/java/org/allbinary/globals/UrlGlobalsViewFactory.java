@@ -20,12 +20,15 @@ import org.allbinary.string.CommonStrings;
 
 public class UrlGlobalsViewFactory
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
    private UrlGlobalsViewFactory()
    {
    }
 
    public static DomNodeInterface getInstance()
    {
+       final LogUtil logUtil = LogUtil.getInstance();
       try
       {
          return (DomNodeInterface) new UrlGlobalsView();
@@ -35,7 +38,7 @@ public class UrlGlobalsViewFactory
          final CommonStrings commonStrings = CommonStrings.getInstance();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "GlobalsViewFactory",commonStrings.GET_INSTANCE,e));
+            logUtil.put(commonStrings.EXCEPTION, "GlobalsViewFactory",commonStrings.GET_INSTANCE,e);
          }
          return null;
       }

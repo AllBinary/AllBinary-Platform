@@ -36,6 +36,8 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
  * @author user
  */
 public class InventorySearchProductUtil {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 	
     private static final InventorySearchProductUtil instance = new InventorySearchProductUtil();
 
@@ -84,7 +86,7 @@ public class InventorySearchProductUtil {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "getProduct", e));
+                logUtil.put(this.commonStrings.FAILURE, this, "getProduct", e);
             }
             throw new Exception("Failed to getProduct");
         }

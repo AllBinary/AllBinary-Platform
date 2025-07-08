@@ -41,6 +41,8 @@ import org.allbinary.media.graphics.geography.map.drop.DropCellPositionHistory;
 public class BuildingAdvancedRTSFormInput
     extends BuildingRTSFormInput
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final GameNotificationEvent atLeastOneHouseGameNotificationEvent;
     
     public BuildingAdvancedRTSFormInput(

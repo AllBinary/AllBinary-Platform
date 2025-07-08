@@ -22,6 +22,8 @@ import org.allbinary.math.AngleInfo;
 public class AdjustedImageBaseRotationAnimation
 extends ImageBaseRotationAnimation
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private int dx;
     private int dy;
 
@@ -30,7 +32,7 @@ extends ImageBaseRotationAnimation
     {
         super(image, angleInfo, totalAngle, animationBehavior);
 
-        // LogUtil.put(LogFactory.getInstance(, this,));
+        // logUtil.put(, this,);
 
         this.init(dx, dy);
         //-(imageArray[0].getWidth() >> 2), -(imageArray[0].getHeight() >> 2)

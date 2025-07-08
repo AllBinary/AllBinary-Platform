@@ -21,6 +21,8 @@ import org.allbinary.time.TimeDelayHelper;
 import org.microemu.device.playn.PlaynImage;
 
 public class ImageCompleteUtil {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final ImageCompleteUtil instance =
         new ImageCompleteUtil();

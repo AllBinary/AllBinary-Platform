@@ -26,6 +26,8 @@ import org.w3c.dom.Node;
 
 public class PaymentGatewayView implements DomNodeInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
    private PaymentGatewayInterface paymentGatewayInterface;
@@ -52,7 +54,7 @@ public class PaymentGatewayView implements DomNodeInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "toXmlNode"));
+            logUtil.put(this.commonStrings.START, this, "toXmlNode");
          }
 
          final HashMap hashMap = new PaymentGatewayMapping(
@@ -70,7 +72,7 @@ public class PaymentGatewayView implements DomNodeInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XSLLOGGINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "toXmlNode", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "toXmlNode", e);
          }
          throw e;
       }

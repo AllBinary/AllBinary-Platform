@@ -38,6 +38,8 @@ import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 
 public class OrderHistoryHelper extends TagHelper
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private WeblisketSession weblisketSession;
    
    private StoreFrontInterface storeFrontInterface;   
@@ -119,7 +121,7 @@ public class OrderHistoryHelper extends TagHelper
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            LogUtil.put(LogFactory.getInstance(success,this,"setOrderStatus()"));
+            logUtil.put(success,this,"setOrderStatus()");
          }
          return "Error Setting Order Status";
       }
@@ -128,7 +130,7 @@ public class OrderHistoryHelper extends TagHelper
          String error = "Failed to set order status";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"setOrderStatus()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"setOrderStatus()",e);
          }
          return error + "<br/>" + "Exception: " + e + "<br/>";
       }

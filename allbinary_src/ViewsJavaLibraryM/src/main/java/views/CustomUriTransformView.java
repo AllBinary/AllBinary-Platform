@@ -34,6 +34,8 @@ import org.allbinary.string.CommonStrings;
 public class CustomUriTransformView
    implements TransformInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     protected final AbeClientInformationInterface abeClientInformation = 
@@ -47,8 +49,8 @@ public class CustomUriTransformView
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("View Name: " + transformInfoInterface.getName(), this,
-            "CustomUriTransformView()"));
+         logUtil.put("View Name: " + transformInfoInterface.getName(), this,
+            "CustomUriTransformView()");
       }
 
       this.setTransformInfoInterface(transformInfoInterface);
@@ -121,7 +123,7 @@ public class CustomUriTransformView
          //String error = "Failed to view CustomUriTransformView";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "view()", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "view()", e);
          }
          throw e;
       }

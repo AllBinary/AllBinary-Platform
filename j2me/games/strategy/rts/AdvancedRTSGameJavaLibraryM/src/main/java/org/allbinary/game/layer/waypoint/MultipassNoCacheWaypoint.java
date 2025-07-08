@@ -46,6 +46,8 @@ import org.allbinary.util.BasicArrayListUtil;
 public class MultipassNoCacheWaypoint extends WaypointBase
     implements BuildingEventListenerInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final PathFindingLayerInterface ownerLayer;
     
     public MultipassNoCacheWaypoint(final PathFindingLayerInterface ownerLayer, final Sound sound)
@@ -119,7 +121,7 @@ public class MultipassNoCacheWaypoint extends WaypointBase
         customMapGenerator.copyMapIntoCustomMap();
         final int[][] customMapArray = customMapGenerator.getCustomMapArray();
 
-        //LogUtil.put(LogFactory.getInstance("Start GeographicMapCellPosition: " + startGeographicMapCellPosition.toString(), this, "createPaths"));
+        //logUtil.put("Start GeographicMapCellPosition: " + startGeographicMapCellPosition.toString(), this, "createPaths");
         //int originalStartData = 
           //  customMapArray[startGeographicMapCellPosition.getRow()][startGeographicMapCellPosition.getColumn()];
         
@@ -147,10 +149,10 @@ public class MultipassNoCacheWaypoint extends WaypointBase
     {
         try {
 
-            //LogUtil.put(LogFactory.getInstance("geographicMapInterface.getGeographicMapCellTypeFactory().toString(): " + geographicMapInterface.getGeographicMapCellTypeFactory().toString(), this, "getPathsList"));
+            //logUtil.put("geographicMapInterface.getGeographicMapCellTypeFactory().toString(): " + geographicMapInterface.getGeographicMapCellTypeFactory().toString(), this, "getPathsList");
             //This should not be possible right?
             if (pathFindingInfo == null) {
-                LogUtil.put(LogFactory.getInstance("pathFindingInfo: " + pathFindingInfo, this, "getPathsList"));
+                logUtil.put("pathFindingInfo: " + pathFindingInfo, this, "getPathsList");
                 return BasicArrayListUtil.getInstance().getImmutableInstance();
             }
 
@@ -179,7 +181,7 @@ public class MultipassNoCacheWaypoint extends WaypointBase
             return null;
         } catch(Exception e) {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getPathsList", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "getPathsList", e);
             return BasicArrayListUtil.getInstance().getImmutableInstance();
         }
     }
@@ -190,7 +192,7 @@ public class MultipassNoCacheWaypoint extends WaypointBase
     {
         final BasicArrayList endList = this.ownerLayer.getEndGeographicMapCellPositionList();
         
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.ownerLayer.getName()).append(" c: ").append(this.ownerLayer.getCurrentGeographicMapCellPosition()).append(' ').append(this.ownerLayer.getTopLeftGeographicMapCellPosition()).append(" endList: ").append(endList).toString(), this, "visit"));
+        //logUtil.put(new StringMaker().append(this.ownerLayer.getName()).append(" c: ").append(this.ownerLayer.getCurrentGeographicMapCellPosition()).append(' ').append(this.ownerLayer.getTopLeftGeographicMapCellPosition()).append(" endList: ").append(endList).toString(), this, "visit");
         
         GeographicMapCellPosition endGeographicMapCellPosition =
             (GeographicMapCellPosition) BasicArrayListUtil.getInstance().getRandom(endList);
@@ -255,7 +257,7 @@ public class MultipassNoCacheWaypoint extends WaypointBase
                     //if (this.getOwnerLayer() != rtsLayer)
                     //{
                     unitLayer.handleCost(this.ownerLayer);
-                    //LogUtil.put(LogFactory.getInstance("Sending: " + unitLayer.getName(), this, "visit"));
+                    //logUtil.put("Sending: " + unitLayer.getName(), this, "visit");
                     
                     unitWaypointBehavior.insertWaypoint(0, rtsLayer);
                     break;

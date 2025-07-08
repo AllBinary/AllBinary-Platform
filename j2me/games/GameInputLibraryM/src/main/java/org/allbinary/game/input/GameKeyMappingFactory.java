@@ -16,6 +16,8 @@ package org.allbinary.game.input;
 
 public class GameKeyMappingFactory
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final GameKeyMappingFactory SINGLETON = new GameKeyMappingFactory();
     
     private GameKey[] intKeyToGameKey = new GameKey[InputFactory.getInstance().MAX];
@@ -56,7 +58,7 @@ public class GameKeyMappingFactory
     
     public GameKey getInstance(int key)
     {
-        // LogUtil.put(LogFactory.getInstance("Getting GameKey: " + key, "GameKey", commonStrings.GET_INSTANCE));
+        // logUtil.put("Getting GameKey: " + key, "GameKey", commonStrings.GET_INSTANCE);
         return intKeyToGameKey[key];
     }
 

@@ -25,6 +25,8 @@ import org.allbinary.logic.system.os.GenericOperatingSystem;
  * @author user
  */
 public class SystemHardwareFactory {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     
     private static final SystemHardwareFactory instance = new SystemHardwareFactory();
 
@@ -52,15 +54,15 @@ public class SystemHardwareFactory {
 
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OS))
          //{
-            //LogUtil.put(LogFactory.getInstance(static_toString(), this, commonStrings.CONSTRUCTOR));
-    	    LogUtil.put(LogFactory.getInstance("Found Hardware", this, commonStrings.CONSTRUCTOR));
+            //logUtil.put(static_toString(), this, commonStrings.CONSTRUCTOR);
+    	    logUtil.put("Found Hardware", this, commonStrings.CONSTRUCTOR);
          //}
       }
       catch(Exception e)
       {
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OS))
          //{
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
          //}
       }
       return hardwareInterface;

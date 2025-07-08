@@ -28,6 +28,8 @@ public class AllBinaryJ2SEImageRotationAnimation
     extends ImageBaseRotationAnimation
     //implements AutoCloseable
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final ImageRotationUtil imageRotationUtil = ImageRotationUtil.getInstance();
     private final ImageModifierUtil imageModifierUtil = ImageModifierUtil.getInstanceOrCreate();
 
@@ -79,7 +81,7 @@ public class AllBinaryJ2SEImageRotationAnimation
         this.twoImages[0] = image;
         this.twoImages[1] = ImageCopyUtil.getInstance().createImageForRotation(image);
         
-        //LogUtil.put(LogFactory.getInstance(this.toString(), this, commonStrings.CONSTRUCTOR));
+        //logUtil.put(this.toString(), this, commonStrings.CONSTRUCTOR);
     }
 
     @Override
@@ -132,7 +134,7 @@ public class AllBinaryJ2SEImageRotationAnimation
 
     @Override
     public void setScale(final float scaleX, final float scaleY) {
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("scaleX: ").append(scaleX).append("scaleY: ").append(scaleY).toString(), this, "setScale"));
+        //logUtil.put(new StringMaker().append("scaleX: ").append(scaleX).append("scaleY: ").append(scaleY).toString(), this, "setScale");
         this.scaleX = scaleX;
         this.scaleY = scaleY;
         this.scaleProcessor.update(this.realOriginalImage, this.originalImageArray, this.twoImages, this.bufferedImageIndex, this.scaleX, this.scaleY, this.maxScaleX, this.maxScaleY);
@@ -141,7 +143,7 @@ public class AllBinaryJ2SEImageRotationAnimation
 
     @Override
     public void setMaxScale(final float maxScaleX, final float maxScaleY) {
-        //LogUtil.put(LogFactory.getInstance("maxScaleX: " + maxScaleX, this, "setMaxScale"));
+        //logUtil.put("maxScaleX: " + maxScaleX, this, "setMaxScale");
         this.maxScaleX = maxScaleX;
         this.maxScaleY = maxScaleY;
         this.scaleProcessor.update(this.realOriginalImage, this.originalImageArray, this.twoImages, this.bufferedImageIndex, this.scaleX, this.scaleY, this.maxScaleX, this.maxScaleY);
@@ -171,10 +173,10 @@ public class AllBinaryJ2SEImageRotationAnimation
 
     public void setFrame(final int index)
     {
-        //LogUtil.put(LogFactory.getInstance(commonLabels.INDEX_LABEL + index, this, "setRotation"));
+        //logUtil.put(commonLabels.INDEX_LABEL + index, this, "setRotation");
 
         //final int currentFrame = this.circularIndexUtil.getIndex();
-        //LogUtil.put(LogFactory.getInstance("currentFrame: " + currentFrame, this, "setRotation"));
+        //logUtil.put("currentFrame: " + currentFrame, this, "setRotation");
         
         super.setFrame(index);
 

@@ -28,6 +28,8 @@ import org.allbinary.logic.string.StringMaker;
 
 public class GameDifficultyOptions extends CommandForm
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     
     private final BasicArrayList list;
 
@@ -37,7 +39,7 @@ public class GameDifficultyOptions extends CommandForm
     {
         super(commandListener, title, backgrounBasicColor, foregroundBasicColor);
 
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
+        logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
         
         this.list = list;
 
@@ -113,7 +115,7 @@ public class GameDifficultyOptions extends CommandForm
         {
             Object object = list.objectArray[index];
 
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append(NAME).append(object.toString()).toString(), this, METHOD_NAME));
+            logUtil.put(new StringMaker().append(NAME).append(object.toString()).toString(), this, METHOD_NAME);
 
             choiceGroup.append(object.toString(), null);
         }

@@ -24,14 +24,16 @@ import org.allbinary.view.ViewPosition;
  */
 public class StaticTileLayerIntoPositionViewPosition extends ViewPosition
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
    private static AllBinaryTiledLayer tiledLayer;
    public static AllBinaryLayer layer;
    
    public StaticTileLayerIntoPositionViewPosition()
    {
-      //LogUtil.put(LogFactory.getInstance("getRelativePositionX: " + this.getRelativePositionX(), this, "getViewPositionX"));
-      //LogUtil.put(LogFactory.getInstance("tiledLayer.getX(): " + tiledLayer.getX(), this, "getViewPositionX"));
-      //LogUtil.put(LogFactory.getInstance("X: " + x, this, "getViewPositionX"));
+      //logUtil.put("getRelativePositionX: " + this.getRelativePositionX(), this, "getViewPositionX");
+      //logUtil.put("tiledLayer.getX(): " + tiledLayer.getX(), this, "getViewPositionX");
+      //logUtil.put("X: " + x, this, "getViewPositionX");
    }
       
    public int getX()

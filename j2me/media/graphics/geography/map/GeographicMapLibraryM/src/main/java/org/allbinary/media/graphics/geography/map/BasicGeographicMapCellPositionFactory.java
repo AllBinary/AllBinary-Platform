@@ -20,6 +20,8 @@ import org.allbinary.logic.string.StringMaker;
 
 public class BasicGeographicMapCellPositionFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final GeographicMapCellPosition[][] geographicMapCellPositionArray;
     protected final BasicGeographicMap geographicMapInterface;
     protected final GeographicMapCellPositionFactoryInterface geographicMapCellPositionFactoryInterface;
@@ -56,10 +58,10 @@ public class BasicGeographicMapCellPositionFactory
 
         for (int column = 0; column < columns; column++)
         {
-            // LogUtil.put(LogFactory.getInstance("Initializing Column: ").append(col, this, commonStrings.INIT));
+            // logUtil.put("Initializing Column: ").append(col, this, commonStrings.INIT);
             for (int row = 0; row < rows; row++)
             {
-                // LogUtil.put(LogFactory.getInstance("Initializing Row: ").append(row, this, commonStrings.INIT));
+                // logUtil.put("Initializing Row: ").append(row, this, commonStrings.INIT);
                 // GeographicMapCellPosition cellPosition =
                 this.createInstance(column, row, width, height);
             }
@@ -83,10 +85,10 @@ public class BasicGeographicMapCellPositionFactory
             GeographicMapCellPosition cellPosition;
         for (int column = 0; column < columns; column++)
         {
-            // LogUtil.put(LogFactory.getInstance("Initializing Column: ").append(col, this, commonStrings.INIT));
+            // logUtil.put("Initializing Column: ").append(col, this, commonStrings.INIT);
             for (int row = 0; row < rows; row++)
             {
-                // LogUtil.put(LogFactory.getInstance("Initializing Row: ").append(row, this, commonStrings.INIT));
+                // logUtil.put("Initializing Row: ").append(row, this, commonStrings.INIT);
                 cellPosition = this.getInstance(column, row);
                 geographicMapCelPositionFactoryInitVisitorInterface.visit(tiledLayer, cellPosition);
             }
@@ -95,7 +97,7 @@ public class BasicGeographicMapCellPositionFactory
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append("[").append(rows).append("][").append(columns).append("]").toString(), this, "visit", e));
+            logUtil.put(new StringMaker().append("[").append(rows).append("][").append(columns).append("]").toString(), this, "visit", e);
             throw e;
         }
     }

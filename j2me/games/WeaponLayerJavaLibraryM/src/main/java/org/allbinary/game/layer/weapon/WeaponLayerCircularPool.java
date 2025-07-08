@@ -20,6 +20,8 @@ import org.allbinary.layer.AllBinaryLayerCircularPool;
 
 public class WeaponLayerCircularPool extends AllBinaryLayerCircularPool
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     public WeaponLayerCircularPool()
     {
 
@@ -39,7 +41,7 @@ public class WeaponLayerCircularPool extends AllBinaryLayerCircularPool
         /*
         if(!weaponLayer.isDestroyed())
         {
-            LogUtil.put(LogFactory.getInstance("TWB Exception: WeaponLayer Pool Is Too Small For: " + weaponLayer, this, commonStrings.GET_INSTANCE));
+            logUtil.put("TWB Exception: WeaponLayer Pool Is Too Small For: " + weaponLayer, this, commonStrings.GET_INSTANCE);
         }
         */
 

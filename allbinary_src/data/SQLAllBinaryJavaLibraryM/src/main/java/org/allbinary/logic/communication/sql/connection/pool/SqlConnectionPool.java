@@ -26,6 +26,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class SqlConnectionPool
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final SqlConnectionPool instance = new SqlConnectionPool();
     
     public static SqlConnectionPool getInstance() {
@@ -65,7 +67,7 @@ public class SqlConnectionPool
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGPOOL))
             {
-                LogUtil.put(LogFactory.getInstance(FIRST_NEW_CONNECTION_CREATED + url, this, METHOD_GET));
+                logUtil.put(FIRST_NEW_CONNECTION_CREATED + url, this, METHOD_GET);
             }
 
             return DriverManager.getConnection(url);
@@ -88,7 +90,7 @@ public class SqlConnectionPool
                     stringBuffer.append(url);
                     stringBuffer.append(CREATED);
 
-                    LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, METHOD_GET));
+                    logUtil.put(stringBuffer.toString(), this, METHOD_GET);
                 }
 
                 return DriverManager.getConnection(url);
@@ -97,7 +99,7 @@ public class SqlConnectionPool
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                     org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGPOOL))
                 {
-                    LogUtil.put(LogFactory.getInstance(new StringBuilder().append(NEW_CONNECTION_FOR).append(url).append(CREATED).toString(), this, METHOD_GET));
+                    logUtil.put(new StringBuilder().append(NEW_CONNECTION_FOR).append(url).append(CREATED).toString(), this, METHOD_GET);
                 }
                 return DriverManager.getConnection(url);
             } else
@@ -123,9 +125,9 @@ public class SqlConnectionPool
                             stringBuffer.append(IS);
                             stringBuffer.append(connectionVector.size());
 
-                            LogUtil.put(LogFactory.getInstance(NUMBER_OF_SQL_CONNECTION_VECTORS
-                                + this.connectionHashMap.size(), this, METHOD_GET));
-                            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, METHOD_GET));
+                            logUtil.put(NUMBER_OF_SQL_CONNECTION_VECTORS
+                                + this.connectionHashMap.size(), this, METHOD_GET);
+                            logUtil.put(stringBuffer.toString(), this, METHOD_GET);
                         }
                         return (Connection) sqlConnection;
                     }
@@ -143,7 +145,7 @@ public class SqlConnectionPool
             stringBuffer.append(url);
             stringBuffer.append(CREATED);
 
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, METHOD_GET));
+            logUtil.put(stringBuffer.toString(), this, METHOD_GET);
         }
 
         return DriverManager.getConnection(url);
@@ -191,16 +193,16 @@ public class SqlConnectionPool
                 stringBuffer.append(connectionVector.size());
 
 
-                LogUtil.put(LogFactory.getInstance(NUMBER_OF_SQL_CONNECTION_VECTORS
-                    + this.connectionHashMap.size(), this, METHOD_ADD));
-                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, METHOD_ADD));
+                logUtil.put(NUMBER_OF_SQL_CONNECTION_VECTORS
+                    + this.connectionHashMap.size(), this, METHOD_ADD);
+                logUtil.put(stringBuffer.toString(), this, METHOD_ADD);
             }
         }
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGPOOL))
         {
-            LogUtil.put(LogFactory.getInstance(CONNECTION_ALLREADY_CLOSED, this, METHOD_ADD));
+            logUtil.put(CONNECTION_ALLREADY_CLOSED, this, METHOD_ADD);
         }
     }
 

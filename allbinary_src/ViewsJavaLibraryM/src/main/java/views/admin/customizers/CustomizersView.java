@@ -38,6 +38,8 @@ import org.allbinary.logic.visual.transform.template.customizer.widgets.title.Ti
 import org.allbinary.logic.visual.transform.template.util.TransformTemplateCustomizerUtil;
 
 public class CustomizersView extends HttpStoreComponentView implements DomNodeInterface {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
 
@@ -91,7 +93,7 @@ public class CustomizersView extends HttpStoreComponentView implements DomNodeIn
             return node;
         } catch (Exception e) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XSLLOGGINGERROR)) {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "toXmlNode", e));
+                logUtil.put(this.commonStrings.FAILURE, this, "toXmlNode", e);
             }
             return null;
         }
@@ -107,7 +109,7 @@ public class CustomizersView extends HttpStoreComponentView implements DomNodeIn
             return super.view();
         } catch (Exception e) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR)) {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "view()", e));
+                logUtil.put(commonStrings.EXCEPTION, this, "view()", e);
             }
             throw e;
         }

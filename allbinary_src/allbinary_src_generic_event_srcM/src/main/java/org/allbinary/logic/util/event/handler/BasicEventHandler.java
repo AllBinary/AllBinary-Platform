@@ -26,6 +26,8 @@ import org.allbinary.logic.util.event.EventStrings;
 
 public class BasicEventHandler implements BasicEventHandlerInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     public static final String PERFORMANCE_MESSAGE = "Use Custom onEvent Methods for needed optimization";
     private BasicArrayList eventListenerInterfaceList;
 
@@ -58,7 +60,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
             catch (Exception e)
             {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.TOSTRING, e));
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.TOSTRING, e);
             }
         }
         return stringBuffer.toString();
@@ -87,8 +89,8 @@ public class BasicEventHandler implements BasicEventHandlerInterface
     {
         if (!this.eventListenerInterfaceList.contains(eventListenerInterface))
         {
-            //LogUtil.put(LogFactory.getInstance(
-              //      CommonLabels.getInstance().START + eventListenerInterface, this, commonStrings.ADD_LISTENER));
+            //logUtil.put(
+              //      CommonLabels.getInstance().START + eventListenerInterface, this, commonStrings.ADD_LISTENER);
             this.eventListenerInterfaceList.add(eventListenerInterface);
         }
     }
@@ -103,19 +105,19 @@ public class BasicEventHandler implements BasicEventHandlerInterface
          * while(this.reentrantLock.getHoldCount() > 1) {
          * this.condition.await(); }
          */
-        // LogUtil.put(LogFactory.getInstance("Start: Locks Held: " +
+        // logUtil.put("Start: Locks Held: " +
         // reentrantLock.getHoldCount() + " Held By Current Thread: " +
-        // reentrantLock.isHeldByCurrentThread(), this, commonStrings.ADD_LISTENER));
+        // reentrantLock.isHeldByCurrentThread(), this, commonStrings.ADD_LISTENER);
         if (!this.eventListenerInterfaceList.contains(eventListenerInterface))
         {
-            //LogUtil.put(LogFactory.getInstance(
-              //      CommonLabels.getInstance().START + eventListenerInterface, this, commonStrings.ADD_LISTENER));
+            //logUtil.put(
+              //      CommonLabels.getInstance().START + eventListenerInterface, this, commonStrings.ADD_LISTENER);
             this.eventListenerInterfaceList.add(eventListenerInterface);
         }
         /*
          * this.condition.signal();
-         *  } catch(Exception e) { LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this,
-         * commonStrings.ADD_LISTENER, e)); } finally { reentrantLock.unlock(); }
+         *  } catch(Exception e) { logUtil.put(this.commonStrings.EXCEPTION, this,
+         * commonStrings.ADD_LISTENER, e); } finally { reentrantLock.unlock(); }
          */
     }
 
@@ -123,8 +125,8 @@ public class BasicEventHandler implements BasicEventHandlerInterface
             EventListenerInterface eventListenerInterface)
      {
 
-            //LogUtil.put(LogFactory.getInstance(
-              //      CommonLabels.getInstance().START + eventListenerInterface, this, commonStrings.ADD_LISTENER));
+            //logUtil.put(
+              //      CommonLabels.getInstance().START + eventListenerInterface, this, commonStrings.ADD_LISTENER);
 
          this.eventListenerInterfaceList.remove(eventListenerInterface);
     }
@@ -138,12 +140,12 @@ public class BasicEventHandler implements BasicEventHandlerInterface
              * while(this.reentrantLock.getHoldCount() > 1) {
              * this.condition.await(); }
              */
-            // LogUtil.put(LogFactory.getInstance("Start: Locks Held: " +
+            // logUtil.put("Start: Locks Held: " +
             // reentrantLock.getHoldCount() + " Held By Current Thread: " +
-            // reentrantLock.isHeldByCurrentThread(), this, commonStrings.REMOVE_LISTENER));
+            // reentrantLock.isHeldByCurrentThread(), this, commonStrings.REMOVE_LISTENER);
 
-            //LogUtil.put(LogFactory.getInstance(
-              //      CommonLabels.getInstance().START + eventListenerInterface, this, commonStrings.ADD_LISTENER));
+            //logUtil.put(
+              //      CommonLabels.getInstance().START + eventListenerInterface, this, commonStrings.ADD_LISTENER);
 
             this.eventListenerInterfaceList.remove(eventListenerInterface);
             /*
@@ -165,7 +167,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
          * //if(this instance of DestroyedEventHandler) //LogUtil.put(new
          * Log("Start: Locks Held: " + reentrantLock.getHoldCount() + " Held By
          * Current Thread: " + reentrantLock.isHeldByCurrentThread(), this,
-         * EventStrings.getInstance().FIRE_EVENT)); //LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, EventStrings.getInstance().FIRE_EVENT));
+         * EventStrings.getInstance().FIRE_EVENT)); //logUtil.put(this.commonStrings.START, this, EventStrings.getInstance().FIRE_EVENT);
          *
          * iter = this.eventListenerInterfaceVector; while
          * (iter.hasNext()) { EventListenerInterface eventListenerInterface =
@@ -192,7 +194,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
             catch (Exception e)
             {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
+                logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
         }
 

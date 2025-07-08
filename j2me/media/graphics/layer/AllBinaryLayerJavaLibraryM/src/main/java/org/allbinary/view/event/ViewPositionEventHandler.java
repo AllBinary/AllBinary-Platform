@@ -26,6 +26,8 @@ import org.allbinary.logic.util.event.EventStrings;
 
 public class ViewPositionEventHandler extends BasicEventHandler
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private static ViewPositionEventHandler SINGLETON = new ViewPositionEventHandler();
 
    public static ViewPositionEventHandler getInstance()
@@ -70,7 +72,7 @@ public class ViewPositionEventHandler extends BasicEventHandler
            }
            catch (Exception e)
            {
-               LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
+               logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
            }
        }
 

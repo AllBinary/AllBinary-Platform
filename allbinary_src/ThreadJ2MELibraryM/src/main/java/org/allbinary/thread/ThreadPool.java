@@ -24,6 +24,8 @@ import org.allbinary.string.CommonSeps;
 
 public class ThreadPool
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     protected final ThreadPoolStrings threadPoolStrings = ThreadPoolStrings.getInstance();
 
@@ -53,7 +55,7 @@ public class ThreadPool
     {
         if (!this.isAlive)
         {
-            //LogUtil.put(LogFactory.getInstance(this.commonStrings.INIT, this, this.commonStrings.INIT));
+            //logUtil.put(this.commonStrings.INIT, this, this.commonStrings.INIT);
             this.isAlive = true;
 
             this.taskQueue = new BasicArrayList();
@@ -87,14 +89,14 @@ public class ThreadPool
         if (task != null)
         {
 
-            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Add: ").append(task).toString(), this, this.threadPoolStrings.ADD_TASK));
+            //logUtil.put(new StringMaker().append("Add: ").append(task).toString(), this, this.threadPoolStrings.ADD_TASK);
             //PreLogUtil.put("Add: ").append(task, this, this.threadPoolStrings.ADD_TASK);
             final int size = this.taskQueue.size();
             PriorityRunnable runnable;
             PriorityRunnable lowerPriorityRunnable = ThreadObjectUtil.getInstance().NULL_PRIORITY_RUNNABLE;
             for(int index = 0; index < size; index++) {
                 runnable = (PriorityRunnable) this.taskQueue.get(index);
-                //LogUtil.put(LogFactory.getInstance(new StringMaker().append(COMPARE_PRIORITY).append(task.getPriority()).toString(), this, this.threadPoolStrings.ADD_TASK));
+                //logUtil.put(new StringMaker().append(COMPARE_PRIORITY).append(task.getPriority()).toString(), this, this.threadPoolStrings.ADD_TASK);
                 if(runnable.getPriority() > task.getPriority()) {
                     lowerPriorityRunnable = runnable;
                     break;
@@ -104,9 +106,9 @@ public class ThreadPool
             if(lowerPriorityRunnable == null) {
                 this.taskQueue.add(task);
             } else {
-                //LogUtil.put(LogFactory.getInstance(new StringMaker().append(ADD_PRIORITY).append(task.getPriority()).toString(), this, this.threadPoolStrings.ADD_TASK));
+                //logUtil.put(new StringMaker().append(ADD_PRIORITY).append(task.getPriority()).toString(), this, this.threadPoolStrings.ADD_TASK);
                 final int index = this.taskQueue.indexOf(lowerPriorityRunnable);
-                //LogUtil.put(LogFactory.getInstance(new StringMaker().append(ADD_PRIORITY).append(index).append(CommonSeps.getInstance().SPACE).append(this.taskQueue.size()).toString(), this, this.threadPoolStrings.ADD_TASK));
+                //logUtil.put(new StringMaker().append(ADD_PRIORITY).append(index).append(CommonSeps.getInstance().SPACE).append(this.taskQueue.size()).toString(), this, this.threadPoolStrings.ADD_TASK);
                 this.taskQueue.add(index, task);
             }
             
@@ -125,7 +127,7 @@ public class ThreadPool
         if (task != null)
         {
 
-            //LogUtil.put(LogFactory.getInstance("Add: ").append(task, this, this.threadPoolStrings.ADD_TASK));
+            //logUtil.put("Add: ").append(task, this, this.threadPoolStrings.ADD_TASK);
             //PreLogUtil.put("Add: ").append(task, this, this.threadPoolStrings.ADD_TASK);
 
             this.taskQueue.add(task);
@@ -151,7 +153,7 @@ public class ThreadPool
     {
         if (this.isAlive)
         {
-            //LogUtil.put(LogFactory.getInstance("clear", this, this.commonStrings.RUN));
+            //logUtil.put("clear", this, this.commonStrings.RUN);
             this.taskQueue.clear();
         }
     }
@@ -161,7 +163,7 @@ public class ThreadPool
         if (this.isAlive)
         {
             this.isAlive = false;
-            //LogUtil.put(LogFactory.getInstance("clear2", this, this.commonStrings.RUN));
+            //logUtil.put("clear2", this, this.commonStrings.RUN);
             this.taskQueue.clear();
             //interrupt();
         }
@@ -173,7 +175,7 @@ public class ThreadPool
         synchronized (this)
         {
             this.isAlive = false;
-            //LogUtil.put(LogFactory.getInstance("clear3", this, this.commonStrings.RUN));
+            //logUtil.put("clear3", this, this.commonStrings.RUN);
             this.taskQueue.clear();
             notifyAll();
         }
@@ -240,7 +242,7 @@ public class ThreadPool
         {
             //super(ThreadPool.this, 
             super(new StringMaker().append(poolName).append(ROOT_NAME).append(threadID++).toString());
-            LogUtil.put(LogFactory.getInstance(commonStrings.CONSTRUCTOR, this, commonStrings.CONSTRUCTOR));
+            logUtil.put(commonStrings.CONSTRUCTOR, this, commonStrings.CONSTRUCTOR);
         }
 
         private final String INTERRUPT_EXCEPTION = "Exit InterruptedException";
@@ -260,14 +262,14 @@ public class ThreadPool
                 try
                 {
                     task2 = getTask();
-                    //LogUtil.put(LogFactory.getInstance(task + " with Thread: " + this.toString(), this, commonStrings.RUN));
+                    //logUtil.put(task + " with Thread: " + this.toString(), this, commonStrings.RUN);
                     runningTask = true;
 
                     startTask(task2);
 
                 } catch (InterruptedException ex)
                 {
-                    LogUtil.put(LogFactory.getInstance(INTERRUPT_EXCEPTION, this, commonStrings.RUN));
+                    logUtil.put(INTERRUPT_EXCEPTION, this, commonStrings.RUN);
                     break;
                 }
 
@@ -289,7 +291,7 @@ public class ThreadPool
                     runningTask = false;
                 } catch (Exception e)
                 {
-                    LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(StringUtil.getInstance().toString(task2)).toString(), this, commonStrings.RUN, e));
+                    logUtil.put(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(StringUtil.getInstance().toString(task2)).toString(), this, commonStrings.RUN, e);
                 }
             }
 

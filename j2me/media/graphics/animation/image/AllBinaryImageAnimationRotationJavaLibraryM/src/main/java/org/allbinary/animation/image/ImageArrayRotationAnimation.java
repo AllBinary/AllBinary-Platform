@@ -22,6 +22,8 @@ import org.allbinary.math.AngleInfo;
 public class ImageArrayRotationAnimation extends
         ImageArrayBaseRotationAnimation
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     // , 10, AngleIncrementInfo.TOTAL_ANGLE, angleIncrement, AngleIncrementInfo.TOTAL_ANGLE
 
     private int expectedTotalFrames;
@@ -33,8 +35,8 @@ public class ImageArrayRotationAnimation extends
                 ((ImageArrayRotationAnimationInfo) object).getAngleInfo(),
                 animationBehavior);
 
-        // LogUtil.put(LogFactory.getInstance(commonStrings.CONSTRUCTOR,
-        // this, "AllBinaryImageRotationAnimation"));
+        // logUtil.put(commonStrings.CONSTRUCTOR,
+        // this, "AllBinaryImageRotationAnimation");
         ImageArrayRotationAnimationInfo allBinaryImageRotationAnimationInfo = (ImageArrayRotationAnimationInfo) object;
 
         this.init(allBinaryImageRotationAnimationInfo.getImageArray(),
@@ -47,7 +49,7 @@ public class ImageArrayRotationAnimation extends
     {
         super(imageArray, angleInfo, animationBehavior);
 
-        // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
+        // logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
         this.init(imageArray, angleInfo, totalAngle);
     }
@@ -68,8 +70,8 @@ public class ImageArrayRotationAnimation extends
             throws Exception
     {
 
-        // LogUtil.put(LogFactory.getInstance(commonStrings.START,
-        // this, "AllBinaryImageRotationAnimation"));
+        // logUtil.put(commonStrings.START,
+        // this, "AllBinaryImageRotationAnimation");
 
         this.expectedTotalFrames = totalAngle
                 / this.angleInfo.getAngleIncrementInfo().getAngleIncrement();

@@ -26,6 +26,8 @@ import org.allbinary.util.BasicArrayList;
 
 public class InitializeCloud
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     public static final String CLOUD = "cloud/";
     public static final String CLOUD_UPDATE = "cloudupdate/";
 
@@ -85,8 +87,8 @@ public class InitializeCloud
                 stringBuffer.append(" - ");
                 stringBuffer.append(end);
 
-                LogUtil.put(LogFactory.getInstance(
-                    stringBuffer.toString(), this, "initialize()"));
+                logUtil.put(
+                    stringBuffer.toString(), this, "initialize()");
 
                 for (int index = start; index < end; index++)
                 {
@@ -101,13 +103,13 @@ public class InitializeCloud
                     }
                 }
 
-                LogUtil.put(LogFactory.getInstance("Copied Files To Cloud", this, "initialize()"));
+                logUtil.put("Copied Files To Cloud", this, "initialize()");
             }
 
             return true;
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Unable to copy installer files into cloud", this, "initialize()", e));
+            logUtil.put("Unable to copy installer files into cloud", this, "initialize()", e);
             return false;
         }
     }

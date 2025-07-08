@@ -25,10 +25,12 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 
 public class PCGameInputMapping extends PersistentInputMapping
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     public void init(final AbeClientInformationInterface abeClientInformation)
     throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.INIT));
+        logUtil.put(this.commonStrings.START, this, this.commonStrings.INIT);
 
         PCKeyFactory.getInstance();
         TouchMotionGestureFactory.getInstance();

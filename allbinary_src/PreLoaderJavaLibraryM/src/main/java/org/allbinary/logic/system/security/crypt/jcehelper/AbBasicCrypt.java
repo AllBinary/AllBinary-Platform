@@ -28,6 +28,8 @@ import org.allbinary.string.CommonStrings;
 
 public class AbBasicCrypt implements CryptInterface
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
    private Cipher cipher;
    private SecretKey secretKey;
    private String algorithm;

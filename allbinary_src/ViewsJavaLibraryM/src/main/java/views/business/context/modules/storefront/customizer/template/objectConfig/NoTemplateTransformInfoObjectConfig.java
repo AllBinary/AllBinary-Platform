@@ -36,6 +36,8 @@ import org.allbinary.logic.communication.log.LogFactory;
 
 public class NoTemplateTransformInfoObjectConfig extends TransformInfoObjectConfig
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
    public NoTemplateTransformInfoObjectConfig(TransformInfoInterface transformInfoInterface) throws Exception
    {
@@ -61,7 +63,7 @@ public class NoTemplateTransformInfoObjectConfig extends TransformInfoObjectConf
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("Initial ObjectConfig: " + docString, this, "generate()"));
+         logUtil.put("Initial ObjectConfig: " + docString, this, "generate()");
       }
 
       String storeName = this.getTransformInfoInterface().getStoreName();
@@ -92,8 +94,8 @@ public class NoTemplateTransformInfoObjectConfig extends TransformInfoObjectConf
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("Final ObjectConfig: " +
-            DomDocumentHelper.toString(newObjectConfigDocument), this, "generate()"));
+         logUtil.put("Final ObjectConfig: " +
+            DomDocumentHelper.toString(newObjectConfigDocument), this, "generate()");
       }
 
       return newObjectConfigDocument;

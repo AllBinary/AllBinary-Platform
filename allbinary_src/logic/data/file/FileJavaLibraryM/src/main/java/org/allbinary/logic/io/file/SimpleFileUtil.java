@@ -28,6 +28,8 @@ import org.allbinary.util.BasicArrayList;
  * @author User
  */
 public class SimpleFileUtil {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     
     protected static final SimpleFileUtil instance = new SimpleFileUtil();
 
@@ -60,7 +62,7 @@ public class SimpleFileUtil {
             streamUtil.close(inputStream);
         } catch (Exception e) {
             streamUtil.close(inputStream);
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.ADD, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.ADD, e);
         }
 
         if(byteArray == null) {
@@ -70,12 +72,12 @@ public class SimpleFileUtil {
         //final StringMaker stringMaker = new StringMaker();
         
         final int size = byteArray.length;
-        //LogUtil.put(LogFactory.getInstance("size: " + size, this, commonStrings.PROCESS));
+        //logUtil.put("size: " + size, this, commonStrings.PROCESS);
         int index = 0;
         int startIndex;
         int returnLine = 0;
         while(index < size) {
-            //LogUtil.put(LogFactory.getInstance("index" + index, this, commonStrings.PROCESS));
+            //logUtil.put("index" + index, this, commonStrings.PROCESS);
             startIndex = index;
             while(index < size - 1 && byteArray[index] != '\n') {
                 index++;
@@ -95,7 +97,7 @@ public class SimpleFileUtil {
             index++;
         }
         
-        //LogUtil.put(LogFactory.getInstance("s: " + stringMaker.toString(), this, commonStrings.PROCESS));
+        //logUtil.put("s: " + stringMaker.toString(), this, commonStrings.PROCESS);
         
         return stringList;
     }

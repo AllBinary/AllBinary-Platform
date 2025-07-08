@@ -25,6 +25,8 @@ import org.allbinary.util.BasicArrayList;
 
 public class Directory
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final Directory instance = new Directory();
 
     /**

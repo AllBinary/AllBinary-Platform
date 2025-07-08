@@ -34,7 +34,9 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class KeyValuePersistance extends BasicPersitance
-{    
+{
+    protected final LogUtil logUtil = LogUtil.getInstance();
+    
     protected KeyValuePersistance(final String recordId)
     {
         super(recordId);
@@ -70,7 +72,7 @@ public class KeyValuePersistance extends BasicPersitance
             final int id = recordEnum.nextRecordId();
 
             stringBuffer.delete(0, stringBuffer.length());
-            LogUtil.put(LogFactory.getInstance(stringBuffer.append(this.persistanceStrings.LOADING_ID).append(id).toString(), this, this.persistanceStrings.LOAD_ALL));
+            logUtil.put(stringBuffer.append(this.persistanceStrings.LOADING_ID).append(id).toString(), this, this.persistanceStrings.LOAD_ALL);
             
             recordAsBytes = recordStore.getRecord(id);
             if(recordAsBytes != null) {
@@ -105,7 +107,7 @@ public class KeyValuePersistance extends BasicPersitance
         
         try {
 
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.persistanceStrings.SAVING).append(StringUtil.getInstance().toString(hashtable)).toString(), this, this.commonStrings.SAVE));
+        logUtil.put(new StringMaker().append(this.persistanceStrings.SAVING).append(StringUtil.getInstance().toString(hashtable)).toString(), this, this.commonStrings.SAVE);
         
         recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 

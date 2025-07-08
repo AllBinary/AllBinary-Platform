@@ -27,6 +27,8 @@ import org.allbinary.thread.SecondaryThreadPool;
 
 public class BasicHighScoresFactory extends HighScoresBase
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final AbeClientInformationInterface abeClientInformation;
     private final SoftwareInformation softwareInformation;
 
@@ -48,7 +50,7 @@ public class BasicHighScoresFactory extends HighScoresBase
     
     public void fetchHighScores(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener)
     {
-        LogUtil.put(LogFactory.getInstance("Getting Remote/Local HighScores", this, FETCH));
+        logUtil.put("Getting Remote/Local HighScores", this, FETCH);
         this.fetchHighScores(gameInfo, highScoresResultsListener, true);
     }
     
@@ -60,7 +62,7 @@ public class BasicHighScoresFactory extends HighScoresBase
             public void run() {
                 
                 try {
-                    LogUtil.put(LogFactory.getInstance(commonStrings.START, this, FETCH));
+                    logUtil.put(commonStrings.START, this, FETCH);
 
                     highScoresArray[0] = RecordStoreHighScores.getInstance(abeClientInformation, gameInfo,
                         TOP, PERSONAL_HIGH_SCORES, SCORES, new ScoreComparator(true));
@@ -82,12 +84,12 @@ public class BasicHighScoresFactory extends HighScoresBase
                             softwareInformation, gameInfo2,
                             WORLD_TOP_SCORES, SCORES, BooleanFactory.getInstance().FALSE, preload);
 
-                    LogUtil.put(LogFactory.getInstance(commonStrings.END, this, FETCH));
+                    logUtil.put(commonStrings.END, this, FETCH);
 
                     LastFetchHighScoresFactory.getInstance().highScoresArray = highScoresArray;
                     highScoresResultsListener.setHighScoresArray(highScoresArray);
                 } catch (Exception e) {
-                    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, FETCH, e));
+                    logUtil.put(commonStrings.EXCEPTION, this, FETCH, e);
 
                     //return super.createHighScores(gameInfo);
                 }

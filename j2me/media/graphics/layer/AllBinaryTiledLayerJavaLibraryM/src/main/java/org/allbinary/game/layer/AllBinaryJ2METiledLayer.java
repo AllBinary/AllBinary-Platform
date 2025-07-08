@@ -22,6 +22,8 @@ import org.allbinary.logic.string.StringMaker;
 
 public class AllBinaryJ2METiledLayer extends AllBinaryTiledLayer
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     //private final StringMaker stringMaker = new StringMaker();
     
     protected final TiledLayer tiledLayer;
@@ -40,7 +42,7 @@ public class AllBinaryJ2METiledLayer extends AllBinaryTiledLayer
 
         this.setCells(mapTwoDArray);
         //final CommonStrings commonStrings = CommonStrings.getInstance();
-        //LogUtil.put(LogFactory.getInstance(stringMaker.toString(), this, commonStrings.PROCESS));
+        //logUtil.put(stringMaker.toString(), this, commonStrings.PROCESS);
     }
 
     //TWB LayerInterface to Layer
@@ -91,7 +93,7 @@ public class AllBinaryJ2METiledLayer extends AllBinaryTiledLayer
     final Font font2 = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, 4);
     public void paintDebug(final Graphics graphics)
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "paint"));
+        //logUtil.put(commonStrings.START, this, "paint");
         final Font font = graphics.getFont();
 
         graphics.setFont(font2);
@@ -139,7 +141,7 @@ public class AllBinaryJ2METiledLayer extends AllBinaryTiledLayer
     
     public void move(final int dx, final int dy)
     {
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("TiledLayer: ").append(PositionStrings.getInstance().X_LABEL).append(dx).append(PositionStrings.getInstance().Y_LABEL).append(dy).toString(), this, "move"));
+        //logUtil.put(new StringMaker().append("TiledLayer: ").append(PositionStrings.getInstance().X_LABEL).append(dx).append(PositionStrings.getInstance().Y_LABEL).append(dy).toString(), this, "move");
         this.tiledLayer.move(dx, dy);
         //TWB LayerInterface to Layer
         super.move(-dx, -dy);
@@ -147,7 +149,7 @@ public class AllBinaryJ2METiledLayer extends AllBinaryTiledLayer
 
     public void setPosition(final int x, final int y, final int z)
     {
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("TiledLayer: x: ").append(x).append(" y: ").append(y).append(" z: ").append(z).toString(), this, "setPosition"));
+        //logUtil.put(new StringMaker().append("TiledLayer: x: ").append(x).append(" y: ").append(y).append(" z: ").append(z).toString(), this, "setPosition");
         this.tiledLayer.setPosition(x, y);
         super.setPosition(-x, -y, z);
     }
@@ -195,7 +197,7 @@ public class AllBinaryJ2METiledLayer extends AllBinaryTiledLayer
     {
 //        if(tileIndex != 0) {
 //            final CommonStrings commonStrings = CommonStrings.getInstance();
-//            LogUtil.put(LogFactory.getInstance(new StringMaker().append("tileIndex: ").append(tileIndex).toString(), this, commonStrings.PROCESS));
+//            logUtil.put(new StringMaker().append("tileIndex: ").append(tileIndex).toString(), this, commonStrings.PROCESS);
 //        }
 
         //stringMaker.append(index).append(',');

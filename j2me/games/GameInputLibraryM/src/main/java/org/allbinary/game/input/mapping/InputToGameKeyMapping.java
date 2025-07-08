@@ -31,6 +31,8 @@ import org.allbinary.logic.string.StringUtil;
 
 public class InputToGameKeyMapping extends InputMapping
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
     
     private final GameKey[] mappedGameKeys = {
@@ -47,7 +49,7 @@ public class InputToGameKeyMapping extends InputMapping
 
     public InputToGameKeyMapping()
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
+        logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
         this.clear();
     }
@@ -98,14 +100,14 @@ public class InputToGameKeyMapping extends InputMapping
     public void add(Input input, Input mappedToInput)
     {
         //PreLogUtil.put(commonStrings.START_LABEL + input + " == " + mappedToInput, this, "InputToGameKeyMapping::add");
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL + input + " == " + mappedToInput, this, "InputToGameKeyMapping::add"));
+        //logUtil.put(commonStrings.START_LABEL + input + " == " + mappedToInput, this, "InputToGameKeyMapping::add");
         super.add(input, mappedToInput);
         this.set(input, mappedToInput);
     }
 
     public void remove(Input input, Input mappedToInput)
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(input)).append(" == ").append(StringUtil.getInstance().toString(mappedToInput)).toString(), this, "InputToGameKeyMapping::remove"));
+        logUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(input)).append(" == ").append(StringUtil.getInstance().toString(mappedToInput)).toString(), this, "InputToGameKeyMapping::remove");
         super.remove(input, mappedToInput);
         this.set(input, gameKeyFactory.NONE);
     }
@@ -242,7 +244,7 @@ public class InputToGameKeyMapping extends InputMapping
         } catch (Throwable t)
         {
             //catch everything here little dangerous but I don't ever want to fail just because of failed mapping for j2me game keys
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.INIT, t));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, t);
         }
     }
 

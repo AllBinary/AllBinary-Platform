@@ -27,6 +27,8 @@ import org.allbinary.string.CommonStrings;
 
 public class InventoryHelperFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    public InventoryHelperFactory()
    {
    }
@@ -44,7 +46,7 @@ public class InventoryHelperFactory
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
             {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
             }
             return null;
         }

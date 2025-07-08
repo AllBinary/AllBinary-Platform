@@ -25,6 +25,8 @@ import org.allbinary.media.image.ImageScaleUtil;
  * @author User
  */
 public class ScaleProcessor extends ScaleBaseProcessor {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final ScaleProcessor instance = new ScaleProcessor();
 
@@ -46,7 +48,7 @@ public class ScaleProcessor extends ScaleBaseProcessor {
             imageScaleUtil.scale(originalImage, originalImageArray, ximageToShowArray, unused, scaleX, scaleY, maxScaleX, maxScaleY);
 
         } catch(Exception e) {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, this.commonStrings.UPDATE));
+            logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.UPDATE);
         }
     }
     

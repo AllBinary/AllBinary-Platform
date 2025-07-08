@@ -18,13 +18,16 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class AllBinaryMediaManagerShutdown
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final AllBinaryMediaManagerShutdown instance =
             new AllBinaryMediaManagerShutdown();
 
     public static void shutdown(SoundsFactoryInterface soundsFactoryInterface)
         throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("No Media Shutdown for Android Process", instance, "shutdown"));
+        final LogUtil logUtil = LogUtil.getInstance();
+        logUtil.put("No Media Shutdown for Android Process", instance, "shutdown");
         //AllBinaryMediaManager.shutdown(soundsFactoryInterface);
     }
     

@@ -23,6 +23,8 @@ import org.allbinary.game.combat.damage.DamageUtil;
 public class CollidableDestroyableDamageableBehavior 
 extends CollidableBaseBehavior 
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final DamageUtil damageUtil = DamageUtil.getInstance();
     
     public CollidableDestroyableDamageableBehavior(final CollidableCompositeLayer ownerLayer, final boolean collidable)
@@ -59,7 +61,7 @@ extends CollidableBaseBehavior
         if (this.ownerLayer.getGroupInterface() != groupInterfaceCompositeInterface.getGroupInterface())
         {
         //if(this.getTeamInterface() == Team.GOOD)
-          // LogUtil.put(LogFactory.getInstance("isCollision: " + this.getTeamInterface().getName() + "==" + teamInterfaceCompositeInterface.getTeamInterface().getName(), this, damageUtil.IS_COLLISION));
+          // logUtil.put("isCollision: " + this.getTeamInterface().getName() + "==" + teamInterfaceCompositeInterface.getTeamInterface().getName(), this, damageUtil.IS_COLLISION);
            
             if (LayerCollisionUtil.isCollision(this.ownerLayer, (AllBinaryLayer) collidableInterfaceCompositeInterface))
             {

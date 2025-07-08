@@ -46,6 +46,8 @@ import org.allbinary.logic.communication.log.PreLogUtil;
 
 public class DbInitInfo extends DbConnectionInfo
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
    public DbInitInfo(String initFileName, boolean read)
    {
       super();

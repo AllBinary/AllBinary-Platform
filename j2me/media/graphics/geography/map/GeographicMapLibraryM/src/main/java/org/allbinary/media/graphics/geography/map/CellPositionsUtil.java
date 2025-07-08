@@ -23,6 +23,8 @@ import org.allbinary.game.layer.AllBinaryTiledLayer;
  */
 public class CellPositionsUtil
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final CellPositionsUtil instance = new CellPositionsUtil();
     
     public static CellPositionsUtil getInstance()
@@ -44,7 +46,7 @@ public class CellPositionsUtil
         final int lastColumn = topRightGeographicMapCellPosition.getColumn() + columns;
         final int lastRow = topRightGeographicMapCellPosition.getRow() + rows;
 
-//        LogUtil.put(LogFactory.getInstance("Columns: " + columns + " Rows: " + rows + " LastColumn: " + lastColumn + " lastRow: " + lastRow, this, "addAll"));
+//        logUtil.put("Columns: " + columns + " Rows: " + rows + " LastColumn: " + lastColumn + " lastRow: " + lastRow, this, "addAll");
 
         if ((columns > 1 && lastColumn > geographicMapInterface.getAllBinaryTiledLayer().getColumns()) ||
             (rows > 1 && lastRow > geographicMapInterface.getAllBinaryTiledLayer().getRows()))
@@ -52,7 +54,7 @@ public class CellPositionsUtil
             return reusableList;
         }
 
-//        LogUtil.put(LogFactory.getInstance("layerInterface.getWidth(): " + layerInterface.getWidth() + " geographicMapInterface.getAllBinaryTiledLayer().getCellWidth(): " + geographicMapInterface.getAllBinaryTiledLayer().getCellWidth(), this, "addAll"));
+//        logUtil.put("layerInterface.getWidth(): " + layerInterface.getWidth() + " geographicMapInterface.getAllBinaryTiledLayer().getCellWidth(): " + geographicMapInterface.getAllBinaryTiledLayer().getCellWidth(), this, "addAll");
 
 
         for (int rowIndex = 0; rowIndex < rows; rowIndex++)
@@ -64,13 +66,13 @@ public class CellPositionsUtil
                     topRightGeographicMapCellPosition.getColumn() + columnIndex,
                     topRightGeographicMapCellPosition.getRow() + rowIndex);
 
-//                LogUtil.put(LogFactory.getInstance("GeographicMapCellPosition: " + geographicMapCellPosition, this, "addAll"));
-//                LogUtil.put(LogFactory.getInstance("columnIndex: " + columnIndex + " rowIndex: " + rowIndex, this, "addAll"));
+//                logUtil.put("GeographicMapCellPosition: " + geographicMapCellPosition, this, "addAll");
+//                logUtil.put("columnIndex: " + columnIndex + " rowIndex: " + rowIndex, this, "addAll");
                 reusableList.add(geographicMapCellPosition);
             }
         }
         
-//        LogUtil.put(LogFactory.getInstance(new StringMaker().append("reusableList: ").append(reusableList).append(" topRightGeographicMapCellPosition: ").append(topRightGeographicMapCellPosition).toString(), this, "visit"));
+//        logUtil.put(new StringMaker().append("reusableList: ").append(reusableList).append(" topRightGeographicMapCellPosition: ").append(topRightGeographicMapCellPosition).toString(), this, "visit");
         return reusableList;
     }
 
@@ -109,7 +111,7 @@ public class CellPositionsUtil
             }
         }
 
-        //LogUtil.put(LogFactory.getInstance("list: " + list.size(), this, "getAllSurrounding"));
+        //logUtil.put("list: " + list.size(), this, "getAllSurrounding");
 
         return reusableList;
     }

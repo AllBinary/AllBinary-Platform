@@ -27,6 +27,8 @@ import org.allbinary.logic.visual.transform.info.TransformInfoObjectFactory;
 
 public class TransformTemplateFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final TransformTemplateFactory instance = new TransformTemplateFactory();
 
     /**
@@ -65,7 +67,7 @@ public class TransformTemplateFactory
          String error = "Failed To Get Instance";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error + templateName + "->TemplateFactory", this, "getInstance(viewName, HashMap, PageContext)", e));
+            logUtil.put(error + templateName + "->TemplateFactory", this, "getInstance(viewName, HashMap, PageContext)", e);
          }
 
          throw e;

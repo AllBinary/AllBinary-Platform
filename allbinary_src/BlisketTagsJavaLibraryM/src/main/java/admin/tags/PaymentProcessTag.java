@@ -29,6 +29,8 @@ import javax.servlet.jsp.JspTagException;
 
 public class PaymentProcessTag extends StoreValidationTransformTag
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    public PaymentProcessTag()
    {
    }
@@ -53,7 +55,7 @@ public class PaymentProcessTag extends StoreValidationTransformTag
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance("LicensingException", this, commonStrings.PROCESS, e));
+            logUtil.put("LicensingException", this, commonStrings.PROCESS, e);
          }         
          throw e;
       }
@@ -61,7 +63,7 @@ public class PaymentProcessTag extends StoreValidationTransformTag
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
          }
          throw e;
       }

@@ -37,6 +37,8 @@ import org.microemu.device.swt.SwtMutableImage;
 
 public class ImageCopyUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final ImageCopyUtil instance = new ImageCopyUtil();
     
     public static ImageCopyUtil getInstance()
@@ -82,15 +84,15 @@ public class ImageCopyUtil
             throws Exception
     {
         if(!features.isFeature(gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
-            LogUtil.put(LogFactory.getInstance(NO_COPY, this, commonStrings.CONSTRUCTOR));
+            logUtil.put(NO_COPY, this, commonStrings.CONSTRUCTOR);
             return originalImage;
         }
 
         Image originalImage2 = originalImage;
         if(features.isFeature(openGLFeatureFactory.OPENGL)) {
-            //LogUtil.put(LogFactory.getInstance(NO_COPY2, this, commonStrings.CONSTRUCTOR));
+            //logUtil.put(NO_COPY2, this, commonStrings.CONSTRUCTOR);
             //final CommonSeps commonSeps = CommonSeps.getInstance();
-            //LogUtil.put(LogFactory.getInstance(new StringMaker().append(NO_COPY2).append(" from: ").append(originalImage.getWidth()).append(commonSeps.SPACE).append(originalImage.getHeight()).append(" to: ").append(width).append(commonSeps.SPACE).append(height).toString(), this, commonStrings.CONSTRUCTOR));
+            //logUtil.put(new StringMaker().append(NO_COPY2).append(" from: ").append(originalImage.getWidth()).append(commonSeps.SPACE).append(originalImage.getHeight()).append(" to: ").append(width).append(commonSeps.SPACE).append(height).toString(), this, commonStrings.CONSTRUCTOR);
             
             if (originalImage.getType() >= OpenGLESImage.TYPE) {
                 final OpenGLESImage openGLESImage = ((OpenGLESImage) originalImage);
@@ -133,10 +135,10 @@ public class ImageCopyUtil
 //                    final int pixel = originalMutableImage.img.getImageData().getPixel(x, y);
 //                    final byte alpha = (byte) (pixel >> 24);
 //                    BasicColor basicColor = new BasicColor(alpha, pixel);
-//                    //LogUtil.put(LogFactory.getInstance(basicColor.toString(), this, commonStrings.PROCESS));
+//                    //logUtil.put(basicColor.toString(), this, commonStrings.PROCESS);
 //                    if (basicColor.intValue() == -1)  {
 //                        originalMutableImage.img.getImageData().setPixel(x, y, 0x00FFFFFF);
-//                        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("x: ").append(x).append(" y: ").append(y).toString(), this, commonStrings.PROCESS));
+//                        //logUtil.put(new StringMaker().append("x: ").append(x).append(" y: ").append(y).toString(), this, commonStrings.PROCESS);
 //                    } else {
 //                        //imageData0.alphaData[(y * width) + x] = alpha;
 //                        //imageData0.setAlpha(x, y, alpha);
@@ -158,9 +160,9 @@ public class ImageCopyUtil
 //                    final int pixel = originalMutableImage.img.getImageData().getPixel(x, y);
 //                    final byte alpha = (byte) (pixel >> 24);
 //                    BasicColor basicColor = new BasicColor(alpha, pixel);
-//                    //LogUtil.put(LogFactory.getInstance(basicColor.toString(), this, commonStrings.PROCESS));
+//                    //logUtil.put(basicColor.toString(), this, commonStrings.PROCESS);
 //                    if (basicColor.intValue() == -1)  {
-//                        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("x: ").append(x).append(" y: ").append(y).toString(), this, commonStrings.PROCESS));
+//                        //logUtil.put(new StringMaker().append("x: ").append(x).append(" y: ").append(y).toString(), this, commonStrings.PROCESS);
 //                    } else {
 //                        imageData0.alphaData[(y * width) + x] = alpha;
 //                        //imageData0.setAlpha(x, y, alpha);
@@ -187,7 +189,7 @@ public class ImageCopyUtil
 //            final int[] pixelArray = new int[originalMutableImage.img.getImageData().width * originalMutableImage.img.getImageData().height];
 //            originalMutableImage.img.getImageData().getPixels(0, 0, originalMutableImage.img.getBounds().width, pixelArray, 0);
 //            //mutableImage.img.getImageData().depth = originalMutableImage.img.getImageData().depth;
-//            //LogUtil.put(LogFactory.getInstance("depth: " + mutableImage.img.getImageData().depth, this, commonStrings.PROCESS));
+//            //logUtil.put("depth: " + mutableImage.img.getImageData().depth, this, commonStrings.PROCESS);
 //            mutableImage.img.getImageData().setPixels(0, 0, originalMutableImage.img.getBounds().width, pixelArray, 0);
 //            //mutableImage.img.getImageData().(0, 0, mutableImage.img.getBounds().width, mutableImage.img.getImageData().maskData, 0);
             
@@ -199,10 +201,10 @@ public class ImageCopyUtil
 //                    final int pixel = originalImmutableImage.img.getImageData().getPixel(x, y);
 //                    final byte alpha = (byte) (pixel >> 24);
 //                    BasicColor basicColor = new BasicColor(alpha, pixel);
-//                    //LogUtil.put(LogFactory.getInstance(basicColor.toString(), this, commonStrings.PROCESS));
+//                    //logUtil.put(basicColor.toString(), this, commonStrings.PROCESS);
 //                    if (basicColor.intValue() == -1)  {
 //                        originalImmutableImage.img.getImageData().setPixel(x, y, 0x00FFFFFF);
-//                        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("x: ").append(x).append(" y: ").append(y).toString(), this, commonStrings.PROCESS));
+//                        //logUtil.put(new StringMaker().append("x: ").append(x).append(" y: ").append(y).toString(), this, commonStrings.PROCESS);
 //                    } else {
 //                        //imageData0.alphaData[(y * width) + x] = alpha;
 //                        //imageData0.setAlpha(x, y, alpha);
@@ -224,9 +226,9 @@ public class ImageCopyUtil
 //                    final int pixel = originalImmutableImage.img.getImageData().getPixel(x, y);
 //                    final byte alpha = (byte) (pixel >> 24);
 //                    BasicColor basicColor = new BasicColor(alpha, pixel);
-//                    //LogUtil.put(LogFactory.getInstance(basicColor.toString(), this, commonStrings.PROCESS));
+//                    //logUtil.put(basicColor.toString(), this, commonStrings.PROCESS);
 //                    if (basicColor.intValue() == -1)  {
-//                        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("x: ").append(x).append(" y: ").append(y).toString(), this, commonStrings.PROCESS));
+//                        //logUtil.put(new StringMaker().append("x: ").append(x).append(" y: ").append(y).toString(), this, commonStrings.PROCESS);
 //                    } else {
 //                        imageData0.alphaData[(y * width) + x] = alpha;
 //                        //imageData0.setAlpha(x, y, alpha);
@@ -254,7 +256,7 @@ public class ImageCopyUtil
 //            final int[] pixelArray = new int[originalImmutableImage.img.getImageData().width * originalImmutableImage.img.getImageData().height];
 //            originalImmutableImage.img.getImageData().getPixels(0, 0, originalImmutableImage.img.getBounds().width, pixelArray, 0);
 //            //mutableImage.img.getImageData().depth = originalMutableImage.img.getImageData().depth;
-//            //LogUtil.put(LogFactory.getInstance("depth: " + mutableImage.img.getImageData().depth, this, commonStrings.PROCESS));
+//            //logUtil.put("depth: " + mutableImage.img.getImageData().depth, this, commonStrings.PROCESS);
 //            mutableImage.img.getImageData().setPixels(0, 0, originalImmutableImage.img.getBounds().width, pixelArray, 0);
             
         }        
@@ -285,7 +287,7 @@ public class ImageCopyUtil
     {
         Image originalImage2 = originalImage;
         if(!features.isFeature(gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
-            LogUtil.put(LogFactory.getInstance(NO_COPY, this, commonStrings.CONSTRUCTOR));
+            logUtil.put(NO_COPY, this, commonStrings.CONSTRUCTOR);
             return originalImage;
         }
         
@@ -296,10 +298,10 @@ public class ImageCopyUtil
                 return this.createImage2(originalImage, width, height, mutable);
             }
 
-            //LogUtil.put(LogFactory.getInstance("name: " + originalImage.getName(), this, commonStrings.CONSTRUCTOR));
-            //LogUtil.put(LogFactory.getInstance(NO_COPY2, this, commonStrings.CONSTRUCTOR));
+            //logUtil.put("name: " + originalImage.getName(), this, commonStrings.CONSTRUCTOR);
+            //logUtil.put(NO_COPY2, this, commonStrings.CONSTRUCTOR);
             //final CommonSeps commonSeps = CommonSeps.getInstance();
-            //LogUtil.put(LogFactory.getInstance(new StringMaker().append(NO_COPY2).append(" from: ").append(originalImage.getWidth()).append(commonSeps.SPACE).append(originalImage.getHeight()).append(" to: ").append(width).append(commonSeps.SPACE).append(height).toString(), this, commonStrings.CONSTRUCTOR));
+            //logUtil.put(new StringMaker().append(NO_COPY2).append(" from: ").append(originalImage.getWidth()).append(commonSeps.SPACE).append(originalImage.getHeight()).append(" to: ").append(width).append(commonSeps.SPACE).append(height).toString(), this, commonStrings.CONSTRUCTOR);
             
             if (originalImage.getType() >= OpenGLESImage.TYPE) {
                 final OpenGLESImage openGLESImage = ((OpenGLESImage) originalImage);
@@ -344,7 +346,7 @@ public class ImageCopyUtil
     {
         Image originalImage2 = originalImage;
         if(!features.isFeature(gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
-            LogUtil.put(LogFactory.getInstance(NO_COPY, this, commonStrings.CONSTRUCTOR));
+            logUtil.put(NO_COPY, this, commonStrings.CONSTRUCTOR);
             return originalImage;
         }
 
@@ -352,19 +354,19 @@ public class ImageCopyUtil
 
         //if(originalImage instanceof OpenGLESImage) {
         if(features.isFeature(openGLFeatureFactory.OPENGL)) {
-            //LogUtil.put(LogFactory.getInstance(NO_COPY2, this, commonStrings.CONSTRUCTOR));
+            //logUtil.put(NO_COPY2, this, commonStrings.CONSTRUCTOR);
             //final CommonSeps commonSeps = CommonSeps.getInstance();
-            //LogUtil.put(LogFactory.getInstance(new StringMaker().append(NO_COPY2).append(" from: ").append(originalImage.getWidth()).append(commonSeps.SPACE).append(originalImage.getHeight()).append(" to: ").append(width).append(commonSeps.SPACE).append(height).toString(), this, commonStrings.CONSTRUCTOR));
+            //logUtil.put(new StringMaker().append(NO_COPY2).append(" from: ").append(originalImage.getWidth()).append(commonSeps.SPACE).append(originalImage.getHeight()).append(" to: ").append(width).append(commonSeps.SPACE).append(height).toString(), this, commonStrings.CONSTRUCTOR);
             
             final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
             
             if (originalImage.getType() >= OpenGLESImage.TYPE) {
-                //LogUtil.put(LogFactory.getInstance("TWB0: " + originalImage.getWidth() + " h: " + originalImage.getHeight(), this, commonStrings.CONSTRUCTOR));
+                //logUtil.put("TWB0: " + originalImage.getWidth() + " h: " + originalImage.getHeight(), this, commonStrings.CONSTRUCTOR);
                 final int width2 = originalImage.getWidth();
                 final int height2 = originalImage.getHeight();
                 final OpenGLESImage openGLESImage = ((OpenGLESImage) originalImage);
                 final OpenGLESImageProperties openGLESImageProperties = openGLESImage.openGLESImageProperties;
-                //LogUtil.put(LogFactory.getInstance(new StringMaker().append("0sx: ").append(openGLESImageProperties.scaleX2).append(" sy: ").append(openGLESImageProperties.scaleY2).toString(), this, commonStrings.CONSTRUCTOR));
+                //logUtil.put(new StringMaker().append("0sx: ").append(openGLESImageProperties.scaleX2).append(" sy: ").append(openGLESImageProperties.scaleY2).toString(), this, commonStrings.CONSTRUCTOR);
                 openGLESImageProperties.scaleX = openGLESImageProperties.scaleX2 = (float) (((float) width) / openGLESImage.getWidth());
                 openGLESImageProperties.scaleY = openGLESImageProperties.scaleY2 = (float) (((float) height) / openGLESImage.getHeight());
                 openGLESImageProperties.scaleX = openGLESImageProperties.scaleX * 0.75f;
@@ -377,12 +379,12 @@ public class ImageCopyUtil
                 
                 //openGLESImageProperties.translateY = -displayInfoSingleton.getLastHeight() / 40 / openGLESImage.scaleY;
                 image = openGLESImage;
-                //LogUtil.put(LogFactory.getInstance(new StringMaker().append("sx: ").append(openGLESImageProperties.scaleX2).append(" sy: ").append(openGLESImageProperties.scaleY2).toString(), this, commonStrings.CONSTRUCTOR));
-                //LogUtil.put(LogFactory.getInstance("TWB: " + originalImage.getWidth() + " h: " + originalImage.getHeight(), this, commonStrings.CONSTRUCTOR));
+                //logUtil.put(new StringMaker().append("sx: ").append(openGLESImageProperties.scaleX2).append(" sy: ").append(openGLESImageProperties.scaleY2).toString(), this, commonStrings.CONSTRUCTOR);
+                //logUtil.put("TWB: " + originalImage.getWidth() + " h: " + originalImage.getHeight(), this, commonStrings.CONSTRUCTOR);
                 //originalImage2 = openGLESImage.openGLBitmap.getImage();
-                //LogUtil.put(LogFactory.getInstance(new StringMaker().append("OpenGLESImage sx: ").append(openGLESImageProperties.scaleX).append(" sy: ").append(openGLESImage.scaleY).append("tx: ").append(openGLESImageProperties.translateX).append(" ty: ").append(openGLESImageProperties.translateY).toString(), this, commonStrings.CONSTRUCTOR));
+                //logUtil.put(new StringMaker().append("OpenGLESImage sx: ").append(openGLESImageProperties.scaleX).append(" sy: ").append(openGLESImage.scaleY).append("tx: ").append(openGLESImageProperties.translateX).append(" ty: ").append(openGLESImageProperties.translateY).toString(), this, commonStrings.CONSTRUCTOR);
             } else {
-                //LogUtil.put(LogFactory.getInstance("type: " + originalImage.getType(), this, commonStrings.CONSTRUCTOR));
+                //logUtil.put("type: " + originalImage.getType(), this, commonStrings.CONSTRUCTOR);
                 image = originalImage;
                 final OpenGLESImage openGLESImage = (OpenGLESImage) openGLUtil.add(image);
                 final OpenGLESImageProperties openGLESImageProperties = openGLESImage.openGLESImageProperties;
@@ -399,7 +401,7 @@ public class ImageCopyUtil
                 } else {
                     
 //                    if (image.getName().startsWith(this.GREEN_BUTTON)) {
-//                        LogUtil.put(LogFactory.getInstance(new StringMaker().append("sx: ").append(openGLESImageProperties.scaleX).append(" sy: ").append(openGLESImage.scaleY).append("tx: ").append(openGLESImageProperties.translateX).append(" ty: ").append(openGLESImageProperties.translateY).toString(), this, commonStrings.CONSTRUCTOR));
+//                        logUtil.put(new StringMaker().append("sx: ").append(openGLESImageProperties.scaleX).append(" sy: ").append(openGLESImage.scaleY).append("tx: ").append(openGLESImageProperties.translateX).append(" ty: ").append(openGLESImageProperties.translateY).toString(), this, commonStrings.CONSTRUCTOR);
 //                        if(openGLESImageProperties.scaleX == 2.0f) {
 //                            openGLESImageProperties.scaleX = openGLESImageProperties.scaleX * 0.50f;
 //                            openGLESImage.scaleY = openGLESImage.scaleY * 0.40f;
@@ -418,7 +420,7 @@ public class ImageCopyUtil
 //                            openGLESImageProperties.translateX = -displayInfoSingleton.getLastWidth() / 3f / openGLESImageProperties.scaleX;
 //                            openGLESImageProperties.translateY = displayInfoSingleton.getLastHeight() / 11 / openGLESImage.scaleY;
 //                        }
-//                        LogUtil.put(LogFactory.getInstance(new StringMaker().append("2 sx: ").append(openGLESImageProperties.scaleX).append(" sy: ").append(openGLESImage.scaleY).append("tx: ").append(openGLESImageProperties.translateX).append(" ty: ").append(openGLESImageProperties.translateY).toString(), this, commonStrings.CONSTRUCTOR));
+//                        logUtil.put(new StringMaker().append("2 sx: ").append(openGLESImageProperties.scaleX).append(" sy: ").append(openGLESImage.scaleY).append("tx: ").append(openGLESImageProperties.translateX).append(" ty: ").append(openGLESImageProperties.translateY).toString(), this, commonStrings.CONSTRUCTOR);
 //                    } else {
                         openGLESImageProperties.scaleX = openGLESImageProperties.scaleX * 0.75f;
                         openGLESImageProperties.scaleY = openGLESImageProperties.scaleY * 0.75f;
@@ -440,9 +442,9 @@ public class ImageCopyUtil
                     
                 }
 
-                //LogUtil.put(LogFactory.getInstance(new StringMaker().append("sx: ").append(openGLESImageProperties.scaleX).append(" sy: ").append(openGLESImage.scaleY).append(" tx: ").append(openGLESImageProperties.translateX).append(" ty: ").append(openGLESImageProperties.translateY).toString(), this, commonStrings.CONSTRUCTOR));
+                //logUtil.put(new StringMaker().append("sx: ").append(openGLESImageProperties.scaleX).append(" sy: ").append(openGLESImage.scaleY).append(" tx: ").append(openGLESImageProperties.translateX).append(" ty: ").append(openGLESImageProperties.translateY).toString(), this, commonStrings.CONSTRUCTOR);
                 image = openGLESImage;
-                //LogUtil.put(LogFactory.getInstance("TWB: " + originalImage.getWidth() + " h: " + originalImage.getHeight(), this, commonStrings.CONSTRUCTOR));
+                //logUtil.put("TWB: " + originalImage.getWidth() + " h: " + originalImage.getHeight(), this, commonStrings.CONSTRUCTOR);
                 //throw new RuntimeException();
             }
 
@@ -483,12 +485,12 @@ public class ImageCopyUtil
             throws Exception
     {
         if(!features.isFeature(gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
-            LogUtil.put(LogFactory.getInstance(NO_COPY, this, commonStrings.CONSTRUCTOR));
+            logUtil.put(NO_COPY, this, commonStrings.CONSTRUCTOR);
             return originalImage;
         }
 
 //        final SpacialStrings spacialStrings = SpacialStrings.getInstance();
-//        LogUtil.put(LogFactory.getInstance(new StringBuilder().append(spacialStrings.WIDTH_LABEL).append(originalImage.getWidth()).append(spacialStrings.HEIGHT_LABEL).append(originalImage.getHeight()).toString(), this, commonStrings.CONSTRUCTOR));
+//        logUtil.put(new StringBuilder().append(spacialStrings.WIDTH_LABEL).append(originalImage.getWidth()).append(spacialStrings.HEIGHT_LABEL).append(originalImage.getHeight()).toString(), this, commonStrings.CONSTRUCTOR);
         
         int newWidth = (int) (originalImage.getWidth() * canvasScale);
         int newHeight = (int) (originalImage.getHeight() * canvasScale);
@@ -503,7 +505,7 @@ public class ImageCopyUtil
             }
         }
         
-        //LogUtil.put(LogFactory.getInstance("newWidth: " + newWidth + " newHeight: " + newHeight, this, commonStrings.CONSTRUCTOR));
+        //logUtil.put("newWidth: " + newWidth + " newHeight: " + newHeight, this, commonStrings.CONSTRUCTOR);
         
         //final Image image = imageCreationUtil.getInstance(newWidth, newHeight);
         final Image image = this.createImage(originalImage, newWidth, newHeight);
@@ -532,7 +534,7 @@ public class ImageCopyUtil
             }
             ((org.eclipse.swt.graphics.Image) mutableImage2.getImage()).getImageData().setPixels(0, 0, image.getWidth(), newPixelArray, 0);
 
-//            LogUtil.put(LogFactory.getInstance(new StringMaker().append("deltas").append(spacialStrings.WIDTH_LABEL).append(halfWidthDelta).append(spacialStrings.HEIGHT_LABEL).append(halfHeightDelta).toString(), this, commonStrings.CONSTRUCTOR));
+//            logUtil.put(new StringMaker().append("deltas").append(spacialStrings.WIDTH_LABEL).append(halfWidthDelta).append(spacialStrings.HEIGHT_LABEL).append(halfHeightDelta).toString(), this, commonStrings.CONSTRUCTOR);
 //            final Graphics graphics = image.getGraphics();
 //            graphics.drawImage(originalImage, halfWidthDelta, halfHeightDelta, anchor);
             //this.basicSetColorUtil.setBasicColor(graphics, BasicColorFactory.getInstance().YELLOW);

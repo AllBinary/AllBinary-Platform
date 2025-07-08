@@ -32,6 +32,8 @@ import org.allbinary.logic.string.StringUtil;
 public class InputRobot
    implements InputRobotInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private Robot robot;
    
    public final static String NAME = "Java Robot";
@@ -64,7 +66,7 @@ public class InputRobot
       this.robot.mouseMove(point.x + x, point.y + y);
 
       final String message = new StringMaker().append("Moved Mouse To: x: ").append(point.x).append(" y: ").append(point.y).append(" in the middle of: ").append(StringUtil.getInstance().toString(rectangle)).toString();
-      LogUtil.put(LogFactory.getInstance(message, this, "moveMouseToTarget"));
+      logUtil.put(message, this, "moveMouseToTarget");
    }
 
    public void mouseMove(Point point) 
@@ -77,7 +79,7 @@ public class InputRobot
       this.robot.mouseMove(x, y);
 
       final String message = new StringMaker().append("Moved Mouse To: x: ").append(x).append(" y: ").append(y).toString();
-      LogUtil.put(LogFactory.getInstance(message,this, "moveMouse"));
+      logUtil.put(message,this, "moveMouse");
    }
    
    public void mouseMoveToTarget(Rectangle rectangle) throws Exception

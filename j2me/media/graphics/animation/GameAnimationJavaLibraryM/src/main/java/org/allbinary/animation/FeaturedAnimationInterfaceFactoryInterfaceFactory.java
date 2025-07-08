@@ -26,6 +26,8 @@ import org.allbinary.util.BasicArrayList;
 public class FeaturedAnimationInterfaceFactoryInterfaceFactory
         extends FeaturedResourceFactory
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static FeaturedAnimationInterfaceFactoryInterfaceFactory INSTANCE
             = new FeaturedAnimationInterfaceFactoryInterfaceFactory();
@@ -68,9 +70,9 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
         }
 
         /*
-         * LogUtil.put(LogFactory.getInstance( "No animation available for current feature
+         * logUtil.put( "No animation available for current feature
          * selection or Resource: ").append(resource, "FeaturedAnimationInterfaceFactoryInterfaceFactory",
-         * "getAnimationInterfaceInstance"));
+         * "getAnimationInterfaceInstance");
          */
         throw new Exception(
                 new StringMaker().append("No rectangle available for current feature selection or Resource: ").append(resource).toString());
@@ -115,9 +117,9 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
         }
 
         /*
-         * LogUtil.put(LogFactory.getInstance( "No animation available for current feature
+         * logUtil.put( "No animation available for current feature
          * selection or Resource: ").append(resource, "FeaturedAnimationInterfaceFactoryInterfaceFactory",
-         * "getAnimationInterfaceInstance"));
+         * "getAnimationInterfaceInstance");
          */
         if (resourceTypeAvailableList.size() > 0)
         {

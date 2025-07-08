@@ -27,6 +27,8 @@ import org.allbinary.logic.communication.sql.AbSqlBean;
 
 public class AffiliateSalesEntity extends AbSqlBean implements AffiliateSalesEntityInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     protected final String tableName = "affiliate";
 
@@ -45,7 +47,7 @@ public class AffiliateSalesEntity extends AbSqlBean implements AffiliateSalesEnt
          
      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
      {
-     LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS,this,INSERT);
+     logUtil.put(this.commonStrings.SUCCESS,this,INSERT);
      }
      }
      catch(Exception e)
@@ -65,13 +67,13 @@ public class AffiliateSalesEntity extends AbSqlBean implements AffiliateSalesEnt
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, commonStrings.delete));
+                logUtil.put(this.commonStrings.SUCCESS, this, commonStrings.delete);
             }
         }catch(Exception e)
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, commonStrings.delete, e));
+                logUtil.put(this.commonStrings.FAILURE, this, commonStrings.delete, e);
             }
         }
     }

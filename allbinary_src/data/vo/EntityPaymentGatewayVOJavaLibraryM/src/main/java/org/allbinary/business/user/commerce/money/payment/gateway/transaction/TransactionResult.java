@@ -28,6 +28,8 @@ import org.allbinary.util.BasicArrayList;
 
 public class TransactionResult implements TransactionResultInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
    private HashMap keyValuePairs;
@@ -52,7 +54,7 @@ public class TransactionResult implements TransactionResultInterface
 
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
          //{
-            LogUtil.put(LogFactory.getInstance(exceptionMessage, this, this.commonStrings.CONSTRUCTOR));
+            logUtil.put(exceptionMessage, this, this.commonStrings.CONSTRUCTOR);
          //}
          //throw new PaymentException("TransactionResult Constructor Failed");
       }

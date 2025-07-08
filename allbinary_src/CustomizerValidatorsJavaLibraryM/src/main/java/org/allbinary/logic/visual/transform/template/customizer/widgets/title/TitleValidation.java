@@ -24,7 +24,9 @@ import org.allbinary.logic.control.validate.ValidationInterface;
 import org.allbinary.logic.string.StringValidationUtil;
 
 public class TitleValidation extends TitleView implements ValidationInterface
-{   
+{
+    protected final LogUtil logUtil = LogUtil.getInstance();
+   
    public TitleValidation()
    {
       super();
@@ -46,7 +48,7 @@ public class TitleValidation extends TitleView implements ValidationInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("TitleValidation", this, commonStrings.IS_VALID));
+            logUtil.put("TitleValidation", this, commonStrings.IS_VALID);
          }
          
          Boolean valid = Boolean.TRUE;
@@ -58,7 +60,7 @@ public class TitleValidation extends TitleView implements ValidationInterface
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("TitleValidation: " + valid, this, commonStrings.IS_VALID));
+            logUtil.put("TitleValidation: " + valid, this, commonStrings.IS_VALID);
          }
          
          return valid;
@@ -67,7 +69,7 @@ public class TitleValidation extends TitleView implements ValidationInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate form", this, commonStrings.IS_VALID, e));
+            logUtil.put("Failed to validate form", this, commonStrings.IS_VALID, e);
          }
          return Boolean.FALSE;
       }
@@ -87,7 +89,7 @@ public class TitleValidation extends TitleView implements ValidationInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to generate validation error info", this, "validationInfo()", e));
+            logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
          }
          return "Error Validating Form";
       }

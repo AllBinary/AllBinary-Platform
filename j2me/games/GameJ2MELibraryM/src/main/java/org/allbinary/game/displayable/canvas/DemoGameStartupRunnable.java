@@ -20,6 +20,8 @@ import org.allbinary.thread.ABRunnable;
 
 public class DemoGameStartupRunnable extends ABRunnable
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final DemoCanvas demoCanvas;
 
     public DemoGameStartupRunnable(DemoCanvas demoCanvas)
@@ -33,7 +35,7 @@ public class DemoGameStartupRunnable extends ABRunnable
         {
             this.setRunning(true);
 //            final CommonStrings commonStrings = CommonStrings.getInstance();
-//            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.RUN));
+//            logUtil.put(commonStrings.START, this, commonStrings.RUN);
 
             this.demoCanvas.stopGameDemo();
 
@@ -43,14 +45,14 @@ public class DemoGameStartupRunnable extends ABRunnable
 
             this.setRunning(false);
             
-//            LogUtil.put(LogFactory.getInstance(commonStrings.END, this, commonStrings.RUN));
+//            logUtil.put(commonStrings.END, this, commonStrings.RUN);
             
         }
         catch (Exception e)
         {
             this.setRunning(false);
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
         }
     }
     

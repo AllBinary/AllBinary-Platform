@@ -28,6 +28,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class OwnershipPaintable extends Paintable
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     //private final static OwnershipPaintable SINGLETON = new OwnershipPaintable();
     
     private final String COPYRIGHT = "AllBinary Copyright (c) 2011";
@@ -52,7 +54,7 @@ public class OwnershipPaintable extends Paintable
     
     public void paint(final Graphics graphics)
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, canvasStrings.PAINT));
+        //logUtil.put(commonStrings.START, this, canvasStrings.PAINT);
         
         graphics.setColor(color);
         

@@ -21,6 +21,8 @@ import org.allbinary.string.CommonStrings;
 
 public class StoreWorkFlowWrapper extends WorkFlowWrapper
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    public StoreWorkFlowWrapper(Object object)
    {
       super(object);
@@ -42,7 +44,7 @@ public class StoreWorkFlowWrapper extends WorkFlowWrapper
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
              final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"getStoreName()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"getStoreName()",e);
          }
          throw new Exception(error);
       }

@@ -33,6 +33,8 @@ import org.allbinary.logic.system.hardware.components.linux.Video;
 
 public class PCComponentFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private static final PCComponentFactory instance = new PCComponentFactory();
 
     /**
@@ -97,7 +99,7 @@ public class PCComponentFactory
          if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
          {
              //String error = "Failed to getInstance for: " + component;
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this,commonStrings.GET_INSTANCE,e));
+            logUtil.put(commonStrings.EXCEPTION, this,commonStrings.GET_INSTANCE,e);
          }
          return new Unknown(commonStrings.EXCEPTION);
       }

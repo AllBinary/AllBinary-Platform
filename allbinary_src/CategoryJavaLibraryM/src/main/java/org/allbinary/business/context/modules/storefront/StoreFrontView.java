@@ -26,6 +26,8 @@ import org.allbinary.string.CommonStrings;
 
 public class StoreFrontView implements DomNodeInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private StoreFrontInterface storeFrontInterface;
    
    public StoreFrontView(StoreFrontInterface storeFrontInterface)
@@ -33,7 +35,7 @@ public class StoreFrontView implements DomNodeInterface
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
           final CommonStrings commonStrings = CommonStrings.getInstance();
-         LogUtil.put(LogFactory.getInstance("Constructing: StoreFrontView for: " + storeFrontInterface.getName(), this, commonStrings.GET_INSTANCE));
+         logUtil.put("Constructing: StoreFrontView for: " + storeFrontInterface.getName(), this, commonStrings.GET_INSTANCE);
       }
 
       this.storeFrontInterface = storeFrontInterface;

@@ -59,7 +59,7 @@ public class DomNodeHelper
            {
                break;
            }
-           //LogUtil.put(LogFactory.getInstance("NodeType: " + node.getNodeType(), this, "getDoc()"));
+           //logUtil.put("NodeType: " + node.getNodeType(), this, "getDoc()");
        }
    }
    return node;

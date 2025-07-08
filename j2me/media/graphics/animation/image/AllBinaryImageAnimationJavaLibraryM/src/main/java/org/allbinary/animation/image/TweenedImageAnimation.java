@@ -25,6 +25,8 @@ import org.allbinary.util.CircularIndexUtil;
 
 public class TweenedImageAnimation extends IndexedAnimation //implements AutoCloseable
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final Image image;
 
     private final int dx;
@@ -48,7 +50,7 @@ public class TweenedImageAnimation extends IndexedAnimation //implements AutoClo
         
         this.circularIndexUtil = CircularIndexUtil.getInstance(this.totalFrames);
         
-        // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
+        // logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
     }
 
     public int getAnimationSize() throws Exception

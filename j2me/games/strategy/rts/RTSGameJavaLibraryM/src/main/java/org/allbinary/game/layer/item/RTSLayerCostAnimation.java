@@ -34,6 +34,8 @@ public class RTSLayerCostAnimation
 extends Animation
 implements TechEventListenerInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final MyFont myFont = MyFont.getInstance();
     
     private final PrimitiveLongUtil primitiveLongUtil = new PrimitiveLongUtil(10000);
@@ -73,7 +75,7 @@ implements TechEventListenerInterface
         catch(Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "onTechEvent", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "onTechEvent", e);
         }
     }
 

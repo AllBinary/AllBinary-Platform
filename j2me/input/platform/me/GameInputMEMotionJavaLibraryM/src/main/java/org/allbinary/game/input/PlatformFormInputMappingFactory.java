@@ -20,6 +20,8 @@ import org.allbinary.game.input.mapping.InputToGameKeyMapping;
 
 public class PlatformFormInputMappingFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final PlatformFormInputMappingFactory instance = 
         new PlatformFormInputMappingFactory();
     
@@ -62,7 +64,7 @@ public class PlatformFormInputMappingFactory
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
         }
         return SINGLETON;
     }

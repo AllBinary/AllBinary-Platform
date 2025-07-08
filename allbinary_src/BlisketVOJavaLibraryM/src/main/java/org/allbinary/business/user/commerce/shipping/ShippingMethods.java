@@ -24,6 +24,8 @@ import org.allbinary.string.CommonStrings;
 
 public class ShippingMethods implements ShippingMethodsInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
@@ -58,7 +60,7 @@ public class ShippingMethods implements ShippingMethodsInterface
       String error = "Error Finding Shipping: " + name;
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SHIPPINGERROR))
       {
-         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"getShippingInterface(String name)"));
+         logUtil.put(commonStrings.EXCEPTION,this,"getShippingInterface(String name)");
       }
 
       throw new Exception(error);

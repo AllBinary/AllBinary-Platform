@@ -28,6 +28,8 @@ import org.allbinary.util.BasicArrayListUtil;
  */
 public class GeographicMapCellPositionArea
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final CellPositionsUtil cellPositionsUtil = CellPositionsUtil.getInstance();
     private final LayerCoveringCellPositionsUtil layerCoveringCellPositionsUtil = LayerCoveringCellPositionsUtil.getInstance();
     
@@ -56,7 +58,7 @@ public class GeographicMapCellPositionArea
     {
         //final GeographicMapCellPosition topLeftGeographicMapCellPosition =
             //geographicMapInterface.getCellPositionAt(layerInterface.getX(), layerInterface.getY());
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append(layerInterface.getName()).append(" c: ").append(((PathFindingLayerInterface) layerInterface).getCurrentGeographicMapCellPosition()).append(' ').append(((PathFindingLayerInterface) layerInterface).getTopLeftGeographicMapCellPosition()).append(" topLeftGeographicMapCellPosition: ").append(topLeftGeographicMapCellPosition).toString(), this, "visit"));
+        //logUtil.put(new StringMaker().append(layerInterface.getName()).append(" c: ").append(((PathFindingLayerInterface) layerInterface).getCurrentGeographicMapCellPosition()).append(' ').append(((PathFindingLayerInterface) layerInterface).getTopLeftGeographicMapCellPosition()).append(" topLeftGeographicMapCellPosition: ").append(topLeftGeographicMapCellPosition).toString(), this, "visit");
         
         this.occupyingGeographicMapCellPositionList =
             layerCoveringCellPositionsUtil.getAll(

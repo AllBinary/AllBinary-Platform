@@ -35,6 +35,8 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 public class PaymentGatewaysView extends HttpStoreComponentView 
    implements DomNodeInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private Vector paymentGatewayVector;
 
    public PaymentGatewaysView(TransformInfoInterface transformInfoInterface, Vector gatewayVector) throws Exception
@@ -75,7 +77,7 @@ public class PaymentGatewaysView extends HttpStoreComponentView
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XSLLOGGINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "toXmlNode", e));
+            logUtil.put(this.commonStrings.FAILURE, this, "toXmlNode", e);
          }
          throw e;
       }
@@ -98,7 +100,7 @@ public class PaymentGatewaysView extends HttpStoreComponentView
          String error = "Failed to view payment gateways";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"view()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"view()",e);
          }
          return error;
       }

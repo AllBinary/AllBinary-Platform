@@ -18,7 +18,9 @@ import org.allbinary.graphics.PointFactory;
 import org.allbinary.util.BasicArrayList;
 
 public class GraphicsPipeline extends BasicGraphicsPipeline
-{   
+{
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+   
    public GraphicsPipeline(BasicArrayList points)
    {
       super(points);

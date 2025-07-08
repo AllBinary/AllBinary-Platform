@@ -17,6 +17,8 @@ package org.allbinary;
 
 public class AppletUtil 
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private AppletUtil()
     {
     }
@@ -34,7 +36,7 @@ public class AppletUtil
    {
        //String className = object.getClass().getClassLoader().getClass().getName().toLowerCase();
 
-      //LogUtil.put(LogFactory.getInstance("Applet ClassLoader? " + className, "AppletUtil", "isAppletLoader"));
+      //logUtil.put("Applet ClassLoader? " + className, "AppletUtil", "isAppletLoader");
        //PreLogUtil.put("Applet ClassLoader? " + className
            //+
            //" " + className.indexOf(APPLET1) +
@@ -44,7 +46,7 @@ public class AppletUtil
        
       //if (className.indexOf(APPLET1) >= 0 || className.indexOf(APPLET) >= 0)
       //{
-         //LogUtil.put(LogFactory.getInstance("Applet: " + className, "AppletUtil", "isAppletLoader"));
+         //logUtil.put("Applet: " + className, "AppletUtil", "isAppletLoader");
         // return true;
       //}
       //else

@@ -26,6 +26,8 @@ import org.allbinary.logic.communication.sql.AbSqlBean;
 
 public class CategoryEntity extends AbSqlBean implements CategoryEntityInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    protected final String tableName = "categories";
    
    //private CategoryFactoryInterface categoryFactoryInterface;
@@ -97,14 +99,14 @@ public class CategoryEntity extends AbSqlBean implements CategoryEntityInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS,this,INSERT));
+            logUtil.put(this.commonStrings.SUCCESS,this,INSERT);
          }
       }
       catch(Exception e)
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE,this,INSERT,e));
+            logUtil.put(this.commonStrings.FAILURE,this,INSERT,e);
          }
       }
    }
@@ -116,14 +118,14 @@ public class CategoryEntity extends AbSqlBean implements CategoryEntityInterface
          super.deleteWhere(CategoryData.getInstance().NAME,value);
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS,this, commonStrings.delete));
+            logUtil.put(this.commonStrings.SUCCESS,this, commonStrings.delete);
          }
       }
       catch(Exception e)
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE,this, commonStrings.delete,e));
+            logUtil.put(this.commonStrings.FAILURE,this, commonStrings.delete,e);
          }
       }
    }

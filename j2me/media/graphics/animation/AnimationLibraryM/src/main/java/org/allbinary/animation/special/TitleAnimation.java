@@ -25,6 +25,8 @@ import org.allbinary.logic.math.PrimitiveIntUtil;
 
 public class TitleAnimation extends SpecialAnimation 
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     public float deltaX;
     public float deltaY;
     public float deltaZ;
@@ -202,7 +204,7 @@ public class TitleAnimation extends SpecialAnimation
             {
                 this.basicSetColorUtil.setBasicColor(graphics, this.basicColorArray[index]);
             }
-            //LogUtil.put(LogFactory.getInstance("deltaX: " + deltaX + " " + x, this, canvasStrings.PAINT));
+            //logUtil.put("deltaX: " + deltaX + " " + x, this, canvasStrings.PAINT);
             this.animationInterfaceArray[index].paint(graphics, deltaX, deltaY);
         }
     }
@@ -232,7 +234,7 @@ public class TitleAnimation extends SpecialAnimation
             //{
               //  this.basicSetColorUtil.setBasicColor(graphics, this.basicColorArray[index]);
             //}
-            //LogUtil.put(LogFactory.getInstance("deltaX: " + deltaX + " " + x, this, canvasStrings.PAINT));
+            //logUtil.put("deltaX: " + deltaX + " " + x, this, canvasStrings.PAINT);
 
             //this.animationInterfaceArray[index].paintThreed(graphics, deltaX, deltaY, 30);
             this.animationInterfaceArray[index].paintThreed(graphics, viewPosition.getX() + deltaX, viewPosition.getY() + deltaY, 30);

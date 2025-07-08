@@ -17,6 +17,8 @@ import org.allbinary.string.CommonSeps;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 
 public class PathFindingNodeCost extends PathFindingNode implements Comparable<PathFindingNodeCost> {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private final CommonSeps commonSeps = CommonSeps.getInstance();
 
@@ -33,7 +35,7 @@ public class PathFindingNodeCost extends PathFindingNode implements Comparable<P
         /*
       if(this.getParent() == null)
       {
-         LogUtil.put(LogFactory.getInstance("No Parent", this, this.commonStrings.CONSTRUCTOR));
+         logUtil.put("No Parent", this, this.commonStrings.CONSTRUCTOR);
       }
          */
         if (this.geographicMapCellPosition == null) {

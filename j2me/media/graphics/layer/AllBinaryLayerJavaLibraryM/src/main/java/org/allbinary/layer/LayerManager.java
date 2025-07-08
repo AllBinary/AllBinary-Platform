@@ -9,6 +9,8 @@ import org.allbinary.util.BasicArrayList;
 
 public class LayerManager
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final LayerManagerLoggingBase layerManagerLogging;
@@ -17,7 +19,7 @@ public class LayerManager
 
     public LayerManager(final LayerManagerLogging layerManagerLogging)
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
+        logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
         
         this.layerManagerLogging = layerManagerLogging;
     }
@@ -85,7 +87,7 @@ public class LayerManager
 
     public void cleanup() throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(this.commonStrings.CLEANUP, this, this.commonStrings.CLEANUP));
+        //logUtil.put(this.commonStrings.CLEANUP, this, this.commonStrings.CLEANUP);
         
     	synchronized(object)
     	{
@@ -106,7 +108,7 @@ public class LayerManager
     	{
             //if(this.isFirst) {
                 //this.isFirst = false;
-                //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, PAINT));
+                //logUtil.put(commonStrings.START, this, PAINT);
             //}
             
         Layer comp;
@@ -115,7 +117,7 @@ public class LayerManager
                 //if(this.list.size() > 0) {
                     //this.isFirst = false;
                 //}
-                //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "size: " + this.list.size()));
+                //logUtil.put(commonStrings.START, this, "size: " + this.list.size());
             //}
         
         for (int index = this.list.size(); --index >= 0;)

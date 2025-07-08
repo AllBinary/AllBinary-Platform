@@ -30,6 +30,8 @@ import org.allbinary.media.image.ImageScaleUtil;
  * @author User
  */
 public class AnimationFactorySpriteScaleUtil {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     
     private static final AnimationFactorySpriteScaleUtil instance = new AnimationFactorySpriteScaleUtil();
 
@@ -52,7 +54,7 @@ public class AnimationFactorySpriteScaleUtil {
 //       final CommonStrings commonStrings = CommonStrings.getInstance();
 //       final CommonLabels commonLabels = CommonLabels.getInstance();
 //       final StringMaker stringMaker = new StringMaker();
-//       LogUtil.put(LogFactory.getInstance(stringMaker.append(image.getName()).append(" width: ").append(width).append(" height: ").append(height).append("scaleWidth: ").append(scaleWidth).append(" scaleHeight: ").append(scaleHeight).toString(), this, commonStrings.PROCESS));
+//       logUtil.put(stringMaker.append(image.getName()).append(" width: ").append(width).append(" height: ").append(height).append("scaleWidth: ").append(scaleWidth).append(" scaleHeight: ").append(scaleHeight).toString(), this, commonStrings.PROCESS);
 
       final SpriteFactory spriteFactory = SpriteFactory.getInstance();
 
@@ -63,18 +65,18 @@ public class AnimationFactorySpriteScaleUtil {
            float scaleY = ((float) scaleHeight) / ((float) height);
            
 //           stringMaker.delete(0, stringMaker.length());
-//           LogUtil.put(LogFactory.getInstance(stringMaker.append(commonLabels.WIDTH_LABEL).append(width).append(commonLabels.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS));
+//           logUtil.put(stringMaker.append(commonLabels.WIDTH_LABEL).append(width).append(commonLabels.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS);
 //           stringMaker.delete(0, stringMaker.length());
-//           LogUtil.put(LogFactory.getInstance(stringMaker.append("0scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS));
+//           logUtil.put(stringMaker.append("0scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS);
 
            if ((scaleX == 1 && scaleY == 1) || (scaleX == 0 || scaleY == 0)) {
 //               stringMaker.delete(0, stringMaker.length());
-//               LogUtil.put(LogFactory.getInstance(stringMaker.append("noscale ").append(commonLabels.WIDTH_LABEL).append(width).append(commonLabels.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS));
+//               logUtil.put(stringMaker.append("noscale ").append(commonLabels.WIDTH_LABEL).append(width).append(commonLabels.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS);
                scaledImage = openGLUtil.add(image);
                sprite = spriteFactory.create(scaledImage, width, height);
            } else {
 //               stringMaker.delete(0, stringMaker.length());
-//               LogUtil.put(LogFactory.getInstance(stringMaker.append("scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS));
+//               logUtil.put(stringMaker.append("scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS);
                if(openGLESImageExclusionUtil.isCustomScaling(image)) {
                    //This does not work for J2ME.
                    final int width2 =  j2seMath.round((scaleWidth) - 0.5f);
@@ -94,37 +96,37 @@ public class AnimationFactorySpriteScaleUtil {
                     if(scaleWidth < width) {
                         //information_blue.png
 //                        stringMaker.delete(0, stringMaker.length());
-//                        LogUtil.put(LogFactory.getInstance(stringMaker
+//                        logUtil.put(stringMaker
 //                            .append(image.getName())
-//                            .append(" 2.35f").toString(), this, commonStrings.PROCESS));
+//                            .append(" 2.35f").toString(), this, commonStrings.PROCESS);
                         
                         scaleX = scaleX * 2.35f;
                     }
                     if(scaleHeight < height) {
                         //information_blue.png
 //                        stringMaker.delete(0, stringMaker.length());
-//                        LogUtil.put(LogFactory.getInstance(stringMaker
+//                        logUtil.put(stringMaker
 //                            .append(image.getName())
-//                            .append(" 2.35f").toString(), this, commonStrings.PROCESS));
+//                            .append(" 2.35f").toString(), this, commonStrings.PROCESS);
 
                         scaleY = scaleY * 2.35f;
                     }
 
 //                   stringMaker.delete(0, stringMaker.length());
-//                   LogUtil.put(LogFactory.getInstance(stringMaker
+//                   logUtil.put(stringMaker
 //                       //.append(image.getName())
-//                       .append(" scale set to 1 - scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS));
+//                       .append(" scale set to 1 - scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS);
                }
 
                scaledImage = imageScaleUtil.createImage(imageCache, image, scaleX, 1, scaleY, 1, true);
 //               stringMaker.delete(0, stringMaker.length());
-//               LogUtil.put(LogFactory.getInstance(stringMaker.append("scaledImage.getHeight(): ").append(scaledImage.getHeight()).append(" height * scaleY: ").append(height * scaleY).toString(), this, commonStrings.PROCESS));
+//               logUtil.put(stringMaker.append("scaledImage.getHeight(): ").append(scaledImage.getHeight()).append(" height * scaleY: ").append(height * scaleY).toString(), this, commonStrings.PROCESS);
                sprite = spriteFactory.create(scaledImage, (int) (width * scaleX), (int) (height * scaleY));
            }
            
        } else {
 //           stringMaker.delete(0, stringMaker.length());
-//           LogUtil.put(LogFactory.getInstance(stringMaker.append("noscale2").append(commonLabels.WIDTH_LABEL).append(width).append(commonLabels.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS));
+//           logUtil.put(stringMaker.append("noscale2").append(commonLabels.WIDTH_LABEL).append(width).append(commonLabels.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS);
            scaledImage = openGLUtil.add(image);
            sprite = spriteFactory.create(scaledImage, width, height);
        }

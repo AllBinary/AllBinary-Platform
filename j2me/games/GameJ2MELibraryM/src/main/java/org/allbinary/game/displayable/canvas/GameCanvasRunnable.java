@@ -21,6 +21,8 @@ import org.allbinary.time.GameTickTimeDelayHelperFactory;
 
 public class GameCanvasRunnable extends GameRunnable
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final AllBinaryGameCanvas allBinaryGameCanvas;
     
     public GameCanvasRunnable(AllBinaryGameCanvas allBinaryGameCanvas)
@@ -43,7 +45,7 @@ public class GameCanvasRunnable extends GameRunnable
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this, commonStrings.RUN, e));
+            logUtil.put(commonStrings.EXCEPTION,this, commonStrings.RUN, e);
         }
     }
     

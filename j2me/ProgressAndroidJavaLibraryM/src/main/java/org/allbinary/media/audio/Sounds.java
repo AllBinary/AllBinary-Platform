@@ -26,6 +26,8 @@ import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 
 public class Sounds
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final SoundStrings soundStrings = SoundStrings.getInstance();
     
@@ -38,7 +40,7 @@ public class Sounds
 
     public void init() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.INIT));
+        logUtil.put(commonStrings.START, this, commonStrings.INIT);
      
         final CommonLabels commonLabels = CommonLabels.getInstance();
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
@@ -68,7 +70,7 @@ public class Sounds
                 stringBuffer.append(this.soundStrings.SOUND);
                 stringBuffer.append(soundInterface.getClass().getName());
 
-                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.INIT));
+                logUtil.put(stringBuffer.toString(), this, commonStrings.INIT);
                 
                 soundInterface.init();
                 
@@ -78,12 +80,12 @@ public class Sounds
 
         soundsFactoryInterface.setInitialized(true);
         
-        LogUtil.put(LogFactory.getInstance(commonStrings.END, this, commonStrings.INIT));
+        logUtil.put(commonStrings.END, this, commonStrings.INIT);
     }
 
     public void stopAll() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, this.soundStrings.STOP_ALL));
+        logUtil.put(commonStrings.START, this, this.soundStrings.STOP_ALL);
 
         final Sound[] soundInterfaceArray = soundsFactoryInterface.getSoundInterfaceArray();
 
@@ -109,7 +111,7 @@ public class Sounds
 
     public void closeAll() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, this.soundStrings.CLOSE_ALL));
+        logUtil.put(commonStrings.START, this, this.soundStrings.CLOSE_ALL);
 
         final Sound[] soundInterfaceArray = soundsFactoryInterface.getSoundInterfaceArray();
 

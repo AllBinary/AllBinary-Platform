@@ -28,6 +28,8 @@ import views.HttpComponentView;
 
 public class HttpContextView extends HttpComponentView
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
    public HttpContextView(TransformInfoInterface transformInfoInterface) throws Exception
@@ -36,7 +38,7 @@ public class HttpContextView extends HttpComponentView
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("View Name: " + transformInfoInterface.getName(), this, this.commonStrings.CONSTRUCTOR));
+         logUtil.put("View Name: " + transformInfoInterface.getName(), this, this.commonStrings.CONSTRUCTOR);
       }
 
       this.setTransformDocumentInterface(
@@ -61,7 +63,7 @@ public class HttpContextView extends HttpComponentView
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "view", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "view", e);
          }
          throw e;
       }

@@ -25,6 +25,8 @@ import org.allbinary.string.CommonStrings;
 
 public class UserEmailEventsConfiguration implements UserEmailEventsConfigurationInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
    private HashMap emailEventHashMap;
@@ -47,7 +49,7 @@ public class UserEmailEventsConfiguration implements UserEmailEventsConfiguratio
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
-         LogUtil.put(LogFactory.getInstance(this.commonStrings.CONSTRUCTOR, this," Constructor"));
+         logUtil.put(this.commonStrings.CONSTRUCTOR, this," Constructor");
       }
    }
 
@@ -60,7 +62,7 @@ public class UserEmailEventsConfiguration implements UserEmailEventsConfiguratio
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
-         LogUtil.put(LogFactory.getInstance("Adding: " + userEmailEventConfigurationInterface.log(), this,"addUserEmailEventConfiguration"));
+         logUtil.put("Adding: " + userEmailEventConfigurationInterface.log(), this,"addUserEmailEventConfiguration");
       }
       
       this.emailEventHashMap.put(

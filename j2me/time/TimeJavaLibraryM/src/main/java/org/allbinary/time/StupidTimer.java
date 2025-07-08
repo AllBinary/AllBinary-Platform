@@ -11,6 +11,8 @@ import org.allbinary.thread.ThreadObjectUtil;
 
 public class StupidTimer
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final ThreadObjectUtil threadObjectUtil = ThreadObjectUtil.getInstance();
@@ -22,7 +24,7 @@ public class StupidTimer
         boolean tookTooLong = false;
 
         final String WAITING_FOR = "Waiting for: ";
-        //LogUtil.put(LogFactory.getInstance(WAITING_FOR).append(visitorInterface, this, commonStrings.VISIT));
+        //logUtil.put(WAITING_FOR).append(visitorInterface, this, commonStrings.VISIT);
         PreLogUtil.put(new StringMaker().append(WAITING_FOR).append(StringUtil.getInstance().toString(visitorInterface)).toString(), this, commonStrings.VISIT);
 
         int index = 0;
@@ -49,9 +51,9 @@ public class StupidTimer
 
         if (tookTooLong)
         {
-            LogUtil.put(LogFactory.getInstance(
+            logUtil.put(
                     commonStrings.EXCEPTION, this, commonStrings.VISIT, 
-                    new Exception(new StringMaker().append("Took Too Long: ").append(StringUtil.getInstance().toString(visitorInterface)).toString())));
+                    new Exception(new StringMaker().append("Took Too Long: ").append(StringUtil.getInstance().toString(visitorInterface)).toString()));
         }
         else
         {

@@ -42,6 +42,8 @@ import org.allbinary.util.BasicArrayListUtil;
 public class NoCacheWaypoint extends WaypointBase
     implements BuildingEventListenerInterface
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final PathFindingLayerInterface ownerLayer;
     
     public NoCacheWaypoint(final PathFindingLayerInterface ownerLayer, final Sound sound)
@@ -89,7 +91,7 @@ public class NoCacheWaypoint extends WaypointBase
     {
         final BasicArrayList endList = this.ownerLayer.getEndGeographicMapCellPositionList();
         
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.ownerLayer.getName()).append(" c: ").append(this.ownerLayer.getCurrentGeographicMapCellPosition()).append(' ').append(this.ownerLayer.getTopLeftGeographicMapCellPosition()).append(" endList: ").append(endList).toString(), this, "visit"));
+        //logUtil.put(new StringMaker().append(this.ownerLayer.getName()).append(" c: ").append(this.ownerLayer.getCurrentGeographicMapCellPosition()).append(' ').append(this.ownerLayer.getTopLeftGeographicMapCellPosition()).append(" endList: ").append(endList).toString(), this, "visit");
         
         GeographicMapCellPosition endGeographicMapCellPosition =
             (GeographicMapCellPosition) BasicArrayListUtil.getInstance().getRandom(endList);
@@ -152,7 +154,7 @@ public class NoCacheWaypoint extends WaypointBase
         customMapGenerator.copyMapIntoCustomMap();
         final int[][] customMapArray = customMapGenerator.getCustomMapArray();
 
-        //LogUtil.put(LogFactory.getInstance("Start GeographicMapCellPosition: " + startGeographicMapCellPosition.toString(), this, "createPaths"));
+        //logUtil.put("Start GeographicMapCellPosition: " + startGeographicMapCellPosition.toString(), this, "createPaths");
         //int originalStartData = 
           //  customMapArray[startGeographicMapCellPosition.getRow()][startGeographicMapCellPosition.getColumn()];
         
@@ -170,7 +172,7 @@ public class NoCacheWaypoint extends WaypointBase
             raceTrackGeographicMap,
             customMapArray);
         
-        //LogUtil.put(LogFactory.getInstance("geographicMapInterface.getGeographicMapCellTypeFactory().toString(): " + geographicMapInterface.getGeographicMapCellTypeFactory().toString(), this, "createPaths"));
+        //logUtil.put("geographicMapInterface.getGeographicMapCellTypeFactory().toString(): " + geographicMapInterface.getGeographicMapCellTypeFactory().toString(), this, "createPaths");
 
         final BasicArrayList list = 
             PathGenerator.getInstance().getInstanceNoCache(
@@ -235,7 +237,7 @@ public class NoCacheWaypoint extends WaypointBase
                     //if (this.getOwnerLayer() != rtsLayer)
                     //{
                     unitLayer.handleCost(this.ownerLayer);
-                    //LogUtil.put(LogFactory.getInstance("Sending: " + unitLayer.getName(), this, "visit"));
+                    //logUtil.put("Sending: " + unitLayer.getName(), this, "visit");
                     
                     unitWaypointBehavior.insertWaypoint(0, rtsLayer);
                     break;

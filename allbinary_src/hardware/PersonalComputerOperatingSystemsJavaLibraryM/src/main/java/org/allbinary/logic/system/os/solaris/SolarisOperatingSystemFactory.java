@@ -25,6 +25,8 @@ import org.allbinary.string.CommonStrings;
 
 public class SolarisOperatingSystemFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final SolarisOperatingSystemFactory instance = new SolarisOperatingSystemFactory();
     
     public static SolarisOperatingSystemFactory getInstance()
@@ -69,7 +71,7 @@ public class SolarisOperatingSystemFactory
             if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
             {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
             }
             return new NoOperatingSystem();
         }

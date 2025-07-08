@@ -31,6 +31,8 @@ import org.allbinary.util.BasicArrayList;
  */
 public class WaypointBase 
     implements EventListenerInterface {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private final BasicArrayList connectedWaypointList = new BasicArrayList();
     

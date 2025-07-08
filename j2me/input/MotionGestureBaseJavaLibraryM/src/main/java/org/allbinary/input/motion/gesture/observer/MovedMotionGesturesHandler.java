@@ -20,6 +20,8 @@ import org.allbinary.logic.util.event.handler.BasicEventHandler;
 
 public class MovedMotionGesturesHandler extends BasicEventHandler
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final MovedMotionGesturesHandler SINGLETON =
        new MovedMotionGesturesHandler();
 
@@ -66,7 +68,7 @@ public class MovedMotionGesturesHandler extends BasicEventHandler
             }
             catch (Exception e)
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
+                logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
         }
 

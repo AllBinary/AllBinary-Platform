@@ -28,6 +28,8 @@ import org.allbinary.logic.visual.transform.info.objectConfig.generator.Transfor
 
 public class AbTransformer implements BasicTransformerInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private TransformInfoInterface transformInfoInterface;
    private InputStream inputStream;
    private URIResolver uriResolver;
@@ -74,7 +76,7 @@ public class AbTransformer implements BasicTransformerInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XMLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("xml: \n" + xmlDocumentStr, this, "translate(String xmlDocumentStr)"));
+            logUtil.put("xml: \n" + xmlDocumentStr, this, "translate(String xmlDocumentStr)");
          }
 
          if(this.getURIResolver() == null)
@@ -88,7 +90,7 @@ public class AbTransformer implements BasicTransformerInterface
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XSLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("translated xml: " + result, this, "translate(String xmlDocumentStr)"));
+            logUtil.put("translated xml: " + result, this, "translate(String xmlDocumentStr)");
          }
 
          TransformInfoObjectConfigGenerator 
@@ -102,7 +104,7 @@ public class AbTransformer implements BasicTransformerInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance(this.transformInfoInterface.log(), this, "translate(document)", e));
+            logUtil.put(this.transformInfoInterface.log(), this, "translate(document)", e);
          }
          throw e;
       }

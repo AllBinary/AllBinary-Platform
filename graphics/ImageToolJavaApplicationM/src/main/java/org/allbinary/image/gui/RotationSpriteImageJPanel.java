@@ -32,6 +32,8 @@ import org.allbinary.media.image.ImageStrings;
 
 public class RotationSpriteImageJPanel extends javax.swing.JPanel
         implements ImageProcessorInputCompositeInterface {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final ImageStrings imageStrings = ImageStrings.getInstance();
@@ -83,7 +85,7 @@ public class RotationSpriteImageJPanel extends javax.swing.JPanel
                             String filePath = file.getAbsolutePath();
                             final int extensionIndex = filePath.indexOf(imageStrings.PNG_EXTENSION);
                             filePath = new StringMaker().append(filePath.substring(0, extensionIndex)).append(CommonSeps.getInstance().UNDERSCORE).append("sprite").append(imageStrings.PNG_EXTENSION).toString();
-                            LogUtil.put(LogFactory.getInstance("New File Path: " + filePath, this, commonStrings.RUN));
+                            logUtil.put("New File Path: " + filePath, this, commonStrings.RUN);
                             
                             file = new File(filePath);
                         }
@@ -91,19 +93,19 @@ public class RotationSpriteImageJPanel extends javax.swing.JPanel
                         boolean isWritten =
                                 ImageIO.write((RenderedImage) RotationSpriteImageJPanel.this.result, imageStrings.PNG, file);
 
-                        LogUtil.put(LogFactory.getInstance("File: " + file + " Wrote: " + isWritten, this, commonStrings.RUN));
+                        logUtil.put("File: " + file + " Wrote: " + isWritten, this, commonStrings.RUN);
 
                     }
 
                 } catch (Exception e) {
-                    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
+                    logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
                 }
             }
         }.start();
     }
     /*
     public void paint(Graphics graphics) {
-    LogUtil.put(LogFactory.getInstance(commonStrings.START, this, canvasStrings.PAINT));
+    logUtil.put(commonStrings.START, this, canvasStrings.PAINT);
      */
     //graphics.setColor(BasicColors.BLUE.toColor());
     //graphics.fillRect(0, 0, getWidth(),getHeight());

@@ -19,6 +19,8 @@ import org.allbinary.string.CommonStrings;
 
 public class UserEntityFactory
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
    //private static final String CLASSNAME = "org.allbinary.data.tables.user.UserEntity";
    
    private UserEntityFactory()
@@ -27,6 +29,7 @@ public class UserEntityFactory
    
    public static UserEntity getInstance() //throws LicensingException
    {
+       final LogUtil logUtil = LogUtil.getInstance();
       try
       {
          //Object object = AbeFactory.getInstance().getInstance(CLASSNAME);
@@ -48,7 +51,7 @@ public class UserEntityFactory
          final CommonStrings commonStrings = CommonStrings.getInstance();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "UserEntityFactory",commonStrings.GET_INSTANCE,e));
+            logUtil.put(commonStrings.EXCEPTION, "UserEntityFactory",commonStrings.GET_INSTANCE,e);
          }
          return null;
       }

@@ -24,6 +24,8 @@ import org.allbinary.graphics.Rectangle;
 
 public class FullTouchButton extends TouchButton
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     public FullTouchButton(TouchButtonInput touchButtonInput, TouchButtonResource touchButtonResource,
             Rectangle rawRectangle, CellPosition cellPosition, int xBorder, int yBorder)
             throws Exception
@@ -60,7 +62,7 @@ public class FullTouchButton extends TouchButton
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "updateRectangle", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "updateRectangle", e);
         }
     }
 

@@ -31,6 +31,8 @@ import org.allbinary.graphics.displayable.CanvasStrings;
  */
 public class GameGraphicsResourceUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final GameGraphicsResourceUtil instance = new GameGraphicsResourceUtil();
 
     public static GameGraphicsResourceUtil getInstance()
@@ -52,7 +54,7 @@ public class GameGraphicsResourceUtil
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
         }
     }
     

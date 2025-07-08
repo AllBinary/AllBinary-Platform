@@ -11,6 +11,8 @@ import org.allbinary.logic.communication.log.PreLogUtil;
 
 public class OpenGLLogUtil
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final OpenGLLogUtil instance = new OpenGLLogUtil();
 
     public static OpenGLLogUtil getInstance()

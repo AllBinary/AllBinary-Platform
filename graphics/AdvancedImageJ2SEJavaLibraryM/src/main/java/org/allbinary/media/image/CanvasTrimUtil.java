@@ -25,6 +25,8 @@ import org.allbinary.logic.string.StringUtil;
  * @author User
  */
 public class CanvasTrimUtil {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     
     private static final CanvasTrimUtil instance = new CanvasTrimUtil();
 
@@ -50,7 +52,7 @@ public class CanvasTrimUtil {
         for (int index = 0; index < size; index++) {
 
             bufferedImage = bufferedImageArray[index];
-            //LogUtil.put(LogFactory.getInstance(spriteType, this, commonStrings.RUN));
+            //logUtil.put(spriteType, this, commonStrings.RUN);
                 
             subBufferedImageArray[index] = bufferedImage.getSubimage(cutCanvasFromLeftReduction, cutCanvasFromTopReduction, 
                 bufferedImage.getWidth() - cutCanvasFromLeftReduction - cutCanvasFromRightReduction, bufferedImage.getHeight() - cutCanvasFromTopReduction - cutCanvasFromBottomReduction);

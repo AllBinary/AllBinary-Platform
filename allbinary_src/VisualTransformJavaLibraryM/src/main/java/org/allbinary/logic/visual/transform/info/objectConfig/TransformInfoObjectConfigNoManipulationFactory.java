@@ -23,6 +23,8 @@ import org.allbinary.string.CommonStrings;
 
 public class TransformInfoObjectConfigNoManipulationFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final TransformInfoObjectConfigNoManipulationFactory instance =
         new TransformInfoObjectConfigNoManipulationFactory();
     
@@ -56,7 +58,7 @@ public class TransformInfoObjectConfigNoManipulationFactory
           final CommonStrings commonStrings = CommonStrings.getInstance();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Could Not Load Object Config", this, commonStrings.GET_INSTANCE, e));
+            logUtil.put("Could Not Load Object Config", this, commonStrings.GET_INSTANCE, e);
          }
          throw e;
       }

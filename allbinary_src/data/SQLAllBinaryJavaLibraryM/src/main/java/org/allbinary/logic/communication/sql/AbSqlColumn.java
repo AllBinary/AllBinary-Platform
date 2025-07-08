@@ -23,6 +23,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class AbSqlColumn extends AbSqlTable
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final String LARGEST_INT_VALUE_IN_COLUMN = "\nLargest Int Value in column: ";
     private final String METHOD_GET_LARGETS_INTEGER_IN_COLUMN = "getLargestIntegerInColumn";
     private final String METHOD_GET_COLUMN = "getColumn";
@@ -75,7 +77,7 @@ public class AbSqlColumn extends AbSqlTable
                 stringBuffer.append(LARGEST_INT_VALUE_IN_COLUMN);
                 stringBuffer.append(largestAsString);
 
-                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, METHOD_GET_LARGETS_INTEGER_IN_COLUMN));
+                logUtil.put(stringBuffer.toString(), this, METHOD_GET_LARGETS_INTEGER_IN_COLUMN);
             }
 
             return largestAsString;
@@ -83,7 +85,7 @@ public class AbSqlColumn extends AbSqlTable
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance(this.FAILED_SQL_STATEMENT + sqlStatement, this, METHOD_GET_LARGETS_INTEGER_IN_COLUMN, e));
+                logUtil.put(this.FAILED_SQL_STATEMENT + sqlStatement, this, METHOD_GET_LARGETS_INTEGER_IN_COLUMN, e);
             }
             return INVALID_RESULT;
         }
@@ -120,7 +122,7 @@ public class AbSqlColumn extends AbSqlTable
                 stringBuffer.append(sqlStrings.COLUMN_VALUE);
                 stringBuffer.append(column.toString());
 
-                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, METHOD_GET_COLUMN));
+                logUtil.put(stringBuffer.toString(), this, METHOD_GET_COLUMN);
             }
 
             return column;
@@ -128,7 +130,7 @@ public class AbSqlColumn extends AbSqlTable
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance(this.FAILED_SQL_STATEMENT + sqlStatement, this, METHOD_GET_COLUMN, e));
+                logUtil.put(this.FAILED_SQL_STATEMENT + sqlStatement, this, METHOD_GET_COLUMN, e);
             }
             return column;
         }
@@ -170,7 +172,7 @@ public class AbSqlColumn extends AbSqlTable
                 stringBuffer.append(sqlStrings.COLUMN_VALUE);
                 stringBuffer.append(column.toString());
 
-                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, METHOD_GET_COLUMN_WHERE));
+                logUtil.put(stringBuffer.toString(), this, METHOD_GET_COLUMN_WHERE);
             }
 
             return column;
@@ -178,7 +180,7 @@ public class AbSqlColumn extends AbSqlTable
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance(this.FAILED_SQL_STATEMENT + sqlStatement, this, this.METHOD_GET_COLUMN_WHERE, e));
+                logUtil.put(this.FAILED_SQL_STATEMENT + sqlStatement, this, this.METHOD_GET_COLUMN_WHERE, e);
             }
             return column;
         }
@@ -221,7 +223,7 @@ public class AbSqlColumn extends AbSqlTable
                 stringBuffer.append(sqlStrings.COLUMN_VALUE);
                 stringBuffer.append(column.toString());
 
-                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "getColumnWhereLike"));
+                logUtil.put(stringBuffer.toString(), this, "getColumnWhereLike");
             }
 
             return column;
@@ -229,7 +231,7 @@ public class AbSqlColumn extends AbSqlTable
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance(this.FAILED_SQL_STATEMENT + sqlStatement, this, "getColumn", e));
+                logUtil.put(this.FAILED_SQL_STATEMENT + sqlStatement, this, "getColumn", e);
             }
             return column;
         }

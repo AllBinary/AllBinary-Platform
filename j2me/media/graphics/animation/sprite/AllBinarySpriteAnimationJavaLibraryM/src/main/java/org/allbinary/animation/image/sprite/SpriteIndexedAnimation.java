@@ -31,6 +31,8 @@ import org.allbinary.logic.math.PrimitiveIntUtil;
 public class SpriteIndexedAnimation extends IndexedAnimation
     implements ColorCompositeInterface//, AutoCloseable
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final Sprite sprite;
     protected final Image image;
     
@@ -70,8 +72,8 @@ public class SpriteIndexedAnimation extends IndexedAnimation
         {
             if(basicColor == this.basicColorArray[index])
             {
-                //LogUtil.put(LogFactory.getInstance(
-                  //  "BasicColor: " + basicColor.getName() + "==" + this.basicColorArray[index].getName() + commonLabels.INDEX_LABEL + index, this, "setBasicColor"));
+                //logUtil.put(
+                  //  "BasicColor: " + basicColor.getName() + "==" + this.basicColorArray[index].getName() + commonLabels.INDEX_LABEL + index, this, "setBasicColor");
                 this.setFrame(index);
                 break;
             }

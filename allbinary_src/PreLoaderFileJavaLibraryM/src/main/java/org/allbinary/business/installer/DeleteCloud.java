@@ -25,6 +25,8 @@ import org.allbinary.util.BasicArrayList;
 
 public class DeleteCloud
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     public DeleteCloud()
     {
@@ -73,8 +75,8 @@ public class DeleteCloud
                 stringBuffer.append(" - ");
                 stringBuffer.append(end);
 
-                LogUtil.put(LogFactory.getInstance(
-                    stringBuffer.toString(), this, "initialize()"));
+                logUtil.put(
+                    stringBuffer.toString(), this, "initialize()");
 
                 for (int index = start; index < end; index++)
                 {
@@ -94,13 +96,13 @@ public class DeleteCloud
                     }
                 }
 
-                LogUtil.put(LogFactory.getInstance("Deleted Files From Cloud", this, "initialize()"));
+                logUtil.put("Deleted Files From Cloud", this, "initialize()");
             }
 
             return true;
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Unable to copy installer files into cloud", this, "initialize()", e));
+            logUtil.put("Unable to copy installer files into cloud", this, "initialize()", e);
             return false;
         }
     }

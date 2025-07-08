@@ -31,6 +31,8 @@ import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
 //Many devices don't support this even though it is supposed to
 public class OpenGLESGL11ExtImage extends OpenGLESImage
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     // private IntBuffer rectParams;
     private int a;
     private final int[] rectangle;
@@ -64,13 +66,13 @@ public class OpenGLESGL11ExtImage extends OpenGLESImage
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "onResize"));
+            logUtil.put(commonStrings.START, this, "onResize");
             
             this.a = DisplayInfoSingleton.getInstance().getLastHeight() - this.getHeight();
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "onResize", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "onResize", e);
         }
     }
     

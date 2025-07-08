@@ -20,11 +20,19 @@ import org.allbinary.logic.string.StringMaker;
 
 public class LogUtil
 {
+    private static final LogUtil instance = new LogUtil();
+    
+    public static final LogUtil getInstance() {
+        return instance;
+    }
+
+    //private final String LOG_SUCCESS = "org.allbinary: ";
+    
     private LogUtil()
     {
     }
 
-    public static void put(Log log)
+    public void put(Log log)
     {
         String specialMessage = log.getSpecialMessage();
         Object object = log.getObject();
@@ -34,7 +42,7 @@ public class LogUtil
         put(specialMessage, object, functionName, exception);
     }
 
-    private static void put(
+    public void put(
         String specialMessage,
         Object object,
         String functionName)
@@ -48,11 +56,8 @@ public class LogUtil
 
         FileLog.put(specialMessage, object, functionName);
     }
-    
-    private final static String LOG_SUCCESS = "org.allbinary: ";
 
-    //TWB - Public or Private?
-    private static void put(
+    public void put(
         String specialMessage,
         Object object,
         String functionName,

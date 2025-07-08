@@ -25,6 +25,8 @@ import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.util.BasicArrayList;
 
 public class DownGameKeyEventHandlerBase extends BasicEventHandler {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private final BasicArrayList list = new BasicArrayList();
 
@@ -76,7 +78,7 @@ public class DownGameKeyEventHandlerBase extends BasicEventHandler {
                 PlayerGameInput playerGameInput = (PlayerGameInput) this.list.objectArray[index];
                 playerGameInput.onDownGameKeyEvent((GameKeyEvent) eventObject);
             } catch (Exception e) {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
+                logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
         }
 
@@ -107,7 +109,7 @@ public class DownGameKeyEventHandlerBase extends BasicEventHandler {
                 stringBuffer.append(LISTENER_LABEL);
                 stringBuffer.append(eventListenerInterface);
             } catch (Exception e) {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.TOSTRING, e));
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.TOSTRING, e);
             }
         }
         return stringBuffer.toString();

@@ -22,6 +22,8 @@ import org.allbinary.logic.communication.log.PreLogUtil;
 
 public class BasicCryptUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final BasicCryptUtil instance = new BasicCryptUtil();
 
     /**
@@ -47,7 +49,7 @@ public class BasicCryptUtil
         }
 
         //TWB - debug output
-        //LogUtil.put(LogFactory.getInstance("Crypted: " + buffer.toString(), this, "encRespXMLRPC"));
+        //logUtil.put("Crypted: " + buffer.toString(), this, "encRespXMLRPC");
         //PreLogUtil.put("Crypted: " + buffer.toString(), this, "encRespXMLRPC");
 
         //String responseData = buffer.toString();
@@ -64,12 +66,12 @@ public class BasicCryptUtil
         int index = decryptedString.indexOf(XML_START);
         if (index > 0)
         {
-            //LogUtil.put(LogFactory.getInstance("Removing Pre Decrypted XML data", this, "encRespXMLRPC"));
+            //logUtil.put("Removing Pre Decrypted XML data", this, "encRespXMLRPC");
             ////System.out.println("Removing Pre Decrypted XML data");
             decryptedString = decryptedString.substring(index);
         }
 
-        //LogUtil.put(LogFactory.getInstance(new String(decryptedString), this, "decRespXMLRPC"));
+        //logUtil.put(new String(decryptedString), this, "decRespXMLRPC");
         ////PreLogUtil.put(new String(decryptedString), this, "decRespXMLRPC");
         return new ByteArrayInputStream(decryptedString.getBytes());
     }

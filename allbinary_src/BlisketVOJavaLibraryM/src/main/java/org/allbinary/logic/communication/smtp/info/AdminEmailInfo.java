@@ -23,6 +23,8 @@ import org.allbinary.string.CommonStrings;
 
 public class AdminEmailInfo extends BasicEmailInfo
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    public AdminEmailInfo(String subject, String textBody) 
       throws Exception
    {
@@ -31,7 +33,7 @@ public class AdminEmailInfo extends BasicEmailInfo
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
          final CommonStrings commonStrings = CommonStrings.getInstance();
-         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
+         logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
       }
 
       this.init();

@@ -32,6 +32,8 @@ import javax.servlet.jsp.tagext.TagSupport;
 
 public class StoreFrontsTag extends TableTag
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     public StoreFrontsTag()
     {
         this.setTagHelperFactory(new StoreFrontsHelperFactory());
@@ -56,7 +58,7 @@ public class StoreFrontsTag extends TableTag
             String error = "Failed to generate storefronts select";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "generateSelect()", e));
+                logUtil.put(commonStrings.EXCEPTION, this, "generateSelect()", e);
             }
             return error;
         }
@@ -80,7 +82,7 @@ public class StoreFrontsTag extends TableTag
             String error = "Failed to generate storefronts select";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "generateSelect()", e));
+                logUtil.put(commonStrings.EXCEPTION, this, "generateSelect()", e);
             }
             return error;
         }
@@ -104,7 +106,7 @@ public class StoreFrontsTag extends TableTag
             String error = "Failed to send email";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "sendStoreCreatedEmails()", e));
+                logUtil.put(commonStrings.EXCEPTION, this, "sendStoreCreatedEmails()", e);
             }
             return error;
         }

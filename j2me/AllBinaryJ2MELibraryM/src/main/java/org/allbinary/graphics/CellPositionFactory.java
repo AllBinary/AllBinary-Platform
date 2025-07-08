@@ -20,6 +20,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class CellPositionFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private static CellPositionFactory SINGLETON =
       new CellPositionFactory();
 
@@ -55,14 +57,14 @@ public class CellPositionFactory
       stringBuffer.append(" rows: ");
       stringBuffer.append(rows);
       
-      LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.INIT));
+      logUtil.put(stringBuffer.toString(), this, commonStrings.INIT);
       
       for (int column = 0; column < columns; column++)
       {
-         // LogUtil.put(LogFactory.getInstance("Initializing Column: ").append(col, this, commonStrings.INIT));
+         // logUtil.put("Initializing Column: ").append(col, this, commonStrings.INIT);
          for (int row = 0; row < rows; row++)
          {
-            // LogUtil.put(LogFactory.getInstance("Initializing Row: ").append(row, this, commonStrings.INIT));
+            // logUtil.put("Initializing Row: ").append(row, this, commonStrings.INIT);
             //CellPosition cellPosition =
                this.createInstance(column, row);
          }
@@ -78,7 +80,7 @@ public class CellPositionFactory
       catch (Exception e)
       {
           final CommonStrings commonStrings = CommonStrings.getInstance();
-         LogUtil.put(LogFactory.getInstance(new StringMaker().append("columns: ").append(this.getColumns()).append(" rows: ").append(this.getRows()).append(" col: ").append(i_column).append(" row: ").append(i_row).toString(), this, commonStrings.GET_INSTANCE, e));
+         logUtil.put(new StringMaker().append("columns: ").append(this.getColumns()).append(" rows: ").append(this.getRows()).append(" col: ").append(i_column).append(" row: ").append(i_row).toString(), this, commonStrings.GET_INSTANCE, e);
          return null;
       }
    }

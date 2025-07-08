@@ -30,6 +30,8 @@ import org.allbinary.media.graphics.geography.map.racetrack.BaseRaceTrackGeograp
 
 public class RTSLayerUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final RTSLayerUtil instance = new RTSLayerUtil();
     
     public static RTSLayerUtil getInstance()
@@ -60,9 +62,9 @@ public class RTSLayerUtil
                 weaponProperties.getDissipation()
                 );
 
-        //LogUtil.put(LogFactory.getInstance(
+        //logUtil.put(
           //      "WeaponProperties: ").append(newWeaponProperties, 
-            //    this, "createWeaponProperties"));
+            //    this, "createWeaponProperties");
 
         return newWeaponProperties;
     }
@@ -108,19 +110,19 @@ public class RTSLayerUtil
 
     private int getWeaponPropertiesCost(final WeaponProperties weaponProperties)
     {
-        //LogUtil.put(LogFactory.getInstance(
+        //logUtil.put(
           //      "Damage: ").append(weaponProperties.getDamage() +
             //    "+Range: ").append(weaponProperties.getRange() +
               //  "+Reload: ").append((MAX_RELOAD_TIME / weaponProperties.getReloadTime()), 
-                //this, "getWeaponPropertiesCost"));
+                //this, "getWeaponPropertiesCost");
 
         //I artificially reduce the cost of reload time since they miss a bunch
         int cost = (int) (weaponProperties.getDamage() + weaponProperties.getRange() + 
                 ((MAX_RELOAD_TIME / weaponProperties.getReloadTime()) >> 1));
 
-        //LogUtil.put(LogFactory.getInstance("Pre Cost: ").append(cost, this, "getWeaponPropertiesCost"));
+        //logUtil.put("Pre Cost: ").append(cost, this, "getWeaponPropertiesCost");
         cost = this.getCostExponential(cost);
-        //LogUtil.put(LogFactory.getInstance("Cost: ").append(cost, this, "getWeaponPropertiesCost"));
+        //logUtil.put("Cost: ").append(cost, this, "getWeaponPropertiesCost");
         return cost;
     }
     
@@ -164,15 +166,15 @@ public class RTSLayerUtil
                     
             downgradeCost += (currentWeaponCost - downgradeWeaponCost);
              
-            //LogUtil.put(LogFactory.getInstance(
+            //logUtil.put(
               //      "DowngradedWeapon Cost: ").append(downgradeWeaponCost +
                 //    " CurrentWeapon Cost: ").append(currentWeaponCost +
-                  //  " Part Cost: ").append(downgradeCost, this, "getDowngradeCost"));
+                  //  " Part Cost: ").append(downgradeCost, this, "getDowngradeCost");
         }
 
         downgradeCost = downgradeCost * 9 / 10;
         
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Total Cost: ").append(downgradeCost).toString(), this, "getDowngradeCost"));
+        logUtil.put(new StringMaker().append("Total Cost: ").append(downgradeCost).toString(), this, "getDowngradeCost");
 
         return downgradeCost;
     }
@@ -203,12 +205,12 @@ public class RTSLayerUtil
             
             upgradeCost += (upgradedWeaponCost - currentWeaponCost);
             
-            //LogUtil.put(LogFactory.getInstance(
+            //logUtil.put(
               //      "UpgradedWeapon Cost: ").append(upgradedWeaponCost +
                 //    " CurrentWeapon Cost: ").append(currentWeaponCost +
-                  //  " Part Cost: " + upgradeCost, this, "getUpgradeCost"));
+                  //  " Part Cost: " + upgradeCost, this, "getUpgradeCost");
         }
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Total Cost: ").append(upgradeCost).toString(), this, "getUpgradeCost"));
+        logUtil.put(new StringMaker().append("Total Cost: ").append(upgradeCost).toString(), this, "getUpgradeCost");
 
         return upgradeCost;
     }

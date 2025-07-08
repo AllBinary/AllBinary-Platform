@@ -24,6 +24,8 @@ import org.allbinary.math.AngleInfo;
 public class AdjustedImageArrayRotationAnimation extends
         ImageArrayRotationAnimation
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private int dx;
     private int dy;
 
@@ -63,7 +65,7 @@ public class AdjustedImageArrayRotationAnimation extends
     {
         super(imageArray, angleInfo, totalAngle, animationBehavior);
 
-        // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
+        // logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
         this.init(dx, dy);
     }
@@ -73,7 +75,7 @@ public class AdjustedImageArrayRotationAnimation extends
     {
         super(imageArray, angleInfo, totalAngle, animationBehavior);
 
-        // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
+        // logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
         this.init(-(imageArray[0].getWidth() >> 2), -(imageArray[0].getHeight() >> 2));
     }

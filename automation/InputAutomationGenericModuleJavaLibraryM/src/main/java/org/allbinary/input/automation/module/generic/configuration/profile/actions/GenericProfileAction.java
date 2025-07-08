@@ -30,6 +30,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 public class GenericProfileAction
     implements DomNodeInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private String name;
     
     private GenericProfileActionScript genericProfileActionScript;
@@ -83,7 +85,7 @@ public class GenericProfileAction
         
         hashMap.put(GenericProfileActionData.NAME, this.name);
         
-        LogUtil.put(LogFactory.getInstance("HashMap: " + hashMap.toString(), this, "toHashMap()"));
+        logUtil.put("HashMap: " + hashMap.toString(), this, "toHashMap()");
         
         return hashMap;
     }

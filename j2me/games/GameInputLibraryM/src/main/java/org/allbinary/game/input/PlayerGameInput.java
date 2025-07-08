@@ -27,6 +27,8 @@ import org.allbinary.logic.util.event.EventStrings;
 public class PlayerGameInput extends GameInput 
       implements GameKeyEventListenerInterface
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
     
     private final int playerInputId;
@@ -45,7 +47,7 @@ public class PlayerGameInput extends GameInput
    /*
    public synchronized void add(GameKeyEvent gameKeyEvent)
    {
-       LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL).append(gameKeyEvent.getSource()).append(" ").append(((GameKeyEventSourceInterface)gameKeyEvent.getSource()).getId(), this, commonStrings.ADD));
+       logUtil.put(commonStrings.START_LABEL).append(gameKeyEvent.getSource()).append(" ").append(((GameKeyEventSourceInterface)gameKeyEvent.getSource()).getId(), this, commonStrings.ADD);
        super.add(gameKeyEvent);
    }
    */

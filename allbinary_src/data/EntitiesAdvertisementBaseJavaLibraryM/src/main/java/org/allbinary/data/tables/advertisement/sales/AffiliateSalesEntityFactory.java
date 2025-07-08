@@ -19,6 +19,8 @@ import org.allbinary.string.CommonStrings;
 
 public class AffiliateSalesEntityFactory
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
    private static final String CLASSNAME = "org.allbinary.data.tables.AffiliatesSalesEntity";
    
    private AffiliateSalesEntityFactory()
@@ -27,6 +29,7 @@ public class AffiliateSalesEntityFactory
    
    public static AffiliateSalesEntityInterface getInstance() //throws LicensingException
    {
+       final LogUtil logUtil = LogUtil.getInstance();
       try
       {
          return (AffiliateSalesEntityInterface) new AffiliateSalesEntity();
@@ -37,7 +40,7 @@ public class AffiliateSalesEntityFactory
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
              final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "AffiliateEntityFactory", commonStrings.GET_INSTANCE, e));
+            logUtil.put(commonStrings.EXCEPTION, "AffiliateEntityFactory", commonStrings.GET_INSTANCE, e);
          }
          return null;
       }   

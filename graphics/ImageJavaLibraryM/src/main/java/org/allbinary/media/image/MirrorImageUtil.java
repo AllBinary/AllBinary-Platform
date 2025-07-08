@@ -23,6 +23,8 @@ import org.allbinary.logic.communication.log.LogFactory;
 
 public class MirrorImageUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final MirrorImageUtil instance = new MirrorImageUtil();
 
@@ -42,7 +44,7 @@ public class MirrorImageUtil
    public BufferedImage getImage(
       BufferedImage bufferedImage, boolean verticle, boolean horizontal)
    {
-      LogUtil.put(LogFactory.getInstance("Starting", this, "getImage"));
+      logUtil.put("Starting", this, "getImage");
 
       BufferedImage newBufferedImage = 
          this.imageUtil.create(
@@ -93,8 +95,8 @@ public class MirrorImageUtil
       if(horizontal)
          numberOfFrames *= 2;
 
-      LogUtil.put(LogFactory.getInstance("numberOfFramesPerOrientation: " + numberOfFramesPerOrientation + 
-         " numberOfFrames: " + numberOfFrames, this, "getImages"));
+      logUtil.put("numberOfFramesPerOrientation: " + numberOfFramesPerOrientation + 
+         " numberOfFrames: " + numberOfFrames, this, "getImages");
       
       final BufferedImage[] bufferedImageArray = new BufferedImage[numberOfFrames];
       

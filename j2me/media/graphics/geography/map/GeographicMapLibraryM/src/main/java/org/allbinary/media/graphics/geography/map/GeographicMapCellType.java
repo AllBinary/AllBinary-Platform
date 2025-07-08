@@ -19,15 +19,17 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 
 public class GeographicMapCellType
-{   
+{
+    protected final LogUtil logUtil = LogUtil.getInstance();
+   
    private final int type;
 
    public GeographicMapCellType(final int type)
    {
-       //LogUtil.put(LogFactory.getInstance(Integer.toString(type), this, commonStrings.CONSTRUCTOR));
+       //logUtil.put(Integer.toString(type), this, commonStrings.CONSTRUCTOR);
       this.type = type;
       if(type != Integer.MIN_VALUE) {
-          //LogUtil.put(LogFactory.getInstance("type: " + Integer.toString(type), this, commonStrings.CONSTRUCTOR));
+          //logUtil.put("type: " + Integer.toString(type), this, commonStrings.CONSTRUCTOR);
           final GeographicMapCellTypeFactory geographicMapCellTypeFactory = GeographicMapCellTypeFactory.getInstance();
           final GeographicMapCellType[] geographicMapCellTypeArray = geographicMapCellTypeFactory.getGeographicMapCellTypeArray();
           if(geographicMapCellTypeArray[type] == null) {

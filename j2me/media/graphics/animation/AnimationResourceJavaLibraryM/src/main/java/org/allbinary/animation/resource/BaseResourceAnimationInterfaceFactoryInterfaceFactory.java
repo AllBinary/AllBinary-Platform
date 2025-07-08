@@ -29,6 +29,8 @@ import org.allbinary.logic.string.StringMaker;
 public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
         implements FeatureResourceAnimationInterfaceFactoryInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
 
     private final Hashtable hashtable;
@@ -62,9 +64,9 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
     public void init(final int level) throws Exception
     {
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        LogUtil.put(LogFactory.getInstance(
+        logUtil.put(
                 new StringMaker().append("Available List of Animations: ").append(hashtable.toString()).toString(),
-                this, commonStrings.INIT));
+                this, commonStrings.INIT);
 
         this.setInitialized(true);
     }

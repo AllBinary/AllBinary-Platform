@@ -25,6 +25,8 @@ import org.allbinary.time.TimeDelayHelper;
 public class ImmediateCommandFormInputProcessor
     extends CommandFormInputProcessor
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final TimeDelayHelper timeHelper = new TimeDelayHelper(25);
     
     protected GameCommandCanvas gameCommandCanvas;
@@ -44,7 +46,7 @@ public class ImmediateCommandFormInputProcessor
     {
         try
         {
-            //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "onPressGameKeyEvent: " + gameKeyEvent.getSourceId()));
+            //logUtil.put(commonStrings.START, this, "onPressGameKeyEvent: " + gameKeyEvent.getSourceId());
             //PreLogUtil.put(commonStrings.START, this, gameInputStrings.ON_PRESS_GAME_KEY);
 
             super.onPressGameKeyEvent(gameKeyEvent);
@@ -57,7 +59,7 @@ public class ImmediateCommandFormInputProcessor
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, gameInputStrings.ON_PRESS_GAME_KEY, e));
+            logUtil.put(commonStrings.EXCEPTION, this, gameInputStrings.ON_PRESS_GAME_KEY, e);
         }
     }
     
@@ -65,7 +67,7 @@ public class ImmediateCommandFormInputProcessor
     {
         try
         {
-            //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "onDownGameKeyEvent: " + gameKeyEvent.getSourceId()));
+            //logUtil.put(commonStrings.START, this, "onDownGameKeyEvent: " + gameKeyEvent.getSourceId());
             //PreLogUtil.put(commonStrings.START, this, gameInputStrings.ON_DOWN_GAME_KEY);
 
             super.onDownGameKeyEvent(gameKeyEvent);
@@ -78,7 +80,7 @@ public class ImmediateCommandFormInputProcessor
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, gameInputStrings.ON_DOWN_GAME_KEY, e));
+            logUtil.put(commonStrings.EXCEPTION, this, gameInputStrings.ON_DOWN_GAME_KEY, e);
         }
     }
 
@@ -86,7 +88,7 @@ public class ImmediateCommandFormInputProcessor
     {
         try
         {
-            //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "onUpGameKeyEvent: " + gameKeyEvent.getSourceId()));
+            //logUtil.put(commonStrings.START, this, "onUpGameKeyEvent: " + gameKeyEvent.getSourceId());
             //PreLogUtil.put(commonStrings.START, this, gameInputStrings.ON_UP_GAME_KEY);
             
             super.onUpGameKeyEvent(gameKeyEvent);
@@ -99,7 +101,7 @@ public class ImmediateCommandFormInputProcessor
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, gameInputStrings.ON_UP_GAME_KEY, e));
+            logUtil.put(commonStrings.EXCEPTION, this, gameInputStrings.ON_UP_GAME_KEY, e);
         }
     }
 
@@ -107,7 +109,7 @@ public class ImmediateCommandFormInputProcessor
     {
         try
         {
-            //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "onMotionGestureEvent: " + motionGestureEvent.getId()));
+            //logUtil.put(commonStrings.START, this, "onMotionGestureEvent: " + motionGestureEvent.getId());
             //PreLogUtil.put(commonStrings.START, this, "onMotionGestureEvent");
             
             super.onMotionGestureEvent(motionGestureEvent);
@@ -119,7 +121,7 @@ public class ImmediateCommandFormInputProcessor
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "onMotionGestureEvent", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "onMotionGestureEvent", e);
         }
     }
 }

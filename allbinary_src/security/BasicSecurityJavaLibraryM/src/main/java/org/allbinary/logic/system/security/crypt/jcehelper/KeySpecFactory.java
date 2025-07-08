@@ -23,6 +23,8 @@ import org.allbinary.logic.communication.log.PreLogUtil;
 
 public class KeySpecFactory
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final KeySpecFactory instance = new KeySpecFactory();
     
     public static KeySpecFactory getInstance()

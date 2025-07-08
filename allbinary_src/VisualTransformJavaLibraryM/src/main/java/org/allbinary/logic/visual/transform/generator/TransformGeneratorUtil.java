@@ -25,6 +25,8 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.info.objectConfig.generator.StoreFileGenerator;
 
 public class TransformGeneratorUtil {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final TransformGeneratorUtil instance = new TransformGeneratorUtil();
 
@@ -41,8 +43,8 @@ public class TransformGeneratorUtil {
         final TransformInfoInterface ownerTransformInfoInterface) throws Exception {
         try {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
-                LogUtil.put(LogFactory.getInstance("Generating View: " + transformInfoInterface.getName(),
-                    this, "generate()"));
+                logUtil.put("Generating View: " + transformInfoInterface.getName(),
+                    this, "generate()");
             }
 
             TransformInterface componentInterface = TransformFactory.getInstance().getInstance(
@@ -68,8 +70,8 @@ public class TransformGeneratorUtil {
                 componentInterface.getTransformInfoInterface()).process(result);
         } catch (Exception e) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR)) {
-                LogUtil.put(LogFactory.getInstance("Failed to generate a view",
-                    this, "generate()", e));
+                logUtil.put("Failed to generate a view",
+                    this, "generate()", e);
             }
             throw e;
         }

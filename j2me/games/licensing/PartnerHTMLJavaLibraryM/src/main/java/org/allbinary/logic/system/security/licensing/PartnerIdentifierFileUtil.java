@@ -21,6 +21,8 @@ import org.allbinary.data.resource.ResourceUtil;
 
 public class PartnerIdentifierFileUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final PartnerIdentifierFileUtil instance = 
         new PartnerIdentifierFileUtil();
     
@@ -64,7 +66,7 @@ public class PartnerIdentifierFileUtil
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET, e);
 
             return StringUtil.getInstance().NULL_STRING;
         }

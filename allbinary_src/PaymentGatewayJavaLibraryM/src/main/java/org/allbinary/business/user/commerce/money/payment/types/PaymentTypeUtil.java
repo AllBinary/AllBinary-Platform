@@ -41,6 +41,8 @@ import org.w3c.dom.NodeList;
  * @author user
  */
 public class PaymentTypeUtil {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final PaymentTypeUtil instance = new PaymentTypeUtil();
 
@@ -115,7 +117,7 @@ public class PaymentTypeUtil {
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
       {
-         LogUtil.put(LogFactory.getInstance("initDefault Payment: " + this.defaultName, this, "initDefault"));
+         logUtil.put("initDefault Payment: " + this.defaultName, this, "initDefault");
       }
 
       if(StringValidationUtil.getInstance().isEmpty(this.defaultName))
@@ -165,7 +167,7 @@ public class PaymentTypeUtil {
 
             if( org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
             {
-               LogUtil.put(LogFactory.getInstance("DefaultPaymentGatewayNodeValue: " + defaultPaymentGatewayNodeValue, this, "initDefault"));
+               logUtil.put("DefaultPaymentGatewayNodeValue: " + defaultPaymentGatewayNodeValue, this, "initDefault");
             }
 
             if(!StringValidationUtil.getInstance().isEmpty(defaultPaymentGatewayNodeValue))
@@ -181,7 +183,7 @@ public class PaymentTypeUtil {
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
       {
-         LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "getDefault"));
+         logUtil.put(this.commonStrings.START, this, "getDefault");
       }
 
       this.initDefault(storeName);

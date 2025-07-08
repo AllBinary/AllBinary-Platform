@@ -29,6 +29,8 @@ import org.allbinary.logic.visual.transform.info.TransformInfoDomNodeView;
 
 public class InsertTemplateCustomizerTransformInfoObjectConfig extends NoTemplateTransformInfoObjectConfig
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     public InsertTemplateCustomizerTransformInfoObjectConfig(
         TransformInfoInterface transformInfoInterface) throws Exception
@@ -57,7 +59,7 @@ public class InsertTemplateCustomizerTransformInfoObjectConfig extends NoTemplat
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            LogUtil.put(LogFactory.getInstance("Setting: " + aParentViewName, this, "set()"));
+            logUtil.put("Setting: " + aParentViewName, this, "set()");
         }
 
         Document document = this.toXmlDoc();
@@ -71,7 +73,7 @@ public class InsertTemplateCustomizerTransformInfoObjectConfig extends NoTemplat
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                LogUtil.put(LogFactory.getInstance("Replacing", this, "set()"));
+                logUtil.put("Replacing", this, "set()");
             }
         	
             Node componentNode =
@@ -88,7 +90,7 @@ public class InsertTemplateCustomizerTransformInfoObjectConfig extends NoTemplat
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                LogUtil.put(LogFactory.getInstance("Setting", this, "set()"));
+                logUtil.put("Setting", this, "set()");
             }
         	
             Node objectConfigNode = document.getElementsByTagName(

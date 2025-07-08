@@ -17,6 +17,8 @@ import org.allbinary.util.CircularIndexUtil;
 
 public class HighScoresHelper extends HighScoresHelperBase
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final CircularIndexUtil circularIndexUtil = 
         CircularIndexUtil.getInstance(0, 0);
 

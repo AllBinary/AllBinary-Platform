@@ -21,6 +21,8 @@ import org.allbinary.game.layer.special.CollidableDestroyableDamageableBehavior;
 public class CollidableRTSBehavior
 extends CollidableDestroyableDamageableBehavior 
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     public CollidableRTSBehavior(final CollidableCompositeLayer ownerLayer, final boolean collidable)
     {
         super(ownerLayer, collidable);
@@ -34,8 +36,8 @@ extends CollidableDestroyableDamageableBehavior
             final CollisionType collisionType = 
                 collidableInterfaceCompositeInterface.getCollidableInferface().getCollisionTypeWith(this.ownerLayer);
 
-            // LogUtil.put(LogFactory.getInstance("collisionType: ").append(
-            // collisionType.toString(), this, damageUtil.COLLIDE));
+            // logUtil.put("collisionType: ").append(
+            // collisionType.toString(), this, damageUtil.COLLIDE);
 
             if (collisionType == collisionTypeFactory.PICKUP)
             {
@@ -55,20 +57,20 @@ extends CollidableDestroyableDamageableBehavior
                 } else
                 {
                     /*
-                     * LogUtil.put(LogFactory.getInstance( "y: ").append(this.y).append(" ").append(
+                     * logUtil.put( "y: ").append(this.y).append(" ").append(
                      * this.getY2()).append(" other y: ").append(collisionLayer.getY()).append(" ").append(
-                     * collisionLayer.getY2(), this, damageUtil.IS_COLLISION));
-                     * LogUtil.put(LogFactory.getInstance( "x: ").append(this.x).append(" ").append(
+                     * collisionLayer.getY2(), this, damageUtil.IS_COLLISION);
+                     * logUtil.put( "x: ").append(this.x).append(" ").append(
                      * this.getX2()).append(" other x: ").append(collisionLayer.getX()).append(" ").append(
-                     * collisionLayer.getX2(), this, damageUtil.IS_COLLISION));
+                     * collisionLayer.getX2(), this, damageUtil.IS_COLLISION);
                      */
-                    // LogUtil.put(LogFactory.getInstance("viewy: ").append(
+                    // logUtil.put("viewy: ").append(
                     // this.getViewPosition().getY()).append(" ").append(
                     // this.getViewPosition().getY2()).append(" other viewy: ").append(
                     // ((AllBinaryLayer) collisionLayer).getViewPosition().getY()).append(
                     // " ").append(((AllBinaryLayer)
                     // collisionLayer).getViewPosition().getY2(), this,
-                    // damageUtil.IS_COLLISION));
+                    // damageUtil.IS_COLLISION);
                     return true;
                 }
             }
@@ -82,7 +84,7 @@ extends CollidableDestroyableDamageableBehavior
             final CollisionType collisionType = 
                 collidableInterfaceCompositeInterface.getCollidableInferface().getCollisionTypeWith(this.ownerLayer);
 
-            //LogUtil.put(LogFactory.getInstance("collisionType: ").append(collisionType.toString(), this, damageUtil.COLLIDE));
+            //logUtil.put("collisionType: ").append(collisionType.toString(), this, damageUtil.COLLIDE);
 
             if (collisionType == collisionTypeFactory.PICKUP)
             {
@@ -90,8 +92,8 @@ extends CollidableDestroyableDamageableBehavior
             else if (collisionType == collisionTypeFactory.COLLISION)
             {
                 //Enemy weapons cause damage on collision
-                //LogUtil.put(LogFactory.getInstance(this.getName()).append(" collided with ").append(((CollidableDestroyableDamageableLayer) collidableInterface).getName(), this, damageUtil.IS_COLLISION));
-                //LogUtil.put(LogFactory.getInstance("isCollision: ").append(this.getGroupInterface().getGroupName()).append("==").append(((CollidableDestroyableDamageableLayer) collidableInterface).getGroupInterface().getGroupName(), this, damageUtil.IS_COLLISION));
+                //logUtil.put(this.getName()).append(" collided with ").append(((CollidableDestroyableDamageableLayer) collidableInterface).getName(), this, damageUtil.IS_COLLISION);
+                //logUtil.put("isCollision: ").append(this.getGroupInterface().getGroupName()).append("==").append(((CollidableDestroyableDamageableLayer) collidableInterface).getGroupInterface().getGroupName(), this, damageUtil.IS_COLLISION);
                 super.collide(collidableInterfaceCompositeInterface);
             }
             else

@@ -22,6 +22,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class GameKeyCompleteMotionGestureInputEventFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final GameKeyCompleteMotionGestureInputEventFactory SINGLETON = 
         new GameKeyCompleteMotionGestureInputEventFactory();
     
@@ -39,7 +41,7 @@ public class GameKeyCompleteMotionGestureInputEventFactory
     
     public void updateAll()
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(eventList.size()).toString(), this, "updateAll"));
+        logUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(eventList.size()).toString(), this, "updateAll");
         
         for(int index = eventList.size() - 1; index >= 0; index--)
         {

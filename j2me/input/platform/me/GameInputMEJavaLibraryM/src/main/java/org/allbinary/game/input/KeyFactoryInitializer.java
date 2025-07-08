@@ -23,8 +23,10 @@ import org.allbinary.init.Init;
  */
 public class KeyFactoryInitializer extends Init
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     public void init()
     {
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.INIT));
+        logUtil.put(this.commonStrings.START, this, this.commonStrings.INIT);
     }
 }

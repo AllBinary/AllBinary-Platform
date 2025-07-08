@@ -21,6 +21,8 @@ import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 
 public class ResourceUtil {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static ClassLoader classLoader;
 
@@ -37,7 +39,7 @@ public class ResourceUtil {
 //        return ResourceUtil.classLoader;
 //    }
     public void setClassLoader(final ClassLoader classLoader) {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Resource Loader: ").append(classLoader.getClass().getName()).toString(), this, "setClassLoader"));
+        logUtil.put(new StringMaker().append("Resource Loader: ").append(classLoader.getClass().getName()).toString(), this, "setClassLoader");
 
         ResourceUtil.classLoader = classLoader;
     }
@@ -71,16 +73,16 @@ public class ResourceUtil {
         final String resourcePath = resource.substring(index + startIndex);
 
         //stringMaker.delete(0, stringMaker.length());
-        //LogUtil.put(LogFactory.getInstance(stringMaker.append("Getting Resource: ").append(resourcePath).toString(), this, METHOD_NAME));
+        //logUtil.put(stringMaker.append("Getting Resource: ").append(resourcePath).toString(), this, METHOD_NAME);
         //stringMaker.delete(0, stringMaker.length());
-        //LogUtil.put(LogFactory.getInstance(stringMaker.append("Start Index: ").append(startIndex).toString(), this, METHOD_NAME));
+        //logUtil.put(stringMaker.append("Start Index: ").append(startIndex).toString(), this, METHOD_NAME);
 
         //Try getting resource with normal resource access
         InputStream inputStream = resource.getClass().getResourceAsStream(resourcePath);
 
         if (inputStream != null) {
 //            stringMaker.delete(0, stringMaker.length());
-//            LogUtil.put(LogFactory.getInstance(stringMaker.append(RESOURCE_FOUND).append(resourcePath).toString(), this, METHOD_NAME));
+//            logUtil.put(stringMaker.append(RESOURCE_FOUND).append(resourcePath).toString(), this, METHOD_NAME);
             return inputStream;
         }
 
@@ -89,7 +91,7 @@ public class ResourceUtil {
 
         if (inputStream != null) {
 //            stringMaker.delete(0, stringMaker.length());
-//            LogUtil.put(LogFactory.getInstance(stringMaker.append(RESOURCE_FOUND_WITH).append(resourcePath).append(commonSeps.COMMA).append(ResourceUtil.classLoader.getClass().getName()).toString(), this, METHOD_NAME));
+//            logUtil.put(stringMaker.append(RESOURCE_FOUND_WITH).append(resourcePath).append(commonSeps.COMMA).append(ResourceUtil.classLoader.getClass().getName()).toString(), this, METHOD_NAME);
 
             return inputStream;
         }
@@ -98,7 +100,7 @@ public class ResourceUtil {
 
         if (inputStream != null) {
 //            stringMaker.delete(0, stringMaker.length());
-//            LogUtil.put(LogFactory.getInstance(stringMaker.append(RESOURCE_FOUND_WITH_CONTEXT_CLASS_LOADER).append(resourcePath).append(commonSeps.COMMA).append(Thread.currentThread().getContextClassLoader().getClass().getName()).toString(), this, METHOD_NAME));
+//            logUtil.put(stringMaker.append(RESOURCE_FOUND_WITH_CONTEXT_CLASS_LOADER).append(resourcePath).append(commonSeps.COMMA).append(Thread.currentThread().getContextClassLoader().getClass().getName()).toString(), this, METHOD_NAME);
             return inputStream;
         }
 
@@ -109,7 +111,7 @@ public class ResourceUtil {
       
       if(inputStream != null)
       {
-         LogUtil.put(LogFactory.getInstance("Native Resource Found", this, METHOD_NAME));
+         logUtil.put("Native Resource Found", this, METHOD_NAME);
 
          return inputStream;
       }
@@ -121,7 +123,7 @@ public class ResourceUtil {
         /*
       if(inputStream != null)
       {
-         LogUtil.put(LogFactory.getInstance("Resource Found In Specified Jar", this, METHOD_NAME));
+         logUtil.put("Resource Found In Specified Jar", this, METHOD_NAME);
 
          return inputStream;
       }
@@ -131,7 +133,7 @@ public class ResourceUtil {
 
       if(inputStream != null)
       {
-         LogUtil.put(LogFactory.getInstance("Resource Found In Jar", this, METHOD_NAME));
+         logUtil.put("Resource Found In Jar", this, METHOD_NAME);
 
          return inputStream;
       }
@@ -141,7 +143,7 @@ public class ResourceUtil {
 
       if(inputStream != null)
       {
-         LogUtil.put(LogFactory.getInstance("Resource Found In File", this, METHOD_NAME));
+         logUtil.put("Resource Found In File", this, METHOD_NAME);
 
          return inputStream;
       }
@@ -150,7 +152,7 @@ public class ResourceUtil {
 
       if(inputStream != null)
       {
-         LogUtil.put(LogFactory.getInstance("Resource Found In File - Absolute Path", this, METHOD_NAME));
+         logUtil.put("Resource Found In File - Absolute Path", this, METHOD_NAME);
       }
          */
         return inputStream;

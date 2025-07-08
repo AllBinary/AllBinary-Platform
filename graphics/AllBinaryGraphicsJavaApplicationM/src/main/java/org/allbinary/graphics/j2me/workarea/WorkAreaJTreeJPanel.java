@@ -32,6 +32,8 @@ import org.allbinary.util.BasicArrayList;
 
 public class WorkAreaJTreeJPanel extends javax.swing.JPanel
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final CommonStrings commonStrings = CommonStrings.getInstance();
    private DefaultMutableTreeNode rootTreeNode;
    private JTree workAreaJTree;
@@ -99,7 +101,7 @@ public class WorkAreaJTreeJPanel extends javax.swing.JPanel
    public void deselectAll() throws Exception
    {
       int size = highlightedBasicArrayList.size();
-      LogUtil.put(LogFactory.getInstance("size: " + size, this, "deselectAll"));
+      logUtil.put("size: " + size, this, "deselectAll");
 
       for (int index = 0; index < size; index++)
       {
@@ -284,7 +286,7 @@ public class WorkAreaJTreeJPanel extends javax.swing.JPanel
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "rotateJMenuItemMousePressed", e));
+         logUtil.put(commonStrings.EXCEPTION, this, "rotateJMenuItemMousePressed", e);
       }
    }//GEN-LAST:event_rotateJMenuItemMousePressed
 
@@ -334,7 +336,7 @@ public class WorkAreaJTreeJPanel extends javax.swing.JPanel
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "workAreaJTreeMousePressed", e));
+         logUtil.put(commonStrings.EXCEPTION, this, "workAreaJTreeMousePressed", e);
       }
    }//GEN-LAST:event_workAreaJTreeMousePressed
 
@@ -354,7 +356,7 @@ public class WorkAreaJTreeJPanel extends javax.swing.JPanel
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "copyJMenuItemMousePressed", e));
+         logUtil.put(commonStrings.EXCEPTION, this, "copyJMenuItemMousePressed", e);
       }
    }//GEN-LAST:event_copyJMenuItemMousePressed
 
@@ -375,7 +377,7 @@ public class WorkAreaJTreeJPanel extends javax.swing.JPanel
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "deleteJMenuItemMousePressed", e));
+         logUtil.put(commonStrings.EXCEPTION, this, "deleteJMenuItemMousePressed", e);
       }
    }//GEN-LAST:event_deleteJMenuItemMousePressed
 

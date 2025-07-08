@@ -10,7 +10,7 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.logic.communication.log;
 
 import java.io.IOException;
@@ -26,60 +26,73 @@ import org.allbinary.canvas.SpecialMessageUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.time.TimeDelayHelper;
 
-public class LogUtil
-{
-    private static boolean isFirstException = true;
-    private static TimeDelayHelper timeDelayHelper = new TimeDelayHelper(200000);
+public class LogUtil {
 
-    public static AbeClientInformationInterface abeClientInformation;
-    
-    private LogUtil()
-    {
+    private static final LogUtil instance = new LogUtil();
+
+    public static final LogUtil getInstance() {
+        return instance;
     }
 
-    private static final StringMaker stringBuffer = new StringMaker();
-    
+    private boolean isFirstException = true;
+    private TimeDelayHelper timeDelayHelper = new TimeDelayHelper(200000);
 
-    public static void put(Log log)
-    {
-        if(log == null)
+    public AbeClientInformationInterface abeClientInformation;
+
+    private LogUtil() {
+    }
+
+    private final StringMaker stringBuffer = new StringMaker();
+
+    public void put(Log log) {
+        if (log == null) {
             return;
+        }
         
-        Object exception = log.getThrowable();
+        final String specialMessage = log.getSpecialMessage();
+        final Object object = log.getObject();
+        final String functionName = log.getFunctionName();
+        final Object exception = log.getThrowable();
+        
+        this.put(specialMessage, object, functionName, exception);
+    }
+    
+    public void put(final String specialMessage, final Object object, final String functionName) {
+        
+    }
+    
+    public void put(final String specialMessage, final Object object, final String functionName, final Object exception) {
+        
 
-        if (exception != null)
-        {
+        if (exception != null) {
             //If XmlRpcException then don't try to log it
-            if(exception.getClass().getName().compareTo(XmlRpcException.class.getName()) == 0)
+            if (exception.getClass().getName().compareTo(XmlRpcException.class.getName()) == 0) {
                 return;
-            if(exception.getClass().getName().compareTo(IOException.class.getName()) == 0)
+            }
+            if (exception.getClass().getName().compareTo(IOException.class.getName()) == 0) {
                 return;
-            
-            if (LogUtil.isFirstException || LogUtil.timeDelayHelper.isTime())
-            {
-                String specialMessage = log.getSpecialMessage();
-                Object object = log.getObject();
-                String functionName = log.getFunctionName();
+            }
+
+            if (LogUtil.isFirstException || LogUtil.timeDelayHelper.isTime()) {
 
                 String className = CommonStrings.getInstance().EMPTY;
                 LogUtil.isFirstException = false;
-                
-                if (object != null && object.getClass().getName() != null)
-                {
+
+                if (object != null && object.getClass().getName() != null) {
                     className = new String(object.getClass().getName());
                 }
 
                 String message = LogFormatUtil.getInstance().get(
                     className, functionName, specialMessage, exception);
 
-                try
-                {
+                try {
                     System.out.println("Eeeek");
-                    
+
                     //android.util.Log.i("allbinary","Eeeek");
-                    
                     //System.out.println("message: " + message);
-                    if(abeClientInformation == null) throw new RuntimeException();
+                    if (abeClientInformation == null) {
+                        throw new RuntimeException();
+                    }
 
                     Hashtable hashtable = abeClientInformation.toHashtable();
 
@@ -92,13 +105,12 @@ public class LogUtil
 
                     //System.out.println("Sending");
                     new XmlRpcRemoteLogClient(abeClientInformation).get(hashtable);
-                } catch (Throwable e)
-                {
+                } catch (Throwable e) {
                     //Hmmmm well you will never know
                     System.out.println("Exception");
                     e.printStackTrace();
                 }
-                
+
                 /*
                 if (className != null)
                 {
@@ -110,7 +122,7 @@ public class LogUtil
                 {
                     put(specialMessage, "This Should Never Happed", functionName, exception);
                 }
-                */
+                 */
             }
         }
 //        else
@@ -197,5 +209,5 @@ public class LogUtil
             //Hmmmm well you will never know
         }
     }
-    */
+     */
 }

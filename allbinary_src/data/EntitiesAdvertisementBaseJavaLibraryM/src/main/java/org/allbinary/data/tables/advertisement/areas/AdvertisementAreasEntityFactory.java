@@ -19,6 +19,8 @@ import org.allbinary.string.CommonStrings;
 
 public class AdvertisementAreasEntityFactory
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
    private static final String CLASSNAME = "org.allbinary.data.tables.AdvertisementEntity";
    
    private AdvertisementAreasEntityFactory()
@@ -27,6 +29,7 @@ public class AdvertisementAreasEntityFactory
    
    public static AdvertisementAreasEntityInterface getInstance()
    {
+       final LogUtil logUtil = LogUtil.getInstance();
       try
       {
          return (AdvertisementAreasEntityInterface) new AdvertisementAreasEntity();
@@ -37,7 +40,7 @@ public class AdvertisementAreasEntityFactory
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
              final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "AdvertisementAreasEntityFactory", commonStrings.GET_INSTANCE, e));
+            logUtil.put(commonStrings.EXCEPTION, "AdvertisementAreasEntityFactory", commonStrings.GET_INSTANCE, e);
          }
          return null;
       }   

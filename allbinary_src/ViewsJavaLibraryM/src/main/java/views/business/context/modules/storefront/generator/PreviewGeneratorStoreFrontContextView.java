@@ -27,6 +27,8 @@ import org.allbinary.logic.visual.transform.info.TransformInfosData;
 
 public class PreviewGeneratorStoreFrontContextView extends GeneratorStoreFrontContextView
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    public PreviewGeneratorStoreFrontContextView(TransformInfoInterface transformInfoInterface) throws Exception
    {
       super(transformInfoInterface);
@@ -50,7 +52,7 @@ public class PreviewGeneratorStoreFrontContextView extends GeneratorStoreFrontCo
          //String error = "Failed To View Store Template Compound Component";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "view()", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "view()", e);
          }
          throw e;
       }

@@ -21,6 +21,8 @@ import org.allbinary.graphics.color.BasicColorFactory;
 
 public class NoGameNotificationHudSingleton
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final NoGameNotificationHudSingleton instance = 
         new NoGameNotificationHudSingleton();
 
@@ -45,7 +47,7 @@ public class NoGameNotificationHudSingleton
         catch(Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
         }
     }
 

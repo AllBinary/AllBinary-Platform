@@ -25,6 +25,8 @@ import org.allbinary.logic.string.StringUtil;
 
 public class LayerInterfaceFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private static final LayerInterfaceFactory SINGLETON = 
        new LayerInterfaceFactory();
    
@@ -46,7 +48,7 @@ public class LayerInterfaceFactory
            throws Exception
    {
        final CommonStrings commonStrings = CommonStrings.getInstance();
-      LogUtil.put(LogFactory.getInstance(new StringMaker().append(HASHTABLE_LABEL).append(StringUtil.getInstance().toString(hashtable)).toString(), this, commonStrings.GET_INSTANCE));
+      logUtil.put(new StringMaker().append(HASHTABLE_LABEL).append(StringUtil.getInstance().toString(hashtable)).toString(), this, commonStrings.GET_INSTANCE);
 
       final Integer typeInteger = (Integer) hashtable.get(Layer.ID);
 

@@ -39,6 +39,8 @@ import org.allbinary.string.CommonStrings;
 public class GenericProfiles
     implements DomNodeInterface, DomDocumentMappingInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     public static final String DEFAULT_PROFILES_PATH = 
         "./modules/configs/profiles/";
     public static final String DEFAULT_PROFILE_ACTIONS_PATH = 
@@ -76,7 +78,7 @@ public class GenericProfiles
             NodeList nodeList = document.getElementsByTagName(
                 GenericProfilesData.NAME);
             
-            LogUtil.put(LogFactory.getInstance("Number Of Profiles Specified: " + nodeList.getLength(), this,"Contructor"));
+            logUtil.put("Number Of Profiles Specified: " + nodeList.getLength(), this,"Contructor");
             
             if(nodeList != null)
             {
@@ -87,11 +89,11 @@ public class GenericProfiles
                 throw new Exception(GenericProfileActionData.NAME + " Name Node Node Children");
             }
             
-            LogUtil.put(LogFactory.getInstance("Loaded: " + this.hashMap.size() + " Configuration Profile Actions", this,"Contructor"));
+            logUtil.put("Loaded: " + this.hashMap.size() + " Configuration Profile Actions", this,"Contructor");
         }
         else
         {
-            LogUtil.put(LogFactory.getInstance("No Generic Profile: " + fileName, this,"Contructor"));
+            logUtil.put("No Generic Profile: " + fileName, this,"Contructor");
         }
         this.getDefaultListModelHelper().initDefaultModelList();
     }
@@ -127,8 +129,8 @@ public class GenericProfiles
         if(genericProfile == null)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance("No Generic Profile Named: " + name + 
-                " availability was: " + this.hashMap, this, commonStrings.GET));
+            logUtil.put("No Generic Profile Named: " + name + 
+                " availability was: " + this.hashMap, this, commonStrings.GET);
         }
         return genericProfile;
     }
@@ -185,7 +187,7 @@ public class GenericProfiles
         FileOutputStream idFile = new FileOutputStream(this.fileName);
         DataOutputStream idOutData = new DataOutputStream(idFile);
         String documentString = DomDocumentHelper.toString(this.toXmlDoc());
-        //LogUtil.put(LogFactory.getInstance("Do: " + nodeList.getLength(), this,"Contructor");
+        //logUtil.put("Do: " + nodeList.getLength(), this,"Contructor");
         idOutData.writeBytes(documentString);
     }
 }

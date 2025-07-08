@@ -24,6 +24,8 @@ import org.allbinary.string.CommonStrings;
 
 public class InventoryViewFactory
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
    //private static final String CLASSNAME = "views.generic.inventory.InventorySearch";
    
    private InventoryViewFactory()
@@ -33,6 +35,7 @@ public class InventoryViewFactory
    public static InventoryViewSearchInterface getInstance(SearchRequest searchRequest)
       throws LicensingException
    {
+       final LogUtil logUtil = LogUtil.getInstance();
       try
       {
     	  /*
@@ -57,7 +60,7 @@ public class InventoryViewFactory
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getInstance(SearchRequest)", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "getInstance(SearchRequest)", e);
          }
          throw e;
       } 
@@ -68,7 +71,7 @@ public class InventoryViewFactory
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
              final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "InventoryViewFactory", "getInstance(SearchRequest)",e));
+            logUtil.put(commonStrings.EXCEPTION, "InventoryViewFactory", "getInstance(SearchRequest)",e);
          }
          return null;
       }         

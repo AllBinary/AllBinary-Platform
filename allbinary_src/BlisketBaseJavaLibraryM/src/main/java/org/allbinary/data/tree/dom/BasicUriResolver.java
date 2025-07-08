@@ -30,6 +30,8 @@ import org.allbinary.logic.visual.transform.info.template.TransformInfoTemplateD
 
 public class BasicUriResolver implements URIResolver
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private final String IMPORT_URL = "/{import url}";
     private final String ATTEMPT = "attempt to use xsl:import: href=";
@@ -84,7 +86,7 @@ public class BasicUriResolver implements URIResolver
                 stringBuffer.append(REQUIRED_EXTENSION);
                 stringBuffer.append(extension);
 
-                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, RESOLVE));
+                logUtil.put(stringBuffer.toString(), this, RESOLVE);
             }
 
             return new StreamSource(new CryptFileReader(

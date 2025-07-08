@@ -30,6 +30,8 @@ import org.allbinary.util.BasicArrayList;
 
 public class PathAnimation extends Animation
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final LinePathAnimation linePathAnimation;
     private final PathFindingLayerInterface pathFindingLayer;
     
@@ -139,7 +141,7 @@ public class PathAnimation extends Animation
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Cleared Target", this, "paint"));
+            logUtil.put("Cleared Target", this, "paint");
         }
     }
 }

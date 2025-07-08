@@ -19,6 +19,8 @@ import org.allbinary.string.CommonStrings;
 
 public class PaymentGatewayEntityFactory
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
    //private static final String CLASSNAME = "org.allbinary.data.tables.user.commerce.money.payment.gateway.PaymentGatewayEntity";
    
    private PaymentGatewayEntityFactory()
@@ -27,6 +29,7 @@ public class PaymentGatewayEntityFactory
    
    public static PaymentGatewayEntity getInstance() throws Exception
    {
+       final LogUtil logUtil = LogUtil.getInstance();
       try
       {
          //Object object = AbeFactory.getInstance().getInstance(CLASSNAME);
@@ -49,7 +52,7 @@ public class PaymentGatewayEntityFactory
          final CommonStrings commonStrings = CommonStrings.getInstance();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "PaymentGatewayEntityFactory", commonStrings.GET_INSTANCE, e));
+            logUtil.put(commonStrings.EXCEPTION, "PaymentGatewayEntityFactory", commonStrings.GET_INSTANCE, e);
          }
          throw e;
       }

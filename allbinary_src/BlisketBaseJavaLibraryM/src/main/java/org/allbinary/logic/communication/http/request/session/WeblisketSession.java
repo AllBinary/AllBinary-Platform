@@ -239,7 +239,7 @@ public class WeblisketSession implements WeblisketSessionInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getBasket()", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "getBasket()", e);
          }
          throw e;
       }

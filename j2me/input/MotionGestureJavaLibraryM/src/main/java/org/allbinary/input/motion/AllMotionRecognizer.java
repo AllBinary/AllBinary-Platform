@@ -27,6 +27,8 @@ import org.allbinary.logic.communication.log.LogUtil;
  */
 public class AllMotionRecognizer extends MotionRecognizer
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final MotionGestureRecognizer motionGestureRecognizer;
     private boolean touchButtonProcessing = false;
     private final TouchButtonRecognizer touchButtonRecognizer;
@@ -65,10 +67,10 @@ public class AllMotionRecognizer extends MotionRecognizer
             point.setX(x);
             point.setY(y);
 
-//            LogUtil.put(LogFactory.getInstance(
+//            logUtil.put(
 //                    new StringBuilder().append(commonStrings.START_LABEL)
 //                            .append("point: ").append(point.toString()).toString(),
-//                    this, "processStartMotionEvent"));
+//                    this, "processStartMotionEvent");
             
             this.motionGestureRecognizer.processPressedMotionEvent(point, deviceId, modifiers);
         }
@@ -90,10 +92,10 @@ public class AllMotionRecognizer extends MotionRecognizer
             point.setX(x);
             point.setY(y);
 
-//            LogUtil.put(LogFactory.getInstance(
+//            logUtil.put(
 //                    new StringBuilder().append(commonStrings.START_LABEL)
 //                            .append("point: ").append(point.toString()).toString(),
-//                    this, "processEndMotionEvent"));
+//                    this, "processEndMotionEvent");
             
             this.motionGestureRecognizer.processReleasedMotionEvent(point, deviceId, modifiers);
         }

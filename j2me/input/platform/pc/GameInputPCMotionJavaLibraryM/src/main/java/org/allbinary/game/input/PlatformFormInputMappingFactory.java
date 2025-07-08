@@ -21,6 +21,8 @@ import org.allbinary.input.motion.button.BasicTouchInputFactory;
 
 public class PlatformFormInputMappingFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final PlatformFormInputMappingFactory instance = new PlatformFormInputMappingFactory();
     
     public static PlatformFormInputMappingFactory getInstance() {
@@ -62,7 +64,7 @@ public class PlatformFormInputMappingFactory
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
         }
         return SINGLETON;
     }

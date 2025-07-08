@@ -33,6 +33,8 @@ import org.allbinary.media.graphics.geography.pathfinding.PathGenerator;
  */
 public class DynamicRaceTracksPathPrinter extends RaceTracksPathPrinter 
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     public void printAllPaths(
        RaceTrackGeographicMapInterfaceFactoryInterface raceTrackGeographicMapInterfaceFactoryInterface,
        PathFindingInfo pathFindingInfo,
@@ -66,7 +68,7 @@ public class DynamicRaceTracksPathPrinter extends RaceTracksPathPrinter
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
         }
     }
 

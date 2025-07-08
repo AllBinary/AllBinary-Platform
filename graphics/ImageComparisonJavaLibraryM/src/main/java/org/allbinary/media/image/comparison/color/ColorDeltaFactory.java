@@ -24,26 +24,29 @@ import org.allbinary.logic.util.cache.CacheTypeFactory;
 
 public class ColorDeltaFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static AutomaticCacheInterface cacheInterface = null;
     
     static
     {
+        final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonStrings = CommonStrings.getInstance();
         final String STATIC_BLOCK = "Static Block";
         final String instance = "ColorDeltaFactory";
         try
         {
             
-            LogUtil.put(LogFactory.getInstance(commonStrings.START, instance, STATIC_BLOCK));
+            logUtil.put(commonStrings.START, instance, STATIC_BLOCK);
             
             cacheInterface = (AutomaticCacheInterface) CacheInterfaceFactory.getInstance(CacheTypeFactory.getInstance().CACHE,
                 CachePolicyFactory.getInstance().THIRTY_MINUTES_TEN_THOUSAND_MAX);
             
-            LogUtil.put(LogFactory.getInstance(commonStrings.END, instance, STATIC_BLOCK));
+            logUtil.put(commonStrings.END, instance, STATIC_BLOCK);
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, instance, STATIC_BLOCK, e));
+            logUtil.put(commonStrings.EXCEPTION, instance, STATIC_BLOCK, e);
         }
     }
     

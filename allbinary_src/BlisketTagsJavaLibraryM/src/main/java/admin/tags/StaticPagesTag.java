@@ -33,6 +33,8 @@ import javax.servlet.jsp.JspTagException;
 
 public class StaticPagesTag extends TableTag
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private String xslFile;
    
    public StaticPagesTag()
@@ -50,7 +52,7 @@ public class StaticPagesTag extends TableTag
    {
       try
       {
-         //LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "generateStaticPages()"));
+         //logUtil.put(this.commonStrings.START, this, "generateStaticPages()");
 
          Object object = new StaticPagesRequestHelperFactory().getInstance(
          this.getPropertiesHashMap(), this.pageContext);
@@ -72,7 +74,7 @@ public class StaticPagesTag extends TableTag
          String error = "Failed to generate staticpages table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"generateStaticPages()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"generateStaticPages()",e);
          }
          return error;
       }
@@ -102,7 +104,7 @@ public class StaticPagesTag extends TableTag
          String error = "Failed to makePublic";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"makePublic()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"makePublic()",e);
          }
          return error;
       }
@@ -116,7 +118,7 @@ public class StaticPagesTag extends TableTag
          {
             if(this.getCommand()!=null)
             {
-               //LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START + this.getCommand(), this, "doStartTag"));
+               //logUtil.put(CommonLabels.getInstance().START + this.getCommand(), this, "doStartTag");
 
                if (this.getCommand().compareTo(SearchData.GENERATESTATICPAGES)==0)
                {

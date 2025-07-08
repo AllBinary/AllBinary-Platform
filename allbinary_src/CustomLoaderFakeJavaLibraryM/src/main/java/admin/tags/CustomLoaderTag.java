@@ -28,6 +28,8 @@ import tags.CustomTagSupport;
 
 public class CustomLoaderTag extends CustomTagSupport
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     
    private String command;
    private String webappPath;
@@ -60,7 +62,7 @@ public class CustomLoaderTag extends CustomTagSupport
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "setCustomLoaderWebappPath()", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "setCustomLoaderWebappPath()", e);
          }
       }
    }
@@ -74,7 +76,7 @@ public class CustomLoaderTag extends CustomTagSupport
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "doStartTag()"));
+            logUtil.put(this.commonStrings.START, this, "doStartTag()");
          }
          
          if(command!=null)

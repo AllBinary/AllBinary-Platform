@@ -31,6 +31,8 @@ public class ImageComparisonWorker
     extends BasicEventHandler
     implements CapturedImageWorkerResultsListener
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final Vector bufferedImageVector = new Vector();
@@ -83,7 +85,7 @@ public class ImageComparisonWorker
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.RUN));
+            logUtil.put(this.commonStrings.START, this, this.commonStrings.RUN);
             
             this.setRunning(true);
             
@@ -124,12 +126,12 @@ public class ImageComparisonWorker
                     this.fireEvent(new ImageComparisonResultsEvent(
                         this, imageComparisonResult));
                     
-                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("Image Comparison Result: ").append(imageComparisonResult.toString()).append(" for frame: ").append(frame).toString(), this, this.commonStrings.RUN));
+                    logUtil.put(new StringMaker().append("Image Comparison Result: ").append(imageComparisonResult.toString()).append(" for frame: ").append(frame).toString(), this, this.commonStrings.RUN);
                 }
                 else
                 {
-                    LogUtil.put(LogFactory.getInstance(
-                        "An Image Was Not Valid: Image Worker Event Processing terminated", this, this.commonStrings.RUN));
+                    logUtil.put(
+                        "An Image Was Not Valid: Image Worker Event Processing terminated", this, this.commonStrings.RUN);
                 }
             }
             
@@ -138,15 +140,15 @@ public class ImageComparisonWorker
             index2++;
             
             final String message = new StringMaker().append("Frame: ").append(index2).append(CommonLabels.getInstance().ELAPSED).append(timeHelper.getElapsed()).toString();
-            LogUtil.put(LogFactory.getInstance(message, this, this.commonStrings.RUN));
+            logUtil.put(message, this, this.commonStrings.RUN);
             
             this.setRunning(false);
             
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, this.commonStrings.RUN));
+            logUtil.put(this.commonStrings.END, this, this.commonStrings.RUN);
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
         }
     }
 }

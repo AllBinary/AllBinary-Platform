@@ -21,6 +21,8 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
 public class HighScoreCommandsBaseFactory {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     
     public final Command[] HIGH_SCORE_COMMANDS;
 
@@ -28,7 +30,7 @@ public class HighScoreCommandsBaseFactory {
     {
         if(J2MEUtil.isJ2ME())
         {
-            //LogUtil.put(LogFactory.getInstance(commonStrings.START).append("J2ME", this, commonStrings.CONSTRUCTOR));
+            //logUtil.put(commonStrings.START).append("J2ME", this, commonStrings.CONSTRUCTOR);
             
             //TWB - Hackish but it is better than a whole new library
             this.HIGH_SCORE_COMMANDS = new Command[] 
@@ -38,7 +40,7 @@ public class HighScoreCommandsBaseFactory {
         }
         else
         {
-            //LogUtil.put(LogFactory.getInstance(commonStrings.START).append("not J2ME", this, commonStrings.CONSTRUCTOR));
+            //logUtil.put(commonStrings.START).append("not J2ME", this, commonStrings.CONSTRUCTOR);
 
             this.HIGH_SCORE_COMMANDS = HIGH_SCORE_COMMANDS;
         }

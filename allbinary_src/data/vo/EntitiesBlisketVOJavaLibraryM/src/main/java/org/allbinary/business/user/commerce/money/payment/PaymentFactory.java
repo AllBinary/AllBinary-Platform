@@ -26,6 +26,8 @@ import org.allbinary.string.CommonStrings;
 
 public class PaymentFactory
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
    //private static final String CLASSNAME = 
      //      "org.allbinary.business.user.commerce.money.payment.Payment";
 
@@ -35,6 +37,7 @@ public class PaymentFactory
 
    public static PaymentInterface getInstance(ServletRequest request) //throws LicensingException
    {
+       final LogUtil logUtil = LogUtil.getInstance();
       try
       {
          return (PaymentInterface) new org.allbinary.business.user.commerce.money.payment.Payment(request);
@@ -55,7 +58,7 @@ public class PaymentFactory
          final CommonStrings commonStrings = CommonStrings.getInstance();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "PaymentFactory", commonStrings.GET_INSTANCE, e));
+            logUtil.put(commonStrings.EXCEPTION, "PaymentFactory", commonStrings.GET_INSTANCE, e);
          }
          return null;
       }

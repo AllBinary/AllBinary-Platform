@@ -37,6 +37,8 @@ import org.allbinary.data.tables.user.commerce.inventory.order.OrderHistoryEntit
 public class UpdateOrderHelper
     extends TagHelper
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private HttpServletRequest request;
    
    private String entryId;
@@ -193,7 +195,7 @@ public class UpdateOrderHelper
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            LogUtil.put(LogFactory.getInstance(success,this,"update()"));
+            logUtil.put(success,this,"update()");
          }
          return success;
       }
@@ -202,7 +204,7 @@ public class UpdateOrderHelper
          String error = "Failed to update order table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"update()",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"update()",e);
          }
          return error;
       }

@@ -32,13 +32,15 @@ import org.allbinary.logic.visual.transform.template.customizer.bodies.title.Tit
 
 public class NewTitleBodyValidationView extends TitleBodyCustomizerView implements ValidationComponentInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    public NewTitleBodyValidationView(TransformInfoInterface transformInfoInterface) throws Exception
    {
       super(transformInfoInterface);
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("View Name: " + transformInfoInterface.getName(), this, "NewTitleBodyValidationView()"));
+         logUtil.put("View Name: " + transformInfoInterface.getName(), this, "NewTitleBodyValidationView()");
       }
 
       this.titleBody = new TitleBodyValidation();
@@ -55,7 +57,7 @@ public class NewTitleBodyValidationView extends TitleBodyCustomizerView implemen
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("View Name: " + this.getTransformInfoInterface().getName(), this, commonStrings.IS_VALID));
+            logUtil.put("View Name: " + this.getTransformInfoInterface().getName(), this, commonStrings.IS_VALID);
          }
          //Boolean isValid = this.heading.isValid();
                   
@@ -72,7 +74,7 @@ public class NewTitleBodyValidationView extends TitleBodyCustomizerView implemen
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate",this,commonStrings.IS_VALID,e));
+            logUtil.put("Failed to validate",this,commonStrings.IS_VALID,e);
          }
          return Boolean.FALSE;
       }
@@ -92,7 +94,7 @@ public class NewTitleBodyValidationView extends TitleBodyCustomizerView implemen
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to generate validation error info",this,"validationInfo()",e));
+            logUtil.put("Failed to generate validation error info",this,"validationInfo()",e);
          }
          return "Error Getting Validation Info";
       }

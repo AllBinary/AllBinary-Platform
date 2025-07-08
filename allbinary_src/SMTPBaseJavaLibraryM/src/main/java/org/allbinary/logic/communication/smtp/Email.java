@@ -45,6 +45,8 @@ import org.allbinary.string.CommonStrings;
 public class Email 
    implements EmailInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
    private MimeMessage msg;
@@ -114,7 +116,7 @@ public class Email
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGINGERROR))
          {
              final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "emailConstructor", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "emailConstructor", e);
          }
          throw e;
       }
@@ -145,7 +147,7 @@ public class Email
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGINGERROR))
             {
-               LogUtil.put(LogFactory.getInstance("Unable to get HostName so using fake", this, "init()"));
+               logUtil.put("Unable to get HostName so using fake", this, "init()");
             }
             this.properties.put(SMTP_LOCAL_HOST, "FakeHostName");
          }
@@ -154,7 +156,7 @@ public class Email
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Continuing on Exception: Unable to get HostName", this, "init()", e));
+            logUtil.put("Continuing on Exception: Unable to get HostName", this, "init()", e);
          }
          
          this.properties.put(SMTP_LOCAL_HOST, "FakeHostName");
@@ -277,7 +279,7 @@ public class Email
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "toHashMap()", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "toHashMap()", e);
          }
          throw e;
       }

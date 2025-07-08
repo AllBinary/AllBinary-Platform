@@ -23,6 +23,8 @@ import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 
 public class GameConfigurationUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final GameConfigurationUtil instance = new GameConfigurationUtil();
     
     public static GameConfigurationUtil getInstance()
@@ -74,7 +76,7 @@ public class GameConfigurationUtil
         stringBuffer.append(TO);
         stringBuffer.append(value);
         
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.UPDATE));
+        logUtil.put(stringBuffer.toString(), this, commonStrings.UPDATE);
         
         gameConfiguration.setValue(value);
     }
@@ -95,7 +97,7 @@ public class GameConfigurationUtil
         stringBuffer.append(TO);
         stringBuffer.append(gameConfiguration.getDefaultValue());
         
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "setDefault"));
+        logUtil.put(stringBuffer.toString(), this, "setDefault");
 
         gauge.setValue(gameConfiguration.getDefaultValue().intValue() - gameConfiguration.getMinValue().intValue());
         gameConfiguration.setValue(gameConfiguration.getDefaultValue());
@@ -115,7 +117,7 @@ public class GameConfigurationUtil
         
         if (gameConfiguration == gameConfigurationCentral.CHALLENGE_LEVEL)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "updateChallange"));
+            logUtil.put(commonStrings.START, this, "updateChallange");
 
             gameConfigurationCentral.COLLIDE_DAMAGE.setValue(gameConfiguration
                     .getValue());
@@ -166,7 +168,7 @@ public class GameConfigurationUtil
 
     public void updateCompetitionValue()
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "updateCompetitionValue"));
+        logUtil.put(commonStrings.START, this, "updateCompetitionValue");
 
         GameConfigurationCentral gameConfigurationCentral = 
             GameConfigurationCentral.getInstance();

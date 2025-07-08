@@ -28,6 +28,8 @@ import org.allbinary.logic.control.workflow.RequestWorkFlowFactory;
 
 public class RequestHandler extends HttpServlet
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    public void init(ServletConfig config) throws ServletException
    {
       super.init(config);
@@ -62,7 +64,7 @@ public class RequestHandler extends HttpServlet
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SERVLETERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Servlet LicensingException",this,"processRequest()",e);
+            logUtil.put("Servlet LicensingException",this,"processRequest()",e);
          }
          response.sendRedirect(abcs.globals.URLGLOBALS.LICENSEERRORPAGE);
       }
@@ -70,7 +72,7 @@ public class RequestHandler extends HttpServlet
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SERVLETERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Servlet Exception",this,"processRequest()",e);
+            logUtil.put("Servlet Exception",this,"processRequest()",e);
          }
          response.sendRedirect(abcs.globals.URLGLOBALS.ERRORPAGE);
       }

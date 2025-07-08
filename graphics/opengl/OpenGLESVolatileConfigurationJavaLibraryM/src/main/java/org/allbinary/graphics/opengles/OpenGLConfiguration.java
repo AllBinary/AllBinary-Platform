@@ -26,6 +26,8 @@ import org.allbinary.logic.string.StringUtil;
 
 public class OpenGLConfiguration
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final OpenGLConfiguration instance = 
         new OpenGLConfiguration();
     
@@ -72,39 +74,39 @@ public class OpenGLConfiguration
             {
                 if (!features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL))
                 {
-                    LogUtil.put(LogFactory.getInstance("Turning on OpenGL",
-                            this, commonStrings.INIT));
+                    logUtil.put("Turning on OpenGL",
+                            this, commonStrings.INIT);
                     
                     features.addDefault(OpenGLFeatureFactory.getInstance().OPENGL);
                     
-                    LogUtil.put(LogFactory.getInstance("Using OpenGL Type Feature: "
-                            + this.getType(), this, commonStrings.INIT));
+                    logUtil.put("Using OpenGL Type Feature: "
+                            + this.getType(), this, commonStrings.INIT);
                     
                     features.addDefault(this.getType());
                     
-                    LogUtil.put(LogFactory.getInstance("Using OpenGL ImageColor Feature: "
-                            + this.getImageColor(), this, commonStrings.INIT));
+                    logUtil.put("Using OpenGL ImageColor Feature: "
+                            + this.getImageColor(), this, commonStrings.INIT);
                     features.addDefault(this.getImageColor());
 
-                    LogUtil.put(LogFactory.getInstance("Using OpenGL Color Feature: "
-                            + this.getColor(), this, commonStrings.INIT));
+                    logUtil.put("Using OpenGL Color Feature: "
+                            + this.getColor(), this, commonStrings.INIT);
                     features.addDefault(this.getColor());
 
-                    LogUtil.put(LogFactory.getInstance("Using OpenGL Version Selector Feature: "
-                            + this.getVersionSelector(), this, commonStrings.INIT));
+                    logUtil.put("Using OpenGL Version Selector Feature: "
+                            + this.getVersionSelector(), this, commonStrings.INIT);
                     features.addDefault(this.getVersionSelector());
                 }
             }
             else
             {
-                LogUtil.put(LogFactory.getInstance("OpenGL is Off", this,
-                        commonStrings.INIT));
+                logUtil.put("OpenGL is Off", this,
+                        commonStrings.INIT);
 
                 // Turning off OpenGL
                 // if(features.isDefault(OpenGLFeature.OPENGL))
                 // {
-                // LogUtil.put(LogFactory.getInstance("Turning off OpenGL",
-                // this, commonStrings.INIT));
+                // logUtil.put("Turning off OpenGL",
+                // this, commonStrings.INIT);
                 // features.removeDefault(OpenGLFeature.OPENGL);
                 // }
             }

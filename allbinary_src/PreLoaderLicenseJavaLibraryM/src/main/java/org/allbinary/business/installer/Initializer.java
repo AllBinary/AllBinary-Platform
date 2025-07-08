@@ -30,6 +30,8 @@ import org.allbinary.string.CommonStrings;
 
 public class Initializer
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     //private HttpServletRequest request;
 
     private String userJdbcDriver;
@@ -96,7 +98,7 @@ public class Initializer
             stringBuffer.append(" Value: ");
             stringBuffer.append(values[0]);
             
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "getFormData()"));
+            logUtil.put(stringBuffer.toString(), this, "getFormData()");
         }
         this.getFormData(hashMap);
     }
@@ -159,7 +161,7 @@ public class Initializer
 
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Unable to get form data", this, "getFormData()", e));
+            logUtil.put("Unable to get form data", this, "getFormData()", e);
         }
     }
 
@@ -174,7 +176,7 @@ public class Initializer
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADERERROR))
             {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.IS_VALID, e));
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.IS_VALID, e);
             }
             return false;
         }
@@ -454,7 +456,7 @@ public class Initializer
      */
     public void set() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Creating DB connection files", this, "set()"));
+        logUtil.put("Creating DB connection files", this, "set()");
 
         UserDbInitInfo userDbInitInfo = new UserDbInitInfo(false);
         userDbInitInfo.setJdbcDriver(this.userJdbcDriver);
@@ -515,6 +517,6 @@ public class Initializer
         inventoryDbInitInfo.setHasRead(true);
         inventoryDbInitInfo.write();
 
-        LogUtil.put(LogFactory.getInstance("Created DB connection files", this, "set()"));
+        logUtil.put("Created DB connection files", this, "set()");
     }
 }

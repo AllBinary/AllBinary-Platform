@@ -29,6 +29,8 @@ import org.allbinary.string.CommonLabels;
 
 public class AllBinaryMediaManager
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final String THIS = "AllBinaryMediaManagerAndroid";
     
     private static int mostUsedTotal = 0;
@@ -61,8 +63,9 @@ public class AllBinaryMediaManager
     public static void init(final SoundsFactoryInterface soundsFactoryInterface)
             throws Exception
     {
+        final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonString = CommonStrings.getInstance();
-        LogUtil.put(LogFactory.getInstance(commonString.START, THIS, commonString.INIT));
+        logUtil.put(commonString.START, THIS, commonString.INIT);
 
         AllBinaryMediaManager.shutdown(soundsFactoryInterface);
 
@@ -72,14 +75,15 @@ public class AllBinaryMediaManager
 
         new Sounds(soundsFactoryInterface).init();
 
-        LogUtil.put(LogFactory.getInstance(commonString.END, THIS, commonString.INIT));
+        logUtil.put(commonString.END, THIS, commonString.INIT);
     }
 
     static void shutdown(final SoundsFactoryInterface soundsFactoryInterface)
             throws Exception
     {
+        final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonString = CommonStrings.getInstance();
-        LogUtil.put(LogFactory.getInstance(commonString.START, THIS, "shutdown"));
+        logUtil.put(commonString.START, THIS, "shutdown");
 
         if (soundsFactoryInterface.isInitialized())
         {
@@ -128,12 +132,13 @@ public class AllBinaryMediaManager
             soundsFactoryInterface.setInitialized(false);
             mostUsedTotal = 0;
         }
-        LogUtil.put(LogFactory.getInstance(commonString.START, THIS, "shutdown"));
+        logUtil.put(commonString.START, THIS, "shutdown");
     }
 
     public static Player createPlayer(String resource) throws Exception
     {
         mostUsedTotal++;
+        final LogUtil logUtil = LogUtil.getInstance();
         if (Features.getInstance().isFeature(GameFeatureFactory.getInstance().SOUND))
         {
             try
@@ -142,11 +147,11 @@ public class AllBinaryMediaManager
             }
             catch (Exception e)
             {
-                LogUtil.put(LogFactory.getInstance(
+                logUtil.put(
                         "Could not create AndroidMediaPlayerWrapper using NoPlayer at " + 
                         CommonLabels.getInstance().TOTAL_LABEL
                                 + mostUsedTotal, THIS,
-                        "createPlayer", e));
+                        "createPlayer", e);
                 return new NoPlayer();
             }
         }

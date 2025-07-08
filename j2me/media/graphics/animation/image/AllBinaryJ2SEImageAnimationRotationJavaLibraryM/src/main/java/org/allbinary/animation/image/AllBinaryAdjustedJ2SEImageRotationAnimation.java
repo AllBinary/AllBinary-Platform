@@ -22,6 +22,8 @@ import org.allbinary.math.AngleInfo;
 public class AllBinaryAdjustedJ2SEImageRotationAnimation 
 extends AllBinaryJ2SEImageRotationAnimation
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private int dx;
     private int dy;
 
@@ -31,7 +33,7 @@ extends AllBinaryJ2SEImageRotationAnimation
     {
         super(originalImage, image, angleInfo, totalAngle, animationBehavior);
 
-        // LogUtil.put(LogFactory.getInstance(, this,));
+        // logUtil.put(, this,);
 
         this.init(dx, dy);
         //-(imageArray[0].getWidth() >> 2), -(imageArray[0].getHeight() >> 2)

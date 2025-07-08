@@ -27,6 +27,8 @@ import org.allbinary.logic.system.os.windows.WindowsOperatingSystemFactory;
 
 public class OperatingSystemFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final OperatingSystemFactory instance = new OperatingSystemFactory();
 
     /**
@@ -58,14 +60,14 @@ public class OperatingSystemFactory
             
             if(!this.hasDetected)
             {
-                LogUtil.put(LogFactory.getInstance("osName: " + osName, this, commonStrings.GET_INSTANCE));
+                logUtil.put("osName: " + osName, this, commonStrings.GET_INSTANCE);
                 
                 this.hasDetected = true;
                 if(osName.indexOf(operatingSystems.LINUX) >= 0)
                 {
                     if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
                     {
-                        LogUtil.put(LogFactory.getInstance("Found a Linux OS", this, commonStrings.GET_INSTANCE));
+                        logUtil.put("Found a Linux OS", this, commonStrings.GET_INSTANCE);
                     }
                     
                     this.GenericOperatingSystem =
@@ -76,7 +78,7 @@ public class OperatingSystemFactory
                 {
                     if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
                     {
-                        LogUtil.put(LogFactory.getInstance("Found a Windows OS", this, commonStrings.GET_INSTANCE));
+                        logUtil.put("Found a Windows OS", this, commonStrings.GET_INSTANCE);
                     }
                     this.GenericOperatingSystem =
                         (GenericOperatingSystem) 
@@ -86,7 +88,7 @@ public class OperatingSystemFactory
                 {
                     if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
                     {
-                        LogUtil.put(LogFactory.getInstance("Found a Solaris OS", this, commonStrings.GET_INSTANCE));
+                        logUtil.put("Found a Solaris OS", this, commonStrings.GET_INSTANCE);
                     }
                     
                     this.GenericOperatingSystem =
@@ -99,7 +101,7 @@ public class OperatingSystemFactory
                 
                 Log log = LogFactory.getInstance(new StringMaker().append("OperatingSystem Info: ").append(StringUtil.getInstance().toString(this.GenericOperatingSystem)).toString(), this, commonStrings.GET_INSTANCE);
                 System.out.println(log.toString());
-                LogUtil.put(log);
+                logUtil.put(log);
 
             }
                         
@@ -109,7 +111,7 @@ public class OperatingSystemFactory
         {
             if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
             }
             //throw e;
             return new NoOperatingSystem();

@@ -55,6 +55,8 @@ public class WorkAreaJPanel
         extends JPanel
         implements WorkAreaJPanelInterface, MyCanvasEventListener, EventListener, Runnable
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     //linked list of CanvasJPanels
 
     private LinkedList canvasJPanelList;
@@ -130,7 +132,7 @@ public class WorkAreaJPanel
         {
             if (LOGGING.contains(LOGGING.LOADINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance("Constructor Error", this, "WorkAreaJPanel", e));
+                logUtil.put("Constructor Error", this, "WorkAreaJPanel", e);
             }
 
             throw e;

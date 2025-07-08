@@ -29,6 +29,8 @@ import org.allbinary.logic.communication.log.LogFactory;
 public class ImageComparatorConstraints
     implements ImageComparatorConstraintsInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private Vector avoidVector;
     
     private int maxNonMatchingPixelDeltas;
@@ -62,8 +64,8 @@ public class ImageComparatorConstraints
             Rectangle avoidRectangle = (Rectangle) avoidVector.get(index);
             if(RectangleCollisionUtil.isCollision(avoidRectangle, rectangle))
             {
-                //LogUtil.put(LogFactory.getInstance(
-                // rectangle + " collided with " + avoidRectangle, this, "isCollisionWithAvoidRectangles"));
+                //logUtil.put(
+                // rectangle + " collided with " + avoidRectangle, this, "isCollisionWithAvoidRectangles");
                 isCollsionWithAvoidRectangles = true;
             }
         }
@@ -81,8 +83,8 @@ public class ImageComparatorConstraints
             Rectangle avoidRectangle = (Rectangle) avoidVector.get(index);
             if(RectangleCollisionUtil.isCollision(avoidRectangle, point))
             {
-                //LogUtil.put(LogFactory.getInstance(
-                // rectangle + " collided with " + avoidRectangle, this, "isCollisionWithAvoidRectangles"));
+                //logUtil.put(
+                // rectangle + " collided with " + avoidRectangle, this, "isCollisionWithAvoidRectangles");
                 isCollsionWithAvoidRectangles = true;
                 break;
             }
@@ -108,7 +110,7 @@ public class ImageComparatorConstraints
     public boolean isFrameAllowed(int frame)
     {
         int remainder = ((frame + 1) % this.doImageComparisonEveryNthFrame);
-        LogUtil.put(LogFactory.getInstance(" Frame: " + frame + " remainder: " + remainder + " this.doImageComparisonEveryNthFrame: " + this.doImageComparisonEveryNthFrame, this, "isCollisionWithAvoidRectangles"));
+        logUtil.put(" Frame: " + frame + " remainder: " + remainder + " this.doImageComparisonEveryNthFrame: " + this.doImageComparisonEveryNthFrame, this, "isCollisionWithAvoidRectangles");
         
         if(remainder == 0)
         {
@@ -131,8 +133,8 @@ public class ImageComparatorConstraints
         for (int index = 0; index < size; index++)
         {
             Rectangle avoidRectangle = (Rectangle) avoidVector.get(index);
-            LogUtil.put(LogFactory.getInstance(
-                "Avoid Rectangle: " + avoidRectangle, this, "log"));
+            logUtil.put(
+                "Avoid Rectangle: " + avoidRectangle, this, "log");
         }
     }
 }

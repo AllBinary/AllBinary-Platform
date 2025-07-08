@@ -25,6 +25,8 @@ import org.allbinary.string.CommonStrings;
 public class InputAutomationServiceFactory
     implements ServiceFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private static final InputAutomationServiceFactory inputAutomationServiceFactory = new InputAutomationServiceFactory();
@@ -40,7 +42,7 @@ public class InputAutomationServiceFactory
     
     public Object getService(final Bundle bundle, final ServiceRegistration registration)
     {
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "getService"));
+        logUtil.put(this.commonStrings.START, this, "getService");
 
         return InputAutomationJFrame.getInstance();
         

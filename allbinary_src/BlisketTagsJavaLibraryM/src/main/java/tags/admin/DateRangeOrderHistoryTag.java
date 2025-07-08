@@ -24,6 +24,8 @@ import javax.servlet.jsp.JspTagException;
 
 public class DateRangeOrderHistoryTag extends StoreValidationTransformTag
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    //private String id;
    private String status;
    //private String groupId;
@@ -92,7 +94,7 @@ public class DateRangeOrderHistoryTag extends StoreValidationTransformTag
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
          {
-            LogUtil.put(LogFactory.getInstance("Tag Start",this,"doStartTag"));
+            logUtil.put("Tag Start",this,"doStartTag");
          }
          
          this.setName("Range Order History View");

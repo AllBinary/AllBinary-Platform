@@ -22,6 +22,8 @@ import android.app.Activity;
 
 public class ShowTitleProgressBarRunnable extends ProgressRunnable
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     public ShowTitleProgressBarRunnable(
             Activity midletActivity, ProgressCanvas progressCanvas)
     {
@@ -41,7 +43,7 @@ public class ShowTitleProgressBarRunnable extends ProgressRunnable
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
         }
     }
 }

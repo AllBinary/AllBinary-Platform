@@ -24,6 +24,8 @@ import org.allbinary.graphics.CellPosition;
  */
 public class GeographicMapDirectionUtil
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final GeographicMapDirectionUtil instance = new GeographicMapDirectionUtil();
     
     public static GeographicMapDirectionUtil getInstance()

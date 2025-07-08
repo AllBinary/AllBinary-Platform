@@ -28,6 +28,8 @@ import org.allbinary.game.score.RemoteErrorHighScoresSingletonFactory;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class RemoteHighScores extends HighScores {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final Hashtable hashTable = new Hashtable();
     private final AbeClientInformationInterface abeClientInformation;
@@ -66,6 +68,7 @@ public class RemoteHighScores extends HighScores {
         final AbeClientInformationInterface abeClientInformation, 
         final SoftwareInformation softwareInformation, final GameInfo gameInfo,
         final String heading, final String columnTwoHeading, final Boolean isAscending, final boolean preload) {
+        final LogUtil logUtil = LogUtil.getInstance();
         try {
             HighScores highScores = (HighScores) hashTable.get(gameInfo);
 
@@ -80,7 +83,7 @@ public class RemoteHighScores extends HighScores {
             return highScores;
         } catch (Exception e) {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, RemoteErrorHighScoresSingletonFactory.getInstance(), commonStrings.GET_INSTANCE, e));
+            logUtil.put(commonStrings.EXCEPTION, RemoteErrorHighScoresSingletonFactory.getInstance(), commonStrings.GET_INSTANCE, e);
             return RemoteErrorHighScoresSingletonFactory.getInstance();
         }
     }
@@ -114,7 +117,7 @@ public class RemoteHighScores extends HighScores {
             Object nextElement;
             while(enumeration.hasMoreElements()) {
                 nextElement = enumeration.nextElement();
-                LogUtil.put(LogFactory.getInstance("NextElement: " + nextElement, this, commonStrings.PROCESS));
+                logUtil.put("NextElement: " + nextElement, this, commonStrings.PROCESS);
             }
 
         }

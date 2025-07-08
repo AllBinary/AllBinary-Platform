@@ -25,6 +25,8 @@ import org.allbinary.time.TimeDelayHelper;
 
 public class ScreenCaptureImagesWorker extends BasicEventHandler
         implements CaptureWorkerInterface {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
@@ -51,7 +53,7 @@ public class ScreenCaptureImagesWorker extends BasicEventHandler
 
     public void run() {
         try {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.RUN));
+            logUtil.put(this.commonStrings.START, this, this.commonStrings.RUN);
             setRunning(true);
             TimeDelayHelper timeHelper = new TimeDelayHelper(1000);
             while (isRunning()) {
@@ -66,13 +68,13 @@ public class ScreenCaptureImagesWorker extends BasicEventHandler
                         = new CapturedImageWorkerResultsEvent(this, frame,
                                 bufferedImage);
                 fireEvent(capturedImageEvent);
-                LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(),
-                        this, this.commonStrings.RUN));
+                logUtil.put(CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(),
+                        this, this.commonStrings.RUN);
                 setRunning(false);
             }
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, this.commonStrings.RUN));
+            logUtil.put(this.commonStrings.END, this, this.commonStrings.RUN);
         } catch (Exception e) {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e));
+            logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
         }
     }
 }

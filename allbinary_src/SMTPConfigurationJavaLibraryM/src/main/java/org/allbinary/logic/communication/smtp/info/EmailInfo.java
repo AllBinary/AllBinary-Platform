@@ -19,6 +19,8 @@ import org.allbinary.string.CommonStrings;
 
 public class EmailInfo
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private BasicEmailInfo basicEmailInfo;
    private String htmlAttachment;
    private String contentBase;
@@ -30,7 +32,7 @@ public class EmailInfo
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
          final CommonStrings commonStrings = CommonStrings.getInstance();
-         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
+         logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
       }
       
       this.init(basicEmailInfo, null, null);
@@ -45,7 +47,7 @@ public class EmailInfo
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
          final CommonStrings commonStrings = CommonStrings.getInstance();
-         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
+         logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
       }
       
       this.init(basicEmailInfo, null, null);

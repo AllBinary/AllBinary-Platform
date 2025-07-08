@@ -38,6 +38,8 @@ import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 public class ScrollMapPlayerGameInput
    extends PlayerGameInput
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final GameInputProcessor[] inputProcessorArray = new GameInputProcessor[InputFactory.getInstance().MAX];
 
     private final int border = 150;
@@ -114,19 +116,19 @@ public class ScrollMapPlayerGameInput
 
         if(anchor == Graphics.TOP)
         {
-            LogUtil.put(LogFactory.getInstance("Top", this, "scrollY"));
+            logUtil.put("Top", this, "scrollY");
         }
         else
         if(anchor == Graphics.BOTTOM)
         {
-            LogUtil.put(LogFactory.getInstance("Bottom", this, "scrollY"));
+            logUtil.put("Bottom", this, "scrollY");
             int diffY = (terrainTiledLayer.getHeight() - displayInfo.getLastHeight());
             this.move(0, diffY);
         }
         else
             if(anchor == Graphics.VCENTER)
         {
-            LogUtil.put(LogFactory.getInstance("Center", this, "scrollY"));
+            logUtil.put("Center", this, "scrollY");
             //Already sees bottom but I want the map at the Center
             int diffY = (terrainTiledLayer.getHeight() - displayInfo.getLastHeight())/2;
             this.move(0, diffY);
@@ -217,7 +219,7 @@ public class ScrollMapPlayerGameInput
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, gameInputStrings.PROCESS_INPUT, e));
+            logUtil.put(commonStrings.EXCEPTION, this, gameInputStrings.PROCESS_INPUT, e);
         }
     }
 
@@ -268,7 +270,7 @@ public class ScrollMapPlayerGameInput
         stringBuffer.append(" Y: ");
         stringBuffer.append(tiledLayer.getY());
         
-        //LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "keepOnMapMaxY"));
+        //logUtil.put(stringBuffer.toString(), this, "keepOnMapMaxY");
         PreLogUtil.put(stringBuffer.toString(), this, "keepOnMapMaxY");
         */
 
@@ -302,7 +304,7 @@ public class ScrollMapPlayerGameInput
         stringBuffer.append(" Y: ");
         stringBuffer.append(tiledLayer.getY());
 
-        //LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "keepOnMapMinY"));
+        //logUtil.put(stringBuffer.toString(), this, "keepOnMapMinY");
         PreLogUtil.put(stringBuffer.toString(), this, "keepOnMapMinY");
         */
 
@@ -334,7 +336,7 @@ public class ScrollMapPlayerGameInput
         stringBuffer.append(" Y: ");
         stringBuffer.append(tiledLayer.getY());
 
-        //LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "keepOnMapMaxX"));
+        //logUtil.put(stringBuffer.toString(), this, "keepOnMapMaxX");
         PreLogUtil.put(stringBuffer.toString(), this, "keepOnMapMaxX");
         */
         
@@ -366,7 +368,7 @@ public class ScrollMapPlayerGameInput
         stringBuffer.append(" Y: ");
         stringBuffer.append(tiledLayer.getY());
 
-        //LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "keepOnMapMinX"));
+        //logUtil.put(stringBuffer.toString(), this, "keepOnMapMinX");
         //PreLogUtil.put(stringBuffer.toString(), this, "keepOnMapMinX");
         */
 

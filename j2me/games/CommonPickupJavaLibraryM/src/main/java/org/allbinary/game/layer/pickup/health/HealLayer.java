@@ -27,6 +27,8 @@ import org.allbinary.view.ViewPosition;
 public class HealLayer extends AllBinaryLayer
         implements HealthVisitorInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    public HealLayer()
       throws Exception
    {
@@ -46,7 +48,7 @@ public class HealLayer extends AllBinaryLayer
       }
       else
       {
-          LogUtil.put(LogFactory.getInstance("Heal attempt on dead: Does not currently occur", this, "visit"));
+          logUtil.put("Heal attempt on dead: Does not currently occur", this, "visit");
       }
    }
 }

@@ -21,6 +21,8 @@ import org.allbinary.canvas.RunnableCanvas;
 public class RunnableCanvasSingleThreadStartRunnable
 extends GameRunnable
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final RunnableCanvas runnableCanvas;
     
     public RunnableCanvasSingleThreadStartRunnable(RunnableCanvas demoCanvas)
@@ -37,7 +39,7 @@ extends GameRunnable
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this, commonStrings.RUN, e));
+            logUtil.put(commonStrings.EXCEPTION,this, commonStrings.RUN, e);
         }
     }
     

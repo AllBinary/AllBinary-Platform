@@ -34,6 +34,8 @@ import org.allbinary.logic.visual.transform.info.TransformInfoData;
 
 public class GenericStoreTransformInfoObjectConfig extends TransformInfoObjectConfig
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final AbeClientInformationInterface abeClientInformation;
 
     public GenericStoreTransformInfoObjectConfig(final AbeClientInformationInterface abeClientInformation, final TransformInfoInterface transformInfoInterface) throws Exception
@@ -88,7 +90,7 @@ public class GenericStoreTransformInfoObjectConfig extends TransformInfoObjectCo
         	  //stringBuffer.append("Initial ObjectConfig: ");
         	  //stringBuffer.append(docString);
 
-              LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "generate()"));
+              logUtil.put(stringBuffer.toString(), this, "generate()");
         }
 
         /*
@@ -166,7 +168,7 @@ public class GenericStoreTransformInfoObjectConfig extends TransformInfoObjectCo
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            LogUtil.put(LogFactory.getInstance("TemplateNameOverride: " + templateNameOverride, this, "generate()"));
+            logUtil.put("TemplateNameOverride: " + templateNameOverride, this, "generate()");
         }
 
         StringBuffer templateNameStringBuffer = new StringBuffer();
@@ -205,8 +207,8 @@ public class GenericStoreTransformInfoObjectConfig extends TransformInfoObjectCo
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            LogUtil.put(LogFactory.getInstance("Final ObjectConfig: "
-                + DomDocumentHelper.toString(newObjectConfigDocument), this, "generate()"));
+            logUtil.put("Final ObjectConfig: "
+                + DomDocumentHelper.toString(newObjectConfigDocument), this, "generate()");
         }
 
         return newObjectConfigDocument;

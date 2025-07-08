@@ -26,6 +26,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 public class KeylessBasicArrayListCache
     extends IndexedBasicArrayListCache
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     public KeylessBasicArrayListCache()
     {
         
@@ -55,7 +57,7 @@ public class KeylessBasicArrayListCache
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET, e);
             return null;
         }
     }

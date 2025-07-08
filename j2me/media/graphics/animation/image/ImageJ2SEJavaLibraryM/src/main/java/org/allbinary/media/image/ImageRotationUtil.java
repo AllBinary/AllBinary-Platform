@@ -22,6 +22,8 @@ import org.microemu.device.j2se.J2SEMutableImage;
 
 public class ImageRotationUtil
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final ImageRotationUtil instance = new ImageRotationUtil();
     
     public static ImageRotationUtil getInstance()

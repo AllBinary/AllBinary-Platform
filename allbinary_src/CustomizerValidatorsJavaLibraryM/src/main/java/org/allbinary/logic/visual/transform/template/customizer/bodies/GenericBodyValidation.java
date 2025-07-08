@@ -33,6 +33,8 @@ import org.allbinary.logic.string.StringUtil;
 
 public class GenericBodyValidation extends Validation implements DomNodeInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     
    private String body;
 
@@ -75,7 +77,7 @@ public class GenericBodyValidation extends Validation implements DomNodeInterfac
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, commonStrings.IS_VALID));
+            logUtil.put(this.commonStrings.START, this, commonStrings.IS_VALID);
          }
 
          if(!StringValidationUtil.getInstance().isValidNotRequired(this.body, BodyData.getInstance().MIN, AbSqlData.MAXBLOB))
@@ -85,7 +87,7 @@ public class GenericBodyValidation extends Validation implements DomNodeInterfac
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("BodyValidation: " + isValid, this, commonStrings.IS_VALID));
+            logUtil.put("BodyValidation: " + isValid, this, commonStrings.IS_VALID);
          }
          
          return isValid;
@@ -94,7 +96,7 @@ public class GenericBodyValidation extends Validation implements DomNodeInterfac
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate form", this, commonStrings.IS_VALID, e));
+            logUtil.put("Failed to validate form", this, commonStrings.IS_VALID, e);
          }
          return Boolean.FALSE;
       }
@@ -122,7 +124,7 @@ public class GenericBodyValidation extends Validation implements DomNodeInterfac
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to generate validation error info", this, "validationInfo()", e));
+            logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
          }
          return "Error Validating Form";
       }

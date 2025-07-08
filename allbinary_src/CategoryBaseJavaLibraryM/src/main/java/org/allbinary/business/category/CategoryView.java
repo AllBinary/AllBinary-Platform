@@ -27,6 +27,8 @@ import java.util.Vector;
 
 public class CategoryView implements DomNodeInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private CategoryInterface categoryInterface;
    
    public CategoryView(CategoryInterface categoryInterface)
@@ -55,7 +57,7 @@ public class CategoryView implements DomNodeInterface
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
       {
-         LogUtil.put(LogFactory.getInstance("Number Of Children: " + childCategoryVector.size(), this, "toXmlNode"));
+         logUtil.put("Number Of Children: " + childCategoryVector.size(), this, "toXmlNode");
       }
       
       int size = childCategoryVector.size();

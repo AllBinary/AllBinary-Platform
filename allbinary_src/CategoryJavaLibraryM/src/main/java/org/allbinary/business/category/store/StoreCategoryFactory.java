@@ -29,13 +29,15 @@ import org.w3c.dom.Node;
 public class StoreCategoryFactory extends CategoryAbstractFactory 
    implements CategoryFactoryInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private TransformInfoInterface transformInfoInterface;
    
    public StoreCategoryFactory(TransformInfoInterface transformInfoInterface)
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
       {
-         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "StoreCategoryFactory(TransformInfoInterface transformInfoInterface)"));
+         logUtil.put(commonStrings.START, this, "StoreCategoryFactory(TransformInfoInterface transformInfoInterface)");
       }
 
       this.transformInfoInterface = transformInfoInterface;
@@ -58,7 +60,7 @@ public class StoreCategoryFactory extends CategoryAbstractFactory
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getInstance(String, int)", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "getInstance(String, int)", e);
          }
          return null;
       }
@@ -85,7 +87,7 @@ public class StoreCategoryFactory extends CategoryAbstractFactory
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                  org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getInstance(String, int)", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "getInstance(String, int)", e);
          }
          return null;
       }
@@ -113,7 +115,7 @@ public class StoreCategoryFactory extends CategoryAbstractFactory
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getInstance(String, int)", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "getInstance(String, int)", e);
          }
          return null;
       }

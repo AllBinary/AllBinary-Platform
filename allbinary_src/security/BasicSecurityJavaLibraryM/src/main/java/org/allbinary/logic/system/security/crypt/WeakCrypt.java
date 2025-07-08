@@ -20,6 +20,8 @@ import org.allbinary.logic.system.security.crypt.jcehelper.KeySpecFactory;
 
 public class WeakCrypt
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     //private int key;
     private static String[] keys =
     {

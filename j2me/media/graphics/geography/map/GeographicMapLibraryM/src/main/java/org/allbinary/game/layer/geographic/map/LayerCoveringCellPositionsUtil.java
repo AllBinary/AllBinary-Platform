@@ -25,6 +25,8 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
  * @author user
  */
 public class LayerCoveringCellPositionsUtil {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     protected static final LayerCoveringCellPositionsUtil instance = new LayerCoveringCellPositionsUtil();
 
@@ -68,7 +70,7 @@ public class LayerCoveringCellPositionsUtil {
         int rows = layerInterface.getHeight() /
             geographicMapInterface.getAllBinaryTiledLayer().getCellHeight();
 
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("c/r: ").append(columns).append('/').append(rows).toString(), this, "visit"));
+        //logUtil.put(new StringMaker().append("c/r: ").append(columns).append('/').append(rows).toString(), this, "visit");
         
         if(columns == 0)
             columns = 1;

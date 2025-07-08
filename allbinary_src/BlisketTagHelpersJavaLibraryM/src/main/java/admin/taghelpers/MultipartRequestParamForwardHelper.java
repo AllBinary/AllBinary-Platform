@@ -28,6 +28,8 @@ import org.allbinary.string.CommonStrings;
 
 public class MultipartRequestParamForwardHelper
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private final PageContext pageContext;
     private final RequestMapInterface requestMapInterface;
@@ -74,7 +76,7 @@ public class MultipartRequestParamForwardHelper
             final CommonStrings commonStrings = CommonStrings.getInstance();
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "forward()", e));
+                logUtil.put(commonStrings.EXCEPTION, this, "forward()", e);
             }
         }
     }

@@ -26,6 +26,8 @@ import org.allbinary.thread.PrimaryThreadPool;
 
 public class DemoGameMidlet extends GameMidlet
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     public DemoGameMidlet(final ClientInformationFactory clientInformationFactory)
     {
         super(clientInformationFactory);
@@ -85,7 +87,7 @@ public class DemoGameMidlet extends GameMidlet
     
     public synchronized void setDemo() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "setDemo"));
+        logUtil.put(commonStrings.START, this, "setDemo");
 
         ////TWB - Loading Feature Change - Can remove remark after testing
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
@@ -98,7 +100,7 @@ public class DemoGameMidlet extends GameMidlet
     public synchronized void createGame() throws Exception
     {
         final String CREATE_GAME = "createGame";
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, CREATE_GAME));
+        logUtil.put(commonStrings.START, this, CREATE_GAME);
 
         ////TWB - Loading Feature Change - Can remove remark after testing
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
@@ -109,7 +111,7 @@ public class DemoGameMidlet extends GameMidlet
 
         PrimaryThreadPool.getInstance().runTask(new CreateGameRunnable(this, hashtable));
 
-        LogUtil.put(LogFactory.getInstance(commonStrings.END, this, CREATE_GAME));
+        logUtil.put(commonStrings.END, this, CREATE_GAME);
     }
 
     public boolean isReady()

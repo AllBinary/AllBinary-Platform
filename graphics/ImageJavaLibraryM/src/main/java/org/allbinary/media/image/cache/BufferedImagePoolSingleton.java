@@ -23,17 +23,19 @@ import org.allbinary.string.CommonStrings;
 
 public class BufferedImagePoolSingleton
 {
+
     private static PoolInterface poolInterface = null;
     
     static
     {
+        final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonStrings = CommonStrings.getInstance();
         final String STATIC_BLOCK = "Static Block";
         final String instance = "BufferedImagePoolSingleton";
         
         try
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.START, instance, STATIC_BLOCK));
+            logUtil.put(commonStrings.START, instance, STATIC_BLOCK);
             
             poolInterface =
                 PoolInterfaceFactory.getInstance(
@@ -41,11 +43,11 @@ public class BufferedImagePoolSingleton
                 PoolTypeFactory.getInstance().VECTOR_POOL, 
                 CachePolicyFactory.getInstance().MAX_TIME_THOUSAND_MAX);
             
-            LogUtil.put(LogFactory.getInstance(commonStrings.END, instance, STATIC_BLOCK));
+            logUtil.put(commonStrings.END, instance, STATIC_BLOCK);
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, instance, STATIC_BLOCK, e));
+            logUtil.put(commonStrings.EXCEPTION, instance, STATIC_BLOCK, e);
         }
     }
     

@@ -37,6 +37,8 @@ public class BasicProfileActionScriptInput
     extends BasicProfileActionScriptProcessor
     implements ProfileActionScriptInputInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private InputRobotInterface inputRobotInterface;
     private int time;
     
@@ -46,7 +48,7 @@ public class BasicProfileActionScriptInput
     {
         super(label, node);
         
-        LogUtil.put(LogFactory.getInstance(commonStrings.START + label, this, commonStrings.CONSTRUCTOR));
+        logUtil.put(commonStrings.START + label, this, commonStrings.CONSTRUCTOR);
         
         final Node actionNode = DomSearchHelper.getNode(
             GenericProfileActionScriptInputData.TYPE,
@@ -76,7 +78,7 @@ public class BasicProfileActionScriptInput
     {
         super(label);
         
-        LogUtil.put(LogFactory.getInstance(commonStrings.START + label, this, commonStrings.CONSTRUCTOR));
+        logUtil.put(commonStrings.START + label, this, commonStrings.CONSTRUCTOR);
         
         final InputRobotFactory inputRobotFactory = InputRobotFactory.getInstance();
         final Hashtable hashtable = (Hashtable) inputRobotFactory.get();
@@ -113,7 +115,7 @@ public class BasicProfileActionScriptInput
         hashMap.put(GenericProfileActionScriptInputData.TYPE, this.getInputRobotInterface().getName());
         hashMap.put(GenericProfileActionScriptInputData.DELAY, Integer.toString(this.getTime()));
 
-        LogUtil.put(LogFactory.getInstance("HashMap: " + hashMap.toString(), this, "toHashMap()"));
+        logUtil.put("HashMap: " + hashMap.toString(), this, "toHashMap()");
 
         return hashMap;
     }

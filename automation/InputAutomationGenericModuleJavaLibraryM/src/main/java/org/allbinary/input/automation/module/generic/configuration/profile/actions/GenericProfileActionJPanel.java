@@ -28,6 +28,8 @@ import org.allbinary.logic.communication.log.LogUtil;
  */
 public class GenericProfileActionJPanel extends javax.swing.JPanel
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private GenericProfileAction genericProfileAction;
     
     private GenericProfileActionScriptJPanel genericProfileActionScriptJPanel;
@@ -72,7 +74,7 @@ this.getGenericProfileActionScriptJPanel(),             javax.swing.GroupLayout.
 this.getGenericProfileActionScriptJPanel(),             javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             );
         
-        LogUtil.put(LogFactory.getInstance("Updated UI", this, "updateUI"));
+        logUtil.put("Updated UI", this, "updateUI");
     }
 
     public GenericProfileAction getGenericProfileAction()
@@ -187,7 +189,7 @@ this.getGenericProfileActionScriptJPanel(),             javax.swing.GroupLayout.
             
     private void newTimeIntervalJButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_newTimeIntervalJButtonActionPerformed
     {//GEN-HEADEREND:event_newTimeIntervalJButtonActionPerformed
-        LogUtil.put(LogFactory.getInstance("New Time Interval Action Condition", this, "newTimeIntervalJButtonActionPerformed"));
+        logUtil.put("New Time Interval Action Condition", this, "newTimeIntervalJButtonActionPerformed");
         
         getGenericProfileAction().getGenericProfileActionScript().addCondition(
             (ProfileActionScriptConditionInterface)
@@ -198,7 +200,7 @@ this.getGenericProfileActionScriptJPanel(),             javax.swing.GroupLayout.
     
     private void newAlwaysJButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_newAlwaysJButtonActionPerformed
     {//GEN-HEADEREND:event_newAlwaysJButtonActionPerformed
-        LogUtil.put(LogFactory.getInstance("New EveryTime Action Condition", this, "newEveryTimeJButtonActionPerformed"));
+        logUtil.put("New EveryTime Action Condition", this, "newEveryTimeJButtonActionPerformed");
         
         getGenericProfileAction().getGenericProfileActionScript().addCondition(
             (ProfileActionScriptConditionInterface)
@@ -209,7 +211,7 @@ this.getGenericProfileActionScriptJPanel(),             javax.swing.GroupLayout.
     
     private void newColorAtJButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_newColorAtJButtonActionPerformed
     {//GEN-HEADEREND:event_newColorAtJButtonActionPerformed
-        LogUtil.put(LogFactory.getInstance("New Color At Action Condition", this, "newColorAtJButtonActionPerformed"));
+        logUtil.put("New Color At Action Condition", this, "newColorAtJButtonActionPerformed");
         
         getGenericProfileAction().getGenericProfileActionScript().addCondition(
             (ProfileActionScriptConditionInterface)

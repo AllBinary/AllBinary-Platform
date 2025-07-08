@@ -19,11 +19,13 @@ import org.allbinary.string.CommonStrings;
 
 public class AcceptableResponse
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     protected AcceptableResponse(String candidate, String tagName, int index)
     {
-        LogUtil.put(LogFactory.getInstance(tagName, this, this.commonStrings.CONSTRUCTOR));
+        logUtil.put(tagName, this, this.commonStrings.CONSTRUCTOR);
 
         AcceptableResponseUtil acceptableResponseUtil =
             AcceptableResponseUtil.getInstance();

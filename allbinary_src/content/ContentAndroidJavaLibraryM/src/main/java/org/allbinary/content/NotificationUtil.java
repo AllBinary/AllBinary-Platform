@@ -30,6 +30,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class NotificationUtil
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final NotificationUtil SINGLETON = new NotificationUtil();
     
     private NotificationManager notificationManager = (NotificationManager) 
@@ -79,7 +81,7 @@ public class NotificationUtil
 
         if(notificationBuilder == null) {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.NOT_IMPLEMENTED));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.NOT_IMPLEMENTED);
             return;
         }
         

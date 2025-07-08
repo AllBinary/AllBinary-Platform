@@ -10,66 +10,64 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.logic.communication.log;
 
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 
-public class LogUtil
-{
+public class LogUtil {
 
-    private LogUtil()
-    {
+    private static final LogUtil instance = new LogUtil();
+
+    public static final LogUtil getInstance() {
+        return instance;
     }
 
-    public static void put(Log log)
-    {
-        String specialMessage = log.getSpecialMessage();
-        Object object = log.getObject();
-        String functionName = log.getFunctionName();
-        Object exception = log.getThrowable();
-
-        put(specialMessage, object, functionName, exception);
+    private LogUtil() {
     }
 
-    private static void put(
-        String specialMessage,
-        Object object,
-        String functionName)
-    {
+    public void put(Log log) {
+        final String specialMessage = log.getSpecialMessage();
+        final Object object = log.getObject();
+        final String functionName = log.getFunctionName();
+        final Object exception = log.getThrowable();
+
+        this.put(specialMessage, object, functionName, exception);
+    }
+
+    public void put(
+        final String specialMessage,
+        final Object object,
+        final String functionName) {
         String className = CommonStrings.getInstance().EMPTY;
 
-        if (object.getClass().getName() != null)
-        {
+        if (object.getClass().getName() != null) {
             className = new String(new StringMaker().append(object.getClass().getName()).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(object.hashCode())).toString());
         }
 
-        String message = LogFormatUtil.getInstance().get(
+        final String message = LogFormatUtil.getInstance().get(
             className, functionName, specialMessage);
 
         System.out.print(LOG_SUCCESS);
         System.out.println(message);
     }
-    
+
     private final static String LOG_SUCCESS = "org.allbinary: ";
 
-    //TWB - Public or Private?
-    private static void put(
-        String specialMessage,
-        Object object,
-        String functionName,
-        Object exception)
-    {
+    public void put(
+        final String specialMessage,
+        final Object object,
+        final String functionName,
+        final Object exception) {
         String className = CommonStrings.getInstance().EMPTY;
 
-        if (object.getClass().getName() != null)
-        {
+        if (object.getClass().getName() != null) {
             className = new String(new StringMaker().append(object.getClass().getName()).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(object.hashCode())).toString());
         }
 
-        String message = LogFormatUtil.getInstance().get(
+        final String message = LogFormatUtil.getInstance().get(
             className, functionName, specialMessage, exception);
 
         System.out.print(LOG_SUCCESS);

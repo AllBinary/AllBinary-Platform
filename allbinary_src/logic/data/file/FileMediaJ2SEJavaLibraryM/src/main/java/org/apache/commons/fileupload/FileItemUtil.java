@@ -14,6 +14,8 @@ import org.allbinary.logic.communication.log.LogUtil;
  * @author user
  */
 public class FileItemUtil {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final FileItemUtil instance = new FileItemUtil();
     
@@ -50,7 +52,7 @@ public class FileItemUtil {
 
         if (fileItem.isFormField())
         {
-            LogUtil.put(LogFactory.getInstance("FileItemStream FieldName: " + fileItem.getFieldName(), this, "write()"));
+            logUtil.put("FileItemStream FieldName: " + fileItem.getFieldName(), this, "write()");
         } else
         {
             StringBuffer stringBuffer = new StringBuffer();
@@ -60,7 +62,7 @@ public class FileItemUtil {
             stringBuffer.append(" name = ");
             stringBuffer.append(fileItem.getName());
 
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "write()"));
+            logUtil.put(stringBuffer.toString(), this, "write()");
         }
 
         outputStream = (ByteArrayOutputStream) 

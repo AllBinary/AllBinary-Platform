@@ -20,6 +20,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class OperatingSystemFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final OperatingSystemFactory instance = new OperatingSystemFactory();
 
     public static OperatingSystemFactory getInstance()
@@ -50,13 +52,13 @@ public class OperatingSystemFactory
                 hasDetected = true;
                 if(osName.indexOf(OperatingSystems.getInstance().ANDROID) >= 0)
                 {
-                    LogUtil.put(LogFactory.getInstance("Found a Linux OS", this, commonStrings.GET_INSTANCE));
+                    logUtil.put("Found a Linux OS", this, commonStrings.GET_INSTANCE);
 
                     GenericOperatingSystem = 
                         AndroidOperatingSystemFactory.getInstance().getOperatingSystemInstance();
                     
                     //PreLogUtil.put(log.toString());
-                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("Operating System Info: ").append(GenericOperatingSystem.toString()).toString(), this, commonStrings.GET_INSTANCE));
+                    logUtil.put(new StringMaker().append("Operating System Info: ").append(GenericOperatingSystem.toString()).toString(), this, commonStrings.GET_INSTANCE);
                 }
                 else
                 {
@@ -68,7 +70,7 @@ public class OperatingSystemFactory
         {
             GenericOperatingSystem = new NoOperatingSystem();
             
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
         }
         
         return GenericOperatingSystem;

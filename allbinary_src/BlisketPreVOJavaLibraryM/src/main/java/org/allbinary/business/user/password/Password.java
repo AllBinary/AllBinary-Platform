@@ -28,6 +28,8 @@ import org.allbinary.string.CommonStrings;
 
 public class Password
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    //private static String className = "Password";
 
    private String password;
@@ -57,14 +59,14 @@ public class Password
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VALIDATION))
          {
-            LogUtil.put(LogFactory.getInstance("Password: " + this.password, this, commonStrings.IS_VALID));
+            logUtil.put("Password: " + this.password, this, commonStrings.IS_VALID);
          }
 
          if(!StringValidationUtil.getInstance().isValidRequired(this.password, 6, UserData.MAXLEN))
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VALIDATION))
             {
-               LogUtil.put(LogFactory.getInstance("Password is invalid", this, commonStrings.IS_VALID));
+               logUtil.put("Password is invalid", this, commonStrings.IS_VALID);
             }
             valid = Boolean.FALSE;
          }
@@ -75,7 +77,7 @@ public class Password
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VALIDATIONERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate form","Password",commonStrings.IS_VALID,e));
+            logUtil.put("Failed to validate form","Password",commonStrings.IS_VALID,e);
          }
          return Boolean.FALSE;
       }

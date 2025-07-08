@@ -18,6 +18,8 @@ import org.allbinary.logic.string.StringUtil;
 
 public class BasicColor
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     // private int id;
     private final String name;
     private final int value;
@@ -117,7 +119,7 @@ public class BasicColor
         stringBuffer.append(" b: ");
         stringBuffer.append(this.blueComponent);
         
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(),this, commonStrings.CONSTRUCTOR));
+        logUtil.put(stringBuffer.toString(),this, commonStrings.CONSTRUCTOR);
         */
     }
 
@@ -161,7 +163,7 @@ public class BasicColor
         stringBuffer.append(" b: ");
         stringBuffer.append(this.blueComponent);
         
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(),this, commonStrings.CONSTRUCTOR));
+        logUtil.put(stringBuffer.toString(),this, commonStrings.CONSTRUCTOR);
         */
     }
     

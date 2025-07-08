@@ -36,6 +36,8 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 public class HttpComponentView extends TransformInfoHttpComposite
     implements TransformInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final AbeClientInformationInterface abeClientInformation = 
         ServiceClientInformationInterfaceFactory.getInstance();
     
@@ -49,7 +51,7 @@ public class HttpComponentView extends TransformInfoHttpComposite
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            LogUtil.put(LogFactory.getInstance("View Name: " + transformInfoInterface.getName(), this, "ComponentView()"));
+            logUtil.put("View Name: " + transformInfoInterface.getName(), this, "ComponentView()");
         }
 
         this.domNodeInterfaceVector = new Vector();
@@ -97,7 +99,7 @@ public class HttpComponentView extends TransformInfoHttpComposite
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "toXmlDoc()", e));
+                logUtil.put(commonStrings.EXCEPTION, this, "toXmlDoc()", e);
             }
             throw e;
         }
@@ -139,7 +141,7 @@ public class HttpComponentView extends TransformInfoHttpComposite
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "view()", e));
+                logUtil.put(commonStrings.EXCEPTION, this, "view()", e);
             }
             throw e;
         }

@@ -32,6 +32,8 @@ import org.allbinary.media.image.MirrorImageUtil;
 public class MirrorSpriteImageJPanel extends javax.swing.JPanel
    implements ImageProcessorInputCompositeInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final ImageStrings imageStrings = ImageStrings.getInstance();
 
@@ -43,7 +45,7 @@ public class MirrorSpriteImageJPanel extends javax.swing.JPanel
    {
       super();
 
-      LogUtil.put(LogFactory.getInstance("Starting", this, this.commonStrings.CONSTRUCTOR));
+      logUtil.put("Starting", this, this.commonStrings.CONSTRUCTOR);
 
       initComponents();
       this.imageProcessorInput = imageProcessorInput;
@@ -90,7 +92,7 @@ public class MirrorSpriteImageJPanel extends javax.swing.JPanel
                      
                      filePath = filePath.substring(0, extensionIndex) + "_mirror" + imageStrings.PNG_EXTENSION;
                      
-                     LogUtil.put(LogFactory.getInstance("Renamed File: " + filePath, this, commonStrings.RUN));
+                     logUtil.put("Renamed File: " + filePath, this, commonStrings.RUN);
                      
                      file = new File(filePath);
                   }
@@ -99,14 +101,14 @@ public class MirrorSpriteImageJPanel extends javax.swing.JPanel
                      (RenderedImage) MirrorSpriteImageJPanel.this.result,
                      imageStrings.PNG, file);
 
-                  LogUtil.put(LogFactory.getInstance("File: " + file + " Wrote: " + isWritten, this, commonStrings.RUN));
+                  logUtil.put("File: " + file + " Wrote: " + isWritten, this, commonStrings.RUN);
 
                }
 
             }
             catch (Exception e)
             {
-               LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
+               logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
             }
          }
       }.start();

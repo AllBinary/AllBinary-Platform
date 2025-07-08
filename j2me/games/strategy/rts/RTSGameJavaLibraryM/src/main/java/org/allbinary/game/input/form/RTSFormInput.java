@@ -40,6 +40,8 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
  */
 public class RTSFormInput
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final Hashtable hashtable = new Hashtable();
         
     protected final RTSLayer[] newUnconstructedRTSLayerInterfaceArray = new RTSLayer[7];
@@ -51,7 +53,7 @@ public class RTSFormInput
     
     public RTSFormInput(final Group[] groupInterfaceArray)
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
+        //logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
         this.groupInterfaceArray = groupInterfaceArray;
 
@@ -65,7 +67,7 @@ public class RTSFormInput
             this.hashtable.put(Group.ID, groupInterfaceArray);
         }
         
-        //LogUtil.put(LogFactory.getInstance(commonStrings.END, this, commonStrings.CONSTRUCTOR));
+        //logUtil.put(commonStrings.END, this, commonStrings.CONSTRUCTOR);
     }
 
     public void setAllBinaryGameLayerManager(final AllBinaryGameLayerManager allBinaryGameLayerManager) throws Exception {
@@ -158,7 +160,7 @@ public class RTSFormInput
         final GPoint point)
         throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Point: ").append(StringUtil.getInstance().toString(point)).toString(), this, "getItemAt"));
+        logUtil.put(new StringMaker().append("Point: ").append(StringUtil.getInstance().toString(point)).toString(), this, "getItemAt");
 
         final ScrollSelectionForm scrollSelectionForm =
             rtsPlayerLayerInterface.getCurrentScrollSelectionForm();
@@ -171,7 +173,7 @@ public class RTSFormInput
         final GPoint point)
         throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Point: ").append(StringUtil.getInstance().toString(point)).toString(), this, "getItemAt"));
+        logUtil.put(new StringMaker().append("Point: ").append(StringUtil.getInstance().toString(point)).toString(), this, "getItemAt");
 
         final ScrollSelectionForm scrollSelectionForm =
             rtsPlayerLayerInterface.getCurrentScrollSelectionForm();
@@ -222,10 +224,10 @@ public class RTSFormInput
     public void setSelectedGeographicCellPosition(
         GeographicMapCellPosition selectedGeographicCellPosition)
     {
-        LogUtil.put(LogFactory.getInstance(
+        logUtil.put(
             new StringMaker().append("Selected GeographicMapCellPosition: ")
                     .append(selectedGeographicCellPosition.toString()).toString(),
-            this, "setSelectedGeographicCellPosition"));
+            this, "setSelectedGeographicCellPosition");
 
         this.selectedGeographicCellPosition = selectedGeographicCellPosition;
     }

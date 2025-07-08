@@ -22,6 +22,8 @@ import org.allbinary.animation.AnimationBehavior;
  * @author User
  */
 public class AdjustedImageAnimation extends ImageAnimation {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     
     private int dx;
     private int dy;
@@ -31,7 +33,7 @@ public class AdjustedImageAnimation extends ImageAnimation {
     {
         super(image, animationBehavior);
 
-        // LogUtil.put(LogFactory.getInstance(, this,));
+        // logUtil.put(, this,);
 
         this.init(dx, dy);
         //-(imageArray[0].getWidth() >> 2), -(imageArray[0].getHeight() >> 2)

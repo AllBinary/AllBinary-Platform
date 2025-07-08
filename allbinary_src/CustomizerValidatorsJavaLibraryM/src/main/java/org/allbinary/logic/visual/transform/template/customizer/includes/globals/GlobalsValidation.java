@@ -26,7 +26,9 @@ import org.allbinary.logic.control.validate.Validation;
 import org.allbinary.string.CommonStrings;
 
 public class GlobalsValidation extends Validation implements DomNodeInterface
-{   
+{
+    protected final LogUtil logUtil = LogUtil.getInstance();
+   
     
    private StoreFrontInterface storeFrontInterface;
    
@@ -71,7 +73,7 @@ public class GlobalsValidation extends Validation implements DomNodeInterface
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
              
-            LogUtil.put(LogFactory.getInstance("Failed to validate form", this, commonStrings.IS_VALID, e));
+            logUtil.put("Failed to validate form", this, commonStrings.IS_VALID, e);
          }
          return Boolean.FALSE;
       }
@@ -96,7 +98,7 @@ public class GlobalsValidation extends Validation implements DomNodeInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to generate validation error info", this, "validationInfo()", e));
+            logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
          }
          return "Error Validating Form";
       }

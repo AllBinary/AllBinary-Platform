@@ -39,6 +39,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 public class GenericProfileActions
     implements DomNodeInterface, DomDocumentMappingInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     public static final String DEFAULT_PROFILE_ACTIONS_PATH = 
         GenericProfiles.DEFAULT_PROFILES_PATH + "actions/";
         
@@ -112,7 +114,7 @@ public class GenericProfileActions
         }
         else
         {
-            LogUtil.put(LogFactory.getInstance("No Profile: " + file.getAbsolutePath(), this, "Contructor"));
+            logUtil.put("No Profile: " + file.getAbsolutePath(), this, "Contructor");
         }
     }
     
@@ -131,7 +133,7 @@ public class GenericProfileActions
         NodeList nameNodeList = document.getElementsByTagName(
             GenericProfileActionsData.NAME);
         
-        LogUtil.put(LogFactory.getInstance("Number Of Profiles Specified: " + nameNodeList.getLength(), this, "Contructor"));
+        logUtil.put("Number Of Profiles Specified: " + nameNodeList.getLength(), this, "Contructor");
         
         for(int index = 0; index < nameNodeList.getLength(); index++)
         {
@@ -148,7 +150,7 @@ public class GenericProfileActions
             }
             
         }
-        LogUtil.put(LogFactory.getInstance("Loaded: " + this.getHashMap().size() + " Configuration Profile Action(s)", this,"Contructor"));
+        logUtil.put("Loaded: " + this.getHashMap().size() + " Configuration Profile Action(s)", this,"Contructor");
         
         this.getDefaultListModelHelper().initDefaultModelList();
     }
@@ -220,7 +222,7 @@ public class GenericProfileActions
     {
         HashMap hashMap = new HashMap();
         
-        LogUtil.put(LogFactory.getInstance("HashMap: " + hashMap.toString(), this, "toHashMap()"));
+        logUtil.put("HashMap: " + hashMap.toString(), this, "toHashMap()");
         
         return hashMap;
     }

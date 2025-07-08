@@ -28,6 +28,8 @@ import org.allbinary.logic.string.StringMaker;
 
 public class Features
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final Features SINGLETON = new Features();
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
@@ -51,9 +53,9 @@ public class Features
     //For default or reload required features
     public void addDefault(final Feature gameFeature) throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(
+        //logUtil.put(
           //      commonStrings.START_LABEL).append(gameFeature.toString(), 
-            //    "GameFeature", "addDefault"));
+            //    "GameFeature", "addDefault");
 
         this.add(gameFeature);
 
@@ -71,8 +73,8 @@ public class Features
 //            {
 //                ForcedLogUtil.log("here it is: ").append(this.getClass().getClassLoader().getClass().getName()).append(this.getClass().getClassLoader().hashCode() , this);
 //            }
-            LogUtil.put(LogFactory.getInstance(
-                    new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameFeature.toString()).toString(), this, commonStrings.ADD));
+            logUtil.put(
+                    new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameFeature.toString()).toString(), this, commonStrings.ADD);
 
             list.add(gameFeature);
 
@@ -84,8 +86,8 @@ public class Features
   //For default or reload required features
     public void removeDefault(final Feature gameFeature) throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(
-                new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameFeature.toString()).toString(), this, "removeDefault"));
+        logUtil.put(
+                new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameFeature.toString()).toString(), this, "removeDefault");
 
         this.remove(gameFeature);
         defaultList.remove(gameFeature);
@@ -95,7 +97,7 @@ public class Features
     {
         if (list.contains(gameFeature))
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.REMOVE));
+            logUtil.put(commonStrings.START, this, commonStrings.REMOVE);
             list.remove(gameFeature);
             GameFeatureEventHandler.getInstance().fireEvent(
                     new GameFeatureEvent(gameFeature, gameFeature.toString()));

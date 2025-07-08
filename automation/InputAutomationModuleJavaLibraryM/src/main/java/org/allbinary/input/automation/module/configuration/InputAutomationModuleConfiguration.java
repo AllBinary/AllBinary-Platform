@@ -41,6 +41,8 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 @XmlType(name="InputAutomationModuleConfiguration")
 public class InputAutomationModuleConfiguration
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final CommonStrings commonStrings = CommonStrings.getInstance();
 
     @XmlElement(name="DYNAMICCOMPONENT_NAME")
@@ -102,26 +104,26 @@ public class InputAutomationModuleConfiguration
             }
             else
             {
-                LogUtil.put(LogFactory.getInstance("Class Node Null", this,this.commonStrings.INIT));
+                logUtil.put("Class Node Null", this,this.commonStrings.INIT);
             }
         }
         else
         {
-            LogUtil.put(LogFactory.getInstance(InputAutomationData.NAME + " Node Has No Children", this,"Contructor"));
+            logUtil.put(InputAutomationData.NAME + " Node Has No Children", this,"Contructor");
         }
     }
     
     public void init(final AbeClientInformationInterface abeClientInformation)
     {
         try {
-            LogUtil.put(LogFactory.getInstance("Name: " + getName(), this, this.commonStrings.INIT));
-            LogUtil.put(LogFactory.getInstance("ClassName: " + className, this, this.commonStrings.INIT));
+            logUtil.put("Name: " + getName(), this, this.commonStrings.INIT);
+            logUtil.put("ClassName: " + className, this, this.commonStrings.INIT);
 
             this.setInputAutomationModuleInterface(
                     (InputAutomationModuleFactoryInterface) AbeFactory.getInstance().getInstance().getInstance(abeClientInformation, getClassName()));
 
         } catch(Exception e) {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, this.commonStrings.INIT, e));
+            logUtil.put(commonStrings.EXCEPTION, this, this.commonStrings.INIT, e);
             throw new RuntimeException();
         }
     }
@@ -144,7 +146,7 @@ public class InputAutomationModuleConfiguration
     
     public void setName(String name)
     {
-        LogUtil.put(LogFactory.getInstance("Name: " + name, this, "setName"));
+        logUtil.put("Name: " + name, this, "setName");
         this.name = name;
     }
     
@@ -155,7 +157,7 @@ public class InputAutomationModuleConfiguration
 
     public void setClassName(final String className)
     {
-        LogUtil.put(LogFactory.getInstance("ClassName : " + className, this, "setClassName"));
+        logUtil.put("ClassName : " + className, this, "setClassName");
         this.className = className;
     }
     
@@ -166,7 +168,7 @@ public class InputAutomationModuleConfiguration
     
     public void setInputAutomationModuleInterface(InputAutomationModuleFactoryInterface inputAutomationModuleInterface)
     {
-        LogUtil.put(LogFactory.getInstance("InputAutomationModuleFactoryInterface : " + inputAutomationModuleInterface, this, "setInputAutomationModuleInterface"));
+        logUtil.put("InputAutomationModuleFactoryInterface : " + inputAutomationModuleInterface, this, "setInputAutomationModuleInterface");
         this.inputAutomationModuleInterface = inputAutomationModuleInterface;
         this.setName(this.inputAutomationModuleInterface.getName());
     }

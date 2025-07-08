@@ -32,6 +32,8 @@ import org.allbinary.data.tables.user.commerce.inventory.order.OrderItemsEntityF
 public class OrderItemsRequestHelper
     extends TagHelper
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
    private HttpServletRequest request;
    
@@ -62,7 +64,7 @@ public class OrderItemsRequestHelper
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            LogUtil.put(LogFactory.getInstance(success,this,"setOrderStatus(newStatus)"));
+            logUtil.put(success,this,"setOrderStatus(newStatus)");
          }
          return success;
       }
@@ -71,7 +73,7 @@ public class OrderItemsRequestHelper
          String error = "Failed to view order table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"setOrderStatus(newStatus)",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"setOrderStatus(newStatus)",e);
          }
          return error;         
       }
@@ -86,7 +88,7 @@ public class OrderItemsRequestHelper
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            LogUtil.put(LogFactory.getInstance(success,this,"setOrderStatus(newStatus)"));
+            logUtil.put(success,this,"setOrderStatus(newStatus)");
          }
          return success;
       }
@@ -95,7 +97,7 @@ public class OrderItemsRequestHelper
          String error = "Failed to view order table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"setOrderStatus(newStatus)",e));
+            logUtil.put(commonStrings.EXCEPTION,this,"setOrderStatus(newStatus)",e);
          }
          return error;         
       }

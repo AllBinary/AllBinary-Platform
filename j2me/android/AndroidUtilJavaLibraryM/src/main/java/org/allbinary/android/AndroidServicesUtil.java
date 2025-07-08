@@ -29,6 +29,8 @@ import org.allbinary.string.CommonStrings;
  * @author User
  */
 public class AndroidServicesUtil {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     /**
      * @return the instance
@@ -61,14 +63,14 @@ public class AndroidServicesUtil {
             runningServiceInfo = runningServicesList.get(index);
             serviceComponent = runningServiceInfo.service;
             serviceName = serviceComponent.toString();
-            //LogUtil.put(LogFactory.getInstance(serviceName, this, IS_SERVICE_RUNNING));
+            //logUtil.put(serviceName, this, IS_SERVICE_RUNNING);
             if(serviceName.indexOf(name) >= 0) {
-                //LogUtil.put(LogFactory.getInstance(SERVICE_FOUND_RUNNING + serviceName, this, IS_SERVICE_RUNNING));
+                //logUtil.put(SERVICE_FOUND_RUNNING + serviceName, this, IS_SERVICE_RUNNING);
                 return true;
             }
         }
 
-        LogUtil.put(LogFactory.getInstance(SERVICE_NOT_FOUND_RUNNING + name, this, IS_SERVICE_RUNNING));
+        logUtil.put(SERVICE_NOT_FOUND_RUNNING + name, this, IS_SERVICE_RUNNING);
         return false;
     }
     

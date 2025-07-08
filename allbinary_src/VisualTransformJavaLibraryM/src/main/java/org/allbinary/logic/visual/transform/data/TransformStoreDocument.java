@@ -25,6 +25,8 @@ import javax.servlet.jsp.PageContext;
 
 public class TransformStoreDocument extends TransformHttpRequestDocument
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    public TransformStoreDocument(
       PageContext pageContext, WeblisketSession weblisketSession) 
       throws Exception
@@ -42,14 +44,14 @@ public class TransformStoreDocument extends TransformHttpRequestDocument
             storeName = pageContext.getRequest().getParameter(StoreFrontData.NAME);
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               LogUtil.put(LogFactory.getInstance("Using Request StoreName: " + storeName, this, this.commonStrings.CONSTRUCTOR);
+               logUtil.put("Using Request StoreName: " + storeName, this, this.commonStrings.CONSTRUCTOR);
             }
          }
          else
          {*/
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               LogUtil.put(LogFactory.getInstance("Using Session StoreName: " + storeName, this, this.commonStrings.CONSTRUCTOR));
+               logUtil.put("Using Session StoreName: " + storeName, this, this.commonStrings.CONSTRUCTOR);
             }
          //}
 
@@ -64,7 +66,7 @@ public class TransformStoreDocument extends TransformHttpRequestDocument
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e));
+            logUtil.put(commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e);
          }
          throw e;
       }
@@ -89,7 +91,7 @@ public class TransformStoreDocument extends TransformHttpRequestDocument
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e));
+            logUtil.put(commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e);
          }
          throw e;
       }

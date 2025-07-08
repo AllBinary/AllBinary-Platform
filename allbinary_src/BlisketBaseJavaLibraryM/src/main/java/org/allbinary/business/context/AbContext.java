@@ -24,6 +24,8 @@ import org.allbinary.string.CommonStrings;
 
 public class AbContext
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
    private HashMap propertiesHashMap;
@@ -34,7 +36,7 @@ public class AbContext
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("Properties HashMap: " + propertiesHashMap.toString(), this, commonStrings.CONSTRUCTOR));
+         logUtil.put("Properties HashMap: " + propertiesHashMap.toString(), this, commonStrings.CONSTRUCTOR);
       }
 
       this.propertiesHashMap = propertiesHashMap;

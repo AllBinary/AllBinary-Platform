@@ -24,6 +24,8 @@ import org.allbinary.graphics.displayable.MyCanvas;
 
 public class CommandRunnable implements Runnable
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final CommandFormInputProcessor commandFormInputProcessor;
@@ -40,7 +42,7 @@ public class CommandRunnable implements Runnable
    {
       try
       {
-         LogUtil.put(LogFactory.getInstance(commonStrings.START_RUNNABLE, this, commonStrings.RUN));
+         logUtil.put(commonStrings.START_RUNNABLE, this, commonStrings.RUN);
 
          final MyCanvas canvas = this.commandFormInputProcessor.getCanvas();
 
@@ -48,11 +50,11 @@ public class CommandRunnable implements Runnable
 
          commandListener.commandAction(command, canvas);
 
-         LogUtil.put(LogFactory.getInstance(commonStrings.END_RUNNABLE, this, commonStrings.RUN));
+         logUtil.put(commonStrings.END_RUNNABLE, this, commonStrings.RUN);
          
       } catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
+         logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
       }
 
    }

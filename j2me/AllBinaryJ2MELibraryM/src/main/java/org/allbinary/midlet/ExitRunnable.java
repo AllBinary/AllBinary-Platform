@@ -22,6 +22,8 @@ import org.allbinary.canvas.Processor;
 
 public class ExitRunnable implements Runnable
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final CommonStrings commonStrings = CommonStrings.getInstance();
 
     private final AllBinaryMidlet midlet;
@@ -39,7 +41,7 @@ public class ExitRunnable implements Runnable
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.START_RUNNABLE, this, commonStrings.RUN));
+            logUtil.put(commonStrings.START_RUNNABLE, this, commonStrings.RUN);
 
             this.midlet.destroyApp(false, this.isProgress);
 
@@ -52,19 +54,19 @@ public class ExitRunnable implements Runnable
             // when resuming from onSaveInstanceState
             this.midlet.notifyDestroyed();
 
-            LogUtil.put(LogFactory.getInstance(commonStrings.END_RUNNABLE, this, commonStrings.RUN));
+            logUtil.put(commonStrings.END_RUNNABLE, this, commonStrings.RUN);
 
             processor.process();
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
 
             try
             {
                 processor.process();
             } catch (Exception e2)
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
             }
         }
     }

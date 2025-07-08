@@ -25,6 +25,8 @@ import org.w3c.dom.NodeList;
 
 public class TransformInfoDomNode
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private TransformInfoInterface transformInfoInterface;
     private String mappedName;
 
@@ -32,9 +34,9 @@ public class TransformInfoDomNode
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            LogUtil.put(LogFactory.getInstance(
+            logUtil.put(
                 "Constructing TransformInfo From TransformInfoDomNode: "
-                + node.getNodeName(), this, "TransformInfoDomNode(Node node)"));
+                + node.getNodeName(), this, "TransformInfoDomNode(Node node)");
         }
 
     	TransformInfoData transformInfoData = 
@@ -58,8 +60,8 @@ public class TransformInfoDomNode
                 stringBuffer.append(nodeList.getLength());
                 stringBuffer.append(" children");
 
-                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(),
-                    this, "TransformInfoObjectConfigComponent(Node node)"));
+                logUtil.put(stringBuffer.toString(),
+                    this, "TransformInfoObjectConfigComponent(Node node)");
             }
 
             Node objectFileNameNode = DomSearchHelper.getNode(
@@ -98,8 +100,8 @@ public class TransformInfoDomNode
                 stringBuffer.append(nodeList.getLength());
                 stringBuffer.append(" children");
 
-                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(),
-                    this, "TransformInfoObjectConfigComponent(Node node)"));
+                logUtil.put(stringBuffer.toString(),
+                    this, "TransformInfoObjectConfigComponent(Node node)");
             }
 
             this.transformInfoInterface = (TransformInfoInterface)
@@ -164,7 +166,7 @@ public class TransformInfoDomNode
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            LogUtil.put(LogFactory.getInstance("Component Key: " + key, this, "getReplaceKey()"));
+            logUtil.put("Component Key: " + key, this, "getReplaceKey()");
         }
         return key;
     }

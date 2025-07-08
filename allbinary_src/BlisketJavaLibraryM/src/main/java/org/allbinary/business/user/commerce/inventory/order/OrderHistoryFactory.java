@@ -23,6 +23,8 @@ import org.allbinary.string.CommonStrings;
 //Retrieves a single order for a user
 public class OrderHistoryFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    //private static final String CLASSNAME = "org.allbinary.data.tables.OrderHistoryEntity";
    
    private OrderHistoryFactory()
@@ -31,6 +33,7 @@ public class OrderHistoryFactory
    
    public static OrderHistory getInstance(String id) //throws LicensingException
    {
+       final LogUtil logUtil = LogUtil.getInstance();
       try
       {
          //Object object = AbeFactory.getInstance().getInstance(CLASSNAME);
@@ -56,7 +59,7 @@ public class OrderHistoryFactory
          final CommonStrings commonStrings = CommonStrings.getInstance();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "OrderHistoryFactory",commonStrings.GET_INSTANCE,e));
+            logUtil.put(commonStrings.EXCEPTION, "OrderHistoryFactory",commonStrings.GET_INSTANCE,e);
          }
          return null;
       }

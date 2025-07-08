@@ -26,6 +26,8 @@ import org.allbinary.util.BasicArrayList;
  * @author User
  */
 public class FileUtil2 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     
     private static final FileUtil2 instance = new FileUtil2();
 
@@ -50,7 +52,7 @@ public class FileUtil2 {
         try {
             inputStream = new AbFileInputStream(file);
         } catch (Exception e) {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.ADD, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.ADD, e);
         }
 
         return SimpleFileUtil.getInstance().loadFileAsList(inputStream, max, byteArray1);

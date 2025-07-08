@@ -23,6 +23,8 @@ import org.allbinary.logic.communication.log.LogUtil;
  * @version 1.0
  */
 public class AndroidOperatingSystemFactory {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final AndroidOperatingSystemFactory instance = new AndroidOperatingSystemFactory();
     
@@ -64,7 +66,7 @@ public class AndroidOperatingSystemFactory {
         catch(Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance("Failed to get OperatingSystem returning NoOperatingSystem", this, commonStrings.GET_INSTANCE, e));
+            logUtil.put("Failed to get OperatingSystem returning NoOperatingSystem", this, commonStrings.GET_INSTANCE, e);
             return new NoOperatingSystem();
         }
     }

@@ -23,6 +23,8 @@ import com.jogamp.opengl.glu.GLU;
 //JOGLEToKhronosGL10
 public class JOGL10 implements javax.microedition.khronos.opengles.GL10
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     //private final CommonLabels commonLabels = CommonLabels.getInstance();
     //private final StringBuilder stringBuilder = new StringBuilder();

@@ -38,6 +38,8 @@ import org.allbinary.time.TimeDelayHelper;
 public class MapSelectionGameInputProcessor extends Processor 
     implements GameInputProcessorInterface, PlayerGameInputCompositeInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final AllBinaryGameCanvas gameCanvas;
     private final MultiLevelRaceTrackGeographicMapInterfaceFactoryInterface raceTrackGeographicMapInterfaceFactoryInterface;
     private final PreGameSelectorPaintable preGameSelectorPaintable;
@@ -71,7 +73,7 @@ public class MapSelectionGameInputProcessor extends Processor
             } catch (Exception e) {
                 this.setRunning(false);
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
             }
         }
     };
@@ -93,7 +95,7 @@ public class MapSelectionGameInputProcessor extends Processor
 
     public void process() throws Exception
     {
-        // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.PROCESS));
+        // logUtil.put(commonStrings.START, this, commonStrings.PROCESS);
         this.getPlayerGameInput().update();
     }
 

@@ -20,6 +20,8 @@ import org.allbinary.util.BasicArrayList;
 
 public class LogConfigType
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private String name;
    private String description;
    
@@ -27,7 +29,7 @@ public class LogConfigType
       
    public LogConfigType(String name, String description)
    {
-       //LogUtil.put(LogFactory.getInstance(name, this, commonStrings.CONSTRUCTOR));
+       //logUtil.put(name, this, commonStrings.CONSTRUCTOR);
        
       this.name = name;
       this.description = description;

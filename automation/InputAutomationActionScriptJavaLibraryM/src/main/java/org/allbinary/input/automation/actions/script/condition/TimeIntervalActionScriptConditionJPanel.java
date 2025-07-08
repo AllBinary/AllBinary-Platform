@@ -24,6 +24,8 @@ import org.allbinary.string.CommonStrings;
 public class TimeIntervalActionScriptConditionJPanel
     extends javax.swing.JPanel
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private TimeIntervalActionScriptConditionInterface timeIntervalActionScriptConditionInterface;
@@ -32,7 +34,7 @@ public class TimeIntervalActionScriptConditionJPanel
     public TimeIntervalActionScriptConditionJPanel(
         TimeIntervalActionScriptConditionInterface timeIntervalActionScriptConditionInterface)
     {
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR));
+        logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         
         initComponents();
         

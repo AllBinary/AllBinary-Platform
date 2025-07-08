@@ -41,7 +41,7 @@ public class LurchRotationAI extends LurchAI {
     
     private void update()
     {
-       //LogUtil.put(LogFactory.getInstance("Angle: " + currentAngle, this, "reverse"));
+       //logUtil.put("Angle: " + currentAngle, this, "reverse");
         if (currentRelativeAngle == 0) {
             
             AngleIncrementInfo angleIncrementInfo = ((RotationAnimationInterface) this.rotationAnimationInterface).getAngleInfo().getAngleIncrementInfo();

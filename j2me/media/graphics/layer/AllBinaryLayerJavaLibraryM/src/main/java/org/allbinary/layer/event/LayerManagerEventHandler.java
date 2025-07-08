@@ -25,6 +25,8 @@ import org.allbinary.logic.util.event.handler.BasicEventHandler;
 
 public class LayerManagerEventHandler extends BasicEventHandler
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static LayerManagerEventHandler instance = new LayerManagerEventHandler();
 
     public static LayerManagerEventHandler getInstance()
@@ -69,7 +71,7 @@ public class LayerManagerEventHandler extends BasicEventHandler
             }
             catch (Exception e)
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
+                logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
         }
 
@@ -91,7 +93,7 @@ public class LayerManagerEventHandler extends BasicEventHandler
             }
             catch (Exception e)
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
+                logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
         }
         
@@ -110,7 +112,7 @@ public class LayerManagerEventHandler extends BasicEventHandler
             }
             catch (Exception e)
             {
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
+                logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
         }
     }

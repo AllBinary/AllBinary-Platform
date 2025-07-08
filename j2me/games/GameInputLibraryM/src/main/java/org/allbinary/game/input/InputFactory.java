@@ -21,6 +21,8 @@ import org.allbinary.logic.string.StringMaker;
 
 public class InputFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final static InputFactory instance = new InputFactory();
 
     public static InputFactory getInstance()
@@ -46,7 +48,7 @@ public class InputFactory
     private InputFactory() {
         
         final int size = inputIntegerArray.length;
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("size: ").append(size).toString(), this, commonStrings.CONSTRUCTOR));
+        //logUtil.put(new StringMaker().append("size: ").append(size).toString(), this, commonStrings.CONSTRUCTOR);
         for(int index = 0; index < size; index++) {
             inputIntegerArray[index] = NO_INPUT;
         }
@@ -66,8 +68,8 @@ public class InputFactory
 
         if(id > inputIntegerArray.length) {
             //Using the Exception for HTML5 build causes the game to hang.
-            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("id: ").append(id).toString(), this, commonStrings.GET_INSTANCE, new Exception()));
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Warning id: ").append(id).toString(), this, commonStrings.GET_INSTANCE));
+            //logUtil.put(new StringMaker().append("id: ").append(id).toString(), this, commonStrings.GET_INSTANCE, new Exception());
+            logUtil.put(new StringMaker().append("Warning id: ").append(id).toString(), this, commonStrings.GET_INSTANCE);
             return NO_INPUT;
         }
 

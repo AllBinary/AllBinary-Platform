@@ -47,6 +47,8 @@ import org.allbinary.string.CommonStrings;
  */
 public class UploadFileServlet extends HttpServlet
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     //private static final String UPLOAD = "upload";
@@ -113,7 +115,7 @@ public class UploadFileServlet extends HttpServlet
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
             {
-                LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "processRequest()", e));
+                logUtil.put(this.commonStrings.EXCEPTION, this, "processRequest()", e);
             }
             isError = true;
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
@@ -163,7 +165,7 @@ public class UploadFileServlet extends HttpServlet
                     stringBuffer.append(" New File: ");
                     stringBuffer.append(file.getPath());
 
-                    LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "saveFile()"));
+                    logUtil.put(stringBuffer.toString(), this, "saveFile()");
                 }
                 HttpFileUploadUtil.log(fileItem);
 

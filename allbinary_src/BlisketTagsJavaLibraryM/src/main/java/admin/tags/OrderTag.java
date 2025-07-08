@@ -34,7 +34,9 @@ import javax.servlet.jsp.tagext.TagSupport;
 import tags.CustomTagSupport;
 
 public class OrderTag extends CustomTagSupport
-{    
+{
+    protected final LogUtil logUtil = LogUtil.getInstance();
+    
    private String command;
    private String storeName;
 
@@ -77,7 +79,7 @@ public class OrderTag extends CustomTagSupport
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,commonStrings.PROCESS,e));
+            logUtil.put(commonStrings.EXCEPTION,this,commonStrings.PROCESS,e);
          }
          return error;
       }
@@ -106,7 +108,7 @@ public class OrderTag extends CustomTagSupport
          String error = "Failed to setPaymentGateway for Order";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "setPaymentGateway()", e));
+            logUtil.put(commonStrings.EXCEPTION, this, "setPaymentGateway()", e);
          }
          return Boolean.FALSE;
       }
@@ -135,7 +137,7 @@ public class OrderTag extends CustomTagSupport
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"getMaxAmount()",e);
+            logUtil.put(commonStrings.EXCEPTION,this,"getMaxAmount()",e);
          }
          return "Unknown";
       }
@@ -147,7 +149,7 @@ public class OrderTag extends CustomTagSupport
       try
       {
          Object object = OrderHelperFactory.getInstance(this.storeName,
-         pageContext.getSession());
+         pageContext.getSession();
          Class addressHelperClass = object.getClass();
          Method method = addressHelperClass.getMethod("getOrderIdFromSession",null);
          
@@ -164,7 +166,7 @@ public class OrderTag extends CustomTagSupport
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"getOrderIdFromSession()",e);
+            logUtil.put(commonStrings.EXCEPTION,this,"getOrderIdFromSession()",e);
          }
          return "Unknown";
       }

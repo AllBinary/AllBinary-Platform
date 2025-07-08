@@ -21,6 +21,8 @@ import org.allbinary.logic.util.event.handler.BasicEventHandler;
 
 public class GameLevelDisplayChangeEventListenersFactory
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final GameLevelDisplayChangeEventListenersFactory instance = new GameLevelDisplayChangeEventListenersFactory();
 
     public static GameLevelDisplayChangeEventListenersFactory getInstance()

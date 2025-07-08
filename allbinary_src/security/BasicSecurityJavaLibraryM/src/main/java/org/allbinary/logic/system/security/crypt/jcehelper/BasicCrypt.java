@@ -20,6 +20,8 @@ import org.allbinary.string.CommonStrings;
 
 public class BasicCrypt implements CryptInterface
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final ByteUtil byteUtil = ByteUtil.getInstance();
 
     private byte[] key;

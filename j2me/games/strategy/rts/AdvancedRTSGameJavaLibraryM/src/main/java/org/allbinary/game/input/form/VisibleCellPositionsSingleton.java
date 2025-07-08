@@ -32,6 +32,8 @@ import org.allbinary.logic.util.event.EventStrings;
 public class VisibleCellPositionsSingleton
     implements BuildingEventListenerInterface, ScrollMapEventListenerInterface
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final VisibleCellPositionsSingleton instance = 
         new VisibleCellPositionsSingleton();
 

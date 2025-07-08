@@ -26,6 +26,8 @@ import org.allbinary.logic.system.security.licensing.registration.RegistrationCo
 public class MobileClientInformation 
     extends AbeClientInformation
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected static final String DESC = "Mobile";
     protected static final String ANDROID_DESC = "Android" + DESC;
 
@@ -48,11 +50,11 @@ public class MobileClientInformation
         final CommonStrings commonStrings = CommonStrings.getInstance();
         if (this.isHardSale())
         {
-            LogUtil.put(LogFactory.getInstance("Use Hard Coded Selling", this, commonStrings.CONSTRUCTOR));
+            logUtil.put("Use Hard Coded Selling", this, commonStrings.CONSTRUCTOR);
         }
         else
         {
-            LogUtil.put(LogFactory.getInstance("Don't Use Hard Coded Selling", this, commonStrings.CONSTRUCTOR));
+            logUtil.put("Don't Use Hard Coded Selling", this, commonStrings.CONSTRUCTOR);
         }
         
     }

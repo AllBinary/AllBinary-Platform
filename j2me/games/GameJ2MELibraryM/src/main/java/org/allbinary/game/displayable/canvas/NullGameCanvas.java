@@ -22,6 +22,8 @@ import org.allbinary.game.layer.AllBinaryGameLayerManager;
 
 public class NullGameCanvas extends AllBinaryGameCanvas
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final NullGameCanvas SINGLETON = new NullGameCanvas();
     
     public static NullGameCanvas getInstance()
@@ -108,15 +110,15 @@ public class NullGameCanvas extends AllBinaryGameCanvas
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.START_RUNNABLE, this, commonStrings.RUN));
+            logUtil.put(commonStrings.START_RUNNABLE, this, commonStrings.RUN);
 
             //this.setRunning(false);
 
-            LogUtil.put(LogFactory.getInstance(commonStrings.END_RUNNABLE, this, commonStrings.RUN));
+            logUtil.put(commonStrings.END_RUNNABLE, this, commonStrings.RUN);
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
         }
     }
     

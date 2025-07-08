@@ -26,6 +26,8 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 import org.allbinary.string.CommonStrings;
 
 public class AdminUserEmailEventHandlerSingletons {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
 
     private static final AdminUserEmailEventHandlerSingletons instance =
         new AdminUserEmailEventHandlerSingletons();
@@ -43,7 +45,7 @@ public class AdminUserEmailEventHandlerSingletons {
 
     private AdminUserEmailEventHandlerSingletons() {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING)) {
-            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
+            logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
         }
     }
 
@@ -51,7 +53,7 @@ public class AdminUserEmailEventHandlerSingletons {
         final AbeClientInformationInterface abeClientInformation, UserEmailEventNameData userEmailEventNameData)
         throws Exception {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING)) {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, commonStrings.GET_INSTANCE));
+            logUtil.put(this.commonStrings.START, this, commonStrings.GET_INSTANCE);
         }
 
         UserEmailEventHandler userEmailEventHandler = (UserEmailEventHandler) this.userEmailEventHandlerHashMap.get(
@@ -60,7 +62,7 @@ public class AdminUserEmailEventHandlerSingletons {
         //Load Info if not found - check logic - logic is poor should load on null above
         if (userEmailEventHandler == null) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING)) {
-                LogUtil.put(LogFactory.getInstance("Creating New Named UserEmailEventHandler", this, commonStrings.GET_INSTANCE));
+                logUtil.put("Creating New Named UserEmailEventHandler", this, commonStrings.GET_INSTANCE);
             }
 
             //Each store admin user my subscribe to emails with their email configuration
@@ -77,7 +79,7 @@ public class AdminUserEmailEventHandlerSingletons {
             return newUserEmailEventHandler;
         } else {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING)) {
-                LogUtil.put(LogFactory.getInstance("Returning existing UserEmailEventHandler", this, commonStrings.GET_INSTANCE));
+                logUtil.put("Returning existing UserEmailEventHandler", this, commonStrings.GET_INSTANCE);
             }
 
             //Return existing event Handler

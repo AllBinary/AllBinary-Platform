@@ -40,6 +40,8 @@ import org.allbinary.string.CommonStrings;
 
 public class TaxFactory
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final TaxFactory instance = new TaxFactory();
     
     public static TaxFactory getInstance() {
@@ -101,7 +103,7 @@ public class TaxFactory
             {
                if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAX))
                {
-                  LogUtil.put(LogFactory.getInstance("Class Node Null", this, commonStrings.GET_INSTANCE));
+                  logUtil.put("Class Node Null", this, commonStrings.GET_INSTANCE);
                }
             }
          }
@@ -109,7 +111,7 @@ public class TaxFactory
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAX))
             {
-               LogUtil.put(LogFactory.getInstance("Tax Name Node Node Children", this, commonStrings.GET_INSTANCE));
+               logUtil.put("Tax Name Node Node Children", this, commonStrings.GET_INSTANCE);
             }
          }
          

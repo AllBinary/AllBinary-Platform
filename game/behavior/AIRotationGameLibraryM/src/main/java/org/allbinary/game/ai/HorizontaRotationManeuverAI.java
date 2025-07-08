@@ -85,7 +85,7 @@ implements ArtificialIntelligenceTransitionInterface
         // int keyDirection = -1;
         //int x = this.getOwnerLayerInterface().getX();
 
-        //LogUtil.put(LogFactory.getInstance("Angle: " + currentAngle + " X: " + x + " Y: " + y, this, commonStrings.PROCESS));
+        //logUtil.put("Angle: " + currentAngle + " X: " + x + " Y: " + y, this, commonStrings.PROCESS);
         AngleIncrementInfo angleIncrementInfo = 
             ((RotationAnimationInterface) this.rotationAnimationInterface).getAngleInfo().getAngleIncrementInfo();
 

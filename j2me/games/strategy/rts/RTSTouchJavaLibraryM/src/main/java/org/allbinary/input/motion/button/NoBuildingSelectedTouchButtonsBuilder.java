@@ -24,11 +24,13 @@ import org.allbinary.logic.communication.log.LogUtil;
 public class NoBuildingSelectedTouchButtonsBuilder
 extends BaseTouchInput
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     public BasicArrayList getList()
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
+            logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
             final BasicArrayList list = new BasicArrayList();
 
@@ -39,7 +41,7 @@ extends BaseTouchInput
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e));
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
             
             return BasicArrayListUtil.getInstance().getImmutableInstance();
         }

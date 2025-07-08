@@ -24,6 +24,8 @@ import org.allbinary.time.TimeDelayHelper;
 
 public class BaseGameStatistics
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(Integer.MAX_VALUE);
     private final TimeDelayHelper updateDelayHelper = new TimeDelayHelper(2000);
 
@@ -38,8 +40,8 @@ public class BaseGameStatistics
     {
         /*
          * try { this.primitiveLongUtil = new PrimitiveLongUtil(1000000000); }
-         * catch(Exception e) { LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,
-         * this, commonStrings.CONSTRUCTOR)); }
+         * catch(Exception e) { logUtil.put(commonStrings.EXCEPTION,
+         * this, commonStrings.CONSTRUCTOR); }
          */
     }
 
@@ -57,7 +59,7 @@ public class BaseGameStatistics
     // never really implemented
     public void process()
     {
-        // LogUtil.put(LogFactory.getInstance(commonStrings.START, "Refresh", commonStrings.PROCESS));
+        // logUtil.put(commonStrings.START, "Refresh", commonStrings.PROCESS);
         // if (timeDelayHelper.isTime())
         // {
 

@@ -23,6 +23,8 @@ import org.allbinary.logic.util.event.handler.BasicEventHandler;
 public class NoCompleteMotionGestureInputEventListener 
 extends CompleteMotionGestureInputEventListener
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private static final NoCompleteMotionGestureInputEventListener instance =
         new NoCompleteMotionGestureInputEventListener();
     

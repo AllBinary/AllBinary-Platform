@@ -39,6 +39,8 @@ import org.allbinary.time.TimeDelayHelper;
 public class PlayerGameNotificationHud
 extends GameNotificationHud
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final String EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
     private String string = this.EMPTY_STRING;
 
@@ -89,7 +91,7 @@ extends GameNotificationHud
         {
             if(lastString != string) {
                 this.lastString = string;
-                LogUtil.put(LogFactory.getInstance(new StringMaker().append(PERMANENT_GAME_NOTIFICATION).append(string).toString(), this, commonStrings.ADD));
+                logUtil.put(new StringMaker().append(PERMANENT_GAME_NOTIFICATION).append(string).toString(), this, commonStrings.ADD);
             }
             this.permanentGameNotification.add(string, seconds, basicColor);
             this.circularIndexUtil.setSize(this.permanentGameNotification.getSize());
@@ -98,7 +100,7 @@ extends GameNotificationHud
         {
             //if(seconds.intValue() > 0)
             //{
-                //LogUtil.put(LogFactory.getInstance(TEMP_GAME_NOTIFICATION).append(string, this, commonStrings.ADD));
+                //logUtil.put(TEMP_GAME_NOTIFICATION).append(string, this, commonStrings.ADD);
             //}
 
             this.gameNotification.add(string, seconds, basicColor);

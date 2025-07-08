@@ -25,6 +25,8 @@ import tags.TransformTag;
 
 public class GenericViewTag extends TransformTag
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
    private String output;
 
    //defines the storage name/location for results and/or data submission type
@@ -34,7 +36,7 @@ public class GenericViewTag extends TransformTag
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
       {
-         LogUtil.put(LogFactory.getInstance(this.commonStrings.START,this,this.commonStrings.CONSTRUCTOR));
+         logUtil.put(this.commonStrings.START,this,this.commonStrings.CONSTRUCTOR);
       }
    }
 

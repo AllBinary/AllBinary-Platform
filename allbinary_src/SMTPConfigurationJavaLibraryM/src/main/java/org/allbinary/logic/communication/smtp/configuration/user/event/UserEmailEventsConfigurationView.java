@@ -30,6 +30,8 @@ import org.w3c.dom.NodeList;
 
 public class UserEmailEventsConfigurationView implements DomNodeInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
    private UserEmailEventsConfigurationInterface userEmailEventsConfigurationInterface;
@@ -84,7 +86,7 @@ public class UserEmailEventsConfigurationView implements DomNodeInterface
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
-         LogUtil.put(LogFactory.getInstance("Number Of Email Events Specified in file: " + set.size(), this, this.commonStrings.CONSTRUCTOR));
+         logUtil.put("Number Of Email Events Specified in file: " + set.size(), this, this.commonStrings.CONSTRUCTOR);
       }
       
       final Object[] eventNameArray = set.toArray();

@@ -27,6 +27,8 @@ import org.allbinary.logic.string.StringMaker;
 
 public class OnDemandLoader
 {
+    //protected final LogUtil logUtil = LogUtil.getInstance();
+
     private final OnDemandResourcesFactory onDemandResourcesFactory;
     private final GameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory;
     private final BaseResourceAnimationInterfaceFactoryInterfaceFactory resourceAnimationInterfaceFactoryInterfaceFactory;

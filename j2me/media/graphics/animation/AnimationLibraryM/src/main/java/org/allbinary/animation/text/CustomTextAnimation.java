@@ -29,6 +29,8 @@ import org.allbinary.logic.string.StringMaker;
  */
 public class CustomTextAnimation extends TextAnimation
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+
     protected final FontDebugFactory fontDebugFactory = FontDebugFactory.getInstance();
     
     protected final int fontSize;
@@ -45,7 +47,7 @@ public class CustomTextAnimation extends TextAnimation
         this.fontSize = fontSize;
         this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, fontSize);
         //final CommonLabels commonLabels = CommonLabels.getInstance();
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Font size: ").append(fontSize).append(' ').append(font.getSize()).append(commonLabels.WIDTH_LABEL).append(font.stringWidth(text)).append(" text: ").append(text).toString(), this, commonStrings.PROCESS));
+        //logUtil.put(new StringMaker().append("Font size: ").append(fontSize).append(' ').append(font.getSize()).append(commonLabels.WIDTH_LABEL).append(font.stringWidth(text)).append(" text: ").append(text).toString(), this, commonStrings.PROCESS);
         
         //this.hack();
     }
@@ -83,11 +85,11 @@ public class CustomTextAnimation extends TextAnimation
             throw new RuntimeException();
         }
 
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("setScale font: ").append((fontSize * scaleX)).append(" text: ").append(this.getText()).toString(), this, commonStrings.PROCESS));
+        //logUtil.put(new StringMaker().append("setScale font: ").append((fontSize * scaleX)).append(" text: ").append(this.getText()).toString(), this, commonStrings.PROCESS);
         this.hasChanged = true;
         this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, (int) (fontSize * scaleX));
 //        if(this.getText().length > 0) {
-//            LogUtil.put(LogFactory.getInstance(new StringMaker().append("setScale font: ").append(font.getSize()).append(" text: ").append(this.getText()[0]).toString(), this, commonStrings.PROCESS));
+//            logUtil.put(new StringMaker().append("setScale font: ").append(font.getSize()).append(" text: ").append(this.getText()[0]).toString(), this, commonStrings.PROCESS);
 //        }
     }
     
@@ -101,7 +103,7 @@ public class CustomTextAnimation extends TextAnimation
 
 //        if(font != null) {
 //            final CommonLabels commonLabels = CommonLabels.getInstance();
-//            LogUtil.put(LogFactory.getInstance(new StringMaker().append("setText - font: ").append(font.getSize()).append(commonLabels.WIDTH_LABEL).append(font.stringWidth(text)).append(" text: ").append(text).toString(), this, commonStrings.PROCESS));
+//            logUtil.put(new StringMaker().append("setText - font: ").append(font.getSize()).append(commonLabels.WIDTH_LABEL).append(font.stringWidth(text)).append(" text: ").append(text).toString(), this, commonStrings.PROCESS);
 //        }
     }
 
