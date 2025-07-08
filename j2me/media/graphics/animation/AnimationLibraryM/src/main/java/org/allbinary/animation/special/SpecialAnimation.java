@@ -19,11 +19,11 @@ import org.allbinary.animation.IndexedAnimationBehavior;
 
 public class SpecialAnimation extends IndexedAnimation implements SpecialAnimationInterface
 {
-    private static final SpecialAnimation NULL_ANIMATION = new SpecialAnimation(new IndexedAnimationBehavior(1, 250));
+    private static final SpecialAnimation NULL_SPECIAL_ANIMATION = new SpecialAnimation(new IndexedAnimationBehavior(1, 250));
 
     public static SpecialAnimation getInstance()
     {
-        return NULL_ANIMATION;
+        return NULL_SPECIAL_ANIMATION;
     }
     
     public SpecialAnimation(final AnimationBehavior animationBehavior) {

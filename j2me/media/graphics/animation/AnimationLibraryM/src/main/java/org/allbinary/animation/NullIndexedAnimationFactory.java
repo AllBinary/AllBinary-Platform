@@ -19,7 +19,7 @@ import org.allbinary.media.ScaleProperties;
 public class NullIndexedAnimationFactory implements 
     AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface
 {
-   private static NullIndexedAnimationFactory NULL_ANIMATION_FACTORY = new NullIndexedAnimationFactory();
+   private static NullIndexedAnimationFactory NULL_INDEXED_ANIMATION_FACTORY = new NullIndexedAnimationFactory();
    private final Animation NULL_ANIMATION = new NullIndexedAnimation(AnimationBehavior.getInstance()) {
        public void paint(final Graphics graphics, final int x, final int y) {
        }
@@ -31,7 +31,7 @@ public class NullIndexedAnimationFactory implements
 
    public static NullIndexedAnimationFactory getFactoryInstance()
    {
-       return NULL_ANIMATION_FACTORY;
+       return NULL_INDEXED_ANIMATION_FACTORY;
    }
 
    public Animation getInstance(final int instanceId) throws Exception

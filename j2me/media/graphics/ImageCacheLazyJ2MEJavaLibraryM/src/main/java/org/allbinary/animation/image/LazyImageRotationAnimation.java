@@ -43,7 +43,7 @@ public class LazyImageRotationAnimation extends RotationAnimation {
     public final int instanceId;
     public final BaseImageAnimationFactory animationInterfaceFactoryInterface;
 
-    private final IndexedAnimation NULL_ANIMATION;
+    private final IndexedAnimation NULL_INDEX_ANIMATION;
     private IndexedAnimation animation;
 
     public ScaleProperties scaleProperties = ScaleProperties.instance;
@@ -63,7 +63,7 @@ public class LazyImageRotationAnimation extends RotationAnimation {
         
         this.scaleProperties = scaleProperties;
 
-        NULL_ANIMATION = new NullIndexedAnimation(animationBehavior) {
+        NULL_INDEX_ANIMATION = new NullIndexedAnimation(animationBehavior) {
             public void paint(final Graphics graphics, final int x, final int y) {
             }
         };
@@ -84,7 +84,7 @@ public class LazyImageRotationAnimation extends RotationAnimation {
 
                 try {
                     ImageCacheFactory.getInstance().insertFirst(LazyImageRotationAnimation.this);
-                    animation = NULL_ANIMATION;
+                    animation = NULL_INDEX_ANIMATION;
                 } catch (Exception e) {
                     LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e));
                 }
@@ -95,7 +95,7 @@ public class LazyImageRotationAnimation extends RotationAnimation {
 
                 try {
                     ImageCacheFactory.getInstance().insertFirst(LazyImageRotationAnimation.this);
-                    animation = NULL_ANIMATION;
+                    animation = NULL_INDEX_ANIMATION;
                 } catch (Exception e) {
                     LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e));
                 }

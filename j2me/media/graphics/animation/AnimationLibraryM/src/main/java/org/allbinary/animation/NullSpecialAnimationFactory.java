@@ -19,7 +19,7 @@ import org.allbinary.media.ScaleProperties;
 public class NullSpecialAnimationFactory implements 
     AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface
 {
-   private static NullSpecialAnimationFactory NULL_ANIMATION_FACTORY = new NullSpecialAnimationFactory();
+   private static NullSpecialAnimationFactory NULL_SPECIAL_ANIMATION_FACTORY = new NullSpecialAnimationFactory();
    
    private NullSpecialAnimationFactory()
    {
@@ -27,7 +27,7 @@ public class NullSpecialAnimationFactory implements
 
    public static NullSpecialAnimationFactory getFactoryInstance()
    {
-       return NULL_ANIMATION_FACTORY;
+       return NULL_SPECIAL_ANIMATION_FACTORY;
    }
 
    public Animation getInstance(final int instanceId) throws Exception

@@ -20,7 +20,7 @@ public class NullRotationAnimationFactory
 implements AnimationInterfaceFactoryInterface,
 ProceduralAnimationInterfaceFactoryInterface
 {
-   private static NullRotationAnimationFactory NULL_ANIMATION_FACTORY = new NullRotationAnimationFactory();
+   private static NullRotationAnimationFactory NULL_ROTATION_ANIMATION_FACTORY = new NullRotationAnimationFactory();
    private static final Animation NULL_ANIMATION = new NullRotationAnimation(AnimationBehavior.getInstance()) {
        public void paint(Graphics graphics, int x, int y) {
        }
@@ -32,7 +32,7 @@ ProceduralAnimationInterfaceFactoryInterface
 
    public static NullRotationAnimationFactory getFactoryInstance()
    {
-       return NULL_ANIMATION_FACTORY;
+       return NULL_ROTATION_ANIMATION_FACTORY;
    }
    
    public Animation getInstance(final int instanceId) throws Exception
