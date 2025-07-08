@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import javax.servlet.jsp.PageContext;
+import org.allbinary.business.context.modules.storefront.StoreFront;
 
 import org.allbinary.business.installer.Portion;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -29,7 +30,6 @@ import org.allbinary.business.user.quoterequest.QuoteRequest;
 import org.allbinary.data.tables.user.UserEntityFactory;
 import org.allbinary.data.tables.user.quoterequest.QuoteRequestEntity;
 import org.allbinary.data.tables.user.quoterequest.QuoteRequestEntityFactory;
-import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 import org.allbinary.logic.communication.smtp.event.UserEmailEventNameData;
 import org.allbinary.logic.communication.smtp.event.handler.UserEmailEventHandler;
@@ -66,11 +66,10 @@ public class QuoteHelper extends BasicTable
       }
       else
       {
-    	  this.storeFrontInterface = null;
+    	  this.storeFrontInterface = new StoreFront();
       }
       
-      this.weblisketSession =
-         new WeblisketSession(hashMap, pageContext);
+      this.weblisketSession = new WeblisketSession(hashMap, pageContext);
       
       this.portion = new Portion(hashMap);
    }

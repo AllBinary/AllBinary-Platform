@@ -25,7 +25,14 @@ import org.allbinary.logic.communication.log.LogUtil;
 //Used to correct user input for paths
 public class AbPathUtilOld
 {  
-	private static final AbPathUtilOld instance = new AbPathUtilOld();
+    private static final AbPathUtilOld instance = new AbPathUtilOld();
+
+    public static final AbPathUtilOld getInstance() {
+        return instance;
+    }
+
+    private final AbPathData abPathData = AbPathData.getInstance();    
+    private final FilePathData filePathData = FilePathData.getInstance();
 	
    private static final int MIN = 4;
    
@@ -110,7 +117,7 @@ public class AbPathUtilOld
 
    private boolean isValidStart(String path)
    {
-      if(path.charAt(0) == AbPathData.getInstance().SEPARATORCHAR)
+      if(path.charAt(0) == abPathData.SEPARATORCHAR)
       {
          return true;
       }
@@ -127,7 +134,7 @@ public class AbPathUtilOld
          return false;
       }
 
-      if(path.charAt(path.length()-1) == AbPathData.getInstance().SEPARATORCHAR)
+      if(path.charAt(path.length()-1) == abPathData.SEPARATORCHAR)
       {
          return true;
       }
@@ -141,7 +148,7 @@ public class AbPathUtilOld
    {
       if(!this.isValidStart(path))
       {
-         path = AbPathData.getInstance().SEPARATOR + path;
+         path = abPathData.SEPARATOR + path;
       }
       return path;
    }
@@ -150,22 +157,22 @@ public class AbPathUtilOld
    {
       if(!this.isValidEnd(path))
       {
-         path = path + AbPathData.getInstance().SEPARATOR;
+         path = path + abPathData.SEPARATOR;
       }
       return path;
    }
    
-   public static String adjust(String path)
+   public String adjust(String path)
    {
       if(StringValidationUtil.getInstance().isEmpty(path))
       {
-         return AbPathData.getInstance().SEPARATOR;
+         return abPathData.SEPARATOR;
       }
 
       //Convert \ to / I.E. from dos/windows file path to uri/unix path
       if(path.indexOf("\\") >= 0)
       {
-         path = path.replace('\\',AbPathData.getInstance().SEPARATORCHAR);
+         path = path.replace('\\',abPathData.SEPARATORCHAR);
       }
       
       /*
@@ -179,11 +186,11 @@ public class AbPathUtilOld
    
    public synchronized String getNameFromPath(String categoryPath)
    {
-      int endIndex = categoryPath.lastIndexOf(AbPathData.getInstance().SEPARATOR);
+      int endIndex = categoryPath.lastIndexOf(abPathData.SEPARATOR);
       
       if(endIndex < 0)
       {
-         endIndex = categoryPath.lastIndexOf(FilePathData.SEPARATORCHAR);
+         endIndex = categoryPath.lastIndexOf(filePathData.SEPARATORCHAR);
       }
 
       if(endIndex < 0) return categoryPath;
@@ -203,11 +210,11 @@ public class AbPathUtilOld
 
    public synchronized AbPath removeNameFromPath(String categoryPath) throws Exception
    {   
-      int endIndex = categoryPath.lastIndexOf(AbPathData.getInstance().SEPARATOR);
+      int endIndex = categoryPath.lastIndexOf(abPathData.SEPARATOR);
 
       if(endIndex < 0)
       {
-         endIndex = categoryPath.lastIndexOf(FilePathData.SEPARATORCHAR);
+         endIndex = categoryPath.lastIndexOf(filePathData.SEPARATORCHAR);
       }
 
       if(endIndex < 0)

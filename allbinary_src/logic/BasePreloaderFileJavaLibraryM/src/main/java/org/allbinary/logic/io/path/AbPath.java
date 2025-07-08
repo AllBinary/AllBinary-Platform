@@ -22,6 +22,9 @@ import org.allbinary.logic.string.StringValidationUtil;
 
 public class AbPath
 {
+    private final CommonSeps commonSeps = CommonSeps.getInstance();
+    private final AbPathData abPathData = AbPathData.getInstance();
+    
    protected String schema;
    private String path;
    //private int port;
@@ -30,7 +33,7 @@ public class AbPath
    private boolean hasSchema = false;
    private int numberOfSeps = 0;
    
-   private final AbPathUtil abPathUtil = AbPathUtil.getInstance();
+   private final PathUtil abPathUtil = PathUtil.getInstance();
    
    public AbPath()
    {
@@ -82,14 +85,14 @@ public class AbPath
    private void init()
    {
       this.schema = EMPTY_STRING;
-      this.setPath(AbPathData.getInstance().SEPARATOR);
+      this.setPath(abPathData.SEPARATOR);
       //this.port = -1;  //use the schemas default port
       this.name = EMPTY_STRING;
    }
    
    protected String getSchema(String aPath)
    {
-      int beginIndex = aPath.indexOf(CommonSeps.getInstance().COLON);
+      int beginIndex = aPath.indexOf(commonSeps.COLON);
       if(beginIndex >= 0)
       {
          this.hasSchema = true;
@@ -106,6 +109,8 @@ public class AbPath
    
    public String getPath(String aPath) throws Exception
    {
+       final FilePathData filePathData = FilePathData.getInstance();
+
       String tempPath = aPath;
       /*
       if(!this.hasName())
@@ -120,13 +125,13 @@ public class AbPath
       }
       else
       {
-         int beginIndex = tempPath.indexOf(CommonSeps.getInstance().COLON);
+         int beginIndex = tempPath.indexOf(commonSeps.COLON);
          if(beginIndex >= 0)
          {
             beginIndex++;
             
-            while(tempPath.charAt(beginIndex) == AbPathData.getInstance().SEPARATORCHAR ||
-            tempPath.charAt(beginIndex) == FilePathData.SEPARATORCHAR)
+            while(tempPath.charAt(beginIndex) == abPathData.SEPARATORCHAR ||
+            tempPath.charAt(beginIndex) == filePathData.SEPARATORCHAR)
             {
                beginIndex++;
                numberOfSeps++;
@@ -152,7 +157,7 @@ public class AbPath
    private static final String NETWORK_SEP = ":/";
    public String toString()
    {
-      StringMaker stringBuffer = new StringMaker();
+      final StringMaker stringBuffer = new StringMaker();
       
       if(this.hasSchema())
       {
@@ -182,10 +187,11 @@ public class AbPath
    {
       if(this.hasSchema())
       {
-         StringMaker stringBuffer = new StringMaker();
+          final FilePathData filePathData = FilePathData.getInstance();
+         final StringMaker stringBuffer = new StringMaker();
          stringBuffer.append(this.schema);
-         stringBuffer.append(CommonSeps.getInstance().COLON);
-         stringBuffer.append(FilePathData.SEPARATOR);
+         stringBuffer.append(commonSeps.COLON);
+         stringBuffer.append(filePathData.SEPARATOR);
          stringBuffer.append(FilePathUtil.adjust(this.getPath()));
          stringBuffer.append(this.name);
 

@@ -19,7 +19,7 @@ public class AbFilePath extends AbPath
    {
       super();
       
-      final AbPathUtil abPathUtil = AbPathUtil.getInstance();
+      final PathUtil abPathUtil = PathUtil.getInstance();
       
       this.schema = this.getSchema(aPath);
       this.name = abPathUtil.getNameFromPath(aPath);

@@ -13,33 +13,35 @@
 */
 package org.allbinary.logic.communication.log;
 
+import org.allbinary.logic.NullUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringUtil;
 
 public class Log
 {
+    private final NullUtil nullUtil = NullUtil.getInstance();
+    private final LogFormatUtil logFormatUtil = LogFormatUtil.getInstance();
 
     private final String specialMessage;
     private final Object object;
     private final String functionName;
     private final Throwable exception;
 
-    private final LogFormatUtil logFormatUtil = LogFormatUtil.getInstance();
-
     private Log()
     {
         final StringUtil stringUtil = StringUtil.getInstance();
+        
         this.specialMessage = stringUtil.EMPTY_STRING;
-        this.object = null;
+        this.object = nullUtil.NULL_OBJECT;
         this.functionName = stringUtil.EMPTY_STRING;
-        this.exception = null;
+        this.exception = nullUtil.NULL_THROWABLE;
     }
     
     public Log(
-        String specialMessage,
-        Object object,
-        String functionName,
-        Throwable exception)
+        final String specialMessage,
+        final Object object,
+        final String functionName,
+        final Throwable exception)
     {
         this.specialMessage = specialMessage;
         this.object = object;
@@ -48,14 +50,14 @@ public class Log
     }
 
     public Log(
-        String specialMessage,
-        Object object,
-        String functionName)
+        final String specialMessage,
+        final Object object,
+        final String functionName)
     {
         this.specialMessage = specialMessage;
         this.object = object;
         this.functionName = functionName;
-        this.exception = null;
+        this.exception = nullUtil.NULL_THROWABLE;
 
     }
 

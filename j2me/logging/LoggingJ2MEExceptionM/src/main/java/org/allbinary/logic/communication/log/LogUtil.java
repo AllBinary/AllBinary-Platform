@@ -13,8 +13,6 @@
 */
 package org.allbinary.logic.communication.log;
 
-import org.allbinary.logic.communication.log.Log;
-import org.allbinary.logic.communication.log.LogFormatUtil;
 import org.allbinary.string.CommonStrings;
 
 public class LogUtil
@@ -25,7 +23,7 @@ public class LogUtil
    {
    }
    
-   public synchronized static void put(Log log)
+   public static void put(Log log)
    {
        if(log == LogFactory.LOG)
        {
@@ -46,7 +44,7 @@ public class LogUtil
       put(specialMessage, object, functionName, exception);
    }
    
-   private synchronized static void put(
+   private static void put(
       String specialMessage,
       Object object,
       String functionName)
@@ -54,7 +52,7 @@ public class LogUtil
    }
    
    
-   private synchronized static void put(
+   private static void put(
       String specialMessage,
       Object object,
       String functionName,

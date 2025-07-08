@@ -17,12 +17,10 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import org.allbinary.business.init.db.UserDbInitInfo;
-import org.allbinary.business.installer.Portion;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFront;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
-import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 
@@ -75,18 +73,18 @@ public class StoreFrontsEntity extends AbSqlBean implements StoreFrontsEntityInt
       }
    }
    
-   public StoreFrontInterface getStoreFrontInterface(String name) throws Exception
+   public StoreFront getStoreFrontInterface(String name) throws Exception
    {
       HashMap keysAndValues = new HashMap();
       keysAndValues.put(StoreFrontData.getInstance().NAME, name);
       HashMap storeHashMap = super.getRow(keysAndValues);
-      if(storeHashMap!=null)
+      if(storeHashMap != null)
       {
-         return (StoreFrontInterface) new StoreFront(storeHashMap);
+          return new StoreFront(storeHashMap);
       }
       else
       {
-          return null;
+          return new StoreFront();
       }
    }
       

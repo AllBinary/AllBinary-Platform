@@ -46,6 +46,7 @@ import org.allbinary.logic.communication.http.file.upload.HttpFileUploadUtil;
 import org.allbinary.logic.communication.http.file.upload.media.UploadMediaSingleton;
 
 import org.allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.io.path.PathUtil;
 
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.apache.commons.fileupload.FileItem;
@@ -267,7 +268,7 @@ public class AddFileValidationView
         String fileName, long size)
         throws Exception
     {
-        FileData fileData = FileData.getInstance();
+        final FileData fileData = FileData.getInstance();
 
         if (size > fileData.MINIMAGEFILESIZE)
         {
@@ -279,10 +280,10 @@ public class AddFileValidationView
                     return Boolean.FALSE;
                 } else
                 {
-                    String extension = AbPathUtil.getInstance().getExtension(fileName);
+                    final PathUtil pathUtil = PathUtil.getInstance();
+                    final String extension = pathUtil.getExtension(fileName);
 
-                    UploadMediaSingleton uploadMedia =
-                        UploadMediaSingleton.getInstance();
+                    final UploadMediaSingleton uploadMedia = UploadMediaSingleton.getInstance();
                     if (!uploadMedia.isWriterSupported(extension)
                         && !uploadMedia.isReaderSupported(extension))
                     {
@@ -293,7 +294,7 @@ public class AddFileValidationView
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
-                    StringBuffer stringBuffer = new StringBuffer();
+                    final StringBuffer stringBuffer = new StringBuffer();
 
                     stringBuffer.append("File Size To Large: ");
                     stringBuffer.append(size);
@@ -311,15 +312,14 @@ public class AddFileValidationView
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                StringBuffer stringBuffer = new StringBuffer();
+                final StringBuffer stringBuffer = new StringBuffer();
 
                 stringBuffer.append("File Size To Small: ");
                 stringBuffer.append(size);
                 stringBuffer.append(">");
                 stringBuffer.append(fileData.MINIMAGEFILESIZE);
 
-                LogUtil.put(LogFactory.getInstance(
-                    stringBuffer.toString(), this, commonStrings.IS_VALID));
+                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.IS_VALID));
             }
             return Boolean.FALSE;
         }
@@ -328,10 +328,10 @@ public class AddFileValidationView
     }
 
     private void validationInfo(
-        StringBuffer stringBuffer,
-        String fileName, String fileItemFieldName, long size)
+        final StringBuffer stringBuffer,
+        final String fileName, final String fileItemFieldName, final long size)
     {
-        FileData fileData = FileData.getInstance();
+        final FileData fileData = FileData.getInstance();
 
         if (size > fileData.MINIMAGEFILESIZE)
         {
@@ -349,10 +349,10 @@ public class AddFileValidationView
                         stringBuffer.append("<br/>");
                     } else
                     {
-                        String extension = AbPathUtil.getInstance().getExtension(fileName);
+                        final PathUtil pathUtil = PathUtil.getInstance();
+                        String extension = pathUtil.getExtension(fileName);
 
-                        UploadMediaSingleton uploadMedia =
-                            UploadMediaSingleton.getInstance();
+                        final UploadMediaSingleton uploadMedia = UploadMediaSingleton.getInstance();
                         if (!uploadMedia.isWriterSupported(extension)
                             && !uploadMedia.isReaderSupported(extension))
                         {

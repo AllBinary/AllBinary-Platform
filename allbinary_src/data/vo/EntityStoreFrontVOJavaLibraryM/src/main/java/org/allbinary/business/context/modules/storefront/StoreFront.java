@@ -18,6 +18,7 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
+import org.allbinary.business.context.configuration.ContextConfiguration;
 
 import org.apache.commons.lang.StringEscapeUtils;
 
@@ -45,6 +46,7 @@ import org.allbinary.business.user.UserData;
 import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.http.request.RequestParams;
+import org.allbinary.logic.io.path.AbPathUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 
@@ -53,48 +55,51 @@ public class StoreFront implements StoreFrontInterface
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final Directory directory = Directory.getInstance();
+    private final StringUtil stringUtil = StringUtil.getInstance();
+    private final AbPathUtil abPathUtil = AbPathUtil.getInstance();
     
-    private String name;
-    private String basketName;
-    private String homeHostName;
-    private AbPath homeHostNamePath;
-    private String hostName;
-    private AbPath hostNamePath;
-    private String testHomeHostName;
-    private AbPath testHomeHostNamePath;
-    private String testHostName;
-    private AbPath testHostNamePath;
-    private AbPath imagePath;
-    private AbPath staticPath;
-    private AbPath categoryPath;
-    private String inventoryControl;
+    private String name = stringUtil.EMPTY_STRING;
+    private String basketName = stringUtil.EMPTY_STRING;
+    private String homeHostName = stringUtil.EMPTY_STRING;
+    private AbPath homeHostNamePath = abPathUtil.NO_ABPATH;
+    private String hostName = stringUtil.EMPTY_STRING;
+    private AbPath hostNamePath = abPathUtil.NO_ABPATH;
+    private String testHomeHostName = stringUtil.EMPTY_STRING;
+    private AbPath testHomeHostNamePath = abPathUtil.NO_ABPATH;
+    private String testHostName = stringUtil.EMPTY_STRING;
+    private AbPath testHostNamePath = abPathUtil.NO_ABPATH;
+    private AbPath imagePath = abPathUtil.NO_ABPATH;
+    private AbPath staticPath = abPathUtil.NO_ABPATH;
+    private AbPath categoryPath = abPathUtil.NO_ABPATH;
+    private String inventoryControl = stringUtil.EMPTY_STRING;
     private ContextConfigurationInterface contextConfigurationInterface;
-    private String subStores;
-    private String tagLocation;
-    private String packageLocation;
-    private String ftp;
-    private AbPath ftpPath;
-    private String ftpUserName;
-    private String ftpPassword;
-    private String testFtp;
-    private AbPath testFtpPath;
-    private String testFtpUserName;
-    private String testFtpPassword;
-    private String timeCreated;
-    private String lastModified;
+    private String subStores = stringUtil.EMPTY_STRING;
+    private String tagLocation = stringUtil.EMPTY_STRING;
+    private String packageLocation = stringUtil.EMPTY_STRING;
+    private String ftp = stringUtil.EMPTY_STRING;
+    private AbPath ftpPath = abPathUtil.NO_ABPATH;
+    private String ftpUserName = stringUtil.EMPTY_STRING;
+    private String ftpPassword = stringUtil.EMPTY_STRING;
+    private String testFtp = stringUtil.EMPTY_STRING;
+    private AbPath testFtpPath = abPathUtil.NO_ABPATH;
+    private String testFtpUserName = stringUtil.EMPTY_STRING;
+    private String testFtpPassword = stringUtil.EMPTY_STRING;
+    private String timeCreated = stringUtil.EMPTY_STRING;
+    private String lastModified = stringUtil.EMPTY_STRING;
+    
     private final int MINCHAR = 0;
     private final int MINSTORENAMELENGTH = 1;
     private final int MAXCHAR = 255;
     private static final String RESOURCES = " Resources" + AbPathData.getInstance().SEPARATOR;
 
     private final String EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
-    /*
+
     public StoreFront()
     {
-
+        this.contextConfigurationInterface = new ContextConfiguration();
     }
-     */
-    public StoreFront(HttpServletRequest request) throws Exception
+
+    public StoreFront(final HttpServletRequest request) throws Exception
     {
         this.getFormData(new RequestParams(request).toHashMap());
 
@@ -107,20 +112,21 @@ public class StoreFront implements StoreFrontInterface
         //this.setContextConfigurationInterface(
         //(ContextConfigurationInterface) new ContextConfiguration(storeHashMap));
         this.setContextConfigurationInterface(
-            ContextConfigurationInterfaceFactory.getInstance("Admin"));
+            ContextConfigurationInterfaceFactory.getInstance().getInstance("Admin"));
     }
 
-    public StoreFront(HashMap hashMap) throws Exception
+    public StoreFront(final HashMap hashMap) throws Exception
     {
         this.getFormData(hashMap);
 
-        String domDocumentString = (String) 
-            hashMap.get(StoreFrontData.getInstance().CONFIGURATION);
+        final String domDocumentString = (String) hashMap.get(StoreFrontData.getInstance().CONFIGURATION);
 
-        Document document = DomDocumentHelper.create(domDocumentString);
+        if(domDocumentString == null) {
+            final Document document = DomDocumentHelper.create(domDocumentString);
 
-        this.setContextConfigurationInterface(
-            ContextConfigurationInterfaceFactory.getInstance(document));
+            this.setContextConfigurationInterface(
+                ContextConfigurationInterfaceFactory.getInstance().getInstance(document));
+        }
     }
 
     //in the future could use vector from table data
@@ -247,13 +253,13 @@ public class StoreFront implements StoreFrontInterface
         {
             //Since StoreName is used as the store directory
             boolean isEscapedCharactersContained = false;
-            String storeNameEscaped = StringEscapeUtils.escapeHtml(this.name);
+            final String storeNameEscaped = StringEscapeUtils.escapeHtml(this.name);
             if (this.name.compareTo(storeNameEscaped) != 0)
             {
                 isEscapedCharactersContained = true;
             }
 
-            StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
+            final StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
                     
             boolean isSpacesContained = false;
             if (stringValidationUtil.containsSpaces(this.name))
@@ -263,7 +269,7 @@ public class StoreFront implements StoreFrontInterface
 
             if (isSpacesContained || isEscapedCharactersContained)
             {
-                HashMap hashMap = SpecialCharacterUtil.getHashMap();
+                final HashMap hashMap = SpecialCharacterUtil.getHashMap();
                 hashMap.put(CommonSeps.getInstance().SPACE, EMPTY_STRING);
                 this.name = new Replace(hashMap).all(this.name);
             }
@@ -278,7 +284,7 @@ public class StoreFront implements StoreFrontInterface
 
         valid = this.isNameValid();
 
-        StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
+        final StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
         
         if (!stringValidationUtil.isValidRequired(this.basketName, MINCHAR, MAXCHAR))
         {
@@ -448,11 +454,11 @@ public class StoreFront implements StoreFrontInterface
 
     public String nameValidationInfo()
     {
-        StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
+        final StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
         
         if (!stringValidationUtil.isValidRequired(this.name, MINCHAR, MAXCHAR))
         {
-            StringBuffer stringBuffer = new StringBuffer();
+            final StringBuffer stringBuffer = new StringBuffer();
 
             stringBuffer.append("Name is invalid. Must be < ");
             stringBuffer.append(MAXCHAR);
@@ -467,9 +473,9 @@ public class StoreFront implements StoreFrontInterface
     {
         try
         {
-            StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
+            final StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
             
-            StringBuffer stringBuffer = new StringBuffer();
+            final StringBuffer stringBuffer = new StringBuffer();
 
             stringBuffer.append(this.nameValidationInfo());
 
@@ -790,8 +796,8 @@ public class StoreFront implements StoreFrontInterface
     {
         try
         {
-            Tokenizer tokenizer = new Tokenizer(CommonSeps.getInstance().SEMICOLON);
-            BasicArrayList subStoreVector = tokenizer.getTokens(this.subStores, new BasicArrayList());
+            final Tokenizer tokenizer = new Tokenizer(CommonSeps.getInstance().SEMICOLON);
+            final BasicArrayList subStoreVector = tokenizer.getTokens(this.subStores, new BasicArrayList());
             return subStoreVector;
         } catch (Exception e)
         {
@@ -1045,27 +1051,27 @@ public class StoreFront implements StoreFrontInterface
             stringBuffer.append(URLGLOBALS.getMainPath());
             stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);
 
-            String viewPath = stringBuffer.toString();
+            final String viewPath = stringBuffer.toString();
 
             stringBuffer.delete(0, stringBuffer.length());
             stringBuffer.append(viewPath);
             stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().INSTALLPATH);
 
-            AbPath fromDirectoryAbPath = new AbPath(stringBuffer.toString());
+            final AbPath fromDirectoryAbPath = new AbPath(stringBuffer.toString());
 
             stringBuffer.delete(0, stringBuffer.length());
             stringBuffer.append(viewPath);
             stringBuffer.append("special");
             stringBuffer.append(AbPathData.getInstance().SEPARATOR);
 
-            AbPath fromSpecialDirectoryAbPath = new AbPath(stringBuffer.toString());
+            final AbPath fromSpecialDirectoryAbPath = new AbPath(stringBuffer.toString());
 
             stringBuffer.delete(0, stringBuffer.length());
             stringBuffer.append(viewPath);
             stringBuffer.append(this.getName());
             stringBuffer.append(AbPathData.getInstance().SEPARATOR);
 
-            AbPath toDirectoryAbPath = new AbPath(stringBuffer.toString());
+            final AbPath toDirectoryAbPath = new AbPath(stringBuffer.toString());
 
             if (current == 0)
             {
@@ -1121,10 +1127,10 @@ public class StoreFront implements StoreFrontInterface
         FileUtil.getInstance().copyDirectoryPortion(fromDirectoryAbPath, toDirectoryAbPath, true, false, current, total);
     }
 
-    private void installResources(AbPath fromDirectoryAbPath, int current, int total)
+    private void installResources(final AbPath fromDirectoryAbPath, final int current, final int total)
         throws Exception
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        final StringBuffer stringBuffer = new StringBuffer();
         /*
         AbFile rootCategoryAbFile =
         new AbFile(new AbPath(fromDirectoryAbPath.toString(),
@@ -1138,7 +1144,7 @@ public class StoreFront implements StoreFrontInterface
         stringBuffer.append("Resources");
         stringBuffer.append(AbPathData.getInstance().SEPARATOR);
 
-        AbPath installCategoryAbPath = new AbPath(stringBuffer.toString());
+        final AbPath installCategoryAbPath = new AbPath(stringBuffer.toString());
 
         stringBuffer.delete(0, stringBuffer.length());
         stringBuffer.append(URLGLOBALS.getMainPath());
@@ -1146,20 +1152,20 @@ public class StoreFront implements StoreFrontInterface
         stringBuffer.append(AbPathData.getInstance().SEPARATORCHAR);
         stringBuffer.append(this.getCategoryPath());
 
-        AbPath categoryAbPath = new AbPath(stringBuffer.toString());
+        final AbPath categoryAbPath = new AbPath(stringBuffer.toString());
 
         FileUtil.getInstance().copyDirectoryPortion(installCategoryAbPath, categoryAbPath, true, false, current, total);
         //FileUtil.copy(installCategoryAbPath, categoryAbPath);
     }
 
-    private void installMedia(AbPath fromDirectoryAbPath, int current, int total)
+    private void installMedia(final AbPath fromDirectoryAbPath, final int current, final int total)
         throws Exception
     {
         //TWB -Could add
         //FileUtil.encCopy(rootCategoryAbFile, categoryAbPath,
         // CategoryData.ENCRYPTED_EXTENSION);
 
-        StringBuffer stringBuffer = new StringBuffer();
+        final StringBuffer stringBuffer = new StringBuffer();
 
         stringBuffer.append(fromDirectoryAbPath.toString());
         stringBuffer.append(AbPathData.getInstance().SEPARATOR);
@@ -1167,9 +1173,9 @@ public class StoreFront implements StoreFrontInterface
         stringBuffer.append("images");
         stringBuffer.append(AbPathData.getInstance().SEPARATOR);
 
-        AbPath viewStoreImagesDirectoryAbPath = new AbPath(stringBuffer.toString());
+        final AbPath viewStoreImagesDirectoryAbPath = new AbPath(stringBuffer.toString());
 
-        AbPath storeAbPath = new AbPath(URLGLOBALS.getWebappPath() + this.getCurrentHomeHostNamePath());
+        final AbPath storeAbPath = new AbPath(URLGLOBALS.getWebappPath() + this.getCurrentHomeHostNamePath());
 
         FileUtil.getInstance().copyDirectoryPortion(viewStoreImagesDirectoryAbPath, storeAbPath, true, false, current, total);
         //FileUtil.copy(viewStoreImagesDirectoryAbPath, storeAbPath);
@@ -1177,7 +1183,7 @@ public class StoreFront implements StoreFrontInterface
 
     public Vector toVector() throws Exception
     {
-        Vector dataVector = new Vector();
+        final Vector dataVector = new Vector();
         dataVector.add(this.name);
         dataVector.add(this.homeHostName);
         dataVector.add(this.homeHostNamePath.toString());
@@ -1192,7 +1198,7 @@ public class StoreFront implements StoreFrontInterface
         dataVector.add(this.categoryPath.toString());
         dataVector.add(this.inventoryControl);
 
-        ContextConfigurationDomDocumentMapping contextConfigurationDomDocumentMapping =
+        final ContextConfigurationDomDocumentMapping contextConfigurationDomDocumentMapping =
             new ContextConfigurationDomDocumentMapping(this.getContextConfigurationInterface());
         dataVector.add(contextConfigurationDomDocumentMapping.toDomDocumentString());
 
@@ -1218,9 +1224,9 @@ public class StoreFront implements StoreFrontInterface
 
     public HashMap toHashMap() throws Exception
     {
-    	StoreFrontData storeFrontData = StoreFrontData.getInstance();
+    	final StoreFrontData storeFrontData = StoreFrontData.getInstance();
     	
-        HashMap dataHashMap = new HashMap();
+        final HashMap dataHashMap = new HashMap();
 
         dataHashMap.put(storeFrontData.NAME, this.name);
         dataHashMap.put(storeFrontData.HOMEHOSTNAME, this.homeHostName);
@@ -1253,8 +1259,8 @@ public class StoreFront implements StoreFrontInterface
         dataHashMap.put(storeFrontData.TESTFTPUSERNAME, this.testFtpUserName);
         dataHashMap.put(storeFrontData.TESTFTPPASSWORD, this.testFtpPassword);
 
-        Calendar calendar = Calendar.getInstance();
-        String time = new String(new Long(calendar.getTimeInMillis()).toString());
+        final Calendar calendar = Calendar.getInstance();
+        final String time = new String(new Long(calendar.getTimeInMillis()).toString());
         dataHashMap.put(EntryData.getInstance().LASTMODIFIED, time);
 
         return dataHashMap;
@@ -1270,7 +1276,7 @@ public class StoreFront implements StoreFrontInterface
         return contextConfigurationInterface;
     }
 
-    public void setContextConfigurationInterface(ContextConfigurationInterface contextConfigurationInterface)
+    public void setContextConfigurationInterface(final ContextConfigurationInterface contextConfigurationInterface)
     {
         this.contextConfigurationInterface = contextConfigurationInterface;
     }

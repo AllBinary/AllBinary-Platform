@@ -19,7 +19,7 @@ public class LogUtil
    {
    }
    
-   public synchronized static void put(Log log)
+   public static void put(Log log)
    {
       if(log != null)
       {

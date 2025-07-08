@@ -13,13 +13,13 @@
 */
 package org.allbinary.data.tree.dom;
 
-import org.allbinary.logic.io.file.AbFile;
 import java.util.HashMap;
 import java.util.Vector;
 
+import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.FileData;
-import org.allbinary.logic.io.path.AbPathUtil;
 import org.allbinary.data.tables.TableMappingInterface;
+import org.allbinary.logic.io.path.PathUtil;
 
 public class FileTableMapping
    implements TableMappingInterface
@@ -39,7 +39,7 @@ public class FileTableMapping
    //Used for inserting into database   
    public Vector toVector() throws Exception
    {
-      Vector filePropertyVector = new Vector();
+      final Vector filePropertyVector = new Vector();
 
       filePropertyVector.add(file.getAbsolutePath());
       filePropertyVector.add(file.getCanonicalPath());
@@ -53,12 +53,11 @@ public class FileTableMapping
    //Used for updating viewinfo in database   
    public HashMap toHashMap() throws Exception
    {
-      HashMap filePropertyHashMap = new HashMap();
+      final HashMap filePropertyHashMap = new HashMap();
 
-      String rootFileName = 
-         AbPathUtil.getInstance().getNameFromPath(AbPathUtil.getInstance().getWithoutExtension(file.getPath()));
-      
-      FileData fileData = FileData.getInstance();
+      final PathUtil pathUtil = PathUtil.getInstance();
+      final String rootFileName = pathUtil.getNameFromPath(pathUtil.getWithoutExtension(file.getPath()));
+      final FileData fileData = FileData.getInstance();
       
       filePropertyHashMap.put(fileData.ROOT_NAME, rootFileName);
       filePropertyHashMap.put(fileData.ISFILE, Boolean.valueOf(file.isFile()).toString());

@@ -39,7 +39,7 @@ public class AdminConfiguration implements AdminConfigurationInterface
         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
 
         this.contextConfigurationInterface
-                = ContextConfigurationInterfaceFactory.getInstance(AdminConfigurationData.CONTEXTNAME);
+                = ContextConfigurationInterfaceFactory.getInstance().getInstance(AdminConfigurationData.CONTEXTNAME);
     }
 
     public AdminConfiguration(HttpServletRequest request) throws Exception

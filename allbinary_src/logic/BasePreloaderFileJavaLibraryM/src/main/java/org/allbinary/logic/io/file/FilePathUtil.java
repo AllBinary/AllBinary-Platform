@@ -71,12 +71,14 @@ public class FilePathUtil
 
    public static String adjust(String path)
    {
+       final AbPathData abPathData = AbPathData.getInstance();
        final StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
+       final FilePathData filePathData = FilePathData.getInstance();
        
       if(stringValidationUtil.isEmpty(path))
       {
          //FilePathData.
-         return FilePathData.SEPARATOR;
+         return filePathData.SEPARATOR;
       }
 
       //Replace Duplicate Path Separators - to deal with database insertion issue
@@ -89,14 +91,14 @@ public class FilePathUtil
 
       //Convert \ to / I.E. from uri/unix path to dos/windows file path
       //PreLogUtil.put("Adjusting Path: " + path, "FilePathUtil", "adjust");
-      path = path.replace(AbPathData.getInstance().SEPARATORCHAR,FilePathData.SEPARATORCHAR);
+      path = path.replace(abPathData.SEPARATORCHAR,filePathData.SEPARATORCHAR);
       //PreLogUtil.put("Adjusted Path: " + path, "FilePathUtil", "adjust");
       /*
-      if(path.indexOf(AbPathData.getInstance().SEPARATOR) >= 0)
+      if(path.indexOf(abPathData.SEPARATOR) >= 0)
       {
          
          //Causes recursive loop on log initialization
-         //path = new Replace(AbPathData.getInstance().SEPARATOR,"\\\\").all(path);
+         //path = new Replace(abPathData.SEPARATOR,"\\\\").all(path);
       }
       */
       
@@ -104,13 +106,13 @@ public class FilePathUtil
       if(!FilePathUtil.isValidStart(path))
       {
          //FilePathData.
-         path = FilePathData.SEPARATOR + path;
+         path = filePathData.SEPARATOR + path;
       }
 
       if(!FilePathUtil.isValidEnd(path))
       {
          //FilePathData.
-         path = path + FilePathData.SEPARATOR;
+         path = path + filePathData.SEPARATOR;
       }
        */
       

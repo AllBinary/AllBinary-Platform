@@ -13,15 +13,13 @@
 */
 package org.allbinary.logic.communication.log;
 
-import org.allbinary.logic.communication.log.Log;
-
 public class LogUtil
 {
    private LogUtil()
    {
    }
    
-   public synchronized static void put(Log log)
+   public static void put(Log log)
    {
    }
 }

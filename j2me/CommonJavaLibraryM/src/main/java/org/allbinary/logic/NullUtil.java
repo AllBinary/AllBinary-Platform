@@ -11,22 +11,29 @@
  * Created By: Travis Berthelot
  * 
  */
-package org.allbinary.logic.io.path;
+package org.allbinary.logic;
+
+import java.util.HashMap;
 
 /**
  *
  * @author User
  */
-public class AbPathUtil {
-
-    private static final AbPathUtil instance = new AbPathUtil();
+public class NullUtil {
+    
+    protected static final NullUtil instance = new NullUtil();
 
     /**
      * @return the instance
      */
-    public static AbPathUtil getInstance() {
+    public static NullUtil getInstance() {
         return instance;
     }
     
-    public final AbPath NO_ABPATH = new AbPath();
+    public final Object NULL_OBJECT = new Object();
+    public final Object[] NULL_OBJECT_ARRAY = new Object[0];
+    
+    public final HashMap NULL_MAP = new HashMap();
+    public final Throwable NULL_THROWABLE = new Throwable();
+    
 }

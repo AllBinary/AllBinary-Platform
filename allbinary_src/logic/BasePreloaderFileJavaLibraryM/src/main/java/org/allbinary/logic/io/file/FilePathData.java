@@ -10,28 +10,31 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.logic.io.file;
 
 import java.io.File;
 
-public class FilePathData
-{
-   private FilePathData()
-   {
-   }
-   
-   //final
-   public static final char SEPARATORCHAR = File.separatorChar;
-   
-   public static String SEPARATOR = File.separator;
-   
-   static
-   {
-      if(File.separatorChar == '\\')
-      {
-         SEPARATOR = File.separator + File.separator;
-      }
-   }
-   
+public class FilePathData {
+
+    protected static final FilePathData instance = new FilePathData();
+
+    /**
+     * @return the instance
+     */
+    public static FilePathData getInstance() {
+        return instance;
+    }
+
+    //final
+    public final char SEPARATORCHAR = File.separatorChar;
+
+    public String SEPARATOR = File.separator;
+
+    private FilePathData() {
+        if (File.separatorChar == '\\') {
+            SEPARATOR = File.separator + File.separator;
+        }
+    }
+
 }

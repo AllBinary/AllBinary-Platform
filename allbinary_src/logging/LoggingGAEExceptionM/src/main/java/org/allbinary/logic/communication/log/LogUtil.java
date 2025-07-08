@@ -49,7 +49,7 @@ public class LogUtil
         PreLogUtil.put("Loggin Initialized", "LogUtil", "init()");
     }
 
-    public synchronized static void put(Log log)
+    public static void put(Log log)
     {
         Throwable exception = log.getThrowable();
 

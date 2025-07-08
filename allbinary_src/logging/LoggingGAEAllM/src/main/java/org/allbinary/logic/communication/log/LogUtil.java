@@ -51,7 +51,7 @@ public class LogUtil
    }
    */
 
-   public synchronized static void put(Log log)
+   public static void put(Log log)
    {
       String specialMessage = log.getSpecialMessage();
       Object object = log.getObject();
@@ -64,7 +64,7 @@ public class LogUtil
     
     //private final static String LOG_SUCCESS = "org.allbinary: ";
    
-   private synchronized static void put(
+   private static void put(
       String specialMessage,
       Object object,
       String functionName,

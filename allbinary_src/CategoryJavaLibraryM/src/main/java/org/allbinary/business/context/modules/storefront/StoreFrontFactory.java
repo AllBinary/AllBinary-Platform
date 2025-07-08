@@ -27,12 +27,11 @@ public class StoreFrontFactory
    {
    }
    
-   public static StoreFrontInterface getInstance(String storeName) //throws LicensingException
+   public static StoreFront getInstance(final String storeName) //throws LicensingException
    {
       try
       {
-         StoreFrontsEntity storeFronts = 
-             StoreFrontsEntityFactory.getInstance().getStoreFrontsEntityInstance();
+         final StoreFrontsEntity storeFronts = StoreFrontsEntityFactory.getInstance().getStoreFrontsEntityInstance();
 
          return storeFronts.getStoreFrontInterface(storeName);
       }

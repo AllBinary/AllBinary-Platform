@@ -15,6 +15,7 @@ package org.allbinary.osgi;
 
 import java.util.Hashtable;
 import org.osgi.framework.BundleContext;
+import org.osgi.framework.NullServiceReferenceFactory;
 import org.osgi.framework.ServiceReference;
 import org.osgi.framework.ServiceRegistration;
 
@@ -25,9 +26,9 @@ public class OSGIActivatorUtil
     }
  
     public static void registerAsService(
-        BundleContext bundleContext, 
-        Object object,
-        String serviceName)
+        final BundleContext bundleContext, 
+        final Object object,
+        final String serviceName)
     throws Exception
     {
         OSGIActivatorUtil.registerAsService(
@@ -35,23 +36,21 @@ public class OSGIActivatorUtil
     }
     
     public static void registerAsService(
-        BundleContext bundleContext,
-        Object object,
-        String serviceName,
-        Hashtable properties)
+        final BundleContext bundleContext,
+        final Object object,
+        final String serviceName,
+        final Hashtable properties)
     throws Exception
     {
-        ServiceRegistration serviceRegistration =
+        final ServiceRegistration serviceRegistration =
             bundleContext.registerService(
                 serviceName, object, properties);
         
-        ServiceReference serviceReference =
-            serviceRegistration.getReference();
+        ServiceReference serviceReference = serviceRegistration.getReference();
         
-        serviceReference = bundleContext.getServiceReference(
-            serviceName);
+        serviceReference = bundleContext.getServiceReference(serviceName);
         
-        if(serviceReference == null)
+        if(serviceReference == NullServiceReferenceFactory.getInstance().NULL_SERVICE_REFERENCE)
         {
             throw new Exception("No Such Service Reference");
         }

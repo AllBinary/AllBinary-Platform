@@ -19,6 +19,7 @@ import java.util.*;
 import javax.servlet.jsp.PageContext;
 
 import javax.servlet.http.HttpServletRequest;
+import org.allbinary.business.context.modules.storefront.StoreFront;
 
 import org.allbinary.logic.communication.log.LogUtil;
 
@@ -62,17 +63,16 @@ public class BasketRequestHelper
       
       String storeName = (String) propertiesHashMap.get(StoreFrontData.getInstance().NAME);
       
-      if(storeName!=null)
+      if(storeName != null)
       {
          this.storeFrontInterface = StoreFrontFactory.getInstance(storeName);
       }
       else
       {
-    	  this.storeFrontInterface = null;
+    	  this.storeFrontInterface = new StoreFront();
       }
       
-      this.weblisketSession = 
-         new WeblisketSession(propertiesHashMap, pageContext);
+      this.weblisketSession = new WeblisketSession(propertiesHashMap, pageContext);
       
       this.getFormData();
    }
@@ -171,7 +171,7 @@ public class BasketRequestHelper
          {
             LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this,"adjustBasket()",e));
          }
-         return Boolean.FALSE;         
+         return Boolean.FALSE;
       }
    }
 

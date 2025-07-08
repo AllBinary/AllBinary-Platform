@@ -25,7 +25,7 @@ public class LogUtil
    {
    }
    
-    public synchronized static void put(final Log log)
+    public static void put(final Log log)
     {
         if(log == null) return;
 
@@ -37,7 +37,7 @@ public class LogUtil
         put(specialMessage, object, functionName, exception);
     }
 
-    private synchronized static void put(
+    private static void put(
         final String specialMessage,
         final Object object,
         final String functionName)
@@ -64,7 +64,7 @@ public class LogUtil
     }
 
     //TWB - Public or Private?
-    private synchronized static void put(
+    private static void put(
         final String specialMessage,
         final Object object,
         final String functionName,

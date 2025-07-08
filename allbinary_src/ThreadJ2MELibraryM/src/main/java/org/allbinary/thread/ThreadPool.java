@@ -91,7 +91,7 @@ public class ThreadPool
             //PreLogUtil.put("Add: ").append(task, this, this.threadPoolStrings.ADD_TASK);
             final int size = this.taskQueue.size();
             PriorityRunnable runnable;
-            PriorityRunnable lowerPriorityRunnable = null;
+            PriorityRunnable lowerPriorityRunnable = ThreadObjectUtil.getInstance().NULL_PRIORITY_RUNNABLE;
             for(int index = 0; index < size; index++) {
                 runnable = (PriorityRunnable) this.taskQueue.get(index);
                 //LogUtil.put(LogFactory.getInstance(new StringMaker().append(COMPARE_PRIORITY).append(task.getPriority()).toString(), this, this.threadPoolStrings.ADD_TASK));
@@ -250,11 +250,13 @@ public class ThreadPool
 
             threadStarted();
 
+            final ThreadObjectUtil threadObjectUtil = ThreadObjectUtil.getInstance();
+            
             while (true)
             //while (!isInterrupted())
             {
 
-                Runnable task2 = null;
+                Runnable task2 = threadObjectUtil.NULL_PRIORITY_RUNNABLE;
                 try
                 {
                     task2 = getTask();
@@ -269,7 +271,7 @@ public class ThreadPool
                     break;
                 }
 
-                if (task2 == null)
+                if (task2 == threadObjectUtil.NULL_PRIORITY_RUNNABLE)
                 {
                     break;
                 }

@@ -20,6 +20,7 @@ public class ThreadPool
 {
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     protected final ThreadPoolStrings threadPoolStrings = ThreadPoolStrings.getInstance();
+    protected final ThreadObjectUtil threadObjectUtil = ThreadObjectUtil.getInstance();
     
     //private final String poolName;
     //private final int priority;
@@ -45,12 +46,12 @@ public class ThreadPool
     }
     
     //TWB - PlayN Single Thread Fix
-    private PriorityRunnable currentPriorityRunnable = null;
+    private PriorityRunnable currentPriorityRunnable = threadObjectUtil.NULL_PRIORITY_RUNNABLE;
     public void runAPriorityTask()
             throws Exception
     {
 
-        if(currentPriorityRunnable != null && !currentPriorityRunnable.isDone()) {
+        if(!currentPriorityRunnable.isDone()) {
             //LogUtil.put(LogFactory.getInstance(currentPriorityRunnable.toString(), this, "runAPriorityTask:Again"));
             currentPriorityRunnable.run();
         } else {
@@ -107,7 +108,7 @@ public class ThreadPool
             //PreLogUtil.put("Add: ").append(task, this, this.threadPoolStrings.ADD_TASK);
             final int size = this.taskQueue.size();
             PriorityRunnable runnable;
-            PriorityRunnable lowerPriorityRunnable = null;
+            PriorityRunnable lowerPriorityRunnable = threadObjectUtil.NULL_PRIORITY_RUNNABLE;
             for(int index = 0; index < size; index++) {
                 runnable = (PriorityRunnable) this.taskQueue.get(index);
                 //LogUtil.put(LogFactory.getInstance(new StringMaker().append(COMPARE_PRIORITY).append(task.getPriority()).toString(), this, this.threadPoolStrings.ADD_TASK));
@@ -181,7 +182,7 @@ public class ThreadPool
         {
             isAlive = false;
             taskQueue.clear();
-            this.currentPriorityRunnable = null;
+            this.currentPriorityRunnable = threadObjectUtil.NULL_PRIORITY_RUNNABLE;
             //interrupt();
         }
     }
@@ -193,7 +194,7 @@ public class ThreadPool
         {
             isAlive = false;
             taskQueue.clear();
-            this.currentPriorityRunnable = null;
+            this.currentPriorityRunnable = threadObjectUtil.NULL_PRIORITY_RUNNABLE;
             //TWB - Playn Testing
             //notifyAll();
         }
@@ -236,7 +237,7 @@ public class ThreadPool
         {
             this.isAlive = false;
             taskQueue.clear();
-            this.currentPriorityRunnable = null;
+            this.currentPriorityRunnable = threadObjectUtil.NULL_PRIORITY_RUNNABLE;
         }
     }
 

@@ -161,8 +161,8 @@ public class BasicDecimal
       long localUnit=0;
       int index = decimalStr.indexOf(AbPathData.EXTENSION_SEP);
       
-      String beforeDecimalStr = null;
-      String afterDecimalStr = null;
+      String beforeDecimalStr = StringUtil.getInstance().EMPTY_STRING;
+      String afterDecimalStr = StringUtil.getInstance().EMPTY_STRING;
       if(index < 1)
       {
          beforeDecimalStr = new String(decimalStr);

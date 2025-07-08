@@ -138,7 +138,7 @@ public class Hardware implements HardwareInterface
          if(lineNumberReader == null)
          {
             //Find file
-            final BasicArrayList fileVector = SubDirectory.getInstance().search(filePath, new AbFile(FilePathData.SEPARATOR));
+            final BasicArrayList fileVector = SubDirectory.getInstance().search(filePath, new AbFile(FilePathData.getInstance().SEPARATOR));
             
             //if(fileVector.size() > 0)
             if(!fileVector.isEmpty())

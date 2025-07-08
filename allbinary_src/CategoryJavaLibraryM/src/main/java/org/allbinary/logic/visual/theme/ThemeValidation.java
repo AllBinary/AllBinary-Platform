@@ -40,6 +40,7 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.template.customizer.includes.style.css.template.retail.CssStyleValidation;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.sql.AbSqlData;
+import org.allbinary.logic.io.path.PathUtil;
 import org.allbinary.string.CommonStrings;
 
 import org.w3c.dom.Document;
@@ -69,8 +70,9 @@ public class ThemeValidation
    {
       this.transformInfoInterface = transformInfoInterface;
       
-      this.categoryAbPath = AbPathUtil.getInstance().removeNameFromPath(categoryThemePath);
-      this.themeName = AbPathUtil.getInstance().getNameFromPath(categoryThemePath);
+      final PathUtil pathUtil = PathUtil.getInstance();
+      this.categoryAbPath = pathUtil.removeNameFromPath(categoryThemePath);
+      this.themeName = pathUtil.getNameFromPath(categoryThemePath);
 
       this.styleValidationInterface = cssStyleValidation;
       
@@ -86,8 +88,9 @@ public class ThemeValidation
       AbPath categoryThemeAbPath = 
          new AbPath((String) hashMap.get(ThemeData.getInstance().PATH));
 
-      this.categoryAbPath = AbPathUtil.getInstance().removeNameFromPath(categoryThemeAbPath.toString());
-      this.themeName = AbPathUtil.getInstance().getNameFromPath(categoryThemeAbPath.toString());
+      final PathUtil pathUtil = PathUtil.getInstance();
+      this.categoryAbPath = pathUtil.removeNameFromPath(categoryThemeAbPath.toString());
+      this.themeName = pathUtil.getNameFromPath(categoryThemeAbPath.toString());
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {

@@ -128,14 +128,14 @@ public class LogUtil
 
     /*
      * private final static Calendar calendar = Calendar.getInstance();
-    public synchronized static void put(
+    public static void put(
         String specialMessage,
         Object object,
         String functionName)
     {
     }
 
-    public synchronized static void put(
+    public static void put(
         String specialMessage,
         Object object,
         String functionName,
@@ -168,14 +168,14 @@ public class LogUtil
         }
     }
 
-    public synchronized static void put(
+    public static void put(
         String specialMessage,
         String className,
         String functionName)
     {
     }
 
-    public synchronized static void put(
+    public static void put(
         String specialMessage,
         String className,
         String functionName,

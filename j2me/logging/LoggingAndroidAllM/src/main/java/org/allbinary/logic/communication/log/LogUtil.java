@@ -26,7 +26,7 @@ public class LogUtil
    private static final String LABEL = "org.allbinary";
    //private final static String LOG_SUCCESS = "org.allbinary: ";
 
-   public synchronized static void put(Log log)
+   public static void put(Log log)
    {
       String specialMessage = log.getSpecialMessage();
       Object object = log.getObject();

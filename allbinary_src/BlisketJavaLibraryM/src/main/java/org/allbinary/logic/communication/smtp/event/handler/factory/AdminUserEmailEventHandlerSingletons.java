@@ -39,9 +39,12 @@ public class AdminUserEmailEventHandlerSingletons {
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
 
-    private HashMap userEmailEventHandlerHashMap = null;
+    private final HashMap userEmailEventHandlerHashMap = new HashMap();
 
     private AdminUserEmailEventHandlerSingletons() {
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING)) {
+            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
+        }
     }
 
     public UserEmailEventHandler getInstance(
@@ -49,14 +52,6 @@ public class AdminUserEmailEventHandlerSingletons {
         throws Exception {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING)) {
             LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, commonStrings.GET_INSTANCE));
-        }
-
-        if (this.userEmailEventHandlerHashMap == null) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING)) {
-                LogUtil.put(LogFactory.getInstance("Initializing HashMap", this, commonStrings.GET_INSTANCE));
-            }
-
-            this.userEmailEventHandlerHashMap = new HashMap();
         }
 
         UserEmailEventHandler userEmailEventHandler = (UserEmailEventHandler) this.userEmailEventHandlerHashMap.get(

@@ -75,7 +75,7 @@ public class Cpu implements CpuInterface, HardwareComponentInterface
          if(lineNumberReader == null)
          {
             //Find file
-            final BasicArrayList fileVector = SubDirectory.getInstance().search(filePath, new AbFile(FilePathData.SEPARATOR));
+            final BasicArrayList fileVector = SubDirectory.getInstance().search(filePath, new AbFile(FilePathData.getInstance().SEPARATOR));
             
             if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OS))
             {

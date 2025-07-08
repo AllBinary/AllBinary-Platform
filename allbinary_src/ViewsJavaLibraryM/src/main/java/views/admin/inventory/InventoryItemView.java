@@ -40,6 +40,7 @@ import org.allbinary.logic.communication.http.request.MultipartRequestParams;
 import org.allbinary.logic.communication.http.request.RequestMapInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import java.util.Vector;
+import org.allbinary.logic.io.path.PathUtil;
 
 public class InventoryItemView extends HttpStoreComponentView
     implements RequestMapInterface
@@ -93,8 +94,9 @@ public class InventoryItemView extends HttpStoreComponentView
                 this.imageFileName = HttpRequestUtil.getInstance().generateFileName(
                     fileItem.getName());
 
-                this.mediaData = MediaData.get(AbPathUtil.getInstance().getExtension(this.imageFileName));
-                this.imageFileName = AbPathUtil.getInstance().getWithoutExtension(this.imageFileName);
+                final PathUtil pathUtil = PathUtil.getInstance();
+                this.mediaData = MediaData.get(pathUtil.getExtension(this.imageFileName));
+                this.imageFileName = pathUtil.getWithoutExtension(this.imageFileName);
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
                 {
@@ -116,11 +118,11 @@ public class InventoryItemView extends HttpStoreComponentView
     {
         Vector vector = new Vector();
 
+        DownloadableItem downloadableItem;
         final int size = this.downloadableItemVector.size();
         for(int index = 0; index < size; index++)
         {
-            DownloadableItem downloadableItem = (DownloadableItem)
-                this.downloadableItemVector.get(index);
+            downloadableItem = (DownloadableItem) this.downloadableItemVector.get(index);
 
             vector.add(new DownloadableItemView(downloadableItem));
         }

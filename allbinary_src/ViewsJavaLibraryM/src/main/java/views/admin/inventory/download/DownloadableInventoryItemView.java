@@ -214,16 +214,17 @@ public class DownloadableInventoryItemView
             StoreFrontFactory.getInstance(
             this.getWeblisketSession().getStoreName());
 
+        final FilePathData filePathData = FilePathData.getInstance();
         final StringBuffer stringBuffer = new StringBuffer();
 
         stringBuffer.append(URLGLOBALS.getWebappPath());
         stringBuffer.append(storeFrontInterface.getCurrentHostNamePath());
         stringBuffer.append(this.itemInterface.getCategory());
-        stringBuffer.append(FilePathData.SEPARATOR);
+        stringBuffer.append(filePathData.SEPARATOR);
         stringBuffer.append(this.itemInterface.getId());
-        stringBuffer.append(FilePathData.SEPARATOR);
+        stringBuffer.append(filePathData.SEPARATOR);
         stringBuffer.append(this.downloadableItem.getId());
-        stringBuffer.append(FilePathData.SEPARATOR);
+        stringBuffer.append(filePathData.SEPARATOR);
 
         return stringBuffer.toString();
     }

@@ -16,8 +16,6 @@ public class ArrayUtil
 
     private final MathUtil mathUtil = MathUtil.getInstance();
     
-    public final Object[] ZERO_OBJECT_ARRAY = new Object[0];
-    
     public Object[] copyOf(final Object[] original, final int newLength)
     {
         return copyOf(original, newLength, original.getClass());

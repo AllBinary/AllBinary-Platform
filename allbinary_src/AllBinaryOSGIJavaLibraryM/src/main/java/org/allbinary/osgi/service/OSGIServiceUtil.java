@@ -30,17 +30,17 @@ public class OSGIServiceUtil
     }
     
     public static Vector getServicesObjectVector(
-        BundleContext bundleContext, ServiceReference serviceReferences[])
+        final BundleContext bundleContext, final ServiceReference[] serviceReferences)
         throws Exception
     {
-        Vector vector = new Vector();
+        final Vector vector = new Vector();
         
         if(serviceReferences != null)
         {
-            LogUtil.put(LogFactory.getInstance("Service References: " + serviceReferences.length, 
-                "OSGIServiceUtil", "getServicesObjectVector"));
+            final int size = serviceReferences.length;
+            LogUtil.put(LogFactory.getInstance("Service References: " + size, "OSGIServiceUtil", "getServicesObjectVector"));
             
-            for(int index = 0; index < serviceReferences.length; index++)
+            for(int index = 0; index < size; index++)
             {
                 ServiceReference serviceReference = serviceReferences[index];
 
@@ -48,7 +48,7 @@ public class OSGIServiceUtil
                 
                 if(serviceReference != null)
                 {
-                    OSGIServiceInterface osgiServiceInterface = 
+                    final OSGIServiceInterface osgiServiceInterface = 
                         (OSGIServiceInterface)
                         bundleContext.getService(serviceReference);
                     

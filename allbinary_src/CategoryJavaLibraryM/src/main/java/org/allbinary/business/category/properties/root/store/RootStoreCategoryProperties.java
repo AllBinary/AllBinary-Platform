@@ -24,7 +24,6 @@ import org.w3c.dom.Node;
 import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.io.path.AbPathData;
-import org.allbinary.logic.io.path.AbPathUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.category.CategoryData;
@@ -34,6 +33,8 @@ import org.allbinary.business.category.properties.CategoryPropertiesInterface;
 import org.allbinary.business.category.properties.root.RootCategoryPropertiesInterface;
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
+import org.allbinary.logic.io.path.PathUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
@@ -55,7 +56,7 @@ public class RootStoreCategoryProperties
    protected TransformInfoInterface transformInfoInterface;
    
    //This is the real root category
-   public RootStoreCategoryProperties(TransformInfoInterface transformInfoInterface) throws Exception
+   public RootStoreCategoryProperties(final TransformInfoInterface transformInfoInterface) throws Exception
    {
       this.transformInfoInterface = transformInfoInterface;
       this.abPath = new AbPath();
@@ -69,11 +70,11 @@ public class RootStoreCategoryProperties
    //Example were categoryPath = "Category" the file path to the root category
    //will be storeCategoryPath/Category/Category.xml which is a sub category of the root
    public RootStoreCategoryProperties(
-      TransformInfoInterface transformInfoInterface, AbPath categoryAbPath) throws Exception
+      final TransformInfoInterface transformInfoInterface, final AbPath categoryAbPath) throws Exception
    {
       this.transformInfoInterface = transformInfoInterface;
       this.abPath = categoryAbPath;
-      this.category = AbPathUtil.getInstance().getNameFromPath(categoryAbPath.toString());
+      this.category = PathUtil.getInstance().getNameFromPath(categoryAbPath.toString());
       
       if(StringValidationUtil.getInstance().isEmpty(this.category))
       {
@@ -86,13 +87,13 @@ public class RootStoreCategoryProperties
    }
       
    public RootStoreCategoryProperties(
-      TransformInfoInterface transformInfoInterface, Node node) throws Exception
+      final TransformInfoInterface transformInfoInterface, final Node node) throws Exception
    {
       this.transformInfoInterface = transformInfoInterface;
-      String categoryPath = CategoryUtil.getNameFromNode(node);
+      final String categoryPath = CategoryUtil.getNameFromNode(node);
 
       this.abPath = new AbPath(categoryPath);
-      this.category = AbPathUtil.getInstance().getNameFromPath(categoryPath);
+      this.category = PathUtil.getInstance().getNameFromPath(categoryPath);
       
       if(StringValidationUtil.getInstance().isEmpty(this.category))
       {
@@ -105,16 +106,16 @@ public class RootStoreCategoryProperties
    }
 
    public RootStoreCategoryProperties(
-      TransformInfoInterface transformInfoInterface,
-      HashMap categoryPropertiesHashMap) throws Exception
+      final TransformInfoInterface transformInfoInterface,
+      final HashMap categoryPropertiesHashMap) throws Exception
    {
       this.transformInfoInterface = transformInfoInterface;
-      String categoryPath = 
+      final String categoryPath = 
          new String((String) categoryPropertiesHashMap.get(
             CategoryData.getInstance().NAME));
 
       this.abPath = new AbPath(categoryPath);
-      this.category = AbPathUtil.getInstance().getNameFromPath(categoryPath);
+      this.category = PathUtil.getInstance().getNameFromPath(categoryPath);
       
       if(StringValidationUtil.getInstance().isEmpty(this.category))
       {
@@ -128,18 +129,18 @@ public class RootStoreCategoryProperties
 
    protected void initPath() throws Exception
    {
-	   TransformInfoHttpInterface transformInfoHttpStoreInterface = 
+       final TransformInfoHttpInterface transformInfoHttpStoreInterface = 
          (TransformInfoHttpInterface) this.transformInfoInterface;
 
-      StoreFrontInterface storeFrontInterface =
+      final StoreFrontInterface storeFrontInterface =
          StoreFrontFactory.getInstance(
             transformInfoHttpStoreInterface.getStoreName());
 
-      String postPath = 
+      final String postPath = 
          storeFrontInterface.getCurrentHostNamePath() + 
          storeFrontInterface.getCategoryPath();
 
-      HttpServletRequest httpServletRequest = (HttpServletRequest)
+      final HttpServletRequest httpServletRequest = (HttpServletRequest)
          transformInfoHttpStoreInterface.getPageContext().getRequest();
 
       this.webAppAbPath = new AbPath(httpServletRequest.getContextPath() + postPath);
@@ -187,7 +188,7 @@ public class RootStoreCategoryProperties
       return this.webAppAbPath;
    }
    
-   public AbPath getPath(CategoryHierarchyInterface categoryHierarchyInterface)
+   public AbPath getPath(final CategoryHierarchyInterface categoryHierarchyInterface)
    {
       return this.abPath;
    }
@@ -210,7 +211,7 @@ public class RootStoreCategoryProperties
 
    public HashMap toHashMap()
    {
-      HashMap categoryHashMap = new HashMap();
+      final HashMap categoryHashMap = new HashMap();
       categoryHashMap.put(CategoryData.getInstance().NAME, this.getValue());
       //categoryHashMap.put(CategoryData.getInstance().LEVEL,new Integer(this.level).toString());
       return categoryHashMap;
@@ -243,9 +244,10 @@ public class RootStoreCategoryProperties
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
       {
-         LogUtil.put(LogFactory.getInstance("filePath = " + this.fileAbPath.toString() +
-                 "\npath = " + this.abPath.toString() + 
-                 "\ncategory = " + this.category, 
+         LogUtil.put(LogFactory.getInstance(new StringMaker()
+             .append("filePath = ").append(this.fileAbPath.toString())
+             .append("\npath = ").append(this.abPath.toString())
+             .append("\ncategory = ").append(this.category).toString(), 
                  this, "log()"));
       }
    }

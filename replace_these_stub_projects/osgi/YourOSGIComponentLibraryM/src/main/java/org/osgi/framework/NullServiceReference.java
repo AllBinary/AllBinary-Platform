@@ -11,22 +11,28 @@
  * Created By: Travis Berthelot
  * 
  */
-package org.allbinary.logic.io.path;
+package org.osgi.framework;
+
+import org.allbinary.logic.NullUtil;
+import org.allbinary.logic.string.StringUtil;
 
 /**
  *
  * @author User
  */
-public class AbPathUtil {
+public class NullServiceReference {
+    
+    public Object getProperty(String key) {
+        return NullUtil.getInstance().NULL_OBJECT;
+    }
 
-    private static final AbPathUtil instance = new AbPathUtil();
-
-    /**
-     * @return the instance
-     */
-    public static AbPathUtil getInstance() {
-        return instance;
+    public String[] getPropertyKeys() {
+        return StringUtil.getInstance().getArrayInstance();
     }
     
-    public final AbPath NO_ABPATH = new AbPath();
+    public int compareTo(Object o) {
+        throw new RuntimeException();
+    }
+    
+    
 }

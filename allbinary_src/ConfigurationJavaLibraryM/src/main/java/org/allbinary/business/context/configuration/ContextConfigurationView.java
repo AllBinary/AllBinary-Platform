@@ -13,7 +13,6 @@
 */
 package org.allbinary.business.context.configuration;
 
-import org.allbinary.business.context.configuration.ContextConfigurationData;
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.logic.communication.smtp.configuration.server.EmailServerConfigurationData;

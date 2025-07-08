@@ -13,9 +13,8 @@
 */
 package org.allbinary.logic.communication.log;
 
-import org.allbinary.logic.communication.log.Log;
-import org.allbinary.logic.communication.log.LogFormatUtil;
 import org.allbinary.string.CommonStrings;
+
 import playn.core.PlayN;
 
 public class LogUtil
@@ -27,7 +26,7 @@ public class LogUtil
    {
    }
    
-    public synchronized static void put(final Log log)
+    public static void put(final Log log)
     {
         final String specialMessage = log.getSpecialMessage();
         final Object object = log.getObject();
@@ -37,7 +36,7 @@ public class LogUtil
         put(specialMessage, object, functionName, exception);
     }
 
-    private synchronized static void put(
+    private static void put(
         final String specialMessage,
         final Object object,
         final String functionName)
@@ -64,7 +63,7 @@ public class LogUtil
     }
 
     //TWB - Public or Private?
-    private synchronized static void put(
+    private static void put(
         final String specialMessage,
         final Object object,
         final String functionName,

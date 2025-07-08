@@ -11,22 +11,23 @@
  * Created By: Travis Berthelot
  * 
  */
-package org.allbinary.logic.io.path;
+package org.osgi.framework;
 
 /**
  *
  * @author User
  */
-public class AbPathUtil {
-
-    private static final AbPathUtil instance = new AbPathUtil();
+public class NullServiceReferenceFactory {
+    
+    protected static final NullServiceReferenceFactory instance = new NullServiceReferenceFactory();
 
     /**
      * @return the instance
      */
-    public static AbPathUtil getInstance() {
+    public static NullServiceReferenceFactory getInstance() {
         return instance;
     }
-    
-    public final AbPath NO_ABPATH = new AbPath();
+
+    public NullServiceReference NULL_SERVICE_REFERENCE = new NullServiceReference();
+
 }
