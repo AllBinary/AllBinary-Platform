@@ -29,7 +29,7 @@ public class LogUtil
         String specialMessage = log.getSpecialMessage();
         Object object = log.getObject();
         String functionName = log.getFunctionName();
-        Throwable exception = log.getThrowable();
+        Object exception = log.getThrowable();
 
         put(specialMessage, object, functionName, exception);
     }
@@ -52,11 +52,11 @@ public class LogUtil
     private final static String LOG_SUCCESS = "org.allbinary: ";
 
     //TWB - Public or Private?
-    private synchronized static void put(
+    private static void put(
         String specialMessage,
         Object object,
         String functionName,
-        Throwable exception)
+        Object exception)
     {
 //        String className = CommonStrings.getInstance().EMPTY;
 //
@@ -65,6 +65,6 @@ public class LogUtil
 //            className = new String(new StringMaker().append(object.getClass().getName()).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(object.hashCode())).toString());
 //        }
 
-        FileLog.put(specialMessage, object, functionName, exception);
+        FileLog.put(specialMessage, object, functionName, (Throwable) exception);
     }
 }

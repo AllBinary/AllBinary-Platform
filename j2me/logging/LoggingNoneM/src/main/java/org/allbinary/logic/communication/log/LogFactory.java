@@ -13,15 +13,13 @@
 */
 package org.allbinary.logic.communication.log;
 
-import org.allbinary.logic.communication.log.Log;
-
 public class LogFactory
 {
     public static final Log getInstance(
             String specialMessage,
             Object object,
             String functionName,
-            Throwable exception)
+            Object exception)
     {
         return null;
         //return LogFactory.getInstance(specialMessage, object, functionName, exception);

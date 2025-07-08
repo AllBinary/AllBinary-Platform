@@ -31,7 +31,7 @@ public class LogUtil
       String specialMessage = log.getSpecialMessage();
       Object object = log.getObject();
       String functionName = log.getFunctionName();
-      Throwable exception = log.getThrowable();
+      Object exception = log.getThrowable();
 
       String className = LABEL;
       /*

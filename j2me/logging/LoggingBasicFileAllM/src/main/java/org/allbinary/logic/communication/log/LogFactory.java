@@ -21,7 +21,7 @@ public class LogFactory
     public static final Log getInstance(
             String specialMessage,
             Object object,
-            Throwable exception)
+            Object exception)
     {
         return new Log(specialMessage, object, StringUtil.getInstance().EMPTY_STRING, exception);
     }
@@ -30,7 +30,7 @@ public class LogFactory
             String specialMessage,
             Object object,
             String functionName,
-            Throwable exception)
+            Object exception)
     {
         return new Log(specialMessage, object, functionName, exception);
     }

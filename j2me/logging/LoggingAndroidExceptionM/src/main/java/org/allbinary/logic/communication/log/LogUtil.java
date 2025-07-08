@@ -26,13 +26,13 @@ public class LogUtil
       String specialMessage = log.getSpecialMessage();
       Object object = log.getObject();
       String functionName = log.getFunctionName();
-      Throwable exception = log.getThrowable();
+      Object exception = log.getThrowable();
 
       put(specialMessage, object, functionName, exception);
       }
    }
    
-   public synchronized static void put(
+   public static void put(
       String specialMessage,
       Object object,
       String functionName)
@@ -41,11 +41,11 @@ public class LogUtil
    private static final String LABEL = "org.allbinary";
    private final static String LOG_SUCCESS = "org.allbinary: ";
    
-   public synchronized static void put(
+   public static void put(
       String specialMessage,
       Object object,
       String functionName,
-      Throwable exception)
+      Object exception)
    {
       String className = LABEL;
       /*

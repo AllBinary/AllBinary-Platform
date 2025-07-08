@@ -23,13 +23,13 @@ public class PreLogUtil
     }
     
     /*
-    public synchronized static void put(Log log)
+    public static void put(Log log)
     {
         String specialMessage = log.getSpecialMessage();
         Object object = log.getObject();
         String className = log.getClassName();
         String functionName = log.getFunctionName();
-        Throwable exception = log.getThrowable();
+        Object exception = log.getThrowable();
         
         if(className != null)
         {
@@ -46,7 +46,7 @@ public class PreLogUtil
             }
     }
     */
-    public synchronized static void put(
+    public static void put(
         String specialMessage,
         Object object,
         String functionName)
@@ -57,11 +57,11 @@ public class PreLogUtil
     
     private final static String LOG_SUCCESS = "org.allbinary: ";
 
-    public synchronized static void put(
+    public static void put(
         String specialMessage,
         Object object,
         String functionName,
-        Throwable exception)
+        Object exception)
     {
         String className = CommonStrings.getInstance().EMPTY;
         
@@ -77,7 +77,7 @@ public class PreLogUtil
         System.out.println(message);
     }
     
-    public synchronized static void put(
+    public static void put(
         String specialMessage,
         String className,
         String functionName)
@@ -85,11 +85,11 @@ public class PreLogUtil
         put(specialMessage, className, functionName, null);
     }
     
-    public synchronized static void put(
+    public static void put(
         String specialMessage,
         String className,
         String functionName,
-        Throwable exception)
+        Object exception)
     {
         String message = LogFormatUtil.getInstance().get(
             className, functionName, specialMessage, exception);

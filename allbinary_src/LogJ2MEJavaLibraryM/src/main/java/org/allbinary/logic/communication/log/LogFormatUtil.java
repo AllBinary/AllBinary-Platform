@@ -50,7 +50,7 @@ public class LogFormatUtil
     }
 
     public String get(
-        final String className, final String functionName, final String specialMessage, final Throwable exception)
+        final String className, final String functionName, final String specialMessage, final Object exception)
     {
         final StringMaker stringBuffer = get(className, functionName);
 

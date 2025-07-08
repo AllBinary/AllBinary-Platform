@@ -13,6 +13,8 @@
  */
 package org.allbinary.logic.java.exception;
 
+import org.allbinary.logic.NullUtil;
+
 public class ExceptionUtil
 {
 
@@ -32,11 +34,15 @@ public class ExceptionUtil
 
     public static final Exception PRETEND_EXCEPTION = new Exception("Not Really An Exception");
 
+    private final NullUtil nullUtil = NullUtil.getInstance();
+    
     private final String NONE = "No Stack Trace";
     
-    public String getStackTrace(Throwable e)
+    public String getStackTrace(Object e)
     {
-        e.printStackTrace();
+        if(e != nullUtil.NULL_OBJECT) {
+            ((Throwable) e).printStackTrace();
+        }
 
         return NONE;
     }

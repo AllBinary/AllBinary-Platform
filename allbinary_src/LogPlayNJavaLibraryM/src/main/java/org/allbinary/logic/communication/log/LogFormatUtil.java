@@ -49,7 +49,7 @@ public class LogFormatUtil
     }
 
     public synchronized String get(
-        final String className, final String functionName, final String specialMessage, final Throwable exception)
+        final String className, final String functionName, final String specialMessage, final Object exception)
     {
         final StringMaker stringBuffer = get(className, functionName);
 
@@ -99,7 +99,7 @@ public class LogFormatUtil
     }
 
     private final ExceptionUtil exceptionUtil = ExceptionUtil.getInstance();
-    public synchronized String get(final Throwable exception)
+    public synchronized String get(final Object exception)
     {
         if (exception != null)
         {
@@ -116,7 +116,7 @@ public class LogFormatUtil
             }
 
             stringBuffer.append(STACK_TRACE);
-            stringBuffer.append(exceptionUtil.getStackTrace(exception));
+            stringBuffer.append(exceptionUtil.getStackTrace((Throwable) exception));
 
             /*
             String exceptionMessage = ExceptionUtil.getStackTrace(exception);

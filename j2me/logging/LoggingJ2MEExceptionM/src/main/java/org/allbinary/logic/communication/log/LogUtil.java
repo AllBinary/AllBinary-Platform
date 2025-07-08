@@ -30,7 +30,7 @@ public class LogUtil
            return;
        }
        
-      Throwable exception = log.getThrowable();
+      Object exception = log.getThrowable();
       
       if(exception == null)
       {
@@ -56,7 +56,7 @@ public class LogUtil
       String specialMessage,
       Object object,
       String functionName,
-      Throwable exception)
+      Object exception)
    {
       String className = CommonStrings.getInstance().EMPTY;
       

@@ -32,7 +32,7 @@ public class LogUtil
         final String specialMessage = log.getSpecialMessage();
         final Object object = log.getObject();
         final String functionName = log.getFunctionName();
-        final Throwable exception = log.getThrowable();
+        final Object exception = log.getThrowable();
 
         put(specialMessage, object, functionName, exception);
     }
@@ -68,7 +68,7 @@ public class LogUtil
         final String specialMessage,
         final Object object,
         final String functionName,
-        final Throwable exception)
+        final Object exception)
     {
         String className = PreLogUtil.getClassName(object);
         
@@ -88,7 +88,7 @@ public class LogUtil
 
         if(exception != null)
         {
-            PlayN.log().error(LOG_SUCCESS + message, exception);
+            PlayN.log().error(LOG_SUCCESS + message, (Throwable) exception);
         }
         else
         {

@@ -41,7 +41,7 @@ public class Log
         final String specialMessage,
         final Object object,
         final String functionName,
-        final Throwable exception)
+        final Object exception)
     {
         this.specialMessage = specialMessage;
         this.object = object;
@@ -76,9 +76,9 @@ public class Log
         return functionName;
     }
 
-    public Throwable getThrowable()
+    public Object getThrowable()
     {
-        return (Throwable) exception;
+        return exception;
     }
 
     public String toString()

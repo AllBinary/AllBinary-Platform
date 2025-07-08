@@ -56,7 +56,7 @@ public class LogUtil
       String specialMessage = log.getSpecialMessage();
       Object object = log.getObject();
       String functionName = log.getFunctionName();
-      Throwable exception = log.getThrowable();
+      Object exception = log.getThrowable();
 
       put(specialMessage, object, functionName, exception);
    }
@@ -68,7 +68,7 @@ public class LogUtil
       String specialMessage,
       Object object,
       String functionName,
-      Throwable exception)
+      Object exception)
    {
       try
       {

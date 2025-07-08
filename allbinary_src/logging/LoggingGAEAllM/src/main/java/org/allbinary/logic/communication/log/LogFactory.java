@@ -21,7 +21,7 @@ public class LogFactory
             String specialMessage,
             Object object,
             String functionName,
-            Throwable exception)
+            Object exception)
     {
         /*
         if(object instanceof String)

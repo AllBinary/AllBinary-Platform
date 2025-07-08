@@ -56,7 +56,11 @@ public class Replace
       }
    }
    
-   public String all(String replace)
+   public String all(String replace) {
+       return this.upTo(replace, Integer.MIN_VALUE);
+   }
+   
+   public String upTo(String replace, int total)
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
       {
@@ -106,6 +110,9 @@ public class Replace
                
                replace = newStringBuffer.toString();
                totalNumberOfReplaces++;
+               if(total != Integer.MIN_VALUE && totalNumberOfReplaces >= total) {
+                   break;
+               }
             }
             else
             {

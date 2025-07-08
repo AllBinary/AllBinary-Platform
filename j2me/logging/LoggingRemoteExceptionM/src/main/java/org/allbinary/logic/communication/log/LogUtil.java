@@ -40,12 +40,12 @@ public class LogUtil
     private static final StringMaker stringBuffer = new StringMaker();
     
 
-    public synchronized static void put(Log log)
+    public static void put(Log log)
     {
         if(log == null)
             return;
         
-        Throwable exception = log.getThrowable();
+        Object exception = log.getThrowable();
 
         if (exception != null)
         {
@@ -139,7 +139,7 @@ public class LogUtil
         String specialMessage,
         Object object,
         String functionName,
-        Throwable exception)
+        Object exception)
     {
         //Date date = calendar.getTime();
         //String time = new String(date.toString());
@@ -179,7 +179,7 @@ public class LogUtil
         String specialMessage,
         String className,
         String functionName,
-        Throwable exception)
+        Object exception)
     {
         String message = LogFormatUtil.get(
             className, functionName, specialMessage, exception);

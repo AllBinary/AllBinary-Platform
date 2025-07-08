@@ -51,7 +51,7 @@ public class LogUtil
 
     public static void put(Log log)
     {
-        Throwable exception = log.getThrowable();
+        Object exception = log.getThrowable();
 
         try
         {

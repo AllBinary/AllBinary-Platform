@@ -50,7 +50,7 @@ public class LogFormatUtil
     }
 
     public String get(
-        final String className, final String functionName, final String specialMessage, final Throwable exception)
+        final String className, final String functionName, final String specialMessage, final Object exception)
     {
         final StringMaker stringBuffer = get(className, functionName);
 
@@ -105,7 +105,7 @@ public class LogFormatUtil
     }
 
     private final ExceptionUtil exceptionUtil = ExceptionUtil.getInstance();
-    public String get(final Throwable exception)
+    public String get(final Object exception)
     {
         if (exception != null)
         {

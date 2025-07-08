@@ -33,7 +33,7 @@ public class PreLogUtil
         Object object = log.getObject();
         String className = log.getClassName();
         String functionName = log.getFunctionName();
-        Throwable exception = log.getThrowable();
+        Object exception = log.getThrowable();
         
         if(className != null)
         {
@@ -78,7 +78,7 @@ public class PreLogUtil
         String specialMessage,
         Object object,
         String functionName,
-        Throwable exception)
+        Object exception)
     {
 //       String className = EMPTY;
         String className = PreLogUtil.getClassName(object);
@@ -92,7 +92,7 @@ public class PreLogUtil
         String message = LogFormatUtil.getInstance().get(
             className, functionName, specialMessage, exception);
 
-        PlayN.log().error(LOG_SUCCESS + message, exception);
+        PlayN.log().error(LOG_SUCCESS + message, (Throwable) exception);
     }
     
     public synchronized static void put(
@@ -110,12 +110,12 @@ public class PreLogUtil
         String specialMessage,
         String className,
         String functionName,
-        Throwable exception)
+        Object exception)
     {
         String message = LogFormatUtil.getInstance().get(
             className, functionName, specialMessage, exception);
 
-        PlayN.log().error(LOG_SUCCESS + message, exception);
+        PlayN.log().error(LOG_SUCCESS + message, (Throwable) exception);
     }
     
 //    public static String getClassName(Object object) {

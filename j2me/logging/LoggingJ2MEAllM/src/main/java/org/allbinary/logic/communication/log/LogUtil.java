@@ -29,12 +29,12 @@ public class LogUtil
         String specialMessage = log.getSpecialMessage();
         Object object = log.getObject();
         String functionName = log.getFunctionName();
-        Throwable exception = log.getThrowable();
+        Object exception = log.getThrowable();
 
         put(specialMessage, object, functionName, exception);
     }
 
-    private  static void put(
+    private static void put(
         String specialMessage,
         Object object,
         String functionName)
@@ -60,7 +60,7 @@ public class LogUtil
         String specialMessage,
         Object object,
         String functionName,
-        Throwable exception)
+        Object exception)
     {
         String className = CommonStrings.getInstance().EMPTY;
 
