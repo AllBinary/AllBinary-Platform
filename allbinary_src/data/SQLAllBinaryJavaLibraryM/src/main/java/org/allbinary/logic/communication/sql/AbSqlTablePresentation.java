@@ -62,7 +62,7 @@ public class AbSqlTablePresentation extends AbSqlBasic
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getTableWhere(key,value)",e);
+            logUtil.put("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getTableWhere(key,value)",e);
          }
          return "getTableWhere(key,value)";
       }
@@ -97,7 +97,7 @@ public class AbSqlTablePresentation extends AbSqlBasic
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getTableWhere()",e);
+            logUtil.put("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getTableWhere()",e);
          }
          return "getTableWhere()";
       }
@@ -141,7 +141,7 @@ public class AbSqlTablePresentation extends AbSqlBasic
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getTableWhereBetween()",e);
+            logUtil.put("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getTableWhereBetween()",e);
          }
          return "getTableWhereBetween() Failed";
       }

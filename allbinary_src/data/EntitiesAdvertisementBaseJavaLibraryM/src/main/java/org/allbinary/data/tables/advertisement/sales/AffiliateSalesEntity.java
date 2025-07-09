@@ -54,7 +54,7 @@ public class AffiliateSalesEntity extends AbSqlBean implements AffiliateSalesEnt
      {
      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
      {
-     LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE,this,INSERT,e);
+     logUtil.put(this.commonStrings.FAILURE,this,INSERT,e);
      }
      }
      }

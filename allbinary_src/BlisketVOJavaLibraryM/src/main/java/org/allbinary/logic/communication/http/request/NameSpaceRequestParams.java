@@ -625,7 +625,7 @@ public class NameSpaceRequestParams extends RequestParams
             {
                if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
                {
-                  LogUtil.put(LogFactory.getInstance("At least one Property from NameSpaceRequest Package was different from Node", this, "isPropertiesSame()");
+                  logUtil.put("At least one Property from NameSpaceRequest Package was different from Node", this, "isPropertiesSame()");
                }
                //found a property that does not match
                return false;
@@ -635,7 +635,7 @@ public class NameSpaceRequestParams extends RequestParams
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
             {
-               LogUtil.put(LogFactory.getInstance("A new property from NameSpaceRequest Package existed so it is not the same.", this, "isPropertiesSame()");
+               logUtil.put("A new property from NameSpaceRequest Package existed so it is not the same.", this, "isPropertiesSame()");
             }
             return false;
          }
@@ -652,7 +652,7 @@ public class NameSpaceRequestParams extends RequestParams
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
-         LogUtil.put(LogFactory.getInstance("\nComparing the properties in: " +
+         logUtil.put("\nComparing the properties in: " +
          nextPackagePropertiesHashMap.toString() +
          "\nto node child leaves of node: " + node.getNodeName(),
          this, "isPropertiesSame()");

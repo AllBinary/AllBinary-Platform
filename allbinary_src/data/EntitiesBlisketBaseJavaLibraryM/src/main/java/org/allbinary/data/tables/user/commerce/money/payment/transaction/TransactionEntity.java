@@ -124,7 +124,7 @@ public class TransactionEntity extends AbSqlBean implements TransactionEntityInt
      {
      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
      {
-     LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE,this,"getTransactionResultInterface()",e);
+     logUtil.put(this.commonStrings.FAILURE,this,"getTransactionResultInterface()",e);
      }
      return null;
      }

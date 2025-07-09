@@ -190,7 +190,7 @@ public class SimpleStateTaxModule implements TaxModuleInterface
          /*
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAX))
          {
-            LogUtil.put(LogFactory.getInstance("Node: " + node.getNodeName(), this,commonStrings.IS_VALID);
+            logUtil.put("Node: " + node.getNodeName(), this,commonStrings.IS_VALID);
          }
          */
          
@@ -199,7 +199,7 @@ public class SimpleStateTaxModule implements TaxModuleInterface
          /*
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAX))
          {
-            LogUtil.put(LogFactory.getInstance("Number Of Tax Child Nodes: " + taxNodeChildren.getLength(), this,commonStrings.IS_VALID);
+            logUtil.put("Number Of Tax Child Nodes: " + taxNodeChildren.getLength(), this,commonStrings.IS_VALID);
          }
          */
          

@@ -202,7 +202,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-               LogUtil.put(LogFactory.getInstance("Command Failed Incorrect Login",this,"getUserRole");
+               logUtil.put("Command Failed Incorrect Login",this,"getUserRole");
             }
             return "Incorrect Login";
          }
@@ -212,7 +212,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE,this,"getUserRole",e);
+            logUtil.put(this.commonStrings.FAILURE,this,"getUserRole",e);
          }
          return "Error";
       }

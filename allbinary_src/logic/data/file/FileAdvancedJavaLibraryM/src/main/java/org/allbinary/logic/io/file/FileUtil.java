@@ -94,7 +94,7 @@ public class FileUtil
     {
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILEERROR))
     {
-    LogUtil.put(LogFactory.getInstance("Error Copying File from: " + from.toString() + " to: " +
+    logUtil.put("Error Copying File from: " + from.toString() + " to: " +
     to.toString(),instance,"copyFile", e);
     }
     throw e;

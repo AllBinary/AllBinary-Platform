@@ -127,7 +127,7 @@ public class InputAutomationConfiguration
         NodeList nameNodeList =
             document.getElementsByTagName(InputAutomationModuleData.NAME);
         
-        LogUtil.put(LogFactory.getInstance("Number Of Module(s) Specified: " + nameNodeList.getLength(), this,"remove");
+        logUtil.put("Number Of Module(s) Specified: " + nameNodeList.getLength(), this,"remove");
         
         for(int index = 0; index < nameNodeList.getLength(); index++)
         {
@@ -144,7 +144,7 @@ public class InputAutomationConfiguration
                     String className =
                         DomNodeHelper.getTextNodeValue(classNameNode);
                     
-                    LogUtil.put(LogFactory.getInstance("Name : " + className, this, "Contructor");
+                    logUtil.put("Name : " + className, this, "Contructor");
                     
                     InputAutomationModuleFactoryInterface gameAutomationRobotModuleInterface =
                         (InputAutomationModuleFactoryInterface) AbeFactory.getInstance().getInstance(className);
@@ -158,7 +158,7 @@ public class InputAutomationConfiguration
                 }
                 else
                 {
-                    LogUtil.put(LogFactory.getInstance("Class Node Null", this,"Contructor");
+                    logUtil.put("Class Node Null", this,"Contructor");
                 }
             }
             else
