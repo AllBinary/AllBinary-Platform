@@ -73,10 +73,10 @@ public class LogUtil {
                 return;
             }
 
-            if (LogUtil.isFirstException || LogUtil.timeDelayHelper.isTime()) {
+            if (this.isFirstException || this.timeDelayHelper.isTime()) {
 
                 String className = CommonStrings.getInstance().EMPTY;
-                LogUtil.isFirstException = false;
+                this.isFirstException = false;
 
                 if (object != null && object.getClass().getName() != null) {
                     className = new String(object.getClass().getName());

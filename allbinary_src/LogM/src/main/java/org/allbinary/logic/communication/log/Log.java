@@ -91,6 +91,6 @@ public class Log
             className = clazz.getName();
         }
 
-        return logFormatUtil.get(className, this.functionName, this.specialMessage, (Throwable) this.exception);
+        return logFormatUtil.get(className, this.functionName, this.specialMessage, this.exception);
     }
 }

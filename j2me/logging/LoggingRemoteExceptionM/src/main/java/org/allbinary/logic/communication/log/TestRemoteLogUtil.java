@@ -31,6 +31,7 @@ public class TestRemoteLogUtil {
     {
         Globals.getInstance().init(this.getClass().getClassLoader(), PATH);
         
+        final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonStrings = CommonStrings.getInstance();
         logUtil.put(commonStrings.EXCEPTION, "Test", "TestClass", new Exception("Pretend Exception"));
     }
