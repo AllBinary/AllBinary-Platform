@@ -65,8 +65,7 @@ public class LogUtil {
         //System.out.println(message);
     }
 
-    //TWB - Public or Private?
-    private void put(
+    public void put(
         final String specialMessage,
         final Object object,
         final String functionName,
