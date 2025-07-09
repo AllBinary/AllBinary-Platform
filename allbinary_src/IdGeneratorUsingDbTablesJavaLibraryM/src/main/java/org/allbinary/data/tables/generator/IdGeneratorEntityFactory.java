@@ -19,7 +19,7 @@ import org.allbinary.string.CommonStrings;
 
 public class IdGeneratorEntityFactory
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
+    //protected final LogUtil logUtil = LogUtil.getInstance();
 
    private IdGeneratorEntityFactory()
    {
@@ -33,6 +33,7 @@ public class IdGeneratorEntityFactory
       }
       catch(Exception e)
       {
+          final LogUtil logUtil = LogUtil.getInstance();
          final CommonStrings commonStrings = CommonStrings.getInstance();
          logUtil.put(commonStrings.EXCEPTION, "ServerLicenseRequestEntityFactory",commonStrings.GET_INSTANCE,e);
          return null;
