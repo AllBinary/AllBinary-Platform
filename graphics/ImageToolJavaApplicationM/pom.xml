@@ -49,7 +49,7 @@
 
         <dependency>
             <groupId>org.allbinary.cache</groupId>
-            <artifactId>AllBinaryCacheLibrary</artifactId>
+            <artifactId>AllBinaryJSECacheJavaLibrary</artifactId>
 
             <!--
             <artifactId>AllBinaryCacheLibrary</artifactId>
