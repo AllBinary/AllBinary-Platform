@@ -45,7 +45,7 @@ public class StaticPathGenerator
 
    protected StaticPathGenerator()
    {
-       PreLogUtil.put("Using Static Path Finding", this, commonStrings.CONSTRUCTOR);
+       PreLogUtil.put("Using Static Path Finding", this, CommonStrings.getInstance().CONSTRUCTOR);
    }
 
    //Takes static paths with CellPositions and converts them
