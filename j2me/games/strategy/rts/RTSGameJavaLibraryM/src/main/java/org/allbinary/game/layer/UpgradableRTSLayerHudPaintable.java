@@ -33,8 +33,6 @@ public class UpgradableRTSLayerHudPaintable
         return instance;
     }
 
-    private final MyFont myFont = MyFont.getInstance();
-    
     //private final String PERCENT_COMPLETE = "% Complete";
     private final String PERCENT = "%";
 
@@ -55,6 +53,8 @@ public class UpgradableRTSLayerHudPaintable
     {
         super.update();
         
+        final MyFont myFont = MyFont.getInstance();
+
         final int charHeight = myFont.DEFAULT_CHAR_HEIGHT;
 
         this.costY = (y + CommonButtons.getInstance().STANDARD_BUTTON_SIZE);
