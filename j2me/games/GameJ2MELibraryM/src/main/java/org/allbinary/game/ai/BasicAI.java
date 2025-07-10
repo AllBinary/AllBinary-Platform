@@ -23,12 +23,15 @@ import org.allbinary.game.input.GameKeyEventSourceInterface;
 import org.allbinary.game.input.event.GameKeyEventFactory;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 
 public class BasicAI 
 extends ArtificialIntelligence
 implements GameKeyEventSourceInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+    
     public static final Integer AI_VISITOR = SmallIntegerSingletonFactory.getInstance().getInstance(2);
     
     public static final Integer ID = SmallIntegerSingletonFactory.getInstance().getInstance(1);

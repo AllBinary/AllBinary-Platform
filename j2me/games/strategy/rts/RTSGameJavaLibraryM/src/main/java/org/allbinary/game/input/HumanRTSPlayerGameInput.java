@@ -67,7 +67,6 @@ public class HumanRTSPlayerGameInput
 extends RTSPlayerGameInput
 implements BaseMotionGestureEventListener
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private boolean isDragging = false;
 
@@ -362,6 +361,7 @@ implements BaseMotionGestureEventListener
      */
     public void setSelectedRtsFormInput(RTSFormInput selectedRtsFormInput)
     {
+        final LogUtil logUtil = LogUtil.getInstance();
         logUtil.put(new StringMaker().append(CommonLabels.getInstance().START).append(StringUtil.getInstance().toString(selectedRtsFormInput)).toString(), this, "setSelectedRtsFormInput");
         
         super.setSelectedRtsFormInput(selectedRtsFormInput);

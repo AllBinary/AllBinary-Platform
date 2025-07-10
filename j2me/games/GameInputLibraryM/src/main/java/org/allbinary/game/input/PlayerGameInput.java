@@ -18,6 +18,7 @@ import org.allbinary.util.BasicArrayList;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.input.event.GameKeyEventListenerInterface;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
@@ -27,7 +28,7 @@ import org.allbinary.logic.util.event.EventStrings;
 public class PlayerGameInput extends GameInput 
       implements GameKeyEventListenerInterface
 {
-    //protected final LogUtil logUtil = LogUtil.getInstance();
+    protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
     

@@ -23,7 +23,6 @@ import org.allbinary.game.combat.damage.DamageUtil;
 public class CollidableDestroyableDamageableBehavior 
 extends CollidableBaseBehavior 
 {
-    //protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final DamageUtil damageUtil = DamageUtil.getInstance();
     

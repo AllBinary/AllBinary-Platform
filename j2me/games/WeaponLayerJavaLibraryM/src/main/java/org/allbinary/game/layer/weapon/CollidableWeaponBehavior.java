@@ -21,14 +21,14 @@ import org.allbinary.game.collision.CollisionHelper;
 import org.allbinary.game.collision.CollisionType;
 import org.allbinary.game.collision.CollisionTypeFactory;
 import org.allbinary.game.collision.LayerCollisionUtil;
-import org.allbinary.game.combat.damage.DamageUtil;
 import org.allbinary.game.combat.damage.DamageableInterface;
 import org.allbinary.game.layer.special.CollidableDestroyableDamageableBehavior;
 import org.allbinary.layer.AllBinaryLayer;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBehavior
 {
-    //protected final LogUtil logUtil = LogUtil.getInstance();
+    protected final LogUtil logUtil = LogUtil.getInstance();
 
     
     private boolean collided;

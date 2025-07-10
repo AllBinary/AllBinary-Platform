@@ -23,8 +23,6 @@ import org.allbinary.game.layer.RTSLayerInfoPaintable;
 import org.allbinary.game.layer.RTSPlayerLayerInterface;
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.InputFeatureFactory;
 import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
@@ -51,7 +49,6 @@ import org.allbinary.string.CommonLabels;
  */
 public class RTSPlayerGameInput extends PlayerGameInput
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final GameInputProcessor[] inputProcessorArray = 
         new GameInputProcessor[InputFactory.getInstance().MAX];

@@ -18,9 +18,12 @@ import org.allbinary.bounds.BoundsVisitorInterface;
 import org.allbinary.game.physics.velocity.VelocityInterface;
 import org.allbinary.game.physics.velocity.VelocityInterfaceCompositeInterface;
 import org.allbinary.layer.LayerInterface;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class ReverseVelocityBoundsVisitor implements BoundsVisitorInterface
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+    
    //private GPoint point;
    protected VelocityInterface velocityInterface;
    //private RotationAnimationInterface rotationAnimationInterface;

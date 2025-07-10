@@ -19,12 +19,13 @@ import org.allbinary.game.layer.CollidableCompositeLayer;
 
 import org.allbinary.string.CommonStrings;
 import org.allbinary.layer.AllBinaryLayer;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 
 public class CollidableBaseBehavior 
 implements CollidableInterface
 {
-    //protected final LogUtil logUtil = LogUtil.getInstance();
+    protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     

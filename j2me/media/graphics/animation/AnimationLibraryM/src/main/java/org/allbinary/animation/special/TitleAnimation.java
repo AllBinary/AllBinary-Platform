@@ -21,11 +21,12 @@ import org.allbinary.animation.IndexedAnimationBehavior;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.PrimitiveIntUtil;
 
 public class TitleAnimation extends SpecialAnimation 
 {
-    //protected final LogUtil logUtil = LogUtil.getInstance();
+    protected final LogUtil logUtil = LogUtil.getInstance();
 
     public float deltaX;
     public float deltaY;
