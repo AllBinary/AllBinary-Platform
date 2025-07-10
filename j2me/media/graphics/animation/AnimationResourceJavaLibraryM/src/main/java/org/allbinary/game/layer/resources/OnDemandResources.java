@@ -15,9 +15,12 @@ package org.allbinary.game.layer.resources;
 
 import org.allbinary.animation.resource.BaseResourceAnimationInterfaceFactoryInterfaceFactory;
 import org.allbinary.image.ImageCache;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class OnDemandResources
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+    
     protected OnDemandResources()
     {
     }
