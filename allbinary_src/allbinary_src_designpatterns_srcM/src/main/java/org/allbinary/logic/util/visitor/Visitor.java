@@ -17,6 +17,7 @@ public class Visitor implements VisitorInterface
 {
     private static final Visitor instance = new Visitor();
     
+    @Override
     public Object visit(Object object)
     {
         return null;
