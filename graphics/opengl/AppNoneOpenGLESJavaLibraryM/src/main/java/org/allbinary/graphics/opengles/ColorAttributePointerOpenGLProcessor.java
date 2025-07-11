@@ -25,7 +25,7 @@ public class ColorAttributePointerOpenGLProcessor extends ObjectThreedOpenGLProc
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
     
-    protected static final ColorAttributePointerOpenGLProcessor instance = new ColorAttributePointerOpenGLProcessor();
+    private static final ColorAttributePointerOpenGLProcessor instance = new ColorAttributePointerOpenGLProcessor();
 
     /**
      * @return the instance

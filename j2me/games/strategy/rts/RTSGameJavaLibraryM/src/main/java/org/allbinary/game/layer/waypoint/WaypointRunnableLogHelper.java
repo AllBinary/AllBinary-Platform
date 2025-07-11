@@ -21,7 +21,7 @@ import org.allbinary.game.layer.PathFindingLayerInterface;
  */
 public class WaypointRunnableLogHelper {
     
-    protected static final WaypointRunnableLogHelper instance = new WaypointRunnableLogHelper();
+    private static final WaypointRunnableLogHelper instance = new WaypointRunnableLogHelper();
 
     /**
      * @return the instance

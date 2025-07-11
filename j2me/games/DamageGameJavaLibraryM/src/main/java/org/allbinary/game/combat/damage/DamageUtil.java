@@ -25,7 +25,7 @@ public class DamageUtil
     protected final LogUtil logUtil = LogUtil.getInstance();
 
 
-    protected static final DamageUtil instance = new DamageUtil();
+    private static final DamageUtil instance = new DamageUtil();
     
     /**
      * @return the instance

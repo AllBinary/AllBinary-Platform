@@ -31,7 +31,7 @@ public class SimpleFileUtil {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     
-    protected static final SimpleFileUtil instance = new SimpleFileUtil();
+    private static final SimpleFileUtil instance = new SimpleFileUtil();
 
     /**
      * @return the instance

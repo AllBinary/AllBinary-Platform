@@ -19,7 +19,7 @@ package org.allbinary.media.graphics.geography.map.topview;
  */
 public class BasicTopViewGeographicMapStrings {
 
-    protected static final BasicTopViewGeographicMapStrings instance = new BasicTopViewGeographicMapStrings();
+    private static final BasicTopViewGeographicMapStrings instance = new BasicTopViewGeographicMapStrings();
 
     /**
      * @return the instance

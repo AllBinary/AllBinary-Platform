@@ -19,7 +19,7 @@ package org.allbinary.graphics.opengles.shader;
  */
 public class ModelViewProjection {
     
-    protected static final ModelViewProjection instance = new ModelViewProjection();
+    private static final ModelViewProjection instance = new ModelViewProjection();
 
     /**
      * @return the instance

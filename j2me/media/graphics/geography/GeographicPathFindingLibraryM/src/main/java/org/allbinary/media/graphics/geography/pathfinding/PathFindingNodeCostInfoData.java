@@ -16,7 +16,7 @@ package org.allbinary.media.graphics.geography.pathfinding;
 public class PathFindingNodeCostInfoData
 {
 
-    protected static final PathFindingNodeCostInfoData instance = new PathFindingNodeCostInfoData();
+    private static final PathFindingNodeCostInfoData instance = new PathFindingNodeCostInfoData();
     
     /**
      * @return the instance

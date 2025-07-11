@@ -26,7 +26,7 @@ import org.allbinary.string.CommonStrings;
 
 public class ImageAnalysis
 {
-    protected static final ImageAnalysis instance = new ImageAnalysis();
+    private static final ImageAnalysis instance = new ImageAnalysis();
 
     /**
      * @return the instance

@@ -21,7 +21,7 @@ import javax.microedition.lcdui.Image;
  */
 public class OpenGLESImageExclusionUtil {
     
-    protected static final OpenGLESImageExclusionUtil instance = new OpenGLESImageExclusionUtil();
+    private static final OpenGLESImageExclusionUtil instance = new OpenGLESImageExclusionUtil();
 
 
     /**

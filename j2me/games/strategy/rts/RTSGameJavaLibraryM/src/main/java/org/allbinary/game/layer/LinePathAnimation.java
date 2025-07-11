@@ -23,7 +23,7 @@ import org.allbinary.layer.Layer;
  */
 public class LinePathAnimation {
     
-    protected static final LinePathAnimation instance = new LinePathAnimation();
+    private static final LinePathAnimation instance = new LinePathAnimation();
 
     /**
      * @return the instance

@@ -19,7 +19,7 @@ package org.allbinary.logic.math;
  */
 public class J2SEMath {
     
-    protected static final J2SEMath instance = new J2SEMath();
+    private static final J2SEMath instance = new J2SEMath();
     
     /**
      * @return the instance

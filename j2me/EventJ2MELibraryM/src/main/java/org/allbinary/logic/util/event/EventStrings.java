@@ -19,7 +19,7 @@ package org.allbinary.logic.util.event;
  */
 public class EventStrings {
     
-    protected static final EventStrings instance = new EventStrings();
+    private static final EventStrings instance = new EventStrings();
 
     /**
      * @return the instance

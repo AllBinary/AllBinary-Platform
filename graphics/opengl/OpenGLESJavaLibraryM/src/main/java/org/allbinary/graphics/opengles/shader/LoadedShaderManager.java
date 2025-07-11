@@ -19,7 +19,7 @@ package org.allbinary.graphics.opengles.shader;
  */
 public class LoadedShaderManager {
     
-    protected static final ShaderManager instance = new ShaderManager(-1, -1);
+    private static final ShaderManager instance = new ShaderManager(-1, -1);
 
     /**
      * @return the instance

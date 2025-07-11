@@ -39,7 +39,7 @@ public class AndroidServicesUtil {
         return instance;
     }
  
-    protected static final AndroidServicesUtil instance = new AndroidServicesUtil();
+    private static final AndroidServicesUtil instance = new AndroidServicesUtil();
     
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final ResourceUtil resourceUtil = ResourceUtil.getInstance();

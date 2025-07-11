@@ -21,7 +21,7 @@ import javax.microedition.khronos.opengles.GL10;
  */
 public class OpenGLESImageTranslate {
     
-    protected static final OpenGLESImageTranslate instance = new OpenGLESImageTranslate();
+    private static final OpenGLESImageTranslate instance = new OpenGLESImageTranslate();
 
     /**
      * @return the instance

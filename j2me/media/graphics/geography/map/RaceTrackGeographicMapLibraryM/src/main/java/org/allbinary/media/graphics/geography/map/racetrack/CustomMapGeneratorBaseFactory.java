@@ -19,7 +19,7 @@ package org.allbinary.media.graphics.geography.map.racetrack;
  */
 public class CustomMapGeneratorBaseFactory {
     
-    protected static final CustomMapGeneratorBaseFactory instance = new CustomMapGeneratorBaseFactory();
+    private static final CustomMapGeneratorBaseFactory instance = new CustomMapGeneratorBaseFactory();
 
     /**
      * @return the instance

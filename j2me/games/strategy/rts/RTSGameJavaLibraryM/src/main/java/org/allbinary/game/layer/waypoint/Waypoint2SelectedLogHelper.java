@@ -33,7 +33,7 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
 
-    protected static final Waypoint2SelectedLogHelper instance = new Waypoint2SelectedLogHelper();
+    private static final Waypoint2SelectedLogHelper instance = new Waypoint2SelectedLogHelper();
 
     /**
      * @return the instance

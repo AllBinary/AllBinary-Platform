@@ -25,7 +25,7 @@ import org.allbinary.util.BasicArrayList;
  */
 public class RTSLayerLogHelper {
     
-    protected static final RTSLayerLogHelper instance = new RTSLayerLogHelper();
+    private static final RTSLayerLogHelper instance = new RTSLayerLogHelper();
 
     /**
      * @return the instance

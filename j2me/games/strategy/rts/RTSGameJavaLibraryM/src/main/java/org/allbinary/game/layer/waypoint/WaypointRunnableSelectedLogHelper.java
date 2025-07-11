@@ -27,7 +27,7 @@ public class WaypointRunnableSelectedLogHelper extends WaypointRunnableLogHelper
     protected final LogUtil logUtil = LogUtil.getInstance();
 
 
-    protected static final WaypointRunnableSelectedLogHelper instance = new WaypointRunnableSelectedLogHelper();
+    private static final WaypointRunnableSelectedLogHelper instance = new WaypointRunnableSelectedLogHelper();
 
     /**
      * @return the instance

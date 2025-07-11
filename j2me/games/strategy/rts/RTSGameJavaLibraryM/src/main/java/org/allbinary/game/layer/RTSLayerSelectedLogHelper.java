@@ -34,7 +34,7 @@ public class RTSLayerSelectedLogHelper extends RTSLayerLogHelper {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
 
-    protected static final RTSLayerSelectedLogHelper instance = new RTSLayerSelectedLogHelper();
+    private static final RTSLayerSelectedLogHelper instance = new RTSLayerSelectedLogHelper();
     
     /**
      * @return the instance

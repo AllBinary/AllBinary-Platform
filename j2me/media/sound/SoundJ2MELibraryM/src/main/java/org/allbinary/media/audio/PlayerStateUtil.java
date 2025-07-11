@@ -22,7 +22,7 @@ import org.allbinary.string.CommonStrings;
  */
 public class PlayerStateUtil {
     
-    protected static final PlayerStateUtil instance = new PlayerStateUtil();
+    private static final PlayerStateUtil instance = new PlayerStateUtil();
 
     /**
      * @return the instance

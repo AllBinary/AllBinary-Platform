@@ -17,7 +17,7 @@ import java.io.File;
 
 public class FilePathData {
 
-    protected static final FilePathData instance = new FilePathData();
+    private static final FilePathData instance = new FilePathData();
 
     /**
      * @return the instance

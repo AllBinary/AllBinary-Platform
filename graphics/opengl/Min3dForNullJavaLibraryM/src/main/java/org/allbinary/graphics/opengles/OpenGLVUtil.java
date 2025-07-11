@@ -21,7 +21,7 @@ import javax.microedition.khronos.opengles.GL10;
  */
 public class OpenGLVUtil extends OpenGLVUtilBase {
 
-    protected static final OpenGLVUtil instance = new OpenGLVUtil();
+    private static final OpenGLVUtil instance = new OpenGLVUtil();
     
     /**
      * @return the instance

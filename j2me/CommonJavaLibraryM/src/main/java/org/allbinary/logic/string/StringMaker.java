@@ -106,12 +106,18 @@ public class StringMaker
                 newCapacity = minSize;
 
             final char[] copy = new char[newCapacity];
-            System.arraycopy(charArray, 0, copy, 0, 
-                //mathUtil.min(charArray.length, newCapacity)
-                (charArray.length <= newCapacity) ? charArray.length : newCapacity
-                );
+
+            final int min = min(charArray.length, newCapacity);
+
+            System.arraycopy(charArray, 0, copy, 0, min);
+
             charArray = copy;
         }
+    }
+
+    //mathUtil.min(charArray.length, newCapacity)
+    public int min(int value, int value2) {
+        return (value <= value2) ? value : value2;
     }
 
     public StringMaker delete(final int start, final int end)

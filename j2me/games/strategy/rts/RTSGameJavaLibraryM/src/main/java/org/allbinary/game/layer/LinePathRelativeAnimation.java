@@ -23,7 +23,7 @@ import org.allbinary.layer.Layer;
  */
 public class LinePathRelativeAnimation extends LinePathAnimation {
     
-    protected static final LinePathRelativeAnimation instance = new LinePathRelativeAnimation();
+    private static final LinePathRelativeAnimation instance = new LinePathRelativeAnimation();
 
     /**
      * @return the instance

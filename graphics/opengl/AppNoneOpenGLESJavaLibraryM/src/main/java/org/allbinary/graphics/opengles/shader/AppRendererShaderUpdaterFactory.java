@@ -19,7 +19,7 @@ package org.allbinary.graphics.opengles.shader;
  */
 public class AppRendererShaderUpdaterFactory extends ShaderUpdater {
     
-    protected static final AppRendererShaderUpdaterFactory instance = new AppRendererShaderUpdaterFactory();
+    private static final AppRendererShaderUpdaterFactory instance = new AppRendererShaderUpdaterFactory();
 
     /**
      * @return the instance

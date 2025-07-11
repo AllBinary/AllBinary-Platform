@@ -28,7 +28,7 @@ public class LayerCoveringCellPositionsUtil {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
 
-    protected static final LayerCoveringCellPositionsUtil instance = new LayerCoveringCellPositionsUtil();
+    private static final LayerCoveringCellPositionsUtil instance = new LayerCoveringCellPositionsUtil();
 
     /**
      * @return the instance

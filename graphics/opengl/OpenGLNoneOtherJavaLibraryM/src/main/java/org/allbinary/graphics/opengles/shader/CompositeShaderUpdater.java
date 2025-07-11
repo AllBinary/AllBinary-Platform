@@ -27,7 +27,7 @@ public class CompositeShaderUpdater extends ShaderUpdater {
 
     protected final CommonSeps commonSeps = CommonSeps.getInstance();
     
-    protected static final CompositeShaderUpdater instance = new CompositeShaderUpdater(StringUtil.getInstance().getArrayInstance(), StringUtil.getInstance().getArrayInstance(), StringUtil.getInstance().getArrayInstance());
+    private static final CompositeShaderUpdater instance = new CompositeShaderUpdater(StringUtil.getInstance().getArrayInstance(), StringUtil.getInstance().getArrayInstance(), StringUtil.getInstance().getArrayInstance());
     
     /**
      * @return the instance

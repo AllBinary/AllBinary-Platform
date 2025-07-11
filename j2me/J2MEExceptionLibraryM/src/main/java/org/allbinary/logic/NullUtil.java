@@ -19,7 +19,7 @@ package org.allbinary.logic;
  */
 public class NullUtil {
     
-    protected static final NullUtil instance = new NullUtil();
+    private static final NullUtil instance = new NullUtil();
 
     /**
      * @return the instance

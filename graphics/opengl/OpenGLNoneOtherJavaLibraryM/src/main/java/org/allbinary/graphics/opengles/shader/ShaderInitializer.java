@@ -22,7 +22,7 @@ import org.allbinary.string.CommonStrings;
  */
 public class ShaderInitializer {
 
-    protected static final ShaderInitializer instance = new ShaderInitializer();
+    private static final ShaderInitializer instance = new ShaderInitializer();
     
     /**
      * @return the instance

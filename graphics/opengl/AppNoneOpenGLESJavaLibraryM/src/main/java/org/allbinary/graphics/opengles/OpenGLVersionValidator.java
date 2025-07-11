@@ -21,7 +21,7 @@ import org.allbinary.graphics.opengles.shader.ShaderComposite;
  */
 public class OpenGLVersionValidator {
 
-    protected static final OpenGLVersionValidator instance = new OpenGLVersionValidator();
+    private static final OpenGLVersionValidator instance = new OpenGLVersionValidator();
 
     /**
      * @return the instance

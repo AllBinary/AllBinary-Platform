@@ -24,7 +24,7 @@ import org.allbinary.util.BasicArrayList;
  */
 public class Waypoint2LogHelper {
     
-    protected static final Waypoint2LogHelper instance = new Waypoint2LogHelper();
+    private static final Waypoint2LogHelper instance = new Waypoint2LogHelper();
 
     /**
      * @return the instance

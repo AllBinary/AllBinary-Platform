@@ -19,7 +19,7 @@ package org.allbinary.game.configuration.persistance;
  */
 public class PersistanceStrings {
     
-    protected static final PersistanceStrings instance = new PersistanceStrings();
+    private static final PersistanceStrings instance = new PersistanceStrings();
 
     /**
      * @return the instance

@@ -19,7 +19,7 @@ package org.osgi.framework;
  */
 public class NullServiceReferenceFactory {
     
-    protected static final NullServiceReferenceFactory instance = new NullServiceReferenceFactory();
+    private static final NullServiceReferenceFactory instance = new NullServiceReferenceFactory();
 
     /**
      * @return the instance

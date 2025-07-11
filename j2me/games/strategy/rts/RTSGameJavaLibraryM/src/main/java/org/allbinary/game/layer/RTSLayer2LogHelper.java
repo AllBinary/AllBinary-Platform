@@ -19,7 +19,7 @@ package org.allbinary.game.layer;
  */
 public class RTSLayer2LogHelper {
     
-    protected static final RTSLayer2LogHelper instance = new RTSLayer2LogHelper();
+    private static final RTSLayer2LogHelper instance = new RTSLayer2LogHelper();
 
     /**
      * @return the instance

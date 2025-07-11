@@ -19,7 +19,7 @@ package org.allbinary.thread;
  */
 public class BaseImageLoadingProcessor {
     
-    protected static final BaseImageLoadingProcessor instance = new BaseImageLoadingProcessor();
+    private static final BaseImageLoadingProcessor instance = new BaseImageLoadingProcessor();
 
     /**
      * @return the instance

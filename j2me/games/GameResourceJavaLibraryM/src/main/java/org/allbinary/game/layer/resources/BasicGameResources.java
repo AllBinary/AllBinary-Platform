@@ -23,7 +23,7 @@ public class BasicGameResources
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    protected static final StringMaker stringBuffer = new StringMaker();
+    private static final StringMaker stringBuffer = new StringMaker();
     
     public String RESOURCE;
     public String RESOURCE_DESTROY;
