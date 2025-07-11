@@ -27,7 +27,7 @@ public class Log
     private final String functionName;
     private final Object exception;
 
-    private Log()
+    public Log()
     {
         final StringUtil stringUtil = StringUtil.getInstance();
         

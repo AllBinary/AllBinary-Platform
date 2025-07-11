@@ -13,6 +13,7 @@
 */
 package org.allbinary.logic.communication.log;
 
+import org.allbinary.logic.NullUtil;
 import org.allbinary.string.CommonStrings;
 
 public class PreLogUtil
@@ -51,7 +52,7 @@ public class PreLogUtil
         Object object,
         String functionName)
     {
-        put(specialMessage, object, functionName, null);
+        put(specialMessage, object, functionName, NullUtil.getInstance().NULL_OBJECT);
     }
     
     
@@ -82,7 +83,7 @@ public class PreLogUtil
         String className,
         String functionName)
     {
-        put(specialMessage, className, functionName, null);
+        put(specialMessage, className, functionName, NullUtil.getInstance().NULL_OBJECT);
     }
     
     public static void put(

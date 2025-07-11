@@ -44,7 +44,7 @@ public class RuntimeEnvironmentVariables
    {
       try
       {
-         Process process = null;
+         Process process;
          Properties environmentVariables = new Properties();
          
          GenericOperatingSystem operatingSystemInterface
@@ -216,7 +216,7 @@ public class RuntimeEnvironmentVariables
    {
       try
       {
-         Process process = null;
+         Process process;
          GenericOperatingSystem operatingSystemInterface
             = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
 
@@ -231,6 +231,7 @@ public class RuntimeEnvironmentVariables
          {
             //RuntimeEnvironmentVariablesJni runtimeEnvironmentVariablesJni = new RuntimeEnvironmentVariablesJni();
             //runtimeEnvironmentVariablesJni.setVariable(var,val);
+             throw new Exception();
          }
          else if(osName.indexOf(operatingSystems.WINDOWS)>=0)
          {
@@ -240,6 +241,7 @@ public class RuntimeEnvironmentVariables
          {
             //RuntimeEnvironmentVariablesJni runtimeEnvironmentVariablesJni = new RuntimeEnvironmentVariablesJni();
             //runtimeEnvironmentVariablesJni.setVariable(var,val);            
+             throw new Exception();
          }
          else
          {
