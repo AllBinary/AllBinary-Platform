@@ -39,7 +39,7 @@ public class BasicGeographicMapExtractedPathsCacheFactory
         {
             for (int index = maxConcurrentPaths; index >= this.maxConcurrentPaths; index--)
             {
-                this.getList().add(new BasicArrayList(maxPaths));
+                this.list.add(new BasicArrayList(maxPaths));
             }
             this.maxConcurrentPaths = maxConcurrentPaths;
         }
@@ -48,9 +48,9 @@ public class BasicGeographicMapExtractedPathsCacheFactory
 
     public BasicArrayList getPaths()
     {
-        if (this.getList().size() > 0)
+        if (this.list.size() > 0)
         {
-            return (BasicArrayList) this.getList().remove(0);
+            return (BasicArrayList) this.list.remove(0);
         }
         else
         {
@@ -70,7 +70,7 @@ public class BasicGeographicMapExtractedPathsCacheFactory
         }
         
         list.clear();
-        this.getList().add(list);
+        this.list.add(list);
 
         //logUtil.put("List: " + this.log(), this, "clear");
     }

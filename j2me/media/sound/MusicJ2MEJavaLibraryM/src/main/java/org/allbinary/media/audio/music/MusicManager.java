@@ -2,15 +2,16 @@ package org.allbinary.media.audio.music;
 
 import javax.microedition.media.Player;
 import javax.microedition.media.PlayerListener;
+
 import org.allbinary.AvianUtil;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListUtil;
-
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.media.audio.NoSound;
 import org.allbinary.media.audio.PlayerStateUtil;
 import org.allbinary.media.audio.Sound;
 import org.allbinary.time.GameTickTimeDelayHelper;
@@ -57,8 +58,8 @@ public class MusicManager {
 
     private final BasicArrayList songList;
 
-    private Sound currentSongSound;
-    private Sound nextSongSound;
+    private Sound currentSongSound = NoSound.getInstance();
+    private Sound nextSongSound = NoSound.getInstance();
 
     private boolean reset;
     private boolean noDuration;
@@ -73,7 +74,7 @@ public class MusicManager {
     {
         //PreLogUtil.put("startNewSong - Stop MusicService", this, commonStrings.PROCESS);
 
-        if (this.nextSongSound == null) {
+        if (this.nextSongSound == NoSound.getInstance()) {
             final Sound randomSongSound = (Sound) basicArrayListUtil.getRandom(this.songList);
             this.nextSong(randomSongSound, 0, 0);
         }
@@ -109,8 +110,8 @@ public class MusicManager {
                 final Sound endingCurrentSongSound = this.currentSongSound;
                 
                 final Sound nextSongSound = this.nextSongSound;
-                this.nextSongSound = null;
-                if (nextSongSound == null) {
+                this.nextSongSound = NoSound.getInstance();
+                if (nextSongSound == NoSound.getInstance()) {
                     this.currentSongSound = (Sound) BasicArrayListUtil.getInstance().getRandom(this.songList);
                 } else {
                     this.currentSongSound = nextSongSound;
@@ -132,7 +133,7 @@ public class MusicManager {
                     this.noDuration = true;
                 }
 
-                if (endingCurrentSongSound != null) {
+                if (endingCurrentSongSound != NoSound.getInstance()) {
 //                    MusicThreadPool.getInstance().runTask(new Runnable() {
 //                        public void run() {
 //                            try {
@@ -168,7 +169,7 @@ public class MusicManager {
 
 //                            } catch (Exception e) {
 //                                String resource = StringUtil.getInstance().EMPTY_STRING;
-//                                if (endingCurrentSongSound != null) {
+//                                if (endingCurrentSongSound != NoSound.getInstance()) {
 //                                    resource = endingCurrentSongSound.getResource();
 //                                }
 //
@@ -186,7 +187,7 @@ public class MusicManager {
             }
         } catch (Exception e) {
             String resource = StringUtil.getInstance().EMPTY_STRING;
-            if (currentSongSound != null) {
+            if (currentSongSound != NoSound.getInstance()) {
                 resource = currentSongSound.getResource();
             }
 
@@ -222,7 +223,7 @@ public class MusicManager {
             throws Exception {
         try {
             final Sound currentSongSound = this.currentSongSound;
-            if (currentSongSound != null) {
+            if (currentSongSound != NoSound.getInstance()) {
                 stopped = true;
 //                MusicThreadPool.getInstance().runTask(new Runnable() {
 //                    public void run() {
@@ -230,10 +231,10 @@ public class MusicManager {
                             PreLogUtil.put(new StringMaker().append(ENDING).append(currentSongSound.getResource()).toString(), this, commonStrings.PROCESS);
                             currentSongSound.getPlayer().stop();
 //                            //currentSongSound.getPlayer().close();
-//                            //MusicManager.this.currentSongSound = null;
+//                            //MusicManager.this.currentSongSound = NoSound.getInstance();
 //                        } catch (Exception e) {
 //                            String resource = StringUtil.getInstance().EMPTY_STRING;
-//                            if (currentSongSound != null) {
+//                            if (currentSongSound != NoSound.getInstance()) {
 //                                resource = currentSongSound.getResource();
 //                            }
 //
@@ -250,7 +251,7 @@ public class MusicManager {
 
         } catch (Exception e) {
             String resource = StringUtil.getInstance().EMPTY_STRING;
-            if (currentSongSound != null) {
+            if (currentSongSound != NoSound.getInstance()) {
                 resource = currentSongSound.getResource();
             }
 

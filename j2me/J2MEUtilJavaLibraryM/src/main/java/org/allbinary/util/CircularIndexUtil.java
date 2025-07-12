@@ -18,6 +18,8 @@ import org.allbinary.string.CommonLabels;
 
 public class CircularIndexUtil
 {
+    public static final CircularIndexUtil NULL_CIRCULAR_INDEX_UTIL = new CircularIndexUtil(0);
+
     private int index = 0;
     private int lastIndex = 0;
     private int size = 0;

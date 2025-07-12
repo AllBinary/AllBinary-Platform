@@ -16,8 +16,8 @@ package org.allbinary.logic.util.cache;
 import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.util.BasicArrayListUtil;
 
 /**
  *
@@ -27,6 +27,7 @@ public class KeylessBasicArrayListCache
     extends IndexedBasicArrayListCache
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
+    protected final BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();
 
     public KeylessBasicArrayListCache()
     {
@@ -49,29 +50,32 @@ public class KeylessBasicArrayListCache
                 this.add();
             }
 
-            //BasicArrayList list = (BasicArrayList) this.get(this.index++);
-            //return list;
-            return (BasicArrayList) this.get(this.index++);
+            BasicArrayList list = (BasicArrayList) this.get(this.index++);
+            return list;
 
             //return new BasicArrayList(this.maxPathSize);
         }
         catch (Exception e)
         {
             logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET, e);
-            return null;
+            return basicArrayListUtil.getImmutableInstance();
         }
     }
 
+    @Override
     public void clear()
     {
         super.clear();
 
+        BasicArrayList basicArrayList;
         for (int index = this.list.size() - 1; index >= 0; index--)
         {
-            ((BasicArrayList) this.list.objectArray[index]).clear();
+            basicArrayList = ((BasicArrayList) this.list.objectArray[index]);
+            basicArrayList.clear();
         }
     }
 
+    @Override
     public String log()
     {
         final StringMaker stringBuffer = new StringMaker();
@@ -79,12 +83,12 @@ public class KeylessBasicArrayListCache
         stringBuffer.append("S: ");
         stringBuffer.append(this.list.size());
 
+        BasicArrayList basicArrayList;
         for (int index = this.list.size() - 1; index >= 0; index--)
         {
             stringBuffer.append(" s: ");
-            stringBuffer.append(
-            ((BasicArrayList) this.list.objectArray[index]).size()
-                );
+            basicArrayList = ((BasicArrayList) this.list.objectArray[index]);
+            stringBuffer.append(basicArrayList.size());
         }
 
         return stringBuffer.toString();

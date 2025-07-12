@@ -72,17 +72,20 @@ public class IndexedBasicArrayListCache
         this.list.add(object);
     }
 
+    @Override
     public void add(CacheableInterface cacheableInterface) throws Exception
     {
         this.list.add(cacheableInterface);
     }
 
+    @Override
     public void add(CacheableInterface[] cacheableInterfaces) throws Exception
     {
         //this.list.add(this);
         throw new Exception("No Imple");
     }
 
+    @Override
     public void clear()
     {
         //logUtil.put("List: " + this.log(), this, "clear");

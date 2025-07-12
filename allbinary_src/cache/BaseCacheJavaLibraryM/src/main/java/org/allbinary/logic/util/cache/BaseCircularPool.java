@@ -13,12 +13,13 @@
 */
 package org.allbinary.logic.util.cache;
 
+import org.allbinary.logic.NullUtil;
 import org.allbinary.util.CircularIndexUtil;
 
 public class BaseCircularPool
 {
-    protected CircularIndexUtil circularIndexUtil;
-    protected Object[] OBJECT_ARRAY;
+    protected CircularIndexUtil circularIndexUtil = CircularIndexUtil.NULL_CIRCULAR_INDEX_UTIL;
+    protected Object[] OBJECT_ARRAY = NullUtil.getInstance().NULL_OBJECT_ARRAY;
 
     public synchronized Object getNextInstance() throws Exception
     {

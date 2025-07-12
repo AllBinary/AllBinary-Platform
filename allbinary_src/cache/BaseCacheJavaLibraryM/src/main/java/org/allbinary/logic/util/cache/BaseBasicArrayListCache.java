@@ -25,14 +25,6 @@ public class BaseBasicArrayListCache {
 
     protected final BasicArrayList list = new BasicArrayList();
 
-    /**
-     * @return the list
-     */
-    protected BasicArrayList getList()
-    {
-        return list;
-    }
-
     public String log()
     {
         final StringMaker stringBuffer = new StringMaker();
