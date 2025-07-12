@@ -14,6 +14,7 @@
 package org.allbinary.media;
 
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonLabels;
 
 /**
  *
