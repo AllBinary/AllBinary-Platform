@@ -17,6 +17,7 @@ import org.allbinary.logic.string.StringMaker;
 
 import org.allbinary.string.CommonSeps;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
+import org.allbinary.string.CommonLabels;
 
 public class PathFindingNodeCost extends PathFindingNode implements Comparable<PathFindingNodeCost> {
     //protected final LogUtil logUtil = LogUtil.getInstance();

@@ -14,6 +14,7 @@
 
 package org.allbinary.media.graphics.geography.pathfinding;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonLabels;
 
 
 public class PathFindingNodeCostInfo implements Comparable<PathFindingNodeCostInfo>

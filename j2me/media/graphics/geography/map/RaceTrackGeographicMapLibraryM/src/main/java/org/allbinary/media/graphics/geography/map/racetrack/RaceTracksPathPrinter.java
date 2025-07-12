@@ -17,6 +17,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.string.CommonLabels;
 
 /**
  *
