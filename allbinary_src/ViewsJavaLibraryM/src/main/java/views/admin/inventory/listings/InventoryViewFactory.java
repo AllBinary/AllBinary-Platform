@@ -14,13 +14,11 @@
 package views.admin.inventory.listings;
 
 
-
-import views.generic.inventory.InventorySearch;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.system.security.licensing.LicensingException;
 import org.allbinary.logic.control.search.SearchRequest;
+import org.allbinary.logic.system.security.licensing.LicensingException;
 import org.allbinary.string.CommonStrings;
+import views.generic.inventory.InventorySearch;
 
 public class InventoryViewFactory
 {

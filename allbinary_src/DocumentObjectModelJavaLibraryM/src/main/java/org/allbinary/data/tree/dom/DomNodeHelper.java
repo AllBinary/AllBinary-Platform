@@ -15,10 +15,10 @@ package org.allbinary.data.tree.dom;
 
 //import javax.xml.soap.Text;
 
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
-import org.allbinary.logic.string.StringUtil;
 
 public class DomNodeHelper
 {
@@ -87,7 +87,7 @@ public class DomNodeHelper
 
    public static String getTextNodesValue(Node node)
    {
-      StringBuffer stringBuffer = new StringBuffer();
+      StringMaker stringBuffer = new StringMaker();
       NodeList nodeList = node.getChildNodes();
 
       for(int index = 0; index < nodeList.getLength(); index++)

@@ -15,18 +15,13 @@ package admin.tags;
 
 import java.lang.reflect.Method;
 
-import javax.servlet.jsp.*;
-
-import org.allbinary.logic.system.security.licensing.LicensingException;
-
-import org.allbinary.business.user.address.BillingAddressData;
-
-import org.allbinary.logic.communication.log.LogUtil;
+import javax.servlet.jsp.JspTagException;
 
 import admin.taghelpers.BillingAddressHelperFactory;
-
+import org.allbinary.business.user.address.BillingAddressData;
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
-import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.system.security.licensing.LicensingException;
 
 public class BillingAddressTag extends TableTag
 {

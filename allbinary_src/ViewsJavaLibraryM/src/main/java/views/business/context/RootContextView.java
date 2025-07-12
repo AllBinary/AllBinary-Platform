@@ -15,16 +15,15 @@ package views.business.context;
 
 import java.util.Vector;
 
-import views.business.context.modules.storefront.HttpStoreComponentView;
-import views.business.context.modules.storefront.customizer.template.objectConfig.NoTemplateTransformInfoObjectConfig;
-import org.allbinary.logic.string.StringValidationUtil;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.visual.transform.TransformFactory;
 import org.allbinary.logic.visual.transform.TransformInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfo;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.template.TransformTemplateInterface;
+import views.business.context.modules.storefront.HttpStoreComponentView;
+import views.business.context.modules.storefront.customizer.template.objectConfig.NoTemplateTransformInfoObjectConfig;
 
 public class RootContextView extends HttpStoreComponentView 
    implements TransformTemplateInterface //DomNodeInterface

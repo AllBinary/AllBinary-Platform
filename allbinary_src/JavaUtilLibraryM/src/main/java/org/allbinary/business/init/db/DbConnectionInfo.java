@@ -41,6 +41,7 @@ inventory835
 package org.allbinary.business.init.db;
 
 import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 
 public class DbConnectionInfo implements DatabaseConnectionInfoInterface
@@ -68,7 +69,7 @@ public class DbConnectionInfo implements DatabaseConnectionInfoInterface
     {
         this.updateHost();
         
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.getHost());
         stringBuffer.append(this.getName());
@@ -107,7 +108,7 @@ public class DbConnectionInfo implements DatabaseConnectionInfoInterface
 
     private void updateHost()
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.getSchema());
         stringBuffer.append(this.SCHEMA_SEP);

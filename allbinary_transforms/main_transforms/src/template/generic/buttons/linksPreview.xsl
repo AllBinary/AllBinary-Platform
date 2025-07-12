@@ -18,8 +18,7 @@ Created By: Travis Berthelot
    <xsl:import href="/template/generic/javascript/imports/globals/javascriptGlobals.xsl" />
 
    <xsl:template name="smallAnchorItemPreview"
-      xmlns:jsp="http://java.sun.com/JSP/Page" 
-      xmlns:jutil="/WEB-INF/jutil.tld" >
+                 xmlns:jutil="/WEB-INF/jutil.tld" >
       <xsl:param name="name"/>
       <xsl:param name="page"/>      
 
@@ -35,10 +34,9 @@ Created By: Travis Berthelot
             
    </xsl:template>
 
-   
-   <xsl:template name="anchorPreview"
-      xmlns:jsp="http://java.sun.com/JSP/Page" 
-      xmlns:jutil="/WEB-INF/jutil.tld" >
+
+    <xsl:template name="anchorPreview"
+                  xmlns:jutil="/WEB-INF/jutil.tld">
       <xsl:param name="name"/>
       <xsl:param name="page"/>      
 

@@ -14,6 +14,7 @@
 package org.allbinary.osgi;
 
 import java.util.Hashtable;
+
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.NullServiceReferenceFactory;
 import org.osgi.framework.ServiceReference;

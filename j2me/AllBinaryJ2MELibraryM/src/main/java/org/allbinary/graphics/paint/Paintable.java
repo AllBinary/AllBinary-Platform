@@ -14,6 +14,7 @@
 package org.allbinary.graphics.paint;
 
 import javax.microedition.lcdui.Graphics;
+
 import org.allbinary.graphics.color.BasicColor;
 
 /**

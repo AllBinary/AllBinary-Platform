@@ -13,26 +13,25 @@
 */
 package views.generic.inventory;
 
-
 import java.util.HashMap;
 import java.util.Vector;
 
-import views.admin.inventory.listings.InventoryViewSearchInterface;
-import org.allbinary.logic.io.InputOutputTypeData;
-import org.allbinary.logic.io.path.AbPathData;
-import org.allbinary.string.CommonSeps;
-import org.allbinary.logic.string.StringValidationUtil;
-import org.allbinary.logic.string.regex.replace.Replace;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
 import org.allbinary.data.tables.staticpages.StaticPagesEntity;
-import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.search.SearchParams;
 import org.allbinary.logic.control.search.SearchRequest;
+import org.allbinary.logic.io.InputOutputTypeData;
+import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.logic.string.regex.replace.Replace;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
+import org.allbinary.string.CommonSeps;
+import org.allbinary.string.CommonStrings;
+import views.admin.inventory.listings.InventoryViewSearchInterface;
 
 /*
  *This class updates the static page db table and generates/updates the html
@@ -73,7 +72,7 @@ public class InventorySearch implements InventoryViewSearchInterface
             }
             else
             {
-            	StringBuffer stringBuffer = new StringBuffer();
+            	StringMaker stringBuffer = new StringMaker();
             	
             	stringBuffer.append(storeFront.getCurrentHostName());
                 stringBuffer.append(storeFront.getCurrentHostNamePath());

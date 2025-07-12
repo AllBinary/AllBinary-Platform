@@ -13,15 +13,14 @@
 */
 package org.allbinary.business.context.modules.storefront.statistics.orders.history;
 
+import java.util.HashMap;
+import java.util.Vector;
+
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.commerce.inventory.order.OrderHistoryInterface;
 import org.allbinary.business.user.commerce.money.Money;
 import org.allbinary.data.tables.user.commerce.inventory.order.OrderHistoryEntityFactory;
 import org.allbinary.data.tables.user.commerce.inventory.order.OrderHistoryEntityInterface;
-
-import java.util.HashMap;
-
-import java.util.Vector;
 
 //import org.allbinary.business.context.modules.storefront.statistics.orders.history.*;
 

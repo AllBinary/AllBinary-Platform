@@ -13,9 +13,11 @@
 */
 package org.allbinary.logic.visual.transform.info;
 
-import org.allbinary.logic.communication.http.request.session.WeblisketSessionInterface;
-import javax.servlet.jsp.PageContext;
 import java.util.HashMap;
+
+import javax.servlet.jsp.PageContext;
+
+import org.allbinary.logic.communication.http.request.session.WeblisketSessionInterface;
 
 public interface TransformInfoHttpInterface extends TransformInfoInterface
 {

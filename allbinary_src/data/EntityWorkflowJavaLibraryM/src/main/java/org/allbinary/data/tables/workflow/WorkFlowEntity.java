@@ -14,21 +14,20 @@
 package org.allbinary.data.tables.workflow;
 
 import java.util.HashMap;
-
 import java.util.Vector;
 
-import org.allbinary.business.init.db.UserDbInitInfo;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.system.security.licensing.LicensingException;
 import org.allbinary.business.DynamicObjectData;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
+import org.allbinary.business.entry.EntryData;
+import org.allbinary.business.init.db.UserDbInitInfo;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 import org.allbinary.logic.control.workflow.DbWorkFlowFactory;
-import org.allbinary.business.entry.EntryData;
 import org.allbinary.logic.control.workflow.WorkFlowData;
 import org.allbinary.logic.control.workflow.WorkFlowInterface;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.LicensingException;
 import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
 public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
@@ -175,7 +174,7 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
     {
         final WorkFlowData workFlowData = WorkFlowData.getInstance();
 
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.sqlStrings.CREATE_TABLE)
                 .append(tableName)

@@ -14,6 +14,7 @@
 package org.allbinary;
 
 import javax.microedition.lcdui.Image;
+
 import org.eclipse.swt.graphics.Resource;
 
 /**

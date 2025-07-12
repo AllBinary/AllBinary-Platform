@@ -13,7 +13,6 @@
 */
 package org.allbinary.data.tables.user.commerce.money.payment.gateway;
 
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 

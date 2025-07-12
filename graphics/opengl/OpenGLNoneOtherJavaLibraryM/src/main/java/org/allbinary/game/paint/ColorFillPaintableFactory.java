@@ -13,9 +13,9 @@
 */
 package org.allbinary.game.paint;
 
-import org.allbinary.logic.system.os.OperatingSystemFactory;
-import org.allbinary.logic.system.os.GenericOperatingSystem;
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.logic.system.os.GenericOperatingSystem;
+import org.allbinary.logic.system.os.OperatingSystemFactory;
 
 public class ColorFillPaintableFactory
 {

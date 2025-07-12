@@ -13,16 +13,14 @@
 */
 package org.allbinary.input.motion.button;
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.game.input.event.DownGameKeyEventHandler;
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.input.event.UpGameKeyEventHandler;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.Rectangle;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.math.RectangleCollisionUtil;
+import org.allbinary.util.BasicArrayList;
 
 public class TouchButtonRecognizer
 {

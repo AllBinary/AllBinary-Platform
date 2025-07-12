@@ -13,10 +13,10 @@
 */
 package org.allbinary.game.configuration;
 
-import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.game.configuration.event.GameFeatureEvent;
 import org.allbinary.game.configuration.event.GameFeatureEventHandler;
+import org.allbinary.logic.java.bool.BooleanFactory;
+import org.allbinary.logic.string.StringMaker;
 
 public class GameConfiguration
 {

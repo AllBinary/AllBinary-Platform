@@ -14,6 +14,7 @@
 package org.allbinary.business.user.commerce.money;
 
 import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.StringValidationUtil;
 
@@ -122,7 +123,7 @@ public class Money
    
    private String convertUnitsTo(String currency)
    {
-	   final StringBuffer stringBuffer = new StringBuffer();
+      final StringMaker stringBuffer = new StringMaker();
 	   
       if(currency.compareTo(DEFAULT_CURRENCY)==0)
       {

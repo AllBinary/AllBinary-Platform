@@ -13,11 +13,10 @@
 */
 package org.allbinary.game.layer.drop;
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.layer.BasicLayerProcessor;
+import org.allbinary.util.BasicArrayList;
 
 public class DropLayerProcessor extends BasicLayerProcessor
 {

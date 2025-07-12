@@ -1,9 +1,8 @@
 package org.allbinary.game.layer.drop;
 
+import org.allbinary.layer.AllBinaryLayerFactoryInterface;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListUtil;
-
-import org.allbinary.layer.AllBinaryLayerFactoryInterface;
 
 public class PlacedLayerFactory
 {

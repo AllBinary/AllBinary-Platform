@@ -22,23 +22,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.allbinary.servlet.BlisketServletUtil;
-import org.apache.commons.fileupload.FileItem;
-
-import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.io.AbFileOutputStream;
-import org.allbinary.logic.io.StreamUtil;
-import org.allbinary.logic.io.file.AbFile;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import admin.taghelpers.AuthenticationHelper;
 import admin.taghelpers.AuthenticationHelperFactory;
 import admin.taghelpers.AuthenticationHelperUtil;
+import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.logic.communication.http.file.upload.FileUploadData;
 import org.allbinary.logic.communication.http.file.upload.HttpFileUploadUtil;
-import org.allbinary.logic.communication.http.request.MultipartRequestParams;
 import org.allbinary.logic.communication.http.request.HttpRequestUtil;
+import org.allbinary.logic.communication.http.request.MultipartRequestParams;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.io.AbFileOutputStream;
+import org.allbinary.logic.io.StreamUtil;
+import org.allbinary.logic.io.file.AbFile;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.servlet.BlisketServletUtil;
 import org.allbinary.string.CommonStrings;
+import org.apache.commons.fileupload.FileItem;
 
 /**
  *
@@ -158,7 +157,7 @@ public class UploadFileServlet extends HttpServlet
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
                 {
-                    StringBuffer stringBuffer = new StringBuffer();
+                    StringMaker stringBuffer = new StringMaker();
 
                     stringBuffer.append("Uploaded File: ");
                     stringBuffer.append(this.fileName);

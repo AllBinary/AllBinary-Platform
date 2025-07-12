@@ -14,7 +14,6 @@
 package org.allbinary.game.ai;
 
 import org.allbinary.bounds.BoundsVisitorInterface;
-
 import org.allbinary.game.physics.velocity.VelocityInterface;
 import org.allbinary.game.physics.velocity.VelocityInterfaceCompositeInterface;
 import org.allbinary.layer.LayerInterface;

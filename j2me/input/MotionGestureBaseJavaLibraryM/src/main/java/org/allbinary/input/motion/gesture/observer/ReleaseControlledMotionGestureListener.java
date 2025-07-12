@@ -13,18 +13,15 @@
 */
 package org.allbinary.input.motion.gesture.observer;
 
-import org.allbinary.util.BasicArrayList;
-
-
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.ForcedLogUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.input.motion.gesture.MotionGestureInput;
 import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
+import org.allbinary.string.CommonStrings;
+import org.allbinary.util.BasicArrayList;
 
 /**
  * This MotionGestureEventListener creates a list of gestures from press 

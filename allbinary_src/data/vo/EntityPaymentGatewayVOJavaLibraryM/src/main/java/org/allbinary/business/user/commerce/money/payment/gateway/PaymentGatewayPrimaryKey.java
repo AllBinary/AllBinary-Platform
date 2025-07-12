@@ -13,8 +13,9 @@
 */
 package org.allbinary.business.user.commerce.money.payment.gateway;
 
-import org.allbinary.string.CommonSeps;
 import org.allbinary.business.context.modules.storefront.StoreFront;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonSeps;
 
 public class PaymentGatewayPrimaryKey implements java.io.Serializable
 {
@@ -49,7 +50,7 @@ public class PaymentGatewayPrimaryKey implements java.io.Serializable
    
    public String toString()
    {
-       StringBuffer stringBuffer = new StringBuffer();
+       StringMaker stringBuffer = new StringMaker();
 
        stringBuffer.append(PaymentGatewayPrimaryKey.class.getName());
        stringBuffer.append(StoreFront.class.getName());

@@ -13,8 +13,7 @@
 */
 package org.allbinary.media.image.comparison.motion;
 
-import java.awt.Dimension;
-import java.awt.Rectangle;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public interface MotionRectangleConstraintsInterface

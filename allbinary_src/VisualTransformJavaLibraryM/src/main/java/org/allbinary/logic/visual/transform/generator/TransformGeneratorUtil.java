@@ -13,9 +13,8 @@
  */
 package org.allbinary.logic.visual.transform.generator;
 
-import org.allbinary.logic.io.InputOutputTypeData;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.io.InputOutputTypeData;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.visual.transform.TransformFactory;
 import org.allbinary.logic.visual.transform.TransformInterface;

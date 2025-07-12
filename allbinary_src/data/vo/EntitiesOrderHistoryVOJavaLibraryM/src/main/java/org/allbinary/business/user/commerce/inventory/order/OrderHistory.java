@@ -15,13 +15,8 @@ package org.allbinary.business.user.commerce.inventory.order;
 
 import java.util.Date;
 import java.util.HashMap;
-
 import java.util.Set;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-import org.allbinary.logic.string.StringUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.user.UserData;
@@ -35,6 +30,9 @@ import org.allbinary.business.user.commerce.money.payment.Payment;
 import org.allbinary.business.user.commerce.money.payment.PaymentData;
 import org.allbinary.business.user.commerce.shipping.ShippingMethodData;
 import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.logic.string.StringUtil;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 public class OrderHistory extends Order
         implements OrderHistoryInterface

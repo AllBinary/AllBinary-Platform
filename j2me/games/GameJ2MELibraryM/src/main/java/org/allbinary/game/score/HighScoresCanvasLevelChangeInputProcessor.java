@@ -16,14 +16,13 @@ package org.allbinary.game.score;
 import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.game.input.event.GameKeyEventHandler;
 import org.allbinary.game.input.event.GameKeyEventUtil;
 import org.allbinary.game.score.displayable.HighScoresCanvas;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFont;
+import org.allbinary.util.BasicArrayList;
 
 public class HighScoresCanvasLevelChangeInputProcessor extends
         HighScoresCanvasInputProcessor

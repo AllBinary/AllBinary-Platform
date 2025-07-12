@@ -14,6 +14,7 @@
 package org.allbinary.media.image.comparison;
 
 
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.cache.CacheableInterface;
 
 public class ImageComparisonResultFrameCacheable
@@ -57,7 +58,7 @@ public class ImageComparisonResultFrameCacheable
     
     public String toString()
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
         stringBuffer.append(this.getClass().getName());
         stringBuffer.append(" Frame: ");
         stringBuffer.append(this.getFrame());

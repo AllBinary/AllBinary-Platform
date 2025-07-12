@@ -15,13 +15,11 @@ package org.allbinary.logic.io.file;
 
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
-
 import java.util.Vector;
 
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.AbFileOutputStream;
 import org.allbinary.logic.io.StreamUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 
 public class FileLockUtil
 {

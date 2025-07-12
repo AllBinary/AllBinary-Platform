@@ -13,47 +13,27 @@
 */
 package views.generic.shipping;
 
-import org.allbinary.logic.communication.log.LogFactory;
-
 import java.util.Vector;
 
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-import org.allbinary.logic.communication.log.LogUtil;
-
-import org.allbinary.data.tree.dom.ModDomHelper;
-
-import org.allbinary.business.user.commerce.money.tax.TaxFactory;
-
-import org.allbinary.data.tables.user.address.StreetAddressesEntityInterface;
-import org.allbinary.data.tables.user.address.shipping.ShippingAddressesEntityFactory;
-
-import org.allbinary.business.user.address.StreetAddress;
-
-import org.allbinary.business.user.commerce.inventory.basket.BasketInterface;
-
+import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
+import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.entry.EntryData;
-
-import org.allbinary.business.user.commerce.money.Money;
-
+import org.allbinary.business.user.address.StreetAddress;
+import org.allbinary.business.user.commerce.inventory.basket.BasketInterface;
 import org.allbinary.business.user.commerce.inventory.order.OrderInterface;
-
-
+import org.allbinary.business.user.commerce.money.Money;
+import org.allbinary.business.user.commerce.money.tax.TaxFactory;
+import org.allbinary.business.user.commerce.shipping.ShippingMethods;
 import org.allbinary.business.user.commerce.shipping.ShippingMethodsData;
 import org.allbinary.business.user.commerce.shipping.modules.ShippingInterface;
-
-import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
-import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
-
+import org.allbinary.data.tables.user.address.StreetAddressesEntityInterface;
+import org.allbinary.data.tables.user.address.shipping.ShippingAddressesEntityFactory;
 import org.allbinary.data.tree.dom.DomNodeInterface;
-
+import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
-
-import org.allbinary.business.user.commerce.shipping.ShippingMethods;
-
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 import views.business.context.modules.storefront.HttpStoreComponentView;
 
 public class ShippingMethodsView extends HttpStoreComponentView implements DomNodeInterface

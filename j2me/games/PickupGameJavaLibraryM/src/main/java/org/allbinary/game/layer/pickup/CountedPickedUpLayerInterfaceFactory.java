@@ -15,11 +15,10 @@ package org.allbinary.game.layer.pickup;
 
 import java.util.Hashtable;
 
-import org.allbinary.util.BasicArrayList;
-
-import org.allbinary.string.CommonStrings;
 import org.allbinary.animation.Animation;
 import org.allbinary.layer.AllBinaryLayer;
+import org.allbinary.string.CommonStrings;
+import org.allbinary.util.BasicArrayList;
 
 public class CountedPickedUpLayerInterfaceFactory 
     extends PickedUpLayerInterfaceFactory 

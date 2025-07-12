@@ -13,30 +13,28 @@
 */
 package org.allbinary.business.user.commerce.money.tax;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
-import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.data.tree.dom.DomNodeHelper;
-import org.allbinary.data.tree.dom.DomSearchHelper;
-import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.io.path.AbPath;
-import org.allbinary.logic.io.path.AbPathData;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.system.loader.AbeFactory;
-
 import org.allbinary.business.DynamicObjectData;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.commerce.money.tax.components.TaxData;
 import org.allbinary.business.user.commerce.money.tax.modules.SimpleStateTaxModule;
 import org.allbinary.business.user.commerce.money.tax.modules.TaxModuleInterface;
+import org.allbinary.data.tree.dom.DomNodeHelper;
+import org.allbinary.data.tree.dom.DomSearchHelper;
+import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
+import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.crypt.file.CryptFileReader;
+import org.allbinary.logic.io.path.AbPath;
+import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.system.loader.AbeFactory;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigData;
 import org.allbinary.string.CommonStrings;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 public class TaxFactory
 {
@@ -60,7 +58,7 @@ public class TaxFactory
    //streetAddress, storeFrontInterface
    public TaxModuleInterface getInstance(final AbeClientInformationInterface abeClientInformation, final StoreFrontInterface storeFrontInterface) throws Exception
    {
-	   final StringBuffer stringBuffer = new StringBuffer();
+	   final StringMaker stringBuffer = new StringMaker();
 	   
 	   stringBuffer.append(URLGLOBALS.getMainPath());
 	   stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);

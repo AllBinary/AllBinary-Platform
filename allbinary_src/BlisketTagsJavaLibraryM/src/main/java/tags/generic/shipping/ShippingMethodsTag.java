@@ -13,12 +13,11 @@
 */
 package tags.generic.shipping;
 
-import org.allbinary.logic.system.security.licensing.LicensingException;
-
-import tags.StoreValidationTransformTag;
+import javax.servlet.jsp.JspTagException;
 
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
-import javax.servlet.jsp.JspTagException;
+import org.allbinary.logic.system.security.licensing.LicensingException;
+import tags.StoreValidationTransformTag;
 
 public class ShippingMethodsTag extends StoreValidationTransformTag
 {

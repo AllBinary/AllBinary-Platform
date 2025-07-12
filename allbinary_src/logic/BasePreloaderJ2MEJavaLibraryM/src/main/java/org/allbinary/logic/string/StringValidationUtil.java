@@ -13,8 +13,6 @@
 */
 package org.allbinary.logic.string;
 
-import org.allbinary.logic.string.StringUtil;
-
 public class StringValidationUtil
 {
     private static final StringValidationUtil instance = new StringValidationUtil();

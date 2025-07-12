@@ -13,12 +13,6 @@
 */
 package org.allbinary.input.motion;
 
-import org.allbinary.util.BasicArrayList;
-
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
 import org.allbinary.input.motion.gesture.configuration.MotionGestureConfiguration;
 import org.allbinary.input.motion.gesture.configuration.MotionGestureConfigurationFactory;
@@ -31,6 +25,10 @@ import org.allbinary.input.motion.touch.action.LeftTouchInputToGameKeyEventActio
 import org.allbinary.input.motion.touch.action.ReleaseTouchInputToGameKeyEventAction;
 import org.allbinary.input.motion.touch.action.RightTouchInputToGameKeyEventAction;
 import org.allbinary.input.motion.touch.action.UpTouchInputToGameKeyEventAction;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.string.CommonStrings;
+import org.allbinary.util.BasicArrayList;
 
 public class CompleteMotionGestureInputToGameMotionGestureInput
 {

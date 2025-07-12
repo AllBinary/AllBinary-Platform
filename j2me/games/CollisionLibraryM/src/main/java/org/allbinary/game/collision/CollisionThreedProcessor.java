@@ -1,8 +1,6 @@
 package org.allbinary.game.collision;
 
 import org.allbinary.layer.AllBinaryLayer;
-import org.allbinary.logic.communication.log.PreLogUtil;
-import org.allbinary.logic.string.StringMaker;
 
 public class CollisionThreedProcessor
 extends CollisionProcessor

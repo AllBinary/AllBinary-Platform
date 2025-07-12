@@ -13,12 +13,11 @@
 */
 package org.allbinary.graphics.form;
 
-import org.allbinary.graphics.form.item.CustomItem;
-
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.TouchFeatureFactory;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.form.item.CustomItem;
 
 public class CommandCurrentSelectionFormFactory
 {

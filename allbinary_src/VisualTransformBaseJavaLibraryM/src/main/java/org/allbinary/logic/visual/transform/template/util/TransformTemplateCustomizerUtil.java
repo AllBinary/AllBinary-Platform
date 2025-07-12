@@ -13,18 +13,17 @@
 */
 package org.allbinary.logic.visual.transform.template.util;
 
-import org.allbinary.string.CommonSeps;
 import java.util.HashMap;
 
+import org.allbinary.globals.GLOBALS2;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.regex.replace.Replace;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.globals.GLOBALS2;
-import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.visual.transform.info.CustomizerTransformInfoData;
 import org.allbinary.logic.visual.transform.template.customizer.bodies.BodyData;
 import org.allbinary.logic.visual.transform.template.customizer.widgets.title.TitleData;
+import org.allbinary.string.CommonSeps;
+import org.allbinary.string.CommonStrings;
 
 public class TransformTemplateCustomizerUtil
 {

@@ -14,16 +14,15 @@
 package org.allbinary.logic.system.security.licensing.client;
 
 
-import org.allbinary.util.BasicArrayList;
 import org.allbinary.business.init.LicenseInitInfo;
 import org.allbinary.business.init.LicenseInitInfoUtil;
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.string.StringValidationUtil;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.xmlrpc.XmlRpcAbeClient;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.AbeLicenseInterface;
+import org.allbinary.string.CommonStrings;
+import org.allbinary.util.BasicArrayList;
 
 public class AbeLicenseClient
 {

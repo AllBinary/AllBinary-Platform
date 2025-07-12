@@ -13,14 +13,13 @@
 */
 package org.allbinary.game.layer.weapon.mine;
 
-import org.allbinary.physics.movement.NoMovementFactory;
-
 import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
 import org.allbinary.game.layer.weapon.SimpleWeaponLayer;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.media.audio.SecondaryPlayerQueueFactory;
+import org.allbinary.physics.movement.NoMovementFactory;
 import org.allbinary.view.ViewPosition;
 import org.allbinary.view.event.ViewPositionEventHandler;
 import org.allbinary.weapon.media.audio.DropWeaponSound;

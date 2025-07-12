@@ -14,20 +14,18 @@
 package org.allbinary.data.tables.advertisement.areas;
 
 import java.util.HashMap;
-
 import java.util.Vector;
 
-import org.allbinary.business.init.db.UserDbInitInfo;
-import org.allbinary.business.installer.Portion;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.advertisement.area.AdvertisementArea;
 import org.allbinary.business.advertisement.area.AdvertisementAreaData;
 import org.allbinary.business.advertisement.area.AdvertisementAreaInterface;
 import org.allbinary.business.advertisement.campaign.AdvertisementCampaignData;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.entry.EntryData;
+import org.allbinary.business.init.db.UserDbInitInfo;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlBean;
+import org.allbinary.logic.string.StringMaker;
 
 public class AdvertisementAreasEntity extends AbSqlBean implements AdvertisementAreasEntityInterface
 {
@@ -125,7 +123,7 @@ public class AdvertisementAreasEntity extends AbSqlBean implements Advertisement
         AdvertisementAreaData advertisementAreaData
                 = AdvertisementAreaData.getInstance();
 
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.sqlStrings.CREATE_TABLE);
 

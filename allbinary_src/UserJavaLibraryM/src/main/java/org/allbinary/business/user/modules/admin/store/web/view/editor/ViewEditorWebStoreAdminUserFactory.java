@@ -13,10 +13,10 @@
 */
 package org.allbinary.business.user.modules.admin.store.web.view.editor;
 
+import java.util.HashMap;
+
 import org.allbinary.business.user.UserFactoryInterface;
 import org.allbinary.business.user.UserInterface;
-
-import java.util.HashMap;
 
 public class ViewEditorWebStoreAdminUserFactory implements UserFactoryInterface
 {

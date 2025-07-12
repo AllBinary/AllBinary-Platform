@@ -13,18 +13,17 @@
 */
 package org.allbinary.input.automation.robot.osgi;
 
-import bundle.input.automation.robot.InputAutomationRobotChangeListener;
-import bundle.input.automation.robot.InputAutomationRobotServiceInterface;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceFactory;
-
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.input.automation.robot.InputRobotInterface;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.string.CommonStrings;
-import org.allbinary.osgi.OSGIActivatorUtil;
 import org.osgi.framework.ServiceReference;
+
+import bundle.input.automation.robot.InputAutomationRobotChangeListener;
+import bundle.input.automation.robot.InputAutomationRobotServiceInterface;
+import org.allbinary.input.automation.robot.InputRobotInterface;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.osgi.OSGIActivatorUtil;
+import org.allbinary.string.CommonStrings;
 
 public class InputAutomationRobotBundleActivator
     implements BundleActivator

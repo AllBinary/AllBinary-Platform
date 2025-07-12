@@ -15,21 +15,20 @@ package org.allbinary.logic.visual.transform.template.customizer.bodies;
 
 import java.util.HashMap;
 
+import org.allbinary.data.tree.dom.DomData;
+import org.allbinary.data.tree.dom.DomNodeHelper;
+import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.data.tree.dom.DomSearchHelper;
+import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.sql.AbSqlData;
+import org.allbinary.logic.control.validate.Validation;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
-import org.allbinary.data.tree.dom.DomNodeHelper;
-import org.allbinary.data.tree.dom.DomSearchHelper;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.data.tree.dom.DomData;
-import org.allbinary.data.tree.dom.DomNodeInterface;
-import org.allbinary.data.tree.dom.ModDomHelper;
-import org.allbinary.logic.string.StringValidationUtil;
-import org.allbinary.logic.communication.sql.AbSqlData;
-import org.allbinary.logic.control.validate.Validation;
-import org.allbinary.logic.string.StringUtil;
 
 public class GenericBodyValidation extends Validation implements DomNodeInterface
 {
@@ -108,7 +107,7 @@ public class GenericBodyValidation extends Validation implements DomNodeInterfac
       {
          //Boolean isValid = Boolean.TRUE;
          
-         StringBuffer stringBuffer = new StringBuffer();
+         StringMaker stringBuffer = new StringMaker();
          
          //if(!isValid.booleanValue())
          {

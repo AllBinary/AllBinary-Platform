@@ -13,8 +13,8 @@
 */
 package org.allbinary.logic.io.file.visitor;
 
-import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.util.visitor.VisitorInterface;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;

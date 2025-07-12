@@ -17,11 +17,11 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import org.allbinary.business.init.db.UserDbInitInfo;
-
 import org.allbinary.logic.communication.log.PreLogUtil;
-import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
+import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.logic.string.StringMaker;
 
 public class InitInfoEntity extends InitSql
 //extends AbSqlBean
@@ -48,7 +48,7 @@ public class InitInfoEntity extends InitSql
     {
         super(new UserDbInitInfo());
 
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.sqlStrings.CREATE_TABLE);
         stringBuffer.append(tableName);
@@ -159,7 +159,7 @@ public class InitInfoEntity extends InitSql
             return tableName + CREATED_SUCCESS;
         } else
         {
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append(FAILED_TO_CREATE);
             stringBuffer.append(tableData);

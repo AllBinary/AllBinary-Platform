@@ -15,8 +15,8 @@ package org.allbinary.game.input;
 
 import java.awt.event.KeyEvent;
 
-import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonPhoneStrings;
+import org.allbinary.string.CommonSeps;
 
 public class PCKeyFactory
 {

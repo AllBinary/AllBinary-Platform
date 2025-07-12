@@ -15,8 +15,6 @@ package org.allbinary.media.audio;
 
 //Use 8hz16bitmono for most J2ME
 
-import org.allbinary.media.audio.Sound;
-
 public class GameYouWinSound extends CompositeSound
 {
     private static Sound soundInterface = new GameYouWinSound();

@@ -17,20 +17,19 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import javax.servlet.jsp.PageContext;
-import org.allbinary.business.context.modules.storefront.StoreFront;
 
-import org.allbinary.business.installer.Portion;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.business.context.modules.storefront.StoreFront;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
+import org.allbinary.business.installer.Portion;
 import org.allbinary.business.user.UserInterface;
 import org.allbinary.business.user.quoterequest.QuoteRequest;
 import org.allbinary.data.tables.user.UserEntityFactory;
 import org.allbinary.data.tables.user.quoterequest.QuoteRequestEntity;
 import org.allbinary.data.tables.user.quoterequest.QuoteRequestEntityFactory;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.smtp.event.UserEmailEventNameData;
 import org.allbinary.logic.communication.smtp.event.handler.UserEmailEventHandler;
 import org.allbinary.logic.communication.smtp.event.handler.factory.AdminUserEmailEventHandlerSingletons;
@@ -40,6 +39,7 @@ import org.allbinary.logic.communication.smtp.info.BasicEmailInfo;
 import org.allbinary.logic.communication.smtp.info.EmailInfo;
 import org.allbinary.logic.communication.smtp.info.StoreEmailInfo;
 import org.allbinary.logic.communication.sql.AbSqlTableUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
@@ -83,7 +83,7 @@ public class QuoteHelper extends BasicTable
 
       String userEmailSubject = "Quote Request Receipt";
       
-      StringBuffer stringBuffer = new StringBuffer();
+      StringMaker stringBuffer = new StringMaker();
       
       stringBuffer.append("This is just a verification email. ");
       stringBuffer.append("We usually respond to quote request within 24 hours.");
@@ -108,7 +108,7 @@ public class QuoteHelper extends BasicTable
    {
       String adminEmailSubject = "Quote Request";
       
-      StringBuffer stringBuffer = new StringBuffer();
+      StringMaker stringBuffer = new StringMaker();
       
       stringBuffer.append("\nUserName: ");
       stringBuffer.append(quoteRequest.getUserName());

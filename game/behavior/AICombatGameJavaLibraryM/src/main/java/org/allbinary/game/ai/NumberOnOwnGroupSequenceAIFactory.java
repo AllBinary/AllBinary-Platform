@@ -15,15 +15,13 @@ package org.allbinary.game.ai;
 
 import java.util.Hashtable;
 
-import org.allbinary.util.BasicArrayList;
-
-import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.ai.ArtificialIntelligenceInterface;
 import org.allbinary.game.input.GameInput;
 import org.allbinary.layer.AllBinaryLayer;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.util.BasicArrayList;
 
 public class NumberOnOwnGroupSequenceAIFactory
 {

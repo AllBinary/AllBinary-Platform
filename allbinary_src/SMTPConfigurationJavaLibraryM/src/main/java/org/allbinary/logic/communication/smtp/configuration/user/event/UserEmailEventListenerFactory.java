@@ -13,9 +13,9 @@
 */
 package org.allbinary.logic.communication.smtp.configuration.user.event;
 
-import org.allbinary.logic.system.loader.AbeFactory;
 import org.allbinary.business.user.UserInterface;
 import org.allbinary.logic.communication.smtp.event.UserEmailEventListenerInterface;
+import org.allbinary.logic.system.loader.AbeFactory;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class UserEmailEventListenerFactory

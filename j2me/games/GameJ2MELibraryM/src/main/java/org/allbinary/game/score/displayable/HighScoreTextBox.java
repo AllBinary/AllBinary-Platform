@@ -14,14 +14,11 @@
 package org.allbinary.game.score.displayable;
 
 import javax.microedition.lcdui.CommandListener;
-import javax.microedition.lcdui.TextField;
 import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.TextField;
 
 import org.allbinary.PostGameCommandFactory;
 import org.allbinary.game.GameInfo;
-import org.allbinary.logic.system.os.OperatingSystemFactory;
-import org.allbinary.logic.system.os.GenericOperatingSystem;
-import org.allbinary.logic.system.security.licensing.InApplicationPurchaseFactory;
 import org.allbinary.game.score.HighScore;
 import org.allbinary.game.score.HighScoresFactoryInterface;
 import org.allbinary.game.score.HighScoresHelperBase;
@@ -32,9 +29,11 @@ import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.graphics.paint.SimpleTextPaintable;
 import org.allbinary.input.event.VirtualKeyboardEventHandler;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.system.os.GenericOperatingSystem;
+import org.allbinary.logic.system.os.OperatingSystemFactory;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.InApplicationPurchaseFactory;
 
 public class HighScoreTextBox extends CustomTextBox
 // BasicTextBox

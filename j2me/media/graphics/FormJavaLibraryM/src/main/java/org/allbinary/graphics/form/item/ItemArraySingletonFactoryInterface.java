@@ -13,8 +13,6 @@
 */
 package org.allbinary.graphics.form.item;
 
-import org.allbinary.graphics.form.item.CustomItem;
-
 public interface ItemArraySingletonFactoryInterface
 {
     CustomItem[] getItems() throws Exception;

@@ -17,14 +17,13 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 import org.allbinary.business.init.LicenseInitInfoUtil;
+import org.allbinary.data.resource.ResourceUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.FileStreamFactory;
 import org.allbinary.logic.io.StreamUtil;
 import org.allbinary.logic.io.file.FileFactory;
-import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.data.resource.ResourceUtil;
+import org.allbinary.string.CommonStrings;
 
 public class LicenseServerInitFileUtil
 {

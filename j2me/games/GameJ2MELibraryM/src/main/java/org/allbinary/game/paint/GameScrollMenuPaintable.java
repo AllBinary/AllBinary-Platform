@@ -13,14 +13,13 @@
 */
 package org.allbinary.game.paint;
 
-import org.allbinary.graphics.form.item.StringComponent;
-import org.allbinary.graphics.form.item.TextItem;
-
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.ColorChangeEventHandler;
 import org.allbinary.graphics.color.ColorChangeListener;
 import org.allbinary.graphics.form.FormPaintable;
 import org.allbinary.graphics.form.ScrollSelectionForm;
+import org.allbinary.graphics.form.item.StringComponent;
+import org.allbinary.graphics.form.item.TextItem;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 

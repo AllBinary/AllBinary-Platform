@@ -14,6 +14,7 @@
 package org.allbinary.logic.math.permutations;
 
 import java.util.Arrays;
+
 import org.allbinary.logic.util.visitor.Visitor;
 
 public class OrderedObjectArrayPermutationUtil {

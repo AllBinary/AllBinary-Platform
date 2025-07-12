@@ -14,9 +14,10 @@
 package org.allbinary.media.image;
 
 import java.awt.image.BufferedImage;
-import javax.microedition.lcdui.Image;
-import org.allbinary.logic.communication.log.PreLogUtil;
 
+import javax.microedition.lcdui.Image;
+
+import org.allbinary.logic.communication.log.PreLogUtil;
 import org.microemu.device.j2se.J2SEImmutableImage;
 import org.microemu.device.j2se.J2SEMutableImage;
 

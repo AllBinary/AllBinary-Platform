@@ -14,7 +14,6 @@
 package org.allbinary.ai;
 
 import org.allbinary.game.layer.CollidableCompositeLayer;
-
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.layer.LayerProcessor;

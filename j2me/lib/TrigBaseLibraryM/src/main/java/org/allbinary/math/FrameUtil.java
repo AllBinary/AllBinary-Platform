@@ -13,8 +13,6 @@
 */
 package org.allbinary.math;
 
-import org.allbinary.logic.communication.log.PreLogUtil;
-
 public class FrameUtil
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();

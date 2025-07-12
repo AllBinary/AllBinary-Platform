@@ -16,22 +16,19 @@ package org.allbinary.game.score.displayable;
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
 
-
 import org.allbinary.game.GameInfo;
 import org.allbinary.game.score.HighScore;
 import org.allbinary.game.score.HighScoreNamePersistanceSingleton;
 import org.allbinary.game.score.HighScores;
-import org.allbinary.game.score.HighScoresResultsListener;
-import org.allbinary.graphics.displayable.MyCanvas;
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
-
 import org.allbinary.game.score.HighScoresFactoryInterface;
 import org.allbinary.game.score.HighScoresHelperBase;
+import org.allbinary.game.score.HighScoresResultsListener;
+import org.allbinary.graphics.displayable.MyCanvas;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.string.CommonStrings;
 
 public class HighScoreUtil implements HighScoresResultsListener
 {

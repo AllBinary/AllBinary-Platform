@@ -14,7 +14,9 @@
 package org.allbinary.input.automation.actions.script.condition.processors.input;
 
 import java.awt.event.KeyEvent;
-import javax.swing.DefaultComboBoxModel;
+
+import javax.swing.*;
+
 import org.allbinary.input.KeySingletonFactory;
 
 public class KeyNameDefaultComboBoxModelFactory

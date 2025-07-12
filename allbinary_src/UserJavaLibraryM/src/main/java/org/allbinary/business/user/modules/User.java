@@ -13,10 +13,14 @@
 */
 package org.allbinary.business.user.modules;
 
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Vector;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
+import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.user.UserData;
 import org.allbinary.business.user.UserInterface;
 import org.allbinary.business.user.modules.configuration.UserConfigurationDomDocumentMapping;
@@ -30,16 +34,13 @@ import org.allbinary.business.user.username.UserName;
 import org.allbinary.logic.communication.http.request.RequestParams;
 import org.allbinary.logic.communication.http.request.session.WeblisketSessionData;
 import org.allbinary.logic.communication.http.request.session.WeblisketSessionInterface;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Vector;
-import org.allbinary.business.entry.EntryData;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.string.CommonStrings;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 public class User implements UserInterface
 {
@@ -211,7 +212,7 @@ public class User implements UserInterface
       {
          final StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
           
-         final StringBuffer stringBuffer = new StringBuffer();
+         final StringMaker stringBuffer = new StringMaker();
          
          stringBuffer.append(UserName.getValidationInfo(this.userName));
          

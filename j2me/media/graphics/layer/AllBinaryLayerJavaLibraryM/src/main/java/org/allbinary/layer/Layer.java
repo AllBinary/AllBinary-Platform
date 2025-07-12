@@ -14,14 +14,12 @@
 package org.allbinary.layer;
 
 import javax.microedition.lcdui.Graphics;
-import org.allbinary.graphics.displayable.CanvasStrings;
 
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
-import org.allbinary.math.PositionStrings;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonStrings;
 
 public class Layer
 {

@@ -13,10 +13,10 @@
 */
 package org.allbinary.logic.visual.dhtml.html.table;
 
-import org.allbinary.logic.visual.dhtml.html.HtmlTag;
-
 import java.util.Vector;
+
 import org.allbinary.logic.string.StringUtil;
+import org.allbinary.logic.visual.dhtml.html.HtmlTag;
 
 public class HtmlTable extends HtmlTag
 {   

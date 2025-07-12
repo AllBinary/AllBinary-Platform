@@ -13,8 +13,6 @@
  */
 package org.allbinary.logic.system.security.licensing;
 
-import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
-
 public class ServiceClientInformationInterfaceFactory {
 
     private static final TestClientInformation instance = new TestClientInformation();

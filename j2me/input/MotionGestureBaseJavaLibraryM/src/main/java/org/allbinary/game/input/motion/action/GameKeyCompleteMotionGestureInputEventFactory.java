@@ -13,12 +13,10 @@
 */
 package org.allbinary.game.input.motion.action;
 
-import org.allbinary.string.CommonLabels;
-import org.allbinary.logic.string.StringMaker;
-import org.allbinary.util.BasicArrayList;
-
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonLabels;
+import org.allbinary.util.BasicArrayList;
 
 public class GameKeyCompleteMotionGestureInputEventFactory
 {

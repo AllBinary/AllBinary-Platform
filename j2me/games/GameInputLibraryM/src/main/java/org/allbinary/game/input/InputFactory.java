@@ -13,11 +13,10 @@
 */
 package org.allbinary.game.input;
 
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
-import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonStrings;
 
 public class InputFactory
 {

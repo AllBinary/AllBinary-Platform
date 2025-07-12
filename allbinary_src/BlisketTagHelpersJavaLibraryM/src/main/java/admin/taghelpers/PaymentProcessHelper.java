@@ -19,7 +19,6 @@ import javax.servlet.jsp.PageContext;
 
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpFactory;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
-
 import views.admin.payment.PaymentProcessorComponent;
 
 public class PaymentProcessHelper

@@ -14,19 +14,13 @@
 package org.allbinary.input.automation.actions.script.condition;
 
 
+import java.awt.event.ActionEvent;
 import java.util.Vector;
 
-import java.awt.event.ActionEvent;
-
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
+import javax.swing.*;
 import javax.swing.tree.TreePath;
+
 import org.allbinary.input.automation.actions.script.JTreeInterfaceFactory;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
 import org.allbinary.input.automation.actions.script.ProfileActionScriptItem;
 import org.allbinary.input.automation.actions.script.ProfileActionScriptNodeInterface;
 import org.allbinary.input.automation.actions.script.condition.processors.ProfileActionScriptProcessorInterface;
@@ -37,9 +31,11 @@ import org.allbinary.input.automation.actions.script.condition.processors.input.
 import org.allbinary.input.automation.module.actions.script.condition.processors.output.GenericProfileActionScriptOutputData;
 import org.allbinary.input.automation.module.actions.script.condition.processors.output.ImageActionScriptOutput;
 import org.allbinary.input.automation.module.actions.script.condition.processors.output.ProfileActionScriptOutputFactory;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 public class BasicProfileActionScriptCondition
     extends ProfileActionScriptItem

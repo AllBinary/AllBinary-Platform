@@ -13,16 +13,11 @@
 */
 package tags.workflow.processing.basic;
 
-import javax.servlet.jsp.*;
-
-import org.allbinary.logic.communication.log.LogUtil;
-
-
-import org.allbinary.logic.communication.http.request.AbResponseHandler;
-import org.allbinary.logic.communication.log.LogFactory;
+import javax.servlet.jsp.JspTagException;
 
 import org.allbinary.business.DynamicObjectData;
-
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
+import org.allbinary.logic.communication.log.LogUtil;
 import tags.StoreWorkFlowTag;
 
 //Future implementation use the workflow url to specify the correct customizer view

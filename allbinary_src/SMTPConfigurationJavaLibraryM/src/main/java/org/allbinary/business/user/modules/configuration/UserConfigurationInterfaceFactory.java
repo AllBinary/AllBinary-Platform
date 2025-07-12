@@ -13,15 +13,14 @@
 */
 package org.allbinary.business.user.modules.configuration;
 
-import org.allbinary.business.user.modules.configuration.UserConfigurationData;
-import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.business.user.role.UserRole;
 import org.allbinary.data.tree.dom.DomSearchHelper;
+import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
 import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.control.crypt.file.CryptFileReader;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.io.path.AbPathData;
-import org.allbinary.business.user.role.UserRole;
-import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
-import org.allbinary.logic.control.crypt.file.CryptFileReader;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 

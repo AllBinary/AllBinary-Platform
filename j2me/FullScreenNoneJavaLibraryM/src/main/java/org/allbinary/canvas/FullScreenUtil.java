@@ -14,10 +14,10 @@
 package org.allbinary.canvas;
 
 import javax.microedition.lcdui.Canvas;
+import javax.microedition.lcdui.CommandListener;
+
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.MainFeatureFactory;
-
-import javax.microedition.lcdui.CommandListener;
 
 public class FullScreenUtil
 {

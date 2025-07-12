@@ -14,19 +14,12 @@
 package views.admin.payment;
 
 
-
-
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.data.tree.dom.DomNodeInterface;
-
-import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
-import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
-import org.allbinary.logic.communication.log.LogUtil;
-
 import org.allbinary.business.user.commerce.money.payment.gateway.processor.PaymentProcessorInterface;
 import org.allbinary.business.user.commerce.money.payment.gateway.processor.PaymentProcessorInterfaceFactory;
-
+import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import views.business.context.modules.storefront.HttpStoreComponentView;
 
 public class PaymentProcessorComponent 

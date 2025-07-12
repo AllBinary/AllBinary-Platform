@@ -15,17 +15,13 @@ package tags.generic.inventory;
 
 import java.lang.reflect.Method;
 
-import org.allbinary.logic.communication.log.LogUtil;
-
-import org.allbinary.logic.system.security.licensing.LicensingException;
-
-import taghelpers.InventoryHelperFactory;
-
-import tags.StoreValidationTransformTag;
+import javax.servlet.jsp.JspTagException;
 
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
-import org.allbinary.logic.communication.log.LogFactory;
-import javax.servlet.jsp.JspTagException;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.system.security.licensing.LicensingException;
+import taghelpers.InventoryHelperFactory;
+import tags.StoreValidationTransformTag;
 
 public class InventoryTag extends StoreValidationTransformTag
 {

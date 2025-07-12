@@ -17,7 +17,6 @@ package org.allbinary.input.automation.module.generic;
 import java.util.Vector;
 
 import org.allbinary.input.automation.actions.script.condition.ProfileActionScriptConditionInterface;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 

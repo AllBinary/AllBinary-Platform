@@ -15,17 +15,13 @@ package views.compound.objectConfig;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-
 import java.util.Vector;
 
-import org.w3c.dom.Document;
-
-import org.allbinary.string.CommonSeps;
+import org.allbinary.data.tree.dom.document.DocumentToNode;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.regex.replace.Replace;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.data.tree.dom.document.DocumentToNode;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.visual.transform.TransformFactory;
 import org.allbinary.logic.visual.transform.TransformInterface;
@@ -35,6 +31,8 @@ import org.allbinary.logic.visual.transform.info.TransformInfoDomNode;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.info.objectConfig.GenericStoreTransformInfoObjectConfig;
+import org.allbinary.string.CommonSeps;
+import org.w3c.dom.Document;
 
 public class CompoundContextTransformInfoObjectConfig
     extends GenericStoreTransformInfoObjectConfig
@@ -83,7 +81,7 @@ public class CompoundContextTransformInfoObjectConfig
             httpTransformInfoInterface.getPropertiesHashMap().get(
                TransformInfoData.getInstance().PARTIAL));
 
-      StringBuffer stringBuffer = new StringBuffer();
+      StringMaker stringBuffer = new StringMaker();
       
       stringBuffer.append(storeName);
       stringBuffer.append(templateNameOverride);

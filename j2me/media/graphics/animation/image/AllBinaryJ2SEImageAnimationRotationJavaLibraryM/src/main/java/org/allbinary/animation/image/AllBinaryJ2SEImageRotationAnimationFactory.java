@@ -19,9 +19,9 @@ import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.game.configuration.GameConfigurationCentral;
 import org.allbinary.graphics.opengles.OpenGLUtil;
-import org.allbinary.media.image.ImageCopyUtil;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
+import org.allbinary.media.image.ImageCopyUtil;
 
 public class AllBinaryJ2SEImageRotationAnimationFactory 
     extends BaseImageAnimationFactory

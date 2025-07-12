@@ -13,21 +13,16 @@
 */
 package admin.taghelpers;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import java.util.*;
-
-import javax.servlet.jsp.PageContext;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
-
-import org.allbinary.logic.communication.log.LogUtil;
+import javax.servlet.jsp.PageContext;
 
 import org.allbinary.business.user.commerce.inventory.order.OrderData;
 import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
-
 import org.allbinary.business.user.commerce.shipping.ShippingMethodData;
-
 import org.allbinary.data.tables.user.commerce.inventory.order.OrderItemsEntityFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class OrderItemsRequestHelper
     extends TagHelper

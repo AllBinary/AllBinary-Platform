@@ -14,7 +14,6 @@
 package org.allbinary.game.score;
 
 import org.allbinary.game.GameInfo;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
 public class NoHighScoresFactory extends HighScoresBase

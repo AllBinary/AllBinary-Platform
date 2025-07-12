@@ -15,9 +15,8 @@ package org.allbinary.game.ai;
 
 import java.util.Hashtable;
 
-import org.allbinary.bounds.TopULayerBounds;
-
 import org.allbinary.ai.ArtificialIntelligenceInterface;
+import org.allbinary.bounds.TopULayerBounds;
 import org.allbinary.game.input.GameInput;
 import org.allbinary.game.physics.velocity.VelocityInterface;
 import org.allbinary.game.physics.velocity.VelocityInterfaceCompositeInterface;

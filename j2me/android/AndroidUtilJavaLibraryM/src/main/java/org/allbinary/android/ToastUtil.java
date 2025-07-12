@@ -1,11 +1,10 @@
 package org.allbinary.android;
 
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import android.content.Context;
 import android.view.View;
 import android.widget.Toast;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
 
 public class ToastUtil {
     protected final LogUtil logUtil = LogUtil.getInstance();

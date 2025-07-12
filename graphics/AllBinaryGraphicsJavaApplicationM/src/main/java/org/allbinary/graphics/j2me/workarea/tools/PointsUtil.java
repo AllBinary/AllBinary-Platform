@@ -15,7 +15,6 @@ package org.allbinary.graphics.j2me.workarea.tools;
 
 import org.allbinary.animation.VectorRotationGenerator;
 import org.allbinary.graphics.GPoint;
-import org.allbinary.math.Angle;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.util.BasicArrayList;
 

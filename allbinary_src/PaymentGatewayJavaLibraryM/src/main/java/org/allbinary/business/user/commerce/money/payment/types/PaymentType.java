@@ -13,7 +13,6 @@
 */
 package org.allbinary.business.user.commerce.money.payment.types;
 
-import org.allbinary.business.user.commerce.money.payment.types.BasicPaymentType;
 import java.util.HashMap;
 import java.util.Vector;
 

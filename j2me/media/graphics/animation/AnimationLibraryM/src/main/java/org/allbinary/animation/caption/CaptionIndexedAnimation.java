@@ -14,6 +14,7 @@
 package org.allbinary.animation.caption;
 
 //import org.allbinary.graphics.displayable.PaintableInterface;
+
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.media.Player;
 
@@ -21,8 +22,8 @@ import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.AnimationEventHandler;
 import org.allbinary.animation.IndexedAnimation;
-import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.math.PrimitiveIntUtil;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 import org.allbinary.time.TimeDelayHelper;
 

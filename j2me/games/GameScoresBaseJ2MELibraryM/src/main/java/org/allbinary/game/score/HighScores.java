@@ -13,11 +13,10 @@
 */
 package org.allbinary.game.score;
 
-import org.allbinary.string.CommonLabels;
-import org.allbinary.util.BasicArrayList;
-
-import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonLabels;
+import org.allbinary.string.CommonSeps;
+import org.allbinary.util.BasicArrayList;
 
 public class HighScores implements HighScoresInterface
 {

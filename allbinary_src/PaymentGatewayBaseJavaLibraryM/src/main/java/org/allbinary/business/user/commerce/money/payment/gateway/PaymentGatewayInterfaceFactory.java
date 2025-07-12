@@ -17,11 +17,10 @@ import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.user.commerce.money.payment.types.BasicPaymentType;
 import org.allbinary.business.user.commerce.money.payment.types.BasicPaymentTypeUtil;
 import org.allbinary.logic.communication.http.request.RequestParams;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 
 public class PaymentGatewayInterfaceFactory

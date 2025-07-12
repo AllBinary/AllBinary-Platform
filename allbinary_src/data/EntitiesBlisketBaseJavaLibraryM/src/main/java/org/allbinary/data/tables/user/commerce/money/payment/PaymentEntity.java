@@ -13,24 +13,23 @@
  */
 package org.allbinary.data.tables.user.commerce.money.payment;
 
-import org.allbinary.data.generator.PaymentIdGenerator;
 import java.util.Calendar;
 import java.util.HashMap;
-
 import java.util.Random;
 import java.util.Vector;
 
+import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.init.db.UserDbInitInfo;
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.user.UserData;
 import org.allbinary.business.user.commerce.money.payment.Payment;
-import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.user.commerce.money.payment.PaymentData;
 import org.allbinary.business.user.commerce.money.payment.PaymentInterface;
+import org.allbinary.data.generator.PaymentIdGenerator;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 import org.allbinary.logic.control.crypt.SuperCrypt;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 
 public class PaymentEntity extends AbSqlBean implements PaymentEntityInterface
 {
@@ -217,7 +216,7 @@ public class PaymentEntity extends AbSqlBean implements PaymentEntityInterface
     {
         EntryData entryData = EntryData.getInstance();
 
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.sqlStrings.CREATE_TABLE)
                 .append(tableName)

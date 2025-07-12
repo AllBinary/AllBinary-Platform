@@ -13,10 +13,10 @@
 */
 package org.allbinary.media.image.comparison.color;
 
-import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.cache.CacheableInterface;
+import org.allbinary.string.CommonSeps;
 
 public class ColorDelta
     implements CacheableInterface

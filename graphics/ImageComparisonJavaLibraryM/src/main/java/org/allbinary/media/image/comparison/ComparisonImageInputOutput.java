@@ -15,15 +15,15 @@ package org.allbinary.media.image.comparison;
 
 import java.awt.image.BufferedImage;
 
+import org.allbinary.input.automation.ImageOutputData;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.number.LongUtil;
-import org.allbinary.input.automation.ImageOutputData;
-import org.allbinary.media.image.cache.BufferedImageCacheable;
-import org.allbinary.media.image.io.ImageIOInterface;
-import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.cache.AutomaticCacheInterface;
 import org.allbinary.logic.visual.media.MediaDataFactory;
 import org.allbinary.media.image.ImagePersistanceUtil;
+import org.allbinary.media.image.cache.BufferedImageCacheable;
+import org.allbinary.media.image.io.ImageIOInterface;
 import org.allbinary.string.CommonStrings;
 
 public class ComparisonImageInputOutput implements ImageIOInterface
@@ -71,18 +71,18 @@ public class ComparisonImageInputOutput implements ImageIOInterface
     throws Exception
     {
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        final StringBuffer filePathStringBuffer = new StringBuffer();
+        final StringMaker filePathStringBuffer = new StringMaker();
         filePathStringBuffer.append(ImageOutputData.SAVE_PATH);
         filePathStringBuffer.append(LongUtil.fillIn(frame.toString()));
         filePathStringBuffer.append(ROOT_NAME);
         
-        final StringBuffer filePathStringBuffer1 = new StringBuffer();
+        final StringMaker filePathStringBuffer1 = new StringMaker();
         filePathStringBuffer1.append(filePathStringBuffer.toString());
         filePathStringBuffer1.append("_1");
         filePathStringBuffer1.append(MediaDataFactory.getInstance().JPG.getExtension());
         String filePath1 = filePathStringBuffer1.toString();
         
-        final StringBuffer filePathStringBuffer2 = new StringBuffer();
+        final StringMaker filePathStringBuffer2 = new StringMaker();
         filePathStringBuffer2.append(filePathStringBuffer.toString());
         filePathStringBuffer2.append("_2");
         filePathStringBuffer2.append(MediaDataFactory.getInstance().JPG.getExtension());

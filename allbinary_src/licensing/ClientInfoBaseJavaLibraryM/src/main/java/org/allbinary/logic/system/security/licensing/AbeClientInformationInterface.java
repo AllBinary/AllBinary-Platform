@@ -15,9 +15,8 @@ package org.allbinary.logic.system.security.licensing;
 
 import java.util.Hashtable;
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.logic.system.os.GenericOperatingSystem;
+import org.allbinary.util.BasicArrayList;
 
 public interface AbeClientInformationInterface
 {

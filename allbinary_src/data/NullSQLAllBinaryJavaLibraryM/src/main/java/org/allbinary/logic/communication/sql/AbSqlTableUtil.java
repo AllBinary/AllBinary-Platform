@@ -14,9 +14,10 @@
 package org.allbinary.logic.communication.sql;
 
 import org.allbinary.business.installer.Portion;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.string.StringUtil;
 
 public class AbSqlTableUtil
 {
@@ -48,7 +49,7 @@ public class AbSqlTableUtil
     {
         final String tableName = abSqlTable.getTableName();
 
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(TABLE_LABEL);
         stringBuffer.append(tableName);

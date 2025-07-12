@@ -13,26 +13,14 @@
 */
 package views.generic.basket.mini;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import java.util.HashMap;
-import java.util.Set;
-
-
-import org.w3c.dom.Node;
-import org.w3c.dom.Document;
-
-import org.allbinary.logic.communication.log.LogUtil;
-
-
-
-import org.allbinary.logic.control.search.SearchData;
-
 import org.allbinary.business.user.commerce.inventory.basket.BasketData;
 import org.allbinary.business.user.commerce.inventory.basket.BasketInterface;
-
-import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.data.tree.dom.DomNodeInterface;
-
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.control.search.SearchData;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 import views.business.context.modules.storefront.HttpStoreComponentView;
 
 public class MiniBasketView 

@@ -15,18 +15,16 @@ package org.allbinary.media.audio;
 
 import javax.microedition.media.Control;
 import javax.microedition.media.Controllable;
+import javax.microedition.media.MediaException;
 import javax.microedition.media.Player;
 import javax.microedition.media.PlayerListener;
+import javax.microedition.media.TimeBase;
 
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
+import org.allbinary.time.GameTickTimeDelayHelper;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 import org.allbinary.time.TimeDelayHelper;
-
-import javax.microedition.media.TimeBase;
-import javax.microedition.media.MediaException;
-import org.allbinary.time.GameTickTimeDelayHelper;
 
 public class PlayerComposite implements Controllable, Player
 {

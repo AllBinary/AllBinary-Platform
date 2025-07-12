@@ -13,15 +13,14 @@
 */
 package org.allbinary.logic.communication.smtp.configuration.server;
 
-import org.allbinary.logic.communication.smtp.configuration.server.EmailServerConfigurationData;
+import java.util.HashMap;
+
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
-import java.util.HashMap;
 
 public class EmailServerConfigurationView implements DomNodeInterface
 {

@@ -13,35 +13,33 @@
  */
 package org.allbinary.data.tables.user.commerce.inventory.order;
 
-import org.allbinary.data.generator.OrderItemIdGenerator;
 import java.util.HashMap;
-
 import java.util.ListIterator;
 import java.util.Set;
 import java.util.Vector;
 
-import org.allbinary.business.init.db.HistoryDbInitInfo;
-import org.allbinary.business.installer.Portion;
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
+import org.allbinary.business.entry.EntryData;
+import org.allbinary.business.init.db.HistoryDbInitInfo;
 import org.allbinary.business.user.UserData;
+import org.allbinary.business.user.address.ShippingAddressData;
 import org.allbinary.business.user.commerce.inventory.basket.BasketInterface;
 import org.allbinary.business.user.commerce.inventory.basket.BasketReview;
+import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
 import org.allbinary.business.user.commerce.inventory.item.Item;
 import org.allbinary.business.user.commerce.inventory.item.ItemInterface;
+import org.allbinary.business.user.commerce.inventory.order.OrderData;
 import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
 import org.allbinary.business.user.commerce.inventory.order.OrderInterface;
-import org.allbinary.business.entry.EntryData;
-import org.allbinary.business.user.address.ShippingAddressData;
-import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
-import org.allbinary.business.user.commerce.inventory.order.OrderData;
 import org.allbinary.business.user.commerce.shipping.ShippingMethodData;
+import org.allbinary.data.generator.OrderItemIdGenerator;
 import org.allbinary.data.tables.TableDataFactory;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntity;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlBean;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 
 public class OrderItemsEntity extends AbSqlBean implements OrderItemsEntityInterface
 {
@@ -264,7 +262,7 @@ public class OrderItemsEntity extends AbSqlBean implements OrderItemsEntityInter
     {
         EntryData entryData = EntryData.getInstance();
 
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("CREATE TABLE ");
 

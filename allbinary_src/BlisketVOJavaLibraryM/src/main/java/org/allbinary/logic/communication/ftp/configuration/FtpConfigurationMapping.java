@@ -13,11 +13,10 @@
 */
 package org.allbinary.logic.communication.ftp.configuration;
 
-import org.allbinary.logic.communication.ftp.configuration.FtpConfigurationData;
-import org.allbinary.data.tables.TableMappingInterface;
-
 import java.util.HashMap;
 import java.util.Vector;
+
+import org.allbinary.data.tables.TableMappingInterface;
 
 public class FtpConfigurationMapping implements TableMappingInterface
 {

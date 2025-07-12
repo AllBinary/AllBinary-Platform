@@ -14,6 +14,8 @@
 
 package org.allbinary.logic.util.cache;
 
+import org.allbinary.logic.string.StringMaker;
+
 public class CacheType
 {
     private String vendor;
@@ -48,7 +50,7 @@ public class CacheType
    @Override
     public String toString()
     {
-       StringBuffer stringBuffer = new StringBuffer();
+       StringMaker stringBuffer = new StringMaker();
        
        stringBuffer.append("CacheType: Vendor: ");
        stringBuffer.append(this.getVendor());

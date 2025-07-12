@@ -13,14 +13,13 @@
 */
 package org.allbinary.input.automation.module.osgi;
 
-import org.allbinary.logic.communication.log.LogUtil;
+import bundle.input.automation.module.InputAutomationModuleService;
 import org.allbinary.input.automation.InputAutomationJFrame;
 import org.allbinary.input.automation.configuration.InputAutomationConfigurationUtil;
 import org.allbinary.input.automation.module.InputAutomationModuleFactoryInterface;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.osgi.OSGIServiceInterface;
 import org.allbinary.osgi.OSGIServiceVisitorInterface;
-import bundle.input.automation.module.InputAutomationModuleService;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.string.CommonStrings;
 
 public class InputAutomationModuleOSGIServiceVisitor

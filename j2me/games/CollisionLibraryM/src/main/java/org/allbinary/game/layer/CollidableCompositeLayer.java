@@ -13,15 +13,14 @@
 */
 package org.allbinary.game.layer;
 
-import org.allbinary.string.CommonStrings;
-import org.allbinary.string.CommonSeps;
-import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.ai.ArtificialIntelligenceInterface;
 import org.allbinary.game.collision.CollidableBaseBehavior;
 import org.allbinary.game.collision.CollidableInterfaceCompositeInterface;
 import org.allbinary.game.collision.CollidableNeverCollideBehaviorFactory;
 import org.allbinary.graphics.Rectangle;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.view.ViewPosition;
 
 /*

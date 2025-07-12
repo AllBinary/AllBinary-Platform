@@ -13,38 +13,32 @@
 */
 package admin.taghelpers;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
-import org.w3c.dom.Node;
-import org.w3c.dom.Document;
-
-import javax.servlet.jsp.PageContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
 
-import org.allbinary.data.tree.category.CategoryLoaderFactory;
-import org.allbinary.data.tree.category.CategoryLoaderInterface;
-
-import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.data.tree.dom.DomNodeHelper;
-import org.allbinary.data.tree.dom.DomSearchHelper;
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-
+import org.allbinary.business.category.CategoryComponent;
 import org.allbinary.business.category.CategoryData;
 import org.allbinary.business.category.CategoryInterface;
-import org.allbinary.business.category.CategoryComponent;
-
 import org.allbinary.business.category.store.StoreCategoryFactory;
-
+import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
-import org.allbinary.business.context.modules.storefront.StoreFrontData;
-
-import org.allbinary.logic.visual.transform.info.TransformInfoBasic;
-import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
+import org.allbinary.data.tree.category.CategoryLoaderFactory;
+import org.allbinary.data.tree.category.CategoryLoaderInterface;
+import org.allbinary.data.tree.dom.DomNodeHelper;
+import org.allbinary.data.tree.dom.DomSearchHelper;
+import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
+import org.allbinary.logic.visual.transform.info.TransformInfoBasic;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 public class CategoryRequestHelper extends ModifyTable
 {

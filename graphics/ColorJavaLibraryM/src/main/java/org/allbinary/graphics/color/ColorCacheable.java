@@ -13,7 +13,8 @@
 */
 package org.allbinary.graphics.color;
 
-import java.awt.Color;
+import java.awt.*;
+
 import org.allbinary.logic.util.cache.CacheableInterface;
 
 public class ColorCacheable

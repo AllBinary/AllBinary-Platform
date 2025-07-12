@@ -13,22 +13,20 @@
 */
 package org.allbinary.data.tree.category;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
-import org.allbinary.data.tree.dom.DomSearchHelper;
-import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.logic.io.file.AbFile;
-import org.allbinary.logic.io.path.AbPath;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.category.CategoryData;
 import org.allbinary.business.category.CategoryFactoryInterface;
 import org.allbinary.business.category.CategoryInterface;
 import org.allbinary.business.category.properties.CategoryProperties;
 import org.allbinary.business.category.properties.CategoryPropertiesInterface;
+import org.allbinary.data.tree.dom.DomSearchHelper;
+import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.crypt.file.CryptFileReader;
+import org.allbinary.logic.io.file.AbFile;
+import org.allbinary.logic.io.path.AbPath;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 public class CategoryLoader 
     extends CategoryModifierTree 

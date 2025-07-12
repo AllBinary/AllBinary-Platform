@@ -14,6 +14,7 @@
 package org.allbinary.game.score;
 
 //import com.sun.org.apache.bcel.internal.util.ByteSequence;
+
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 

@@ -14,7 +14,6 @@
 package org.allbinary.business.advertisement;
 
 import org.allbinary.game.GameAdState;
-
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 
 public class BottomLimiter

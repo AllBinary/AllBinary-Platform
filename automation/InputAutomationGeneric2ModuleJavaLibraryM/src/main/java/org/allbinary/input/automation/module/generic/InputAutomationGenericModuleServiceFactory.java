@@ -15,7 +15,6 @@ package org.allbinary.input.automation.module.generic;
 
 import org.allbinary.input.automation.module.InputAutomationModuleFactoryInterface;
 import org.allbinary.input.automation.module.osgi.InputAutomationModuleServiceFactory;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
 public class InputAutomationGenericModuleServiceFactory

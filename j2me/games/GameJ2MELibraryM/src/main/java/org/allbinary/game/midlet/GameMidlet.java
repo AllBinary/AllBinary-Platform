@@ -21,33 +21,24 @@ package org.allbinary.game.midlet;
  *Date: 11/19/02
  *
  */
+
 import java.util.Enumeration;
 import java.util.Hashtable;
 
+import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Displayable;
 
 import org.allbinary.business.advertisement.GameAdStateFactory;
-import org.allbinary.game.GameAdState;
-import org.allbinary.graphics.ResizableListenerHandler;
-import org.allbinary.input.AllBinarySensorManager;
-
-
-import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.communication.log.ForcedLogUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.communication.log.PreLogUtil;
-import org.allbinary.logic.system.security.licensing.InApplicationPurchaseFactory;
-import org.allbinary.logic.system.security.licensing.LockableFeature;
-import org.allbinary.logic.system.security.licensing.LockableFeatureFactory;
-import org.allbinary.canvas.GameStatisticsFactory;
 import org.allbinary.canvas.FullScreenUtil;
+import org.allbinary.canvas.GameStatisticsFactory;
 import org.allbinary.debug.DebugFactory;
 import org.allbinary.debug.DebugInterface;
+import org.allbinary.game.GameAdState;
 import org.allbinary.game.GameInfo;
 import org.allbinary.game.GameMode;
+import org.allbinary.game.GameStrings;
 import org.allbinary.game.GameTypeFactory;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.configuration.GameOptionsForm;
@@ -66,47 +57,54 @@ import org.allbinary.game.configuration.persistance.GamePersistanceSingleton;
 import org.allbinary.game.configuration.persistance.KeyValuePersistance;
 import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
 import org.allbinary.game.displayable.canvas.BasicPaintablesCanvas;
+import org.allbinary.game.displayable.canvas.DemoCanvas;
 import org.allbinary.game.displayable.canvas.GameCanvasRunnableInterface;
 import org.allbinary.game.displayable.canvas.GameEventHandlerUtil;
 import org.allbinary.game.displayable.canvas.GameInputMappingCanvas;
 import org.allbinary.game.displayable.canvas.GameInputMappingInstructionsCanvas;
 import org.allbinary.game.displayable.canvas.MenuListener;
+import org.allbinary.game.input.TextNotificationUtil;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.layer.hud.event.GameNotificationEventHandler;
 import org.allbinary.game.paint.help.HelpPaintable;
 import org.allbinary.game.score.HighScoreCommands;
 import org.allbinary.game.score.HighScoreCommandsFactory;
+import org.allbinary.game.score.displayable.HighScoreTextBox;
+import org.allbinary.game.score.displayable.HighScoreUtil;
 import org.allbinary.game.score.displayable.HighScoresCanvas;
 import org.allbinary.game.state.GameState;
+import org.allbinary.graphics.ResizableListenerHandler;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.color.ColorChangeEventHandler;
+import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.graphics.displayable.MyCanvas;
 import org.allbinary.graphics.displayable.command.MyCommandsFactory;
+import org.allbinary.graphics.displayable.screen.AboutCommandProcessor;
+import org.allbinary.graphics.displayable.screen.AboutPaintableFactory;
 import org.allbinary.graphics.displayable.screen.CommandForm;
+import org.allbinary.graphics.displayable.screen.WebCommandProcessor;
+import org.allbinary.input.AllBinarySensorManager;
 import org.allbinary.input.event.VirtualKeyboardEventHandler;
 import org.allbinary.input.motion.gesture.observer.BasicMotionGesturesHandler;
-import org.allbinary.logic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.system.security.licensing.ClientInformationFactory;
+import org.allbinary.logic.system.security.licensing.InApplicationPurchaseFactory;
+import org.allbinary.logic.system.security.licensing.LockableFeature;
+import org.allbinary.logic.system.security.licensing.LockableFeatureFactory;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.media.audio.AllBinaryMediaManager;
 import org.allbinary.midlet.MidletStrings;
 import org.allbinary.midlet.ProgressMidlet;
 import org.allbinary.thread.ThreadFactoryUtil;
 import org.allbinary.thread.ThreadUtil;
 import org.allbinary.time.TimeDelayHelper;
-import javax.microedition.lcdui.Canvas;
-import org.allbinary.game.GameStrings;
-import org.allbinary.game.displayable.canvas.DemoCanvas;
-import org.allbinary.game.input.TextNotificationUtil;
-import org.allbinary.game.score.displayable.HighScoreTextBox;
-import org.allbinary.game.score.displayable.HighScoreUtil;
-import org.allbinary.graphics.displayable.CanvasStrings;
-import org.allbinary.graphics.displayable.screen.AboutCommandProcessor;
-import org.allbinary.graphics.displayable.screen.AboutPaintableFactory;
-import org.allbinary.graphics.displayable.screen.WebCommandProcessor;
-import org.allbinary.logic.system.security.licensing.ClientInformationFactory;
-import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.util.BasicArrayList;
 
 public class GameMidlet extends ProgressMidlet

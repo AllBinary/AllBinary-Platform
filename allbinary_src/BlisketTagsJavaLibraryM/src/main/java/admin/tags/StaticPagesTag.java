@@ -15,21 +15,15 @@ package admin.tags;
 
 import java.lang.reflect.Method;
 
-import org.allbinary.logic.system.security.licensing.LicensingException;
-
-import org.allbinary.logic.communication.log.LogUtil;
+import javax.servlet.jsp.JspTagException;
 
 import admin.taghelpers.StaticPagesHelperFactory;
 import admin.taghelpers.StaticPagesRequestHelperFactory;
-
-import org.allbinary.logic.control.search.SearchData;
-
-import org.allbinary.logic.visual.transform.info.TransformInfoData;
-
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
-import org.allbinary.logic.communication.log.LogFactory;
-
-import javax.servlet.jsp.JspTagException;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.control.search.SearchData;
+import org.allbinary.logic.system.security.licensing.LicensingException;
+import org.allbinary.logic.visual.transform.info.TransformInfoData;
 
 public class StaticPagesTag extends TableTag
 {

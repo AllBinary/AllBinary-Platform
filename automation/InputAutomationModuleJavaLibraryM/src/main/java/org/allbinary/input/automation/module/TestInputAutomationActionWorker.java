@@ -14,15 +14,14 @@
 package org.allbinary.input.automation.module;
 
 
-
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.input.automation.robot.InputRobotFactory;
-import org.allbinary.input.automation.robot.InputRobotInterface;
-import org.allbinary.media.image.comparison.ImageComparatorConstraintsInterface;
-import org.allbinary.media.image.comparison.motion.MotionRectangleConstraintsInterface;
 import java.util.Hashtable;
 import java.util.Set;
-import org.allbinary.logic.communication.log.LogFactory;
+
+import org.allbinary.input.automation.robot.InputRobotFactory;
+import org.allbinary.input.automation.robot.InputRobotInterface;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.media.image.comparison.ImageComparatorConstraintsInterface;
+import org.allbinary.media.image.comparison.motion.MotionRectangleConstraintsInterface;
 
 public class TestInputAutomationActionWorker 
     extends AbstractInputAutomationWorker

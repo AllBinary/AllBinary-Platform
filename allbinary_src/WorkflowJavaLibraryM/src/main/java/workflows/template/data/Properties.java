@@ -13,7 +13,6 @@
 */
 package workflows.template.data;
 
-import org.allbinary.logic.communication.log.LogFactory;
 import java.util.HashMap;
 
 import javax.servlet.jsp.tagext.TagSupport;

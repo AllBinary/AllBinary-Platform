@@ -15,17 +15,16 @@ package org.allbinary.logic.visual.transform.template.customizer.page;
 
 import java.util.HashMap;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-import org.allbinary.data.tree.dom.DomSearchHelper;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.business.page.PageData;
 import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.data.tree.dom.DomSearchHelper;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.control.validate.Validation;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.visual.transform.template.customizer.widgets.title.TitleData;
 import org.allbinary.logic.visual.transform.template.customizer.widgets.title.TitleValidation;
-import org.allbinary.business.page.PageData;
-import org.allbinary.logic.control.validate.Validation;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 public class PageValidation extends Validation implements DomNodeInterface
 {
@@ -95,7 +94,7 @@ public class PageValidation extends Validation implements DomNodeInterface
    {
       try
       {
-         StringBuffer stringBuffer = new StringBuffer();
+         StringMaker stringBuffer = new StringMaker();
 
          if(!this.title.isValid().booleanValue())
          {

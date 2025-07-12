@@ -13,20 +13,13 @@
 */
 package views.admin.storefront.statistics;
 
-
-import org.allbinary.logic.communication.log.LogFactory;
-import org.w3c.dom.Node;
-import org.w3c.dom.Document;
-
-
-import org.allbinary.logic.communication.log.LogUtil;
-
-
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
-
-import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 //extends StoreFrontComponent
 
@@ -65,7 +58,7 @@ public class ValidationStoreFrontStatisticsView
    {
       try
       {
-         StringBuffer stringBuffer = new StringBuffer();
+         StringMaker stringBuffer = new StringMaker();
          
 	 stringBuffer.append("Never");
 	 

@@ -13,20 +13,17 @@
 */
 package org.allbinary.media.image.comparison.motion;
 
-import java.awt.Rectangle;
+import java.awt.*;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.util.Hashtable;
-
 import java.util.Vector;
 
-import org.allbinary.logic.communication.log.LogUtil;
-
-import org.allbinary.input.automation.robot.InputRobotInterface;
 import org.allbinary.input.automation.robot.InputRobotFactory;
+import org.allbinary.input.automation.robot.InputRobotInterface;
 import org.allbinary.input.automation.robot.TempInputRobotNames;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.time.TimeDelayHelper;

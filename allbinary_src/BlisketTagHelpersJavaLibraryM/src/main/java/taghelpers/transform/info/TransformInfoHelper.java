@@ -13,15 +13,14 @@
 */
 package taghelpers.transform.info;
 
-import admin.taghelpers.BasicTable;
 import java.util.HashMap;
 
 import javax.servlet.jsp.PageContext;
 
+import admin.taghelpers.BasicTable;
 import org.allbinary.business.installer.Portion;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tables.transform.info.TransformInfoEntityBuilder;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlTableUtil;
 
 public class TransformInfoHelper extends BasicTable

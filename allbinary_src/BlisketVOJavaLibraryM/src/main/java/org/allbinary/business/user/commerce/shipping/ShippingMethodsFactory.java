@@ -13,27 +13,28 @@
 */
 package org.allbinary.business.user.commerce.shipping;
 
-import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.data.tree.dom.DomNodeHelper;
-import org.allbinary.data.tree.dom.DomSearchHelper;
-import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.io.path.AbPath;
-import org.allbinary.logic.io.path.AbPathData;
-import org.allbinary.logic.system.loader.AbeFactory;
+import java.util.Vector;
+
 import org.allbinary.business.DynamicObjectData;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.commerce.shipping.modules.BasicWeightShippingModuleView;
 import org.allbinary.business.user.commerce.shipping.modules.NoShippingModuleView;
 import org.allbinary.business.user.commerce.shipping.modules.ShippingInterface;
+import org.allbinary.data.tree.dom.DomNodeHelper;
+import org.allbinary.data.tree.dom.DomSearchHelper;
+import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
+import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.logic.control.crypt.file.CryptFileReader;
+import org.allbinary.logic.io.path.AbPath;
+import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.system.loader.AbeFactory;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigData;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
-import java.util.Vector;
-import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 
 public class ShippingMethodsFactory
@@ -46,7 +47,7 @@ public class ShippingMethodsFactory
 
    static
    {
-	   final StringBuffer stringBuffer = new StringBuffer();
+	   final StringMaker stringBuffer = new StringMaker();
 	   
 	   final String sep = AbPathData.getInstance().SEPARATOR;
 	   
@@ -67,7 +68,7 @@ public class ShippingMethodsFactory
    
    public ShippingMethodsFactory(final AbeClientInformationInterface abeClientInformation, final StoreFrontInterface storeFrontInterface) throws Exception
    {
-	   final StringBuffer stringBuffer = new StringBuffer();
+	   final StringMaker stringBuffer = new StringMaker();
 	   
 	   final String sep = AbPathData.getInstance().SEPARATOR;
 	   

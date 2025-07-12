@@ -13,11 +13,11 @@
 */
 package org.allbinary.logic.visual.dhtml.html;
 
+import java.util.Vector;
+
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.visual.dhtml.html.input.HtmlInput;
 import org.allbinary.logic.visual.dhtml.html.table.HtmlTable;
-
-import java.util.Vector;
-import org.allbinary.logic.string.StringUtil;
 
 public class HtmlForm
 {

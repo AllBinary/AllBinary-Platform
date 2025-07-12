@@ -13,14 +13,12 @@
 */
 package tags.generic.payment;
 
-import org.allbinary.business.user.commerce.money.payment.PaymentData;
-
-import org.allbinary.logic.system.security.licensing.LicensingException;
-
-import tags.StoreValidationTransformTag;
-
-import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import javax.servlet.jsp.JspTagException;
+
+import org.allbinary.business.user.commerce.money.payment.PaymentData;
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
+import org.allbinary.logic.system.security.licensing.LicensingException;
+import tags.StoreValidationTransformTag;
 
 public class PaymentTag extends StoreValidationTransformTag
 {

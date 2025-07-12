@@ -13,10 +13,9 @@
 */
 package org.allbinary.data.tree.dom;
 
+import org.allbinary.business.error.ErrorData;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-
-import org.allbinary.business.error.ErrorData;
 
 public class BasicErrorNodeUtil
 {

@@ -13,18 +13,16 @@
 */
 package org.allbinary.game.configuration.event;
 
-import org.allbinary.util.BasicArrayList;
-
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.communication.log.ForcedLogUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.configuration.feature.Feature;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.GameFeatureUtil;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
+import org.allbinary.string.CommonStrings;
+import org.allbinary.util.BasicArrayList;
 
 public class BaseChangedGameFeatureListener implements GameFeatureListenerInterface
 {

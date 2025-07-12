@@ -13,13 +13,13 @@
 */
 package org.allbinary.business.category;
 
-import org.allbinary.logic.io.path.AbPath;
+import java.util.Vector;
+
 import org.allbinary.business.category.hierarchy.CategoryHierarchyInterface;
 import org.allbinary.business.category.properties.CategoryPropertiesInterface;
 import org.allbinary.data.tables.TableMappingInterface;
 import org.allbinary.logic.control.validate.ValidationInterface;
-
-import java.util.Vector;
+import org.allbinary.logic.io.path.AbPath;
 
 public interface CategoryInterface extends TableMappingInterface, ValidationInterface
 {

@@ -13,7 +13,6 @@
 */
 package org.allbinary.logic.communication.ftp.configuration;
 
-import org.allbinary.logic.communication.ftp.configuration.FtpConfigurationData;
 import java.util.HashMap;
 
 public class FtpConfiguration implements FtpConfigurationInterface

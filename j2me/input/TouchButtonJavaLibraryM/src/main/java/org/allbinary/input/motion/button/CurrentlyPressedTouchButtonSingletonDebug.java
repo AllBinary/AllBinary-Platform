@@ -13,10 +13,10 @@
 */
 package org.allbinary.input.motion.button;
 
-import org.allbinary.string.CommonSeps;
+import org.allbinary.graphics.GPoint;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
-import org.allbinary.graphics.GPoint;
+import org.allbinary.string.CommonSeps;
 
 public class CurrentlyPressedTouchButtonSingletonDebug 
     extends CurrentlyPressedTouchButtonSingleton

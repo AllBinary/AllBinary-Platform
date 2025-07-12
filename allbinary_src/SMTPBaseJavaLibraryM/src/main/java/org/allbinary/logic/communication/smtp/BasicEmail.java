@@ -13,13 +13,14 @@
 */
 package org.allbinary.logic.communication.smtp;
 
+import java.util.HashMap;
+
+import javax.mail.internet.MimeMessage;
+
 import org.allbinary.logic.communication.smtp.info.BasicEmailInfo;
 import org.allbinary.logic.communication.smtp.info.EmailInfo;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-
-import javax.mail.internet.MimeMessage;
-import java.util.HashMap;
 
 public class BasicEmail 
    implements EmailInterface

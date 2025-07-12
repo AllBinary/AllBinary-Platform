@@ -13,8 +13,8 @@
 */
 package org.allbinary.logic.visual.transform.info;
 
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.loader.AbeFactory;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.LicensingException;
@@ -69,7 +69,7 @@ public class TransformInfoObjectFactory
             {
                 if (transformInfoInterface != null)
                 {
-                    StringBuffer stringBuffer = new StringBuffer();
+                    StringMaker stringBuffer = new StringMaker();
 
                     stringBuffer.append("\nNo Such View Name: ");
                     stringBuffer.append(transformInfoInterface.getName());

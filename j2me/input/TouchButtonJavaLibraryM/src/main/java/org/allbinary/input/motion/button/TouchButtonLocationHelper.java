@@ -13,8 +13,8 @@
 */
 package org.allbinary.input.motion.button;
 
-import org.allbinary.logic.string.StringMaker;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+import org.allbinary.logic.string.StringMaker;
 
 public class TouchButtonLocationHelper
 {

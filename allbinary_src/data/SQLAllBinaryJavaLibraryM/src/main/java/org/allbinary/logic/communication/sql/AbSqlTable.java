@@ -15,7 +15,6 @@ package org.allbinary.logic.communication.sql;
 
 
 import org.allbinary.business.init.db.DbConnectionInfo;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
 public class AbSqlTable extends AbSqlBasic

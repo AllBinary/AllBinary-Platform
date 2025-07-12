@@ -13,10 +13,9 @@
 */
 package org.allbinary.game.collision;
 
-import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
-
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.GameFeatureFactory;
+import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
 import org.allbinary.layer.AllBinaryLayer;
 
 public class LayerCollisionUtil

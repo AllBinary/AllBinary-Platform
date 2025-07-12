@@ -2,16 +2,15 @@ package org.allbinary.logic.visual.media;
 
 import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
-
 import java.util.HashMap;
 
-import org.allbinary.string.CommonLabels;
-import org.allbinary.logic.io.file.AbFile;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
+import org.allbinary.logic.io.file.AbFile;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.image.ImageUtil;
+import org.allbinary.string.CommonLabels;
 //import com.sun.imageio.plugins.common.ImageUtil;
 
 public class MediaUtil
@@ -71,7 +70,7 @@ public class MediaUtil
         {
             final CommonLabels commonLabels = CommonLabels.getInstance();
 
-        	final StringBuffer stringBuffer = new StringBuffer();
+        	final StringMaker stringBuffer = new StringMaker();
 
         	stringBuffer.append("Get Path: ");
         	stringBuffer.append(originalImageFile.getPath());

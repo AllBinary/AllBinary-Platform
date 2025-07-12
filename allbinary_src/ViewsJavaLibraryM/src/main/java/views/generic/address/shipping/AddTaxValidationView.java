@@ -13,29 +13,21 @@
 */
 package views.generic.address.shipping;
 
-import org.allbinary.logic.communication.log.LogFactory;
-
 import java.util.Vector;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-import org.allbinary.data.tables.user.address.shipping.ShippingAddressesEntity;
-
-import org.allbinary.business.user.address.StreetAddress;
-import org.allbinary.business.user.address.ShippingAddressData;
-
-import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
-
+import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
+import org.allbinary.business.user.address.ShippingAddressData;
+import org.allbinary.business.user.address.StreetAddress;
 import org.allbinary.business.user.commerce.money.tax.TaxFactory;
 import org.allbinary.business.user.commerce.money.tax.modules.TaxModuleInterface;
-
-import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
-import org.allbinary.logic.control.validate.ValidationComponentInterface;
-
+import org.allbinary.data.tables.user.address.shipping.ShippingAddressesEntity;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 public class AddTaxValidationView extends ShippingAddressView implements ValidationComponentInterface
 {
@@ -107,7 +99,7 @@ public class AddTaxValidationView extends ShippingAddressView implements Validat
    {
       try
       {
-	 StringBuffer stringBuffer = new StringBuffer();
+	 StringMaker stringBuffer = new StringMaker();
 	 
 	 StoreFrontInterface storeFrontInterface =
 	    StoreFrontFactory.getInstance(this.getTransformInfoInterface().getStoreName());

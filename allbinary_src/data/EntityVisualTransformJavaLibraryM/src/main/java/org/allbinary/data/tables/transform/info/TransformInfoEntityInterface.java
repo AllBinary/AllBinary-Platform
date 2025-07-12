@@ -13,12 +13,13 @@
 */
 package org.allbinary.data.tables.transform.info;
 
-import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
-import javax.servlet.jsp.PageContext;
 import java.util.HashMap;
 import java.util.Vector;
+
+import javax.servlet.jsp.PageContext;
+
 import org.allbinary.data.tables.BasicDataTableInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
 public interface TransformInfoEntityInterface 
    extends BasicDataTableInterface

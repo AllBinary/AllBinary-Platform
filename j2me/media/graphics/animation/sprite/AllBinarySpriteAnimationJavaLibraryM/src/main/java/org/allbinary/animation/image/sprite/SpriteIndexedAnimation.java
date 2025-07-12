@@ -17,16 +17,15 @@ import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.game.Sprite;
 
-import org.allbinary.DisposalUtil;
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.color.BasicColorUtil;
 import org.allbinary.graphics.color.ColorCompositeInterface;
-import org.allbinary.string.CommonLabels;
-import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.math.PrimitiveIntUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonLabels;
 
 public class SpriteIndexedAnimation extends IndexedAnimation
     implements ColorCompositeInterface//, AutoCloseable

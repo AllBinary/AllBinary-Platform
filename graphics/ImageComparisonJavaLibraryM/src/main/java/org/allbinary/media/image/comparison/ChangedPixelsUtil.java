@@ -13,17 +13,15 @@
 */
 package org.allbinary.media.image.comparison;
 
+import java.awt.image.BufferedImage;
+import java.util.Vector;
+
+import org.allbinary.logic.util.cache.PoolInterface;
 import org.allbinary.media.image.cache.BufferedImageCacheable;
 import org.allbinary.media.image.cache.BufferedImageInfo;
 import org.allbinary.media.image.cache.BufferedImageInfoFactory;
 import org.allbinary.media.image.cache.BufferedImagePoolSingleton;
-import java.awt.image.BufferedImage;
-import java.util.Vector;
-
-
-
 import org.allbinary.media.image.comparison.pixel.PixelDelta;
-import org.allbinary.logic.util.cache.PoolInterface;
 
 public class ChangedPixelsUtil
 {

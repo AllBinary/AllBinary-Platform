@@ -13,14 +13,14 @@
 */
 package org.allbinary.logic.visual.transform;
 
+import javax.xml.transform.URIResolver;
+
 import org.allbinary.data.tree.dom.BasicUriResolver;
 import org.allbinary.data.tree.dom.CustomUriResolver;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigAndManipulatorFactory;
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigInterface;
-
-import javax.xml.transform.URIResolver;
-import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class TransformInfoCustomUriTransformer extends BasicTransformer
 {

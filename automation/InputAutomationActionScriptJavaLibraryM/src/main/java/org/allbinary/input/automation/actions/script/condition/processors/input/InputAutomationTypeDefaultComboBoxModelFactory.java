@@ -16,7 +16,9 @@ package org.allbinary.input.automation.actions.script.condition.processors.input
 
 
 import java.util.Set;
-import javax.swing.DefaultComboBoxModel;
+
+import javax.swing.*;
+
 import org.allbinary.input.automation.robot.InputRobotFactory;
 
 public class InputAutomationTypeDefaultComboBoxModelFactory

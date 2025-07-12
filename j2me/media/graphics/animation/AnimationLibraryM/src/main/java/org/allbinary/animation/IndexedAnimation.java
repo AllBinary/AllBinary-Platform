@@ -13,8 +13,8 @@
 */
 package org.allbinary.animation;
 
-import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.math.PrimitiveIntUtil;
+import org.allbinary.string.CommonStrings;
 
 /**
  * 

@@ -3,8 +3,8 @@ package org.allbinary.graphics.form.item;
 import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Font;
 
-import org.allbinary.logic.string.StringUtil;
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.visitor.Visitor;
 
 public class TextFieldItem extends TextItem

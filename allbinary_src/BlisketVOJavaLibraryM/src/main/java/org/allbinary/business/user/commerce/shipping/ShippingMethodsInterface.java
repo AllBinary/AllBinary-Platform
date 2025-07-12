@@ -13,9 +13,9 @@
 */
 package org.allbinary.business.user.commerce.shipping;
 
-import org.allbinary.business.user.commerce.shipping.modules.ShippingInterface;
-
 import java.util.Vector;
+
+import org.allbinary.business.user.commerce.shipping.modules.ShippingInterface;
 
 public interface ShippingMethodsInterface
 {         

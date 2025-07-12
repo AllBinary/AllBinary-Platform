@@ -13,8 +13,6 @@
 */
 package org.allbinary.gui.dialog;
 
-import java.io.File;
-
 public interface CloseJDialogListenerInterface
 {
     void onClose();

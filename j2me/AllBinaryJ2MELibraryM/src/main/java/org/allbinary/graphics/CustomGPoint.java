@@ -13,8 +13,6 @@
 */
 package org.allbinary.graphics;
 
-import org.allbinary.graphics.GPoint;
-
 public class CustomGPoint extends GPoint
 {
     private int x;

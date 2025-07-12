@@ -14,12 +14,12 @@
 package org.allbinary.input.automation.actions.script.condition.processors;
 
 import java.awt.event.ActionEvent;
-import org.allbinary.input.automation.actions.script.JTreeInterfaceFactory;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
+import org.allbinary.input.automation.actions.script.JTreeInterfaceFactory;
 import org.allbinary.input.automation.actions.script.ProfileActionScriptItem;
 import org.allbinary.input.automation.actions.script.condition.ProfileActionScriptConditionInterface;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 public class BasicProfileActionScriptProcessor
     extends ProfileActionScriptItem

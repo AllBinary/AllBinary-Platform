@@ -13,14 +13,14 @@
 */
 package org.allbinary.logic.visual.transform.info;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
+import java.util.HashMap;
+
+import javax.servlet.jsp.PageContext;
+
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
-
-import javax.servlet.jsp.PageContext;
-import java.util.HashMap;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.string.CommonStrings;
 

@@ -13,11 +13,12 @@
 */
 package org.allbinary.logic.visual.transform;
 
-import org.allbinary.logic.visual.transform.info.CompositeTransformInfoInterface;
+import java.io.InputStream;
 
 import javax.xml.transform.URIResolver;
 import javax.xml.transform.stream.StreamSource;
-import java.io.InputStream;
+
+import org.allbinary.logic.visual.transform.info.CompositeTransformInfoInterface;
 
 public interface BasicTransformerInterface extends CompositeTransformInfoInterface
 {

@@ -13,14 +13,15 @@
 */
 package org.allbinary.business.user;
 
+import java.util.HashMap;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.allbinary.business.user.modules.User;
 import org.allbinary.business.user.role.UserRoleData;
 import org.allbinary.logic.communication.http.request.RequestParams;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
 
 public class NewUserFactory
 {

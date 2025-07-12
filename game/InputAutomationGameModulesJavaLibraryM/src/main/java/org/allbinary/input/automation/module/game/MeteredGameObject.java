@@ -14,6 +14,8 @@
 package org.allbinary.input.automation.module.game;
 
 import java.awt.image.BufferedImage;
+
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 
 public class MeteredGameObject
@@ -98,13 +100,13 @@ public class MeteredGameObject
 
    public String toString()
    {
-      StringBuffer stringBuffer = new StringBuffer();
+      StringMaker stringBuffer = new StringMaker();
       
       stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
       stringBuffer.append(RATIOS_LABEL);
       for (int index = 0; index < this.getRatios().length; index++)
       {
-         stringBuffer.append(this.getRatios()[index]);
+         stringBuffer.append(this.getRatios()[index].toString());
          if (index < this.getRatios().length - 1)
          {
             stringBuffer.append(CommonSeps.getInstance().COMMA_SEP);

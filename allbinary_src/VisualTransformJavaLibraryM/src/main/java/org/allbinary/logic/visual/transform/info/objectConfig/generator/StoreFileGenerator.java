@@ -18,22 +18,22 @@ import java.io.InputStream;
 import java.util.HashMap;
 
 import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.communication.http.request.session.WeblisketSession;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.InputOutputTypeData;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.FileUtil;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.io.path.AbPathData;
-import org.allbinary.string.CommonSeps;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.string.regex.replace.Replace;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpStoreInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfosData;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 
 public class StoreFileGenerator 
@@ -61,7 +61,7 @@ public class StoreFileGenerator
         //2. Use objectconfig specified filename
         //3. Use root view name as default output file name
 
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(URLGLOBALS.getWebappPath());
         stringBuffer.append(weblisketSession.getStoreName());
@@ -121,7 +121,7 @@ public class StoreFileGenerator
             throw new Exception("TransformInfoObjectConfigGenerator Output=extension Not Specified");
         }
 
-        stringBuffer = new StringBuffer();
+        stringBuffer = new StringMaker();
 
         stringBuffer.append(fileName);
         stringBuffer.append(AbPathData.getInstance().EXTENSION_SEP);

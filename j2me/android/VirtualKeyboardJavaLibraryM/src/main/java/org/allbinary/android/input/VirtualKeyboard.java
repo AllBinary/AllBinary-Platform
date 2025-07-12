@@ -13,8 +13,8 @@
 */
 package org.allbinary.android.input;
 
-import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.input.event.VirtualKeyboardEvent;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
 

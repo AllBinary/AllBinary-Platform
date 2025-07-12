@@ -13,6 +13,8 @@
 */
 
 package org.allbinary.media.graphics.geography.pathfinding;
+import org.allbinary.logic.string.StringMaker;
+
 
 public class PathFindingNodeCostInfo implements Comparable<PathFindingNodeCostInfo>
 {    
@@ -73,10 +75,10 @@ public class PathFindingNodeCostInfo implements Comparable<PathFindingNodeCostIn
 
    public String toString()
    {
-      final StringBuffer stringBuffer = new StringBuffer();
+      final StringMaker stringBuffer = new StringMaker();
       
       stringBuffer.append(this.getClass().getName());
-      stringBuffer.append(": ");
+      stringBuffer.append(CommonLabels.getInstance().COLON_SEP);
       stringBuffer.append("CostFromStart: ");
       stringBuffer.append(this.costFromStart);
       stringBuffer.append(" CostToEnd: ");

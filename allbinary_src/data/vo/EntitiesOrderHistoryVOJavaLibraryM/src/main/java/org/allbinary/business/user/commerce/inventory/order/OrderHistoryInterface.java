@@ -18,7 +18,6 @@ package org.allbinary.business.user.commerce.inventory.order;
 import org.allbinary.business.user.address.StreetAddress;
 import org.allbinary.business.user.commerce.money.Money;
 import org.allbinary.business.user.commerce.money.payment.Payment;
-import org.allbinary.business.user.commerce.money.payment.PaymentInterface;
 
 public interface OrderHistoryInterface //extends DataMappingInterface
 {

@@ -13,14 +13,14 @@
 */
 package org.allbinary.logic.communication.http.request;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.communication.http.file.upload.AbFileUploadFactory;
+import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
-import java.util.HashMap;
-import java.util.List;
+
+import org.allbinary.logic.communication.http.file.upload.AbFileUploadFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadBase.InvalidContentTypeException;

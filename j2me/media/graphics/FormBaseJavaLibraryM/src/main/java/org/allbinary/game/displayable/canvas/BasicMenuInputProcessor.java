@@ -14,15 +14,12 @@
 
 package org.allbinary.game.displayable.canvas;
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.game.input.PlayerGameInput;
 import org.allbinary.graphics.displayable.MyCanvas;
 import org.allbinary.input.motion.gesture.observer.BaseMotionGestureEventListener;
 import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.util.BasicArrayList;
 
 public class BasicMenuInputProcessor extends PlayerGameInput
     implements BaseMotionGestureEventListener

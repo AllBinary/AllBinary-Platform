@@ -42,16 +42,10 @@ Created By: Travis Berthelot
 ]]>
 </xsl:text>
 
-<jsp:root 
-   xmlns:jsp="http://java.sun.com/JSP/Page" 
-   xmlns:jutil="/WEB-INF/jutil.tld"
-   xmlns:admin="/WEB-INF/admin.tld"   
-   xmlns:ecommerce="/WEB-INF/ecommerce.tld"   
-   xmlns:generic="/WEB-INF/generic.tld"
-   xmlns:payment="/WEB-INF/payment.tld"
-   xmlns:transform="/WEB-INF/transform.tld"
-   xmlns:transformInfoObjectConfig="/WEB-INF/transformInfoObjectConfig.tld"
-   version="1.2">
+             <jsp:root
+                     xmlns:jsp="http://java.sun.com/JSP/Page"
+                     xmlns:transform="/WEB-INF/transform.tld"
+                     version="1.2">
 <jsp:directive.page contentType="text/html"/>
 
 <xsl:call-template name="jspDirectiveIncludeInclude" >

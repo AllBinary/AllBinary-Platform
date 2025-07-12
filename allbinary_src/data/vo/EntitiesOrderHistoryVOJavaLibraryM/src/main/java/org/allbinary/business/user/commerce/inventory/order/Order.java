@@ -15,13 +15,8 @@ package org.allbinary.business.user.commerce.inventory.order;
 
 import java.io.Serializable;
 import java.util.HashMap;
-
 import java.util.Set;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-import org.allbinary.logic.string.StringUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.entry.EntryData;
@@ -29,7 +24,10 @@ import org.allbinary.business.user.commerce.inventory.basket.BasketInterface;
 import org.allbinary.business.user.commerce.money.payment.PaymentData;
 import org.allbinary.business.user.commerce.shipping.ShippingMethodData;
 import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.StringValidationUtil;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 public class Order implements OrderInterface, Serializable
 {   

@@ -19,20 +19,20 @@ import java.util.Vector;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
 
-import org.allbinary.business.installer.Portion;
-import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.string.StringValidationUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.entry.EntryData;
+import org.allbinary.business.installer.Portion;
 import org.allbinary.business.user.NewUserFactory;
 import org.allbinary.business.user.UserData;
 import org.allbinary.business.user.UserInterface;
 import org.allbinary.business.user.username.UserName;
 import org.allbinary.data.tables.user.UserEntityFactory;
 import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
+import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.logic.communication.http.request.RequestParams;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlTableUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringValidationUtil;
 
 public class UserHelper extends Table
 {
@@ -77,7 +77,7 @@ public class UserHelper extends Table
          UserEntityFactory.getInstance().deleteWhere(
              UserData.USERNAME, userName.get());
 
-         StringBuffer stringBuffer = new StringBuffer();
+         StringMaker stringBuffer = new StringMaker();
          
          stringBuffer.append("Successfully Removed the user with ");
          stringBuffer.append(UserData.USERNAME);

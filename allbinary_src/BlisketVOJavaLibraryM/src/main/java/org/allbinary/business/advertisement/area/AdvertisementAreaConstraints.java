@@ -13,17 +13,13 @@
 */
 package org.allbinary.business.advertisement.area;
 
-import org.allbinary.business.advertisement.area.AdvertisementAreaData;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
 import org.allbinary.data.tree.dom.DomSearchHelper;
-
 import org.allbinary.logic.control.contraints.display.browser.DisplayInBrowserContraints;
 import org.allbinary.logic.control.contraints.display.browser.DisplayInBrowserContraintsInterface;
-
 import org.allbinary.logic.control.contraints.size.TwoDimensionalConstraint;
 import org.allbinary.logic.control.contraints.size.TwoDimensionalConstraintInterface;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 public class AdvertisementAreaConstraints 
    implements AdvertisementAreaConstraintsInterface

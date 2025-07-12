@@ -15,11 +15,10 @@ package org.allbinary.game.configuration;
 
 import javax.microedition.lcdui.CommandListener;
 
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.init.Init;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
 
 public class InGameOptionsFormFactory
 {

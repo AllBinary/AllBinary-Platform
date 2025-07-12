@@ -15,8 +15,6 @@ package org.allbinary.content;
 
 import javax.microedition.lcdui.Command;
 
-import org.allbinary.data.resource.ResourceUtil;
-
 public class NotificationUtil
 {
     private static final NotificationUtil SINGLETON = new NotificationUtil();

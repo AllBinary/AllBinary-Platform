@@ -13,11 +13,10 @@
 */
 package org.allbinary.business.context.configuration;
 
-import org.allbinary.business.context.configuration.ContextConfigurationData;
-import org.allbinary.data.tables.TableMappingInterface;
-
 import java.util.HashMap;
 import java.util.Vector;
+
+import org.allbinary.data.tables.TableMappingInterface;
 
 public class ContextConfigurationTableMapping implements TableMappingInterface
 {

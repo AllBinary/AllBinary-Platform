@@ -13,8 +13,6 @@
 */
 package org.allbinary.game.layer.pickup;
 
-import org.allbinary.game.layer.pickup.PickupBehavior;
-
 public interface PickupCompositeInterface
 {
     public PickupBehavior getPickupBehavior();

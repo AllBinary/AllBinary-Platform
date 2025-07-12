@@ -13,22 +13,20 @@
 */
 package org.allbinary.input.automation;
 
-import java.awt.Desktop;
+import java.awt.*;
 import java.net.URI;
 import java.net.URL;
 
 import javax.help.HelpSet;
 import javax.help.event.HelpSetEvent;
 import javax.help.event.HelpSetListener;
-import javax.swing.ImageIcon;
-import javax.swing.JDialog;
+import javax.swing.*;
 
 import bundle.input.automation.InputAutomationBundleActivatorListenerInterface;
 import bundle.input.automation.module.configuration.InputAutomationConfigurationModuleChangeListener;
 import bundle.input.automation.robot.InputAutomationRobotChangeListener;
 import org.allbinary.globals.AppUrlGlobals;
 import org.allbinary.globals.URLGLOBALS;
-
 import org.allbinary.gui.dialog.BasicTextJDialog;
 import org.allbinary.gui.swing.workers.JListSwingWorker;
 import org.allbinary.input.automation.configuration.InputAutomationConfiguration;
@@ -41,13 +39,12 @@ import org.allbinary.input.automation.module.configuration.InputAutomationModule
 import org.allbinary.input.automation.osgi.DesktopBundle;
 import org.allbinary.input.automation.robot.InputRobotFactory;
 import org.allbinary.input.automation.robot.osgi.InputAutomationRobotChangeEvent;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.java.help.JavaHelpUtil;
-import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.system.loader.WebappClassLoaderInfo;
 import org.allbinary.logic.system.security.licensing.InputAutomationClientInformationFactory;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.thread.RunnableInterface;
 
 public class InputAutomationJFrame extends javax.swing.JFrame implements InputAutomationConfigurationModuleChangeListener, InputAutomationRobotChangeListener, HelpSetListener

@@ -13,7 +13,7 @@
 */
 package org.allbinary.media.image.analysis;
 
-import java.awt.Color;
+import org.allbinary.logic.string.StringMaker;
 
 public class ColorAverage
 {
@@ -30,7 +30,7 @@ public class ColorAverage
         
     public String toString()
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
          
         stringBuffer.append("getAvgRed(): ");
         stringBuffer.append(this.getAvgRed());

@@ -13,12 +13,8 @@
 */
 package org.allbinary.dom;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-
-import org.w3c.dom.Document;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -26,8 +22,10 @@ import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import org.allbinary.util.BasicArrayList;
 
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.util.BasicArrayList;
+import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 

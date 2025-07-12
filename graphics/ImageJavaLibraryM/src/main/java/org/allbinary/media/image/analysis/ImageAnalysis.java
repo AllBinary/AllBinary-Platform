@@ -13,14 +13,12 @@
 */
 package org.allbinary.media.image.analysis;
 
-import java.awt.Color;
+import java.awt.*;
 import java.awt.image.BufferedImage;
-
-import org.allbinary.logic.communication.log.LogUtil;
 
 import org.allbinary.graphics.color.ColorCacheFactory;
 import org.allbinary.graphics.color.ColorCacheable;
-import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonStrings;
 

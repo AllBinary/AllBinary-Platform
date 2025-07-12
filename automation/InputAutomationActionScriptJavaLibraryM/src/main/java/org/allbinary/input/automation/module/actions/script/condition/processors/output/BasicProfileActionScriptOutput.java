@@ -13,10 +13,9 @@
 */
 package org.allbinary.input.automation.module.actions.script.condition.processors.output;
 
+import org.allbinary.input.automation.actions.script.condition.processors.BasicProfileActionScriptProcessor;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-
-import org.allbinary.input.automation.actions.script.condition.processors.BasicProfileActionScriptProcessor;
 
 public class BasicProfileActionScriptOutput
     extends BasicProfileActionScriptProcessor

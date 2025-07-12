@@ -15,6 +15,7 @@ package org.allbinary.logic.io.file.directory;
 
 import java.io.File;
 import java.io.FileFilter;
+
 import org.allbinary.logic.util.visitor.VisitorInterface;
 
 public class DirectoryFileVisitor implements VisitorInterface, FileFilter

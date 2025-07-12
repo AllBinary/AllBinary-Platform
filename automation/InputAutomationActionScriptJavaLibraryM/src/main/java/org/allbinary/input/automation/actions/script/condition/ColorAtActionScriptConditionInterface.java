@@ -13,7 +13,7 @@
 */
 package org.allbinary.input.automation.actions.script.condition;
 
-import java.awt.Point;
+import java.awt.*;
 
 import org.allbinary.media.image.analysis.ColorRangeInterface;
 

@@ -13,11 +13,10 @@
 */
 package org.allbinary.business.init;
 
-import org.allbinary.util.BasicArrayList;
-
-import org.allbinary.logic.string.StringUtil;
 import org.allbinary.debug.DebugFactory;
 import org.allbinary.debug.NoDebug;
+import org.allbinary.logic.string.StringUtil;
+import org.allbinary.util.BasicArrayList;
 
 public class LicenseInitInfo
 {

@@ -13,21 +13,19 @@
 */
 package views.business.context.modules.storefront.customizer;
 
-
 import java.util.Vector;
 
-import org.w3c.dom.Document;
-
-import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tables.transform.info.TransformInfoEntity;
 import org.allbinary.data.tables.transform.info.TransformInfoEntityBuilder;
 import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.visual.transform.info.TransformInfo;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigInterface;
+import org.w3c.dom.Document;
 
 public class CustomizerUtil
 {
@@ -153,7 +151,7 @@ public class CustomizerUtil
         document.appendChild(domNodeInterface.toXmlNode(document));
         String documentString = DomDocumentHelper.toString(document);
 
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
@@ -222,7 +220,7 @@ public class CustomizerUtil
 
                     stringBuffer.append(viewNameOfViewToBeModified);
                     stringBuffer.append(" is changing data in ");
-                    stringBuffer.append(specifiedTransformInfoInterface.getDataFilePath());
+                    stringBuffer.append(specifiedTransformInfoInterface.getDataFilePath().toString());
                     stringBuffer.append(" to the following data:\n");
                     stringBuffer.append(documentString);
 

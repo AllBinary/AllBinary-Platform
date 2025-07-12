@@ -15,6 +15,8 @@ package org.allbinary.logic.java.object;
 
 import java.lang.reflect.Method;
 
+import org.allbinary.logic.string.StringMaker;
+
 public class MethodUtil
 {
    private MethodUtil()
@@ -23,7 +25,7 @@ public class MethodUtil
    
    public static String viewAll(Class myClass, String lineBreak)
    {
-      StringBuffer stringBuffer = new StringBuffer();
+      StringMaker stringBuffer = new StringMaker();
       Method method[] = myClass.getMethods();
       stringBuffer.append("Methods: ");
       stringBuffer.append(lineBreak);

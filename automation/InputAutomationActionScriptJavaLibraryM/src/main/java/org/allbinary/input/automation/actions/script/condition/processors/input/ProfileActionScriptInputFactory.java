@@ -13,9 +13,8 @@
 */
 package org.allbinary.input.automation.actions.script.condition.processors.input;
 
-import org.w3c.dom.Node;
-
 import org.allbinary.data.tree.dom.DomSearchHelper;
+import org.w3c.dom.Node;
 
 public class ProfileActionScriptInputFactory
 {

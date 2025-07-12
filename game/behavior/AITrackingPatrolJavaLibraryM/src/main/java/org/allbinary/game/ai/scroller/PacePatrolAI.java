@@ -17,9 +17,6 @@ import java.util.Hashtable;
 
 import javax.microedition.lcdui.Canvas;
 
-import org.allbinary.util.BasicArrayList;
-
-import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.direction.Direction;
 import org.allbinary.direction.DirectionCompositeInterface;
 import org.allbinary.direction.DirectionFactory;
@@ -30,8 +27,10 @@ import org.allbinary.game.tracking.TrackingEventListenerInterface;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.layer.LayerInterface;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
+import org.allbinary.util.BasicArrayList;
 
 public class PacePatrolAI extends BasePatrolAI
         implements TrackingEventListenerInterface

@@ -13,7 +13,6 @@
 */
 package org.allbinary.logic.visual.transform.info.objectConfig.generator;
 
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
 public class BasicGenerator 

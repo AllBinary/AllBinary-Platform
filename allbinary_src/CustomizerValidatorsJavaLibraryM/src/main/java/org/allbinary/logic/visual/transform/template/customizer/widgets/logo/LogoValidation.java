@@ -15,21 +15,20 @@ package org.allbinary.logic.visual.transform.template.customizer.widgets.logo;
 
 import java.util.HashMap;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-import org.allbinary.data.tree.dom.DomSearchHelper;
-import org.allbinary.logic.io.file.FileData;
-import org.allbinary.logic.io.path.AbPath;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.logic.communication.http.request.HttpRequestUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.validate.Validation;
+import org.allbinary.logic.io.file.FileData;
+import org.allbinary.logic.io.path.AbPath;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
-import org.apache.commons.fileupload.FileItem;
 import org.allbinary.logic.string.StringValidationUtil;
+import org.apache.commons.fileupload.FileItem;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 public class LogoValidation extends Validation implements DomNodeInterface
 {
@@ -80,7 +79,7 @@ public class LogoValidation extends Validation implements DomNodeInterface
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append("HashMap: ");
             stringBuffer.append(hashMap.toString());
@@ -163,7 +162,7 @@ public class LogoValidation extends Validation implements DomNodeInterface
     {
         try
         {
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append("Logo is not valid.");
 
@@ -216,7 +215,7 @@ public class LogoValidation extends Validation implements DomNodeInterface
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append("Processing logoFile: ");
             stringBuffer.append(this.logoAbPath.toString());

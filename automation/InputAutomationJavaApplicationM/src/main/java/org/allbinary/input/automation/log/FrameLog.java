@@ -13,12 +13,13 @@
 */
 package org.allbinary.input.automation.log;
 
-import org.allbinary.logic.java.number.LongUtil;
-import org.allbinary.input.automation.ImageOutputData;
 import java.io.File;
 import java.io.FileOutputStream;
-
 import java.util.Vector;
+
+import org.allbinary.input.automation.ImageOutputData;
+import org.allbinary.logic.java.number.LongUtil;
+import org.allbinary.logic.string.StringMaker;
 
 public class FrameLog
 {
@@ -28,8 +29,8 @@ public class FrameLog
     
     private final Long frame;
 
-    private StringBuffer infoStringBuffer = new StringBuffer();
-    private StringBuffer actionsStringBuffer = new StringBuffer();
+    private StringMaker infoStringBuffer = new StringMaker();
+    private StringMaker actionsStringBuffer = new StringMaker();
     
     public FrameLog(Long frame)
     throws Exception
@@ -60,7 +61,7 @@ public class FrameLog
     public void write()
     throws Exception
     {
-        StringBuffer filePathStringBuffer = new StringBuffer();
+        StringMaker filePathStringBuffer = new StringMaker();
 
         filePathStringBuffer.append(ImageOutputData.SAVE_PATH);
         filePathStringBuffer.append(LongUtil.fillIn(frame.toString()));

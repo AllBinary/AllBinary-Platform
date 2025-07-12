@@ -14,7 +14,6 @@
 package admin.tags;
 
 import java.util.Calendar;
-
 import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,16 +23,15 @@ import javax.servlet.jsp.tagext.TagSupport;
 import org.allbinary.business.init.InstallerInfo;
 import org.allbinary.business.user.role.BasicUserRole;
 import org.allbinary.business.user.role.BasicUserRoleFactory;
-import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.http.request.session.BasicWeblisketSession;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.java.bool.BooleanUtil;
-import org.allbinary.logic.system.security.licensing.LicensingException;
 import org.allbinary.logic.communication.http.request.session.WeblisketSessionData;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.bool.BooleanFactory;
-
+import org.allbinary.logic.java.bool.BooleanUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
+import org.allbinary.logic.system.security.licensing.LicensingException;
 import tags.CustomTagSupport;
 
 public class FileAuthenticationTag extends CustomTagSupport
@@ -201,7 +199,7 @@ public class FileAuthenticationTag extends CustomTagSupport
                 {
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATION))
                     {
-                        StringBuffer stringBuffer = new StringBuffer();
+                        StringMaker stringBuffer = new StringMaker();
 
                         stringBuffer.append("Session Is Old - Timeout: ");
                         stringBuffer.append(sessionTimout);
@@ -250,7 +248,7 @@ public class FileAuthenticationTag extends CustomTagSupport
           //Temp log - remove when fixed
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATION))
             {
-                StringBuffer stringBuffer = new StringBuffer();
+                StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append("Session Is Rarely Used - Timeout: ");
                 stringBuffer.append(lastAccess);
@@ -267,7 +265,7 @@ public class FileAuthenticationTag extends CustomTagSupport
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATION))
                 {
-                    StringBuffer stringBuffer = new StringBuffer();
+                    StringMaker stringBuffer = new StringMaker();
 
                     stringBuffer.append("Session Is Rarely Used - Timeout: ");
                     stringBuffer.append(lastAccess);
@@ -313,7 +311,7 @@ public class FileAuthenticationTag extends CustomTagSupport
     {
         try
         {
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
             //role verified
             //remove username and password from future request
             //pageContext.getOut().print("Removing POST UserName and Password");
@@ -338,7 +336,7 @@ public class FileAuthenticationTag extends CustomTagSupport
         {
             this.weblisketSession.setAuthenticated(false);
 
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
             stringBuffer.append("Sorry your username and password is invalid on this page.");
             stringBuffer.append("Trying New login<p>");
             return stringBuffer.toString();
@@ -639,7 +637,7 @@ public class FileAuthenticationTag extends CustomTagSupport
 
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
                     {
-                        StringBuffer stringBuffer = new StringBuffer();
+                        StringMaker stringBuffer = new StringMaker();
 
                         stringBuffer.append("Major authentication error - userName: ");
                         stringBuffer.append(this.userName);

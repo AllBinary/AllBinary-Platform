@@ -13,24 +13,24 @@
 */
 package org.allbinary.logic.visual.transform.info.objectConfig;
 
+import java.util.HashMap;
+
+import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.string.CommonSeps;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.regex.replace.Replace;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.business.context.modules.storefront.StoreFrontData;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.visual.transform.info.RootTransformInfoData;
+import org.allbinary.logic.visual.transform.info.TransformInfoData;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttp;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.template.TransformTemplateFactory;
 import org.allbinary.logic.visual.transform.template.TransformTemplateInterface;
 import org.allbinary.logic.visual.transform.template.util.TransformTemplateCustomizerUtil;
+import org.allbinary.string.CommonSeps;
 import org.w3c.dom.Document;
-
-import java.util.HashMap;
-import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
-import org.allbinary.logic.visual.transform.info.RootTransformInfoData;
-import org.allbinary.logic.visual.transform.info.TransformInfoData;
 
 public class GenericStoreTransformInfoObjectConfig extends TransformInfoObjectConfig
 {
@@ -74,7 +74,7 @@ public class GenericStoreTransformInfoObjectConfig extends TransformInfoObjectCo
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-        	  StringBuffer stringBuffer = new StringBuffer();
+        	  StringMaker stringBuffer = new StringMaker();
         	  
         	  stringBuffer.append("TransformInfo: ");
         	  
@@ -171,7 +171,7 @@ public class GenericStoreTransformInfoObjectConfig extends TransformInfoObjectCo
             logUtil.put("TemplateNameOverride: " + templateNameOverride, this, "generate()");
         }
 
-        StringBuffer templateNameStringBuffer = new StringBuffer();
+        StringMaker templateNameStringBuffer = new StringMaker();
 
         templateNameStringBuffer.append(storeName);
         templateNameStringBuffer.append(templateNameOverride);

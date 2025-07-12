@@ -13,11 +13,8 @@
  */
 package org.allbinary.media;
 
-import java.awt.Dimension;
-import java.awt.DisplayMode;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
-import java.awt.Toolkit;
+import java.awt.*;
+
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;
 

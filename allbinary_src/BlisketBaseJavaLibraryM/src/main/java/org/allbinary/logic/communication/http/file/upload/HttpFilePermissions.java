@@ -13,13 +13,12 @@
 */
 package org.allbinary.logic.communication.http.file.upload;
 
-import org.allbinary.logic.communication.http.file.upload.FileUploadData;
+import java.util.Vector;
+
 import org.allbinary.business.user.role.BasicUserRoleFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.path.AbPath;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import java.util.Vector;
 import org.allbinary.string.CommonStrings;
 
 public class HttpFilePermissions

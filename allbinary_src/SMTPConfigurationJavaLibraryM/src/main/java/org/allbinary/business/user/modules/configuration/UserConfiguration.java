@@ -13,13 +13,13 @@
 */
 package org.allbinary.business.user.modules.configuration;
 
+import java.util.HashMap;
+
+import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.time.created.TimeCreated;
 import org.allbinary.business.time.modified.TimeLastModified;
 import org.allbinary.logic.communication.smtp.configuration.user.UserEmailConfiguration;
 import org.allbinary.logic.communication.smtp.configuration.user.UserEmailConfigurationInterface;
-
-import java.util.HashMap;
-import org.allbinary.business.entry.EntryData;
 
 public class UserConfiguration implements UserConfigurationInterface
 {

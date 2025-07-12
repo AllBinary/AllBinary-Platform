@@ -15,17 +15,12 @@ package org.allbinary.logic.communication.log.config.type;
 
 //import java.io.PrintWriter;
 
-import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
-import org.allbinary.logic.communication.log.config.type.LogConfigTypeData;
-
-import org.w3c.dom.Node;
-   
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
-
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.communication.log.config.LoggingInitInfo;
 import org.allbinary.util.BasicArrayList;
+import org.w3c.dom.Node;
 
 public class LogConfigTypes
 {

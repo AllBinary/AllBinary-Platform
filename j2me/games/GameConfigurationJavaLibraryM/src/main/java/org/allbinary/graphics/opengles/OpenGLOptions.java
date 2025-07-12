@@ -13,10 +13,9 @@
 */
 package org.allbinary.graphics.opengles;
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.GameFeatureChoiceGroups;
+import org.allbinary.util.BasicArrayList;
 
 public class OpenGLOptions
 {

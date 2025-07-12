@@ -16,7 +16,7 @@ function setStyleRule(cssElementAndProperty)
    {
       //log("setStyleRule: Appending Old Style: " + cssElementProperties);
       var cssElementText = cssElementProperties + 
-         aCssPropertyName + ": " + aCssPropertyValue + "; ";
+         aCssPropertyName + CommonLabels.getInstance().COLON_SEP + aCssPropertyValue + "; ";
       //log("setStyleRule: New Style with added property: " + cssElementText);
       setCssTextForCssRule(cssRule, cssElementText);
    }

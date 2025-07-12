@@ -16,9 +16,9 @@ package org.allbinary.input.media.image.capture;
 import java.awt.image.BufferedImage;
 
 import org.allbinary.input.automation.ImageOutputData;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.number.LongUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.cache.AutomaticCacheInterface;
 import org.allbinary.logic.visual.media.MediaDataFactory;
 import org.allbinary.media.image.ImagePersistanceUtil;
@@ -47,7 +47,7 @@ public class CapturedImageInputOutput implements ImageIOInterface {
         final CommonStrings commonStrings = CommonStrings.getInstance();
         
         final ImageUtil imageUtil = ImageUtil.getInstance();
-        final StringBuffer filePathStringBuffer = new StringBuffer();
+        final StringMaker filePathStringBuffer = new StringMaker();
         filePathStringBuffer.append(ImageOutputData.SAVE_PATH);
         filePathStringBuffer.append(LongUtil.fillIn(frame.toString()));
         filePathStringBuffer.append(MediaDataFactory.getInstance().JPG.getExtension());

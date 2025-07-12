@@ -13,12 +13,11 @@
 */
 package org.allbinary.math;
 
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.string.CommonSeps;
-import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonPhoneStrings;
+import org.allbinary.string.CommonSeps;
+import org.allbinary.string.CommonStrings;
 
 public class AngleFactory
 {

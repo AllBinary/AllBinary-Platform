@@ -13,8 +13,6 @@
 */
 package org.allbinary.input.automation.module.actions.script.condition.processors.output;
 
-import java.util.Vector;
-
 public interface ImageActionScriptOutputInterface
     extends ProfileActionScriptOutputInterface
 {

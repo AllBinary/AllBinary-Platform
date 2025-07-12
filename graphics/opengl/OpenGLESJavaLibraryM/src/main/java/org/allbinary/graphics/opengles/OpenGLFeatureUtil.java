@@ -12,6 +12,8 @@
 * 
 */
 package org.allbinary.graphics.opengles;
+import org.allbinary.logic.string.StringMaker;
+
 
 import org.allbinary.game.configuration.feature.Features;
 

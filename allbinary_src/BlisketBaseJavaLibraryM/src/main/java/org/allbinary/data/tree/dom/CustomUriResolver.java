@@ -18,12 +18,11 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.URIResolver;
 import javax.xml.transform.stream.StreamSource;
 
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.control.crypt.file.CryptFileReader;
 import org.allbinary.logic.io.path.AbFilePath;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.io.path.AbPathData;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.control.crypt.file.CryptFileReader;
 import org.allbinary.logic.visual.transform.info.template.TransformInfoTemplateData;
 
 public class CustomUriResolver implements URIResolver

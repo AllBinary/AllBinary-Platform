@@ -13,7 +13,7 @@
 */
 package org.allbinary.media.image.comparison.motion;
 
-import java.awt.Rectangle;
+import java.awt.*;
 import java.util.Vector;
 
 public class MotionRectangle implements Cloneable

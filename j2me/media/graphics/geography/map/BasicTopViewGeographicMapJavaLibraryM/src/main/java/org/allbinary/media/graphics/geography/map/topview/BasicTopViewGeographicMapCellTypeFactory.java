@@ -119,7 +119,7 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
             
             idsWithTypeList = (BasicArrayList) tileTypeToTileIdsMap.get(key);
 
-            //logUtil.put(new StringMaker().append("key: ").append(key).append(": ").append(idsWithTypeList.toString()).toString(), this, commonStrings.INIT);
+            //logUtil.put(new StringMaker().append("key: ").append(key).append(CommonLabels.getInstance().COLON_SEP).append(idsWithTypeList.toString()).toString(), this, commonStrings.INIT);
             if(key.equals(basicTopViewGeographicMapStrings.WALL)) {
                 basicPlatormGeographicMapCellType = new BasicTopViewGeographicMapCellType(basicTopViewGeographicMapStrings.WALL, idsWithTypeList, 1000);
                 BLOCK_CELL_TYPE = basicPlatormGeographicMapCellType;

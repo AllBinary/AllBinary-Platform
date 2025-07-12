@@ -13,10 +13,10 @@
 */
 package org.allbinary.data.tables.advertisement.areas;
 
-import org.allbinary.business.advertisement.area.AdvertisementAreaInterface;
-
 import java.util.HashMap;
 import java.util.Vector;
+
+import org.allbinary.business.advertisement.area.AdvertisementAreaInterface;
 import org.allbinary.data.tables.BasicDataTableInterface;
 
 public interface AdvertisementAreasEntityInterface extends BasicDataTableInterface

@@ -24,16 +24,9 @@ Created By: Travis Berthelot
          <xsl:for-each select="US" >
             <xsl:for-each select="SELECT_CLEARANCE_PRODUCTS_NAME" >
 
-<jsp:root 
-   xmlns:jsp="http://java.sun.com/JSP/Page" 
-   xmlns:jutil="/WEB-INF/jutil.tld"
-   xmlns:admin="/WEB-INF/admin.tld"   
-   xmlns:ecommerce="/WEB-INF/ecommerce.tld"   
-   xmlns:generic="/WEB-INF/generic.tld"
-   xmlns:payment="/WEB-INF/payment.tld"
-   xmlns:transform="/WEB-INF/transform.tld"
-   xmlns:transformInfoObjectConfig="/WEB-INF/transformInfoObjectConfig.tld"
-   version="1.2">
+                <jsp:root
+                        xmlns:jsp="http://java.sun.com/JSP/Page"
+                        version="1.2">
 <jsp:scriptlet>
 /*
  *Copyright (c) 2002-2004 AllBinary.

@@ -16,11 +16,7 @@ package org.allbinary.input.automation.actions.script.condition.processors.input
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Iterator;
-
 import java.util.Set;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
 
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
@@ -28,10 +24,11 @@ import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.input.automation.actions.script.condition.processors.BasicProfileActionScriptProcessor;
 import org.allbinary.input.automation.robot.InputRobotFactory;
 import org.allbinary.input.automation.robot.InputRobotInterface;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 public class BasicProfileActionScriptInput
     extends BasicProfileActionScriptProcessor
@@ -141,7 +138,7 @@ public class BasicProfileActionScriptInput
     
    public String toString()
    {
-      StringBuffer stringBuffer = new StringBuffer();
+      StringMaker stringBuffer = new StringMaker();
       
       stringBuffer.append(super.toString());
       stringBuffer.append(" Input Type: ");

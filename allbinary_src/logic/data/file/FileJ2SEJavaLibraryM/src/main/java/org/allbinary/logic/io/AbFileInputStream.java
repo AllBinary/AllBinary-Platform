@@ -14,11 +14,12 @@
 
 package org.allbinary.logic.io;
 
-import org.allbinary.logic.io.file.AbFile;
-import org.allbinary.logic.io.file.AbFileNativeUtil;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+
+import org.allbinary.logic.io.file.AbFile;
+import org.allbinary.logic.io.file.AbFileNativeUtil;
 
 public class AbFileInputStream
     extends FileInputStream

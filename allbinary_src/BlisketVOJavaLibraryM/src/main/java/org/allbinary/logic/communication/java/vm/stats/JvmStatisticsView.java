@@ -13,14 +13,12 @@
 */
 package org.allbinary.logic.communication.java.vm.stats;
 
+import java.util.HashMap;
+
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
-import org.allbinary.logic.communication.java.vm.stats.JvmStatisticsData;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-
-import java.util.HashMap;
 
 public class JvmStatisticsView extends JvmStatisticsMapping implements DomNodeInterface
 {

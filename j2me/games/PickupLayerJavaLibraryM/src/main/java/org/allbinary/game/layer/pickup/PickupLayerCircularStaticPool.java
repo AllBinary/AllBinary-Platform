@@ -13,9 +13,6 @@
 */
 package org.allbinary.game.layer.pickup;
 
-import org.allbinary.game.layer.pickup.PickedUpLayerInterface;
-import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
-
 import org.allbinary.layer.AllBinaryLayerCircularPool;
 
 public class PickupLayerCircularStaticPool

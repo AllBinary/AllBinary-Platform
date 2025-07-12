@@ -13,16 +13,15 @@
 */
 package org.allbinary.logic.control.search;
 
-import org.allbinary.logic.control.search.SearchData;
+import java.util.HashMap;
+import java.util.Set;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.data.tree.dom.ToDomHelper;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
-
-import java.util.Set;
 
 public class SearchParams
 {

@@ -13,11 +13,11 @@
 */
 package org.allbinary.game.combat.weapon;
 
-import org.allbinary.string.CommonSeps;
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.math.BasicDecimal;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonSeps;
+import org.allbinary.string.CommonStrings;
 
 /**
  *

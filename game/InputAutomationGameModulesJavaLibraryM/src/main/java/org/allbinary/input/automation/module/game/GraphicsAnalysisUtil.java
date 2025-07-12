@@ -13,7 +13,7 @@
 */
 package org.allbinary.input.automation.module.game;
 
-import java.awt.Color;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
 import org.allbinary.graphics.color.ColorCacheFactory;

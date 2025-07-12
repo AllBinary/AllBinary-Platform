@@ -13,34 +13,31 @@
 */
 package org.allbinary.graphics.j2me;
 
-import org.allbinary.string.CommonStrings;
+import java.awt.*;
 import java.io.File;
-import java.awt.Dimension;
-import javax.swing.JPanel;
-import org.allbinary.dom.DomHelper;
+import java.util.HashMap;
 
+import javax.swing.*;
+
+import org.allbinary.data.tree.dom.XslHelper;
+import org.allbinary.dom.DomHelper;
 import org.allbinary.graphics.j2me.dialog.NewWorkAreaJDialog;
+import org.allbinary.graphics.j2me.dialog.RotateJDialog;
+import org.allbinary.graphics.j2me.workarea.WorkAreaDom;
+import org.allbinary.graphics.j2me.workarea.WorkAreaJPanel;
 import org.allbinary.graphics.j2me.workarea.WorkAreaJPanelInterface;
 import org.allbinary.graphics.j2me.workarea.canvas.event.MyCanvasEvent;
 import org.allbinary.graphics.j2me.workarea.canvas.event.MyCanvasEventService;
 import org.allbinary.graphics.j2me.workarea.canvas.event.MyCanvasEventSource;
-import org.allbinary.log.LOGGING;
-import org.allbinary.logic.communication.log.GuiLog;
-import org.allbinary.logic.communication.log.Log;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.data.tree.dom.XslHelper;
-import org.allbinary.graphics.j2me.dialog.RotateJDialog;
-import org.allbinary.graphics.j2me.workarea.WorkAreaDom;
-import org.allbinary.graphics.j2me.workarea.WorkAreaJPanel;
 import org.allbinary.gui.dialog.FileJDialog;
 import org.allbinary.gui.dialog.FileJDialogListenerInterface;
 import org.allbinary.gui.dialog.HashMapJDialogListenerInterface;
+import org.allbinary.log.LOGGING;
+import org.allbinary.logic.communication.log.GuiLog;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
-import org.allbinary.math.Angle;
 import org.allbinary.math.AngleFactory;
-import java.awt.GridLayout;
-import java.util.HashMap;
+import org.allbinary.string.CommonStrings;
 import org.w3c.dom.Document;
 
 public class MyFrame extends javax.swing.JFrame

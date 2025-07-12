@@ -15,10 +15,9 @@ package org.allbinary.business.context.modules.storefront;
 
 //import org.allbinary.logic.java.proxy.InterfaceCastProxy;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tables.context.module.storefronts.StoreFrontsEntity;
 import org.allbinary.data.tables.context.module.storefronts.StoreFrontsEntityFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 
 public class StoreFrontFactory

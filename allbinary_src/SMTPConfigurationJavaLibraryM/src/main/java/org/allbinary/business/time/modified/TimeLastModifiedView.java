@@ -15,7 +15,6 @@ package org.allbinary.business.time.modified;
 
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.data.tree.dom.DomNodeHelper;
-
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.w3c.dom.Document;

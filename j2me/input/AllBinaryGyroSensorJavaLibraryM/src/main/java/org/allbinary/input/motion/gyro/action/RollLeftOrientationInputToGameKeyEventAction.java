@@ -14,10 +14,9 @@
 
 package org.allbinary.input.motion.gyro.action;
 
-import org.allbinary.input.gyro.OrientationMotionGestureFactory;
-
 import org.allbinary.game.input.PlatformInputMappingFactory;
 import org.allbinary.game.input.motion.action.GameKeyCompleteMotionGestureInputEvent;
+import org.allbinary.input.gyro.OrientationMotionGestureFactory;
 
 public class RollLeftOrientationInputToGameKeyEventAction extends GameKeyCompleteMotionGestureInputEvent
 {

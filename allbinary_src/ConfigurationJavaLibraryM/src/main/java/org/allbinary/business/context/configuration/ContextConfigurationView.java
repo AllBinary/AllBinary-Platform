@@ -13,8 +13,8 @@
 */
 package org.allbinary.business.context.configuration;
 
-import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.logic.communication.smtp.configuration.server.EmailServerConfigurationData;
 import org.allbinary.logic.communication.smtp.configuration.server.EmailServerConfigurationInterface;
 import org.allbinary.logic.communication.smtp.configuration.server.EmailServerConfigurationView;

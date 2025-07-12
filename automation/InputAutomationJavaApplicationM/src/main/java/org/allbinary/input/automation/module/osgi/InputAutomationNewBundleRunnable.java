@@ -13,19 +13,20 @@
 */
 package org.allbinary.input.automation.module.osgi;
 
-import bundle.input.automation.InputAutomationBundleActivator;
-
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileInputStream;
 import java.net.URL;
 import java.util.HashMap;
-
 import java.util.Set;
 import java.util.jar.JarInputStream;
 import java.util.jar.Manifest;
 
-import org.allbinary.logic.communication.log.LogFactory;
+import org.osgi.framework.Bundle;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.Constants;
+
+import bundle.input.automation.InputAutomationBundleActivator;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.file.FileWrapperUtil;
 import org.allbinary.logic.io.file.directory.SubDirectory;
@@ -35,10 +36,6 @@ import org.allbinary.string.CommonStrings;
 import org.allbinary.thread.RunnableInterface;
 import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.util.BasicArrayList;
-
-import org.osgi.framework.Bundle;
-import org.osgi.framework.BundleContext;
-import org.osgi.framework.Constants;
 
 public class InputAutomationNewBundleRunnable
     implements RunnableInterface

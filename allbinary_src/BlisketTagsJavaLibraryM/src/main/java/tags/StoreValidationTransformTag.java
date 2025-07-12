@@ -13,13 +13,11 @@
 */
 package tags;
 
-import org.allbinary.logic.communication.log.LogUtil;
+import javax.servlet.jsp.JspTagException;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
-
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
-import org.allbinary.logic.communication.log.LogFactory;
-import javax.servlet.jsp.JspTagException;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class StoreValidationTransformTag extends ValidationTransformTag
 {

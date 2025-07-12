@@ -13,8 +13,6 @@
 */
 package tags;
 
-import tags.CustomTagSupport;
-
 public class CommandTag extends CustomTagSupport
 {
 

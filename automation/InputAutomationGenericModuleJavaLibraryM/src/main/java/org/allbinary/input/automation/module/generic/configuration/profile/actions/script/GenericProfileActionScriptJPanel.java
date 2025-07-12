@@ -13,15 +13,15 @@
 */
 package org.allbinary.input.automation.module.generic.configuration.profile.actions.script;
 
-import org.allbinary.input.automation.actions.script.JTreeInterface;
-import org.allbinary.input.automation.actions.script.condition.CustomTreeNodeInterface;
 import java.awt.event.MouseEvent;
-import javax.swing.JComponent;
-import javax.swing.JPopupMenu;
+
+import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreePath;
-import org.allbinary.logic.communication.log.LogFactory;
+
+import org.allbinary.input.automation.actions.script.JTreeInterface;
+import org.allbinary.input.automation.actions.script.condition.CustomTreeNodeInterface;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 

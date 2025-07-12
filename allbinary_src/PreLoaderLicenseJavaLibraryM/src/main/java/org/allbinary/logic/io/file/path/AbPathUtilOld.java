@@ -13,14 +13,12 @@
 */
 package org.allbinary.logic.io.file.path;
 
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.file.FilePathData;
 import org.allbinary.logic.io.path.AbFilePath;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.logic.string.StringValidationUtil;
-
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 
 //Used to correct user input for paths
 public class AbPathUtilOld

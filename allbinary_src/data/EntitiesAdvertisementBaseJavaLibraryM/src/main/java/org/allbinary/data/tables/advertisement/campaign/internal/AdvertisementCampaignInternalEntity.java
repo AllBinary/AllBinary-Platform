@@ -14,13 +14,8 @@
 package org.allbinary.data.tables.advertisement.campaign.internal;
 
 import java.util.HashMap;
-
 import java.util.Vector;
 
-import org.allbinary.business.init.db.UserDbInitInfo;
-import org.allbinary.business.installer.Portion;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.advertisement.campaign.AdvertisementCampaign;
 import org.allbinary.business.advertisement.campaign.AdvertisementCampaignData;
 import org.allbinary.business.advertisement.campaign.AdvertisementCampaignInterface;
@@ -28,8 +23,11 @@ import org.allbinary.business.advertisement.campaign.AdvertisementCampaigns;
 import org.allbinary.business.advertisement.campaign.AdvertisementCampaignsInterface;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.entry.EntryData;
+import org.allbinary.business.init.db.UserDbInitInfo;
 import org.allbinary.business.time.TimeData;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlBean;
+import org.allbinary.logic.string.StringMaker;
 
 public class AdvertisementCampaignInternalEntity extends AbSqlBean
         implements AdvertisementCampaignInternalEntityInterface
@@ -135,7 +133,7 @@ public class AdvertisementCampaignInternalEntity extends AbSqlBean
         AdvertisementCampaignData advertisementCampaignData
                 = AdvertisementCampaignData.getInstance();
 
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.sqlStrings.CREATE_TABLE);
 

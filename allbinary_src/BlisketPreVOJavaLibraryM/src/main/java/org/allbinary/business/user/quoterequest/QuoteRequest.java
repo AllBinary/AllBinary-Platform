@@ -18,14 +18,14 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
+
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.quoterequest.QuoteRequestData;
-
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.user.UserData;
 import org.allbinary.data.generator.QuoteRequestIdGenerator;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlData;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
 
@@ -134,7 +134,7 @@ public class QuoteRequest
    {
       try
       {
-         StringBuffer stringBuffer = new StringBuffer();
+         StringMaker stringBuffer = new StringMaker();
          if(userName==null || userName.length()<4 || userName.length()>250)
          {
             stringBuffer.append("Please enter a User Name with more than 4 characters.<br>");

@@ -13,7 +13,6 @@
 */
 package org.allbinary.logic.math;
 
-
 public class BasicDecimal
 {  
    private long units;

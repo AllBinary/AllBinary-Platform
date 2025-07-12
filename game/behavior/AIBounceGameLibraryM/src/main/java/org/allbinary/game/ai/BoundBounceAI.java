@@ -17,7 +17,6 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.bounds.BoundsVisitorInterface;
 import org.allbinary.bounds.LayerBounds;
-
 import org.allbinary.game.input.GameInput;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;

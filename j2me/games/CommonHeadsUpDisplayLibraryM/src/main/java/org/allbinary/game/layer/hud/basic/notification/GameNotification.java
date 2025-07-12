@@ -13,9 +13,8 @@
 */
 package org.allbinary.game.layer.hud.basic.notification;
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.util.BasicArrayList;
 
 public class GameNotification
 {

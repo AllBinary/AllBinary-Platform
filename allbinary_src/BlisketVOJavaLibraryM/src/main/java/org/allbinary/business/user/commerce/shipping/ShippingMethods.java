@@ -15,10 +15,9 @@ package org.allbinary.business.user.commerce.shipping;
 
 import java.util.Vector;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.commerce.shipping.modules.ShippingInterface;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.string.CommonStrings;
 

@@ -13,14 +13,11 @@
 */
 package org.allbinary.graphics.j2me.workarea;
 
-import javax.swing.JTree;
+import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.MutableTreeNode;
 import javax.swing.tree.TreePath;
 
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.graphics.j2me.workarea.canvas.CanvasTreeLabel;
 import org.allbinary.graphics.j2me.workarea.canvas.event.MyCanvasEvent;
 import org.allbinary.graphics.j2me.workarea.canvas.event.MyCanvasEventService;
@@ -28,6 +25,8 @@ import org.allbinary.graphics.j2me.workarea.canvas.event.MyCanvasEventSource;
 import org.allbinary.graphics.j2me.workarea.tools.event.MyGraphicItemEvent;
 import org.allbinary.graphics.j2me.workarea.tools.event.MyGraphicItemEventService;
 import org.allbinary.graphics.j2me.workarea.tools.event.MyGraphicItemEventSource;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 
 public class WorkAreaJTreeJPanel extends javax.swing.JPanel

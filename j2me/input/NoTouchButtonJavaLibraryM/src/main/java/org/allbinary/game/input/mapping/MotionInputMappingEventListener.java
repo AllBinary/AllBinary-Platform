@@ -13,11 +13,9 @@
 */
 package org.allbinary.game.input.mapping;
 
-import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.game.input.mapping.event.InputMappingEvent;
 import org.allbinary.game.input.mapping.event.InputMappingEventListenerInterface;
-//import org.allbinary.game.input.motion.action.GameKeyCompleteMotionGestureInputEventFactory;
-//import org.allbinary.input.motion.button.BasicTouchInputFactory;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
 

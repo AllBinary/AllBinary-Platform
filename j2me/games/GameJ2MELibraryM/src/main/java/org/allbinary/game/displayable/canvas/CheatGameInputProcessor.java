@@ -13,10 +13,6 @@
 */
 package org.allbinary.game.displayable.canvas;
 
-import org.allbinary.util.BasicArrayList;
-
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.input.GameKeyFactory;
 import org.allbinary.game.input.PlayerGameInput;
 import org.allbinary.game.input.event.GameKeyEvent;
@@ -24,7 +20,9 @@ import org.allbinary.game.input.event.GameKeyEventUtil;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.layer.special.SpecialGameInputFactory;
 import org.allbinary.game.layer.special.SpecialGameInputInterface;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.util.BasicArrayList;
 
 public class CheatGameInputProcessor extends PlayerGameInput 
 {

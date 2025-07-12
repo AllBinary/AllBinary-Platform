@@ -13,14 +13,12 @@
 */
 package org.allbinary.game.input;
 
-import org.allbinary.util.BasicArrayList;
-
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.InputFeatureFactory;
 import org.allbinary.game.input.event.GameKeyEvent;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
+import org.allbinary.util.BasicArrayList;
 
 public class GameInput {
     protected final LogUtil logUtil = LogUtil.getInstance();

@@ -13,13 +13,12 @@
 */
 package org.allbinary.game.resource;
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.RelativeRelationship;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.relationship.RelativeLayerRelationship;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.util.BasicArrayList;
 
 public class FeaturedResourceRelativeRelationshipFactory extends FeaturedResourceFactory
 {

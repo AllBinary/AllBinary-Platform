@@ -16,10 +16,9 @@ package org.allbinary.logic.communication.smtp.event.handler.factory;
 import java.util.HashMap;
 import java.util.Vector;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.data.tables.user.UserEntityFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.smtp.event.UserEmailEventNameData;
 import org.allbinary.logic.communication.smtp.event.handler.EmailEventHandlerUtil;
 import org.allbinary.logic.communication.smtp.event.handler.UserEmailEventHandler;

@@ -13,47 +13,41 @@
 */
 package org.allbinary.graphics.j2me.workarea.canvas;
 
+import java.awt.*;
 import java.util.HashMap;
-
 import java.util.Vector;
-
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.MutableTreeNode;
 
-import org.w3c.dom.Node;
-
-import org.allbinary.string.CommonSeps;
-import org.allbinary.string.CommonStrings;
-import org.allbinary.graphics.j2me.GraphicsException;
-import org.allbinary.graphics.j2me.workarea.WorkAreaJTreeJPanel;
-import org.allbinary.graphics.j2me.workarea.tools.GraphicItemFactory;
-import org.allbinary.graphics.j2me.workarea.tools.GraphicItemInterface;
-import org.allbinary.graphics.j2me.workarea.tools.LinesGraphicItem;
-import org.allbinary.graphics.j2me.workarea.tools.event.MyGraphicItemEvent;
-import org.allbinary.graphics.j2me.workarea.tools.event.MyGraphicItemEventListener;
-import org.allbinary.graphics.j2me.workarea.tools.event.MyGraphicItemEventService;
-import org.allbinary.logic.communication.log.GuiLog;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.animation.vector.VectorCenterGenerator;
 import org.allbinary.animation.VectorExplosionGenerator;
 import org.allbinary.animation.VectorMirrorGenerator;
+import org.allbinary.animation.vector.VectorCenterGenerator;
 import org.allbinary.game.input.GameInputStrings;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.color.BasicColorFactory;
+import org.allbinary.graphics.j2me.GraphicsException;
 import org.allbinary.graphics.j2me.StatusFactory;
+import org.allbinary.graphics.j2me.workarea.WorkAreaJTreeJPanel;
+import org.allbinary.graphics.j2me.workarea.tools.GraphicItemFactory;
+import org.allbinary.graphics.j2me.workarea.tools.GraphicItemInterface;
+import org.allbinary.graphics.j2me.workarea.tools.LinesGraphicItem;
 import org.allbinary.graphics.j2me.workarea.tools.MouseStrings;
 import org.allbinary.graphics.j2me.workarea.tools.Points;
 import org.allbinary.graphics.j2me.workarea.tools.ToolFactory;
+import org.allbinary.graphics.j2me.workarea.tools.event.MyGraphicItemEvent;
+import org.allbinary.graphics.j2me.workarea.tools.event.MyGraphicItemEventListener;
+import org.allbinary.graphics.j2me.workarea.tools.event.MyGraphicItemEventService;
 import org.allbinary.graphics.pipeline.RandomRotationFactory;
 import org.allbinary.log.LOGGING;
+import org.allbinary.logic.communication.log.GuiLog;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.math.PositionStrings;
+import org.allbinary.string.CommonSeps;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.w3c.dom.Node;
 
 public class CanvasJPanel extends javax.swing.JPanel
         implements java.awt.event.MouseListener,

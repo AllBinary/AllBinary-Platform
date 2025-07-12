@@ -30,7 +30,6 @@ import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.color.BasicColorSetUtil;
 import org.allbinary.graphics.draw.DrawStringUtil;
 import org.allbinary.graphics.font.MyFont;
-import org.allbinary.graphics.opengles.OpenGLFeature;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
 import org.allbinary.graphics.paint.Paintable;

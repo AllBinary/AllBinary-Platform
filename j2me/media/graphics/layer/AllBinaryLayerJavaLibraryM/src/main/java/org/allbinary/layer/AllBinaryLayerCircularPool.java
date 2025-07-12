@@ -13,9 +13,8 @@
 */
 package org.allbinary.layer;
 
-import org.allbinary.util.CircularIndexUtil;
-
 import org.allbinary.logic.util.cache.BaseCircularPool;
+import org.allbinary.util.CircularIndexUtil;
 
 public class AllBinaryLayerCircularPool
 extends BaseCircularPool

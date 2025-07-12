@@ -14,9 +14,8 @@
 package org.allbinary.logic.system.security.licensing;
 
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.logic.string.StringUtil;
+import org.allbinary.util.BasicArrayList;
 
 public class AbeNoLicense
     implements AbeLicenseInterface

@@ -13,20 +13,15 @@
 */
 package org.allbinary.media.image;
 
-import java.awt.Graphics2D;
-import java.awt.GraphicsConfiguration;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
-import java.awt.Transparency;
+import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.string.CommonSeps;
-import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
+import org.allbinary.string.CommonSeps;
+import org.allbinary.string.CommonStrings;
 
 public class ImageUtil
 {
@@ -255,7 +250,7 @@ public class ImageUtil
    public String toString(BufferedImage bufferedImage)
    {
        final CommonLabels commonLabels = CommonLabels.getInstance();
-      final StringBuffer stringBuffer = new StringBuffer();
+      final StringMaker stringBuffer = new StringMaker();
 
       stringBuffer.append(" BufferedImage -");
       stringBuffer.append(commonLabels.WIDTH_LABEL);

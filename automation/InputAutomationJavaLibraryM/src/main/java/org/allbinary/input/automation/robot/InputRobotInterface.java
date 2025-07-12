@@ -13,10 +13,9 @@
 */
 package org.allbinary.input.automation.robot;
 
-import java.awt.Color;
-import java.awt.Point;
-import java.awt.Rectangle;
+import java.awt.*;
 import java.awt.image.BufferedImage;
+
 import javax.help.HelpSet;
 
 public interface InputRobotInterface

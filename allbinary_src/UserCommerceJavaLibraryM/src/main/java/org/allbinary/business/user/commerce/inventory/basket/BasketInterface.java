@@ -13,11 +13,11 @@
 */
 package org.allbinary.business.user.commerce.inventory.basket;
 
-import org.allbinary.business.user.commerce.money.Money;
-import org.allbinary.business.user.commerce.money.MoneyException;
-
 import java.util.HashMap;
 import java.util.Set;
+
+import org.allbinary.business.user.commerce.money.Money;
+import org.allbinary.business.user.commerce.money.MoneyException;
 
 public interface BasketInterface
 {         

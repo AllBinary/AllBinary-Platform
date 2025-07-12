@@ -18,19 +18,15 @@ import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
 
-import admin.taghelpers.Table;
-
 import org.allbinary.business.installer.Portion;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.system.security.licensing.LicensingException;
 import org.allbinary.business.user.commerce.money.payment.PaymentFactory;
 import org.allbinary.business.user.commerce.money.payment.PaymentInterface;
 import org.allbinary.data.tables.user.commerce.money.payment.PaymentEntity;
 import org.allbinary.data.tables.user.commerce.money.payment.PaymentEntityFactory;
-import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlTableUtil;
+import org.allbinary.logic.system.security.licensing.LicensingException;
 
 public class PaymentHelper extends Table
 {

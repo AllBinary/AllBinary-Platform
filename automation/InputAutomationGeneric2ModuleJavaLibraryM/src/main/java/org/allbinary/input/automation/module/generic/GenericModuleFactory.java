@@ -14,14 +14,12 @@
 package org.allbinary.input.automation.module.generic;
 
 import org.allbinary.input.automation.module.AbstractInputAutomationFactory;
+import org.allbinary.input.automation.module.InputAutomationActionInterface;
+import org.allbinary.input.automation.module.InputAutomationModuleData;
 import org.allbinary.input.automation.module.generic.configuration.GenericModuleConfigurationJPanel;
 import org.allbinary.input.automation.module.generic.configuration.profile.GenericProfile;
 import org.allbinary.input.automation.module.generic.constraints.NoImageComparatorConstraints;
 import org.allbinary.input.automation.module.generic.constraints.NoMotionRectangleConstraints;
-
-import org.allbinary.input.automation.module.InputAutomationActionInterface;
-import org.allbinary.input.automation.module.InputAutomationModuleData;
-import org.allbinary.input.automation.module.InputAutomationModuleFactoryInterface;
 import org.allbinary.thread.RunnableInterface;
 
 public class GenericModuleFactory 

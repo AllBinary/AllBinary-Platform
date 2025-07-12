@@ -13,9 +13,6 @@
 */
 package org.allbinary.image;
 
-import org.allbinary.image.ImageCache;
-import org.allbinary.image.ImageCacheFactory;
-
 public class GameFeatureImageCacheFactory
 {
     public static final ImageCache getInstance()

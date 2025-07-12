@@ -13,17 +13,18 @@
  */
 package org.allbinary.data.tree.dom;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.OutputStream;
+import java.io.StringBufferInputStream;
+
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.URIResolver;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.OutputStream;
-import java.io.StringBufferInputStream;
-import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 
+import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.w3c.dom.Document;
 
 //import org.allbinary.data.tree.dom.document.DomDocumentHelper;

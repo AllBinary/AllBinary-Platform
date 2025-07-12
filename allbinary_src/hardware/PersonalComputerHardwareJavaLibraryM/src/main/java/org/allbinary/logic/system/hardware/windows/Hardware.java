@@ -13,11 +13,12 @@
 */
 package org.allbinary.logic.system.hardware.windows;
 
-import java.util.Vector;
 import java.util.Hashtable;
+import java.util.Vector;
 
-import org.allbinary.string.CommonSeps;
-
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.system.hardware.HardwareInterface;
+import org.allbinary.logic.system.hardware.components.ComponentFactory;
 import org.allbinary.logic.system.hardware.components.interfaces.BridgeInterface;
 import org.allbinary.logic.system.hardware.components.interfaces.CpuInterface;
 import org.allbinary.logic.system.hardware.components.interfaces.EthernetInterface;
@@ -30,9 +31,7 @@ import org.allbinary.logic.system.hardware.components.interfaces.MediaInterface;
 import org.allbinary.logic.system.hardware.components.interfaces.MonitorInterface;
 import org.allbinary.logic.system.hardware.components.interfaces.UsbInterface;
 import org.allbinary.logic.system.hardware.components.interfaces.VideoInterface;
-
-import org.allbinary.logic.system.hardware.HardwareInterface;
-import org.allbinary.logic.system.hardware.components.ComponentFactory;
+import org.allbinary.string.CommonSeps;
 
 public class Hardware implements HardwareInterface
 {
@@ -176,7 +175,7 @@ public class Hardware implements HardwareInterface
    
    public String toString()
    {
-      final StringBuffer hardwareBuffer = new StringBuffer();
+      final StringMaker hardwareBuffer = new StringMaker();
       
       final int size = componentInterfaceVector.size();
       for (int index = 0; index < size; index++)

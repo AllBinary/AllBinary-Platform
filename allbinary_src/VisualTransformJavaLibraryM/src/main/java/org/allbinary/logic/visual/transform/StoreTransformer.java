@@ -13,12 +13,12 @@
 */
 package org.allbinary.logic.visual.transform;
 
+import javax.xml.transform.URIResolver;
+
 import org.allbinary.data.tree.dom.BasicUriResolver;
 import org.allbinary.data.tree.dom.StoreUriResolver;
-import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
-import javax.xml.transform.URIResolver;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
 public class StoreTransformer extends BasicTransformer
 {

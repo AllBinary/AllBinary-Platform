@@ -13,11 +13,10 @@
 */
 package org.allbinary.business.user.commerce.shipping.modules;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.user.commerce.shipping.ShippingMethodData;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.w3c.dom.Node;
 
 public class PickUpShippingModuleView extends PickUpShippingModule implements DomNodeInterface

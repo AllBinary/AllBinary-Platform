@@ -13,15 +13,10 @@
 */
 package views.admin.payment.gateways;
 
+import org.allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-
-
-import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
-import org.allbinary.logic.control.validate.ValidationComponentInterface;
-
-
 import views.business.context.modules.storefront.HttpStoreComponentView;
 
 public class SelectExistingValidationView extends HttpStoreComponentView implements ValidationComponentInterface

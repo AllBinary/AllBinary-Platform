@@ -14,7 +14,6 @@
 package org.allbinary.logic.system.security;
 
 
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.AbeLicenseInterfaceFactory;

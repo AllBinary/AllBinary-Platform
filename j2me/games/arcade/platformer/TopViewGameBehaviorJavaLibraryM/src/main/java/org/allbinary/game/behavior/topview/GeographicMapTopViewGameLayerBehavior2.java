@@ -12,6 +12,8 @@
  * 
  */
 package org.allbinary.game.behavior.topview;
+import org.allbinary.logic.string.StringMaker;
+
 
 import org.allbinary.media.graphics.geography.map.MultiGeographicMapBehavior;
 import org.allbinary.game.layer.AllBinaryTiledLayer;

@@ -15,14 +15,11 @@ package org.allbinary.animation;
 
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.util.CircularIndexUtil;
-
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorSetUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.PrimitiveIntUtil;
+import org.allbinary.util.CircularIndexUtil;
 
 public class VectorAnimation extends IndexedAnimation
     implements VectorAnimationInterface

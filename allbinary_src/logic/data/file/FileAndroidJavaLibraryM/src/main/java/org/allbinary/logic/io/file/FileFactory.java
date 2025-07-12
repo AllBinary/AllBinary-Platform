@@ -15,8 +15,8 @@ package org.allbinary.logic.io.file;
 
 import java.io.FileNotFoundException;
 
-import org.allbinary.data.resource.ResourceUtil;
 import android.content.Context;
+import org.allbinary.data.resource.ResourceUtil;
 
 /**
  *

@@ -15,6 +15,8 @@ package admin.tags;
 
 import javax.servlet.jsp.tagext.Tag;
 
+import org.allbinary.logic.string.StringMaker;
+
 /**
  *
  * @author user
@@ -42,7 +44,7 @@ public class ParentInventoryTagHelper
             //tags.admin.inventory.DownloadItemTag
         } else if (!(parentTag instanceof tags.HelperTag))
         {
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
 
             //tagClass
             stringBuffer.append("Must have at least a ");

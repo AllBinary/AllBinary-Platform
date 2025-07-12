@@ -13,14 +13,14 @@
  */
 package org.allbinary.animation;
 
-import org.allbinary.string.CommonSeps;
-import org.allbinary.logic.string.StringMaker;
 import org.allbinary.animation.resource.FeatureResourceAnimationInterfaceFactoryInterface;
 import org.allbinary.game.configuration.GameConfigurationCentral;
 import org.allbinary.game.resource.FeaturedResourceFactory;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.util.BasicArrayList;
 
 public class FeaturedAnimationInterfaceFactoryInterfaceFactory

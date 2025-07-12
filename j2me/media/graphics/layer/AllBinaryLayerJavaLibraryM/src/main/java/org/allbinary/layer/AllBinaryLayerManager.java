@@ -13,14 +13,9 @@
  */
 package org.allbinary.layer;
 
-import org.allbinary.string.CommonSeps;
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.string.CommonLabels;
-
 import org.allbinary.layer.event.LayerManagerEvent;
 import org.allbinary.layer.event.LayerManagerEventHandler;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class AllBinaryLayerManager extends LayerManager
 {

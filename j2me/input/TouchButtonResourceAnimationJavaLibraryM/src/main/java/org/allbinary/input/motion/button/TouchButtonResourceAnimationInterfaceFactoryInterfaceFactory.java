@@ -15,18 +15,18 @@ package org.allbinary.input.motion.button;
 
 import javax.microedition.lcdui.Image;
 
-import org.allbinary.logic.system.os.OperatingSystemFactory;
 import org.allbinary.animation.NullAnimationFactory;
-import org.allbinary.game.resource.ResourceLoadingLevelFactory;
 import org.allbinary.animation.image.sprite.OneRowSpriteIndexedAnimationFactory;
 import org.allbinary.animation.resource.BaseResourceAnimationInterfaceFactoryInterfaceFactory;
 import org.allbinary.game.configuration.feature.Features;
+import org.allbinary.game.resource.ResourceLoadingLevelFactory;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.image.ImageCache;
 import org.allbinary.image.ImageCacheFactory;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.system.os.OperatingSystemFactory;
 import org.allbinary.media.image.ImageCompleteUtil;
 
 public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory

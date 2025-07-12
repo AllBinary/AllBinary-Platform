@@ -13,14 +13,13 @@
 */
 package org.allbinary.data.tree.category;
 
-import org.allbinary.logic.io.file.AbFile;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.category.CategoryComponent;
 import org.allbinary.business.category.CategoryData;
 import org.allbinary.business.category.CategoryFactoryInterface;
 import org.allbinary.business.category.CategoryInterface;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.crypt.file.CryptFileWriter;
+import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.string.CommonStrings;
 import org.w3c.dom.Document;
 

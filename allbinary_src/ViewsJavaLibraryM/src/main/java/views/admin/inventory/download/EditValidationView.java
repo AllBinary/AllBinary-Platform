@@ -13,30 +13,24 @@
 */
 package views.admin.inventory.download;
 
-import org.allbinary.logic.string.StringUtil;
 import java.util.HashMap;
-
-import org.w3c.dom.Node;
-import org.w3c.dom.Document;
-
-import org.allbinary.logic.string.StringValidationUtil;
+import java.util.Vector;
 
 import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
 import org.allbinary.business.user.commerce.inventory.item.download.DownloadItemData;
 import org.allbinary.business.user.commerce.inventory.item.download.DownloadableItem;
-
-import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFactory;
-
 import org.allbinary.business.user.commerce.money.MoneyException;
+import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFactory;
 import org.allbinary.data.tables.user.commerce.inventory.item.downloads.DownloadItemsEntity;
 import org.allbinary.data.tables.user.commerce.inventory.item.downloads.DownloadItemsEntityFactory;
-
 import org.allbinary.logic.communication.http.request.RequestParams;
-
-import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
 import org.allbinary.logic.control.validate.ValidationComponentInterface;
-import java.util.Vector;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
+import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 public class EditValidationView 
     extends DownloadableInventoryItemView
@@ -117,7 +111,7 @@ public class EditValidationView
    
    public String validationInfo() throws MoneyException
    {
-      StringBuffer stringBuffer = new StringBuffer();
+      StringMaker stringBuffer = new StringMaker();
       
       if(id==null || !StringValidationUtil.getInstance().isNumber(this.id))
       {

@@ -16,13 +16,13 @@ package org.allbinary.data.tables.category;
 import java.util.HashMap;
 import java.util.Vector;
 
-import org.allbinary.business.init.db.InventoryDbInitInfo;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.category.Category;
 import org.allbinary.business.category.CategoryData;
 import org.allbinary.business.category.CategoryFactoryInterface;
+import org.allbinary.business.init.db.InventoryDbInitInfo;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlBean;
+import org.allbinary.logic.string.StringMaker;
 
 public class CategoryEntity extends AbSqlBean implements CategoryEntityInterface
 {
@@ -132,7 +132,7 @@ public class CategoryEntity extends AbSqlBean implements CategoryEntityInterface
    
     public final String createTableStatement()
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.sqlStrings.CREATE_TABLE);
 

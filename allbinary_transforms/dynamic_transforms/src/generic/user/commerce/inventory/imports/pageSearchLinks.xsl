@@ -26,9 +26,9 @@ On <xsl:value-of select="TOTALNUMBEROFPAGES/value" disable-output-escaping="yes"
 
 -->
 
-<xsl:stylesheet version="1.0" 
-   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-   xmlns:jsp="http://java.sun.com/JSP/Page" >
+<xsl:stylesheet version="1.0"
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+>
    
    <xsl:import href="/template/generic/pages/imports/globals/pages.xsl" />
    

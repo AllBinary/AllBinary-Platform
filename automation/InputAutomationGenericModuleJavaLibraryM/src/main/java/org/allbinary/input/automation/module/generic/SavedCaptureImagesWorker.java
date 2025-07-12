@@ -13,27 +13,25 @@
 */
 package org.allbinary.input.automation.module.generic;
 
-import java.io.File;
-
 import java.awt.image.BufferedImage;
+import java.io.File;
 
 import javax.imageio.ImageIO;
 
 import org.allbinary.input.automation.module.generic.configuration.profile.SavedCaptureGenericProfileDataWorkerType;
-
 import org.allbinary.input.media.image.capture.CaptureWorkerInterface;
 import org.allbinary.input.media.image.capture.CapturedBufferedImagesCacheSingleton;
 import org.allbinary.input.media.image.capture.CapturedImageWorkerResultsEvent;
 import org.allbinary.input.media.image.capture.ProcessingFrameIndexFactory;
 import org.allbinary.input.media.image.capture.ScreenScavangerRobot;
-import org.allbinary.logic.util.event.handler.BasicEventHandler;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.number.LongUtil;
-import org.allbinary.string.CommonLabels;
-import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.logic.visual.media.MediaDataFactory;
 import org.allbinary.media.image.cache.BufferedImageFrameCacheable;
+import org.allbinary.string.CommonLabels;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.time.TimeDelayHelper;
 
 public class SavedCaptureImagesWorker
@@ -93,7 +91,7 @@ public class SavedCaptureImagesWorker
                 
                 Long frame = new Long(index);
                 
-                StringBuffer filePathStringBuffer = new StringBuffer();
+                StringMaker filePathStringBuffer = new StringMaker();
                 
                 filePathStringBuffer.append(
                     this.savedCaptureGenericProfileDataWorkerType.getPath());

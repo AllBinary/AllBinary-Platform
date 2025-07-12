@@ -21,9 +21,8 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 
-import org.allbinary.logic.communication.log.PreLogUtil;
-
 import org.allbinary.init.crypt.jcehelper.CryptInterface;
+import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.string.CommonStrings;
 
 public class AbBasicCrypt implements CryptInterface

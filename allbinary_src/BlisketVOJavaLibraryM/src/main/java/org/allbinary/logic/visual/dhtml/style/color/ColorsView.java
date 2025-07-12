@@ -13,10 +13,9 @@
 */
 package org.allbinary.logic.visual.dhtml.style.color;
 
-import org.allbinary.logic.visual.dhtml.style.color.ColorsData;
-import org.allbinary.logic.visual.dhtml.style.color.ColorData;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.logic.string.StringMaker;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
@@ -34,7 +33,7 @@ public class ColorsView implements DomNodeInterface
       int redIndex, int greenIndex, int blueIndex)
       throws Exception
    {
-                     StringBuffer hexColorStringBuffer = new StringBuffer();
+                     StringMaker hexColorStringBuffer = new StringMaker();
 
                if(redIndex < HEXRADIX)
                {
@@ -78,7 +77,7 @@ public class ColorsView implements DomNodeInterface
       //Gray Scale
       for(int index = 0; index < MAX; index+=delta)
       {
-         StringBuffer hexColorStringBuffer = new StringBuffer();
+         StringMaker hexColorStringBuffer = new StringMaker();
          
          if(index < HEXRADIX)
          {

@@ -13,28 +13,21 @@
 */
 package views.admin.storefront;
 
-import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.io.file.AbFile;
-import org.allbinary.logic.io.path.AbPath;
-import org.allbinary.logic.communication.log.LogFactory;
 import javax.servlet.http.HttpServletRequest;
 
-import org.w3c.dom.Node;
-import org.w3c.dom.Document;
-
-
-import org.allbinary.logic.communication.log.LogUtil;
-
-
 import org.allbinary.business.context.modules.storefront.StoreFront;
-import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
+import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
-
-import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
+import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.validate.ValidationComponentInterface;
-
+import org.allbinary.logic.io.file.AbFile;
+import org.allbinary.logic.io.path.AbPath;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 import views.business.context.HttpContextView;
 
 public class AddValidationStoreFrontView extends HttpContextView 
@@ -94,7 +87,7 @@ public class AddValidationStoreFrontView extends HttpContextView
 
    private String getStoreViewsPath() throws Exception
    {
-         StringBuffer stringBuffer = new StringBuffer();
+         StringMaker stringBuffer = new StringMaker();
 
          stringBuffer.append(URLGLOBALS.getMainPath());
          stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);
@@ -107,7 +100,7 @@ public class AddValidationStoreFrontView extends HttpContextView
    {
       try
       {
-         StringBuffer stringBuffer = new StringBuffer();
+         StringMaker stringBuffer = new StringMaker();
          
          if(this.newStoreFrontInterface.isValid() == Boolean.FALSE)
          {

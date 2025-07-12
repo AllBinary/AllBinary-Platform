@@ -13,13 +13,10 @@
 */
 package org.allbinary.input.motion.button;
 
-import org.allbinary.input.motion.button.BaseTouchInput;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListUtil;
-
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 
 public class BasicTouchButtonsBuilder
     extends BaseTouchInput

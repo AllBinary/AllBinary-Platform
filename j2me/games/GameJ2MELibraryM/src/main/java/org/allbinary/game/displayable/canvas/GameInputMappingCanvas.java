@@ -17,11 +17,6 @@ import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.util.BasicArrayList;
-
-import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.input.GameKey;
 import org.allbinary.game.input.GameKeyFactory;
@@ -37,7 +32,10 @@ import org.allbinary.game.paint.ColorFillPaintableFactory;
 import org.allbinary.game.paint.help.HelpPaintable;
 import org.allbinary.game.paint.help.InputMappingHelpPaintable;
 import org.allbinary.graphics.paint.ProcessPaintable;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.util.BasicArrayList;
 
 public class GameInputMappingCanvas extends GameCommandCanvas
 implements InputMappingInterface

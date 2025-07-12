@@ -13,6 +13,7 @@
 */
 package org.allbinary.media.image.comparison.motion;
 
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.cache.CacheableInterface;
 
 public class MotionRectanglesResultsFrameCacheable
@@ -46,10 +47,10 @@ public class MotionRectanglesResultsFrameCacheable
     
     public String toString()
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
         stringBuffer.append(this.getClass().getName());
         stringBuffer.append(" Frame: ");
-        stringBuffer.append(this.getKey());
+        stringBuffer.append(this.getKey().toString());
         return stringBuffer.toString();
     }
 }

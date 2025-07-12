@@ -17,10 +17,10 @@ import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.lcdui.Image;
 
-import org.allbinary.string.CommonStrings;
 import org.allbinary.platform.graphics.PlatformBitmapBase;
 import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
 import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 
 public class OpenGLESImage extends Image

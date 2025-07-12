@@ -17,15 +17,14 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
 
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.system.SoftwareInformation;
 import org.allbinary.game.GameInfo;
 import org.allbinary.game.score.HighScore;
 import org.allbinary.game.score.HighScores;
 import org.allbinary.game.score.RemoteErrorHighScoresSingletonFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.system.SoftwareInformation;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.string.CommonStrings;
 
 public class RemoteHighScores extends HighScores {
     protected final LogUtil logUtil = LogUtil.getInstance();

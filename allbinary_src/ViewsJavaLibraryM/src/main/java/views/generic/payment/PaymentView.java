@@ -13,27 +13,16 @@
 */
 package views.generic.payment;
 
-import org.allbinary.logic.communication.log.LogFactory;
-
 import java.util.Vector;
-
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-import org.allbinary.logic.communication.log.LogUtil;
-
 
 import org.allbinary.business.user.commerce.money.payment.Payment;
 import org.allbinary.business.user.commerce.money.payment.PaymentData;
-
-
-import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
-import org.allbinary.data.tree.dom.DomNodeInterface;
-
 import org.allbinary.data.tables.user.commerce.money.payment.PaymentEntityFactory;
-
+import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 import views.business.context.modules.storefront.HttpStoreComponentView;
 
 public class PaymentView  extends HttpStoreComponentView implements DomNodeInterface

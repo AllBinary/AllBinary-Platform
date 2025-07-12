@@ -15,13 +15,12 @@ package org.allbinary.input.automation.actions.script;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JMenuItem;
-import javax.swing.JPopupMenu;
+
+import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
-import org.allbinary.logic.communication.log.LogFactory;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
-
 import org.w3c.dom.Node;
 
 public class ProfileActionScriptItem extends DefaultMutableTreeNode

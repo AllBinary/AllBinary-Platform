@@ -15,19 +15,17 @@ package views.generic.order;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-import views.business.context.modules.storefront.HttpStoreComponentView;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.user.commerce.inventory.basket.Basket;
 import org.allbinary.business.user.commerce.inventory.basket.BasketReview;
 import org.allbinary.business.user.commerce.inventory.order.Order;
 import org.allbinary.business.user.commerce.inventory.order.OrderData;
 import org.allbinary.business.user.commerce.inventory.order.OrderHistory;
 import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import views.business.context.modules.storefront.HttpStoreComponentView;
 
 public class OrderView
 extends HttpStoreComponentView

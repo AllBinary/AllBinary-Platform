@@ -15,19 +15,16 @@ package views.business.context.modules.storefront.customizer.bodies.generic;
 
 import java.util.HashMap;
 
-import org.w3c.dom.Node;
-import org.w3c.dom.Document;
-
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.http.request.RequestParams;
 import org.allbinary.data.tree.dom.DomNodeInterface;
-import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-import org.allbinary.logic.control.validate.ValidationComponentInterface;
-import org.allbinary.logic.visual.transform.template.customizer.bodies.GenericBodyValidation;
+import org.allbinary.logic.communication.http.request.RequestParams;
 import org.allbinary.logic.communication.log.LogUtil;
-
+import org.allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.visual.transform.template.customizer.bodies.GenericBodyValidation;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 import views.business.context.modules.storefront.customizer.CustomizerUtil;
-
 import views.business.context.modules.storefront.customizer.StoreCustomizerComponentUtil;
 
 public class InsertGenericBodyValidationView extends GenericBodyCustomizerView implements ValidationComponentInterface
@@ -84,7 +81,7 @@ public class InsertGenericBodyValidationView extends GenericBodyCustomizerView i
    {
       try
       {
-         StringBuffer stringBuffer = new StringBuffer();
+         StringMaker stringBuffer = new StringMaker();
          
          stringBuffer.append(this.body.validationInfo());
          

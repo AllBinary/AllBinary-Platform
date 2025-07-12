@@ -16,12 +16,12 @@ package org.allbinary.business.user.commerce.money.payment.types;
 import java.util.HashMap;
 import java.util.Vector;
 
-import org.allbinary.logic.io.path.AbPathData;
-import org.allbinary.string.CommonSeps;
-import org.allbinary.logic.string.regex.replace.Replace;
 import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayData;
 import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayInterfaceFactoryInterface;
 import org.allbinary.business.user.commerce.money.payment.gateway.modules.gateway.PaymentGatewayDomNodeFactoryInterface;
+import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.logic.string.regex.replace.Replace;
+import org.allbinary.string.CommonSeps;
 
 public class BasicPaymentType
 {

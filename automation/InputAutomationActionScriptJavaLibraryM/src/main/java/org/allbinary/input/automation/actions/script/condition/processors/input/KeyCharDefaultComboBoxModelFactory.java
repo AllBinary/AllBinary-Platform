@@ -13,11 +13,9 @@
 */
 package org.allbinary.input.automation.actions.script.condition.processors.input;
 
+import javax.swing.*;
+
 import abbot.tester.KeyStrokeMap;
-
-import javax.swing.DefaultComboBoxModel;
-
-import javax.swing.KeyStroke;
 import org.allbinary.input.KeySingletonFactory;
 
 public class KeyCharDefaultComboBoxModelFactory

@@ -15,8 +15,8 @@ package org.allbinary.input.automation.module.osgi;
 
 import org.osgi.framework.BundleContext;
 
-import org.allbinary.osgi.service.InputAutomationServiceConsumer;
 import bundle.input.automation.module.InputAutomationModuleServiceInterface;
+import org.allbinary.osgi.service.InputAutomationServiceConsumer;
 
 public class InputAutomationModuleServiceConsumer
     extends InputAutomationServiceConsumer

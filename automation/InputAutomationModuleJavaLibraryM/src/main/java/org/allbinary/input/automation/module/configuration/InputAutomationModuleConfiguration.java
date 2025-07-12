@@ -19,22 +19,20 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
+import org.allbinary.business.DynamicObjectData;
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.system.loader.AbeFactory;
-import org.allbinary.business.DynamicObjectData;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.input.automation.InputAutomationData;
 import org.allbinary.input.automation.module.InputAutomationModuleData;
 import org.allbinary.input.automation.module.InputAutomationModuleFactoryInterface;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.system.loader.AbeFactory;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.string.CommonStrings;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name="INPUT_AUTOMATION_MODULE")

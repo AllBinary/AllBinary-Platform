@@ -13,6 +13,7 @@
 */
 package org.allbinary.media.image.cache;
 
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
 
 public class BufferedImageInfo
@@ -61,7 +62,7 @@ public class BufferedImageInfo
     public String toString()
     {
         final CommonLabels commonLabels = CommonLabels.getInstance();
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
         stringBuffer.append("BufferedImageInfo -");
         stringBuffer.append(commonLabels.WIDTH_LABEL);
         stringBuffer.append(this.getWidth());

@@ -14,13 +14,12 @@
 package org.allbinary.media.image.comparison.color;
 
 
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.util.cache.AutomaticCacheInterface;
 import org.allbinary.logic.util.cache.CacheInterfaceFactory;
 import org.allbinary.logic.util.cache.CachePolicyFactory;
 import org.allbinary.logic.util.cache.CacheTypeFactory;
+import org.allbinary.string.CommonStrings;
 
 public class ColorDeltaFactory
 {

@@ -18,14 +18,6 @@ import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.io.path.AbPath;
-import org.allbinary.logic.io.path.AbPathData;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.category.CategoryData;
 import org.allbinary.business.category.CategoryUtil;
 import org.allbinary.business.category.hierarchy.CategoryHierarchyInterface;
@@ -33,11 +25,17 @@ import org.allbinary.business.category.properties.CategoryPropertiesInterface;
 import org.allbinary.business.category.properties.root.RootCategoryPropertiesInterface;
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
+import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.io.path.AbPath;
+import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.logic.io.path.PathUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 /*
  *Nothing more than a parent category reference to a category on the fs.  

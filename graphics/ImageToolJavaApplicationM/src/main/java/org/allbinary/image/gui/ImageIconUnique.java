@@ -14,7 +14,8 @@
 package org.allbinary.image.gui;
 
 import java.awt.image.BufferedImage;
-import javax.swing.ImageIcon;
+
+import javax.swing.*;
 
 public class ImageIconUnique extends ImageIcon
 {

@@ -13,14 +13,13 @@
 */
 package views.business.context.modules.storefront;
 
-import views.HttpComponentView;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.visual.transform.StoreTransformer;
 import org.allbinary.logic.visual.transform.data.TransformStoreDocumentFactory;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.string.CommonStrings;
+import views.HttpComponentView;
 
 public class HttpStoreComponentView extends HttpComponentView
 {

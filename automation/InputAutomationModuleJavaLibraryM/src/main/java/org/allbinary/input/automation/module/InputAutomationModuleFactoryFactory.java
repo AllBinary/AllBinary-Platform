@@ -13,22 +13,20 @@
 */
 package org.allbinary.input.automation.module;
 
-import java.util.HashMap;
-
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
+
 import javax.help.HelpSet;
 import javax.help.event.HelpSetEvent;
 import javax.help.event.HelpSetListener;
-import javax.swing.ListModel;
+import javax.swing.*;
 
 import org.allbinary.input.automation.module.configuration.InputAutomationModuleConfiguration;
 import org.allbinary.input.automation.module.configuration.InputAutomationModuleConfigurations;
-
+import org.allbinary.input.automation.module.configuration.InputAutomationModuleConfigurationsSingletonFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.help.JavaHelpSetNotifier;
-import org.allbinary.input.automation.module.configuration.InputAutomationModuleConfigurationsSingletonFactory;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.string.CommonStrings;
 
 public class InputAutomationModuleFactoryFactory

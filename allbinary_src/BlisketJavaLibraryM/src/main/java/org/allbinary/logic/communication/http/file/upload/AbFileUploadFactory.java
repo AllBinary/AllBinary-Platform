@@ -18,14 +18,12 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.allbinary.logic.communication.http.AbFileItemFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
 import org.apache.commons.fileupload.FileItemIterator;
 import org.apache.commons.fileupload.FileItemStream;
 import org.apache.commons.fileupload.FileItemUtil;
-
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.communication.http.AbFileItemFactory;
-import org.allbinary.string.CommonStrings;
 
 public class AbFileUploadFactory
 {

@@ -13,17 +13,16 @@
 */
 package org.allbinary.game.layer.resources;
 
-import org.allbinary.game.resource.ResourceLoadingLevelFactory;
-
 import org.allbinary.animation.resource.BaseResourceAnimationInterfaceFactoryInterfaceFactory;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.MainFeatureFactory;
 import org.allbinary.game.layer.GameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory;
 import org.allbinary.game.layer.LayerPlacementInterfaceBasicArrayListFactoryInterface;
+import org.allbinary.game.resource.ResourceLoadingLevelFactory;
 import org.allbinary.image.ImageCache;
 import org.allbinary.logic.communication.log.PreLogUtil;
-import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonStrings;
 
 public class OnDemandLoader
 {

@@ -13,9 +13,8 @@
 */
 package org.allbinary.logic.visual.transform.info;
 
-import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-import org.allbinary.logic.visual.transform.info.TransformInfoFactoryInterface;
 import java.util.HashMap;
+
 import javax.servlet.jsp.PageContext;
 
 /**

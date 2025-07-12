@@ -13,8 +13,9 @@
 */
 package org.allbinary.logic.io.file;
 
-import org.allbinary.logic.communication.log.PreLogUtil;
 import java.io.File;
+
+import org.allbinary.logic.communication.log.PreLogUtil;
 
 public class FileWrapperUtil {
     //protected final LogUtil logUtil = LogUtil.getInstance();

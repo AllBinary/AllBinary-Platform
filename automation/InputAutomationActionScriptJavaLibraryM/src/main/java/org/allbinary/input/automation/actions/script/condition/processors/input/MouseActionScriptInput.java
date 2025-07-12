@@ -13,20 +13,18 @@
 */
 package org.allbinary.input.automation.actions.script.condition.processors.input;
 
-import java.util.HashMap;
-
-import java.awt.Point;
+import java.awt.*;
 import java.awt.event.InputEvent;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
+import java.util.HashMap;
 
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.ModDomHelper;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 public class MouseActionScriptInput
     extends BasicProfileActionScriptInput
@@ -191,7 +189,7 @@ public class MouseActionScriptInput
 
     public void log()
     {
-        StringBuffer buttonStringBuffer = new StringBuffer();
+        StringMaker buttonStringBuffer = new StringMaker();
 
         buttonStringBuffer.append("1: ");
         

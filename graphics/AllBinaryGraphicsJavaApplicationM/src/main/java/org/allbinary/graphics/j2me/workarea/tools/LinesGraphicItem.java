@@ -13,30 +13,27 @@
 */
 package org.allbinary.graphics.j2me.workarea.tools;
 
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
+import java.awt.*;
 import java.util.Vector;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.BasicStroke;
+
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.MutableTreeNode;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
+
 import org.allbinary.dom.DomHelper;
+import org.allbinary.game.input.GameInputStrings;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.PointFactory;
-import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.j2me.StatusFactory;
 import org.allbinary.graphics.j2me.workarea.canvas.CanvasDom;
 import org.allbinary.graphics.j2me.workarea.canvas.IntegerDimension;
 import org.allbinary.graphics.pipeline.BasicGraphicsPipeline;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.math.PositionStrings;
-import java.awt.Color;
-import org.allbinary.game.input.GameInputStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 public class LinesGraphicItem implements GraphicItemInterface
 {

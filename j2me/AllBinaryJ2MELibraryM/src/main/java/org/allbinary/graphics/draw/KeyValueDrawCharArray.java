@@ -15,8 +15,8 @@ package org.allbinary.graphics.draw;
 
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.logic.java.character.CharArrayFactory;
 import org.allbinary.graphics.font.MyFont;
+import org.allbinary.logic.java.character.CharArrayFactory;
 
 /**
  *

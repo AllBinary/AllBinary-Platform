@@ -17,16 +17,6 @@ import java.util.HashMap;
 import java.util.ListIterator;
 import java.util.Vector;
 
-import org.allbinary.util.BasicArrayList;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.string.CommonSeps;
-import org.allbinary.logic.string.StringValidationUtil;
-import org.allbinary.logic.string.regex.replace.Replace;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.commerce.inventory.InventoryData;
 import org.allbinary.business.user.commerce.inventory.basket.BasketData;
@@ -36,16 +26,25 @@ import org.allbinary.business.user.commerce.inventory.item.ItemInterface;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntity;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFactory;
 import org.allbinary.data.tree.dom.ModDomHelper;
-import org.allbinary.string.CommonStrings;
+import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.search.SearchData;
 import org.allbinary.logic.control.search.SearchParams;
 import org.allbinary.logic.control.search.SearchRequest;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.logic.string.regex.replace.Replace;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.visual.transform.StoreTransformer;
 import org.allbinary.logic.visual.transform.data.TransformDocumentInterface;
 import org.allbinary.logic.visual.transform.data.TransformStoreDocumentFactory;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpSearch;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.string.CommonSeps;
+import org.allbinary.string.CommonStrings;
+import org.allbinary.util.BasicArrayList;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 /**
  *
@@ -170,7 +169,7 @@ public class InventorySearchUtil {
                 return null;
             }
 
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
 
             /*
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(

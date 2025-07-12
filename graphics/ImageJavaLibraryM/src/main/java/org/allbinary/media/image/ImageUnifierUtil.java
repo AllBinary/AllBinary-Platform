@@ -13,14 +13,10 @@
 */
 package org.allbinary.media.image;
 
-import java.awt.Graphics2D;
-import java.awt.GraphicsConfiguration;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.string.CommonLabels;
 
 public class ImageUnifierUtil

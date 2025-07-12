@@ -13,15 +13,12 @@
 */
 package tags.generic.address.billing;
 
-import org.allbinary.business.user.address.BillingAddressData;
-
-import org.allbinary.logic.system.security.licensing.LicensingException;
-
-import tags.StoreValidationTransformTag;
-
-import org.allbinary.logic.communication.http.request.AbResponseHandler;
-
 import javax.servlet.jsp.JspTagException;
+
+import org.allbinary.business.user.address.BillingAddressData;
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
+import org.allbinary.logic.system.security.licensing.LicensingException;
+import tags.StoreValidationTransformTag;
 
 public class BillingAddressTag extends StoreValidationTransformTag
 {

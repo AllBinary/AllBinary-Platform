@@ -16,9 +16,9 @@ package org.allbinary.data.tree.dom;
 import java.util.HashMap;
 import java.util.Vector;
 
+import org.allbinary.data.tables.TableMappingInterface;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.FileData;
-import org.allbinary.data.tables.TableMappingInterface;
 import org.allbinary.logic.io.path.PathUtil;
 
 public class FileTableMapping

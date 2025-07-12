@@ -18,14 +18,12 @@ import java.util.Vector;
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.ImageItem;
 
-import org.allbinary.graphics.form.item.CustomItem;
-import org.allbinary.util.BasicArrayList;
-
-import org.allbinary.logic.string.StringUtil;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.form.ScreenInfo;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.visitor.Visitor;
+import org.allbinary.util.BasicArrayList;
 
 public class CommandTextItemArrayFactory
 {

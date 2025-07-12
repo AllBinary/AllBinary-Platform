@@ -13,10 +13,9 @@
 */
 package org.allbinary.logic.control.workflow;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-
 import java.lang.reflect.Method;
+
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 
 public class StoreWorkFlowWrapper extends WorkFlowWrapper

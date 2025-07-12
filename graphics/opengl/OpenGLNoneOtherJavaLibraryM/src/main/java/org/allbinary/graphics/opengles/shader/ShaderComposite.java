@@ -15,8 +15,8 @@ package org.allbinary.graphics.opengles.shader;
 
 import javax.microedition.khronos.opengles.GL10;
 
-import org.allbinary.graphics.opengles.OpenGLProcessor;
 import org.allbinary.graphics.opengles.NullOpenGLProcessorFactory;
+import org.allbinary.graphics.opengles.OpenGLProcessor;
 
 /**
  *

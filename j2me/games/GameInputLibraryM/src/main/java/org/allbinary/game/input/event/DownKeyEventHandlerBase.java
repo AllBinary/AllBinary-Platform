@@ -14,10 +14,8 @@
 package org.allbinary.game.input.event;
 
 import org.allbinary.game.input.PlayerGameInput;
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-//import org.allbinary.logic.communication.log.ForcedLogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.event.EventListenerInterface;
 import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
@@ -137,7 +135,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
     private static final String LISTENER_LABEL = " PlayerGameInput Listener: ";
 
     public String toString() {
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(super.toString());
         stringBuffer.append(TOTAL_LISTENERS);
@@ -149,7 +147,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
                         this.list.get(index);
 
                 stringBuffer.append(LISTENER_LABEL);
-                stringBuffer.append(eventListenerInterface);
+                stringBuffer.append(eventListenerInterface.toString());
             } catch (Exception e) {
                 logUtil.put(commonStrings.EXCEPTION, this, commonStrings.TOSTRING, e);
             }

@@ -13,10 +13,6 @@
 */
 package org.allbinary.logic.java;
 
-import javax.naming.Context;
-import javax.naming.NameClassPair;
-import javax.naming.NamingEnumeration;
-import javax.naming.NamingException;
 //import org.omg.CosNaming.NamingContext;
 
 public class JNDIUtil

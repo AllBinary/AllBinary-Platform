@@ -13,11 +13,10 @@
 */
 package tags.admin.payment.gateway;
 
-import tags.StoreValidationTransformTag;
+import javax.servlet.jsp.JspTagException;
 
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
-
-import javax.servlet.jsp.JspTagException;
+import tags.StoreValidationTransformTag;
 
 public class ViewTag extends StoreValidationTransformTag
 {

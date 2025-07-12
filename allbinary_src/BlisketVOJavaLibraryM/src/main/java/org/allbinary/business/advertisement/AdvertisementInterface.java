@@ -16,9 +16,7 @@ package org.allbinary.business.advertisement;
 import org.allbinary.business.advertisement.image.AdvertisementImageInterface;
 import org.allbinary.business.advertisement.product.AdvertisementProductInterface;
 import org.allbinary.business.advertisement.thumbnail.AdvertisementThumbnailInterface;
-
 import org.allbinary.business.user.commerce.money.Money;
-
 import org.allbinary.logic.control.contraints.display.browser.DisplayInBrowserContraintsInterface;
 
 public interface AdvertisementInterface

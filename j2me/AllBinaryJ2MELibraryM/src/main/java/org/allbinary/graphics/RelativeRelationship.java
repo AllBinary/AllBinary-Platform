@@ -13,7 +13,6 @@
 */
 package org.allbinary.graphics;
 
-import org.allbinary.graphics.GPoint;
 import org.allbinary.util.BasicArrayList;
 
 /**

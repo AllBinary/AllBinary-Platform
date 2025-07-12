@@ -14,6 +14,7 @@
 package org.allbinary.animation;
 
 import javax.microedition.lcdui.Graphics;
+
 import org.allbinary.media.ScaleProperties;
 
 public class NullRotationAnimationFactory 

@@ -13,27 +13,24 @@
 */
 package org.allbinary.input.automation.actions.script.condition;
 
-import java.awt.Point;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
-import java.awt.Color;
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.graphics.color.ColorCacheFactory;
 import org.allbinary.graphics.color.ColorCacheable;
 import org.allbinary.input.media.image.capture.CapturedBufferedImagesCacheSingleton;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.util.cache.AutomaticCacheInterface;
 import org.allbinary.media.image.analysis.ColorRange;
 import org.allbinary.media.image.analysis.ColorRangeInterface;
 import org.allbinary.media.image.cache.BufferedImageFrameCacheable;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 public class ColorAtActionScriptCondition
     extends BasicProfileActionScriptCondition

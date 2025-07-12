@@ -13,8 +13,9 @@
 */
 package org.allbinary.game.layer.special;
 
-import org.allbinary.game.input.GameInputProcessor;
 import javax.microedition.lcdui.Canvas;
+
+import org.allbinary.game.input.GameInputProcessor;
 
 public class AnalogInputBuilder {
     

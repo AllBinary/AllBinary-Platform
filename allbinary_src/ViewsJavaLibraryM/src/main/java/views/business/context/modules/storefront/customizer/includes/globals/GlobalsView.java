@@ -13,18 +13,12 @@
 */
 package views.business.context.modules.storefront.customizer.includes.globals;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.w3c.dom.Node;
-import org.w3c.dom.Document;
-
 import org.allbinary.data.tree.dom.DomNodeInterface;
-
-import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
-import org.allbinary.logic.visual.transform.template.customizer.includes.globals.GlobalsValidation;
-
 import org.allbinary.logic.communication.log.LogUtil;
-
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.visual.transform.template.customizer.includes.globals.GlobalsValidation;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 import views.business.context.modules.storefront.HttpStoreComponentView;
 
 public class GlobalsView extends HttpStoreComponentView implements DomNodeInterface

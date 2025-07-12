@@ -13,12 +13,10 @@
 */
 package org.allbinary.game.layer.hud.event;
 
-import org.allbinary.util.BasicArrayList;
-
-//import org.allbinary.game.layer.hud.notification.GameNotificationHud;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventListenerInterface;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
+import org.allbinary.util.BasicArrayList;
 
 public class GameNotificationEventHandler extends BasicEventHandler
 {

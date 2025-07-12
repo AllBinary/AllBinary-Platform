@@ -13,12 +13,13 @@
 */
 package org.allbinary.business.user.commerce.inventory.item;
 
+import java.util.HashMap;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.allbinary.business.user.commerce.money.MoneyException;
 import org.allbinary.data.tables.TableMappingInterface;
 import org.allbinary.logic.communication.http.request.RequestParams;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
 
 public class ItemFactoryUnused
 {

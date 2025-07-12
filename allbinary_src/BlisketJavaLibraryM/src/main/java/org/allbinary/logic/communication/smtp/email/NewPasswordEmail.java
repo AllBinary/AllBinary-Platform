@@ -13,9 +13,8 @@
 */
 package org.allbinary.logic.communication.smtp.email;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.user.UserInterface;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.smtp.event.UserEmailEventNameData;
 import org.allbinary.logic.communication.smtp.event.handler.UserEmailEventHandler;
 import org.allbinary.logic.communication.smtp.event.handler.factory.AdminUserEmailEventHandlerSingletons;

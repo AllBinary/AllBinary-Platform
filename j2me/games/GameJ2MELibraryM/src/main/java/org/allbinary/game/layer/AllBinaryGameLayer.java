@@ -15,10 +15,6 @@ package org.allbinary.game.layer;
 
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.util.BasicArrayList;
-
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
@@ -27,8 +23,11 @@ import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
+import org.allbinary.string.CommonStrings;
+import org.allbinary.util.BasicArrayList;
 import org.allbinary.view.ViewPosition;
 import org.allbinary.view.event.ViewPositionEvent;
 import org.allbinary.view.event.ViewPositionEventListenerInterface;

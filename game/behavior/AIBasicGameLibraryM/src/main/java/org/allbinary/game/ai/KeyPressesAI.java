@@ -13,14 +13,12 @@
 */
 package org.allbinary.game.ai;
 
-import org.allbinary.game.ai.BasicAI;
 import java.util.Hashtable;
-
-import org.allbinary.util.HashtableUtil;
 
 import org.allbinary.game.input.GameInput;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.util.HashtableUtil;
 
 public class KeyPressesAI extends BasicAI {
 

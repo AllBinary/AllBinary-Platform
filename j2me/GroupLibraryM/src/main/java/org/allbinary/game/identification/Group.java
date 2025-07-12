@@ -13,8 +13,8 @@
 */
 package org.allbinary.game.identification;
 
-import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.logic.string.StringMaker;
 
 public class Group implements GroupInterface
 {

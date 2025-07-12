@@ -13,17 +13,11 @@
 */
 package views.generic.user;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.business.user.UserInterface;
-
-import org.allbinary.data.tree.dom.DomNodeInterface;
-
-import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
-import org.allbinary.logic.communication.log.LogUtil;
-
 import org.allbinary.business.user.UserDomNode;
-
+import org.allbinary.business.user.UserInterface;
+import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import views.business.context.modules.storefront.HttpStoreComponentView;
 
 public class UserView extends HttpStoreComponentView

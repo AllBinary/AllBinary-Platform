@@ -13,9 +13,9 @@
 */
 package org.allbinary.logic.communication.http.file.upload;
 
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.object.clazz.ClassUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemStream;
 
@@ -59,7 +59,7 @@ public class HttpFileUploadUtil
         throws Exception
     {
         final LogUtil logUtil = LogUtil.getInstance();
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("FileItem Log:");
         stringBuffer.append("\n");
@@ -86,7 +86,7 @@ public class HttpFileUploadUtil
     public static void log(FileItem fileItem)
     {
         final LogUtil logUtil = LogUtil.getInstance();
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("FileItem Log:");
         stringBuffer.append("\n");

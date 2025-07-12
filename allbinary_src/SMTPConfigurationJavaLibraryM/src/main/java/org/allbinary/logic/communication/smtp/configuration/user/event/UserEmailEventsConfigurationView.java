@@ -14,16 +14,13 @@
 package org.allbinary.logic.communication.smtp.configuration.user.event;
 
 import java.util.HashMap;
-
 import java.util.Set;
 import java.util.Vector;
 
-import org.allbinary.data.tree.dom.DomSearchHelper;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.data.tree.dom.DomSearchHelper;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;

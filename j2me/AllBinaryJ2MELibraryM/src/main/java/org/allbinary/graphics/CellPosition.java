@@ -13,9 +13,9 @@
 */
 package org.allbinary.graphics;
 
-import org.allbinary.string.CommonSeps;
-import org.allbinary.logic.string.StringMaker;
 import org.allbinary.graph.V;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonSeps;
 
 public class CellPosition
 extends V

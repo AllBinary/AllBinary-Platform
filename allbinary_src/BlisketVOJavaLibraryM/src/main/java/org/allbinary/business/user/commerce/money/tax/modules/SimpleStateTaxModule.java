@@ -13,20 +13,19 @@
 */
 package org.allbinary.business.user.commerce.money.tax.modules;
 
-import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.data.tree.dom.DomNodeHelper;
-import org.allbinary.data.tree.dom.DomSearchHelper;
-import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.io.path.AbPath;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.address.StreetAddress;
 import org.allbinary.business.user.address.StreetAddressData;
 import org.allbinary.business.user.commerce.money.tax.components.TaxData;
+import org.allbinary.data.tree.dom.DomNodeHelper;
+import org.allbinary.data.tree.dom.DomSearchHelper;
+import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
-import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.crypt.file.CryptFileReader;
+import org.allbinary.logic.io.path.AbPath;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigData;
 import org.allbinary.string.CommonStrings;
 import org.w3c.dom.Document;

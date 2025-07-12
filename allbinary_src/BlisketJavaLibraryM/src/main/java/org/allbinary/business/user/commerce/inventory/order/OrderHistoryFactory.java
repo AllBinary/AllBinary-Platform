@@ -13,9 +13,8 @@
 */
 package org.allbinary.business.user.commerce.inventory.order;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tables.user.commerce.inventory.order.OrderHistoryEntity;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 
 //import org.allbinary.logic.java.proxy.InterfaceCastProxy;

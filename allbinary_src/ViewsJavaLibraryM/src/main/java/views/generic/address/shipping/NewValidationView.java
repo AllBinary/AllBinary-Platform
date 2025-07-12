@@ -13,15 +13,11 @@
 */
 package views.generic.address.shipping;
 
+import org.allbinary.business.user.address.StreetAddress;
+import org.allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-
-
-import org.allbinary.business.user.address.StreetAddress;
-
-import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
-import org.allbinary.logic.control.validate.ValidationComponentInterface;
 
 public class NewValidationView extends ShippingAddressView implements ValidationComponentInterface
 {   

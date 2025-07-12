@@ -14,25 +14,23 @@
 package views.business.context.modules.storefront.customizer.generic.page;
 
 import java.util.HashMap;
-
 import java.util.Vector;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-import views.business.context.modules.storefront.customizer.CustomizerUtil;
-import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tables.transform.info.TransformInfoEntity;
 import org.allbinary.data.tables.transform.info.TransformInfoEntityBuilder;
+import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.visual.transform.info.TransformInfo;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigInterface;
 import org.allbinary.logic.visual.transform.template.customizer.page.PageValidation;
 import org.allbinary.logic.visual.transform.template.customizer.widgets.title.TitleData;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import views.business.context.modules.storefront.customizer.CustomizerUtil;
 
 public class PageValidationView extends PageView implements ValidationComponentInterface
 {
@@ -93,7 +91,7 @@ public class PageValidationView extends PageView implements ValidationComponentI
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-            	StringBuffer stringBuffer = new StringBuffer();
+            	StringMaker stringBuffer = new StringMaker();
             	
             	stringBuffer.append(this.getTransformInfoInterface().getName());
             	stringBuffer.append(" is modifying view: ");
@@ -113,7 +111,7 @@ public class PageValidationView extends PageView implements ValidationComponentI
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-            	StringBuffer stringBuffer = new StringBuffer();
+            	StringMaker stringBuffer = new StringMaker();
             	
             	stringBuffer.append(this.getTransformInfoInterface().getName());
             	stringBuffer.append(" is adding data to view: ");
@@ -151,11 +149,11 @@ public class PageValidationView extends PageView implements ValidationComponentI
 
                if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                {
-                   StringBuffer stringBuffer = new StringBuffer();
+                   StringMaker stringBuffer = new StringMaker();
 
                     stringBuffer.append(viewNameOfViewToBeModified);
                     stringBuffer.append(" is changing data in ");
-                    stringBuffer.append(specifiedTransformInfoInterface.getDataFilePath());
+                    stringBuffer.append(specifiedTransformInfoInterface.getDataFilePath().toString());
                     stringBuffer.append(" to the following data:\n");
                     stringBuffer.append(documentString);
 
@@ -182,7 +180,7 @@ public class PageValidationView extends PageView implements ValidationComponentI
    {
       try
       {
-         StringBuffer stringBuffer = new StringBuffer();
+         StringMaker stringBuffer = new StringMaker();
 
          TransformInfoEntity transformInfoEntityInterface =
         	 TransformInfoEntityBuilder.getInstance();

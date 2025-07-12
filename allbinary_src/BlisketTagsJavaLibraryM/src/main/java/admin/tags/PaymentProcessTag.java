@@ -13,19 +13,15 @@
 */
 package admin.tags;
 
-import org.allbinary.logic.communication.http.request.AbResponseHandler;
-import org.allbinary.logic.communication.log.LogFactory;
+import java.lang.reflect.Method;
 
-import org.allbinary.logic.system.security.licensing.LicensingException;
+import javax.servlet.jsp.JspTagException;
 
 import admin.taghelpers.PaymentProcessHelperFactory;
-
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.log.LogUtil;
-
+import org.allbinary.logic.system.security.licensing.LicensingException;
 import tags.StoreValidationTransformTag;
-
-import java.lang.reflect.Method;
-import javax.servlet.jsp.JspTagException;
 
 public class PaymentProcessTag extends StoreValidationTransformTag
 {

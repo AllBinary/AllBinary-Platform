@@ -13,12 +13,11 @@
 */
 package org.allbinary.input.motion.gesture.configuration;
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.game.input.CompleteMotionGestureInputEvent;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.input.motion.gesture.MotionGestureToMotionGestureActionAssociation;
+import org.allbinary.util.BasicArrayList;
 
 public class MotionGestureConfiguration
 {

@@ -13,10 +13,10 @@
 */
 package org.allbinary.data.tables.user.commerce.inventory.order;
 
+import java.util.Vector;
+
 import org.allbinary.business.user.commerce.inventory.basket.BasketReview;
 import org.allbinary.business.user.commerce.inventory.order.OrderInterface;
-
-import java.util.Vector;
 import org.allbinary.data.tables.BasicDataTableInterface;
 
 public interface OrderItemsEntityInterface extends BasicDataTableInterface

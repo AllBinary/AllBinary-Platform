@@ -15,6 +15,8 @@ package org.allbinary.media.image.cache;
 
 import java.util.HashMap;
 
+import org.allbinary.logic.string.StringMaker;
+
 public class BufferedImageInfoFactory
 {
     private static HashMap hashMap = new HashMap();
@@ -26,7 +28,7 @@ public class BufferedImageInfoFactory
     public static BufferedImageInfo getInstance(
         int width, int height, int type)
     {
-        StringBuffer stringbuffer = new StringBuffer();
+        StringMaker stringbuffer = new StringMaker();
         
         stringbuffer.append(width);
         stringbuffer.append(height);

@@ -13,9 +13,6 @@
 */
 package org.allbinary.business.context.modules.storefront.statistics;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
 import org.allbinary.business.context.modules.storefront.statistics.advertisements.StoreFrontAdvertisementsStatisticsInterface;
 import org.allbinary.business.context.modules.storefront.statistics.advertisements.StoreFrontAdvertisementsStatisticsView;
 import org.allbinary.business.context.modules.storefront.statistics.inventory.StoreFrontInventoryStatisticsInterface;
@@ -27,6 +24,8 @@ import org.allbinary.business.context.modules.storefront.statistics.users.StoreF
 import org.allbinary.business.user.role.UserRole;
 import org.allbinary.business.user.role.UserRoleFactory;
 import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 public class RealTimeStoreFrontStatisticsView
     implements DomNodeInterface

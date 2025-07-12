@@ -18,7 +18,6 @@ import org.allbinary.game.GameInfo;
 import org.allbinary.game.GameType;
 import org.allbinary.game.GameTypeFactory;
 import org.allbinary.game.score.remote.RemoteHighScores;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.logic.system.SoftwareInformation;

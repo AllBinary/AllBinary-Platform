@@ -18,37 +18,35 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
+
 import org.allbinary.business.context.configuration.ContextConfiguration;
-
-import org.apache.commons.lang.StringEscapeUtils;
-
-import org.w3c.dom.Document;
-
-import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.io.file.AbFile;
-import org.allbinary.logic.io.file.FileUtil;
-import org.allbinary.logic.io.file.directory.Directory;
-import org.allbinary.logic.io.path.AbPath;
-import org.allbinary.logic.io.path.AbPathData;
-import org.allbinary.string.CommonSeps;
-import org.allbinary.logic.string.SpecialCharacterUtil;
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.string.regex.replace.Replace;
-import org.allbinary.logic.string.tokens.Tokenizer;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.configuration.ContextConfigurationDomDocumentMapping;
 import org.allbinary.business.context.configuration.ContextConfigurationInterface;
 import org.allbinary.business.context.configuration.ContextConfigurationInterfaceFactory;
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.user.UserData;
+import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
-import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.logic.communication.http.request.RequestParams;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.io.file.AbFile;
+import org.allbinary.logic.io.file.FileUtil;
+import org.allbinary.logic.io.file.directory.Directory;
+import org.allbinary.logic.io.path.AbPath;
+import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.logic.io.path.AbPathUtil;
+import org.allbinary.logic.string.SpecialCharacterUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
+import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.logic.string.regex.replace.Replace;
+import org.allbinary.logic.string.tokens.Tokenizer;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.apache.commons.lang.StringEscapeUtils;
+import org.w3c.dom.Document;
 
 public class StoreFront implements StoreFrontInterface
 {
@@ -461,7 +459,7 @@ public class StoreFront implements StoreFrontInterface
         
         if (!stringValidationUtil.isValidRequired(this.name, MINCHAR, MAXCHAR))
         {
-            final StringBuffer stringBuffer = new StringBuffer();
+            final StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append("Name is invalid. Must be < ");
             stringBuffer.append(MAXCHAR);
@@ -478,7 +476,7 @@ public class StoreFront implements StoreFrontInterface
         {
             final StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
             
-            final StringBuffer stringBuffer = new StringBuffer();
+            final StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append(this.nameValidationInfo());
 
@@ -1048,7 +1046,7 @@ public class StoreFront implements StoreFrontInterface
                 throw new Exception("Unable to create store directories");
             }
 
-            final StringBuffer stringBuffer = new StringBuffer();
+            final StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.delete(0, stringBuffer.length());
             stringBuffer.append(URLGLOBALS.getMainPath());
@@ -1133,7 +1131,7 @@ public class StoreFront implements StoreFrontInterface
     private void installResources(final AbPath fromDirectoryAbPath, final int current, final int total)
         throws Exception
     {
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
         /*
         AbFile rootCategoryAbFile =
         new AbFile(new AbPath(fromDirectoryAbPath.toString(),
@@ -1168,7 +1166,7 @@ public class StoreFront implements StoreFrontInterface
         //FileUtil.encCopy(rootCategoryAbFile, categoryAbPath,
         // CategoryData.ENCRYPTED_EXTENSION);
 
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(fromDirectoryAbPath.toString());
         stringBuffer.append(AbPathData.getInstance().SEPARATOR);

@@ -13,9 +13,9 @@
 */
 package org.allbinary.business.user.role;
 
-import org.allbinary.business.user.UserFactoryInterface;
-
 import java.util.Vector;
+
+import org.allbinary.business.user.UserFactoryInterface;
 import org.allbinary.logic.string.StringValidationUtil;
 
 /**

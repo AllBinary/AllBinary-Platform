@@ -14,19 +14,18 @@
 package org.allbinary.data.tables.transform.info;
 
 import java.util.HashMap;
-
 import java.util.Vector;
 
 import javax.servlet.jsp.PageContext;
 
+import org.allbinary.business.context.modules.storefront.StoreFrontData;
+import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.init.db.UserDbInitInfo;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 import org.allbinary.logic.control.crypt.Encoder;
-import org.allbinary.business.entry.EntryData;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 import org.allbinary.logic.visual.transform.info.TransformInfoData;
@@ -180,7 +179,7 @@ implements TransformInfoEntityInterface
     {
     	TransformInfoData transformInfoData = TransformInfoData.getInstance();
     	
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.sqlStrings.CREATE_TABLE);
         stringBuffer.append(tableName);

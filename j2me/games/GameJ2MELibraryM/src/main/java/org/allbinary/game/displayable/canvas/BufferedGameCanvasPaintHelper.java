@@ -16,10 +16,9 @@ package org.allbinary.game.displayable.canvas;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
-import org.allbinary.util.CircularIndexUtil;
-
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.paint.ProcessPaintable;
+import org.allbinary.util.CircularIndexUtil;
 
 public class BufferedGameCanvasPaintHelper extends ProcessPaintable
 {

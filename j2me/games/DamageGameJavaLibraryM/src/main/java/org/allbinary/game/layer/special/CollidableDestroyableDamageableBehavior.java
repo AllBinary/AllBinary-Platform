@@ -13,12 +13,11 @@
 */
 package org.allbinary.game.layer.special;
 
-import org.allbinary.game.layer.CollidableCompositeLayer;
-
-import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.game.collision.CollidableBaseBehavior;
 import org.allbinary.game.collision.CollidableInterfaceCompositeInterface;
 import org.allbinary.game.combat.damage.DamageUtil;
+import org.allbinary.game.layer.CollidableCompositeLayer;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
 
 public class CollidableDestroyableDamageableBehavior 
 extends CollidableBaseBehavior 

@@ -43,7 +43,7 @@ public class LogFormatUtil
     //private final String FUNCTION_CALL = "\nFunction Call: ";
     //private final String SPECIAL_MESSAGE = "\nSpecial Msg: ";
     private final String CLASS_NAME = this.commonSeps.SPACE;
-    private final String FUNCTION_CALL = ": ";
+    private final String FUNCTION_CALL = CommonLabels.getInstance().COLON_SEP;
     private final String SPECIAL_MESSAGE = "> ";
     
     private LogFormatUtil()

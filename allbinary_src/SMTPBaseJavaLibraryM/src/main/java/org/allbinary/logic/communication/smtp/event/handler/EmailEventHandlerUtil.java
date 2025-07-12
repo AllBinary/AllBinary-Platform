@@ -15,15 +15,15 @@ package org.allbinary.logic.communication.smtp.event.handler;
 
 import java.util.Vector;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.user.UserInterface;
 import org.allbinary.business.user.modules.configuration.UserConfigurationInterface;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.smtp.configuration.user.UserEmailConfigurationInterface;
 import org.allbinary.logic.communication.smtp.configuration.user.event.UserEmailEventsConfigurationInterface;
 import org.allbinary.logic.communication.smtp.event.UserEmailEventListenerInterface;
 import org.allbinary.logic.communication.smtp.event.UserEmailEventNameData;
 import org.allbinary.logic.communication.smtp.event.modules.log.LogUserEmailEventListenerModule;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class EmailEventHandlerUtil
@@ -67,7 +67,7 @@ public class EmailEventHandlerUtil
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
-    	  final StringBuffer stringBuffer = new StringBuffer();
+    	  final StringMaker stringBuffer = new StringMaker();
     	  
     	  stringBuffer.append("Returning UserEmailEventHandler for ");
     	  stringBuffer.append(userVector.size());

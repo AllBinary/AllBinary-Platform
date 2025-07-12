@@ -15,6 +15,7 @@ package org.allbinary.graphics.opengles.shader;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
+
 import org.allbinary.graphics.opengles.renderer.RendererStrings;
 import org.allbinary.string.CommonStrings;
 

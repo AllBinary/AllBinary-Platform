@@ -15,15 +15,14 @@ package org.allbinary.input.automation.module.actions.script.condition.processor
 
 import java.util.HashMap;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.ModDomHelper;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 public class ImageActionScriptOutput
     extends BasicProfileActionScriptOutput
@@ -171,7 +170,7 @@ public class ImageActionScriptOutput
     
     public String future_toString()
     {
-        StringBuffer stringBuffer = new StringBuffer(); 
+        StringMaker stringBuffer = new StringMaker(); 
         stringBuffer.append(" Is Save: ");
         stringBuffer.append(this.isSaved());
         stringBuffer.append(" Is Display: ");

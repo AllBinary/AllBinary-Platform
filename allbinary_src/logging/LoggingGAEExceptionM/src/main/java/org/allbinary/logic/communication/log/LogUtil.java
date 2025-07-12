@@ -12,6 +12,8 @@
 * 
  */
 package org.allbinary.logic.communication.log;
+import org.allbinary.logic.string.StringMaker;
+
 
 import java.util.logging.Logger;
 
@@ -32,7 +34,7 @@ public class LogUtil {
 
     static
     {
-    StringBuffer stringBuffer = new StringBuffer();
+    StringMaker stringBuffer = new StringMaker();
 
     stringBuffer.append(AbPathData.getInstance().EXTENSION_SEP);
     stringBuffer.append(AbPathData.getInstance().SEPARATOR);
@@ -86,7 +88,7 @@ public class LogUtil {
     {
     try
     {
-    StringBuffer stringBuffer = new StringBuffer();
+    StringMaker stringBuffer = new StringMaker();
 
     stringBuffer.append(URLGLOBALS.getMainPath());
     stringBuffer.append(PATH_GLOBALS.getInstance().LOG_PATH);

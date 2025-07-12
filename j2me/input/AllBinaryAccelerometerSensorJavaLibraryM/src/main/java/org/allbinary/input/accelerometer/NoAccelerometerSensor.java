@@ -14,7 +14,6 @@
 package org.allbinary.input.accelerometer;
 
 import org.allbinary.input.gyro.AllBinaryOrientationSensor;
-
 import org.allbinary.logic.math.Orientation;
 
 public class NoAccelerometerSensor extends AllBinaryOrientationSensor

@@ -43,10 +43,9 @@ Created By: Travis Berthelot
       </div>
       
    </xsl:template>
-             
-   <xsl:template name="bodyButtonItem"
-      xmlns:jsp="http://java.sun.com/JSP/Page" 
-      xmlns:jutil="/WEB-INF/jutil.tld" >
+
+    <xsl:template name="bodyButtonItem"
+    >
       <xsl:param name="id"/>
       <xsl:param name="name"/>
       <xsl:param name="page"/>

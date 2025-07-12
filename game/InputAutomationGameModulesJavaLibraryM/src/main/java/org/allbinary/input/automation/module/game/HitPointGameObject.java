@@ -14,6 +14,8 @@
 package org.allbinary.input.automation.module.game;
 
 import java.awt.image.BufferedImage;
+
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 
 public class HitPointGameObject extends MeteredGameObject
@@ -82,7 +84,7 @@ public class HitPointGameObject extends MeteredGameObject
 
    public String toString()
    {
-      StringBuffer stringBuffer = new StringBuffer();
+      StringMaker stringBuffer = new StringMaker();
       
       stringBuffer.append(HP_LABEL);
 

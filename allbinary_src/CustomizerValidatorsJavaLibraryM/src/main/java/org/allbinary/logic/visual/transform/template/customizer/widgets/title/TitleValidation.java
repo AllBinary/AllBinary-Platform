@@ -15,13 +15,12 @@ package org.allbinary.logic.visual.transform.template.customizer.widgets.title;
 
 import java.util.HashMap;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.validate.ValidationInterface;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringValidationUtil;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 public class TitleValidation extends TitleView implements ValidationInterface
 {
@@ -79,7 +78,7 @@ public class TitleValidation extends TitleView implements ValidationInterface
    {
       try
       {
-         StringBuffer stringBuffer = new StringBuffer();
+         StringMaker stringBuffer = new StringMaker();
                   
          stringBuffer.append("Title is not valid.");
          

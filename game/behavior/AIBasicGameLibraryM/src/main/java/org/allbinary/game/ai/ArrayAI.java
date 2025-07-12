@@ -13,7 +13,6 @@
 */
 package org.allbinary.game.ai;
 
-import org.allbinary.game.ai.BasicAI;
 import org.allbinary.ai.ArtificialIntelligenceInterface;
 import org.allbinary.game.input.GameInput;
 import org.allbinary.layer.AllBinaryLayer;

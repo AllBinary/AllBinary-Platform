@@ -13,12 +13,12 @@
 */
 package org.allbinary.logic.communication.log;
 
-import org.allbinary.time.TimeStampUtil;
-
-import org.allbinary.string.CommonSeps;
+import org.allbinary.logic.java.exception.ExceptionUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.java.exception.ExceptionUtil;
+import org.allbinary.string.CommonLabels;
+import org.allbinary.string.CommonSeps;
+import org.allbinary.time.TimeStampUtil;
 
 public class LogFormatUtil
 {
@@ -43,7 +43,7 @@ public class LogFormatUtil
     //private final String FUNCTION_CALL = "\nFunction Call: ";
     //private final String SPECIAL_MESSAGE = "\nSpecial Msg: ";
     private final String CLASS_NAME = this.commonSeps.SPACE;
-    private final String FUNCTION_CALL = ": ";
+    private final String FUNCTION_CALL = CommonLabels.getInstance().COLON_SEP;
     private final String SPECIAL_MESSAGE = "> ";
     
     private LogFormatUtil()

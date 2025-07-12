@@ -14,7 +14,6 @@
 package org.allbinary.game.layer.drop;
 
 import org.allbinary.game.layer.pickup.PickedUpLayerInterface;
-
 import org.allbinary.layer.LayerInterface;
 
 public interface DropLayerInterface extends LayerInterface

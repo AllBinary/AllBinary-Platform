@@ -13,8 +13,8 @@
 */
 package org.allbinary.logic.system;
 
-import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonSeps;
 
 public class SoftwareInformation
 {

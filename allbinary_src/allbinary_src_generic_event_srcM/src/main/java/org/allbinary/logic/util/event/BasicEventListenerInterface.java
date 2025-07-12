@@ -13,9 +13,7 @@
 */
 package org.allbinary.logic.util.event;
 
-import org.allbinary.logic.util.event.EventListenerInterface;
-
-public interface BasicEventListenerInterface 
+public interface BasicEventListenerInterface
    extends EventListenerInterface
 {
 }

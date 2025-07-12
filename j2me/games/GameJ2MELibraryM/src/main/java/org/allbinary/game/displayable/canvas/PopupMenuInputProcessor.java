@@ -15,10 +15,6 @@ package org.allbinary.game.displayable.canvas;
 
 import javax.microedition.lcdui.Canvas;
 
-import org.allbinary.util.BasicArrayList;
-
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.input.GameInputStrings;
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.graphics.GPoint;
@@ -27,11 +23,10 @@ import org.allbinary.graphics.displayable.MyCanvas;
 import org.allbinary.input.motion.gesture.MotionGestureInput;
 import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
 import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
-import org.allbinary.logic.communication.log.PreLogUtil;
-import org.allbinary.string.CommonSeps;
-import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.math.RectangleCollisionUtil;
 import org.allbinary.time.TimeDelayHelper;
+import org.allbinary.util.BasicArrayList;
 
 public class PopupMenuInputProcessor extends BasicMenuInputProcessor
 {

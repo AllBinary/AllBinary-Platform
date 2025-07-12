@@ -13,11 +13,11 @@
 */
 package org.allbinary.logic.system.os;
 
-import org.allbinary.string.CommonSeps;
+import org.allbinary.logic.java.character.CharacterSet;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.StringValidationUtil;
-import org.allbinary.logic.java.character.CharacterSet;
+import org.allbinary.string.CommonSeps;
 
 public class GenericOperatingSystem implements OperatingSystemInterface
 {

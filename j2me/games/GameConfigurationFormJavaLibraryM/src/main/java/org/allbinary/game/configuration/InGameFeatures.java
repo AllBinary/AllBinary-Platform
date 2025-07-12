@@ -13,15 +13,14 @@
 */
 package org.allbinary.game.configuration;
 
-import org.allbinary.input.gyro.OrientationData;
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.GameFeatureChoiceGroups;
 import org.allbinary.game.configuration.feature.InGameFeatureChoiceGroups;
 import org.allbinary.game.configuration.feature.SensorFeatureFactory;
 import org.allbinary.game.configuration.feature.TouchFeatureFactory;
 import org.allbinary.init.Init;
+import org.allbinary.input.gyro.OrientationData;
+import org.allbinary.util.BasicArrayList;
 
 public class InGameFeatures extends Init
 {

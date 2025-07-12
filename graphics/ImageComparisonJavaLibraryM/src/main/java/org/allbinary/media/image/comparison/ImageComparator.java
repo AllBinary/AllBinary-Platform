@@ -13,15 +13,16 @@
 */
 package org.allbinary.media.image.comparison;
 
-import org.allbinary.graphics.color.ColorCacheFactory;
-import org.allbinary.graphics.color.ColorCacheable;
+import java.awt.*;
 import java.awt.image.BufferedImage;
-import org.allbinary.media.image.comparison.pixel.PixelDeltaFactory;
-import java.awt.Color;
+
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.PointFactory;
+import org.allbinary.graphics.color.ColorCacheFactory;
+import org.allbinary.graphics.color.ColorCacheable;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.cache.AutomaticCacheInterface;
+import org.allbinary.media.image.comparison.pixel.PixelDeltaFactory;
 
 public class ImageComparator
 {

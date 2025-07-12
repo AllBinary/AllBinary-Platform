@@ -1,11 +1,10 @@
 package org.allbinary.game.layer.weapon;
 
-import org.allbinary.physics.movement.Movement;
-
 import org.allbinary.animation.Animation;
 import org.allbinary.game.combat.weapon.WeaponProperties;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.physics.movement.Movement;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.view.ViewPosition;

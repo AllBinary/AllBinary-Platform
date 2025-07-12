@@ -13,15 +13,12 @@
 */
 package admin.taghelpers;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import java.util.HashMap;
 
 import javax.servlet.jsp.PageContext;
 
-
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.LicensingException;
-import org.allbinary.string.CommonStrings;
 
 
 

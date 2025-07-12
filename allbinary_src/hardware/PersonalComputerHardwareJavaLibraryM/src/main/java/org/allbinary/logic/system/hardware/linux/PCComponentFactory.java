@@ -13,15 +13,11 @@
 */
 package org.allbinary.logic.system.hardware.linux;
 
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
-import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.system.hardware.components.ComponentFactory;
 import org.allbinary.logic.system.hardware.components.interfaces.HardwareComponentInterface;
-
 import org.allbinary.logic.system.hardware.components.linux.Bridge;
 import org.allbinary.logic.system.hardware.components.linux.Ethernet;
 import org.allbinary.logic.system.hardware.components.linux.HardDriveController;
@@ -30,6 +26,7 @@ import org.allbinary.logic.system.hardware.components.linux.PCI;
 import org.allbinary.logic.system.hardware.components.linux.Unknown;
 import org.allbinary.logic.system.hardware.components.linux.Usb;
 import org.allbinary.logic.system.hardware.components.linux.Video;
+import org.allbinary.string.CommonStrings;
 
 public class PCComponentFactory
 {

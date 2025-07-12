@@ -15,18 +15,15 @@ package org.allbinary.content;
 
 import javax.microedition.lcdui.Command;
 
-import org.allbinary.data.resource.ResourceUtil;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import org.allbinary.android.AndroidInfoFactory;
-
-import org.allbinary.string.CommonStrings;
-
-import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
 
 public class NotificationUtil
 {

@@ -13,18 +13,14 @@
 */
 package org.allbinary.game.combat.destroy;
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.game.combat.destroy.event.DestroyEventCircularStaticPool;
 import org.allbinary.game.combat.destroy.event.DestroyedEvent;
 import org.allbinary.game.combat.destroy.event.DestroyedEventHandler;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.layer.BasicLayerProcessor;
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.string.StringMaker;
+import org.allbinary.util.BasicArrayList;
 
 public class DestroyedLayerProcessor extends BasicLayerProcessor
 {

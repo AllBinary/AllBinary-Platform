@@ -15,6 +15,7 @@ package org.allbinary.data.tables.log;
 
 
 import java.util.Vector;
+
 import org.allbinary.data.tables.BasicDataTableInterface;
 
 public interface LogTableEntityInterface extends BasicDataTableInterface

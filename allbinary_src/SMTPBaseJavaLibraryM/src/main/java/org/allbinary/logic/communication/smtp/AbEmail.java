@@ -13,11 +13,12 @@
 */
 package org.allbinary.logic.communication.smtp;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
+import java.util.HashMap;
 
 import javax.mail.internet.MimeMessage;
-import java.util.HashMap;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 public class AbEmail
    implements EmailInterface

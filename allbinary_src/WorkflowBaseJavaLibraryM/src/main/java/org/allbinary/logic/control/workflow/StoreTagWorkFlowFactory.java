@@ -13,15 +13,16 @@
 */
 package org.allbinary.logic.control.workflow;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.system.loader.AbeFactory;
-import org.allbinary.logic.system.security.licensing.LicensingException;
-import org.allbinary.business.DynamicObjectData;
+import java.util.HashMap;
 
 import javax.servlet.jsp.PageContext;
-import java.util.HashMap;
+
+import org.allbinary.business.DynamicObjectData;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.system.loader.AbeFactory;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.LicensingException;
 import org.allbinary.string.CommonStrings;
 
 public class StoreTagWorkFlowFactory
@@ -48,7 +49,7 @@ public class StoreTagWorkFlowFactory
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY))
             {
-                StringBuffer stringBuffer = new StringBuffer();
+                StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append("Creating WorkFlow: ");
                 stringBuffer.append(workFlowClassName);
@@ -78,7 +79,7 @@ public class StoreTagWorkFlowFactory
             {
                 String workFlowClassName = (String) propertiesHashMap.get(DynamicObjectData.NAME);
 
-                StringBuffer stringBuffer = new StringBuffer();
+                StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append("Error Creating WorkFlow: ");
                 stringBuffer.append(workFlowClassName);
@@ -96,7 +97,7 @@ public class StoreTagWorkFlowFactory
             {
                 String workFlowClassName = (String) propertiesHashMap.get(DynamicObjectData.NAME);
 
-                StringBuffer stringBuffer = new StringBuffer();
+                StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append("Error Creating WorkFlow: ");
                 stringBuffer.append(workFlowClassName);

@@ -13,11 +13,10 @@
 */
 package org.allbinary.logic.communication.java.vm.stats;
 
-import org.allbinary.data.tables.TableMappingInterface;
-import org.allbinary.logic.communication.java.vm.stats.JvmStatisticsData;
-
 import java.util.HashMap;
 import java.util.Vector;
+
+import org.allbinary.data.tables.TableMappingInterface;
 
 public class JvmStatisticsMapping extends JvmStatistics implements TableMappingInterface
 {

@@ -13,12 +13,12 @@
 */
 package org.allbinary.logic.visual.transform.data;
 
- import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.logic.communication.log.LogFactory;
- import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonStrings;
- import org.w3c.dom.Document;
- import org.w3c.dom.Node;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 public class TransformDocument 
    implements TransformDocumentInterface
@@ -70,7 +70,7 @@ public class TransformDocument
 
    public String log() throws Exception
    {
-      StringBuffer stringBuffer = new StringBuffer();
+      StringMaker stringBuffer = new StringMaker();
       if(this.baseNode != null)
       {
          stringBuffer.append("BaseNode: ");

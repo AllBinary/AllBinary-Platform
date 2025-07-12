@@ -13,21 +13,20 @@
 */
 package org.allbinary.graphics.j2me.workarea.tools;
 
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
+import java.awt.*;
+import java.util.HashMap;
+
+import javax.swing.tree.MutableTreeNode;
+
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.j2me.workarea.canvas.CanvasDom;
 import org.allbinary.graphics.j2me.workarea.canvas.CanvasJPanel;
 import org.allbinary.graphics.j2me.workarea.canvas.IntegerDimension;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.math.RectangleCollisionPointUtil;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.util.HashMap;
-
-import javax.swing.tree.MutableTreeNode;
+import org.allbinary.string.CommonStrings;
 import org.w3c.dom.Node;
 
 /**

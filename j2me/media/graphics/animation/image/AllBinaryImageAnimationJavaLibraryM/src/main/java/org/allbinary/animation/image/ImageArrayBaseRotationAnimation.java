@@ -15,18 +15,15 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
+
 import org.allbinary.DisposalUtil;
-
 import org.allbinary.animation.AnimationBehavior;
-
-import org.allbinary.util.CircularIndexUtil;
-
 import org.allbinary.animation.RotationAnimation;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.logic.math.PrimitiveIntUtil;
-import org.allbinary.string.CommonStrings;
 import org.allbinary.math.AngleInfo;
 import org.allbinary.media.image.ImageModifierUtil;
+import org.allbinary.util.CircularIndexUtil;
 
 public class ImageArrayBaseRotationAnimation extends RotationAnimation //implements AutoCloseable
 {

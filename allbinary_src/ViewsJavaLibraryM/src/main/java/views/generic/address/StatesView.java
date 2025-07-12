@@ -14,21 +14,16 @@
 package views.generic.address;
 
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-
-import org.allbinary.logic.io.LineReader;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-
 import org.allbinary.business.user.address.StreetAddressData;
-
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
 import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.io.LineReader;
 import org.allbinary.string.CommonStrings;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 
 public class StatesView implements DomNodeInterface

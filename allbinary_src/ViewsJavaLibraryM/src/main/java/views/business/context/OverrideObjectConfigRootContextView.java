@@ -13,13 +13,9 @@
 */
 package views.business.context;
 
-import org.w3c.dom.Document;
-
-import views.business.context.modules.storefront.HttpStoreComponentView;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.string.CommonSeps;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.visual.transform.TransformFactory;
 import org.allbinary.logic.visual.transform.TransformInterface;
 import org.allbinary.logic.visual.transform.info.GeneratorTransformInfoData;
@@ -29,6 +25,9 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigAndManipulatorFactory;
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigInterface;
 import org.allbinary.logic.visual.transform.template.TransformTemplateInterface;
+import org.allbinary.string.CommonSeps;
+import org.w3c.dom.Document;
+import views.business.context.modules.storefront.HttpStoreComponentView;
 
 public class OverrideObjectConfigRootContextView extends HttpStoreComponentView
 {
@@ -59,7 +58,7 @@ public class OverrideObjectConfigRootContextView extends HttpStoreComponentView
          TransformInfoInterface rootTransformInfoInterface = (TransformInfoInterface)
             new TransformInfoHttp((TransformInfoHttp) this.getTransformInfoInterface());
 
-         StringBuffer stringBuffer = new StringBuffer();
+         StringMaker stringBuffer = new StringMaker();
          
          stringBuffer.append(this.getTransformInfoInterface().getStoreName());
          stringBuffer.append(CommonSeps.getInstance().SPACE);

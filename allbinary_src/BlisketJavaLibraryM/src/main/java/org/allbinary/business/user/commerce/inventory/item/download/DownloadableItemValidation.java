@@ -13,11 +13,11 @@
 */
 package org.allbinary.business.user.commerce.inventory.item.download;
 
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.sql.AbSqlData;
 import org.allbinary.logic.control.validate.Validation;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
@@ -145,7 +145,7 @@ public class DownloadableItemValidation extends Validation
    {
       try
       {
-         StringBuffer stringBuffer = new StringBuffer();
+         StringMaker stringBuffer = new StringMaker();
                   
          if(this.downloadableItem.getId()==null ||
             this.downloadableItem.getId().length()<1 ||

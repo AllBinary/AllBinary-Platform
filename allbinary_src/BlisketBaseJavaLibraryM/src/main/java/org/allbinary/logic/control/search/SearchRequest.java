@@ -13,15 +13,15 @@
 */
 package org.allbinary.logic.control.search;
 
-import org.allbinary.logic.control.search.SearchData;
+import java.util.HashMap;
+
+import javax.servlet.jsp.PageContext;
+
 import org.allbinary.business.context.AbContext;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-
-import javax.servlet.jsp.PageContext;
-import java.util.HashMap;
 
 public class SearchRequest extends AbContext
 {   

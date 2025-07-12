@@ -16,14 +16,14 @@ package admin.taghelpers;
 import java.util.HashMap;
 
 import javax.servlet.jsp.PageContext;
-import org.allbinary.business.context.modules.storefront.StoreFront;
 
-import org.allbinary.string.CommonSeps;
-import org.allbinary.logic.string.regex.replace.Replace;
+import org.allbinary.business.context.modules.storefront.StoreFront;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.logic.string.StringUtil;
+import org.allbinary.logic.string.regex.replace.Replace;
+import org.allbinary.string.CommonSeps;
 
 public class StoreFrontHelper
     extends TagHelper

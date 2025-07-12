@@ -14,8 +14,6 @@
 
 package org.allbinary.layer;
 
-import org.allbinary.layer.LayerManager;
-
 /**
  *
  * @author User

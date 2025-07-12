@@ -14,11 +14,10 @@
 package org.allbinary.business.installer;
 
 
-import org.allbinary.logic.system.security.licensing.LicensingException;
-
 import org.allbinary.business.init.db.DatabaseConnectionInfoInterface;
 import org.allbinary.business.init.db.InitDbHelperFactory;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.LicensingException;
 
 //Warning you must have sql root access
 public class DynamicInitDb extends InitDb

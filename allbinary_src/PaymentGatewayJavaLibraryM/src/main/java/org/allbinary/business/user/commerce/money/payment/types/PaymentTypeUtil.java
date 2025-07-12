@@ -13,25 +13,23 @@
 */
 package org.allbinary.business.user.commerce.money.payment.types;
 
-
 import java.util.Vector;
 
+import org.allbinary.business.entry.EntryData;
+import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewaysData;
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
 import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.control.crypt.file.CryptFileReader;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.io.path.AbPathData;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewaysData;
-import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
-import org.allbinary.logic.control.crypt.file.CryptFileReader;
-import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigData;
-import org.allbinary.business.entry.EntryData;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigData;
 import org.allbinary.string.CommonStrings;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -70,7 +68,7 @@ public class PaymentTypeUtil {
     
     private PaymentTypeUtil()
     {
-       final StringBuffer stringBuffer = new StringBuffer();
+       final StringMaker stringBuffer = new StringMaker();
 
        final String sep = AbPathData.getInstance().SEPARATOR;
 
@@ -122,7 +120,7 @@ public class PaymentTypeUtil {
 
       if(StringValidationUtil.getInstance().isEmpty(this.defaultName))
       {
-          StringBuffer stringBuffer = new StringBuffer();
+          StringMaker stringBuffer = new StringMaker();
 
           stringBuffer.append(URLGLOBALS.getMainPath());
           stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);

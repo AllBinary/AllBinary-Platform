@@ -23,7 +23,6 @@ import org.allbinary.canvas.Processor;
 import org.allbinary.game.displayable.canvas.MenuListener;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.command.MyCommandInterface;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 

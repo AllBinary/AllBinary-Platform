@@ -16,7 +16,6 @@ package org.allbinary.logic.io.path;
 import org.allbinary.logic.io.file.FilePathData;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.StringValidationUtil;
-import org.allbinary.logic.communication.log.PreLogUtil;
 
 //Used to correct user input for paths
 public class PathUtil

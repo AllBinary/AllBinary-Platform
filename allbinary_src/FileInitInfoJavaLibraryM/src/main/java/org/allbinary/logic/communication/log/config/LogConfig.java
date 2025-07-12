@@ -16,28 +16,24 @@ package org.allbinary.logic.communication.log.config;
 
 import java.util.Vector;
 
+import org.allbinary.business.entry.EntryData;
+import org.allbinary.data.tree.dom.DomNodeHelper;
+import org.allbinary.data.tree.dom.DomSearchHelper;
+import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.globals.PATH_GLOBALS;
+import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.communication.log.config.type.LogConfigType;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeData;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypesData;
+import org.allbinary.logic.io.AbFileLocalInputStream;
+import org.allbinary.logic.io.file.AbFile;
+import org.allbinary.logic.java.bool.BooleanUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.util.BasicArrayList;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
-import org.allbinary.data.tree.dom.DomNodeHelper;
-import org.allbinary.data.tree.dom.DomSearchHelper;
-import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.io.AbFileLocalInputStream;
-
-import org.allbinary.logic.io.file.AbFile;
-
-import org.allbinary.logic.java.bool.BooleanUtil;
-
-import org.allbinary.business.entry.EntryData;
-import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-
-import org.allbinary.logic.communication.log.config.type.LogConfigTypesData;
-import org.allbinary.logic.communication.log.config.type.LogConfigTypeData;
-import org.allbinary.logic.communication.log.config.type.LogConfigType;
-import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
-import org.allbinary.globals.PATH_GLOBALS;
-import org.allbinary.util.BasicArrayList;
 
 public class LogConfig
 {
@@ -150,7 +146,7 @@ public class LogConfig
 
     private Document getDoc() throws Exception
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(URLGLOBALS.getWebappPath());
         //this.getPath() +

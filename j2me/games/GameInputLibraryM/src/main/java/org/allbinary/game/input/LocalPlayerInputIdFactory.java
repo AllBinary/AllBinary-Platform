@@ -13,9 +13,8 @@
 */
 package org.allbinary.game.input;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.input.analog.AnalogLocationInputFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 
 public class LocalPlayerInputIdFactory {

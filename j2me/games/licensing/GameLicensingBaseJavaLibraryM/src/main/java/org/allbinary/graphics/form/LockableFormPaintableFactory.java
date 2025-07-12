@@ -13,10 +13,6 @@
 */
 package org.allbinary.graphics.form;
 
-import org.allbinary.graphics.form.ItemPaintable;
-import org.allbinary.graphics.form.ItemPaintableFactory;
-import org.allbinary.graphics.form.PaintableForm;
-
 public class LockableFormPaintableFactory extends ItemPaintableFactory
 {   
     private final int lockedIndex;

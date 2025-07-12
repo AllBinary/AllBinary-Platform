@@ -13,8 +13,8 @@
 */
 package org.allbinary.logic.system.hardware.components.linux;
 
-import org.allbinary.logic.system.hardware.components.interfaces.HardwareComponentInterface;
 import org.allbinary.logic.system.hardware.components.interfaces.BridgeInterface;
+import org.allbinary.logic.system.hardware.components.interfaces.HardwareComponentInterface;
         
 public class Bridge implements HardwareComponentInterface, BridgeInterface
 {

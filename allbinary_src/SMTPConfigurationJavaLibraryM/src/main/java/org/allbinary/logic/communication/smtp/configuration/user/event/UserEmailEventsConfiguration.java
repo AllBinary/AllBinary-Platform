@@ -15,9 +15,8 @@ package org.allbinary.logic.communication.smtp.configuration.user.event;
 
 import java.util.HashMap;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.user.UserInterface;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.smtp.event.UserEmailEventListenerInterface;
 import org.allbinary.logic.communication.smtp.event.UserEmailEventNameData;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;

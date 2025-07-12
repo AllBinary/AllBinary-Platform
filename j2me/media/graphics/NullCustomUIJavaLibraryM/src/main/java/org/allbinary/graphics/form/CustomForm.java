@@ -2,10 +2,9 @@ package org.allbinary.graphics.form;
 
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.graphics.form.item.CustomItem;
-
-import org.allbinary.logic.string.StringUtil;
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.form.item.CustomItem;
+import org.allbinary.logic.string.StringUtil;
 
 public class CustomForm extends CustomScreen
 {    

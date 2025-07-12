@@ -13,10 +13,10 @@
 */
 package org.allbinary.data.tables.user.commerce.money.payment.gateway;
 
+import java.util.Vector;
+
 import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayInterface;
 import org.allbinary.business.user.commerce.money.payment.types.BasicPaymentType;
-
-import java.util.Vector;
 import org.allbinary.data.tables.BasicDataTableInterface;
 
 public interface PaymentGatewayEntityInterface extends BasicDataTableInterface

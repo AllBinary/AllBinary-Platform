@@ -13,12 +13,13 @@
 */
 package admin.taghelpers;
 
+import org.allbinary.logic.communication.http.request.RequestMapInterface;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.visual.transform.TransformInterface;
 import taghelpers.ValidationViewHelper;
 import tags.HelperTag;
 import views.admin.inventory.InventoryItemView;
 import views.admin.inventory.download.DownloadableInventoryItemView;
-import org.allbinary.logic.communication.http.request.RequestMapInterface;
-import org.allbinary.logic.visual.transform.TransformInterface;
 
 public class InventoryItemViewParentTagHelper
 {
@@ -43,7 +44,7 @@ public class InventoryItemViewParentTagHelper
 
             if (viewObject.getTypeId() != InventoryItemView.TYPE_ID)
             {
-                StringBuffer stringBuffer = new StringBuffer();
+                StringMaker stringBuffer = new StringMaker();
                 //stringBuffer.delete(0, stringBuffer.length());
 
                 stringBuffer.append("Must have ");
@@ -82,7 +83,7 @@ public class InventoryItemViewParentTagHelper
 
             if (viewObject.getTypeId() != DownloadableInventoryItemView.TYPE_ID)
             {
-                StringBuffer stringBuffer = new StringBuffer();
+                StringMaker stringBuffer = new StringMaker();
                 //stringBuffer.delete(0, stringBuffer.length());
 
                 stringBuffer.append("Must have ");
@@ -121,7 +122,7 @@ public class InventoryItemViewParentTagHelper
             if (viewObject.getTypeId() != InventoryItemView.TYPE_ID &&
             	viewObject.getTypeId() != DownloadableInventoryItemView.TYPE_ID)
             {
-                StringBuffer stringBuffer = new StringBuffer();
+                StringMaker stringBuffer = new StringMaker();
                 //stringBuffer.delete(0, stringBuffer.length());
 
                 stringBuffer.append("Must have ");
@@ -144,7 +145,7 @@ public class InventoryItemViewParentTagHelper
     {
         if (!(helperObject instanceof ValidationViewHelper))
         {
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append("Must have ");
             stringBuffer.append("ValidationViewHelper");

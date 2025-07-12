@@ -13,15 +13,14 @@
 */
 package org.allbinary.media.image.comparison;
 
+import java.awt.image.BufferedImage;
+import java.util.Vector;
+
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.image.ImageUtil;
 import org.allbinary.media.image.comparison.pixel.PixelDelta;
-import java.awt.image.BufferedImage;
-
-import java.util.Vector;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.string.StringMaker;
 
 public class ImageComparisonResult
 {

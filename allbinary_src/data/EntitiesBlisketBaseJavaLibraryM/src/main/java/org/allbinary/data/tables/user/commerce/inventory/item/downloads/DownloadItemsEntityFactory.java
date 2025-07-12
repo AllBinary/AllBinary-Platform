@@ -13,7 +13,6 @@
 */
 package org.allbinary.data.tables.user.commerce.inventory.item.downloads;
 
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 

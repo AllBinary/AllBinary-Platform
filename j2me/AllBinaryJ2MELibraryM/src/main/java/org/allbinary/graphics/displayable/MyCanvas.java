@@ -20,15 +20,13 @@ import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.input.TouchJ2ME;
-
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.graphics.displayable.command.MyCommandInterface;
 import org.allbinary.graphics.displayable.command.MyCommandsFactory;
+import org.allbinary.input.TouchJ2ME;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.media.audio.Sound;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 
 public class MyCanvas extends Canvas 

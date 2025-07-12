@@ -14,17 +14,11 @@
 package views.business.context.modules.storefront.generator;
 
 
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-
-import org.allbinary.logic.visual.transform.info.TransformInfosData;
-
-import org.allbinary.logic.visual.transform.generator.TransformsGeneratorUtil;
-
-import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
 import org.allbinary.logic.communication.log.LogUtil;
-
+import org.allbinary.logic.string.StringUtil;
+import org.allbinary.logic.visual.transform.generator.TransformsGeneratorUtil;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfosData;
 import views.business.context.modules.storefront.HttpStoreComponentView;
 
 public class GeneratorStoreFrontContextView extends HttpStoreComponentView

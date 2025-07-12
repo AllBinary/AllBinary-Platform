@@ -13,18 +13,13 @@
 */
 package views.generic.address.shipping;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-
 import org.allbinary.business.user.address.StreetAddressData;
-
+import org.allbinary.data.tables.user.address.shipping.ShippingAddressesEntity;
+import org.allbinary.logic.control.validate.ValidationComponentInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
-import org.allbinary.logic.control.validate.ValidationComponentInterface;
-
-import org.allbinary.data.tables.user.address.shipping.ShippingAddressesEntity;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 public class DeleteValidationView extends ShippingAddressView implements ValidationComponentInterface
 {

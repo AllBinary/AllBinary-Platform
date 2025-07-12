@@ -15,25 +15,23 @@ package taghelpers;
 
 import java.util.HashMap;
 
-import javax.servlet.jsp.PageContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
 
 import admin.taghelpers.TagHelper;
-
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.business.context.modules.storefront.StoreFrontData;
+import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
+import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.address.StreetAddress;
-import org.allbinary.data.tables.user.commerce.inventory.order.OrderHistoryEntityFactory;
-import org.allbinary.data.tables.user.commerce.inventory.order.OrderHistoryEntityInterface;
 import org.allbinary.business.user.commerce.inventory.order.OrderData;
 import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
 import org.allbinary.business.user.commerce.inventory.order.OrderHistoryFactory;
 import org.allbinary.business.user.commerce.inventory.order.OrderHistoryInterface;
-import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 import org.allbinary.business.user.commerce.shipping.ShippingMethodData;
-import org.allbinary.business.context.modules.storefront.StoreFrontData;
-import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
-import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
+import org.allbinary.data.tables.user.commerce.inventory.order.OrderHistoryEntityFactory;
+import org.allbinary.data.tables.user.commerce.inventory.order.OrderHistoryEntityInterface;
+import org.allbinary.logic.communication.http.request.session.WeblisketSession;
+import org.allbinary.logic.communication.log.LogUtil;
 
 
 public class OrderHistoryHelper extends TagHelper

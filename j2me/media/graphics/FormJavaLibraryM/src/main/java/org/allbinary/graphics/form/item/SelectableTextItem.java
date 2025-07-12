@@ -15,9 +15,6 @@ package org.allbinary.graphics.form.item;
 
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.graphics.form.item.StringComponent;
-import org.allbinary.graphics.form.item.TextItem;
-
 import org.allbinary.graphics.color.BasicColor;
 
 public class SelectableTextItem 

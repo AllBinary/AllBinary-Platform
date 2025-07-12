@@ -17,8 +17,6 @@ import java.util.Hashtable;
 
 import javax.microedition.lcdui.Canvas;
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.game.ai.BasicAI;
 import org.allbinary.game.identification.BasicGroupFactory;
 import org.allbinary.game.input.GameInput;
@@ -27,6 +25,7 @@ import org.allbinary.game.layer.weapon.WeaponLayer;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.logic.math.MathUtil;
+import org.allbinary.util.BasicArrayList;
 
 public class FlockingAI extends BasicAI
 {

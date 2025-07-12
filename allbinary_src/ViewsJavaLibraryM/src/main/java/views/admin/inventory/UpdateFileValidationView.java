@@ -13,17 +13,6 @@
 */
 package views.admin.inventory;
 
-import org.apache.commons.fileupload.FileItem;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.io.file.AbFile;
-import org.allbinary.logic.io.file.FileData;
-import org.allbinary.string.CommonSeps;
-import org.allbinary.logic.string.StringValidationUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
@@ -32,10 +21,20 @@ import org.allbinary.business.user.commerce.money.MoneyException;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntity;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFactory;
 import org.allbinary.globals.GLOBALS2;
+import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.logic.communication.http.file.upload.HttpFileUploadUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.io.file.AbFile;
+import org.allbinary.logic.io.file.FileData;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
+import org.apache.commons.fileupload.FileItem;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 public class UpdateFileValidationView 
     extends InventoryItemView
@@ -80,7 +79,7 @@ public class UpdateFileValidationView
             StoreFrontInterface storeFrontInterface =
                 StoreFrontFactory.getInstance(this.getWeblisketSession().getStoreName());
 
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append(URLGLOBALS.getWebappPath());
             stringBuffer.append(storeFrontInterface.getCurrentHostNamePath());
@@ -148,7 +147,7 @@ public class UpdateFileValidationView
 
     public String validationInfo() throws Exception
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         String command = (String) this.getRequestHashMap().get(GLOBALS2.ADMINCOMMAND);
         if (command == null || command.compareTo(UPDATEPRODUCT) != 0)
@@ -225,7 +224,7 @@ public class UpdateFileValidationView
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
-                    StringBuffer stringBuffer = new StringBuffer();
+                    StringMaker stringBuffer = new StringMaker();
 
                     stringBuffer.append("File Size To Large: ");
                     stringBuffer.append(size);
@@ -242,7 +241,7 @@ public class UpdateFileValidationView
     }
 
     private void validationInfo(
-        StringBuffer stringBuffer,
+        StringMaker stringBuffer,
         String fileName, String fileItemFieldName, long size)
     {
     	FileData fileData = FileData.getInstance();

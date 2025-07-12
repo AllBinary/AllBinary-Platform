@@ -14,19 +14,10 @@
 package views.admin.orderhistory;
 
 import java.util.Calendar;
-
 import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-import views.business.context.modules.storefront.HttpStoreComponentView;
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.string.StringValidationUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.user.commerce.inventory.order.OrderData;
 import org.allbinary.business.user.commerce.inventory.order.OrderHistory;
 import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
@@ -34,9 +25,16 @@ import org.allbinary.data.tables.user.commerce.inventory.order.OrderHistoryEntit
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.globals.GLOBALS2;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.time.TimeUtil;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import views.business.context.modules.storefront.HttpStoreComponentView;
 
 public class DateRangeOrderHistoryView extends HttpStoreComponentView implements ValidationComponentInterface, DomNodeInterface
 {
@@ -150,7 +148,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-        	 StringBuffer stringBuffer = new StringBuffer();
+        	 StringMaker stringBuffer = new StringMaker();
         	 
         	 stringBuffer.append("Attempt to View orders in (fromDate=");
         	 stringBuffer.append(this.fromDate);
@@ -463,7 +461,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
          }
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-        	 StringBuffer stringBuffer = new StringBuffer();
+        	 StringMaker stringBuffer = new StringMaker();
 
         	 stringBuffer.append("Attempt to View orders in (fromDate=");
         	 stringBuffer.append(this.fromDate);
@@ -502,7 +500,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
       try
       {
          
-         StringBuffer result = new StringBuffer();
+         StringMaker result = new StringMaker();
          
          if(dateType==null ||
          (dateType.compareTo(OrderHistoryData.TYPELONG)!=0 &&

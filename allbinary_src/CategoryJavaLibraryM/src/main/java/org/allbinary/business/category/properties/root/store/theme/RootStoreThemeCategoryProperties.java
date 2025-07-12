@@ -13,19 +13,21 @@
 */
 package org.allbinary.business.category.properties.root.store.theme;
 
-import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.io.path.AbPath;
-import org.allbinary.logic.io.path.AbPathData;
+import java.util.HashMap;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.allbinary.business.category.properties.root.store.RootStoreCategoryProperties;
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
+import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.io.path.AbPath;
+import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpStoreInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.w3c.dom.Node;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
 
 public class RootStoreThemeCategoryProperties extends RootStoreCategoryProperties 
   //implements RootCategoryPropertiesInterface, CategoryPropertiesInterface
@@ -64,7 +66,7 @@ public class RootStoreThemeCategoryProperties extends RootStoreCategoryPropertie
          StoreFrontFactory.getInstance(
             transformInfoHttpStoreInterface.getStoreName());
       
-      StringBuffer stringBuffer = new StringBuffer();
+      StringMaker stringBuffer = new StringMaker();
       
       stringBuffer.append(AbPathData.getInstance().SEPARATOR);
       stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);

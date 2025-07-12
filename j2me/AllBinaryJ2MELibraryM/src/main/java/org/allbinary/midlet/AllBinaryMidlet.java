@@ -21,6 +21,7 @@ package org.allbinary.midlet;
  *Date: 11/19/02
  *
  */
+
 import java.util.Hashtable;
 
 import javax.microedition.lcdui.Command;
@@ -30,15 +31,14 @@ import javax.microedition.lcdui.Displayable;
 import javax.microedition.midlet.MIDlet;
 import javax.microedition.midlet.MIDletStateChangeException;
 
-import org.allbinary.string.CommonLabels;
-import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
-import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.event.EventStrings;
+import org.allbinary.string.CommonLabels;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.system.Memory;
 
 // MIDlet methods not overridden are final

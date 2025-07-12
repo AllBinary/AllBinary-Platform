@@ -15,18 +15,17 @@ package org.allbinary.logic.visual.transform.template.customizer.includes.meta;
 
 import java.util.HashMap;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.validate.Validation;
-import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.visual.dhtml.html.head.meta.HtmlMetaAttributeData;
 import org.allbinary.logic.visual.dhtml.html.head.meta.HtmlMetaAttributeDataFactory;
 import org.allbinary.logic.visual.dhtml.html.head.meta.HtmlMetaData;
+import org.allbinary.string.CommonStrings;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 public class MetaValidation extends Validation implements DomNodeInterface
 {
@@ -100,7 +99,7 @@ public class MetaValidation extends Validation implements DomNodeInterface
    {
       try
       {
-         StringBuffer stringBuffer = new StringBuffer();
+         StringMaker stringBuffer = new StringMaker();
 
          /*
          if(!this.isValid().booleanValue() && !this.isValid().booleanValue())

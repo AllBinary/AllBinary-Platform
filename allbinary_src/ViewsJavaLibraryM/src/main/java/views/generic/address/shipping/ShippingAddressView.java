@@ -13,31 +13,18 @@
 */
 package views.generic.address.shipping;
 
-import org.allbinary.logic.communication.log.LogFactory;
-
 import javax.servlet.http.HttpServletRequest;
-
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-
-import org.allbinary.logic.communication.log.LogUtil;
-
 
 import org.allbinary.business.user.address.StreetAddress;
 import org.allbinary.business.user.address.StreetAddressData;
-
+import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
-import org.allbinary.data.tree.dom.DomNodeInterface;
-
-
-
-import views.generic.address.StatesView;
-
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 import views.business.context.modules.storefront.HttpStoreComponentView;
+import views.generic.address.StatesView;
 
 public class ShippingAddressView 
    extends HttpStoreComponentView

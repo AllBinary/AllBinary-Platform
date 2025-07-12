@@ -16,6 +16,7 @@ package org.allbinary.logic.io.file.directory;
 import java.io.FileFilter;
 
 import org.allbinary.logic.io.file.AbFile;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.util.BasicArrayList;
 
@@ -58,7 +59,7 @@ public class SubDirectory
 
     public static String toString(BasicArrayList files)
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         final String NEW_LINE = CommonSeps.getInstance().NEW_LINE;
         

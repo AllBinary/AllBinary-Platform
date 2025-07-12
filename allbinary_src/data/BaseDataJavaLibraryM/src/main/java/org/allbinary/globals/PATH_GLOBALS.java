@@ -14,6 +14,7 @@
 package org.allbinary.globals;
 
 import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonStrings;
 
 public class PATH_GLOBALS
@@ -27,7 +28,7 @@ public class PATH_GLOBALS
 
    private PATH_GLOBALS()
    {
-       final StringBuffer stringBuffer = new StringBuffer();
+       final StringMaker stringBuffer = new StringMaker();
        final AbPathData abPathData = AbPathData.getInstance();
 
        stringBuffer.append("data");

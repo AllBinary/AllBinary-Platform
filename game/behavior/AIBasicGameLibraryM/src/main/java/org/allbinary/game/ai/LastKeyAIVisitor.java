@@ -13,11 +13,10 @@
 */
 package org.allbinary.game.ai;
 
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.util.visitor.Visitor;
 import org.allbinary.logic.java.bool.BooleanFactory;
+import org.allbinary.logic.util.visitor.Visitor;
+import org.allbinary.string.CommonStrings;
 
 public class LastKeyAIVisitor extends Visitor
 {

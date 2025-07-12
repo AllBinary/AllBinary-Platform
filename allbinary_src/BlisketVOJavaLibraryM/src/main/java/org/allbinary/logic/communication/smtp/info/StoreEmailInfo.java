@@ -13,10 +13,9 @@
 */
 package org.allbinary.logic.communication.smtp.info;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.configuration.ContextConfigurationInterface;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.smtp.configuration.server.EmailServerConfigurationInterface;
 import org.allbinary.string.CommonStrings;
 

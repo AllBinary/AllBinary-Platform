@@ -16,15 +16,14 @@ package org.allbinary.data.tables.user.quoterequest;
 import java.util.HashMap;
 import java.util.Vector;
 
-import org.allbinary.business.init.db.UserDbInitInfo;
-import org.allbinary.business.installer.Portion;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.entry.EntryData;
+import org.allbinary.business.init.db.UserDbInitInfo;
 import org.allbinary.business.quoterequest.QuoteRequestData;
 import org.allbinary.business.user.UserData;
 import org.allbinary.business.user.quoterequest.QuoteRequest;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlBean;
+import org.allbinary.logic.string.StringMaker;
 
 public class QuoteRequestEntity extends AbSqlBean 
    implements QuoteRequestEntityInterface
@@ -118,7 +117,7 @@ public class QuoteRequestEntity extends AbSqlBean
     {
     	QuoteRequestData quoteRequestData = QuoteRequestData.getInstance();
     	
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.sqlStrings.CREATE_TABLE)
                 .append(tableName)

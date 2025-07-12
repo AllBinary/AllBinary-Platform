@@ -13,12 +13,11 @@
 */
 package org.allbinary.logic.system.hardware;
 
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.hardware.android.AndroidHardware;
 import org.allbinary.logic.system.os.GenericOperatingSystem;
 import org.allbinary.logic.system.os.OperatingSystems;
+import org.allbinary.string.CommonStrings;
 
 public class HardwareFactory
 {

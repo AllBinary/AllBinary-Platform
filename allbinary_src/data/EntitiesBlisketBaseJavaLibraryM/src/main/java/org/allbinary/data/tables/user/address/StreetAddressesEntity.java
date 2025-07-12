@@ -13,22 +13,20 @@
  */
 package org.allbinary.data.tables.user.address;
 
-import org.allbinary.business.init.db.UserDbInitInfo;
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.business.user.UserData;
-import org.allbinary.business.user.address.StreetAddress;
-import org.allbinary.data.tables.TableDataFactory;
-import org.allbinary.logic.communication.sql.AbSqlBean;
-
 import java.util.Calendar;
 import java.util.HashMap;
-
 import java.util.Vector;
+
 import org.allbinary.business.entry.EntryData;
-import org.allbinary.business.installer.Portion;
+import org.allbinary.business.init.db.UserDbInitInfo;
+import org.allbinary.business.user.UserData;
+import org.allbinary.business.user.address.StreetAddress;
 import org.allbinary.business.user.address.StreetAddressData;
+import org.allbinary.data.tables.TableDataFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.sql.AbSqlBean;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 
 public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesEntityInterface
 {
@@ -287,7 +285,7 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
 
     public final String createTableStatement()
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.sqlStrings.CREATE_TABLE)
                 .append(this.getTableName())

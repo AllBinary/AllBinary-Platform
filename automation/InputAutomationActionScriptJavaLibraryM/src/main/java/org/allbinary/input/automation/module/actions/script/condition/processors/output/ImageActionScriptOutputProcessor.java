@@ -18,7 +18,6 @@ import java.util.Vector;
 
 import org.allbinary.input.media.image.InputImageIOInterfaceFactory;
 import org.allbinary.input.media.image.InputImageType;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.media.image.io.ImageIOInterface;
 import org.allbinary.string.CommonStrings;

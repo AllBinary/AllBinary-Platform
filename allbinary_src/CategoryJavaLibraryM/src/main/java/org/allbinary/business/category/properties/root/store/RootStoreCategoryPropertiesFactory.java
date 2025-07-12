@@ -13,16 +13,15 @@
 */
 package org.allbinary.business.category.properties.root.store;
 
-import org.allbinary.logic.io.path.AbPath;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
+import java.util.HashMap;
+
 import org.allbinary.business.category.properties.CategoryPropertiesFactoryInterface;
 import org.allbinary.business.category.properties.CategoryPropertiesInterface;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-import org.w3c.dom.Node;
-
-import java.util.HashMap;
 import org.allbinary.string.CommonStrings;
+import org.w3c.dom.Node;
 
 public class RootStoreCategoryPropertiesFactory 
    implements CategoryPropertiesFactoryInterface

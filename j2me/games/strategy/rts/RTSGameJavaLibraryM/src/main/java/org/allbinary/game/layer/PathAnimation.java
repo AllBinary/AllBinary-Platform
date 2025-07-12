@@ -13,6 +13,8 @@
  */
 
 package org.allbinary.game.layer;
+import org.allbinary.logic.string.StringMaker;
+
 
 import javax.microedition.lcdui.Graphics;
 

@@ -14,8 +14,8 @@
 package org.allbinary.game.commands;
 
 import javax.microedition.lcdui.Command;
-import org.allbinary.graphics.displayable.CanvasStrings;
 
+import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.string.CommonStrings;
 
 public class GameCommandsFactory

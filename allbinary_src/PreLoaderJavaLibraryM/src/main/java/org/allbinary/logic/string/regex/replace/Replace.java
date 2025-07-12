@@ -13,16 +13,15 @@
 */
 package org.allbinary.logic.string.regex.replace;
 
-import org.allbinary.globals.AppUrlGlobals;
-import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.communication.log.LogFactory;
 import java.util.HashMap;
 import java.util.Set;
 
-import org.allbinary.string.CommonStrings;
-
+import org.allbinary.globals.AppUrlGlobals;
+import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
+import org.allbinary.string.CommonStrings;
 
 public class Replace
 {
@@ -81,7 +80,7 @@ public class Replace
          logUtil.put(REPLACERS_ + this.hashMap.toString(), this, ALL);
       }
 
-      final StringBuffer newStringBuffer = new StringBuffer();
+      final StringMaker newStringBuffer = new StringMaker();
 
       int totalNumberOfReplaces = 0;
       
@@ -170,7 +169,7 @@ public class Replace
          logUtil.put(REPLACERS_ + this.hashMap.toString(), this, ALL);
       }
 
-      final StringBuffer newStringBuffer = new StringBuffer();
+      final StringMaker newStringBuffer = new StringMaker();
 
       int totalNumberOfReplaces = 0;
       

@@ -16,13 +16,13 @@ package org.allbinary.input.automation.module.actions.script.condition.processor
 
 import java.util.Vector;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.input.media.image.InputImageType;
+import org.allbinary.logic.string.StringMaker;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 public class ImageTypes
 {
@@ -92,7 +92,7 @@ public class ImageTypes
     
     public String toString()
     {
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append("ImageTypes: ");
         

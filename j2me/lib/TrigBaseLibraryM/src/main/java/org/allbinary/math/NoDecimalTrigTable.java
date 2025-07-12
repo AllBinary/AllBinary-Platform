@@ -13,11 +13,11 @@
 */
 package org.allbinary.math;
 
-import org.allbinary.string.CommonSeps;
-import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.math.MathUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
+import org.allbinary.string.CommonSeps;
 
 
 public class NoDecimalTrigTable
@@ -1236,7 +1236,7 @@ public class NoDecimalTrigTable
             }
         }
 
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append("Invalid Ratio: ");
         stringBuffer.append(ratio);

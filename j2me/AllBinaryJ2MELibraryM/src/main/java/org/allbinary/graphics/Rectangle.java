@@ -13,11 +13,9 @@
 */
 package org.allbinary.graphics;
 
-import org.allbinary.graphics.GPoint;
-import org.allbinary.string.CommonSeps;
-import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
+import org.allbinary.string.CommonSeps;
 
 public class Rectangle 
 {

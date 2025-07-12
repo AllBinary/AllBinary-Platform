@@ -13,23 +13,17 @@
 */
 package admin.tags;
 
-import org.allbinary.logic.system.security.licensing.LicensingException;
-
-import org.allbinary.logic.communication.log.LogUtil;
-
-import org.allbinary.business.context.modules.storefront.StoreFrontData;
-
-import org.allbinary.business.user.commerce.money.payment.PaymentData;
-
-import admin.taghelpers.PaymentHelperFactory;
-
-import org.allbinary.logic.communication.http.request.AbResponseHandler;
-import org.allbinary.logic.communication.log.LogFactory;
-
 import java.lang.reflect.Method;
 import java.util.HashMap;
 
 import javax.servlet.jsp.JspTagException;
+
+import admin.taghelpers.PaymentHelperFactory;
+import org.allbinary.business.context.modules.storefront.StoreFrontData;
+import org.allbinary.business.user.commerce.money.payment.PaymentData;
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.system.security.licensing.LicensingException;
 
 public class PaymentTag extends TableTag
 {

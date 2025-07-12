@@ -13,15 +13,14 @@
 */
 package org.allbinary.game.input.event;
 
-import org.allbinary.util.BasicArrayList;
-
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.input.PlayerGameInput;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventListenerInterface;
 import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
+import org.allbinary.util.BasicArrayList;
 
 public class UpGameKeyEventHandlerBase extends BasicEventHandler
 {
@@ -92,7 +91,7 @@ public class UpGameKeyEventHandlerBase extends BasicEventHandler
     
     public String toString()
     {
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(super.toString());
         stringBuffer.append(TOTAL_LISTENERS);
@@ -106,7 +105,7 @@ public class UpGameKeyEventHandlerBase extends BasicEventHandler
                     this.list.get(index);
 
                 stringBuffer.append(LISTENER_LABEL);
-                stringBuffer.append(eventListenerInterface);
+                stringBuffer.append(eventListenerInterface.toString());
             }
             catch (Exception e)
             {

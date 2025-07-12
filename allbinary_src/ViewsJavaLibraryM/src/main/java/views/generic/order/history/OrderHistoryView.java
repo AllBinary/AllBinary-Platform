@@ -13,32 +13,21 @@
 */
 package views.generic.order.history;
 
-import org.allbinary.logic.communication.log.LogFactory;
-
 import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-import org.allbinary.logic.communication.log.LogUtil;
-
-import org.allbinary.data.tree.dom.ModDomHelper;
-
-import org.allbinary.data.tables.user.commerce.inventory.order.OrderHistoryEntity;
-
-import org.allbinary.globals.GLOBALS2;
-
 import org.allbinary.business.user.commerce.inventory.order.OrderData;
-
 import org.allbinary.business.user.commerce.inventory.order.OrderHistory;
 import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
-
+import org.allbinary.data.tables.user.commerce.inventory.order.OrderHistoryEntity;
 import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.globals.GLOBALS2;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
-
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 import views.business.context.modules.storefront.HttpStoreComponentView;
 
 public class OrderHistoryView 

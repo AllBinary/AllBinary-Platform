@@ -13,10 +13,10 @@
 */
 package org.allbinary.logic.communication.smtp;
 
+import javax.mail.internet.MimeMessage;
+
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.document.mapping.DomDocumentMappingInterface;
-
-import javax.mail.internet.MimeMessage;
 
 public interface EmailInterface
    extends DomNodeInterface, DomDocumentMappingInterface

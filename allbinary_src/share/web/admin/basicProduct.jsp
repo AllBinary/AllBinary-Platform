@@ -135,7 +135,7 @@ roles.add(BasicUserRole.PRODUCTMANAGER);
 </p>
 
 <%
-StringBuffer fileTypesBuffer = new StringBuffer();
+StringMaker fileTypesBuffer = new StringMaker();
 
 String fileTypes[] = ImageIO.getReaderFormatNames();
 //fileTypesBuffer.append(" Readers: ");
@@ -144,7 +144,7 @@ for(int index2 = 0; index2 < fileTypes.length; index2++)
    fileTypesBuffer.append(fileTypes[index2] + commonStrings.SPACE);
 }
 
-StringBuffer supportedMediaTypeBuffer = new StringBuffer();
+StringMaker supportedMediaTypeBuffer = new StringMaker();
 Set set = MediaData.toHashMap().keySet();
 Iterator iter = set.iterator();
 while(iter.hasNext())

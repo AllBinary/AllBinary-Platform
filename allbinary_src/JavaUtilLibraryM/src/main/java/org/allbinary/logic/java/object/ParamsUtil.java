@@ -13,6 +13,8 @@
 */
 package org.allbinary.logic.java.object;
 
+import org.allbinary.logic.string.StringMaker;
+
 public class ParamsUtil
 {
    private ParamsUtil()
@@ -23,7 +25,7 @@ public class ParamsUtil
    {
       if(params!=null)
       {
-         StringBuffer stringBuffer = new StringBuffer();
+         StringMaker stringBuffer = new StringMaker();
          for(int index = 0; index < params.length; index++)
          {
             stringBuffer.append(" ");

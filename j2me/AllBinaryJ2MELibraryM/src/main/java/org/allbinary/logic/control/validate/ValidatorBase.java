@@ -15,9 +15,8 @@ package org.allbinary.logic.control.validate;
 
 import java.util.Hashtable;
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.logic.java.bool.BooleanFactory;
+import org.allbinary.util.BasicArrayList;
 
 public class ValidatorBase 
 implements ValidatorBaseInterface

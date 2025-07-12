@@ -13,10 +13,10 @@
 */
 package org.allbinary.business.category;
 
+import java.util.HashMap;
+
 import org.allbinary.logic.io.path.AbPath;
 import org.w3c.dom.Node;
-
-import java.util.HashMap;
 
 public interface CategoryFactoryInterface
 {

@@ -13,37 +13,27 @@
 */
 package taghelpers;
 
-import admin.taghelpers.TagHelper;
-import org.allbinary.logic.communication.log.LogFactory;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.PageContext;
 
-import javax.servlet.http.HttpServletResponse;
-
-import javax.servlet.http.HttpServletRequest;
-
-import org.allbinary.logic.communication.log.LogUtil;
-
-import org.allbinary.business.user.address.StreetAddress;
-
-import views.admin.inventory.listings.InventoryViewFactory;
-import views.admin.inventory.listings.InventoryViewSearchInterface;
-
+import admin.taghelpers.TagHelper;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
-import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
-
+import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
+import org.allbinary.business.user.address.StreetAddress;
 import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
-
 import org.allbinary.logic.communication.http.AcceptableResponseGenerator;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
-
-import org.allbinary.logic.control.search.SearchRequest;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.search.SearchParams;
+import org.allbinary.logic.control.search.SearchRequest;
 import org.allbinary.logic.string.StringUtil;
-
 import org.allbinary.logic.visual.transform.info.TransformInfoData;
+import views.admin.inventory.listings.InventoryViewFactory;
+import views.admin.inventory.listings.InventoryViewSearchInterface;
 
 public class InventoryHelper extends TagHelper
 {

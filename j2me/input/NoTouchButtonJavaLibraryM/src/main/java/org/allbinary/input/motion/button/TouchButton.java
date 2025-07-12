@@ -13,12 +13,8 @@
 */
 package org.allbinary.input.motion.button;
 
-import org.allbinary.input.motion.button.TouchButtonInput;
-import org.allbinary.logic.string.StringMaker;
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationInterface;
 import org.allbinary.graphics.CellPosition;
@@ -26,6 +22,8 @@ import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.paint.Paintable;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
 

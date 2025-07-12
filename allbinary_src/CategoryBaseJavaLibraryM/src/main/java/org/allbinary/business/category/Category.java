@@ -16,18 +16,17 @@ package org.allbinary.business.category;
 import java.util.HashMap;
 import java.util.Vector;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-import org.allbinary.logic.io.path.AbPath;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.category.hierarchy.CategoryHierarchy;
 import org.allbinary.business.category.hierarchy.CategoryHierarchyInterface;
 import org.allbinary.business.category.properties.CategoryPropertiesFactoryInterface;
 import org.allbinary.business.category.properties.CategoryPropertiesInterface;
 import org.allbinary.business.category.properties.root.RootCategoryPropertiesInterface;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.io.path.AbPath;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonStrings;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 public class Category
     implements CategoryInterface
@@ -358,14 +357,14 @@ public class Category
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
         {
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append("Category Name: ");
             stringBuffer.append(this.categoryPropertiesInterface.getValue());
             stringBuffer.append("\nPath = ");
-            stringBuffer.append(this.getPath());
+            stringBuffer.append(this.getPath().toString());
             stringBuffer.append("\nFile Path: ");
-            stringBuffer.append(this.getFilePath());
+            stringBuffer.append(this.getFilePath().toString());
 
             logUtil.put(stringBuffer.toString(), this, "log()");
         }

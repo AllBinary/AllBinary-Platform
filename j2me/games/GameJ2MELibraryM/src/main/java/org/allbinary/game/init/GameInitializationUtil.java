@@ -13,13 +13,12 @@
 */
 package org.allbinary.game.init;
 
-import org.allbinary.game.resource.ResourceLoadingLevelFactory;
-
 import org.allbinary.game.configuration.event.ChangedGameFeatureListener;
 import org.allbinary.game.configuration.event.GameInitializedEvent;
 import org.allbinary.game.configuration.event.GameInitializedEventHandler;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.MainFeatureFactory;
+import org.allbinary.game.resource.ResourceLoadingLevelFactory;
 import org.allbinary.graphics.displayable.MyCanvas;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 

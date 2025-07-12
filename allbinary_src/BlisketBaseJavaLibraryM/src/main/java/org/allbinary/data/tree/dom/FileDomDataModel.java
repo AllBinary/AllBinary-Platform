@@ -13,13 +13,12 @@
 */
 package org.allbinary.data.tree.dom;
 
-import org.allbinary.logic.io.file.AbFile;
 import java.util.HashMap;
 
+import org.allbinary.data.tables.TableMappingInterface;
+import org.allbinary.logic.io.file.AbFile;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-
-import org.allbinary.data.tables.TableMappingInterface;
 
 public class FileDomDataModel
    implements DomNodeInterface

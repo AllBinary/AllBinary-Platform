@@ -79,7 +79,7 @@ public class ImageScaleUtil
     {
         final Bitmap originalBitmap = originalImage.getBitmap();
 
-        //logUtil.put(": " + scaleNominatorX + " / " + scaleDenominatorX + " = " + scaleX, this, commonStrings.CREATE_IMAGE);
+        //logUtil.put(CommonLabels.getInstance().COLON_SEP + scaleNominatorX + " / " + scaleDenominatorX + " = " + scaleX, this, commonStrings.CREATE_IMAGE);
 
         final int width = (int) (originalBitmap.getWidth() * scaleX);
         final int height = (int) (originalBitmap.getHeight() * scaleY);

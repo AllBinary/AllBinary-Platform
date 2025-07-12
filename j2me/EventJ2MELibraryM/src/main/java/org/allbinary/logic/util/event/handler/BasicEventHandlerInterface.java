@@ -13,10 +13,9 @@
 */
 package org.allbinary.logic.util.event.handler;
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventListenerInterface;
+import org.allbinary.util.BasicArrayList;
 
 public interface BasicEventHandlerInterface
 {

@@ -13,11 +13,12 @@
 */
 package admin.tags;
 
-import org.allbinary.logic.communication.http.request.AbResponseHandler;
-import admin.taghelpers.DownloadItemsHelperFactory;
-import admin.taghelpers.DownloadItemsRequestHelperFactory;
 import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.tagext.Tag;
+
+import admin.taghelpers.DownloadItemsHelperFactory;
+import admin.taghelpers.DownloadItemsRequestHelperFactory;
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
 
 
 public class DownloadItemsTag extends TableTag

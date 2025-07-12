@@ -18,7 +18,6 @@ import javax.microedition.midlet.MIDlet;
 import org.allbinary.AppletUtil;
 import org.allbinary.J2MEUtil;
 import org.allbinary.canvas.Processor;
-import org.allbinary.midlet.MidletExitProcessor;
 
 public class MidletExitProcessorFactory
 {

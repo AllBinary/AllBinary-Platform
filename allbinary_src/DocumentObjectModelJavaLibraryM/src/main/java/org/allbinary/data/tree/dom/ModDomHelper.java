@@ -13,17 +13,14 @@
 */
 package org.allbinary.data.tree.dom;
 
-import org.allbinary.data.tree.dom.DomData;
 import java.util.HashMap;
-
 import java.util.Set;
 import java.util.Vector;
 
+import org.allbinary.logic.java.object.clazz.ClassUtil;
+import org.allbinary.logic.string.StringUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.java.object.clazz.ClassUtil;
 
 public class ModDomHelper
 {

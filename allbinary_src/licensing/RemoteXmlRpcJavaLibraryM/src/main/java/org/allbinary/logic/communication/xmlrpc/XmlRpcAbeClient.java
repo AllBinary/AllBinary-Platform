@@ -13,14 +13,14 @@
 */
 package org.allbinary.logic.communication.xmlrpc;
 
-import org.apache.xmlrpc.XmlRpcClient;
-
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.ForcedLogUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.game.rand.MyRandomFactory;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.string.CommonLabels;
+import org.allbinary.string.CommonStrings;
+import org.apache.xmlrpc.XmlRpcClient;
 
 public class XmlRpcAbeClient
 {
@@ -38,7 +38,7 @@ public class XmlRpcAbeClient
 
     private final String START_SERVER = "Start With Server #";
     protected final String TRYING = "Trying Server #";
-    protected final String SEP = ": ";
+    protected final String SEP = CommonLabels.getInstance().COLON_SEP;
     
     protected final String CLIENT_INFO = "Client Info: \n";
     protected final String RESULT = "Result: \n";
@@ -88,7 +88,7 @@ public class XmlRpcAbeClient
         // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
         // {
         
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append(START_SERVER);
         stringBuffer.append(this.getServer());

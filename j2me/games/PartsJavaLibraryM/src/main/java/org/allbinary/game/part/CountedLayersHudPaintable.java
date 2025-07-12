@@ -16,7 +16,6 @@ package org.allbinary.game.part;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
-
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFont;
 import org.allbinary.graphics.paint.PaintableInterface;

@@ -13,15 +13,14 @@
 */
 package org.allbinary.input.motion.button;
 
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.input.GameKey;
 import org.allbinary.game.input.GameKeyEventSourceInterface;
 import org.allbinary.game.input.Input;
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.input.event.GameKeyEventFactory;
 import org.allbinary.game.input.mapping.InputToGameKeyMapping;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
 
 public final class TouchButtonInput extends Input 
     implements GameKeyEventSourceInterface

@@ -13,8 +13,8 @@
 */
 package org.allbinary.data.tables;
 
-import java.util.Vector;
 import java.util.HashMap;
+import java.util.Vector;
 
 public interface TableMappingInterface
 {

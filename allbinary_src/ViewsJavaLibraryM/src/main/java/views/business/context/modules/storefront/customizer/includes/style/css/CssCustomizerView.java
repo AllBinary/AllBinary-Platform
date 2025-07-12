@@ -14,19 +14,10 @@
 package views.business.context.modules.storefront.customizer.includes.style.css;
 
 
-
-
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-
 import org.allbinary.data.tree.dom.DomNodeInterface;
-
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.validate.ValidationInterface;
-
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
-
-
 import views.business.context.modules.storefront.HttpStoreComponentView;
 
 public class CssCustomizerView extends HttpStoreComponentView //implements DomNodeInterface

@@ -15,16 +15,15 @@ package org.allbinary.animation.compound;
 
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.lcdui.Graphics;
+
 import org.allbinary.animation.AnimationBehavior;
-
-import org.allbinary.util.CircularIndexUtil;
-
 import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.animation.RotationAnimation;
 import org.allbinary.direction.Direction;
 import org.allbinary.logic.math.PrimitiveIntUtil;
 import org.allbinary.math.Angle;
 import org.allbinary.math.AngleInfo;
+import org.allbinary.util.CircularIndexUtil;
 
 /**
  *

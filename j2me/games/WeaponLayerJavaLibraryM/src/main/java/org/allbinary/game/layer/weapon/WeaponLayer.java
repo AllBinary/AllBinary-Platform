@@ -16,10 +16,6 @@ package org.allbinary.game.layer.weapon;
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.game.multiplayer.layer.MultiPlayerGameLayer;
-import org.allbinary.physics.movement.Movement;
-
-import org.allbinary.logic.string.StringUtil;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
 import org.allbinary.animation.IndexedAnimation;
@@ -29,14 +25,16 @@ import org.allbinary.game.combat.destroy.DestroyedLayerProcessor;
 import org.allbinary.game.combat.weapon.WeaponProperties;
 import org.allbinary.game.configuration.GameConfigurationUtil;
 import org.allbinary.game.identification.BasicGroupFactory;
+import org.allbinary.game.multiplayer.layer.MultiPlayerGameLayer;
+import org.allbinary.game.multiplayer.layer.RemoteInfo;
 import org.allbinary.game.score.NoScoreable;
 import org.allbinary.game.score.ScoreableInterface;
 import org.allbinary.game.tick.TickableInterface;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.physics.movement.Movement;
 import org.allbinary.view.ViewPosition;
-import org.allbinary.game.multiplayer.layer.RemoteInfo;
 
 public class WeaponLayer 
 extends MultiPlayerGameLayer

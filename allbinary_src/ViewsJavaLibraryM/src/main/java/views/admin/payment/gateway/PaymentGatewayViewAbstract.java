@@ -17,7 +17,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayData;
 import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayPrimaryKey;
-
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpComposite;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 

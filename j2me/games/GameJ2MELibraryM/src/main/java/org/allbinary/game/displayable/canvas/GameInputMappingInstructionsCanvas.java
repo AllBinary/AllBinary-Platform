@@ -17,10 +17,6 @@ import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.paint.ColorFillBasePaintable;
 import org.allbinary.game.paint.ColorFillPaintableFactory;
@@ -28,6 +24,8 @@ import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.draw.DrawStringUtil;
 import org.allbinary.graphics.font.MyFont;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringUtil;
 
 public class GameInputMappingInstructionsCanvas extends GameCommandCanvas
 {

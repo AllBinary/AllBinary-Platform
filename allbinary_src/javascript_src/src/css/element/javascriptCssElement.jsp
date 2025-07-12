@@ -37,7 +37,7 @@ function CssElementAndPropertySetProperty(aCssProperty)
 
 function CssElementAndPropertyToString()
 {
-   return this.cssElementName + ": " + 
+   return this.cssElementName + CommonLabels.getInstance().COLON_SEP + 
       this.cssProperty.toString();
 }
 

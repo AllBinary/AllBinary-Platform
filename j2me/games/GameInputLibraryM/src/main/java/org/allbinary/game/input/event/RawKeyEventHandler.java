@@ -13,10 +13,10 @@
  */
 package org.allbinary.game.input.event;
 
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.event.EventStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 
 /**
@@ -128,7 +128,7 @@ public class RawKeyEventHandler {
     
     public String toString()
     {
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(TOTAL_LISTENERS);
         stringBuffer.append(this.eventListenerInterfaceList.size());
@@ -142,7 +142,7 @@ public class RawKeyEventHandler {
                     this.eventListenerInterfaceList.get(index);
 
                 stringBuffer.append(LISTENER_LABEL);
-                stringBuffer.append(eventListenerInterface);
+                stringBuffer.append(eventListenerInterface.toString());
             }
             catch (Exception e)
             {

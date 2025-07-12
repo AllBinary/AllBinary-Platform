@@ -16,18 +16,15 @@ package org.allbinary.game.score.remote;
 import java.io.IOException;
 import java.util.Hashtable;
 import java.util.Vector;
+
 import org.allbinary.init.crypt.jcehelper.CryptInterface;
-
-import org.apache.xmlrpc.XmlRpcClient;
-import org.apache.xmlrpc.XmlRpcException;
-
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.xmlrpc.XmlRpcAbeClient;
 import org.allbinary.logic.java.exception.ExceptionUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.apache.xmlrpc.XmlRpcClient;
+import org.apache.xmlrpc.XmlRpcException;
 
 public class XmlRpcRemoteHighScoresClient extends XmlRpcAbeClient
 {
@@ -107,8 +104,8 @@ public class XmlRpcRemoteHighScoresClient extends XmlRpcAbeClient
 
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
-            //System.out.println("End Trying Server #" + this.getServer() + ": " + getClientInfo().getLicenseServer(this.getServer()));
-            //logUtil.put("End Trying Server #" + this.getServer() + ": " + getClientInfo().getLicenseServer(this.getServer()), this, commonStrings.GET);
+            //System.out.println("End Trying Server #" + this.getServer() + CommonLabels.getInstance().COLON_SEP + getClientInfo().getLicenseServer(this.getServer()));
+            //logUtil.put("End Trying Server #" + this.getServer() + CommonLabels.getInstance().COLON_SEP + getClientInfo().getLicenseServer(this.getServer()), this, commonStrings.GET);
             // }
 
             //Hashtable resultHashtable = (Hashtable) result;

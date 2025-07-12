@@ -13,9 +13,10 @@
 */
 package org.allbinary.logic.string;
 
-import org.allbinary.string.CommonSeps;
-import org.allbinary.logic.io.path.AbPathData;
 import java.util.HashMap;
+
+import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.string.CommonSeps;
 
 /**
  *

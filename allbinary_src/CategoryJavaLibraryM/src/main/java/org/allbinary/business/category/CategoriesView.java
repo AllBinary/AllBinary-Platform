@@ -13,8 +13,6 @@
 */
 package org.allbinary.business.category;
 
-import org.allbinary.business.category.CategoryView;
-import org.allbinary.business.category.CategoryInterface;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;

@@ -13,21 +13,18 @@
 */
 package admin.taghelpers;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import java.util.*;
-
-import javax.servlet.jsp.PageContext;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
-
-import org.allbinary.logic.communication.log.LogUtil;
+import javax.servlet.jsp.PageContext;
 
 import org.allbinary.business.entry.EntryData;
-
 import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
 import org.allbinary.business.user.commerce.inventory.item.option.XmlOptionItemData;
-
 import org.allbinary.data.tables.user.commerce.inventory.item.options.XmlOptionItemsEntityFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class XmlOptionItemsRequestHelper extends ModifyTable
 {

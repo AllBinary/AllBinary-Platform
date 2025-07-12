@@ -13,15 +13,15 @@
 */
 package org.allbinary.business.user.commerce.inventory.item;
 
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.data.tree.dom.ModDomHelper;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
 import java.util.HashMap;
 import java.util.Set;
 import java.util.Vector;
+
 import org.allbinary.business.user.address.StreetAddressData;
+import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.logic.string.StringUtil;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 public class ItemView
 {

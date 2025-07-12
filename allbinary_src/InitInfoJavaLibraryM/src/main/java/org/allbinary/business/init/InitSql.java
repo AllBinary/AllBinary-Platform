@@ -19,25 +19,22 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 import java.util.HashMap;
-
 import java.util.Set;
 import java.util.Vector;
 
 import org.allbinary.business.init.db.DatabaseConnectionInfoInterface;
 import org.allbinary.business.init.db.DbConnectionInfo;
-import org.allbinary.logic.io.path.AbPathData;
-import org.allbinary.string.CommonSeps;
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.string.StringValidationUtil;
-
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 import org.allbinary.logic.communication.sql.SqlStrings;
 import org.allbinary.logic.communication.sql.SqlTypeStrings;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
+import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.string.CommonSeps;
+import org.allbinary.string.CommonStrings;
 
 public class InitSql
 {
@@ -100,7 +97,7 @@ public class InitSql
    {
       try
       {
-            final StringBuffer stringBuffer = new StringBuffer();
+            final StringMaker stringBuffer = new StringMaker();
             stringBuffer.append("Creating Table: ");
             stringBuffer.append(tableData);
             
@@ -139,7 +136,7 @@ public class InitSql
       
     public HashMap getRow(HashMap keysAndValues)
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.sqlStrings.SELECT_ALL_FROM);
         stringBuffer.append(this.tableName);
@@ -215,7 +212,7 @@ public class InitSql
 
     public synchronized void updateWhere(String key, String value, HashMap updatedKeyValuePairs)
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.sqlStrings.UPDATE);
         stringBuffer.append(this.tableName);
@@ -275,7 +272,7 @@ public class InitSql
       
     public void insert(Vector values)
     {
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.sqlStrings.INSERT_INTO);
         stringBuffer.append(this.tableName);

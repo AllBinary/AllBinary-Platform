@@ -13,13 +13,13 @@
 */
 package admin.taghelpers;
 
-import org.allbinary.globals.AppUrlGlobals;
-import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.communication.log.LogFactory;
+import java.util.HashMap;
+
 import javax.servlet.jsp.PageContext;
 
+import org.allbinary.globals.AppUrlGlobals;
+import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.logic.communication.log.LogUtil;
-import java.util.HashMap;
 import org.allbinary.string.CommonStrings;
 
 public class CustomLoaderHelper

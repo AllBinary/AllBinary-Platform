@@ -16,14 +16,13 @@ package org.allbinary.data.tables.user.commerce.inventory.item.permissions;
 import java.util.HashMap;
 import java.util.Vector;
 
-import org.allbinary.business.init.db.InventoryDbInitInfo;
-import org.allbinary.business.installer.Portion;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.entry.EntryData;
+import org.allbinary.business.init.db.InventoryDbInitInfo;
 import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
 import org.allbinary.business.user.commerce.inventory.item.permission.PermissionItemData;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlBean;
+import org.allbinary.logic.string.StringMaker;
 
 public class PermissionItemsEntity extends AbSqlBean implements PermissionItemsEntityInterface
 {
@@ -82,7 +81,7 @@ public class PermissionItemsEntity extends AbSqlBean implements PermissionItemsE
      }*/
     public final String createTableStatement()
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.sqlStrings.CREATE_TABLE)
                 .append(tableName)

@@ -13,14 +13,13 @@
 */
 package org.allbinary.logic.system.security.licensing;
 
-import org.allbinary.string.CommonStrings;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.resource.ResourceUtil;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringUtil;
+import org.allbinary.string.CommonStrings;
 
 public class PartnerIdentifierFileUtil
 {

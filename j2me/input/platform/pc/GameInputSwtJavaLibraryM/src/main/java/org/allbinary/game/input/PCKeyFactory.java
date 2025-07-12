@@ -13,8 +13,8 @@
 */
 package org.allbinary.game.input;
 
-import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonPhoneStrings;
+import org.allbinary.string.CommonSeps;
 
 public class PCKeyFactory
 {

@@ -13,7 +13,6 @@
 */
 package org.allbinary.game.ai;
 
-import org.allbinary.game.ai.LastKeyAIVisitorFactory;
 import java.util.Hashtable;
 
 import org.allbinary.ai.ArtificialIntelligenceInterface;

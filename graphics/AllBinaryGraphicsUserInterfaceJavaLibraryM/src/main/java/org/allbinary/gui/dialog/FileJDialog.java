@@ -15,7 +15,6 @@ package org.allbinary.gui.dialog;
 
 import java.io.File;
 
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
 /**

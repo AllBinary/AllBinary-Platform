@@ -17,15 +17,17 @@ import java.io.FileReader;
 import java.io.LineNumberReader;
 import java.util.HashMap;
 
-import org.allbinary.logic.io.file.AbFile;
-import org.allbinary.logic.io.file.FilePathData;
-import org.allbinary.logic.io.file.directory.SubDirectory;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
-import org.allbinary.logic.system.hardware.components.interfaces.HardwareComponentInterface;
+import org.allbinary.logic.io.file.AbFile;
+import org.allbinary.logic.io.file.FilePathData;
+import org.allbinary.logic.io.file.directory.SubDirectory;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.hardware.components.interfaces.CpuInterface;
+import org.allbinary.logic.system.hardware.components.interfaces.HardwareComponentInterface;
+import org.allbinary.string.CommonLabels;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 
@@ -59,7 +61,7 @@ public class Cpu implements CpuInterface, HardwareComponentInterface
       {
          if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OS))
          {
-            logUtil.put("Cpu Data: " + this.toString(), this, this.commonStrings.CONSTRUCTOR, e);
+            logUtil.put(new StringMaker().append("Cpu Data: ").append(this.toString()).toString(), this, this.commonStrings.CONSTRUCTOR, e);
          }
          throw e;
       }
@@ -81,7 +83,7 @@ public class Cpu implements CpuInterface, HardwareComponentInterface
             
             if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OS))
             {
-               logUtil.put("Cpu File Vector Size: " + fileVector.size(), this, this.commonStrings.CONSTRUCTOR);
+               logUtil.put(new StringMaker().append("Cpu File Vector Size: ").append(fileVector.size()).toString(), this, this.commonStrings.CONSTRUCTOR);
             }
             
             //size() > 0
@@ -186,22 +188,24 @@ public class Cpu implements CpuInterface, HardwareComponentInterface
    
    public String toString()
    {
-      StringBuffer cpuBuffer = new StringBuffer();
-      cpuBuffer.append(CpuInfo.PROCESSOR + ": " + this.getProcessor());
-      cpuBuffer.append("\n");
-      cpuBuffer.append(CpuInfo.VENDORID + ": " + this.getVendorId());
-      cpuBuffer.append("\n");
-      cpuBuffer.append(CpuInfo.CPUFAMILY + ": " + this.getCpuFamily());
-      cpuBuffer.append("\n");
-      cpuBuffer.append(CpuInfo.MODEL + ": " + this.getModel());
-      cpuBuffer.append("\n");
-      cpuBuffer.append(CpuInfo.MODELNAME + ": " + this.getModelName());
-      cpuBuffer.append("\n");
-      cpuBuffer.append(CpuInfo.STEPPING + ": " + this.getStepping());
-      cpuBuffer.append("\n");
-      cpuBuffer.append(CpuInfo.CPUMHZ + ": " + this.getCpuSpeed());
-      cpuBuffer.append("\n");
-      cpuBuffer.append(CpuInfo.CACHESIZE + ": " + this.getCacheSize());
-      return cpuBuffer.toString();
+       final CommonLabels commonLabels = CommonLabels.getInstance();
+       final CommonSeps commonSeps = CommonSeps.getInstance();
+      final StringMaker stringMaker = new StringMaker();
+      stringMaker.append(CpuInfo.PROCESSOR.toString()).append(commonLabels.COLON_SEP).append(this.getProcessor());
+      stringMaker.append(commonSeps.NEW_LINE);
+      stringMaker.append(CpuInfo.VENDORID.toString()).append(commonLabels.COLON_SEP).append(this.getVendorId());
+      stringMaker.append(commonSeps.NEW_LINE);
+      stringMaker.append(CpuInfo.CPUFAMILY.toString()).append(commonLabels.COLON_SEP).append(this.getCpuFamily());
+      stringMaker.append(commonSeps.NEW_LINE);
+      stringMaker.append(CpuInfo.MODEL.toString()).append(commonLabels.COLON_SEP).append(this.getModel());
+      stringMaker.append(commonSeps.NEW_LINE);
+      stringMaker.append(CpuInfo.MODELNAME.toString()).append(commonLabels.COLON_SEP).append(this.getModelName());
+      stringMaker.append(commonSeps.NEW_LINE);
+      stringMaker.append(CpuInfo.STEPPING.toString()).append(commonLabels.COLON_SEP).append(this.getStepping());
+      stringMaker.append(commonSeps.NEW_LINE);
+      stringMaker.append(CpuInfo.CPUMHZ.toString()).append(commonLabels.COLON_SEP).append(this.getCpuSpeed());
+      stringMaker.append(commonSeps.NEW_LINE);
+      stringMaker.append(CpuInfo.CACHESIZE.toString()).append(commonLabels.COLON_SEP).append(this.getCacheSize());
+      return stringMaker.toString();
    }
 }

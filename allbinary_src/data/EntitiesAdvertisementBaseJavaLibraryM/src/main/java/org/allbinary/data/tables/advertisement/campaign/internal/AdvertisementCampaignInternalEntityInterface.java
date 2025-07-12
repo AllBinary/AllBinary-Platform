@@ -16,6 +16,7 @@ package org.allbinary.data.tables.advertisement.campaign.internal;
 
 import java.util.HashMap;
 import java.util.Vector;
+
 import org.allbinary.data.tables.BasicDataTableInterface;
 
 public interface AdvertisementCampaignInternalEntityInterface extends BasicDataTableInterface

@@ -13,10 +13,11 @@
 */
 package org.allbinary.logic.io;
 
-import org.allbinary.logic.io.file.AbFile;
-import org.allbinary.logic.io.file.AbFileNativeUtil;
 import java.io.BufferedReader;
 import java.io.FileReader;
+
+import org.allbinary.logic.io.file.AbFile;
+import org.allbinary.logic.io.file.AbFileNativeUtil;
 
 public class BufferedLineReader
 {

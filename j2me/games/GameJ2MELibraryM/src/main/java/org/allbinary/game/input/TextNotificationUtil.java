@@ -13,10 +13,10 @@
 */
 package org.allbinary.game.input;
 
-import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.game.layer.hud.event.GameNotificationEvent;
 import org.allbinary.game.layer.hud.event.GameNotificationEventHandler;
 import org.allbinary.graphics.color.BasicColorFactory;
+import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.media.audio.ErrorSound;
 import org.allbinary.media.audio.PrimaryPlayerQueueFactory;

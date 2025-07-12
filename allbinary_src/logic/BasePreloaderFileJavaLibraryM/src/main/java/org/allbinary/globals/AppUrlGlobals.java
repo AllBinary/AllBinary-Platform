@@ -14,7 +14,6 @@
 package org.allbinary.globals;
 
 import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.communication.log.PreLogUtil;
 
 //implements
 public class AppUrlGlobals extends UrlGlobalsInterface

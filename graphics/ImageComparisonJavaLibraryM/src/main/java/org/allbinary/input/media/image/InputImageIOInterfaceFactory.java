@@ -13,10 +13,10 @@
 */
 package org.allbinary.input.media.image;
 
-import org.allbinary.media.image.io.ImageIOInterface;
 import org.allbinary.input.media.image.capture.CapturedImageInputOutput;
 import org.allbinary.media.image.comparison.ComparisonImageInputOutput;
 import org.allbinary.media.image.comparison.motion.MotionRectanglesImageInputOutput;
+import org.allbinary.media.image.io.ImageIOInterface;
 
 public class InputImageIOInterfaceFactory
 {

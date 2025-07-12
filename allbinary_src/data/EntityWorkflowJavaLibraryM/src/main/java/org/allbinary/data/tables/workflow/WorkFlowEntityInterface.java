@@ -13,12 +13,12 @@
 */
 package org.allbinary.data.tables.workflow;
 
-import org.allbinary.logic.system.security.licensing.LicensingException;
-import org.allbinary.logic.control.workflow.WorkFlowInterface;
-
 import java.util.HashMap;
 import java.util.Vector;
+
 import org.allbinary.data.tables.BasicDataTableInterface;
+import org.allbinary.logic.control.workflow.WorkFlowInterface;
+import org.allbinary.logic.system.security.licensing.LicensingException;
 
 public interface WorkFlowEntityInterface 
    extends BasicDataTableInterface

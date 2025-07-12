@@ -13,10 +13,9 @@
 */
 package org.allbinary.logic.control.search;
 
-import org.allbinary.logic.control.search.SearchData;
-import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
+import org.allbinary.globals.URLGLOBALS;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 

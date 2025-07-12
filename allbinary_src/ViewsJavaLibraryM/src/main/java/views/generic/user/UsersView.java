@@ -13,27 +13,16 @@
 */
 package views.generic.user;
 
-import org.allbinary.logic.communication.log.LogFactory;
-
 import java.util.Vector;
 
-import org.w3c.dom.Node;
-import org.w3c.dom.Document;
-
-
-import org.allbinary.logic.communication.log.LogUtil;
-
-import org.allbinary.business.user.UsersData;
 import org.allbinary.business.user.UserDomNode;
+import org.allbinary.business.user.UsersData;
 import org.allbinary.business.user.modules.User;
-
-
 import org.allbinary.data.tree.dom.DomNodeInterface;
-
-
-
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 import views.business.context.modules.storefront.HttpStoreComponentView;
 
 public class UsersView extends HttpStoreComponentView implements DomNodeInterface

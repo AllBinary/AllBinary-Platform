@@ -14,10 +14,9 @@
 package org.allbinary.data.tree.dom;
 
 import java.util.Vector;
-import org.allbinary.logic.communication.log.PreLogUtil;
 
-import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 public class DomSearchHelper
 {

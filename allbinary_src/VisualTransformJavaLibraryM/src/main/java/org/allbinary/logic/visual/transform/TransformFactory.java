@@ -17,10 +17,10 @@ import java.util.HashMap;
 
 import javax.servlet.jsp.PageContext;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tables.transform.info.TransformInfoEntity;
 import org.allbinary.data.tables.transform.info.TransformInfoEntityBuilder;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoData;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpFactory;
@@ -146,7 +146,7 @@ public class TransformFactory {
         } catch (Exception e) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR)) {
-                StringBuffer stringBuffer = new StringBuffer();
+                StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append("Failed To Get Instance: ");
                 stringBuffer.append((String) propertiesHashMap.get(TransformInfoData.getInstance().NAME));

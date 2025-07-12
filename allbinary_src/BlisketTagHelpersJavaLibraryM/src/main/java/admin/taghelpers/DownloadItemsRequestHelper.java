@@ -18,14 +18,13 @@ import java.util.Vector;
 
 import javax.servlet.jsp.PageContext;
 
-import tags.HelperTag;
-import views.admin.inventory.download.DownloadableInventoryItemView;
-import org.allbinary.string.CommonSeps;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import admin.tags.AbTagData;
 import org.allbinary.business.user.commerce.inventory.item.download.DownloadableItem;
 import org.allbinary.data.tables.user.commerce.inventory.item.downloads.DownloadItemsEntityFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonSeps;
+import tags.HelperTag;
+import views.admin.inventory.download.DownloadableInventoryItemView;
 
 public class DownloadItemsRequestHelper extends ModifyTable
 {

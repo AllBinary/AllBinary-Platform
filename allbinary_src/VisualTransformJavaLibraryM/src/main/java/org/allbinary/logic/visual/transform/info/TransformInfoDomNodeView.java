@@ -13,7 +13,6 @@
 */
 package org.allbinary.logic.visual.transform.info;
 
-import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;

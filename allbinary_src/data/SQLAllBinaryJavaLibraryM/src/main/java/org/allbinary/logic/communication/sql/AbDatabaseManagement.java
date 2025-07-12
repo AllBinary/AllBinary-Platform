@@ -9,9 +9,9 @@ import java.net.InetAddress;
 
 import org.allbinary.business.init.db.DatabaseConnectionInfoInterface;
 import org.allbinary.business.init.db.DbConnectionInfo;
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonStrings;
 
 /**
  *
@@ -23,7 +23,7 @@ public class AbDatabaseManagement extends AbSqlBean
 
     protected CommonStrings commonStrings = CommonStrings.getInstance();
     
-    protected final StringBuffer sqlCommandLog = new StringBuffer();
+    protected final StringMaker sqlCommandLog = new StringMaker();
 
     private final String GRANT_ALL = "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER ON ";
     private final String DOT_STAR = ".*";
@@ -75,7 +75,7 @@ public class AbDatabaseManagement extends AbSqlBean
     protected boolean addDbUser(String hostName, String db, String userName, String password)
             throws Exception
     {
-            final StringBuffer stringBuffer = new StringBuffer();
+            final StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append(this.GRANT_ALL);
             stringBuffer.append(db);

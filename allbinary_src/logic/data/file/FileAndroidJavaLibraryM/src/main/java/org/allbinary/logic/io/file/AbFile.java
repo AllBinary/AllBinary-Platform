@@ -13,7 +13,6 @@
 */
 package org.allbinary.logic.io.file;
 
-import org.allbinary.logic.io.file.AbFileInterface;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FilenameFilter;

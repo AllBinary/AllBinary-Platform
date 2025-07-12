@@ -13,10 +13,10 @@
 */
 package org.allbinary.logic.io;
 
-import org.allbinary.logic.io.file.AbFile;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import java.io.InputStream;
+
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.io.file.AbFile;
 
 /**
  *

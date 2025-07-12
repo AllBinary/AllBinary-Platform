@@ -19,15 +19,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
 
 import org.allbinary.business.installer.Portion;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayInterface;
 import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayInterfaceFactory;
 import org.allbinary.business.user.commerce.money.payment.types.BasicPaymentTypeUtil;
 import org.allbinary.data.tables.user.commerce.money.payment.gateway.PaymentGatewayEntityFactory;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlTableUtil;
-import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
 
 public class PaymentGatewayHelper extends BasicTable
 {
@@ -105,12 +104,12 @@ public class PaymentGatewayHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-        	 StringBuffer stringBuffer = new StringBuffer();
+        	 StringMaker stringBuffer = new StringMaker();
         	 
         	 stringBuffer.append("Gateway Name: ");
         	 stringBuffer.append(paymentGatewayInterface.getName());
         	 stringBuffer.append(" HashMap=");
-        	 stringBuffer.append(paymentGatewayInterface.toHashMap(true));
+        	 stringBuffer.append(paymentGatewayInterface.toHashMap(true).toString());
 
             logUtil.put(stringBuffer.toString(), this, "update()");
          }
@@ -153,7 +152,7 @@ public class PaymentGatewayHelper extends BasicTable
          PaymentGatewayEntityFactory.getInstance().remove(
             storeName, BasicPaymentTypeUtil.getInstance().get(gatewayName));
 
-    	 StringBuffer stringBuffer = new StringBuffer();
+    	 StringMaker stringBuffer = new StringMaker();
     	 
     	 stringBuffer.append("Successfully Removed payment gateway where store name=");
     	 stringBuffer.append(storeName);

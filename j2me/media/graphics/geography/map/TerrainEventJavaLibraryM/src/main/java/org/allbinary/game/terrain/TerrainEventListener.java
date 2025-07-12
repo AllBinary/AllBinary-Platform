@@ -1,10 +1,9 @@
 package org.allbinary.game.terrain;
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
+import org.allbinary.util.BasicArrayList;
 
 public class TerrainEventListener
 implements TerrainEventListenerInterface

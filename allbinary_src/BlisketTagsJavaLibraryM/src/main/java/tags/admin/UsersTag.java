@@ -15,10 +15,8 @@ package tags.admin;
 
 import javax.servlet.jsp.JspTagException;
 
-import org.allbinary.logic.communication.http.request.AbResponseHandler;
-
 import org.allbinary.business.user.role.UserRoleData;
-
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import tags.StoreValidationTransformTag;
 
 public class UsersTag extends StoreValidationTransformTag

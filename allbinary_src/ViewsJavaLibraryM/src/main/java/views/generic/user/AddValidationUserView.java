@@ -13,22 +13,15 @@
 */
 package views.generic.user;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.w3c.dom.Node;
-import org.w3c.dom.Document;
-
-
-import org.allbinary.logic.communication.log.LogUtil;
-
 import org.allbinary.business.user.NewUserFactory;
 import org.allbinary.business.user.UserInterface;
-
 import org.allbinary.data.tables.user.UserEntityFactory;
-
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.validate.ValidationComponentInterface;
-
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 import views.business.context.modules.storefront.HttpStoreComponentView;
 
 public class AddValidationUserView extends HttpStoreComponentView
@@ -82,7 +75,7 @@ public class AddValidationUserView extends HttpStoreComponentView
    {
       try
       {
-         StringBuffer stringBuffer = new StringBuffer();
+         StringMaker stringBuffer = new StringMaker();
          
          if(UserEntityFactory.getInstance().getUser(this.user.getUserName())!=null)
          {

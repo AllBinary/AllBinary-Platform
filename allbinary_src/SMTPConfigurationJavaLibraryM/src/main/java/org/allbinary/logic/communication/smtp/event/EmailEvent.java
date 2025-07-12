@@ -13,10 +13,10 @@
 */
 package org.allbinary.logic.communication.smtp.event;
 
-import org.allbinary.logic.communication.smtp.event.UserEmailEventNameData;
-import org.allbinary.logic.communication.smtp.info.EmailInfo;
-
 import java.util.EventObject;
+
+import org.allbinary.logic.communication.smtp.info.EmailInfo;
+import org.allbinary.logic.string.StringMaker;
 
 public class EmailEvent extends EventObject
 {
@@ -51,11 +51,11 @@ public class EmailEvent extends EventObject
     
     public String toString()
     {
-    	StringBuffer stringBuffer = new StringBuffer();
+    	final StringMaker stringBuffer = new StringMaker();
     	
     	stringBuffer.append("EmailEvent Log: \n");
     	stringBuffer.append("Event Name: ");
-    	stringBuffer.append(this.userEmailEventNameData);
+    	stringBuffer.append(this.userEmailEventNameData.toString());
     	stringBuffer.append(this.getEmailInfo().toString());
     	stringBuffer.append("\nNumber of Attempts: ");
     	stringBuffer.append(this.getAttempts());

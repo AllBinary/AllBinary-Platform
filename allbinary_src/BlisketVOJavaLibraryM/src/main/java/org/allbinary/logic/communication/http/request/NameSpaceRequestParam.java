@@ -13,14 +13,13 @@
 */
 package org.allbinary.logic.communication.http.request;
 
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.string.tokens.Tokenizer;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.visual.dhtml.html.name.HtmlNameMathData;
-
 import java.util.HashMap;
 import java.util.Vector;
+
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringUtil;
+import org.allbinary.logic.string.tokens.Tokenizer;
+import org.allbinary.logic.visual.dhtml.html.name.HtmlNameMathData;
 import org.allbinary.util.BasicArrayList;
 
 public class NameSpaceRequestParam
@@ -216,7 +215,7 @@ public class NameSpaceRequestParam
    /*
    public String toString()
    {
-      StringBuffer stringBuffer = new StringBuffer();
+      StringMaker stringBuffer = new StringMaker();
       
       nameSpaceVector
       while(iter.hasNext())

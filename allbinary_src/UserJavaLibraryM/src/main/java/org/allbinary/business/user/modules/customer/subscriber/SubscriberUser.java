@@ -13,11 +13,11 @@
 */
 package org.allbinary.business.user.modules.customer.subscriber;
 
+import java.util.HashMap;
+
 import org.allbinary.business.user.modules.User;
 import org.allbinary.business.user.subscription.Subscription;
 import org.allbinary.logic.communication.http.request.session.WeblisketSessionInterface;
-
-import java.util.HashMap;
 
 public class SubscriberUser extends User
 {

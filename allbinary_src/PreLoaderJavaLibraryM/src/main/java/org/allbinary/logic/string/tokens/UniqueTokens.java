@@ -16,12 +16,9 @@ package org.allbinary.logic.string.tokens;
 import java.util.HashSet;
 import java.util.Vector;
 
-//import org.allbinary.logic.io.path.AbPathUtil;
 import org.allbinary.logic.io.path.AbPathData;
-import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.regex.replace.Replace;
-import org.allbinary.logic.string.tokens.Tokenizer;
-import org.allbinary.logic.string.tokens.Tokenizer;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.util.BasicArrayList;
 
 public class UniqueTokens

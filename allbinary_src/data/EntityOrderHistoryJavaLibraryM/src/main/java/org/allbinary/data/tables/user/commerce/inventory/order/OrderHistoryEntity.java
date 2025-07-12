@@ -13,44 +13,43 @@
 */
 package org.allbinary.data.tables.user.commerce.inventory.order;
 
-import org.allbinary.data.generator.OrderHistoryIdGenerator;
 import java.util.Calendar;
 import java.util.HashMap;
-
 import java.util.Random;
 import java.util.Vector;
 
-import org.allbinary.business.init.db.HistoryDbInitInfo;
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
+import org.allbinary.business.entry.EntryData;
+import org.allbinary.business.init.db.HistoryDbInitInfo;
 import org.allbinary.business.user.UserData;
+import org.allbinary.business.user.address.BillingAddressData;
+import org.allbinary.business.user.address.ShippingAddressData;
 import org.allbinary.business.user.address.StreetAddress;
 import org.allbinary.business.user.commerce.inventory.basket.Basket;
 import org.allbinary.business.user.commerce.inventory.basket.BasketInterface;
 import org.allbinary.business.user.commerce.inventory.order.Order;
+import org.allbinary.business.user.commerce.inventory.order.OrderData;
 import org.allbinary.business.user.commerce.inventory.order.OrderHistory;
 import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
 import org.allbinary.business.user.commerce.money.Money;
+import org.allbinary.business.user.commerce.money.payment.PaymentData;
 import org.allbinary.business.user.commerce.money.payment.PaymentInterface;
 import org.allbinary.business.user.commerce.money.tax.TaxFactory;
-import org.allbinary.business.entry.EntryData;
-import org.allbinary.business.user.address.BillingAddressData;
-import org.allbinary.business.user.address.ShippingAddressData;
-import org.allbinary.business.user.commerce.inventory.order.OrderData;
-import org.allbinary.business.user.commerce.money.payment.PaymentData;
 import org.allbinary.business.user.commerce.shipping.ShippingMethodData;
 import org.allbinary.business.user.commerce.shipping.ShippingMethods;
 import org.allbinary.business.user.commerce.shipping.modules.ShippingInterface;
+import org.allbinary.data.generator.OrderHistoryIdGenerator;
 import org.allbinary.data.tables.TableDataFactory;
 import org.allbinary.data.tables.user.address.billing.BillingAddressesEntity;
 import org.allbinary.data.tables.user.address.shipping.ShippingAddressesEntity;
 import org.allbinary.data.tables.user.commerce.money.payment.PaymentEntity;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 import org.allbinary.logic.control.crypt.SuperCrypt;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
@@ -396,7 +395,7 @@ public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityI
     {
     	EntryData entryData = EntryData.getInstance();
     	
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("CREATE TABLE ");
 

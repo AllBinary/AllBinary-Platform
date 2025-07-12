@@ -13,19 +13,19 @@
 */
 package org.allbinary.business.category.store.theme;
 
-import org.allbinary.data.tree.dom.DomSearchHelper;
+import java.util.HashMap;
+import java.util.Vector;
+
 import org.allbinary.business.category.Category;
 import org.allbinary.business.category.CategoryInterface;
 import org.allbinary.business.category.properties.CategoryPropertiesFactoryInterface;
+import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.logic.visual.theme.ThemeData;
 import org.allbinary.logic.visual.theme.ThemeValidation;
 import org.allbinary.logic.visual.theme.ThemesData;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
-import java.util.HashMap;
-import java.util.Vector;
 
 public class StoreThemeCategory extends Category implements StoreThemeCategoryInterface
 {

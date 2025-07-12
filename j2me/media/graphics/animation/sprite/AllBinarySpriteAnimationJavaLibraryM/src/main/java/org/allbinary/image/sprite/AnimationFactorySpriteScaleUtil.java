@@ -22,7 +22,6 @@ import org.allbinary.image.ImageCache;
 import org.allbinary.image.ImageCacheFactory;
 import org.allbinary.image.opengles.OpenGLESImageExclusionUtil;
 import org.allbinary.logic.math.J2SEMath;
-
 import org.allbinary.media.image.ImageScaleUtil;
 
 /**

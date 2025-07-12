@@ -13,9 +13,7 @@
 */
 package org.allbinary.logic.communication.log.config.type;
 
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 
 public class LogConfigType

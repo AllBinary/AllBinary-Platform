@@ -13,8 +13,9 @@
 */
 package org.allbinary.data.generator;
 
-import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.globals.PATH_GLOBALS;
+import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.string.StringMaker;
 
 public class ProductIdGenerator extends UniqueIdGenerator
 {
@@ -22,7 +23,7 @@ public class ProductIdGenerator extends UniqueIdGenerator
 
     public ProductIdGenerator() throws Exception
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(URLGLOBALS.getMainPath());
         stringBuffer.append(PATH_GLOBALS.getInstance().INIT_PATH);

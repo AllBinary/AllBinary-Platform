@@ -13,19 +13,13 @@
 */
 package org.allbinary.input.automation.robot;
 
-import java.awt.GraphicsDevice;
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.Robot;
-
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.input.automation.PointHelper;
-import java.awt.Color;
-import java.awt.MouseInfo;
+import java.awt.*;
 import java.awt.image.BufferedImage;
+
 import javax.help.HelpSet;
-import org.allbinary.input.automation.PointFactory;
-import org.allbinary.logic.communication.log.LogFactory;
+
+import org.allbinary.input.automation.PointHelper;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 

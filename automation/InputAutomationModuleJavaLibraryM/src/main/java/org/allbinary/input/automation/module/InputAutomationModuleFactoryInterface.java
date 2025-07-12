@@ -14,8 +14,7 @@
 package org.allbinary.input.automation.module;
 
 import javax.help.HelpSet;
-
-import javax.swing.JPanel;
+import javax.swing.*;
 
 import org.allbinary.thread.RunnableInterface;
 

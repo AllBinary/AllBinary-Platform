@@ -13,8 +13,6 @@
 */
 package org.allbinary.graphics;
 
-import org.allbinary.graphics.PointFactory;
-
 public class RectangleFactory
 {
     public static final Rectangle SINGLETON = new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0);

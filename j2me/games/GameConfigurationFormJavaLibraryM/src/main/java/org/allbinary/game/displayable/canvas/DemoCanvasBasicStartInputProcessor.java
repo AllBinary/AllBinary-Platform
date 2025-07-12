@@ -13,16 +13,14 @@
 */
 package org.allbinary.game.displayable.canvas;
 
-import org.allbinary.util.BasicArrayList;
-
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.canvas.RunnableCanvas;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.input.GameInputStrings;
 import org.allbinary.game.input.event.GameKeyEvent;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
+import org.allbinary.util.BasicArrayList;
 
 public class DemoCanvasBasicStartInputProcessor
     extends BasicMenuInputProcessor

@@ -13,13 +13,13 @@
 */
 package org.allbinary.business.category.store.theme;
 
+import java.util.Vector;
+
 import org.allbinary.business.category.CategoryInterface;
 import org.allbinary.data.tables.TableMappingInterface;
 import org.allbinary.logic.control.validate.ValidationInterface;
 import org.allbinary.logic.visual.theme.ThemeValidation;
 import org.allbinary.logic.visual.transform.info.CompositeTransformInfoInterface;
-
-import java.util.Vector;
 
 public interface StoreThemeCategoryInterface 
    extends CategoryInterface,

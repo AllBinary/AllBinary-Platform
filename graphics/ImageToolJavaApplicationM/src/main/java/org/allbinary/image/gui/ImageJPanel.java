@@ -13,11 +13,11 @@
  */
 package org.allbinary.image.gui;
 
-import org.allbinary.logic.communication.log.LogUtil;
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.image.BufferedImage;
+
 import org.allbinary.graphics.displayable.CanvasStrings;
-import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 
 public class ImageJPanel extends javax.swing.JPanel {

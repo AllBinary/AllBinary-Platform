@@ -13,7 +13,9 @@
 */
 package org.allbinary.media.image.analysis;
 
-import java.awt.Color;
+import java.awt.*;
+
+import org.allbinary.logic.string.StringMaker;
 
 public class ColorRange
     implements ColorRangeInterface
@@ -114,7 +116,7 @@ public class ColorRange
     
     public String toString()
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
          
         stringBuffer.append("getMinRed(): ");
         stringBuffer.append(this.getMinRed());

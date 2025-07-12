@@ -16,14 +16,6 @@ package org.allbinary.logic.visual.theme;
 import java.util.HashMap;
 import java.util.Vector;
 
-import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.data.tree.dom.DomNodeHelper;
-import org.allbinary.data.tree.dom.DomSearchHelper;
-import org.allbinary.logic.io.path.AbPath;
-import org.allbinary.logic.io.path.AbPathData;
-import org.allbinary.logic.io.path.AbPathUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.category.CategoryData;
 import org.allbinary.business.category.CategoryFactoryInterface;
 import org.allbinary.business.category.store.theme.StoreThemeCategoryFactory;
@@ -31,18 +23,24 @@ import org.allbinary.business.category.store.theme.StoreThemeCategoryInterface;
 import org.allbinary.data.tree.category.CategoryLoaderFactory;
 import org.allbinary.data.tree.category.CategoryLoaderInterface;
 import org.allbinary.data.tree.dom.DomData;
+import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.sql.AbSqlData;
 import org.allbinary.logic.control.crypt.file.CryptFileReader;
 import org.allbinary.logic.control.validate.ValidationInterface;
+import org.allbinary.logic.io.path.AbPath;
+import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.logic.io.path.PathUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.visual.transform.info.CompositeTransformInfoInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.template.customizer.includes.style.css.template.retail.CssStyleValidation;
-import org.allbinary.logic.string.StringValidationUtil;
-import org.allbinary.logic.communication.sql.AbSqlData;
-import org.allbinary.logic.io.path.PathUtil;
 import org.allbinary.string.CommonStrings;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
@@ -96,7 +94,7 @@ public class ThemeValidation
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-    	  StringBuffer stringBuffer = new StringBuffer();
+    	  StringMaker stringBuffer = new StringMaker();
     	  
     	  stringBuffer.append("CategoryThemePath: ");
     	  stringBuffer.append(categoryThemeAbPath.toString());
@@ -272,7 +270,7 @@ public class ThemeValidation
    {
       try
       {
-         StringBuffer stringBuffer = new StringBuffer();
+         StringMaker stringBuffer = new StringMaker();
          
          stringBuffer.append("Theme Validation Error");
          

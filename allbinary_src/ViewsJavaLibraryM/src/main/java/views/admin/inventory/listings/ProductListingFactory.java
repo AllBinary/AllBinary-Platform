@@ -13,12 +13,7 @@
 */
 package views.admin.inventory.listings;
 
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-
-
-
-
 import org.allbinary.logic.control.search.SearchRequest;
 import org.allbinary.string.CommonStrings;
 

@@ -15,13 +15,12 @@ package org.allbinary.game.layer.weapon.mine;
 
 import java.util.Hashtable;
 
+import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
+import org.allbinary.game.combat.weapon.WeaponProperties;
 import org.allbinary.game.layer.pickup.CountedPickedUpLayerInterfaceFactory;
 import org.allbinary.game.layer.pickup.IconLayerFactory;
 import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
 import org.allbinary.game.layer.pickup.PickedUpLayerTypeFactory;
-
-import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
-import org.allbinary.game.combat.weapon.WeaponProperties;
 import org.allbinary.game.layer.weapon.WeaponLayerCircularPool;
 import org.allbinary.game.score.ScoreableInterface;
 import org.allbinary.layer.AllBinaryLayer;

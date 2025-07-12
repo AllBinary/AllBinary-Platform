@@ -13,8 +13,6 @@
  */
 package org.allbinary.image.opengles;
 
-import javax.microedition.khronos.opengles.GL10;
-
 /**
  *
  * @author User

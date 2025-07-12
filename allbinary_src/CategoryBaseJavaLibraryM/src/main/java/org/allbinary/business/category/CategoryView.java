@@ -13,17 +13,15 @@
 */
 package org.allbinary.business.category;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.java.object.InterfaceUtil;
+import java.util.Vector;
+
 import org.allbinary.business.category.properties.CategoryPropertiesInterface;
 import org.allbinary.business.category.properties.CategoryPropertiesView;
 import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.java.object.InterfaceUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-
-
-import java.util.Vector;
 
 public class CategoryView implements DomNodeInterface
 {

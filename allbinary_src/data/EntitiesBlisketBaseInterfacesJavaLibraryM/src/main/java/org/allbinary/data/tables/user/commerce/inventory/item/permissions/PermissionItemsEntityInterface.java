@@ -16,6 +16,7 @@ package org.allbinary.data.tables.user.commerce.inventory.item.permissions;
 
 import java.util.HashMap;
 import java.util.Vector;
+
 import org.allbinary.data.tables.BasicDataTableInterface;
 
 public interface PermissionItemsEntityInterface extends BasicDataTableInterface

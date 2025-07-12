@@ -13,7 +13,7 @@
 */
 package org.allbinary.input.automation.actions.script.condition.processors.input;
 
-import java.awt.Point;
+import java.awt.*;
 
 public interface MouseActionScriptInputInterface
     extends ProfileActionScriptInputInterface

@@ -13,13 +13,12 @@
 */
 package admin.taghelpers;
 
+import java.util.HashMap;
+
 import javax.servlet.jsp.PageContext;
 
-import org.allbinary.logic.communication.log.LogUtil;
-
 import org.allbinary.business.init.InitInfoEntity;
-import org.allbinary.logic.communication.log.LogFactory;
-import java.util.HashMap;
+import org.allbinary.logic.communication.log.LogUtil;
  
 public class InitHelper extends BasicTable
 {

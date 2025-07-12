@@ -13,8 +13,6 @@
 */
 package org.allbinary.thread;
 
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.canvas.RunnableCanvas;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.HTMLFeatureFactory;
@@ -22,10 +20,11 @@ import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
 import org.allbinary.game.displayable.canvas.DemoCanvas;
 import org.allbinary.game.displayable.canvas.GameCanvasRunnableInterface;
 import org.allbinary.game.displayable.canvas.RunnableCanvasSingleThreadStartRunnable;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
+import org.allbinary.string.CommonStrings;
 
 public class ThreadFactoryUtil
 {

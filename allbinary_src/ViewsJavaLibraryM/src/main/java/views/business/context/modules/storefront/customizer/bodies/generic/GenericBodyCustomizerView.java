@@ -13,22 +13,20 @@
 */
 package views.business.context.modules.storefront.customizer.bodies.generic;
 
-import org.apache.commons.lang.StringEscapeUtils;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-import views.business.context.modules.storefront.HttpStoreComponentView;
-import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.logic.string.StringValidationUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.page.PageData;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.visual.transform.StoreTransformer;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.template.customizer.bodies.GenericBodyValidation;
 import org.allbinary.logic.visual.transform.template.util.TransformTemplateCustomizerUtil;
+import org.apache.commons.lang.StringEscapeUtils;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import views.business.context.modules.storefront.HttpStoreComponentView;
 
 public class GenericBodyCustomizerView extends HttpStoreComponentView 
    implements DomNodeInterface

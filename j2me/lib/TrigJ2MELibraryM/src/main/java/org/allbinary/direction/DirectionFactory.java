@@ -13,9 +13,9 @@
 */
 package org.allbinary.direction;
 
-import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonPhoneStrings;
+import org.allbinary.string.CommonSeps;
 
 public class DirectionFactory
 {

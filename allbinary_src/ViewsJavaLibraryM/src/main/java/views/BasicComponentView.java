@@ -13,22 +13,18 @@
 */
 package views;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
-
 import org.allbinary.logic.visual.transform.BasicTransformer;
-
 import org.allbinary.logic.visual.transform.TransformInterface;
-import org.allbinary.logic.visual.transform.data.TransformDocumentInterface;
 import org.allbinary.logic.visual.transform.data.TransformDocumentFactory;
+import org.allbinary.logic.visual.transform.data.TransformDocumentInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.string.CommonStrings;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 public class BasicComponentView implements TransformInterface
 {

@@ -13,10 +13,6 @@
 */
 package org.allbinary.media.audio;
 
-import org.allbinary.media.audio.AllBinaryMediaManager;
-import org.allbinary.media.audio.PlayerComposite;
-import org.allbinary.media.audio.Sound;
-
 public class CompositeSound extends Sound
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();

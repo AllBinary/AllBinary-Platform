@@ -13,14 +13,13 @@
 */
 package org.allbinary.logic.communication.smtp.event.modules.event.user;
 
-import org.allbinary.logic.communication.log.LogFactory;
- import org.allbinary.logic.communication.log.LogUtil;
- import org.allbinary.business.user.UserInterface;
- import org.allbinary.logic.communication.smtp.BasicEmail;
- import org.allbinary.logic.communication.smtp.EmailInterface;
- import org.allbinary.logic.communication.smtp.event.EmailEvent;
- import org.allbinary.logic.communication.smtp.event.UserEmailEventListenerInterface;
- import org.allbinary.logic.communication.smtp.queue.EmailQueueFactory;
+import org.allbinary.business.user.UserInterface;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.smtp.BasicEmail;
+import org.allbinary.logic.communication.smtp.EmailInterface;
+import org.allbinary.logic.communication.smtp.event.EmailEvent;
+import org.allbinary.logic.communication.smtp.event.UserEmailEventListenerInterface;
+import org.allbinary.logic.communication.smtp.queue.EmailQueueFactory;
 
 public class UserEmailEventListenerModule 
    implements UserEmailEventListenerInterface

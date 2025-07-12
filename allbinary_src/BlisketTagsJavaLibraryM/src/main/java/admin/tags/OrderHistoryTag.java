@@ -16,20 +16,14 @@ package admin.tags;
 import java.lang.reflect.Method;
 
 import javax.servlet.http.HttpServletRequest;
-
-import org.allbinary.logic.system.security.licensing.LicensingException;
-
-import org.allbinary.logic.communication.log.LogUtil;
-
-import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
+import javax.servlet.jsp.JspTagException;
 
 import admin.taghelpers.OrderHistoryHelperFactory;
 import admin.taghelpers.OrderHistoryRequestHelperFactory;
-
+import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
-import org.allbinary.logic.communication.log.LogFactory;
-
-import javax.servlet.jsp.JspTagException;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.system.security.licensing.LicensingException;
 
 public class OrderHistoryTag extends TableTag
 {

@@ -14,6 +14,7 @@
 package org.allbinary.game.input;
 
 import javax.microedition.lcdui.Canvas;
+
 import org.allbinary.string.CommonPhoneStrings;
 
 public class GameKeyFactory

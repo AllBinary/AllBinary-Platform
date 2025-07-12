@@ -12,6 +12,8 @@
  * 
  */
 package org.allbinary.game.layer.waypoint;
+import org.allbinary.logic.string.StringMaker;
+
 
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.layer.PathFindingLayerInterface;

@@ -13,17 +13,16 @@
 */
 package org.allbinary.logic.java.help;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import java.awt.Dimension;
-import java.awt.Point;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.net.URI;
 import java.net.URL;
+
 import javax.help.CSH;
 import javax.help.HelpBroker;
 import javax.help.HelpSet;
-import javax.swing.JLabel;
+import javax.swing.*;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;

@@ -13,8 +13,6 @@
 */
 package org.allbinary.business.user.role;
 
-import org.allbinary.business.user.role.UserRole;
-import org.allbinary.business.user.role.BasicUserRoleFactory;
 import org.allbinary.business.user.modules.UserFactory;
 import org.allbinary.business.user.modules.admin.AdminUserFactory;
 import org.allbinary.business.user.modules.admin.store.StoreAdminUserFactory;

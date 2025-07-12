@@ -15,12 +15,11 @@ package org.allbinary.input.automation.module.generic.configuration.profile;
 
 import java.util.HashMap;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.input.media.image.InputImageType;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 public class GenericProfileDataWorkerType 
     implements GenericProfileDataWorkerTypeInterface

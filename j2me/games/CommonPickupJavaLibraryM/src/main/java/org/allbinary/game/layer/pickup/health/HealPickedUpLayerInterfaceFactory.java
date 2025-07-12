@@ -13,13 +13,12 @@
 */
 package org.allbinary.game.layer.pickup.health;
 
+import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
 import org.allbinary.game.layer.pickup.IconLayerFactory;
 import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactory;
 import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
 import org.allbinary.game.layer.pickup.PickedUpLayerTypeFactory;
 import org.allbinary.game.layer.pickup.PickupProcessorInterface;
-
-import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
 import org.allbinary.layer.AllBinaryLayer;
 
 public class HealPickedUpLayerInterfaceFactory extends PickedUpLayerInterfaceFactory

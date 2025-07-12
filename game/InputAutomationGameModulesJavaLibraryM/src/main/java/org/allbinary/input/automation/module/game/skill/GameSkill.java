@@ -15,6 +15,8 @@ package org.allbinary.input.automation.module.game.skill;
 
 import java.util.HashMap;
 import java.util.Vector;
+
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 
 public class GameSkill
@@ -91,7 +93,7 @@ public class GameSkill
     
     public String toString()
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
         stringBuffer.append(GAME_SKILL_LABEL);
         stringBuffer.append(this.getGameSkillType().toString());
         stringBuffer.append(CommonSeps.getInstance().SPACE);

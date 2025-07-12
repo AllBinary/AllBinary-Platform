@@ -14,15 +14,8 @@
 package views.admin.payment.gateways;
 
 import java.util.HashMap;
-
 import java.util.Vector;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-import views.business.context.modules.storefront.HttpStoreComponentView;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayData;
 import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewaysData;
@@ -30,7 +23,11 @@ import org.allbinary.business.user.commerce.money.payment.types.BasicPaymentType
 import org.allbinary.business.user.commerce.money.payment.types.PaymentTypeUtil;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import views.business.context.modules.storefront.HttpStoreComponentView;
 
 public class PaymentGatewaysView extends HttpStoreComponentView 
    implements DomNodeInterface

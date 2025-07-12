@@ -15,18 +15,17 @@ package org.allbinary.logic.visual.transform.template.customizer.includes.style.
 
 import java.util.HashMap;
 
+import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.control.validate.Validation;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
+import org.allbinary.logic.visual.dhtml.style.StylesData;
+import org.allbinary.logic.visual.transform.template.customizer.bodies.BodyData;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.data.tree.dom.DomNodeInterface;
-import org.allbinary.data.tree.dom.ModDomHelper;
-import org.allbinary.logic.control.validate.Validation;
-import org.allbinary.logic.visual.dhtml.style.StylesData;
-import org.allbinary.logic.visual.transform.template.customizer.bodies.BodyData;
 
 public class GenericCssStyleValidation extends Validation implements DomNodeInterface
 {
@@ -104,7 +103,7 @@ public class GenericCssStyleValidation extends Validation implements DomNodeInte
       {
          //Boolean isValid = Boolean.TRUE;
          
-         StringBuffer stringBuffer = new StringBuffer();
+         StringMaker stringBuffer = new StringMaker();
          
          return stringBuffer.toString();
       }

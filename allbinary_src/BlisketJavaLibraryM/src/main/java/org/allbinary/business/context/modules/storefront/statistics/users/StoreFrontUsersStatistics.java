@@ -13,16 +13,15 @@
 */
 package org.allbinary.business.context.modules.storefront.statistics.users;
 
+import java.util.HashMap;
+import java.util.Set;
+import java.util.Vector;
+
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.UserInterface;
 import org.allbinary.business.user.role.UserRole;
 import org.allbinary.data.tables.user.UserEntityFactory;
 import org.allbinary.data.tables.user.UserEntityInterface;
-
-import java.util.HashMap;
-
-import java.util.Set;
-import java.util.Vector;
 
 public class StoreFrontUsersStatistics implements StoreFrontUsersStatisticsInterface
 {

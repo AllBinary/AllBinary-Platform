@@ -18,17 +18,16 @@ import java.io.InputStream;
 
 import org.allbinary.globals.Globals;
 import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.gui.dialog.BasicTextJDialog;
+import org.allbinary.gui.dialog.ExitCloseListener;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.AbCryptUtil;
 import org.allbinary.logic.system.security.AbKeys;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.AbeLicenseInterface;
 import org.allbinary.logic.system.security.licensing.AbeLicenseInterfaceFactory;
 import org.allbinary.logic.system.security.licensing.AbeNoLicense;
 import org.allbinary.logic.system.security.licensing.LicensingException;
-import org.allbinary.gui.dialog.BasicTextJDialog;
-import org.allbinary.gui.dialog.ExitCloseListener;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.string.CommonStrings;
 
 public class CryptService

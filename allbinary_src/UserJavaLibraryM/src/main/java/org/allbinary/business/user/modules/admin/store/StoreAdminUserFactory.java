@@ -13,10 +13,10 @@
 */
 package org.allbinary.business.user.modules.admin.store;
 
+import java.util.HashMap;
+
 import org.allbinary.business.user.UserFactoryInterface;
 import org.allbinary.business.user.UserInterface;
-
-import java.util.HashMap;
 
 public class StoreAdminUserFactory implements UserFactoryInterface
 {

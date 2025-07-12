@@ -13,17 +13,14 @@
 */
 package org.allbinary.logic.visual.transform.info.objectConfig;
 
-import org.w3c.dom.Document;
-
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.logic.io.path.AbPath;
-import org.allbinary.logic.string.StringValidationUtil;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.crypt.file.CryptFileReader;
+import org.allbinary.logic.io.path.AbPath;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-import org.allbinary.string.CommonStrings;
+import org.w3c.dom.Document;
 
 
 public class TransformInfoObjectConfigAndManipulatorFactory

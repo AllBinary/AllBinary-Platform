@@ -13,12 +13,11 @@
  */
 package org.allbinary.business.context.configuration;
 
-import org.allbinary.logic.communication.log.LogFactory;
+import java.util.HashMap;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.smtp.configuration.server.EmailServerConfiguration;
 import org.allbinary.logic.communication.smtp.configuration.server.EmailServerConfigurationInterface;
-
-import java.util.HashMap;
 import org.allbinary.string.CommonStrings;
 
 public class ContextConfiguration implements ContextConfigurationInterface

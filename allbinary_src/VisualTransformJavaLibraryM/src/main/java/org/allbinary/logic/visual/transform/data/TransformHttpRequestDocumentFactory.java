@@ -13,10 +13,9 @@
 */
 package org.allbinary.logic.visual.transform.data;
 
-import org.allbinary.logic.visual.transform.data.TransformDocumentInterface;
-import org.allbinary.logic.communication.http.request.session.WeblisketSession;
-
 import javax.servlet.jsp.PageContext;
+
+import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 
 public class TransformHttpRequestDocumentFactory
 {

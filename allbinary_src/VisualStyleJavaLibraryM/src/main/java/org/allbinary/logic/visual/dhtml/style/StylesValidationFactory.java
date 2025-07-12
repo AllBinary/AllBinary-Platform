@@ -16,18 +16,16 @@ package org.allbinary.logic.visual.dhtml.style;
 import java.util.HashMap;
 import java.util.Vector;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
-import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
-import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.logic.communication.http.request.NameSpaceRequestParamData;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.visual.dhtml.style.css.CssElementData;
 import org.allbinary.logic.visual.dhtml.style.css.CssElementsValidationFactory;
-import org.allbinary.logic.communication.http.request.NameSpaceRequestParamData;
 import org.allbinary.string.CommonStrings;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 public class StylesValidationFactory {
     protected final LogUtil logUtil = LogUtil.getInstance();

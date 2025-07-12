@@ -14,15 +14,12 @@
 package org.allbinary.input.automation.robot.osgi;
 
 import bundle.input.automation.robot.InputAutomationRobotServiceInterface;
-
-import org.allbinary.logic.communication.log.LogUtil;
-
 import org.allbinary.input.automation.robot.InputRobotFactory;
 import org.allbinary.input.automation.robot.InputRobotInterface;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.osgi.OSGIServiceInterface;
 import org.allbinary.osgi.OSGIServiceVisitorInterface;
+import org.allbinary.string.CommonStrings;
 
 public class InputAutomationRobotOSGIServiceVisitor
     implements OSGIServiceVisitorInterface

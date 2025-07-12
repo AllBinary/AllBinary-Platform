@@ -15,16 +15,15 @@ package org.allbinary.layer;
 
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
-
-import org.allbinary.string.CommonSeps;
-import org.allbinary.logic.string.StringMaker;
 import org.allbinary.game.identification.BasicGroupFactory;
 import org.allbinary.game.identification.Group;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.Rectangle;
-import org.allbinary.string.CommonLabels;
+import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.math.PositionStrings;
+import org.allbinary.string.CommonLabels;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.view.ViewPosition;
 import org.allbinary.view.event.ViewPositionEvent;
 

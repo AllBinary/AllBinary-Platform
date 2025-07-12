@@ -13,11 +13,9 @@
 */
 package views.generic.basket.mini;
 
-import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
-import org.allbinary.logic.control.validate.ValidationComponentInterface;
-
 import org.allbinary.globals.MESSAGES;
+import org.allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
 public class ValidationView extends MiniBasketView implements ValidationComponentInterface
 {

@@ -13,9 +13,7 @@
 */
 package org.allbinary.logic.visual.transform.info;
 
-import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
-public class CustomTransformInfo extends TransformInfo 
+public class CustomTransformInfo extends TransformInfo
    implements TransformInfoInterface//, OutputTransformInfoInterface
 {
 

@@ -12,6 +12,8 @@
 * 
 */
 package org.allbinary.image.opengles;
+import org.allbinary.logic.string.StringMaker;
+
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

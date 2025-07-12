@@ -14,7 +14,6 @@
 package org.allbinary.business.advertisement.area;
 
 import org.allbinary.logic.control.contraints.display.browser.DisplayInBrowserContraintsInterface;
-
 import org.allbinary.logic.control.contraints.size.TwoDimensionalConstraintInterface;
 
 public interface AdvertisementAreaConstraintsInterface

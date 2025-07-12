@@ -19,17 +19,17 @@ import java.io.InputStream;
 
 import javax.xml.transform.URIResolver;
 
+import org.allbinary.data.tree.dom.BasicUriResolver;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.control.crypt.jcehelper.AbCrypt;
+import org.allbinary.logic.control.crypt.jcehelper.KeySpecFactory;
 import org.allbinary.logic.io.AbFileInputStream;
 import org.allbinary.logic.io.StreamUtil;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.path.AbPathData;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.system.security.AbKeys;
-import org.allbinary.data.tree.dom.BasicUriResolver;
-import org.allbinary.logic.control.crypt.jcehelper.AbCrypt;
-import org.allbinary.logic.control.crypt.jcehelper.KeySpecFactory;
 import org.allbinary.logic.io.path.PathUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.system.security.AbKeys;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.info.template.TransformInfoTemplateData;
@@ -76,7 +76,7 @@ public class BasicTransformer extends AbTransformer {
         } catch (Exception e) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR)) {
-                StringBuffer stringBuffer = new StringBuffer();
+                StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append("Failed to get Encrypted File: ");
                 stringBuffer.append(file.getPath());
@@ -159,7 +159,7 @@ public class BasicTransformer extends AbTransformer {
                 if (extension.compareTo(transformInfoTemplateData.UNCRYPTED_EXTENSION) == 0) {
                     //attempt to load an encrypted version
 
-                    StringBuffer stringBuffer = new StringBuffer();
+                    StringMaker stringBuffer = new StringMaker();
 
                     stringBuffer.append(filePath);
                     stringBuffer.append(AbPathData.getInstance().EXTENSION_SEP);
@@ -173,7 +173,7 @@ public class BasicTransformer extends AbTransformer {
                     }
 
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
-                        stringBuffer = new StringBuffer();
+                        stringBuffer = new StringMaker();
                         //stringBuffer.delete(0, stringBuffer.length());
 
                         stringBuffer.append("Encrypted Template File isFile=");
@@ -221,7 +221,7 @@ public class BasicTransformer extends AbTransformer {
                         }
                     }
                 } else if (extension.compareTo(transformInfoTemplateData.ENCRYPTED_EXTENSION) == 0) {
-                    final StringBuffer stringBuffer = new StringBuffer();
+                    final StringMaker stringBuffer = new StringMaker();
 
                     stringBuffer.append(filePath);
                     stringBuffer.append(AbPathData.getInstance().EXTENSION_SEP);

@@ -13,23 +13,14 @@
 */
 package views.business.context.modules.storefront.customizer.includes.style.css.template.retail;
 
-
-import org.allbinary.logic.communication.log.LogFactory;
-
-import org.w3c.dom.Node;
-import org.w3c.dom.Document;
-
-
 import org.allbinary.logic.communication.log.LogUtil;
-
-import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
 import org.allbinary.logic.control.validate.ValidationComponentInterface;
-
-import views.business.context.modules.storefront.customizer.CustomizerUtil;
-
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.template.customizer.includes.style.css.template.retail.EditCssStyleValidation;
-
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import views.business.context.modules.storefront.customizer.CustomizerUtil;
 import views.business.context.modules.storefront.customizer.includes.style.css.CssCustomizerView;
 
 public class EditCssValidationView extends CssCustomizerView implements ValidationComponentInterface
@@ -68,7 +59,7 @@ public class EditCssValidationView extends CssCustomizerView implements Validati
    {
       try
       {
-         StringBuffer stringBuffer = new StringBuffer();
+         StringMaker stringBuffer = new StringMaker();
          
          stringBuffer.append(this.styleValidationInterface.validationInfo());
          

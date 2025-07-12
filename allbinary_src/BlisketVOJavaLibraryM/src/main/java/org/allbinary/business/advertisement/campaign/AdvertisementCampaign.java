@@ -13,7 +13,6 @@
 */
 package org.allbinary.business.advertisement.campaign;
 
-import org.allbinary.business.advertisement.campaign.AdvertisementCampaignData;
 import java.util.HashMap;
 
 import org.allbinary.business.DynamicObjectData;

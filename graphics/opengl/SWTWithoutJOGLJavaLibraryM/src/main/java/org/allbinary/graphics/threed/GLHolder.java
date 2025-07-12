@@ -13,8 +13,6 @@
  */
 package org.allbinary.graphics.threed;
 
-import javax.microedition.lcdui.Image;
-
 /**
  *
  * @author User

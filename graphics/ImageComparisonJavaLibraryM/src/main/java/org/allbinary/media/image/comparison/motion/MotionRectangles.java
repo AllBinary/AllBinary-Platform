@@ -13,15 +13,8 @@
 */
 package org.allbinary.media.image.comparison.motion;
 
-import org.allbinary.media.image.comparison.pixel.PixelDelta;
-import java.awt.Rectangle;
-
-
 import java.util.Vector;
 
-import org.allbinary.logic.communication.log.Log;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.collision.RectangleCollisionUtil;
 import org.allbinary.media.image.comparison.ImageComparisonResult;
 
 public class MotionRectangles

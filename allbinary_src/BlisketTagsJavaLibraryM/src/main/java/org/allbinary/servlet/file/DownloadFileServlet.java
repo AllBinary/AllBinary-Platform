@@ -22,18 +22,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.allbinary.servlet.BlisketServletUtil;
-
-import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.io.CloudStreamUtil;
-import org.allbinary.logic.io.StreamUtil;
-import org.allbinary.logic.io.file.AbFile;
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import admin.taghelpers.AuthenticationHelper;
 import admin.taghelpers.AuthenticationHelperFactory;
 import admin.taghelpers.AuthenticationHelperUtil;
+import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.io.CloudStreamUtil;
+import org.allbinary.logic.io.StreamUtil;
+import org.allbinary.logic.io.file.AbFile;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
+import org.allbinary.servlet.BlisketServletUtil;
 import org.allbinary.string.CommonStrings;
 
 /**
@@ -118,7 +117,7 @@ public class DownloadFileServlet extends HttpServlet
                     response.setContentType(contentType);
                     response.setHeader("Content-Length", String.valueOf(file.length()));
 
-                    StringBuffer stringBuffer = new StringBuffer();
+                    StringMaker stringBuffer = new StringMaker();
 
                     stringBuffer.append("attachment; filename=\"");
                     stringBuffer.append(file.getName());

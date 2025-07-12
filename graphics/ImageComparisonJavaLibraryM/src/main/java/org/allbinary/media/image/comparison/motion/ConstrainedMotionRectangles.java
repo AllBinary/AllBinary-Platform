@@ -13,14 +13,11 @@
 */
 package org.allbinary.media.image.comparison.motion;
 
-import java.awt.Rectangle;
-
-
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.util.Vector;
 
 import org.allbinary.logic.communication.log.LogUtil;
-import java.awt.image.BufferedImage;
-import org.allbinary.logic.communication.log.LogFactory;
 
 public class ConstrainedMotionRectangles extends MotionRectangles
 {

@@ -13,14 +13,12 @@
 */
 package org.allbinary.input.motion.button;
 
-import org.allbinary.util.BasicArrayList;
-
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.input.InputFactory;
 import org.allbinary.game.input.mapping.InputToGameKeyMapping;
-import org.allbinary.string.CommonLabels;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonLabels;
+import org.allbinary.util.BasicArrayList;
 
 public class BasicTouchInputFactory
         //extends BaseTouchInputFactory

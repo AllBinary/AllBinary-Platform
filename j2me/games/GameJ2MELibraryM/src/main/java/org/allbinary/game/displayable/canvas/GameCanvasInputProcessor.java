@@ -15,8 +15,6 @@ package org.allbinary.game.displayable.canvas;
 
 import javax.microedition.lcdui.Canvas;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.input.GameKey;
 import org.allbinary.game.input.GameKeyEventSourceInterface;
 import org.allbinary.game.input.GameKeyFactory;
@@ -28,8 +26,9 @@ import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.input.event.GameKeyEventFactory;
 import org.allbinary.game.input.event.UpGameKeyEventHandler;
 import org.allbinary.game.input.mapping.InputToGameKeyMapping;
-import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.logic.string.StringMaker;
 
 public class GameCanvasInputProcessor
 extends InputProcessor

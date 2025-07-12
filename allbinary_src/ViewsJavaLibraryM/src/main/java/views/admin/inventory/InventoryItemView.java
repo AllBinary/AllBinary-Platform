@@ -14,18 +14,11 @@
 package views.admin.inventory;
 
 import java.util.HashMap;
-
 import java.util.Set;
+import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.fileupload.FileItem;
-
-import views.business.context.modules.storefront.HttpStoreComponentView;
-import org.allbinary.logic.io.path.AbPathUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.visual.media.MediaData;
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.commerce.inventory.item.BasicItem;
@@ -38,9 +31,13 @@ import org.allbinary.logic.communication.http.file.upload.HttpFileUploadUtil;
 import org.allbinary.logic.communication.http.request.HttpRequestUtil;
 import org.allbinary.logic.communication.http.request.MultipartRequestParams;
 import org.allbinary.logic.communication.http.request.RequestMapInterface;
-import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-import java.util.Vector;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.path.PathUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.visual.media.MediaData;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.apache.commons.fileupload.FileItem;
+import views.business.context.modules.storefront.HttpStoreComponentView;
 
 public class InventoryItemView extends HttpStoreComponentView
     implements RequestMapInterface
@@ -102,7 +99,7 @@ public class InventoryItemView extends HttpStoreComponentView
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
                 {
-                    StringBuffer stringBuffer = new StringBuffer();
+                    StringMaker stringBuffer = new StringMaker();
 
                     stringBuffer.append("Uploaded File Data: ");
                     stringBuffer.append(this.imageFileName);

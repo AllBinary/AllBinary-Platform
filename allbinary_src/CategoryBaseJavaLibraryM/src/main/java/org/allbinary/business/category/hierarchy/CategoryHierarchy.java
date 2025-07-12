@@ -13,11 +13,11 @@
 */
 package org.allbinary.business.category.hierarchy;
 
-import org.allbinary.logic.string.StringUtil;
+import java.util.HashMap;
+
 import org.allbinary.business.category.CategoryData;
 import org.allbinary.business.category.CategoryInterface;
-
-import java.util.HashMap;
+import org.allbinary.logic.string.StringUtil;
 
 /*
  *Nothing more than a parent category reference to a category on the fs.  

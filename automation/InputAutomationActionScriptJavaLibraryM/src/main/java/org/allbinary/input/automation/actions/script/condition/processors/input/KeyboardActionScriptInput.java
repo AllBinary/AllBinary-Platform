@@ -17,18 +17,17 @@ import java.awt.event.KeyEvent;
 import java.util.HashMap;
 import java.util.Vector;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.input.KeySingletonFactory;
 import org.allbinary.input.KeyUtil;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 public class KeyboardActionScriptInput extends BasicProfileActionScriptInput
       implements KeyboardActionScriptInputInterface
@@ -204,7 +203,7 @@ public class KeyboardActionScriptInput extends BasicProfileActionScriptInput
    private static String getText(Integer[] integerArray)
    {
       int index = 0;
-      StringBuffer stringBuffer = new StringBuffer();
+      StringMaker stringBuffer = new StringMaker();
       
       while(index < integerArray.length)
       {
@@ -313,7 +312,7 @@ public class KeyboardActionScriptInput extends BasicProfileActionScriptInput
    
    public String toString()
    {
-      StringBuffer stringBuffer = new StringBuffer();
+      StringMaker stringBuffer = new StringMaker();
       
       stringBuffer.append(super.toString());
       stringBuffer.append(" Text: ");

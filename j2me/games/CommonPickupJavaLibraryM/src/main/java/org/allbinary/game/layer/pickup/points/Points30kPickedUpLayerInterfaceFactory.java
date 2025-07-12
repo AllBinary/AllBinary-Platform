@@ -13,14 +13,13 @@
 */
 package org.allbinary.game.layer.pickup.points;
 
+import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
+import org.allbinary.game.configuration.GameConfigurationUtil;
 import org.allbinary.game.layer.pickup.IconLayerFactory;
 import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactory;
 import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
 import org.allbinary.game.layer.pickup.PickedUpLayerTypeFactory;
 import org.allbinary.game.layer.pickup.PickupProcessorInterface;
-
-import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
-import org.allbinary.game.configuration.GameConfigurationUtil;
 import org.allbinary.layer.AllBinaryLayer;
 
 public class Points30kPickedUpLayerInterfaceFactory extends PickedUpLayerInterfaceFactory

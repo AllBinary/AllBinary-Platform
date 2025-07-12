@@ -15,10 +15,6 @@ package org.allbinary.game.graphics.hud;
 
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.ForcedLogUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.HTMLFeatureFactory;
 import org.allbinary.graphics.Anchor;
@@ -30,8 +26,11 @@ import org.allbinary.graphics.color.BasicColorSetUtil;
 import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
+import org.allbinary.string.CommonStrings;
 
 public class BasicHud //implements DisplayChangeEventListener
 {

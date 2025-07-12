@@ -13,15 +13,13 @@
 */
 package org.allbinary.animation;
 
-import org.allbinary.util.BasicArrayList;
-
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.pipeline.BasicGraphicsPipeline;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.math.Angle;
 import org.allbinary.math.AngleFactory;
+import org.allbinary.string.CommonStrings;
+import org.allbinary.util.BasicArrayList;
 import org.allbinary.vector.VectorInfo;
 
 public class VectorRotationGenerator

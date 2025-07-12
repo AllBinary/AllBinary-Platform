@@ -13,7 +13,6 @@
 */
 package org.allbinary.game.ai.scroller;
 
-import org.allbinary.game.ai.scroller.PacePatrolAI;
 import java.util.Hashtable;
 
 import org.allbinary.ai.ArtificialIntelligenceInterface;

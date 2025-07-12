@@ -13,10 +13,9 @@
 */
 package org.allbinary.game.input;
 
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.input.mapping.InputToGameKeyMapping;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
 
 public class PlatformFormInputMappingFactory
 {

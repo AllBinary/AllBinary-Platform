@@ -13,18 +13,14 @@
 */
 package tags;
 
-import org.allbinary.logic.system.security.licensing.LicensingException;
-
-import org.allbinary.logic.communication.http.request.AbResponseHandler;
-import org.allbinary.logic.communication.log.LogFactory;
-
-import admin.taghelpers.TagHelperFactoryInterface;
-
-import org.allbinary.logic.communication.log.LogUtil;
 import javax.servlet.jsp.JspTagException;
 
+import admin.taghelpers.TagHelperFactoryInterface;
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.system.security.licensing.LicensingException;
 import taghelpers.ViewHelperFactory;
-
 import tags.transform.info.TransformInfoTag;
 
 public class TransformTag extends TransformInfoTag
@@ -83,7 +79,7 @@ public class TransformTag extends TransformInfoTag
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
             {
-                StringBuffer stringBuffer = new StringBuffer();
+                StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append("ViewTag Start For: ");
                 stringBuffer.append(this.getName());

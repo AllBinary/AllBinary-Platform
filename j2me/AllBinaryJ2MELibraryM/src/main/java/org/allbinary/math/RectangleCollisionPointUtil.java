@@ -13,10 +13,8 @@
 */
 package org.allbinary.math;
 
-import org.allbinary.math.RectangleCollisionUtil;
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.graphics.GPoint;
+import org.allbinary.util.BasicArrayList;
 
 public class RectangleCollisionPointUtil
 {

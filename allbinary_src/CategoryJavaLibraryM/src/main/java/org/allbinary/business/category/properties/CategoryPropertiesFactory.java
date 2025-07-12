@@ -13,12 +13,11 @@
 */
 package org.allbinary.business.category.properties;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.w3c.dom.Node;
-
 import java.util.HashMap;
+
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
+import org.w3c.dom.Node;
 
 public class CategoryPropertiesFactory implements CategoryPropertiesFactoryInterface
 {

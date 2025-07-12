@@ -1,8 +1,7 @@
-<xsl:stylesheet version="1.0" 
-   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-   xmlns:jsp="http://java.sun.com/JSP/Page" 
-   xmlns:transform="/WEB-INF/transform.tld"
-   xmlns:jutil="/WEB-INF/jutil.tld" >
+<xsl:stylesheet version="1.0"
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:jsp="http://java.sun.com/JSP/Page"
+                xmlns:jutil="/WEB-INF/jutil.tld">
    <xsl:import href="/template/generic/buttons/buttons.xsl" />
 
 <!--

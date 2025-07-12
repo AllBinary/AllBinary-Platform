@@ -15,8 +15,6 @@ package org.allbinary.logic.control.workflow;
 
 //An actual workflow could implement all of the following in the process method
 
-import org.allbinary.logic.control.workflow.WorkFlowInterface;
-
 //and is determined by the request command in the url
 //extends ValidationComponentInterface, ValidationInterface, ComponentInterface, DomNodeInterface, DataMappingInterface
 

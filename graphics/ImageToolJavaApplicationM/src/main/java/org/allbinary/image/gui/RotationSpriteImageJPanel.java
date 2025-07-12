@@ -13,22 +13,21 @@
 */
 package org.allbinary.image.gui;
 
-import org.allbinary.media.image.ImageProcessorInput;
-import org.allbinary.media.image.ImageProcessorInputCompositeInterface;
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
 import java.io.File;
-import javax.imageio.ImageIO;
-import org.allbinary.string.CommonStrings;
 
-import org.allbinary.logic.communication.log.LogFactory;
+import javax.imageio.ImageIO;
+
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.string.StringUtil;
 import org.allbinary.media.image.ImageJ2SERotationUtil;
+import org.allbinary.media.image.ImageProcessorInput;
+import org.allbinary.media.image.ImageProcessorInputCompositeInterface;
 import org.allbinary.media.image.ImageStrings;
+import org.allbinary.string.CommonSeps;
+import org.allbinary.string.CommonStrings;
 
 public class RotationSpriteImageJPanel extends javax.swing.JPanel
         implements ImageProcessorInputCompositeInterface {

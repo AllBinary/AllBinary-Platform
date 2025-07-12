@@ -13,50 +13,35 @@
 */
 package admin.taghelpers;
 
-import javax.servlet.jsp.PageContext;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
-
-import org.allbinary.logic.io.file.FileUtil;
-
-import org.allbinary.globals.URLGLOBALS;
-
-import org.allbinary.logic.io.path.AbPath;
-import org.allbinary.logic.io.path.AbPathData;
-import org.allbinary.logic.communication.log.LogFactory;
-
-import org.allbinary.logic.communication.log.LogUtil;
-
-import views.admin.inventory.listings.ProductListingFactory;
-
-import org.allbinary.logic.communication.smtp.info.EmailInfo;
-import org.allbinary.logic.communication.smtp.info.BasicEmailInfo;
-import org.allbinary.logic.communication.smtp.info.AdminEmailInfo;
-import org.allbinary.logic.communication.smtp.info.StoreEmailInfo;
-
-import org.allbinary.logic.communication.smtp.event.UserEmailEventNameData;
-
-import org.allbinary.logic.communication.smtp.event.handler.UserEmailEventHandler;
-
-import org.allbinary.logic.communication.smtp.event.handler.factory.AdminUserEmailEventHandlerSingletons;
-import org.allbinary.logic.communication.smtp.event.handler.factory.StoreAdminUserEmailEventHandlerSingletons;
+import javax.servlet.jsp.PageContext;
 
 import org.allbinary.business.context.AbContext;
-
-import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
-
-
-import org.allbinary.logic.control.search.SearchRequest;
-import org.allbinary.logic.control.search.SearchParams;
-
-import org.allbinary.logic.visual.transform.info.TransformInfoData;
-
+import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
+import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.logic.communication.http.AcceptableResponseGenerator;
-import java.util.HashMap;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.smtp.event.UserEmailEventNameData;
+import org.allbinary.logic.communication.smtp.event.handler.UserEmailEventHandler;
+import org.allbinary.logic.communication.smtp.event.handler.factory.AdminUserEmailEventHandlerSingletons;
+import org.allbinary.logic.communication.smtp.event.handler.factory.StoreAdminUserEmailEventHandlerSingletons;
+import org.allbinary.logic.communication.smtp.info.AdminEmailInfo;
+import org.allbinary.logic.communication.smtp.info.BasicEmailInfo;
+import org.allbinary.logic.communication.smtp.info.EmailInfo;
+import org.allbinary.logic.communication.smtp.info.StoreEmailInfo;
+import org.allbinary.logic.control.search.SearchParams;
+import org.allbinary.logic.control.search.SearchRequest;
+import org.allbinary.logic.io.file.FileUtil;
+import org.allbinary.logic.io.path.AbPath;
+import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
+import org.allbinary.logic.visual.transform.info.TransformInfoData;
+import views.admin.inventory.listings.ProductListingFactory;
 
 public class StaticPagesRequestHelper extends AbContext
     implements TagHelperInterface

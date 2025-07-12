@@ -17,8 +17,6 @@ import org.allbinary.graphics.CustomGPoint;
 import org.allbinary.graphics.GPointCircularPool;
 import org.allbinary.input.motion.button.TouchButtonRecognizer;
 import org.allbinary.input.motion.gesture.MotionGestureRecognizer;
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
 /**

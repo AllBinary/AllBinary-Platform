@@ -21,13 +21,6 @@ import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Item;
 import javax.microedition.lcdui.TextField;
 
-import org.allbinary.input.gyro.OrientationData;
-import org.allbinary.util.BasicArrayList;
-import org.allbinary.util.HashtableUtil;
-
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.configuration.feature.GameFeatureChoiceGroups;
 import org.allbinary.game.configuration.feature.GameFeatureFormUtil;
@@ -39,8 +32,12 @@ import org.allbinary.game.configuration.persistance.KeyValuePersistance;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.command.MyCommandsFactory;
 import org.allbinary.graphics.displayable.screen.CommandForm;
+import org.allbinary.input.gyro.OrientationData;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.HashtableUtil;
 
 public class GameOptionsForm extends CommandForm
     //CommandForm

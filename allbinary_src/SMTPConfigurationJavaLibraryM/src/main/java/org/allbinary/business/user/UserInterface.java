@@ -13,13 +13,13 @@
 */
 package org.allbinary.business.user;
 
+import java.util.HashMap;
+
 import org.allbinary.business.user.modules.configuration.UserConfigurationInterface;
 import org.allbinary.business.user.role.UserRole;
 import org.allbinary.data.tables.TableMappingInterface;
 import org.allbinary.logic.communication.http.request.session.WeblisketSessionInterface;
 import org.allbinary.logic.control.validate.ValidationInterface;
-
-import java.util.HashMap;
 
 public interface UserInterface
     extends TableMappingInterface, ValidationInterface

@@ -13,10 +13,7 @@
 */
 package org.allbinary.media.audio;
 
-import org.allbinary.media.audio.BaseSoundsFactory;
-import org.allbinary.media.audio.Sound;
-
-public class EarlySoundsFactory 
+public class EarlySoundsFactory
     extends BaseSoundsFactory 
 {
     private static final EarlySoundsFactory instance = 

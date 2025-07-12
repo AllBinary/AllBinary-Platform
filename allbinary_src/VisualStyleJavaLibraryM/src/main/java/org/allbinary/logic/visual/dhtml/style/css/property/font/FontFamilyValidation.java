@@ -13,9 +13,9 @@
 */
 package org.allbinary.logic.visual.dhtml.style.css.property.font;
 
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.validate.ValidationInterface;
+import org.allbinary.logic.string.StringMaker;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
@@ -79,7 +79,7 @@ public class FontFamilyValidation extends FontFamilyView implements ValidationIn
    {
       try
       {
-         StringBuffer stringBuffer = new StringBuffer();
+         StringMaker stringBuffer = new StringMaker();
 
          stringBuffer.append("Css Font Family Property Validation Error");
          

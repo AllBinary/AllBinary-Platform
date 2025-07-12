@@ -13,13 +13,12 @@
 */
 package org.allbinary.media.image;
 
-import org.allbinary.logic.communication.log.LogUtil;
-import java.awt.Graphics2D;
-import java.awt.GraphicsConfiguration;
+import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
-import org.allbinary.logic.communication.log.LogFactory;
+
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class MirrorImageUtil
 {

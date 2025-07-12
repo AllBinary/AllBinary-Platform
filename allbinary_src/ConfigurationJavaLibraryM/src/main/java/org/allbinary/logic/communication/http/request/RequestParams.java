@@ -13,19 +13,19 @@
  */
 package org.allbinary.logic.communication.http.request;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.data.tree.dom.ModDomHelper;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
-import java.util.HashMap;
 
-import java.util.Map;
-import java.util.Set;
+import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonStrings;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 //Note: if request is destroyed or messed up this will not work. Use fileRequestParams
 public class RequestParams
@@ -73,13 +73,13 @@ public class RequestParams
     {
         try
         {
-            Node node = document.createElement(RequestData.REQUEST);
+            final Node node = document.createElement(RequestData.REQUEST);
 
-            StringBuffer stringBuffer = new StringBuffer();
+            final StringMaker stringBuffer = new StringMaker();
                         
-            Set keys = map.keySet();
-            Object[] keyArray = keys.toArray();
-            int size = keyArray.length;
+            final Set keys = map.keySet();
+            final Object[] keyArray = keys.toArray();
+            final int size = keyArray.length;
 
             for (int i = 0; i < size; i++)
             {
@@ -117,7 +117,7 @@ public class RequestParams
         Set keys = map.keySet();
         Object[] keyArray = keys.toArray();
         int size = keyArray.length;
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         for (int i = 0; i < size; i++)
         {

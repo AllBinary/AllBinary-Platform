@@ -13,28 +13,22 @@
 */
 package views.admin.inventory;
 
-import org.allbinary.globals.URLGLOBALS;
+import java.io.ByteArrayInputStream;
 
+import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
+import org.allbinary.business.user.commerce.inventory.item.ItemInterface;
+import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.communication.http.file.upload.media.UploadMediaSingleton;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.FileUtil;
 import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringValidationUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.visual.media.MediaData;
-
-import org.allbinary.business.user.commerce.inventory.item.ItemInterface;
-
-import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
-
-import org.allbinary.logic.communication.http.file.upload.media.UploadMediaSingleton;
-
 import org.allbinary.logic.visual.media.MediaTypeData;
 import org.allbinary.logic.visual.media.MediaUtil;
-import java.io.ByteArrayInputStream;
 import org.allbinary.string.CommonStrings;
-import org.apache.commons.fileupload.FileItemUtil;
 
 public class InventoryUploadMediaUtil
 {
@@ -76,7 +70,7 @@ public class InventoryUploadMediaUtil
 
         FileUtil fileUtil = FileUtil.getInstance();
         
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append(URLGLOBALS.getWebappPath());
         stringBuffer.append(storeFrontInterface.getCurrentHostNamePath());
@@ -142,7 +136,7 @@ public class InventoryUploadMediaUtil
             	stringBuffer.delete(0, stringBuffer.length());
 
                 stringBuffer.append("Is ");
-                stringBuffer.append(mediaData);
+                stringBuffer.append(mediaData.toString());
                 stringBuffer.append(" Image Resize Supported:");
                 stringBuffer.append(uploadMedia.isSupported(mediaData.getName()));
                 stringBuffer.append(" WriterMedia: ");
@@ -252,7 +246,7 @@ public class InventoryUploadMediaUtil
 
     private void setFileNames(String fileName)
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.itemInterface.getId());
         stringBuffer.append(AbPathData.getInstance().EXTENSION_SEP);

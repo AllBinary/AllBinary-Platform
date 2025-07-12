@@ -15,7 +15,6 @@ package org.allbinary.input.automation.module.generic.configuration.profile.acti
 
 
 import org.allbinary.input.automation.module.DefaultListModelHelper;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 

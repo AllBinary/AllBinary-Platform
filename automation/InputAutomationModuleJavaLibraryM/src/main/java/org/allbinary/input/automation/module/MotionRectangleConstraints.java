@@ -13,11 +13,10 @@
 */
 package org.allbinary.input.automation.module;
 
-import java.awt.Dimension;
-import java.awt.Rectangle;
+import java.awt.*;
+import java.awt.image.BufferedImage;
 
 import org.allbinary.media.image.comparison.motion.MotionRectangleConstraintsInterface;
-import java.awt.image.BufferedImage;
 
 public class MotionRectangleConstraints
     implements MotionRectangleConstraintsInterface

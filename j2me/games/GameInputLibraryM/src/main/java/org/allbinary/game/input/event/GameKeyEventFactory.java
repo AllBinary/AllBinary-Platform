@@ -16,8 +16,6 @@ package org.allbinary.game.input.event;
 import org.allbinary.game.input.GameKeyEventSourceInterface;
 import org.allbinary.game.input.Input;
 import org.allbinary.game.input.InputFactory;
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
 public class GameKeyEventFactory

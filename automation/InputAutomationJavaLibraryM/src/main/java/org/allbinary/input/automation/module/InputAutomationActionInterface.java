@@ -13,8 +13,6 @@
 */
 package org.allbinary.input.automation.module;
 
-import org.allbinary.input.automation.robot.InputRobotInterface;
-
 public interface InputAutomationActionInterface
 {
     //InputRobotInterface[] getInputRobotInterfaceArray();

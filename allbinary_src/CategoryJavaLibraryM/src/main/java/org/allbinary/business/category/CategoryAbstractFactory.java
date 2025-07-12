@@ -15,13 +15,11 @@ package org.allbinary.business.category;
 
 import java.util.HashMap;
 
-import org.allbinary.logic.io.path.AbPath;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.category.properties.CategoryPropertiesFactory;
 import org.allbinary.business.category.properties.CategoryPropertiesFactoryInterface;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.string.CommonStrings;
-
 import org.w3c.dom.Node;
 
 public class CategoryAbstractFactory implements CategoryFactoryInterface

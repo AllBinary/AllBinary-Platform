@@ -15,6 +15,7 @@ package org.allbinary.media.image.cache;
 
 import java.awt.image.BufferedImage;
 
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.cache.CacheableInterface;
 
 public class BufferedImageCacheable
@@ -48,7 +49,7 @@ public class BufferedImageCacheable
     
     public String toString()
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
         stringBuffer.append(this.getClass().getName());
         stringBuffer.append(" ");
         stringBuffer.append(this.getKey().toString());

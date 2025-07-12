@@ -16,13 +16,13 @@ package org.allbinary.osgi.service;
 
 import java.util.Vector;
 
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.ServiceReference;
+
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.osgi.OSGIServiceInterface;
 import org.allbinary.osgi.OSGIServiceVisitorInterface;
 import org.allbinary.string.CommonStrings;
-import org.osgi.framework.BundleContext;
-import org.osgi.framework.ServiceReference;
 
 public class InputAutomationServiceConsumer
 {

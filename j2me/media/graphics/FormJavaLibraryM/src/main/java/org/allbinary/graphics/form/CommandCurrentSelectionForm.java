@@ -16,9 +16,6 @@ package org.allbinary.graphics.form;
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.graphics.form.item.CustomItem;
-import org.allbinary.graphics.form.item.CustomItemInterface;
-
 import org.allbinary.J2MEUtil;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.NullAnimationFactory;
@@ -28,6 +25,8 @@ import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.form.item.CommandTextItem;
+import org.allbinary.graphics.form.item.CustomItem;
+import org.allbinary.graphics.form.item.CustomItemInterface;
 
 public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
 {

@@ -13,29 +13,21 @@
 */
 package admin.taghelpers;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import java.util.*;
-
-import javax.servlet.jsp.PageContext;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
+
 import org.allbinary.business.context.modules.storefront.StoreFront;
-
-import org.allbinary.logic.communication.log.LogUtil;
-
+import org.allbinary.business.context.modules.storefront.StoreFrontData;
+import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
+import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.commerce.inventory.basket.BasketData;
 import org.allbinary.business.user.commerce.inventory.basket.BasketInterface;
-
 import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
-
-
-import org.allbinary.business.context.modules.storefront.StoreFrontData;
-import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
-import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
-
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFactory;
-
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class BasketRequestHelper
     extends TagHelper

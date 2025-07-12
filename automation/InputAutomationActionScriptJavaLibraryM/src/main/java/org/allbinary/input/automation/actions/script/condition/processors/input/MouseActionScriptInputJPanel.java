@@ -14,17 +14,16 @@
 package org.allbinary.input.automation.actions.script.condition.processors.input;
 
 import java.awt.event.InputEvent;
-import javax.swing.ComboBoxModel;
-import javax.swing.DefaultComboBoxModel;
+
+import javax.swing.*;
 
 import org.allbinary.input.automation.robot.InputRobot;
 import org.allbinary.input.automation.robot.InputRobotFactory;
 import org.allbinary.input.automation.robot.TempInputRobotNames;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.string.StringValidationUtil;
 
 /**
  *

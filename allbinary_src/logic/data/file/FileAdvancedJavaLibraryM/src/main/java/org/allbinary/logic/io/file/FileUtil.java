@@ -13,15 +13,11 @@
 */
 package org.allbinary.logic.io.file;
 
-import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
@@ -35,8 +31,10 @@ import org.allbinary.logic.io.StreamUtil;
 import org.allbinary.logic.io.file.directory.Directory;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.io.path.AbPathData;
-import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
+import org.allbinary.string.CommonLabels;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 
 //data/init/views/TestStore/template/type/genericTemplateObjectConfig.xml
@@ -247,7 +245,7 @@ public class FileUtil
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
                 {
-                    StringBuffer stringBuffer = new StringBuffer();
+                    StringMaker stringBuffer = new StringMaker();
 
                     stringBuffer.append("Out File: ");
                     stringBuffer.append(outFile.getPath());
@@ -275,7 +273,7 @@ public class FileUtil
             {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
             {
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append("Out File: ");
             stringBuffer.append(outFile.getPath());
@@ -291,7 +289,7 @@ public class FileUtil
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILEERROR))
             {
-                StringBuffer stringBuffer = new StringBuffer();
+                StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append("Error Copying File File: ");
                 stringBuffer.append(file.toString());
@@ -314,7 +312,7 @@ public class FileUtil
     {
         try
         {
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
 
             //if (!isInCloud(outFile))
             //{
@@ -355,7 +353,7 @@ public class FileUtil
             {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
             {
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append("Out File: ");
             stringBuffer.append(outFile.getPath());
@@ -371,7 +369,7 @@ public class FileUtil
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILEERROR))
             {
-                StringBuffer stringBuffer = new StringBuffer();
+                StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append("Error Copying File File: ");
                 stringBuffer.append(file.toString());
@@ -391,7 +389,7 @@ public class FileUtil
     {
         if (toFile.exists())
         {
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
             //Overwrite existing
             if (overwriteAll)
             {
@@ -441,7 +439,7 @@ public class FileUtil
                         stringBuffer.append(" And Not A In Overwrite Mode");
                     }
 
-                    stringBuffer.append(": ");
+                    stringBuffer.append(CommonLabels.getInstance().COLON_SEP);
                     stringBuffer.append(toFile.getPath());
 
                     logUtil.put(stringBuffer.toString(), getInstance(), "copyFile");
@@ -467,7 +465,7 @@ public class FileUtil
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
             {
-                StringBuffer stringBuffer = new StringBuffer();
+                StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append("Copying ");
                 stringBuffer.append(fromFile.length());
@@ -499,7 +497,7 @@ public class FileUtil
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILEERROR))
             {
-                StringBuffer stringBuffer = new StringBuffer();
+                StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append("Error Copying File fromFile: ");
                 stringBuffer.append(fromFile.toString());
@@ -549,7 +547,7 @@ public class FileUtil
 
         int size = fileList.size();
 
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("Searched: ");
         stringBuffer.append(file.getPath());
@@ -628,7 +626,7 @@ public class FileUtil
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
             {
-                StringBuffer stringBuffer = new StringBuffer();
+                StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append("Copying Directory from: ");
                 stringBuffer.append(fromFile.getPath());
@@ -656,7 +654,7 @@ public class FileUtil
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
             {
-                final StringBuffer stringBuffer = new StringBuffer();
+                final StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append("Copying ");
                 stringBuffer.append(size);
@@ -692,7 +690,7 @@ public class FileUtil
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILEERROR))
             {
-                final StringBuffer stringBuffer = new StringBuffer();
+                final StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append("Error Copying Directory fromFile: ");
                 stringBuffer.append(fromFile.toString());
@@ -720,12 +718,12 @@ public class FileUtil
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
             {
-                StringBuffer stringBuffer = new StringBuffer();
+                StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append("Copying AbPaths from: ");
-                stringBuffer.append(fromAbPath);
+                stringBuffer.append(fromAbPath.toString());
                 stringBuffer.append(" to: ");
-                stringBuffer.append(to);
+                stringBuffer.append(to.toString());
 
                 logUtil.put(stringBuffer.toString(), getInstance(), "copy");
             }
@@ -755,7 +753,7 @@ public class FileUtil
 
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
                     {
-                        StringBuffer stringBuffer = new StringBuffer();
+                        StringMaker stringBuffer = new StringMaker();
 
                         stringBuffer.append("Copied file=");
                         stringBuffer.append(fromLocationFile.getName());
@@ -773,7 +771,7 @@ public class FileUtil
 
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
                     {
-                        StringBuffer stringBuffer = new StringBuffer();
+                        StringMaker stringBuffer = new StringMaker();
 
                         stringBuffer.append("Copied file with new name ");
                         stringBuffer.append(" from: ");
@@ -838,12 +836,12 @@ public class FileUtil
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILEERROR))
             {
-                StringBuffer stringBuffer = new StringBuffer();
+                StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append("Error Copying fromAbPath: ");
-                stringBuffer.append(fromAbPath);
+                stringBuffer.append(fromAbPath.toString());
                 stringBuffer.append(" to: ");
-                stringBuffer.append(to);
+                stringBuffer.append(to.toString());
 
                 logUtil.put(stringBuffer.toString(), getInstance(), "copy", e);
             }

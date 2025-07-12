@@ -15,7 +15,6 @@ package org.allbinary.business.user.commerce.inventory.basket;
 
 import java.io.Serializable;
 import java.util.HashMap;
-
 import java.util.Set;
 
 import org.allbinary.business.user.commerce.inventory.item.ItemInterface;

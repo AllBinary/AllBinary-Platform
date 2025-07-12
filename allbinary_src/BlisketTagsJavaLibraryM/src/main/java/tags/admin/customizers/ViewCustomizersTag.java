@@ -13,21 +13,10 @@
 */
 package tags.admin.customizers;
 
-import java.util.*;
-
-import javax.servlet.*;
-
-import javax.servlet.http.*;
-
-import javax.servlet.jsp.*;
-import javax.servlet.jsp.tagext.*;
-
-
-
-
-import tags.StoreValidationTransformTag;
+import javax.servlet.jsp.JspTagException;
 
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
+import tags.StoreValidationTransformTag;
 
 public class ViewCustomizersTag extends StoreValidationTransformTag
 {

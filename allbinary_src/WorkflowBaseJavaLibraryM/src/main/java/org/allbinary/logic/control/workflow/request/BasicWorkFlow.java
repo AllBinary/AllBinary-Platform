@@ -13,26 +13,26 @@
 */
 package org.allbinary.logic.control.workflow.request;
 
-import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.business.context.modules.storefront.StoreFrontData;
-import org.allbinary.data.tree.dom.ModDomHelper;
-import org.allbinary.logic.communication.http.request.RequestParams;
-import org.allbinary.logic.communication.http.request.session.WeblisketSession;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-import javax.servlet.jsp.PageContext;
 import java.util.Calendar;
 import java.util.HashMap;
-
 import java.util.Set;
 import java.util.Vector;
+
+import javax.servlet.jsp.PageContext;
+
+import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.entry.EntryData;
+import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.logic.communication.http.request.RequestParams;
+import org.allbinary.logic.communication.http.request.session.WeblisketSession;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.workflow.WorkFlowData;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 /*
  *This basic workflow is the workflow representation for the workflow Dom
@@ -249,7 +249,7 @@ public class BasicWorkFlow
    {
       try
       {
-         StringBuffer stringBuffer = new StringBuffer();
+         StringMaker stringBuffer = new StringMaker();
          
          if(this.workFlowName==null) stringBuffer.append("No WorkFlow name specified.");
          

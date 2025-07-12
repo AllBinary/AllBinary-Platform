@@ -15,10 +15,9 @@ package org.allbinary.midlet;
 
 import javax.microedition.lcdui.Displayable;
 
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.canvas.Processor;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
 
 public class ExitRunnable implements Runnable
 {

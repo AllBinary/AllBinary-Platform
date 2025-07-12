@@ -13,7 +13,7 @@
 */
 package org.allbinary.input.automation;
 
-import java.awt.Point;
+import java.awt.*;
 
 public class PointFactory
 {

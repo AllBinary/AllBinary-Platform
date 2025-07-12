@@ -17,6 +17,7 @@ import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.init.db.LogDbInitInfo;
 import org.allbinary.logic.communication.http.request.AbeHttpRequestInfoData;
 import org.allbinary.logic.communication.sql.AbSqlBean;
+import org.allbinary.logic.string.StringMaker;
 
 public class LogTableEntity extends AbSqlBean implements LogTableEntityInterface
 {
@@ -33,7 +34,7 @@ public class LogTableEntity extends AbSqlBean implements LogTableEntityInterface
     {
         final AbeHttpRequestInfoData abeHttpRequestInfoData = AbeHttpRequestInfoData.getInstance();
         
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.sqlStrings.CREATE_TABLE)
                 .append(tableName)

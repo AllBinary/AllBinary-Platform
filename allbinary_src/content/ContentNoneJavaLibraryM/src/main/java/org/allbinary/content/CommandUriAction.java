@@ -15,9 +15,7 @@ package org.allbinary.content;
 
 import javax.microedition.lcdui.Command;
 
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.data.resource.ResourceUtil;
 
 public class CommandUriAction
 {

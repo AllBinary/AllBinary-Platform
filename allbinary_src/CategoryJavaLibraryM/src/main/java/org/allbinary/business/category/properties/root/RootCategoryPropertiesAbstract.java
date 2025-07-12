@@ -13,15 +13,15 @@
 */
 package org.allbinary.business.category.properties.root;
 
-import org.allbinary.logic.io.path.AbPath;
-import org.allbinary.logic.io.path.AbPathData;
-import org.allbinary.business.category.CategoryData;
-import org.allbinary.business.category.hierarchy.CategoryHierarchyInterface;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
 import java.util.HashMap;
 import java.util.Vector;
+
+import org.allbinary.business.category.CategoryData;
+import org.allbinary.business.category.hierarchy.CategoryHierarchyInterface;
+import org.allbinary.logic.io.path.AbPath;
+import org.allbinary.logic.io.path.AbPathData;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 /*
  *Nothing more than a parent category reference to a category on the fs.  

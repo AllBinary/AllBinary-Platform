@@ -14,15 +14,14 @@
 package org.allbinary.logic.communication.sql.connection.pool;
 
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Vector;
 
-import java.sql.DriverManager;
-import java.sql.Connection;
-import java.sql.SQLException;
-
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 
 public class SqlConnectionPool
 {
@@ -83,7 +82,7 @@ public class SqlConnectionPool
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                     org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGPOOL))
                 {
-                    StringBuffer stringBuffer = new StringBuffer();
+                    StringMaker stringBuffer = new StringMaker();
 
                     stringBuffer.append(FIRST);
                     stringBuffer.append(NEW_CONNECTION_FOR);
@@ -104,7 +103,7 @@ public class SqlConnectionPool
                 return DriverManager.getConnection(url);
             } else
             {
-                StringBuffer stringBuffer = new StringBuffer();
+                StringMaker stringBuffer = new StringMaker();
 
                 int size = connectionVector.size();
                 for (int i = 0; i < size; i++)
@@ -139,7 +138,7 @@ public class SqlConnectionPool
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGPOOL))
         {
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append(NEW_CONNECTION_FOR);
             stringBuffer.append(url);
@@ -185,7 +184,7 @@ public class SqlConnectionPool
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGPOOL))
             {
 
-                StringBuffer stringBuffer = new StringBuffer();
+                StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append(NUMBER_OF_SQL_CONNECTIONS_FOR);
                 stringBuffer.append(url);

@@ -13,21 +13,13 @@
 */
 package views.admin.storefront.statistics;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-
-//import org.allbinary.data.tables.context.module.storefronts.StoreFrontsEntityFactory;
-   
-import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
-
+import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.context.modules.storefront.statistics.RealTimeStoreFrontStatistics;
 import org.allbinary.business.context.modules.storefront.statistics.RealTimeStoreFrontStatisticsView;
-
-import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
 import org.allbinary.data.tree.dom.DomNodeInterface;
-
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import views.business.context.modules.storefront.HttpStoreComponentView;
 
 public class StoreFrontStatisticsComponent extends HttpStoreComponentView

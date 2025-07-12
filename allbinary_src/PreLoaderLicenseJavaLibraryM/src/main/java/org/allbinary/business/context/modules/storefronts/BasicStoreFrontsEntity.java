@@ -15,13 +15,10 @@ package org.allbinary.business.context.modules.storefronts;
 
 import java.util.HashMap;
 
-import org.allbinary.logic.communication.log.LogUtil;
-
+import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.init.InitSql;
 import org.allbinary.business.init.db.UserDbInitInfo;
-import org.allbinary.logic.communication.log.LogFactory;
-
-import org.allbinary.business.context.modules.storefront.StoreFrontData;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class BasicStoreFrontsEntity extends InitSql
 {

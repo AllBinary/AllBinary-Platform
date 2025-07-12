@@ -15,8 +15,8 @@ package tags.generic.advertisement;
 
 import javax.servlet.jsp.JspTagException;
 
-import tags.StoreValidationTransformTag;
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
+import tags.StoreValidationTransformTag;
 
 public class AdvertisementTag extends StoreValidationTransformTag
 {

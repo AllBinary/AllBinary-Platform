@@ -12,6 +12,8 @@
  * 
  */
 package org.allbinary.game.layer.unit;
+import org.allbinary.logic.string.StringMaker;
+
 
 import java.util.Hashtable;
 

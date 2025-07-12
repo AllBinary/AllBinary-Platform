@@ -16,9 +16,7 @@ package org.allbinary.media.image.comparison;
 import java.util.Vector;
 
 import org.allbinary.logic.communication.log.LogUtil;
-
 import org.allbinary.logic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.time.TimeDelayHelper;

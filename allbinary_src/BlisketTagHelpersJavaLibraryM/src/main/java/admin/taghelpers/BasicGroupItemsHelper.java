@@ -18,10 +18,9 @@ import java.util.HashMap;
 import javax.servlet.jsp.PageContext;
 
 import org.allbinary.business.installer.Portion;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tables.user.commerce.inventory.item.groups.BasicGroupItemsEntity;
 import org.allbinary.data.tables.user.commerce.inventory.item.groups.BasicGroupItemsEntityFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlTableUtil;
 
 public class BasicGroupItemsHelper extends BasicTable 

@@ -12,6 +12,8 @@
 * 
 */
 package org.allbinary.media.graphics.geography.map;
+import org.allbinary.logic.string.StringMaker;
+
 
 import org.allbinary.util.BasicArrayList;
 

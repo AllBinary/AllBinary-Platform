@@ -13,25 +13,23 @@
 */
 package org.allbinary.image.gui;
 
-import org.allbinary.media.image.ImageProcessorInput;
-import org.allbinary.media.image.ImageProcessorInputCompositeInterface;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.Arrays;
 import java.util.Comparator;
-import javax.imageio.ImageIO;
 
-import org.allbinary.logic.communication.log.LogUtil;
+import javax.imageio.ImageIO;
 
 import org.allbinary.gui.dialog.FileJDialog;
 import org.allbinary.gui.dialog.FileJDialogListenerInterface;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.string.CommonStrings;
-
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.media.image.ImageProcessorInput;
+import org.allbinary.media.image.ImageProcessorInputCompositeInterface;
 import org.allbinary.media.image.analysis.ColorRange;
 import org.allbinary.media.image.analysis.ColorRangeInterface;
 import org.allbinary.media.image.analysis.ImageAnalysis;
 import org.allbinary.media.image.analysis.ImageAnalysisResults;
+import org.allbinary.string.CommonStrings;
 
 public class ImageToolJFrame extends javax.swing.JFrame
    implements FileJDialogListenerInterface

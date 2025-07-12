@@ -15,14 +15,13 @@ package tags;
 
 import java.lang.reflect.Method;
 
-import org.allbinary.logic.communication.http.request.AbResponseHandler;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.system.security.licensing.LicensingException;
-
-import org.allbinary.logic.communication.log.LogUtil;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspTagException;
 
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.system.security.licensing.LicensingException;
 import taghelpers.ValidatedViewHelperFactory;
 
 public class ValidationTransformTag extends TransformTag
@@ -96,7 +95,7 @@ public class ValidationTransformTag extends TransformTag
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
          {
-             StringBuffer stringBuffer = new StringBuffer();
+             StringMaker stringBuffer = new StringMaker();
 
              HttpServletRequest request =
                  (HttpServletRequest) this.pageContext.getRequest();
@@ -119,7 +118,7 @@ public class ValidationTransformTag extends TransformTag
             
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
             {
-             StringBuffer stringBuffer = new StringBuffer();
+             StringMaker stringBuffer = new StringMaker();
 
              stringBuffer.append("View File: ");
              stringBuffer.append(this.getObjectFile());
@@ -146,7 +145,7 @@ public class ValidationTransformTag extends TransformTag
             
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
             {
-                StringBuffer stringBuffer = new StringBuffer();
+                StringMaker stringBuffer = new StringMaker();
                 
                 stringBuffer.append("View File: ");
                 stringBuffer.append(this.getObjectFile());

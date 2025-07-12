@@ -13,8 +13,6 @@
  */
 package org.allbinary.game.physics.velocity;
 
-import org.allbinary.logic.math.BasicDecimal;
-
 /**
  *
  * @author User

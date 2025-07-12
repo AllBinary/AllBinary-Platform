@@ -13,8 +13,6 @@
 */
 package org.allbinary.media;
 
-import org.allbinary.media.AllBinaryVibrationME;
-import org.allbinary.media.AllBinaryNoVibration;
 import org.allbinary.game.configuration.GameConfigurationCentral;
 
 public class AllBinaryVibration extends AllBinaryVibrationME

@@ -13,13 +13,11 @@
 */
 package org.allbinary.game.displayable.canvas;
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.graphics.displayable.MyCanvas;
 import org.allbinary.graphics.form.ScrollSelectionForm;
 import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.util.BasicArrayList;
 
 public class PopupCommandFormInputProcessor 
 extends CommandFormInputProcessor 

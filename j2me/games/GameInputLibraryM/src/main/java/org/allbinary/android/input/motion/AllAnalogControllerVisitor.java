@@ -13,11 +13,10 @@
 */
 package org.allbinary.android.input.motion;
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.game.input.analog.AnalogLocationInput;
 import org.allbinary.game.input.analog.AnalogLocationInputFactory;
 import org.allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.util.BasicArrayList;
 
 public class AllAnalogControllerVisitor
 extends AnalogControllerVisitor

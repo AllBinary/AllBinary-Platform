@@ -13,12 +13,9 @@
 */
 package views;
 
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-
-import org.allbinary.logic.control.validate.ValidationComponentInterface;
-
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
 
 //Replace when validation node is added

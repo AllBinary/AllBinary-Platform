@@ -15,13 +15,10 @@ package org.allbinary.animation.text;
 
 import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
-import org.allbinary.animation.AnimationBehavior;
 
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.graphics.font.FontDebugFactory;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.string.StringMaker;
 
 /**
  *

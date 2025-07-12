@@ -16,10 +16,9 @@ package org.allbinary.input.automation.module.actions.script.condition.processor
 
 import java.util.Vector;
 
-import javax.swing.DefaultListModel;
+import javax.swing.*;
 
 import org.allbinary.input.media.image.InputImageType;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 

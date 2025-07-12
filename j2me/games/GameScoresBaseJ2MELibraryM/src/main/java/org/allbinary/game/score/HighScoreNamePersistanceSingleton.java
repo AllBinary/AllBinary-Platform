@@ -21,20 +21,18 @@ import java.io.DataOutputStream;
 import javax.microedition.rms.RecordEnumeration;
 import javax.microedition.rms.RecordStore;
 import javax.microedition.rms.RecordStoreException;
-    
+
 import org.allbinary.game.GameInfo;
-import org.allbinary.util.BasicArrayList;
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.java.exception.ExceptionUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
-import org.allbinary.string.CommonSeps;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.persistance.PlatformRecordIdUtil;
+import org.allbinary.string.CommonStrings;
+import org.allbinary.util.BasicArrayList;
 
 public class HighScoreNamePersistanceSingleton
 {

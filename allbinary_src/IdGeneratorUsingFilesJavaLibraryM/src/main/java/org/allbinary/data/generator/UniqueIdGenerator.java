@@ -15,6 +15,7 @@ package org.allbinary.data.generator;
 
 import java.io.IOException;
 
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.AbDataInputStream;
 import org.allbinary.logic.io.AbDataOutputStream;
 import org.allbinary.logic.io.AbFileInputStream;
@@ -23,8 +24,6 @@ import org.allbinary.logic.io.DataOutputStreamFactory;
 import org.allbinary.logic.io.StreamUtil;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 
 public class UniqueIdGenerator implements IdGeneratorInterface
 {

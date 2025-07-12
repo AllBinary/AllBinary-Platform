@@ -14,6 +14,7 @@
 package org.allbinary.device;
 
 import javax.microedition.lcdui.Font;
+
 import org.allbinary.graphics.font.FontDebugBase;
 
 /**

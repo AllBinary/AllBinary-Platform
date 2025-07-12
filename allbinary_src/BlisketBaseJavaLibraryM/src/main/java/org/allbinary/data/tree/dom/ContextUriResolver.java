@@ -18,15 +18,14 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.URIResolver;
 import javax.xml.transform.stream.StreamSource;
 
+import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
 import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.control.crypt.file.CryptFileReader;
 import org.allbinary.logic.io.path.AbFilePath;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.io.path.AbPathData;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
-
-import org.allbinary.logic.control.crypt.file.CryptFileReader;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.visual.transform.info.template.TransformInfoTemplateData;
 
 public class ContextUriResolver implements URIResolver
@@ -44,7 +43,7 @@ public class ContextUriResolver implements URIResolver
    {
       try
       {
-    	  final StringBuffer stringBuffer = new StringBuffer();
+    	  final StringMaker stringBuffer = new StringMaker();
     	  
     	  stringBuffer.append(URLGLOBALS.getMainPath());
     	  stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);

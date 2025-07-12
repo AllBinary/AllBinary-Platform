@@ -15,16 +15,17 @@ package admin.taghelpers;
 
 import java.util.HashMap;
 import java.util.Vector;
+
 import javax.servlet.jsp.PageContext;
 
-import tags.HelperTag;
-import org.allbinary.string.CommonSeps;
-import org.allbinary.logic.string.StringValidationUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.globals.GLOBALS2;
 import org.allbinary.logic.communication.http.request.RequestMapInterface;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
+import tags.HelperTag;
 
 public class MultipartRequestParamForwardHelper
 {
@@ -63,7 +64,7 @@ public class MultipartRequestParamForwardHelper
             {
                 String params = this.getParams();
 
-                StringBuffer stringBuffer = new StringBuffer();
+                StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append(page);
                 stringBuffer.append(params);
@@ -90,7 +91,7 @@ public class MultipartRequestParamForwardHelper
         final HashMap hashMap =
             this.requestMapInterface.getRequestHashMap();
 
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         int size = this.paramVector.size();
 

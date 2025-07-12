@@ -13,12 +13,11 @@
  */
 package org.allbinary.logic.visual.transform.info.objectConfig;
 
-import org.w3c.dom.Document;
-
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.string.CommonStrings;
+import org.w3c.dom.Document;
 
 /**
  *

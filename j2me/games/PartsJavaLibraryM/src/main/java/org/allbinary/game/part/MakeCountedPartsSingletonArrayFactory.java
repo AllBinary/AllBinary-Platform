@@ -15,12 +15,10 @@ package org.allbinary.game.part;
 
 import org.allbinary.game.layer.pickup.CountedPickedUpLayerInterfaceFactory;
 import org.allbinary.game.layer.pickup.CountedPickedUpLayerInterfaceFactoryPool;
-import org.allbinary.util.BasicArrayList;
-
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonStrings;
+import org.allbinary.util.BasicArrayList;
 
 public class MakeCountedPartsSingletonArrayFactory
 {

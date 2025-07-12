@@ -16,14 +16,13 @@ package org.allbinary.game.input;
 import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.layer.AllBinaryGameLayer;
 import org.allbinary.graphics.RectangleFactory;
 import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.PaintableInterface;
 import org.allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.util.BasicArrayList;
 
 public class TestingInputSingleton 
     extends AllBinaryGameLayer

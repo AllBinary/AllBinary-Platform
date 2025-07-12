@@ -13,11 +13,10 @@
 */
 package org.allbinary.graphics.form;
 
-import org.allbinary.graphics.form.item.CustomItem;
-
-import org.allbinary.logic.string.StringUtil;
 import org.allbinary.graphics.RectangleFactory;
 import org.allbinary.graphics.color.BasicColorFactory;
+import org.allbinary.graphics.form.item.CustomItem;
+import org.allbinary.logic.string.StringUtil;
 
 public class ScrollSelectionFormNoneFactory
 {

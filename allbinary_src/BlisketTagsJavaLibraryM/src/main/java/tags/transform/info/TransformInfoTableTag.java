@@ -13,9 +13,8 @@
 */
 package tags.transform.info;
 
-import taghelpers.transform.info.TransformInfoHelperFactory;
-
 import admin.tags.TableTag;
+import taghelpers.transform.info.TransformInfoHelperFactory;
 
 
 public class TransformInfoTableTag extends TableTag

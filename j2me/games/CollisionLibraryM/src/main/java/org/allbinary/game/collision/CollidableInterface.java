@@ -14,7 +14,6 @@
 package org.allbinary.game.collision;
 
 import org.allbinary.game.layer.CollidableCompositeLayer;
-
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.NamedInterface;
 

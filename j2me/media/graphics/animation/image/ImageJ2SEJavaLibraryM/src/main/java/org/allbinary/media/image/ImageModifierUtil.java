@@ -16,11 +16,13 @@ package org.allbinary.media.image;
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
 import java.awt.image.WritableRaster;
+
 import javax.microedition.lcdui.Image;
+
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.color.BasicColor;
-import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.string.CommonStrings;
 import org.microemu.device.j2se.J2SEImmutableImage;
 import org.microemu.device.j2se.J2SEMutableImage;
 

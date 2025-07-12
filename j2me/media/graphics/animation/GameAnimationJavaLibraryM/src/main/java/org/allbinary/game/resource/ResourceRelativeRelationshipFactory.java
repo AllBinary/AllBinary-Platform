@@ -15,9 +15,8 @@ package org.allbinary.game.resource;
 
 import java.util.Hashtable;
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.graphics.RelativeRelationship;
+import org.allbinary.util.BasicArrayList;
 
 public class ResourceRelativeRelationshipFactory 
     implements ResourceRelativeRelationshipFactoryInterface

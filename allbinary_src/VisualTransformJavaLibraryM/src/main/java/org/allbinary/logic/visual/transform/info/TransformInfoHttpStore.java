@@ -13,18 +13,18 @@
 */
 package org.allbinary.logic.visual.transform.info;
 
-import org.allbinary.logic.visual.transform.info.TransformInfoHttpStoreInterface;
-import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.io.path.AbPath;
-import org.allbinary.logic.io.path.AbPathData;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
+import java.util.HashMap;
+
+import javax.servlet.jsp.PageContext;
+
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
-
-import javax.servlet.jsp.PageContext;
-import java.util.HashMap;
+import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.io.path.AbPath;
+import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.logic.string.StringMaker;
 
 public class TransformInfoHttpStore extends TransformInfoHttp 
    implements TransformInfoHttpStoreInterface
@@ -59,7 +59,7 @@ public class TransformInfoHttpStore extends TransformInfoHttp
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-          StringBuffer stringBuffer = new StringBuffer();
+          StringMaker stringBuffer = new StringMaker();
 
           stringBuffer.append("Database HashMap: ");
           stringBuffer.append(databaseHashMap.toString());
@@ -86,7 +86,7 @@ public class TransformInfoHttpStore extends TransformInfoHttp
 
    private String getPath() throws Exception
    {
-       StringBuffer stringBuffer = new StringBuffer();
+       StringMaker stringBuffer = new StringMaker();
 
        stringBuffer.append(URLGLOBALS.getMainPath());
        stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);

@@ -13,43 +13,28 @@
 */
 package org.allbinary.graphics.j2me.workarea;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
+import java.awt.*;
 import java.util.EventListener;
 import java.util.HashMap;
 import java.util.LinkedList;
 
-
-import java.awt.Component;
-import java.awt.Dimension;
-
-import java.awt.GridLayout;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.tree.MutableTreeNode;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
 import org.allbinary.dom.DomHelper;
-
-import org.allbinary.graphics.j2me.MyFrame;
 import org.allbinary.graphics.j2me.StatusFactory;
-
 import org.allbinary.graphics.j2me.workarea.canvas.CanvasDom;
 import org.allbinary.graphics.j2me.workarea.canvas.CanvasJPanel;
 import org.allbinary.graphics.j2me.workarea.canvas.event.MyCanvasEvent;
 import org.allbinary.graphics.j2me.workarea.canvas.event.MyCanvasEventListener;
 import org.allbinary.graphics.j2me.workarea.canvas.event.MyCanvasEventService;
-
 import org.allbinary.graphics.j2me.workarea.properties.PropertiesJPanel;
-
 import org.allbinary.graphics.j2me.workarea.tools.ToolJPanel;
-
 import org.allbinary.log.LOGGING;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.util.BasicArrayList;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 public class WorkAreaJPanel
         extends JPanel

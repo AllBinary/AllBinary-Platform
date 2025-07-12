@@ -13,7 +13,6 @@
 */
 package org.allbinary.thread;
 
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
 public class ThreadUtil

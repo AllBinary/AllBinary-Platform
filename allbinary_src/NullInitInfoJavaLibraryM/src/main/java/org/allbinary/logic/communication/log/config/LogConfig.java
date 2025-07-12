@@ -13,15 +13,12 @@
 */
 package org.allbinary.logic.communication.log.config;
 
-import org.w3c.dom.Node;
-
+import org.allbinary.business.entry.EntryData;
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
-
 import org.allbinary.logic.java.bool.BooleanUtil;
-
-import org.allbinary.business.entry.EntryData;
 import org.allbinary.util.BasicArrayList;
+import org.w3c.dom.Node;
 
 
 public class LogConfig

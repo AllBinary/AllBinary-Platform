@@ -13,26 +13,22 @@
 */
 package org.allbinary.input.automation.module.generic.configuration.profile.actions.script;
 
-import org.allbinary.input.automation.actions.script.ProfileActionScriptNodeInterface;
 import java.util.HashMap;
-
 import java.util.Vector;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
 import org.allbinary.data.tree.dom.DomSearchHelper;
-
+import org.allbinary.input.automation.actions.script.ProfileActionScriptNodeInterface;
 import org.allbinary.input.automation.actions.script.condition.ProfileActionScriptConditionFactory;
 import org.allbinary.input.automation.actions.script.condition.ProfileActionScriptConditionInterface;
 import org.allbinary.input.automation.module.generic.configuration.profile.actions.GenericProfileActionData;
 import org.allbinary.input.automation.module.generic.configuration.profile.actions.GenericProfileActionJPanel;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 public class GenericProfileActionScript
     extends DefaultMutableTreeNode

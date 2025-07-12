@@ -13,9 +13,9 @@ AllBinary or the root directory of AllBinary's AllBinary Platform repository.
 Created By: Travis Berthelot
 -->
 
-<xsl:stylesheet version="1.0" 
-   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-   xmlns:jsp="http://java.sun.com/JSP/Page" >
+<xsl:stylesheet version="1.0"
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+>
    <xsl:import href="/generic/imports/buttons/buttons.xsl" />
    <xsl:import href="/generic/customer/customerInputForm.xsl" />
 

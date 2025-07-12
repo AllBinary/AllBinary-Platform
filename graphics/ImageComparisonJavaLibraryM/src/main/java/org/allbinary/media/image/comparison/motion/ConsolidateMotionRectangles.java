@@ -13,14 +13,10 @@
 */
 package org.allbinary.media.image.comparison.motion;
 
-import java.awt.Rectangle;
-
-
+import java.awt.*;
 import java.util.Vector;
 
 import org.allbinary.logic.communication.log.LogUtil;
-
-import org.allbinary.logic.communication.log.LogFactory;
 
 public class ConsolidateMotionRectangles extends MotionRectangles
 {

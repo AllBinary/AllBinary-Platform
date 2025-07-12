@@ -13,20 +13,19 @@
 */
 package org.allbinary.business.category.store.theme;
 
-import org.allbinary.logic.io.path.AbPath;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
+import java.util.HashMap;
+
 import org.allbinary.business.category.CategoryFactoryInterface;
 import org.allbinary.business.category.CategoryInterface;
 import org.allbinary.business.category.CategoryUtil;
 import org.allbinary.business.category.properties.CategoryPropertiesFactory;
 import org.allbinary.business.category.properties.CategoryPropertiesFactoryInterface;
 import org.allbinary.business.category.properties.root.store.theme.RootStoreThemeCategoryPropertiesFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-import org.w3c.dom.Node;
-
-import java.util.HashMap;
 import org.allbinary.string.CommonStrings;
+import org.w3c.dom.Node;
 
 public class StoreThemeCategoryFactory implements CategoryFactoryInterface
 {

@@ -13,17 +13,12 @@
 */
 package views.business.context;
 
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.visual.transform.ContextTransformer;
-
 import org.allbinary.logic.visual.transform.data.TransformHttpRequestDocumentFactory;
-
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
+import org.allbinary.string.CommonStrings;
 import views.HttpComponentView;
 
 public class HttpContextView extends HttpComponentView

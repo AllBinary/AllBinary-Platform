@@ -13,8 +13,10 @@
  */
 package org.allbinary.business.user.modules.admin.configuration;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
+import java.util.HashMap;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.allbinary.business.context.configuration.ContextConfiguration;
 import org.allbinary.business.context.configuration.ContextConfigurationData;
 import org.allbinary.business.context.configuration.ContextConfigurationDomDocumentMapping;
@@ -22,10 +24,8 @@ import org.allbinary.business.context.configuration.ContextConfigurationInterfac
 import org.allbinary.business.context.configuration.ContextConfigurationInterfaceFactory;
 import org.allbinary.business.context.configuration.ContextConfigurationPathUtil;
 import org.allbinary.logic.communication.http.request.RequestParams;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.crypt.file.CryptFileWriter;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
 import org.allbinary.string.CommonStrings;
 
 public class AdminConfiguration implements AdminConfigurationInterface

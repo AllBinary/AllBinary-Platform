@@ -16,6 +16,7 @@ package org.allbinary.animation.image.sprite;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.game.Sprite;
+
 import org.allbinary.animation.AnimationBehavior;
 
 public class AllBinaryAdjustedSpriteRotationAnimation

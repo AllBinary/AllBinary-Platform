@@ -15,19 +15,14 @@ package tags.generic.order.history;
 
 import java.lang.reflect.Method;
 
-import org.allbinary.logic.communication.log.LogUtil;
-
-import org.allbinary.logic.system.security.licensing.LicensingException;
-
-import taghelpers.OrderHistoryHelperFactory;
+import javax.servlet.jsp.JspTagException;
 
 import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
-
-import tags.StoreValidationTransformTag;
-
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
-import org.allbinary.logic.communication.log.LogFactory;
-import javax.servlet.jsp.JspTagException;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.system.security.licensing.LicensingException;
+import taghelpers.OrderHistoryHelperFactory;
+import tags.StoreValidationTransformTag;
 
 public class OrderHistoryTag extends StoreValidationTransformTag
 {

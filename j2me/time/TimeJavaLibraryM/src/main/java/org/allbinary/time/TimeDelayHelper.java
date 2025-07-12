@@ -13,9 +13,9 @@
 */
 package org.allbinary.time;
 
-import org.allbinary.string.CommonLabels;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
+import org.allbinary.string.CommonLabels;
 
 public class TimeDelayHelper
 {

@@ -15,15 +15,13 @@ package org.allbinary.game.layer;
 
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.input.PlayerGameInput;
 import org.allbinary.game.input.PlayerGameInputCompositeInterface;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.layer.AllBinaryLayerManager;
-import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.view.StaticViewPosition;
 
 public class PlayerGameInputGameLayer extends AllBinaryGameLayer

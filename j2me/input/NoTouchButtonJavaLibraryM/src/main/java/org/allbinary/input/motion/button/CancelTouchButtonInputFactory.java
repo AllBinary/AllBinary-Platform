@@ -13,8 +13,6 @@
 */
 package org.allbinary.input.motion.button;
 
-import org.allbinary.input.motion.button.TouchButtonInput;
-import org.allbinary.game.input.Input;
 import org.allbinary.game.input.InputFactory;
 
 public class CancelTouchButtonInputFactory

@@ -13,7 +13,7 @@
 */
 package org.allbinary.input.automation.actions.script.condition;
 
-import javax.swing.JPopupMenu;
+import javax.swing.*;
 import javax.swing.tree.MutableTreeNode;
 
 public interface CustomTreeNodeInterface

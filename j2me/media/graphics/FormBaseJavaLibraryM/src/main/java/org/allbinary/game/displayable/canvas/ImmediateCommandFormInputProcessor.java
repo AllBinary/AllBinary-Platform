@@ -13,14 +13,12 @@
 */
 package org.allbinary.game.displayable.canvas;
 
-import org.allbinary.util.BasicArrayList;
-
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.graphics.form.ScrollSelectionForm;
 import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.time.TimeDelayHelper;
+import org.allbinary.util.BasicArrayList;
 
 public class ImmediateCommandFormInputProcessor
     extends CommandFormInputProcessor

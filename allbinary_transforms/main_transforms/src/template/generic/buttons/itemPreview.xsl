@@ -17,9 +17,8 @@ Created By: Travis Berthelot
 
    <xsl:import href="/template/generic/javascript/imports/globals/javascriptGlobals.xsl" />
 
-   <xsl:template name="menuItemPreview"
-      xmlns:jsp="http://java.sun.com/JSP/Page" 
-      xmlns:jutil="/WEB-INF/jutil.tld" >
+    <xsl:template name="menuItemPreview"
+                  xmlns:jutil="/WEB-INF/jutil.tld">
       <xsl:param name="name"/>
 
       

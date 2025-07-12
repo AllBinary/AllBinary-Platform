@@ -13,9 +13,8 @@
 */
 package org.allbinary.logic.util.event;
 
-import org.allbinary.util.CircularIndexUtil;
-
 import org.allbinary.logic.util.cache.BaseCircularPool;
+import org.allbinary.util.CircularIndexUtil;
 
 public class AllBinaryEventCircularPool
 extends BaseCircularPool

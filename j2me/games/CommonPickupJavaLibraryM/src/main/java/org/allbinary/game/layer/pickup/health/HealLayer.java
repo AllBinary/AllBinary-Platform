@@ -15,13 +15,12 @@ package org.allbinary.game.layer.pickup.health;
 
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.health.HealthInterface;
 import org.allbinary.game.health.HealthVisitorInterface;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.layer.AllBinaryLayer;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.view.ViewPosition;
 
 public class HealLayer extends AllBinaryLayer

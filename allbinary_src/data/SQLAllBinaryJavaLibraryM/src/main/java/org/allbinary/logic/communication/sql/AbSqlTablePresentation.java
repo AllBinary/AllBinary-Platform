@@ -163,7 +163,7 @@ public class AbSqlTablePresentation extends AbSqlBasic
          ResultSet rset = this.executeSQLStatement(sqlStatement);
          
          ResultSetMetaData rsmd = rset.getMetaData();         
-         StringBuffer stringBuff = new StringBuffer();
+         StringMaker stringBuff = new StringMaker();
          
          int colNum = rsmd.getColumnCount();
          
@@ -173,7 +173,7 @@ public class AbSqlTablePresentation extends AbSqlBasic
             String columnName = rsmd.getColumnName(i);
             String columnValue = rset.getString(i);
             if(columnValue==null || columnValue.compareTo("null)==0) columnValue=stringUtil.EMPTY_STRING;
-            stringBuff.append(new HtmlTextInput(columnName + ": ",columnName,columnValue,"<br>\n").toString();
+            stringBuff.append(new HtmlTextInput(columnName + CommonLabels.getInstance().COLON_SEP,columnName,columnValue,"<br>\n").toString();
          }                  
          
          String form = stringBuff.toString();

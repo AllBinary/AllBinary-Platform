@@ -15,24 +15,16 @@ package views.business.context.modules.storefront.customizer.template.objectConf
 
 import java.util.HashMap;
 
-import org.w3c.dom.Document;
-
-import org.allbinary.logic.string.regex.replace.Replace;
-
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
-
-
-import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.regex.replace.Replace;
 import org.allbinary.logic.visual.transform.info.TransformInfoData;
-
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfig;
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigData;
-
 import org.allbinary.logic.visual.transform.template.util.TransformTemplateCustomizerUtil;
-
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.logic.communication.log.LogFactory;
+import org.w3c.dom.Document;
 
 public class NoTemplateTransformInfoObjectConfig extends TransformInfoObjectConfig
 {

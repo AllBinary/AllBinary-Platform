@@ -13,17 +13,16 @@
 */
 package org.allbinary.business.init;
 
+import org.allbinary.globals.PATH_GLOBALS;
 import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.AbDataInputStream;
 import org.allbinary.logic.io.AbDataOutputStream;
 import org.allbinary.logic.io.AbFileInputStream;
 import org.allbinary.logic.io.DataOutputStreamFactory;
 import org.allbinary.logic.io.FileStreamFactory;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.crypt.DatabaseEncoder;
 import org.allbinary.logic.system.security.crypt.WeakCrypt;
-import org.allbinary.globals.PATH_GLOBALS;
 
 public class LicenseInitInfoUtil
 {

@@ -16,9 +16,8 @@ package org.allbinary.game.displayable.canvas;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class NullGameCanvas extends AllBinaryGameCanvas
 {

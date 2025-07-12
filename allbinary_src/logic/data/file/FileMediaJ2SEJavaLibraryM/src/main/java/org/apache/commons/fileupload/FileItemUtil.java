@@ -3,11 +3,11 @@ package org.apache.commons.fileupload;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.StreamUtil;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.AbFileNativeUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 
 /**
  *
@@ -55,7 +55,7 @@ public class FileItemUtil {
             logUtil.put("FileItemStream FieldName: " + fileItem.getFieldName(), this, "write()");
         } else
         {
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append("Uploaded File FieldName: ");
             stringBuffer.append(fileItem.getFieldName());

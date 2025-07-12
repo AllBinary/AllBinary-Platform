@@ -18,8 +18,8 @@ import java.security.spec.KeySpec;
 import javax.crypto.spec.DESKeySpec;
 import javax.crypto.spec.DESedeKeySpec;
 
-import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.string.CommonStrings;
 
 public class KeySpecFactory
 {

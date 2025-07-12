@@ -15,16 +15,15 @@ package org.allbinary.logic.visual.transform.template.customizer.hedges.heading;
 
 import java.util.HashMap;
 
-import org.allbinary.data.tree.dom.DomSearchHelper;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.data.tree.dom.DomSearchHelper;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.validate.Validation;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.visual.transform.template.customizer.widgets.logo.LogoData;
 import org.allbinary.logic.visual.transform.template.customizer.widgets.logo.LogoValidation;
 import org.allbinary.logic.visual.transform.template.customizer.widgets.title.TitleData;
 import org.allbinary.logic.visual.transform.template.customizer.widgets.title.TitleValidation;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -125,7 +124,7 @@ public class HeadingValidation extends Validation implements DomNodeInterface
          Boolean titleValid = Boolean.TRUE;
          Boolean logoValid = Boolean.TRUE;
          
-         StringBuffer stringBuffer = new StringBuffer();
+         StringMaker stringBuffer = new StringMaker();
 
          if(!this.title.isValid().booleanValue())
          {

@@ -15,9 +15,8 @@ package org.allbinary.logic.io;
 
 import java.io.DataInputStream;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
 
 public class LineReader {
     protected final LogUtil logUtil = LogUtil.getInstance();

@@ -14,7 +14,6 @@
 package org.allbinary.business.context.modules.storefronts;
 
 
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 

@@ -13,11 +13,12 @@
 */
 package org.allbinary.logic.visual.transform.template.customizer.widgets.logo;
 
+import java.io.ByteArrayInputStream;
+
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.FileUtil;
 import org.allbinary.logic.io.file.directory.Directory;
 import org.allbinary.logic.io.path.AbPath;
-import java.io.ByteArrayInputStream;
 import org.apache.commons.fileupload.FileItem;
 
 public class LogoImageFileUtil

@@ -13,27 +13,16 @@
 */
 package views.admin.workflow;
 
-import org.allbinary.logic.communication.log.LogFactory;
-
-import org.w3c.dom.Node;
-import org.w3c.dom.Document;
-
-import org.allbinary.logic.communication.log.LogUtil;
-
-//import org.allbinary.logic.system.security.crypt.*;
-
-//import org.allbinary.business.user.commerce.inventory.order.*;
-//import org.allbinary.business.user.commerce.money.payment.*;
-
-import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
-import org.allbinary.logic.control.validate.ValidationComponentInterface;
-
-import org.allbinary.logic.control.workflow.NewWorkFlowFactory;
-
 import org.allbinary.data.tables.workflow.WorkFlowEntityFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.control.workflow.NewWorkFlowFactory;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 
 public class AddValidationView extends WorkFlowView implements ValidationComponentInterface
@@ -84,7 +73,7 @@ public class AddValidationView extends WorkFlowView implements ValidationCompone
    {
       try
       {
-         StringBuffer stringBuffer = new StringBuffer();
+         StringMaker stringBuffer = new StringMaker();
 
          if(WorkFlowEntityFactory.getInstance().create2().get(this.workFlowInterface.getName(), this.getTransformInfoInterface().getStoreName())!=null)
          {

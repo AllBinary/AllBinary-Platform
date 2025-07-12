@@ -13,9 +13,9 @@
 */
 package org.allbinary.input.automation.module.generic.constraints;
 
-import java.awt.Color;
-
+import java.awt.*;
 import java.awt.image.BufferedImage;
+
 import org.allbinary.graphics.GPoint;
 import org.allbinary.input.automation.module.ImageComparatorConstraints;
 

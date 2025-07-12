@@ -14,25 +14,21 @@
 package org.allbinary.logic.visual.dhtml.style.css;
 
 import java.util.HashMap;
-
 import java.util.Vector;
 
-import org.allbinary.data.tree.dom.DomNodeHelper;
-import org.allbinary.data.tree.dom.DomSearchHelper;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tree.dom.DomData;
+import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.visual.dhtml.style.css.property.CssPropertiesValidationFactory;
-
+import org.allbinary.string.CommonStrings;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
-import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.string.CommonStrings;
 
 public class CssElementView implements DomNodeInterface
 {

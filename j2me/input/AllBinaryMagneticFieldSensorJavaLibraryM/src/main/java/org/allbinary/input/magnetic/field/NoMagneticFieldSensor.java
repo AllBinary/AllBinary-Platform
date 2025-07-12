@@ -14,7 +14,6 @@
 package org.allbinary.input.magnetic.field;
 
 import org.allbinary.input.AllBinarySensorListener;
-
 import org.allbinary.logic.math.Orientation;
 
 public class NoMagneticFieldSensor extends AllBinaryMagneticFieldSensor

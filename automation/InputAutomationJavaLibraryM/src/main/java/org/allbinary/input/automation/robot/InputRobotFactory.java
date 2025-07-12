@@ -13,12 +13,11 @@
 */
 package org.allbinary.input.automation.robot;
 
+import java.awt.*;
+import java.util.Collection;
 import java.util.Hashtable;
-
+import java.util.Iterator;
 import java.util.Set;
-
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
 
 import javax.help.HelpSet;
 import javax.help.event.HelpSetEvent;
@@ -28,9 +27,6 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.help.JavaHelpSetNotifier;
 import org.allbinary.logic.java.object.InterfaceUtil;
 import org.allbinary.logic.system.loader.SecuredNativeLibraryInterface;
-import java.util.Collection;
-import java.util.Iterator;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.string.CommonStrings;
 
 public class InputRobotFactory

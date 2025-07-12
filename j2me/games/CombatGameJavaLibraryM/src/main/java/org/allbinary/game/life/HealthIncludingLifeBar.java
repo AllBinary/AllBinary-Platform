@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.life;
 
+import javax.microedition.lcdui.Graphics;
+
 import org.allbinary.game.health.Health;
 import org.allbinary.game.health.HealthBarAnimation;
 import org.allbinary.game.health.HealthBarTwodAnimation;
@@ -20,7 +22,6 @@ import org.allbinary.game.health.HealthInterface;
 import org.allbinary.game.health.HealthListenerInterface;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.layer.AllBinaryLayer;
-import javax.microedition.lcdui.Graphics;
 
 public class HealthIncludingLifeBar
 extends Paintable

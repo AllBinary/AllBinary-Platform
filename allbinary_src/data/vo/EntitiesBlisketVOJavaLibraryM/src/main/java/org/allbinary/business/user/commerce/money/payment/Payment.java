@@ -13,17 +13,17 @@
 */
 package org.allbinary.business.user.commerce.money.payment;
 
-import org.allbinary.logic.string.StringUtil;
+import java.util.HashMap;
 
+import javax.servlet.ServletRequest;
+
+import org.allbinary.business.entry.EntryData;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.logic.control.crypt.SuperCrypt;
+import org.allbinary.logic.string.StringUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-
-import javax.servlet.ServletRequest;
-import java.util.HashMap;
-import org.allbinary.business.entry.EntryData;
 
 public class Payment implements PaymentInterface, DomNodeInterface
 {

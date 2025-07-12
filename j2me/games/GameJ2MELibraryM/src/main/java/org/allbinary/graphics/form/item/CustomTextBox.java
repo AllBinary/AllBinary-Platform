@@ -17,7 +17,6 @@ import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.logic.string.StringUtil;
 import org.allbinary.J2MEUtil;
 import org.allbinary.game.displayable.canvas.GameCommandCanvas;
 import org.allbinary.game.input.GameInputStrings;
@@ -26,13 +25,11 @@ import org.allbinary.game.input.InputFactory;
 import org.allbinary.game.input.PlatformKeyFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
-import org.allbinary.graphics.font.MyFont;
 import org.allbinary.graphics.form.item.validation.TextItemVisitor;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.string.CommonSeps;
-import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
+import org.allbinary.string.CommonSeps;
 
 public class CustomTextBox extends GameCommandCanvas
 {

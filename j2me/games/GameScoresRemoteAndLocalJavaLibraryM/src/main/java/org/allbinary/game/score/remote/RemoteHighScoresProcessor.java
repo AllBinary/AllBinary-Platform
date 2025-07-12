@@ -15,17 +15,16 @@ package org.allbinary.game.score.remote;
 
 import java.util.Hashtable;
 
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.communication.xmlrpc.XmlRpcAbeClient;
-import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.game.GameInfo;
 import org.allbinary.game.GameInfoData;
 import org.allbinary.game.configuration.GameConfigurationCentral;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.xmlrpc.XmlRpcAbeClient;
 import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.logic.system.security.crypt.jcehelper.NoCrypt;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.util.HashtableUtil;
 
 public class RemoteHighScoresProcessor 

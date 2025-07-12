@@ -14,8 +14,8 @@
 package org.allbinary.input.automation.module;
 
 import org.allbinary.input.media.image.capture.ScreenCaptureImagesWorker;
-import org.allbinary.media.image.comparison.SaveImageComparisonWorker;
 import org.allbinary.media.image.comparison.ImageComparisonWorker;
+import org.allbinary.media.image.comparison.SaveImageComparisonWorker;
 import org.allbinary.media.image.comparison.motion.MotionRectanglesWorker;
 import org.allbinary.media.image.comparison.motion.SaveMotionRectanglesResultsWorker;
 import org.allbinary.media.image.comparison.motion.TestInputForMotionRectanglesResultsWorker;

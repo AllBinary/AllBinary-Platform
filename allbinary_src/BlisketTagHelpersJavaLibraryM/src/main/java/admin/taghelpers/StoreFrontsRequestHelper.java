@@ -19,13 +19,12 @@ import java.util.Vector;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
 
-import org.allbinary.business.installer.Portion;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFront;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
+import org.allbinary.business.installer.Portion;
 import org.allbinary.data.tables.context.module.storefronts.StoreFrontsEntityFactory;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.smtp.event.UserEmailEventNameData;
 import org.allbinary.logic.communication.smtp.event.handler.UserEmailEventHandler;
 import org.allbinary.logic.communication.smtp.event.handler.factory.AdminUserEmailEventHandlerSingletons;
@@ -34,6 +33,7 @@ import org.allbinary.logic.communication.smtp.info.AdminEmailInfo;
 import org.allbinary.logic.communication.smtp.info.BasicEmailInfo;
 import org.allbinary.logic.communication.smtp.info.EmailInfo;
 import org.allbinary.logic.communication.smtp.info.StoreEmailInfo;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
@@ -112,7 +112,7 @@ public class StoreFrontsRequestHelper extends ModifyTable
         String adminEmailSubject = "Admin Notification For Store: "
             + this.modifyingStoreFrontInterface.getName();
 
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("Store Created: ");
         stringBuffer.append(this.modifyingStoreFrontInterface.getName());
@@ -158,7 +158,7 @@ public class StoreFrontsRequestHelper extends ModifyTable
     {
         try
         {
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append("Intall StoreFront Successfully: ");
             stringBuffer.append(this.portion.getCurrent().intValue());

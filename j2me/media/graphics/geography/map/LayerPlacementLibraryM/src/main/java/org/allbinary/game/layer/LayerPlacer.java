@@ -16,13 +16,12 @@ package org.allbinary.game.layer;
 import java.util.Enumeration;
 import java.util.Hashtable;
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.LayerInterfaceFactory;
 import org.allbinary.layer.LayerInterfaceVisitor;
+import org.allbinary.util.BasicArrayList;
 
 public class LayerPlacer
 {

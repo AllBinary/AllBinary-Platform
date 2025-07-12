@@ -13,13 +13,12 @@
 */
 package admin.tags;
 
-import org.allbinary.logic.communication.http.request.AbResponseHandler;
-
-import org.allbinary.business.entry.EntryData;
-import org.allbinary.business.user.role.UserRoleData;
+import javax.servlet.jsp.JspTagException;
 
 import admin.taghelpers.UserHelperFactory;
-import javax.servlet.jsp.JspTagException;
+import org.allbinary.business.entry.EntryData;
+import org.allbinary.business.user.role.UserRoleData;
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
 
 public class UserTag extends TableTag
 {

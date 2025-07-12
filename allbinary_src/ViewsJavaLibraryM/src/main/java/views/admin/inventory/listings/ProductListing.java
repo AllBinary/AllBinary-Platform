@@ -15,15 +15,19 @@ package views.admin.inventory.listings;
 
 import java.util.HashMap;
 import java.util.HashSet;
-
 import java.util.Set;
 import java.util.Vector;
 
-import views.generic.inventory.InventoryColumnUtil;
-import views.generic.inventory.InventorySearchUtil;
-
-import org.allbinary.util.BasicArrayList;
+import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
+import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
+import org.allbinary.data.tables.context.module.storefronts.StoreFrontsEntity;
+import org.allbinary.data.tables.staticpages.StaticPagesEntity;
+import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntity;
+import org.allbinary.globals.GLOBALS2;
 import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.control.search.SearchParams;
+import org.allbinary.logic.control.search.SearchRequest;
 import org.allbinary.logic.io.AbDataOutputStream;
 import org.allbinary.logic.io.DataOutputStreamFactory;
 import org.allbinary.logic.io.InputOutputTypeData;
@@ -32,23 +36,17 @@ import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.directory.Directory;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.io.path.AbPathData;
-import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.SpecialCharacterUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.regex.replace.Replace;
 import org.allbinary.logic.string.tokens.UniqueTokens;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
-import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
-import org.allbinary.data.tables.context.module.storefronts.StoreFrontsEntity;
-import org.allbinary.data.tables.staticpages.StaticPagesEntity;
-import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntity;
-import org.allbinary.globals.GLOBALS2;
-import org.allbinary.logic.control.search.SearchParams;
-import org.allbinary.logic.control.search.SearchRequest;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
+import org.allbinary.string.CommonSeps;
+import org.allbinary.util.BasicArrayList;
+import views.generic.inventory.InventoryColumnUtil;
+import views.generic.inventory.InventorySearchUtil;
 
 public class ProductListing implements ProductListingInterface
 {
@@ -146,7 +144,7 @@ public class ProductListing implements ProductListingInterface
         HashMap keywordFilenameHashMap, Vector vector, AbPath staticPath)
         throws Exception
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         HashMap hashMap = SpecialCharacterUtil.getHashMap();
         hashMap.put(CommonSeps.getInstance().SPACE, StringUtil.getInstance().EMPTY_STRING);
@@ -197,7 +195,7 @@ public class ProductListing implements ProductListingInterface
 
             stringBuffer.delete(0, stringBuffer.length());
 
-            stringBuffer.append(staticPath);
+            stringBuffer.append(staticPath.toString());
             stringBuffer.append(pageName);
             stringBuffer.append(indexStr);
             stringBuffer.append(AbPathData.getInstance().EXTENSION_SEP);
@@ -242,7 +240,7 @@ public class ProductListing implements ProductListingInterface
         {
             final StoreFrontInterface storeFront = this.searchRequest.getStoreFront();
 
-            final StringBuffer stringBuffer = new StringBuffer();
+            final StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append(URLGLOBALS.getWebappPath());
             stringBuffer.append(storeFront.getName());
@@ -319,7 +317,7 @@ public class ProductListing implements ProductListingInterface
     {
         try
         {
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
 
             if (storeName != null)
             {

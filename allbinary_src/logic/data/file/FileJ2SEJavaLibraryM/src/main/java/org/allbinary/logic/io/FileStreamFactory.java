@@ -14,7 +14,6 @@
 package org.allbinary.logic.io;
 
 import org.allbinary.logic.io.file.AbFile;
-
 import org.allbinary.logic.io.path.AbPath;
 
 public class FileStreamFactory

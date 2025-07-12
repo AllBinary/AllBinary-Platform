@@ -13,9 +13,9 @@
 */
 package org.allbinary.logic.communication.log;
 
-import java.awt.GridLayout;
+import java.awt.*;
 
-import javax.swing.JDialog;
+import javax.swing.*;
 
 import org.allbinary.string.CommonStrings;
 

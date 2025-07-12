@@ -13,11 +13,13 @@
 */
 package org.allbinary.system;
 
+import org.allbinary.logic.string.StringMaker;
+
 public class Memory
 {
     public static String getInfo()
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("Memory: Free: ");
         stringBuffer.append(Runtime.getRuntime().freeMemory());

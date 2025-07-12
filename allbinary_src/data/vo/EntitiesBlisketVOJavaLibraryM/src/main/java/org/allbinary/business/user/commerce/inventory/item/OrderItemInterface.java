@@ -13,7 +13,6 @@
 */
 package org.allbinary.business.user.commerce.inventory.item;
 
-import org.allbinary.business.user.commerce.inventory.item.ItemInterface;
 import org.allbinary.business.user.address.StreetAddress;
 
 public interface OrderItemInterface extends ItemInterface

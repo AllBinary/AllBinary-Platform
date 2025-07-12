@@ -16,11 +16,10 @@ package views.generic.inventory;
 import java.util.HashMap;
 import java.util.Vector;
 
-import org.allbinary.logic.string.StringValidationUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntity;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringValidationUtil;
 
 public class InventoryColumnUtil
 {

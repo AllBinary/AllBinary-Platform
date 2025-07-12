@@ -13,34 +13,27 @@
 */
 package admin.taghelpers;
 
-import javax.servlet.jsp.PageContext;
+import java.util.HashMap;
+import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
-
-import org.allbinary.logic.string.StringValidationUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-
-import org.allbinary.logic.communication.log.LogUtil;
+import javax.servlet.jsp.PageContext;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.commerce.inventory.order.Order;
-
 import org.allbinary.business.user.commerce.inventory.order.OrderInterface;
 import org.allbinary.business.user.commerce.inventory.order.OrderProcessorUtil;
-
 import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayData;
 import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayInterface;
 import org.allbinary.business.user.commerce.money.payment.types.BasicPaymentType;
-
-
 import org.allbinary.data.tables.user.commerce.money.payment.gateway.PaymentGatewayEntity;
 import org.allbinary.data.tables.user.commerce.money.payment.gateway.PaymentGatewayEntityFactory;
-
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
-import java.util.HashMap;
-import java.util.Vector;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringValidationUtil;
 
 public class OrderHelper
     extends TagHelper
@@ -109,7 +102,7 @@ public class OrderHelper
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
             {
-                StringBuffer stringBuffer = new StringBuffer();
+                StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append("Successfully set PaymentGateway Order: ");
                 stringBuffer.append(orderInterface.getId());
@@ -123,7 +116,7 @@ public class OrderHelper
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                StringBuffer stringBuffer = new StringBuffer();
+                StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append("Failed to set PaymentGateway for Order: ");
 
@@ -166,7 +159,7 @@ public class OrderHelper
 
         } catch (Exception e)
         {
-            final StringBuffer stringBuffer = new StringBuffer();
+            final StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append("Failed to Process Order: ");
 

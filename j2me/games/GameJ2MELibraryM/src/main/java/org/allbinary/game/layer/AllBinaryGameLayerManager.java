@@ -14,15 +14,15 @@
 package org.allbinary.game.layer;
 
 //Should probably become composite of manager instead
-import org.allbinary.graphics.ItemColorFactory;
-import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.game.GameInfo;
 import org.allbinary.game.input.PlayerGameInputCompositeInterface;
+import org.allbinary.graphics.ItemColorFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.layer.LayerProcessor;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.util.BasicArrayList;
 
 public class AllBinaryGameLayerManager extends AllBinaryLayerManager
 {

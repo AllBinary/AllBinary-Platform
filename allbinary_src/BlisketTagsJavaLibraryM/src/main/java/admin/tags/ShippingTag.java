@@ -14,22 +14,16 @@
 package admin.tags;
 
 import java.lang.reflect.Method;
+import java.util.HashMap;
 
-import org.allbinary.logic.system.security.licensing.LicensingException;
-
-import org.allbinary.logic.communication.log.LogUtil;
+import javax.servlet.jsp.JspTagException;
 
 import admin.taghelpers.ShippingHelperFactory;
-
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
-
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
-import org.allbinary.logic.communication.log.LogFactory;
-
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.system.security.licensing.LicensingException;
 import tags.CustomTagSupport;
-
-import java.util.HashMap;
-import javax.servlet.jsp.JspTagException;
 
 
 public class ShippingTag extends CustomTagSupport

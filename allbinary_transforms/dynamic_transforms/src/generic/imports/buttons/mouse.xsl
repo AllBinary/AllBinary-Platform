@@ -15,9 +15,8 @@ Created By: Travis Berthelot
 
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-   <xsl:template name="mouseButtonBodyItem"
-      xmlns:jsp="http://java.sun.com/JSP/Page" 
-      xmlns:jutil="/WEB-INF/jutil.tld" >
+    <xsl:template name="mouseButtonBodyItem"
+    >
       <xsl:param name="name"/>
       <xsl:param name="id">
          <xsl:value-of select="$name" />

@@ -13,9 +13,6 @@
 */
 package org.allbinary.logic.communication.log;
 
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.communication.log.Log;
-
 import java.util.Vector;
 
 public class LogBuffer

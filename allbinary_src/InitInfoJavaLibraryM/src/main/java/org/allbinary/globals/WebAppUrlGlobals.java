@@ -13,8 +13,8 @@
 */
 package org.allbinary.globals;
 
-import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.business.init.InitInfo;
+import org.allbinary.logic.string.StringValidationUtil;
 
 public class WebAppUrlGlobals extends UrlGlobalsInterface
 {

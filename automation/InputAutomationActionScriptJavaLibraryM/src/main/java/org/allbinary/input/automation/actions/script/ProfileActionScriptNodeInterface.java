@@ -14,6 +14,7 @@
 package org.allbinary.input.automation.actions.script;
 
 import javax.swing.tree.MutableTreeNode;
+
 import org.allbinary.data.tree.dom.DomNodeInterface;
 
 public interface ProfileActionScriptNodeInterface

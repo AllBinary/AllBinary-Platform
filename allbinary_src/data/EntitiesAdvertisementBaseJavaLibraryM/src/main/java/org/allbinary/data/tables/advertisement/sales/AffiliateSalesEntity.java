@@ -15,15 +15,14 @@ package org.allbinary.data.tables.advertisement.sales;
 
 import java.util.HashMap;
 
-import org.allbinary.business.init.db.UserDbInitInfo;
-import org.allbinary.business.installer.Portion;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.DynamicObjectData;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.entry.EntryData;
+import org.allbinary.business.init.db.UserDbInitInfo;
 import org.allbinary.business.user.group.GroupData;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlBean;
+import org.allbinary.logic.string.StringMaker;
 
 public class AffiliateSalesEntity extends AbSqlBean implements AffiliateSalesEntityInterface
 {
@@ -114,7 +113,7 @@ public class AffiliateSalesEntity extends AbSqlBean implements AffiliateSalesEnt
     {
         EntryData entryData = EntryData.getInstance();
 
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.sqlStrings.CREATE_TABLE);
 

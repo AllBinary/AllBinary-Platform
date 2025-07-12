@@ -14,11 +14,9 @@
 package org.allbinary.game.combat.damage;
 
 import org.allbinary.game.layer.CollidableCompositeLayer;
-
-import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 
 public class DamageUtil
 {

@@ -13,26 +13,24 @@
 */
 package org.allbinary.media.image.comparison.motion;
 
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.java.number.LongUtil;
-import org.allbinary.input.automation.ImageOutputData;
-import org.allbinary.media.image.cache.BufferedImageCacheable;
-import org.allbinary.media.image.cache.BufferedImageInfo;
-import org.allbinary.media.image.cache.BufferedImageInfoFactory;
-import org.allbinary.media.image.cache.BufferedImagePoolSingleton;
-import org.allbinary.media.image.io.ImageIOInterface;
-import org.allbinary.media.image.comparison.ImageComparisonResult;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Rectangle;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.Vector;
 
-import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.input.automation.ImageOutputData;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.java.number.LongUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.cache.AutomaticCacheInterface;
 import org.allbinary.logic.util.cache.PoolInterface;
 import org.allbinary.logic.visual.media.MediaDataFactory;
 import org.allbinary.media.image.ImagePersistanceUtil;
+import org.allbinary.media.image.cache.BufferedImageCacheable;
+import org.allbinary.media.image.cache.BufferedImageInfo;
+import org.allbinary.media.image.cache.BufferedImageInfoFactory;
+import org.allbinary.media.image.cache.BufferedImagePoolSingleton;
+import org.allbinary.media.image.comparison.ImageComparisonResult;
+import org.allbinary.media.image.io.ImageIOInterface;
 import org.allbinary.string.CommonStrings;
 
 public class MotionRectanglesImageInputOutput implements ImageIOInterface
@@ -89,23 +87,23 @@ public class MotionRectanglesImageInputOutput implements ImageIOInterface
     {
         final CommonStrings commonStrings = CommonStrings.getInstance();
         
-        final StringBuffer filePathStringBuffer = new StringBuffer();
+        final StringMaker filePathStringBuffer = new StringMaker();
         filePathStringBuffer.append(ImageOutputData.SAVE_PATH);
         filePathStringBuffer.append(LongUtil.fillIn(frame.toString()));
         filePathStringBuffer.append("_");
         filePathStringBuffer.append(motionRectangles.getName());
         
-        StringBuffer filePathStringBuffer1 = new StringBuffer();
+        StringMaker filePathStringBuffer1 = new StringMaker();
         filePathStringBuffer1.append(filePathStringBuffer.toString());
         filePathStringBuffer1.append("_1");
         filePathStringBuffer1.append(MediaDataFactory.getInstance().JPG.getExtension());
         
-        StringBuffer filePathStringBuffer2 = new StringBuffer();
+        StringMaker filePathStringBuffer2 = new StringMaker();
         filePathStringBuffer2.append(filePathStringBuffer.toString());
         filePathStringBuffer2.append("_2");
         filePathStringBuffer2.append(MediaDataFactory.getInstance().JPG.getExtension());
         
-        StringBuffer filePathStringBuffer3 = new StringBuffer();
+        StringMaker filePathStringBuffer3 = new StringMaker();
         filePathStringBuffer3.append(filePathStringBuffer.toString());
         filePathStringBuffer3.append(MediaDataFactory.getInstance().JPG.getExtension());
         

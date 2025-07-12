@@ -13,16 +13,12 @@
 */
 package views.admin.storefront;
 
-import org.allbinary.logic.communication.log.LogFactory;
 import javax.servlet.http.HttpServletRequest;
-
-import org.allbinary.logic.communication.log.LogUtil;
 
 import org.allbinary.business.context.modules.storefront.StoreFront;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
-
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
 import views.business.context.modules.storefront.HttpStoreComponentView;
 
 public class StoreFrontComponent extends HttpStoreComponentView

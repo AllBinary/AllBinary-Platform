@@ -13,9 +13,8 @@
 */
 package org.allbinary.input.motion.gesture;
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.game.input.CompleteMotionGestureInputEvent;
+import org.allbinary.util.BasicArrayList;
 
 public class MotionGestureToMotionGestureActionAssociation
 {

@@ -13,12 +13,10 @@
 */
 package org.allbinary.business.context.configuration;
 
+import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.data.tree.dom.document.mapping.DomDocumentMappingInterface;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-
-import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-
-import org.allbinary.data.tree.dom.document.mapping.DomDocumentMappingInterface;
 
 public class ContextConfigurationDomDocumentMapping 
     implements DomDocumentMappingInterface

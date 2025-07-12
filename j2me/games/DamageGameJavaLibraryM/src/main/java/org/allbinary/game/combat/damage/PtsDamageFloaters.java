@@ -15,16 +15,15 @@ package org.allbinary.game.combat.damage;
 
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.util.CircularIndexUtil;
-
-import org.allbinary.logic.java.character.CharArrayFactory;
 import org.allbinary.game.rand.MyRandomFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorArrayIndexer;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.color.BasicColorSetUtil;
 import org.allbinary.layer.AllBinaryLayer;
+import org.allbinary.logic.java.character.CharArrayFactory;
 import org.allbinary.logic.math.PrimitiveLongUtil;
+import org.allbinary.util.CircularIndexUtil;
 import org.allbinary.view.ViewPosition;
 
 public class PtsDamageFloaters extends DamageFloaters

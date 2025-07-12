@@ -18,13 +18,11 @@ import java.util.Hashtable;
 
 import javax.microedition.lcdui.ChoiceGroup;
 
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonLabels;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.HashtableUtil;
-
-import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.string.CommonLabels;
 
 public class GameFeatureUtil
 {

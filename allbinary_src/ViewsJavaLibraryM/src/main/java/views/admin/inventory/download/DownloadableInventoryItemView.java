@@ -19,16 +19,6 @@ import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.fileupload.FileItem;
-
-import views.business.context.modules.storefront.HttpStoreComponentView;
-import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.io.file.AbFile;
-import org.allbinary.logic.io.file.FilePathData;
-import org.allbinary.logic.io.file.FileUtil;
-import org.allbinary.logic.io.file.zip.ZipFileUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
@@ -36,9 +26,18 @@ import org.allbinary.business.user.commerce.inventory.item.BasicItemView;
 import org.allbinary.business.user.commerce.inventory.item.ItemInterface;
 import org.allbinary.business.user.commerce.inventory.item.download.DownloadableItem;
 import org.allbinary.business.user.commerce.inventory.item.download.DownloadableItemView;
+import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.logic.communication.http.request.MultipartRequestParams;
 import org.allbinary.logic.communication.http.request.RequestMapInterface;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.io.file.AbFile;
+import org.allbinary.logic.io.file.FilePathData;
+import org.allbinary.logic.io.file.FileUtil;
+import org.allbinary.logic.io.file.zip.ZipFileUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.apache.commons.fileupload.FileItem;
+import views.business.context.modules.storefront.HttpStoreComponentView;
 
 public class DownloadableInventoryItemView
     extends HttpStoreComponentView
@@ -169,7 +168,7 @@ public class DownloadableInventoryItemView
         final AbFile itemResourceFile = new AbFile(fullPath);
         itemResourceFile.mkdir();
 
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(fullPath);
         stringBuffer.append(fileName);
@@ -196,7 +195,7 @@ public class DownloadableInventoryItemView
 
         //AbFile itemResourceFile = new AbFile(fullPath);
 
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(fullPath);
         stringBuffer.append(fileName);
@@ -217,7 +216,7 @@ public class DownloadableInventoryItemView
             this.getWeblisketSession().getStoreName());
 
         final FilePathData filePathData = FilePathData.getInstance();
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(URLGLOBALS.getWebappPath());
         stringBuffer.append(storeFrontInterface.getCurrentHostNamePath());

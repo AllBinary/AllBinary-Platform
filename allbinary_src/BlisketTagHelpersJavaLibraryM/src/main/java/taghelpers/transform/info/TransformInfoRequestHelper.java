@@ -13,15 +13,14 @@
 */
 package taghelpers.transform.info;
 
-import admin.taghelpers.ModifyTable;
 import java.util.HashMap;
 import java.util.Vector;
 
 import javax.servlet.jsp.PageContext;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
+import admin.taghelpers.ModifyTable;
 import org.allbinary.data.tables.transform.info.TransformInfoEntityBuilder;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpStoreNoManipulation;
 

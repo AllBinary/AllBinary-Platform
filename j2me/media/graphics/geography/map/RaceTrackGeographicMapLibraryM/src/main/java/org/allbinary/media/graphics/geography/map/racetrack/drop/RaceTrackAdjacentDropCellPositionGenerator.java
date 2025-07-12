@@ -12,6 +12,8 @@
 * 
 */
 package org.allbinary.media.graphics.geography.map.racetrack.drop;
+import org.allbinary.logic.string.StringMaker;
+
 
 import java.util.Hashtable;
 

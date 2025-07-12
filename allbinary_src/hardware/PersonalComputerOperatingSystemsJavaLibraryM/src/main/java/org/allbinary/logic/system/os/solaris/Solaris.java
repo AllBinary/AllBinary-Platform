@@ -13,7 +13,7 @@
 */
 package org.allbinary.logic.system.os.solaris;
 
-import org.allbinary.logic.system.os.*;
+import org.allbinary.logic.system.os.GenericOperatingSystem;
 
 public class Solaris extends GenericOperatingSystem
 {

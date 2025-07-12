@@ -32,7 +32,7 @@ String FLASHVARS = "FlashVars";
 /*
 byte byteArray[] = session.getId().getBytes();
 
-StringBuffer sessionId = new StringBuffer();
+StringMaker sessionId = new StringMaker();
 
 for(int index = 0; index < byteArray.length; index++)
 {

@@ -13,10 +13,9 @@
 */
 package org.allbinary.business.user.commerce.money.payment;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-
 import javax.servlet.ServletRequest;
+
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 
 //import org.allbinary.logic.java.proxy.InterfaceCastProxy;

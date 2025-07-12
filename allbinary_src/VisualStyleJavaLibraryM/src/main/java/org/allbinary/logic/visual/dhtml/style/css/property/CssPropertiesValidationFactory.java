@@ -16,10 +16,9 @@ package org.allbinary.logic.visual.dhtml.style.css.property;
 import java.util.HashMap;
 import java.util.Vector;
 
+import org.allbinary.logic.control.validate.ValidationInterface;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
-import org.allbinary.logic.control.validate.ValidationInterface;
 
 public class CssPropertiesValidationFactory
 {

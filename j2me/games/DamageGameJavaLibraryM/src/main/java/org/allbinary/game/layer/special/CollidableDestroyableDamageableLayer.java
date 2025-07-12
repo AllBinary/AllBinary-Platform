@@ -16,11 +16,6 @@ package org.allbinary.game.layer.special;
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.game.layer.CollidableCompositeLayer;
-import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
-import org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
-import org.allbinary.string.CommonSeps;
-import org.allbinary.logic.string.StringMaker;
 import org.allbinary.game.combat.damage.DamageableInterface;
 import org.allbinary.game.combat.destroy.DestroyableInterface;
 import org.allbinary.game.combat.destroy.event.DestroyedEvent;
@@ -28,12 +23,17 @@ import org.allbinary.game.identification.Group;
 import org.allbinary.game.identification.GroupInterface;
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
+import org.allbinary.game.layer.CollidableCompositeLayer;
+import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
 import org.allbinary.game.layer.pickup.PickupBehavior;
 import org.allbinary.game.layer.pickup.PickupCompositeInterface;
 import org.allbinary.game.part.PartInterface;
 import org.allbinary.graphics.Rectangle;
+import org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
 import org.allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.math.PositionStrings;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.view.ViewPosition;
 
 /*

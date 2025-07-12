@@ -14,32 +14,24 @@
 package admin.taghelpers;
 
 import java.util.HashMap;
-
 import java.util.Vector;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
 
-import javax.servlet.http.HttpServletRequest;
-
-import org.allbinary.business.user.role.BasicUserRole;
-import org.allbinary.logic.communication.log.LogFactory;
-
-import org.allbinary.business.user.UserInterface;
 import org.allbinary.business.user.UserData;
-import org.allbinary.logic.communication.smtp.email.NewPasswordEmail;
+import org.allbinary.business.user.UserInterface;
 import org.allbinary.business.user.password.Password;
-
-
+import org.allbinary.business.user.role.BasicUserRole;
 import org.allbinary.data.tables.user.UserEntityFactory;
 import org.allbinary.data.tables.user.UserEntityInterface;
 import org.allbinary.globals.GLOBALS2;
-
-
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 import org.allbinary.logic.communication.http.request.session.WeblisketSessionData;
-
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.http.request.session.WeblisketSessionInterface;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.smtp.email.NewPasswordEmail;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
@@ -312,10 +304,10 @@ public class AuthenticationRequestHelper
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
          {
-        	 StringBuffer stringBuffer = new StringBuffer();
+        	 StringMaker stringBuffer = new StringMaker();
         	 
         	 stringBuffer.append("Role is not valid: ");
-        	 stringBuffer.append(userInterface.getRole());
+        	 stringBuffer.append(userInterface.getRole().toString());
         	 stringBuffer.append(" Valid Roles: ");
         	 stringBuffer.append(roles.toString());
         	 

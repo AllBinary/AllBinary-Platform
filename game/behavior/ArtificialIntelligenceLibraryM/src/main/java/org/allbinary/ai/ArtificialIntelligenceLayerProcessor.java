@@ -15,7 +15,6 @@ package org.allbinary.ai;
 
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
-import org.allbinary.layer.LayerManager;
 import org.allbinary.layer.LayerProcessor;
 
 public class ArtificialIntelligenceLayerProcessor extends LayerProcessor

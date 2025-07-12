@@ -13,15 +13,14 @@
 */
 package org.allbinary.logic.communication.smtp.configuration.user.event;
 
-import org.allbinary.logic.communication.smtp.configuration.user.event.UserEmailEventConfigurationData;
+import java.util.HashMap;
+
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
-import java.util.HashMap;
 
 public class UserEmailEventConfigurationView implements DomNodeInterface
 {

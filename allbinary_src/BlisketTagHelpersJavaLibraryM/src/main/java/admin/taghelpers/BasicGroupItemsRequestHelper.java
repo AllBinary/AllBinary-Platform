@@ -13,22 +13,18 @@
 */
 package admin.taghelpers;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import javax.servlet.jsp.PageContext;
-
-import javax.servlet.http.HttpServletRequest;
-
-import org.allbinary.logic.communication.log.LogUtil;
-
-import org.allbinary.business.entry.EntryData;
-
-import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
-import org.allbinary.business.user.commerce.inventory.item.group.BasicGroupItemData;
-
-import org.allbinary.data.tables.user.commerce.inventory.item.groups.BasicGroupItemsEntityFactory;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Vector;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
+
+import org.allbinary.business.entry.EntryData;
+import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
+import org.allbinary.business.user.commerce.inventory.item.group.BasicGroupItemData;
+import org.allbinary.data.tables.user.commerce.inventory.item.groups.BasicGroupItemsEntityFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class BasicGroupItemsRequestHelper extends ModifyTable
 {

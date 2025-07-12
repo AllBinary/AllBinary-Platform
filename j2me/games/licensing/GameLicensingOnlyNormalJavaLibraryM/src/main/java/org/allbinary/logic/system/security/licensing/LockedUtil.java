@@ -13,8 +13,6 @@
 */
 package org.allbinary.logic.system.security.licensing;
 
-import org.allbinary.logic.system.security.licensing.LockableFeature;
-
 public class LockedUtil
 {
     private static final LockedUtil instance = new LockedUtil();

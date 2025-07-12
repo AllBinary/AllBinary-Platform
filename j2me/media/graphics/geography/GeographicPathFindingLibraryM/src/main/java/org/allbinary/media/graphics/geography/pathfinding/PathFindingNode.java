@@ -61,7 +61,7 @@ public class PathFindingNode
        StringMaker stringBuffer = new StringMaker();
       
       stringBuffer.append(this.getClass().getName());
-      stringBuffer.append(": ");
+      stringBuffer.append(CommonLabels.getInstance().COLON_SEP);
       stringBuffer.append(" Path: ");
       stringBuffer.append(this.geographicMapCellPosition.toString());
      

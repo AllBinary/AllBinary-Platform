@@ -15,10 +15,9 @@ package org.allbinary.game.displayable.canvas;
 
 import org.allbinary.game.GameTypeFactory;
 import org.allbinary.graphics.paint.NullPaintable;
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.string.CommonStrings;
 
 /**
  *

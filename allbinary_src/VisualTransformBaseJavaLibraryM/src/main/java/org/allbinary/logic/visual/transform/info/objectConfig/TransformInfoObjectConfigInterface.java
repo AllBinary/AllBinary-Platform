@@ -13,11 +13,10 @@
 */
 package org.allbinary.logic.visual.transform.info.objectConfig;
 
-import org.allbinary.data.tree.dom.document.mapping.DomDocumentMappingInterface;
-
-import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
 import java.util.Vector;
+
+import org.allbinary.data.tree.dom.document.mapping.DomDocumentMappingInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
 public interface TransformInfoObjectConfigInterface
    extends DomDocumentMappingInterface

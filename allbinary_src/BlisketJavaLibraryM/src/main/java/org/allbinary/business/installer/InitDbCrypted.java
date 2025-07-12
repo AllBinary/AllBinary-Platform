@@ -21,12 +21,6 @@ import org.allbinary.business.init.db.InventoryDbInitInfo;
 import org.allbinary.business.init.db.LogDbInitInfo;
 import org.allbinary.business.init.db.StaticPagesDbInitInfo;
 import org.allbinary.business.init.db.UserDbInitInfo;
-import org.allbinary.logic.io.AbDataOutputStream;
-import org.allbinary.logic.io.DataOutputStreamFactory;
-import org.allbinary.logic.io.file.AbFile;
-import org.allbinary.logic.io.file.FileFactory;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tables.context.module.storefronts.StoreFrontsEntityFactory;
 import org.allbinary.data.tables.log.LogTableEntityFactory;
 import org.allbinary.data.tables.staticpages.StaticPagesEntityFactory;
@@ -42,7 +36,13 @@ import org.allbinary.data.tables.user.commerce.money.payment.gateway.PaymentGate
 import org.allbinary.data.tables.user.commerce.money.payment.transaction.TransactionEntityFactory;
 import org.allbinary.data.tables.user.commerce.money.payment.transaction.TransactionResultEntityFactory;
 import org.allbinary.data.tables.user.quoterequest.QuoteRequestEntityFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbDatabaseManagement;
+import org.allbinary.logic.io.AbDataOutputStream;
+import org.allbinary.logic.io.DataOutputStreamFactory;
+import org.allbinary.logic.io.file.AbFile;
+import org.allbinary.logic.io.file.FileFactory;
+import org.allbinary.logic.string.StringMaker;
 
 //Warning you must have sql root access
 public class InitDbCrypted extends AbDatabaseManagement
@@ -207,7 +207,7 @@ public class InitDbCrypted extends AbDatabaseManagement
     {
         try
         {
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
 
             logUtil.put(commonStrings.START, this, this.METHOD_ADD_TABLES);
 

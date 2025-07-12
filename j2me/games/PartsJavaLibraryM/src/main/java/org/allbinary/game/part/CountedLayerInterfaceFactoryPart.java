@@ -17,13 +17,11 @@ import java.util.Hashtable;
 
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.game.layer.pickup.CountedPickedUpLayerInterfaceFactory;
-
 import org.allbinary.animation.Animation;
+import org.allbinary.game.layer.pickup.CountedPickedUpLayerInterfaceFactory;
 import org.allbinary.graphics.font.MyFont;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.logic.math.PrimitiveLongUtil;
-import javax.microedition.lcdui.Font;
 
 public class CountedLayerInterfaceFactoryPart implements PartInterface
 {

@@ -14,6 +14,8 @@
 package org.allbinary.input.automation.module.game;
 
 import java.awt.image.BufferedImage;
+
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 
 public class MagicGameObject extends MeteredGameObject
@@ -29,7 +31,7 @@ public class MagicGameObject extends MeteredGameObject
 
    public String toString()
    {
-      StringBuffer stringBuffer = new StringBuffer();
+      StringMaker stringBuffer = new StringMaker();
       
       stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
       stringBuffer.append(MP_LABEL);

@@ -17,14 +17,12 @@ import javax.microedition.lcdui.Choice;
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
 
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.configuration.feature.GameFeatureFormUtil;
 import org.allbinary.game.configuration.feature.InGameFeatureChoiceGroups;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.screen.CommandForm;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class InGameOptionsForm extends CommandForm
 {

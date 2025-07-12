@@ -13,21 +13,12 @@
 */
 package org.allbinary.game.layer.pickup;
 
-import org.allbinary.game.layer.pickup.CountedPickedUpLayerInterfaceFactory;
-import org.allbinary.game.layer.pickup.CountedPickedUpLayerInterfaceFactoryInterface;
-import org.allbinary.game.layer.pickup.PickedUpLayerInterface;
-import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
-import org.allbinary.game.layer.pickup.PickedUpLayerType;
-import org.allbinary.game.layer.pickup.PickedUpLayerTypeFactory;
-import org.allbinary.game.layer.pickup.PickupProcessorInterface;
-
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.game.health.HealthInterfaceCompositeInterface;
 import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
 import org.allbinary.game.part.CountedLayerInterfaceFactoryPart;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.string.CommonStrings;
 
 public class PickupBehavior implements PickupBehaviorInterface
 {

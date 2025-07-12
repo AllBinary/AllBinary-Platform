@@ -18,16 +18,15 @@ import java.util.Vector;
 
 import javax.servlet.jsp.PageContext;
 
-import tags.HelperTag;
-import views.admin.inventory.InventoryItemView;
-import org.allbinary.logic.string.StringValidationUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import admin.tags.AbTagData;
 import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
 import org.allbinary.business.user.commerce.inventory.item.ItemInterface;
 import org.allbinary.data.tables.TableMappingInterface;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
+import tags.HelperTag;
+import views.admin.inventory.InventoryItemView;
 
 public class InventoryRequestHelper extends ModifyTable
 {
@@ -92,7 +91,7 @@ public class InventoryRequestHelper extends ModifyTable
             String id = (String) dataMappingInterface.getKey();
             InventoryEntityFactory.getInstance().getInventoryEntityInstance().deleteWhere(BasicItemData.ID, id);
 
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append("Successfully Removed the item with ");
             stringBuffer.append(BasicItemData.ID);

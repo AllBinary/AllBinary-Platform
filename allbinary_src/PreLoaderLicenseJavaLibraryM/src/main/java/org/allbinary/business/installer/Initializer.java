@@ -14,7 +14,6 @@
 package org.allbinary.business.installer;
 
 import java.util.HashMap;
-
 import java.util.Map;
 import java.util.Set;
 
@@ -23,9 +22,9 @@ import org.allbinary.business.init.db.InventoryDbInitInfo;
 import org.allbinary.business.init.db.LogDbInitInfo;
 import org.allbinary.business.init.db.StaticPagesDbInitInfo;
 import org.allbinary.business.init.db.UserDbInitInfo;
-import org.allbinary.logic.string.StringValidationUtil;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.string.CommonStrings;
 
 public class Initializer
@@ -77,7 +76,7 @@ public class Initializer
 
     public Initializer(Map map)
     {
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
         
         //    this.request = request;
         //this.getFormData(request.getParameterMap());
@@ -293,7 +292,7 @@ public class Initializer
 
     private String getJdbcDriverValidationInfo(String jdbcDriver)
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
         stringBuffer.append("The JDBC driver (");
         stringBuffer.append(jdbcDriver);
         stringBuffer.append(") you have provided is not valid.<br/>");
@@ -303,7 +302,7 @@ public class Initializer
 
     private String getJdbcDriverSolutionInfo()
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("The following describes the possible problems and solutions regarding the Jdbc Driver error(s):<p/>");
         stringBuffer.append("1. A JDBC driver you specified is not in your classpath.<br/>");
@@ -327,7 +326,7 @@ public class Initializer
     {
         //boolean isValid = true;
         boolean isJdbcDriversValid = true;
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         if (!this.isJdbcDriverValid(this.userJdbcDriver))
         {

@@ -13,6 +13,8 @@
 */
 package org.allbinary.logic.java.array;
 
+import org.allbinary.logic.string.StringMaker;
+
 public class IntArrayUtil
 {
 
@@ -22,7 +24,7 @@ public class IntArrayUtil
 
    public static String toString(int[] array)
    {
-      StringBuffer stringBuffer = new StringBuffer();
+      StringMaker stringBuffer = new StringMaker();
       for (int index = 0; index < array.length; index++)
       {
          stringBuffer.append(array[index]);
@@ -38,7 +40,7 @@ public class IntArrayUtil
 
    public static String toString(int[][] array)
    {
-      StringBuffer stringBuffer = new StringBuffer();
+      StringMaker stringBuffer = new StringMaker();
       for (int index = 0; index < array.length; index++)
       {
          stringBuffer.append("{");
@@ -63,7 +65,7 @@ public class IntArrayUtil
 
    public static String toString(int[][][] array)
    {
-      StringBuffer stringBuffer = new StringBuffer();
+      StringMaker stringBuffer = new StringMaker();
       for (int index = 0; index < array.length; index++)
       {
          stringBuffer.append("{");

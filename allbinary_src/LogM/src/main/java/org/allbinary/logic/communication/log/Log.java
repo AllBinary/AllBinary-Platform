@@ -14,8 +14,8 @@
 package org.allbinary.logic.communication.log;
 
 import org.allbinary.logic.NullUtil;
-import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringUtil;
+import org.allbinary.string.CommonStrings;
 
 public class Log
 {

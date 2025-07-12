@@ -12,6 +12,8 @@
 * 
 */
 package org.allbinary.media.graphics.geography.pathfinding;
+import org.allbinary.logic.string.StringMaker;
+
 
 import org.allbinary.string.CommonSeps;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
@@ -61,10 +63,10 @@ public class PathFindingNodeCost extends PathFindingNode implements Comparable<P
     }
     
     public String toString() {
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.getClass().getName());
-        stringBuffer.append(": ");
+        stringBuffer.append(CommonLabels.getInstance().COLON_SEP);
         stringBuffer.append(this.getPathFindingNodeCostInfo().toString());
         stringBuffer.append(" Path: ");
         stringBuffer.append(this.geographicMapCellPosition.toString());

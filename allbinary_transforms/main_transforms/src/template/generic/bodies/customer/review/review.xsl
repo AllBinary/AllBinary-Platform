@@ -1,7 +1,7 @@
 <xsl:stylesheet version="1.0" 
    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-   xmlns:jsp="http://java.sun.com/JSP/Page" 
-   xmlns:transform="/WEB-INF/transform.tld" >
+   xmlns:jsp="http://java.sun.com/JSP/Page"
+>
 
 <!--
 AllBinary Open License Version 1
@@ -24,12 +24,9 @@ Created By: Travis Berthelot
 <xsl:template name="defaultBody" 
    xmlns:jsp="http://java.sun.com/JSP/Page" 
    xmlns:jutil="/WEB-INF/jutil.tld"
-   xmlns:admin="/WEB-INF/admin.tld"   
-   xmlns:ecommerce="/WEB-INF/ecommerce.tld"   
+              xmlns:ecommerce="/WEB-INF/ecommerce.tld"
    xmlns:generic="/WEB-INF/generic.tld"
-   xmlns:payment="/WEB-INF/payment.tld"
-   xmlns:transform="/WEB-INF/transform.tld"
-   xmlns:transformInfoObjectConfig="/WEB-INF/transformInfoObjectConfig.tld" >
+>
 
 <jsp:scriptlet>
    if(command==null || command.compareTo(REVIEWORDERS)==0)
@@ -141,16 +138,12 @@ if(command!=null)
       <xsl:for-each select="en" >
          <xsl:for-each select="US" >
 
-<jsp:root 
-   xmlns:jsp="http://java.sun.com/JSP/Page" 
-   xmlns:jutil="/WEB-INF/jutil.tld"
-   xmlns:admin="/WEB-INF/admin.tld"   
-   xmlns:ecommerce="/WEB-INF/ecommerce.tld"   
-   xmlns:generic="/WEB-INF/generic.tld"
-   xmlns:payment="/WEB-INF/payment.tld"
-   xmlns:transform="/WEB-INF/transform.tld"
-   xmlns:transformInfoObjectConfig="/WEB-INF/transformInfoObjectConfig.tld"
-   version="1.2">
+             <jsp:root
+                     xmlns:jsp="http://java.sun.com/JSP/Page"
+                     xmlns:jutil="/WEB-INF/jutil.tld"
+                     xmlns:ecommerce="/WEB-INF/ecommerce.tld"
+                     xmlns:generic="/WEB-INF/generic.tld"
+                     version="1.2">
 <jsp:scriptlet>
 /*
  *Copyright (c) 2002-2004 AllBinary.

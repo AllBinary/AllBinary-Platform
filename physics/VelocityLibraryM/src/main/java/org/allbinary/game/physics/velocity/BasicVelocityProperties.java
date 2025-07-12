@@ -13,17 +13,16 @@
 */
 package org.allbinary.game.physics.velocity;
 
-import org.allbinary.string.CommonSeps;
-import org.allbinary.logic.string.StringMaker;
 import org.allbinary.direction.Direction;
 import org.allbinary.direction.DirectionUtil;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.BasicDecimal;
 import org.allbinary.logic.math.vector.AxisMathVectorUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.math.Angle;
 import org.allbinary.math.PositionStrings;
+import org.allbinary.string.CommonSeps;
 
 public class BasicVelocityProperties implements BasicVelocityInterface
 {

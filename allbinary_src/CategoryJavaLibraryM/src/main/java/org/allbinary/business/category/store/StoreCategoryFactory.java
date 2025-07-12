@@ -13,9 +13,6 @@
 */
 package org.allbinary.business.category.store;
 
-import org.allbinary.logic.io.path.AbPath;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.category.Category;
 import org.allbinary.business.category.CategoryAbstractFactory;
 import org.allbinary.business.category.CategoryFactoryInterface;
@@ -23,6 +20,8 @@ import org.allbinary.business.category.CategoryInterface;
 import org.allbinary.business.category.CategoryUtil;
 import org.allbinary.business.category.properties.CategoryPropertiesFactoryInterface;
 import org.allbinary.business.category.properties.root.store.RootStoreCategoryPropertiesFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.w3c.dom.Node;
 

@@ -13,15 +13,14 @@
 */
 package org.allbinary.business.context.modules.storefront.statistics.inventory;
 
+import java.util.HashMap;
+import java.util.Vector;
+
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.commerce.inventory.item.ItemInterface;
 import org.allbinary.business.user.commerce.money.Money;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFactory;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityInterface;
-
-import java.util.HashMap;
-
-import java.util.Vector;
 
 public class StoreFrontInventoryStatistics
    implements StoreFrontInventoryStatisticsInterface

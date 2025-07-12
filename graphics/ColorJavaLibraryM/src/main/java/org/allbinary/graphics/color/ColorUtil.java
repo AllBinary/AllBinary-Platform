@@ -13,7 +13,7 @@
  */
 package org.allbinary.graphics.color;
 
-import java.awt.Color;
+import java.awt.*;
 
 /**
  *

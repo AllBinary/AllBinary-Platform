@@ -13,9 +13,6 @@
 */
 package org.allbinary.game.paint.help;
 
-import org.allbinary.util.BasicArrayList;
-import org.allbinary.string.CommonSeps;
-import org.allbinary.logic.string.StringMaker;
 import org.allbinary.game.input.GameKey;
 import org.allbinary.game.input.GameKeyFactory;
 import org.allbinary.game.input.Input;
@@ -23,6 +20,9 @@ import org.allbinary.game.input.PlatformInputMappingFactory;
 import org.allbinary.game.input.mapping.GameInputMapping;
 import org.allbinary.game.input.mapping.PersistentInputMapping;
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonSeps;
+import org.allbinary.util.BasicArrayList;
 
 public class BasicInputMappingHelpPaintable extends HelpPaintable 
 {

@@ -13,13 +13,12 @@
 */
 package org.allbinary.globals;
 
-import org.allbinary.globals.UrlGlobalsData;
+import java.util.HashMap;
+
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-
-import java.util.HashMap;
 
 public class UrlGlobalsView implements DomNodeInterface
 {

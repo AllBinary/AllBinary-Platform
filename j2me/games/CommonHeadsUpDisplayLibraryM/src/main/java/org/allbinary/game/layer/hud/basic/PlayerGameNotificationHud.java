@@ -17,24 +17,22 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.business.advertisement.GameAdStateFactory;
 import org.allbinary.game.GameAdState;
-import org.allbinary.util.CircularIndexUtil;
-
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.game.layer.hud.event.GameNotificationEventHandler;
 import org.allbinary.game.layer.hud.basic.notification.GameNotification;
 import org.allbinary.game.layer.hud.basic.notification.GameNotificationHud;
+import org.allbinary.game.layer.hud.event.GameNotificationEventHandler;
 import org.allbinary.graphics.CustomGPoint;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFont;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.time.GameTickTimeDelayHelper;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 import org.allbinary.time.TimeDelayHelper;
+import org.allbinary.util.CircularIndexUtil;
 
 public class PlayerGameNotificationHud
 extends GameNotificationHud

@@ -14,10 +14,9 @@
 package org.allbinary.graphics.pipeline;
 
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.game.rand.MyRandomFactory;
 import org.allbinary.math.AngleFactory;
+import org.allbinary.util.BasicArrayList;
 
 public class RandomRotationFactory
 {

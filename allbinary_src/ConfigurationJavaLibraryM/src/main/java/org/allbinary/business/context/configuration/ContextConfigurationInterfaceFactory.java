@@ -13,10 +13,10 @@
 */
 package org.allbinary.business.context.configuration;
 
-import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
-import org.allbinary.logic.io.path.AbPath;
+import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.logic.control.crypt.file.CryptFileReader;
+import org.allbinary.logic.io.path.AbPath;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 

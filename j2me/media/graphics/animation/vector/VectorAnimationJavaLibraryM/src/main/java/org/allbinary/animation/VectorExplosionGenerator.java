@@ -13,12 +13,11 @@
 */
 package org.allbinary.animation;
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.pipeline.RandomRotationFactory;
 import org.allbinary.graphics.pipeline.RandomTranslation;
+import org.allbinary.util.BasicArrayList;
 
 public class VectorExplosionGenerator
 {

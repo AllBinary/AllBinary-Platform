@@ -13,9 +13,6 @@
 */
 package org.allbinary.input.motion.gesture;
 
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.Line;
 import org.allbinary.graphics.PointFactory;
@@ -25,8 +22,10 @@ import org.allbinary.input.motion.gesture.observer.BasicMotionGesturesHandler;
 import org.allbinary.input.motion.gesture.observer.MotionEventCircularPool;
 import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
 import org.allbinary.input.motion.gesture.observer.MovedMotionGesturesHandler;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.J2SEMath;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
+import org.allbinary.string.CommonStrings;
 
 public class MotionGestureRecognizer
 {

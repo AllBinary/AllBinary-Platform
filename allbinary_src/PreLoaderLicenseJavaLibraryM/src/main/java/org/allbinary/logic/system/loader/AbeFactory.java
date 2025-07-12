@@ -13,19 +13,15 @@
 */
 package org.allbinary.logic.system.loader;
 
-import org.allbinary.logic.system.loader.WebappClassLoaderInfo;
-import org.allbinary.string.CommonSeps;
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
 import java.lang.reflect.Constructor;
 
-import org.allbinary.logic.java.object.ConstructorUtil;
-
 import org.allbinary.logic.communication.log.LogUtil;
-
+import org.allbinary.logic.java.object.ConstructorUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.AbKeys;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.LicensingException;
+import org.allbinary.string.CommonSeps;
         
 public class AbeFactory
 {
@@ -108,7 +104,7 @@ public class AbeFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
-        	 StringBuffer stringBuffer = new StringBuffer();
+        	 StringMaker stringBuffer = new StringMaker();
         	 
         	 stringBuffer.append("Failure for: ");
         	 stringBuffer.append(className);
@@ -123,7 +119,7 @@ public class AbeFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
-        	 StringBuffer stringBuffer = new StringBuffer();
+        	 StringMaker stringBuffer = new StringMaker();
         	 
         	 stringBuffer.append("Failure for: ");
         	 stringBuffer.append(className);
@@ -175,7 +171,7 @@ public class AbeFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
-        	 StringBuffer stringBuffer = new StringBuffer();
+        	 StringMaker stringBuffer = new StringMaker();
         	 
         	 stringBuffer.append("Failure for: ");
         	 stringBuffer.append(className);

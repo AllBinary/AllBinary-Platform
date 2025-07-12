@@ -13,8 +13,6 @@
 */
 package bundle.input.automation;
 
-import org.osgi.framework.BundleContext;
-
 public interface InputAutomationBundleActivatorListenerInterface
 {
     //Registers InputAutomationBundle module change service

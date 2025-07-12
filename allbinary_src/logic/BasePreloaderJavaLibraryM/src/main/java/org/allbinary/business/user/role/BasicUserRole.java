@@ -14,7 +14,6 @@
 package org.allbinary.business.user.role;
 
 import java.io.Serializable;
-
 import java.util.Vector;
 
 public class BasicUserRole implements Serializable

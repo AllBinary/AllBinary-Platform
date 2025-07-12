@@ -15,7 +15,6 @@ package org.allbinary.graphics.j2me.workarea;
 
 import org.allbinary.dom.DomHelper;
 import org.allbinary.util.BasicArrayList;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;

@@ -13,7 +13,6 @@
 */
 package org.allbinary.logic.visual.theme;
 
-import org.allbinary.logic.visual.theme.ThemeData;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.w3c.dom.Document;

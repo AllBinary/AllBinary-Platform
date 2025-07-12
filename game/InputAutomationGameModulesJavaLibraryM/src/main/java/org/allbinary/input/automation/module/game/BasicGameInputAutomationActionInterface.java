@@ -13,7 +13,7 @@
 */
 package org.allbinary.input.automation.module.game;
 
-import java.awt.Rectangle;
+import java.awt.*;
 
 import org.allbinary.input.automation.module.InputAutomationActionInterface;
 

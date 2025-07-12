@@ -16,12 +16,6 @@ package views.generic.inventory;
 
 import java.util.Vector;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-import views.business.context.modules.storefront.HttpStoreComponentView;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.user.commerce.inventory.InventoryData;
 import org.allbinary.business.user.commerce.inventory.item.BasicItemView;
@@ -30,8 +24,12 @@ import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntity;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFactory;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.search.SearchData;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import views.business.context.modules.storefront.HttpStoreComponentView;
 
 public class InventoryView extends HttpStoreComponentView 
    implements DomNodeInterface

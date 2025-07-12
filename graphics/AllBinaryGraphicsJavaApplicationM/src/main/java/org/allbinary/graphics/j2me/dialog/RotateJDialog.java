@@ -13,11 +13,11 @@
 */
 package org.allbinary.graphics.j2me.dialog;
 
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.gui.dialog.HashMapJDialogListenerInterface;
 import java.util.HashMap;
+
+import org.allbinary.gui.dialog.HashMapJDialogListenerInterface;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
 
 /**
  *

@@ -13,10 +13,9 @@
 */
 package org.allbinary.input.motion.button;
 
+import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.image.opengles.OpenGLImageCacheFactory;
-
-import org.allbinary.game.configuration.feature.Features;
 
 public class TouchButtonResourceOpenGLESAnimationInterfaceFactoryInterfaceFactory 
     extends TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory

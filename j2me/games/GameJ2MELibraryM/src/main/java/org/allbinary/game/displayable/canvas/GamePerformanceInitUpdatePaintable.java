@@ -13,12 +13,13 @@
 */
 package org.allbinary.game.displayable.canvas;
 
+import javax.microedition.lcdui.Graphics;
+
 import org.allbinary.canvas.GameStatisticsFactory;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFont;
 import org.allbinary.graphics.paint.InitUpdatePaintable;
-import javax.microedition.lcdui.Graphics;
 
 public class GamePerformanceInitUpdatePaintable extends InitUpdatePaintable
 {    

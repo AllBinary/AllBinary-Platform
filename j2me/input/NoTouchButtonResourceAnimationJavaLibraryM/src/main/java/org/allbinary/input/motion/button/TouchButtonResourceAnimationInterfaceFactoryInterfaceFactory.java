@@ -13,11 +13,10 @@
 */
 package org.allbinary.input.motion.button;
 
-import org.allbinary.game.resource.ResourceLoadingLevelFactory;
-import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
-
 import org.allbinary.animation.resource.BaseResourceAnimationInterfaceFactoryInterfaceFactory;
 import org.allbinary.game.configuration.feature.Features;
+import org.allbinary.game.resource.ResourceLoadingLevelFactory;
+import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.image.ImageCache;
 import org.allbinary.image.ImageCacheFactory;
 

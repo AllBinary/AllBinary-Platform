@@ -15,13 +15,12 @@ package org.allbinary.logic.system.security.licensing;
 
 import org.allbinary.business.init.LicenseInitInfo;
 import org.allbinary.business.init.LicenseInitInfoUtil;
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.string.StringValidationUtil;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.system.os.OperatingSystemFactory;
+import org.allbinary.string.CommonStrings;
 
 // This is the information sent to the license server
 public class AbeClientInformation extends ClientInformation

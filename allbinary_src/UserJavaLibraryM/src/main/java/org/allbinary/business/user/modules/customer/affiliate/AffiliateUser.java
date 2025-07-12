@@ -13,11 +13,11 @@
 */
 package org.allbinary.business.user.modules.customer.affiliate;
 
+import java.util.HashMap;
+
 import org.allbinary.business.advertisement.affiliate.sales.AffiliateSales;
 import org.allbinary.business.user.modules.User;
 import org.allbinary.logic.communication.http.request.session.WeblisketSessionInterface;
-
-import java.util.HashMap;
 
 public class AffiliateUser extends User
 {

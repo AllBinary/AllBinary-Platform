@@ -13,23 +13,22 @@
 */
 package org.allbinary.business.category.properties;
 
-import org.allbinary.logic.io.path.AbPath;
-import org.allbinary.logic.io.path.AbPathData;
+import java.util.HashMap;
+import java.util.Vector;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.category.CategoryData;
 import org.allbinary.business.category.CategoryInterface;
 import org.allbinary.business.category.CategoryUtil;
 import org.allbinary.business.category.hierarchy.CategoryHierarchyInterface;
-
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.sql.AbSqlData;
+import org.allbinary.logic.io.path.AbPath;
+import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.util.BasicArrayList;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-
-import java.util.HashMap;
-import java.util.Vector;
-import org.allbinary.logic.string.StringValidationUtil;
-import org.allbinary.logic.communication.sql.AbSqlData;
 /*
  *Nothing more than a parent category reference to a category on the fs.
  *i.e. unloaded category.
@@ -80,8 +79,9 @@ public class CategoryProperties implements CategoryPropertiesInterface
    public AbPath getPath(CategoryHierarchyInterface categoryHierarchyInterface)
       throws Exception
    {
-      StringBuffer pathStringBuffer = 
-         new StringBuffer(AbPathData.getInstance().SEPARATOR + this.getValue());
+      final AbPathData abPathData = AbPathData.getInstance();
+      final StringMaker pathStringBuffer = new StringMaker();
+      final BasicArrayList list = new BasicArrayList();
       
       CategoryInterface nextParentCategoryInterface = 
          categoryHierarchyInterface.getParent();
@@ -102,12 +102,12 @@ public class CategoryProperties implements CategoryPropertiesInterface
             //if a root that is also not the real root bu an offset then add the path
             if(nextParentCategoryInterface.getProperties().isRoot())
             {
-               pathStringBuffer.insert(0, nextParentCategoryInterface.getPath().toString());
+               list.add(0, nextParentCategoryInterface.getPath().toString());
             }
             else
             {
-               pathStringBuffer.insert(0, AbPathData.getInstance().SEPARATOR +
-                  nextParentCategoryInterface.getProperties().getValue());
+               pathStringBuffer.delete(0, pathStringBuffer.length());
+               list.add(0, pathStringBuffer.append(abPathData.SEPARATOR).append(nextParentCategoryInterface.getProperties().getValue()).toString());
             }
 
             //at root
@@ -127,7 +127,16 @@ public class CategoryProperties implements CategoryPropertiesInterface
          }
       }
 
-      pathStringBuffer.append(AbPathData.getInstance().SEPARATOR);
+      pathStringBuffer.delete(0, pathStringBuffer.length());
+      
+      pathStringBuffer.append(abPathData.SEPARATOR).append(this.getValue());
+      
+      final int size = list.size();
+      for(int index = 0; index < size; index++) {
+          pathStringBuffer.append((String) list.get(index));
+      }
+
+      pathStringBuffer.append(abPathData.SEPARATOR);
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
       {

@@ -13,9 +13,9 @@
  */
 package org.allbinary.logic.communication.log;
 
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.string.StringMaker;
 
 public class LogUtil {
 

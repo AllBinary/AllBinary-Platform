@@ -13,13 +13,9 @@
 */
 package views.compound;
 
-import org.allbinary.logic.communication.log.LogUtil;
-
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.logic.communication.log.LogFactory;
-
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
 import views.business.context.modules.storefront.HttpStoreComponentView;
 
 public class CompoundComponentView extends HttpStoreComponentView 

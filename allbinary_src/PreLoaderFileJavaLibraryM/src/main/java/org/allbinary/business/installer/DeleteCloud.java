@@ -14,13 +14,13 @@
 package org.allbinary.business.installer;
 
 import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.communication.http.file.upload.FileUploadData;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.AbFileSystem;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.directory.Directory;
 import org.allbinary.logic.io.path.AbPath;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.communication.http.file.upload.FileUploadData;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
 
 public class DeleteCloud
@@ -38,7 +38,7 @@ public class DeleteCloud
         {
             if (AbFileSystem.getInstance().isType("com.vobject.appengine.java.io"))
             {
-                StringBuffer stringBuffer = new StringBuffer();
+                StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append(URLGLOBALS.getWebappPath());
                 stringBuffer.append(prePath);

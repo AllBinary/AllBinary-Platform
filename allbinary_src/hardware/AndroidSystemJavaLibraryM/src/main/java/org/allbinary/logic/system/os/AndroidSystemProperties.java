@@ -13,12 +13,11 @@
 */
 package org.allbinary.logic.system.os;
 
-import org.allbinary.data.resource.ResourceUtil;
 import android.content.Context;
 import android.os.Build;
-//import android.provider.Settings;
-import org.allbinary.string.CommonStrings;
+import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.logic.string.StringUtil;
+import org.allbinary.string.CommonStrings;
 
 /**
  *

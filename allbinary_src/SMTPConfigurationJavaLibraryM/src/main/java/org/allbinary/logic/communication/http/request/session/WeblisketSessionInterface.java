@@ -13,7 +13,6 @@
 */
 package org.allbinary.logic.communication.http.request.session;
 
-import org.allbinary.business.user.commerce.inventory.basket.BasketInterface;
 import org.allbinary.business.user.commerce.inventory.order.OrderInterface;
 import org.allbinary.business.user.role.UserRole;
 

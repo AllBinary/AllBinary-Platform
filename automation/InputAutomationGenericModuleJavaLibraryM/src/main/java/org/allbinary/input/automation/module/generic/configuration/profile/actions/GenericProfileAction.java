@@ -15,17 +15,14 @@ package org.allbinary.input.automation.module.generic.configuration.profile.acti
 
 import java.util.HashMap;
 
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.input.automation.module.generic.configuration.profile.actions.script.GenericProfileActionScript;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 public class GenericProfileAction
     implements DomNodeInterface

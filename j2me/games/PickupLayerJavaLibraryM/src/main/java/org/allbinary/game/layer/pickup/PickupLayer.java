@@ -16,19 +16,16 @@ package org.allbinary.game.layer.pickup;
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.game.layer.pickup.PickedUpLayerInterface;
-import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
-import org.allbinary.game.layer.pickup.PickupableInterface;
-import org.allbinary.game.multiplayer.layer.MultiPlayerGameLayer;
-import org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
 import org.allbinary.animation.Animation;
 import org.allbinary.game.collision.CollidableAlwaysPickupNeverCollideBehaviorFactory;
 import org.allbinary.game.combat.destroy.DestroyedLayerProcessor;
 import org.allbinary.game.identification.BasicGroupFactory;
+import org.allbinary.game.multiplayer.layer.MultiPlayerGameLayer;
+import org.allbinary.game.multiplayer.layer.RemoteInfo;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;
+import org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
 import org.allbinary.view.ViewPosition;
-import org.allbinary.game.multiplayer.layer.RemoteInfo;
 
 public class PickupLayer 
    extends MultiPlayerGameLayer

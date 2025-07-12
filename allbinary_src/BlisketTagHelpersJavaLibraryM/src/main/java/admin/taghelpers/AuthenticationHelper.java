@@ -13,35 +13,27 @@
 */
 package admin.taghelpers;
 
-import javax.servlet.jsp.PageContext;
-
-import javax.servlet.jsp.tagext.TagSupport;
-
-import org.allbinary.business.user.role.BasicUserRole;
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-
-import org.allbinary.logic.java.bool.BooleanFactory;
-import org.allbinary.logic.java.bool.BooleanUtil;
-
-import org.allbinary.business.user.UserInterface;
-
-import org.allbinary.business.user.role.UserRole;
-
-import org.allbinary.data.tables.user.UserEntityFactory;
-import org.allbinary.data.tables.user.UserEntityInterface;
-
-import org.allbinary.logic.communication.http.request.session.WeblisketSession;
-
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.business.user.role.UserRoleFactory;
 import java.util.Calendar;
 import java.util.HashMap;
-
 import java.util.Vector;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
+import javax.servlet.jsp.tagext.TagSupport;
+
+import org.allbinary.business.user.UserInterface;
+import org.allbinary.business.user.role.BasicUserRole;
+import org.allbinary.business.user.role.UserRole;
+import org.allbinary.business.user.role.UserRoleFactory;
+import org.allbinary.data.tables.user.UserEntityFactory;
+import org.allbinary.data.tables.user.UserEntityInterface;
 import org.allbinary.globals.GLOBALS2;
-import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.http.request.session.WeblisketSession;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.java.bool.BooleanFactory;
+import org.allbinary.logic.java.bool.BooleanUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 
 public class AuthenticationHelper
     extends TagHelper
@@ -120,7 +112,7 @@ public class AuthenticationHelper
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATION))
                 {
-                    StringBuffer stringBuffer = new StringBuffer();
+                    StringMaker stringBuffer = new StringMaker();
 
                     stringBuffer.append("Session Is Old - Timeout: ");
                     stringBuffer.append(sessionTimout);
@@ -161,7 +153,7 @@ public class AuthenticationHelper
           //Temp log - remove when fixed
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATION))
             {
-                StringBuffer stringBuffer = new StringBuffer();
+                StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append("Session Is Rarely Used - Timeout: ");
                 stringBuffer.append(lastAccess);
@@ -178,7 +170,7 @@ public class AuthenticationHelper
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATION))
                 {
-                    StringBuffer stringBuffer = new StringBuffer();
+                    StringMaker stringBuffer = new StringMaker();
 
                     stringBuffer.append("Session Is Rarely Used - Timeout: ");
                     stringBuffer.append(lastAccess);
@@ -208,7 +200,7 @@ public class AuthenticationHelper
     {
         try
         {
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
             //role verified
             //remove username and password from future request
             //pageContext.getOut().print("Removing POST UserName and Password");
@@ -233,7 +225,7 @@ public class AuthenticationHelper
         {
             this.weblisketSession.setAuthenticated(false);
 
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
             stringBuffer.append("Sorry your username and password is invalid on this page. ");
             stringBuffer.append("Trying New login<p/>");
             return stringBuffer.toString();
@@ -419,7 +411,7 @@ public class AuthenticationHelper
         {
             Calendar calendar = Calendar.getInstance();
             long timeCreated = this.weblisketSession.getCreationTime();
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
 
             long lastAccess = this.weblisketSession.getLastAccessedTime();
             stringBuffer.append("Time Since Last Access: " + (calendar.getTimeInMillis() - lastAccess) + "<br/>\n");

@@ -13,10 +13,10 @@
 */
 package org.allbinary.business.user.modules.admin.store.order.ship;
 
+import java.util.HashMap;
+
 import org.allbinary.business.user.modules.User;
 import org.allbinary.logic.communication.http.request.session.WeblisketSessionInterface;
-
-import java.util.HashMap;
 
 public class ShipOrderStoreAdminUser extends User
 {

@@ -13,11 +13,13 @@
 */
 package org.allbinary.input.automation.osgi;
 
-import bundle.input.automation.InputAutomationBundleActivator;
-import javax.swing.JDialog;
-import org.allbinary.gui.dialog.BasicTextJDialog;
+import javax.swing.*;
+
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
+
+import bundle.input.automation.InputAutomationBundleActivator;
+import org.allbinary.gui.dialog.BasicTextJDialog;
 
 public class DesktopBundle
 {

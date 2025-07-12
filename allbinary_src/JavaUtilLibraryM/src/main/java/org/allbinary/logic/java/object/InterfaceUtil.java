@@ -13,6 +13,8 @@
 */
 package org.allbinary.logic.java.object;
 
+import org.allbinary.logic.string.StringMaker;
+
 public class InterfaceUtil
 {
    private InterfaceUtil()
@@ -21,7 +23,7 @@ public class InterfaceUtil
 
    public static String viewAll(final Class myClass, final String lineBreak)
    {
-      final StringBuffer stringBuffer = new StringBuffer();
+      final StringMaker stringBuffer = new StringMaker();
 
       final Class[] interfaces = myClass.getInterfaces();
 
@@ -82,7 +84,7 @@ public class InterfaceUtil
 
    public static String isImplementedView(Class clazz, Object object)
    {
-      StringBuffer stringBuffer = new StringBuffer();
+      StringMaker stringBuffer = new StringMaker();
 
       Class classes[] = object.getClass().getInterfaces();
 

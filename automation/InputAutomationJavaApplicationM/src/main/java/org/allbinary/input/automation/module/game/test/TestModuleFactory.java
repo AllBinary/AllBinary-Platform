@@ -13,12 +13,11 @@
 */
 package org.allbinary.input.automation.module.game.test;
 
-import org.allbinary.input.automation.module.AbstractInputAutomationFactory;
-import javax.swing.JPanel;
-import org.allbinary.input.automation.module.configuration.BlankModuleConfigurationJPanel;
-import org.allbinary.input.automation.module.InputAutomationModuleData;
-import org.allbinary.input.automation.module.InputAutomationModuleFactoryInterface;
+import javax.swing.*;
 
+import org.allbinary.input.automation.module.AbstractInputAutomationFactory;
+import org.allbinary.input.automation.module.InputAutomationModuleData;
+import org.allbinary.input.automation.module.configuration.BlankModuleConfigurationJPanel;
 import org.allbinary.thread.RunnableInterface;
 
 public class TestModuleFactory

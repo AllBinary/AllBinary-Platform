@@ -18,16 +18,14 @@ import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.List;
 
+import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.input.automation.module.InputAutomationModuleData;
+import org.allbinary.input.automation.module.NewInputAutomationModulesData;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
-import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.input.automation.module.InputAutomationModuleData;
-import org.allbinary.input.automation.module.NewInputAutomationModulesData;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class InputAutomationModuleConfigurations
 {

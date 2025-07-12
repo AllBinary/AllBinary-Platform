@@ -13,9 +13,9 @@
 */
 package org.allbinary.media.image.comparison;
 
-import java.awt.Color;
-import java.awt.Rectangle;
+import java.awt.*;
 import java.awt.image.BufferedImage;
+
 import org.allbinary.graphics.GPoint;
 
 public interface ImageComparatorConstraintsInterface

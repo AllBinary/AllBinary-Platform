@@ -15,9 +15,8 @@ package org.allbinary.business.installer;
 
 import java.lang.reflect.Method;
 
-import org.allbinary.logic.system.security.licensing.LicensingException;
-
 import org.allbinary.business.init.db.DbConnectionInfo;
+import org.allbinary.logic.system.security.licensing.LicensingException;
 
 //Warning you must have sql root access
 public class InitDb

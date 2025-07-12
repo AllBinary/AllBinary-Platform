@@ -15,18 +15,16 @@ package org.allbinary.logic.communication.sql;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
-
 import java.util.HashMap;
-
 import java.util.Set;
 import java.util.Vector;
 
 import org.allbinary.business.init.db.DbConnectionInfo;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.string.regex.replace.Replace;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.string.StringUtil;
 
 public class AbSqlRow extends AbSqlColumn
 {
@@ -71,7 +69,7 @@ public class AbSqlRow extends AbSqlColumn
 
     public synchronized void updateWhere(final String key, final String value, final HashMap updatedKeyValuePairs)
     {
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.sqlStrings.UPDATE);
         stringBuffer.append(this.getTableName());
@@ -131,7 +129,7 @@ public class AbSqlRow extends AbSqlColumn
 
     public synchronized void updateWhere(final HashMap whereKeyValuePairs, final HashMap updatedKeyValuePairs) throws Exception
     {
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.sqlStrings.UPDATE);
         stringBuffer.append(this.getTableName());
@@ -215,7 +213,7 @@ public class AbSqlRow extends AbSqlColumn
 
     public synchronized void deleteWhere(final String key, final String value)
     {
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.sqlStrings.DELETE);
         stringBuffer.append(this.sqlStrings.FROM);
@@ -246,7 +244,7 @@ public class AbSqlRow extends AbSqlColumn
 
     public synchronized void deleteWhere(final HashMap keysAndValues)
     {
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.sqlStrings.DELETE);
         stringBuffer.append(this.sqlStrings.FROM);
@@ -292,7 +290,7 @@ public class AbSqlRow extends AbSqlColumn
 
     public void insert(final Vector values)
     {
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.sqlStrings.INSERT_INTO);
         stringBuffer.append(this.getTableName());
@@ -333,7 +331,7 @@ public class AbSqlRow extends AbSqlColumn
     
     public HashMap getRow(final HashMap keysAndValues)
     {
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.sqlStrings.SELECT_ALL_FROM);
         stringBuffer.append(this.getTableName());
@@ -414,7 +412,7 @@ public class AbSqlRow extends AbSqlColumn
     
     public Vector getRows(final HashMap keysAndValues, final String more)
     {
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.sqlStrings.SELECT_ALL_FROM);
         stringBuffer.append(this.getTableName());
@@ -488,7 +486,7 @@ public class AbSqlRow extends AbSqlColumn
 
     public Vector getAllRows()
     {
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.sqlStrings.SELECT_ALL_FROM);
         stringBuffer.append(this.getTableName());
@@ -538,7 +536,7 @@ public class AbSqlRow extends AbSqlColumn
     /*
     public Vector getRowsWhereLike(HashMap keysAndValues, HashMap likeKeysAndValues)
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append(this.sqlStrings.SELECT_ALL);
         stringBuffer.append(sqlStrings.FROM);
@@ -631,7 +629,7 @@ public class AbSqlRow extends AbSqlColumn
     public Vector getRowsWhereBetween(final HashMap whereKeyValuePairs,
         final String betweenColumn, final String smallest, final String largest)
     {
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.sqlStrings.SELECT_ALL_FROM);
         stringBuffer.append(this.getTableName());
@@ -716,7 +714,7 @@ public class AbSqlRow extends AbSqlColumn
 
     public Vector getRowsWhereBetween(final String betweenColumn, final String smallest, final String largest)
     {
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.sqlStrings.SELECT_ALL_FROM);
         stringBuffer.append(this.getTableName());

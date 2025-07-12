@@ -15,9 +15,6 @@ package org.allbinary.game.ai;
 
 import javax.microedition.lcdui.Canvas;
 
-import org.allbinary.util.BasicArrayList;
-import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.ai.ArtificialIntelligenceInterface;
 import org.allbinary.direction.Direction;
 import org.allbinary.direction.DirectionFactory;
@@ -34,7 +31,9 @@ import org.allbinary.game.tracking.TrackingEventHandler;
 import org.allbinary.game.tracking.TrackingEventListenerInterface;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.math.MathUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
@@ -42,6 +41,7 @@ import org.allbinary.logic.util.visitor.Visitor;
 import org.allbinary.time.GameTickTimeDelayHelper;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 import org.allbinary.time.TimeDelayHelper;
+import org.allbinary.util.BasicArrayList;
 
 public class DiveAndDirectionalTrackingAI extends BasicAI implements
         TrackingEventListenerInterface, DestroyedEventListenerInterface

@@ -13,17 +13,13 @@
 */
 package org.allbinary.data.tables.user.commerce.money.payment.gateway;
 
-import org.allbinary.data.generator.PaymentGatewayIdGenerator;
 import java.util.Calendar;
 import java.util.HashMap;
-
 import java.util.Vector;
 
-import org.allbinary.business.init.db.UserDbInitInfo;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.entry.EntryData;
+import org.allbinary.business.init.db.UserDbInitInfo;
 import org.allbinary.business.user.UserData;
 import org.allbinary.business.user.commerce.money.payment.PaymentData;
 import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayData;
@@ -32,8 +28,11 @@ import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGateway
 import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayInterfaceFactory;
 import org.allbinary.business.user.commerce.money.payment.types.BasicPaymentType;
 import org.allbinary.business.user.commerce.money.payment.types.BasicPaymentTypeUtil;
+import org.allbinary.data.generator.PaymentGatewayIdGenerator;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 import org.allbinary.logic.control.crypt.SuperCrypt;
+import org.allbinary.logic.string.StringMaker;
 
 public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEntityInterface
 {
@@ -313,14 +312,14 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
 
     public final String createTableStatement()
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.sqlStrings.CREATE_TABLE);
 
         stringBuffer.append(tableName);
         stringBuffer.append(this.sqlStrings.START);
 
-        stringBuffer.append(PaymentGatewayData.ID);
+        stringBuffer.append(PaymentGatewayData.ID.toString());
         stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_AUTO_INCREMENT_NOT_NULL);
 
         stringBuffer.append(EntryData.getInstance().ENABLE);
@@ -329,38 +328,38 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
         stringBuffer.append(StoreFrontData.getInstance().NAME);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(PaymentGatewayData.NAME);
+        stringBuffer.append(PaymentGatewayData.NAME.toString());
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(PaymentData.METHOD);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(PaymentGatewayData.MODE);
+        stringBuffer.append(PaymentGatewayData.MODE.toString());
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
         //testing or live
 
-        stringBuffer.append(PaymentGatewayData.TESTPROTOCOL);
+        stringBuffer.append(PaymentGatewayData.TESTPROTOCOL.toString());
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(PaymentGatewayData.TESTSERVER);
+        stringBuffer.append(PaymentGatewayData.TESTSERVER.toString());
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(PaymentGatewayData.TESTPORT);
+        stringBuffer.append(PaymentGatewayData.TESTPORT.toString());
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(PaymentGatewayData.TESTPATH);
+        stringBuffer.append(PaymentGatewayData.TESTPATH.toString());
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(PaymentGatewayData.SERVERPROTOCOL);
+        stringBuffer.append(PaymentGatewayData.SERVERPROTOCOL.toString());
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(PaymentGatewayData.SERVER);
+        stringBuffer.append(PaymentGatewayData.SERVER.toString());
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(PaymentGatewayData.SERVERPORT);
+        stringBuffer.append(PaymentGatewayData.SERVERPORT.toString());
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(PaymentGatewayData.SERVERPATH);
+        stringBuffer.append(PaymentGatewayData.SERVERPATH.toString());
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(UserData.USERNAME);
@@ -369,55 +368,55 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
         stringBuffer.append(UserData.PASSWORD);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(PaymentGatewayData.TIMEOUT);
+        stringBuffer.append(PaymentGatewayData.TIMEOUT.toString());
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(PaymentGatewayData.PROXYPROTOCOL);
+        stringBuffer.append(PaymentGatewayData.PROXYPROTOCOL.toString());
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(PaymentGatewayData.PROXYSERVER);
+        stringBuffer.append(PaymentGatewayData.PROXYSERVER.toString());
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(PaymentGatewayData.PROXYPORT);
+        stringBuffer.append(PaymentGatewayData.PROXYPORT.toString());
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(PaymentGatewayData.PROXYPATH);
+        stringBuffer.append(PaymentGatewayData.PROXYPATH.toString());
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(PaymentGatewayData.PROXYUSERNAME);
+        stringBuffer.append(PaymentGatewayData.PROXYUSERNAME.toString());
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(PaymentGatewayData.PROXYPASSWORD);
+        stringBuffer.append(PaymentGatewayData.PROXYPASSWORD.toString());
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(PaymentGatewayData.PROXYTIMEOUT);
+        stringBuffer.append(PaymentGatewayData.PROXYTIMEOUT.toString());
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(PaymentGatewayData.SPECIAL1);
+        stringBuffer.append(PaymentGatewayData.SPECIAL1.toString());
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(PaymentGatewayData.SPECIAL2);
+        stringBuffer.append(PaymentGatewayData.SPECIAL2.toString());
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(PaymentGatewayData.SPECIAL3);
+        stringBuffer.append(PaymentGatewayData.SPECIAL3.toString());
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(PaymentGatewayData.SPECIAL4);
+        stringBuffer.append(PaymentGatewayData.SPECIAL4.toString());
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(PaymentGatewayData.SPECIAL5);
+        stringBuffer.append(PaymentGatewayData.SPECIAL5.toString());
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(PaymentGatewayData.SPECIAL6);
+        stringBuffer.append(PaymentGatewayData.SPECIAL6.toString());
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(PaymentGatewayData.SPECIAL7);
+        stringBuffer.append(PaymentGatewayData.SPECIAL7.toString());
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(PaymentGatewayData.SPECIAL8);
+        stringBuffer.append(PaymentGatewayData.SPECIAL8.toString());
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
-        stringBuffer.append(PaymentGatewayData.SPECIAL9);
+        stringBuffer.append(PaymentGatewayData.SPECIAL9.toString());
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(EntryData.getInstance().LASTMODIFIED);
@@ -427,7 +426,7 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
         stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
         stringBuffer.append(this.sqlStrings.PRIMARY_KEY);
-        stringBuffer.append(PaymentGatewayData.ID);
+        stringBuffer.append(PaymentGatewayData.ID.toString());
         stringBuffer.append(this.sqlStrings.END);
 
         return stringBuffer.toString();

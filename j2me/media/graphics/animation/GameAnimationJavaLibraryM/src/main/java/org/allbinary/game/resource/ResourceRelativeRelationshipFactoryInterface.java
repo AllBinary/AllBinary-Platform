@@ -13,10 +13,9 @@
 */
 package org.allbinary.game.resource;
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.game.configuration.feature.GameFeatureControlledInterface;
 import org.allbinary.graphics.RelativeRelationship;
+import org.allbinary.util.BasicArrayList;
 
 /**
  *

@@ -14,8 +14,8 @@
 package org.allbinary.image;
 
 import javax.microedition.lcdui.Image;
-import org.allbinary.animation.image.AnimationFactoryInitializationVisitor;
 
+import org.allbinary.animation.image.AnimationFactoryInitializationVisitor;
 import org.allbinary.animation.image.BaseImageAnimationFactory;
 import org.allbinary.media.ScaleProperties;
 import org.allbinary.media.image.ImageJ2MEScaleUtil;

@@ -13,10 +13,11 @@
  */
 package org.allbinary.content;
 
+import javax.microedition.lcdui.Command;
+
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Context;
-import javax.microedition.lcdui.Command;
 
 /**
  *

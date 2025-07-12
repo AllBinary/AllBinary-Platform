@@ -13,6 +13,8 @@
 */
 package org.allbinary.business.installer;
 
+import org.allbinary.logic.string.StringMaker;
+
 public class InitializerData {
 
 	private static final InitializerData instance = new InitializerData();
@@ -65,7 +67,7 @@ public class InitializerData {
 
     public String getJdbcDriverSolutionInfo()
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("The following describes the possible problems and solutions regarding the Jdbc Driver error(s):<p/>");
         stringBuffer.append("1. A JDBC driver you specified is not in your classpath.<br/>");

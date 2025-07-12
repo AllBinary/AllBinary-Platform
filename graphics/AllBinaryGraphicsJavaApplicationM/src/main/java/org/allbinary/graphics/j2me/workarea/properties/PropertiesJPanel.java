@@ -13,10 +13,7 @@
 */
 package org.allbinary.graphics.j2me.workarea.properties;
 
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
-import org.allbinary.graphics.j2me.workarea.WorkAreaJPanelInterface;
+import javax.swing.*;
 
 public class PropertiesJPanel extends javax.swing.JPanel
 {   

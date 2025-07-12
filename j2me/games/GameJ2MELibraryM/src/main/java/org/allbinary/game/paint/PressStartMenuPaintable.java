@@ -15,13 +15,13 @@ package org.allbinary.game.paint;
 
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.logic.string.StringUtil;
 import org.allbinary.AppletUtil;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFont;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.input.motion.button.TouchScreenFactory;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.time.TimeDelayHelper;
 
 /**

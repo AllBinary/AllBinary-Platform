@@ -13,7 +13,6 @@
 */
 package org.allbinary.logic.communication.smtp.info;
 
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 

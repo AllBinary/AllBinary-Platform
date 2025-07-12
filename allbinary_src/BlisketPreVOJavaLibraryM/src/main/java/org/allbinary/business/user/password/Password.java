@@ -13,16 +13,15 @@
 */
 package org.allbinary.business.user.password;
 
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.business.user.UserData;
-import org.allbinary.logic.control.crypt.SuperCrypt;
-
 import java.util.HashMap;
 import java.util.Random;
 import java.util.Vector;
+
 import org.allbinary.business.entry.EntryData;
+import org.allbinary.business.user.UserData;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.control.crypt.SuperCrypt;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.string.CommonStrings;
 

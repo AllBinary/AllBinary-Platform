@@ -12,6 +12,8 @@
 * 
 */
 package org.allbinary.logic.communication.sql;
+import org.allbinary.logic.string.StringMaker;
+
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -132,7 +134,7 @@ public class AbSqlTableUtil
             Long timeLong = new Long(calendar.getTimeInMillis());
             String time = timeLong.toString();
 
-            final StringBuffer stringBuffer = new StringBuffer();
+            final StringMaker stringBuffer = new StringMaker();
 
             String fileName = tableName + EXTENSION;
 
@@ -175,7 +177,7 @@ public class AbSqlTableUtil
     private String convertNewLines(String value)
     {
         //Replace replace = new Replace("\n","\\n");
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         int index = 0;
         int lastIndex = 0;
@@ -233,7 +235,7 @@ public class AbSqlTableUtil
 
             final String QUERY_START = new StringBuilder().append(this.sqlStrings.INSERT_INTO).append(tableName).append(this.sqlStrings.VALUES).toString();
 
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
 
             //createFile(path, tableName, returnBuffer.toString());
             OutputStream outputStream = this.getOutputStream(path, tableName);
@@ -319,7 +321,7 @@ public class AbSqlTableUtil
                 end = size;
             }
 
-            final StringBuffer stringBuffer = new StringBuffer();
+            final StringMaker stringBuffer = new StringMaker();
             
             stringBuffer.append(TOTAL_LABEL);
             stringBuffer.append(size);
@@ -359,7 +361,7 @@ public class AbSqlTableUtil
                 logUtil.put("Restore Table Failed\nSQL Statement", this, this.METHOD_RESTORE_TABLE, e);
             }
 
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append(TABLE_LABEL);
             stringBuffer.append(tableName);

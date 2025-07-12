@@ -13,13 +13,12 @@
 */
 package org.allbinary.logic.io;
 
-import org.allbinary.logic.io.file.FileUtil;
-import org.allbinary.logic.communication.log.LogFactory;
 import java.io.DataOutputStream;
 import java.io.FileOutputStream;
-import org.allbinary.string.CommonStrings;
 
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.io.file.FileUtil;
+import org.allbinary.string.CommonStrings;
 
 public class SmallInsert
 {

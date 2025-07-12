@@ -14,22 +14,14 @@
 package views.business.context.modules.storefront.customizer.template;
 
 import java.util.HashMap;
-
 import java.util.Vector;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-import views.business.context.modules.storefront.HttpStoreComponentView;
-import views.business.context.modules.storefront.customizer.template.objectConfig.InsertTemplateCustomizerTransformInfoObjectConfig;
-import views.business.context.modules.storefront.customizer.template.objectConfig.NoTemplateTransformInfoObjectConfig;
-import org.allbinary.string.CommonSeps;
-import org.allbinary.logic.string.StringValidationUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tables.transform.info.TransformInfoEntityBuilder;
 import org.allbinary.logic.communication.http.request.RequestParams;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.visual.transform.TransformFactory;
 import org.allbinary.logic.visual.transform.TransformInterface;
 import org.allbinary.logic.visual.transform.info.GeneratorTransformInfoData;
@@ -37,6 +29,12 @@ import org.allbinary.logic.visual.transform.info.TransformInfo;
 import org.allbinary.logic.visual.transform.info.TransformInfoData;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfosData;
+import org.allbinary.string.CommonSeps;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import views.business.context.modules.storefront.HttpStoreComponentView;
+import views.business.context.modules.storefront.customizer.template.objectConfig.InsertTemplateCustomizerTransformInfoObjectConfig;
+import views.business.context.modules.storefront.customizer.template.objectConfig.NoTemplateTransformInfoObjectConfig;
 
 //Sets Template Type
 public class InsertCustomizerValidationView extends HttpStoreComponentView
@@ -95,7 +93,7 @@ public class InsertCustomizerValidationView extends HttpStoreComponentView
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
-                    StringBuffer stringBuffer = new StringBuffer();
+                    StringMaker stringBuffer = new StringMaker();
 
                     stringBuffer.append("Pointing ");
                     stringBuffer.append(componentVector.size());
@@ -134,7 +132,9 @@ public class InsertCustomizerValidationView extends HttpStoreComponentView
                     String viewNamePostfix =
                         this.viewName.substring(endIndex, this.viewName.length());
 
-                    StringBuffer newViewNameStringBuffer = new StringBuffer(storePrepend);
+                    StringMaker newViewNameStringBuffer = new StringMaker();
+                    
+                    newViewNameStringBuffer.append(storePrepend);
 
                     CommonSeps commonSeps = CommonSeps.getInstance();
 
@@ -166,7 +166,7 @@ public class InsertCustomizerValidationView extends HttpStoreComponentView
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                         org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                     {
-                        StringBuffer stringBuffer = new StringBuffer();
+                        StringMaker stringBuffer = new StringMaker();
 
                         stringBuffer.append("Template Component: ");
                         stringBuffer.append(transformInfoName);
@@ -181,7 +181,7 @@ public class InsertCustomizerValidationView extends HttpStoreComponentView
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                         org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                     {
-                        StringBuffer stringBuffer = new StringBuffer();
+                        StringMaker stringBuffer = new StringMaker();
 
                         stringBuffer.append("Template Component: ");
                         stringBuffer.append(transformInfoName);
@@ -214,7 +214,7 @@ public class InsertCustomizerValidationView extends HttpStoreComponentView
     {
         try
         {
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append("Error: Template Name Is Empty.");
 

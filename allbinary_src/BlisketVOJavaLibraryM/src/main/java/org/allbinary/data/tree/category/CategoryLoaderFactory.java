@@ -13,9 +13,8 @@
 */
 package org.allbinary.data.tree.category;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.category.CategoryFactoryInterface;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 
 public class CategoryLoaderFactory

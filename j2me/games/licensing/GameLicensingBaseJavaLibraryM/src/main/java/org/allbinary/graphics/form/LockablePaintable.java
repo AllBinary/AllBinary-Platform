@@ -13,13 +13,12 @@
 */
 package org.allbinary.graphics.form;
 
-import org.allbinary.graphics.form.ItemPaintable;
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.logic.system.security.licensing.LockedResources;
-import org.allbinary.logic.system.security.licensing.LockedUtil;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
+import org.allbinary.logic.system.security.licensing.LockedResources;
+import org.allbinary.logic.system.security.licensing.LockedUtil;
 
 public class LockablePaintable
     extends ItemPaintable

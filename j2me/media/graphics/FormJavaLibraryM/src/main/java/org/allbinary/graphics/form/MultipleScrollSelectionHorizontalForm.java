@@ -2,16 +2,14 @@ package org.allbinary.graphics.form;
 
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.graphics.form.item.CustomItem;
-import org.allbinary.graphics.form.item.CustomItemInterface;
-
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.J2MEUtil;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.font.MyFont;
+import org.allbinary.graphics.form.item.CustomItem;
+import org.allbinary.graphics.form.item.CustomItemInterface;
+import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.StringMaker;
 
 /**

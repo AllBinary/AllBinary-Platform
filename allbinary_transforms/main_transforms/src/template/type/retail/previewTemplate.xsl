@@ -15,14 +15,9 @@ Created By: Travis Berthelot
 
 <xsl:stylesheet version="1.0" 
    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-   xmlns:jsp="http://java.sun.com/JSP/Page" 
-   xmlns:jutil="/WEB-INF/jutil.tld"
-   xmlns:admin="/WEB-INF/admin.tld"   
-   xmlns:ecommerce="/WEB-INF/ecommerce.tld"   
-   xmlns:generic="/WEB-INF/generic.tld"
-   xmlns:payment="/WEB-INF/payment.tld"
-   xmlns:transform="/WEB-INF/transform.tld"
-   xmlns:transformInfoObjectConfig="/WEB-INF/transformInfoObjectConfig.tld" >
+   xmlns:jsp="http://java.sun.com/JSP/Page"
+                xmlns:transform="/WEB-INF/transform.tld"
+>
 
    <xsl:import href="/template/generic/javascript/imports/globals/javascriptGlobals.xsl" />
 
@@ -51,16 +46,10 @@ Created By: Travis Berthelot
 ]]>
 </xsl:text>
 
-<jsp:root 
-   xmlns:jsp="http://java.sun.com/JSP/Page" 
-   xmlns:jutil="/WEB-INF/jutil.tld"
-   xmlns:admin="/WEB-INF/admin.tld"   
-   xmlns:ecommerce="/WEB-INF/ecommerce.tld"   
-   xmlns:generic="/WEB-INF/generic.tld"
-   xmlns:payment="/WEB-INF/payment.tld"
-   xmlns:transform="/WEB-INF/transform.tld"
-   xmlns:transformInfoObjectConfig="/WEB-INF/transformInfoObjectConfig.tld"
-   version="1.2">
+             <jsp:root
+                     xmlns:jsp="http://java.sun.com/JSP/Page"
+                     xmlns:transform="/WEB-INF/transform.tld"
+                     version="1.2">
 
 <xsl:call-template name="jspDirectiveIncludeInclude" >
    <xsl:with-param name="fileName" >

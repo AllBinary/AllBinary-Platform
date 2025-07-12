@@ -16,8 +16,6 @@ package org.allbinary.input.automation.module.generic;
 
 import java.util.Vector;
 
-
-
 import org.allbinary.input.automation.module.generic.configuration.profile.GenericProfile;
 import org.allbinary.input.automation.module.generic.configuration.profile.GenericProfileDataWorkerType;
 import org.allbinary.input.automation.module.generic.configuration.profile.SavedCaptureGenericProfileDataWorkerType;

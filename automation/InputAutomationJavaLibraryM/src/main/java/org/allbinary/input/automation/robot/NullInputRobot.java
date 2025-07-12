@@ -13,17 +13,14 @@
 */
 package org.allbinary.input.automation.robot;
 
-import java.awt.Color;
-import java.awt.Point;
-import java.awt.Rectangle;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
-import org.allbinary.logic.communication.log.LogUtil;
+import javax.help.HelpSet;
 
 import org.allbinary.input.automation.AbstractInputRobot;
-import javax.help.HelpSet;
 import org.allbinary.input.automation.PointFactory;
-import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class NullInputRobot extends AbstractInputRobot
    implements InputRobotInterface

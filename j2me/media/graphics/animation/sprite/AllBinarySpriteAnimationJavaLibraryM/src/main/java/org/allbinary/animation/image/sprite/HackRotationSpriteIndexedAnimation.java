@@ -16,8 +16,8 @@ package org.allbinary.animation.image.sprite;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.game.Sprite;
-import org.allbinary.animation.AnimationBehavior;
 
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.RotationAnimation;
 import org.allbinary.logic.math.PrimitiveIntUtil;
 import org.allbinary.math.AngleInfo;

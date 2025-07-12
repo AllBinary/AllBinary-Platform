@@ -13,20 +13,15 @@
 */
 package org.allbinary.logic.communication.http.request;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import javax.servlet.ServletException;
-
 import javax.servlet.RequestDispatcher;
-
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.JspTagException;
+import javax.servlet.jsp.PageContext;
 
-
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 

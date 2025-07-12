@@ -13,7 +13,6 @@
 */
 package tags;
 
-import org.allbinary.logic.communication.log.LogFactory;
 import java.util.HashMap;
 
 import org.allbinary.logic.communication.log.LogUtil;

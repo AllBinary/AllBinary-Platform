@@ -15,23 +15,14 @@ package tags.transform.info;
 
 import javax.servlet.jsp.JspTagException;
 
-import org.allbinary.logic.io.OutputTypeData;
-
-import org.allbinary.logic.communication.http.request.AbResponseHandler;
-import org.allbinary.logic.communication.log.LogFactory;
-
-
 import admin.taghelpers.TagHelperFactoryInterface;
-
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
-
-import org.allbinary.logic.visual.transform.info.TransformInfoData;
-
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.log.LogUtil;
-
-import tags.ModifyTag;
-
+import org.allbinary.logic.io.OutputTypeData;
+import org.allbinary.logic.visual.transform.info.TransformInfoData;
 import taghelpers.transform.info.TransformInfoRequestHelperFactory;
+import tags.ModifyTag;
 
 public class TransformInfoTag extends ModifyTag
 {

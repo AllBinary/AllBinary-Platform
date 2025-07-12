@@ -16,11 +16,6 @@ package org.allbinary.game.displayable.canvas;
 import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Command;
 
-import org.allbinary.util.BasicArrayList;
-
-import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.InputFeatureFactory;
@@ -36,10 +31,13 @@ import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.input.motion.gesture.MotionGestureInput;
 import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
 import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.audio.PrimaryPlayerQueueFactory;
 import org.allbinary.media.audio.SelectSound;
 import org.allbinary.thread.PrimaryThreadPool;
 import org.allbinary.time.TimeDelayHelper;
+import org.allbinary.util.BasicArrayList;
 
 //In general allow scrolling of the menu and selection the center item
 public class CommandFormInputProcessor extends BasicMenuInputProcessor

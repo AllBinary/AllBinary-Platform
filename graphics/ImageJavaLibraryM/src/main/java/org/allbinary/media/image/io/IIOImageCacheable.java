@@ -17,6 +17,7 @@ import java.awt.image.BufferedImage;
 
 import javax.imageio.IIOImage;
 
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.cache.CacheableInterface;
 
 public class IIOImageCacheable
@@ -53,7 +54,7 @@ public class IIOImageCacheable
     
     public String toString()
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
         stringBuffer.append(this.getClass().getName());
         stringBuffer.append(" Reusable IIOImage");
         return stringBuffer.toString();

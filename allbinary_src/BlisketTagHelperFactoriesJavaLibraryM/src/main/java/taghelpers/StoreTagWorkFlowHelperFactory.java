@@ -18,8 +18,6 @@ import java.util.HashMap;
 import javax.servlet.jsp.PageContext;
 
 import admin.taghelpers.TagHelperFactory;
-
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 

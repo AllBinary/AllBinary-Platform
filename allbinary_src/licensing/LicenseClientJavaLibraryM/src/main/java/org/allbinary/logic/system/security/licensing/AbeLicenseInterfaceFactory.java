@@ -16,10 +16,9 @@ package org.allbinary.logic.system.security.licensing;
 import java.io.IOException;
 import java.util.Calendar;
 
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.client.AbeLicenseClient;
+import org.allbinary.string.CommonStrings;
 
 public class AbeLicenseInterfaceFactory
 {

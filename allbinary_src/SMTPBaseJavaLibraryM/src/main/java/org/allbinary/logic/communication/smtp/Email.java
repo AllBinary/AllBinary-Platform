@@ -13,8 +13,10 @@
 */
 package org.allbinary.logic.communication.smtp;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.HashMap;
+import java.util.Properties;
 
 import javax.mail.Address;
 import javax.mail.Authenticator;
@@ -22,25 +24,18 @@ import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMultipart;
 import javax.mail.internet.InternetHeaders;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-//TWB - GAE does not have InetAddress class
-//import java.net.InetAddress;
-import java.util.HashMap;
-import java.util.Properties;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.string.StringValidationUtil;
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tree.dom.ModDomHelper;
-   
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringUtil;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.string.CommonStrings;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 public class Email 
    implements EmailInterface

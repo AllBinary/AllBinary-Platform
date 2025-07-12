@@ -15,8 +15,6 @@ package org.allbinary.game.score;
 
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
@@ -26,6 +24,7 @@ import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFont;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
+import org.allbinary.util.BasicArrayList;
 
 public class HighScoresPaintable 
 extends Paintable

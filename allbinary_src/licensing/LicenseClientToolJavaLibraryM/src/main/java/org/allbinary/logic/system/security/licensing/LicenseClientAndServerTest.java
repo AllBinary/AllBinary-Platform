@@ -12,6 +12,8 @@
 * 
 */
 package org.allbinary.logic.system.security.licensing;
+import org.allbinary.logic.string.StringMaker;
+
 
 import org.allbinary.business.init.LicenseInitInfo;
 import org.allbinary.business.init.LicenseInitInfoUtil;
@@ -68,7 +70,7 @@ public class LicenseClientAndServerTest
 
     public synchronized void test()
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
         try
         {
             BasicArrayList list = new BasicArrayList();

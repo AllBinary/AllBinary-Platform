@@ -13,13 +13,12 @@
 */
 package org.allbinary.input.gyro;
 
-import org.allbinary.input.accelerometer.AccelerometerSensorFactory;
-
 import org.allbinary.canvas.Processor;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.SensorFeatureFactory;
 import org.allbinary.game.input.motion.action.NoCompleteMotionGestureInputEventListener;
 import org.allbinary.game.input.motion.action.SingleKeyPressGameKeyFromMotionGestureEventListener;
+import org.allbinary.input.accelerometer.AccelerometerSensorFactory;
 
 public class AccelerometerSensorUpdateProcessor extends Processor
 {

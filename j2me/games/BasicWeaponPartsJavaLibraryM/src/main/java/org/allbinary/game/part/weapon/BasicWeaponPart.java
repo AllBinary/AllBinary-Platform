@@ -15,7 +15,6 @@ package org.allbinary.game.part.weapon;
 
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.string.CommonStrings;
 import org.allbinary.animation.Animation;
 import org.allbinary.game.combat.weapon.WeaponProperties;
 import org.allbinary.game.part.PartInterface;
@@ -23,6 +22,7 @@ import org.allbinary.game.score.ScoreableInterface;
 import org.allbinary.graphics.RelativeRelationship;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.view.ViewPosition;
 
 public class BasicWeaponPart 

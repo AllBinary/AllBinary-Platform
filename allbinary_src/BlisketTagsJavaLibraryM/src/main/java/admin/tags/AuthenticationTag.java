@@ -13,27 +13,22 @@
 */
 package admin.tags;
 
-import org.allbinary.logic.system.security.licensing.LicensingException;
-
-import org.allbinary.logic.communication.log.LogUtil;
-
-import org.allbinary.logic.communication.http.request.session.WeblisketSessionData;
-
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspTagException;
+import javax.servlet.jsp.tagext.TagSupport;
 
 import admin.taghelpers.AuthenticationHelperFactory;
 import admin.taghelpers.AuthenticationRequestHelperFactory;
-import javax.servlet.jsp.tagext.TagSupport;
-
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
-import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.http.request.session.WeblisketSessionData;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
-
+import org.allbinary.logic.system.security.licensing.LicensingException;
 import tags.CustomTagSupport;
 
 public class AuthenticationTag extends CustomTagSupport
@@ -373,7 +368,7 @@ public class AuthenticationTag extends CustomTagSupport
                 HttpServletRequest request =
                     (HttpServletRequest) this.pageContext.getRequest();
 
-                StringBuffer stringBuffer = new StringBuffer();
+                StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append(" Request URI: ");
                 stringBuffer.append(request.getRequestURI());

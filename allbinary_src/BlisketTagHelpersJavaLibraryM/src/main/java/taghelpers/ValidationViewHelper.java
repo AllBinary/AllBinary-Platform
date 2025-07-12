@@ -17,10 +17,8 @@ import java.util.HashMap;
 
 import javax.servlet.jsp.PageContext;
 
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.validate.ValidationComponentInterface;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 

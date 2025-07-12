@@ -13,21 +13,18 @@
 */
 package org.allbinary.graphics.j2me.workarea.canvas;
 
-import org.allbinary.animation.vector.VectorCenterGenerator;
 import java.util.HashMap;
 
-
-import org.w3c.dom.Node;
-
+import org.allbinary.animation.vector.VectorCenterGenerator;
 import org.allbinary.dom.DomHelper;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.PointFactory;
-
 import org.allbinary.graphics.j2me.workarea.WorkAreaJPanel;
 import org.allbinary.graphics.j2me.workarea.tools.GraphicItemFactory;
 import org.allbinary.graphics.j2me.workarea.tools.GraphicItemInterface;
 import org.allbinary.graphics.j2me.workarea.tools.LinesGraphicItem;
 import org.allbinary.util.BasicArrayList;
+import org.w3c.dom.Node;
 
 public class CanvasDom
 {

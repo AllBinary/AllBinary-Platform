@@ -13,18 +13,12 @@
 */
 package views.business.context.modules.storefront.customizer.hedges.header;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.w3c.dom.Node;
-import org.w3c.dom.Document;
-
-import org.allbinary.logic.communication.log.LogUtil;
-
 import org.allbinary.data.tree.dom.DomNodeInterface;
-
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
 import org.allbinary.logic.visual.transform.template.customizer.hedges.heading.HeadingValidation;
-
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 import views.business.context.modules.storefront.HttpStoreComponentView;
 
 public class TopBarView 

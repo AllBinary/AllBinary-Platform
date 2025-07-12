@@ -13,6 +13,7 @@
 */
 package org.allbinary.business.user.commerce.money.payment.gateway;
 
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 
 /**
@@ -43,7 +44,7 @@ public class PaymentGatewayPageData
     {
         final String paymentMethodString = PaymentGatewayPageData.NAME + paymentMethod;
 
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(location);
         stringBuffer.append("MakePayment");

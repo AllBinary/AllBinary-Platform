@@ -12,6 +12,8 @@
  * 
  */
 package org.allbinary.game.layer;
+import org.allbinary.logic.string.StringMaker;
+
 
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.math.LayerDistanceUtil;

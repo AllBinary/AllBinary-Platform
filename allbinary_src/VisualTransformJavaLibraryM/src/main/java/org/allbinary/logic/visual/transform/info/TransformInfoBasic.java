@@ -18,15 +18,11 @@ import java.util.Vector;
 
 import javax.servlet.jsp.PageContext;
 
-import org.w3c.dom.Document;
-
-import org.allbinary.logic.io.path.AbPath;
-
 import org.allbinary.business.context.AbContext;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
-import org.allbinary.string.CommonStrings;
-
+import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigInterface;
+import org.w3c.dom.Document;
 
 //Hack class should not exist
 public class TransformInfoBasic extends AbContext implements TransformInfoHttpInterface

@@ -14,12 +14,12 @@
 package org.allbinary.logic.io.file;
 
 import java.io.File;
-
-import org.allbinary.logic.io.path.AbPath;
 import java.io.FileFilter;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.net.URI;
+
+import org.allbinary.logic.io.path.AbPath;
 
 public class AbFile implements AbFileInterface
 {

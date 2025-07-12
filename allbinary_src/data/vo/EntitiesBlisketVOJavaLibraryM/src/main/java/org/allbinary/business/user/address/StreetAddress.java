@@ -13,22 +13,20 @@
 */
 package org.allbinary.business.user.address;
 
-import org.allbinary.data.tree.dom.DomNodeHelper;
-import org.allbinary.data.tree.dom.DomSearchHelper;
-import org.allbinary.logic.string.StringUtil;
-
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.data.tree.dom.ModDomHelper;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
+import java.util.HashMap;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
 
-import java.util.Set;
-import org.allbinary.string.CommonStrings;
+import org.allbinary.data.tree.dom.DomNodeHelper;
+import org.allbinary.data.tree.dom.DomSearchHelper;
+import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.string.CommonStrings;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 public class StreetAddress
 {

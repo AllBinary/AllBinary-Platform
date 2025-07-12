@@ -17,11 +17,9 @@ import javax.microedition.media.MediaException;
 import javax.microedition.media.Player;
 import javax.microedition.media.PlayerListener;
 
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.data.resource.ResourceUtil;
 import android.media.MediaPlayer;
+import org.allbinary.data.resource.ResourceUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class AndroidMediaPlayerWrapper extends BasicPlayer 
    //implements LineListener

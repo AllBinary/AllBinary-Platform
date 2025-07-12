@@ -16,9 +16,9 @@ Created By: Travis Berthelot
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
    <xsl:output method="xml" indent="yes" />
 
-    <xsl:template name="globalViews" 
-      xmlns:jsp="http://java.sun.com/JSP/Page" 
-      xmlns:jutil="/WEB-INF/jutil.tld" >
+    <xsl:template name="globalViews"
+                  xmlns:jsp="http://java.sun.com/JSP/Page"
+    >
 
 <jsp:scriptlet>
 

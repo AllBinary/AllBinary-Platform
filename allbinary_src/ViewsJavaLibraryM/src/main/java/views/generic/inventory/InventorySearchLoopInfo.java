@@ -12,6 +12,8 @@
 * 
 */
 package views.generic.inventory;
+import org.allbinary.logic.string.StringMaker;
+
 
 /**
  *
@@ -30,7 +32,7 @@ public class InventorySearchLoopInfo
 
     public String toString()
     {
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append(CURRENT);
             stringBuffer.append(currentPage);

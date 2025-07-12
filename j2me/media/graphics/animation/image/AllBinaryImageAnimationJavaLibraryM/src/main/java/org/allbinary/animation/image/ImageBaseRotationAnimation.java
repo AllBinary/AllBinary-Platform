@@ -15,9 +15,9 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
+
 import org.allbinary.DisposalUtil;
 import org.allbinary.animation.AnimationBehavior;
-
 import org.allbinary.animation.RotationAnimation;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.logic.math.PrimitiveIntUtil;

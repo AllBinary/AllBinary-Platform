@@ -13,18 +13,14 @@
 */
 package admin.tags;
 
-import org.allbinary.logic.communication.http.request.AbResponseHandler;
-import org.allbinary.logic.communication.log.LogFactory;
-
-import org.allbinary.logic.communication.log.LogUtil;
-
-import admin.taghelpers.BasicTextEmailHelperFactory;
-
 import java.lang.reflect.Method;
 import java.util.HashMap;
+
 import javax.servlet.jsp.JspTagException;
 
-import org.allbinary.string.CommonStrings;
+import admin.taghelpers.BasicTextEmailHelperFactory;
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
+import org.allbinary.logic.communication.log.LogUtil;
 import tags.CustomTagSupport;
 
 public class BasicTextEmailTag extends CustomTagSupport

@@ -17,11 +17,9 @@ import org.osgi.framework.Bundle;
 import org.osgi.framework.ServiceFactory;
 import org.osgi.framework.ServiceRegistration;
 
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.input.automation.module.InputAutomationModuleFactoryInterface;
-
 import bundle.input.automation.module.InputAutomationModuleService;
-import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.input.automation.module.InputAutomationModuleFactoryInterface;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 
 public class InputAutomationModuleServiceFactory

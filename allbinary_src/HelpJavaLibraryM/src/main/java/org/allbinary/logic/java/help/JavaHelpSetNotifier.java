@@ -14,8 +14,8 @@
 package org.allbinary.logic.java.help;
 
 import java.net.URL;
-
 import java.util.Vector;
+
 import javax.help.HelpSet;
 
 public class JavaHelpSetNotifier

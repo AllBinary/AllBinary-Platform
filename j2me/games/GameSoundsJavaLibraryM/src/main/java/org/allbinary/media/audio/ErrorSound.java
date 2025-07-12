@@ -13,9 +13,6 @@
 */
 package org.allbinary.media.audio;
 
-import org.allbinary.media.audio.Sound;
-
-
 public class ErrorSound extends CompositeSound
 {
    private static Sound soundInterface = new ErrorSound();

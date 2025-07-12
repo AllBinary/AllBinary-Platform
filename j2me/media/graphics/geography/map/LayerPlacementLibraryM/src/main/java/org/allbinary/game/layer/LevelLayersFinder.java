@@ -17,10 +17,9 @@ package org.allbinary.game.layer;
 import java.util.Enumeration;
 import java.util.Hashtable;
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.layer.Layer;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.util.BasicArrayList;
 
 /**
  *

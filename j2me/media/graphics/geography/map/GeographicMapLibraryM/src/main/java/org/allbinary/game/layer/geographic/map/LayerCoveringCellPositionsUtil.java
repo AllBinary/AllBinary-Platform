@@ -12,6 +12,8 @@
 * 
 */
 package org.allbinary.game.layer.geographic.map;
+import org.allbinary.logic.string.StringMaker;
+
 
 import org.allbinary.util.BasicArrayList;
 

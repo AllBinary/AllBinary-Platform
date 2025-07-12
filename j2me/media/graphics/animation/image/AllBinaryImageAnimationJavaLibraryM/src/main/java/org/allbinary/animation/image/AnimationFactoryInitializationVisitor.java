@@ -13,9 +13,9 @@
  */
 package org.allbinary.animation.image;
 
-import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
+import org.allbinary.string.CommonSeps;
 
 /**
  *

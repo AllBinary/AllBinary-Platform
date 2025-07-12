@@ -14,6 +14,7 @@
 package org.allbinary.data.tree.dom;
 
 import java.util.Vector;
+
 import org.w3c.dom.NodeList;
 
 /**

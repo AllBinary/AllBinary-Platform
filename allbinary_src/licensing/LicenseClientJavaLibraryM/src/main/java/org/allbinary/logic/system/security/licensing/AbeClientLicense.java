@@ -16,11 +16,10 @@ package org.allbinary.logic.system.security.licensing;
 import java.util.Hashtable;
 import java.util.Vector;
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.util.BasicArrayList;
 
 public class AbeClientLicense implements AbeLicenseInterface
 {

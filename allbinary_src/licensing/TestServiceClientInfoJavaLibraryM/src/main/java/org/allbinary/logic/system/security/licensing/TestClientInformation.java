@@ -13,8 +13,6 @@
  */
 package org.allbinary.logic.system.security.licensing;
 
-import org.allbinary.logic.system.security.licensing.AbeClientInformation;
-
 public class TestClientInformation extends AbeClientInformation {
 
     public TestClientInformation() {

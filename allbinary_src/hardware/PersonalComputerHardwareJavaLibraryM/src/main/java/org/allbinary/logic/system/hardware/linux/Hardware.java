@@ -15,18 +15,17 @@ package org.allbinary.logic.system.hardware.linux;
 
 import java.io.FileReader;
 import java.io.LineNumberReader;
-
-import java.util.Vector;
 import java.util.Hashtable;
+import java.util.Vector;
 
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 import org.allbinary.logic.io.file.AbFile;
-
 import org.allbinary.logic.io.file.FilePathData;
 import org.allbinary.logic.io.file.directory.SubDirectory;
-import org.allbinary.logic.communication.log.LogFactory;
-
-import org.allbinary.logic.system.hardware.components.linux.Cpu;
-
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.system.hardware.HardwareInterface;
 import org.allbinary.logic.system.hardware.components.interfaces.BridgeInterface;
 import org.allbinary.logic.system.hardware.components.interfaces.CpuInterface;
 import org.allbinary.logic.system.hardware.components.interfaces.EthernetInterface;
@@ -39,12 +38,7 @@ import org.allbinary.logic.system.hardware.components.interfaces.MediaInterface;
 import org.allbinary.logic.system.hardware.components.interfaces.MonitorInterface;
 import org.allbinary.logic.system.hardware.components.interfaces.UsbInterface;
 import org.allbinary.logic.system.hardware.components.interfaces.VideoInterface;
-
-import org.allbinary.logic.system.hardware.HardwareInterface;
-
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
-import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
+import org.allbinary.logic.system.hardware.components.linux.Cpu;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 
@@ -177,7 +171,7 @@ public class Hardware implements HardwareInterface
             
             while(this.isNextHardware(nextLine))
             {
-               StringBuffer componentData = new StringBuffer();
+               StringMaker componentData = new StringMaker();
 
                if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OS))
                {
@@ -290,7 +284,7 @@ public class Hardware implements HardwareInterface
    
    public String toString()
    {
-      final StringBuffer hardwareBuffer = new StringBuffer();
+      final StringMaker hardwareBuffer = new StringMaker();
       
        final int size = componentInterfaceVector.size();
        for (int index = 0; index < size; index++)

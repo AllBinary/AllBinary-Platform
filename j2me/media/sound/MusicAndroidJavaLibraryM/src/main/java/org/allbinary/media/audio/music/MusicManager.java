@@ -1,19 +1,18 @@
 package org.allbinary.media.audio.music;
 
 import android.content.Intent;
-
 import org.allbinary.android.AndroidServicesUtil;
-import org.allbinary.util.BasicArrayList;
-import org.allbinary.util.BasicArrayListUtil;
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.data.resource.ResourceUtil;
+import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.media.audio.Sound;
 import org.allbinary.string.CommonStateStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.time.GameTickTimeDelayHelper;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 import org.allbinary.time.TimeDelayHelper;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListUtil;
 
 public class MusicManager
 {

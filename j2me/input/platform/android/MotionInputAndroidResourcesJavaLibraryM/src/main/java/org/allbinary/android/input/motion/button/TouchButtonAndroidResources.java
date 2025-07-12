@@ -13,9 +13,7 @@
 */
 package org.allbinary.android.input.motion.button;
 
-import org.allbinary.logic.system.os.OperatingSystemFactory;
 import org.allbinary.AndroidResources;
-
 import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.init.Init;
 import org.allbinary.input.motion.button.CommonButtons;
@@ -29,6 +27,7 @@ import org.allbinary.input.motion.button.TouchButtonStrafeRightResource;
 import org.allbinary.input.motion.button.TouchButtonTurnLeftResource;
 import org.allbinary.input.motion.button.TouchButtonTurnRightResource;
 import org.allbinary.input.motion.button.TouchButtonUpResource;
+import org.allbinary.logic.system.os.OperatingSystemFactory;
 
 public class TouchButtonAndroidResources extends Init
 {

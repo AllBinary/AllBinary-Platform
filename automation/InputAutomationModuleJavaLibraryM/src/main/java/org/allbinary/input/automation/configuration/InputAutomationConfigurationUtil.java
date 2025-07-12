@@ -14,7 +14,6 @@
 package org.allbinary.input.automation.configuration;
 
 import org.allbinary.input.automation.module.InputAutomationModuleFactoryInterface;
-import org.allbinary.input.automation.configuration.InputAutomationConfigurationModuleChangeEvent;
 import org.allbinary.input.automation.module.configuration.InputAutomationModuleConfiguration;
 
 public class InputAutomationConfigurationUtil

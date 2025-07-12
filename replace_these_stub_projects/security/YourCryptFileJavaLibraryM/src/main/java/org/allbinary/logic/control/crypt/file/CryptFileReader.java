@@ -1,6 +1,7 @@
 package org.allbinary.logic.control.crypt.file;
 
 import java.io.InputStream;
+
 import org.allbinary.logic.io.path.AbPath;
 
 public class CryptFileReader

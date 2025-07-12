@@ -19,6 +19,8 @@ import java.util.Set;
 
 import org.osgi.framework.ServiceReference;
 
+import org.allbinary.logic.string.StringMaker;
+
 public class ServiceReferenceMap implements Map
 {
     private ServiceReference serviceReference;
@@ -92,7 +94,7 @@ public class ServiceReferenceMap implements Map
     
     public static String toString(Map map)
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
         /*
         for(int index2 = 0; index2 < map.keySet().length; index2++)
         {

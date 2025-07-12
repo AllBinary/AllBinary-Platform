@@ -15,11 +15,10 @@ package org.allbinary.game.configuration;
 
 import javax.microedition.lcdui.Item;
 
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonStrings;
 
 public class GameConfigurationUtil
 {

@@ -13,9 +13,10 @@
 */
 package org.allbinary.logic.io;
 
+import java.io.FileNotFoundException;
+
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.AbFileNativeUtil;
-import java.io.FileNotFoundException;
 
 public class AbFileLocalInputStream
     extends AbFileInputStream

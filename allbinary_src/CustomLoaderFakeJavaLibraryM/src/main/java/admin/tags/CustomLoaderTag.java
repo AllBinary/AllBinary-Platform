@@ -16,14 +16,11 @@ package admin.tags;
 import javax.servlet.jsp.JspTagException;
 
 import org.allbinary.globals.AppUrlGlobals;
+import org.allbinary.globals.GLOBALS2;
 import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.system.security.licensing.LicensingException;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.globals.GLOBALS2;
-import org.allbinary.string.CommonStrings;
-
+import org.allbinary.logic.system.security.licensing.LicensingException;
 import tags.CustomTagSupport;
 
 public class CustomLoaderTag extends CustomTagSupport

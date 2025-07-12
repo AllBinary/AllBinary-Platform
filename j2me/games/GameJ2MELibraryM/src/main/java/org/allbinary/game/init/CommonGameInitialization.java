@@ -15,16 +15,15 @@ package org.allbinary.game.init;
 
 import javax.microedition.lcdui.CommandListener;
 
-import org.allbinary.game.resource.ResourceLoadingLevelFactory;
-
-import org.allbinary.string.CommonStrings;
 import org.allbinary.game.resource.ResourceInitialization;
+import org.allbinary.game.resource.ResourceLoadingLevelFactory;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.math.AngleFactory;
+import org.allbinary.string.CommonStrings;
 
 public class CommonGameInitialization 
 extends BaseGameInitialization

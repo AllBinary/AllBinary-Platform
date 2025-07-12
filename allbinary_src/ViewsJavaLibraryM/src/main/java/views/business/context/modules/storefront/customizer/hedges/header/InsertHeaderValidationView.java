@@ -12,32 +12,22 @@
 * 
 */
 package views.business.context.modules.storefront.customizer.hedges.header;
-        
+
 import java.util.HashMap;
-
-import org.w3c.dom.Node;
-import org.w3c.dom.Document;
-
-import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.communication.log.LogFactory;
-
-
-import org.allbinary.logic.communication.log.LogUtil;
-
-import org.allbinary.logic.communication.http.request.MultipartRequestParams;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
-
+import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.communication.http.request.MultipartRequestParams;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.template.customizer.hedges.heading.HeadingValidation;
 import org.allbinary.logic.visual.transform.template.customizer.widgets.logo.LogoData;
-
-import org.allbinary.data.tree.dom.DomNodeInterface;
-
-import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
-import org.allbinary.logic.control.validate.ValidationComponentInterface;
-
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 import views.business.context.modules.storefront.customizer.CustomizerUtil;
 
 public class InsertHeaderValidationView extends TopBarView implements ValidationComponentInterface
@@ -111,7 +101,7 @@ public class InsertHeaderValidationView extends TopBarView implements Validation
    {
       try
       {
-         StringBuffer stringBuffer = new StringBuffer();
+         StringMaker stringBuffer = new StringMaker();
          
          stringBuffer.append(this.heading.validationInfo());
          

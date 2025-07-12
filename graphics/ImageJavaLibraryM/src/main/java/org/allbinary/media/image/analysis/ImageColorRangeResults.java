@@ -13,9 +13,6 @@
 */
 package org.allbinary.media.image.analysis;
 
-import org.allbinary.media.image.analysis.ColorRange;
-import org.allbinary.media.image.analysis.ColorRangeInterface;
-
 public class ImageColorRangeResults
 {
     private ColorRangeInterface colorRangeInterface;

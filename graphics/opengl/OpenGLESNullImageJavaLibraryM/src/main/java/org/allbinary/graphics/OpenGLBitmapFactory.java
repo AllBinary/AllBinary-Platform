@@ -5,8 +5,8 @@ import java.io.InputStream;
 
 import javax.microedition.lcdui.Image;
 
-import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
 import org.allbinary.platform.graphics.PlatformBitmapBase;
+import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
 
 /**
  *

@@ -17,17 +17,12 @@ import java.util.HashMap;
 
 import javax.servlet.jsp.PageContext;
 
-
-
 import org.allbinary.logic.communication.smtp.event.UserEmailEventNameData;
-
 import org.allbinary.logic.communication.smtp.event.handler.UserEmailEventHandler;
-
 import org.allbinary.logic.communication.smtp.event.handler.factory.AdminUserEmailEventHandlerSingletons;
-
-import org.allbinary.logic.communication.smtp.info.EmailInfo;
-import org.allbinary.logic.communication.smtp.info.BasicEmailInfo;
 import org.allbinary.logic.communication.smtp.info.AdminEmailInfo;
+import org.allbinary.logic.communication.smtp.info.BasicEmailInfo;
+import org.allbinary.logic.communication.smtp.info.EmailInfo;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 

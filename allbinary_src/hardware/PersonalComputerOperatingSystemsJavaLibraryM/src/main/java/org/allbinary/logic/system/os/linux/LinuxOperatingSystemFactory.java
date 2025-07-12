@@ -13,12 +13,11 @@
 */
 package org.allbinary.logic.system.os.linux;
 
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
-import org.allbinary.logic.system.os.NoOperatingSystem;
 import org.allbinary.logic.system.os.GenericOperatingSystem;
+import org.allbinary.logic.system.os.NoOperatingSystem;
 import org.allbinary.logic.system.os.OperatingSystems;
 import org.allbinary.logic.system.os.SystemProperties;
 import org.allbinary.string.CommonStrings;

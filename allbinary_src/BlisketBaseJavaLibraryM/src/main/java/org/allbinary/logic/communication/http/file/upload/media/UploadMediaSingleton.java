@@ -14,11 +14,10 @@
 package org.allbinary.logic.communication.http.file.upload.media;
 
 import java.util.HashMap;
-
 import java.util.Set;
 
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.visual.media.MediaData;
 import org.allbinary.logic.visual.media.MediaIOUtil;
 import org.allbinary.logic.visual.media.MediaTypeData;
@@ -55,7 +54,7 @@ public class UploadMediaSingleton
       final String RESIZABLE_MEDIA = MediaTypeData.getInstance().RESIZABLE_MEDIA;
       
       String[] readerFileTypes = mediaIOUtil.getReaderFormatNames();
-      //StringBuffer readerFileTypesBuffer = new StringBuffer();
+      //StringMaker readerFileTypesBuffer = new StringMaker();
       for(int index = 0; index < readerFileTypes.length; index++)
       {
          this.readerFileTypesHashMap.put(
@@ -63,7 +62,7 @@ public class UploadMediaSingleton
       }
 
       String[] writerFileTypes = mediaIOUtil.getWriterFormatNames();
-      //StringBuffer writerFileTypesBuffer = new StringBuffer();
+      //StringMaker writerFileTypesBuffer = new StringMaker();
       for(int index = 0; index < writerFileTypes.length; index++)
       {
          this.writerFileTypesHashMap.put(
@@ -72,7 +71,7 @@ public class UploadMediaSingleton
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
         {
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append("Supported Media Readers: ");
             stringBuffer.append(this.readerFileTypesHashMap.toString());

@@ -22,18 +22,16 @@ import java.util.Hashtable;
 import javax.microedition.rms.RecordEnumeration;
 import javax.microedition.rms.RecordStore;
 
-import org.allbinary.util.BasicArrayList;
-import org.allbinary.util.HashtableUtil;
-
-import org.allbinary.string.CommonSeps;
-import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.game.configuration.persistance.BasicPersitance;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
-import org.allbinary.game.configuration.persistance.BasicPersitance;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.string.CommonSeps;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.HashtableUtil;
 
 public class InputPersistance extends BasicPersitance
 {

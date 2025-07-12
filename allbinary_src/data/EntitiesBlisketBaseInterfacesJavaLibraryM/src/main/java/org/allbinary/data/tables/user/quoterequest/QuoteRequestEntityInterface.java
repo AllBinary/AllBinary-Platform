@@ -13,10 +13,10 @@
 */
 package org.allbinary.data.tables.user.quoterequest;
 
-import org.allbinary.business.user.quoterequest.QuoteRequest;
-
 import java.util.HashMap;
 import java.util.Vector;
+
+import org.allbinary.business.user.quoterequest.QuoteRequest;
 import org.allbinary.data.tables.BasicDataTableInterface;
 
 public interface QuoteRequestEntityInterface extends BasicDataTableInterface

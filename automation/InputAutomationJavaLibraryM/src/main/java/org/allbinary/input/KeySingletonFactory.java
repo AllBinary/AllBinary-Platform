@@ -15,7 +15,7 @@ package org.allbinary.input;
 
 import java.awt.event.KeyEvent;
 import java.util.Hashtable;
-import org.allbinary.logic.communication.log.LogFactory;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 

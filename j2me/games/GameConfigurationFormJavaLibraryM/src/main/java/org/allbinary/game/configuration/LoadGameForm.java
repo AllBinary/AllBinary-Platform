@@ -18,17 +18,14 @@ import javax.microedition.lcdui.ChoiceGroup;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.StringItem;
 
-import org.allbinary.util.BasicArrayList;
-
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.configuration.persistance.GamePersistanceSingleton;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.screen.CommandForm;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
+import org.allbinary.util.BasicArrayList;
 
 public class LoadGameForm extends CommandForm
 {

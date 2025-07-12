@@ -13,13 +13,6 @@
 */
 package admin.tags;
 
-import java.util.*;
-
-import javax.servlet.jsp.*;
-
-
-
-
 import admin.taghelpers.LogHelperFactory;
 
 public class LogTag extends TableTag

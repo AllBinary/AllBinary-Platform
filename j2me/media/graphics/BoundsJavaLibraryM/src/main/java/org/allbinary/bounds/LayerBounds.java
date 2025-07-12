@@ -15,9 +15,8 @@ package org.allbinary.bounds;
 
 import org.allbinary.bounds.event.BoundsChangeEvent;
 import org.allbinary.bounds.event.BoundsChangeEventListener;
-
-import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.graphics.Rectangle;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;

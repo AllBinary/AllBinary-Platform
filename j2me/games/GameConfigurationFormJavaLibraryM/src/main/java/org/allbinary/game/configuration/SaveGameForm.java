@@ -16,12 +16,10 @@ package org.allbinary.game.configuration;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.TextField;
 
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.screen.CommandForm;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class SaveGameForm extends CommandForm
 {

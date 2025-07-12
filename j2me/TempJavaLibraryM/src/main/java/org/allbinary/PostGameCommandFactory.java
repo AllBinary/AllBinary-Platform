@@ -13,7 +13,7 @@
  */
 package org.allbinary;
 
-import java.awt.Canvas;
+import java.awt.*;
 
 /**
  *

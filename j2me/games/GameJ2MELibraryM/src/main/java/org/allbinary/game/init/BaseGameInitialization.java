@@ -15,9 +15,6 @@ package org.allbinary.game.init;
 
 import javax.microedition.lcdui.CommandListener;
 
-import org.allbinary.game.resource.ResourceLoadingLevelFactory;
-import org.allbinary.image.GameFeatureImageCacheFactory;
-
 import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
 import org.allbinary.game.configuration.GameConfigurationCentral;
 import org.allbinary.game.configuration.event.ChangedGameFeatureListener;
@@ -27,8 +24,10 @@ import org.allbinary.game.input.PlatformInputMappingFactory;
 import org.allbinary.game.input.event.GameKeyEventFactory;
 import org.allbinary.game.resource.FeaturedResourceRelativeRelationshipFactory;
 import org.allbinary.game.resource.ResourceInitialization;
+import org.allbinary.game.resource.ResourceLoadingLevelFactory;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
+import org.allbinary.image.GameFeatureImageCacheFactory;
 import org.allbinary.input.motion.CompleteMotionGestureInputToGameMotionGestureInput;
 import org.allbinary.input.motion.button.BasicTouchInputFactory;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;

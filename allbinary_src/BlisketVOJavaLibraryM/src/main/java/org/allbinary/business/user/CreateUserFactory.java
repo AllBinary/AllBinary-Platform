@@ -13,11 +13,11 @@
 */
 package org.allbinary.business.user;
 
+import java.util.HashMap;
+
 import org.allbinary.business.user.role.UserRole;
 import org.allbinary.business.user.role.UserRoleB;
 import org.allbinary.business.user.role.UserRoleData;
-
-import java.util.HashMap;
 import org.allbinary.logic.string.StringValidationUtil;
 
 public class CreateUserFactory

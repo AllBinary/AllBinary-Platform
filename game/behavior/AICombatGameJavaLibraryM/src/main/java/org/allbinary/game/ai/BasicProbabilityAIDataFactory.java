@@ -13,7 +13,6 @@
 */
 package org.allbinary.game.ai;
 
-import org.allbinary.game.ai.InputProbability;
 import java.util.Hashtable;
 
 import javax.microedition.lcdui.Canvas;

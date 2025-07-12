@@ -13,8 +13,8 @@
 */
 package org.allbinary.logic.io;
 
-import org.allbinary.data.resource.ResourceUtil;
 import android.content.Context;
+import org.allbinary.data.resource.ResourceUtil;
 
 public class FileStreamFactory
 {

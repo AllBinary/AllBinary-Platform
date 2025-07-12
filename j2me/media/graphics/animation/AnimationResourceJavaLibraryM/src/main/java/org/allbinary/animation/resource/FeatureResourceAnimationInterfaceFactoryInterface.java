@@ -15,9 +15,8 @@ package org.allbinary.animation.resource;
 
 import java.util.Hashtable;
 
-import org.allbinary.game.resource.RectangleResourceFactoryInterface;
-
 import org.allbinary.game.configuration.feature.GameFeatureControlledInterface;
+import org.allbinary.game.resource.RectangleResourceFactoryInterface;
 
 public interface FeatureResourceAnimationInterfaceFactoryInterface
    extends ResourceAnimationInterfaceFactoryInterface, 

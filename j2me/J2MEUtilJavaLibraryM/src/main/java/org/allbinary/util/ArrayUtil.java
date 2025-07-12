@@ -1,9 +1,9 @@
 package org.allbinary.util;
 
 import org.allbinary.logic.math.MathUtil;
-import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
+import org.allbinary.string.CommonSeps;
 
 public class ArrayUtil
 {

@@ -13,15 +13,14 @@
 */
 package org.allbinary.logic.visual.transform.data;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
+
 import org.allbinary.business.context.modules.storefront.StoreFrontViewFactory;
 import org.allbinary.logic.communication.http.request.RequestParams;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.search.SearchRequest;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.jsp.PageContext;
 
 public class TransformStoreDocument extends TransformHttpRequestDocument
 {

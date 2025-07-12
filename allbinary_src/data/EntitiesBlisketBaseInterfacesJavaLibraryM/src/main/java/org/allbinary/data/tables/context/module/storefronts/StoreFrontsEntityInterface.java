@@ -13,10 +13,10 @@
 */
 package org.allbinary.data.tables.context.module.storefronts;
 
-import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
-
 import java.util.HashMap;
 import java.util.Vector;
+
+import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.data.tables.BasicDataTableInterface;
 
 public interface StoreFrontsEntityInterface 

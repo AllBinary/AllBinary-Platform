@@ -15,8 +15,8 @@ package org.allbinary.graphics.canvas.transition.progress;
 
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
-import org.allbinary.canvas.Processor;
 
+import org.allbinary.canvas.Processor;
 import org.allbinary.canvas.RunnableCanvas;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.graphics.color.BasicColor;
@@ -26,7 +26,6 @@ import org.allbinary.graphics.form.item.CustomGaugeItem;
 import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.graphics.paint.PaintableInterface;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;

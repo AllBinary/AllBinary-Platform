@@ -13,27 +13,25 @@
 */
 package org.allbinary.input.automation.configuration;
 
-import java.io.File;
-import java.util.List;
+    import java.io.File;
+    import java.util.List;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import org.allbinary.data.tree.dom.document.DomDocumentFileHelper;
+    import javax.xml.bind.JAXBContext;
+    import javax.xml.bind.Marshaller;
+    import javax.xml.bind.annotation.XmlAccessType;
+    import javax.xml.bind.annotation.XmlAccessorType;
+    import javax.xml.bind.annotation.XmlElement;
+    import javax.xml.bind.annotation.XmlRootElement;
+    import javax.xml.bind.annotation.XmlType;
 
-import org.w3c.dom.Document;
-
-import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.input.automation.module.configuration.InputAutomationModuleConfiguration;
-import org.allbinary.logic.io.file.FileUtil;
-import org.allbinary.logic.io.file.FileWrapperUtil;
-import org.allbinary.logic.io.path.AbPath;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.data.tree.dom.document.DomDocumentFileHelper;
+    import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+    import org.allbinary.input.automation.module.configuration.InputAutomationModuleConfiguration;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.io.file.FileUtil;
+    import org.allbinary.logic.io.file.FileWrapperUtil;
+    import org.allbinary.logic.io.path.AbPath;
+    import org.w3c.dom.Document;
 
 //name="inputAutomationConfiguration", 
 @XmlAccessorType(XmlAccessType.FIELD)

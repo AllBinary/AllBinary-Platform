@@ -16,11 +16,11 @@ package org.allbinary.game.collision;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.game.layer.CollidableCompositeLayer;
-
-import org.allbinary.string.CommonStrings;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonLabels;
+import org.allbinary.string.CommonStrings;
 
 public class CollidableBaseBehavior 
 implements CollidableInterface
@@ -63,7 +63,7 @@ implements CollidableInterface
     public void collide(CollidableCompositeLayer allbinaryCollidableLayer)
             throws Exception
     {
-        throw new Exception(new StringMaker().append(commonStrings.NOT_IMPLEMENTED).append(": ").append(this.getClass().getName()).toString());
+        throw new Exception(new StringMaker().append(commonStrings.NOT_IMPLEMENTED).append(CommonLabels.getInstance().COLON_SEP).append(this.getClass().getName()).toString());
     }
 
     private final LayerCollisionUtil layerCollisionUtil = LayerCollisionUtil.getInstance();

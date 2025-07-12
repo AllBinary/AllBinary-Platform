@@ -15,11 +15,10 @@ package org.allbinary.input.motion.button;
 
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorSetUtil;
 import org.allbinary.graphics.paint.Paintable;
+import org.allbinary.util.BasicArrayList;
 
 public class TouchButtonsPaintable extends Paintable
 {

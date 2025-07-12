@@ -13,10 +13,10 @@
 */
 package org.allbinary.logic.math.vector;
 
-import org.allbinary.string.CommonSeps;
-import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.math.BasicDecimal;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.math.PositionStrings;
+import org.allbinary.string.CommonSeps;
 
 public class Vertex
 {

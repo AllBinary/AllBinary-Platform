@@ -19,7 +19,6 @@ import java.util.Vector;
 import org.allbinary.logic.communication.smtp.event.EmailEvent;
 import org.allbinary.logic.communication.smtp.event.UserEmailEventListenerInterface;
 import org.allbinary.logic.communication.smtp.event.UserEmailEventNameData;
-
 import org.allbinary.logic.communication.smtp.info.EmailInfo;
    
 public class UserEmailEventHandler

@@ -13,8 +13,6 @@
 */
 package org.allbinary.game.multiplayer.layer;
 
-import org.allbinary.time.GameTickTimeDelayHelperFactory;
-
 public class MultiplayerBehavior
 {
     protected MultiplayerBehavior(String username)

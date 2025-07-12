@@ -18,15 +18,15 @@ import java.lang.reflect.Method;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspTagException;
 
-import tags.PropertiesTag;
-import org.allbinary.logic.communication.http.request.AbResponseHandler;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.java.bool.BooleanUtil;
-import org.allbinary.logic.system.security.licensing.LicensingException;
 import admin.taghelpers.TagHelperFactoryInterface;
-import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.SqlStrings;
+import org.allbinary.logic.java.bool.BooleanUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.logic.system.security.licensing.LicensingException;
+import tags.PropertiesTag;
 
 public class TableTag extends PropertiesTag
 //extends Table
@@ -338,7 +338,7 @@ public class TableTag extends PropertiesTag
                 HttpServletRequest request =
                     (HttpServletRequest) this.pageContext.getRequest();
 
-                StringBuffer stringBuffer = new StringBuffer();
+                StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append("TableTag Helper: ");
                 stringBuffer.append(this.getTagHelperFactoryInterface().getClass().getName());

@@ -15,12 +15,12 @@ package org.allbinary.game.paint.help;
 
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.logic.string.StringUtil;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFont;
 import org.allbinary.graphics.paint.Paintable;
+import org.allbinary.logic.string.StringUtil;
 
 public class HelpPaintable extends Paintable
 {

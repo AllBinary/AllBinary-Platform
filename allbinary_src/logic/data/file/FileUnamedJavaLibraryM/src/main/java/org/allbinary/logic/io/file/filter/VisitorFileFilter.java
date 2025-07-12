@@ -13,9 +13,9 @@
 */
 package org.allbinary.logic.io.file.filter;
 
+import java.io.File;
 import java.io.FileFilter;
 
-import java.io.File;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.FileWrapperUtil;
 import org.allbinary.logic.util.visitor.VisitorInterface;

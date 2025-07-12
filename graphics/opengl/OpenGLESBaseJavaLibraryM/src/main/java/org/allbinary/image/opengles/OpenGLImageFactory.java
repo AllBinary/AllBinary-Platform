@@ -13,8 +13,8 @@
 */
 package org.allbinary.image.opengles;
 
-import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.lcdui.Image;
+
 import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
 import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
 

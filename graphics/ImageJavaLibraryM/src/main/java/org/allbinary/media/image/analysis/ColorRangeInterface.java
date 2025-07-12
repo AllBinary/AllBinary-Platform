@@ -13,7 +13,7 @@
 */
 package org.allbinary.media.image.analysis;
 
-import java.awt.Color;
+import java.awt.*;
 
 public interface ColorRangeInterface
 {

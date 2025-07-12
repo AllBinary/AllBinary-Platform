@@ -13,9 +13,7 @@
 */
 package org.allbinary.gui.swing.workers;
 
-import javax.swing.JList;
-import javax.swing.ListModel;
-import javax.swing.SwingWorker;
+import javax.swing.*;
 
 public class JListSwingWorker extends SwingWorker
 {

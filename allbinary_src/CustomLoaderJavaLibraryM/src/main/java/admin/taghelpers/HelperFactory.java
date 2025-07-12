@@ -13,18 +13,15 @@
 */
 package admin.taghelpers;
 
-import org.allbinary.logic.communication.log.LogFactory;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
 
 import org.allbinary.logic.communication.log.LogUtil;
-
-import org.allbinary.logic.system.security.licensing.LicensingException;
-
 import org.allbinary.logic.system.loader.AbeFactory;
-import javax.servlet.http.HttpServletRequest;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.LicensingException;
 import org.allbinary.string.CommonStrings;
 
 public class HelperFactory

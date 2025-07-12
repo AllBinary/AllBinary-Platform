@@ -17,32 +17,31 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Vector;
 
-import org.w3c.dom.Document;
-
+import org.allbinary.business.context.modules.storefront.StoreFrontData;
+import org.allbinary.business.entry.EntryData;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
 import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.control.crypt.Encoder;
+import org.allbinary.logic.control.crypt.file.CryptFileReader;
 import org.allbinary.logic.io.OutputTypeData;
 import org.allbinary.logic.io.path.AbFilePath;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.business.context.modules.storefront.StoreFrontData;
-import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
-import org.allbinary.logic.control.crypt.Encoder;
-import org.allbinary.logic.control.crypt.file.CryptFileReader;
-import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfig;
-import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigAndManipulatorFactory;
-import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigInterface;
-import org.allbinary.logic.visual.transform.info.template.TransformInfoTemplateData;
-import org.allbinary.business.entry.EntryData;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 import org.allbinary.logic.visual.transform.info.data.TransformInfoDataData;
+import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfig;
+import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigAndManipulatorFactory;
+import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigInterface;
+import org.allbinary.logic.visual.transform.info.template.TransformInfoTemplateData;
 import org.allbinary.logic.visual.transform.info.viewObject.TransformInfoObjectData;
 import org.allbinary.string.CommonStrings;
+import org.w3c.dom.Document;
 
 public class TransformInfo implements TransformInfoInterface
 {
@@ -113,12 +112,12 @@ public class TransformInfo implements TransformInfoInterface
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append("TransformInfo properties overridden for: ");
             stringBuffer.append(this.getName());
             stringBuffer.append("\n properties: ");
-            stringBuffer.append(hashMap);
+            stringBuffer.append(hashMap.toString());
 
             logUtil.put(stringBuffer.toString(), this, "override(HashMap hashMap)");
         }
@@ -135,7 +134,7 @@ public class TransformInfo implements TransformInfoInterface
             this.objectFileName = aObjectFileName;
         }
 
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(URLGLOBALS.getMainPath());
         stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);
@@ -264,14 +263,14 @@ public class TransformInfo implements TransformInfoInterface
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            stringBuffer = new StringBuffer();
+            stringBuffer = new StringMaker();
 
             stringBuffer.append("Name: ");
             stringBuffer.append(aName);
             stringBuffer.append("\nTemp Object File: ");
             stringBuffer.append(aObject);
             stringBuffer.append("\nTemp Object Config File: ");
-            stringBuffer.append(this.getObjectConfigFilePath());
+            stringBuffer.append(this.getObjectConfigFilePath().toString());
             stringBuffer.append("\nTemp Template File: ");
             stringBuffer.append(aTemplate);
             stringBuffer.append("\nTemp Data File: ");
@@ -294,7 +293,7 @@ public class TransformInfo implements TransformInfoInterface
 
     public String log()
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("Name: ");
         stringBuffer.append(this.name);
@@ -476,7 +475,7 @@ public class TransformInfo implements TransformInfoInterface
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
                 {
-                    StringBuffer stringBuffer = new StringBuffer();
+                    StringMaker stringBuffer = new StringMaker();
 
                     stringBuffer.append("Name: ");
                     stringBuffer.append(this.name);

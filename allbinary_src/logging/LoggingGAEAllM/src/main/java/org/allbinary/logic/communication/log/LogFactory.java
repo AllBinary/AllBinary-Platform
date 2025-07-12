@@ -13,8 +13,6 @@
 */
 package org.allbinary.logic.communication.log;
 
-import org.allbinary.logic.communication.log.Log;
-
 public class LogFactory
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();

@@ -16,13 +16,12 @@ package admin.taghelpers;
 import java.util.Vector;
 
 import org.allbinary.business.user.role.BasicUserRole;
-import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.io.path.AbPath;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.user.role.UserRole;
+import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.logic.communication.http.file.upload.HttpFilePermissions;
 import org.allbinary.logic.communication.http.request.HttpRequestUtil;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.string.CommonLabels;
 
 public class AuthenticationHelperUtil

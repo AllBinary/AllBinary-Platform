@@ -17,7 +17,6 @@ import java.util.HashMap;
 
 import org.allbinary.business.advertisement.search.category.AdvertisementCategoryInterface;
 import org.allbinary.business.advertisement.search.website.AdvertisementWebsiteInterface;
-
 import org.allbinary.logic.control.contraints.price.PriceConstraintInterface;
 import org.allbinary.logic.control.contraints.size.TwoDimensionalConstraintInterface;
 

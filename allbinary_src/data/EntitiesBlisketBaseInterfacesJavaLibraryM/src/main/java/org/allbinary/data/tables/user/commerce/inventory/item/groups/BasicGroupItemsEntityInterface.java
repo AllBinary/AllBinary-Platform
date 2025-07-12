@@ -16,6 +16,7 @@ package org.allbinary.data.tables.user.commerce.inventory.item.groups;
 
 import java.util.HashMap;
 import java.util.Vector;
+
 import org.allbinary.data.tables.BasicDataTableInterface;
 
 public interface BasicGroupItemsEntityInterface extends BasicDataTableInterface

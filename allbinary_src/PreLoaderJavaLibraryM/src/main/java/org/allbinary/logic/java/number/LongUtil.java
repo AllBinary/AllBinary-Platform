@@ -13,6 +13,8 @@
 */
 package org.allbinary.logic.java.number;
 
+import org.allbinary.logic.string.StringMaker;
+
 public class LongUtil
 {
     
@@ -22,12 +24,14 @@ public class LongUtil
     
     public static String fillIn(String end)
     {
-        StringBuffer frameStringBuffer = new StringBuffer();
-        frameStringBuffer.append(end);
-        while(frameStringBuffer.length() < LongData.MAX_LONG_LENGTH)
-        {
-            frameStringBuffer.insert(0, '0');
+        StringMaker frameStringBuffer = new StringMaker();
+        if(frameStringBuffer.length() < LongData.MAX_LONG_LENGTH) {
+            final int size = LongData.MAX_LONG_LENGTH - frameStringBuffer.length();
+            for(int index = 0; index < size; index++) {
+                frameStringBuffer.append('0');
+            }
         }
+        frameStringBuffer.append(end);
         
         return frameStringBuffer.toString();
     }

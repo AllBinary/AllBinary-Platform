@@ -14,20 +14,18 @@
 package admin.taghelpers;
 
 import java.util.HashMap;
-
 import java.util.Vector;
 
 import javax.servlet.jsp.PageContext;
 
-import org.allbinary.business.installer.Portion;
-import org.allbinary.string.CommonSeps;
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
+import org.allbinary.business.installer.Portion;
 import org.allbinary.data.tables.context.module.storefronts.StoreFrontsEntityFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlTableUtil;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.visual.dhtml.html.select.HtmlSelect;
+import org.allbinary.string.CommonSeps;
 
 public class StoreFrontsHelper extends BasicTable
 {

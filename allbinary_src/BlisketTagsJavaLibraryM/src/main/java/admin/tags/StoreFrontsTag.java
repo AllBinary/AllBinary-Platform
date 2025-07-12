@@ -15,20 +15,15 @@ package admin.tags;
 
 import java.lang.reflect.Method;
 
-import org.allbinary.logic.system.security.licensing.LicensingException;
-
-import org.allbinary.logic.communication.http.request.AbResponseHandler;
-import org.allbinary.logic.communication.log.LogFactory;
-
-import org.allbinary.logic.communication.log.LogUtil;
+import javax.servlet.jsp.JspTagException;
+import javax.servlet.jsp.tagext.TagSupport;
 
 import admin.taghelpers.StoreFrontsHelperFactory;
 import admin.taghelpers.StoreFrontsRequestHelperFactory;
-
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
-
-import javax.servlet.jsp.JspTagException;
-import javax.servlet.jsp.tagext.TagSupport;
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.system.security.licensing.LicensingException;
 
 public class StoreFrontsTag extends TableTag
 {

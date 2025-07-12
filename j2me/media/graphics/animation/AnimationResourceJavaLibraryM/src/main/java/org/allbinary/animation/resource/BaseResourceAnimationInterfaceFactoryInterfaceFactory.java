@@ -19,12 +19,10 @@ import org.allbinary.animation.BasicAnimationInterfaceFactoryInterface;
 import org.allbinary.game.resource.ResourceLoadingLevelFactory;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.image.ImageCache;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.string.StringMaker;
 
 public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
         implements FeatureResourceAnimationInterfaceFactoryInterface

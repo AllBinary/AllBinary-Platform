@@ -13,8 +13,7 @@
 */
 package org.allbinary.media.image.comparison.motion;
 
-import java.awt.Rectangle;
-
+import java.awt.*;
 import java.util.Vector;
 
 import org.allbinary.media.image.comparison.ImageComparisonResult;
@@ -142,7 +141,7 @@ public class AllMotionRectangles extends MotionRectangles
             if(pixelDelta.getPoint().x > 560 && pixelDelta.getPoint().y > 330 &&
                 pixelDelta.getPoint().x < 600 && pixelDelta.getPoint().y < 365)
             {
-                StringBuffer stringBuffer = new StringBuffer();
+                StringMaker stringBuffer = new StringMaker();
                 iterator = this.getVector();
                 while(iterator.hasNext())
                 {

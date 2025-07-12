@@ -233,7 +233,7 @@ public class ImageUtil {
 
     public String toString(org.eclipse.swt.graphics.Image bufferedImage) {
         final CommonLabels commonLabels = CommonLabels.getInstance();
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
 
         final ImageData imageData = bufferedImage.getImageData();
 

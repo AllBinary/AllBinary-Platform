@@ -13,7 +13,6 @@
 */
 package org.allbinary.graphics.j2me;
 
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
 /**

@@ -15,7 +15,6 @@ package org.allbinary.media.image;
 
 import javax.microedition.lcdui.Image;
 
-
 import org.allbinary.graphics.Anchor;
 
 public class ImageRotationUtil

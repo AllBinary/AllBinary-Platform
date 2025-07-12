@@ -13,13 +13,13 @@
 */
 package org.allbinary.business.category.store.theme;
 
+import java.util.Arrays;
+
 import org.allbinary.business.category.CategoryView;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.logic.visual.theme.ThemeValidation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-
-import java.util.Arrays;
 
 public class StoreThemeCategoryView extends CategoryView
    implements DomNodeInterface

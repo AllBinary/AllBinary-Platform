@@ -13,10 +13,9 @@
 */
 package org.allbinary.input.automation.module.generic.constraints;
 
-import java.awt.Dimension;
-
-import java.awt.Rectangle;
+import java.awt.*;
 import java.awt.image.BufferedImage;
+
 import org.allbinary.input.automation.module.MotionRectangleConstraints;
 
 public class NoMotionRectangleConstraints 

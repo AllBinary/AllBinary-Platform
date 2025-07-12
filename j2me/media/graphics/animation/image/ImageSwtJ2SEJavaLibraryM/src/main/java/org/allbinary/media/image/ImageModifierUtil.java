@@ -12,6 +12,8 @@
  * 
  */
 package org.allbinary.media.image;
+import org.allbinary.logic.string.StringMaker;
+
 
 import javax.microedition.lcdui.Image;
 

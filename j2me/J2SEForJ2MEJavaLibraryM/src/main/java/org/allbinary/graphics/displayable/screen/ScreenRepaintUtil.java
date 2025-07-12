@@ -13,7 +13,6 @@
 */
 package org.allbinary.graphics.displayable.screen;
 
-import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Displayable;
 
 public class ScreenRepaintUtil {

@@ -13,10 +13,6 @@
 */
 package org.allbinary.thread;
 
-import org.allbinary.string.CommonLabels;
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
 //This is mainly for network communications.

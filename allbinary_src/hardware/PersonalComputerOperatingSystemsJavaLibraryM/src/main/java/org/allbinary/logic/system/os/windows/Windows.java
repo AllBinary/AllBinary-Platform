@@ -13,7 +13,7 @@
 */
 package org.allbinary.logic.system.os.windows;
 
-import org.allbinary.logic.system.os.*;
+import org.allbinary.logic.system.os.GenericOperatingSystem;
 
 public class Windows extends GenericOperatingSystem
 {

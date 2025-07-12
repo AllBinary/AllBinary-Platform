@@ -15,16 +15,16 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Image;
 
-import org.allbinary.string.CommonSeps;
-import org.allbinary.logic.string.StringMaker;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.NullAnimationFactory;
 import org.allbinary.image.AnimationFactoryImageScaleUtil;
 import org.allbinary.logic.math.PrimitiveIntUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.ScaleProperties;
 import org.allbinary.string.CommonLabels;
+import org.allbinary.string.CommonSeps;
 
 public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInterface {
     //protected final LogUtil logUtil = LogUtil.getInstance();

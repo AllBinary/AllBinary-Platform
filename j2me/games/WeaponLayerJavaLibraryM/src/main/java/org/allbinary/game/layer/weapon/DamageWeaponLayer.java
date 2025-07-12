@@ -13,12 +13,11 @@
 */
 package org.allbinary.game.layer.weapon;
 
-import org.allbinary.physics.movement.Movement;
-
 import org.allbinary.animation.Animation;
-import org.allbinary.graphics.Rectangle;
-import org.allbinary.view.ViewPosition;
 import org.allbinary.game.multiplayer.layer.RemoteInfo;
+import org.allbinary.graphics.Rectangle;
+import org.allbinary.physics.movement.Movement;
+import org.allbinary.view.ViewPosition;
 
 public class DamageWeaponLayer extends WeaponLayer
 {

@@ -16,23 +16,18 @@ package org.allbinary.logic.visual.transform.info.dom;
 import java.util.HashMap;
 import java.util.Vector;
 
-
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.w3c.dom.Document;
-
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.document.DomDocumentFileHelper;
-
-import org.allbinary.logic.io.file.AbFile;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.visual.transform.info.TransformInfoData;
-
 import org.allbinary.logic.visual.transform.info.TransformInfoProperties;
 import org.allbinary.logic.visual.transform.info.TransformInfoPropertiesFactory;
 import org.allbinary.logic.visual.transform.info.TransformInfosData;
 import org.allbinary.string.CommonStrings;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 public class TransformInfoPropertiesDocument
 {

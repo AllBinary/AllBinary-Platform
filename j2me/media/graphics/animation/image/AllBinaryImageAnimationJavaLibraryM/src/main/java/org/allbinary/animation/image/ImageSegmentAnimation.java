@@ -15,11 +15,10 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
+
 import org.allbinary.animation.AnimationBehavior;
-
-import org.allbinary.util.CircularIndexUtil;
-
 import org.allbinary.logic.math.PrimitiveIntUtil;
+import org.allbinary.util.CircularIndexUtil;
 
 /**
  *

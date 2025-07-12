@@ -13,8 +13,6 @@
 */
 package org.allbinary.game.midlet;
 
-import org.allbinary.game.midlet.GameMidlet;
-
 public class DemoSetup
 {
     public void init(GameMidlet gameMidlet)

@@ -13,13 +13,13 @@
 */
 package org.allbinary.game.ai.sequence;
 
-import org.allbinary.logic.string.StringMaker;
 import org.allbinary.ai.ArtificialIntelligenceInterface;
 import org.allbinary.ai.ArtificialIntelligenceTransitionInterface;
 import org.allbinary.game.ai.ArrayAI;
 import org.allbinary.game.input.GameInput;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 
 public class SequenceAI extends ArrayAI

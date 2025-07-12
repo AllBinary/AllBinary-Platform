@@ -13,17 +13,14 @@
 */
 package org.allbinary.graphics.j2me.workarea.tools;
 
-import org.allbinary.graphics.GPoint;
-
-import java.awt.Graphics;
+import java.awt.*;
 
 import javax.swing.tree.MutableTreeNode;
 
-import org.w3c.dom.Node;
-
+import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.j2me.workarea.canvas.CanvasDom;
 import org.allbinary.graphics.j2me.workarea.canvas.IntegerDimension;
-import java.awt.Color;
+import org.w3c.dom.Node;
 
 public interface GraphicItemInterface
 {

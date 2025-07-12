@@ -13,14 +13,11 @@
 */
 package org.allbinary.graphics.j2me.dialog;
 
-import java.awt.Dimension;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 import org.allbinary.graphics.j2me.GraphicsException;
 import org.allbinary.graphics.j2me.MyFrame;

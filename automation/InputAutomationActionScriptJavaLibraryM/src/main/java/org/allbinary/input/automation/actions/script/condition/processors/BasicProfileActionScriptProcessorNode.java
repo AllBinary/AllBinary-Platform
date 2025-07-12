@@ -13,10 +13,9 @@
 */
 package org.allbinary.input.automation.actions.script.condition.processors;
 
+import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-
-import org.allbinary.data.tree.dom.DomSearchHelper;
 
 public class BasicProfileActionScriptProcessorNode
 {

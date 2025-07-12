@@ -13,17 +13,13 @@
 */
 package views.admin.storefront;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.w3c.dom.Node;
-import org.w3c.dom.Document;
-
-import org.allbinary.logic.communication.log.LogUtil;
-
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
-
-import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 public class EditValidationStoreFrontView extends StoreFrontComponent implements ValidationComponentInterface
 {
@@ -68,7 +64,7 @@ public class EditValidationStoreFrontView extends StoreFrontComponent implements
    {
       try
       {
-         StringBuffer stringBuffer = new StringBuffer();
+         StringMaker stringBuffer = new StringMaker();
          
          if(this.newStoreFrontInterface.isNameValid() == Boolean.FALSE)
          {

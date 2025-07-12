@@ -13,8 +13,6 @@
 */
 package org.allbinary.media.image.search;
 
-import java.awt.Dimension;
-import java.awt.Rectangle;
 import java.util.Vector;
 
 public interface ImageComparisonSearchConstraintsInterface

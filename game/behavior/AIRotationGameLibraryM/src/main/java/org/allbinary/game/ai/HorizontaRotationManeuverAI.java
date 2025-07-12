@@ -15,8 +15,6 @@ package org.allbinary.game.ai;
 
 import javax.microedition.lcdui.Canvas;
 
-import org.allbinary.util.CircularIndexUtil;
-
 import org.allbinary.ai.ArtificialIntelligenceTransitionInterface;
 import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.animation.RotationAnimationInterface;
@@ -29,6 +27,7 @@ import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.math.AngleIncrementInfo;
+import org.allbinary.util.CircularIndexUtil;
 
 public class HorizontaRotationManeuverAI extends BasicAI
 implements ArtificialIntelligenceTransitionInterface

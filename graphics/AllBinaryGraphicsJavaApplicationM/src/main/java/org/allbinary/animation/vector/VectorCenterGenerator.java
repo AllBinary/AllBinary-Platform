@@ -14,19 +14,17 @@
 package org.allbinary.animation.vector;
 
 import java.util.HashMap;
-
 import java.util.Vector;
 
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.j2me.workarea.tools.GraphicItemInterface;
 import org.allbinary.graphics.j2me.workarea.tools.LinesGraphicItem;
 import org.allbinary.graphics.j2me.workarea.tools.Points;
 import org.allbinary.graphics.pipeline.BasicGraphicsPipeline;
-import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 
 public class VectorCenterGenerator {

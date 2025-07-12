@@ -13,15 +13,15 @@
 */
 package org.allbinary.business.user.commerce.money.payment.gateway;
 
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.business.context.modules.storefront.StoreFrontData;
-import org.allbinary.business.user.UserData;
-import org.allbinary.logic.control.crypt.SuperCrypt;
-
 import java.util.HashMap;
 import java.util.Vector;
+
+import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.entry.EntryData;
+import org.allbinary.business.user.UserData;
 import org.allbinary.business.user.commerce.money.payment.PaymentData;
+import org.allbinary.logic.control.crypt.SuperCrypt;
+import org.allbinary.logic.string.StringUtil;
 
 public class PaymentGateway implements PaymentGatewayInterface
 {

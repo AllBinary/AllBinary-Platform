@@ -13,16 +13,15 @@
 */
 package org.allbinary.game.input.motion.action;
 
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.ForcedLogUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.input.CompleteMotionGestureInputEvent;
 import org.allbinary.game.input.CompleteMotionGestureInputEventListener;
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.input.event.PressGameKeyEventHandler;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
+import org.allbinary.string.CommonStrings;
 
 public class SingleKeyPressGameKeyFromMotionGestureEventListener 
 extends CompleteMotionGestureInputEventListener

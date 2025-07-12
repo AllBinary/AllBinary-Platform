@@ -13,7 +13,6 @@
 */
 package org.allbinary.input.motion.gesture;
 
-import org.allbinary.game.input.Input;
 import org.allbinary.game.input.InputFactory;
 
 public class TouchMotionGestureFactory

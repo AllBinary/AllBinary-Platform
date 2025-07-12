@@ -13,22 +13,20 @@
 */
 package org.allbinary.game.layer.identification;
 
-import org.allbinary.util.BasicArrayList;
-
-import org.allbinary.string.CommonSeps;
-import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.communication.log.ForcedLogUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.identification.Group;
 import org.allbinary.game.identification.GroupInterfaceCompositeInterface;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.event.LayerManagerEvent;
 import org.allbinary.layer.event.LayerManagerEventHandler;
 import org.allbinary.layer.event.LayerManagerEventListener;
-import org.allbinary.string.CommonLabels;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
+import org.allbinary.string.CommonLabels;
+import org.allbinary.string.CommonSeps;
+import org.allbinary.util.BasicArrayList;
 
 public class GroupLayerManagerListener
 extends LayerManagerEventListener

@@ -13,9 +13,6 @@
 */
 package org.allbinary.game.ai;
 
-import org.allbinary.string.CommonStrings;
-import org.allbinary.string.CommonSeps;
-import org.allbinary.logic.string.StringMaker;
 import org.allbinary.ai.ArtificialIntelligence;
 import org.allbinary.game.displayable.canvas.CanvasUtil;
 import org.allbinary.game.input.GameInput;
@@ -25,6 +22,9 @@ import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonSeps;
+import org.allbinary.string.CommonStrings;
 
 public class BasicAI 
 extends ArtificialIntelligence

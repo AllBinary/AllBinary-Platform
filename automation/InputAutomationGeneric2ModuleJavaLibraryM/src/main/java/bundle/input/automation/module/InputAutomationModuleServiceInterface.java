@@ -13,9 +13,8 @@
 */
 package bundle.input.automation.module;
 
-import org.allbinary.osgi.OSGIServiceInterface;
-
 import org.allbinary.input.automation.module.InputAutomationModuleFactoryInterface;
+import org.allbinary.osgi.OSGIServiceInterface;
 
 public interface InputAutomationModuleServiceInterface extends OSGIServiceInterface
 {

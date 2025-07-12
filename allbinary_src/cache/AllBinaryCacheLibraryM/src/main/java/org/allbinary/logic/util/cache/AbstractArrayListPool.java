@@ -13,9 +13,8 @@
 */
 package org.allbinary.logic.util.cache;
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.string.CommonStrings;
+import org.allbinary.util.BasicArrayList;
 
 public class AbstractArrayListPool implements PoolInterface {
 

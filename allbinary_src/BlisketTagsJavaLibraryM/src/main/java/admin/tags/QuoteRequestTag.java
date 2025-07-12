@@ -15,18 +15,14 @@ package admin.tags;
 
 import java.lang.reflect.Method;
 
-import org.allbinary.logic.system.security.licensing.LicensingException;
-
-import org.allbinary.logic.communication.log.LogUtil;
-
-import org.allbinary.business.context.modules.storefront.StoreFrontData;
-
-import admin.taghelpers.QuoteRequestHelperFactory;
-import admin.taghelpers.QuoteHelperFactory;
-
-import org.allbinary.logic.communication.http.request.AbResponseHandler;
-import org.allbinary.logic.communication.log.LogFactory;
 import javax.servlet.jsp.JspTagException;
+
+import admin.taghelpers.QuoteHelperFactory;
+import admin.taghelpers.QuoteRequestHelperFactory;
+import org.allbinary.business.context.modules.storefront.StoreFrontData;
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.system.security.licensing.LicensingException;
 
 public class QuoteRequestTag extends TableTag
 {

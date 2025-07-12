@@ -13,8 +13,10 @@
 */
 package org.allbinary.logic.java.object;
 
-import org.allbinary.string.CommonSeps;
 import java.lang.reflect.Constructor;
+
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonSeps;
 
 
 public class ConstructorUtil
@@ -25,7 +27,7 @@ public class ConstructorUtil
 
    public static String viewAll(final Class myClass, final String lineBreak)
    {
-      final StringBuffer stringBuffer = new StringBuffer();
+      final StringMaker stringBuffer = new StringMaker();
       final Constructor[] constructor = myClass.getConstructors();
       stringBuffer.append("Constructors: ");
       stringBuffer.append(lineBreak);
@@ -41,7 +43,7 @@ public class ConstructorUtil
       if(constructor != null)
       {
          final CommonSeps commonSeps = CommonSeps.getInstance();
-         final StringBuffer stringBuffer = new StringBuffer();
+         final StringMaker stringBuffer = new StringMaker();
          stringBuffer.append(constructor.getName());
          final Class[] classes = constructor.getParameterTypes();
          for(int index = 0; index < classes.length; index++)

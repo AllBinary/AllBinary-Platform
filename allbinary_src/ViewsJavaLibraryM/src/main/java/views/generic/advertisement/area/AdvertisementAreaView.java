@@ -16,33 +16,15 @@ package views.generic.advertisement.area;
 //import java.util.*;
 
 
-
-import org.allbinary.logic.communication.log.LogFactory;
-import org.w3c.dom.Node;
-import org.w3c.dom.Document;
-
-//import org.allbinary.logic.string.regex.replace.Replace;
-
 import org.allbinary.business.advertisement.area.AdvertisementAreaData;
 import org.allbinary.business.advertisement.area.AdvertisementAreaInterface;
-
-//import org.allbinary.business.user.commerce.money.Money;
-
-//import org.allbinary.data.tree.dom.DomHelper;
-//import org.allbinary.data.tree.dom.ModDomHelper;
-
-import org.allbinary.data.tables.advertisement.areas.AdvertisementAreasEntityInterface;
 import org.allbinary.data.tables.advertisement.areas.AdvertisementAreasEntityFactory;
-
-//import org.allbinary.logic.control.search.SearchData;
-
-
+import org.allbinary.data.tables.advertisement.areas.AdvertisementAreasEntityInterface;
 import org.allbinary.data.tree.dom.DomNodeInterface;
-
-import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
 import org.allbinary.logic.communication.log.LogUtil;
-
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 import views.business.context.modules.storefront.HttpStoreComponentView;
 
 public class AdvertisementAreaView extends HttpStoreComponentView implements DomNodeInterface

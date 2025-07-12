@@ -13,13 +13,12 @@
 */
 package org.allbinary.business.user.commerce.inventory.order.status;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.UserInterface;
 import org.allbinary.business.user.commerce.inventory.order.OrderHistory;
 import org.allbinary.data.tables.user.UserEntityFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.smtp.event.UserEmailEventNameData;
 import org.allbinary.logic.communication.smtp.event.handler.UserEmailEventHandler;
 import org.allbinary.logic.communication.smtp.event.handler.factory.AdminUserEmailEventHandlerSingletons;

@@ -13,9 +13,8 @@
 */
 package org.allbinary.logic.util.cache;
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.logic.string.StringUtil;
+import org.allbinary.util.BasicArrayList;
 
 public class BasicArrayListCacheable extends BasicArrayList 
     implements CacheableInterface

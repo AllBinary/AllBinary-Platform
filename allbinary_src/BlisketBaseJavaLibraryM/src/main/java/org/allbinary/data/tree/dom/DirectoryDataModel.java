@@ -13,18 +13,16 @@
 */
 package org.allbinary.data.tree.dom;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.directory.Directory;
-
 import org.allbinary.logic.visual.transform.TransformInterface;
 import org.allbinary.logic.visual.transform.data.TransformDocumentFactory;
 import org.allbinary.logic.visual.transform.data.TransformDocumentInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.util.BasicArrayList;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 public class DirectoryDataModel
    implements DomNodeInterface, TransformInterface

@@ -13,14 +13,13 @@
 */
 package admin.tags;
 
-import admin.taghelpers.InventoryHelperFactory;
-import admin.taghelpers.InventoryRequestHelperFactory;
-
-import org.allbinary.business.context.modules.storefront.StoreFrontData;
-
-import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.tagext.Tag;
+
+import admin.taghelpers.InventoryHelperFactory;
+import admin.taghelpers.InventoryRequestHelperFactory;
+import org.allbinary.business.context.modules.storefront.StoreFrontData;
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
 
 public class InventoryTag extends TableTag
 {

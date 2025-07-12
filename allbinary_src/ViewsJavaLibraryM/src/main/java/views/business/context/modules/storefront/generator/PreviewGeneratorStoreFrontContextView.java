@@ -14,15 +14,12 @@
 package views.business.context.modules.storefront.generator;
 
 
-
-
-import org.allbinary.string.CommonSeps;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoData;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfosData;
+import org.allbinary.string.CommonSeps;
 
 
 public class PreviewGeneratorStoreFrontContextView extends GeneratorStoreFrontContextView

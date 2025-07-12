@@ -14,7 +14,6 @@
 package org.allbinary.game.tracking;
 
 import javax.microedition.lcdui.Graphics;
-import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 
 public class Tracking 
 {

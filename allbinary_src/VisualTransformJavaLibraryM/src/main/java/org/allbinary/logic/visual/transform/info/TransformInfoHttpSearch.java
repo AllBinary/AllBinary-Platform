@@ -13,12 +13,13 @@
 */
 package org.allbinary.logic.visual.transform.info;
 
+import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
 import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.control.search.SearchRequest;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
-import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
-import org.allbinary.logic.control.search.SearchRequest;
 
 public class TransformInfoHttpSearch extends TransformInfoHttp
 {
@@ -42,7 +43,7 @@ public class TransformInfoHttpSearch extends TransformInfoHttp
 
    private String getPath() throws Exception
    {
-       StringBuffer stringBuffer = new StringBuffer();
+       StringMaker stringBuffer = new StringMaker();
 
        stringBuffer.append(URLGLOBALS.getMainPath());
        stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);

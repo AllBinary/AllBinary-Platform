@@ -13,17 +13,17 @@
 */
 package org.allbinary.logic.system.os;
 
-import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
-import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.system.os.linux.LinuxOperatingSystemFactory;
 import org.allbinary.logic.system.os.solaris.Solaris;
 import org.allbinary.logic.system.os.windows.WindowsOperatingSystemFactory;
+import org.allbinary.string.CommonStrings;
 
 public class OperatingSystemFactory
 {

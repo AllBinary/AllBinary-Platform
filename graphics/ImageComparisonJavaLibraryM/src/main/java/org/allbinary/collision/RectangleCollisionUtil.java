@@ -13,7 +13,8 @@
 */
 package org.allbinary.collision;
 
-import java.awt.Rectangle;
+import java.awt.*;
+
 import org.allbinary.graphics.GPoint;
 
 public class RectangleCollisionUtil

@@ -13,11 +13,10 @@
 */
 package org.allbinary.logic.communication.smtp.configuration.user.event;
 
-import org.allbinary.logic.communication.smtp.configuration.user.event.UserEmailEventsConfigurationData;
-import org.allbinary.data.tables.TableMappingInterface;
-
 import java.util.HashMap;
 import java.util.Vector;
+
+import org.allbinary.data.tables.TableMappingInterface;
 
 public class UserEmailEventsConfigurationMapping implements TableMappingInterface
 {

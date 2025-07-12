@@ -20,7 +20,6 @@ import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.font.MyFont;
 import org.allbinary.graphics.paint.PaintableInterface;
 import org.allbinary.logic.math.PrimitiveLongUtil;
-import javax.microedition.lcdui.Font;
 
 public class LevelHudWidget extends BasicHud
    implements PaintableInterface

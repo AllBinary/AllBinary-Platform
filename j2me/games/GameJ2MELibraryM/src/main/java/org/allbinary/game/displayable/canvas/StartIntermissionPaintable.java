@@ -16,15 +16,14 @@ package org.allbinary.game.displayable.canvas;
 import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.logic.string.StringUtil;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorSetUtil;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.FontDebugFactory;
-import org.allbinary.graphics.font.MyFont;
 import org.allbinary.graphics.paint.InitUpdatePaintable;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 
 public class StartIntermissionPaintable extends InitUpdatePaintable
 {

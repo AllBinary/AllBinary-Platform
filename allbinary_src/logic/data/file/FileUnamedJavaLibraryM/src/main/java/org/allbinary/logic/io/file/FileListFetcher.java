@@ -13,10 +13,10 @@
  */
 package org.allbinary.logic.io.file;
 
-import org.allbinary.util.BasicArrayList;
 import org.allbinary.logic.io.file.directory.DirectoryOrIncludeFileExtensionBooleanFileVisitor;
 import org.allbinary.logic.io.file.directory.SubDirectory;
 import org.allbinary.logic.io.file.filter.VisitorFileFilter;
+import org.allbinary.util.BasicArrayList;
 
 /**
  *

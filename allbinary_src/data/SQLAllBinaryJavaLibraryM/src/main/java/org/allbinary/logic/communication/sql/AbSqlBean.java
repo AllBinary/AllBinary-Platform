@@ -14,14 +14,12 @@
 package org.allbinary.logic.communication.sql;
 
 import java.sql.ResultSet;
-
 import java.util.HashMap;
-
 import java.util.Set;
 
 import org.allbinary.business.init.db.DbConnectionInfo;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 
 public class AbSqlBean extends AbSqlRow
 {
@@ -37,7 +35,7 @@ public class AbSqlBean extends AbSqlRow
 
     public String getField(final String key, final String value, final String requestedField)
     {
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(sqlStrings.SELECT);
         stringBuffer.append(requestedField);
@@ -86,7 +84,7 @@ public class AbSqlBean extends AbSqlRow
 
     public String getField(final HashMap keysAndValues, final String requestedField)
     {
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(sqlStrings.SELECT);
         stringBuffer.append(requestedField);
@@ -155,7 +153,7 @@ public class AbSqlBean extends AbSqlRow
     //empty hashmap will cause problems
     public String isSubsetOfEntry(final String key, final String value, final HashMap columnsAndValues)
     {
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(sqlStrings.SELECT);
 
@@ -170,7 +168,7 @@ public class AbSqlBean extends AbSqlRow
             for (int i = 0; i < size; i++)
             {
                 stringBuffer.append(this.commonSeps.SPACE);
-                stringBuffer.append(keyArray[i]);
+                stringBuffer.append(keyArray[i].toString());
             }
 
             stringBuffer.append(sqlStrings.FROM);

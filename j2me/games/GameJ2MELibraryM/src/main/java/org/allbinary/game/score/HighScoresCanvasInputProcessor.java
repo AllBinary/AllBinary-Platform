@@ -15,11 +15,10 @@ package org.allbinary.game.score;
 
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.game.input.PlayerGameInput;
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.score.displayable.HighScoresCanvas;
+import org.allbinary.util.BasicArrayList;
 
 public class HighScoresCanvasInputProcessor extends PlayerGameInput
 {

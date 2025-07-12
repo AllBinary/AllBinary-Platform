@@ -14,15 +14,12 @@
 package org.allbinary.data.tables.user;
 
 import java.util.HashMap;
-
 import java.util.Vector;
 
-import org.allbinary.business.init.db.UserDbInitInfo;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.entry.EntryData;
+import org.allbinary.business.init.db.UserDbInitInfo;
 import org.allbinary.business.user.CreateUserFactory;
 import org.allbinary.business.user.UserData;
 import org.allbinary.business.user.UserInterface;
@@ -31,8 +28,10 @@ import org.allbinary.business.user.role.UserRole;
 import org.allbinary.business.user.role.UserRoleData;
 import org.allbinary.business.user.role.UserRoleFactory;
 import org.allbinary.globals.GLOBALS2;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 import org.allbinary.logic.control.crypt.SuperCrypt;
+import org.allbinary.logic.string.StringMaker;
 
 public class UserEntity extends AbSqlBean implements UserEntityInterface
 {
@@ -249,7 +248,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {                
-                StringBuffer stringBuffer = new StringBuffer();
+                StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append(COMMAND_SUCCESS_FOR_USER);
                 stringBuffer.append(userName);
@@ -266,7 +265,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                StringBuffer stringBuffer = new StringBuffer();
+                StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append(COMMAND_SUCCESS_BUT_LOGIN_FAILED);
                 stringBuffer.append(userName);
@@ -324,7 +323,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
     {
     	final EntryData entryData = EntryData.getInstance();
     	
-        final StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.sqlStrings.CREATE_TABLE)
                 .append(tableName)

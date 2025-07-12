@@ -13,8 +13,6 @@
 */
 package org.allbinary.thread;
 
-import org.allbinary.thread.ThreadPool;
-
 public class SoundThreadPool
 {
     private static final ThreadPool instance = new ThreadPool("Sound", 1);

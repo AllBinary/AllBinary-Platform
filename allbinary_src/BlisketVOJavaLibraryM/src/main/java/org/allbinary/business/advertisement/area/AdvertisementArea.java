@@ -13,16 +13,12 @@
 */
 package org.allbinary.business.advertisement.area;
 
-import org.allbinary.business.advertisement.area.AdvertisementAreaData;
 import java.util.HashMap;
 
-import org.w3c.dom.Document;
-
 import org.allbinary.business.advertisement.campaign.AdvertisementCampaignData;
-
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
-
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.w3c.dom.Document;
 
 public class AdvertisementArea implements AdvertisementAreaInterface
 {

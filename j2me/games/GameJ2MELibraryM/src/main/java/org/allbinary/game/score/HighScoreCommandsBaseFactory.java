@@ -16,8 +16,6 @@ package org.allbinary.game.score;
 import javax.microedition.lcdui.Command;
 
 import org.allbinary.J2MEUtil;
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
 public class HighScoreCommandsBaseFactory {

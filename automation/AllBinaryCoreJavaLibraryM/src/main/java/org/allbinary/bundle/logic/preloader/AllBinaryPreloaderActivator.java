@@ -20,9 +20,8 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 import org.osgi.framework.ServiceRegistration;
 
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.bundle.logic.system.loader.CryptServiceFactory;
-import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 
 public class AllBinaryPreloaderActivator

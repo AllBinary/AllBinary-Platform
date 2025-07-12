@@ -11,20 +11,17 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
 
-
 import javax.imageio.IIOImage;
 import javax.imageio.ImageIO;
 import javax.imageio.ImageWriteParam;
 import javax.imageio.ImageWriter;
 import javax.imageio.stream.ImageOutputStream;
 
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.AbFileOutputStream;
 import org.allbinary.logic.io.StreamUtil;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-
 import org.apache.batik.ext.awt.image.codec.png.PNGImageWriter;
 
 /**

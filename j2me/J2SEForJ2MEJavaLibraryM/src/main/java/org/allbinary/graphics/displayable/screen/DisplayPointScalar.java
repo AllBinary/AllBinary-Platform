@@ -14,9 +14,6 @@
 package org.allbinary.graphics.displayable.screen;
 
 import org.allbinary.graphics.GPoint;
-import org.allbinary.graphics.PointFactory;
-import org.allbinary.graphics.Rectangle;
-import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 
 /**
  *

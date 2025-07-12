@@ -16,7 +16,7 @@ package org.allbinary.input.automation.module;
 import java.net.URL;
 
 import javax.help.HelpSet;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 import org.allbinary.logic.java.help.JavaHelpUtil;
 

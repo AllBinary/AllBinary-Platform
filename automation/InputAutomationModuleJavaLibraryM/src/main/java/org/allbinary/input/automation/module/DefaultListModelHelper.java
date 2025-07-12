@@ -16,8 +16,7 @@ package org.allbinary.input.automation.module;
 
 import java.util.Vector;
 
-import javax.swing.DefaultListModel;
-import javax.swing.ListModel;
+import javax.swing.*;
 
 public class DefaultListModelHelper
 {

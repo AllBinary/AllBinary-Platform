@@ -13,19 +13,19 @@
 */
 package org.allbinary.canvas;
 
-import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
+import javax.microedition.lcdui.CommandListener;
+
+import org.allbinary.game.displayable.canvas.NullWaitGameRunnable;
+import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.graphics.displayable.MyCanvas;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
+import org.allbinary.string.CommonLabels;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.thread.RunnableInterface;
 import org.allbinary.thread.ThreadObjectUtil;
 import org.allbinary.time.TimeDelayHelper;
-import javax.microedition.lcdui.CommandListener;
-import org.allbinary.game.displayable.canvas.NullWaitGameRunnable;
-import org.allbinary.graphics.displayable.CanvasStrings;
-import org.allbinary.string.CommonLabels;
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
 
 public class RunnableCanvas extends MyCanvas 

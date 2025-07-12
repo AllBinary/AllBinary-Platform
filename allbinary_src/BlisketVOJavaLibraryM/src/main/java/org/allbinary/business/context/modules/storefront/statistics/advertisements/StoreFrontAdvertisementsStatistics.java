@@ -13,10 +13,10 @@
 */
 package org.allbinary.business.context.modules.storefront.statistics.advertisements;
 
-import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
-
 import java.util.HashMap;
 import java.util.Vector;
+
+import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 
 public class StoreFrontAdvertisementsStatistics
 implements StoreFrontAdvertisementsStatisticsInterface

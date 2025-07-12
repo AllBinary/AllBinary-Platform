@@ -13,13 +13,11 @@
 */
 package org.allbinary.animation;
 
-import org.allbinary.util.BasicArrayList;
-
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.pipeline.BasicGraphicsPipeline;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
+import org.allbinary.util.BasicArrayList;
 
 public class VectorMirrorGenerator
 {

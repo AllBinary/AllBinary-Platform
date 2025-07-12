@@ -13,13 +13,11 @@
 */
 package org.allbinary.logic.visual.transform.info;
 
-import org.allbinary.logic.io.path.AbPath;
+import java.util.HashMap;
 
 import org.allbinary.data.tables.TableMappingInterface;
-
+import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigInterface;
-
-import java.util.HashMap;
 import org.w3c.dom.Document;
 
 public interface TransformInfoInterface extends TableMappingInterface

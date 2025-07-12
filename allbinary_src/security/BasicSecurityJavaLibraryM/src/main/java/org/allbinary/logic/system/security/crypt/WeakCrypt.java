@@ -13,10 +13,10 @@
 */
 package org.allbinary.logic.system.security.crypt;
 
-import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.system.security.crypt.jcehelper.AbCrypt;
 import org.allbinary.logic.system.security.crypt.jcehelper.KeySpecFactory;
+import org.allbinary.string.CommonStrings;
 
 public class WeakCrypt
 {

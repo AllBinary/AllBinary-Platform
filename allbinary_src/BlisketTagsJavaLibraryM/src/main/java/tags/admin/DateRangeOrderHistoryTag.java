@@ -13,14 +13,11 @@
 */
 package tags.admin;
 
-import org.allbinary.logic.communication.log.LogUtil;
-
-import tags.StoreValidationTransformTag;
+import javax.servlet.jsp.JspTagException;
 
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
-import org.allbinary.logic.communication.log.LogFactory;
-
-import javax.servlet.jsp.JspTagException;
+import org.allbinary.logic.communication.log.LogUtil;
+import tags.StoreValidationTransformTag;
 
 public class DateRangeOrderHistoryTag extends StoreValidationTransformTag
 {

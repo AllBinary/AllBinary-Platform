@@ -13,11 +13,10 @@
 */
 package org.allbinary.input.automation;
 
-import java.awt.Point;
-import java.awt.Rectangle;
+import java.awt.*;
+
 import javax.help.HelpSet;
 
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
 public class AbstractInputRobot

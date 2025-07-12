@@ -1,17 +1,14 @@
 
 package org.allbinary.logic.system.os.env;
 
-import org.allbinary.logic.communication.log.LogFactory;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.Properties;
 
-import java.io.InputStreamReader;
-import java.io.BufferedReader;
-
-import org.allbinary.logic.system.os.OperatingSystems;
-import org.allbinary.logic.system.os.OperatingSystemFactory;
-import org.allbinary.logic.system.os.GenericOperatingSystem;
-
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.system.os.GenericOperatingSystem;
+import org.allbinary.logic.system.os.OperatingSystemFactory;
+import org.allbinary.logic.system.os.OperatingSystems;
 import org.allbinary.string.CommonStrings;
 
 public class RuntimeEnvironmentVariables

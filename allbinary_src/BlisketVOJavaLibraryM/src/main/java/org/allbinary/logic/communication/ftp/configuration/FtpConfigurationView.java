@@ -13,15 +13,14 @@
 */
 package org.allbinary.logic.communication.ftp.configuration;
 
-import org.allbinary.logic.communication.ftp.configuration.FtpConfigurationData;
+import java.util.HashMap;
+
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
-import java.util.HashMap;
 
 public class FtpConfigurationView implements DomNodeInterface
 {

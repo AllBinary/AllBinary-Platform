@@ -13,7 +13,6 @@
 */
 package org.allbinary.input.automation.robot.osgi;
 
-import org.allbinary.input.automation.robot.osgi.InputAutomationRobotChangeEvent;
 import org.allbinary.input.automation.robot.InputRobotInterface;
 
 public class InputAutomationRobotUtil

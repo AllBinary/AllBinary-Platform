@@ -13,8 +13,8 @@
 */
 package org.allbinary.globals;
 
-import org.allbinary.globals.PATH_GLOBALS;
 import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.logic.string.StringMaker;
 
 public class FREEBLISKET_PATH_GLOBALS
 {
@@ -47,7 +47,7 @@ public class FREEBLISKET_PATH_GLOBALS
 
    private FREEBLISKET_PATH_GLOBALS()
    {
-       StringBuffer stringBuffer = new StringBuffer();
+       StringMaker stringBuffer = new StringMaker();
 
        stringBuffer.append("install");
        stringBuffer.append(AbPathData.getInstance().SEPARATOR);

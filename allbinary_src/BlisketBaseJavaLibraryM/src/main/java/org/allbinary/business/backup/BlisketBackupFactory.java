@@ -15,18 +15,18 @@ package org.allbinary.business.backup;
 
 import java.util.Vector;
 
-import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.io.file.AbFile;
-import org.allbinary.logic.io.file.directory.Directory;
-import org.allbinary.logic.io.file.zip.ZipFileUtil;
-import org.allbinary.logic.io.path.AbPath;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.data.tables.context.module.storefronts.StoreFrontsEntity;
 import org.allbinary.data.tables.context.module.storefronts.StoreFrontsEntityFactory;
 import org.allbinary.globals.PATH_GLOBALS;
+import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.logic.io.file.AbFile;
+import org.allbinary.logic.io.file.directory.Directory;
+import org.allbinary.logic.io.file.zip.ZipFileUtil;
+import org.allbinary.logic.io.path.AbPath;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 
@@ -60,7 +60,7 @@ public class BlisketBackupFactory
         {
             logUtil.put(this.commonStrings.START, this, "backup()");
 
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append(URLGLOBALS.getWebappPath());
             stringBuffer.append(PATH_GLOBALS.getInstance().BACKUP_PATH);
@@ -85,7 +85,7 @@ public class BlisketBackupFactory
         {
             logUtil.put(this.commonStrings.START, this, "backupViews()");
 
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append(URLGLOBALS.getWebappPath());
             stringBuffer.append(PATH_GLOBALS.getInstance().BACKUP_PATH);
@@ -140,7 +140,7 @@ public class BlisketBackupFactory
         {
             logUtil.put(this.commonStrings.START, this, "backupResources()");
 
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append(URLGLOBALS.getWebappPath());
             stringBuffer.append(PATH_GLOBALS.getInstance().BACKUP_PATH);
@@ -200,7 +200,7 @@ public class BlisketBackupFactory
         {
             logUtil.put(this.commonStrings.START, this, "backupJsps()");
 
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append(URLGLOBALS.getWebappPath());
             stringBuffer.append(PATH_GLOBALS.getInstance().BACKUP_PATH);
@@ -245,7 +245,7 @@ public class BlisketBackupFactory
     {
         try
         {
-            final StringBuffer stringBuffer = new StringBuffer();
+            final StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.delete(0, stringBuffer.length());
             stringBuffer.append("ZipFile: ");

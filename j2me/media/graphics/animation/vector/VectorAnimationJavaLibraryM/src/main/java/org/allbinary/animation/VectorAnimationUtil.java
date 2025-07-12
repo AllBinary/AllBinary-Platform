@@ -13,9 +13,8 @@
 */
 package org.allbinary.animation;
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.graphics.GPoint;
+import org.allbinary.util.BasicArrayList;
 
 public class VectorAnimationUtil
 {

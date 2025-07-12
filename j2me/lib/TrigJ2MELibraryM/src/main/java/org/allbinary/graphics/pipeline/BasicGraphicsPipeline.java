@@ -13,12 +13,11 @@
 */
 package org.allbinary.graphics.pipeline;
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.math.Angle;
 import org.allbinary.math.NoDecimalTrigTable;
+import org.allbinary.util.BasicArrayList;
 
 public class BasicGraphicsPipeline
 {

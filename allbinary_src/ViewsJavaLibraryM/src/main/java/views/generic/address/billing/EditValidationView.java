@@ -13,21 +13,12 @@
 */
 package views.generic.address.billing;
 
-import java.util.*;
-
-
+import org.allbinary.business.user.address.StreetAddressData;
+import org.allbinary.data.tables.user.address.billing.BillingAddressesEntity;
+import org.allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-
-
-
-import org.allbinary.business.user.address.StreetAddressData;
-
-import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
-import org.allbinary.logic.control.validate.ValidationComponentInterface;
-
-import org.allbinary.data.tables.user.address.billing.BillingAddressesEntity;
 
 
 public class EditValidationView extends BillingAddressView implements ValidationComponentInterface

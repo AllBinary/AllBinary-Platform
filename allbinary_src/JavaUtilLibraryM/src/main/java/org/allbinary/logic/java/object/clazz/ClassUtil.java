@@ -16,6 +16,7 @@ package org.allbinary.logic.java.object.clazz;
 import org.allbinary.logic.java.object.ConstructorUtil;
 import org.allbinary.logic.java.object.InterfaceUtil;
 import org.allbinary.logic.java.object.MethodUtil;
+import org.allbinary.logic.string.StringMaker;
 
 public class ClassUtil
 {
@@ -38,7 +39,7 @@ public class ClassUtil
    {
       if(myClass != null)
       {
-         StringBuffer stringBuffer = new StringBuffer();
+         StringMaker stringBuffer = new StringMaker();
          
          Class classes[] = myClass.getClasses();
          

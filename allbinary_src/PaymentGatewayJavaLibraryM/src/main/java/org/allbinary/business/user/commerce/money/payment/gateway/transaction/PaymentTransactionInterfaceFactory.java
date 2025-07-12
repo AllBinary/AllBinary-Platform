@@ -13,11 +13,10 @@
 */
 package org.allbinary.business.user.commerce.money.payment.gateway.transaction;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.user.commerce.inventory.order.OrderHistory;
 import org.allbinary.business.user.commerce.money.payment.types.PaymentType;
 import org.allbinary.business.user.commerce.money.payment.types.PaymentTypeUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 
 public class PaymentTransactionInterfaceFactory

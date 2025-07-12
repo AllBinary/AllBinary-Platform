@@ -13,19 +13,14 @@
 */
 package org.allbinary.input.automation.actions.script.condition.processors.input;
 
-import java.util.Hashtable;
-
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.ComboBoxModel;
+import javax.swing.*;
 
 import org.allbinary.input.KeySingletonFactory;
 import org.allbinary.input.automation.robot.InputRobot;
 import org.allbinary.input.automation.robot.InputRobotFactory;
-import org.allbinary.input.automation.robot.InputRobotInterface;
 import org.allbinary.input.automation.robot.TempInputRobotNames;
-import org.allbinary.logic.string.StringValidationUtil;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.string.CommonStrings;
 
 /**

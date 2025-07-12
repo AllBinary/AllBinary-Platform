@@ -16,8 +16,7 @@ Created By: Travis Berthelot
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
    <xsl:template name="mouseMenuItem"
-      xmlns:jsp="http://java.sun.com/JSP/Page" 
-      xmlns:jutil="/WEB-INF/jutil.tld" >
+                 xmlns:jutil="/WEB-INF/jutil.tld" >
       <xsl:param name="name"/>
       <xsl:param name="id">
          <xsl:value-of select="$name" />
@@ -47,8 +46,7 @@ Created By: Travis Berthelot
    </xsl:template>   
 
    <xsl:template name="mouseBodyItem"
-      xmlns:jsp="http://java.sun.com/JSP/Page" 
-      xmlns:jutil="/WEB-INF/jutil.tld" >
+                 xmlns:jutil="/WEB-INF/jutil.tld" >
       <xsl:param name="name"/>
       <xsl:param name="id">
          <xsl:value-of select="$name" />
@@ -78,8 +76,7 @@ Created By: Travis Berthelot
    </xsl:template>   
    
    <xsl:template name="mouseButtonMenuItem"
-      xmlns:jsp="http://java.sun.com/JSP/Page" 
-      xmlns:jutil="/WEB-INF/jutil.tld" >
+                 xmlns:jutil="/WEB-INF/jutil.tld" >
       <xsl:param name="name"/>
       <xsl:param name="id">
          <xsl:value-of select="$name" />
@@ -106,11 +103,10 @@ Created By: Travis Berthelot
          <xsl:value-of select="$name" />
       </jutil:element>
             
-   </xsl:template>   
+   </xsl:template>
 
-   <xsl:template name="mouseButtonBodyItem"
-      xmlns:jsp="http://java.sun.com/JSP/Page" 
-      xmlns:jutil="/WEB-INF/jutil.tld" >
+    <xsl:template name="mouseButtonBodyItem"
+                  xmlns:jutil="/WEB-INF/jutil.tld">
       <xsl:param name="name"/>
       <xsl:param name="id">
          <xsl:value-of select="$name" />

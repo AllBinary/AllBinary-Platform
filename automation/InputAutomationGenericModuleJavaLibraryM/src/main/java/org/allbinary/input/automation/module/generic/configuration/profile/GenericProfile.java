@@ -16,15 +16,13 @@ package org.allbinary.input.automation.module.generic.configuration.profile;
 
 import java.util.Vector;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.input.automation.module.generic.configuration.profile.actions.GenericProfileActions;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 public class GenericProfile
 {

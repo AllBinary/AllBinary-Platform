@@ -14,14 +14,13 @@
 package org.allbinary.logic.system.security.licensing;
 
 import java.util.Hashtable;
-import org.allbinary.string.CommonSeps;
+
 import org.allbinary.logic.string.StringMaker;
-
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.logic.system.hardware.HardwareInterface;
 import org.allbinary.logic.system.hardware.SystemHardwareFactory;
 import org.allbinary.logic.system.os.GenericOperatingSystem;
+import org.allbinary.string.CommonSeps;
+import org.allbinary.util.BasicArrayList;
 
 // This is the information sent to the license server
 public class ClientInformation implements AbeClientInformationInterface

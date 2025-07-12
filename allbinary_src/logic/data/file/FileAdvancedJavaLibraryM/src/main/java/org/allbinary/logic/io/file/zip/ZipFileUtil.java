@@ -17,6 +17,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.AbDataOutputStream;
 import org.allbinary.logic.io.AbFileInputStream;
 import org.allbinary.logic.io.AbFileOutputStream;
@@ -24,8 +25,7 @@ import org.allbinary.logic.io.DataOutputStreamFactory;
 import org.allbinary.logic.io.StreamUtil;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.FileUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 
@@ -67,7 +67,7 @@ public class ZipFileUtil
 
             final StreamUtil streamUtil = StreamUtil.getInstance();
 
-            final StringBuffer stringBuffer = new StringBuffer();
+            final StringMaker stringBuffer = new StringMaker();
 
             final byte[] byteArray = new byte[16384];
 
@@ -134,7 +134,7 @@ public class ZipFileUtil
 
             ZipEntry zipEntry;
 
-            final StringBuffer stringBuffer = new StringBuffer();
+            final StringMaker stringBuffer = new StringMaker();
 
             final FileUtil fileUtil = FileUtil.getInstance();
             

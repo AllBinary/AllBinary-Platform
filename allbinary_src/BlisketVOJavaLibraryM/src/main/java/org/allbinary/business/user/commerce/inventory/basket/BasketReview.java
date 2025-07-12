@@ -13,15 +13,14 @@
 */
 package org.allbinary.business.user.commerce.inventory.basket;
 
-import org.allbinary.business.user.commerce.inventory.basket.BasketData;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Vector;
+
 import org.allbinary.business.user.commerce.inventory.item.Item;
 import org.allbinary.business.user.commerce.inventory.item.ItemView;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Vector;
 
 public class BasketReview
 {

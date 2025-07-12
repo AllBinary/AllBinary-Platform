@@ -14,8 +14,6 @@
 package tags;
 
 import admin.taghelpers.TagHelperFactoryInterface;
-
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
 public class HelperTag extends PropertiesTag

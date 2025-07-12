@@ -13,15 +13,14 @@
 */
 package org.allbinary.logic.visual.transform.generator;
 
-
 import java.util.Vector;
 
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoDomNode;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigInterface;
-import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class TransformsGeneratorUtil
 {
@@ -79,7 +78,7 @@ public class TransformsGeneratorUtil
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            StringBuffer stringBuffer = new StringBuffer();
+            StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append("Processing ");
             stringBuffer.append(transformInfoObjectConfigComponentVector.size());
@@ -107,7 +106,7 @@ public class TransformsGeneratorUtil
             logUtil.put("Done Group: " + group, this, "generateComponentsFromObjectConfig()");
         }
 
-        StringBuffer stringBuffer = new StringBuffer();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("<!-- Generated all template views successfully for View: ");
         stringBuffer.append(transformInfoInterface.getName());

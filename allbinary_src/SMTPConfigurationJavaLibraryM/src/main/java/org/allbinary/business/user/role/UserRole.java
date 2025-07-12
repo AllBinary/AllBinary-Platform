@@ -13,9 +13,9 @@
 */
 package org.allbinary.business.user.role;
 
-import org.allbinary.business.user.role.BasicUserRole;
-import org.allbinary.business.user.UserFactoryInterface;
 import java.io.Serializable;
+
+import org.allbinary.business.user.UserFactoryInterface;
 
 public class UserRole implements Serializable
 {

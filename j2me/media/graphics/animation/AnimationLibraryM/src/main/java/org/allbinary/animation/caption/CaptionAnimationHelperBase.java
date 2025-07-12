@@ -14,6 +14,7 @@
 package org.allbinary.animation.caption;
 
 import javax.microedition.lcdui.Graphics;
+
 import org.allbinary.animation.Animation;
 import org.allbinary.graphics.color.BasicColor;
 
