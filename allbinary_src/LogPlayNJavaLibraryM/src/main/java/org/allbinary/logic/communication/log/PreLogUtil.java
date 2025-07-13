@@ -27,7 +27,7 @@ public class PreLogUtil
     }
     
     /*
-    public synchronized static void put(Log log)
+    public static void put(Log log)
     {
         String specialMessage = log.getSpecialMessage();
         Object object = log.getObject();
@@ -51,10 +51,10 @@ public class PreLogUtil
     }
     */
 
-    public synchronized static void put(
-        String specialMessage,
-        Object object,
-        String functionName)
+    public static void put(
+        final String specialMessage,
+        final Object object,
+        final String functionName)
     {
 //       String className = EMPTY;
         String className = PreLogUtil.getClassName(object);
@@ -65,7 +65,7 @@ public class PreLogUtil
 
         className = new StringMaker().append(className).append(CommonSeps.getInstance().FORWARD_SLASH).append(StringUtil.getInstance().toString(object)).toString();
         
-        String message = LogFormatUtil.getInstance().get(
+        final String message = LogFormatUtil.getInstance().get(
             className, functionName, specialMessage);
 
         PlayN.log().debug(LOG_SUCCESS + message);
@@ -74,11 +74,11 @@ public class PreLogUtil
     
     private final static String LOG_SUCCESS = "org.allbinary: ";
 
-    public synchronized static void put(
-        String specialMessage,
-        Object object,
-        String functionName,
-        Object exception)
+    public static void put(
+        final String specialMessage,
+        final Object object,
+        final String functionName,
+        final Object exception)
     {
 //       String className = EMPTY;
         String className = PreLogUtil.getClassName(object);
@@ -89,30 +89,30 @@ public class PreLogUtil
 
         className = new StringMaker().append(className).append(CommonSeps.getInstance().FORWARD_SLASH).append(StringUtil.getInstance().toString(object)).toString();
         
-        String message = LogFormatUtil.getInstance().get(
+        final String message = LogFormatUtil.getInstance().get(
             className, functionName, specialMessage, exception);
 
         PlayN.log().error(LOG_SUCCESS + message, (Throwable) exception);
     }
     
-    public synchronized static void put(
-        String specialMessage,
-        String className,
-        String functionName)
+    public static void put(
+        final String specialMessage,
+        final String className,
+        final String functionName)
     {        
-        String message = LogFormatUtil.getInstance().get(
+        final String message = LogFormatUtil.getInstance().get(
             className, functionName, specialMessage);
 
         PlayN.log().debug(LOG_SUCCESS + message);
     }
 
-    public synchronized static void put(
-        String specialMessage,
-        String className,
-        String functionName,
-        Object exception)
+    public static void put(
+        final String specialMessage,
+        final String className,
+        final String functionName,
+        final Object exception)
     {
-        String message = LogFormatUtil.getInstance().get(
+        final String message = LogFormatUtil.getInstance().get(
             className, functionName, specialMessage, exception);
 
         PlayN.log().error(LOG_SUCCESS + message, (Throwable) exception);

@@ -13,6 +13,7 @@
 */
 package org.allbinary.logic.communication.log;
 
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.java.exception.ExceptionUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
@@ -106,16 +107,19 @@ public class LogFormatUtil
     }
 
     private final ExceptionUtil exceptionUtil = ExceptionUtil.getInstance();
+    private final NullUtil nullUtil = NullUtil.getInstance();
+    
     public String get(final Object exception)
     {
-        if (exception != null)
+        if (exception != nullUtil.NULL_OBJECT)
         {
             final StringMaker stringBuffer = new StringMaker();
             stringBuffer.append(LOG_ERROR);
 
-            if (exception.toString() != null)
+            final String exceptionAsString = exception.toString();
+            if (exceptionAsString != null)
             {
-                stringBuffer.append(exception.toString());
+                stringBuffer.append(exceptionAsString);
             } else
             {
                 stringBuffer.append(EMPTY);

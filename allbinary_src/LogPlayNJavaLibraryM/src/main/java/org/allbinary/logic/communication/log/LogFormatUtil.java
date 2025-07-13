@@ -13,8 +13,8 @@
 */
 package org.allbinary.logic.communication.log;
 
+import org.allbinary.logic.NullUtil;
 import org.allbinary.time.TimeStampUtil;
-
 import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
@@ -50,7 +50,7 @@ public class LogFormatUtil
     {
     }
 
-    public synchronized String get(
+    public String get(
         final String className, final String functionName, final String specialMessage, final Object exception)
     {
         final StringMaker stringBuffer = get(className, functionName);
@@ -66,7 +66,7 @@ public class LogFormatUtil
         return stringBuffer.toString();
     }
 
-    public synchronized String get(
+    public String get(
         final String className, final String functionName, final String specialMessage)
     {
         final StringMaker stringBuffer = get(className, functionName);
@@ -83,8 +83,8 @@ public class LogFormatUtil
     //Date does not change as static
     //private final Calendar calendar = Calendar.getInstance();
     
-    private synchronized StringMaker get(
-        final String className, String functionName)
+    private StringMaker get(
+        final String className, final String functionName)
     {
         //int hashCode = LogUtil.class.getClassLoader().getClass().hashCode();
         final StringMaker stringBuffer = new StringMaker();
@@ -101,9 +101,11 @@ public class LogFormatUtil
     }
 
     private final ExceptionUtil exceptionUtil = ExceptionUtil.getInstance();
-    public synchronized String get(final Object exception)
+    private final NullUtil nullUtil = NullUtil.getInstance();
+    
+    public String get(final Object exception)
     {
-        if (exception != null)
+        if (exception != nullUtil.NULL_OBJECT)
         {
             final StringMaker stringBuffer = new StringMaker();
             stringBuffer.append(LOG_ERROR);

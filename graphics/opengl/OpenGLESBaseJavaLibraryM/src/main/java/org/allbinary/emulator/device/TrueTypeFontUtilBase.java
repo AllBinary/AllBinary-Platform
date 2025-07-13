@@ -14,6 +14,7 @@
 package org.allbinary.emulator.device;
 
 import org.allbinary.AndroidUtil;
+import org.allbinary.AvianUtil;
 import org.allbinary.graphics.font.MyFont;
 
 /**
@@ -23,8 +24,7 @@ import org.allbinary.graphics.font.MyFont;
 public class TrueTypeFontUtilBase {
 
     //Include special characters 2 times handles the Android Studio issue.
-    public final String shortPattern = " 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.?!$%`¬\"£^&*()_+-=[]{};'#:@~,/<>\\|®©";
-    //public final String pattern = " 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.?!$%`¬¬\"££^&*()_+-=[]{};'#:@~,/<>\\|®®©©";
+    public final String shortPattern;
     public final String pattern = " 0123456789AB   CDEFGHIJKLMNO   PQRSTUVWXYZab   cdefghijklmno   pqrstuvwxyz.?   !$%`¬¬\"££^&*(   )_+-=[]{};'#:   @~,/<>\\|®®©©";
 
     public final short[] charArray = //new short[255];
@@ -51,6 +51,12 @@ public class TrueTypeFontUtilBase {
     //public final int extraCellsPerRow = actualCellsPerRow - CELLS_PER_ROW;
         
     public TrueTypeFontUtilBase(final int scale) {
+
+        if(AvianUtil.isAvian()) {
+            shortPattern = " 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.?!$%`¬¬\"££^&*()_+-=[]{};'#:@~,/<>\\|®®©©";
+        } else {
+            shortPattern = " 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.?!$%`¬\"£^&*()_+-=[]{};'#:@~,/<>\\|®©";
+        }
         
         this.scale = scale;
         //This needs to initialize after scale and in the OpenGL thread when running JOGL.

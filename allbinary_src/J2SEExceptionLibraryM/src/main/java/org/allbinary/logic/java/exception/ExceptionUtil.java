@@ -49,8 +49,9 @@ public class ExceptionUtil
                 ((Throwable) e).printStackTrace(printStream);
             }
 
-            if (byteArrayOutputStream.toString() != null) {
-                return new String(byteArrayOutputStream.toString());
+            final String output = byteArrayOutputStream.toString();
+            if (output != null) {
+                return new String(output);
             }
         }
         return NONE;

@@ -23,13 +23,13 @@ import org.eclipse.swt.graphics.ImageLoader;
 
 import org.microemu.device.swt.SwtMutableImage;
 
+import org.allbinary.AvianUtil;
 import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.displayable.CanvasStrings;
-import org.allbinary.graphics.font.MyFont;
 import org.allbinary.graphics.opengles.OpenGLCapabilities;
 import org.allbinary.image.PreResourceImageUtil;
 import org.allbinary.image.opengles.OpenGLESImage;
@@ -38,11 +38,10 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
-import org.microemu.device.swt.SwtSystemFont;
 
 public class TrueTypeFontUtil extends TrueTypeFontUtilBase
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
+    //protected final LogUtil logUtil = LogUtil.getInstance();
 
     private static final TrueTypeFontUtil instance = new TrueTypeFontUtil();
 
@@ -53,9 +52,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
 
     private final PreResourceImageUtil preResourceImageUtil = PreResourceImageUtil.getInstance();
 
-    private final float[] widthFloatArray = {
-        1504.0f, 967.0f, 527.0f, 961.0f, 957.0f, 1087.0f, 920.0f, 954.0f, 973.0f, 961.0f, 955.0f, 1296.0f, 1013.0f, 1106.0f, 1167.0f, 815.0f, 815.0f, 1216.0f, 1110.0f, 170.0f, 520.0f, 1056.0f, 815.0f, 1448.0f, 1142.0f, 1345.0f, 927.0f, 1345.0f, 1030.0f, 920.0f, 1096.0f, 1119.0f, 1219.0f, 1841.0f, 1166.0f, 1147.0f, 1005.0f, 879.0f, 965.0f, 792.0f, 964.0f, 927.0f, 753.0f, 1034.0f, 916.0f, 196.0f, 469.0f, 877.0f, 166.0f, 1563.0f, 916.0f, 1007.0f, 965.0f, 964.0f, 631.0f, 777.0f, 649.0f, 917.0f, 1026.0f, 1548.0f, 993.0f, 1028.0f, 795.0f, 241.0f, 798.0f, 241.0f, 905.0f, 1477.0f, 393.0f, 961.0f, 555.0f, 1029.0f, 1010.0f, 1378.0f, 952.0f, 463.0f, 463.0f, 926.0f, 961.0f, 491.0f, 930.0f, 457.0f, 457.0f, 644.0f, 643.0f, 326.0f, 186.0f, 1219.0f, 241.0f, 1599.0f, 961.0f, 302.0f, 711.0f, 961.0f, 961.0f, 710.0f, 141.0f, 1504.0f, 1504.0f
-    };
+    private final float[] widthFloatArray;
     
     public OpenGLESImage fontImage;
 
@@ -63,6 +60,20 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
     
     private TrueTypeFontUtil() {
         super(2);
+        
+        if(AvianUtil.isAvian()) {
+
+            widthFloatArray = new float[] {
+                1504.0f, 967.0f, 527.0f, 961.0f, 957.0f, 1087.0f, 920.0f, 954.0f, 973.0f, 961.0f, 955.0f, 1296.0f, 1013.0f, 1106.0f, 1167.0f, 815.0f, 815.0f, 1216.0f, 1110.0f, 170.0f, 520.0f, 1056.0f, 815.0f, 1448.0f, 1142.0f, 1345.0f, 927.0f, 1345.0f, 1030.0f, 920.0f, 1096.0f, 1119.0f, 1219.0f, 1841.0f, 1166.0f, 1147.0f, 1005.0f, 879.0f, 965.0f, 792.0f, 964.0f, 927.0f, 753.0f, 1034.0f, 916.0f, 196.0f, 469.0f, 877.0f, 166.0f, 1563.0f, 916.0f, 1007.0f, 965.0f, 964.0f, 631.0f, 777.0f, 649.0f, 917.0f, 1026.0f, 1548.0f, 993.0f, 1028.0f, 795.0f, 241.0f, 798.0f, 241.0f, 905.0f, 1477.0f, 393.0f, 961.0f, 961.0f, 961.0f, 961.0f, 555.0f, 1029.0f, 1010.0f, 1378.0f, 952.0f, 952.0f, 952.0f, 952.0f, 463.0f, 463.0f, 926.0f, 961.0f, 491.0f, 930.0f, 457.0f, 457.0f, 644.0f, 643.0f, 326.0f, 186.0f, 1219.0f, 241.0f, 1599.0f, 961.0f, 302.0f, 711.0f, 961.0f, 961.0f, 710.0f, 141.0f, 1504.0f, 1504.0f, 1504.0f, 1504.0f, 1504.0f, 1504.0f, 1504.0f, 1504.0f
+            };
+
+        } else {
+            
+            widthFloatArray = new float[] {
+                1504.0f, 967.0f, 527.0f, 961.0f, 957.0f, 1087.0f, 920.0f, 954.0f, 973.0f, 961.0f, 955.0f, 1296.0f, 1013.0f, 1106.0f, 1167.0f, 815.0f, 815.0f, 1216.0f, 1110.0f, 170.0f, 520.0f, 1056.0f, 815.0f, 1448.0f, 1142.0f, 1345.0f, 927.0f, 1345.0f, 1030.0f, 920.0f, 1096.0f, 1119.0f, 1219.0f, 1841.0f, 1166.0f, 1147.0f, 1005.0f, 879.0f, 965.0f, 792.0f, 964.0f, 927.0f, 753.0f, 1034.0f, 916.0f, 196.0f, 469.0f, 877.0f, 166.0f, 1563.0f, 916.0f, 1007.0f, 965.0f, 964.0f, 631.0f, 777.0f, 649.0f, 917.0f, 1026.0f, 1548.0f, 993.0f, 1028.0f, 795.0f, 241.0f, 798.0f, 241.0f, 905.0f, 1477.0f, 393.0f,                         961.0f, 555.0f, 1029.0f, 1010.0f, 1378.0f,                         952.0f, 463.0f, 463.0f, 926.0f, 961.0f, 491.0f, 930.0f, 457.0f, 457.0f, 644.0f, 643.0f, 326.0f, 186.0f, 1219.0f, 241.0f, 1599.0f, 961.0f, 302.0f, 711.0f, 961.0f, 961.0f, 710.0f, 141.0f, 1504.0f, 1504.0f
+            };
+            
+        }
         
         this.widthScale = (this.scale == 2) ? 1.2f : 1f;
     }
@@ -204,7 +215,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
     
     public int[] getFontWidths(String filename, int fontSize)
     {
-        
+        final CommonStrings commonStrings = CommonStrings.getInstance();
         //Typeface typeface = Typeface.DEFAULT;
         //Typeface.createFromAsset(ResourceUtil.getInstance().getContext().getAssets(), filename);
 
@@ -293,7 +304,10 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
             if(characterArray[0] == ' ') {
                 _characterWidth[index] = (fontSize / 4);
             } else {
+                //logUtil.put("widthFloatArray: " + widthFloatArray.length, this, commonStrings.START);
+                //logUtil.put("character: " + characterArray[0], this, commonStrings.START);
                 final int shortPatternIndex = this.shortPattern.indexOf(characterArray[0]);
+                //logUtil.put("shortPatternIndex: " + shortPatternIndex, this, commonStrings.START);
                 final int w = (int) (widthFloatArray[shortPatternIndex] / 75) + 19;
 //                logUtil.put(new StringMaker().append('w').append(' ').append(characterArray[0]).append(w).append(';')
 //                    //.append(_characterWidth[index])

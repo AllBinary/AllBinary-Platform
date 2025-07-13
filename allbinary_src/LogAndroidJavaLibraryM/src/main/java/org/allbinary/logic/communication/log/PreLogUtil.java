@@ -45,9 +45,9 @@ public class PreLogUtil
     }
     */
     public static void put(
-        String specialMessage,
-        Object object,
-        String functionName)
+        final String specialMessage,
+        final Object object,
+        final String functionName)
     {
         put(specialMessage, object, functionName, null);
     }
@@ -56,10 +56,10 @@ public class PreLogUtil
     //private final static String LOG_SUCCESS = "org.allbinary: ";
 
     public static void put(
-        String specialMessage,
-        Object object,
-        String functionName,
-        Object exception)
+        final String specialMessage,
+        final Object object,
+        final String functionName,
+        final Object exception)
     {
         String className = LABEL;
         
@@ -69,7 +69,7 @@ public class PreLogUtil
             className = actualClassName;
         }
         
-        String message = LogFormatUtil.getInstance().get(
+        final String message = LogFormatUtil.getInstance().get(
             className, functionName, specialMessage, exception);
         
         //android.util.Log.i(className, LOG_SUCCESS + message);
@@ -80,20 +80,20 @@ public class PreLogUtil
     }
     
     public static void put(
-        String specialMessage,
-        String className,
-        String functionName)
+        final String specialMessage,
+        final String className,
+        final String functionName)
     {
         put(specialMessage, className, functionName, null);
     }
     
     public static void put(
-        String specialMessage,
-        String className,
-        String functionName,
-        Object exception)
+        final String specialMessage,
+        final String className,
+        final String functionName,
+        final Object exception)
     {
-        String message = LogFormatUtil.getInstance().get(
+        final String message = LogFormatUtil.getInstance().get(
             className, functionName, specialMessage, exception);
         
         //android.util.Log.i(className, LOG_SUCCESS + message);
