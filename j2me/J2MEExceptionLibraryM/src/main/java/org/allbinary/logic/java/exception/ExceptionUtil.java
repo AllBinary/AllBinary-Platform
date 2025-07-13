@@ -34,24 +34,20 @@ public class ExceptionUtil
     {
     }
 
-    private final NullUtil nullUtil = NullUtil.getInstance();
-    
     public final Exception PRETEND_EXCEPTION = new Exception("Not Really An Exception");
-
     private final String NONE = "No Stack Trace";
 
-    public String getStackTrace(Object e)
+    public String getStackTrace(Throwable e)
     {
-        ByteArrayOutputStream bs = new ByteArrayOutputStream();
+        final ByteArrayOutputStream bs = new ByteArrayOutputStream();
 
-        if(e != nullUtil.NULL_OBJECT) {
-            ((Throwable) e).printStackTrace();
-        }
+        e.printStackTrace();
 
-        if (bs.toString() != null)
-        {
-            return new String(bs.toString());
+        final String output = bs.toString();
+        if (output != null) {
+            return new String(output);
         }
+        
         return NONE;
     }
 }

@@ -33,16 +33,11 @@ public class ExceptionUtil
     }
 
     public static final Exception PRETEND_EXCEPTION = new Exception("Not Really An Exception");
-
-    private final NullUtil nullUtil = NullUtil.getInstance();
-    
     private final String NONE = "No Stack Trace";
     
-    public String getStackTrace(Object e)
+    public String getStackTrace(Throwable e)
     {
-        if(e != nullUtil.NULL_OBJECT) {
-            ((Throwable) e).printStackTrace();
-        }
+        e.printStackTrace();
 
         return NONE;
     }

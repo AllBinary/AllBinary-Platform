@@ -35,19 +35,15 @@ public class ExceptionUtil
     {
     }
 
-    private final NullUtil nullUtil = NullUtil.getInstance();
-    
     private final String NONE = "No Stack Trace";
 
-    public String getStackTrace(final Object e)
+    public String getStackTrace(final Throwable e)
     {
         if(e != null) {
             final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             final PrintStream printStream = new PrintStream(byteArrayOutputStream);
 
-            if (e != nullUtil.NULL_OBJECT) {
-                ((Throwable) e).printStackTrace(printStream);
-            }
+            e.printStackTrace(printStream);
 
             final String output = byteArrayOutputStream.toString();
             if (output != null) {

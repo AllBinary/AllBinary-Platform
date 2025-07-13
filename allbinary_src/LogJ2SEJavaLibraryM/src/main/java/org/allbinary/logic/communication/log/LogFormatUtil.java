@@ -15,7 +15,6 @@ package org.allbinary.logic.communication.log;
 
 import org.allbinary.logic.NullUtil;
 import org.allbinary.time.TimeStampUtil;
-
 import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
@@ -107,6 +106,7 @@ public class LogFormatUtil
         return stringBuffer;
     }
 
+    private final StringUtil stringUtil = StringUtil.getInstance();
     private final ExceptionUtil exceptionUtil = ExceptionUtil.getInstance();
     private final NullUtil nullUtil = NullUtil.getInstance();
     
@@ -127,7 +127,11 @@ public class LogFormatUtil
             }
 
             stringBuffer.append(STACK_TRACE);
-            stringBuffer.append(exceptionUtil.getStackTrace(exception));
+            if (exception != nullUtil.NULL_OBJECT) {
+                stringBuffer.append(exceptionUtil.getStackTrace((Throwable) exception));
+            } else {
+                stringBuffer.append(stringUtil.NULL_STRING);
+            }
 
             /*
             String exceptionMessage = ExceptionUtil.getStackTrace(exception);
