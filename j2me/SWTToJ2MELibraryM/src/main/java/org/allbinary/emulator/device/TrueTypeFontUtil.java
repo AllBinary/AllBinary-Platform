@@ -35,6 +35,7 @@ import org.allbinary.image.PreResourceImageUtil;
 import org.allbinary.image.opengles.OpenGLESImage;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
@@ -109,7 +110,8 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
                 return this.fontImage;
             }
         } catch(Exception e) {
-            e.printStackTrace();
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            PreLogUtil.put(commonStrings.EXCEPTION, this, commonStrings.EXCEPTION, e);
             throw new RuntimeException();
         }
     }
