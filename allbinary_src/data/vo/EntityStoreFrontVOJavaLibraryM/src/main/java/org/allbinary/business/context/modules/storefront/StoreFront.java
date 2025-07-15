@@ -45,7 +45,7 @@ import org.allbinary.logic.string.tokens.Tokenizer;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.w3c.dom.Document;
 
 public class StoreFront implements StoreFrontInterface
@@ -254,7 +254,7 @@ public class StoreFront implements StoreFrontInterface
         {
             //Since StoreName is used as the store directory
             boolean isEscapedCharactersContained = false;
-            final String storeNameEscaped = StringEscapeUtils.escapeHtml(this.name);
+            final String storeNameEscaped = StringEscapeUtils.escapeHtml3(this.name);
             if (this.name.compareTo(storeNameEscaped) != 0)
             {
                 isEscapedCharactersContained = true;

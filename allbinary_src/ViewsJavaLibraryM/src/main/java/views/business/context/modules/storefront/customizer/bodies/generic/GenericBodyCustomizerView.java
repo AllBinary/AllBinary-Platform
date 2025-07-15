@@ -23,7 +23,7 @@ import org.allbinary.logic.visual.transform.StoreTransformer;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.template.customizer.bodies.GenericBodyValidation;
 import org.allbinary.logic.visual.transform.template.util.TransformTemplateCustomizerUtil;
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import views.business.context.modules.storefront.HttpStoreComponentView;
@@ -73,7 +73,7 @@ public class GenericBodyCustomizerView extends HttpStoreComponentView
 
          String result =
             new StoreTransformer(this.abeClientInformation, this.getTransformInfoInterface()).translate(success);
-         return StringEscapeUtils.unescapeHtml(result);
+         return StringEscapeUtils.unescapeHtml3(result);
       }
       catch(Exception e)
       {

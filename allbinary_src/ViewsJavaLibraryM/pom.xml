@@ -87,12 +87,14 @@
         </dependency>
         
         <dependency>
-            <groupId>commons-lang</groupId>
+            <groupId>org.apache.commons</groupId>
             <!--
+            <groupId>commons-lang</groupId>
+            <version>2.0</version>
             <groupId>org.apache.commons</groupId>
             -->
-            <artifactId>commons-lang</artifactId>
-            <version>2.0</version>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.18.0</version>
             <optional>true</optional>
         </dependency>
 
