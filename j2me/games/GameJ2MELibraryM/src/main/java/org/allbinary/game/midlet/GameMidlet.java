@@ -411,7 +411,7 @@ public class GameMidlet extends ProgressMidlet
             else if (command == gameCommandsFactory.EXIT_COMMAND)
             {
                 //TWB - Handle exit for android differently
-                if(GameMidletEventHandler.getInstance().getEventListenerInterfaceList().size() == 0)
+                if(GameMidletEventHandler.getInstance().getEventListenerInterfaceListP().size() == 0)
                 {
                     this.exit(true);
                 }

@@ -83,7 +83,7 @@ extends BasicEventHandler
 
     public synchronized void fireRemoveEvent(AllBinaryEventObject eventObject) throws Exception
     {
-        BasicArrayList list = this.getEventListenerInterfaceList();
+        BasicArrayList list = this.eventListenerInterfaceList;
         
         for (int index = this.list.size(); --index >= 0;)
         {

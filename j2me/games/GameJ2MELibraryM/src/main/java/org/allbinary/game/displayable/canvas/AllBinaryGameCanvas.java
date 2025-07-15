@@ -1275,7 +1275,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             playerGameInput.removeNonAIInputGameKeyEvents();
             this.addKeyInputListener(playerGameInput);
 
-            // ForcedLogUtil.log("DownGameKeyEventHandler: " + DownGameKeyEventHandler.getInstance().getEventListenerInterfaceList(), this);
+            // ForcedLogUtil.log("DownGameKeyEventHandler: " + DownGameKeyEventHandler.getInstance().getEventListenerInterfaceListP(), this);
         }
     }
 

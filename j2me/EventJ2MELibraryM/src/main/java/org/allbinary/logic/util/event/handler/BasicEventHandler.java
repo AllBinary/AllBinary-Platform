@@ -191,7 +191,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
         // basicEventListenerInterface.onEvent(eventObject);
     }
 
-    public BasicArrayList getEventListenerInterfaceList()
+    public BasicArrayList getEventListenerInterfaceListP()
     {
         return eventListenerInterfaceList;
     }

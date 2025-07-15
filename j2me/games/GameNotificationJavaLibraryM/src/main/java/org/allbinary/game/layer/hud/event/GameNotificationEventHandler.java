@@ -86,7 +86,7 @@ public class GameNotificationEventHandler extends BasicEventHandler
        */
        
        //Keep the system specific listener around
-       BasicArrayList list = this.getEventListenerInterfaceList();
+       BasicArrayList list = this.eventListenerInterfaceList;
        
        if(list.size() > 0)
        {

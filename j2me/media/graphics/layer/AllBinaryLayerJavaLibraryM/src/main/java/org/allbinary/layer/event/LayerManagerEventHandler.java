@@ -94,8 +94,7 @@ public class LayerManagerEventHandler extends BasicEventHandler
             }
         }
         
-        final BasicArrayList eventListenerInterfaceList = this
-                .getEventListenerInterfaceList();
+        final BasicArrayList eventListenerInterfaceList = this.eventListenerInterfaceList;
 
         for (int index = 0; index < eventListenerInterfaceList.size(); index++)
         {
