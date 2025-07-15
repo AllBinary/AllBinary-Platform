@@ -58,7 +58,7 @@ public class ByteUtil
       //return this.xor(array, Byte.MAX_VALUE);
    }
    
-   public byte[] xorByte(final byte[] array, final byte index)
+   public byte[] xorByte(final byte[] array, final int index)
    {
       byte mask = 0;
       if(index==0) mask = 1;
