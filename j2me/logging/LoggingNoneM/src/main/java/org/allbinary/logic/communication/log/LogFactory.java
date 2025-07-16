@@ -13,16 +13,20 @@
 */
 package org.allbinary.logic.communication.log;
 
+import org.allbinary.logic.NullUtil;
+import org.allbinary.logic.string.StringUtil;
+
 public class LogFactory
 {
+    public static final Log LOG = new Log(StringUtil.getInstance().EMPTY_STRING, NullUtil.getInstance().NULL_OBJECT, StringUtil.getInstance().EMPTY_STRING);
+    
     public static final Log getInstance(
             String specialMessage,
             Object object,
             String functionName,
             Object exception)
     {
-        return null;
-        //return LogFactory.getInstance(specialMessage, object, functionName, exception);
+        return LOG;
     }
 
     public static final Log getInstance(
@@ -30,7 +34,6 @@ public class LogFactory
             Object object,
             String functionName)
     {
-        return null;
-        //return LogFactory.getInstance(specialMessage, object, functionName);
+        return LOG;
     }
 }
