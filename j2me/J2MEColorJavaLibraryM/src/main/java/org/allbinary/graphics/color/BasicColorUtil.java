@@ -23,7 +23,7 @@ public class BasicColorUtil
     }
     
     public final BasicColor[] ZERO_ARRAY = new BasicColor[0];
-    public final int ALPHA = 0xFF000000;
+    public final int ALPHA = (int) 0xFF000000;
     public final boolean isAlpha = true;
     public final boolean ffOpaque = true;
     
@@ -48,16 +48,16 @@ public class BasicColorUtil
     
     public int get(final int alphaValue, final int r, final int g, final int b)
     {
-        return ((alphaValue << 24) & 0xFF000000) + ((r << 16) & 0x00FF0000) + ((g << 8) & 0x0000FF00) + (b & 0x000000FF);
+        return ((alphaValue << 24) & ALPHA) + ((r << 16) & 0x00FF0000) + ((g << 8) & 0x0000FF00) + (b & 0x000000FF);
     }
 
     public int get(final int alphaValue, final int color)
     {
-        return ((alphaValue << 24) & 0xFF000000) + color;
+        return ((alphaValue << 24) & ALPHA) + color;
     }
     
     public int invert(final int color) {
-        return (0xFFFFFF - color) | 0xFF000000;
+        return (0xFFFFFF - color) | ALPHA;
     }
     
 }

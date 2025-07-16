@@ -50,7 +50,9 @@ public class SmallBasicColorCacheFactory
             }
         }
         
-        basicColor = new BasicColor(colorAsInt & 0xFF000000, colorAsInt & 0x00FFFFFF, StringUtil.getInstance().EMPTY_STRING);
+        final int ALPHA_MASK = (int) 0xFF000000;
+        
+        basicColor = new BasicColor(colorAsInt & ALPHA_MASK, colorAsInt & 0x00FFFFFF, StringUtil.getInstance().EMPTY_STRING);
         this.add(basicColor);
 
         return basicColor;
