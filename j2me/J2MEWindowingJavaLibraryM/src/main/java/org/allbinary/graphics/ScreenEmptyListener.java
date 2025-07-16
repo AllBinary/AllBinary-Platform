@@ -17,11 +17,13 @@ public class ScreenEmptyListener
 implements ScreenListenerInterface
 {
 
+    @Override
     public void onFullScreen(boolean isFullScreen)
     {
 
     }
 
+    @Override
     public void onFullScreenDisplay()
     {
 
