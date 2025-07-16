@@ -22,7 +22,7 @@ public class ItemColorFactory
         return instance;
     }
     
-    public int INVERT_PAINT = 0xFF000000;
+    public int INVERT_PAINT = (int) 0xFF000000;
     public int PAINT = 0xFFe07718;
     
     public int TEXT_FIELD_NO_FOCUS = 0x7F7F7F;
