@@ -143,7 +143,9 @@ public class BasicColor
         this.blue = (short) blueInt;
         this.blueComponent = ((float) blueInt) / 255;
 
-        this.value = ((alphaValue << 24) & 0xFF000000) + ((redInt << 16) & 0x00FF0000) + ((greenInt << 8) & 0x0000FF00) + (blueInt & 0x000000FF);
+        final int ALPHA_MASK = (int) 0xFF000000;
+        
+        this.value = ((alphaValue << 24) & ALPHA_MASK) + ((redInt << 16) & 0x00FF0000) + ((greenInt << 8) & 0x0000FF00) + (blueInt & 0x000000FF);
 
         /*
         StringMaker stringBuffer = new StringMaker();

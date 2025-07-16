@@ -45,6 +45,13 @@ public class StringMaker
         return this;
     }
 
+    public StringMaker append(final short b)
+    {
+      //change to PrimitiveLongUtil
+        this.append(Integer.toString(b));
+        return this;
+    }
+    
     public StringMaker append(final int i)
     {
       //change to PrimitiveLongUtil
