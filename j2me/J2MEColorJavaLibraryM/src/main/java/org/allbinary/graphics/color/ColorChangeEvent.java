@@ -17,7 +17,7 @@ import org.allbinary.logic.util.event.AllBinaryEventObject;
 
 public class ColorChangeEvent extends AllBinaryEventObject
 {
-    private BasicColor basicColor;
+    private BasicColor basicColor = BasicColorFactory.getInstance().WHITE;
     
     public ColorChangeEvent(Object object)
     {
