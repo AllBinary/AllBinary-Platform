@@ -18,6 +18,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListUtil;
 
 public class ThreadPool
 {
@@ -29,8 +30,8 @@ public class ThreadPool
     private final String poolName;
     private final int priority;
     
-    private boolean isAlive;
-    private BasicArrayList taskQueue;
+    private boolean isAlive = false;
+    private BasicArrayList taskQueue = BasicArrayListUtil.getInstance().getImmutableInstance();
     private int threadID;
     private int numThreads;
 
@@ -143,7 +144,8 @@ public class ThreadPool
             }
             this.wait();
         }
-        return (Runnable) this.taskQueue.remove(0);
+        final Runnable runnable = (Runnable) this.taskQueue.remove(0);
+        return runnable;
     }
 
     public synchronized void clear()
