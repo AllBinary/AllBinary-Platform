@@ -76,8 +76,10 @@ public class ThreadPool
     //private final String COMPARE_PRIORITY = "Compare priority task: ";
     //private final String ADD_PRIORITY = "Add priority task: ";
     
-    public synchronized void runTaskWithPriority(final PriorityRunnable task)
+    public void runTaskWithPriority(final PriorityRunnable task)
     {
+        synchronized (this) {
+
         if (!this.isAlive)
         {
             this.init();
@@ -113,10 +115,14 @@ public class ThreadPool
 
             notify();
         }
+        
+        }
     }
     
-    public synchronized void runTask(final Runnable task)
+    public void runTask(final Runnable task)
     {
+        synchronized (this) {
+
         if (!isAlive)
         {
             this.init();
@@ -131,11 +137,15 @@ public class ThreadPool
             this.taskQueue.add(task);
             notify();
         }
+        
+        }
     }
 
-    protected synchronized Runnable getTask()
+    protected Runnable getTask()
             throws InterruptedException
     {
+        synchronized (this) {
+            
         while (this.taskQueue.size() == 0)
         {
             if (!this.isAlive)
@@ -146,25 +156,35 @@ public class ThreadPool
         }
         final Runnable runnable = (Runnable) this.taskQueue.remove(0);
         return runnable;
+        
+        }
     }
 
-    public synchronized void clear()
+    public void clear()
     {
+        synchronized (this) {
+            
         if (this.isAlive)
         {
             //logUtil.put("clear", this, this.commonStrings.RUN);
             this.taskQueue.clear();
         }
+        
+        }
     }
     
-    public synchronized void close()
+    public void close()
     {
+        synchronized (this) {
+
         if (this.isAlive)
         {
             this.isAlive = false;
             //logUtil.put("clear2", this, this.commonStrings.RUN);
             this.taskQueue.clear();
             //interrupt();
+        }
+        
         }
     }
 
