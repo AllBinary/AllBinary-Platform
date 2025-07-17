@@ -101,7 +101,7 @@ public class ThreadPool
                 }
             }
             
-            if(lowerPriorityRunnable == null) {
+            if(lowerPriorityRunnable == null || lowerPriorityRunnable == NullRunnable.getInstance()) {
                 this.taskQueue.add(task);
             } else {
                 //logUtil.put(new StringMaker().append(ADD_PRIORITY).append(task.getPriority()).toString(), this, this.threadPoolStrings.ADD_TASK);
@@ -140,7 +140,7 @@ public class ThreadPool
         {
             if (!this.isAlive)
             {
-                return null;
+                return NullRunnable.getInstance();
             }
             this.wait();
         }
