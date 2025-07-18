@@ -36,7 +36,7 @@ public class AngleIncrementInfo
       final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
       
       this.DOWN_FRAME = smallIntegerSingletonFactory.getInstance(angleFactory.DOWN.getValue() / this.angleIncrement);
-      this.UP_FRAME = smallIntegerSingletonFactory.getInstance(angleFactory.UP.getValue());
+      this.UP_FRAME = smallIntegerSingletonFactory.getInstance((int) angleFactory.UP.getValue());
       this.LEFT_FRAME = smallIntegerSingletonFactory.getInstance(angleFactory.LEFT.getValue() / this.angleIncrement);
       this.RIGHT_FRAME = smallIntegerSingletonFactory.getInstance(angleFactory.RIGHT.getValue() / this.angleIncrement);
 
@@ -56,7 +56,7 @@ public class AngleIncrementInfo
    
    public int getFrameAngle(int frame)
    {
-      return frameUtil.getFrameAngle(frame, this.angleIncrement);
+      return frameUtil.getFrameAngle(frame, (int) this.angleIncrement);
    }
       
    //public Integer getAngleIncrement()

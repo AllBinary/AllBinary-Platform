@@ -30,14 +30,16 @@ public class GPoint
       this.z = point.getZ();
    }
 
-   protected GPoint(int x, int y)
+   //protected
+   public GPoint(int x, int y)
    {
       this.x = x;
       this.y = y;
       this.z = 3;
    }
    
-   protected GPoint(int x, int y, int z)
+   //protected
+   public GPoint(int x, int y, int z)
    {
       this.x = x;
       this.y = y;

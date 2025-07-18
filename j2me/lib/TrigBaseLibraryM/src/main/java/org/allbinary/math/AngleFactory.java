@@ -32,9 +32,10 @@ public class AngleFactory
     
     public final short TOTAL_ANGLE = 360;
 
-    private final Angle[] angleArray = new Angle[TOTAL_ANGLE];
+    private final Angle[] angleArray = new Angle[(int) TOTAL_ANGLE];
 
-    public final NamedAngle NOT_ANGLE = new NamedAngle((short) -1, CommonStrings.getInstance().EMPTY);
+    private final short NEGATIVE_ONE = -1;
+    public final NamedAngle NOT_ANGLE = new NamedAngle(NEGATIVE_ONE, CommonStrings.getInstance().EMPTY);
     public final NamedAngle DOWN;
     public final NamedAngle UP;
     public final NamedAngle LEFT;
@@ -46,32 +47,36 @@ public class AngleFactory
         
         final short total = (short) angleArray.length;
         
-        angleArray[0] = UP = new NamedAngle((short) 0, commonPhoneStrings.UP);
+        UP = new NamedAngle((short) 0, commonPhoneStrings.UP);
+        angleArray[0] = UP;
         
         for (short index = 1; index < 90; index++)
         {
-            angleArray[index] = new Angle(index);
+            angleArray[index] = new Angle((short) index);
         }
 
-        angleArray[90] = RIGHT = new NamedAngle((short) 90, commonPhoneStrings.RIGHT);
+        RIGHT = new NamedAngle((short) 90, commonPhoneStrings.RIGHT);
+        angleArray[90] = RIGHT;
         
         for (short index = 91; index < 180; index++)
         {
-            angleArray[index] = new Angle(index);
+            angleArray[index] = new Angle((short) index);
         }
 
-        angleArray[180] = DOWN = new NamedAngle((short) 180, commonPhoneStrings.DOWN);
+        DOWN = new NamedAngle((short) 180, commonPhoneStrings.DOWN);
+        angleArray[180] = DOWN;
         
         for (short index = 181; index < 270; index++)
         {
-            angleArray[index] = new Angle(index);
+            angleArray[index] = new Angle((short) index);
         }
 
-        angleArray[270] = LEFT = new NamedAngle((short) 270, commonPhoneStrings.LEFT);
+        LEFT = new NamedAngle((short) 270, commonPhoneStrings.LEFT);
+        angleArray[270] = LEFT;
         
         for (short index = 271; index < total; index++)
         {
-            angleArray[index] = new Angle(index);
+            angleArray[index] = new Angle((short) index);
         }
         
     }
@@ -80,7 +85,8 @@ public class AngleFactory
     
     public Angle getInstance(int index)
     {
-        return angleArray[frameUtil.adjustAngleToFrameAngle(index)];
+        final int adjustedIndex = (int) frameUtil.adjustAngleToFrameAngle(index);
+        return angleArray[adjustedIndex];
     }
 
     public Angle getClosestDirection(int angle)
@@ -99,7 +105,7 @@ public class AngleFactory
 
     public Angle getGeneralDirection()
     {
-        return null;
+        return NOT_ANGLE;
     }
     
 //    public String toString(final int angle) {

@@ -20,8 +20,9 @@ package org.allbinary.math;
 public class NamedAngle extends Angle {
     
     public final String name;
-    
-    protected NamedAngle(final short angle, final String name)
+   
+    //protected
+    public NamedAngle(final short angle, final String name)
     {
         super(angle);
         
