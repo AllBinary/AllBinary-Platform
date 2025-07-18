@@ -30,6 +30,7 @@ public class GameTickTimeDelayHelper {
 
     public GameTickTimeDelayHelper(final long startTime) {
         this.startTime = startTime;
+        this.lastStartTime = 0;
     }
     
     public long setStartTime()

@@ -1,5 +1,6 @@
 package org.allbinary.time;
 
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -13,11 +14,17 @@ public class StupidTimer
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    protected final NullUtil nullUtil = NullUtil.getInstance();
     
     private final ThreadObjectUtil threadObjectUtil = ThreadObjectUtil.getInstance();
     
-    public final void visit(
-            Visitor visitorInterface, TimeDelayHelper timeDelayHelper)
+    private boolean visitBool(final Visitor visitorInterface) {
+        final Boolean result = (Boolean) visitorInterface.visit(nullUtil.NULL_OBJECT);
+        final boolean result2 = result.booleanValue();
+        return result2;
+    }
+    
+    public final void visit(final Visitor visitorInterface, final TimeDelayHelper timeDelayHelper)
     throws Exception
     {
         boolean tookTooLong = false;
@@ -27,7 +34,7 @@ public class StupidTimer
         PreLogUtil.put(new StringMaker().append(WAITING_FOR).append(StringUtil.getInstance().toString(visitorInterface)).toString(), this, commonStrings.VISIT);
 
         int index = 0;
-        while (((Boolean) visitorInterface.visit(null)).booleanValue())
+        while (this.visitBool(visitorInterface))
         {
             if(index % 10 == 0)
             {

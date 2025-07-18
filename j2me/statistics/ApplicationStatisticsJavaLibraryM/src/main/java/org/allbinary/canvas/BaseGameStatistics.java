@@ -85,9 +85,8 @@ public class BaseGameStatistics
         
         if(elapsed > 1)
         {
-            return (short) (
-                    this.totalRefreshes / (elapsed >> DEFAULT_SCALE_FACTOR)
-                    );            
+            final short time = (short) (this.totalRefreshes / (elapsed >> DEFAULT_SCALE_FACTOR));
+            return time;
         }
         else
         {

@@ -26,21 +26,25 @@ public class NoTimeDelayHelper extends TimeDelayHelper {
         super(0);
     }
 
+    @Override
     public boolean isTime()
     {
         return true;
     }
     
+    @Override
     public boolean isTimeSince(int delay)
     {
         return true;
     }
     
+    @Override
     public boolean isTime(long currentTime)
     {
         return true;
     }
 
+    @Override
     public boolean isTimeSince(int delay, long currentTime)
     {
         return true;

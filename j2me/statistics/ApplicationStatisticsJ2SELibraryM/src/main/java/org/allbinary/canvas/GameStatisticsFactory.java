@@ -13,6 +13,7 @@ public class GameStatisticsFactory extends BaseGameStatistics
     
     private StringMaker stringBuffer = new StringMaker();
     
+    @Override
     public void add(String string)
     {
         if(this.stringBuffer.length() > 12000)
