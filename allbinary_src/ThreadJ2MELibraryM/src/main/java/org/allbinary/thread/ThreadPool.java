@@ -22,6 +22,8 @@ import org.allbinary.util.BasicArrayListUtil;
 
 public class ThreadPool
 {
+    private static final String ROOT_NAME = "-PooledThread-";
+    
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
@@ -254,9 +256,7 @@ public class ThreadPool
 
     private class PooledThread extends Thread
     {
-
-        private static final String ROOT_NAME = "-PooledThread-";
-        
+   
         public PooledThread()
         {
             //super(ThreadPool.this, 
@@ -266,6 +266,7 @@ public class ThreadPool
 
         private final String INTERRUPT_EXCEPTION = "Exit InterruptedException";
 
+        @Override
         public void run()
         {
 
