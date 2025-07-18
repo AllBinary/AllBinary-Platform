@@ -19,22 +19,26 @@ package org.allbinary.thread;
  */
 public class ABRunnable implements RunnableInterface {
     
-    private boolean running;
+    private boolean running = false;
     
+    @Override
     public void setThread(Thread thread)
     {
     }
 
+    @Override
     public synchronized boolean isRunning()
     {
         return running;
     }
 
+    @Override
     public synchronized void setRunning(boolean running)
     {
         this.running = running;
     }
     
+    @Override
     public void run() {
         
     }
