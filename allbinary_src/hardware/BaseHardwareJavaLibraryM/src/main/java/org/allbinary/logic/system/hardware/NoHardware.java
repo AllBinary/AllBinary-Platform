@@ -16,6 +16,7 @@ package org.allbinary.logic.system.hardware;
 import java.util.Hashtable;
 
 import org.allbinary.logic.system.hardware.components.interfaces.HardwareComponentInterface;
+import org.allbinary.logic.system.hardware.components.interfaces.NoHardwareComponent;
 
 /**
  *
@@ -24,9 +25,19 @@ import org.allbinary.logic.system.hardware.components.interfaces.HardwareCompone
  */
 public class NoHardware implements HardwareInterface
 {
+    private static final HardwareInterface instance = new NoHardware();
+
+    /**
+     * @return the instance
+     */
+    public static HardwareInterface getInstance() {
+        return instance;
+    }
+    
+    @Override
     public HardwareComponentInterface getComponent(int index)
     {
-        return null;
+        return NoHardwareComponent.getInstance();
     }
 
     public String toString()
@@ -34,11 +45,13 @@ public class NoHardware implements HardwareInterface
         return "No Hardware";
     }
 
+    @Override
     public boolean compareTo(HardwareInterface hardwareInterface)
     {
         return true;
     }
 
+    @Override
     public Hashtable difference(HardwareInterface hardwareInterface)
     {
         return new Hashtable();

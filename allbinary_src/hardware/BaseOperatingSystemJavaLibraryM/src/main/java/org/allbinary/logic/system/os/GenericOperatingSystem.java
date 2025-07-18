@@ -26,7 +26,7 @@ public class GenericOperatingSystem implements OperatingSystemInterface
    private final String osVersion;
    private final CharacterSet characterSet = new CharacterSet();
 
-   protected boolean isScalable = false;
+   protected boolean scalable = false;
    
    public GenericOperatingSystem()
    {
@@ -66,44 +66,52 @@ public class GenericOperatingSystem implements OperatingSystemInterface
        
    }
    
+   @Override
    public String getName()
    {
       return this.osName;
    }
    
+   @Override
    public String getVersion()
    {
       return this.osVersion;
    }
    
+   @Override
    public String getArch()
    {
       return this.osArch;
    }
 
+   @Override
    public CharacterSet getCharacterSet()
    {
       return this.characterSet;
    }
    
+   @Override
    public boolean isOverScan()
    {
        return false;
    }
 
+   @Override
    public int getOverScanXPercent()
    {
        return 100;
    }
 
+   @Override
    public int getOverScanYPercent()
    {
        return 100;
    }
-
+   
+   @Override
    public boolean isScalable()
    {
-       return this.isScalable;
+       return this.scalable;
    }
    
    public String toString()

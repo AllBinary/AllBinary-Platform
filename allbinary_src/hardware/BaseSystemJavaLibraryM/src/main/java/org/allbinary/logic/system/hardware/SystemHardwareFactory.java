@@ -33,7 +33,7 @@ public class SystemHardwareFactory {
         return instance;
     }
 	
-    private static HardwareInterface hardwareInterface;
+    private static HardwareInterface hardwareInterface = NoHardware.getInstance();
     
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     

@@ -19,6 +19,6 @@ public class Solaris extends GenericOperatingSystem
 {
    public Solaris() throws Exception
    {
-       this.isScalable = true;
+       this.scalable = true;
    }
 }

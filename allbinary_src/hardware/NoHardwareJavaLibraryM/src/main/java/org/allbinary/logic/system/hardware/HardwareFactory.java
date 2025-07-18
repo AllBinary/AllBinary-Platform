@@ -27,7 +27,7 @@ public class HardwareFactory
         return instance;
     }
     
-    private final HardwareInterface SINGLETON = new NoHardware();
+    private final HardwareInterface SINGLETON = NoHardware.getInstance();
 
     private HardwareFactory()
     {

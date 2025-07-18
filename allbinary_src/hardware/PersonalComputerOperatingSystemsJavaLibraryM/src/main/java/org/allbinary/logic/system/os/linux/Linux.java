@@ -19,6 +19,6 @@ public class Linux extends GenericOperatingSystem
 {
    public Linux() throws Exception
    {
-       this.isScalable = true;
+       this.scalable = true;
    }
 }
