@@ -15,6 +15,7 @@ package org.allbinary.logic.io.file;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import org.allbinary.logic.NullUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.StreamUtil;
@@ -40,6 +41,7 @@ public class SimpleFileUtil {
     }
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
+    private final NullUtil nullUtil = NullUtil.getInstance();
     private final StreamUtil streamUtil = StreamUtil.getInstance();
     
     public BasicArrayList loadFileAsList(final InputStream inputStream, final int max, final byte[] byteArray1) {
@@ -54,7 +56,7 @@ public class SimpleFileUtil {
             return stringList;
         }
         
-        byte[] byteArray = null;
+        byte[] byteArray = nullUtil.NULL_BYTE_ARRAY;
         try {
             final ByteArrayOutputStream outputStream2 = new ByteArrayOutputStream(max);
             byteArray = streamUtil.getByteArray(inputStream, outputStream2, byteArray1);
@@ -78,12 +80,12 @@ public class SimpleFileUtil {
         while(index < size) {
             //logUtil.put("index" + index, this, commonStrings.PROCESS);
             startIndex = index;
-            while(index < size - 1 && byteArray[index] != '\n') {
+            while(index < size - 1 && byteArray[index] != (byte) '\n') {
                 index++;
             }
-            
+
             if(includeReturnLine == 0) {
-                if (index > 0 && byteArray[index - 1] == '\r') {
+                if (index > 0 && byteArray[index - 1] == (byte) '\r') {
                     returnLine = 1;
                 } else {
                     returnLine = 0;

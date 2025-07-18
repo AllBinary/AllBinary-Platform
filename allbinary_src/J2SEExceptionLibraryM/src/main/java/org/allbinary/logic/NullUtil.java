@@ -32,6 +32,7 @@ public class NullUtil {
     
     public final Object NULL_OBJECT = new Object();
     public final Object[] NULL_OBJECT_ARRAY = new Object[0];
+    public final byte[] NULL_BYTE_ARRAY = new byte[0];
     
     public final HashMap NULL_MAP = new HashMap();
     
