@@ -20,7 +20,6 @@ import org.allbinary.logic.string.StringUtil;
 //This is mainly for network communications.
 public class SecondaryThreadPool extends ThreadPool
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private static final ThreadPool instance = new SecondaryThreadPool("Secondary", 1);
 
@@ -33,18 +32,21 @@ public class SecondaryThreadPool extends ThreadPool
         super(poolName, numThreads);
     }
 
-    public synchronized void runTask(Runnable task)
+    @Override
+    public void runTask(Runnable task)
     {
         logUtil.put(new StringMaker().append(StringUtil.getInstance().toString(task)).append(System.currentTimeMillis()).toString(), this, this.threadPoolStrings.ADD_TASK);
 
         super.runTask(task);
     }
 
+    @Override
     protected void startTask(Runnable task)
     {
         logUtil.put(new StringMaker().append(this.threadPoolStrings.START_TASK).append(StringUtil.getInstance().toString(task)).append(System.currentTimeMillis()).toString(), this, this.commonStrings.RUN);
     }
 
+    @Override
     protected void completedTask(Runnable task)
     {
         logUtil.put(new StringMaker().append(this.threadPoolStrings.COMPLETE_TASK).append(StringUtil.getInstance().toString(task)).append(System.currentTimeMillis()).toString(), this, this.commonStrings.RUN);
