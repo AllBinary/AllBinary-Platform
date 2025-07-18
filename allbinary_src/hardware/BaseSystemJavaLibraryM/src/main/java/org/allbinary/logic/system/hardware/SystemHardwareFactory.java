@@ -46,7 +46,7 @@ public class SystemHardwareFactory {
     {
       try
       {
-    	  if(hardwareInterface == null)
+    	  if(hardwareInterface == NoHardware.getInstance())
     	  {
     	      hardwareInterface = HardwareFactory.getInstance().getInstance(operatingSystemInterface);
     	  }
