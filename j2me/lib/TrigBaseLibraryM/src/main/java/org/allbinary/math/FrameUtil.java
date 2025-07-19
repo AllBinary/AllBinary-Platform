@@ -24,8 +24,8 @@ public class FrameUtil
         return instance;
     }
 
-    private final String AJUST_ANGLE_TO_FRAME_ANGLE_MORE = "adjustAngleToFrameAngle >";
-    private final String AJUST_ANGLE_TO_FRAME_ANGLE_LESS = "adjustAngleToFrameAngle <";
+    //private final String AJUST_ANGLE_TO_FRAME_ANGLE_MORE = "adjustAngleToFrameAngle >";
+    //private final String AJUST_ANGLE_TO_FRAME_ANGLE_LESS = "adjustAngleToFrameAngle <";
     
     private FrameUtil()
     {
@@ -34,44 +34,44 @@ public class FrameUtil
     // TWB - Note the angle is actually 90 degrees off
     public int getFrameForAngle(final short angle, final int angleIncrement)
     {
-        return this.adjustAngleToFrameAngle(angle) / angleIncrement;
+        return this.adjustAngleToFrameAngle((int) angle) / angleIncrement;
     }
 
-    public int getFrameAngle(int frame, int angleIncrement)
+    public int getFrameAngle(final int frame, final int angleIncrement)
     {
-        int frameAngle = angleIncrement * frame - 90;
+        final int frameAngle = angleIncrement * frame - 90;
         return this.adjustAngleToFrameAngle(frameAngle);
     }
 
-    public short adjustAngleToFrameAngle(int currentAngle)
+    public int adjustAngleToFrameAngle(int currentAngle)
     {
         final AngleFactory angleFactory = AngleFactory.getInstance();
 
         if (currentAngle > 359)
         {
-            currentAngle = (short) (currentAngle - angleFactory.TOTAL_ANGLE);
+            currentAngle = (currentAngle - angleFactory.TOTAL_ANGLE);
             
             while(currentAngle > 359)
             {
                 //PreLogUtil.put(Integer.toString(currentAngle).toString(), this, AJUST_ANGLE_TO_FRAME_ANGLE_MORE);
-                currentAngle = (short) (currentAngle - angleFactory.TOTAL_ANGLE);
+                currentAngle = (currentAngle - angleFactory.TOTAL_ANGLE);
             }
             
         }
 
         if (currentAngle < 0)
         {
-            currentAngle = (short) (currentAngle + angleFactory.TOTAL_ANGLE);
+            currentAngle = (currentAngle + angleFactory.TOTAL_ANGLE);
             
             while(currentAngle < 0)
             {
                 //PreLogUtil.put(Integer.toString(currentAngle).toString(), this, AJUST_ANGLE_TO_FRAME_ANGLE_LESS);
-                currentAngle = (short) (currentAngle + angleFactory.TOTAL_ANGLE);
+                currentAngle = (currentAngle + angleFactory.TOTAL_ANGLE);
             }
             
         }
 
-        return (short) currentAngle;
+        return currentAngle;
     }
 
 }

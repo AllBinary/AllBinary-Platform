@@ -26,8 +26,9 @@ public class AngleIncrementInfo
    public final Integer UP_FRAME;
    public final Integer LEFT_FRAME;
    public final Integer RIGHT_FRAME;
-      
-   protected AngleIncrementInfo(short angleIncrement)
+   
+   //protected    
+   public AngleIncrementInfo(short angleIncrement)
    {
       this.angleIncrement = angleIncrement;
 

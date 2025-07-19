@@ -24,7 +24,7 @@ public class AngleInfo
 
    private final AngleIncrementInfo angleIncrementInfo;
 
-   private short angle;
+   private short angle = 0;
       
    public static AngleInfo getInstance(short angleIncrement)
    {
@@ -42,7 +42,7 @@ public class AngleInfo
    public void adjustAngle(int frame)
    {
       int newAngle = this.angleIncrementInfo.getAngleIncrement() * frame - 90;
-      this.setAngle(frameUtil.adjustAngleToFrameAngle(newAngle));
+      this.setAngle((short) frameUtil.adjustAngleToFrameAngle(newAngle));
    }
    
    public short getAngle()
