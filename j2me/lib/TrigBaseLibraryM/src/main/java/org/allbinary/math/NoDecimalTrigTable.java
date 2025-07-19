@@ -39,7 +39,8 @@ public class NoDecimalTrigTable
 
     private NoDecimalTrigTable()
     {
-        final int TOTAL_ANGLE = AngleFactory.getInstance().TOTAL_ANGLE;
+        final int TOTAL_ANGLE = (int) AngleFactory.getInstance().TOTAL_ANGLE;
+        final long MAX_VALUE = ((long) Integer.MAX_VALUE);
         
         noDecimalSin = new long[TOTAL_ANGLE];
         noDecimalCos = new long[TOTAL_ANGLE];
@@ -858,7 +859,7 @@ public class NoDecimalTrigTable
         noDecimalTan[87] = 190811;
         noDecimalTan[88] = 286362;
         noDecimalTan[89] = 572899;
-        noDecimalTan[90] = Integer.MAX_VALUE;
+        noDecimalTan[90] = MAX_VALUE;
         noDecimalTan[91] = -572899;
         noDecimalTan[92] = -286362;
         noDecimalTan[93] = -190811;
@@ -1040,7 +1041,7 @@ public class NoDecimalTrigTable
         noDecimalTan[267] = 190811;
         noDecimalTan[268] = 286362;
         noDecimalTan[269] = 572899;
-        noDecimalTan[270] = Integer.MAX_VALUE;
+        noDecimalTan[270] = MAX_VALUE;
         noDecimalTan[271] = -572899;
         noDecimalTan[272] = -286362;
         noDecimalTan[273] = -190811;
@@ -1134,17 +1135,17 @@ public class NoDecimalTrigTable
         noDecimalTan[0] = -174;
     }
 
-    public long sin(short angle)
+    public long sin(int angle)
     {
         return noDecimalSin[angle];
     }
 
-    public long cos(short angle)
+    public long cos(int angle)
     {
         return noDecimalCos[angle];
     }
 
-    public long tan(short angle)
+    public long tan(int angle)
     {
         return noDecimalTan[angle];
     }
@@ -1156,10 +1157,12 @@ public class NoDecimalTrigTable
     public short antiTan(int dx, int dy)
        throws Exception
     {
-        long ratio = Integer.MAX_VALUE - 1;
+        final long MAX_VALUE = ((long) Integer.MAX_VALUE);
+        final long MIN_VALUE = ((long) Integer.MIN_VALUE);
+        long ratio = (long) (MAX_VALUE - 1);
         if (dy != 0)
         {
-        	long dxl = dx;
+            long dxl = ((long) dx);
             ratio = SCALE * dxl / dy;
 
             //Major bug in Android?
@@ -1181,12 +1184,12 @@ public class NoDecimalTrigTable
                     if(ratio > noDecimalTan[index - 1])
                     {
                         //logUtil.put(Integer.toString(result), this, ANTITAN))
-                        return index;
+                        return ((short) index);
                     }
                     else
-                        if(noDecimalTan[index - 1] == Integer.MAX_VALUE && ratio > Integer.MIN_VALUE)
+                        if(noDecimalTan[index - 1] == MAX_VALUE && ratio > MIN_VALUE)
                         {
-                            return index;
+                            return ((short) index);
                         }
                 }
             }
@@ -1199,7 +1202,7 @@ public class NoDecimalTrigTable
                 if (ratio < noDecimalTan[index] && ratio >= noDecimalTan[index - 1])
                 {
                     //logUtil.put(Integer.toString(result), this, ANTITAN))
-                    return index;
+                    return ((short) index);
                 }
             }
         }
@@ -1213,12 +1216,12 @@ public class NoDecimalTrigTable
                     if(ratio >= noDecimalTan[index - 1])
                     {
                         //logUtil.put(Integer.toString(result), this, ANTITAN))
-                        return index;
+                        return ((short) index);
                     }
                     else
-                        if(noDecimalTan[index - 1] == Integer.MAX_VALUE && ratio >= Integer.MIN_VALUE)
+                        if(noDecimalTan[index - 1] == MAX_VALUE && ratio >= MIN_VALUE)
                         {
-                            return index;
+                            return ((short) index);
                         }
                 }
             }
@@ -1231,7 +1234,7 @@ public class NoDecimalTrigTable
                 if (ratio < noDecimalTan[index] && ratio >= noDecimalTan[index - 1])
                 {
                     //logUtil.put(Integer.toString(result), this, ANTITAN);
-                    return index;
+                    return ((short) index);
                 }
             }
         }
@@ -1281,13 +1284,14 @@ public class NoDecimalTrigTable
 
 		short angleOfTarget;
 
+                final AngleFactory angleFactory = AngleFactory.getInstance();
+                Angle angle;
 		for(int index = 0; index < dx.length; index++)
 		{
 			for(int index2 = 0; index2 < dy.length; index2++)
 			{
 				angleOfTarget = this.antiTan(dx[index], dy[index2]);
-
-				Angle angle = AngleFactory.getInstance().getInstance(angleOfTarget);
+				angle = angleFactory.getInstance((int) angleOfTarget);
                                 stringMaker.delete(0, stringMaker.length());
 				PreLogUtil.put(stringMaker.append(CommonLabels.getInstance().INDEX_LABEL).append(index).append(" index2: ").append(index2).append(PositionStrings.getInstance().DX_LABEL).append(dx[index]).append(PositionStrings.getInstance().DY_LABEL).append(dy[index2]).append(TARGET_ANGLE).append(angleOfTarget).append(CommonSeps.getInstance().EQUALS).append(angle.getValue()).toString(), this, METHOD_NAME);
 			}

@@ -83,7 +83,7 @@ public class AngleFactory
 
     private final FrameUtil frameUtil = FrameUtil.getInstance();
     
-    public Angle getInstance(int index)
+    public Angle getInstance(final int index)
     {
         final int adjustedIndex = (int) frameUtil.adjustAngleToFrameAngle(index);
         return angleArray[adjustedIndex];
