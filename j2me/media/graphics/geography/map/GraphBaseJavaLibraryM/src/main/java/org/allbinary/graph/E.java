@@ -6,8 +6,10 @@ package org.allbinary.graph;
  */
 public class E
 {
+    private static final E e = new E();
+    
     public E newInstance()
     {
-        return null;
+        return e;
     }    
 }
