@@ -27,6 +27,7 @@ import org.allbinary.logic.control.crypt.file.CryptFileReader;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigData;
+import org.allbinary.string.CommonPhoneStrings;
 import org.allbinary.string.CommonStrings;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -41,7 +42,7 @@ public class SimpleStateTaxModule implements TaxModuleInterface
    private StreetAddress streetAddress;
    private StoreFrontInterface storeFrontInterface;
 
-   private final String ALL = "*";
+   private final String ALL = CommonPhoneStrings.getInstance().STAR;
    private final String STATETAXPATH = "/generic/taxes/";
    private final String STATETAXFILE = "stateTaxation.xml";
    

@@ -45,7 +45,7 @@ public class ImageRotationUtil
             //PreLogUtil.put("3a", this, "createRotatedImage");
             final J2SEMutableImage j2seImage = (J2SEMutableImage) image;
             final BufferedImage newBufferedImage = (BufferedImage) j2seImage.getImage();
-             //PreLogUtil.put("4", this, "createRotatedImage");
+             //PreLogUtil.put(CommonPhoneStrings.getInstance().FOUR, this, "createRotatedImage");
             
             java.awt.Image originalAwtImage = null;
             if(originalImage.isMutable())
@@ -53,7 +53,7 @@ public class ImageRotationUtil
                 //PreLogUtil.put("3a", this, "createRotatedImage");
                 J2SEMutableImage originalJ2SEImage = (J2SEMutableImage) originalImage;
                 originalAwtImage = (java.awt.Image) originalJ2SEImage.getImage();
-                //PreLogUtil.put("4", this, "createRotatedImage");
+                //PreLogUtil.put(CommonPhoneStrings.getInstance().FOUR, this, "createRotatedImage");
             }
             else
             {
@@ -84,7 +84,7 @@ public class ImageRotationUtil
                 //PreLogUtil.put("3a", this, "createRotatedImage");
                 J2SEMutableImage originalJ2SEImage = (J2SEMutableImage) originalImage;
                 originalAwtImage = (java.awt.Image) originalJ2SEImage.getImage();
-                //PreLogUtil.put("4", this, "createRotatedImage");
+                //PreLogUtil.put(CommonPhoneStrings.getInstance().FOUR, this, "createRotatedImage");
             }
             else
             {

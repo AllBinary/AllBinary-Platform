@@ -74,7 +74,7 @@ public class SmallIntegerSingletonFactory
                 INTEGER_ARRAY[index] = new Integer(-index);
             }
 
-            //logUtil.put("? " + NEGATIVE_INTEGER_ARRAY[5], "2", "?????????");
+            //logUtil.put("? " + NEGATIVE_INTEGER_ARRAY[5], CommonPhoneStrings.getInstance().TWO, "?????????");
 
             lastMin = POSITIVE_MAX;
             lastNegativeMin = NEGATIVE_MAX;

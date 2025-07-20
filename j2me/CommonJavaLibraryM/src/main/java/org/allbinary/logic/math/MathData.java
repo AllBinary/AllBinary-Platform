@@ -13,6 +13,7 @@
  */
 package org.allbinary.logic.math;
 
+import org.allbinary.string.CommonPhoneStrings;
 import org.allbinary.string.CommonSeps;
 
 public class MathData
@@ -33,5 +34,5 @@ public class MathData
     public String PLUS = "+";
     public String MINUS = "-";
     public String DIVIDE = "/";
-    public String MULTIPLY = "*";
+    public String MULTIPLY = CommonPhoneStrings.getInstance().STAR;
 }

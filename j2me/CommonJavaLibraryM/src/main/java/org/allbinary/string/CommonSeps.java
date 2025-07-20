@@ -42,8 +42,7 @@ public class CommonSeps
     public final String BRACKET_CLOSE = "]";
     
     public final String DASH = "-";
-        
-    public final String POUND = "#";
+
     public final String PERCENT = "%";
     public final String AMPERSAND = "&";
     

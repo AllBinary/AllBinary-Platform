@@ -16,6 +16,7 @@ package org.allbinary.logic.string;
 import java.util.HashMap;
 
 import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.string.CommonPhoneStrings;
 import org.allbinary.string.CommonSeps;
 
 /**
@@ -26,16 +27,17 @@ public class SpecialCharacterUtil {
 
    public static HashMap getHashMap()
    {
+      final CommonPhoneStrings commonPhoneStrings = CommonPhoneStrings.getInstance();
       final StringUtil stringUtil = StringUtil.getInstance();
       final HashMap hashMap = new HashMap();
       hashMap.put("!",stringUtil.EMPTY_STRING);
       hashMap.put("@",stringUtil.EMPTY_STRING);
-      hashMap.put("#",stringUtil.EMPTY_STRING);
+      hashMap.put(commonPhoneStrings.POUND,stringUtil.EMPTY_STRING);
       hashMap.put("$",stringUtil.EMPTY_STRING);
       hashMap.put("%",stringUtil.EMPTY_STRING);
       hashMap.put("^",stringUtil.EMPTY_STRING);
       hashMap.put(CommonSeps.getInstance().AMP,stringUtil.EMPTY_STRING);
-      hashMap.put("*",stringUtil.EMPTY_STRING);
+      hashMap.put(commonPhoneStrings.STAR,stringUtil.EMPTY_STRING);
       hashMap.put("(",stringUtil.EMPTY_STRING);
       hashMap.put(")",stringUtil.EMPTY_STRING);
       hashMap.put("-",stringUtil.EMPTY_STRING);

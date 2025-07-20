@@ -21,6 +21,7 @@ import org.allbinary.input.automation.robot.InputRobotFactory;
 import org.allbinary.input.automation.robot.TempInputRobotNames;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.string.CommonPhoneStrings;
 import org.allbinary.string.CommonStrings;
 
 /**
@@ -193,19 +194,19 @@ public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
          }
       });
 
-      timeJTextField.setText("0");
+      timeJTextField.setText(CommonPhoneStrings.getInstance().ZERO);
 
       holdTimeJLabel.setText("Hold Time (ms):");
 
       inputTypeJLabel.setText("Input Type:");
 
-      delayJTextField.setText("0");
+      delayJTextField.setText(CommonPhoneStrings.getInstance().ZERO);
 
       delayBetweenJLabel.setText("Delay Between Keys (ms):");
 
       testJLabel.setText("Text:");
 
-      textJTextField.setText("0");
+      textJTextField.setText(CommonPhoneStrings.getInstance().ZERO);
 
       pressJRadioButton.setText("Press");
       pressJRadioButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
@@ -416,7 +417,7 @@ public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
    {//GEN-HEADEREND:event_sequenceJRadioButtonActionPerformed
       if(this.sequenceJRadioButton.isSelected())
       {
-         this.delayJTextField.setText("1");
+         this.delayJTextField.setText(CommonPhoneStrings.getInstance().ONE);
          this.simultaneousJRadioButton.setSelected(false);
       }
    }//GEN-LAST:event_sequenceJRadioButtonActionPerformed
@@ -425,7 +426,7 @@ public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
    {//GEN-HEADEREND:event_simultaneousJRadioButtonActionPerformed
       if(this.simultaneousJRadioButton.isSelected())
       {
-         this.delayJTextField.setText("0");
+         this.delayJTextField.setText(CommonPhoneStrings.getInstance().ZERO);
          this.sequenceJRadioButton.setSelected(false);
       }
    }//GEN-LAST:event_simultaneousJRadioButtonActionPerformed

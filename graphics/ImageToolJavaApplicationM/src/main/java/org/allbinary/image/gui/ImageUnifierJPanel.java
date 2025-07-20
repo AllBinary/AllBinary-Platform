@@ -31,6 +31,7 @@ import org.allbinary.media.image.ImageUnifierProperties;
 import org.allbinary.media.image.ImageUnifierUtil;
 import org.allbinary.media.image.ImageUtil;
 import org.allbinary.media.image.ImagesRatioUtil;
+import org.allbinary.string.CommonPhoneStrings;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 
@@ -253,6 +254,8 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        final CommonPhoneStrings commonPhoneStrings = CommonPhoneStrings.getInstance();
+        
         jScrollPane1 = new javax.swing.JScrollPane();
         imageJList = new javax.swing.JList();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -312,7 +315,7 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
 
         jLabel2.setText("Columns:");
 
-        columnsJTextField.setText("2");
+        columnsJTextField.setText(commonPhoneStrings.TWO);
         columnsJTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 columnsJTextFieldActionPerformed(evt);
@@ -334,7 +337,7 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
 
         jLabel1.setText("Rows:");
 
-        rowsJTextField.setText("2");
+        rowsJTextField.setText(commonPhoneStrings.TWO);
         rowsJTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rowsJTextFieldActionPerformed(evt);

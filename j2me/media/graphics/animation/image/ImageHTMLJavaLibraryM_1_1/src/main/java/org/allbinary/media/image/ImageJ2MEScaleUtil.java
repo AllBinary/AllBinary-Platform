@@ -66,7 +66,7 @@ public class ImageJ2MEScaleUtil {
             //PreLogUtil.put("3a", this, "createImage");
             final PlaynMutableImage originalHTMLImage = (PlaynMutableImage) image;
             originalPlayNImage = (playn.core.Image) originalHTMLImage.getImage();
-            //PreLogUtil.put("4", this, "createImage");
+            //PreLogUtil.put(CommonPhoneStrings.getInstance().FOUR, this, "createImage");
         } else {
             //PreLogUtil.put("3b", this, "createImage");
             final PlaynImmutableImage originalHTMLImage = (PlaynImmutableImage) image;

@@ -50,7 +50,7 @@ public class ImageRotationUtil
                 //PreLogUtil.put("3a", this, "createRotatedImage");
                 final PlaynMutableImage originalHTMLImage = (PlaynMutableImage) originalImage;
                 originalPlayNImage = (playn.core.Image) originalHTMLImage.getImage();
-                //PreLogUtil.put("4", this, "createRotatedImage");
+                //PreLogUtil.put(CommonPhoneStrings.getInstance().FOUR, this, "createRotatedImage");
             }
             else
             {

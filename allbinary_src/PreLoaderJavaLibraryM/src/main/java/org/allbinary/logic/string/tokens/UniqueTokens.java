@@ -18,6 +18,7 @@ import java.util.Vector;
 
 import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.logic.string.regex.replace.Replace;
+import org.allbinary.string.CommonPhoneStrings;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.util.BasicArrayList;
 
@@ -29,12 +30,12 @@ public class UniqueTokens
    {
 	   specialCharacters.add("!");
 	   specialCharacters.add("@");
-	   specialCharacters.add("#");
+	   specialCharacters.add(CommonPhoneStrings.getInstance().POUND);
 	   specialCharacters.add("$");
 	   specialCharacters.add("%");
 	   specialCharacters.add("^");
 	   specialCharacters.add(CommonSeps.getInstance().AMP);
-	   specialCharacters.add("*");
+	   specialCharacters.add(CommonPhoneStrings.getInstance().STAR);
 	   specialCharacters.add("(");
 	   specialCharacters.add(")");
 	   specialCharacters.add("-");

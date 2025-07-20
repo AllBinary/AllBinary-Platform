@@ -88,7 +88,7 @@ public class ImageScaleUtil
                 //PreLogUtil.put("3a", this, "createImage");
                 final PlaynMutableImage originalHTMLImage = (PlaynMutableImage) originalImage;
                 originalPlayNImage = (playn.core.Image) originalHTMLImage.getImage();
-                //PreLogUtil.put("4", this, "createImage");
+                //PreLogUtil.put(CommonPhoneStrings.getInstance().FOUR, this, "createImage");
             }
             else
             {

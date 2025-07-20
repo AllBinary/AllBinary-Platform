@@ -13,6 +13,8 @@
 */
 package org.allbinary.data.tables;
 
+import org.allbinary.string.CommonPhoneStrings;
+
 /**
  *
  * @author user
@@ -31,5 +33,5 @@ public class TableDataFactory {
 
 
     public final String INTEGER_MAX_VALUE_STRING = Integer.toString(Integer.MAX_VALUE);
-    public final String ZERO_STRING = "0";
+    public final String ZERO_STRING = CommonPhoneStrings.getInstance().ZERO;
 }

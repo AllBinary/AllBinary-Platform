@@ -35,16 +35,16 @@ public class GameKeyFactory
     
     public final GameKey KEY_POUND = new GameKey(Canvas.KEY_POUND, "POUND");
     public final GameKey KEY_STAR = new GameKey(Canvas.KEY_STAR, "STAR");
-    public final GameKey KEY_NUM0 = new GameKey(Canvas.KEY_NUM0, "0");
-    public final GameKey KEY_NUM1 = new GameKey(Canvas.KEY_NUM1, "1");
-    public final GameKey KEY_NUM2 = new GameKey(Canvas.KEY_NUM2, "2");
-    public final GameKey KEY_NUM3 = new GameKey(Canvas.KEY_NUM3, "3");
-    public final GameKey KEY_NUM4 = new GameKey(Canvas.KEY_NUM4, "4");
-    public final GameKey KEY_NUM5 = new GameKey(Canvas.KEY_NUM5, "5");
-    public final GameKey KEY_NUM6 = new GameKey(Canvas.KEY_NUM6, "6");
-    public final GameKey KEY_NUM7 = new GameKey(Canvas.KEY_NUM7, "7");
-    public final GameKey KEY_NUM8 = new GameKey(Canvas.KEY_NUM8, "8");
-    public final GameKey KEY_NUM9 = new GameKey(Canvas.KEY_NUM9, "9");
+    public final GameKey KEY_NUM0 = new GameKey(Canvas.KEY_NUM0, CommonPhoneStrings.getInstance().ZERO);
+    public final GameKey KEY_NUM1 = new GameKey(Canvas.KEY_NUM1, CommonPhoneStrings.getInstance().ONE);
+    public final GameKey KEY_NUM2 = new GameKey(Canvas.KEY_NUM2, CommonPhoneStrings.getInstance().TWO);
+    public final GameKey KEY_NUM3 = new GameKey(Canvas.KEY_NUM3, CommonPhoneStrings.getInstance().THREE);
+    public final GameKey KEY_NUM4 = new GameKey(Canvas.KEY_NUM4, CommonPhoneStrings.getInstance().FOUR);
+    public final GameKey KEY_NUM5 = new GameKey(Canvas.KEY_NUM5, CommonPhoneStrings.getInstance().FIVE);
+    public final GameKey KEY_NUM6 = new GameKey(Canvas.KEY_NUM6, CommonPhoneStrings.getInstance().SIX);
+    public final GameKey KEY_NUM7 = new GameKey(Canvas.KEY_NUM7, CommonPhoneStrings.getInstance().SEVEN);
+    public final GameKey KEY_NUM8 = new GameKey(Canvas.KEY_NUM8, CommonPhoneStrings.getInstance().EIGHT);
+    public final GameKey KEY_NUM9 = new GameKey(Canvas.KEY_NUM9, CommonPhoneStrings.getInstance().NINE);
     public final GameKey GAME_A = new GameKey(Canvas.GAME_A, "Game A");
     public final GameKey GAME_B = new GameKey(Canvas.GAME_B, "Game B");
     public final GameKey GAME_C = new GameKey(Canvas.GAME_C, "Game C");

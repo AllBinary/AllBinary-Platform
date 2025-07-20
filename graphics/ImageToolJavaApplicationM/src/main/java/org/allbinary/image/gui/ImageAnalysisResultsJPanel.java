@@ -16,6 +16,7 @@ package org.allbinary.image.gui;
 import org.allbinary.media.image.analysis.ImageAnalysisResults;
 import org.allbinary.media.image.analysis.ImageColorRangeResults;
 import org.allbinary.media.image.analysis.ImageColorResults;
+import org.allbinary.string.CommonPhoneStrings;
 
 public class ImageAnalysisResultsJPanel extends javax.swing.JPanel
 {
@@ -84,7 +85,7 @@ public class ImageAnalysisResultsJPanel extends javax.swing.JPanel
 
         matchingPixelsJTextField.setEditable(false);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { CommonPhoneStrings.getInstance().ONE }));
         jComboBox1.setEnabled(false);
 
         jLabel4.setText("Image:");

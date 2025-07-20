@@ -17,6 +17,7 @@ import java.util.Vector;
 
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.visual.dhtml.html.HtmlTag;
+import org.allbinary.string.CommonPhoneStrings;
 
 public class HtmlTable extends HtmlTag
 {   
@@ -65,7 +66,7 @@ public class HtmlTable extends HtmlTag
       //this.style = new String(style);  
       this.after = after;
       this.htmlRowsVector = new Vector();
-      addAttribute(BORDER,"0");
+      addAttribute(BORDER,CommonPhoneStrings.getInstance().ZERO);
       addAttribute(CELLPADDING,this.cellpadding);
       addAttribute(CELLSPACING,this.cellspacing);      
       addAttribute(STYLE,this.BORDERCOLLAPSE);

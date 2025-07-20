@@ -24,6 +24,7 @@ import org.allbinary.data.generator.ProductIdGenerator;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.string.CommonPhoneStrings;
 import org.allbinary.string.CommonStrings;
 
 public class BasicItem implements ItemInterface
@@ -120,7 +121,7 @@ public class BasicItem implements ItemInterface
 
         String EMPTY = StringUtil.getInstance().EMPTY_STRING;
         this.itemId = new ProductIdGenerator().getNext();
-        this.number = "0";
+        this.number = CommonPhoneStrings.getInstance().ZERO;
         this.inBaskets = EMPTY;
         this.weight = EMPTY;
         this.enabled = EMPTY;

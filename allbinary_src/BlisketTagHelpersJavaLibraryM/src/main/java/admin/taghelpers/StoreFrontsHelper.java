@@ -25,6 +25,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.sql.AbSqlTableUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.visual.dhtml.html.select.HtmlSelect;
+import org.allbinary.string.CommonPhoneStrings;
 import org.allbinary.string.CommonSeps;
 
 public class StoreFrontsHelper extends BasicTable
@@ -141,7 +142,7 @@ public class StoreFrontsHelper extends BasicTable
         }
     }
 
-    private static final String ONE = "1";
+    private final CommonPhoneStrings commonPhoneStrings = CommonPhoneStrings.getInstance();
     private static final String CLASS = "class";
     private static final String TEXT = "text";
 
@@ -153,7 +154,7 @@ public class StoreFrontsHelper extends BasicTable
             Vector storeNamesVector = StoreFrontsEntityFactory.getInstance().getStoreFrontsEntityInstance().getStoreFrontNames();
 
             HtmlSelect storeSelect = new HtmlSelect(
-                StringUtil.getInstance().EMPTY_STRING, ONE, 
+                StringUtil.getInstance().EMPTY_STRING, commonPhoneStrings.ONE, 
                 StoreFrontData.getInstance().SELECTSTORENAME, 
                 StringUtil.getInstance().EMPTY_STRING);
 

@@ -17,6 +17,7 @@ import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.string.CommonPhoneStrings;
 
 public class Money
 {   
@@ -136,7 +137,7 @@ public class Money
          
          if(cents <10)
          {
-        	 stringBuffer.append("0");
+        	 stringBuffer.append(CommonPhoneStrings.getInstance().ZERO);
          }
          
          stringBuffer.append(new Long(cents).toString());

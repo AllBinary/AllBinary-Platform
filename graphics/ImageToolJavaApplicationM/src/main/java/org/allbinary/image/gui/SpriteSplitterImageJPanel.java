@@ -28,6 +28,7 @@ import org.allbinary.media.image.ImageProcessedVisitor;
 import org.allbinary.media.image.ImageProcessorInput;
 import org.allbinary.media.image.ImageStrings;
 import org.allbinary.media.image.SpriteSplitterUtil;
+import org.allbinary.string.CommonPhoneStrings;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 
@@ -151,7 +152,7 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
             }
         });
 
-        widthReductionTextField.setText("0");
+        widthReductionTextField.setText(CommonPhoneStrings.getInstance().ZERO);
         widthReductionTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 widthReductionTextFieldActionPerformed(evt);
@@ -179,7 +180,7 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
 
         jLabel6.setText("Less Height:");
 
-        heightReductionTextField.setText("0");
+        heightReductionTextField.setText(CommonPhoneStrings.getInstance().ZERO);
 
         generateJButton.setText("Generate");
         generateJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -248,7 +249,7 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
 
         jLabel7.setText("More Width:");
 
-        increaseWidthTextField.setText("0");
+        increaseWidthTextField.setText(CommonPhoneStrings.getInstance().ZERO);
         increaseWidthTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 increaseWidthTextFieldActionPerformed(evt);
@@ -257,7 +258,7 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
 
         jLabel8.setText("More Height:");
 
-        increaseHeightTextField.setText("0");
+        increaseHeightTextField.setText(CommonPhoneStrings.getInstance().ZERO);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

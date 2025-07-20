@@ -28,6 +28,7 @@ import org.allbinary.data.tables.user.commerce.inventory.order.OrderItemsEntityF
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
+import org.allbinary.string.CommonPhoneStrings;
 
 public class OrderHistoryRequestHelper
     extends TagHelper
@@ -82,7 +83,7 @@ public class OrderHistoryRequestHelper
       try
       {
          //order item status change may cause whole order status change
-         if(this.groupId.compareTo("0")!=0)
+         if(this.groupId.compareTo(CommonPhoneStrings.getInstance().ZERO)!=0)
          {
             if(OrderItemsEntityFactory.getInstance().isEverythingShipped(id))
             {

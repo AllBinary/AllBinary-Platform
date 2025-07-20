@@ -16,6 +16,7 @@ package org.allbinary.util;
 import org.allbinary.game.rand.MyRandomFactory;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
+import org.allbinary.string.CommonPhoneStrings;
 
 /**
  * 
@@ -92,16 +93,17 @@ public class BasicArrayListUtil
     }
     
     public static void main(String args[]) {
+        final CommonPhoneStrings commonPhoneStrings = CommonPhoneStrings.getInstance();
         final BasicArrayList list = new BasicArrayList();
-        list.add("1");
-        list.add("2");
-        list.add("3");
-        list.add("4");
-        list.add("5");
-        list.add("6");
-        list.add("7");
-        list.add("8");
-        list.add("9");
+        list.add(commonPhoneStrings.ONE);
+        list.add(commonPhoneStrings.TWO);
+        list.add(commonPhoneStrings.THREE);
+        list.add(commonPhoneStrings.FOUR);
+        list.add(commonPhoneStrings.FIVE);
+        list.add(commonPhoneStrings.SIX);
+        list.add(commonPhoneStrings.SEVEN);
+        list.add(commonPhoneStrings.EIGHT);
+        list.add(commonPhoneStrings.NINE);
         
         BasicArrayListUtil.getInstance().reverse(list);
         

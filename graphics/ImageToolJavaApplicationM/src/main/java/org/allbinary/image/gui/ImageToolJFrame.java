@@ -29,6 +29,7 @@ import org.allbinary.media.image.analysis.ColorRange;
 import org.allbinary.media.image.analysis.ColorRangeInterface;
 import org.allbinary.media.image.analysis.ImageAnalysis;
 import org.allbinary.media.image.analysis.ImageAnalysisResults;
+import org.allbinary.string.CommonPhoneStrings;
 import org.allbinary.string.CommonStrings;
 
 public class ImageToolJFrame extends javax.swing.JFrame
@@ -46,6 +47,8 @@ public class ImageToolJFrame extends javax.swing.JFrame
    {
       initComponents();
 
+      final CommonPhoneStrings commonPhoneStrings = CommonPhoneStrings.getInstance();
+      
       //this.fileJDialog = new FileJDialog(this, true);
 
       //this.fileJDialog.getJFileChooser1().addActionListener()
@@ -57,9 +60,9 @@ public class ImageToolJFrame extends javax.swing.JFrame
       this.getMaxGreenJTextField().setText("255");
       this.getMaxBlueJTextField().setText("255");
 
-      this.getMinRedJTextField().setText("0");
-      this.getMinGreenJTextField().setText("0");
-      this.getMinBlueJTextField().setText("0");
+      this.getMinRedJTextField().setText(commonPhoneStrings.ZERO);
+      this.getMinGreenJTextField().setText(commonPhoneStrings.ZERO);
+      this.getMinBlueJTextField().setText(commonPhoneStrings.ZERO);
 
       fileJDialog = new FileJDialog();
       fileJDialog.addFinishedListener(this);

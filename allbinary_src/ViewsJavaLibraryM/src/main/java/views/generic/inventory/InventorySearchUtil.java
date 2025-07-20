@@ -40,6 +40,7 @@ import org.allbinary.logic.visual.transform.data.TransformDocumentInterface;
 import org.allbinary.logic.visual.transform.data.TransformStoreDocumentFactory;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpSearch;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.string.CommonPhoneStrings;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
@@ -51,8 +52,6 @@ import org.w3c.dom.Node;
  * @author user
  */
 public class InventorySearchUtil {
-    protected final LogUtil logUtil = LogUtil.getInstance();
-
 
     private static final  InventorySearchUtil instance = new InventorySearchUtil();
 
@@ -64,7 +63,10 @@ public class InventorySearchUtil {
         return instance;
     }
 
+    protected final LogUtil logUtil = LogUtil.getInstance();
+    
     private final CommonStrings commonStrings = CommonStrings.getInstance();
+    private final CommonPhoneStrings commonPhoneStrings = CommonPhoneStrings.getInstance();
 
     //private static final String START_PAGE = " StartPage:";
     //private static final String END_PAGE = " EndPage:";
@@ -128,10 +130,10 @@ public class InventorySearchUtil {
         throws Exception
     {
         inventoryNode.appendChild(ModDomHelper.createNameValueNodes(
-            viewDocumentInterface.getDoc(), SearchData.TOTAL_NUMBER_PAGES, "0"));
+            viewDocumentInterface.getDoc(), SearchData.TOTAL_NUMBER_PAGES, commonPhoneStrings.ZERO));
 
         inventoryNode.appendChild(ModDomHelper.createNameValueNodes(
-            viewDocumentInterface.getDoc(), SearchData.TOTAL_NUMBER_ITEMS, "0"));
+            viewDocumentInterface.getDoc(), SearchData.TOTAL_NUMBER_ITEMS, commonPhoneStrings.ZERO));
 
         String success = DomDocumentHelper.toString(viewDocumentInterface.getDoc());
 
@@ -274,7 +276,7 @@ public class InventorySearchUtil {
 
                             itemNode.appendChild(ModDomHelper.createNameValueNodes(
                                 viewDocumentInterface.getDoc(),
-                                BasketData.ITEMTOTALINBASKET, "1"));
+                                BasketData.ITEMTOTALINBASKET, commonPhoneStrings.ONE));
 
                             inventoryNode.appendChild(itemNode.cloneNode(true));
                         }

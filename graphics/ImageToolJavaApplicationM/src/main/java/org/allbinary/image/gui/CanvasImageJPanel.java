@@ -29,6 +29,7 @@ import org.allbinary.media.image.CanvasTrimUtil;
 import org.allbinary.media.image.ImageProcessedVisitor;
 import org.allbinary.media.image.ImageProcessorInput;
 import org.allbinary.media.image.ImageStrings;
+import org.allbinary.string.CommonPhoneStrings;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 
@@ -168,7 +169,7 @@ public class CanvasImageJPanel extends javax.swing.JPanel
 
         jLabel5.setText("Right:");
 
-        widthReductionTextField.setText("0");
+        widthReductionTextField.setText(CommonPhoneStrings.getInstance().ZERO);
         widthReductionTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 widthReductionTextFieldActionPerformed(evt);
@@ -177,9 +178,9 @@ public class CanvasImageJPanel extends javax.swing.JPanel
 
         jLabel6.setText("Bottom");
 
-        heightReductionTextField.setText("0");
+        heightReductionTextField.setText(CommonPhoneStrings.getInstance().ZERO);
 
-        widthReductionTextField1.setText("0");
+        widthReductionTextField1.setText(CommonPhoneStrings.getInstance().ZERO);
         widthReductionTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 widthReductionTextField1ActionPerformed(evt);
@@ -190,7 +191,7 @@ public class CanvasImageJPanel extends javax.swing.JPanel
 
         jLabel8.setText("Left:");
 
-        heightReductionTextField1.setText("0");
+        heightReductionTextField1.setText(CommonPhoneStrings.getInstance().ZERO);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

@@ -26,6 +26,7 @@ import org.allbinary.media.image.ImageJ2SERotationUtil;
 import org.allbinary.media.image.ImageProcessorInput;
 import org.allbinary.media.image.ImageProcessorInputCompositeInterface;
 import org.allbinary.media.image.ImageStrings;
+import org.allbinary.string.CommonPhoneStrings;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 
@@ -171,7 +172,7 @@ public class RotationSpriteImageJPanel extends javax.swing.JPanel
          .add(0, 227, Short.MAX_VALUE)
       );
 
-      totalFramesJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "4", "9", "18", "20", "36" }));
+      totalFramesJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { CommonPhoneStrings.getInstance().FOUR, CommonPhoneStrings.getInstance().NINE, "18", "20", "36" }));
 
       jLabel1.setText("Total Frames:");
 

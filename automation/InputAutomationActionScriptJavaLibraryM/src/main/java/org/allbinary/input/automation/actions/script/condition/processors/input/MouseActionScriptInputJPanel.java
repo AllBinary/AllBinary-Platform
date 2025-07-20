@@ -23,6 +23,7 @@ import org.allbinary.input.automation.robot.TempInputRobotNames;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.string.CommonLabels;
+import org.allbinary.string.CommonPhoneStrings;
 import org.allbinary.string.CommonStrings;
 
 /**
@@ -247,11 +248,11 @@ public class MouseActionScriptInputJPanel
 
         jLabel3.setText("Move To:");
 
-        button1JCheckBox.setText("1");
+        button1JCheckBox.setText(CommonPhoneStrings.getInstance().ONE);
         button1JCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         button1JCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
 
-        button2JCheckBox.setText("2");
+        button2JCheckBox.setText(CommonPhoneStrings.getInstance().TWO);
         button2JCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         button2JCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
         button2JCheckBox.addActionListener(new java.awt.event.ActionListener()
@@ -264,11 +265,11 @@ public class MouseActionScriptInputJPanel
 
         jLabel4.setText("x:");
 
-        mouseXJTextField.setText("0");
+        mouseXJTextField.setText(CommonPhoneStrings.getInstance().ZERO);
 
         jLabel5.setText("y:");
 
-        mouseYJTextField.setText("0");
+        mouseYJTextField.setText(CommonPhoneStrings.getInstance().ZERO);
 
         inputTypeJLabel.setText("Input Type:");
 

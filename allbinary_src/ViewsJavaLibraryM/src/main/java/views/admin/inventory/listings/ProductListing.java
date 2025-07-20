@@ -43,6 +43,7 @@ import org.allbinary.logic.string.regex.replace.Replace;
 import org.allbinary.logic.string.tokens.UniqueTokens;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
+import org.allbinary.string.CommonPhoneStrings;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.util.BasicArrayList;
 import views.generic.inventory.InventoryColumnUtil;
@@ -153,7 +154,7 @@ public class ProductListing implements ProductListingInterface
         //add keywords to search params
         SearchParams searchParams = this.searchRequest.getParams();
         searchParams.add(BasicItemData.KEYWORDS, keywordData);
-        searchParams.setStartPage("0");
+        searchParams.setStartPage(CommonPhoneStrings.getInstance().ZERO);
         this.searchRequest.setParams(searchParams);
 
         this.searchRequest.setFileBaseName(pageName);

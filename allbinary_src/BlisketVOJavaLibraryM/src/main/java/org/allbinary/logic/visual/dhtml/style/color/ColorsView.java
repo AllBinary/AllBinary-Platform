@@ -16,11 +16,14 @@ package org.allbinary.logic.visual.dhtml.style.color;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonPhoneStrings;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 public class ColorsView implements DomNodeInterface
 {
+    private final CommonPhoneStrings commonPhoneStrings = CommonPhoneStrings.getInstance();
+    
    private final int HEXRADIX = 16;
    private final int MAX = 255;
    final int delta = 20;
@@ -37,7 +40,7 @@ public class ColorsView implements DomNodeInterface
 
                if(redIndex < HEXRADIX)
                {
-                  hexColorStringBuffer.append("0");
+                  hexColorStringBuffer.append(commonPhoneStrings.ZERO);
                }
                
                hexColorStringBuffer.append(
@@ -45,7 +48,7 @@ public class ColorsView implements DomNodeInterface
                
                if(greenIndex < HEXRADIX)
                {
-                  hexColorStringBuffer.append("0");
+                  hexColorStringBuffer.append(commonPhoneStrings.ZERO);
                }
                
                hexColorStringBuffer.append(
@@ -53,7 +56,7 @@ public class ColorsView implements DomNodeInterface
                
                if(blueIndex < HEXRADIX)
                {
-                  hexColorStringBuffer.append("0");
+                  hexColorStringBuffer.append(commonPhoneStrings.ZERO);
                }
                
                hexColorStringBuffer.append(
@@ -81,7 +84,7 @@ public class ColorsView implements DomNodeInterface
          
          if(index < HEXRADIX)
          {
-            hexColorStringBuffer.append("0");
+            hexColorStringBuffer.append(commonPhoneStrings.ZERO);
          }
          
          hexColorStringBuffer.append(
@@ -89,7 +92,7 @@ public class ColorsView implements DomNodeInterface
          
          if(index < HEXRADIX)
          {
-            hexColorStringBuffer.append("0");
+            hexColorStringBuffer.append(commonPhoneStrings.ZERO);
          }
          
          hexColorStringBuffer.append(
@@ -97,7 +100,7 @@ public class ColorsView implements DomNodeInterface
          
          if(index < HEXRADIX)
          {
-            hexColorStringBuffer.append("0");
+            hexColorStringBuffer.append(commonPhoneStrings.ZERO);
          }
          
          hexColorStringBuffer.append(

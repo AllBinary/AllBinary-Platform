@@ -26,7 +26,7 @@ public class PrimitiveLongSingleton
     
     public final char[] UNK = {'U', 'n', 'k'};
     
-    //public final String[] NUMBER_STRING_ARRAY = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
+    //public final String[] NUMBER_STRING_ARRAY = {CommonPhoneStrings.getInstance().ZERO, CommonPhoneStrings.getInstance().ONE, CommonPhoneStrings.getInstance().TWO, CommonPhoneStrings.getInstance().THREE, CommonPhoneStrings.getInstance().FOUR, CommonPhoneStrings.getInstance().FIVE, CommonPhoneStrings.getInstance().SIX, CommonPhoneStrings.getInstance().SEVEN, CommonPhoneStrings.getInstance().EIGHT, CommonPhoneStrings.getInstance().NINE};
     public final byte[] NUMBER_ARRAY = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
     public final char[] NUMBER_CHAR_ARRAY = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
     public final char[][] NUMBER_CHAR_ARRAYS = {{'0'}, {'1'}, {'2'}, {'3'}, {'4'}, {'5'}, {'6'}, {'7'}, {'8'}, {'9'}};

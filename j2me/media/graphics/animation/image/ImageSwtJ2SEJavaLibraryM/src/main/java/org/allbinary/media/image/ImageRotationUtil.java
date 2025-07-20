@@ -70,7 +70,7 @@ public class ImageRotationUtil {
             copySwtImage = (org.eclipse.swt.graphics.Image) swtImage.getImage();
             gc = swtImage.getGc();
             //final org.eclipse.swt.graphics.Image newBufferedImage = (org.eclipse.swt.graphics.Image) swtImage.getImage();
-            //PreLogUtil.put("4", this, "createRotatedImage");
+            //PreLogUtil.put(CommonPhoneStrings.getInstance().FOUR, this, "createRotatedImage");
             imageSwtRotationUtil.rotateImage(originalSwtImage, copySwtImage, gc, totalAngle);
         } else {
             //final SwtImmutableImage swtImage = (SwtImmutableImage) image;
@@ -95,7 +95,7 @@ public class ImageRotationUtil {
 //                SwtMutableImage newJ2SEImage = (SwtMutableImage) image;
 //                newSwtImage = newJ2SEImage.getImage();
 //                newGC = newJ2SEImage.getGc();
-//                //PreLogUtil.put("4", this, "createRotatedImage");
+//                //PreLogUtil.put(CommonPhoneStrings.getInstance().FOUR, this, "createRotatedImage");
 //            } else {
 //                //PreLogUtil.put("3b", this, "createRotatedImage");
 //                final SwtImmutableImage newJ2SEImage = (SwtImmutableImage) image;
