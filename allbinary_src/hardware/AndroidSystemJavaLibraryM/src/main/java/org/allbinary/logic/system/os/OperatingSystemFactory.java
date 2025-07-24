@@ -67,7 +67,7 @@ public class OperatingSystemFactory
         }
         catch(Exception e)
         {
-            GenericOperatingSystem = new NoOperatingSystem();
+            GenericOperatingSystem = NoOperatingSystem.NO_OPERATING_SYSTEM;
             
             logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
         }

@@ -102,7 +102,7 @@ public class WindowsOperatingSystemFactory
                 final CommonStrings commonStrings = CommonStrings.getInstance();
                 logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
             }
-            return new NoOperatingSystem();
+            return NoOperatingSystem.NO_OPERATING_SYSTEM;
         }
     }
 }

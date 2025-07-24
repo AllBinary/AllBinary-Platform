@@ -114,7 +114,7 @@ public class OperatingSystemFactory
                 logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
             }
             //throw e;
-            return new NoOperatingSystem();
+            return NoOperatingSystem.NO_OPERATING_SYSTEM;
         }
     }
 }

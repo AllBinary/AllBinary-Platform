@@ -16,24 +16,28 @@ package org.allbinary.logic.system.security.licensing;
 import java.util.Hashtable;
 
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.system.hardware.HardwareInterface;
 import org.allbinary.logic.system.hardware.SystemHardwareFactory;
 import org.allbinary.logic.system.os.GenericOperatingSystem;
+import org.allbinary.logic.system.os.NoOperatingSystem;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListUtil;
 
 // This is the information sent to the license server
 public class ClientInformation implements AbeClientInformationInterface
 {
-    private GenericOperatingSystem operatingSystemInterface;
+    private GenericOperatingSystem operatingSystemInterface = NoOperatingSystem.NO_OPERATING_SYSTEM;
+
     private final String name;
     private final String shortName;
     private final String version;
     private final String specialName;
     
     private boolean hardSale = true;
-    private String licenseId;
-    private BasicArrayList licenseServers;
+    private String licenseId = StringUtil.getInstance().EMPTY_STRING;
+    private BasicArrayList licenseServers = BasicArrayListUtil.getInstance().getImmutableInstance();
 
     public ClientInformation(final String name, final String version, final String specialName, final String shortName)
     {
@@ -45,6 +49,7 @@ public class ClientInformation implements AbeClientInformationInterface
         this.init();
     }
 
+    @Override
     public void init()
     {
         
@@ -56,6 +61,7 @@ public class ClientInformation implements AbeClientInformationInterface
      * @seeabcs.logic.system.security.licensing.AbeClientInformationInterface#
      * getOperatingSystemInterface()
      */
+    @Override
     public GenericOperatingSystem getOperatingSystemInterface()
     {
         return operatingSystemInterface;
@@ -68,6 +74,7 @@ public class ClientInformation implements AbeClientInformationInterface
      * abcs.logic.system.security.licensing.AbeClientInformationInterface#getName
      * ()
      */
+    @Override
     public String getName()
     {
         return this.name;
@@ -79,6 +86,7 @@ public class ClientInformation implements AbeClientInformationInterface
      * @seeabcs.logic.system.security.licensing.AbeClientInformationInterface#
      * getSpecialName()
      */
+    @Override
     public String getSpecialName()
     {
         return this.specialName;
@@ -91,6 +99,7 @@ public class ClientInformation implements AbeClientInformationInterface
      * abcs.logic.system.security.licensing.AbeClientInformationInterface#getVersion
      * ()
      */
+    @Override
     public String getVersion()
     {
         return this.version;
@@ -102,6 +111,7 @@ public class ClientInformation implements AbeClientInformationInterface
      * @seeabcs.logic.system.security.licensing.AbeClientInformationInterface#
      * getLicenseId()
      */
+    @Override
     public String getLicenseId()
     {
         return this.licenseId;
@@ -113,6 +123,7 @@ public class ClientInformation implements AbeClientInformationInterface
      * @seeabcs.logic.system.security.licensing.AbeClientInformationInterface#
      * getLicenseServers()
      */
+    @Override
     public BasicArrayList getLicenseServers()
     {
         return this.licenseServers;
@@ -124,6 +135,7 @@ public class ClientInformation implements AbeClientInformationInterface
      * @seeabcs.logic.system.security.licensing.AbeClientInformationInterface#
      * getLicenseServer(int)
      */
+    @Override
     public String getLicenseServer(int index)
     {
         return (String) this.licenseServers.objectArray[index];
@@ -135,6 +147,7 @@ public class ClientInformation implements AbeClientInformationInterface
      * @seeabcs.logic.system.security.licensing.AbeClientInformationInterface#
      * getNumberOfLicenseServers()
      */
+    @Override
     public int getNumberOfLicenseServers()
     {
         return this.licenseServers.size();
@@ -146,6 +159,7 @@ public class ClientInformation implements AbeClientInformationInterface
      * @seeabcs.logic.system.security.licensing.AbeClientInformationInterface#
      * toHashtable()
      */
+    @Override
     public Hashtable toHashtable()
     {
         AbeClientInformationData abeClientInformationData = 
@@ -187,6 +201,7 @@ public class ClientInformation implements AbeClientInformationInterface
         return clientInfoHashtable;
     }
 
+    @Override
     public boolean isSameId(String alicenseId)
     {
         if (this.getLicenseId().compareTo(alicenseId) == 0)
@@ -199,6 +214,7 @@ public class ClientInformation implements AbeClientInformationInterface
         }
     }
 
+    @Override
     public boolean isLargerOrDifferentServerList(BasicArrayList list)
     {
         int size = list.size() - 1;
@@ -231,6 +247,7 @@ public class ClientInformation implements AbeClientInformationInterface
         this.hardSale = hardSale;
     }
 
+    @Override
     public boolean isHardSale()
     {
         return hardSale;
@@ -251,6 +268,7 @@ public class ClientInformation implements AbeClientInformationInterface
         this.licenseServers = licenseServers;
     }
 
+    @Override
     public String toShortString() {
         return this.shortName;
     }

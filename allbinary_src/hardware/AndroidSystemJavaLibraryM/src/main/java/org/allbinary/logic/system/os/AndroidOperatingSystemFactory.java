@@ -66,7 +66,7 @@ public class AndroidOperatingSystemFactory {
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
             logUtil.put("Failed to get OperatingSystem returning NoOperatingSystem", this, commonStrings.GET_INSTANCE, e);
-            return new NoOperatingSystem();
+            return NoOperatingSystem.NO_OPERATING_SYSTEM;
         }
     }
 }

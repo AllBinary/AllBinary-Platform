@@ -20,6 +20,8 @@ package org.allbinary.logic.system.os;
  */
 public class NoOperatingSystem extends GenericOperatingSystem
 {
+    public static final GenericOperatingSystem NO_OPERATING_SYSTEM = new GenericOperatingSystem();
+    
     public NoOperatingSystem()
     {
     }
