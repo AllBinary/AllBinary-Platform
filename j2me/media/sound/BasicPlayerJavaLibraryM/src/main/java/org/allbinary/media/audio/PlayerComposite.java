@@ -57,37 +57,44 @@ public class PlayerComposite implements Controllable, Player
      * player; this.repeatTime = repeatTime; timeElapsedHelper.setStartTime(); }
      */
 
+    @Override
     public synchronized void addPlayerListener(PlayerListener playerListener)
     {
         this.player.addPlayerListener(playerListener);
     }
 
+    @Override
     public void removePlayerListener(PlayerListener playerListener)
     {
         this.player.removePlayerListener(playerListener);
     }
 
+    @Override
     public void close()
     {
         this.player.close();
         //this.player = null;
     }
 
+    @Override
     public void deallocate()
     {
         this.player.deallocate();
     }
 
+    @Override
     public String getContentType()
     {
         return this.player.getContentType();
     }
 
+    @Override
     public long getDuration()
     {
         return this.player.getDuration();
     }
 
+    @Override
     public long getMediaTime()
     {
         return this.player.getMediaTime();
@@ -106,6 +113,7 @@ public class PlayerComposite implements Controllable, Player
    }
    */
 
+    @Override
     public void prefetch()
     {
         try
@@ -118,6 +126,7 @@ public class PlayerComposite implements Controllable, Player
         }
     }
 
+    @Override
     public void realize()
     {
         try
@@ -130,16 +139,19 @@ public class PlayerComposite implements Controllable, Player
         }
     }
 
+    @Override
     public int getState()
     {
         return this.player.getState();
     }
 
+    @Override
     public void setLoopCount(int count)
     {
         this.player.setLoopCount(count);
     }
 
+    @Override
     public long setMediaTime(long now)
     {
         try
@@ -156,6 +168,7 @@ public class PlayerComposite implements Controllable, Player
 
     private final GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
     
+    @Override
     public void start()
     {
         try
@@ -172,6 +185,7 @@ public class PlayerComposite implements Controllable, Player
         }
     }
 
+    @Override
     public void stop()
     {
         try
@@ -184,18 +198,21 @@ public class PlayerComposite implements Controllable, Player
         }
     }
 
+    @Override
     public Control getControl(String controlType)
     {
         return this.player.getControl(controlType);
     }
 
+    @Override
     public Control[] getControls()
     {
         return this.getControls();
     }
 
     public void setVolume(final int leftVolume, final int rightVolume) {
-        ((Controllable2) this.player).setVolume(leftVolume, rightVolume);
+        final Controllable2 controllable2 = ((Controllable2) this.player);
+        controllable2.setVolume(leftVolume, rightVolume);
     }
     
     public Player getPlayer()
