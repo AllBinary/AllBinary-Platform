@@ -13,7 +13,7 @@
  */
 package org.allbinary;
 
-import java.awt.*;
+import javax.microedition.lcdui.Canvas;
 
 /**
  *
