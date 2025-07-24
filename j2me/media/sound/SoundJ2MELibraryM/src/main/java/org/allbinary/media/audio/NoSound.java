@@ -13,6 +13,8 @@
  */
 package org.allbinary.media.audio;
 
+import org.allbinary.logic.string.StringUtil;
+
 /**
  *
  * @author User
@@ -29,8 +31,8 @@ public class NoSound extends Sound {
     private static final NoSound instance = new NoSound();
     
     private NoSound() {
-        super(null);
+        super(StringUtil.getInstance().EMPTY_STRING);
         
-        this.player = new NoPlayer();
+        this.setPlayer(NoPlayer.NO_PLAYER);
     }
 }

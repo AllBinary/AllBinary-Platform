@@ -73,14 +73,14 @@ public class AllBinaryMediaManager {
         final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonString = CommonStrings.getInstance();
         logUtil.put(commonString.START, THIS, "creatPlayer(InputStream)");
-        return (Player) new NoPlayer();
+        return (Player) NoPlayer.NO_PLAYER;
     }
 
     public static Player createPlayer(String locator) {
         final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonString = CommonStrings.getInstance();
         logUtil.put(commonString.START, THIS, "creatPlayer(locator)");
-        return (Player) new NoPlayer();
+        return (Player) NoPlayer.NO_PLAYER;
     }
 
     public synchronized static void playTone(int frequency, int time, int volume) {

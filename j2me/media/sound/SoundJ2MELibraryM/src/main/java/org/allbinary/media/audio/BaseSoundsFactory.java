@@ -17,22 +17,26 @@ public class BaseSoundsFactory
 implements SoundsFactoryInterface
 {
     private boolean initialized;
-    
+
+    @Override    
     public void init() 
     {
     }
 
+    @Override
     public Sound[] getSoundInterfaceArray() 
     throws Exception 
     {
         return new Sound[0];
     }
 
+    @Override
     public void setInitialized(boolean initialized)
     {
         this.initialized = initialized;
     }
 
+    @Override
     public boolean isInitialized()
     {
         return initialized;

@@ -105,12 +105,12 @@ public class AllBinaryMediaManager {
                 final LogUtil logUtil = LogUtil.getInstance();
                 final CommonStrings commonString = CommonStrings.getInstance();
                 logUtil.put(commonString.EXCEPTION, THIS, CREATE_PLAYER, e);
-                return new NoPlayer();
+                return NoPlayer.NO_PLAYER;
             }
         }
         else
         {
-            return new NoPlayer();
+            return NoPlayer.NO_PLAYER;
         }
     }
 

@@ -26,7 +26,7 @@ public class CellPositionFactory
 
    public final CellPosition NONE = new CellPosition(-1, -1, -1, -1);
    
-   private CellPosition[][] cellPositionArray;
+   private CellPosition[][] cellPositionArray = new CellPosition[0][0];
    private int columns;
    private int rows;
 
@@ -80,7 +80,7 @@ public class CellPositionFactory
       {
           final CommonStrings commonStrings = CommonStrings.getInstance();
          logUtil.put(new StringMaker().append("columns: ").append(this.getColumns()).append(" rows: ").append(this.getRows()).append(" col: ").append(i_column).append(" row: ").append(i_row).toString(), this, commonStrings.GET_INSTANCE, e);
-         return null;
+         return NONE;
       }
    }
 

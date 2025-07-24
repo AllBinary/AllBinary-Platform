@@ -59,7 +59,7 @@ public class DisplayInfoSingleton
     private int xOffset;
     private int yOffset;
 
-    public float scaleLargestTo = AndroidUtil.isAndroid() ? 640 : 1080;
+    public float scaleLargestTo;
     /*
     Test Android Scaling resolutions
         284
@@ -81,6 +81,14 @@ public class DisplayInfoSingleton
     private float displayRatio;
     private float ratio = 1.0f;
 
+    private DisplayInfoSingleton() {
+        if(AndroidUtil.isAndroid()) {
+            this.scaleLargestTo = (float) 640;
+        } else {
+            this.scaleLargestTo = (float) 1080;
+        }
+    }
+    
     public int[] getLastHalf()
     {
         return lastHalf;
@@ -112,7 +120,7 @@ public class DisplayInfoSingleton
      */
     public void setScaleLargestTo(final int scaleLargestTo)
     {
-        this.scaleLargestTo = scaleLargestTo;
+        this.scaleLargestTo = (float) scaleLargestTo;
     }
 
     private final String SET_LAST_SIZE_METHOD_NAME = "setLastSize";
@@ -161,11 +169,11 @@ public class DisplayInfoSingleton
                     logUtil.put(stringMaker.append(this.ADJUSTING_FOR_SCALING_IN_PORTRAIT).append(displayRatio).toString(), this, SET_LAST_SIZE_METHOD_NAME);
                     aLastWidth = (int) (aLastWidth * displayRatio);
                     aLastHeight = (int) (aLastHeight * displayRatio);
-                    this.scalableListener.scale(ratio);
+                    this.scalableListener.scale((float) ratio);
                 } else {
                     //logUtil.put("Reset scaling", this, commonStrings.UPDATE);
                     this.ratio = 1.0f;
-                    this.scalableListener.scale(ratio);
+                    this.scalableListener.scale((float) ratio);
                 }
             } else {
                 if (aLastWidth > scaleLargestTo) {
@@ -175,11 +183,11 @@ public class DisplayInfoSingleton
                     logUtil.put(stringMaker.append(this.ADJUSTING_FOR_SCALING_IN_LANDSCAPE).append(displayRatio).toString(), this, SET_LAST_SIZE_METHOD_NAME);
                     aLastWidth = (int) (aLastWidth * displayRatio);
                     aLastHeight = (int) (aLastHeight * displayRatio);
-                    this.scalableListener.scale(ratio);
+                    this.scalableListener.scale((float) ratio);
                 } else {
                     //logUtil.put("Reset scaling", this, commonStrings.UPDATE);
                     this.ratio = 1.0f;
-                    this.scalableListener.scale(ratio);
+                    this.scalableListener.scale((float) ratio);
                 }
             }
         }
@@ -333,11 +341,11 @@ public class DisplayInfoSingleton
                             logUtil.put(stringMaker.append(this.ADJUSTING_FOR_SCALING_IN_PORTRAIT).append(displayRatio).toString(), this, commonStrings.UPDATE);
                             aLastWidth = (int) (aLastWidth * displayRatio);
                             aLastHeight = (int) (aLastHeight * displayRatio);
-                            this.scalableListener.scale(ratio);
+                            this.scalableListener.scale((float) ratio);
                         } else {
                             //logUtil.put("Reset scaling", this, commonStrings.UPDATE);
                             this.ratio = 1.0f;
-                            this.scalableListener.scale(ratio);
+                            this.scalableListener.scale((float) ratio);
                         }
                     }else
                     {
@@ -352,11 +360,11 @@ public class DisplayInfoSingleton
                             logUtil.put(stringMaker.append(this.ADJUSTING_FOR_SCALING_IN_LANDSCAPE).append(displayRatio).toString(), this, commonStrings.UPDATE);
                             aLastWidth = (int) (aLastWidth * displayRatio);
                             aLastHeight = (int) (aLastHeight * displayRatio);
-                            this.scalableListener.scale(ratio);
+                            this.scalableListener.scale((float) ratio);
                         } else {
                             //logUtil.put("Reset scaling", this, commonStrings.UPDATE);
                             this.ratio = 1.0f;
-                            this.scalableListener.scale(ratio);
+                            this.scalableListener.scale((float) ratio);
                         }
                     }
                 }

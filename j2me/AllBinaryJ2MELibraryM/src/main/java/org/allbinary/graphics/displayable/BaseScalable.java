@@ -19,20 +19,24 @@ package org.allbinary.graphics.displayable;
  */
 public class BaseScalable implements ScalableListener
 {
+    @Override
     public float getRatio(final float ratio) {
-        return 1;
+        return (float) 1;
     }
 
+    @Override
     public int getLeft(final int xOffset)
     {
         return -1;
     }
 
+    @Override
     public int getTop(final int yOffset)
     {
         return -1;
     }
     
+    @Override
     public void scale(float ratio)
     {
         

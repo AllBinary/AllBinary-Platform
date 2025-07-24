@@ -39,6 +39,7 @@ public class CustomGPoint extends GPoint
         this.x = x;
     }
 
+    @Override
     public int getX()
     {
         return x;
@@ -49,6 +50,7 @@ public class CustomGPoint extends GPoint
         this.y = y;
     }
 
+    @Override
     public int getY()
     {
         return y;
@@ -59,6 +61,7 @@ public class CustomGPoint extends GPoint
         this.z = z;
     }
 
+    @Override
     public int getZ()
     {
         return z;

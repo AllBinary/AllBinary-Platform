@@ -23,23 +23,31 @@ public class Sound implements SoundInterface, Runnable
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
     private String resource;
-    protected Player player;
+    private Player player = NoPlayer.NO_PLAYER;
     
     protected Sound(String resource)
     {
         this.resource = resource;
     }
     
+    @Override
     public String getResource()
     {
         return this.resource;
     }
     
+    @Override
     public Player getPlayer()
     {
         return this.player;
     }
 
+    public void setPlayer(final Player player)
+    {
+        this.player = player;
+    }
+    
+    @Override
     public void init() throws Exception
     {
     }
@@ -49,6 +57,7 @@ public class Sound implements SoundInterface, Runnable
            return -1;
     }
 
+    @Override
     public void run()
     {
         try

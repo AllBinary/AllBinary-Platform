@@ -151,12 +151,12 @@ public class AllBinaryMediaManager
                         CommonLabels.getInstance().TOTAL_LABEL
                                 + mostUsedTotal, THIS,
                         "createPlayer", e);
-                return new NoPlayer();
+                return NoPlayer.NO_PLAYER;
             }
         }
         else
         {
-            return new NoPlayer();
+            return NoPlayer.NO_PLAYER;
         }
 
     }

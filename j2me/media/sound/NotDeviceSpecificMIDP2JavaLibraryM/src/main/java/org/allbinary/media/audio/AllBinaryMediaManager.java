@@ -97,7 +97,7 @@ public class AllBinaryMediaManager
             }
         } else
         {
-            return new NoPlayer();
+            return NoPlayer.NO_PLAYER;
         }
     }
 

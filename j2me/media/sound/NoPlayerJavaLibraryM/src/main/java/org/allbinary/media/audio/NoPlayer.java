@@ -14,28 +14,34 @@
 package org.allbinary.media.audio;
 
 import javax.microedition.media.Control;
+import org.allbinary.logic.string.StringUtil;
 
 public class NoPlayer extends BasicPlayer
 {
+   public static final NoPlayer NO_PLAYER = new NoPlayer();
    
    public NoPlayer()
    {
    }   
    
+   @Override
    public void close()
    {
    }
    
+   @Override
    public String getContentType()
    {
-      return null;
+      return StringUtil.getInstance().NULL_STRING;
    }
    
+   @Override
    public Control getControl(String controlType)
    {
-      return null;
+      return new NullControl();
    }
    
+   @Override
    public Control[] getControls()
    {
       return new Control[0];
