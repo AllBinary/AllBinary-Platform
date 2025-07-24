@@ -9,26 +9,7 @@ public class ThreadObjectUtil
         return instance;
     }
 
-    public final PriorityRunnable NULL_PRIORITY_RUNNABLE = new PriorityRunnable() {
-
-        public int getPriority() {
-            return 0;
-        }
-
-        public boolean isDone() {
-            return true;
-        }
-
-        public void reset() {
-
-        }
-
-        @Override
-        public void run() {
-
-        }
-
-    };
+    public final PriorityRunnable NULL_PRIORITY_RUNNABLE = new NullPriorityRunnable();
     
     public void notifyObject(Object object)
     {

@@ -31,6 +31,8 @@ public class SWTJOGLProcessor implements Runnable {
     }
    
     public GLHolder glHolder = new GLHolder() {
+        
+        @Override
         public void run(Object renderer) {
             
         }
@@ -76,6 +78,7 @@ public class SWTJOGLProcessor implements Runnable {
     
     }
     
+    @Override
     public void run() {
                 
     }
