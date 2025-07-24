@@ -19,14 +19,17 @@ package org.allbinary.thread;
  */
 public class NullPriorityRunnable implements PriorityRunnable {
 
+    @Override
     public int getPriority() {
         return 0;
     }
 
+    @Override
     public boolean isDone() {
         return true;
     }
 
+    @Override
     public void reset() {
 
     }
