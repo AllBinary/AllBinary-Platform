@@ -1,6 +1,11 @@
+package org.allbinary.device;
+
+
+import javax.microedition.khronos.opengles.GL10;
+
 /*
  * AllBinary Open License Version 1
- * Copyright (c) 2022 AllBinary
+ * Copyright (c) 2025 AllBinary
  * 
  * By agreeing to this license you and any business entity you represent are
  * legally bound to the AllBinary Open License Version 1 legal agreement.
@@ -11,19 +16,11 @@
  * Created By: Travis Berthelot
  * 
  */
-package org.allbinary.platform.graphics;
-
-import javax.microedition.lcdui.Image;
-
 /**
  *
  * @author User
  */
-public class PlatformBitmapBase {
+public class NullGL10 extends GL10 {
     
-    public int alpha = 255;
-    
-    public Image getImage() {
-        return Image.NULL_IMAGE;
-    }
+    public static final NullGL10 NULL_GL10 = new NullGL10();
 }

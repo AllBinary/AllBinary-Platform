@@ -23,7 +23,7 @@ public class OpenGLImageSpecificFactory
 
     private static final OpenGLImageSpecificFactory instance = new OpenGLImageSpecificFactory();
 
-    private OpenGLImageFactory imageFactory;
+    private OpenGLImageFactory imageFactory = OpenGLImageFactory.NULL_OPENGL_IMAGE_FACTORY;
     
     public boolean updating = false;
     

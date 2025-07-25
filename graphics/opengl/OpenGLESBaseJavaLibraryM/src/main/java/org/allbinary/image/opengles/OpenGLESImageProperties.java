@@ -23,14 +23,14 @@ public class OpenGLESImageProperties {
     
     //public boolean matchColor;
     
-    public float scaleX = 1;
-    public float scaleY = 1;
-    public float scaleX2 = 1;
-    public float scaleY2 = 1;
+    public float scaleX = 1.0f;
+    public float scaleY = 1.0f;
+    public float scaleX2 = 1.0f;
+    public float scaleY2 = 1.0f;
     public int angle;
     public float redf = 1.0f;
     public float greenf = 1.0f;
     public float bluef = 1.0f;
-    public float alphaf;
+    public float alphaf = 1.0f;;
     
 }
