@@ -14,7 +14,7 @@
 
 package org.allbinary.graphics.displayable.screen;
 
-import java.awt.*;
+import java.awt.Desktop;
 import java.net.URI;
 
 import javax.microedition.lcdui.Canvas;

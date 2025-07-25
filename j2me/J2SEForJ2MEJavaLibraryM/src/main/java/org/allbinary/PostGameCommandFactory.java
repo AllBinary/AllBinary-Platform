@@ -13,8 +13,9 @@
  */
 package org.allbinary;
 
+import javax.microedition.lcdui.Canvas;
+
 import org.allbinary.game.configuration.feature.MultiPlayerGameFeatureFactory;
-import org.allbinary.graphics.displayable.MyCanvas;
 
 /**
  *
@@ -32,7 +33,7 @@ public class PostGameCommandFactory {
         return instance;
     }
     
-    public void addCommands(MyCanvas canvas) {
+    public void addCommands(Canvas canvas) {
 
         MultiPlayerGameFeatureFactory.getInstance().addCommands(canvas);
         
