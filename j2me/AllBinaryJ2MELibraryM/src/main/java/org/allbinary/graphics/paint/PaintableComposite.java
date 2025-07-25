@@ -23,12 +23,13 @@ public class PaintableComposite extends Paintable
 {
    private PaintableInterface[] paintableArray;
    
-   public PaintableComposite(PaintableInterface[] paintableArray)
+   public PaintableComposite(final PaintableInterface[] paintableArray)
    {
       this.paintableArray = paintableArray;
    }
    
-   public void paint(Graphics graphics)
+   @Override
+   public void paint(final Graphics graphics)
    {
       for(int index = paintableArray.length - 1; index >= 0; index--)
       {
@@ -36,6 +37,7 @@ public class PaintableComposite extends Paintable
       }
    }
 
+   @Override
    public void paintThreed(Graphics graphics)
    {
       for(int index = paintableArray.length - 1; index >= 0; index--)

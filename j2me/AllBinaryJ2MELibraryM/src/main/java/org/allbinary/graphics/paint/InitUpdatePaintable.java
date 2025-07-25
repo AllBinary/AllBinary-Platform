@@ -22,13 +22,16 @@ public class InitUpdatePaintable extends Paintable
         
     }
     
+    @Override
     public void init() throws Exception
     {
         
     }
 
+    @Override
     public void update()
     {
         
     }
+
 }

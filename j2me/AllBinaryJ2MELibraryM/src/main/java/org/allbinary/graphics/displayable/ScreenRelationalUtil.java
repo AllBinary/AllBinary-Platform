@@ -26,8 +26,8 @@ public class ScreenRelationalUtil
         final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
 
         final int[] last = displayInfoSingleton.getLast();
-        final float width = last[displayInfoSingleton.WIDTH];
-        final float height = last[displayInfoSingleton.HEIGHT];
+        final float width = (float) last[displayInfoSingleton.WIDTH];
+        final float height = (float) last[displayInfoSingleton.HEIGHT];
 
         float largestSize = width;
 

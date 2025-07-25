@@ -36,6 +36,7 @@ public class ExitRunnable implements Runnable
         this.processor = processor;
     }
     
+    @Override
     public void run()
     {
         try

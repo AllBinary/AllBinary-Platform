@@ -19,6 +19,7 @@ public class Init implements InitInterface
 {
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
+    @Override
     public void init()
     throws Exception
     {

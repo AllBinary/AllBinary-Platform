@@ -66,6 +66,7 @@ public class MyCanvas extends Canvas
         this.commandStack = new Stack();
     }
 
+    @Override
     public void setFullScreenMode(boolean mode)
     {
         //PreLogUtil.put("Old W: " + this.getWidth() + " H: " + this.getHeight() +  " m: " + mode + " fs: " + this.isFullScreenMode(), this, "setFullScreenMode");
@@ -77,6 +78,7 @@ public class MyCanvas extends Canvas
         displayInfoSingleton.update(this, canvasStrings.SET_FULL_SCREEN_MODE);
     }
 
+    @Override
     protected void sizeChanged(int w, int h)
     {
         displayInfoSingleton.update(this, canvasStrings.SIZE_CHANGED);
@@ -92,6 +94,7 @@ public class MyCanvas extends Canvas
         return this.commandStack.contains(command);
     }
 
+    @Override
     public synchronized void addCommand(Command command)
     {
         if(!this.commandStack.contains(command))
@@ -101,6 +104,7 @@ public class MyCanvas extends Canvas
         }
     }
 
+    @Override
     public synchronized void removeCommand(Command command)
     {
         //commandStack.remove(command);
@@ -108,6 +112,7 @@ public class MyCanvas extends Canvas
         super.removeCommand(command);
     }
 
+    @Override
     public synchronized void removeAllCommands()
     {
         int size = commandStack.size();
@@ -119,6 +124,7 @@ public class MyCanvas extends Canvas
     
     private CommandListener listener = null;
 
+    @Override
     public void setCommandListener(CommandListener l)
     {
         super.setCommandListener(l);
@@ -170,7 +176,8 @@ public class MyCanvas extends Canvas
     
     //private final BaseGameStatistics baseGameStatistics = 
         //GameStatisticsFactory.getInstance();
-        
+
+    @Override
     protected void paint(Graphics graphics)
     {
         //baseGameStatistics.nextRefresh();
@@ -205,6 +212,7 @@ public class MyCanvas extends Canvas
 
     private final TouchJ2ME touchME = new TouchJ2ME();
     
+    @Override
     protected void pointerDragged(int x, int y)
     {
         //logUtil.put(commonStrings.START, this, "pointerDragged");
@@ -213,6 +221,7 @@ public class MyCanvas extends Canvas
         touchME.pointerDragged(x, y);
     }
 
+    @Override
     protected void pointerPressed(int x, int y)
     {
         //logUtil.put(commonStrings.START, this, "pointerPressed");
@@ -221,6 +230,7 @@ public class MyCanvas extends Canvas
         touchME.pointerPressed(x, y);
     }
 
+    @Override
     protected void pointerReleased(int x, int y)
     {
         //logUtil.put(commonStrings.START, this, "pointerReleased");

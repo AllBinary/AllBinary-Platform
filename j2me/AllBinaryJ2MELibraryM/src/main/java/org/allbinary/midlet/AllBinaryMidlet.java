@@ -103,11 +103,13 @@ implements CommandListener
         return destroyed;
     }
 
+    @Override
     protected void startApp() throws MIDletStateChangeException
     {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
     
+    @Override
     protected void pauseApp()
     {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
@@ -118,6 +120,7 @@ implements CommandListener
         
     }
 
+    @Override
     protected void destroyApp(boolean unconditional)
     {
         final String METHOD_NAME = "AllBinaryMidlet::destroyApp";
@@ -153,6 +156,7 @@ implements CommandListener
         return new Hashtable();
     }
 
+    @Override
     public void commandAction(Command command, Displayable displayable)
     {
     }

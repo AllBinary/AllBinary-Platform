@@ -16,7 +16,9 @@ package org.allbinary.logic.control.validate;
 import java.util.Hashtable;
 
 import org.allbinary.logic.java.bool.BooleanFactory;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListUtil;
 
 public class ValidatorBase 
 implements ValidatorBaseInterface
@@ -36,7 +38,7 @@ implements ValidatorBaseInterface
     /* (non-Javadoc)
      * @see allbinary.logic.control.validate.ValidatorBaseInterface#isValid()
      */
-    //@Override
+    @Override
     public Boolean isValid()
     {
        return BooleanFactory.getInstance().TRUE;
@@ -45,27 +47,27 @@ implements ValidatorBaseInterface
     /* (non-Javadoc)
      * @see allbinary.logic.control.validate.ValidatorBaseInterface#validationInfo()
      */
-    //@Override
+    @Override
     public String validationInfo()
     {
-       return null;
+       return StringUtil.getInstance().EMPTY_STRING;
     }
 
     /* (non-Javadoc)
      * @see allbinary.logic.control.validate.ValidatorBaseInterface#toHashMap()
      */
-    //@Override
+    @Override
     public Hashtable toHashtable()
     {
-       return null;
+       return new Hashtable();
     }
 
     /* (non-Javadoc)
      * @see allbinary.logic.control.validate.ValidatorBaseInterface#toVector()
      */
-    //@Override
+    @Override
     public BasicArrayList toList()
     {
-       return null;
+       return BasicArrayListUtil.getInstance().getImmutableInstance();
     }
 }

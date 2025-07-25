@@ -28,11 +28,12 @@ public class DisplayChangeEventHandler extends BasicEventHandler
     private DisplayChangeEventHandler() {
     }
     
-    
+    @Override
     protected void process(final AllBinaryEventObject eventObject,
         final EventListenerInterface eventListenerInterface) throws Exception {
 
-        ((DisplayChangeEventListener) eventListenerInterface).onDisplayChangeEvent((DisplayChangeEvent) eventObject);
+        final DisplayChangeEventListener displayChangeEventListener = ((DisplayChangeEventListener) eventListenerInterface);
+        displayChangeEventListener.onDisplayChangeEvent((DisplayChangeEvent) eventObject);
     }
 
 }

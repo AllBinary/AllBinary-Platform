@@ -24,15 +24,18 @@ import org.allbinary.graphics.color.BasicColor;
 public class Paintable 
 implements PaintableInterface
 {
-    public void setBasicColor(BasicColor basicColor)
+
+    public void setBasicColor(final BasicColor basicColor)
     {
     }
     
-    public void paint(Graphics graphics)
+    @Override
+    public void paint(final Graphics graphics)
     {
     }
 
-    public void paintThreed(Graphics graphics)
+    @Override
+    public void paintThreed(final Graphics graphics)
     {
     }
 }

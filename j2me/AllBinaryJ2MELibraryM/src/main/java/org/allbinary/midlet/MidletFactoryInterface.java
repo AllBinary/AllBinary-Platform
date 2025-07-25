@@ -14,12 +14,13 @@
 package org.allbinary.midlet;
 
 import javax.microedition.midlet.MIDlet;
+import javax.microedition.midlet.NullMIDlet;
 
 public class MidletFactoryInterface {
 
 	public MIDlet getInstance()
 	{
-	    return null;
+	    return NullMIDlet.NULL_MIDLET;
 	}
 	
 }

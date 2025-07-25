@@ -25,9 +25,9 @@ public class SimpleTextPaintable extends Paintable
     private String text;
     private BasicColor basicColor;
     
-    public SimpleTextPaintable(String text, BasicColor basicColor)
+    public SimpleTextPaintable(final String text, final BasicColor basicColor)
     {
-        this.setText(text);
+        this.text = text;
 
         this.basicColor = basicColor;
     }
@@ -37,21 +37,23 @@ public class SimpleTextPaintable extends Paintable
     private final DisplayInfoSingleton displayInfoSingleton = 
             DisplayInfoSingleton.getInstance();
     
-    public void paint(Graphics graphics)
+    @Override
+    public void paint(final Graphics graphics)
     {
         final MyFont myFont = MyFont.getInstance();
         
         //int width = graphics.getClipWidth();
-        int width = this.displayInfoSingleton.getLast()[this.displayInfoSingleton.WIDTH];
+        final int width = this.displayInfoSingleton.getLast()[this.displayInfoSingleton.WIDTH];
         
-        int topScoresWidth = (graphics.getFont().stringWidth(this.text) >> 1);
+        final int topScoresWidth = (graphics.getFont().stringWidth(this.text) >> 1);
 
         graphics.setColor(this.getBasicColor().intValue());
         
         graphics.drawString(this.text, (width >> 1) - topScoresWidth, myFont.DEFAULT_CHAR_HEIGHT * 3, anchor);    
     }
 
-    public void setBasicColor(BasicColor basicColor)
+    @Override
+    public void setBasicColor(final BasicColor basicColor)
     {
         this.basicColor = basicColor;
     }
@@ -61,7 +63,7 @@ public class SimpleTextPaintable extends Paintable
         return basicColor;
     }
 
-    public void setText(String text)
+    public void setText(final String text)
     {
         this.text = text;
     }

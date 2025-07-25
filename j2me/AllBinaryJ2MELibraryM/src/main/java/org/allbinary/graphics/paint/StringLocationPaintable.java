@@ -20,12 +20,13 @@ public class StringLocationPaintable extends LocationPaintable
 {
     private final String value;
     
-    public StringLocationPaintable(String value)
+    public StringLocationPaintable(final String value)
     {
         this.value = value;
     }
     
-    public void paint(Graphics graphics, int x, int y)
+    @Override
+    public void paint(final Graphics graphics, final int x, final int y)
     {
         graphics.drawString(this.value, x, y, 0);
     }

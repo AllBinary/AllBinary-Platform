@@ -17,6 +17,6 @@ public class PaintableFactory
 {
     public Paintable getInstance()
     {
-        return null;
+        return NullPaintable.getInstance();
     }
 }

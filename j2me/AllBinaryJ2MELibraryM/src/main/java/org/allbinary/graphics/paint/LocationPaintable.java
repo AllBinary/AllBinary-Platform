@@ -22,7 +22,9 @@ import javax.microedition.lcdui.Graphics;
 public class LocationPaintable 
    implements LocationPaintableInterface
 {
-   public void paint(Graphics graphics, int x, int y)
+    @Override
+   public void paint(final Graphics graphics, final int x, final int y)
    {
    }
+   
 }

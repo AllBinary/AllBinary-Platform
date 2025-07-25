@@ -18,11 +18,12 @@ import org.allbinary.graphics.displayable.StateControlledInterface;
 public class StatePaintable extends Paintable implements
         StateControlledInterface
 {
-    protected StatePaintable()
+    public StatePaintable()
     {
         
     }
-    
+   
+    @Override
     public void setState(int state)
     {
 
