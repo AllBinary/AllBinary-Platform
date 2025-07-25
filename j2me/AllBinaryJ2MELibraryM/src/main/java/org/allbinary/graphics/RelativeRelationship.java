@@ -23,9 +23,9 @@ public class RelativeRelationship
 {
    private BasicArrayList typesAllowedList;
    
-   protected int x;
-   protected int y;
-   protected int z;
+   private int x;
+   private int y;
+   private int z;
 
    //private Angle[] angleArray;
 

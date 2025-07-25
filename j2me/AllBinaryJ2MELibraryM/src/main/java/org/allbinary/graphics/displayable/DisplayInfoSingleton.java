@@ -59,7 +59,7 @@ public class DisplayInfoSingleton
     private int xOffset;
     private int yOffset;
 
-    public float scaleLargestTo;
+    private float scaleLargestTo;
     /*
     Test Android Scaling resolutions
         284

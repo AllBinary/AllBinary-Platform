@@ -38,17 +38,17 @@ public class RelativeLayerRelationship
    
    public int getX()
    {
-      return this.layer.getX() + this.x;
+      return this.layer.getX() + this.getX();
    }
    
    public int getY()
    {
-      return this.layer.getY() + this.y;
+      return this.layer.getY() + this.getY();
    }
 
    public int getZ()
    {
-      return this.layer.getZ() + this.z;
+      return this.layer.getZ() + this.getZ();
    }
    
    /*
