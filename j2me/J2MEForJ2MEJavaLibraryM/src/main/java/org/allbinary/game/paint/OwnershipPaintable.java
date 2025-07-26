@@ -50,6 +50,7 @@ public class OwnershipPaintable extends Paintable
 
     private int anchor = Anchor.TOP_LEFT;
     
+    @Override
     public void paint(final Graphics graphics)
     {
         //logUtil.put(commonStrings.START, this, canvasStrings.PAINT);
@@ -78,6 +79,7 @@ public class OwnershipPaintable extends Paintable
         */        
     }
 
+    @Override
     public void setBasicColor(BasicColor basicColor)
     {
         this.basicColor = basicColor;

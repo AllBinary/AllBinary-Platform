@@ -26,6 +26,7 @@ public class MidletExitProcessor extends Processor
         this.midlet = midlet;
     }
 
+    @Override
     public void process() throws Exception
     {
         //Never an exit in the MIDlet

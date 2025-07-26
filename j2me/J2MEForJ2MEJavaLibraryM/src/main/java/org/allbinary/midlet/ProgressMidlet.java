@@ -22,7 +22,6 @@ import org.allbinary.thread.ThreadPool;
 
 public class ProgressMidlet extends AllBinaryMidlet
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     public final AbeClientInformationInterface abeClientInformation;
     

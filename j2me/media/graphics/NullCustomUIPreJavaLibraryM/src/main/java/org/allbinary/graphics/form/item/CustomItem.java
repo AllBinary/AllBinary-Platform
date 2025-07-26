@@ -32,7 +32,7 @@ public class CustomItem
     }
 
     public float getValue() {
-        return 0;
+        return 0.0f;
     }
 
     public void setValue(float value) {

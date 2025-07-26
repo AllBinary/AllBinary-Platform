@@ -114,10 +114,14 @@ public class ChoiceGroupImageFactory {
 
     public void init(final Image[] imageArray) {
         
-        this.imageArray[0] = this.imgMultiOff = imageArray[0];
-        this.imageArray[1] = this.imgMultiOn = imageArray[1];
-        this.imageArray[2] = this.imgRadioOff = imageArray[2];
-        this.imageArray[3] = this.imgRadioOn = imageArray[3];
+        this.imgMultiOff = imageArray[0];
+        this.imageArray[0] = this.imgMultiOff;
+        this.imgMultiOn = imageArray[1];
+        this.imageArray[1] = this.imgMultiOn;
+        this.imgRadioOff = imageArray[2];
+        this.imageArray[2] = this.imgRadioOff;
+        this.imgRadioOn = imageArray[3];
+        this.imageArray[3] = this.imgRadioOn;
 
     }
 
