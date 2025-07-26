@@ -19,6 +19,7 @@ import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.NullCommandListener;
 
 import org.allbinary.graphics.displayable.command.MyCommandInterface;
 import org.allbinary.graphics.displayable.command.MyCommandsFactory;
@@ -42,7 +43,7 @@ public class MyCanvas extends Canvas
     private final String name;
     private final BasicArrayList childNameList;
     
-    private final Stack commandStack;
+    private final Stack<Object> commandStack;
     
     //private boolean displayed;
     private boolean isPaused;
@@ -84,7 +85,7 @@ public class MyCanvas extends Canvas
         displayInfoSingleton.update(this, canvasStrings.SIZE_CHANGED);
     }
     
-    public Stack getCommandStack()
+    public Stack<Object> getCommandStack()
     {
         return this.commandStack;
     }
@@ -122,7 +123,7 @@ public class MyCanvas extends Canvas
         }
     }
     
-    private CommandListener listener = null;
+    private CommandListener listener = NullCommandListener.NULL_COMMAND_LISTENER;
 
     @Override
     public void setCommandListener(CommandListener l)

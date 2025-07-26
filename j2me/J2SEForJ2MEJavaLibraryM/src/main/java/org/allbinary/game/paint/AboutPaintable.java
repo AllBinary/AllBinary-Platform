@@ -53,7 +53,8 @@ public class AboutPaintable extends Paintable
     }
 
     private int anchor = Anchor.TOP_LEFT;
-    
+
+    @Override    
     public void paint(Graphics graphics)
     {
         final MyFont myFont = MyFont.getInstance();

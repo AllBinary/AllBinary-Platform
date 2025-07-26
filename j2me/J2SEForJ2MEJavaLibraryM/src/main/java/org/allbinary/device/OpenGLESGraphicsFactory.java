@@ -8,7 +8,7 @@ public class OpenGLESGraphicsFactory
 {
     public OpenGLESGraphics getOpenGLESGraphicsInstance()
     {
-        return null;
+        return OpenGLESNullGraphicsFactory.getInstance();
     }
     
 }
