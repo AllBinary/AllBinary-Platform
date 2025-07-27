@@ -73,7 +73,7 @@ public class PlayerQueue
 
                     //For BB only
                     //SoundThreadPool.getInstance().runTask(sound);
-                    sound.getPlayer().start();
+                    sound.getPlayerP().start();
                 }
 
                 while (list.size() > max)

@@ -20,7 +20,7 @@ public interface SoundInterface {
 
     String getResource();
     
-    Player getPlayer();
+    Player getPlayerP();
 
     void init() throws java.lang.Exception;
 

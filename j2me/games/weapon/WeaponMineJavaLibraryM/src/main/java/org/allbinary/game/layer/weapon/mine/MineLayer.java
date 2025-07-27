@@ -54,7 +54,7 @@ public class MineLayer extends SimpleWeaponLayer
          new Rectangle(PointFactory.getInstance(x + HALF_SIZEX, y + HALF_SIZEY), SIZEX, SIZEY),  
          angle, damage, scoreable);
       
-      DropWeaponSound.getInstance().getPlayer().start();
+      DropWeaponSound.getInstance().getPlayerP().start();
    }
    */
    

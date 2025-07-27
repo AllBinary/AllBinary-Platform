@@ -128,7 +128,7 @@ public class MusicManager {
                     final String NO_DURATION_FOR = "No Duration for: ";
                     //PreLogUtil.put(new StringMaker().append("nextSongSound duration: ").append(nextSongSound.getDuration()).toString(), this, commonStrings.PROCESS);
                     PreLogUtil.put(new StringMaker().append(NO_DURATION_FOR).append(this.currentSongSound.getResource()).toString(), this, commonStrings.PROCESS);
-                    this.currentSongSound.getPlayer().addPlayerListener(playerListener);
+                    this.currentSongSound.getPlayerP().addPlayerListener(playerListener);
                     this.noDuration = true;
                 }
 
@@ -137,32 +137,32 @@ public class MusicManager {
 //                        public void run() {
 //                            try {
 
-                                if(endingCurrentSongSound == startingCurrentSongSound && endingCurrentSongSound.getPlayer().getState() == Player.STARTED) {
+                                if(endingCurrentSongSound == startingCurrentSongSound && endingCurrentSongSound.getPlayerP().getState() == Player.STARTED) {
 
                                     PreLogUtil.put(new StringMaker().append(ALREADY_PLAYING).append(endingCurrentSongSound.getResource()).toString(), this, commonStrings.PROCESS);
 
                                     //this.addPlayNextOnEnd(endingCurrentSongSound, startingCurrentSongSound);
 
                                     PreLogUtil.put(new StringMaker().append(STOPPING).append(endingCurrentSongSound.getResource()).append(SONG).append(duration).toString(), this, commonStrings.PROCESS);
-                                    endingCurrentSongSound.getPlayer().stop();
-                                    //currentSongSound.getPlayer().close();
+                                    endingCurrentSongSound.getPlayerP().stop();
+                                    //currentSongSound.getPlayerP().close();
                                     
                                     this.waitForStateChange(endingCurrentSongSound, startingCurrentSongSound);
 
                                 } else {
-                                    if(endingCurrentSongSound.getPlayer().getState() == Player.STARTED) {
+                                    if(endingCurrentSongSound.getPlayerP().getState() == Player.STARTED) {
                                         PreLogUtil.put(new StringMaker().append(STOPPING).append(endingCurrentSongSound.getResource()).append(SONG).append(duration).toString(), this, commonStrings.PROCESS);
                                         //this.addPlayNextOnEnd(endingCurrentSongSound, startingCurrentSongSound);
-                                        endingCurrentSongSound.getPlayer().stop();
+                                        endingCurrentSongSound.getPlayerP().stop();
                                         
                                         this.waitForStateChange(endingCurrentSongSound, startingCurrentSongSound);
                                     } else {
                                         PreLogUtil.put(new StringMaker().append(ALREADY_ENDED).append(PLAY).append(startingCurrentSongSound.getResource()).toString(), this, commonStrings.PROCESS);
                                         if(AvianUtil.isAvian()) {
-                                            endingCurrentSongSound.getPlayer().stop();
-                                            startingCurrentSongSound.getPlayer().stop();
+                                            endingCurrentSongSound.getPlayerP().stop();
+                                            startingCurrentSongSound.getPlayerP().stop();
                                         }
-                                        startingCurrentSongSound.getPlayer().start();
+                                        startingCurrentSongSound.getPlayerP().start();
                                     }
                                 }
 
@@ -181,7 +181,7 @@ public class MusicManager {
                 } else {
                     PreLogUtil.put(new StringMaker().append(PLAY).append(this.currentSongSound.getResource()).append(SONG).append(duration).toString(), this, commonStrings.PROCESS);
                     //MusicThreadPool.getInstance().runTask(this.currentSongSound);
-                    this.currentSongSound.getPlayer().start();
+                    this.currentSongSound.getPlayerP().start();
                 }
             }
         } catch (Exception e) {
@@ -195,12 +195,12 @@ public class MusicManager {
     }
 
 //    public void addPlayNextOnEnd(final Sound endingCurrentSongSound, final Sound startingCurrentSongSound) {
-//        endingCurrentSongSound.getPlayer().addPlayerListener(new PlayerListener() {
+//        endingCurrentSongSound.getPlayerP().addPlayerListener(new PlayerListener() {
 //            public void playerUpdate(Player player, String event, Object eventData) {
 //                try {
 //                    PreLogUtil.put(new StringMaker().append(event).append(commonSeps.SPACE).append(PLAY).append(startingCurrentSongSound.getResource()).toString(), this, commonStrings.PROCESS);
-//                    startingCurrentSongSound.getPlayer().start();
-//                    endingCurrentSongSound.getPlayer().removePlayerListener(this);
+//                    startingCurrentSongSound.getPlayerP().start();
+//                    endingCurrentSongSound.getPlayerP().removePlayerListener(this);
 //                } catch (Exception e) {
 //                    PreLogUtil.put(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
 //                }
@@ -209,13 +209,13 @@ public class MusicManager {
 //    }
 
     private void waitForStateChange(final Sound endingCurrentSongSound, final Sound startingCurrentSongSound) throws Exception {
-        while (endingCurrentSongSound.getPlayer().getState() == Player.STARTED) {
+        while (endingCurrentSongSound.getPlayerP().getState() == Player.STARTED) {
             PreLogUtil.put(WAITING_FOR_MEDIA_TO_END, this, commonStrings.PROCESS);
             Thread.sleep(100);
         }
         
-        PreLogUtil.put(new StringMaker().append(playerStateUtil.convert(endingCurrentSongSound.getPlayer().getState())).append(commonSeps.SPACE).append(PLAY).append(startingCurrentSongSound.getResource()).toString(), this, commonStrings.PROCESS);
-        startingCurrentSongSound.getPlayer().start();
+        PreLogUtil.put(new StringMaker().append(playerStateUtil.convert(endingCurrentSongSound.getPlayerP().getState())).append(commonSeps.SPACE).append(PLAY).append(startingCurrentSongSound.getResource()).toString(), this, commonStrings.PROCESS);
+        startingCurrentSongSound.getPlayerP().start();
     }
     
     public void stop()
@@ -228,8 +228,8 @@ public class MusicManager {
 //                    public void run() {
 //                        try {
                             PreLogUtil.put(new StringMaker().append(ENDING).append(currentSongSound.getResource()).toString(), this, commonStrings.PROCESS);
-                            currentSongSound.getPlayer().stop();
-//                            //currentSongSound.getPlayer().close();
+                            currentSongSound.getPlayerP().stop();
+//                            //currentSongSound.getPlayerP().close();
 //                            //MusicManager.this.currentSongSound = NoSound.getInstance();
 //                        } catch (Exception e) {
 //                            String resource = StringUtil.getInstance().EMPTY_STRING;

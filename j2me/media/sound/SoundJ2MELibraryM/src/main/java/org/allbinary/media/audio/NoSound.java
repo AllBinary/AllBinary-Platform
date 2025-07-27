@@ -33,6 +33,6 @@ public class NoSound extends Sound {
     private NoSound() {
         super(StringUtil.getInstance().EMPTY_STRING);
         
-        this.setPlayer(NoPlayer.NO_PLAYER);
+        this.setPlayerP(NoPlayer.NO_PLAYER);
     }
 }

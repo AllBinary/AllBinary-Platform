@@ -199,7 +199,7 @@ public class PlayerComposite implements Controllable, Player
         ((Controllable2) this.player).setVolume(leftVolume, rightVolume);
     }
     
-    public Player getPlayer()
+    public Player getPlayerP()
     {
         return this.player;
     }

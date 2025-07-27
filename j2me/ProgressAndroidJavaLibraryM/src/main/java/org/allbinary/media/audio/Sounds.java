@@ -96,7 +96,7 @@ public class Sounds
         {
             if (soundInterfaceArray[index] != null)
             {
-                player = soundInterfaceArray[index].getPlayer();
+                player = soundInterfaceArray[index].getPlayerP();
 
                 if (player != null)
                 {
@@ -122,7 +122,7 @@ public class Sounds
         {
             if (soundInterfaceArray[index] != null)
             {
-                player = soundInterfaceArray[index].getPlayer();
+                player = soundInterfaceArray[index].getPlayerP();
                 if(player != null)
                 {
                     player.close();

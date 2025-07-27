@@ -97,13 +97,13 @@ public class AllBinaryMediaManager
             {
                 if (soundInterfaceArray[i] != null)
                 {
-                    player = soundInterfaceArray[i].getPlayer();
+                    player = soundInterfaceArray[i].getPlayerP();
 
                     if (player != null)
                     {
                         //if (player instanceof PlayerComposite)
                         //{
-                            player2 = ((PlayerComposite) player).getPlayer();
+                            player2 = ((PlayerComposite) player).getPlayerP();
 
                             if (player2 instanceof AndroidMediaPlayerWrapper)
                             {

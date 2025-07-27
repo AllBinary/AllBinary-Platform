@@ -96,7 +96,7 @@ public class ImageCaptionIndexedAnimationFactory
 
         final IndexedAnimation movieIndexedAnimationInterface = new SpriteIndexedAnimation(sprite, this.spriteMovieImage, this.animationBehaviorFactory.getOrCreateInstance());
 
-        Player player = this.soundInterface.getPlayer();
+        Player player = this.soundInterface.getPlayerP();
 
         if (player == null) {
             throw new Exception("Sound Was not Initialized");
