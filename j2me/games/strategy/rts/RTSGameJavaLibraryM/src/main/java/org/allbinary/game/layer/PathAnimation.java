@@ -135,7 +135,7 @@ public class PathAnimation extends Animation
                             //.append(geographicMapCellPosition.getColumn()).append(commonSeps.COMMA).append(geographicMapCellPosition.getRow()).append(commonSeps.SEMICOLON)
                             //.append(geographicMapCellType.toString())
                             //.append(geographicMapCellType.getType())
-                            //.append(commonSeps.SEMICOLON).append(geographicMapCellType.getTravelCost()).toString(), point.getX() - tiledLayer.getX(), point.getY() - tiledLayer.getY(), 0);
+                            //.append(commonSeps.SEMICOLON).append(geographicMapCellType.getTravelCost()).toString(), point.getX() - tiledLayer.getXP(), point.getY() - tiledLayer.getYP(), 0);
                     }
                 }
 

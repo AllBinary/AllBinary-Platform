@@ -128,11 +128,11 @@ public class PacePatrolAI extends BasePatrolAI
             LayerInterface lastTrackingLayerInterface = 
                     lastTrackingEvent.getLayerInterface();
 
-            int x = lastTrackingLayerInterface.getX();
-            int y = lastTrackingLayerInterface.getY();
+            int x = lastTrackingLayerInterface.getXP();
+            int y = lastTrackingLayerInterface.getYP();
 
-            int yDistance = ownerLayerInterface.getY() - y - ownerLayerInterface.getHeight();
-            int xDistance = ownerLayerInterface.getX() - x - ownerLayerInterface.getWidth();
+            int yDistance = ownerLayerInterface.getYP() - y - ownerLayerInterface.getHeight();
+            int xDistance = ownerLayerInterface.getXP() - x - ownerLayerInterface.getWidth();
 
             // logUtil.put("x: " + x + " y: " + y + " xDistance: " + xDistance + " yDistance: " + yDistance, this, commonStrings.PROCESS);
 

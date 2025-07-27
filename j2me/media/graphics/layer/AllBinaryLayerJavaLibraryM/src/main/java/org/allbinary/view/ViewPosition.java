@@ -42,19 +42,19 @@ public class ViewPosition extends GPoint
     @Override
     public int getX()
     {
-        return this.allbinaryLayer.getX();
+        return this.allbinaryLayer.getXP();
     }
 
     @Override
     public int getY()
     {
-        return this.allbinaryLayer.getY();
+        return this.allbinaryLayer.getYP();
     }
 
     @Override
     public int getZ()
     {
-        return this.allbinaryLayer.getZ();
+        return this.allbinaryLayer.getZP();
     }
 
     public int getX2()

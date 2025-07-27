@@ -39,10 +39,10 @@ public class HorizontalManeuverAI extends BasicAI
        AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
 
       //int keyDirection = -1;
-      int x = ownerLayerInterface.getX();
+      int x = ownerLayerInterface.getXP();
 
       //logUtil.put("Angle: " + currentAngle + " X: " + x + " Y: " + y, this, commonStrings.PROCESS);
-      if (ownerLayerInterface.getX() - currentSpeed <= 0)
+      if (ownerLayerInterface.getXP() - currentSpeed <= 0)
       {
          this.reverse();
          this.drop();
@@ -65,7 +65,7 @@ public class HorizontalManeuverAI extends BasicAI
       }
 
       //super.processAI(Canvas.UP);
-      ownerLayerInterface.setPosition(x, ownerLayerInterface.getY(), ownerLayerInterface.getZ());
+      ownerLayerInterface.setPosition(x, ownerLayerInterface.getYP(), ownerLayerInterface.getZP());
 
       if (currentRelativeAngle == 0)
       {
@@ -99,7 +99,7 @@ public class HorizontalManeuverAI extends BasicAI
    {
        AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
        
-      int y = ownerLayerInterface.getY();
+      int y = ownerLayerInterface.getYP();
       if (ownerLayerInterface.getY2() + ownerLayerInterface.getHeight() > DisplayInfoSingleton.getInstance().getLastHeight())
       {
          y = 0;
@@ -107,6 +107,6 @@ public class HorizontalManeuverAI extends BasicAI
       {
          y += ownerLayerInterface.getHeight() + 1;
       }
-      ownerLayerInterface.setPosition(ownerLayerInterface.getX(), y, ownerLayerInterface.getZ());
+      ownerLayerInterface.setPosition(ownerLayerInterface.getXP(), y, ownerLayerInterface.getZP());
    }
 }

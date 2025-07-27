@@ -61,18 +61,18 @@ public class AllBinaryJ2METiledLayer extends AllBinaryTiledLayer
     //TWB LayerInterface to Layer
     public int getX()
     {
-    return this.tiledLayer.getX();
+    return this.tiledLayer.getXP();
     }
 
     //TWB LayerInterface to Layer
     public int getY()
     {
-    return this.tiledLayer.getY();
+    return this.tiledLayer.getYP();
     }
 
     public int getZ()
     {
-    return this.tiledLayer.getZ();
+    return this.tiledLayer.getZP();
     }
 
     //TWB LayerInterface to Layer

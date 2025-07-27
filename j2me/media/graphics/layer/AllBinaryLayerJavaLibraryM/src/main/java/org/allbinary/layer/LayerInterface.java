@@ -27,11 +27,11 @@ public interface LayerInterface
 
    int getHalfWidth();
    
-   int getX();
+   int getXP();
 
-   int getY();
+   int getYP();
    
-   int getZ();
+   int getZP();
 
    int getX2();
 

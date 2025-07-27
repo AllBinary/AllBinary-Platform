@@ -32,23 +32,23 @@ public class StaticTileLayerIntoPositionViewPosition extends ViewPosition
    public StaticTileLayerIntoPositionViewPosition()
    {
       //logUtil.put("getRelativePositionX: " + this.getRelativePositionX(), this, "getViewPositionX");
-      //logUtil.put("tiledLayer.getX(): " + tiledLayer.getX(), this, "getViewPositionX");
+      //logUtil.put("tiledLayer.getXP(): " + tiledLayer.getXP(), this, "getViewPositionX");
       //logUtil.put("X: " + x, this, "getViewPositionX");
    }
       
    public int getX()
    {
-      return super.getX() - StaticTileLayerIntoPositionViewPosition.tiledLayer.getX();
+      return super.getX() - StaticTileLayerIntoPositionViewPosition.tiledLayer.getXP();
    }
 
    public int getY()
    {
-      return super.getY() - StaticTileLayerIntoPositionViewPosition.tiledLayer.getY();
+      return super.getY() - StaticTileLayerIntoPositionViewPosition.tiledLayer.getYP();
    }
 
    public int getZ()
    {
-      return super.getZ() - StaticTileLayerIntoPositionViewPosition.tiledLayer.getZ();
+      return super.getZ() - StaticTileLayerIntoPositionViewPosition.tiledLayer.getZP();
    }
    
 //   public AllBinaryTiledLayer getTiledLayer()

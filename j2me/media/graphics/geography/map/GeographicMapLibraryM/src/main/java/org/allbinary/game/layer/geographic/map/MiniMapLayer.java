@@ -72,7 +72,7 @@ implements GeographicMapCellPositionEventListenerInterface
               this.allBinaryTiledLayer.getCellWidth(), 
               this.allBinaryTiledLayer.getCellHeight(), BasicColorFactory.getInstance().WHITE);
       
-      // allBinaryTiledLayer.setPosition(0, this.getY());
+      // allBinaryTiledLayer.setPosition(0, this.getYP());
 
       //logUtil.put("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Alpha: " + this.bufferedImage.getBitmap().getPixel(0,0), this, "updateBufferedImage");
 
@@ -181,7 +181,7 @@ implements GeographicMapCellPositionEventListenerInterface
          graphics.setColor(basicColor.intValue());
 
          //localX = point.getX();
-         //localY = point.getY();
+         //localY = point.getYP();
 
          this.animationInterface.setBasicColor(basicColor);
          this.animationInterface.paint(graphics, 

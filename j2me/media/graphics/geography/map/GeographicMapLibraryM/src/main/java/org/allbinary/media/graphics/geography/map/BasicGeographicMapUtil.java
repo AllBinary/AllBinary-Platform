@@ -128,7 +128,7 @@ public class BasicGeographicMapUtil {
         final int size = geographicMapInterfaceArray.length;
         for(int index = size; --index >= 0;) {
             geographicMapInterface = geographicMapInterfaceArray[index];
-            geographicMapInterface.getAllBinaryTiledLayer().setPosition(x, y, geographicMapInterface.getAllBinaryTiledLayer().getZ());
+            geographicMapInterface.getAllBinaryTiledLayer().setPosition(x, y, geographicMapInterface.getAllBinaryTiledLayer().getZP());
         }
     }
     

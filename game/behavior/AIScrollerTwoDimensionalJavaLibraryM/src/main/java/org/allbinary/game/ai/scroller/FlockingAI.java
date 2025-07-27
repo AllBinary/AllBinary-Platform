@@ -80,22 +80,22 @@ public class FlockingAI extends BasicAI
             {
                 AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
                 
-                if (farAllbinaryLayer.getX() < ownerLayerInterface.getX())
+                if (farAllbinaryLayer.getXP() < ownerLayerInterface.getXP())
                 {
                     this.processAI(Canvas.LEFT);
                 } 
                 else
-                    if (farAllbinaryLayer.getX() > ownerLayerInterface.getX())
+                    if (farAllbinaryLayer.getXP() > ownerLayerInterface.getXP())
                     {
                         this.processAI(Canvas.RIGHT);
                     }
                     else
-                        if (farAllbinaryLayer.getY() > ownerLayerInterface.getY())
+                        if (farAllbinaryLayer.getYP() > ownerLayerInterface.getYP())
                         {
                             this.processAI(Canvas.UP);
                         }
                         else
-                            if (farAllbinaryLayer.getY() < ownerLayerInterface.getY())
+                            if (farAllbinaryLayer.getYP() < ownerLayerInterface.getYP())
                             {
                                 this.processAI(Canvas.DOWN);
                             }
@@ -107,11 +107,11 @@ public class FlockingAI extends BasicAI
     {
         AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
         
-        int xTotalDistance = (allBinaryLayer.getX() + allBinaryLayer.getHalfWidth()) - 
-                (ownerLayerInterface.getX() + ownerLayerInterface.getHalfWidth());
+        int xTotalDistance = (allBinaryLayer.getXP() + allBinaryLayer.getHalfWidth()) - 
+                (ownerLayerInterface.getXP() + ownerLayerInterface.getHalfWidth());
 
-        int yTotalDistance = (allBinaryLayer.getY() + allBinaryLayer.getHalfHeight()) - 
-        (ownerLayerInterface.getY() + ownerLayerInterface.getHalfHeight());
+        int yTotalDistance = (allBinaryLayer.getYP() + allBinaryLayer.getHalfHeight()) - 
+        (ownerLayerInterface.getYP() + ownerLayerInterface.getHalfHeight());
         
         final MathUtil mathUtil = MathUtil.getInstance();
         int totalDistance = mathUtil.abs(xTotalDistance) + mathUtil.abs(yTotalDistance);

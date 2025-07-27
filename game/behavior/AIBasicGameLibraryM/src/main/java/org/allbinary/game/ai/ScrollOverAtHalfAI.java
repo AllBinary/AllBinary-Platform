@@ -30,30 +30,30 @@ public class ScrollOverAtHalfAI extends BasicAI
    {
        AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
        
-      int x = ownerLayerInterface.getX();
-      int y = ownerLayerInterface.getY();
+      int x = ownerLayerInterface.getXP();
+      int y = ownerLayerInterface.getYP();
       int halfWidth = ownerLayerInterface.getHalfWidth();
       int halfHeight = ownerLayerInterface.getHalfHeight();
       
       DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
       if (x > displayInfo.getLastWidth() - halfWidth)
       {
-         ownerLayerInterface.setPosition(halfWidth + 1, y, ownerLayerInterface.getZ());
+         ownerLayerInterface.setPosition(halfWidth + 1, y, ownerLayerInterface.getZP());
       }
 
       if (y > displayInfo.getLastHeight() - halfHeight)
       {
-         ownerLayerInterface.setPosition(x, halfHeight + 1, ownerLayerInterface.getZ());
+         ownerLayerInterface.setPosition(x, halfHeight + 1, ownerLayerInterface.getZP());
       }
 
       if (x < -halfWidth)
       {
-         ownerLayerInterface.setPosition(displayInfo.getLastWidth() - halfWidth, y, ownerLayerInterface.getZ());
+         ownerLayerInterface.setPosition(displayInfo.getLastWidth() - halfWidth, y, ownerLayerInterface.getZP());
       }
 
       if (y < -halfHeight)
       {
-         ownerLayerInterface.setPosition(x, displayInfo.getLastHeight() - halfHeight, ownerLayerInterface.getZ());
+         ownerLayerInterface.setPosition(x, displayInfo.getLastHeight() - halfHeight, ownerLayerInterface.getZP());
       }
    }   
 }

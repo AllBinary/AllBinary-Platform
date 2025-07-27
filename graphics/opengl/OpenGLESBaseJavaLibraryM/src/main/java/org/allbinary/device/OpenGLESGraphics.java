@@ -18,7 +18,7 @@ implements OpenGLSurfaceChangedInterface, GraphicsInterface
     
     protected GL10 gl = NullGL10.NULL_GL10;
     
-    OpenGLESGraphics()
+    public OpenGLESGraphics()
     {
         
     }

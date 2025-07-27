@@ -186,8 +186,8 @@ public class BasicGeographicMap
         final int size = cellPositionArray.length;
         final int size2 = cellPositionArray[0].length;
 
-        final int xPortion = layer.getX() / (size - 1);
-        final int yPortion = layer.getY() / (size - 1);
+        final int xPortion = layer.getXP() / (size - 1);
+        final int yPortion = layer.getYP() / (size - 1);
         for (int index = 0; index < size; index++) {
             for (int index2 = 0; index2 < size2; index2++) {
                 final int x = xPortion * index;

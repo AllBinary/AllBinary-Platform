@@ -50,9 +50,9 @@ public class LayerCollisionUtil
     {
         return this.collisionProcessor.isCollision(myLayer, myLayer2);
     }
-    //collisionLayer.getX2() <= this.ownerLayer.getX() || collisionLayer.getY2() <= this.ownerLayer.getY() || collisionLayer.getY() >= this.ownerLayer.getY2() || collisionLayer.getX() >= this.ownerLayer.getX2()
+    //collisionLayer.getX2() <= this.ownerLayer.getXP() || collisionLayer.getY2() <= this.ownerLayer.getYP() || collisionLayer.getYP() >= this.ownerLayer.getY2() || collisionLayer.getXP() >= this.ownerLayer.getX2()
     
-    //return RectangleCollisionUtil.isCollision( myLayer.getX(),
-    //myLayer.getY(), myLayer.getX2(), myLayer.getY2(), myLayer2.getX(),
+    //return RectangleCollisionUtil.isCollision( myLayer.getXP(),
+    //myLayer.getYP(), myLayer.getX2(), myLayer.getY2(), myLayer2.getX(),
     //myLayer2.getY(), myLayer2.getX2(), myLayer2.getY2() );
 }

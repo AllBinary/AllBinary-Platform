@@ -32,23 +32,23 @@ public class TileLayerPositionIntoViewPosition extends ViewPosition
    public TileLayerPositionIntoViewPosition()
    {
       //logUtil.put("getRelativePositionX: " + this.getRelativePositionX(), this, "getViewPositionX");
-      //logUtil.put("tiledLayer.getX(): " + tiledLayer.getX(), this, "getViewPositionX");
+      //logUtil.put("tiledLayer.getXP(): " + tiledLayer.getXP(), this, "getViewPositionX");
       //logUtil.put("X: " + x, this, "getViewPositionX");
    }
 
    public int getX()
    {
-      return super.getX() - this.tiledLayer.getX();
+      return super.getX() - this.tiledLayer.getXP();
    }
 
    public int getY()
    {
-      return super.getY() - this.tiledLayer.getY();
+      return super.getY() - this.tiledLayer.getYP();
    }
 
    public int getZ()
    {
-      return super.getZ() - this.tiledLayer.getZ();
+      return super.getZ() - this.tiledLayer.getZP();
    }
 
    public void setTiledLayer(AllBinaryTiledLayer tiledLayer)

@@ -28,11 +28,11 @@ public class Layer
     //- These methods are for optimizing to concrete classes
     public static final Integer ID = SmallIntegerSingletonFactory.getInstance().getInstance(0);
 
-    private int x;
+    protected int x;
 
-    private int y;
+    protected int y;
 
-    private int z = 3;
+    protected int z = 3;
     
     private int width;
 
@@ -90,17 +90,17 @@ public class Layer
         this.z += dz;
     }
     
-    public final int getX()
+    public final int getXP()
     {
         return x;
     }
 
-    public final int getY()
+    public final int getYP()
     {
         return y;
     }
 
-    public final int getZ()
+    public final int getZP()
     {
         return z;
     }

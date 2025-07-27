@@ -46,12 +46,12 @@ public class ReverseVelocityBoundsVisitor implements BoundsVisitorInterface
 
    public int getX()
    {
-       return this.layerInterface.getX();
+       return this.layerInterface.getXP();
    }
 
    public int getY()
    {
-       return this.layerInterface.getY();
+       return this.layerInterface.getYP();
    }
 
    public void minX()

@@ -8,7 +8,7 @@ public class CustomGaugeItem
 extends CustomItem
 {
     public static final CustomGaugeItem NULL_GAUGE_ITEM = new CustomGaugeItem(
-    StringUtil.getInstance().EMPTY_STRING, 0, 0, 
+    StringUtil.getInstance().EMPTY_STRING, 1, 0, 
         BasicColorFactory.getInstance().BLACK, BasicColorFactory.getInstance().WHITE);
 
     public CustomGaugeItem(String label, int maxValue, int initialValue, 

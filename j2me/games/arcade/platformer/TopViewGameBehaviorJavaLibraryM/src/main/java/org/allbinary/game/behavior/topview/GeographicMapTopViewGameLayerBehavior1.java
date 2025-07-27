@@ -93,27 +93,27 @@ public class GeographicMapTopViewGameLayerBehavior1 extends GeographicMapTopView
         
 //        final CommonSeps commonSeps = CommonSeps.getInstance();
 //        logUtil.put(new StringMaker()
-//                .append(layer.getX()).append(commonSeps.COLON).append(-x).append(commonSeps.COLON).append(layer.getHalfWidth())
-//                .append(layer.getY()).append(commonSeps.COLON).append(-y).append(commonSeps.COLON).append(layer.getHalfHeight())
+//                .append(layer.getXP()).append(commonSeps.COLON).append(-x).append(commonSeps.COLON).append(layer.getHalfWidth())
+//                .append(layer.getYP()).append(commonSeps.COLON).append(-y).append(commonSeps.COLON).append(layer.getHalfHeight())
 //                .toString(), this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
-        final int xCellPosition = layer.getX() + -x + layer.getWidth();
-        final int yCellPosition = layer.getY() + -y + layer.getHeight();
+        final int xCellPosition = layer.getXP() + -x + layer.getWidth();
+        final int yCellPosition = layer.getYP() + -y + layer.getHeight();
 
         return geographicMapInterfaceArray[0].getCellPositionAtNoThrow(xCellPosition, yCellPosition);
     }
 
     private GeographicMapCellPosition getLeftPosition(final BasicGeographicMap[] geographicMapInterfaceArray, final AllBinaryLayer layer) throws Exception {
         
-        final int xCellPosition = layer.getX();
-        final int yCellPosition = layer.getY() + layer.getHeight();
+        final int xCellPosition = layer.getXP();
+        final int yCellPosition = layer.getYP() + layer.getHeight();
 
         return geographicMapInterfaceArray[0].getCellPositionAtNoThrow(xCellPosition, yCellPosition);        
     }
 
     private GeographicMapCellPosition getRightPosition(final BasicGeographicMap[] geographicMapInterfaceArray, final AllBinaryLayer layer) throws Exception {
         
-        final int xCellPosition = layer.getX() + layer.getWidth();
-        final int yCellPosition = layer.getY() + layer.getHeight();
+        final int xCellPosition = layer.getXP() + layer.getWidth();
+        final int yCellPosition = layer.getYP() + layer.getHeight();
 
         return geographicMapInterfaceArray[0].getCellPositionAtNoThrow(xCellPosition, yCellPosition);        
     }
@@ -139,7 +139,7 @@ public class GeographicMapTopViewGameLayerBehavior1 extends GeographicMapTopView
 //            logUtil.put(possibleStepGeographicMapCellPosition.toString(), this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
 
             final AllBinaryTiledLayer tiledLayer = geographicMapInterfaceArray[0].getAllBinaryTiledLayer();
-            //logUtil.put(new StringMaker().append("tileLayer: ").append(tiledLayer.getX()).append(CommonSeps.getInstance().COLON).append(tiledLayer.getY()).toString(), this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
+            //logUtil.put(new StringMaker().append("tileLayer: ").append(tiledLayer.getXP()).append(CommonSeps.getInstance().COLON).append(tiledLayer.getYP()).toString(), this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
             //logUtil.put(new StringMaker().append("tileLayer: ").append(tiledLayer.getColumns()).append(CommonSeps.getInstance().COLON).append(tiledLayer.getRows()).toString(), this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
 
             if(possibleStepGeographicMapCellPosition.getColumn() > 0 && possibleStepGeographicMapCellPosition.getRow() > 0 &&
@@ -158,11 +158,11 @@ public class GeographicMapTopViewGameLayerBehavior1 extends GeographicMapTopView
                     
 //                    if (this.autoStepBlocks) {
 //                        // int newY = this.getHeight() -
-//                        // possibleStepGeographicMapCellPosition.getPoint().getY().intValue();
-//                        final int newY = possibleStepGeographicMapCellPosition.getPoint().getY() - layer.getHeight();
+//                        // possibleStepGeographicMapCellPosition.getPoint().getYP().intValue();
+//                        final int newY = possibleStepGeographicMapCellPosition.getPoint().getYP() - layer.getHeight();
 //                        //logUtil.put("Stepping at: y: " + newY, this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
-//                        // -possibleStepGeographicMapCellPosition.getPoint().getX().intValue()
-//                        layer.setPosition(layer.getX(), newY, layer.getZ());
+//                        // -possibleStepGeographicMapCellPosition.getPoint().getXP().intValue()
+//                        layer.setPosition(layer.getXP(), newY, layer.getZP());
 //                        this.previousGeographicMapCellPosition = possibleStepGeographicMapCellPosition;
 //                        return possibleStepGeographicMapCellPosition;
 //                    } else {
@@ -195,7 +195,7 @@ public class GeographicMapTopViewGameLayerBehavior1 extends GeographicMapTopView
         //final int x = velocityProperties.getVelocityXBasicDecimal().getScaled();
         //final int y = velocityProperties.getVelocityYBasicDecimal().getScaled();
 
-        //logUtil.put(new StringMaker().append("x: ").append(x).append(" y: ").append(y).append(CommonSeps.getInstance().SPACE).append(layer.getViewPosition().getX()).toString(), this, "moveAndLand");
+        //logUtil.put(new StringMaker().append("x: ").append(x).append(" y: ").append(y).append(CommonSeps.getInstance().SPACE).append(layer.getViewPosition().getXP()).toString(), this, "moveAndLand");
         
         if (geographicMapCellPosition != null) {
 
@@ -211,11 +211,11 @@ public class GeographicMapTopViewGameLayerBehavior1 extends GeographicMapTopView
 //                if (geographicMapCellTypeFactory.BLOCK_CELL_TYPE.isType(cellType)) // ||
 //                // this.getViewPositionY() > DisplayInfoSingleton.getInstance().getLastHeight() - 55)
 //                {
-//                    final int landY = geographicMapCellPosition.getPoint().getY() - layer.getHeight() + offsetY;
+//                    final int landY = geographicMapCellPosition.getPoint().getYP() - layer.getHeight() + offsetY;
 //
-//                    // logUtil.put("Cell Position: y: " + geographicMapCellPosition.getPoint().getX().intValue(), this, "moveAndLand");
+//                    // logUtil.put("Cell Position: y: " + geographicMapCellPosition.getPoint().getXP().intValue(), this, "moveAndLand");
 //                    // logUtil.put("Landing at: y: " + landY, this, "moveAndLand");
-//                    layer.setPosition(layer.getX(), landY, layer.getZ());
+//                    layer.setPosition(layer.getXP(), landY, layer.getZP());
 //                    //this.land(velocityProperties);
 //                    //((TopViewCharacterInterface) layer).terrainLand();
 //                }

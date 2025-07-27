@@ -32,30 +32,30 @@ public class LayerDistanceUtil
 
     public int getDistance(final AllBinaryLayer layerInterface, final AllBinaryLayer layerInterface2)
     {
-        final int dx = (layerInterface.getX() + layerInterface.getHalfWidth()) -
-            (layerInterface2.getX() + layerInterface2.getHalfWidth());
-        final int dy = (layerInterface.getY() + layerInterface.getHalfHeight()) -
-            (layerInterface2.getY() + layerInterface2.getHalfHeight());
+        final int dx = (layerInterface.getXP() + layerInterface.getHalfWidth()) -
+            (layerInterface2.getXP() + layerInterface2.getHalfWidth());
+        final int dy = (layerInterface.getYP() + layerInterface.getHalfHeight()) -
+            (layerInterface2.getYP() + layerInterface2.getHalfHeight());
 
         return (int) mathUtil.sqrt((dx * dx) + (dy * dy));
     }
 
     public int getDistance3D(final AllBinaryLayer layerInterface, final AllBinaryLayer layerInterface2)
     {
-        final int dx = (layerInterface.getX() + layerInterface.getHalfWidth()) -
-            (layerInterface2.getX() + layerInterface2.getHalfWidth());
-        final int dy = (layerInterface.getY() + layerInterface.getHalfHeight()) -
-            (layerInterface2.getY() + layerInterface2.getHalfHeight());
-        final int dz = (layerInterface.getZ() + layerInterface.getHalfDepth()) -
-            (layerInterface2.getZ() + layerInterface2.getHalfDepth());
+        final int dx = (layerInterface.getXP() + layerInterface.getHalfWidth()) -
+            (layerInterface2.getXP() + layerInterface2.getHalfWidth());
+        final int dy = (layerInterface.getYP() + layerInterface.getHalfHeight()) -
+            (layerInterface2.getYP() + layerInterface2.getHalfHeight());
+        final int dz = (layerInterface.getZP() + layerInterface.getHalfDepth()) -
+            (layerInterface2.getZP() + layerInterface2.getHalfDepth());
 
         return (int) mathUtil.sqrt((dx * dx) + (dy * dy) + (dz * dz));
     }
     
     public int getDistance(final AllBinaryLayer layerInterface, final GPoint point)
     {
-        final int dx = layerInterface.getX() - point.getX();
-        final int dy = layerInterface.getY() - point.getY();
+        final int dx = layerInterface.getXP() - point.getX();
+        final int dy = layerInterface.getYP() - point.getY();
 
         return (int) mathUtil.sqrt((dx * dx) + (dy * dy));
     }

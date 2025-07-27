@@ -188,8 +188,8 @@ extends CollidableRTSBehavior
         final TiledLayerUtil tiledLayerUtil = TiledLayerUtil.getInstance();
         final AllBinaryTiledLayer tiledLayer = basicGeographicMap.getAllBinaryTiledLayer();
 
-        if (this.ownerLayer.getX() < unitLayer.getX() &&
-            this.ownerLayer.getX2() > unitLayer.getX())
+        if (this.ownerLayer.getXP() < unitLayer.getXP() &&
+            this.ownerLayer.getX2() > unitLayer.getXP())
         {
             final int diff = this.ownerLayer.getWidth() + 1;
 
@@ -198,13 +198,13 @@ extends CollidableRTSBehavior
             
             if (!dropCellPositionHistory.anyCellPositionWithDrop(partialPositionList))
             {
-                int x = unitLayer.getX() - diff;
-                int y = this.ownerLayer.getY();
+                int x = unitLayer.getXP() - diff;
+                int y = this.ownerLayer.getYP();
 
                 x = tiledLayerUtil.keepOnMapX(tiledLayer, x, this.ownerLayer.getWidth());
                 y = tiledLayerUtil.keepOnMapY(tiledLayer, y, this.ownerLayer.getHeight());
 
-                this.ownerLayer.setPosition(x, y, this.ownerLayer.getZ());
+                this.ownerLayer.setPosition(x, y, this.ownerLayer.getZP());
             }
 
             this.layerPartialCellPositionsUtil.getAll(
@@ -214,18 +214,18 @@ extends CollidableRTSBehavior
 
             if (!dropCellPositionHistory.anyCellPositionWithDrop(partialPositionList))
             {
-                int x = unitLayer.getX() + diff;
-                int y = unitLayer.getY();
+                int x = unitLayer.getXP() + diff;
+                int y = unitLayer.getYP();
                 
                 x = tiledLayerUtil.keepOnMapX(tiledLayer, x, unitLayer.getWidth());
                 y = tiledLayerUtil.keepOnMapY(tiledLayer, y, unitLayer.getHeight());
 
-                unitLayer.setPosition(x, y, unitLayer.getZ());
+                unitLayer.setPosition(x, y, unitLayer.getZP());
             }
         }
 
-        if (this.ownerLayer.getY() < unitLayer.getY() &&
-            this.ownerLayer.getY2() > unitLayer.getY())
+        if (this.ownerLayer.getYP() < unitLayer.getYP() &&
+            this.ownerLayer.getY2() > unitLayer.getYP())
         {
             int diff = this.ownerLayer.getHeight() + 1;
 
@@ -235,13 +235,13 @@ extends CollidableRTSBehavior
 
             if (!dropCellPositionHistory.anyCellPositionWithDrop(partialPositionList))
             {
-                int x = this.ownerLayer.getX();
-                int y = unitLayer.getY() - diff;
+                int x = this.ownerLayer.getXP();
+                int y = unitLayer.getYP() - diff;
 
                 x = tiledLayerUtil.keepOnMapX(tiledLayer, x, this.ownerLayer.getWidth());
                 y = tiledLayerUtil.keepOnMapY(tiledLayer, y, this.ownerLayer.getHeight());
 
-                this.ownerLayer.setPosition(x, y, this.ownerLayer.getZ());
+                this.ownerLayer.setPosition(x, y, this.ownerLayer.getZP());
             }
 
             this.layerPartialCellPositionsUtil.getAll(
@@ -249,13 +249,13 @@ extends CollidableRTSBehavior
 
             if (!dropCellPositionHistory.anyCellPositionWithDrop(partialPositionList))
             {
-                int x = unitLayer.getX();
-                int y = unitLayer.getY() + diff;
+                int x = unitLayer.getXP();
+                int y = unitLayer.getYP() + diff;
 
                 x = tiledLayerUtil.keepOnMapX(tiledLayer, x, unitLayer.getWidth());
                 y = tiledLayerUtil.keepOnMapY(tiledLayer, y, unitLayer.getHeight());
 
-                unitLayer.setPosition(x, y, unitLayer.getZ());
+                unitLayer.setPosition(x, y, unitLayer.getZP());
             }
         }
     }

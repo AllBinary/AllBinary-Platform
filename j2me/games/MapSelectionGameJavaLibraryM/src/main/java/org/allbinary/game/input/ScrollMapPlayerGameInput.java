@@ -93,7 +93,7 @@ public class ScrollMapPlayerGameInput
 
       //PreLogUtil.put(diffX + CommonSeps.getInstance().SPACE + CommonSeps.getInstance().SPACE + terrainTiledLayer.getWidth() + CommonSeps.getInstance().SPACE + displayInfo.getLastWidth(), this, "scrollMiddleX");
 
-        this.move(-terrainTiledLayer.getX(), 0);
+        this.move(-terrainTiledLayer.getXP(), 0);
         
         if(terrainTiledLayer.getWidth() < displayInfo.getLastWidth())
         {
@@ -141,7 +141,7 @@ public class ScrollMapPlayerGameInput
 
     protected void up() throws Exception
     {
-        int y = geographicMapInterface.getAllBinaryTiledLayer().getY() - 10;
+        int y = geographicMapInterface.getAllBinaryTiledLayer().getYP() - 10;
         if(this.keepOnMapMinY(y))
         {
             this.move(0, -10);
@@ -150,7 +150,7 @@ public class ScrollMapPlayerGameInput
 
     protected void down() throws Exception
     {
-        int y = -geographicMapInterface.getAllBinaryTiledLayer().getY() + 10;
+        int y = -geographicMapInterface.getAllBinaryTiledLayer().getYP() + 10;
         if(this.keepOnMapMaxY(y))
         {
             this.move(0, 10);
@@ -159,7 +159,7 @@ public class ScrollMapPlayerGameInput
     
     protected void right() throws Exception
     {
-        int x = geographicMapInterface.getAllBinaryTiledLayer().getY() + 10;
+        int x = geographicMapInterface.getAllBinaryTiledLayer().getYP() + 10;
         if(this.keepOnMapMinX(x))
         {
             this.move(10, 0);
@@ -168,7 +168,7 @@ public class ScrollMapPlayerGameInput
 
     protected void left() throws Exception
     {
-        int x = -geographicMapInterface.getAllBinaryTiledLayer().getY() - 10;
+        int x = -geographicMapInterface.getAllBinaryTiledLayer().getYP() - 10;
         if(this.keepOnMapMaxX(x))
         {
             this.move(-10, 0);
@@ -266,15 +266,15 @@ public class ScrollMapPlayerGameInput
         stringBuffer.append(maxBottom + border);
 
         stringBuffer.append(" X: ");
-        stringBuffer.append(tiledLayer.getX());
+        stringBuffer.append(tiledLayer.getXP());
         stringBuffer.append(" Y: ");
-        stringBuffer.append(tiledLayer.getY());
+        stringBuffer.append(tiledLayer.getYP());
         
         //logUtil.put(stringBuffer.toString(), this, "keepOnMapMaxY");
         PreLogUtil.put(stringBuffer.toString(), this, "keepOnMapMaxY");
         */
 
-        int y = geographicMapInterface.getAllBinaryTiledLayer().getY();
+        int y = geographicMapInterface.getAllBinaryTiledLayer().getYP();
         if (y > maxBottom + border)
         {
             return false;
@@ -300,15 +300,15 @@ public class ScrollMapPlayerGameInput
         //stringBuffer.append(mapBorderBufferHeight);
         
         stringBuffer.append(" X: ");
-        stringBuffer.append(tiledLayer.getX());
+        stringBuffer.append(tiledLayer.getXP());
         stringBuffer.append(" Y: ");
-        stringBuffer.append(tiledLayer.getY());
+        stringBuffer.append(tiledLayer.getYP());
 
         //logUtil.put(stringBuffer.toString(), this, "keepOnMapMinY");
         PreLogUtil.put(stringBuffer.toString(), this, "keepOnMapMinY");
         */
 
-        int y = geographicMapInterface.getAllBinaryTiledLayer().getY();
+        int y = geographicMapInterface.getAllBinaryTiledLayer().getYP();
         if (y < -border)
         {
             return false;
@@ -332,15 +332,15 @@ public class ScrollMapPlayerGameInput
         stringBuffer.append(-maxRight - border);
 
         stringBuffer.append(" X: ");
-        stringBuffer.append(tiledLayer.getX());
+        stringBuffer.append(tiledLayer.getXP());
         stringBuffer.append(" Y: ");
-        stringBuffer.append(tiledLayer.getY());
+        stringBuffer.append(tiledLayer.getYP());
 
         //logUtil.put(stringBuffer.toString(), this, "keepOnMapMaxX");
         PreLogUtil.put(stringBuffer.toString(), this, "keepOnMapMaxX");
         */
         
-        int x = geographicMapInterface.getAllBinaryTiledLayer().getX();
+        int x = geographicMapInterface.getAllBinaryTiledLayer().getXP();
         if (x < -maxRight - border)
         {
             return false;
@@ -364,15 +364,15 @@ public class ScrollMapPlayerGameInput
         //stringBuffer.append(mapBorderBufferWidth);
 
         stringBuffer.append(" X: ");
-        stringBuffer.append(tiledLayer.getX());
+        stringBuffer.append(tiledLayer.getXP());
         stringBuffer.append(" Y: ");
-        stringBuffer.append(tiledLayer.getY());
+        stringBuffer.append(tiledLayer.getYP());
 
         //logUtil.put(stringBuffer.toString(), this, "keepOnMapMinX");
         //PreLogUtil.put(stringBuffer.toString(), this, "keepOnMapMinX");
         */
 
-        int x = geographicMapInterface.getAllBinaryTiledLayer().getX();
+        int x = geographicMapInterface.getAllBinaryTiledLayer().getXP();
         
         if (x > border)
         {

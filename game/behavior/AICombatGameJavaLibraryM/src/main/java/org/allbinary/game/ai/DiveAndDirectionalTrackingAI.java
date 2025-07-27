@@ -156,16 +156,16 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
             return;
         }
 
-        int x = this.lastTrackingLayerInterface.getX();
-        int y = this.lastTrackingLayerInterface.getY();
+        int x = this.lastTrackingLayerInterface.getXP();
+        int y = this.lastTrackingLayerInterface.getYP();
 
         // If yDistance is negative then going down
         // If yDistance is positive then going up
-        int yDistance = ownerLayerInterface.getY() - y
+        int yDistance = ownerLayerInterface.getYP() - y
                 - ownerLayerInterface.getHeight();
         // If xDistance is negative then going right
         // If xDistance is positive then going left
-        int xDistance = ownerLayerInterface.getX() - x
+        int xDistance = ownerLayerInterface.getXP() - x
                 - ownerLayerInterface.getWidth();
 
         final DirectionFactory directionFactory = DirectionFactory.getInstance();
@@ -224,18 +224,18 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
     {
         AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
 
-        if (ownerLayerInterface.getX() < x)
+        if (ownerLayerInterface.getXP() < x)
         {
             this.moveRight();
         }
 
-        if (ownerLayerInterface.getX() > x)
+        if (ownerLayerInterface.getXP() > x)
         {
             this.moveLeft();
         }
 
-        if (ownerLayerInterface.getX() > x - 3
-                && ownerLayerInterface.getX() < x + 3)
+        if (ownerLayerInterface.getXP() > x - 3
+                && ownerLayerInterface.getXP() < x + 3)
         {
             this.setDive();
         }
@@ -245,18 +245,18 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
     {
         AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
 
-        if (ownerLayerInterface.getY() < y)
+        if (ownerLayerInterface.getYP() < y)
         {
             this.moveDown();
         }
 
-        if (ownerLayerInterface.getY() > y)
+        if (ownerLayerInterface.getYP() > y)
         {
             this.moveUp();
         }
 
-        if (ownerLayerInterface.getY() > y - 3
-                && ownerLayerInterface.getY() < y + 3)
+        if (ownerLayerInterface.getYP() > y - 3
+                && ownerLayerInterface.getYP() < y + 3)
         {
             this.setDive();
         }
@@ -328,11 +328,11 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
 
             this.aiVistor.visit(this);
             /*
-             * int y = ownerLayerInterface.getY(); if
+             * int y = ownerLayerInterface.getYP(); if
              * (ownerLayerInterface.getY2() + ownerLayerInterface.getHeight() >
              * DisplayInfoSingleton.getInstance()getLastHeight()) { y = 0; }
              * else { y += ownerLayerInterface.getHeight() + 1; }
-             * ownerLayerInterface. setPosition(ownerLayerInterface.getX(), y);
+             * ownerLayerInterface. setPosition(ownerLayerInterface.getXP(), y);
              */
         }
     }
@@ -341,8 +341,8 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
     {
         if (this.directionOfTarget == directionFactory.DOWN)
         {
-            if (this.getOwnerLayerInterface().getY() > this.lastTrackingLayerInterface
-                    .getY() + MIN_DISTANCE)
+            if (this.getOwnerLayerInterface().getYP() > this.lastTrackingLayerInterface
+                    .getYP() + MIN_DISTANCE)
             {
                 return true;
             }
@@ -353,8 +353,8 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
         }
         else if (this.directionOfTarget == directionFactory.UP)
         {
-            if (this.getOwnerLayerInterface().getY() < this.lastTrackingLayerInterface
-                    .getY() + MIN_DISTANCE)
+            if (this.getOwnerLayerInterface().getYP() < this.lastTrackingLayerInterface
+                    .getYP() + MIN_DISTANCE)
             {
                 return true;
             }
@@ -365,8 +365,8 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
         }
         else if (this.directionOfTarget == directionFactory.RIGHT)
         {
-            if (this.getOwnerLayerInterface().getX() > this.lastTrackingLayerInterface
-                    .getX() + MIN_DISTANCE)
+            if (this.getOwnerLayerInterface().getXP() > this.lastTrackingLayerInterface
+                    .getXP() + MIN_DISTANCE)
             {
                 return true;
             }
@@ -377,8 +377,8 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
         }
         else if (this.directionOfTarget == directionFactory.LEFT)
         {
-            if (this.getOwnerLayerInterface().getX() < this.lastTrackingLayerInterface
-                    .getX() + MIN_DISTANCE)
+            if (this.getOwnerLayerInterface().getXP() < this.lastTrackingLayerInterface
+                    .getXP() + MIN_DISTANCE)
             {
                 return true;
             }

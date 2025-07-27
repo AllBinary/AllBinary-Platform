@@ -99,7 +99,7 @@ public class RaceTrackRandomDropCellPositionGenerator
         AllBinaryTiledLayer tiledLayer = this.raceTrackGeographicMap.getAllBinaryTiledLayer();
         
         RaceTrackPickupLayer pickupLayer = (RaceTrackPickupLayer) 
-            PickupLayerCircularStaticPool.getInstance().getInstance(pickedUpLayerInterfaceFactory, x, y, tiledLayer.getZ() + 3);
+            PickupLayerCircularStaticPool.getInstance().getInstance(pickedUpLayerInterfaceFactory, x, y, tiledLayer.getZP() + 3);
 
         pickupLayer.setTiledLayer(tiledLayer);
 

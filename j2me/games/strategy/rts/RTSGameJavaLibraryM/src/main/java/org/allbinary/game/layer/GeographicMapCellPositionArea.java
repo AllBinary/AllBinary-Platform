@@ -65,7 +65,7 @@ public class GeographicMapCellPositionArea
         this.occupyingGeographicMapCellPositionList =
             layerCoveringCellPositionsUtil.getAll(
             geographicMapInterface, layerInterface,
-                layerInterface.getX(), layerInterface.getY(),
+                layerInterface.getXP(), layerInterface.getYP(),
                 reusableOccupyingGeographicMapCellPositionList);
 
         this.surroundingGeographicMapCellPositionList =

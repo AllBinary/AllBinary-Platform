@@ -35,8 +35,8 @@ public class StopAtEdgeAI extends BasicAI
        BasicVelocityProperties velocityProperties = 
     		   ((VelocityInterfaceCompositeInterface) ownerLayerInterface).getVelocityProperties();
        
-      int x = ownerLayerInterface.getX();
-      int y = ownerLayerInterface.getY();
+      int x = ownerLayerInterface.getXP();
+      int y = ownerLayerInterface.getYP();
       int x2 = ownerLayerInterface.getX2();
       int y2 = ownerLayerInterface.getY2();
       
@@ -46,7 +46,7 @@ public class StopAtEdgeAI extends BasicAI
       DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
       if (x2 + velocityProperties.getVelocityXBasicDecimal().getScaled() > displayInfo.getLastWidth())
       {
-          ownerLayerInterface.setPosition(displayInfo.getLastWidth() - width, y, ownerLayerInterface.getZ());
+          ownerLayerInterface.setPosition(displayInfo.getLastWidth() - width, y, ownerLayerInterface.getZP());
          //ownerLayerInterface.setPosition(width + 1, y);
           velocityProperties.getVelocityYBasicDecimal().set(0);
       }
@@ -54,19 +54,19 @@ public class StopAtEdgeAI extends BasicAI
       if (y2 + velocityProperties.getVelocityYBasicDecimal().getScaled() > displayInfo.getLastHeight())
       {
          //ownerLayerInterface.setPosition(x, height + 1);
-          ownerLayerInterface.setPosition(x, displayInfo.getLastHeight() - height, ownerLayerInterface.getZ());
+          ownerLayerInterface.setPosition(x, displayInfo.getLastHeight() - height, ownerLayerInterface.getZP());
           velocityProperties.getVelocityXBasicDecimal().set(0);
       }
 
       if (x + velocityProperties.getVelocityXBasicDecimal().getScaled() < 0)
       {
-         ownerLayerInterface.setPosition(0, y, ownerLayerInterface.getZ());
+         ownerLayerInterface.setPosition(0, y, ownerLayerInterface.getZP());
          velocityProperties.getVelocityYBasicDecimal().set(0);
       }
 
       if (y + velocityProperties.getVelocityYBasicDecimal().getScaled() < 0)
       {
-         ownerLayerInterface.setPosition(x, 0, ownerLayerInterface.getZ());
+         ownerLayerInterface.setPosition(x, 0, ownerLayerInterface.getZP());
          velocityProperties.getVelocityXBasicDecimal().set(0);
       }
    }

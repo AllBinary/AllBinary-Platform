@@ -48,20 +48,20 @@ extends CollidableDestroyableDamageableBehavior
             }
             else
             {
-                if (collidableInterfaceCompositeInterface.getX2() <= this.ownerLayer.getX()
-                        || collidableInterfaceCompositeInterface.getY2() <= this.ownerLayer.getY()
-                        || collidableInterfaceCompositeInterface.getY() >= this.ownerLayer.getY2()
-                        || collidableInterfaceCompositeInterface.getX() >= this.ownerLayer.getX2())
+                if (collidableInterfaceCompositeInterface.getX2() <= this.ownerLayer.getXP()
+                        || collidableInterfaceCompositeInterface.getY2() <= this.ownerLayer.getYP()
+                        || collidableInterfaceCompositeInterface.getYP() >= this.ownerLayer.getY2()
+                        || collidableInterfaceCompositeInterface.getXP() >= this.ownerLayer.getX2())
                 {
                     return false;
                 } else
                 {
                     /*
                      * logUtil.put( "y: ").append(this.y).append(" ").append(
-                     * this.getY2()).append(" other y: ").append(collisionLayer.getY()).append(" ").append(
+                     * this.getY2()).append(" other y: ").append(collisionLayer.getYP()).append(" ").append(
                      * collisionLayer.getY2(), this, damageUtil.IS_COLLISION);
                      * logUtil.put( "x: ").append(this.x).append(" ").append(
-                     * this.getX2()).append(" other x: ").append(collisionLayer.getX()).append(" ").append(
+                     * this.getX2()).append(" other x: ").append(collisionLayer.getXP()).append(" ").append(
                      * collisionLayer.getX2(), this, damageUtil.IS_COLLISION);
                      */
                     // logUtil.put("viewy: ").append(

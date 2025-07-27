@@ -14,6 +14,7 @@
 package org.allbinary.platform.graphics;
 
 import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.NullCanvas;
 
 /**
  *
@@ -24,6 +25,6 @@ public class PlatformBitmapBase {
     public int alpha = 255;
     
     public Image getImage() {
-        return Image.NULL_IMAGE;
+        return NullCanvas.NULL_IMAGE;
     }
 }

@@ -86,19 +86,19 @@ implements LayerInterface
     @Override
     public int getX2()
     {
-        return this.getX() + this.getWidth();
+        return this.getXP() + this.getWidth();
     }
 
     @Override
     public int getY2()
     {
-        return this.getY() + this.getHeight();
+        return this.getYP() + this.getHeight();
     }
 
     @Override
     public int getZ2()
     {
-        return (int) (this.getZ() + this.getDepth());
+        return (int) (this.getZP() + this.getDepth());
     }
 
     @Override
@@ -206,13 +206,13 @@ implements LayerInterface
         stringBuffer.append(this.getType());
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(positionStrings.X_LABEL);
-        stringBuffer.append(this.getX());
+        stringBuffer.append(this.getXP());
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(positionStrings.Y_LABEL);
-        stringBuffer.append(this.getY());
+        stringBuffer.append(this.getYP());
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(positionStrings.Z_LABEL);
-        stringBuffer.append(this.getZ());
+        stringBuffer.append(this.getZP());
 
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(commonLabels.WIDTH_LABEL);

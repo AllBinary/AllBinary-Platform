@@ -306,8 +306,8 @@ public class GeographicMapCellHistory
    private void paintNotVisited(
       final Graphics graphics, final AllBinaryTiledLayer tiledLayer, final GPoint point)
    {
-      final int x = point.getX() - tiledLayer.getX();
-      final int y = point.getY() - tiledLayer.getY();
+      final int x = point.getX() - tiledLayer.getXP();
+      final int y = point.getY() - tiledLayer.getYP();
       //graphics.fillArc(x, y, tiledLayer.getCellWidth(), tiledLayer.getCellHeight(), 0, Angle.THREE_SIXTY);
       if(halfWidth == 0)
       {

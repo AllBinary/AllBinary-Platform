@@ -61,8 +61,8 @@ public class GeographicMapCellPositionTracking
 
             this.newGeographicMapCellPosition = 
                 geographicMapInterface.getCellPositionAt(
-                    layer.getX() + layer.getHalfWidth(), 
-                    layer.getY() + layer.getHalfHeight());
+                    layer.getXP() + layer.getHalfWidth(), 
+                    layer.getYP() + layer.getHalfHeight());
 
             if (this.newGeographicMapCellPosition != this.currentGeographicMapCellPosition)
             {

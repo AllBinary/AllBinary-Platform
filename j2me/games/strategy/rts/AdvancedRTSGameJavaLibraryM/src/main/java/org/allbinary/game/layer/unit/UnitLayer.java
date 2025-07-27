@@ -968,8 +968,8 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         final GeographicMapCellPosition nextUnvisitedPathGeographicMapCellPosition = this.waypointBehaviorBase.getNextUnvisitedPathGeographicMapCellPosition();
         final GPoint point = nextUnvisitedPathGeographicMapCellPosition.getMidPoint();
 
-        final int dx = (this.getX() + this.getHalfWidth()) - point.getX();
-        final int dy = (this.getY() + this.getHalfHeight()) - point.getY();
+        final int dx = (this.getXP() + this.getHalfWidth()) - point.getX();
+        final int dy = (this.getYP() + this.getHalfHeight()) - point.getY();
 
         this.rtsLogHelper.trackTo(this, nextUnvisitedPathGeographicMapCellPosition, dx, dy, reason);
         
@@ -1308,8 +1308,8 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
 
             // logUtil.put("Attacking: " +
             // this.currentTargetLayerInterface.getName() + " X: " +
-            // this.currentTargetLayerInterface.getX() + " ? " + this.x +
-            // " Y: " + this.currentTargetLayerInterface.getY() + " ? " +
+            // this.currentTargetLayerInterface.getXP() + " ? " + this.x +
+            // " Y: " + this.currentTargetLayerInterface.getYP() + " ? " +
             // this.y, this, "processTargeting");
             // logUtil.put("Attacking: " +
             // this.currentTargetLayerInterface.getName() + " at Range: " +

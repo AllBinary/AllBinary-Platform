@@ -55,9 +55,9 @@ public class TiledLayerUtil {
         int newY = y;
 
         // logUtil.put("pre scrollTerrain X: " +
-        // terrainTiledLayer.getX(), this, "keepOnMap");
+        // terrainTiledLayer.getXP(), this, "keepOnMap");
         // logUtil.put("pre scrollTerrain Y: " +
-        // terrainTiledLayer.getY(), this, "keepOnMap");
+        // terrainTiledLayer.getYP(), this, "keepOnMap");
 
         // StringMaker stringBuffer = new StringMaker();
 
@@ -114,10 +114,10 @@ public class TiledLayerUtil {
         //}
 
         // logUtil.put("scrollTerrain X: " +
-        // terrainTiledLayer.getX(),
+        // terrainTiledLayer.getXP(),
         // this, "keepOnMap");
         // logUtil.put("scrollTerrain Y: " +
-        // terrainTiledLayer.getY(),
+        // terrainTiledLayer.getYP(),
         // this, "keepOnMap");
     }
     */
@@ -129,7 +129,7 @@ public class TiledLayerUtil {
         int newX = x;
 
         // logUtil.put("pre scrollTerrain X: " +
-        // terrainTiledLayer.getX(), this, "keepOnMap");
+        // terrainTiledLayer.getXP(), this, "keepOnMap");
 
         // StringMaker stringBuffer = new StringMaker();
 
@@ -164,9 +164,9 @@ public class TiledLayerUtil {
         int newY = y;
 
         // logUtil.put("pre scrollTerrain X: " +
-        // terrainTiledLayer.getX(), this, "keepOnMap");
+        // terrainTiledLayer.getXP(), this, "keepOnMap");
         // logUtil.put("pre scrollTerrain Y: " +
-        // terrainTiledLayer.getY(), this, "keepOnMap");
+        // terrainTiledLayer.getYP(), this, "keepOnMap");
 
         // StringMaker stringBuffer = new StringMaker();
 
@@ -203,7 +203,7 @@ public class TiledLayerUtil {
         int newX = x;
 
         // logUtil.put("pre scrollTerrain X: " +
-        // terrainTiledLayer.getX(), this, "keepOnMap");
+        // terrainTiledLayer.getXP(), this, "keepOnMap");
 
         // StringMaker stringBuffer = new StringMaker();
 
@@ -238,9 +238,9 @@ public class TiledLayerUtil {
         int newY = y;
 
         // logUtil.put("pre scrollTerrain X: " +
-        // terrainTiledLayer.getX(), this, "keepOnMap");
+        // terrainTiledLayer.getXP(), this, "keepOnMap");
         // logUtil.put("pre scrollTerrain Y: " +
-        // terrainTiledLayer.getY(), this, "keepOnMap");
+        // terrainTiledLayer.getYP(), this, "keepOnMap");
 
         // StringMaker stringBuffer = new StringMaker();
 

@@ -522,11 +522,11 @@ extends UnitWaypointBehavior
             if(geographicMapCellPosition.getColumn() == this.afterNextUnvisitedPathGeographicMapCellPosition.getColumn()) {
                 
             } else if(point.getX() < afterNextPoint.getX()) {
-                if (unitLayer.getX() + unitLayer.getHalfWidth() < point.getX()) {
+                if (unitLayer.getXP() + unitLayer.getHalfWidth() < point.getX()) {
                     beyondMidPoint = false;
                 }
             } else {
-                if (unitLayer.getX() + unitLayer.getHalfWidth() > point.getX()) {
+                if (unitLayer.getXP() + unitLayer.getHalfWidth() > point.getX()) {
                     beyondMidPoint = false;
                 }
             }
@@ -534,11 +534,11 @@ extends UnitWaypointBehavior
             if(geographicMapCellPosition.getRow() == this.afterNextUnvisitedPathGeographicMapCellPosition.getRow()) {
                 
             } else if(point.getY() < afterNextPoint.getY()) {
-                if (unitLayer.getY() + unitLayer.getHalfHeight() < point.getY()) {
+                if (unitLayer.getYP() + unitLayer.getHalfHeight() < point.getY()) {
                     beyondMidPoint = false;
                 }
             } else {
-                if (unitLayer.getY() + unitLayer.getHalfHeight() > point.getY()) {
+                if (unitLayer.getYP() + unitLayer.getHalfHeight() > point.getY()) {
                     beyondMidPoint = false;
                 }
             }
@@ -662,8 +662,8 @@ extends UnitWaypointBehavior
             // If current target is waypoint then follow path therwise target
             // layer
 
-            //int dx = getOwnerAdvancedRTSGameLayer().getX() - this.currentTargetLayerInterface.getX();
-            //int dy = getOwnerAdvancedRTSGameLayer().getY() - this.currentTargetLayerInterface.getY();
+            //int dx = getOwnerAdvancedRTSGameLayer().getX() - this.currentTargetLayerInterface.getXP();
+            //int dy = getOwnerAdvancedRTSGameLayer().getY() - this.currentTargetLayerInterface.getYP();
 
             int dx = 0;
             int dy = 0;
@@ -674,8 +674,8 @@ extends UnitWaypointBehavior
 
                 final GPoint point = this.nextUnvisitedPathGeographicMapCellPosition.getMidPoint();
 
-                dx = associatedAdvancedRTSGameLayer.getX() + associatedAdvancedRTSGameLayer.getHalfWidth() - point.getX();
-                dy = associatedAdvancedRTSGameLayer.getY() + associatedAdvancedRTSGameLayer.getHalfHeight() - point.getY();
+                dx = associatedAdvancedRTSGameLayer.getXP() + associatedAdvancedRTSGameLayer.getHalfWidth() - point.getX();
+                dy = associatedAdvancedRTSGameLayer.getYP() + associatedAdvancedRTSGameLayer.getHalfHeight() - point.getY();
                 
                 this.associatedAdvancedRTSGameLayer.waypoint2LogHelper.processTargeting(this.associatedAdvancedRTSGameLayer, dx, dy);
             }
@@ -683,13 +683,13 @@ extends UnitWaypointBehavior
             {
                 this.associatedAdvancedRTSGameLayer.waypoint2LogHelper.processTargetingNonWayPoint(this.associatedAdvancedRTSGameLayer, dx, dy);
 
-                dx = (this.associatedAdvancedRTSGameLayer.getX() +
+                dx = (this.associatedAdvancedRTSGameLayer.getXP() +
                         this.associatedAdvancedRTSGameLayer.getHalfWidth()) -
-                    (this.currentTargetLayerInterface.getX() +
+                    (this.currentTargetLayerInterface.getXP() +
                             this.currentTargetLayerInterface.getHalfWidth());
-                dy = (this.associatedAdvancedRTSGameLayer.getY() + 
+                dy = (this.associatedAdvancedRTSGameLayer.getYP() + 
                         this.associatedAdvancedRTSGameLayer.getHalfHeight())-
-                    (this.currentTargetLayerInterface.getY() +
+                    (this.currentTargetLayerInterface.getYP() +
                     this.currentTargetLayerInterface.getHalfHeight());
             }
 

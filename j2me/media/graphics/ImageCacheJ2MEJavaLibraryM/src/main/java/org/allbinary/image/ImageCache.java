@@ -30,7 +30,7 @@ public class ImageCache extends ImageCacheBase
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
 
-    ImageCache()
+    public ImageCache()
     // CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface)
     {
     }

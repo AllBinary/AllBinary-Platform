@@ -74,7 +74,7 @@ implements ArtificialIntelligenceTransitionInterface
         AllBinaryLayer allbinaryLayer = this.getOwnerLayerInterface();
         
         allbinaryLayer.setPosition(
-                allbinaryLayer.getX(), 1, allbinaryLayer.getZ());
+                allbinaryLayer.getXP(), 1, allbinaryLayer.getZP());
     }
 
     public void processAI(AllBinaryLayerManager allBinaryLayerManager)
@@ -92,7 +92,7 @@ implements ArtificialIntelligenceTransitionInterface
 
         AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
         
-        if (ownerLayerInterface.getX()
+        if (ownerLayerInterface.getXP()
                 - ownerLayerInterface.getWidth() <= 0
                 && frame == angleIncrementInfo.LEFT_FRAME.intValue())
         {
@@ -167,7 +167,7 @@ implements ArtificialIntelligenceTransitionInterface
         AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
         
         DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
-        int y = ownerLayerInterface.getY();
+        int y = ownerLayerInterface.getYP();
         if (ownerLayerInterface.getY2() + ownerLayerInterface.getHeight() > displayInfo.getLastHeight())
         {
             y = 0;
@@ -177,7 +177,7 @@ implements ArtificialIntelligenceTransitionInterface
             y += ownerLayerInterface.getHeight() + 1;
         }
         ownerLayerInterface.setPosition(
-                ownerLayerInterface.getX(), y, ownerLayerInterface.getZ());
+                ownerLayerInterface.getXP(), y, ownerLayerInterface.getZP());
     }
 
     public int getId()

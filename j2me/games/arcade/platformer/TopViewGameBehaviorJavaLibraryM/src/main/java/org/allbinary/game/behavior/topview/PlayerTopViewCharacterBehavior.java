@@ -49,7 +49,7 @@ public class PlayerTopViewCharacterBehavior extends TopViewCharacterBehavior {
 
         // Don't move to far forward in screen if not close to edge of tilelayer
         //final ViewPosition viewPosition = layer.getViewPosition();
-        //final int viewX = viewPosition.getX();
+        //final int viewX = viewPosition.getXP();
 
         //final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         final BasicGeographicMapUtil basicGeographicMapUtil = BasicGeographicMapUtil.getInstance();
@@ -60,7 +60,7 @@ public class PlayerTopViewCharacterBehavior extends TopViewCharacterBehavior {
         if (viewX < (displayInfo.getLastHalfWidth() >> 1) || viewX > displayInfo.getLastHalfWidth() + displayInfo.getLastHalfWidth() / 2) {
             
             // logUtil.put("View Position X: " +
-            // this.getViewPosition().getX()).append(" 1/4 View" + spacialStrings +
+            // this.getViewPosition().getXP()).append(" 1/4 View" + spacialStrings +
             // DisplayInfoSingleton.getInstance()getLastHalfWidth() / 2, this, "move");
             if (this.isTiledLayerMoveable(terrainTiledLayer, x, y)) {
                 logUtil.put(new StringMaker().append("Player and TileLayer move: x: ").append(x).append(" y: ").append(y).toString(), this, "move");
@@ -93,21 +93,21 @@ public class PlayerTopViewCharacterBehavior extends TopViewCharacterBehavior {
     {
 //        final int MAX_RIGHT = (DisplayInfoSingleton.getInstance().getLastWidth() - layer.getWidth());
 //        final ViewPosition viewPosition = layer.getViewPosition();
-//        final int viewX = viewPosition.getX();
+//        final int viewX = viewPosition.getXP();
 //        if ((viewX > 0 || ax > 0) && (viewX < MAX_RIGHT || ax < 0))
 //        {
-//            logUtil.put(new StringMaker().append("ax: ").append(ax).append(CommonSeps.getInstance().SPACE).append(layer.getViewPosition().getX()).append(" < ").append(MAX_RIGHT).toString(), this, "moveIfOnScreen");
+//            logUtil.put(new StringMaker().append("ax: ").append(ax).append(CommonSeps.getInstance().SPACE).append(layer.getViewPosition().getXP()).append(" < ").append(MAX_RIGHT).toString(), this, "moveIfOnScreen");
 //            layer.move(ax, ay);
 //        }
 //        else
 //        {
-//            logUtil.put(new StringMaker().append("ax: ").append(ax).append(CommonSeps.getInstance().SPACE).append(layer.getViewPosition().getX()).append(" < ").append(MAX_RIGHT).toString(), this, "moveIfOnScreen");
+//            logUtil.put(new StringMaker().append("ax: ").append(ax).append(CommonSeps.getInstance().SPACE).append(layer.getViewPosition().getXP()).append(" < ").append(MAX_RIGHT).toString(), this, "moveIfOnScreen");
 //            layer.move(0, ay);
 //        }
     }
     
     private boolean isTiledLayerMoveable(final AllBinaryTiledLayer terrainTiledLayer, final int x, final int y) {
-        return (terrainTiledLayer.getX() + DisplayInfoSingleton.getInstance().getLastWidth() < terrainTiledLayer.getWidth() || x < 0) && (terrainTiledLayer.getX() > 0 || x > 0);
+        return (terrainTiledLayer.getXP() + DisplayInfoSingleton.getInstance().getLastWidth() < terrainTiledLayer.getWidth() || x < 0) && (terrainTiledLayer.getXP() > 0 || x > 0);
     }
 
 }

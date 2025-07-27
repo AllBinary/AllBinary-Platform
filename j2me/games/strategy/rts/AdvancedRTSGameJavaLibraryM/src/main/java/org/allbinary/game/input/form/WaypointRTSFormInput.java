@@ -171,8 +171,8 @@ public class WaypointRTSFormInput extends RTSFormInput
                 final AllBinaryTiledLayer allBinaryTiledLayer =
                     geographicMapInterface.getAllBinaryTiledLayer();
 
-                int x = point.getX() + allBinaryTiledLayer.getX();
-                int y = point.getY() + allBinaryTiledLayer.getY();
+                int x = point.getX() + allBinaryTiledLayer.getXP();
+                int y = point.getY() + allBinaryTiledLayer.getYP();
 
                 final GeographicMapCellPosition geographicMapCellPosition =
                     geographicMapInterface.getCellPositionAt(x, y);
@@ -222,7 +222,7 @@ public class WaypointRTSFormInput extends RTSFormInput
 
             this.newUnconstructedRTSLayerInterfaceArray[itemIndex].setPosition(
                     cellPoint.getX(), cellPoint.getY(),
-                    this.newUnconstructedRTSLayerInterfaceArray[itemIndex].getZ());
+                    this.newUnconstructedRTSLayerInterfaceArray[itemIndex].getZP());
 
             final GeographicMapCompositeInterface geographicMapCompositeInterface
                 = (GeographicMapCompositeInterface) this.newUnconstructedRTSLayerInterfaceArray[itemIndex].allBinaryGameLayerManager;
@@ -370,7 +370,7 @@ public class WaypointRTSFormInput extends RTSFormInput
 
             final GeographicMapCellPosition geographicMapCellPosition =
                 geographicMapInterface.getCellPositionAt(
-                layerInterface.getX(), layerInterface.getY());
+                layerInterface.getXP(), layerInterface.getYP());
 
             final WaypointLayer waypointLayer = (WaypointLayer) layerInterface;
 

@@ -77,7 +77,7 @@ extends BasicAI
 		{
 			AllBinaryLayer layerInterface = this.getOwnerLayerInterface();
 
-			int currentOwnerLayerX = layerInterface.getX();
+			int currentOwnerLayerX = layerInterface.getXP();
 
 			// if(this.firedIndex > 0)
 			// {
@@ -90,7 +90,7 @@ extends BasicAI
 
 				// PreLogUtil.put(PositionStrings.getInstance().Y_LABEL + y, this, commonStrings.PROCESS);
 
-				layerInterface.setPosition(displayInfoSingleton.getLastWidth() + layerInterface.getWidth() + 50, y, layerInterface.getZ());
+				layerInterface.setPosition(displayInfoSingleton.getLastWidth() + layerInterface.getWidth() + 50, y, layerInterface.getZP());
 
 				firedIndex = 0;
 				this.firingX = displayInfoSingleton.getLastHalfWidth()

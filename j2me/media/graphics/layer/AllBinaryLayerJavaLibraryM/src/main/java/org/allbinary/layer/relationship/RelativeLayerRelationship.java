@@ -40,19 +40,19 @@ public class RelativeLayerRelationship
    @Override
    public int getX()
    {
-      return this.layer.getX() + this.getX();
+      return this.layer.getXP() + super.getX();
    }
    
    @Override
    public int getY()
    {
-      return this.layer.getY() + this.getY();
+      return this.layer.getYP() + super.getY();
    }
 
    @Override
    public int getZ()
    {
-      return this.layer.getZ() + this.getZ();
+      return this.layer.getZP() + super.getZ();
    }
    
    /*

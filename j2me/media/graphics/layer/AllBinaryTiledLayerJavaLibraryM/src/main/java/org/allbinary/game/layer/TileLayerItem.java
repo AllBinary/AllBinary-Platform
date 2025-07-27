@@ -80,7 +80,7 @@ public class TileLayerItem extends CustomItem implements CustomItemInterface
     {
         //int layout = this.getLayout();
 
-        this.tiledLayer.setPosition(x, y, this.tiledLayer.getZ());
+        this.tiledLayer.setPosition(x, y, this.tiledLayer.getZP());
         this.tiledLayer.paint(graphics);
     }
     

@@ -79,7 +79,7 @@ implements CollidableInterface
         }
         else
         {
-            //logUtil.put("y: " + this.y + " " + this.getY2() + " other y: " + collisionLayer.getY() + " " + collisionLayer.getY2(), this, damageUtil.IS_COLLISION);
+            //logUtil.put("y: " + this.y + " " + this.getY2() + " other y: " + collisionLayer.getYP() + " " + collisionLayer.getY2(), this, damageUtil.IS_COLLISION);
             //logUtil.put("viewy: " + this.getViewPosition().getY() + " " + this.getViewPosition().getY2() + " other viewy: " + ((AllBinaryLayer) collisionLayer).getViewPosition().getY() + " " + ((AllBinaryLayer) collisionLayer).getViewPosition().getY2(), this, damageUtil.IS_COLLISION);
             
             return true;

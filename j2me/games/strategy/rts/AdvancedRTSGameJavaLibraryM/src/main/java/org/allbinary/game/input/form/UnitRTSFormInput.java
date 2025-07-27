@@ -128,7 +128,7 @@ public class UnitRTSFormInput extends RTSFormInput
 
             this.newUnconstructedRTSLayerInterfaceArray[itemIndex].setPosition(
                     cellPoint.getX(), cellPoint.getY(), 
-                    this.newUnconstructedRTSLayerInterfaceArray[itemIndex].getZ());
+                    this.newUnconstructedRTSLayerInterfaceArray[itemIndex].getZP());
 
             final GeographicMapCompositeInterface geographicMapCompositeInterface
                 = (GeographicMapCompositeInterface) this.newUnconstructedRTSLayerInterfaceArray[itemIndex].allBinaryGameLayerManager;
@@ -143,7 +143,7 @@ public class UnitRTSFormInput extends RTSFormInput
         this.newUnconstructedRTSLayerInterfaceArray[itemIndex].setPosition(
                 cellPoint.getX() - this.newUnconstructedRTSLayerInterfaceArray[itemIndex].getHalfWidth(), 
                 cellPoint.getY() - this.newUnconstructedRTSLayerInterfaceArray[itemIndex].getHalfHeight(),
-                this.newUnconstructedRTSLayerInterfaceArray[itemIndex].getZ());
+                this.newUnconstructedRTSLayerInterfaceArray[itemIndex].getZP());
 
         //this.newUnconstructedRTSLayerInterface.geographicMapCellPositionArea.update();
         

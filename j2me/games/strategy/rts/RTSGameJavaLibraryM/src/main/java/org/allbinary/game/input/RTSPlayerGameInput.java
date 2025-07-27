@@ -236,8 +236,8 @@ public class RTSPlayerGameInput extends PlayerGameInput
         final AllBinaryTiledLayer allBinaryTiledLayer = 
             geographicMapInterface.getAllBinaryTiledLayer();
 
-        final int x = point.getX() + allBinaryTiledLayer.getX();
-        final int y = point.getY() + allBinaryTiledLayer.getY();
+        final int x = point.getX() + allBinaryTiledLayer.getXP();
+        final int y = point.getY() + allBinaryTiledLayer.getYP();
 
         //final SpacialStrings commonLabels = SpacialStrings.getInstance();
         //logUtil.put(
@@ -265,7 +265,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
             {
                 geographicMapCellPosition =
                     geographicMapInterface.getCellPositionAt(
-                    foundRTSLayer.getX(), foundRTSLayer.getY());
+                    foundRTSLayer.getXP(), foundRTSLayer.getYP());
             }            
             
             // If this position has a tower then set that tower
@@ -315,8 +315,8 @@ public class RTSPlayerGameInput extends PlayerGameInput
                 height = rtsLayer.getHeight();
 
                 graphics.drawRect(
-                        rtsLayer.getX() - allBinaryTiledLayer.getX(), 
-                        rtsLayer.getY() - allBinaryTiledLayer.getY(), 
+                        rtsLayer.getXP() - allBinaryTiledLayer.getXP(), 
+                        rtsLayer.getYP() - allBinaryTiledLayer.getYP(), 
                         width, height);
             }
         } else if (geographicMapCellPosition != null)
@@ -327,8 +327,8 @@ public class RTSPlayerGameInput extends PlayerGameInput
             height = allBinaryTiledLayer.getCellHeight();
 
             graphics.drawRect(
-                    point.getX() - allBinaryTiledLayer.getX(), 
-                    point.getY() - allBinaryTiledLayer.getY(), 
+                    point.getX() - allBinaryTiledLayer.getXP(), 
+                    point.getY() - allBinaryTiledLayer.getYP(), 
                     width, height);
         }        
     }

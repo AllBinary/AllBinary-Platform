@@ -35,10 +35,10 @@ public class LinePathRelativeAnimation extends LinePathAnimation {
     public void paint(final Graphics graphics, final GPoint point, final GPoint nextPoint, final Layer tiledLayer) {
         
         graphics.drawLine(
-            nextPoint.getX() - tiledLayer.getX(),
-            nextPoint.getY() - tiledLayer.getY(),
-            point.getX() - tiledLayer.getX(),
-            point.getY() - tiledLayer.getY()
+            nextPoint.getX() - tiledLayer.getXP(),
+            nextPoint.getY() - tiledLayer.getYP(),
+            point.getX() - tiledLayer.getXP(),
+            point.getY() - tiledLayer.getYP()
         );
         
     }

@@ -29,8 +29,8 @@ public class ScrollOverAtEndAI extends BasicAI
            throws Exception
    {
        AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
-      int x = ownerLayerInterface.getX();
-      int y = ownerLayerInterface.getY();
+      int x = ownerLayerInterface.getXP();
+      int y = ownerLayerInterface.getYP();
       
       int width = ownerLayerInterface.getWidth();
       int height = ownerLayerInterface.getHeight();
@@ -39,24 +39,24 @@ public class ScrollOverAtEndAI extends BasicAI
       //was x2
       if (x > displayInfo.getLastWidth())
       {
-          ownerLayerInterface.setPosition(0, y, ownerLayerInterface.getZ());
+          ownerLayerInterface.setPosition(0, y, ownerLayerInterface.getZP());
          //ownerLayerInterface.setPosition(width + 1, y);
       }
 
       if (y > displayInfo.getLastHeight())
       {
          //ownerLayerInterface.setPosition(x, height + 1);
-          ownerLayerInterface.setPosition(x, 0, ownerLayerInterface.getZ());
+          ownerLayerInterface.setPosition(x, 0, ownerLayerInterface.getZP());
       }
 
       if (x < -width)
       {
-         ownerLayerInterface.setPosition(displayInfo.getLastWidth() - width, y, ownerLayerInterface.getZ());
+         ownerLayerInterface.setPosition(displayInfo.getLastWidth() - width, y, ownerLayerInterface.getZP());
       }
 
       if (y < -height)
       {
-         ownerLayerInterface.setPosition(x, displayInfo.getLastHeight() - height, ownerLayerInterface.getZ());
+         ownerLayerInterface.setPosition(x, displayInfo.getLastHeight() - height, ownerLayerInterface.getZP());
       }
    }   
 }
