@@ -22,7 +22,7 @@ public class NullRunnable implements Runnable
         return instance;
     }
 
-    private NullRunnable()
+    public NullRunnable()
     {
         
     }
