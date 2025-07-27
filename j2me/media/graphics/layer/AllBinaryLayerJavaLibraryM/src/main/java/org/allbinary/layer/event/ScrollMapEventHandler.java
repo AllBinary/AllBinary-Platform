@@ -31,11 +31,12 @@ public class ScrollMapEventHandler extends BasicEventHandler
       return ScrollMapEventHandler.SINGLETON;
    }
    
+   @Override
    protected void process(AllBinaryEventObject eventObject,
            EventListenerInterface eventListenerInterface) throws Exception {
 
-      ((ScrollMapEventListenerInterface) eventListenerInterface).onMoveEvent(
-              (ScrollMapEvent) eventObject);
+       final ScrollMapEventListenerInterface scrollMapEventListenerInterface = ((ScrollMapEventListenerInterface) eventListenerInterface);
+      scrollMapEventListenerInterface.onMoveEvent((ScrollMapEvent) eventObject);
    }
    
 }

@@ -28,7 +28,8 @@ public class NullLayer extends Layer
     {
         super(0, 0);
     }
-    
+
+    @Override    
     public void paint(Graphics graphics)
     {
     }

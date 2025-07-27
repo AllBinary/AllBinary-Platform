@@ -20,7 +20,9 @@ import org.allbinary.layer.AllBinaryLayer;
 // tileLayer location
 public class ViewPosition extends GPoint
 {
-    private AllBinaryLayer allbinaryLayer;
+    public static final ViewPosition NULL_VIEW_POSITION = new ViewPosition();
+    
+    private AllBinaryLayer allbinaryLayer = AllBinaryLayer.NULL_ALLBINARY_LAYER;
 
     public ViewPosition()
     {
@@ -37,16 +39,19 @@ public class ViewPosition extends GPoint
         super(x, y, z);
     }
 
+    @Override
     public int getX()
     {
         return this.allbinaryLayer.getX();
     }
 
+    @Override
     public int getY()
     {
         return this.allbinaryLayer.getY();
     }
 
+    @Override
     public int getZ()
     {
         return this.allbinaryLayer.getZ();

@@ -45,9 +45,12 @@ import org.allbinary.system.Memory;
 public class AllBinaryMidlet extends MIDlet 
 implements CommandListener
 {
+    public static final AllBinaryMidlet NULL_ALLBINARY_MIDLET = new AllBinaryMidlet();
+    
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private final String SET_DISPLAY = "setDisplay";
     
     private final String SETTING_ = "Setting: ";
@@ -59,8 +62,7 @@ implements CommandListener
 
     public AllBinaryMidlet()
     {
-        logUtil.put(
-                commonStrings.CONSTRUCTOR, this, "AllBinaryMidlet::AllBinaryMidlet");
+        logUtil.put(commonStrings.CONSTRUCTOR, this, "AllBinaryMidlet::AllBinaryMidlet");
     }
 
     protected void setDisplay(final Displayable newDisplay)

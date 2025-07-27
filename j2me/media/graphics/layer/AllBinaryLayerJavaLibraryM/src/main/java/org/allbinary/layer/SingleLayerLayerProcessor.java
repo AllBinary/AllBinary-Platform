@@ -21,6 +21,7 @@ extends LayerProcessor
         super(new SingleLayerLayerManager());
     }
 
+    @Override
     public void process(AllBinaryLayerManager allBinaryLayerManager)
             throws Exception
     {

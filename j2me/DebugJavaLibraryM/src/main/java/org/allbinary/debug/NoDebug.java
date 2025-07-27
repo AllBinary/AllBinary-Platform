@@ -22,26 +22,31 @@ public class NoDebug implements DebugInterface
       return SINGLETON;
    }
    
+   @Override
     public void start()
     {
         
     }
     
+    @Override
     public void stop()
     {
         
     }
 
+    @Override
     public long getMaxTime()
     {
         return 10000;
     }
     
+    @Override
     public long getStartTime()
     {
         return 0;
     }
     
+    @Override
     public boolean isRunning()
     {
         return false;

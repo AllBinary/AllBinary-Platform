@@ -13,6 +13,7 @@
  */
 package org.allbinary.graphics.opengles.shader;
 
+import org.allbinary.graphics.opengles.NullOpenGLProcessorFactory;
 import org.allbinary.graphics.opengles.OpenGLProcessor;
 
 /**
@@ -25,7 +26,7 @@ public class PlatformShaderComposite extends ShaderComposite {
         final ModelViewProjection modelViewProjection, final OpenGLProcessor colorOpenGLProcessor, final OpenGLProcessor vertexOpenGLProcessor) {
 
         super(requiresOpenGLVersion, shaderArray, compositeShaderUpdater, shaderInitializer, modelViewProjection, colorOpenGLProcessor, vertexOpenGLProcessor,
-            null
+            NullOpenGLProcessorFactory.getInstance()
             //ShaderMatrixOpenGLProcessor.getInstance(),
         );
         

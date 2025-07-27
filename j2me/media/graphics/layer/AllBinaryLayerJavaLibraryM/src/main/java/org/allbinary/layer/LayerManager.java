@@ -39,7 +39,7 @@ public class LayerManager
         final int size = this.list.size();
         for(int index = 0; index < size; index++) {
             nextLayerInterface = (AllBinaryLayer) this.list.get(index);
-            if(layerInterface.z > nextLayerInterface.z) {
+            if(layerInterface.getZ() > nextLayerInterface.getZ()) {
                 this.append(layerInterface, index);
                 return;
             }

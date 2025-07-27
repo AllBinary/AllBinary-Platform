@@ -95,7 +95,7 @@ public class ImageCacheBase
                 return (Image) list.remove(list.size() - 1);
             }
         }
-        return null;
+        return Image.NULL_IMAGE;
     }
     
     public Image get(final Object object, final int width, final int height)
@@ -156,7 +156,7 @@ public class ImageCacheBase
         return stringBuffer.toString();
     }
 
-    public Hashtable getHashtable()
+    public Hashtable getHashtableP()
     {
         return hashtable;
     }

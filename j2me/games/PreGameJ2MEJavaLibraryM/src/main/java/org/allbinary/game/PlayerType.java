@@ -13,31 +13,33 @@
 */
 package org.allbinary.game;
 
+import org.allbinary.logic.string.StringUtil;
+
 public class PlayerType
 {
     private int id;
-    private String name;
+    private String name = StringUtil.getInstance().EMPTY_STRING;
     
-    protected PlayerType(String name, int value)
+    PlayerType(final String name, final int value)
     {
-        this.setName(name);
-        this.setId(value);
+        this.name = name;
+        this.id = value;
     }
 
-    private void setId(int id)
-    {
-        this.id = id;
-    }
+//    private void setId(int id)
+//    {
+//        this.id = id;
+//    }
 
     public int getId()
     {
         return id;
     }
 
-    private void setName(String name)
-    {
-        this.name = name;
-    }
+//    private void setName(String name)
+//    {
+//        this.name = name;
+//    }
 
     public String getName()
     {

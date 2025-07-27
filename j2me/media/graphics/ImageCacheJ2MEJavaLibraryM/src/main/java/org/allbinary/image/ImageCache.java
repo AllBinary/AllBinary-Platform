@@ -26,11 +26,11 @@ import org.allbinary.system.Memory;
 
 public class ImageCache extends ImageCacheBase
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
+    public static final ImageCache NULL_IMAGE_CACHE = new ImageCache(); 
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
 
-    protected ImageCache()
+    ImageCache()
     // CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface)
     {
     }
@@ -39,7 +39,8 @@ public class ImageCache extends ImageCacheBase
     public void addListener(Object renderer) {
         
     }
-    
+
+    @Override
     public Image get(final String caller, final int width, final int height)
     throws Exception
     {        
@@ -61,6 +62,8 @@ public class ImageCache extends ImageCacheBase
             image = this.createImage(caller, width, height);
             //logUtil.put(new StringMaker().append("Image: ").append(image).toString(), this, commonStrings.GET);
 
+            final int[] widths = this.widths;
+            
             if(nextIndex > widths.length - 1) {
                 if (foundIndex == -1) {
                     foundIndex = nextIndex;
@@ -80,6 +83,7 @@ public class ImageCache extends ImageCacheBase
         return image;
     }
     
+    @Override    
     public Image get(final Object key) throws Exception
     {
         Image image = (Image) this.hashtable.get(key);

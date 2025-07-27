@@ -13,6 +13,8 @@
  */
 package org.allbinary.graphics.opengles.shader;
 
+import org.allbinary.logic.NullUtil;
+
 /**
  *
  * @author User
@@ -29,7 +31,7 @@ public class ModelViewProjection {
     }
     
     public float[] get() {
-        return null;
+        return NullUtil.getInstance().NULL_FLOAT_ARRAY;
     }
 
 }

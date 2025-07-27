@@ -20,6 +20,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListUtil;
 
 public class LayerInterfaceFactory
 {
@@ -28,7 +29,7 @@ public class LayerInterfaceFactory
    private static final LayerInterfaceFactory SINGLETON = 
        new LayerInterfaceFactory();
    
-   private BasicArrayList list;
+   private BasicArrayList list = BasicArrayListUtil.getInstance().getImmutableInstance();
 
    public static LayerInterfaceFactory getInstance()
    {
@@ -48,7 +49,7 @@ public class LayerInterfaceFactory
        final CommonStrings commonStrings = CommonStrings.getInstance();
       logUtil.put(new StringMaker().append(HASHTABLE_LABEL).append(StringUtil.getInstance().toString(hashtable)).toString(), this, commonStrings.GET_INSTANCE);
 
-      final Integer typeInteger = (Integer) hashtable.get(Layer.ID);
+      final Integer typeInteger = (Integer) hashtable.get((Object) Layer.ID);
 
       /*
       if(list.objectArray.length <= typeInteger.intValue() - 1)

@@ -22,7 +22,6 @@ import org.allbinary.util.BasicArrayList;
 
 public class LayerManagerEventHandler extends BasicEventHandler
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private static LayerManagerEventHandler instance = new LayerManagerEventHandler();
 
@@ -45,18 +44,21 @@ public class LayerManagerEventHandler extends BasicEventHandler
         }
     }
 
+    @Override
     public void removeAllListeners()
     {
         this.list.clear();
         super.removeAllListeners();
     }
 
+    @Override
     public void removeListener(final EventListenerInterface eventListenerInterface)
     {
         this.list.remove(eventListenerInterface);
         super.removeListener(eventListenerInterface);
     }
 
+    @Override
     public void fireEvent(final AllBinaryEventObject eventObject) throws Exception
     {        
         for (int index = this.list.size(); --index >= 0;)
@@ -96,15 +98,15 @@ public class LayerManagerEventHandler extends BasicEventHandler
         
         final BasicArrayList eventListenerInterfaceList = this.eventListenerInterfaceList;
 
+        EventListenerInterface eventListenerInterface;
+        LayerManagerEventListenerInterface layerManagerEventListenerInterface;
         for (int index = 0; index < eventListenerInterfaceList.size(); index++)
         {
             try
             {
-                final EventListenerInterface eventListenerInterface = (EventListenerInterface) eventListenerInterfaceList
-                        .objectArray[index];
-
-                ((LayerManagerEventListenerInterface) eventListenerInterface)
-                        .onDeleteLayerManagerEvent((LayerManagerEvent) eventObject);
+                eventListenerInterface = (EventListenerInterface) eventListenerInterfaceList.objectArray[index];
+                layerManagerEventListenerInterface = ((LayerManagerEventListenerInterface) eventListenerInterface);
+                layerManagerEventListenerInterface.onDeleteLayerManagerEvent((LayerManagerEvent) eventObject);
             }
             catch (Exception e)
             {
@@ -113,10 +115,11 @@ public class LayerManagerEventHandler extends BasicEventHandler
         }
     }
 
+    @Override
     protected void process(final AllBinaryEventObject eventObject,
             final EventListenerInterface eventListenerInterface) throws Exception
     {
-        ((LayerManagerEventListenerInterface) eventListenerInterface)
-                .onCreateLayerManagerEvent((LayerManagerEvent) eventObject);
+        final LayerManagerEventListenerInterface layerManagerEventListenerInterface = ((LayerManagerEventListenerInterface) eventListenerInterface);
+        layerManagerEventListenerInterface.onCreateLayerManagerEvent((LayerManagerEvent) eventObject);
     }
 }

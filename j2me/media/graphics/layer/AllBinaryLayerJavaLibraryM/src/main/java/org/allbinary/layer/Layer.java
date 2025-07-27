@@ -28,17 +28,17 @@ public class Layer
     //- These methods are for optimizing to concrete classes
     public static final Integer ID = SmallIntegerSingletonFactory.getInstance().getInstance(0);
 
-    protected int x;
+    private int x;
 
-    protected int y;
+    private int y;
 
-    protected int z = 3;
+    private int z = 3;
     
-    protected int width;
+    private int width;
 
-    protected int height;
+    private int height;
 
-    protected boolean visible = true;
+    private boolean visible = true;
 
     public Layer(int width, int height)
     {

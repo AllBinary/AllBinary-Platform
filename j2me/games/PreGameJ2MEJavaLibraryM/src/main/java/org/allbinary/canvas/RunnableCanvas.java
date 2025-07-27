@@ -14,15 +14,16 @@
 package org.allbinary.canvas;
 
 import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.NullCommandListener;
 
 import org.allbinary.game.displayable.canvas.NullWaitGameRunnable;
 import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.graphics.displayable.MyCanvas;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.thread.NullThread;
 import org.allbinary.thread.RunnableInterface;
 import org.allbinary.thread.ThreadObjectUtil;
 import org.allbinary.time.TimeDelayHelper;
@@ -31,11 +32,9 @@ import org.allbinary.util.BasicArrayList;
 public class RunnableCanvas extends MyCanvas 
     implements RunnableInterface
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
-
     
-    private Thread thread;
-    private Thread currentThread;
+    private Thread thread = NullThread.NULL_THREAD;
+    private Thread currentThread = NullThread.NULL_THREAD;
 
     private boolean running;
 
@@ -43,7 +42,7 @@ public class RunnableCanvas extends MyCanvas
     protected final TimeDelayHelper loopTimeHelper = new TimeDelayHelper(NullWaitGameRunnable.getInstance().WAIT);
 
     //protected ProcessPaintable processPaintable;
-    protected Processor runnableCanvasRefreshHelper;
+    protected Processor runnableCanvasRefreshHelper = Processor.getInstance();
 
     protected final CommonLabels commonLabels = CommonLabels.getInstance();
     
@@ -72,7 +71,7 @@ public class RunnableCanvas extends MyCanvas
     
     public RunnableCanvas()
     {   
-        this(null, CanvasStrings.getInstance().EMPTY_CHILD_NAME_LIST, false);
+        this(NullCommandListener.NULL_COMMAND_LISTENER, CanvasStrings.getInstance().EMPTY_CHILD_NAME_LIST, false);
     }
 
     //Empty method for overriding 
@@ -96,18 +95,20 @@ public class RunnableCanvas extends MyCanvas
      * public CommandListener getCommandListener() { return commandListener; }
      */
 
+    @Override
     public void setThread(Thread thread)
     {
         this.thread = thread;
     }
 
+    @Override
     public void setRunning(boolean running)
     {
         this.running = running;
 
         if (!this.running)
         {
-            this.thread = null;
+            this.thread = NullThread.NULL_THREAD;
             synchronized(this)
             {
                 threadObjectUtil.notifyObject(this);
@@ -124,6 +125,7 @@ public class RunnableCanvas extends MyCanvas
 
     // private final String NOT_RUNNING = "Not Running";
 
+    @Override
     public synchronized boolean isRunning()
     {
         if (this.thread == this.currentThread)
@@ -141,29 +143,34 @@ public class RunnableCanvas extends MyCanvas
             final StringMaker stringBuffer = new StringMaker();
             
             stringBuffer.append(THREAD);
-            if(this.thread != null)
-            stringBuffer.append(this.thread.toString());
+            if(this.thread != null) {
+                stringBuffer.append(this.thread.toString());
+            }
+            
             stringBuffer.append(NOT_EQUAL);
-            if(this.currentThread != null)
-            stringBuffer.append(StringUtil.getInstance().toString(this.currentThread));
+
+            if(this.currentThread != null) {
+                stringBuffer.append(StringUtil.getInstance().toString(this.currentThread));
+            }
+            
             
             logUtil.put(stringBuffer.toString(), this, IS_RUNNING);
             return false;
         }
     }
 
-    public TimeDelayHelper getLoopTimeHelper()
+    public TimeDelayHelper getLoopTimeHelperP()
     {
         return loopTimeHelper;
     }
     
-    private int pauseWait = 0;
+    private long pauseWait = 0;
 
     protected void setWait(int wait)
     {
         loopTimeHelper.delay = wait;
         // this.wait = wait;
-        this.pauseWait = wait * 3;
+        this.pauseWait = (long) wait * 3;
         
         logUtil.put(new StringMaker().append("setWait - delay: ").append(this.loopTimeHelper.delay).toString(), this, this.commonStrings.CONSTRUCTOR);
     }
@@ -183,6 +190,7 @@ public class RunnableCanvas extends MyCanvas
         this.currentThread = thread;
     }
 
+    @Override
     protected void showNotify()
     {
         try
@@ -205,7 +213,7 @@ public class RunnableCanvas extends MyCanvas
         this.repaint();
     }
     
-    public synchronized void waitOnNotify(int wait)
+    public synchronized void waitOnNotify(long wait)
         throws Exception
     {
         if(!this.notified)
@@ -324,7 +332,7 @@ public class RunnableCanvas extends MyCanvas
         Thread.sleep(attemptFrameTime - elapsedTime);
         */
         
-        final int wait = this.loopTimeHelper.delay;
+        final long wait = (long) this.loopTimeHelper.delay;
         
         if (elapsedTime > wait)
         {
@@ -341,6 +349,7 @@ public class RunnableCanvas extends MyCanvas
         return false;
     }
     
+    @Override
     public void run()
     {
         this.setCurrentThread();

@@ -26,6 +26,7 @@ public class ScreenRepaintProcessor extends Processor
         this.displayable = displayable;
     }
 
+    @Override
     public void process() throws Exception
     {
         ScreenRepaintUtil.repaint(displayable);

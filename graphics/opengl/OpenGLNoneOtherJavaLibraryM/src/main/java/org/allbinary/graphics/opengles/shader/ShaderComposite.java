@@ -17,6 +17,7 @@ import javax.microedition.khronos.opengles.GL10;
 
 import org.allbinary.graphics.opengles.NullOpenGLProcessorFactory;
 import org.allbinary.graphics.opengles.OpenGLProcessor;
+import org.allbinary.logic.string.StringUtil;
 
 /**
  *
@@ -37,7 +38,7 @@ public class ShaderComposite {
     public final OpenGLProcessor colorOpenGLProcessor;
     public final OpenGLProcessor vertexOpenGLProcessor;
 
-    public OpenGLProcessor useProgramShaderOpenGLProcessor = null;
+    public OpenGLProcessor useProgramShaderOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
     public OpenGLProcessor shaderMatrixOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
     public OpenGLProcessor colorEnableVertexAttribArrayOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
     public OpenGLProcessor normalEnableVertexAttribArrayOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
@@ -69,7 +70,7 @@ public class ShaderComposite {
     }
     
     public void init(GL10 gl) {
-        this.programHandle = this.shaderInitializer.init(gl, this.shaderArray, null);
+        this.programHandle = this.shaderInitializer.init(gl, this.shaderArray, StringUtil.getInstance().getArrayInstance());
     }
 
 }

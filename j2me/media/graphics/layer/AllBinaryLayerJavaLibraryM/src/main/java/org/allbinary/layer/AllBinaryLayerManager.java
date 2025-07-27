@@ -19,7 +19,6 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class AllBinaryLayerManager extends LayerManager
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     //private final CommonLabels commonLabels = CommonLabels.getInstance();
     
@@ -63,6 +62,7 @@ public class AllBinaryLayerManager extends LayerManager
         }
     }
     
+    @Override
     public void append(final AllBinaryLayer layerInterface) throws Exception
     {
         if(!this.contains(layerInterface))
@@ -75,6 +75,7 @@ public class AllBinaryLayerManager extends LayerManager
         }
     }
 
+    @Override
     public void append(final AllBinaryLayer layerInterface, final int index) throws Exception
     {
         if(!this.contains(layerInterface))
@@ -109,6 +110,7 @@ public class AllBinaryLayerManager extends LayerManager
         }
     }
 
+    @Override
     public synchronized void remove(final AllBinaryLayer layerInterface)
         throws Exception
     {
@@ -160,6 +162,7 @@ public class AllBinaryLayerManager extends LayerManager
         }
     }
 
+    @Override
     public void cleanup() throws Exception
     {
          //PreLogUtil.put(new Integer(this.getSize()).toString(), this, this.commonStrings.CLEANUP);

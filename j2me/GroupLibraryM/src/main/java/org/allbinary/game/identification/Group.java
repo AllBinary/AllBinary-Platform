@@ -15,15 +15,16 @@ package org.allbinary.game.identification;
 
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 
 public class Group implements GroupInterface
 {
     public static final Integer ID = SmallIntegerSingletonFactory.getInstance().getInstance(10);
    
-   private String name;
+   private String name = StringUtil.getInstance().EMPTY_STRING;
    private final short teamId;
 
-   private String string;
+   private String string = StringUtil.getInstance().EMPTY_STRING;
 
    private static final String GROUP_NAME_LABEL = "Group Name: ";
    private static final String ID_LABEL = " Id: ";
@@ -35,6 +36,7 @@ public class Group implements GroupInterface
 
    }
 
+   @Override
    public String getGroupName()
    {
       return name;
@@ -54,6 +56,7 @@ public class Group implements GroupInterface
       this.string = stringBuffer.toString();
    }
    
+   @Override
    public short getGroupId()
    {
       return teamId;

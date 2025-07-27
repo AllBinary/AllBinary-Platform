@@ -15,18 +15,19 @@ package org.allbinary.graphics.canvas.transition.progress;
 
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.NullCanvas;
 
 import org.allbinary.canvas.Processor;
 import org.allbinary.canvas.RunnableCanvas;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFont;
 import org.allbinary.graphics.form.item.CustomGaugeItem;
 import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.graphics.paint.PaintableInterface;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.logic.string.StringMaker;
@@ -38,8 +39,6 @@ import org.allbinary.thread.ThreadPool;
 public class ProgressCanvas extends RunnableCanvas
     implements PaintableInterface
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
-
     //protected static final String END_FROM_INITIAL_LAZY_LOADING_COMPLETE = "endFromInitialLazyLoadingComplete";
     
     protected boolean hasPainted;
@@ -51,10 +50,10 @@ public class ProgressCanvas extends RunnableCanvas
         }
     };
     
-    protected AllBinaryMidlet allbinaryMidlet;
+    protected AllBinaryMidlet allbinaryMidlet = AllBinaryMidlet.NULL_ALLBINARY_MIDLET;
 
     private float value;
-    private final float maxValue = 100;
+    private final float maxValue = 100.0f;
 
     protected final CustomGaugeItem gauge;
 
@@ -81,8 +80,8 @@ public class ProgressCanvas extends RunnableCanvas
     protected ProgressCanvas()
     {
         this.paintable = NullPaintable.getInstance();
-        this.backgroundBasicColor = null;
-        gauge = null;
+        this.backgroundBasicColor = BasicColorFactory.getInstance().WHITE;
+        this.gauge = CustomGaugeItem.NULL_GAUGE_ITEM;
     }
     
     protected ProgressCanvas(final String title, final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
@@ -112,6 +111,7 @@ public class ProgressCanvas extends RunnableCanvas
     }
     */
 
+    @Override
     public void initCommands(CommandListener cmdListener)
     {
         // this.removeAllCommands();
@@ -163,7 +163,7 @@ public class ProgressCanvas extends RunnableCanvas
     
     public void endActual() {
         //getCommandListener()
-        this.allbinaryMidlet.commandAction(GameCommandsFactory.getInstance().SHOW_GAME_CANVAS, null);
+        this.allbinaryMidlet.commandAction(GameCommandsFactory.getInstance().SHOW_GAME_CANVAS, NullCanvas.NULL_CANVAS);
         this.inProgress = false;
         this.inGame();
     }
@@ -199,14 +199,14 @@ public class ProgressCanvas extends RunnableCanvas
         //logUtil.put(this.text, this, ADD_EARLY_PORTION);
         //PreLogUtil.put(this.text, this, ADD_PORTION);
         
-        this.setText(new StringMaker().append(text).append(SmallIntegerSingletonFactory.getInstance().getInstance(index)).toString());
+        this.setText(new StringMaker().append(text).append(SmallIntegerSingletonFactory.getInstance().getInstance(index).toString()).toString());
 
         this.gauge.setValue(this.gauge.getValue() + this.getMaxValue() / value);
     }
     
     public void addPortion(int value, String text, int index)
     {
-        this.setText(new StringMaker().append(text).append(SmallIntegerSingletonFactory.getInstance().getInstance(index)).toString());
+        this.setText(new StringMaker().append(text).append(SmallIntegerSingletonFactory.getInstance().getInstance(index).toString()).toString());
         
         //commonStrings.START_LABEL).append(
         //logUtil.put(this.text, this, ADD_PORTION);
@@ -237,10 +237,11 @@ public class ProgressCanvas extends RunnableCanvas
 
     protected void setValue(int value)
     {
-        this.value = value;
-        this.gauge.setValue(value);
+        this.value = (float) value;
+        this.gauge.setValue((float) value);
     }
 
+    @Override
     public void paint(Graphics graphics)
     {
         this.paintable.paint(graphics);
@@ -254,11 +255,13 @@ public class ProgressCanvas extends RunnableCanvas
         gauge.paint(graphics, 0, 0);
         hasPainted = true;
     }
-        
+
+    @Override
     public void paintThreed(Graphics graphics)
     {
     	
     }
+
     /*
     public void waitUntilDisplayed()
     {

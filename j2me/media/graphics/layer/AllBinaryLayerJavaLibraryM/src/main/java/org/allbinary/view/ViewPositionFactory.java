@@ -16,6 +16,7 @@ package org.allbinary.view;
 public class ViewPositionFactory 
 implements ViewPositionFactoryInterface
 {
+    @Override
    public ViewPosition getInstance()
    {
       return new ViewPosition();

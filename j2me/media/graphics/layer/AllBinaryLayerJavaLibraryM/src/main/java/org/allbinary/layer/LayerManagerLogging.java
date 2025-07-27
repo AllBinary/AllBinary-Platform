@@ -49,17 +49,20 @@ public class LayerManagerLogging extends LayerManagerLoggingBase {
 
     private static boolean removeFailed = false;
     
+    @Override
     public void append(final AllBinaryLayer layerInterface) throws Exception
     {
         stringBuilder.delete(0, stringBuilder.length());
         logUtil.put(stringBuilder.append(this.hashCode()).append(APPEND_).append(layerInterface.getName()).toString(), this, APPEND);
     }
     
+    @Override
     public void append(final AllBinaryLayer layerInterface, final int index) {
         stringBuilder.delete(0, stringBuilder.length());
         logUtil.put(stringBuilder.append(this.hashCode()).append(APPEND_).append(layerInterface.getName()).append(_AT_).append(index).toString(), this, APPEND);
     }
-
+    
+    @Override
     public void remove(final AllBinaryLayer layerInterface) {
         
         if(layerInterface == null) {
@@ -71,13 +74,14 @@ public class LayerManagerLogging extends LayerManagerLoggingBase {
         }
     }
 
+    @Override
     public void remove(final LayerManager layerManager, final AllBinaryLayer layerInterface, final boolean result) {
         
         if(layerInterface == null) {
             stringBuilder.delete(0, stringBuilder.length());
             logUtil.put(stringBuilder.append(this.hashCode()).append(REMOVE_).append(StringUtil.getInstance().toString(layerInterface)).toString(), this, REMOVE);
         } else if(result) {
-            if (this.removeFailed) {
+            if (LayerManagerLogging.removeFailed) {
                 stringBuilder.delete(0, stringBuilder.length());
                 logUtil.put(stringBuilder.append(this.hashCode()).append(REMOVE_).append(layerInterface.getName()).toString(), this, REMOVE);
             }
@@ -92,7 +96,7 @@ public class LayerManagerLogging extends LayerManagerLoggingBase {
             logUtil.put(stringBuilder.append(this.hashCode()).append(DID_NOT_REMOVE).append(layerInterface.getName()).toString(), this, REMOVE);
             
             //this.log(layerManager);
-            removeFailed = true;
+            LayerManagerLogging.removeFailed = true;
         }
         
     }
@@ -104,12 +108,15 @@ public class LayerManagerLogging extends LayerManagerLoggingBase {
         stringBuilder.append(Integer.toHexString(layerManager.hashCode())).append(commonSeps.COLON_SEP);
         stringBuilder.append(size).append(commonSeps.COLON_SEP);
 
+        AllBinaryLayer allBinaryLayer;
         for (int index = 0; index < size; index++) { 
-            stringBuilder.append(((AllBinaryLayer) layerManager.getLayerAt(index)).getName()).append(commonSeps.COMMA);
+            allBinaryLayer = ((AllBinaryLayer) layerManager.getLayerAt(index));
+            stringBuilder.append(allBinaryLayer.getName()).append(commonSeps.COMMA);
         }
         logUtil.put(stringBuilder.toString(), this, REMOVE);
     }
 
+    @Override
     public void clear() {
         stringBuilder.delete(0, stringBuilder.length());
         logUtil.put(stringBuilder.append(this.hashCode()).append(CLEAR).toString(), this, CLEAR);

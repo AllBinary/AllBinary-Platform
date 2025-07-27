@@ -27,6 +27,7 @@ public class UniformShaderOpenGLProcessor extends OpenGLTextureProcessor {
         this.shaderComposite = shaderComposite;
     }
 
+    @Override
     public void process(final GL10 gl, final Object unused, final int index)
     {
         //GL11 gl11 = (GL11) gl;

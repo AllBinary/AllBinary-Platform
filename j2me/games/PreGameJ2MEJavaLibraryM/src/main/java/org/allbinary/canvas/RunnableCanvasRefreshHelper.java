@@ -24,6 +24,7 @@ public class RunnableCanvasRefreshHelper extends Processor
         this.runnableCanvas = runnableCanvas;
     }
     
+    @Override
     public void process()
     {
         //System.out.println("TWB:RunnableCanvasRefreshHelper:process:repaint");

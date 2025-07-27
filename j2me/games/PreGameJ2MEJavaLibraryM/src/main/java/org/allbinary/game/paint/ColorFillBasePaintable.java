@@ -16,32 +16,35 @@ package org.allbinary.game.paint;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.color.ColorCompositeInterface;
 import org.allbinary.graphics.paint.Paintable;
 
 public class ColorFillBasePaintable extends Paintable 
 implements ColorCompositeInterface
 {
-    protected BasicColor basicColor;
-    protected int color;
+    protected BasicColor basicColorP = BasicColorFactory.getInstance().WHITE;
+    protected int colorP;
     
     public ColorFillBasePaintable(BasicColor basicColor)
     {
        this.setBasicColor(basicColor);       
     }
     
+    @Override
     public void setBasicColor(BasicColor basicColor)
     {
-        this.basicColor = basicColor;
+        this.basicColorP = basicColor;
         this.setColor(this.getBasicColor().intValue());
     }
 
     /**
      * @return the basicColor
      */
+    @Override
     public BasicColor getBasicColor()
     {
-        return basicColor;
+        return basicColorP;
     }
          
     /**
@@ -49,7 +52,7 @@ implements ColorCompositeInterface
      */
     protected int getColor()
     {
-        return color;
+        return colorP;
     }
 
     /**
@@ -58,10 +61,12 @@ implements ColorCompositeInterface
      */
     protected void setColor(int color)
     {
-        this.color = color;
+        this.colorP = color;
     }
     
+    @Override
     public void paint(Graphics graphics)
     {        
-    }    
+    }
+    
 }

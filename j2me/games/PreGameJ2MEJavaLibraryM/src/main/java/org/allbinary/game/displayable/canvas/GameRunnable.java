@@ -20,12 +20,13 @@ public class GameRunnable implements Runnable
 
     public final int WAIT = 240;
     public final int FAST = 60;
-    public int wait = WAIT;
+    public long wait = (long) WAIT;
     
     public GameRunnable() {
         
     }
     
+    @Override
     public void run()
     {
         DisplayInfoSingleton.getInstance().process();

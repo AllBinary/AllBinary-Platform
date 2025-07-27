@@ -28,9 +28,10 @@ public class ColorFillPaintable extends ColorFillBasePaintable
         super(basicColor);
     }
 
+    @Override
     public void paint(Graphics graphics)
     {        
-        graphics.setColor(this.color);
+        graphics.setColor(this.colorP);
         //graphics.fillRect(0, 0, graphics.getClipWidth(), graphics.getClipHeight());
         graphics.fillRect(0, 0, this.displayInfoSingleton.getLastWidth(), this.displayInfoSingleton.getLastHeight());
     }

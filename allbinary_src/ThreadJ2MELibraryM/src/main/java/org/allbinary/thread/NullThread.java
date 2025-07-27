@@ -11,24 +11,13 @@
  * Created By: Travis Berthelot
  * 
  */
-package org.allbinary.graphics.opengles.shader;
+package org.allbinary.thread;
 
 /**
  *
  * @author User
  */
-public class ShaderManagerFactory {
+public class NullThread {
     
-    private static final ShaderManagerFactory instance = new ShaderManagerFactory();
-
-    /**
-     * @return the instance
-     */
-    public static ShaderManagerFactory getInstance() {
-        return instance;
-    }
-    
-    public ShaderManager create() {
-        return ShaderManager.getInstance();
-    }
+    public static final Thread NULL_THREAD = new Thread();
 }

@@ -39,7 +39,7 @@ public class DemoGameRunnable extends GameRunnable
 
             //final AllBinaryGameCanvas allBinaryGameCanvas = this.allBinaryGameCanvas;
             
-            demoCanvas.getLoopTimeHelper().setStartTime(gameTickTimeDelayHelper.setStartTime());
+            demoCanvas.getLoopTimeHelperP().setStartTime(gameTickTimeDelayHelper.setStartTime());
 
             demoCanvas.processGame();
         }

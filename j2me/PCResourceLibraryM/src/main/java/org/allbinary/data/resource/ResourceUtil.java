@@ -21,6 +21,7 @@ import java.io.InputStream;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.StreamUtil;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonSeps;
 
 public class ResourceUtil {
@@ -33,8 +34,8 @@ public class ResourceUtil {
         return instance;
     }
 
-    private String path;
-    private String ext;
+    private String path = StringUtil.getInstance().EMPTY_STRING;
+    private String ext = StringUtil.getInstance().EMPTY_STRING;
     
     private ResourceUtil() {
     }

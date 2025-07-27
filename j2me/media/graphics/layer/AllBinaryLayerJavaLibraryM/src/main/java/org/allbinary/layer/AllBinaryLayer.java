@@ -19,8 +19,10 @@ import org.allbinary.game.identification.BasicGroupFactory;
 import org.allbinary.game.identification.Group;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.Rectangle;
+import org.allbinary.graphics.RectangleFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.math.PositionStrings;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
@@ -31,35 +33,39 @@ public class AllBinaryLayer
 extends Layer 
 implements LayerInterface
 {
+    public static final AllBinaryLayer NULL_ALLBINARY_LAYER = new AllBinaryLayer(RectangleFactory.SINGLETON, ViewPosition.NULL_VIEW_POSITION);
+
     protected final ViewPositionEvent viewPositionEvent = new ViewPositionEvent(this);
 
     private int halfWidth;
     private int halfHeight;
     private final String name;
 
-    private ViewPosition viewPosition;
+    private ViewPosition viewPosition = ViewPosition.NULL_VIEW_POSITION;
 
     public AllBinaryLayer(final Rectangle rectangle, final ViewPosition viewPosition)
     {
-        this(null, rectangle, viewPosition);
+        this(StringUtil.getInstance().EMPTY_STRING, rectangle, viewPosition);
     }
     
     public AllBinaryLayer(final String name, final Rectangle rectangle, final ViewPosition viewPosition)
     {
         super(rectangle.getWidth(), rectangle.getHeight());
 
+        final String localName;
         if(name == null) {
-            this.name = this.getClass().getName();
+            localName = this.getClass().getName();
         } else {
-            this.name = new StringMaker().append(name).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(this.hashCode())).toString();
+            localName = new StringMaker().append(name).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(this.hashCode())).toString();
         }
-        
+        this.name = localName;
+
         final GPoint point = rectangle.getPoint();
 
         this.setPosition(point.getX(), point.getY(), point.getZ());
 
-        this.setHalfWidth((this.width >> 1));
-        this.setHalfHeight((this.height >> 1));
+        this.setHalfWidth((this.getWidth() >> 1));
+        this.setHalfHeight((this.getHeight() >> 1));
 
         this.viewPosition = viewPosition;
 
@@ -71,26 +77,31 @@ implements LayerInterface
     {
     }
 
+    @Override
     public void paintThreed(final Graphics graphics)
     {
 
     }
 
+    @Override
     public int getX2()
     {
-        return this.x + this.getWidth();
+        return this.getX() + this.getWidth();
     }
 
+    @Override
     public int getY2()
     {
-        return this.y + this.getHeight();
+        return this.getY() + this.getHeight();
     }
 
+    @Override
     public int getZ2()
     {
-        return (int) (this.z + this.getDepth());
+        return (int) (this.getZ() + this.getDepth());
     }
 
+    @Override
     public String getName()
     {
         return name;
@@ -101,6 +112,7 @@ implements LayerInterface
         this.halfWidth = halfWidth;
     }
 
+    @Override
     public int getHalfWidth()
     {
         return halfWidth;
@@ -111,6 +123,7 @@ implements LayerInterface
         this.halfHeight = halfHeight;
     }
 
+    @Override
     public int getHalfHeight()
     {
         return halfHeight;
@@ -131,26 +144,31 @@ implements LayerInterface
         this.viewPosition = viewPosition;
     }
 
+    @Override
     public Group[] getGroupInterface()
     {
         return BasicGroupFactory.getInstance().NONE_ARRAY;
     }
 
+    @Override
     public boolean implmentsTickableInterface()
     {
         return false;
     }
 
+    @Override
     public boolean implmentsGameInputInterface()
     {
         return false;
     }
 
+    @Override
     public boolean implmentsArtificialIntelligenceCompositeInterface()
     {
         return false;
     }
 
+    @Override
     public boolean implmentsCollidableInterface()
     {
         return false;
@@ -161,6 +179,7 @@ implements LayerInterface
         return OpenGLFeatureUtil.getInstance().isAnyThreed();
     }
 
+    @Override
     public int getType()
     {
         return -1;
@@ -173,6 +192,7 @@ implements LayerInterface
 
     private static final String TYPE = "Type: ";
 
+    @Override
     public void toString(final StringMaker stringBuffer)
     {
         final CommonSeps commonSeps = CommonSeps.getInstance();

@@ -23,7 +23,6 @@ import org.allbinary.util.BasicArrayList;
 
 public class ViewPositionEventHandler extends BasicEventHandler
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
    private static ViewPositionEventHandler SINGLETON = new ViewPositionEventHandler();
 
@@ -46,18 +45,21 @@ public class ViewPositionEventHandler extends BasicEventHandler
        }
    }
 
+   @Override
    public void removeAllListeners()
    {
        this.list.clear();
        super.removeAllListeners();
    }
 
+   @Override
    public void removeListener(EventListenerInterface eventListenerInterface)
    {
        this.list.remove(eventListenerInterface);
        super.removeListener(eventListenerInterface);
    }
 
+   @Override
    public void fireEvent(AllBinaryEventObject eventObject) throws Exception
    {        
        for (int index = this.list.size(); --index >= 0;)
@@ -76,11 +78,13 @@ public class ViewPositionEventHandler extends BasicEventHandler
        super.fireEvent(eventObject);
    }
    
+   @Override
    protected void process(AllBinaryEventObject eventObject,
            EventListenerInterface eventListenerInterface) throws Exception {
 
-      ((ViewPositionEventListenerInterface) eventListenerInterface).onChangeEvent(
-              (ViewPositionEvent) eventObject);
+       final ViewPositionEventListenerInterface viewPositionEventListenerInterface = ((ViewPositionEventListenerInterface) eventListenerInterface);
+       
+      viewPositionEventListenerInterface.onChangeEvent((ViewPositionEvent) eventObject);
    }
    
 }

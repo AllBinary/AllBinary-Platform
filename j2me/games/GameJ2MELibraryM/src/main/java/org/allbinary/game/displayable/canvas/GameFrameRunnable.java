@@ -37,7 +37,7 @@ public class GameFrameRunnable extends GameRunnable
         {
             final AllBinaryGameCanvas allBinaryGameCanvas = this.allBinaryGameCanvas;
             
-            allBinaryGameCanvas.getLoopTimeHelper().setStartTime(gameTickTimeDelayHelper.setStartTime());
+            allBinaryGameCanvas.getLoopTimeHelperP().setStartTime(gameTickTimeDelayHelper.setStartTime());
 
             allBinaryGameCanvas.processGame();
 

@@ -15,6 +15,7 @@ package org.allbinary.game.identification;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
 
 public class GroupFactory {
@@ -49,22 +50,25 @@ public class GroupFactory {
    
    public void init(short groups, String[] nameArray)
    {
+       final StringMaker stringMaker = new StringMaker();
+       final StringUtil stringUtil = StringUtil.getInstance();
        
       final String TEAM = "Team ";
     
       list.clear();
       index = 0;
-      short size = (short) list.size();
+      int size = list.size();
       while(size < groups)
       {
-          String name = null;
+          String name = stringUtil.EMPTY_STRING;
           if(size < nameArray.length)
           {
               name = nameArray[size];
           }
           else
           {
-              name = new StringMaker().append(TEAM).append(size).toString();
+              stringMaker.delete(0, stringMaker.length());
+              name = stringMaker.append(TEAM).append(size).toString();
           }
 
          list.add(new Group(name, (short) (size + 3)));

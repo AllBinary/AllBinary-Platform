@@ -18,15 +18,16 @@ import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.RelativeRelationship;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListUtil;
 
 public class RelativeLayerRelationship 
    extends RelativeRelationship
 {
-   private AllBinaryLayer layer;
+   private AllBinaryLayer layer = AllBinaryLayer.NULL_ALLBINARY_LAYER;
    
    public RelativeLayerRelationship(AllBinaryLayer layer, int x, int y) throws Exception
    {
-	   this(layer, PointFactory.getInstance().getInstance(x, y), null);
+       this(layer, PointFactory.getInstance().getInstance(x, y), BasicArrayListUtil.getInstance().getImmutableInstance());
    }
 	
    public RelativeLayerRelationship(AllBinaryLayer layer, GPoint point, BasicArrayList typesAllowedList)
@@ -36,16 +37,19 @@ public class RelativeLayerRelationship
       this.layer = layer;
    }
    
+   @Override
    public int getX()
    {
       return this.layer.getX() + this.getX();
    }
    
+   @Override
    public int getY()
    {
       return this.layer.getY() + this.getY();
    }
 
+   @Override
    public int getZ()
    {
       return this.layer.getZ() + this.getZ();

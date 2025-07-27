@@ -20,16 +20,19 @@ public class StaticViewPosition extends ViewPosition
         super(x, y, z);
     }
     
+    @Override
     public int getX()
     {
         return this.getRawX();
     }
 
+    @Override
     public int getY()
     {
         return this.getRawY();
     }
 
+    @Override
     public int getZ()
     {
         return this.getRawZ();

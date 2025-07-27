@@ -35,23 +35,27 @@ public class LayerProcessor implements LayerProcessorInterface
     }
     */
     
+    @Override
     public void process(AllBinaryLayerManager allBinaryLayerManager,
             AllBinaryLayer layerInterface, int index) throws Exception
     {
         throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
 
+    @Override
     public boolean isProcessorLayer(AllBinaryLayer layerInterface)
             throws Exception
     {
         throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
 
+    @Override
     public LayerManager getLayerManager()
     {
         return layerManager;
     }
 
+    @Override
     public void process(AllBinaryLayerManager allBinaryLayerManager)
             throws Exception
     {

@@ -15,6 +15,7 @@ package org.allbinary.layer.relationship;
 
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.layer.AllBinaryLayer;
+import org.allbinary.util.BasicArrayListUtil;
 
 public class MiddleRelativeLayerRelationship 
    extends RelativeLayerRelationship
@@ -23,6 +24,7 @@ public class MiddleRelativeLayerRelationship
    {
       super(layer, PointFactory.getInstance().getInstance(
          layer.getHalfWidth(), 
-         layer.getHalfHeight()), null);
+         layer.getHalfHeight()), 
+          BasicArrayListUtil.getInstance().getImmutableInstance());
    }
 }

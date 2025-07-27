@@ -17,7 +17,7 @@ public class GameType
 {
    private String name;
    
-   protected GameType(String name)
+   GameType(String name)
    {
        this.name = name;
    }

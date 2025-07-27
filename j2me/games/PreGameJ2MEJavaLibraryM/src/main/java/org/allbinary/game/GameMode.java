@@ -13,12 +13,14 @@
 */
 package org.allbinary.game;
 
+import org.allbinary.logic.string.StringUtil;
+
 public class GameMode
 {
     public static GameMode SERVER = new GameMode("Server");
     public static GameMode CLIENT = new GameMode("Client");
 
-    private String name;
+    private String name = StringUtil.getInstance().EMPTY_STRING;
 
     private GameMode(String name)
     {
