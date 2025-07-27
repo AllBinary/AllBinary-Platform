@@ -19,6 +19,7 @@ import javax.microedition.lcdui.ChoiceGroup;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Item;
+import javax.microedition.lcdui.NullCommandListener;
 
 import org.allbinary.AndroidUtil;
 import org.allbinary.business.advertisement.GameAdStateFactory;
@@ -1246,7 +1247,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         //HTML5 change
         //if (this.gameCanvasStartListener != null)
-        if (this.getCustomCommandListener() == null)
+        if (this.getCustomCommandListener() == NullCommandListener.NULL_COMMAND_LISTENER)
         {
             logUtil.put("Show Game Paintable in DemoCanvas Thread", this, BUILD_GAME);
 
@@ -1577,7 +1578,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
             this.setRunning(true);
 
-            if (this.getCustomCommandListener() == null)
+            if (this.getCustomCommandListener() == NullCommandListener.NULL_COMMAND_LISTENER)
             {
                 Thread.sleep(YIELD_SLEEP);
             }
@@ -1586,7 +1587,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
             this.threadInit();
 
-            if (this.getCustomCommandListener() == null)
+            if (this.getCustomCommandListener() == NullCommandListener.NULL_COMMAND_LISTENER)
             {
                 Thread.sleep(YIELD_SLEEP);
             }

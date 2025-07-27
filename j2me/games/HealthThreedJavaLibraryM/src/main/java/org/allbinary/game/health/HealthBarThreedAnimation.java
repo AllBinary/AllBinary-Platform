@@ -111,7 +111,7 @@ extends HealthBarAnimation
     public void paintThreed(final Graphics graphics, final int x, final int y, final int z)
     {
     	final OpenGLESGraphics openGLESGraphics = (OpenGLESGraphics) graphics;
-    	final GL10 gl = openGLESGraphics.getGl();
+    	final GL10 gl = openGLESGraphics.getGl10();
 
     	final ViewPosition viewPosition = this.allbinaryLayer.getViewPosition();
 
