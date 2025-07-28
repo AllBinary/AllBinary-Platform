@@ -118,12 +118,14 @@ public class KeyValuePersistance extends BasicPersitance
         final CommonSeps commonSeps = CommonSeps.getInstance();
         
         final Object[] objectArray = HashtableUtil.getInstance().getKeysAsArray(hashtable);
+        Object object;
         final int size = objectArray.length;
         for (int index = 0; index < size; index++)
         {
             outputStream.writeUTF((String) objectArray[index]);
             outputStream.writeUTF(commonSeps.EQUALS);
-            value = (String) hashtable.get(objectArray[index]);
+            object = (Object) objectArray[index];
+            value = (String) hashtable.get(object);
             outputStream.writeUTF(value);
         }
 

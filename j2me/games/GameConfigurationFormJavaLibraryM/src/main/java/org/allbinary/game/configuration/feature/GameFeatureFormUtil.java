@@ -43,7 +43,7 @@ public class GameFeatureFormUtil
         
         final ChoiceGroup choiceGroup = new ChoiceGroup(name, option);
 
-        final BasicArrayList list = (BasicArrayList) hashtable.get(name);
+        final BasicArrayList list = (BasicArrayList) hashtable.get((Object) name);
 
         final Features features = Features.getInstance();
         

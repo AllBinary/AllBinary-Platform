@@ -39,9 +39,9 @@ public class GameConfigurationTextInput
 
     public static void update(TextField textField)
     {
+        final Object object = (Object) textField.getLabel();
         GameConfigurationTextInput gameConfigurationTextInput =
-            (GameConfigurationTextInput)
-            hashtable.get(textField.getLabel());
+            (GameConfigurationTextInput) hashtable.get(object);
         
         gameConfigurationTextInput.setText(textField.getString());
     }

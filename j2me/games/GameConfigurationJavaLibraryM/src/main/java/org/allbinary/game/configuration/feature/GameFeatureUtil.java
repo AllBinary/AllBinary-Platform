@@ -187,21 +187,23 @@ public class GameFeatureUtil
         return false;
     }
 
-    private void updateExclusive(String selectedChoiceLabel)
+    private void updateExclusive(final String selectedChoiceLabel)
             throws Exception
     {
         logUtil.put(new StringMaker().append(CommonLabels.getInstance().ITEM_LABEL).append(selectedChoiceLabel).toString(), this, "updateExclusive");
 
-        Feature gameFeature = Feature.getInstance(selectedChoiceLabel);
+        final Feature gameFeature = Feature.getInstance(selectedChoiceLabel);
+        final Hashtable hashtable = GameFeatureChoiceGroups.getExclusiveInstance().get();
+        final Object[] objectArray = HashtableUtil.getInstance().getKeysAsArray(hashtable);
 
-        Hashtable hashtable = GameFeatureChoiceGroups.getExclusiveInstance().get();
-        
-        Object[] objectArray = HashtableUtil.getInstance().getKeysAsArray(hashtable);
+        BasicArrayList basicArrayList;
+        Object object;
         int size = objectArray.length;
         for (int index = 0; index < size; index++)
         {
-            updateExclusive(gameFeature, (BasicArrayList) hashtable
-                    .get(objectArray[index]));
+            object = (Object) objectArray[index];
+            basicArrayList = (BasicArrayList) hashtable.get(object);
+            updateExclusive(gameFeature, basicArrayList);
         }
 
         /*

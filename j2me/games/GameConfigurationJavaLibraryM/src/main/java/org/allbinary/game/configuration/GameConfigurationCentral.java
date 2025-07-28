@@ -172,8 +172,9 @@ public class GameConfigurationCentral
 
             if (list.size() > 0)
             {
-                Hashtable hashtable = keyValuePersistance.get(0);
-                String value = (String) hashtable.get(this.SCALE.getName());
+                final Hashtable hashtable = keyValuePersistance.get(0);
+                final Object object = (Object) this.SCALE.getName();
+                final String value = (String) hashtable.get(object);
 
                 this.SCALE.setValue(smallIntegerSingletonFactory.getInstance(Integer.valueOf(value).intValue()));
             } else
