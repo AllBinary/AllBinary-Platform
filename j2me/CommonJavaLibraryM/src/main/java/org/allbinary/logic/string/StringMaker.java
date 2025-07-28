@@ -14,7 +14,7 @@ public class StringMaker
     
     public StringMaker append(final String string)
     {
-        int stringLength = string.length();
+        final int stringLength = string.length();
         ensureCapacity(currentLength + stringLength);
         string.getChars(0, stringLength, charArray, currentLength);
         currentLength += stringLength;

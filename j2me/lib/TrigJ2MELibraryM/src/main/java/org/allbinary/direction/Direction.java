@@ -24,7 +24,7 @@ public class Direction
     private int value;
     private int frameFactor;
 
-    protected Direction(String name, String otherName, int value, int frameFactor)
+    Direction(String name, String otherName, int value, int frameFactor)
     {
         this.name = name;
         this.otherName = otherName;
@@ -34,11 +34,12 @@ public class Direction
         directionArray[value] = this;
     }
 
-    protected Direction(String name, String otherName, int value)
+    Direction(String name, String otherName, int value)
     {
         this.name = name;
         this.otherName = otherName;
         this.value = value;
+        this.frameFactor = 0;
 
         directionArray[value] = this;
     }
