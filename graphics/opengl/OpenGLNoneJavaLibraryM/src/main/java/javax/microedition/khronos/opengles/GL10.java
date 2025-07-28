@@ -1,5 +1,9 @@
 package javax.microedition.khronos.opengles;
 
+import java.nio.Buffer;
+import java.nio.FloatBuffer;
+import java.nio.IntBuffer;
+
 public interface GL10 extends GL {
 
     void glActiveTexture(int texture);
@@ -32,11 +36,11 @@ public interface GL10 extends GL {
 
     void glColorMask(boolean red, boolean green, boolean blue, boolean alpha);
 
-    void glColorPointer(int size, int type, int stride, java.nio.Buffer pointer);
+    void glColorPointer(int size, int type, int stride, Buffer pointer);
 
-    void glCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, java.nio.Buffer data);
+    void glCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, Buffer data);
 
-    void glCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, java.nio.Buffer data);
+    void glCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, Buffer data);
 
     void glCopyTexImage2D(int target, int level, int internalformat, int x, int y, int width, int height, int border);
 
@@ -46,7 +50,7 @@ public interface GL10 extends GL {
 
     void glDeleteTextures(int n, int[] textures, int offset);
 
-    void glDeleteTextures(int n, java.nio.IntBuffer textures);
+    void glDeleteTextures(int n, IntBuffer textures);
 
     void glDepthFunc(int func);
 
@@ -62,7 +66,7 @@ public interface GL10 extends GL {
 
     void glDrawArrays(int mode, int first, int count);
 
-    void glDrawElements(int mode, int count, int type, java.nio.Buffer indices);
+    void glDrawElements(int mode, int count, int type, Buffer indices);
 
     void glEnable(int cap);
 
@@ -76,13 +80,13 @@ public interface GL10 extends GL {
 
     void glFogfv(int pname, float[] params, int offset);
 
-    void glFogfv(int pname, java.nio.FloatBuffer params);
+    void glFogfv(int pname, FloatBuffer params);
 
     //void glFogx(int pname, int param);
 
     //void glFogxv(int pname, int[] params, int offset);
 
-    //void glFogxv(int pname, java.nio.IntBuffer params);
+    //void glFogxv(int pname, IntBuffer params);
 
     void glFrontFace(int mode);
 
@@ -92,13 +96,13 @@ public interface GL10 extends GL {
 
     void glGenTextures(int n, int[] textures, int offset);
 
-    void glGenTextures(int n, java.nio.IntBuffer textures);
+    void glGenTextures(int n, IntBuffer textures);
 
     int glGetError();
 
     void glGetIntegerv(int pname, int[] params, int offset);
 
-    void glGetIntegerv(int pname, java.nio.IntBuffer params);
+    void glGetIntegerv(int pname, IntBuffer params);
 
     java.lang.String glGetString(int name);
 
@@ -108,25 +112,25 @@ public interface GL10 extends GL {
 
     void glLightModelfv(int pname, float[] params, int offset);
 
-    void glLightModelfv(int pname, java.nio.FloatBuffer params);
+    void glLightModelfv(int pname, FloatBuffer params);
 
     //void glLightModelx(int pname, int param);
 
     //void glLightModelxv(int pname, int[] params, int offset);
 
-    //void glLightModelxv(int pname, java.nio.IntBuffer params);
+    //void glLightModelxv(int pname, IntBuffer params);
 
     void glLightf(int light, int pname, float param);
 
     void glLightfv(int light, int pname, float[] params, int offset);
 
-    void glLightfv(int light, int pname, java.nio.FloatBuffer params);
+    void glLightfv(int light, int pname, FloatBuffer params);
 
     //void glLightx(int light, int pname, int param);
 
     //void glLightxv(int light, int pname, int[] params, int offset);
 
-    //void glLightxv(int light, int pname, java.nio.IntBuffer params);
+    //void glLightxv(int light, int pname, IntBuffer params);
 
     void glLineWidth(float width);
 
@@ -136,11 +140,11 @@ public interface GL10 extends GL {
 
     void glLoadMatrixf(float[] m, int offset);
 
-    void glLoadMatrixf(java.nio.FloatBuffer m);
+    void glLoadMatrixf(FloatBuffer m);
 
     //void glLoadMatrixx(int[] m, int offset);
 
-    //void glLoadMatrixx(java.nio.IntBuffer m);
+    //void glLoadMatrixx(IntBuffer m);
 
     void glLogicOp(int opcode);
 
@@ -148,23 +152,23 @@ public interface GL10 extends GL {
 
     void glMaterialfv(int face, int pname, float[] params, int offset);
 
-    void glMaterialfv(int face, int pname, java.nio.FloatBuffer params);
+    void glMaterialfv(int face, int pname, FloatBuffer params);
 
     //void glMaterialx(int face, int pname, int param);
 
     //void glMaterialxv(int face, int pname, int[] params, int offset);
 
-    //void glMaterialxv(int face, int pname, java.nio.IntBuffer params);
+    //void glMaterialxv(int face, int pname, IntBuffer params);
 
     void glMatrixMode(int mode);
 
     void glMultMatrixf(float[] m, int offset);
 
-    void glMultMatrixf(java.nio.FloatBuffer m);
+    void glMultMatrixf(FloatBuffer m);
 
     //void glMultMatrixx(int[] m, int offset);
 
-    //void glMultMatrixx(java.nio.IntBuffer m);
+    //void glMultMatrixx(IntBuffer m);
 
     void glMultiTexCoord4f(int target, float s, float t, float r, float q);
 
@@ -174,7 +178,7 @@ public interface GL10 extends GL {
 
     //void glNormal3x(int nx, int ny, int nz);
 
-    void glNormalPointer(int type, int stride, java.nio.Buffer pointer);
+    void glNormalPointer(int type, int stride, Buffer pointer);
 
     void glOrthof(float left, float right, float bottom, float top, float zNear, float zFar);
 
@@ -194,7 +198,7 @@ public interface GL10 extends GL {
 
     void glPushMatrix();
 
-    void glReadPixels(int x, int y, int width, int height, int format, int type, java.nio.Buffer pixels);
+    void glReadPixels(int x, int y, int width, int height, int format, int type, Buffer pixels);
 
     void glRotatef(float angle, float x, float y, float z);
 
@@ -218,21 +222,21 @@ public interface GL10 extends GL {
 
     void glStencilOp(int fail, int zfail, int zpass);
 
-    void glTexCoordPointer(int size, int type, int stride, java.nio.Buffer pointer);
+    void glTexCoordPointer(int size, int type, int stride, Buffer pointer);
 
     void glTexEnvf(int target, int pname, float param);
 
     void glTexEnvfv(int target, int pname, float[] params, int offset);
 
-    void glTexEnvfv(int target, int pname, java.nio.FloatBuffer params);
+    void glTexEnvfv(int target, int pname, FloatBuffer params);
 
     //void glTexEnvx(int target, int pname, int param);
 
     //void glTexEnvxv(int target, int pname, int[] params, int offset);
 
-    //void glTexEnvxv(int target, int pname, java.nio.IntBuffer params);
+    //void glTexEnvxv(int target, int pname, IntBuffer params);
 
-    void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, java.nio.Buffer pixels);
+    void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, Buffer pixels);
 
     void glTexParameterf(int target, int pname, float param);
 
@@ -240,13 +244,13 @@ public interface GL10 extends GL {
     
     void glTexParameteri(int target, int pname, int param);
 
-    void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, java.nio.Buffer pixels);
+    void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, Buffer pixels);
 
     void glTranslatef(float x, float y, float z);
 
     //void glTranslatex(int x, int y, int z);
 
-    void glVertexPointer(int size, int type, int stride, java.nio.Buffer pointer);
+    void glVertexPointer(int size, int type, int stride, Buffer pointer);
 
     void glViewport(int x, int y, int width, int height);
 

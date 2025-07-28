@@ -33,7 +33,6 @@ import org.allbinary.util.HashtableUtil;
 
 public class KeyValuePersistance extends BasicPersitance
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
     
     protected KeyValuePersistance(final String recordId)
     {
@@ -47,14 +46,14 @@ public class KeyValuePersistance extends BasicPersitance
     
     public void loadAll(final AbeClientInformationInterface abeClientInformation, int size) throws Exception
     {
-        RecordStore recordStore = null;
+        RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;
 
         try {
         recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
-        final RecordEnumeration recordEnum = recordStore.enumerateRecords(null, null, true);
+        final RecordEnumeration recordEnum = recordStore.enumerateRecords(NullRecordFilter.NULL_RECORD_FILTER, NullRecordComparator.NULL_RECORD_COMPARATOR, true);
    
-        Hashtable hashtable;
+        Hashtable<String, String> hashtable;
         
         String name;
         String value;
@@ -76,7 +75,7 @@ public class KeyValuePersistance extends BasicPersitance
             if(recordAsBytes != null) {
                 byteArrayInputStream = new ByteArrayInputStream(recordAsBytes);
                 inputStream = new DataInputStream(byteArrayInputStream);
-                hashtable = new Hashtable();
+                hashtable = new Hashtable<String, String>();
 
                 for (int index = 0; index < size; index++) {
                     name = inputStream.readUTF();
@@ -90,6 +89,8 @@ public class KeyValuePersistance extends BasicPersitance
             }
         }
 
+        } catch (Exception e) {
+            throw e;
         } finally {
             if(recordStore != null) {
                 PreLogUtil.put(this.persistanceStrings.CLOSING_RECORDSTORE, this, this.persistanceStrings.LOAD_ALL);
@@ -101,7 +102,7 @@ public class KeyValuePersistance extends BasicPersitance
     
     public void save(final AbeClientInformationInterface abeClientInformation, final Hashtable hashtable) throws Exception
     {
-        RecordStore recordStore = null;
+        RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;
         
         try {
 
@@ -130,6 +131,8 @@ public class KeyValuePersistance extends BasicPersitance
 
         recordStore.addRecord(savedGameBytes, 0, savedGameBytes.length);
 
+        } catch (Exception e) {
+            throw e;
         } finally {
             if(recordStore != null) {
                 PreLogUtil.put(this.persistanceStrings.CLOSING_RECORDSTORE, this, this.commonStrings.SAVE);
@@ -141,6 +144,7 @@ public class KeyValuePersistance extends BasicPersitance
 
     public Hashtable get(int index)
     {
-        return (Hashtable) this.valueList.objectArray[index];
+        final Hashtable hashtable = (Hashtable) this.valueList.objectArray[index];
+        return hashtable;
     }
 }

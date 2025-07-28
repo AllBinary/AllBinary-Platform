@@ -41,6 +41,7 @@
         <module>../media/graphics/geography/map/GraphBaseJavaLibraryM</module>
         <module>../TempJavaLibraryM</module>
         <module>../AllBinaryJ2MELibraryM</module>
+        <module>../NullJ2MELibraryM</module>
                 
         <module>../AllBinaryOptionalLibraryPOM</module>
     </modules>

@@ -174,6 +174,11 @@ public class BasicColor
         return value;
     }
 
+    public int toInt()
+    {
+        return value;
+    }
+    
     public String toString()
     {
         StringMaker stringBuffer = new StringMaker();

@@ -13,6 +13,8 @@
  */
 package javax.microedition.lcdui;
 
+import org.allbinary.logic.NullUtil;
+
 /**
  *
  * @author User
@@ -20,7 +22,7 @@ package javax.microedition.lcdui;
 public class PlatformImage {
 
     public Object getImage(final Object graphicsSurface2) {
-        return null;
+        return NullCanvas.NULL_IMAGE;
     }
 
     public int getWidth(final Object graphicsSurface2, final int width) {
@@ -40,7 +42,7 @@ public class PlatformImage {
     }
     
     public javax.microedition.lcdui.Graphics getGraphics(final Object graphicsSurface, final int width, final int height, final Image image) {
-        return null;
+        throw new RuntimeException();
     }
 
     public void drawImage(final Image image, final int x, final int y, int anchor, final javax.microedition.lcdui.Graphics g2, final Object g) {
@@ -61,7 +63,7 @@ public class PlatformImage {
     }
 
     public int[] getData(final Image image) {
-        return null;
+        return NullUtil.getInstance().NULL_INT_ARRAY;
     }
 
 }

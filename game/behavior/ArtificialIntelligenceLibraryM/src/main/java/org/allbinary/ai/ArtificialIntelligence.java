@@ -37,11 +37,13 @@ public class ArtificialIntelligence
     {
     }
 
+    @Override
     public void processAI(AllBinaryLayerManager layerManager)
         throws Exception
     {
     }
 
+    @Override
     public int getId()
     {
         return 1;

@@ -16,20 +16,22 @@ package org.allbinary.game.configuration;
 import org.allbinary.game.configuration.event.GameFeatureEvent;
 import org.allbinary.game.configuration.event.GameFeatureEventHandler;
 import org.allbinary.logic.java.bool.BooleanFactory;
+import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 
 public class GameConfiguration
 {
-    private String name;
-    private Integer defaultValue;
+    private String name = StringUtil.getInstance().EMPTY_STRING;
+    private Integer defaultValue = SmallIntegerSingletonFactory.getInstance().getInstance(0);
     private Integer value;
-    private Integer minValue;
-    private Integer maxValue;
+    private Integer minValue = defaultValue;
+    private Integer maxValue = defaultValue;
 
     private Boolean modifiable = BooleanFactory.getInstance().TRUE;
 
-    public GameConfiguration(String name, Integer defaultValue,
-            Integer minValue, Integer maxValue)
+    public GameConfiguration(final String name, final Integer defaultValue,
+            final Integer minValue, final Integer maxValue)
     {
         this.setName(name);
         this.setDefaultValue(defaultValue);
@@ -41,14 +43,14 @@ public class GameConfiguration
                 this.getName(), this);
     }
 
-    public void setValue(Integer value) throws Exception
+    public void setValue(final Integer value) throws Exception
     {
         if (this.value != value)
         {
-            Integer oldValue = this.value;
+            final Integer oldValue = this.value;
             this.value = value;
             GameFeatureEventHandler.getInstance().fireEvent(
-                    new GameFeatureEvent(this, new StringMaker().append(this.name).append(" value: from: ").append(oldValue).append(" to ").append(this.value).toString()));
+                    new GameFeatureEvent(this, new StringMaker().append(this.name).append(" value: from: ").append(oldValue.intValue()).append(" to ").append(this.value.intValue()).toString()));
         }
     }
 
@@ -57,7 +59,7 @@ public class GameConfiguration
         return value;
     }
 
-    public void setMaxValue(Integer maxValue)
+    public void setMaxValue(final Integer maxValue)
     {
         this.maxValue = maxValue;
     }
@@ -67,7 +69,7 @@ public class GameConfiguration
         return maxValue;
     }
 
-    public void setMinValue(Integer minValue)
+    public void setMinValue(final Integer minValue)
     {
         this.minValue = minValue;
     }
@@ -77,7 +79,7 @@ public class GameConfiguration
         return minValue;
     }
 
-    public void setName(String name)
+    public void setName(final String name)
     {
         this.name = name;
     }
@@ -87,7 +89,7 @@ public class GameConfiguration
         return name;
     }
 
-    public void setDefaultValue(Integer defaultValue)
+    public void setDefaultValue(final Integer defaultValue)
     {
         this.defaultValue = defaultValue;
     }
@@ -104,18 +106,18 @@ public class GameConfiguration
 
     public String toString()
     {
-        StringMaker stringBuffer = new StringMaker();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("Name: ");
         stringBuffer.append(this.name);
         stringBuffer.append(" Min: ");
-        stringBuffer.append(this.getMinValue());
+        stringBuffer.append(this.getMinValue().intValue());
         stringBuffer.append(" Max: ");
-        stringBuffer.append(this.getMaxValue());
+        stringBuffer.append(this.getMaxValue().intValue());
         stringBuffer.append(" Value: ");
-        stringBuffer.append(this.getValue());
+        stringBuffer.append(this.getValue().intValue());
         stringBuffer.append(" Default: ");
-        stringBuffer.append(this.getDefaultValue());
+        stringBuffer.append(this.getDefaultValue().intValue());
         stringBuffer.append(" Modifiable: ");
         stringBuffer.append(this.isModifiable());
 

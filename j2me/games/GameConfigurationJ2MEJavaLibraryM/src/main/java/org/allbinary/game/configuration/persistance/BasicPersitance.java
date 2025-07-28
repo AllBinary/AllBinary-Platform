@@ -61,7 +61,7 @@ public class BasicPersitance
     
     public void delete(final AbeClientInformationInterface abeClientInformation, final int deleteId) throws Exception
     {
-        RecordStore recordStore = null;
+        RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;
         
         try {
             
@@ -71,6 +71,8 @@ public class BasicPersitance
 
         recordStore.deleteRecord(deleteId);
 
+        } catch(Exception e) {
+            throw e;
         } finally {
             if(recordStore != null) {
                 PreLogUtil.put(this.persistanceStrings.CLOSING_RECORDSTORE, this, this.commonStrings.delete);
