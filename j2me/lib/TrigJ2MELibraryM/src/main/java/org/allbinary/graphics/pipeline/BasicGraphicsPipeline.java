@@ -65,12 +65,12 @@ public class BasicGraphicsPipeline
 
    public void rotate(Angle angle) throws Exception
    {
-      this.rotate(angle.getValue());
+      this.rotate((int) angle.getValue());
    }
 
    private final NoDecimalTrigTable noDecimalTrigTable = NoDecimalTrigTable.getInstance();
    
-   private void rotate(short angle) throws Exception
+   private void rotate(int angle) throws Exception
    {
       BasicArrayList newBasicArrayList = new BasicArrayList();
 
@@ -116,16 +116,15 @@ public class BasicGraphicsPipeline
 
    public void mirror(int width) throws Exception
    {
-      int halfWidth = (width >> 1);
-      BasicArrayList newBasicArrayList = new BasicArrayList();
+       final PointFactory pointFactory = PointFactory.getInstance();
+      final int halfWidth = (width >> 1);
+      final BasicArrayList newBasicArrayList = new BasicArrayList();
 
       GPoint secondPoint;
       int newX;
       GPoint point;
       
-      PointFactory pointFactory = PointFactory.getInstance();
-      
-      int size = this.pointBasicArrayList.size();
+      final int size = this.pointBasicArrayList.size();
       for(int index = 0; index < size; index++)
       {
           secondPoint = (GPoint) pointBasicArrayList.objectArray[index];
