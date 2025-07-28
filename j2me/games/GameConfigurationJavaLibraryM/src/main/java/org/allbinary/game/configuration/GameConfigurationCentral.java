@@ -200,9 +200,9 @@ public class GameConfigurationCentral
     
     public String toString()
     {
-        StringMaker stringBuffer = new StringMaker();
+        final StringMaker stringBuffer = new StringMaker();
 
-        CommonSeps commonStrings = CommonSeps.getInstance();
+        final CommonSeps commonStrings = CommonSeps.getInstance();
 
         // stringBuffer.append(this.INPUT_WAIT.getName());
         // stringBuffer.append(commonStrings.EQUALS);
@@ -212,79 +212,79 @@ public class GameConfigurationCentral
 
         stringBuffer.append(this.SCALE.getName());
         stringBuffer.append(commonStrings.EQUALS);
-        stringBuffer.append(this.SCALE.getValue());
+        stringBuffer.append(this.SCALE.getValue().intValue());
 
         stringBuffer.append(commonStrings.COMMA_SEP);
 
         stringBuffer.append(this.ORIENTATION.getName());
         stringBuffer.append(commonStrings.EQUALS);
-        stringBuffer.append(this.ORIENTATION.getValue());
+        stringBuffer.append(this.ORIENTATION.getValue().intValue());
 
         stringBuffer.append(commonStrings.COMMA_SEP);
 
         stringBuffer.append(this.SENSOR_UPDATE_RATE.getName());
         stringBuffer.append(commonStrings.EQUALS);
-        stringBuffer.append(this.SENSOR_UPDATE_RATE.getValue());
+        stringBuffer.append(this.SENSOR_UPDATE_RATE.getValue().intValue());
 
         stringBuffer.append(commonStrings.COMMA_SEP);
 
         stringBuffer.append(this.VIBRATION.getName());
         stringBuffer.append(commonStrings.EQUALS);
-        stringBuffer.append(this.VIBRATION.getValue());
+        stringBuffer.append(this.VIBRATION.getValue().intValue());
 
         stringBuffer.append(commonStrings.COMMA_SEP);
 
         stringBuffer.append(this.CHALLENGE_LEVEL.getName());
         stringBuffer.append(commonStrings.EQUALS);
-        stringBuffer.append(this.CHALLENGE_LEVEL.getValue());
+        stringBuffer.append(this.CHALLENGE_LEVEL.getValue().intValue());
 
         stringBuffer.append(commonStrings.COMMA_SEP);
 
         stringBuffer.append(this.COLLIDE_DAMAGE.getName());
         stringBuffer.append(commonStrings.EQUALS);
-        stringBuffer.append(this.COLLIDE_DAMAGE.getValue());
+        stringBuffer.append(this.COLLIDE_DAMAGE.getValue().intValue());
 
         stringBuffer.append(commonStrings.COMMA_SEP);
 
         stringBuffer.append(this.DURABILITY_CHALLENGE_LEVEL.getName());
         stringBuffer.append(commonStrings.EQUALS);
-        stringBuffer.append(this.DURABILITY_CHALLENGE_LEVEL.getValue());
+        stringBuffer.append(this.DURABILITY_CHALLENGE_LEVEL.getValue().intValue());
 
         stringBuffer.append(commonStrings.COMMA_SEP);
 
         stringBuffer.append(this.SPEED_CHALLENGE_LEVEL.getName());
         stringBuffer.append(commonStrings.EQUALS);
-        stringBuffer.append(this.SPEED_CHALLENGE_LEVEL.getValue());
+        stringBuffer.append(this.SPEED_CHALLENGE_LEVEL.getValue().intValue());
 
         stringBuffer.append(commonStrings.COMMA_SEP);
 
         stringBuffer.append(this.ATTACK_CHALLENGE_LEVEL.getName());
         stringBuffer.append(commonStrings.EQUALS);
-        stringBuffer.append(this.ATTACK_CHALLENGE_LEVEL.getValue());
+        stringBuffer.append(this.ATTACK_CHALLENGE_LEVEL.getValue().intValue());
 
         stringBuffer.append(commonStrings.COMMA_SEP);
 
         stringBuffer.append(this.CONTROL_LEVEL.getName());
         stringBuffer.append(commonStrings.EQUALS);
-        stringBuffer.append(this.CONTROL_LEVEL.getValue());
+        stringBuffer.append(this.CONTROL_LEVEL.getValue().intValue());
 
         stringBuffer.append(commonStrings.COMMA_SEP);
 
         stringBuffer.append(this.SPEED.getName());
         stringBuffer.append(commonStrings.EQUALS);
-        stringBuffer.append(this.SPEED.getValue());
+        stringBuffer.append(this.SPEED.getValue().intValue());
 
         stringBuffer.append(commonStrings.COMMA_SEP);
 
         stringBuffer.append(this.MAX_GAME_OBJECTS.getName());
         stringBuffer.append(commonStrings.EQUALS);
-        stringBuffer.append(this.MAX_GAME_OBJECTS.getValue());
+        stringBuffer.append(this.MAX_GAME_OBJECTS.getValue().intValue());
 
         stringBuffer.append(commonStrings.COMMA_SEP);
 
         stringBuffer.append(this.MAX_LAYERS.getName());
         stringBuffer.append(commonStrings.EQUALS);
-        stringBuffer.append(this.MAX_LAYERS.getValue());
+        stringBuffer.append(this.MAX_LAYERS.getValue().intValue());
 
         // stringBuffer.append(commonStrings.COMMA_SEP);
 
