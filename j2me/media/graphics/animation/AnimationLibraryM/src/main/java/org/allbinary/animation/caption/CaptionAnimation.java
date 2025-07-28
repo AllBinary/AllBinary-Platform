@@ -23,18 +23,18 @@ import org.allbinary.animation.Animation;
  */
 public class CaptionAnimation extends Animation
 {
-    private Animation animationInterface;
-    private Animation overlayAnimationInterface;
+    private final Animation animationInterface;
+    private final Animation overlayAnimationInterface;
 
-    private int captionDx;
-    private int captionDy;
+    private final int captionDx;
+    private final int captionDy;
 
-    private int dx;
-    private int dy;
+    private final int dx;
+    private final int dy;
 
-    public CaptionAnimation(Animation animationInterface,
-            Animation overlayAnimationInterface,
-            int captionDx, int captionDy, int dx, int dy)
+    public CaptionAnimation(final Animation animationInterface,
+            final Animation overlayAnimationInterface,
+            final int captionDx, final int captionDy, final int dx, final int dy)
     {
         this.animationInterface = animationInterface;
         this.overlayAnimationInterface = overlayAnimationInterface;
@@ -46,13 +46,15 @@ public class CaptionAnimation extends Animation
         this.dy = dy;
     }
 
+    @Override
     public void nextFrame() throws Exception
     {
         //this.animationInterface.nextFrame();
         //this.overlayAnimationInterface.nextFrame();
     }
 
-    public void paint(Graphics graphics, int x, int y)
+    @Override
+    public void paint(final Graphics graphics, final int x, final int y)
     {
         this.animationInterface.paint(graphics, x + this.captionDx, y
                 + this.captionDy);
@@ -60,7 +62,8 @@ public class CaptionAnimation extends Animation
                 + dx, y + this.captionDy + dy);
     }
 
-    public void paintThreed(Graphics graphics, int x, int y, int z)
+    @Override
+    public void paintThreed(final Graphics graphics, final int x, final int y, final int z)
     {
         this.animationInterface.paintThreed(graphics, x + this.captionDx, y + this.captionDy, z);
         this.overlayAnimationInterface.paintThreed(graphics, 

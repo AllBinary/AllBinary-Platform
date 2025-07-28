@@ -40,56 +40,67 @@ public class CompoundIndexedAnimation extends IndexedAnimation
         this.circularIndexUtil = CircularIndexUtil.getInstance(this.animationInterfaceArray.length);
     }
     
+    @Override
     public void setFrame(final int index)
     {
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].setFrame(index);
     }
 
+    @Override
     public int getFrame()
     {
         return this.animationInterfaceArray[this.circularIndexUtil.getIndex()].getFrame();
     }
 
+    @Override
     public int getSize()
     {
         return this.animationInterfaceArray[this.circularIndexUtil.getIndex()].getSize();
     }
 
+    @Override
     public void previousFrame()
     {
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].previousFrame();
     }
 
+    @Override
     public void setSequence(int[] sequence)
     {
     }
 
+    @Override
     public int[] getSequence()
     {
         return PrimitiveIntUtil.getArrayInstance();
     }
 
+    @Override
     public void nextFrame()
     throws Exception
     {
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].nextFrame();
     }
 
+    @Override
     public void paint(final Graphics graphics, final int x, final int y)
     {
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].paint(graphics, x, y);
     }
 
+    @Override
     public void paintThreed(final Graphics graphics, final int x, final int y, final int z)
     {
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].paintThreed(graphics, x, y, z);
     }
     
+    @Override
     public IndexedAnimation getCurrentAnimation()
     {
         return this.animationInterfaceArray[this.circularIndexUtil.getIndex()];
     }
     
+    @Override
     public void nextAnimation()
     {
         int frame = this.getFrame();
@@ -99,6 +110,7 @@ public class CompoundIndexedAnimation extends IndexedAnimation
         this.setFrame(frame);
     }
 
+    @Override
     public void previousAnimation()
     {
         int frame = this.getFrame();
@@ -108,6 +120,7 @@ public class CompoundIndexedAnimation extends IndexedAnimation
         this.setFrame(frame);
     }
 
+    @Override
     public void setAnimation(final int index)
     {
         int frame = this.getFrame();
@@ -131,6 +144,7 @@ public class CompoundIndexedAnimation extends IndexedAnimation
         this.animationInterfaceArray = animationInterfaceArray;
     }
     
+    @Override
     public void set(final GL gl) throws Exception
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)

@@ -25,36 +25,39 @@ public class IndexedAnimation extends Animation
 {
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
-    protected final AnimationBehavior animationBehavior;
+    protected final AnimationBehavior animationBehaviorP;
     
     private IndexedAnimation()
     {
-        this.animationBehavior = null;
+        this.animationBehaviorP = AnimationBehavior.getInstance();
     }
 
     protected IndexedAnimation(final AnimationBehavior animationBehavior)
     {
-        this.animationBehavior = animationBehavior;
+        this.animationBehaviorP = animationBehavior;
     }
  
     /**
      * @return the animationBehavior
      */
     public AnimationBehavior getAnimationBehavior() {
-        return animationBehavior;
+        return animationBehaviorP;
     }
-    
+   
+    @Override
     public void reset()
     {
-        this.animationBehavior.reset();
+        this.animationBehaviorP.reset();
         this.setFrame(0);
     }
     
+    @Override
     public void setFrame(final int index)
     {
 
     }
 
+    @Override
     public int getFrame()
     {
         return 0;
@@ -66,11 +69,13 @@ public class IndexedAnimation extends Animation
         //return this.getSize();
     }
     
+    @Override
     public int getSize()
     {
         return 0;
     }
 
+    @Override
     public void previousFrame()
     {
 
@@ -88,11 +93,13 @@ public class IndexedAnimation extends Animation
         }
     }
     
+    @Override
     public void setSequence(final int[] sequence)
     {
 
     }
 
+    @Override
     public int[] getSequence()
     {
         return PrimitiveIntUtil.getArrayInstance();

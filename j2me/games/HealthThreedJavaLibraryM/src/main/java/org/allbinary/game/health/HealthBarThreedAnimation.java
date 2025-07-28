@@ -44,12 +44,12 @@ extends HealthBarAnimation
     {
         super(layerInterface, location);
         
-        this.basicColor = this.basicColorFactory.GREEN;
-        this.color = this.basicColor.intValue();
+        this.basicColorP = this.basicColorFactory.GREEN;
+        this.colorP = this.basicColorP.intValue();
         
         rectangle = new Rectangle(
         		0, 0, 
-        		1, 1, this.basicColor);
+        		1, 1, this.basicColorP);
         rectangle.setDoubleSidedEnabled(true);
         rectangle.setNormalsEnabled(false);
         rectangle.setTexturesEnabled(false);
@@ -64,7 +64,7 @@ extends HealthBarAnimation
     	
     	for(int index = size; --index >= 0;)
     	{
-    		colorBufferList.set(index, this.basicColor);
+    		colorBufferList.set(index, this.basicColorP);
     	}
     }
 

@@ -31,7 +31,6 @@ public class CustomTextAnimationFactory
     implements AnimationInterfaceFactoryInterface {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
- 
     private final AnimationBehaviorFactory animationBehaviorFactory;
     
     public BasicColor basicColor = BasicColorFactory.getInstance().BLACK;
@@ -39,8 +38,8 @@ public class CustomTextAnimationFactory
 
     private int initScaleHeight;
 
-    private int dx;
-    private int dy;
+    private int dx = 0;
+    private int dy = 0;
 
     protected Font font;
     
@@ -72,12 +71,14 @@ public class CustomTextAnimationFactory
         
         this.scaleProperties = new ScaleProperties();
         this.text = text;
-        this.initScaleHeight = this.scaleProperties.scaleHeight = (int) fontSize - (fontSize / 4);
+        this.scaleProperties.scaleHeight = (int) fontSize - (fontSize / 4);
+        this.initScaleHeight = this.scaleProperties.scaleHeight;
         this.animationBehaviorFactory = animationBehaviorFactory;
         
         this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, this.initScaleHeight);
     }
 
+    @Override
     public Animation getInstance(final int instanceId) throws Exception {
         
         CustomTextAnimation customTextAnimation;
@@ -91,7 +92,7 @@ public class CustomTextAnimationFactory
         return customTextAnimation;
     }
     
-    //@Override
+    @Override
     public void setInitialScale(final ScaleProperties scaleProperties) {
 //        this.scaleProperties = scaleProperties;
 //        logUtil.put(new StringMaker().append("setInitialSize - Font size: ").append(this.scaleProperties.scaleHeight).toString(), this, commonStrings.PROCESS);

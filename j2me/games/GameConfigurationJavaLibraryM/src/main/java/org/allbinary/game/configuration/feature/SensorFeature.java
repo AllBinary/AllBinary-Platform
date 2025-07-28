@@ -15,7 +15,7 @@ package org.allbinary.game.configuration.feature;
 
 public class SensorFeature extends Feature
 {    
-    protected SensorFeature(String name)
+    SensorFeature(String name)
     {
         super(name);
     }

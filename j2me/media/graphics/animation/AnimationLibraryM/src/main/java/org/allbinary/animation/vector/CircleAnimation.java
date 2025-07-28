@@ -22,9 +22,11 @@ import org.allbinary.math.AngleFactory;
 
 public class CircleAnimation extends Animation implements ColorCompositeInterface
 {
+    protected final int TOTAL_ANGLE = (int) AngleFactory.getInstance().TOTAL_ANGLE;
+    
     protected int width;
     protected int height;
-
+    
     public CircleAnimation(int widthAndHeight, BasicColor basicColor)
     {
         this.width = widthAndHeight;
@@ -41,12 +43,12 @@ public class CircleAnimation extends Animation implements ColorCompositeInterfac
         this.setBasicColor(basicColor);
     }
 
+    @Override
     public void nextFrame()
     {
     }
-
-    private final int TOTAL_ANGLE = AngleFactory.getInstance().TOTAL_ANGLE;
     
+    @Override
     public void paint(Graphics graphics, int x, int y)
     {
         this.basicSetColorUtil.setBasicColor(

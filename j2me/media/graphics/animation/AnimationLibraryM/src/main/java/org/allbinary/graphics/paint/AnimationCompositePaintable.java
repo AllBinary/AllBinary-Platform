@@ -31,11 +31,13 @@ public class AnimationCompositePaintable extends InitUpdatePaintable
         this.animationInterface = animationInterface;
     }
 
+    @Override
     public void paint(Graphics graphics)
     {
         this.animationInterface.paint(graphics, 0, 0);
     }
 
+    @Override
     public void paintThreed(Graphics graphics)
     {
         this.animationInterface.paintThreed(graphics, 0, 0, 0);

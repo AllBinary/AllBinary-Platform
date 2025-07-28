@@ -26,6 +26,7 @@ public class GameFeatureCanvas extends Canvas {
 			//(this.getWidth() >> 1), (this.getHeight() >> 1));
 	}
 	
+        @Override
 	protected void paint(Graphics graphics) {
 
 	    //GameStatisticsFactory.getInstance().nextRefresh();

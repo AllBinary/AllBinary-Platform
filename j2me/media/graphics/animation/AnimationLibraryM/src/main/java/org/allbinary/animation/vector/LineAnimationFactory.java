@@ -32,11 +32,13 @@ implements AnimationInterfaceFactoryInterface
         this.basicColor = basicColor;
     }
 
+    @Override
     public Animation getInstance(final int instanceId) throws Exception
     {
         return new LineAnimation(this.basicColor);
     }
     
+    @Override
    public void setInitialScale(final ScaleProperties scaleProperties) {
        
    }

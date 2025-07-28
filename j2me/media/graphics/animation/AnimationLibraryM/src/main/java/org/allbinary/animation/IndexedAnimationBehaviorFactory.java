@@ -27,6 +27,7 @@ public class IndexedAnimationBehaviorFactory extends AnimationBehaviorFactory {
         this.frameDelayTime = frameDelayTime;
     }
     
+    @Override
     public AnimationBehavior getOrCreateInstance() {
         return new IndexedAnimationBehavior(this.loopTotal, this.frameDelayTime);
     }

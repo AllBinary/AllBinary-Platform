@@ -75,7 +75,7 @@ public class GameConfigurationCentral
     //public final int[] FIDELITY = {4,8,24,30,36,40,60,90,180,360};
     //angle increment                    30 12 10 9  6  4  2   1  
 
-    public int gameControlFidelity = 36;
+    private int gameControlFidelity = 36;
     
     private GameConfigurationCentral()
     {

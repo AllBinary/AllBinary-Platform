@@ -30,6 +30,7 @@ public class IndexedAnimationBehavior extends AnimationBehavior {
         this.frameDelayTime = frameDelayTime;
     }
     
+    @Override
     public void reset() {
         this.loopIndex = 0;
     }

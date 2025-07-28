@@ -62,9 +62,8 @@ public class AdjustedCircleAnimation
             this.yAdjustment = this.xAdjustment;
         }
     }
-
-    private final int TOTAL_ANGLE = AngleFactory.getInstance().TOTAL_ANGLE;
     
+    @Override
    public void paint(Graphics graphics, int x, int y) {
       
        this.basicSetColorUtil.setBasicColor(

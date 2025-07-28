@@ -16,6 +16,7 @@ package org.allbinary.game.configuration;
 import java.util.Hashtable;
 
 import javax.microedition.lcdui.TextField;
+import org.allbinary.logic.string.StringUtil;
 
 public class GameConfigurationTextInput
 {
@@ -26,8 +27,8 @@ public class GameConfigurationTextInput
     public static GameConfigurationTextInput SIMULATOR_PORT = 
         new GameConfigurationTextInput("Port: ", "8010");
     
-    private String label;
-    private String text;
+    private String label = StringUtil.getInstance().EMPTY_STRING;
+    private String text = StringUtil.getInstance().EMPTY_STRING;
     
     public GameConfigurationTextInput(String label, String text)
     {

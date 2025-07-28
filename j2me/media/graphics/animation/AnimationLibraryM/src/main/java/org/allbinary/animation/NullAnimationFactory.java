@@ -27,7 +27,7 @@ public class NullAnimationFactory implements
        }
    };
    
-   //public final Animation[] EMPTY_ARRAY = new Animation[0];
+   public final Animation[] EMPTY_ARRAY = new Animation[0];
    
    private NullAnimationFactory()
    {
@@ -38,17 +38,20 @@ public class NullAnimationFactory implements
        return NULL_ANIMATION_FACTORY;
    }
    
+   @Override
    public Animation getInstance(final int instanceId)
    {
        return NULL_ANIMATION;
    }
    
+   @Override
    public Animation getInstance(Animation animationInterface)
        throws Exception
    {
        return NULL_ANIMATION;
    }
    
+   @Override
    public void setInitialScale(final ScaleProperties scaleProperties) {
        
    }

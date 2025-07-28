@@ -59,12 +59,12 @@ public class ImageArrayBaseRotationAnimation extends RotationAnimation //impleme
 
     public void setAlpha(final int alpha) {
         
-        if(this.alpha != alpha) {
+        if(this.alphaP != alpha) {
 
             super.setAlpha(alpha);
             imageModifierUtil.reset();
             final int index = this.circularIndexUtil.getIndex();
-            imageModifierUtil.setAlpha(this.originalImageArray[index], this.imageArray[index], index, this.alpha);
+            imageModifierUtil.setAlpha(this.originalImageArray[index], this.imageArray[index], index, this.alphaP);
         }
     }
     
@@ -73,7 +73,7 @@ public class ImageArrayBaseRotationAnimation extends RotationAnimation //impleme
         super.nextRotation();
         
         final int index = this.circularIndexUtil.getIndex();
-        imageModifierUtil.setAlpha(this.originalImageArray[index], this.imageArray[index], index, this.alpha);
+        imageModifierUtil.setAlpha(this.originalImageArray[index], this.imageArray[index], index, this.alphaP);
         this.currentImage = this.imageArray[index];
     }
 
@@ -82,7 +82,7 @@ public class ImageArrayBaseRotationAnimation extends RotationAnimation //impleme
         super.previousRotation();
         
         final int index = this.circularIndexUtil.getIndex();
-        imageModifierUtil.setAlpha(this.originalImageArray[index], this.imageArray[index], index, this.alpha);
+        imageModifierUtil.setAlpha(this.originalImageArray[index], this.imageArray[index], index, this.alphaP);
         this.currentImage = this.imageArray[index];
     }
 
@@ -91,7 +91,7 @@ public class ImageArrayBaseRotationAnimation extends RotationAnimation //impleme
         super.setFrame(index2);
         
         final int index = this.circularIndexUtil.getIndex();
-        imageModifierUtil.setAlpha(this.originalImageArray[index], this.imageArray[index], index, this.alpha);
+        imageModifierUtil.setAlpha(this.originalImageArray[index], this.imageArray[index], index, this.alphaP);
         this.currentImage = this.imageArray[index];
     }
     

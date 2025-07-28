@@ -15,7 +15,7 @@ package org.allbinary.game.configuration.feature;
 
 public class TouchFeature extends Feature
 {
-    protected TouchFeature(String name)
+    TouchFeature(String name)
     {
         super(name);
     }

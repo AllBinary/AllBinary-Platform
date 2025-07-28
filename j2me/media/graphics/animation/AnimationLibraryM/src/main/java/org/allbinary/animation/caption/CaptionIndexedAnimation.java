@@ -80,6 +80,7 @@ public class CaptionIndexedAnimation extends IndexedAnimation
         this.player.start();
     }
 
+    @Override
     public void nextFrame() throws Exception
     {
         if (this.timeDelayHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime))
@@ -93,6 +94,7 @@ public class CaptionIndexedAnimation extends IndexedAnimation
         }
     }
 
+    @Override
     public boolean isLastFrame()
     {
         if (this.movieIndexedAnimationInterface.getFrame() == this.getSize() - 1)
@@ -105,37 +107,44 @@ public class CaptionIndexedAnimation extends IndexedAnimation
         }
     }
 
+    @Override
     public void previousFrame()
     {
         this.movieIndexedAnimationInterface.previousFrame();
     }
 
+    @Override
     public void setFrame(int index)
     {
         this.movieIndexedAnimationInterface.setFrame(index);
     }
 
+    @Override
     public int getFrame()
     {
         return this.movieIndexedAnimationInterface.getFrame();
     }
 
+    @Override
     public int getSize()
     {
         return this.movieIndexedAnimationInterface.getSize();
     }
 
+    @Override
     public void setSequence(int[] sequence)
     {
 
     }
 
+    @Override
     public int[] getSequence()
     {
         return PrimitiveIntUtil.getArrayInstance();
     }
 
-    public void paint(Graphics graphics, int x, int y)
+    @Override
+    public void paint(final Graphics graphics, final int x, final int y)
     {
         this.animationInterface.paint(graphics, 
                 x + this.captionDx, y + this.captionDy);
@@ -143,7 +152,8 @@ public class CaptionIndexedAnimation extends IndexedAnimation
                 x + this.captionDx + dx, y + this.captionDy + dy);
     }
 
-    public void paintThreed(Graphics graphics, int x, int y, int z)
+    @Override
+    public void paintThreed(final Graphics graphics, final int x, final int y, final int z)
     {
         this.animationInterface.paintThreed(graphics, 
                 x + this.captionDx, y + this.captionDy, z);

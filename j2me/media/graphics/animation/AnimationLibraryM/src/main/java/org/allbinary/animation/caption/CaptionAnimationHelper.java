@@ -39,6 +39,7 @@ public class CaptionAnimationHelper extends CaptionAnimationHelperBase
             captionDx, captionDy, dx, dy);
     }
     
+    @Override
     public boolean isShowing()
     {
         if(this.animation == this.captionAnimation)
@@ -51,6 +52,7 @@ public class CaptionAnimationHelper extends CaptionAnimationHelperBase
         }
     }
     
+    @Override
     public void tick()
     {
         if(this.timeHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime))
@@ -59,6 +61,7 @@ public class CaptionAnimationHelper extends CaptionAnimationHelperBase
         }
     }
     
+    @Override
     public void update(String message, BasicColor basicColor)
     {
         this.textAnimation.setBasicColor(basicColor);
@@ -67,6 +70,7 @@ public class CaptionAnimationHelper extends CaptionAnimationHelperBase
         this.timeHelper.setStartTime();
     }
     
+    @Override
     public void paint(Graphics graphics, int x, int y)
     {
         this.animation.paint(graphics, x, y);

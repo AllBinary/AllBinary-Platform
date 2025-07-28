@@ -31,7 +31,7 @@ public class HealthBarTwodAnimation extends HealthBarAnimation
         //int y = this.getY() - 1;
 
         this.basicSetColorUtil.setBasicColor(
-                graphics, this.basicColor, this.color);
+                graphics, this.basicColorP, this.colorP);
 
         graphics.fillRect(ax, this.getY() - 1, x2, this.thickness);
         

@@ -15,7 +15,7 @@ package org.allbinary.game.configuration.feature;
 
 public class GameFeature extends Feature
 {
-    protected GameFeature(String name)
+    public GameFeature(String name)
     {
         super(name);
     }

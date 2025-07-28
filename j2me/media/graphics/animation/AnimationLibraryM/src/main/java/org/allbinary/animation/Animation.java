@@ -17,6 +17,7 @@ import javax.microedition.khronos.opengles.GL;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.color.BasicColorSetUtil;
 import org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
 
@@ -29,11 +30,11 @@ OpenGLSurfaceChangedInterface
     protected final BasicColorSetUtil basicSetColorUtil = 
         BasicColorSetUtil.getInstance();
 
-    protected BasicColor basicColor;
-    protected int color;
-    protected BasicColor changeBasicColor;
-    protected int changeColor;
-    public int alpha;
+    protected BasicColor basicColorP = BasicColorFactory.getInstance().WHITE;
+    protected int colorP;
+    protected BasicColor changeBasicColorP = BasicColorFactory.getInstance().WHITE;
+    protected int changeColorP;
+    public int alphaP;
 
     protected Animation()
     {
@@ -41,19 +42,22 @@ OpenGLSurfaceChangedInterface
     }
 
     public void setAlpha(final int alpha) {
-        this.alpha = alpha;
+        this.alphaP = alpha;
     }
 
+    @Override
     public void nextFrame() throws Exception
     {
     }
 
+    @Override
     public void paint(final Graphics graphics, final int x, final int y)
     {
         this.basicSetColorUtil.setBasicColor(
             graphics, this.getBasicColor(), this.getColor());
     }
 
+    @Override
     public void paintThreed(final Graphics graphics, final int x, final int y, final int z)
     {
     }
@@ -64,36 +68,36 @@ OpenGLSurfaceChangedInterface
     
     public BasicColor getBasicColor()
     {
-        return this.basicColor;
+        return this.basicColorP;
     }
 
     public void setBasicColor(final BasicColor basicColor)
     {
         //logUtil.put("setBasicColor", this, basicColor.toString());
-        this.basicColor = basicColor;
-        this.color = this.basicColor.intValue();
+        this.basicColorP = basicColor;
+        this.colorP = this.basicColorP.intValue();
     }
 
     public BasicColor getChangeBasicColor()
     {
-        return this.changeBasicColor;
+        return this.changeBasicColorP;
     }
 
     public void changeBasicColor(final BasicColor basicColor)
     {
         //logUtil.put("setBasicColor", this, basicColor.toString());
-        this.changeBasicColor = basicColor;
-        this.changeColor = this.changeBasicColor.intValue();
+        this.changeBasicColorP = basicColor;
+        this.changeColorP = this.changeBasicColorP.intValue();
     }
 
     public int getChangeColor()
     {
-        return this.changeColor;
+        return this.changeColorP;
     }
     
     public int getColor()
     {
-        return this.color;
+        return this.colorP;
     }
     
     public void setScale(final float scaleX, final float scaleY) {
@@ -104,6 +108,7 @@ OpenGLSurfaceChangedInterface
         
     }
     
+    @Override
     public void set(GL gl) throws Exception
     {
         

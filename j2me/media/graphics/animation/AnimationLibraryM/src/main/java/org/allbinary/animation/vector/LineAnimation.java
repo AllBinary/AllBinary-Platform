@@ -19,13 +19,14 @@ import org.allbinary.animation.Animation;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.ColorCompositeInterface;
 import org.allbinary.layer.PositionInterface;
+import org.allbinary.logic.NullUtil;
 
 public class LineAnimation
     extends Animation
     implements ColorCompositeInterface, PositionInterface
 {
     private int[][] newLine = new int[2][2];
-    private int[][] tempLine = null;
+    private int[][] tempLine = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY;
     private int[][] line = new int[2][2];
 
     public LineAnimation(BasicColor basicColor)
@@ -46,6 +47,7 @@ public class LineAnimation
         this.newLine = this.tempLine;
     }
 
+    @Override
     public void setPosition(int x, int y, int z)
     {
         this.newLine[0][0] = this.line[1][0];
@@ -82,6 +84,7 @@ public class LineAnimation
     }
     */
 
+    @Override
     public void paint(Graphics graphics, int x, int y)
     {
         final int[][] currentLine = this.line;
@@ -93,6 +96,7 @@ public class LineAnimation
             currentLine[1][0], currentLine[1][1]);
     }
 
+    @Override
     public void nextFrame()
     {
     }

@@ -32,14 +32,15 @@ public class CompoundIndexedAnimationInterfaceFactory
         super(basicAnimationInterfaceFactoryInterfaceArray, animationBehaviorFactory);
     }
 
-    //@Override
+    @Override
     protected Animation[] createArray(final int size) {
         return new IndexedAnimation[size];
     }
     
-    //@Override
+    @Override
     protected Animation getInstance(final Animation[] animationInterfaceArray) {
-        return new CompoundIndexedAnimation((IndexedAnimation[]) animationInterfaceArray, this.animationBehaviorFactory.getOrCreateInstance());
+        final IndexedAnimation[] indexedAnimationArray = (IndexedAnimation[]) animationInterfaceArray;
+        return new CompoundIndexedAnimation(indexedAnimationArray, this.animationBehaviorFactory.getOrCreateInstance());
     }
     
 }

@@ -23,7 +23,7 @@ public class Feature
 
     private final String name;
 
-    protected Feature(String name)
+    public Feature(String name)
     {
         this.name = name;
         add(name, this);

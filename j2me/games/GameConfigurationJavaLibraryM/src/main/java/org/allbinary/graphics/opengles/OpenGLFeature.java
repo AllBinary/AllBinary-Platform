@@ -17,7 +17,7 @@ import org.allbinary.game.configuration.feature.Feature;
 
 public class OpenGLFeature extends Feature
 {            
-    protected OpenGLFeature(String name)
+    OpenGLFeature(String name)
     {
         super(name);
     }

@@ -20,22 +20,25 @@ public class SingletonAnimationInterfaceFactory
 {
     private final Animation animationInterface;
 
-    public SingletonAnimationInterfaceFactory(Animation animationInterface)
+    public SingletonAnimationInterfaceFactory(final Animation animationInterface)
     {
         this.animationInterface = animationInterface;
     }
 
+    @Override
     public Animation getInstance(final int instanceId) throws Exception
     {
         return this.animationInterface;
     }
 
-    public Animation getInstance(Animation animationInterface)
+    @Override
+    public Animation getInstance(final Animation animationInterface)
         throws Exception
     {
         return this.animationInterface;
     }
     
+    @Override
    public void setInitialScale(final ScaleProperties scaleProperties) {
        
    }

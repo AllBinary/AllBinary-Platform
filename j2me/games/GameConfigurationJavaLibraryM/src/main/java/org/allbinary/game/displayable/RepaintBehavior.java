@@ -20,6 +20,7 @@ import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.thread.NullRunnable;
 
 /**
  *
@@ -37,7 +38,7 @@ public class RepaintBehavior {
     public static RepaintBehavior getInstance() {
         return instance;
     }
-
+    
     public void repaint(final Canvas canvas) {
 
     }
@@ -51,7 +52,9 @@ public class RepaintBehavior {
         if(features.isFeature(openGLFeatureFactory.OPENGL)) {
             DisplayInfoSingleton.getInstance().process();
         } else {
-            final Thread thread = new Thread(new Runnable() {
+            final Thread thread = new Thread(new NullRunnable() {
+                
+                @Override
                 public void run() {
                     try {
                         //System.out.println("TWB:RepaintBehavior:repaint");

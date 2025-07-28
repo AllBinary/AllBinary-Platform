@@ -18,7 +18,7 @@ public class ResourceLoadingLevel
     private final String name;
     private final int level;
     
-    protected ResourceLoadingLevel(String name, int level)
+    ResourceLoadingLevel(String name, int level)
     {
         this.name = name;
         this.level = level;

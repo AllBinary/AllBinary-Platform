@@ -33,11 +33,13 @@ public class BaseChangedGameFeatureListener implements GameFeatureListenerInterf
     protected final BasicArrayList list = new BasicArrayList();
     private boolean changed = true;
 
+    @Override
     public void onEvent(AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(CommonStrings.getInstance().NOT_IMPLEMENTED, this);
     }
 
+    @Override
     public void onGameFeatureChange(GameFeatureEvent gameFeatureEvent)
     {
         logUtil.put(new StringMaker().append(gameFeatureUtil.GAME_FEATURE_CHANGED).append(gameFeatureEvent.getWhatChanged()).toString(), this, gameFeatureUtil.ON_GAME_FEATURE_CHANGE);

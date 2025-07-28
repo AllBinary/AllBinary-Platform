@@ -7,6 +7,7 @@ extends IndexedAnimation
         super(animationBehavior);
     }
     
+    @Override
     public int getAnimationSize() throws Exception
     {
         return 0;

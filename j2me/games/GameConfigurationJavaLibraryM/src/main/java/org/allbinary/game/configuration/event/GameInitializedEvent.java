@@ -19,7 +19,7 @@ import org.allbinary.logic.util.event.AllBinaryEventObject;
 
 public class GameInitializedEvent extends AllBinaryEventObject
 {
-    private ResourceLoadingLevel resourceLoadingLevel;
+    private ResourceLoadingLevel resourceLoadingLevel = ResourceLoadingLevelFactory.getInstance().LEVEL;
     private int level;
     
     public GameInitializedEvent(Object object)

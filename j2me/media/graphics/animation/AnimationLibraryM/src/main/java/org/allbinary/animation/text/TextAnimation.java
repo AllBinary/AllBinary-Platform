@@ -44,10 +44,12 @@ public class TextAnimation extends IndexedAnimation
         this.setText(text);
     }
     
+    @Override
     public void nextFrame() throws Exception
     {
     }
 
+    @Override
     public void paint(Graphics graphics, int x, int y)
     {
         this.basicSetColorUtil.setBasicColor(

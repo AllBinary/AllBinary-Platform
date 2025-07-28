@@ -30,17 +30,20 @@ public class NullSpecialAnimationFactory implements
        return NULL_SPECIAL_ANIMATION_FACTORY;
    }
 
+   @Override
    public Animation getInstance(final int instanceId) throws Exception
    {
        return SpecialAnimation.getInstance();
    }
    
-   public Animation getInstance(Animation animationInterface)
+   @Override
+   public Animation getInstance(final Animation animationInterface)
        throws Exception
    {
        return SpecialAnimation.getInstance();
    }
    
+   @Override
    public void setInitialScale(final ScaleProperties scaleProperties) {
        
    }

@@ -35,12 +35,12 @@ public class TitleAnimation extends SpecialAnimation
     protected final BasicColor[] basicColorArray;
     protected final int[] dxArray;
     protected final int[] dyArray;
-    protected final int width;
+    protected final int widthP;
     // private final int HEIGHT = 45;
 
     protected final IndexedAnimation[] animationInterfaceArray;
     
-    protected final int size;
+    protected final int sizeP;
     protected final int y;
 
     private long lastFrameStartTime;
@@ -70,7 +70,7 @@ public class TitleAnimation extends SpecialAnimation
 
         this.animationInterfaceArray = animationInterfaceArray;
 
-        this.size = this.animationInterfaceArray.length;
+        this.sizeP = this.animationInterfaceArray.length;
 
         this.basicColorArray = basicColorArray;
         this.dxArray = dxArray;
@@ -78,11 +78,12 @@ public class TitleAnimation extends SpecialAnimation
 
         this.y = y;
 
-        this.width = width;
+        this.widthP = width;
 
         this.reset();
     }
 
+    @Override
     public void nextFrame()
     {
         final long currentTime = System.currentTimeMillis();
@@ -110,6 +111,7 @@ public class TitleAnimation extends SpecialAnimation
          */
     }
 
+    @Override
     public boolean isComplete()
     {
         final IndexedAnimationBehavior indexedAnimationBehavior = (IndexedAnimationBehavior) this.getAnimationBehavior();
@@ -125,51 +127,60 @@ public class TitleAnimation extends SpecialAnimation
         }
     }
 
+    @Override
     public void setSequence(final int[] sequence)
     {
 
     }
 
+    @Override
     public int[] getSequence()
     {
         return PrimitiveIntUtil.getArrayInstance();
     }
 
+    @Override
     public int getSize()
     {
         return this.animationInterfaceArray[0].getSize();
     }
 
+    @Override
     public int getFrame()
     {
         return this.animationInterfaceArray[0].getFrame();
     }
 
+    @Override
     public void setFrame(final int frame)
     {
-        for (int index = 0; index < size; index++)
+        for (int index = 0; index < sizeP; index++)
         {
             this.animationInterfaceArray[index].setFrame(frame);
         }
     }
 
+    @Override
     public void setLastFrame()
     {
         this.setFrame(this.getSize() - 1);
     }
-        
+
+    @Override
     public void reset()
     {
         // this.setFrame(0);
         this.setLastFrame();
-        ((IndexedAnimationBehavior) this.getAnimationBehavior()).reset();
+        final IndexedAnimationBehavior indexedAnimationBehavior = ((IndexedAnimationBehavior) this.getAnimationBehavior());
+        indexedAnimationBehavior.reset();
     }
 
     //this is called from nextFrame. Logical? probably not.
+    @Override
     public void previousFrame()
     {
         //ForcedLogUtil.log(commonStrings.NOT_IMPLEMENTED, this);
-        for (int index = 0; index < size; index++)
+        for (int index = 0; index < sizeP; index++)
         {
             this.animationInterfaceArray[index].previousFrame();
         }
@@ -182,21 +193,22 @@ public class TitleAnimation extends SpecialAnimation
     }
 
     protected final BasicColor CLEAR_COLOR = BasicColorFactory.getInstance().CLEAR_COLOR;
-    
+
+    @Override    
     public void paint(final Graphics graphics, final int ax, final int ay)
     {
         int x = 0;
         
-        if(this.width != Integer.MIN_VALUE)
+        if(this.widthP != Integer.MIN_VALUE)
         {
             //x = ((graphics.getClipWidth() - this.width) / 2);
-            x = ((displayInfoSingleton.getLastWidth() - this.width) / 2);
+            x = ((displayInfoSingleton.getLastWidth() - this.widthP) / 2);
         }
         
         int deltaX;
         int deltaY;
 
-        for (int index = 0; index < size; index++)
+        for (int index = 0; index < sizeP; index++)
         {
             deltaX = this.dxArray[index] + x;
             deltaY = this.dyArray[index] + y;
@@ -213,6 +225,7 @@ public class TitleAnimation extends SpecialAnimation
     /*
     private final ViewPosition viewPosition = new CenterViewPositionFactory().getInstance();
     
+    @Override
     public void paintThreed(final Graphics graphics, final int x, final int y, final int z)
     {
         int dx = 0;

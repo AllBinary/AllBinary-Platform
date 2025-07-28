@@ -41,6 +41,7 @@ public class CaptionAnimationHelperBase extends Animation {
 
     }
     
+    @Override
     public void paint(Graphics graphics, int x, int y)
     {
         

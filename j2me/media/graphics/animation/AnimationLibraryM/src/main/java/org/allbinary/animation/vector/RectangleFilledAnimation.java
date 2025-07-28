@@ -32,9 +32,11 @@ implements ColorCompositeInterface
       this.setBasicColor(basicColor);
    }
 
+   @Override
    public void nextFrame() {
    }
 
+   @Override
    public void paint(final Graphics graphics, final int x, final int y) {
        this.basicSetColorUtil.setBasicColor(
                graphics, this.getBasicColor(), this.getColor());

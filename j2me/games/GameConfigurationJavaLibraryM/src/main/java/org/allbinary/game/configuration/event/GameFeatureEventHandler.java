@@ -31,10 +31,12 @@ public class GameFeatureEventHandler extends BasicEventHandler
       return GameFeatureEventHandler.gameKeyEventHandler;
    }
    
+   @Override
    protected void process(AllBinaryEventObject eventObject,
            EventListenerInterface eventListenerInterface) throws Exception {
 
-      ((GameFeatureListenerInterface) eventListenerInterface).onGameFeatureChange(
-              (GameFeatureEvent) eventObject);
+       final GameFeatureListenerInterface gameFeatureListenerInterface = 
+           ((GameFeatureListenerInterface) eventListenerInterface);
+       gameFeatureListenerInterface.onGameFeatureChange((GameFeatureEvent) eventObject);
    }
 }

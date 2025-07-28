@@ -18,7 +18,7 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.graphics.font.FontDebugFactory;
-import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringUtil;
 
 /**
  *
@@ -26,7 +26,6 @@ import org.allbinary.logic.communication.log.LogUtil;
  */
 public class CustomTextAnimation extends TextAnimation
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final FontDebugFactory fontDebugFactory = FontDebugFactory.getInstance();
     
@@ -34,7 +33,7 @@ public class CustomTextAnimation extends TextAnimation
     
     protected Font font;
 
-    private String lastText = null;
+    private String lastText = StringUtil.getInstance().EMPTY_STRING;
     protected boolean hasChanged = true;
     
     public CustomTextAnimation(final String text, final int fontSize, final AnimationBehavior animationBehavior)
@@ -65,6 +64,7 @@ public class CustomTextAnimation extends TextAnimation
 //        }
 //    }
     
+    @Override
     public void paint(final Graphics graphics, final int x, final int y)
     {
         final Font existingFont = graphics.getFont();
@@ -77,6 +77,7 @@ public class CustomTextAnimation extends TextAnimation
         fontDebugFactory.setFont(existingFont, graphics);
     }
   
+    @Override
     public void setScale(final float scaleX, final float scaleY) {
         if(scaleX != scaleY) {
             throw new RuntimeException();
@@ -90,6 +91,7 @@ public class CustomTextAnimation extends TextAnimation
 //        }
     }
     
+    @Override
     public void setText(final String text)
     {
         if(this.lastText != text) {
@@ -105,6 +107,7 @@ public class CustomTextAnimation extends TextAnimation
     }
 
     private int textWidth;
+    @Override
     public int getWidth() {
         if(this.hasChanged) {
             this.textWidth = this.font.stringWidth(this.textArray[0]);
@@ -113,6 +116,7 @@ public class CustomTextAnimation extends TextAnimation
         return this.textWidth;
     }
 
+    @Override
     public int getHeight() {
         return this.font.getHeight();
     }

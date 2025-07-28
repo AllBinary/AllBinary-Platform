@@ -18,16 +18,14 @@ import javax.microedition.lcdui.Canvas;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.thread.NullRunnable;
 
 /**
  *
  * @author User
  */
 public class AlwaysRepaintBehavior extends RepaintBehavior {
-    protected final LogUtil logUtil = LogUtil.getInstance();
-
     
     private static final AlwaysRepaintBehavior instance = new AlwaysRepaintBehavior();
 
@@ -37,8 +35,10 @@ public class AlwaysRepaintBehavior extends RepaintBehavior {
     public static AlwaysRepaintBehavior getInstance() {
         return instance;
     }
-    
+        
     private final String NAME = "AlwaysRepaintBehavior";
+    
+    @Override
     public void repaint(final Canvas canvas) {
         
         final Features features = Features.getInstance();
@@ -47,7 +47,9 @@ public class AlwaysRepaintBehavior extends RepaintBehavior {
         if(features.isFeature(openGLFeatureFactory.OPENGL)) {
             DisplayInfoSingleton.getInstance().process();
         } else {
-            final Thread thread = new Thread(new Runnable() {
+            final Thread thread = new Thread(new NullRunnable() {
+                
+                @Override
                 public void run() {
                     try {
                         //System.out.println("TWB:AlwaysRepaintBehavior:repaint");
@@ -64,6 +66,7 @@ public class AlwaysRepaintBehavior extends RepaintBehavior {
         
     }
     
+    @Override
     public void onChangeRepaint(final Canvas canvas) {
         
     }

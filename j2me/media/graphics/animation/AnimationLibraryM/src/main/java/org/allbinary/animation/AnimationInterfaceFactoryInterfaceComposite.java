@@ -26,9 +26,10 @@ public class AnimationInterfaceFactoryInterfaceComposite
         this.animationInterfaceFactoryInterfaceArray = basicAnimationInterfaceFactoryInterfaceArray;
     }
 
+    @Override
     public Animation getInstance(final int instanceId) throws Exception
     {
-        return null;
+        return NullAnimationFactory.getFactoryInstance().getInstance(0);
     }
 
     /**
@@ -38,8 +39,9 @@ public class AnimationInterfaceFactoryInterfaceComposite
         return animationInterfaceFactoryInterfaceArray;
     }
 
-   public void setInitialScale(final ScaleProperties scaleProperties) {
+    @Override
+    public void setInitialScale(final ScaleProperties scaleProperties) {
        
-   }
+    }
     
 }

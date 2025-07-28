@@ -30,16 +30,20 @@ public class SpecialAnimation extends IndexedAnimation implements SpecialAnimati
         super(animationBehavior);
     }
     
+    @Override
     public void nextFrame()
     {
-        ((IndexedAnimationBehavior) this.animationBehavior).loopIndex++;
+        final IndexedAnimationBehavior indexedAnimationBehavior = ((IndexedAnimationBehavior) this.animationBehaviorP);
+        indexedAnimationBehavior.loopIndex++;
     }
     
+    @Override
     public void setLastFrame()
     {
         
     }
     
+    @Override
     public boolean isComplete()
     {
         return false;

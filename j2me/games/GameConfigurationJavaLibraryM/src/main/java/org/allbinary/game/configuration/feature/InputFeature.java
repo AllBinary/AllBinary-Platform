@@ -15,7 +15,7 @@ package org.allbinary.game.configuration.feature;
 
 public class InputFeature extends Feature
 {
-    protected InputFeature(String name)
+    InputFeature(String name)
     {
         super(name);
     }

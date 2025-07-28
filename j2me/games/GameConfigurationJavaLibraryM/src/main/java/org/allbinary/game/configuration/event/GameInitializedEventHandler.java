@@ -31,10 +31,13 @@ public class GameInitializedEventHandler extends BasicEventHandler
       return GameInitializedEventHandler.gameKeyEventHandler;
    }
    
+   @Override
    protected void process(AllBinaryEventObject eventObject,
            EventListenerInterface eventListenerInterface) throws Exception {
 
-      ((GameInitializedListenerInterface) eventListenerInterface).onGameInitialized(
-              (GameInitializedEvent) eventObject);
+       final GameInitializedListenerInterface gameInitializedListenerInterface = 
+           ((GameInitializedListenerInterface) eventListenerInterface);
+       gameInitializedListenerInterface.onGameInitialized(
+           (GameInitializedEvent) eventObject);
    }
 }
