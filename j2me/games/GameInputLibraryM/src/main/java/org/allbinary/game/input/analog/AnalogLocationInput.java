@@ -4,6 +4,8 @@ import org.allbinary.graphics.CustomGPoint;
 
 public class AnalogLocationInput {
 
+    public static final AnalogLocationInput NULL_ANALOG_LOCATION_INPUT = new AnalogLocationInput(-1);
+
 	private final int playerId;
 	private final CustomGPoint customGPoint;
 	private int rz;
@@ -11,7 +13,7 @@ public class AnalogLocationInput {
         private int rightTrigger;
         private int leftTrigger;
 
-	protected AnalogLocationInput(int playerId) {
+	AnalogLocationInput(int playerId) {
 		this.playerId = playerId;
 		this.customGPoint = new CustomGPoint(0, 0, 0);
 	}

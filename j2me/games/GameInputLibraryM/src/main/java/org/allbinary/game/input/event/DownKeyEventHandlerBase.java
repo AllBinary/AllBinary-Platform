@@ -22,14 +22,12 @@ import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.util.BasicArrayList;
 
 public class DownKeyEventHandlerBase extends BasicEventHandler {
-    protected final LogUtil logUtil = LogUtil.getInstance();
-
 
     private final BasicArrayList list = new BasicArrayList();
 
-    protected DownKeyEventHandlerBase() {
+    DownKeyEventHandlerBase() {
     }
-    
+
     public void addListener(final PlayerGameInput playerGameInput) {
         if (!list.contains(playerGameInput)) {
 
@@ -39,6 +37,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
         }
     }
 
+    @Override
     public void removeAllListeners() {
 
         //ForcedLogUtil.log(this.toString(), "removeAllListeners");
@@ -49,6 +48,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
         //ForcedLogUtil.log(this.toString(), "removeAllListeners");
     }
 
+    @Override
     public void removeListenerSingleThreaded(final EventListenerInterface eventListenerInterface) {
         
         this.list.remove(eventListenerInterface);
@@ -57,6 +57,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
         //ForcedLogUtil.log(this.toString(), "removeListenerSingleThreaded");
     }
 
+    @Override
     public synchronized void removeListener(EventListenerInterface eventListenerInterface) {
 
         this.list.remove(eventListenerInterface);
@@ -124,11 +125,13 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
     }
     
     protected void process(final Integer eventObject, final EventListenerInterface eventListenerInterface) throws Exception {
-        ((DownKeyEventListenerInterface) eventListenerInterface).onDownKeyEvent(eventObject);
+        final DownKeyEventListenerInterface downKeyEventListenerInterface = (DownKeyEventListenerInterface) eventListenerInterface;
+        downKeyEventListenerInterface.onDownKeyEvent(eventObject);
     }
 
     protected void process(final GameKeyEvent eventObject, final EventListenerInterface eventListenerInterface) throws Exception {
-        ((DownKeyEventListenerInterface) eventListenerInterface).onDownKeyEvent(eventObject);
+        final DownKeyEventListenerInterface downKeyEventListenerInterface = (DownKeyEventListenerInterface) eventListenerInterface;
+        downKeyEventListenerInterface.onDownKeyEvent(eventObject);
     }
     
     private static final String TOTAL_LISTENERS = " Total PlayerGameInput Listeners: ";
@@ -141,9 +144,10 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
         stringBuffer.append(TOTAL_LISTENERS);
         stringBuffer.append(this.list.size());
 
+        EventListenerInterface eventListenerInterface;
         for (int index = 0; index < this.list.size(); index++) {
             try {
-                EventListenerInterface eventListenerInterface = (EventListenerInterface) // enumeration.nextElement();
+                eventListenerInterface = (EventListenerInterface) // enumeration.nextElement();
                         this.list.get(index);
 
                 stringBuffer.append(LISTENER_LABEL);

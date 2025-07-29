@@ -40,6 +40,7 @@ extends RotationAnimation
         this.animationInterfaceArray = animationInterfaceArray;
     }
     
+    @Override
     public void setFrame(final int frameIndex)
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
@@ -48,21 +49,25 @@ extends RotationAnimation
         }
     }
 
+    @Override
     public int getFrame()
     {
         return this.animationInterfaceArray[0].getFrame();
     }
 
+    @Override
     public int getAnimationSize() throws Exception
     {
         return this.animationInterfaceArray[0].getAnimationSize();
-    }    
+    }
     
+    @Override
     public int getSize()
     {
         return this.animationInterfaceArray[0].getSize();
     }
 
+    @Override
     public void previousFrame()
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
@@ -71,6 +76,7 @@ extends RotationAnimation
         }
     }
 
+    @Override
     public void nextFrame()
     throws Exception
     {
@@ -80,6 +86,7 @@ extends RotationAnimation
         }
     }
 
+    @Override
     public void previousRotation()
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
@@ -88,6 +95,7 @@ extends RotationAnimation
         }
     }
 
+    @Override
     public void nextRotation()
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
@@ -96,15 +104,18 @@ extends RotationAnimation
         }
     }
 
+    @Override
     public void setSequence(final int[] sequence)
     {
     }
 
+    @Override
     public int[] getSequence()
     {
         return PrimitiveIntUtil.getArrayInstance();
     }
 
+    @Override
     public void paint(final Graphics graphics, final int x, final int y)
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
@@ -113,6 +124,7 @@ extends RotationAnimation
         }
     }
 
+    @Override
     public void paintThreed(final Graphics graphics, final int x, final int y, final int z)
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
@@ -121,6 +133,7 @@ extends RotationAnimation
         }
     }
 
+    @Override
     public void setFrame(final Direction direction)
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
@@ -129,6 +142,7 @@ extends RotationAnimation
         }
     }
 
+    @Override
     public void setFrame(final Angle angle)
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
@@ -137,11 +151,13 @@ extends RotationAnimation
         }
     }
 
+    @Override
     public void adjustFrame(final Angle newAngle)
     {
         this.adjustFrame(newAngle.getValue());
     }
 
+    @Override
     public void adjustFrame(final short angle)
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
@@ -150,9 +166,10 @@ extends RotationAnimation
         }
     }
 
-    public AngleInfo getAngleInfo()
+    @Override
+    public AngleInfo getAngleInfoP()
     {
-        return this.animationInterfaceArray[0].getAngleInfo();
+        return this.animationInterfaceArray[0].getAngleInfoP();
     }
     
     /**
@@ -171,6 +188,7 @@ extends RotationAnimation
         this.animationInterfaceArray = animationInterfaceArray;
     }
     
+    @Override
     public void set(final GL gl) throws Exception
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)

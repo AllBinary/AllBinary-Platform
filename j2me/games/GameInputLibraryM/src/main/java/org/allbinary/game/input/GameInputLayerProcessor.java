@@ -23,13 +23,15 @@ public class GameInputLayerProcessor extends LayerProcessor {
             super(new GameInputLayerManager());
 	}
 
-	public void process(AllBinaryLayerManager allBinaryLayerManager,
-	        AllBinaryLayer layerInterface, int index) throws Exception {
-		GameInputInterface gameInputInterface = (GameInputInterface) layerInterface;
+        @Override
+	public void process(final AllBinaryLayerManager allBinaryLayerManager,
+	        final AllBinaryLayer layerInterface, final int index) throws Exception {
+		final GameInputInterface gameInputInterface = (GameInputInterface) layerInterface;
 		gameInputInterface.processInput(allBinaryLayerManager);
 	}
 
-	public boolean isProcessorLayer(AllBinaryLayer layerInterface) {
+        @Override
+	public boolean isProcessorLayer(final AllBinaryLayer layerInterface) {
 		if (layerInterface.implmentsGameInputInterface()) {
 			return true;
 		} else {

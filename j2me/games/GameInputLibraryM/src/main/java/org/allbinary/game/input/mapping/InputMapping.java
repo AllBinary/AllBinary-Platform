@@ -49,7 +49,7 @@ public class InputMapping
     
     protected InputToGameKeyMapping getDefault()
     {
-        return null;
+        return InputToGameKeyMapping.INPUT_TO_GAME_KEY_MAPPING;
     }
     
     protected void removeAll()

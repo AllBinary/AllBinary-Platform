@@ -13,12 +13,13 @@
 */
 package org.allbinary.game.input.event;
 
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 
 public class GameKeyEvent extends AllBinaryEventObject
 {
-   public static final GameKeyEvent NONE = new GameKeyEvent(null, -1, -1, -1, -1, false);
+   public static final GameKeyEvent NONE = new GameKeyEvent(NullUtil.getInstance().NULL_OBJECT, -1, -1, -1, -1, false);
    
    private final int sourceId;
    

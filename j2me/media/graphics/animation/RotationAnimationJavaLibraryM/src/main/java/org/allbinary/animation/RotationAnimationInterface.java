@@ -19,7 +19,7 @@ import org.allbinary.math.AngleInfo;
 public interface RotationAnimationInterface 
     extends IndexedAnimationInterface, DirectionalInterface
 {
-   AngleInfo getAngleInfo();
+   AngleInfo getAngleInfoP();
    void nextRotation();
    void previousRotation();   
 }

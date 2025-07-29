@@ -23,7 +23,7 @@ import org.allbinary.util.BasicArrayList;
 
 public class PressGameKeyEventHandler extends BasicEventHandler
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
+   
 
    private static final PressGameKeyEventHandler instance = new PressGameKeyEventHandler();
 
@@ -46,18 +46,21 @@ public class PressGameKeyEventHandler extends BasicEventHandler
        }
    }
 
+   @Override
    public void removeAllListeners()
    {
        this.list.clear();
        super.removeAllListeners();
    }
 
+   @Override
    public void removeListener(EventListenerInterface eventListenerInterface)
    {
        this.list.remove(eventListenerInterface);
        super.removeListener(eventListenerInterface);
    }
 
+   @Override
    public void fireEvent(AllBinaryEventObject eventObject) throws Exception
    {        
        for (int index = this.list.size(); --index >= 0;)
@@ -77,11 +80,12 @@ public class PressGameKeyEventHandler extends BasicEventHandler
        super.fireEvent(eventObject);
    }
    
+   @Override
    protected void process(AllBinaryEventObject eventObject,
            EventListenerInterface eventListenerInterface) throws Exception {
 
-      ((PressGameKeyEventListenerInterface) eventListenerInterface).onPressGameKeyEvent(
-              (GameKeyEvent) eventObject);
+       final PressGameKeyEventListenerInterface pressGameKeyEventListenerInterface = ((PressGameKeyEventListenerInterface) eventListenerInterface);
+       pressGameKeyEventListenerInterface.onPressGameKeyEvent((GameKeyEvent) eventObject);
    }
    
 }

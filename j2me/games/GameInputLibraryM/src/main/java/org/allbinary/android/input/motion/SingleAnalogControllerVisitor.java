@@ -10,7 +10,7 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.android.input.motion;
 
 import org.allbinary.game.input.analog.AnalogLocationInput;
@@ -18,19 +18,17 @@ import org.allbinary.game.input.analog.AnalogLocationInputFactory;
 import org.allbinary.layer.AllBinaryLayerManager;
 
 public class SingleAnalogControllerVisitor
-extends AnalogControllerVisitor
-{
-	private final int playerInputId;
-	
-	public SingleAnalogControllerVisitor(int playerInputId)
-	{
-		this.playerInputId = playerInputId;
-	}
-	
-    public void process(AllBinaryLayerManager allbinaryLayerManager, AnalogLocationInputProcessor analogLocationInputProcessor)
-    {
-    	AnalogLocationInput analogLocationInput = AnalogLocationInputFactory.getInstance().getInstance(playerInputId);
-       	analogLocationInputProcessor.process(
-       			allbinaryLayerManager, analogLocationInput);
+    extends AnalogControllerVisitor {
+
+    private final int playerInputId;
+
+    public SingleAnalogControllerVisitor(final int playerInputId) {
+        this.playerInputId = playerInputId;
+    }
+
+    @Override
+    public void process(final AllBinaryLayerManager allbinaryLayerManager, final AnalogLocationInputProcessor analogLocationInputProcessor) {
+        final AnalogLocationInput analogLocationInput = AnalogLocationInputFactory.getInstance().getInstance(playerInputId);
+        analogLocationInputProcessor.process(allbinaryLayerManager, analogLocationInput);
     }
 }

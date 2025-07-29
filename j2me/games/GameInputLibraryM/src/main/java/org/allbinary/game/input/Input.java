@@ -14,6 +14,7 @@
 package org.allbinary.game.input;
 
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 
 
 public class Input
@@ -21,7 +22,7 @@ public class Input
     //protected final LogUtil logUtil = LogUtil.getInstance();
     
     private int id;
-    private String name;
+    private String name = StringUtil.getInstance().EMPTY_STRING;
 
     protected final InputFactory inputFactory = InputFactory.getInstance();
     

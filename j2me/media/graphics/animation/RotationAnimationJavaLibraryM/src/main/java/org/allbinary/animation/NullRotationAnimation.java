@@ -5,16 +5,17 @@ import org.allbinary.math.AngleInfo;
 public class NullRotationAnimation
 extends RotationAnimation
 {
-    protected NullRotationAnimation(final AngleInfo angleInfo, final short totalAngle, final AnimationBehavior animationBehavior)
+    NullRotationAnimation(final AngleInfo angleInfo, final short totalAngle, final AnimationBehavior animationBehavior)
     {
         super(angleInfo, totalAngle, animationBehavior);
     }
 
-    protected NullRotationAnimation(final AnimationBehavior animationBehavior)
+    NullRotationAnimation(final AnimationBehavior animationBehavior)
     {
         super(animationBehavior);
     }
     
+    @Override
     public int getAnimationSize() throws Exception
     {
         return 0;

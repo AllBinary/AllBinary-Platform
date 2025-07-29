@@ -20,7 +20,6 @@ import org.allbinary.logic.math.ScaleFactorFactory;
 public class AnalogControllerConfigurationFactory {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-
     private static final AnalogControllerConfigurationFactory instance = new AnalogControllerConfigurationFactory();
 
     public static AnalogControllerConfigurationFactory getInstance() {

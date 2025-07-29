@@ -23,14 +23,13 @@ import org.allbinary.util.BasicArrayList;
 
 public class UpKeyEventHandlerBase extends BasicEventHandler
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
    private final BasicArrayList list = new BasicArrayList();
    
-   protected UpKeyEventHandlerBase()
+   UpKeyEventHandlerBase()
    {
    }
-   
+ 
    public void addListener(PlayerGameInput playerGameInput)
    {
        if(!list.contains(playerGameInput))
@@ -39,12 +38,14 @@ public class UpKeyEventHandlerBase extends BasicEventHandler
        }
    }
 
+   @Override
    public void removeAllListeners()
    {
        this.list.clear();
        super.removeAllListeners();
    }
 
+   @Override
     public void removeListenerSingleThreaded(
             EventListenerInterface eventListenerInterface)
     {
@@ -52,6 +53,7 @@ public class UpKeyEventHandlerBase extends BasicEventHandler
         super.removeListenerSingleThreaded(eventListenerInterface);
     }
     
+    @Override
    public synchronized void removeListener(EventListenerInterface eventListenerInterface)
    {
        this.list.remove(eventListenerInterface);
@@ -89,10 +91,11 @@ public class UpKeyEventHandlerBase extends BasicEventHandler
         }
    }
    
-   protected void process(Integer eventObject,
-           EventListenerInterface eventListenerInterface) throws Exception {
+   protected void process(final Integer eventObject,
+           final EventListenerInterface eventListenerInterface) throws Exception {
 
-      ((UpKeyEventListenerInterface) eventListenerInterface).onUpKeyEvent(eventObject);
+       final UpKeyEventListenerInterface upKeyEventListenerInterface = (UpKeyEventListenerInterface) eventListenerInterface;
+       upKeyEventListenerInterface.onUpKeyEvent(eventObject);
    }
    
 

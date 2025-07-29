@@ -77,14 +77,14 @@ public class ProgressCanvas extends RunnableCanvas
 
     public Processor inGameProcessor = Processor.getInstance();
     
-    protected ProgressCanvas()
+    ProgressCanvas()
     {
         this.paintable = NullPaintable.getInstance();
         this.backgroundBasicColor = BasicColorFactory.getInstance().WHITE;
         this.gauge = CustomGaugeItem.NULL_GAUGE_ITEM;
     }
     
-    protected ProgressCanvas(final String title, final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
+    ProgressCanvas(final String title, final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
     {
         this.backgroundBasicColor = backgroundBasicColor;
         this.gauge = new CustomGaugeItem(StringUtil.getInstance().EMPTY_STRING, (int) maxValue, 0, 

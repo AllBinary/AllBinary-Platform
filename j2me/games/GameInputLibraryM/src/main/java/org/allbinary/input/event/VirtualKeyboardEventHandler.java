@@ -22,7 +22,6 @@ import org.allbinary.string.CommonStrings;
 
 public class VirtualKeyboardEventHandler extends BasicEventHandler
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
    private static final VirtualKeyboardEventHandler gameKeyEventHandler = 
       new VirtualKeyboardEventHandler();
@@ -30,8 +29,6 @@ public class VirtualKeyboardEventHandler extends BasicEventHandler
    private VirtualKeyboardEventHandler()
    {
    }
-
-   private final CommonStrings commonStrings = CommonStrings.getInstance();
 
    public final VirtualKeyboardEvent SHOW_EVENT = new VirtualKeyboardEvent(BooleanFactory.getInstance().TRUE);
    public final VirtualKeyboardEvent HIDE_EVENT = new VirtualKeyboardEvent(BooleanFactory.getInstance().FALSE);
@@ -42,12 +39,11 @@ public class VirtualKeyboardEventHandler extends BasicEventHandler
    }
    
    @Override
-   protected void process(AllBinaryEventObject eventObject,
-           EventListenerInterface eventListenerInterface) throws Exception {
+   protected void process(final AllBinaryEventObject eventObject,
+           final EventListenerInterface eventListenerInterface) throws Exception {
 
-      ((VirtualKeyboardEventListenerInterface) 
-              eventListenerInterface).onVirtualKeyboardEvent(
-                      (VirtualKeyboardEvent) eventObject);
+       final VirtualKeyboardEventListenerInterface virtualKeyboardEventListenerInterface = (VirtualKeyboardEventListenerInterface) eventListenerInterface;
+      virtualKeyboardEventListenerInterface.onVirtualKeyboardEvent((VirtualKeyboardEvent) eventObject);
    }
    
     public void open()

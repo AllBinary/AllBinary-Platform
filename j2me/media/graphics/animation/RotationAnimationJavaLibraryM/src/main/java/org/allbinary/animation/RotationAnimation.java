@@ -28,8 +28,11 @@ public class RotationAnimation
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
+    private final FrameUtil frameUtil = FrameUtil.getInstance();
+    
     protected final DirectionUtil directionUtil = DirectionUtil.getInstance();
     protected final AngleInfo angleInfo;
+    
     protected CircularIndexUtil circularIndexUtil;
 
     protected RotationAnimation(final AngleInfo angleInfo, final AnimationBehavior animationBehavior)
@@ -56,17 +59,19 @@ public class RotationAnimation
     {
         super(animationBehavior);
         
-        this.angleInfo = AngleInfo.getInstance((short) (AngleFactory.getInstance().TOTAL_ANGLE >> 2)); //
+        this.angleInfo = AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE); //
         //AngleFactory.getInstance().TOTAL_ANGLE / angleInfo.getAngleIncrementInfo().getAngleIncrement() == 4
         this.circularIndexUtil = CircularIndexUtil.getInstance(4);
     }
 
+    @Override
     public void nextRotation()
     {
         //super.nextFrame();
         this.angleInfo.adjustAngle(this.circularIndexUtil.next());
     }
 
+    @Override
     public void previousRotation() 
     {
         //super.previousFrame();
@@ -80,8 +85,9 @@ public class RotationAnimation
     public void previousRotationZ()
     {
     }
-    
-    public void setFrame(int index)
+
+    @Override    
+    public void setFrame(final int index)
     {
         //int currentFrame = this.circularIndexUtil.getIndex();
         this.circularIndexUtil.setIndex(index);
@@ -92,7 +98,8 @@ public class RotationAnimation
         this.angleInfo.adjustAngle(newFrame);
     }
 
-    public void setFrame(Direction direction)
+    @Override
+    public void setFrame(final Direction direction)
     {
         //logUtil.put(commonStrings.START, this, "setFrame");
 
@@ -122,39 +129,43 @@ public class RotationAnimation
         this.angleInfo.adjustAngle(this.circularIndexUtil.getIndex());
         */
 
-        Angle angle = directionUtil.getFrameAngle(direction);
+        final Angle angle = directionUtil.getFrameAngle(direction);
         this.adjustFrame(angle);
     }
-        
-    public void setFrame(Angle angle)
+
+    @Override
+    public void setFrame(final Angle angle)
     {
         this.adjustFrame(angle);
     }
 
-    public void adjustFrame(Angle angle)
+    @Override
+    public void adjustFrame(final Angle angle)
     {
         this.adjustFrame(angle.getValue());
     }
 
-    private final FrameUtil frameUtil = FrameUtil.getInstance();
-
-    public void adjustFrame(short angle)
+    @Override
+    public void adjustFrame(final short angle)
     {
         this.setFrame(this.frameUtil.getFrameForAngle(
-                angle, this.angleInfo.getAngleIncrementInfo().getAngleIncrement()));
+                angle, (int) this.angleInfo.getAngleIncrementInfo().getAngleIncrement()));
     }
 
+    @Override
     public int getFrame()
     {
         return this.circularIndexUtil.getIndex();
     }
     
+    @Override
     public int getSize()
     {
         return this.circularIndexUtil.getSize();
     }
     
-    public AngleInfo getAngleInfo()
+    @Override
+    public AngleInfo getAngleInfoP()
     {
         return this.angleInfo;
     }

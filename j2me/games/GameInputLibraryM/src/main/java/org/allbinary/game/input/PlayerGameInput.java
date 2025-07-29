@@ -27,7 +27,6 @@ import org.allbinary.util.BasicArrayList;
 public class PlayerGameInput extends GameInput 
       implements GameKeyEventListenerInterface
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
     
@@ -52,6 +51,7 @@ public class PlayerGameInput extends GameInput
    }
    */
 
+   @Override
    public synchronized void onPressGameKeyEvent(final GameKeyEvent gameKeyEvent)
    {
        //PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameKeyEvent.toString()).toString(), this, gameInputStrings.ON_PRESS_GAME_KEY);
@@ -59,6 +59,7 @@ public class PlayerGameInput extends GameInput
        this.addForRemoval(gameKeyEvent);
    }
    
+   @Override
    public synchronized void onDownGameKeyEvent(final GameKeyEvent gameKeyEvent)
    {
        //PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameKeyEvent.toString()).toString(), this, gameInputStrings.ON_DOWN_GAME_KEY);
@@ -77,6 +78,7 @@ public class PlayerGameInput extends GameInput
        PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameKeyEvent.toString()).toString(), this, gameInputStrings.ON_DOWN_GAME_KEY);
    }
    
+   @Override
    public synchronized void onUpGameKeyEvent(final GameKeyEvent gameKeyEvent)
    {
        //PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameKeyEvent.toString()).toString(), this, gameInputStrings.ON_UP_GAME_KEY);
@@ -88,6 +90,7 @@ public class PlayerGameInput extends GameInput
        //PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameKeyEvent.toString()).toString(), this, gameInputStrings.ON_UP_GAME_KEY);
    }
    
+   @Override
    public void onEvent(final AllBinaryEventObject eventObject)
    {
        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);

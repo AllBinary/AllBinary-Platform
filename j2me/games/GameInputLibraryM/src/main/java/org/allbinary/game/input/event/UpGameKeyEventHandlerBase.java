@@ -24,11 +24,10 @@ import org.allbinary.util.BasicArrayList;
 
 public class UpGameKeyEventHandlerBase extends BasicEventHandler
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
    private final BasicArrayList list = new BasicArrayList();
    
-   protected UpGameKeyEventHandlerBase()
+   UpGameKeyEventHandlerBase()
    {
    }
    
@@ -40,26 +39,30 @@ public class UpGameKeyEventHandlerBase extends BasicEventHandler
        }
    }
 
+   @Override
    public void removeAllListeners()
    {
        this.list.clear();
        super.removeAllListeners();
    }
 
+   @Override
     public void removeListenerSingleThreaded(
-            EventListenerInterface eventListenerInterface)
+            final EventListenerInterface eventListenerInterface)
     {
         this.list.remove(eventListenerInterface);
         super.removeListenerSingleThreaded(eventListenerInterface);
     }
     
-   public synchronized void removeListener(EventListenerInterface eventListenerInterface)
+    @Override
+   public synchronized void removeListener(final EventListenerInterface eventListenerInterface)
    {
        this.list.remove(eventListenerInterface);
        super.removeListener(eventListenerInterface);
    }
 
-   public void fireEvent(AllBinaryEventObject eventObject) throws Exception
+   @Override
+   public void fireEvent(final AllBinaryEventObject eventObject) throws Exception
    {        
        for (int index = this.list.size(); --index >= 0;)
        {
@@ -78,11 +81,13 @@ public class UpGameKeyEventHandlerBase extends BasicEventHandler
        super.fireEvent(eventObject);
    }
    
-   protected void process(AllBinaryEventObject eventObject,
-           EventListenerInterface eventListenerInterface) throws Exception {
+   @Override
+   protected void process(final AllBinaryEventObject eventObject,
+           final EventListenerInterface eventListenerInterface) throws Exception {
 
-      ((UpGameKeyEventListenerInterface) eventListenerInterface).onUpGameKeyEvent(
-              (GameKeyEvent) eventObject);
+      final UpGameKeyEventListenerInterface upGameKeyEventListenerInterface = (UpGameKeyEventListenerInterface) eventListenerInterface;
+      upGameKeyEventListenerInterface.onUpGameKeyEvent((GameKeyEvent) eventObject);
+
    }
    
 

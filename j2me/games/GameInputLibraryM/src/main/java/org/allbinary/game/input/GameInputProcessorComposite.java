@@ -19,7 +19,6 @@ import org.allbinary.util.BasicArrayList;
 
 public class GameInputProcessorComposite extends PlayerGameInput
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final String name;
     private final GameInputProcessorInterface gameInputProcessorInterface;
@@ -32,7 +31,8 @@ public class GameInputProcessorComposite extends PlayerGameInput
         this.name = name;
         this.gameInputProcessorInterface = gameInputProcessorInterface;
     }
-    
+
+    @Override
     public synchronized void update()
     {
         try

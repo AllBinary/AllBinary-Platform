@@ -14,11 +14,12 @@
 package org.allbinary.game.input.mapping;
 
 import org.allbinary.game.input.GameKey;
+import org.allbinary.logic.string.StringUtil;
 
 public class GameInputMapping
 {
-    private String name;
-    private GameKey gameKey;
+    private String name = StringUtil.getInstance().EMPTY_STRING;
+    private GameKey gameKey = GameKey.NULL_GAME_KEY;
     
     public GameInputMapping(String name, GameKey gameKey)
     {

@@ -16,11 +16,11 @@ package org.allbinary.game.input.event;
 import org.allbinary.game.input.GameKeyEventSourceInterface;
 import org.allbinary.game.input.Input;
 import org.allbinary.game.input.InputFactory;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 
 public class GameKeyEventFactory
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private static final GameKeyEventFactory instance = new GameKeyEventFactory();
 
@@ -28,6 +28,9 @@ public class GameKeyEventFactory
     {
         return instance;
     }
+
+    protected final LogUtil logUtil = LogUtil.getInstance();
+    protected final NullUtil nullUtil = NullUtil.getInstance();
 
     public final int TOUCH_BUTTON_SOURCE_ID = 2;
     public final int MOTION_GESTURE_SOURCE_ID = 3;
@@ -59,7 +62,7 @@ public class GameKeyEventFactory
         {
             for (int index2 = size; --index2 >= 0;)
             {
-                ARRAY[index][index2] = new GameKeyEvent(null, index, index2);
+                ARRAY[index][index2] = new GameKeyEvent(nullUtil.NULL_OBJECT, index, index2);
             }
         }
     }

@@ -15,6 +15,8 @@ package org.allbinary.emulator.swt;
 
 import org.eclipse.swt.widgets.Display;
 
+import org.allbinary.thread.NullRunnable;
+
 /**
  *
  * @author User
@@ -30,7 +32,7 @@ public class SWTProcessor {
         return instance;
     }
     
-    public Runnable runnable = null;
+    public Runnable runnable = NullRunnable.getInstance();
     
     public void process(final Display display) {
         display.sleep();

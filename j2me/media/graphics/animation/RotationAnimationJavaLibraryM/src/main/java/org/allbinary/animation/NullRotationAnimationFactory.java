@@ -23,7 +23,9 @@ ProceduralAnimationInterfaceFactoryInterface
 {
    private static NullRotationAnimationFactory NULL_ROTATION_ANIMATION_FACTORY = new NullRotationAnimationFactory();
    private static final Animation NULL_ANIMATION = new NullRotationAnimation(AnimationBehavior.getInstance()) {
-       public void paint(Graphics graphics, int x, int y) {
+       
+       @Override
+       public void paint(final Graphics graphics, final int x, final int y) {
        }
    };
    
@@ -36,16 +38,19 @@ ProceduralAnimationInterfaceFactoryInterface
        return NULL_ROTATION_ANIMATION_FACTORY;
    }
    
+   @Override
    public Animation getInstance(final int instanceId) throws Exception
    {
        return NULL_ANIMATION;
    }
    
+   @Override
    public Animation getInstance(Animation animationInterface) throws Exception
    {
        return NULL_ANIMATION;
    }
-       
+
+   @Override
    public void setInitialScale(final ScaleProperties scaleProperties) {
        
    }

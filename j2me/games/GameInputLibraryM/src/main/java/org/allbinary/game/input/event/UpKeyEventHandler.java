@@ -51,6 +51,7 @@ public class UpKeyEventHandler extends UpKeyEventHandlerBase
    {
    }
 
+   @Override
     public void removeAllListeners()
     {
         super.removeAllListeners();
@@ -61,6 +62,7 @@ public class UpKeyEventHandler extends UpKeyEventHandlerBase
         }
     }
 
+    @Override
     public void removeListenerSingleThreaded(EventListenerInterface eventListenerInterface)
     {
         super.removeListenerSingleThreaded(eventListenerInterface);
@@ -71,6 +73,7 @@ public class UpKeyEventHandler extends UpKeyEventHandlerBase
         }
     }
     
+    @Override
     public void removeListener(EventListenerInterface eventListenerInterface)
     {
         super.removeListener(eventListenerInterface);

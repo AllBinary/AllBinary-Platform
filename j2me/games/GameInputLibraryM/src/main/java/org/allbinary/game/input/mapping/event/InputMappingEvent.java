@@ -18,7 +18,7 @@ import org.allbinary.logic.util.event.AllBinaryEventObject;
 
 public class InputMappingEvent extends AllBinaryEventObject
 {
-    private InputToGameKeyMapping inputToGameKeyMapping;
+    private InputToGameKeyMapping inputToGameKeyMapping = InputToGameKeyMapping.INPUT_TO_GAME_KEY_MAPPING;
 
     public InputMappingEvent(Object object)
     {

@@ -38,20 +38,23 @@ public class RotationAnimationFactory implements
         this.angleIncrement = angleIncrement;
     }
     
+    @Override
     public Animation getInstance(final int instanceId) throws Exception
     {
         return new NullRotationAnimation(
                 AngleInfo.getInstance(this.angleIncrement), this.totalAngle, AnimationBehavior.getInstance());
     }
 
+    @Override
     public Animation getInstance(Animation animationInterface) throws Exception
     {
         return new NullRotationAnimation(
                 AngleInfo.getInstance(this.angleIncrement), this.totalAngle, AnimationBehavior.getInstance());
     }
-      
-   public void setInitialScale(final ScaleProperties scaleProperties) {
+     
+    @Override
+    public void setInitialScale(final ScaleProperties scaleProperties) {
        
-   }
-    
+    }
+
 }

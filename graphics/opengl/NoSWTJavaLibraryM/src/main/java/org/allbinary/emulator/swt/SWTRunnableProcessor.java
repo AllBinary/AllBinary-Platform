@@ -29,7 +29,8 @@ public class SWTRunnableProcessor extends SWTProcessor {
     public static SWTRunnableProcessor getInstance() {
         return instance;
     }
-    
+
+    @Override
     public void process(final Display display) {
         //this.runnable.run();
     }

@@ -31,10 +31,11 @@ public class InputMappingEventHandler extends BasicEventHandler
       return InputMappingEventHandler.gameKeyEventHandler;
    }
    
-   protected void process(AllBinaryEventObject eventObject,
-           EventListenerInterface eventListenerInterface) throws Exception {
+   @Override
+   protected void process(final AllBinaryEventObject eventObject,
+           final EventListenerInterface eventListenerInterface) throws Exception {
 
-      ((InputMappingEventListenerInterface) eventListenerInterface).onInputMappingEvent(
-              (InputMappingEvent) eventObject);
+       final InputMappingEventListenerInterface inputMappingEventListenerInterface = (InputMappingEventListenerInterface) eventListenerInterface;
+       inputMappingEventListenerInterface.onInputMappingEvent((InputMappingEvent) eventObject);
    }
 }

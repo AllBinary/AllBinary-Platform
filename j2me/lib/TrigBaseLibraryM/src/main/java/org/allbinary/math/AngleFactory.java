@@ -31,6 +31,7 @@ public class AngleFactory
     }
     
     public final short TOTAL_ANGLE = 360;
+    public final short QUARTER_TOTAL_ANGLE = 90;
 
     private final Angle[] angleArray = new Angle[(int) TOTAL_ANGLE];
 
@@ -126,9 +127,12 @@ public class AngleFactory
 //    }
     
     public static void main(String[] args) {
-     
+        
         final StringMaker stringMaker = new StringMaker();
         final AngleFactory angleFactory = AngleFactory.getInstance();
+        
+        //System.out.println(angleFactory.TOTAL_ANGLE >> 2); /4
+        
         for(int index = 0; index < 360; index++) {
             stringMaker.append(index)
                 .append(CommonSeps.getInstance().FORWARD_SLASH)

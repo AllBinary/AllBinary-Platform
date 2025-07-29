@@ -34,11 +34,13 @@ public class NoPlayerGameInput extends PlayerGameInput
       super(new BasicArrayList(), -1);
    }
 
+   @Override
    public synchronized void onDownGameKeyEvent(GameKeyEvent gameKeyEvent)
    {
 
    }
 
+   @Override
    public synchronized void onUpGameKeyEvent(GameKeyEvent gameKeyEvent)
    {
        

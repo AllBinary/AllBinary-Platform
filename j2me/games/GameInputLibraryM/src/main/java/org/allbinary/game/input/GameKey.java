@@ -14,6 +14,7 @@
 package org.allbinary.game.input;
 
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 
 
 /*
@@ -21,7 +22,9 @@ import org.allbinary.logic.string.StringMaker;
  */
 public class GameKey extends Input
 {
-    protected GameKey(int key, String name)
+    public static final GameKey NULL_GAME_KEY = new GameKey(-1, StringUtil.getInstance().NULL_STRING);
+    
+    GameKey(final int key, final String name)
     {
         super(key, name);
     }

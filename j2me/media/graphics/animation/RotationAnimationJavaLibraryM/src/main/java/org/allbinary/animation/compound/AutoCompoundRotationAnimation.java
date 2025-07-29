@@ -33,7 +33,6 @@ import org.allbinary.util.CircularIndexUtil;
 public class AutoCompoundRotationAnimation extends RotationAnimation
     implements CompoundAnimationInterface
 {
-    private CircularIndexUtil circularIndexUtil;
     private RotationAnimation[] animationInterfaceArray;
 
     public AutoCompoundRotationAnimation(final RotationAnimation[] animationInterfaceArray, final AnimationBehavior animationBehavior)
@@ -43,33 +42,39 @@ public class AutoCompoundRotationAnimation extends RotationAnimation
         this.animationInterfaceArray = animationInterfaceArray;
         this.circularIndexUtil = CircularIndexUtil.getInstance(this.animationInterfaceArray.length);
     }
-    
+
+    @Override    
     public void setFrame(final int index)
     {
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].setFrame(index);
     }
 
+    @Override
     public int getFrame()
     {
         return this.animationInterfaceArray[this.circularIndexUtil.getIndex()].getFrame();
     }
 
+    @Override
     public int getAnimationSize() throws Exception
     {
         return this.animationInterfaceArray[this.circularIndexUtil.getIndex()].getAnimationSize();
     }
     
+    @Override
     public int getSize()
     {
         return this.animationInterfaceArray[this.circularIndexUtil.getIndex()].getSize();
     }
 
+    @Override
     public void previousFrame()
     {
         this.circularIndexUtil.previous();
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].previousFrame();
     }
 
+    @Override
     public void nextFrame()
     throws Exception
     {
@@ -77,40 +82,48 @@ public class AutoCompoundRotationAnimation extends RotationAnimation
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].nextFrame();
     }
 
+    @Override
     public void previousRotation()
     {
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].previousRotation();
     }
 
+    @Override
     public void nextRotation()
     {
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].nextRotation();
     }
     
+    @Override
     public void setSequence(int[] sequence)
     {
     }
 
+    @Override
     public int[] getSequence()
     {
         return PrimitiveIntUtil.getArrayInstance();
     }
 
+    @Override
     public void paint(final Graphics graphics, final int x, final int y)
     {
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].paint(graphics, x, y);
     }
 
+    @Override
     public void paintThreed(final Graphics graphics, final int x, final int y, final int z)
     {
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].paintThreed(graphics, x, y, z);
     }
     
+    @Override
     public IndexedAnimation getCurrentAnimation()
     {
         return this.animationInterfaceArray[this.circularIndexUtil.getIndex()];
     }
     
+    @Override
     public void nextAnimation()
     {
         int frame = this.getFrame();
@@ -120,6 +133,7 @@ public class AutoCompoundRotationAnimation extends RotationAnimation
         this.setFrame(frame);
     }
 
+    @Override
     public void previousAnimation()
     {
         int frame = this.getFrame();
@@ -129,6 +143,7 @@ public class AutoCompoundRotationAnimation extends RotationAnimation
         this.setFrame(frame);
     }
 
+    @Override
     public void setAnimation(final int index)
     {
         final int frame = this.getFrame();
@@ -136,29 +151,34 @@ public class AutoCompoundRotationAnimation extends RotationAnimation
         this.setFrame(frame);
     }
 
+    @Override
     public void setFrame(final Direction direction)
     {
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].setFrame(direction);
     }
 
+    @Override
     public void setFrame(final Angle angle)
     {
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].setFrame(angle);
     }
 
+    @Override
     public void adjustFrame(final Angle newAngle)
     {
         this.adjustFrame(newAngle.getValue());
     }
 
+    @Override
     public void adjustFrame(final short angle)
     {
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].adjustFrame(angle);
     }
 
-    public AngleInfo getAngleInfo()
+    @Override
+    public AngleInfo getAngleInfoP()
     {
-        return this.animationInterfaceArray[this.circularIndexUtil.getIndex()].getAngleInfo();
+        return this.animationInterfaceArray[this.circularIndexUtil.getIndex()].getAngleInfoP();
     }
     
     /**
@@ -177,6 +197,7 @@ public class AutoCompoundRotationAnimation extends RotationAnimation
         this.animationInterfaceArray = animationInterfaceArray;
     }
     
+    @Override
     public void set(final GL gl) throws Exception
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)

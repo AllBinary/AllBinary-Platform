@@ -21,9 +21,10 @@ import org.allbinary.util.BasicArrayList;
 public class AllAnalogControllerVisitor
 extends AnalogControllerVisitor
 {
-    public void process(AllBinaryLayerManager allbinaryLayerManager, AnalogLocationInputProcessor analogLocationInputProcessor)
+    @Override
+    public void process(final AllBinaryLayerManager allbinaryLayerManager, final AnalogLocationInputProcessor analogLocationInputProcessor)
     {
-        BasicArrayList analogLocationInputList = AnalogLocationInputFactory.getInstance().getList();
+        final BasicArrayList analogLocationInputList = AnalogLocationInputFactory.getInstance().getList();
         
         AnalogLocationInput analogLocationInput;
         for(int index = analogLocationInputList.size() - 1; index >= 0; index--)

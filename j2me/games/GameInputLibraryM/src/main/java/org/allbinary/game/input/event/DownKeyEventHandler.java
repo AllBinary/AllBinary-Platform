@@ -52,6 +52,7 @@ public class DownKeyEventHandler extends DownKeyEventHandlerBase
     {
     }
 
+    @Override
     public void removeAllListeners()
     {
         super.removeAllListeners();
@@ -62,6 +63,7 @@ public class DownKeyEventHandler extends DownKeyEventHandlerBase
         }
     }
 
+    @Override
     public void removeListenerSingleThreaded(EventListenerInterface eventListenerInterface)
     {
         super.removeListenerSingleThreaded(eventListenerInterface);
@@ -72,6 +74,7 @@ public class DownKeyEventHandler extends DownKeyEventHandlerBase
         }
     }
     
+    @Override
     public synchronized void removeListener(EventListenerInterface eventListenerInterface)
     {
         super.removeListener(eventListenerInterface);

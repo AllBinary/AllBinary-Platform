@@ -29,7 +29,7 @@ import org.allbinary.util.BasicArrayList;
 
 public class InputToGameKeyMapping extends InputMapping
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
+    public static final InputToGameKeyMapping INPUT_TO_GAME_KEY_MAPPING = new InputToGameKeyMapping();
 
     private final GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
     
@@ -59,20 +59,22 @@ public class InputToGameKeyMapping extends InputMapping
             platformToGameKeyMapping[index] = gameKeyFactory.NONE;
         }
     }
-    
+
+    @Override    
     protected void removeAll()
     {
         super.removeAll();
         this.clear();
     }
     
-    public void add(InputToGameKeyMapping inputToGameKeyMapping)
+    @Override
+    public void add(final InputToGameKeyMapping inputToGameKeyMapping)
     {
         //PreLogUtil.put(commonStrings.START, this, "InputToGameKeyMapping::add(InputToGameKeyMapping)");
         
         for(int index = inputToGameKeyMapping.getMaxMappable() - 1; index >= 0; index--)
         {
-            Input input = inputToGameKeyMapping.getInstance(index);
+            final Input input = inputToGameKeyMapping.getInstance(index);
 
             if(input != gameKeyFactory.NONE)
             {
@@ -94,7 +96,8 @@ public class InputToGameKeyMapping extends InputMapping
             this.add(input, mappedToInput);
         }
     }
-    
+
+    @Override    
     public void add(Input input, Input mappedToInput)
     {
         //PreLogUtil.put(commonStrings.START_LABEL + input + " == " + mappedToInput, this, "InputToGameKeyMapping::add");
@@ -103,6 +106,7 @@ public class InputToGameKeyMapping extends InputMapping
         this.set(input, mappedToInput);
     }
 
+    @Override
     public void remove(Input input, Input mappedToInput)
     {
         logUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(input)).append(" == ").append(StringUtil.getInstance().toString(mappedToInput)).toString(), this, "InputToGameKeyMapping::remove");

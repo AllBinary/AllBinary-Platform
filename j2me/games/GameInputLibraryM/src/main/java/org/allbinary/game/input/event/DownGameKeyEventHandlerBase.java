@@ -23,12 +23,10 @@ import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.util.BasicArrayList;
 
 public class DownGameKeyEventHandlerBase extends BasicEventHandler {
-    protected final LogUtil logUtil = LogUtil.getInstance();
-
 
     private final BasicArrayList list = new BasicArrayList();
 
-    protected DownGameKeyEventHandlerBase() {
+    DownGameKeyEventHandlerBase() {
     }
 
     public void addListener(PlayerGameInput playerGameInput) {
@@ -40,6 +38,7 @@ public class DownGameKeyEventHandlerBase extends BasicEventHandler {
         }
     }
 
+    @Override
     public void removeAllListeners() {
 
         //ForcedLogUtil.log(this.toString(), "removeAllListeners");
@@ -50,6 +49,7 @@ public class DownGameKeyEventHandlerBase extends BasicEventHandler {
         //ForcedLogUtil.log(this.toString(), "removeAllListeners");
     }
 
+    @Override
     public void removeListenerSingleThreaded(
             EventListenerInterface eventListenerInterface) {
         
@@ -59,6 +59,7 @@ public class DownGameKeyEventHandlerBase extends BasicEventHandler {
         //ForcedLogUtil.log(this.toString(), "removeListenerSingleThreaded");
     }
 
+    @Override
     public synchronized void removeListener(EventListenerInterface eventListenerInterface) {
 
         this.list.remove(eventListenerInterface);
@@ -67,6 +68,7 @@ public class DownGameKeyEventHandlerBase extends BasicEventHandler {
         //ForcedLogUtil.log(this.toString(), commonStrings.REMOVE_LISTENER);
     }
 
+    @Override
     public void fireEvent(AllBinaryEventObject eventObject) throws Exception {
         //ForcedLogUtil.log(this.toString(), EventStrings.getInstance().FIRE_EVENT);
 
@@ -83,10 +85,13 @@ public class DownGameKeyEventHandlerBase extends BasicEventHandler {
         super.fireEvent(eventObject);
     }
 
+    @Override
     protected void process(AllBinaryEventObject eventObject,
             EventListenerInterface eventListenerInterface) throws Exception {
-        ((DownGameKeyEventListenerInterface) eventListenerInterface)
-                .onDownGameKeyEvent((GameKeyEvent) eventObject);
+        
+        final DownGameKeyEventListenerInterface downGameKeyEventListenerInterface = (DownGameKeyEventListenerInterface) eventListenerInterface;
+        downGameKeyEventListenerInterface.onDownGameKeyEvent((GameKeyEvent) eventObject);
+        
     }
 
     private static final String TOTAL_LISTENERS = " Total PlayerGameInput Listeners: ";
