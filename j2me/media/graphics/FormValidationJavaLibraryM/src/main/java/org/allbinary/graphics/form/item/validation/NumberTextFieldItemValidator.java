@@ -45,12 +45,12 @@ public class NumberTextFieldItemValidator extends ValidatorBase
         return BooleanFactory.getInstance().TRUE;
     }
 
-    protected Vector toNumberVector(Integer value)
+    protected Vector<Object> toNumberVector(Integer value)
     {
-        return new Vector();
+        return new Vector<Object>();
     }
         
-    //@Override
+    @Override
     public Boolean isValid()
     {
         Boolean result = BooleanFactory.getInstance().TRUE;
@@ -87,7 +87,7 @@ public class NumberTextFieldItemValidator extends ValidatorBase
         return result;
     }
     
-    //@Override
+    @Override
     public BasicArrayList toList()
     {
         final BasicArrayList list = new BasicArrayList();        

@@ -21,7 +21,8 @@ public class AllCommandsVisitor extends Visitor
     public AllCommandsVisitor()
     {
     }
-    
+ 
+    @Override
     public Object visit(Object object)
     {
         return BooleanFactory.getInstance().TRUE;

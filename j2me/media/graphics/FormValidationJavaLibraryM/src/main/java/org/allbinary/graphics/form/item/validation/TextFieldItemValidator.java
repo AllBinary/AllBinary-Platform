@@ -38,7 +38,7 @@ public class TextFieldItemValidator extends ValidatorBase
         this.allowOnEmpty = allowOnEmpty;
     }
     
-    //@Override
+    @Override
     public Boolean isValid()
     {
         BooleanFactory booleanFactory = BooleanFactory.getInstance();
@@ -67,7 +67,7 @@ public class TextFieldItemValidator extends ValidatorBase
         return result;
     }
     
-    //@Override
+    @Override
     public BasicArrayList toList()
     {
         final BasicArrayList list = new BasicArrayList();        

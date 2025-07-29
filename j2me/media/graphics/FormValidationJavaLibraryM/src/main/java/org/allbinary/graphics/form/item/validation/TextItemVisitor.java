@@ -22,10 +22,11 @@ public class TextItemVisitor extends Visitor
     {
         
     }
-
-    public Object visit(Object object)
+    
+    @Override
+    public Object visit(final Object object)
     {
-        String value = (String) object;
+        final String value = (String) object;
         
         if (value.length() < 2)
         {
