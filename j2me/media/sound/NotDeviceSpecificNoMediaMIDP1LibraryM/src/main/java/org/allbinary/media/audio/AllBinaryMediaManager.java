@@ -19,6 +19,7 @@ import javax.microedition.media.Player;
 
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
 
 public class AllBinaryMediaManager {
@@ -88,10 +89,10 @@ public class AllBinaryMediaManager {
     }
 
     public static String[] getSupportedContentTypes(String protocol) {
-        return null;
+        return StringUtil.getInstance().getArrayInstance();
     }
 
     public static String[] getSupportedProtocols(String content_type) {
-        return null;
+        return StringUtil.getInstance().getArrayInstance();
     }
 }

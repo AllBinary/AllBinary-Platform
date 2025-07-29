@@ -61,7 +61,8 @@ implements AllBinarySensorListener
     {
         logUtil.put(commonStrings.START, this, "shutdown");
     }
-    
+
+    @Override    
     public void onSensorChange()
     {
         ForcedLogUtil.log(commonStrings.NOT_IMPLEMENTED, this);
