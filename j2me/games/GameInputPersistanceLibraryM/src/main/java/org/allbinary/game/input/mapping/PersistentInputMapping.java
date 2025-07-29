@@ -20,6 +20,7 @@ import org.allbinary.game.input.Input;
 import org.allbinary.game.input.InputPersistance;
 import org.allbinary.game.input.mapping.event.InputMappingEvent;
 import org.allbinary.game.input.mapping.event.InputMappingEventListenerInterface;
+import org.allbinary.game.input.mapping.event.NullInputMappingEventListener;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -40,7 +41,8 @@ public class PersistentInputMapping
 
     private final InputToGameKeyMapping inputMapping = new InputToGameKeyMapping();
     
-    private InputMappingEventListenerInterface inputMappingEventListenerInterface;
+    private InputMappingEventListenerInterface inputMappingEventListenerInterface = 
+        NullInputMappingEventListener.NULL_INPUT_MAPPING_EVENT_LISTENER;
     
     private final InputPersistance inputPersistance;
 
@@ -66,7 +68,7 @@ public class PersistentInputMapping
     
     protected InputToGameKeyMapping getDefault()
     {
-        return null;
+        return InputToGameKeyMapping.NULL_INPUT_TO_GAME_KEY_MAPPING;
     }
         
     public void setDefault(final AbeClientInformationInterface abeClientInformation)

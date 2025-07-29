@@ -1,6 +1,7 @@
 package org.allbinary.graphics.form.item;
 
 import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.NullCanvas;
 
 import org.allbinary.graphics.color.BasicColor;
 
@@ -21,6 +22,6 @@ public class CustomImageItem extends CustomItem
     
     public Image getImage()
     {
-        return null;
+        return NullCanvas.NULL_IMAGE;
     }    
 }

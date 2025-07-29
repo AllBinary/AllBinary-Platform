@@ -19,6 +19,7 @@ implements CustomItemInterface
         
     }
 
+    @Override
     public void paintUnselected(Graphics graphics, int x, int y)
     {
         
@@ -26,6 +27,6 @@ implements CustomItemInterface
 
     public StringComponent getLabelStringComponent()
     {
-        return null;
+        return StringComponent.NULL_STRING_COMPONENT;
     }
 }

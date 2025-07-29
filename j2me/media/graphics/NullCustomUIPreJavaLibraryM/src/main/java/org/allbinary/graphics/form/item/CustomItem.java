@@ -3,10 +3,14 @@ package org.allbinary.graphics.form.item;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.logic.string.StringUtil;
 
 public class CustomItem
 {
+    public static final CustomItem NULL_CUSTOM_ITEM = new CustomItem(
+        StringUtil.getInstance().EMPTY_STRING, BasicColorFactory.getInstance().BLACK, BasicColorFactory.getInstance().WHITE);
+    
     protected CustomItem(String label, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
     {
     }

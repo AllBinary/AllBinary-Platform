@@ -21,10 +21,12 @@ public class TextFieldItem extends TextItem
         super(label, layout, altText, backgroundBasicColor, foregroundBasicColor);
     }
     
+    @Override
     public String getLabel() {
         return StringUtil.getInstance().EMPTY_STRING;
     }
 
+    @Override
     public void setLabel(String label) {
     }
 

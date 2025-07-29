@@ -29,7 +29,7 @@ import org.allbinary.util.BasicArrayList;
 
 public class InputToGameKeyMapping extends InputMapping
 {
-    public static final InputToGameKeyMapping INPUT_TO_GAME_KEY_MAPPING = new InputToGameKeyMapping();
+    public static final InputToGameKeyMapping NULL_INPUT_TO_GAME_KEY_MAPPING = new InputToGameKeyMapping();
 
     private final GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
     

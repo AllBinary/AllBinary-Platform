@@ -23,6 +23,9 @@ import javax.microedition.rms.RecordEnumeration;
 import javax.microedition.rms.RecordStore;
 
 import org.allbinary.game.configuration.persistance.BasicPersitance;
+import org.allbinary.game.configuration.persistance.NullRecordComparator;
+import org.allbinary.game.configuration.persistance.NullRecordFilter;
+import org.allbinary.game.configuration.persistance.NullRecordStore;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
@@ -35,7 +38,6 @@ import org.allbinary.util.HashtableUtil;
 
 public class InputPersistance extends BasicPersitance
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final HashtableUtil hashtableUtil = HashtableUtil.getInstance();
 
@@ -46,12 +48,12 @@ public class InputPersistance extends BasicPersitance
 
     public void loadAll(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
-        RecordStore recordStore = null;
+        RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;
         try {
 
         recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
-        final RecordEnumeration recordEnum = recordStore.enumerateRecords(null, null, true);
+        final RecordEnumeration recordEnum = recordStore.enumerateRecords(NullRecordFilter.NULL_RECORD_FILTER, NullRecordComparator.NULL_RECORD_COMPARATOR, true);
         
         //PreLogUtil.put(METHOD_NAME, this, METHOD_NAME);
         
@@ -90,13 +92,16 @@ public class InputPersistance extends BasicPersitance
 
                 //PreLogUtil.put("inputStream.available(): " + inputStream.available(), this, METHOD_NAME);
                 
+                int value;
                 while (inputStream.available() > 0) {
                     final String gameActionInputIdAsString = inputStream.readUTF();
                     //PreLogUtil.put("gameActionInputIdAsString: " + gameActionInputIdAsString, this, METHOD_NAME);
-                    gameActionInputId = Integer.parseInt(gameActionInputIdAsString);
+                    value = Integer.parseInt(gameActionInputIdAsString);
+                    gameActionInputId = (long) value;
                     //PreLogUtil.put("gameActionInputId: " + gameActionInputId, this, METHOD_NAME);
                     inputStream.readUTF();
-                    inputId = Integer.parseInt(inputStream.readUTF());
+                    value = Integer.parseInt(inputStream.readUTF());
+                    inputId = (long) value;
                     //PreLogUtil.put("inputId: " + inputId, this, METHOD_NAME);
                     gameActionInput = gameKeyFactory.getInstance((int) gameActionInputId);
                     input = inputFactory.getInstance((int) inputId);
@@ -141,6 +146,8 @@ public class InputPersistance extends BasicPersitance
             }
         }
         
+        } catch (Exception e) {
+            throw e;
         } finally {
             if(recordStore != null) {
                 PreLogUtil.put(this.persistanceStrings.CLOSING_RECORDSTORE, this, this.persistanceStrings.LOAD_ALL);
@@ -151,7 +158,7 @@ public class InputPersistance extends BasicPersitance
 
     public void save(final AbeClientInformationInterface abeClientInformation, final Hashtable hashtable) throws Exception
     {
-        RecordStore recordStore = null;
+        RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;
 
         try {
 
@@ -180,7 +187,7 @@ public class InputPersistance extends BasicPersitance
         for (int index = 0; index < size; index++)
         {
             gameActionInput = (Input) inputObjectArray[index];
-            list = (BasicArrayList) hashtable.get(inputObjectArray[index]);
+            list = (BasicArrayList) hashtable.get((Object) inputObjectArray[index]);
 
             for (int index2 = 0; index2 < list.size(); index2++)
             {
@@ -216,6 +223,8 @@ public class InputPersistance extends BasicPersitance
 
         recordStore.addRecord(savedGameBytes, 0, savedGameBytes.length);
 
+        } catch (Exception e) {
+            throw e;
         } finally {
             if(recordStore != null) {
                 PreLogUtil.put(this.persistanceStrings.CLOSING_RECORDSTORE, this, this.commonStrings.SAVE);

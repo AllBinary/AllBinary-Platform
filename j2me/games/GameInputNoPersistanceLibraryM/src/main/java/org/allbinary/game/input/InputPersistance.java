@@ -19,7 +19,8 @@ import javax.microedition.rms.RecordEnumeration;
 import javax.microedition.rms.RecordStore;
 
 import org.allbinary.game.configuration.persistance.BasicPersitance;
-import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.game.configuration.persistance.NullRecordComparator;
+import org.allbinary.game.configuration.persistance.NullRecordFilter;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.logic.string.StringMaker;
@@ -30,8 +31,6 @@ import org.allbinary.util.HashtableUtil;
 
 public class InputPersistance extends BasicPersitance
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
-
     private final HashtableUtil hashtableUtil = HashtableUtil.getInstance();
 
     public InputPersistance(String name)
@@ -43,7 +42,7 @@ public class InputPersistance extends BasicPersitance
     {
         final RecordStore recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
-        final RecordEnumeration recordEnum = recordStore.enumerateRecords(null, null, true);
+        final RecordEnumeration recordEnum = recordStore.enumerateRecords(NullRecordFilter.NULL_RECORD_FILTER, NullRecordComparator.NULL_RECORD_COMPARATOR, true);
 
         //final String ERROR_LOADING = "Error Loading gameActionInput: ";
         //PreLogUtil.put(METHOD_NAME, this, METHOD_NAME);

@@ -58,7 +58,7 @@ public class CustomForm extends CustomScreen
     
     public CustomItem get(int itemNum) 
     {
-        return null;
+        return CustomItem.NULL_CUSTOM_ITEM;
     }
 
     public void paint(Graphics graphics)

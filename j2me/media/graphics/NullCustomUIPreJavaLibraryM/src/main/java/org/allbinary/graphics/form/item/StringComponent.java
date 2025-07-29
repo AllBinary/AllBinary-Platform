@@ -5,6 +5,7 @@ import org.allbinary.graphics.color.BasicColorFactory;
 
 public class StringComponent
 {
+    public static final StringComponent NULL_STRING_COMPONENT = new StringComponent();
     
     public BasicColor getBackgroundBasicColor() {
         return BasicColorFactory.getInstance().WHITE;
