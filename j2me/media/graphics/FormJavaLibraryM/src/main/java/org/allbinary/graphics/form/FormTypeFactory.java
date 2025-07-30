@@ -25,6 +25,7 @@ public class FormTypeFactory
     }
     
     public final String UNK = "Unknown FormType";
+    public final FormType NULL_FORM_TYPE = new FormType();
     public final FormType TEMP_HORIZONTAL_FORM = new FormType();
     public final FormType HORIZONTAL_FORM = new FormType();
     public final FormType VERTICAL_CENTER_FORM = new FormType();

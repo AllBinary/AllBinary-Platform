@@ -2,6 +2,7 @@ package org.allbinary.graphics.form;
 
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.Rectangle;
+import org.allbinary.graphics.RectangleFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.graphics.form.item.CustomItem;
@@ -15,12 +16,12 @@ public class PaintableForm extends CustomForm
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     protected final CanvasStrings canvasStrings = CanvasStrings.getInstance();
     
-    protected Rectangle rectangle;
+    protected Rectangle rectangle = RectangleFactory.SINGLETON;
 
     protected int x;
     protected int y;
     
-    protected FormType formType;
+    protected FormType formType = FormTypeFactory.getInstance().NULL_FORM_TYPE;
 
     public PaintableForm(final String title, final CustomItem[] items, 
             final Rectangle rectangle, final FormType formType,

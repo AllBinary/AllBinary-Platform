@@ -87,7 +87,7 @@ public class ScrollSelectionForm extends PaintableForm
         }
         else
         {
-            return null;
+            return CustomItem.NULL_CUSTOM_ITEM;
         }
     }
 

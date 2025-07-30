@@ -34,13 +34,13 @@ public class CommandTextItemArrayFactory
     private final Visitor visitorInterface;
 
     public CommandTextItemArrayFactory( 
-            Visitor visitorInterface)
+            final Visitor visitorInterface)
     {
         this.visitorInterface = visitorInterface;
     }
 
-    public final CustomItem[] getInstance(Vector vector, 
-            BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
+    public final CustomItem[] getInstance(Vector<Object> vector, 
+            final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
     {
         int size = vector.size();
 
@@ -50,10 +50,9 @@ public class CommandTextItemArrayFactory
         
         int priorityLimit = 7;
         
-        DisplayInfoSingleton displayInfo =
-            DisplayInfoSingleton.getInstance();
+        final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         
-        boolean isLargeEnoughDisplayForBigMenu =
+        final boolean isLargeEnoughDisplayForBigMenu =
             (displayInfo.isPortrait() && displayInfo.getLastHeight() >= ScreenInfo.getInstance().MEDIUM_WIDTH) ||
             (!displayInfo.isPortrait() && displayInfo.getLastWidth() >= ScreenInfo.getInstance().MEDIUM_WIDTH);
         
@@ -62,9 +61,10 @@ public class CommandTextItemArrayFactory
             priorityLimit = 3;
         }
         
+        Command command;
         for (int index = 0; index < size; index++)
         {
-            Command command = (Command) vector.elementAt(index);
+            command = (Command) vector.elementAt(index);
 
             //isNotPriority || command.getPriority() == 3
             if (command.getPriority() < priorityLimit)
