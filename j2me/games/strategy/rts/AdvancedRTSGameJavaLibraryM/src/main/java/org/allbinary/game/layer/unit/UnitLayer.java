@@ -915,12 +915,12 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
     public void accelerate(final BasicDecimal accelerate)
     {
         this.getVehicleProperties().getVelocityProperties().addVelocity(
-                accelerate.getUnscaled(), this.rotationAnimationInterface.getAngleInfo().getAngle(), (short) 90);
+                accelerate.getUnscaled(), this.rotationAnimationInterface.getAngleInfoP().getAngle(), (short) 90);
     }
 
     protected void fireAll(final AllBinaryLayerManager layerManager) throws Exception
     {
-        final AngleInfo angleInfo = this.rotationAnimationInterface.getAngleInfo();
+        final AngleInfo angleInfo = this.rotationAnimationInterface.getAngleInfoP();
         final short angle = (short) (angleInfo.getAngle() + this.slightAngle);
 
         hashtable.put(SmallIntegerSingletonFactory.getInstance().getInstance(1), 
@@ -1058,7 +1058,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         //final int angleOfTarget2 = angleOfTarget;
         //final int angleOfTarget2 = angleOfTarget / 10 * 10;
         //final int angleOfTarget2 = AngleFactory.getInstance().getClosestDirection(angleOfTarget).getValue();
-        final AngleInfo angleInfo = this.rotationAnimationInterface.getAngleInfo();
+        final AngleInfo angleInfo = this.rotationAnimationInterface.getAngleInfoP();
         final int angle = FrameUtil.getInstance().adjustAngleToFrameAngle(angleInfo.getAngle() - 270);
         //final int angle = angleInfo.getAngle();
 

@@ -36,6 +36,7 @@ public class LimitCommandsVisitor
                 (!displayInfo.isPortrait() && displayInfo.getLastHeight() > ScreenInfo.getInstance().SMALL_HEIGHT);
     }
     
+    @Override
     public Object visit(Object object)
     {
         Command command = (Command) object;

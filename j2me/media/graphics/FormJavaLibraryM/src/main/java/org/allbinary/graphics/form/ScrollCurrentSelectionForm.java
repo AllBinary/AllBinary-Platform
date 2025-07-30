@@ -24,7 +24,6 @@ import org.allbinary.logic.communication.log.LogUtil;
 public class ScrollCurrentSelectionForm 
 extends ScrollSelectionForm
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private int dx;
     private int dy;
@@ -60,6 +59,7 @@ extends ScrollSelectionForm
         this.init();
     }
 
+    @Override
     public void init(final Rectangle rectangle, final FormType formType)
     throws Exception
     {
@@ -162,6 +162,7 @@ extends ScrollSelectionForm
         }
     }
 
+    @Override
     public void paint(final Graphics graphics)
     {
         try
@@ -234,6 +235,7 @@ extends ScrollSelectionForm
         }
     }
 
+    @Override
     protected int getDiffX(CustomItemInterface item)
     {
         return ((maxWidth - item.getMinimumWidth()) >> 1);
@@ -242,6 +244,7 @@ extends ScrollSelectionForm
     /**
      * @return the dx
      */
+    @Override
     public int getDx()
     {
         return dx;
@@ -250,6 +253,7 @@ extends ScrollSelectionForm
     /**
      * @return the dy
      */
+    @Override
     public int getDy()
     {
         return dy;

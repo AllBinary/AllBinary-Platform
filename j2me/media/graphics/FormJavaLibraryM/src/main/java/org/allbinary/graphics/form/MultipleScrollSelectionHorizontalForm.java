@@ -40,11 +40,13 @@ extends ScrollSelectionForm
         super(title, items, rectangle, formType, border, backgroundBasicColor, foregroundBasicColor);
     }
     
+    @Override
     public int getStartIndex()
     {
         return this.getSelectedIndex();
     }
 
+    @Override
     public void paint(final Graphics graphics)
     {
         try

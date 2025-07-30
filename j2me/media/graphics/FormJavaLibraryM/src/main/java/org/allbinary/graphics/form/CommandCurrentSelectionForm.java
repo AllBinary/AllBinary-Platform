@@ -120,6 +120,7 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
         return ((CommandTextItem) this.get(index)).getCommand();
     }
 
+    @Override
     public int append(final CustomItem item)
     {
         int result = super.append(item);
@@ -129,27 +130,32 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
         return result;
     }
 
+    @Override
     public void delete(final int itemNum)
     {
         super.delete(itemNum);
     }
 
+    @Override
     public void deleteAll()
     {
         this.initAnimations();
         super.deleteAll();
     }
 
+    @Override
     public void insert(final int itemNum, final CustomItem item)
     {
         super.insert(itemNum, item);
     }
 
+    @Override
     public void set(final int itemNum, final CustomItem item)
     {
         super.set(itemNum, item);
     }
     
+    @Override
     public int paintItem(final Graphics graphics, final int index, final CustomItemInterface item, final int x, final int y)
         throws Exception
     {
@@ -157,6 +163,7 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
         return super.paintItem(graphics, index, item, x, y);
     }
 
+    @Override
     public int paintUnselectedItem(final Graphics graphics, final int index, final CustomItemInterface item, final int x, final int y)
         throws Exception
     {

@@ -284,7 +284,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
             GeographicMapDirectionUtil.getInstance().getDirectionFromCellPositionToAdjacentCellPosition(
                 geographicMapCellPosition, cellPosition);
 
-        final AngleInfo angleInfo = this.getRotationAnimationInterface().getAngleInfo();
+        final AngleInfo angleInfo = this.getRotationAnimationInterface().getAngleInfoP();
         
         final int angle = FrameUtil.getInstance().adjustAngleToFrameAngle(angleInfo.getAngle() + 90);
         

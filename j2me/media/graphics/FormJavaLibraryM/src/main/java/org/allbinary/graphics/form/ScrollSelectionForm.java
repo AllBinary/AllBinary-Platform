@@ -30,7 +30,6 @@ import org.allbinary.string.CommonSeps;
 
 public class ScrollSelectionForm extends PaintableForm
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final RectangleCollisionUtil rectangleCollisionUtil = RectangleCollisionUtil.getInstance();
     
@@ -70,6 +69,7 @@ public class ScrollSelectionForm extends PaintableForm
         this.halfBorder = (border >> 1);
     }
 
+    @Override
     public int append(final CustomItem item)
     {
         //((FormItemInterface) item).setOwner(this);

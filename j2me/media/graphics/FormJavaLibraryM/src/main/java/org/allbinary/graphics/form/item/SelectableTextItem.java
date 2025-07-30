@@ -30,6 +30,7 @@ extends TextItem
         return true;
     }
     
+    @Override
     public void paint(Graphics graphics, int x, int y)
     {
         StringComponent stringComponent = this.getLabelStringComponent();

@@ -107,10 +107,10 @@ extends CollidableRTSBehavior
         
         final UnitLayer unitLayer = (UnitLayer) collidableInterfaceCompositeInterface;
     
-        final AngleInfo angleInfo2 = unitLayer.getRotationAnimationInterface().getAngleInfo();
+        final AngleInfo angleInfo2 = unitLayer.getRotationAnimationInterface().getAngleInfoP();
     
         //Since buildings don't move just turn to go around
-        final AngleInfo angleInfo = ownerUnitLayer.getRotationAnimationInterface().getAngleInfo();
+        final AngleInfo angleInfo = ownerUnitLayer.getRotationAnimationInterface().getAngleInfoP();
         final int angle = angleInfo.getAngle() - angleInfo2.getAngle();
         
         //logUtil.put("Unit: " + collidableInterface.getName(), this, "chase");
