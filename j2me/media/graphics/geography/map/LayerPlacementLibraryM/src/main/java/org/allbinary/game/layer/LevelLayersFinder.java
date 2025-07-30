@@ -44,9 +44,9 @@ public class LevelLayersFinder {
 
         while(enumeration.hasMoreElements())
         {
-            Hashtable layerHashtable = (Hashtable) hashtable.get(enumeration.nextElement());
+            Hashtable layerHashtable = (Hashtable) hashtable.get((Object) enumeration.nextElement());
 
-            Integer integer = (Integer) layerHashtable.get(Layer.ID);
+            Integer integer = (Integer) layerHashtable.get((Object) Layer.ID);
 
             Integer cachedInteger = smallIntegerSingletonFactory.getInstance(integer.intValue());
 

@@ -81,7 +81,7 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
     {
         //PreLogUtil.put(resource, this, commonStrings.ADD);
 
-        if (hashtable.containsKey(resource))
+        if (hashtable.containsKey((Object) resource))
         {
             throw new Exception(new StringMaker().append("Resource Already Created: ").append(resource).toString());
         }
