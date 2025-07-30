@@ -42,9 +42,6 @@ import org.allbinary.util.BasicArrayList;
 //In general allow scrolling of the menu and selection the center item
 public class CommandFormInputProcessor extends BasicMenuInputProcessor
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
-
-    protected final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
 
    private final int MOTION_GESTURE_SOURCE_ID = GameKeyEventFactory.getInstance().MOTION_GESTURE_SOURCE_ID;
     
@@ -125,6 +122,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
       }
    }
 
+   @Override
    public int processInput() throws Exception
    {
       try
@@ -178,7 +176,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
          }
       } catch (Exception e)
       {
-         logUtil.put(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(e.getMessage()).toString(), this, GameInputStrings.getInstance().PROCESS_INPUT);
+         logUtil.put(commonStrings.EXCEPTION, this, this.gameInputStrings.PROCESS_INPUT, e);
          
          return -1;
       }

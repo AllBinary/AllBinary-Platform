@@ -590,7 +590,7 @@ extends UnitWaypointBehavior
      * LogUtil.put(LogFactory.getInstance
      * ("Should Not Happen unless buildings get bigger", this,
      * "processMidWaypoint")); } } else if (this.isMoving) { int angle =
-     * this.getRotationAnimationInterface().getAngleInfo().getAngle();
+     * this.getRotationAnimationInterface().getAngleInfoP().getAngle();
      * 
      * //goingTowardsGeographicMapCellPosition
      * //DropCellPositionHistory.getInstance().isCellPositionWithDrop(

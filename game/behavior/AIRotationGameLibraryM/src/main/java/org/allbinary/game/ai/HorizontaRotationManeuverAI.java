@@ -59,14 +59,14 @@ implements ArtificialIntelligenceTransitionInterface
 
         //this.transition();
         AngleIncrementInfo angleIncrementInfo = 
-            ((RotationAnimationInterface) this.rotationAnimationInterface).getAngleInfo().getAngleIncrementInfo();
+            ((RotationAnimationInterface) this.rotationAnimationInterface).getAngleInfoP().getAngleIncrementInfo();
         rotationAnimationInterfaceCompositeInterface.setFrame(angleIncrementInfo.RIGHT_FRAME.intValue());
     }
 
     public void transition()
     {
         AngleIncrementInfo angleIncrementInfo = 
-            ((RotationAnimationInterface) this.rotationAnimationInterface).getAngleInfo().getAngleIncrementInfo();
+            ((RotationAnimationInterface) this.rotationAnimationInterface).getAngleInfoP().getAngleIncrementInfo();
         final RotationAnimationInterfaceCompositeInterface rotationAnimationInterfaceCompositeInterface = (RotationAnimationInterfaceCompositeInterface) this.getOwnerLayerInterface();
         rotationAnimationInterfaceCompositeInterface.setFrame(angleIncrementInfo.RIGHT_FRAME.intValue());
         
@@ -86,7 +86,7 @@ implements ArtificialIntelligenceTransitionInterface
 
         //logUtil.put("Angle: " + currentAngle + " X: " + x + " Y: " + y, this, commonStrings.PROCESS);
         AngleIncrementInfo angleIncrementInfo = 
-            ((RotationAnimationInterface) this.rotationAnimationInterface).getAngleInfo().getAngleIncrementInfo();
+            ((RotationAnimationInterface) this.rotationAnimationInterface).getAngleInfoP().getAngleIncrementInfo();
 
         int frame = this.rotationAnimationInterface.getFrame();
 
@@ -135,7 +135,7 @@ implements ArtificialIntelligenceTransitionInterface
     protected void reverse()
     {
         AngleIncrementInfo angleIncrementInfo = 
-            ((RotationAnimationInterface) this.rotationAnimationInterface).getAngleInfo().getAngleIncrementInfo();
+            ((RotationAnimationInterface) this.rotationAnimationInterface).getAngleInfoP().getAngleIncrementInfo();
 
         int frame = this.rotationAnimationInterface.getFrame();
 

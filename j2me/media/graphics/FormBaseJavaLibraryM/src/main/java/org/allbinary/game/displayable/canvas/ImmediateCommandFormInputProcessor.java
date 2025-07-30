@@ -23,7 +23,6 @@ import org.allbinary.util.BasicArrayList;
 public class ImmediateCommandFormInputProcessor
     extends CommandFormInputProcessor
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final TimeDelayHelper timeHelper = new TimeDelayHelper(25);
     
@@ -40,6 +39,7 @@ public class ImmediateCommandFormInputProcessor
         this.gameCommandCanvas = gameCommandCanvas;
     }
 
+    @Override
     public synchronized void onPressGameKeyEvent(GameKeyEvent gameKeyEvent)
     {
         try
@@ -61,6 +61,7 @@ public class ImmediateCommandFormInputProcessor
         }
     }
     
+    @Override
     public synchronized void onDownGameKeyEvent(GameKeyEvent gameKeyEvent)
     {
         try
@@ -82,6 +83,7 @@ public class ImmediateCommandFormInputProcessor
         }
     }
 
+    @Override
     public synchronized void onUpGameKeyEvent(GameKeyEvent gameKeyEvent)
     {
         try
@@ -103,6 +105,7 @@ public class ImmediateCommandFormInputProcessor
         }
     }
 
+    @Override
     public void onMotionGestureEvent(MotionGestureEvent motionGestureEvent)
     {
         try

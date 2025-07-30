@@ -52,8 +52,8 @@ public class SpinnerAI extends BasicAI
 
       //Shoot only down
       /*
-      if(this.rotationAnimationInterface.getAngleInfo().getAngle() > 90 &&
-      this.rotationAnimationInterface.getAngleInfo().getAngle() < 180)
+      if(this.rotationAnimationInterface.getAngleInfoP().getAngle() > 90 &&
+      this.rotationAnimationInterface.getAngleInfoP().getAngle() < 180)
       {
       super.processAI(Canvas.KEY_NUM1);
       }

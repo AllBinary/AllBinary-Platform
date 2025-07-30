@@ -44,7 +44,7 @@ public class BasicDirectionAIHelper
       
       int degrees = Math.abs(directionAngle - angle);
 
-      //logUtil.put(this.getName() + " Direction Angle: " + directionAngle + " Angle: " + this.getAngleInfo().getAngle() + " degrees: " + degrees, this, "turnAI");
+      //logUtil.put(this.getName() + " Direction Angle: " + directionAngle + " Angle: " + this.getAngleInfoP().getAngle() + " degrees: " + degrees, this, "turnAI");
       
       if(degrees < 180)
       {
@@ -75,8 +75,8 @@ public class BasicDirectionAIHelper
    
    private int getAIKeyPressed(Integer frame)
    {
-      //logUtil.put("this.getAngle(): " + this.getAngleInfo().getAngle(), this, "getAIKeyPressed");
-      //logUtil.put("this.getFrameAngle(frame): " + this.getAngleInfo().getFrameAngle(frame), this, "getAIKeyPressed");
+      //logUtil.put("this.getAngle(): " + this.getAngleInfoP().getAngle(), this, "getAIKeyPressed");
+      //logUtil.put("this.getFrameAngle(frame): " + this.getAngleInfoP().getFrameAngle(frame), this, "getAIKeyPressed");
       
       if(this.angleInfo.getAngle() != this.angleInfo.getAngleIncrementInfo().getFrameAngle(frame.intValue()))
       {
@@ -123,7 +123,7 @@ public class BasicDirectionAIHelper
       return keyDirection;
    }
 
-   protected AngleInfo getAngleInfo()
+   protected AngleInfo getAngleInfoP()
    {
       return angleInfo;
    }

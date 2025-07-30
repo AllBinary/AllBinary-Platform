@@ -14,7 +14,9 @@
 package org.allbinary.game.displayable.canvas;
 
 import org.allbinary.game.input.event.GameKeyEvent;
+import org.allbinary.graphics.displayable.MyCanvas;
 import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
+import org.allbinary.util.BasicArrayListUtil;
 
 public class NoMenuInputProcessor extends BasicMenuInputProcessor
 {
@@ -28,17 +30,20 @@ public class NoMenuInputProcessor extends BasicMenuInputProcessor
 
     private NoMenuInputProcessor()
     {
-        super(null, -1, null);
+        super(BasicArrayListUtil.getInstance().getImmutableInstance(), -1, MyCanvas.NULL_MY_CANVAS);
     }
 
+    @Override
     public synchronized void onDownGameKeyEvent(GameKeyEvent gameKeyEvent)
     {
     }
 
+    @Override
     public synchronized void onUpGameKeyEvent(GameKeyEvent gameKeyEvent)
     {
     }
 
+    @Override
     public void onMotionGestureEvent(MotionGestureEvent motionGestureEvent)
     {
     }

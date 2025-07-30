@@ -994,7 +994,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         //turning left or right
         if (direction == Direction.LEFT || direction == Direction.RIGHT)
         {
-        int angle = this.getRotationAnimationInterface().getAngleInfo().getAngle();
+        int angle = this.getRotationAnimationInterface().getAngleInfoP().getAngle();
         }
         else
         //turning up or down
@@ -1016,7 +1016,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
             if (this.getUnitWaypointBehavior().isWaypointListEmptyOrOnlyTargets())
             {
                 int angleOfTarget = FrameUtil.adjustAngleToFrameAngle(targetAngle);
-                int angle = this.getRotationAnimationInterface().getAngleInfo().getAngle();
+                int angle = this.getRotationAnimationInterface().getAngleInfoP().getAngle();
 
                 PreLogUtil.put("angleOfTarget: " + angleOfTarget + " angle: " + angle, this, "turnTo");
             }
@@ -1155,7 +1155,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         }
         */
 
-//            AngleInfo angleInfo2 = this.rotationAnimationInterface.getAngleInfo();
+//            AngleInfo angleInfo2 = this.rotationAnimationInterface.getAngleInfoP();
 //            int angle2 = angleInfo2.getAngle();
 //            int delta = angleOfTarget2 - angle2;
 //            
@@ -1165,7 +1165,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
 //                if(delta > 0) this.rotationAnimationInterface.nextRotation();
 //                if(delta < 0) this.rotationAnimationInterface.previousRotation();
 //                
-//                angleInfo2 = this.rotationAnimationInterface.getAngleInfo();
+//                angleInfo2 = this.rotationAnimationInterface.getAngleInfoP();
 //                angle2 = angleInfo2.getAngle();
 //                delta = angleOfTarget2 - angle2;
 //                logUtil.put("steering - angle2: " + angle2, this, TRACKTO_TURNTO);

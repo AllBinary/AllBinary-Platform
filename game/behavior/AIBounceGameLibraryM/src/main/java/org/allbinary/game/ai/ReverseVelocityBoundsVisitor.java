@@ -94,7 +94,7 @@ public class ReverseVelocityBoundsVisitor implements BoundsVisitorInterface
    /*
    private void refract()
    {
-      short angle = this.rotationAnimationInterface.getAngleInfo().getAngle();
+      short angle = this.rotationAnimationInterface.getAngleInfoP().getAngle();
       angle += 180;
       this.rotationAnimationInterface.adjustFrame(angle);
    } 

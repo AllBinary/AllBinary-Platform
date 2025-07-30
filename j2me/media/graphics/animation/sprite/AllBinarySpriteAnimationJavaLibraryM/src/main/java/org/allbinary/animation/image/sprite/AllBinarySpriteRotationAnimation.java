@@ -48,7 +48,7 @@ public class AllBinarySpriteRotationAnimation extends HackRotationSpriteIndexedA
     int angleIncrement = Angle.THREE_SIXTY/this.getSprite().getRawFrameCount();
 
     this.setAngleInfo(AngleInfo.getInstance(angleIncrement));
-    this.getAngleInfo().adjustAngle(this.getSprite().getFrame());
+    this.angleInfo.adjustAngle(this.getSprite().getFrame());
     }
      */
     

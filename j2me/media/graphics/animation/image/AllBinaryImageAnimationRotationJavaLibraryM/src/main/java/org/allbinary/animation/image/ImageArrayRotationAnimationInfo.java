@@ -43,7 +43,7 @@ public class ImageArrayRotationAnimationInfo {
 		return imageArray;
 	}
 
-	public AngleInfo getAngleInfo() {
+	public AngleInfo getAngleInfoP() {
 		return AngleInfo.getInstance((short) angleIncrement);
 	}
 

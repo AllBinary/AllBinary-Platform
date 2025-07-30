@@ -120,7 +120,7 @@ public class AllBinaryJ2SEImageRotationAnimation
     public void setAlpha(final int alpha) {
         
         boolean changed = false;
-        if(this.alpha != alpha) {
+        if(this.alphaP != alpha) {
             changed = true;
         }
         
@@ -165,9 +165,9 @@ public class AllBinaryJ2SEImageRotationAnimation
     private void updateImage() {
 
         this.imageRotationUtil.rotateImage(this.originalImageArray[0], this.twoImages[this.bufferedImageIndex], this.angleInfo.getAngle() + 90);
-        this.alphaProcessor.update(imageModifierUtil, null, this.twoImages[this.bufferedImageIndex], 0, this.alpha);
-        this.setColorProcessor.update(imageModifierUtil, null, this.twoImages[this.bufferedImageIndex], 0, this.basicColor);
-        this.changeColorProcessor.update(imageModifierUtil, null, this.twoImages[this.bufferedImageIndex], 0, this.changeBasicColor);
+        this.alphaProcessor.update(imageModifierUtil, null, this.twoImages[this.bufferedImageIndex], 0, this.alphaP);
+        this.setColorProcessor.update(imageModifierUtil, null, this.twoImages[this.bufferedImageIndex], 0, this.basicColorP);
+        this.changeColorProcessor.update(imageModifierUtil, null, this.twoImages[this.bufferedImageIndex], 0, this.changeBasicColorP);
         this.swap();
     }
 

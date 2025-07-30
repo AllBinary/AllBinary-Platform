@@ -32,7 +32,7 @@ public class ImageArrayRotationAnimation extends
             throws Exception
     {
         super(((ImageArrayRotationAnimationInfo) object).getImageArray(),
-                ((ImageArrayRotationAnimationInfo) object).getAngleInfo(),
+                ((ImageArrayRotationAnimationInfo) object).getAngleInfoP(),
                 animationBehavior);
 
         // logUtil.put(commonStrings.CONSTRUCTOR,
@@ -40,7 +40,7 @@ public class ImageArrayRotationAnimation extends
         ImageArrayRotationAnimationInfo allBinaryImageRotationAnimationInfo = (ImageArrayRotationAnimationInfo) object;
 
         this.init(allBinaryImageRotationAnimationInfo.getImageArray(),
-                allBinaryImageRotationAnimationInfo.getAngleInfo(),
+                allBinaryImageRotationAnimationInfo.getAngleInfoP(),
                 allBinaryImageRotationAnimationInfo.getTotalAngle());
     }
 

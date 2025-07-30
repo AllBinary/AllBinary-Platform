@@ -68,7 +68,6 @@ public class GameCommandCanvas
     extends MyCanvas
     implements MenuListener, DisplayChangeEventListener
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final Processor repaintProcessor =
             ScreenRepaintProcessorFactory.getInstance().getInstance(this);
@@ -98,7 +97,7 @@ public class GameCommandCanvas
         NoMenuInputProcessor.getInstance();
     private Paintable menuPaintable = NullPaintable.getInstance();
     
-    private PaintableForm menuForm;
+    private PaintableForm menuForm = PaintableForm.NULL_PAINTABLE_FORM;
 
     private boolean isSingleKeyRepeatableProcessing =
         Features.getInstance().isFeature(
@@ -129,12 +128,14 @@ public class GameCommandCanvas
         
         repaintProcessor.process();
     }
-    
+ 
+    @Override
     public void onEvent(final AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
 
+    @Override
     public void onDisplayChangeEvent(final DisplayChangeEvent displayChangeEvent)
     {
         try
@@ -220,7 +221,8 @@ public class GameCommandCanvas
         
         final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         
-        final int startY = (displayInfo.getLastHeight() * 2 / 3) - ((size * MyFont.getInstance().DEFAULT_CHAR_HEIGHT));
+        final int height = size * MyFont.getInstance().DEFAULT_CHAR_HEIGHT;
+        final int startY = (displayInfo.getLastHeight() * 2 / 3) - height;
 
         final Rectangle rectangle = new Rectangle(
             PointFactory.getInstance().getInstance(30, startY),
@@ -233,6 +235,7 @@ public class GameCommandCanvas
         return rectangle;
     }
 
+    @Override
     public void open()
     {
         logUtil.put(commonStrings.START, this, "open");
@@ -242,6 +245,7 @@ public class GameCommandCanvas
         DisplayChangeEventHandler.getInstance().addListener(this);
     }
     
+    @Override
     public void close() throws Exception
     {
         logUtil.put(commonStrings.START, this, commonStrings.CLOSE);
@@ -255,21 +259,25 @@ public class GameCommandCanvas
         this.repaintProcessor.process();
     }
     
+    @Override
     public int getSourceId()
     {
         return id;
     }
 
+    @Override
     public void keyPressed(final int keyCode)
     {
         this.keyPressed(keyCode, 0);
     }
     
+    @Override
     public void keyReleased(final int keyCode)
     {
         this.keyReleased(keyCode, 0);
     }
 
+    @Override
     public void keyRepeated(final int keyCode)
     {
         this.keyRepeated(keyCode, 0);
@@ -286,7 +294,7 @@ public class GameCommandCanvas
         //logUtil.put(commonStrings.START, this, gameInputStrings.KEY_RELEASED);
         this.removeGameKeyEvent(keyCode, deviceId, false);
     }
-    
+
     public void keyRepeated(final int keyCode, final int deviceId)
     {
         // logUtil.put("Key Repeated: ").append(Integer.toHexString(keyCode), this, gameInputStrings.KEY_REPEATED);
@@ -371,6 +379,7 @@ public class GameCommandCanvas
         }
     }
 
+    @Override
     public void paint(final Graphics graphics)
     {
         this.menuPaintable.paint(graphics);

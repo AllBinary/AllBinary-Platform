@@ -18,16 +18,14 @@ import org.allbinary.game.input.PlayerGameInput;
 import org.allbinary.graphics.displayable.MyCanvas;
 import org.allbinary.input.motion.gesture.observer.BaseMotionGestureEventListener;
 import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.util.BasicArrayList;
 
 public class BasicMenuInputProcessor extends PlayerGameInput
     implements BaseMotionGestureEventListener
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     public final BasicArrayList motionGestureEventList = new BasicArrayList();
-    private MyCanvas canvas;
+    private MyCanvas canvas = MyCanvas.NULL_MY_CANVAS;
     
     protected BasicMenuInputProcessor(BasicArrayList gameKeyEventList, int playerInputId, MyCanvas gameCanvas)
     {
@@ -36,6 +34,7 @@ public class BasicMenuInputProcessor extends PlayerGameInput
         this.setCanvas(gameCanvas);
     }
     
+    @Override
     public void onMotionGestureEvent(MotionGestureEvent motionGestureEvent)
     {
         //PreLogUtil.put(commonStrings.START, this, 

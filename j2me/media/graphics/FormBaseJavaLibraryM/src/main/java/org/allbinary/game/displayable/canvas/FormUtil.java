@@ -16,6 +16,7 @@ package org.allbinary.game.displayable.canvas;
 
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;
+import org.allbinary.graphics.RectangleFactory;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFont;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -55,7 +56,7 @@ public class FormUtil
         final MyFont myFont = MyFont.getInstance();
         
         // Popup Menu Tab Init
-        Rectangle popupMenuRectangle = null;
+        Rectangle popupMenuRectangle = RectangleFactory.SINGLETON;
 
         // Popup Menu Tab Init
         if (displayInfo.getLastHeight() < 320)

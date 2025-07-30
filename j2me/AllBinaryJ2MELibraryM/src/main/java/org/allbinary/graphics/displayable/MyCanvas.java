@@ -33,6 +33,8 @@ import org.allbinary.util.BasicArrayList;
 public class MyCanvas extends Canvas 
     implements DisplayableInterface, MyCommandInterface
 {
+    public static final MyCanvas NULL_MY_CANVAS = new MyCanvas();
+    
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();

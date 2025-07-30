@@ -44,13 +44,13 @@ public class LurchRotationAI extends LurchAI {
        //logUtil.put("Angle: " + currentAngle, this, "reverse");
         if (currentRelativeAngle == 0) {
             
-            AngleIncrementInfo angleIncrementInfo = ((RotationAnimationInterface) this.rotationAnimationInterface).getAngleInfo().getAngleIncrementInfo();
+            AngleIncrementInfo angleIncrementInfo = ((RotationAnimationInterface) this.rotationAnimationInterface).getAngleInfoP().getAngleIncrementInfo();
             
             RotationAnimationInterfaceCompositeInterface rotationAnimationInterfaceCompositeInterface = (RotationAnimationInterfaceCompositeInterface) this.getOwnerLayerInterface();
             rotationAnimationInterfaceCompositeInterface.setFrame(angleIncrementInfo.RIGHT_FRAME.intValue());
         } else if (currentRelativeAngle == 180) {
             
-            AngleIncrementInfo angleIncrementInfo = ((RotationAnimationInterface) this.rotationAnimationInterface).getAngleInfo().getAngleIncrementInfo();
+            AngleIncrementInfo angleIncrementInfo = ((RotationAnimationInterface) this.rotationAnimationInterface).getAngleInfoP().getAngleIncrementInfo();
 
             RotationAnimationInterfaceCompositeInterface rotationAnimationInterfaceCompositeInterface = (RotationAnimationInterfaceCompositeInterface) this.getOwnerLayerInterface();
             rotationAnimationInterfaceCompositeInterface.setFrame(angleIncrementInfo.LEFT_FRAME.intValue());
