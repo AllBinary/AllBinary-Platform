@@ -96,6 +96,7 @@ public class CurrentlyPressedTouchButtonSingletonDebug
         this.append(PRESSED_AND_NOT_FIRED, touchButtonInput);
     }
     
+    @Override
     public TouchButtonInput remove(int index)
     {
         TouchButtonInput touchButtonInput = super.remove(index);
@@ -106,6 +107,7 @@ public class CurrentlyPressedTouchButtonSingletonDebug
         return touchButtonInput;
     }
 
+    @Override
     public boolean remove(TouchButtonInput touchButtonInput)
     { 
         boolean isRemoved = super.remove(touchButtonInput);
@@ -115,7 +117,8 @@ public class CurrentlyPressedTouchButtonSingletonDebug
 
         return isRemoved;
     }
-        
+
+    @Override
     public void add(TouchButtonInput touchButtonInput)
     {
         super.add(touchButtonInput);

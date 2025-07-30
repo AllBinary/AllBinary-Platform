@@ -59,6 +59,7 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
         return this.name;
     }
     
+    @Override
     public void init(final int level) throws Exception
     {
         final CommonStrings commonStrings = CommonStrings.getInstance();
@@ -88,12 +89,14 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
         hashtable.put(resource, animationInterfaceFactoryInterface);
     }
 
+    @Override
     public BasicAnimationInterfaceFactoryInterface getBasicAnimationInterfaceFactoryInstance(
             final String resource) throws Exception
     {
         return (BasicAnimationInterfaceFactoryInterface) hashtable.get(resource);
     }
 
+    @Override
     public Rectangle getRectangle(final String resource) throws Exception
     {
         return (Rectangle) rectangleHashtable.get(resource);
@@ -104,6 +107,7 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
         rectangleHashtable.put(resource, rectangle);
     }
 
+    @Override
     public Rectangle[][] getRectangleArrayOfArrays(final String resource) throws Exception
     {
         return (Rectangle[][]) rectangleArrayOfArraysHashtable.get(resource);
@@ -113,12 +117,14 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
     {
         rectangleArrayOfArraysHashtable.put(resource, rectangleArrayOfArrays);
     }
-    
+
+    @Override    
     public boolean isFeature()
     {
         return false;
     }
 
+    @Override
     public boolean isLoadingLevel(final int level)
     {
         final ResourceLoadingLevelFactory resourceLoadingLevelFactory
@@ -138,6 +144,7 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
         return new StringMaker().append(this.getClass().getName()).append(CommonSeps.getInstance().SEMICOLON).append(CommonSeps.getInstance().SPACE).append(this.name).toString();
     }
 
+    @Override
     public Hashtable getHashtable()
     {
         return hashtable;
@@ -152,7 +159,7 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
     {
         return this.rectangleArrayOfArraysHashtable;
     }
-    
+
     protected void setInitialized(boolean initialized)
     {
         this.initialized = initialized;

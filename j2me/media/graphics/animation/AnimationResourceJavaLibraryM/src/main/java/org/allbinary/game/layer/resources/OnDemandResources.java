@@ -19,6 +19,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class OnDemandResources
 {
+    public static final OnDemandResources NULL_ON_DEMAND_RESOURCES = new OnDemandResources();
+    
     protected final LogUtil logUtil = LogUtil.getInstance();
     
     protected OnDemandResources()

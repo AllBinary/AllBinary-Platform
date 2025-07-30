@@ -19,6 +19,7 @@ public class EarlySoundsFactory
     private static final EarlySoundsFactory instance = 
         new EarlySoundsFactory();
 
+    @Override
     public Sound[] getSoundInterfaceArray() throws Exception {
         Sound[] soundInterfaceArray = new Sound[2];
 

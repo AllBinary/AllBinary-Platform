@@ -19,6 +19,7 @@ import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.relationship.RelativeLayerRelationship;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListUtil;
 
 public class FeaturedResourceRelativeRelationshipFactory extends FeaturedResourceFactory
 {
@@ -38,11 +39,11 @@ public class FeaturedResourceRelativeRelationshipFactory extends FeaturedResourc
    public BasicArrayList getRelativeRelationshipList(String resource, AllBinaryLayer layer)
       throws Exception
    {
-
+       final BasicArrayList featureReleaseList = this.getList();
       int size = getList().size();
       for (int index = 0; index < size; index++)
       {
-         ResourceRelativeRelationshipFactoryInterface featureInterface = (ResourceRelativeRelationshipFactoryInterface) getList().objectArray[index];
+         ResourceRelativeRelationshipFactoryInterface featureInterface = (ResourceRelativeRelationshipFactoryInterface) featureReleaseList.objectArray[index];
          if (featureInterface.isFeature())
          {
             BasicArrayList list = featureInterface.getResourceRelativeRelationshipList(resource);
@@ -67,7 +68,7 @@ public class FeaturedResourceRelativeRelationshipFactory extends FeaturedResourc
       {
          RelativeRelationship relativeRelationship = (RelativeRelationship) list.objectArray[index];
          newList.add(new RelativeLayerRelationship(
-            layer, PointFactory.getInstance().getInstance(relativeRelationship.getX(), relativeRelationship.getY()), null));
+            layer, PointFactory.getInstance().getInstance(relativeRelationship.getX(), relativeRelationship.getY()), BasicArrayListUtil.getInstance().getImmutableInstance()));
       }
       return newList;
    }

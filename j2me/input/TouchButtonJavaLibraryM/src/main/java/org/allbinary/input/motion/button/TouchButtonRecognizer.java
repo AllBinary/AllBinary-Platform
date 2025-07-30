@@ -30,8 +30,8 @@ public class TouchButtonRecognizer
     
     private final UpGameKeyEventHandler upGameKeyEventHandler = UpGameKeyEventHandler.getInstance();
     private final DownGameKeyEventHandler downGameKeyEventHandler = DownGameKeyEventHandler.getInstance();
-    
-    private TouchButtonInput lastPressedTouchButtonInput;
+
+    private TouchButtonInput lastPressedTouchButtonInput = BasicTouchInputFactory.getInstance().NONE;
     
     private final 
         CurrentlyPressedTouchButtonSingleton
@@ -79,6 +79,7 @@ public class TouchButtonRecognizer
         }
         
         // This releases an associated button even if it has not been released
+        @Override
         public void release(TouchButtonInput touchButtonInput, int deviceId) throws Exception
         {
             TouchButtonInput cancelTouchButtonInput = CancelTouchButtonInputFactory.getInstance()
@@ -178,13 +179,13 @@ public class TouchButtonRecognizer
       //TWB - Debugging
         //this.currentlyPressedTouchButtonSingleton.clearLog(x, y);
         
-        //TouchButtonInput touchButtonInput = null;
+        //TouchButtonInput touchButtonInput = BasicTouchInputFactory.getInstance().NONE;
         
         TouchButtonInput touchButtonInput = lastPressedTouchButtonInput;
         // if already pressed then cancel associated button and release
         if (currentlyPressedTouchButtonSingleton.contains(touchButtonInput))
         {
-            lastPressedTouchButtonInput = null;
+            lastPressedTouchButtonInput = BasicTouchInputFactory.getInstance().NONE;
 
             this.processRelease(touchButtonInput, deviceId);
             //this.currentlyPressedTouchButtonSingleton.releaseAndFired(touchButtonInput);

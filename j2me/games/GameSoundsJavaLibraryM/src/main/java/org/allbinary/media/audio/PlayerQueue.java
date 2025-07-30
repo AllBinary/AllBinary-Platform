@@ -56,7 +56,7 @@ public class PlayerQueue
 
     public boolean process()
     {
-        Sound sound = null;
+        Sound sound = NoSound.getInstance();
         try
         {
             boolean played = false;

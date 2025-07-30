@@ -21,6 +21,7 @@ import org.allbinary.graphics.CellPosition;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;
+import org.allbinary.graphics.RectangleFactory;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -42,8 +43,8 @@ public class TouchButton extends Paintable
     protected final int xBorder;
     protected final int yBorder;
     
-    protected Rectangle rectangle;
-    protected final CellPosition cellPosition;
+    protected Rectangle rectangleP = RectangleFactory.SINGLETON;
+    protected final CellPosition cellPositionP;
     
     protected int animationX;
     protected int animationY;
@@ -74,7 +75,7 @@ public class TouchButton extends Paintable
         this.hintAnimationInterface = hintAnimationInterface;
                 
         this.rawRectangle = rawRectangle;
-        this.cellPosition = cellPosition;
+        this.cellPositionP = cellPosition;
         this.xBorder = xBorder;
         this.yBorder = yBorder;
         
@@ -88,6 +89,7 @@ public class TouchButton extends Paintable
         this.hintAnimationInterface.paint(graphics, animationX, this.hintAnimationY);
     }
     
+    @Override
     public void paint(Graphics graphics)
     {
         this.animationInterface.paint(graphics, animationX, animationY);
@@ -100,14 +102,14 @@ public class TouchButton extends Paintable
     {
         try
         {
-            int x = this.rawRectangle.getWidth() * cellPosition.getColumn();
-            int y = this.rawRectangle.getHeight() * cellPosition.getRow();
+            int x = this.rawRectangle.getWidth() * cellPositionP.getColumn();
+            int y = this.rawRectangle.getHeight() * cellPositionP.getRow();
 
-            this.rectangle = new Rectangle(
+            this.rectangleP = new Rectangle(
                     PointFactory.getInstance().getInstance(x + xBorder, y + yBorder),
                     this.rawRectangle.getWidth(), this.rawRectangle.getHeight());
             
-            GPoint point = rectangle.getPoint();
+            GPoint point = rectangleP.getPoint();
             this.animationX = point.getX();
             this.animationY = point.getY();
             this.hintAnimationY = animationY - 32;
@@ -137,12 +139,12 @@ public class TouchButton extends Paintable
 
     public CellPosition getCellPosition()
     {
-        return cellPosition;
+        return cellPositionP;
     }
 
     public Rectangle getRectangle()
     {
-        return rectangle;
+        return rectangleP;
     }
 
     public TouchButtonInput getTouchButtonInput()
@@ -158,7 +160,7 @@ public class TouchButton extends Paintable
         stringBuffer.append("TouchButton: ");
         stringBuffer.append(stringUtil.toString(this.getRectangle()));
         stringBuffer.append(" CellPosition: ");
-        stringBuffer.append(stringUtil.toString(this.cellPosition));
+        stringBuffer.append(stringUtil.toString(this.cellPositionP));
         stringBuffer.append(" xBorder: ");
         stringBuffer.append(this.xBorder);
         stringBuffer.append(" yBorder: ");

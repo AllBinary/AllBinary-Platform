@@ -19,7 +19,7 @@ public class LayerPlacementType
 {    
    private int type;
 
-   protected LayerPlacementType(int type)
+   LayerPlacementType(int type)
    {
       this.type = type;
    }

@@ -29,7 +29,7 @@ public class TouchScreenFactory
     private boolean multiTouch;
     private boolean multiTouchDistinct;
     
-    private TouchScreenType touchScreenType;
+    private TouchScreenType touchScreenType = TouchScreenTypesFactory.getInstance().NOTOUCH;
 
     private TouchScreenFactory()
     {

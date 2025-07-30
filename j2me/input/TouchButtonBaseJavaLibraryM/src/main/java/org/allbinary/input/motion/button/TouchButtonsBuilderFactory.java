@@ -17,6 +17,6 @@ public class TouchButtonsBuilderFactory
 {
     public BaseTouchInput getInstance()
     {
-        return null;
+        return NoButtonsTouchInputFactory.getInstance();
     }
 }

@@ -112,7 +112,7 @@ public class BasicTouchInputFactory
 
     public void updateAll(InputToGameKeyMapping inputToGameKeyMapping)
     {
-        this.updateAll(this.getList(), inputToGameKeyMapping);
+        this.updateAll(this.list, inputToGameKeyMapping);
     }
 
     public void updateAll(BasicArrayList list,

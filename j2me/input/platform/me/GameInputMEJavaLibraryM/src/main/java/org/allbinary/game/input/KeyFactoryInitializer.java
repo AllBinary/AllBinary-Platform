@@ -24,6 +24,7 @@ public class KeyFactoryInitializer extends Init
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    @Override
     public void init()
     {
         logUtil.put(this.commonStrings.START, this, this.commonStrings.INIT);

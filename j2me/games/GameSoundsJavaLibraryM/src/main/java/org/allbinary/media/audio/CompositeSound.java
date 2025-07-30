@@ -22,6 +22,7 @@ public class CompositeSound extends Sound
         super(resource);
     }
 
+    @Override
     public void init() throws Exception
     {
         //player = AllBinaryMediaManager.createPlayer(this.getResource());

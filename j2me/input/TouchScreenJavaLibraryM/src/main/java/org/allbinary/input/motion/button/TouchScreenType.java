@@ -17,7 +17,7 @@ public class TouchScreenType
 {
     private final String name;
     
-    protected TouchScreenType(String name)
+    TouchScreenType(String name)
     {
         this.name = name;
     }

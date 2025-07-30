@@ -25,16 +25,19 @@ public class ResourceRelativeRelationshipFactory
    
    private boolean initialized;
    
+   @Override
    public void init(int level) throws Exception
    {
        this.setInitialized(true);
    }
    
+    @Override
     public BasicArrayList getResourceRelativeRelationshipList(String resource) throws Exception
     {
         return (BasicArrayList) this.hashtable.get(resource);
     }
     
+    @Override
     public void addResourceRelativeRelationship(String resource, RelativeRelationship hardPoint)
        throws Exception
     {
@@ -48,11 +51,13 @@ public class ResourceRelativeRelationshipFactory
        this.hashtable.put(resource, list);
     }
     
+    @Override
     public boolean isLoadingLevel(int level)
     {
         return false;
     }
     
+    @Override
     public boolean isFeature()
     {
        return false;

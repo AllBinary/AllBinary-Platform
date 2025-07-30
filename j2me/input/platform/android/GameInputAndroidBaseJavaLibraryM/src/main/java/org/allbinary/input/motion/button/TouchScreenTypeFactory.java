@@ -28,15 +28,7 @@ public class TouchScreenTypeFactory
     {
         return instance;
     }
-    
-    public final TouchScreenType FINGER = new TouchScreenType("Finger");
-    
-    public final TouchScreenType NOTOUCH = new TouchScreenType("No Touch");
-    
-    public final TouchScreenType STYLUS = new TouchScreenType("Stylus");
-
-    public final TouchScreenType UNDEFINED = new TouchScreenType("Undefined");
-    
+        
     public void update(Activity activity)
     {
         final CommonStrings commonStrings = CommonStrings.getInstance();
@@ -44,8 +36,8 @@ public class TouchScreenTypeFactory
         final TouchScreenFactory touchScreenFactory = 
                 TouchScreenFactory.getInstance();
 
-        final TouchScreenTypeFactory touchScreenTypeFactory = 
-                TouchScreenTypeFactory.getInstance();
+        final TouchScreenTypesFactory touchScreenTypesFactory = 
+                TouchScreenTypesFactory.getInstance();
         
         Configuration configuration = activity.getResources().getConfiguration();
 
@@ -53,7 +45,7 @@ public class TouchScreenTypeFactory
         
         if(touchScreen == Configuration.TOUCHSCREEN_FINGER)
         {
-            touchScreenFactory.setTouchScreenType(touchScreenTypeFactory.FINGER);
+            touchScreenFactory.setTouchScreenType(touchScreenTypesFactory.FINGER);
             
             if(!touchScreenFactory.isTouch())
             {
@@ -66,7 +58,7 @@ public class TouchScreenTypeFactory
         else
             if(touchScreen == Configuration.TOUCHSCREEN_STYLUS)
             {
-                touchScreenFactory.setTouchScreenType(touchScreenTypeFactory.STYLUS);
+                touchScreenFactory.setTouchScreenType(touchScreenTypesFactory.STYLUS);
                 
                 if(!touchScreenFactory.isTouch())
                 {
@@ -80,12 +72,12 @@ public class TouchScreenTypeFactory
         else
             if(touchScreen == Configuration.TOUCHSCREEN_NOTOUCH)
             {
-                touchScreenFactory.setTouchScreenType(touchScreenTypeFactory.NOTOUCH);
+                touchScreenFactory.setTouchScreenType(touchScreenTypesFactory.NOTOUCH);
             }
                 else
                     if(touchScreen == Configuration.TOUCHSCREEN_UNDEFINED)
                     {
-                        touchScreenFactory.setTouchScreenType(touchScreenTypeFactory.UNDEFINED);
+                        touchScreenFactory.setTouchScreenType(touchScreenTypesFactory.UNDEFINED);
                     }
     }
 }

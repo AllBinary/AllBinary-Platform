@@ -50,12 +50,13 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
     public Rectangle getRectangle(String resource, int x, int y)
             throws Exception
     {
+        final BasicArrayList list = this.getList();
         int scale = GameConfigurationCentral.getInstance().SCALE.getValue().intValue();
         int size = getList().size();
         for (int index = 0; index < size; index++)
         {
-            FeatureResourceAnimationInterfaceFactoryInterface featureInterface
-                    = (FeatureResourceAnimationInterfaceFactoryInterface) getList().objectArray[index];
+            FeatureResourceAnimationInterfaceFactoryInterface featureInterface = 
+                (FeatureResourceAnimationInterfaceFactoryInterface) list.objectArray[index];
 
             if (featureInterface.isFeature())
             {
@@ -96,12 +97,14 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
             String resource) throws Exception
     {
 
+        final BasicArrayList list = this.getList();
         final BasicArrayList resourceTypeAvailableList = new BasicArrayList();
         int size = getList().size();
         for (int index = 0; index < size; index++)
         {
-            FeatureResourceAnimationInterfaceFactoryInterface featureInterface
-                    = (FeatureResourceAnimationInterfaceFactoryInterface) getList().objectArray[index];
+            FeatureResourceAnimationInterfaceFactoryInterface featureInterface = 
+                (FeatureResourceAnimationInterfaceFactoryInterface) list.objectArray[index];
+
             if (featureInterface.isFeature())
             {
                 resourceTypeAvailableList.add(featureInterface);
@@ -150,7 +153,7 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
             {
                 stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
 
-                FeatureResourceAnimationInterfaceFactoryInterface featureInterface = (FeatureResourceAnimationInterfaceFactoryInterface) getList().objectArray[index];
+                FeatureResourceAnimationInterfaceFactoryInterface featureInterface = (FeatureResourceAnimationInterfaceFactoryInterface) list.objectArray[index];
                 if (featureInterface.isFeature())
                 {
                     stringBuffer.append(StringUtil.getInstance().toString(featureInterface));
@@ -170,7 +173,7 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
             for (int index = 0; index < size; index++)
             {
                 FeatureResourceAnimationInterfaceFactoryInterface featureInterface
-                        = (FeatureResourceAnimationInterfaceFactoryInterface) getList().objectArray[index];
+                        = (FeatureResourceAnimationInterfaceFactoryInterface) list.objectArray[index];
                 stringBuffer.append(featureInterface.toString());
                 stringBuffer.append(CommonSeps.getInstance().SPACE);
             }

@@ -22,6 +22,6 @@ public class OnDemandResourcesFactory
     
     public OnDemandResources remove(int layerId)
     {
-        return null;
+        return OnDemandResources.NULL_ON_DEMAND_RESOURCES;
     }
 }

@@ -58,7 +58,7 @@ public class FeaturedResourceFactory
         for (int index = 0; index < size; index++)
         {
             GameFeatureControlledInterface featureInterface = 
-                (GameFeatureControlledInterface) getList().objectArray[index];
+                (GameFeatureControlledInterface) this.list.objectArray[index];
             
             boolean isLoadingLevel = featureInterface.isLoadingLevel(level);
             boolean isFeature = featureInterface.isFeature();

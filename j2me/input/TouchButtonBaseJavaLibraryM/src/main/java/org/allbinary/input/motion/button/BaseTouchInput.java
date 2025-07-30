@@ -26,7 +26,7 @@ public class BaseTouchInput
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     private final BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();
     
-    protected BaseTouchInput()
+    BaseTouchInput()
     {
         
     }

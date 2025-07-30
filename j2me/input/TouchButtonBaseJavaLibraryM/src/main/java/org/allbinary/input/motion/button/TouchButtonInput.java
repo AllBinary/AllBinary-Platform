@@ -30,7 +30,7 @@ public final class TouchButtonInput extends Input
     private final GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
     private final int TOUCH_BUTTON_SOURCE_ID = this.gameKeyEventFactory.TOUCH_BUTTON_SOURCE_ID;
     
-    private GameKeyEvent gameKeyEvent;
+    private GameKeyEvent gameKeyEvent = GameKeyEvent.NONE;
 
     public TouchButtonInput(int id, String name)
     {
@@ -55,6 +55,7 @@ public final class TouchButtonInput extends Input
         }
     }
 
+    @Override
     public int getSourceId()
     {
         return TOUCH_BUTTON_SOURCE_ID;

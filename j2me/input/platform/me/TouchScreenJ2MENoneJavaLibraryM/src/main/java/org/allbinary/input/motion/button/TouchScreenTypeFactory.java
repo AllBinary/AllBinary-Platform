@@ -21,15 +21,7 @@ public class TouchScreenTypeFactory
     {
         return instance;
     }
-    
-    public final TouchScreenType FINGER = new TouchScreenType("Finger");
-    
-    public final TouchScreenType NOTOUCH = new TouchScreenType("No Touch");
-    
-    public final TouchScreenType STYLUS = new TouchScreenType("Stylus");
-
-    public final TouchScreenType UNDEFINED = new TouchScreenType("Undefined");
-    
+        
     public void TouchScreenTypeFactory()
     {
         final TouchScreenFactory touchScreenFactory = 

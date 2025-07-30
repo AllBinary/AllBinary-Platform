@@ -22,7 +22,6 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class FullTouchButton extends TouchButton
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     public FullTouchButton(TouchButtonInput touchButtonInput, TouchButtonResource touchButtonResource,
             Rectangle rawRectangle, CellPosition cellPosition, int xBorder, int yBorder)
@@ -43,20 +42,21 @@ public class FullTouchButton extends TouchButton
                 rawRectangle, cellPosition, xBorder, yBorder);
     }
 
+    @Override
     protected void updateRectangle()
     {
         try
         {
-            int x = this.rawRectangle.getWidth() * cellPosition.getColumn();
-            int y = this.rawRectangle.getHeight() * cellPosition.getRow();
+            int x = this.rawRectangle.getWidth() * cellPositionP.getColumn();
+            int y = this.rawRectangle.getHeight() * cellPositionP.getRow();
 
-            this.rectangle = new Rectangle(PointFactory.getInstance().getInstance(x, y),
+            this.rectangleP = new Rectangle(PointFactory.getInstance().getInstance(x, y),
                     this.rawRectangle.getWidth() + (2 * xBorder), this.rawRectangle.getHeight() + (2 * yBorder));
             
-            GPoint point = rectangle.getPoint();
+            GPoint point = this.rectangleP.getPoint();
             this.animationX = point.getX() + xBorder;
             this.animationY = point.getY() + yBorder;
-            this.hintAnimationY = animationY - this.rectangle.getHeight() >> 1;
+            this.hintAnimationY = animationY - this.rectangleP.getHeight() >> 1;
         }
         catch (Exception e)
         {
