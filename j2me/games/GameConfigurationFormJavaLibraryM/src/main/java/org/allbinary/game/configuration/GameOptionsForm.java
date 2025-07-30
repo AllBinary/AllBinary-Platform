@@ -42,7 +42,6 @@ import org.allbinary.util.HashtableUtil;
 public class GameOptionsForm extends CommandForm
     //CommandForm
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     /*
     public static GameOptionsForm getInstance()
@@ -51,7 +50,7 @@ public class GameOptionsForm extends CommandForm
     }
     */
 
-    protected GameOptionsForm(CommandListener commandListener, String title,
+    public GameOptionsForm(CommandListener commandListener, String title,
             BasicColor backgrounBasicColor, BasicColor foregroundBasicColor)
         throws Exception
     {

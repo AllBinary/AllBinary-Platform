@@ -16,6 +16,7 @@ package org.allbinary.game.configuration;
 import javax.microedition.lcdui.CommandListener;
 
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.displayable.screen.CommandForm;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 
@@ -35,7 +36,7 @@ public class GameOptionsFormFactory
         return instance;
     }
     
-    public GameOptionsForm init(
+    public CommandForm init(
             CommandListener commandListener
             //, InitInterface initInterface
             , String title, BasicColor backgrounBasicColor, BasicColor foregroundBasicColor)
@@ -53,7 +54,7 @@ public class GameOptionsFormFactory
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
             logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
-            return null;
+            return CommandForm.NULL_COMMAND_FORM;
         }
 
         //return SINGLETON;

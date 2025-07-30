@@ -15,7 +15,7 @@ package org.allbinary.input.gyro;
 
 public class GyroSensorFactory
 {
-    private static AllBinaryOrientationSensor allBinaryGyroSensor;
+    private static AllBinaryOrientationSensor allBinaryGyroSensor = AllBinaryOrientationSensor.NULL_ALLBINARY_ORIENTATION_SENSOR;
 
     public static void init() throws Exception
     {

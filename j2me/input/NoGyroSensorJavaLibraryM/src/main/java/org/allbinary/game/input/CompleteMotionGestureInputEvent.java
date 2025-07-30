@@ -14,7 +14,9 @@
 package org.allbinary.game.input;
 
 import org.allbinary.input.motion.gesture.MotionGestureInput;
+import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.string.CommonStrings;
 
@@ -23,9 +25,9 @@ implements CompleteMotionGestureInputInterface
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private String name;
+    private String name = StringUtil.getInstance().EMPTY_STRING;
     
-    private MotionGestureInput motionGestureInput;
+    private MotionGestureInput motionGestureInput = TouchMotionGestureFactory.getInstance().NO_MOTION;
     
     public CompleteMotionGestureInputEvent(String name, MotionGestureInput motionGestureInput)
     {
@@ -47,6 +49,7 @@ implements CompleteMotionGestureInputInterface
         this.name = name;
     }
 
+    @Override
     public String getName()
     {
         return name;

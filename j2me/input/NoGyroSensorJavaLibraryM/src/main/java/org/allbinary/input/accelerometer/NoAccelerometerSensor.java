@@ -18,11 +18,13 @@ import org.allbinary.logic.math.Orientation;
 
 public class NoAccelerometerSensor extends AllBinaryOrientationSensor
 {
+    @Override
     public Orientation getOrientation() throws Exception
     {
         return Orientation.NONE;
     }
     
+    @Override
     public void onSensorChange()
     {
     }

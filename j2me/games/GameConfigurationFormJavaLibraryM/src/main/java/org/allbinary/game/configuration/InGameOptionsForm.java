@@ -26,13 +26,12 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class InGameOptionsForm extends CommandForm
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     public static final Command DISPLAY  = new Command("Options In Game", Command.SCREEN, 1);
     public static final Command SAVE  = new Command("Save", Command.SCREEN, 1);
     public static final Command DEFAULT  = new Command("Default", Command.SCREEN, 1);
     
-    protected InGameOptionsForm(CommandListener commandListener, String title,
+    InGameOptionsForm(CommandListener commandListener, String title,
             BasicColor backgrounBasicColor, BasicColor foregroundBasicColor)
         throws Exception
     {
@@ -59,7 +58,7 @@ public class InGameOptionsForm extends CommandForm
         this.removeAllCommands();
 
         this.addCommand(GameCommandsFactory.getInstance().CLOSE_AND_SHOW_GAME_CANVAS);
-        this.addCommand(this.DEFAULT);
+        this.addCommand(InGameOptionsForm.DEFAULT);
 
         this.setCommandListener(cmdListener);
     }

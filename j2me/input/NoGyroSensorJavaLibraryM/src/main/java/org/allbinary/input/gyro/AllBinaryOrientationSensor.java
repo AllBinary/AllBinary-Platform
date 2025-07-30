@@ -20,7 +20,9 @@ import org.allbinary.logic.math.Orientation;
 
 public class AllBinaryOrientationSensor extends AllBinarySensor
 {
-    protected CompleteMotionGestureInputEventListenerInterface listener =
+    public static final AllBinaryOrientationSensor NULL_ALLBINARY_ORIENTATION_SENSOR = new AllBinaryOrientationSensor();
+    
+    private CompleteMotionGestureInputEventListenerInterface listener =
         NoCompleteMotionGestureInputEventListener.getInstance();
 
     public void setListener(
@@ -29,7 +31,7 @@ public class AllBinaryOrientationSensor extends AllBinarySensor
         this.listener = completeMotionGestureInputEventListenerInterface;
     }
     
-    protected AllBinaryOrientationSensor()
+    public AllBinaryOrientationSensor()
     {
         
     }

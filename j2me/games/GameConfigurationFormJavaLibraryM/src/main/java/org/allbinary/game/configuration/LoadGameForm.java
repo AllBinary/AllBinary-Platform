@@ -16,20 +16,19 @@ package org.allbinary.game.configuration;
 import javax.microedition.lcdui.Choice;
 import javax.microedition.lcdui.ChoiceGroup;
 import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.NullCanvas;
 import javax.microedition.lcdui.StringItem;
 
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.configuration.persistance.GamePersistanceSingleton;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.screen.CommandForm;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
 
 public class LoadGameForm extends CommandForm
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     /*
      * private static LoadGameForm FORM;
@@ -69,6 +68,7 @@ public class LoadGameForm extends CommandForm
         this.setCommandListener(cmdListener);
     }
 
+    @Override
     public void update() throws Exception
     {
         BasicArrayList list = GamePersistanceSingleton.getInstance().getIds();
@@ -111,7 +111,7 @@ public class LoadGameForm extends CommandForm
             Object object = list.objectArray[index];
             logUtil.put(new StringMaker().append("Adding Choice: ").append(object.toString()).toString(), this, METHOD_NAME);
 
-            choiceGroup.append(object.toString(), null);
+            choiceGroup.append(object.toString(), NullCanvas.NULL_IMAGE);
         }
         return choiceGroup;
     }
@@ -133,8 +133,9 @@ public class LoadGameForm extends CommandForm
     {
         if (this.areChoices)
         {
-            ChoiceGroup choiceGroup = (ChoiceGroup) this.get(0);
-            return Integer.valueOf(choiceGroup.getString(choiceGroup.getSelectedIndex())).intValue();
+            final ChoiceGroup choiceGroup = (ChoiceGroup) this.get(0);
+            final int value = Integer.valueOf(choiceGroup.getString(choiceGroup.getSelectedIndex())).intValue();
+            return value;
         }
         else
         {

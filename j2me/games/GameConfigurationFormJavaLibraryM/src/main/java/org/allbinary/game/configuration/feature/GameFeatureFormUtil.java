@@ -17,6 +17,7 @@ import java.util.Hashtable;
 
 import javax.microedition.lcdui.ChoiceGroup;
 import javax.microedition.lcdui.Item;
+import javax.microedition.lcdui.NullCanvas;
 
 import org.allbinary.game.configuration.GameConfigurationGauge;
 import org.allbinary.game.configuration.GameConfigurationUtil;
@@ -56,7 +57,7 @@ public class GameFeatureFormUtil
             
             stringMaker.delete(0, stringMaker.length());
             logUtil.put(stringMaker.append(name).append(ADD_CHOICE).append(gameFeature.toString()).toString(), this, GET_CHOICE_GROUP);
-            choiceGroup.append(gameFeature.toString(), null);
+            choiceGroup.append(gameFeature.toString(), NullCanvas.NULL_IMAGE);
             if (features.isFeature(gameFeature))
             {
                 choiceGroup.setSelectedIndex(index, true);

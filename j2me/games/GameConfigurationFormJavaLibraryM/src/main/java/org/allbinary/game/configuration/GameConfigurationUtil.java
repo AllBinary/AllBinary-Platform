@@ -71,9 +71,9 @@ public class GameConfigurationUtil
         stringBuffer.append(GAUGE_UPDATE);
         stringBuffer.append(gameConfiguration.getName());
         stringBuffer.append(FROM);
-        stringBuffer.append(gameConfiguration.getValue());
+        stringBuffer.append(gameConfiguration.getValue().intValue());
         stringBuffer.append(TO);
-        stringBuffer.append(value);
+        stringBuffer.append(value.intValue());
         
         logUtil.put(stringBuffer.toString(), this, commonStrings.UPDATE);
         
@@ -94,7 +94,7 @@ public class GameConfigurationUtil
         stringBuffer.append("Gauge Default: ");
         stringBuffer.append(gameConfiguration.getName());
         stringBuffer.append(TO);
-        stringBuffer.append(gameConfiguration.getDefaultValue());
+        stringBuffer.append(gameConfiguration.getDefaultValue().intValue());
         
         logUtil.put(stringBuffer.toString(), this, "setDefault");
 

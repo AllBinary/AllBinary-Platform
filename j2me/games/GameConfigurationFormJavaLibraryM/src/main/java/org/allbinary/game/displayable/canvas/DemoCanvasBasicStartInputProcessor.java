@@ -13,11 +13,11 @@
 */
 package org.allbinary.game.displayable.canvas;
 
+import javax.microedition.lcdui.NullCanvas;
 import org.allbinary.canvas.RunnableCanvas;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.input.GameInputStrings;
 import org.allbinary.game.input.event.GameKeyEvent;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
@@ -25,8 +25,6 @@ import org.allbinary.util.BasicArrayList;
 public class DemoCanvasBasicStartInputProcessor
     extends BasicMenuInputProcessor
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
-
 
     public DemoCanvasBasicStartInputProcessor(
         BasicArrayList gameKeyEventList, RunnableCanvas gameCanvas)
@@ -41,6 +39,7 @@ public class DemoCanvasBasicStartInputProcessor
     }
      */
 
+    @Override
     public int processInput()
         throws Exception
     {
@@ -57,7 +56,7 @@ public class DemoCanvasBasicStartInputProcessor
             logUtil.put(new StringMaker().append("Start GameKey: ").append(StringUtil.getInstance().toString(gameKeyEvent)).toString(), this, GameInputStrings.getInstance().PROCESS_INPUT);
         }
         this.getCanvas().getCustomCommandListener().commandAction(
-                GameCommandsFactory.getInstance().START_COMMAND, null);
+                GameCommandsFactory.getInstance().START_COMMAND, NullCanvas.NULL_CANVAS);
         return size;
     }
 }

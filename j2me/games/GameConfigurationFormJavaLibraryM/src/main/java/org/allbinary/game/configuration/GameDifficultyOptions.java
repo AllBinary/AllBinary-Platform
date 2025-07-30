@@ -16,19 +16,17 @@ package org.allbinary.game.configuration;
 import javax.microedition.lcdui.Choice;
 import javax.microedition.lcdui.ChoiceGroup;
 import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.NullCanvas;
 
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.configuration.persistance.GameDifficultyFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.screen.CommandForm;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
 
 public class GameDifficultyOptions extends CommandForm
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
-
     
     private final BasicArrayList list;
 
@@ -51,11 +49,13 @@ public class GameDifficultyOptions extends CommandForm
         this.setSelectedId(gameDifficultyFactory.getLevel());
     }
 
+    @Override
     public void open()
     {
         super.open();
     }
     
+    @Override
     public void close() throws Exception
     {
         super.close();
@@ -81,6 +81,7 @@ public class GameDifficultyOptions extends CommandForm
         this.setCommandListener(cmdListener);
     }
 
+    @Override
     public void update() throws Exception
     {
         this.deleteAll();
@@ -116,7 +117,7 @@ public class GameDifficultyOptions extends CommandForm
 
             logUtil.put(new StringMaker().append(NAME).append(object.toString()).toString(), this, METHOD_NAME);
 
-            choiceGroup.append(object.toString(), null);
+            choiceGroup.append(object.toString(), NullCanvas.NULL_IMAGE);
         }
         return choiceGroup;
     }
@@ -135,7 +136,8 @@ public class GameDifficultyOptions extends CommandForm
 
     public int getSelectedText()
     {
-        ChoiceGroup choiceGroup = (ChoiceGroup) this.get(0);
-        return Integer.valueOf(choiceGroup.getString(choiceGroup.getSelectedIndex())).intValue();
+        final ChoiceGroup choiceGroup = (ChoiceGroup) this.get(0);
+        final int value = Integer.valueOf(choiceGroup.getString(choiceGroup.getSelectedIndex())).intValue();
+        return value;
     }
 }

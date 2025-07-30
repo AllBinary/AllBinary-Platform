@@ -24,6 +24,7 @@ import org.allbinary.util.BasicArrayList;
 
 public class InGameFeatures extends Init
 {
+    @Override
     public void init()
     {
         final String LABEL = "Screen Buttons";

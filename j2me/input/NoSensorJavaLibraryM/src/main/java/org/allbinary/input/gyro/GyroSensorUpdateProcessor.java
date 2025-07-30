@@ -17,6 +17,7 @@ import org.allbinary.canvas.Processor;
 
 public class GyroSensorUpdateProcessor extends Processor
 {
+    @Override
     public void process() throws Exception
     {
     }

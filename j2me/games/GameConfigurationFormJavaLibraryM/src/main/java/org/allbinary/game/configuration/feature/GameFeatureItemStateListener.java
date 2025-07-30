@@ -60,11 +60,11 @@ public class GameFeatureItemStateListener implements ItemStateListener
         this.add(gameFeatureFactory.TICKABLE_LAYER_PROCESSOR);
     }
 
-    public static void add(GameFeature gameFeature)
+    public void add(GameFeature gameFeature)
     {
-        if(!toggleList.contains(gameFeature))
+        if(!GameFeatureItemStateListener.toggleList.contains(gameFeature))
         {
-            toggleList.add(gameFeature);
+            GameFeatureItemStateListener.toggleList.add(gameFeature);
         }
     }
     /*
@@ -74,6 +74,7 @@ public class GameFeatureItemStateListener implements ItemStateListener
     }
     */
 
+    @Override
     public void itemStateChanged(Item item)
     {
         try

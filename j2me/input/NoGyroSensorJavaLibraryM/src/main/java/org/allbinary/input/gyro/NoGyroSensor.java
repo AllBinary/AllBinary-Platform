@@ -20,18 +20,19 @@ import org.allbinary.logic.math.Orientation;
 public class NoGyroSensor extends AllBinaryOrientationSensor
 implements AllBinarySensorListener
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     public NoGyroSensor()
     {
         logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
     }
-    
+ 
+    @Override
     public Orientation getOrientation() throws Exception
     {
         return Orientation.NONE;
     }
     
+    @Override
     public void onSensorChange()
     {
     }

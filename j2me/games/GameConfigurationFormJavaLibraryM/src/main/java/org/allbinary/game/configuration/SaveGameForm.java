@@ -23,11 +23,10 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class SaveGameForm extends CommandForm
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private static SaveGameForm FORM;
+    private static CommandForm FORM = CommandForm.NULL_COMMAND_FORM;
 
-    public static SaveGameForm getInstance(CommandListener commandListener, String title,
+    public static CommandForm getInstance(CommandListener commandListener, String title,
             BasicColor backgrounBasicColor, BasicColor foregroundBasicColor)
             throws Exception
     {
@@ -35,7 +34,7 @@ public class SaveGameForm extends CommandForm
         return FORM;
     }
 
-    public static SaveGameForm getInstance()
+    public static CommandForm getInstance()
     {
         return FORM;
     }

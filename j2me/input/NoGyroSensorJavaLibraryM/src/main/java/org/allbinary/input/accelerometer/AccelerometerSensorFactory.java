@@ -23,7 +23,7 @@ public class AccelerometerSensorFactory
 
     //private static final AccelerometerSensorFactory instance = new AccelerometerSensorFactory();
     
-    private static AllBinaryOrientationSensor allBinaryAccelerometerSensor;
+    private static AllBinaryOrientationSensor allBinaryAccelerometerSensor = AllBinaryOrientationSensor.NULL_ALLBINARY_ORIENTATION_SENSOR;
     
     public static void init() throws Exception
     {

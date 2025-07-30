@@ -23,8 +23,8 @@ import org.allbinary.input.motion.gesture.MotionGestureInput;
 public class GameKeyCompleteMotionGestureInputEvent extends
         CompleteMotionGestureInputEvent implements GameKeyEventSourceInterface
 {
-    private GameKey gameKey;
-    private GameKeyEvent gameKeyEvent;
+    private GameKey gameKey = GameKey.NULL_GAME_KEY;
+    private GameKeyEvent gameKeyEvent = GameKeyEvent.NONE;
 
     public GameKeyCompleteMotionGestureInputEvent(String name,
             MotionGestureInput motionGestureInput, InputToGameKeyMapping inputToGameKeyMapping)
@@ -32,6 +32,7 @@ public class GameKeyCompleteMotionGestureInputEvent extends
         super(name, motionGestureInput);
     }
 
+    @Override
     public int getSourceId()
     {
         return 0;

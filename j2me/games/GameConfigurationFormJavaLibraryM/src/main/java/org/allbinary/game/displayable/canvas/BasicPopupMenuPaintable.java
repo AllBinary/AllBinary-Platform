@@ -81,13 +81,15 @@ public class BasicPopupMenuPaintable extends Paintable
         final boolean isHTML = features.isDefault(HTMLFeatureFactory.getInstance().HTML);
         final boolean isOpenGL = features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL);
 
+        int BORDER = 0;
         if(isHTML || (AndroidUtil.isAndroid() && isOpenGL)) {
-            this.BORDER = MyFont.getInstance().charWidth() / 2;
+            BORDER = MyFont.getInstance().charWidth() / 2;
         } else if(AndroidUtil.isAndroid() || J2MEUtil.isJ2SE() || SWTUtil.isSWT) {
-            this.BORDER = MyFont.getInstance().charWidth();
+            BORDER = MyFont.getInstance().charWidth();
         } else {
-            this.BORDER = MyFont.getInstance().charWidth() * 2;
+            BORDER = MyFont.getInstance().charWidth() * 2;
         }
+        this.BORDER = BORDER;
 
         if(J2MEUtil.isJ2ME())
         {
@@ -148,6 +150,7 @@ public class BasicPopupMenuPaintable extends Paintable
     
    private final DrawStringUtil drawStringUtil = DrawStringUtil.getInstance();
     
+   @Override
    public void paint(final Graphics graphics)
    {
        final GPoint point = this.rectangle.getPoint();
