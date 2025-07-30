@@ -24,8 +24,8 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 
 public class PCGameInputMapping extends PersistentInputMapping
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
+    @Override
     public void init(final AbeClientInformationInterface abeClientInformation)
     throws Exception
     {
@@ -46,6 +46,7 @@ public class PCGameInputMapping extends PersistentInputMapping
         }
     }
 
+    @Override
     public boolean isDelete(Input input)
     {
         if(input == PCKeyFactory.getInstance().DEL)
@@ -58,6 +59,7 @@ public class PCGameInputMapping extends PersistentInputMapping
         }
     }
 
+    @Override
     public boolean isSystemInput(Input input)
     {
         return false;

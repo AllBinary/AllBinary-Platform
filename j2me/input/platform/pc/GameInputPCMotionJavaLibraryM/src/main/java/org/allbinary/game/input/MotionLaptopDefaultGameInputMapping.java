@@ -36,7 +36,7 @@ public class MotionLaptopDefaultGameInputMapping
         
         //inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM1, AndroidKeyFactory.getInstance().ONE);
         inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM1, pcKeyFactory.FOUR);
-        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM1, pcKeyFactory.P);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM1, pcKeyFactory._P);
         inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM1, pcKeyFactory.p);
 
         //
@@ -65,13 +65,13 @@ public class MotionLaptopDefaultGameInputMapping
         
         //
         
-        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM7, pcKeyFactory.Y);
-        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM9, pcKeyFactory.I);
-        inputToGameKeyMapping.add(gameKeyFactory.UP, pcKeyFactory.U);
-        inputToGameKeyMapping.add(gameKeyFactory.LEFT, pcKeyFactory.H);
-        inputToGameKeyMapping.add(gameKeyFactory.RIGHT, pcKeyFactory.J);
-        inputToGameKeyMapping.add(gameKeyFactory.DOWN, pcKeyFactory.N);
-        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM5, pcKeyFactory.M);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM7, pcKeyFactory._Y);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM9, pcKeyFactory._I);
+        inputToGameKeyMapping.add(gameKeyFactory.UP, pcKeyFactory._U);
+        inputToGameKeyMapping.add(gameKeyFactory.LEFT, pcKeyFactory._H);
+        inputToGameKeyMapping.add(gameKeyFactory.RIGHT, pcKeyFactory._J);
+        inputToGameKeyMapping.add(gameKeyFactory.DOWN, pcKeyFactory._N);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM5, pcKeyFactory._M);
 
         inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM7, pcKeyFactory.y);
         inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM9, pcKeyFactory.i);
@@ -83,13 +83,13 @@ public class MotionLaptopDefaultGameInputMapping
         
         //
 
-        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM7, pcKeyFactory.Q);
-        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM9, pcKeyFactory.E);
-        inputToGameKeyMapping.add(gameKeyFactory.UP, pcKeyFactory.W);
-        inputToGameKeyMapping.add(gameKeyFactory.LEFT, pcKeyFactory.A);
-        inputToGameKeyMapping.add(gameKeyFactory.RIGHT, pcKeyFactory.D);
-        inputToGameKeyMapping.add(gameKeyFactory.DOWN, pcKeyFactory.S);
-        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM5, pcKeyFactory.X);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM7, pcKeyFactory._Q);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM9, pcKeyFactory._E);
+        inputToGameKeyMapping.add(gameKeyFactory.UP, pcKeyFactory._W);
+        inputToGameKeyMapping.add(gameKeyFactory.LEFT, pcKeyFactory._A);
+        inputToGameKeyMapping.add(gameKeyFactory.RIGHT, pcKeyFactory._D);
+        inputToGameKeyMapping.add(gameKeyFactory.DOWN, pcKeyFactory._S);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM5, pcKeyFactory._X);
 
         inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM7, pcKeyFactory.q);
         inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM9, pcKeyFactory.e);

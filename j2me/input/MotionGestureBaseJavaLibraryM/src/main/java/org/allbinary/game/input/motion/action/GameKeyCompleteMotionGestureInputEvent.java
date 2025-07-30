@@ -26,13 +26,12 @@ import org.allbinary.string.CommonStrings;
 public class GameKeyCompleteMotionGestureInputEvent extends
         CompleteMotionGestureInputEvent implements GameKeyEventSourceInterface
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
     private final int SOURCE_ID = gameKeyEventFactory.MOTION_GESTURE_SOURCE_ID;
     
-    private GameKey gameKey;
-    private GameKeyEvent gameKeyEvent;
+    private GameKey gameKey = GameKey.NULL_GAME_KEY;
+    private GameKeyEvent gameKeyEvent = GameKeyEvent.NONE;
 
     private InputToGameKeyMapping inputToGameKeyMapping;
 
@@ -49,6 +48,7 @@ public class GameKeyCompleteMotionGestureInputEvent extends
         //logUtil.put(name + " mapped to gameKey: " + this.getGameKey(), this, commonStrings.CONSTRUCTOR);
     }
 
+    @Override
     public int getSourceId()
     {
         return this.SOURCE_ID;

@@ -31,6 +31,7 @@ extends CompleteMotionGestureInputEventListener
 
     private GameKeyEvent previousGameKeyEvent = GameKeyEvent.NONE;
 
+    @Override
     public void onEvent(AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
@@ -41,6 +42,7 @@ extends CompleteMotionGestureInputEventListener
        //GameKeyEventFactory.getInstance(this, GameKey.NONE);
     //ReleaseTouchInputToGameKeyEventAction.getInstance().getGameKeyEvent();
     
+    @Override
     public void onCompleteMotionGestureInputEvent(
             CompleteMotionGestureInputEvent completeMotionGestureInputEvent)
     {

@@ -40,56 +40,67 @@ public class GameMotionGestureListener implements MotionGestureEventListener
         this.signed = signed;
     }
 
+    @Override
     public void onEvent(AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(commonStrings.NOT_IMPLEMENTED, this);
     }
 
+    @Override
     public void onUpMotionGestureEvent(MotionGestureEvent ev)
     {
         onMotionGestureEvent(ev);
     }
 
+    @Override
     public void onDownMotionGestureEvent(MotionGestureEvent ev)
     {
         onMotionGestureEvent(ev);
     }
 
+    @Override
     public void onLeftMotionGestureEvent(MotionGestureEvent ev)
     {
         onMotionGestureEvent(ev);
     }
 
+    @Override
     public void onRightMotionGestureEvent(MotionGestureEvent ev)
     {
         onMotionGestureEvent(ev);
     }
 
+    @Override
     public void onDiagonalDownRightMotionGestureEvent(MotionGestureEvent ev)
     {
         onMotionGestureEvent(ev);
     }
 
+    @Override
     public void onDiagonalDownLeftMotionGestureEvent(MotionGestureEvent ev)
     {
         onMotionGestureEvent(ev);
     }
 
+    @Override
     public void onDiagonalUpRightMotionGestureEvent(MotionGestureEvent ev)
     {
         onMotionGestureEvent(ev);
     }
 
+    @Override
     public void onDiagonalUpLeftMotionGestureEvent(MotionGestureEvent ev)
     {
         onMotionGestureEvent(ev);
     }
 
+    @Override
     public void onPressedMotionGestureEvent(MotionGestureEvent ev)
     {
         touchGestureCollection.add(ev.getMotionGesture());
     }
     
+    @Override
     public void released(MotionGestureEvent ev)
     {
         try
@@ -112,6 +123,7 @@ public class GameMotionGestureListener implements MotionGestureEventListener
         }
     }
 
+    @Override
     public void onMotionGestureEvent(MotionGestureEvent ev)
     {
         try

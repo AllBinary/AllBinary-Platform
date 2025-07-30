@@ -76,10 +76,11 @@ public class BasicMotionGesturesHandler extends BasicEventHandler
     }
     */
 
-    protected void process(AllBinaryEventObject eventObject,
-           EventListenerInterface eventListenerInterface) throws Exception {
+    @Override
+    protected void process(final AllBinaryEventObject eventObject,
+           final EventListenerInterface eventListenerInterface) throws Exception {
         
-        ((BaseMotionGestureEventListener) eventListenerInterface).onMotionGestureEvent(
-           (MotionGestureEvent) eventObject);
+        final BaseMotionGestureEventListener baseMotionGestureEventListener = (BaseMotionGestureEventListener) eventListenerInterface;
+        baseMotionGestureEventListener.onMotionGestureEvent((MotionGestureEvent) eventObject);
     }
 }

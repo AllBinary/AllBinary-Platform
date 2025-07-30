@@ -22,7 +22,6 @@ import org.allbinary.util.BasicArrayList;
 
 public class CompleteMotionGestureInputEventHandler extends BasicEventHandler
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
     
     private static final CompleteMotionGestureInputEventHandler SINGLETON = 
         new CompleteMotionGestureInputEventHandler();
@@ -46,18 +45,21 @@ public class CompleteMotionGestureInputEventHandler extends BasicEventHandler
         }
     }
 
+    @Override
     public void removeAllListeners()
     {
         this.list.clear();
         super.removeAllListeners();
     }
 
+    @Override
     public void removeListener(EventListenerInterface eventListenerInterface)
     {
         this.list.remove(eventListenerInterface);
         super.removeListener(eventListenerInterface);
     }
 
+    @Override
     public void fireEvent(AllBinaryEventObject eventObject) throws Exception
     {        
         for (int index = this.list.size(); --index >= 0;)
@@ -77,11 +79,13 @@ public class CompleteMotionGestureInputEventHandler extends BasicEventHandler
 
         super.fireEvent(eventObject);
     }
-        
+
+    @Override
     protected void process(AllBinaryEventObject eventObject,
             EventListenerInterface eventListenerInterface) throws Exception {
 
-       ((CompleteMotionGestureInputEventListenerInterface) eventListenerInterface).onCompleteMotionGestureInputEvent(
-               (CompleteMotionGestureInputEvent) eventObject);
+        final CompleteMotionGestureInputEventListenerInterface completeMotionGestureInputEventListenerInterface = 
+            (CompleteMotionGestureInputEventListenerInterface) eventListenerInterface;
+        completeMotionGestureInputEventListenerInterface.onCompleteMotionGestureInputEvent((CompleteMotionGestureInputEvent) eventObject);
     }
 }

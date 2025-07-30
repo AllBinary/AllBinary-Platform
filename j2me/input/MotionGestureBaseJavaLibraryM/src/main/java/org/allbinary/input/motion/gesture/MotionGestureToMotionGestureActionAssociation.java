@@ -26,8 +26,8 @@ public class MotionGestureToMotionGestureActionAssociation
     public MotionGestureToMotionGestureActionAssociation(BasicArrayList list,
             CompleteMotionGestureInputEvent commandAction)
     {
-        this.setMotionGestures(list);
-        this.setMotionGestureAction(commandAction);
+        this.list = list;
+        this.motionGestureAction = commandAction;
     }
 
     public BasicArrayList getMotionGesture()

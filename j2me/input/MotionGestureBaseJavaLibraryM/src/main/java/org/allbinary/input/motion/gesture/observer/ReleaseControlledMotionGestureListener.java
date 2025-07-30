@@ -48,51 +48,61 @@ public class ReleaseControlledMotionGestureListener implements MotionGestureEven
         this.signed = signed;
     }
 
+    @Override
     public void onEvent(AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(commonStrings.NOT_IMPLEMENTED, this);
     }
     
+    @Override
     public void onUpMotionGestureEvent(MotionGestureEvent ev)
     {
         onMotionGestureEvent(ev);
     }
 
+    @Override
     public void onDownMotionGestureEvent(MotionGestureEvent ev)
     {
         onMotionGestureEvent(ev);
     }
 
+    @Override
     public void onLeftMotionGestureEvent(MotionGestureEvent ev)
     {
         onMotionGestureEvent(ev);
     }
 
+    @Override
     public void onRightMotionGestureEvent(MotionGestureEvent ev)
     {
         onMotionGestureEvent(ev);
     }
 
+    @Override
     public void onDiagonalDownRightMotionGestureEvent(MotionGestureEvent ev)
     {
         onMotionGestureEvent(ev);
     }
 
+    @Override
     public void onDiagonalDownLeftMotionGestureEvent(MotionGestureEvent ev)
     {
         onMotionGestureEvent(ev);
     }
 
+    @Override
     public void onDiagonalUpRightMotionGestureEvent(MotionGestureEvent ev)
     {
         onMotionGestureEvent(ev);
     }
 
+    @Override
     public void onDiagonalUpLeftMotionGestureEvent(MotionGestureEvent ev)
     {
         onMotionGestureEvent(ev);
     }
 
+    @Override
     public void onPressedMotionGestureEvent(MotionGestureEvent ev)
     {
         isMouseGestureOccurring = true;
@@ -100,6 +110,7 @@ public class ReleaseControlledMotionGestureListener implements MotionGestureEven
         this.onMotionGestureEvent(ev);
     }
     
+    @Override
     public void released(MotionGestureEvent ev)
     {
         try
@@ -120,6 +131,7 @@ public class ReleaseControlledMotionGestureListener implements MotionGestureEven
         }
     }
 
+    @Override
     public void onMotionGestureEvent(MotionGestureEvent ev)
     {
         //logUtil.put(commonStrings.START_LABEL).append(ev.getMotionGesture(), this, "onMotionGestureEvent");

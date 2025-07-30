@@ -37,6 +37,7 @@ public class ResolveCompleteMotionGestureListener implements CompleteMotionGestu
                 new GameKeyFromMotionGestureEventListener());
     }
 
+    @Override
     public void onMotionGestureCompleted(BasicArrayList list)
     throws Exception{
         

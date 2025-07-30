@@ -15,7 +15,9 @@
 package org.allbinary.input.motion.gesture.observer;
 
 import org.allbinary.graphics.GPoint;
+import org.allbinary.graphics.PointFactory;
 import org.allbinary.input.motion.gesture.MotionGestureInput;
+import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
@@ -23,12 +25,12 @@ import org.allbinary.string.CommonLabels;
 
 public class MotionGestureEvent extends AllBinaryEventObject {
     
-    private MotionGestureInput motionGesture;
+    private MotionGestureInput motionGesture = TouchMotionGestureFactory.getInstance().NO_MOTION;
 
     private final int id;
     
-    private GPoint previousPoint;
-    private GPoint currentPoint;
+    private GPoint previousPoint = PointFactory.getInstance().ZERO_ZERO;
+    private GPoint currentPoint = PointFactory.getInstance().ZERO_ZERO;
     
     public MotionGestureEvent(Object source, int id, MotionGestureInput motionGesture) {
         super(source);

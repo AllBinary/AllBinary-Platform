@@ -5,12 +5,14 @@ import org.allbinary.logic.util.event.AllBinaryEventObject;
 public class CompleteMotionGestureInputEventListener
 implements CompleteMotionGestureInputEventListenerInterface
 {
-    public void onEvent(AllBinaryEventObject eventObject)
+    @Override
+    public void onEvent(final AllBinaryEventObject eventObject)
     {
     }
 
+    @Override
     public void onCompleteMotionGestureInputEvent(
-            CompleteMotionGestureInputEvent completeMotionGestureInputEvent)
+            final CompleteMotionGestureInputEvent completeMotionGestureInputEvent)
     {
     }
 }

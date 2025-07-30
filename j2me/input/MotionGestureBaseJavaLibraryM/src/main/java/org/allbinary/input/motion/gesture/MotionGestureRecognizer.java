@@ -56,8 +56,8 @@ public class MotionGestureRecognizer
             MotionEventCircularPool.getInstance(id);
         
         
-        BasicMotionGesturesHandler motionGesturesHandler = null;
-        BasicEventHandler movedMotionGesturesHandler = null;
+        BasicEventHandler motionGesturesHandler = new BasicEventHandler();
+        BasicEventHandler movedMotionGesturesHandler = motionGesturesHandler;
         try
         {
             motionGesturesHandler = BasicMotionGesturesHandler.getInstance();
@@ -69,7 +69,7 @@ public class MotionGestureRecognizer
             logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
         }
         
-        this.motionGesturesHandler = motionGesturesHandler;
+        this.motionGesturesHandler = (BasicMotionGesturesHandler) motionGesturesHandler;
         this.movedMotionGesturesHandler = movedMotionGesturesHandler;
     }
 
@@ -158,20 +158,20 @@ public class MotionGestureRecognizer
         }
 
         double gradient = line.getGradient();
-        double absGradient = j2seMath.abs((float) gradient);
+        double absGradient = (double) j2seMath.abs((float) gradient);
 
         final MotionGestureConfiguration conf = MotionGestureConfigurationFactory.getInstance();
 
         final TouchMotionGestureFactory touchMotionGestureFactory = TouchMotionGestureFactory.getInstance();
         MotionGestureInput newMotionGesture = touchMotionGestureFactory.NO_MOTION;
 
-        int diagonalToleranceHigher = 12;
-        int diagonalToleranceLower = 12;
+        double diagonalToleranceHigher = 12.0;
+        double diagonalToleranceLower = 12.0;
 
         if (conf.isDiagonalMotionGestureAllowed())
         {
-            diagonalToleranceHigher = 90 - conf.getDiagonalTolerance();
-            diagonalToleranceLower = conf.getDiagonalTolerance();
+            diagonalToleranceHigher = (double) (90 - conf.getDiagonalTolerance());
+            diagonalToleranceLower = (double) conf.getDiagonalTolerance();
         }
 
         if (absGradient > Math.tan(Math.toRadians(diagonalToleranceHigher)))

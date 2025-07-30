@@ -38,8 +38,8 @@ public class Line
 
     private void update()
     {
-        deltaX = getP1().getX() - getP2().getX();
-        deltaY = getP1().getY() - getP2().getY();
+        deltaX = (double) getP1().getX() - getP2().getX();
+        deltaY = (double) getP1().getY() - getP2().getY();
     }
     
     public double getDeltaX()

@@ -28,19 +28,21 @@ extends CompleteMotionGestureInputEventListener
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    public void onEvent(AllBinaryEventObject eventObject)
+    @Override
+    public void onEvent(final AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
 
-    public void onCompleteMotionGestureInputEvent(CompleteMotionGestureInputEvent completeMotionGestureInputEvent)
+    @Override
+    public void onCompleteMotionGestureInputEvent(final CompleteMotionGestureInputEvent completeMotionGestureInputEvent)
     {
         try
         {
             //logUtil.put("Start GameKey: " + ((GameKeyCompleteMotionGestureInputEvent) completeMotionGestureInputEvent).getGameKey(), this, "onCompleteMotionGestureInputEvent");
             
-            GameKeyEvent gameKeyEvent = 
-                ((GameKeyCompleteMotionGestureInputEvent) completeMotionGestureInputEvent).getGameKeyEvent();
+            final GameKeyCompleteMotionGestureInputEvent gameKeyCompleteMotionGestureInputEvent = (GameKeyCompleteMotionGestureInputEvent) completeMotionGestureInputEvent;
+            final GameKeyEvent gameKeyEvent = gameKeyCompleteMotionGestureInputEvent.getGameKeyEvent();
 
             //logUtil.put("gameKeyEvent: " + gameKeyEvent, this, "onCompleteMotionGestureInputEvent");
 

@@ -24,7 +24,7 @@ public class MotionEventFactory implements AllBinaryEventObjectFactoryInterface
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private static int index;
+    private static int index = 0;
     
     private final Object source;
     
@@ -37,6 +37,7 @@ public class MotionEventFactory implements AllBinaryEventObjectFactoryInterface
         index = TouchMotionGestureFactory.getInstance().LAST_MOTION.getId();
     }
     
+    @Override
     public AllBinaryEventObject getInstance()
     {   
         final InputFactory inputFactory = InputFactory.getInstance();

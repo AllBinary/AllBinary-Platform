@@ -17,6 +17,7 @@ import org.allbinary.game.input.CompleteMotionGestureInputEvent;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.input.motion.gesture.MotionGestureToMotionGestureActionAssociation;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
 
 public class MotionGestureConfiguration
@@ -24,7 +25,7 @@ public class MotionGestureConfiguration
     private boolean diagonalMotionGestureAllowed = true;
     private int diagonalTolerance = 7;
     private int minimumMotionGesture = 9;
-    private String button;
+    private String button = StringUtil.getInstance().EMPTY_STRING;
     private BasicColor color = BasicColorFactory.getInstance().BLUE;
     private boolean executingActions = true;
 
@@ -36,8 +37,9 @@ public class MotionGestureConfiguration
     }
 
     public CompleteMotionGestureInputEvent getMotionGestureAction(int index) {
-        if (index >= activeCommands.size())
-            return null;
+        if (index >= activeCommands.size()) {
+            return CompleteMotionGestureInputEvent.NULL_COMPLETE_MOTION_GESTURE_INPUT_EVENT;
+        }
         return (CompleteMotionGestureInputEvent) activeCommands.objectArray[index];
     }
     

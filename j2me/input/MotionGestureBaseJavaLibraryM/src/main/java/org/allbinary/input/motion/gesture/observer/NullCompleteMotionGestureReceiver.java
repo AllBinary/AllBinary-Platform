@@ -28,6 +28,7 @@ implements CompleteMotionGestureListenerInterface
         logUtil.put("Null Gesture Reciever", this, commonStrings.CONSTRUCTOR);
     }
 
+    @Override
     public void onMotionGestureCompleted(BasicArrayList list)
         throws Exception
     {
