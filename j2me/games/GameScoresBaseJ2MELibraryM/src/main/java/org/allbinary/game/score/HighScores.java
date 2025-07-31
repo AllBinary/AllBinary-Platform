@@ -41,6 +41,7 @@ public class HighScores implements HighScoresInterface
         this.orderedHighScoresList = orderedHighScoresList;
     }
 
+    @Override
     public BasicArrayList getList()
     {
         return orderedHighScoresList;
@@ -51,11 +52,13 @@ public class HighScores implements HighScoresInterface
         return name;
     }
     
+    @Override
     public int getTotal()
     {
         return this.getList().size();
     }
     
+    @Override
     public void addHighScore(HighScore newHighScore)
     {
         this.orderedHighScoresList.add(newHighScore);
@@ -76,6 +79,7 @@ public class HighScores implements HighScoresInterface
         return columnTwoHeading;
     }
     
+    @Override
     public boolean isBestScore(HighScore newHighScore) throws Exception
     {
         return false;

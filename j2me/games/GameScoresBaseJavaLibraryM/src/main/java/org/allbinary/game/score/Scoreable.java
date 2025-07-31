@@ -26,11 +26,13 @@ public class Scoreable implements ScoreableInterface
       this.points = points;
    }
 
+   @Override
    public void addPoints(int points)
    {
       this.points += points;
    }
-   
+
+   @Override   
    public void removePoints(int points)
    {
       this.points -= points;
@@ -41,6 +43,7 @@ protected void setPoints(int points)
     this.points = points;
 }
 
+@Override
 public int getPoints()
 {
     return points;

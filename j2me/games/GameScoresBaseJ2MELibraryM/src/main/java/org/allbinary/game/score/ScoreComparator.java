@@ -52,7 +52,7 @@ public class ScoreComparator
  
       ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(candidate);
       DataInputStream inputStream = new DataInputStream(byteArrayInputStream);
-      String name = null;
+      String name = StringUtil.getInstance().EMPTY_STRING;
  
       try
       {
@@ -77,6 +77,7 @@ public class ScoreComparator
    
    //Since MIPD RecordEnumerations Impls are bad I just do the ordering myself
    //Although this imp of RecordComparator works
+    @Override
    public int compare(final byte[] recordOne, final byte[] recordTwo)
    {
       final ByteArrayInputStream byteArrayInputStreamOne = new ByteArrayInputStream(recordOne);

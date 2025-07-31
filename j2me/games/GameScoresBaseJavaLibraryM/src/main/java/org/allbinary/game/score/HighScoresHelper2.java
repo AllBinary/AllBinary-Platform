@@ -20,27 +20,31 @@ public class HighScoresHelper2 extends HighScoresHelperBase
     private final CircularIndexUtil circularIndexUtil = 
         CircularIndexUtil.getInstance(0, 0);
     
-    private HighScores selectedHighScores;
+    private HighScores selectedHighScores = NullHighScoresSingletonFactory.getInstance();
     
+    @Override
     public void setSelectedHighScores(final HighScores selectedHighScores)
     {
         this.selectedHighScores = selectedHighScores;
     }
 
+    @Override
     public HighScores getSelectedHighScores()
     {
         return selectedHighScores;
     }
 
-    public void setHighScoresArray(final HighScores[] highScores)
+    @Override
+    public void setHighScoresArray(final HighScores[] highScoresArray)
     {
-        super.setHighScoresArray(highScores);
+        super.setHighScoresArray(highScoresArray);
 
         this.circularIndexUtil.setSize(this.highScoresArray.length);
 
         this.selectHighScores();
     }
 
+    @Override
     public void selectHighScores()
     {
 

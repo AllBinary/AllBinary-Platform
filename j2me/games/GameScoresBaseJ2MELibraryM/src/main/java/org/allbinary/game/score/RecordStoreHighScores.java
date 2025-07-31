@@ -26,6 +26,9 @@ import javax.microedition.rms.RecordStoreException;
 import javax.microedition.rms.RecordStoreNotFoundException;
 
 import org.allbinary.game.GameInfo;
+import org.allbinary.game.configuration.persistance.NullRecordComparator;
+import org.allbinary.game.configuration.persistance.NullRecordFilter;
+import org.allbinary.game.configuration.persistance.NullRecordStore;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -90,10 +93,10 @@ public class RecordStoreHighScores extends HighScores
         return platformRecordIdUtil.getRecordId(abeClientInformation, new StringMaker().append(CommonSeps.getInstance().UNDERSCORE).append(this.getName()).append(RECORD_ID).toString());
     }
     
-    //@Override
+    @Override
     public synchronized void addHighScore(final HighScore newHighScore) // throws Exception
     {
-        RecordStore recordStore = null;
+        RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;
         try
         {
             logUtil.put(new StringMaker().append("Adding HighScore: ").append(newHighScore.getScore()).toString(),this, commonStrings.ADD);
@@ -108,7 +111,7 @@ public class RecordStoreHighScores extends HighScores
 
             recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
-            final byte[] highScoreBytes = newHighScore.getBytes();
+            final byte[] highScoreBytes = newHighScore.getAsBytes();
 
             final int recordId = recordStore.addRecord(highScoreBytes, 0, highScoreBytes.length);
             
@@ -149,15 +152,15 @@ public class RecordStoreHighScores extends HighScores
 
     private void removeLowestHighScore() // throws Exception
     {
-        RecordStore recordStore = null;
+        RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;
         try
         {
             recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
-            final RecordEnumeration recordEnum = recordStore.enumerateRecords(null,null, true);
-            // recordStore.enumerateRecords(null, (RecordComparator) this, true);
+            final RecordEnumeration recordEnum = recordStore.enumerateRecords(NullRecordFilter.NULL_RECORD_FILTER, NullRecordComparator.NULL_RECORD_COMPARATOR, true);
 
-            HighScore bestHighScore = new HighScore(-1, "none", null, ((ScoreComparator) this.recordComparatorInterface).getBestScore());
+            final ScoreComparator scoreComparator = ((ScoreComparator) this.recordComparatorInterface);
+            HighScore bestHighScore = new HighScore(-1, "none", GameInfo.NONE, scoreComparator.getBestScore());
 
             byte[] recordAsBytes;
             ByteArrayInputStream byteArrayInputStream;
@@ -173,9 +176,9 @@ public class RecordStoreHighScores extends HighScores
 
                     final String name = inputStream.readUTF();
                     final long nextScore = inputStream.readLong();
-                    final HighScore nextCurrentHighScore = new HighScore(id, name, null, nextScore);
+                    final HighScore nextCurrentHighScore = new HighScore(id, name, GameInfo.NONE, nextScore);
 
-                    if (this.recordComparatorInterface.compare(nextCurrentHighScore.getBytes(), bestHighScore.getBytes()) == RecordComparator.FOLLOWS) {
+                    if (this.recordComparatorInterface.compare(nextCurrentHighScore.getAsBytes(), bestHighScore.getAsBytes()) == RecordComparator.FOLLOWS) {
                         bestHighScore = nextCurrentHighScore;
                     }
                 }
@@ -213,7 +216,7 @@ public class RecordStoreHighScores extends HighScores
     // should be in order of score
     private void load() // throws RecordStoreException, IOException
     {
-        RecordStore recordStore = null;
+        RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;
 
         try
         {
@@ -222,8 +225,7 @@ public class RecordStoreHighScores extends HighScores
 
             this.setList(new BasicArrayList());
 
-            final RecordEnumeration recordEnum = recordStore.enumerateRecords(null,null, true);
-            // recordStore.enumerateRecords(null, (RecordComparator) this, true);
+            final RecordEnumeration recordEnum = recordStore.enumerateRecords(NullRecordFilter.NULL_RECORD_FILTER, NullRecordComparator.NULL_RECORD_COMPARATOR, true);
             //logUtil.put("first hasNextElement: " + recordEnum.hasNextElement(), this, commonStrings.LOAD);
 
             byte[] recordAsBytes;
@@ -245,7 +247,7 @@ public class RecordStoreHighScores extends HighScores
                     try {
                         final String name = inputStream.readUTF();
                         final long score = inputStream.readLong();
-                        final HighScore newHighScore = new HighScore(id, name, null, score);
+                        final HighScore newHighScore = new HighScore(id, name, GameInfo.NONE, score);
 
                         // Forced Sorting for bad RecordEnumeration Implementations
                         // Sadly this issue is common on many devices
@@ -256,7 +258,7 @@ public class RecordStoreHighScores extends HighScores
                             final HighScore highScore = (HighScore) list.objectArray[index];
 
                             // Found a spot then insert at that point
-                            if (this.recordComparatorInterface.compare(newHighScore.getBytes(), highScore.getBytes()) == RecordComparator.PRECEDES) {
+                            if (this.recordComparatorInterface.compare(newHighScore.getAsBytes(), highScore.getAsBytes()) == RecordComparator.PRECEDES) {
                                 lastIndex = index;
                                 break;
                             }
@@ -321,6 +323,7 @@ public class RecordStoreHighScores extends HighScores
         }
     }
 
+    @Override
     public synchronized boolean isBestScore(HighScore newHighScore)
     throws Exception
     {
@@ -343,7 +346,7 @@ public class RecordStoreHighScores extends HighScores
                 {
                     final HighScore highScore = (HighScore) list.objectArray[index];
 
-                    if (recordComparatorInterface.compare(newHighScore.getBytes(), highScore.getBytes()) == RecordComparator.FOLLOWS)
+                    if (recordComparatorInterface.compare(newHighScore.getAsBytes(), highScore.getAsBytes()) == RecordComparator.FOLLOWS)
                     // if(newHighScore.getScore() > highScore.getScore())
                     {
                         logUtil.put("Obtained a High Score", this,

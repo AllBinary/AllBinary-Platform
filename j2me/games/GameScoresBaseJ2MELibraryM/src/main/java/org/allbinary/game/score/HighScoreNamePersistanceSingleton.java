@@ -23,6 +23,9 @@ import javax.microedition.rms.RecordStore;
 import javax.microedition.rms.RecordStoreException;
 
 import org.allbinary.game.GameInfo;
+import org.allbinary.game.configuration.persistance.NullRecordComparator;
+import org.allbinary.game.configuration.persistance.NullRecordFilter;
+import org.allbinary.game.configuration.persistance.NullRecordStore;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.java.exception.ExceptionUtil;
@@ -78,7 +81,7 @@ public class HighScoreNamePersistanceSingleton
     
     public void delete(final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo, final int deleteId) throws Exception
     {
-        RecordStore recordStore = null;
+        RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;
         try {
 
         logUtil.put(new StringMaker().append("Deleting: ").append(deleteId).toString(), this, commonStrings.delete);
@@ -87,6 +90,8 @@ public class HighScoreNamePersistanceSingleton
 
         recordStore.deleteRecord(deleteId);
 
+        } catch(Exception e) {
+            throw e;
         } finally {
             if(recordStore != null) {
                 PreLogUtil.put("Closing RecordStore", this, commonStrings.delete);
@@ -103,7 +108,7 @@ public class HighScoreNamePersistanceSingleton
 
     public String load(final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo)
     {        
-        RecordStore recordStore = null;
+        RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;
 
         try
         {
@@ -114,7 +119,7 @@ public class HighScoreNamePersistanceSingleton
                 
                 recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
                 
-                final RecordEnumeration recordEnum = recordStore.enumerateRecords(null, null, true);
+                final RecordEnumeration recordEnum = recordStore.enumerateRecords(NullRecordFilter.NULL_RECORD_FILTER, NullRecordComparator.NULL_RECORD_COMPARATOR, true);
 
                 final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
                 
@@ -161,7 +166,7 @@ public class HighScoreNamePersistanceSingleton
 
     public void save(final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo, final String name)
     {
-        RecordStore recordStore = null;
+        RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;
         try
         {
             logUtil.put(new StringMaker().append("Saving: ").append(name).toString(), this, commonStrings.SAVE);

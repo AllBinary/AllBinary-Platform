@@ -24,10 +24,10 @@ import org.allbinary.string.CommonStrings;
 public class HighScoresHelperBase implements HighScoresResultsListener {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    
     protected HighScores[] highScoresArray = 
         LastFetchHighScoresFactory.getInstance().highScoresArray;
-    
+
+    @Override    
     public void setHighScoresArray(final HighScores[] highScoresArray)
     {
         if (highScoresArray != null) {

@@ -22,15 +22,17 @@ public class HighScoresHelper extends HighScoresHelperBase
     private final CircularIndexUtil circularIndexUtil = 
         CircularIndexUtil.getInstance(0, 0);
 
-    public void setHighScoresArray(final HighScores[] highScores)
+    @Override
+    public void setHighScoresArray(final HighScores[] highScoresArray)
     {
-        super.setHighScoresArray(highScores);
+        super.setHighScoresArray(highScoresArray);
 
         this.circularIndexUtil.setSize(this.highScoresArray.length);
     }
 
     int lastIndex = -1;
-    
+ 
+    @Override
     public HighScores getNextHighScores()
     {        
         HighScores highScores = this.highScoresArray[this.circularIndexUtil.getIndex()];
@@ -58,6 +60,7 @@ public class HighScoresHelper extends HighScoresHelperBase
         return highScores;
     }
     
+    @Override
     public boolean isAnyHighScores()
     {
         if(highScoresArray.length < 1)

@@ -42,7 +42,8 @@ implements ColorChangeListener
     public HighScoresPaintable()
     {
     }
-    
+
+    @Override    
     public void onEvent(AllBinaryEventObject eventObject)
     {
         //logUtil.put("Color Change Event: " + basicColor.getName(), this, "onEvent");
@@ -51,6 +52,7 @@ implements ColorChangeListener
 
     private int anchor = Anchor.TOP_LEFT;
     
+    @Override
     public void paint(Graphics graphics)
     {
         final int charHeight = MyFont.getInstance().DEFAULT_CHAR_HEIGHT;
@@ -117,6 +119,7 @@ implements ColorChangeListener
         }
     }
 
+    @Override
     public void setBasicColor(BasicColor basicColor)
     {
         this.basicColor = basicColor;

@@ -17,6 +17,7 @@ import org.allbinary.logic.string.StringUtil;
 
 public class GameMode
 {
+    public static GameMode NONE = new GameMode(StringUtil.getInstance().NULL_STRING);
     public static GameMode SERVER = new GameMode("Server");
     public static GameMode CLIENT = new GameMode("Client");
 

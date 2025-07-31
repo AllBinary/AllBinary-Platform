@@ -13,6 +13,8 @@
 */
 package org.allbinary.game;
 
+import org.allbinary.logic.string.StringUtil;
+
 public class GameTypeFactory
 {
     private static final GameTypeFactory instance = new GameTypeFactory();
@@ -22,6 +24,7 @@ public class GameTypeFactory
         return instance;
     }
 
+    public GameType NONE = new GameType(StringUtil.getInstance().NULL_STRING);
     public GameType SINGLE_PLAYER = new GameType("Single Player");
     public GameType MULTI_PLAYER = new GameType("Multi Player");
     public GameType BOT = new GameType("Artificial Player");

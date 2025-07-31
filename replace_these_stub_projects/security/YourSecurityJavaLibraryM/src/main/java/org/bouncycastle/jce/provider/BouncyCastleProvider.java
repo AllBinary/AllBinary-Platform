@@ -10,7 +10,7 @@ public final class BouncyCastleProvider extends Provider
 
     public BouncyCastleProvider()
     {
-        super(PROVIDER_NAME, 1.41, info);
+        super(BouncyCastleProvider.PROVIDER_NAME, 1.41, BouncyCastleProvider.info);
     }
 
     

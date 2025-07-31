@@ -27,10 +27,12 @@ public class NoScoreable extends Scoreable
        super(0);
    }
 
+   @Override
    public void addPoints(int points)
    {
    }
    
+   @Override
    public void removePoints(int points)
    {
    }

@@ -22,6 +22,8 @@ import org.allbinary.string.CommonSeps;
 
 public class GameInfo 
 {
+    public static final GameInfo NONE = new GameInfo(GameTypeFactory.getInstance().NONE, GameMode.NONE, -1, -1);
+    
     protected final LogUtil logUtil = LogUtil.getInstance();
 
    public static final String LEVEL_NAME = "LEVEL";

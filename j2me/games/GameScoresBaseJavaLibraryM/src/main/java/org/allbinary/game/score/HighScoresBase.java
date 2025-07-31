@@ -25,16 +25,19 @@ public class HighScoresBase implements HighScoresFactoryInterface
         
     }
     
+    @Override
     public void fetchHighScores(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener)
     {
         throw new RuntimeException();
     }
     
+    @Override
     public void fetchHighScores(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener, final boolean preload)
     {
         throw new RuntimeException();
     }
     
+    @Override
     public HighScoresHelperBase createHighScoresHelper() {
         throw new RuntimeException();
     }

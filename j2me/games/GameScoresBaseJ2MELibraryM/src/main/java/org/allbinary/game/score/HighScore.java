@@ -58,7 +58,7 @@ public class HighScore
         return this.score;
     }
 
-    public byte[] getBytes() throws Exception
+    public byte[] getAsBytes() throws Exception
     {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         DataOutputStream outputStream = new DataOutputStream(byteArrayOutputStream);
