@@ -26,7 +26,7 @@ public class TouchButtonsMappingPaintable extends Paintable
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected int foregroundColor;
-    private Paintable[][] paintableTable;
+    private Paintable[][] paintableTable = new Paintable[0][0];
 
     private TouchButtonLocationHelper touchButtonLocationHelper = new TouchButtonLocationHelper();
     
@@ -80,7 +80,7 @@ public class TouchButtonsMappingPaintable extends Paintable
             for (int rowIndex = totalRows - 1; rowIndex >= 0; rowIndex--)
             {
                 paintableTable[index][rowIndex] = new TouchButton(
-                        null, TouchButtonBlankResource.getInstance(),
+                        BasicTouchInputFactory.getInstance().NONE, TouchButtonBlankResource.getInstance(),
                         commonButtons.NORMAL_BUTTON, 
                         cellPositionFactory.getInstance(index, rowIndex),
                         this.touchButtonLocationHelper.getColumnsRemainderHalf(), 
@@ -91,6 +91,7 @@ public class TouchButtonsMappingPaintable extends Paintable
         return paintableTable;
     }
 
+    @Override
     public void paint(Graphics graphics)
     {
         int totalColumns = touchButtonLocationHelper.getTotalColumns();

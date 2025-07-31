@@ -25,11 +25,13 @@ public class MotionInputMappingEventListener implements InputMappingEventListene
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
+    @Override
     public void onEvent(AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
     
+    @Override
     public void onInputMappingEvent(InputMappingEvent inputMappingEvent) throws Exception
     {
         GameKeyCompleteMotionGestureInputEventFactory.getInstance().updateAll();

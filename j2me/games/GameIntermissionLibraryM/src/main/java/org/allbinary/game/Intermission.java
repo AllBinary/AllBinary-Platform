@@ -27,16 +27,19 @@ public class Intermission implements IntermissionInterface
     {
     }
 
+    @Override
     public void setListener(IntermissionEnableListenerInterface enableListener)
     {
         this.intermissionEnableListener = enableListener;
     }
     
+    @Override
     public TimeDelayHelper getTimeDelayHelper()
     {
         return timeElapsedHelper;
     }
 
+    @Override
     public void setEnabled(boolean enabled)
     {
         this.enabled = enabled;
@@ -49,8 +52,10 @@ public class Intermission implements IntermissionInterface
         this.intermissionEnableListener.notifyIntermission(enabled);
     }
 
+    @Override
     public boolean isEnabled()
     {
         return enabled;
     }
+
 }

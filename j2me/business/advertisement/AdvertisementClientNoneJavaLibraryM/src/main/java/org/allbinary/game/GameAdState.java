@@ -69,12 +69,14 @@ public class GameAdState implements VirtualKeyboardEventListenerInterface
     public void hide()
     {
     }
-    
+
+    @Override    
     public void onEvent(AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
     
+    @Override
     public void onVirtualKeyboardEvent(VirtualKeyboardEvent virtualKeyboardEvent) 
     throws Exception
     {

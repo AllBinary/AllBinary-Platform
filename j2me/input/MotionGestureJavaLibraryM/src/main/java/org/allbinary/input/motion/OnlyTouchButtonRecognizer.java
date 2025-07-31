@@ -30,6 +30,7 @@ public class OnlyTouchButtonRecognizer extends MotionRecognizer
         this.touchButtonRecognizer = new TouchButtonRecognizer();
     }
     
+    @Override
     public void processStartMotionEvent(int x, int y, int deviceId, int modifiers)
             throws Exception
     {
@@ -41,6 +42,7 @@ public class OnlyTouchButtonRecognizer extends MotionRecognizer
         }
     }
 
+    @Override
     public void processEndMotionEvent(int x, int y, int deviceId, int modifiers)
             throws Exception
     {
@@ -57,6 +59,7 @@ public class OnlyTouchButtonRecognizer extends MotionRecognizer
         }
     }
 
+    @Override
     public void processDraggedMotionEvent(int x, int y, int deviceId, int modifiers)
             throws Exception
     {

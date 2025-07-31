@@ -31,7 +31,7 @@ public class AdConfiguration
     
     public Direction[] getValidAdSpots()
     {
-        return null;
+        return new Direction[0];
     }
     
     //Special in gamestate based processing

@@ -18,7 +18,6 @@ import org.allbinary.logic.string.StringUtil;
 
 public class J2MEGameKey extends Input
 {
-    private final InputFactory inputFactory = InputFactory.getInstance();
     
     protected J2MEGameKey(int key, String keyName)
     {

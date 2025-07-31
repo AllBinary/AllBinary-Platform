@@ -41,7 +41,7 @@ implements CompleteMotionGestureInputEventListenerInterface
     
     private InputMappingInterface inputMappingInterface;
     
-    private MotionGestureInput previousMotionGestureInput;
+    //private MotionGestureInput previousMotionGestureInput;
     protected TouchButtonsMappingPaintable touchButtonsPaintable;
 
     private TimeDelayHelper timeHelper = new TimeDelayHelper(250);
@@ -58,6 +58,7 @@ implements CompleteMotionGestureInputEventListenerInterface
                 basicColor);
     }
     
+    @Override
     public void onEvent(final AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
@@ -67,6 +68,8 @@ implements CompleteMotionGestureInputEventListenerInterface
     private final String RELEASE = "Ignoring: MotionGestureInput Release";
     private final String FAST_REPEAT = "Ignoring: MotionGestureInput Repeated To Quickly";
     private final String IGNORE = "Ignoring: Until Released";
+    
+    @Override
     public void onCompleteMotionGestureInputEvent(
             final CompleteMotionGestureInputEvent completeMotionGestureInputEvent)
     {
@@ -93,7 +96,8 @@ implements CompleteMotionGestureInputEventListenerInterface
             }
                 
             //When a motionGesture is repeated quickly change is never painted
-            if(previousMotionGestureInput == motionGestureInput && !this.timeHelper.isTime())
+            //if(previousMotionGestureInput == motionGestureInput && !this.timeHelper.isTime())
+            if(motionGestureInput == null && !this.timeHelper.isTime())
             {
                 logUtil.put(FAST_REPEAT, this, METHOD_NAME);
                 return;
@@ -118,6 +122,7 @@ implements CompleteMotionGestureInputEventListenerInterface
         }
     }
 
+    @Override
     public void process()
     {
         CompleteMotionGestureInputEventHandler.getInstance().removeListener(this);

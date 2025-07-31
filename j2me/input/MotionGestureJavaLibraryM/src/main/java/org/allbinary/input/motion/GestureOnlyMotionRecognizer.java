@@ -37,7 +37,8 @@ public class GestureOnlyMotionRecognizer extends MotionRecognizer
         
         this.motionGestureRecognizer = new MotionGestureRecognizer(id);
     }
-    
+   
+    @Override
     public void processStartMotionEvent(int x, int y, int deviceId, int modifiers)
             throws Exception
     {
@@ -50,6 +51,7 @@ public class GestureOnlyMotionRecognizer extends MotionRecognizer
                     point, deviceId, modifiers);
     }
 
+    @Override
     public void processEndMotionEvent(int x, int y, int deviceId, int modifiers)
             throws Exception
     {
@@ -62,6 +64,7 @@ public class GestureOnlyMotionRecognizer extends MotionRecognizer
                 point, deviceId, modifiers);
     }
 
+    @Override
     public void processDraggedMotionEvent(int x, int y, int deviceId, int modifiers)
             throws Exception
     {

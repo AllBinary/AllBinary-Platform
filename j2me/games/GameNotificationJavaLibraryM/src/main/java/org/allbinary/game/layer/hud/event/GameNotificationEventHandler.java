@@ -15,6 +15,7 @@ package org.allbinary.game.layer.hud.event;
 
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventListenerInterface;
+import org.allbinary.logic.util.event.NullEventListener;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.util.BasicArrayList;
 
@@ -67,9 +68,10 @@ public class GameNotificationEventHandler extends BasicEventHandler
     */
    
    //This is not the default optimal method
+   @Override
    public synchronized void removeAllListeners()
    {
-       EventListenerInterface eventListenerInterface = null;
+       EventListenerInterface eventListenerInterface = NullEventListener.NULL_EVENT_LISTENER;
 
        /*
        if(this.list.size() > 0)
@@ -105,7 +107,8 @@ public class GameNotificationEventHandler extends BasicEventHandler
    {
       return instance;
    }
-   
+
+   @Override
    protected void process(AllBinaryEventObject eventObject,
            EventListenerInterface eventListenerInterface)
    throws Exception
@@ -114,7 +117,8 @@ public class GameNotificationEventHandler extends BasicEventHandler
            return;
        }
 
-      ((GameNotificationListenerInterface) eventListenerInterface).onGameNotificationEvent(
-              (GameNotificationEvent) eventObject);
+       final GameNotificationListenerInterface gameNotificationListenerInterface = 
+           (GameNotificationListenerInterface) eventListenerInterface;
+      gameNotificationListenerInterface.onGameNotificationEvent((GameNotificationEvent) eventObject);
    }
 }

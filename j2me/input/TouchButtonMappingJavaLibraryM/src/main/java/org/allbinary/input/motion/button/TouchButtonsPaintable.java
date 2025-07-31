@@ -38,7 +38,8 @@ public class TouchButtonsPaintable extends Paintable
         this.foregroundBasicColor = basicColor;
         this.foregroundColor = basicColor.intValue();
     }
-    
+
+    @Override    
     public void paint(Graphics graphics)
     {
         BasicArrayList list = touchButtonFactory.getList();

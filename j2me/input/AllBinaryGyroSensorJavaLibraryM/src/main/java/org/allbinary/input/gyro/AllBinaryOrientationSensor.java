@@ -24,7 +24,7 @@ public class AllBinaryOrientationSensor extends AllBinarySensor
 {
     protected float[] sensorDataFloatArray = PrimitiveFloatUtil.getArrayInstance();
     
-    protected CompleteMotionGestureInputEventListenerInterface listener =
+    private CompleteMotionGestureInputEventListenerInterface listener =
         NoCompleteMotionGestureInputEventListener.getInstance();
 
     public void setListener(

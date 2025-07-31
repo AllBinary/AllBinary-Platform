@@ -14,13 +14,15 @@
 package org.allbinary.game.layer.hud.event;
 
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.color.BasicColorFactory;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 
 public class GameNotificationEvent extends AllBinaryEventObject
 {
-    private String string;
+    private String string = StringUtil.getInstance().EMPTY_STRING;
     private final Integer seconds;
-    private BasicColor basicColor;
+    private BasicColor basicColor = BasicColorFactory.getInstance().BLACK;
     private final Boolean removeable;
 
     public GameNotificationEvent(

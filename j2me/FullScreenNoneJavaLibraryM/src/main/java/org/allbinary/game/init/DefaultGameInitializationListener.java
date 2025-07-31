@@ -29,7 +29,6 @@ public class DefaultGameInitializationListener
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-
     private final SWTJOGLProcessor swtJOGLProcessor = SWTJOGLProcessor.getInstance();
 
     public DefaultGameInitializationListener()
@@ -43,6 +42,7 @@ public class DefaultGameInitializationListener
             (GameInitializedListenerInterface) this);
     }
 
+    @Override
     public void onEvent(final AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
@@ -50,6 +50,7 @@ public class DefaultGameInitializationListener
     
     boolean firstTime = true;
     
+    @Override
     public void onGameInitialized(final GameInitializedEvent gameInitializedEvent)
     {
         final String ON_GAME_INITIALIZED = "onGameInitialized";

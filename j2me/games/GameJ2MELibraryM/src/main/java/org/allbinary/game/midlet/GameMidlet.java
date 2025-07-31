@@ -611,7 +611,7 @@ public class GameMidlet extends ProgressMidlet
                     layerManager.getForegroundBasicColor()
                     );
                 
-                final InGameOptionsForm inGameOptionsForm = 
+                final InGameOptionsForm inGameOptionsForm = (InGameOptionsForm)
                     InGameOptionsFormFactory.getInstance().get();
 
                 inGameOptionsForm.setItemStateListener(
@@ -623,8 +623,9 @@ public class GameMidlet extends ProgressMidlet
             }
             else if (command == InGameOptionsForm.DEFAULT)
             {
-                GameFeatureFormUtil.getInstance().setDefault(
-                        InGameOptionsFormFactory.getInstance().get());
+                final InGameOptionsForm inGameOptionsForm = (InGameOptionsForm) 
+                    InGameOptionsFormFactory.getInstance().get();
+                GameFeatureFormUtil.getInstance().setDefault(inGameOptionsForm);
             }
             else if (command == gameCommandsFactory.DISPLAY_OPTIONS)
             {

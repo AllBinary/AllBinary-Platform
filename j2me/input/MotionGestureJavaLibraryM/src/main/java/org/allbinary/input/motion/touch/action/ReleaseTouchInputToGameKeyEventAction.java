@@ -24,7 +24,6 @@ import org.allbinary.string.CommonStrings;
 
 public class ReleaseTouchInputToGameKeyEventAction extends GameKeyCompleteMotionGestureInputEvent
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private static final GameKeyCompleteMotionGestureInputEvent SINGLETON = new ReleaseTouchInputToGameKeyEventAction();
     
@@ -52,7 +51,8 @@ public class ReleaseTouchInputToGameKeyEventAction extends GameKeyCompleteMotion
             logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
         }
     }
-    
+
+    @Override    
     public void update()
     {
     }    

@@ -27,7 +27,7 @@ public class PlatformFormInputMappingFactory
         return instance;
     }
     
-    private static InputToGameKeyMapping SINGLETON = null;
+    private static InputToGameKeyMapping SINGLETON = InputToGameKeyMapping.NULL_INPUT_TO_GAME_KEY_MAPPING;
 
     public InputToGameKeyMapping getOrCreate()
     {

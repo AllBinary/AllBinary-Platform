@@ -17,8 +17,8 @@ import org.allbinary.game.input.mapping.InputToGameKeyMapping;
 
 public class NormalJ2MEGameInputMapping  extends J2MEGameInputMapping
 {
-    //protected final LogUtil logUtil = LogUtil.getInstance();
 
+    @Override
     protected InputToGameKeyMapping getDefault()
     {
         //logUtil.put("Use Default GameKey Mappings", this, "addDefault");
