@@ -19,6 +19,7 @@ import org.allbinary.game.GameInfo;
 import org.allbinary.game.input.PlayerGameInputCompositeInterface;
 import org.allbinary.graphics.ItemColorFactory;
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.layer.LayerProcessor;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
@@ -26,6 +27,9 @@ import org.allbinary.util.BasicArrayList;
 
 public class AllBinaryGameLayerManager extends AllBinaryLayerManager
 {
+    public static final AllBinaryGameLayerManager NULL_ALLBINARY_LAYER_MANAGER = new AllBinaryGameLayerManager(
+        BasicColorFactory.getInstance().BLACK, BasicColorFactory.getInstance().WHITE, GameInfo.NONE);
+    
     public static final Integer ID = SmallIntegerSingletonFactory.getInstance().getInstance(22);
 
     private BasicColor backgroundBasicColor;

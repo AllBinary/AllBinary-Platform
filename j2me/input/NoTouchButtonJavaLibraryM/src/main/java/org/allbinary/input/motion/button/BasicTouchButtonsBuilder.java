@@ -21,7 +21,6 @@ import org.allbinary.util.BasicArrayListUtil;
 public class BasicTouchButtonsBuilder
     extends BaseTouchInput
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private static final BasicTouchButtonsBuilder SINGLETON = new BasicTouchButtonsBuilder();
 
@@ -29,9 +28,10 @@ public class BasicTouchButtonsBuilder
     {
         return SINGLETON;
     }
-    
-    private final CommonStrings commonStrings = CommonStrings.getInstance();
 
+    protected final LogUtil logUtil = LogUtil.getInstance();
+    
+    @Override
     public BasicArrayList getList()
     {
         try

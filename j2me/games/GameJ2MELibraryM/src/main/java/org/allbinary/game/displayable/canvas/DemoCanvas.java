@@ -92,6 +92,7 @@ import org.allbinary.graphics.paint.PaintableInterface;
 import org.allbinary.graphics.paint.StatePaintable;
 import org.allbinary.graphics.paint.StatePaintableFactory;
 import org.allbinary.input.motion.gesture.observer.BasicMotionGesturesHandler;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
@@ -580,13 +581,13 @@ public class DemoCanvas extends RunnableCanvas
         logUtil.put(
             "Trying to continue a demo lol - only continue a game canvas not the demo",
             this, "getLoadStateHashtable");
-        return new Hashtable();
+        return this.nullUtil.NULL_TABLE;
     }
 
     public Hashtable getCurrentStateHashtable() throws Exception
     {
         logUtil.put("Trying to save the AI lol", this, "getCurrentStateHashtable");
-        return new Hashtable();
+        return this.nullUtil.NULL_TABLE;
     }
 
     public void setHighScoreSubmitted(boolean isNotUsed)

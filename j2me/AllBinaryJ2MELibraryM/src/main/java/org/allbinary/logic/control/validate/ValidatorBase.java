@@ -14,6 +14,7 @@
 package org.allbinary.logic.control.validate;
 
 import java.util.Hashtable;
+import org.allbinary.logic.NullUtil;
 
 import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.logic.string.StringUtil;
@@ -59,7 +60,7 @@ implements ValidatorBaseInterface
     @Override
     public Hashtable toHashtable()
     {
-       return new Hashtable();
+       return NullUtil.getInstance().NULL_TABLE;
     }
 
     /* (non-Javadoc)

@@ -16,23 +16,19 @@ package org.allbinary.input.motion.button;
 
 public class TouchScreenFactory
 {
-    private static TouchScreenFactory SINGLETON;
+    private static final TouchScreenFactory SINGLETON = new TouchScreenFactory();
 
     private boolean multiTouch;
     private boolean touch;
     
-    private TouchScreenType touchScreenType;
-    
+    private TouchScreenType touchScreenType = TouchScreenTypesFactory.getInstance().NOTOUCH;
+
     private TouchScreenFactory()
     {
     }
 
     public static final TouchScreenFactory getInstance()
     {
-        if (SINGLETON == null)
-        {
-            SINGLETON = new TouchScreenFactory();
-        }
         return SINGLETON;
     }
 

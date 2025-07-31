@@ -17,7 +17,7 @@ public class AudioContentTypeData
 {
     private final String name;
 
-    protected AudioContentTypeData(String name)
+    AudioContentTypeData(String name)
     {
         this.name = name;
     }

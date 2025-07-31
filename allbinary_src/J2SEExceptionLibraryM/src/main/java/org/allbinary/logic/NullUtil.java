@@ -14,6 +14,7 @@
 package org.allbinary.logic;
 
 import java.util.HashMap;
+import java.util.Hashtable;
 
 /**
  *
@@ -36,6 +37,8 @@ public class NullUtil {
     public final int[] NULL_INT_ARRAY = new int[0];
     public final int[][] NULL_INT_ARRAY_ARRAY = new int[0][0];
     public final float[] NULL_FLOAT_ARRAY = new float[0];
+    
+    public final Hashtable NULL_TABLE = new Hashtable();
     
     public final HashMap NULL_MAP = new HashMap();
     

@@ -17,6 +17,7 @@ import java.io.FileReader;
 import java.io.LineNumberReader;
 import java.util.Hashtable;
 import java.util.Vector;
+import org.allbinary.logic.NullUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.hardware.HardwareInterface;
@@ -139,6 +140,6 @@ public class AndroidHardware implements HardwareInterface
 
     public Hashtable difference(HardwareInterface hardwareInterface)
     {
-        return new Hashtable();
+        return NullUtil.getInstance().NULL_TABLE;
     }
 }

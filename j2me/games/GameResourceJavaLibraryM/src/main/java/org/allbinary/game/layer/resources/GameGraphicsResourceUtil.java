@@ -20,6 +20,7 @@ import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
 
 /**
@@ -41,7 +42,7 @@ public class GameGraphicsResourceUtil
     public final String SPRITE = "_sprite";
     public final String QUARTER = "_quarter";
 
-    private String name;
+    private String name = StringUtil.getInstance().EMPTY_STRING;
 
     public GameGraphicsResourceUtil()
     {
@@ -62,7 +63,7 @@ public class GameGraphicsResourceUtil
         GraphicsFeatureFactory graphicsFeatureFactory = 
             GraphicsFeatureFactory.getInstance();
 
-        GraphicsFeature graphicsFeature = null;
+        GraphicsFeature graphicsFeature = graphicsFeatureFactory.NONE;
         
         Features features = Features.getInstance();
                 

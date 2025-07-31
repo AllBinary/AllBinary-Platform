@@ -18,57 +18,69 @@ import org.allbinary.logic.string.StringUtil;
 public class ThirdPartyInApplicationPurchase 
 implements ThirdPartyInApplicationPurchaseInterface {
 
+    @Override
     public boolean isPurchased(LockableFeature lockableFeature)
     {
         return false;
     }
 
+    @Override
     public void onCreate(Object object, Object stateObject)
     {
         
     }
 
+    @Override
     public void onDestroy()
     {
         
     }
 
+    @Override
     public void onStart()
     {
         
     }
 
+    @Override
     public void onActivityResult(final int requestCode, final int resultCode, final Object dataObject) {
     }
 
+    @Override
     public void onSaveInstanceState(Object object) {
         
     }
     
+    @Override
     public void onStop()
     {
         
     }
 
+    @Override
     public void requestPurchase(LockableFeature lockableFeature)
     {
         
     }
 
+    @Override
     public void requestReceipts()
     {
         
     }
     
+    @Override
     public void add(LockableFeature lockableFeature)
     {
     }
     
+    @Override
     public String getUserName()
     {
         return StringUtil.getInstance().EMPTY_STRING;
     }
     
+    @Override
     public boolean isEnabled()
     {
         return false;

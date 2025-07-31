@@ -33,6 +33,7 @@ public class AbeClientInformation extends ClientInformation
         super(name, version, specialName, shortName);
     }
 
+    @Override
     public void init()
     {
         try

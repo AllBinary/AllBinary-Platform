@@ -16,12 +16,13 @@ package org.allbinary.game.ai;
 import java.util.Hashtable;
 
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListUtil;
 
 public class ArtificialIntelligenceInterfaceFactoryInterfaceFactory
 {
    private static ArtificialIntelligenceInterfaceFactoryInterfaceFactory SINGLETON = new ArtificialIntelligenceInterfaceFactoryInterfaceFactory();
    
-   private BasicArrayList list;
+   private BasicArrayList list = BasicArrayListUtil.getInstance().getImmutableInstance();
 
    public void clear()
    {

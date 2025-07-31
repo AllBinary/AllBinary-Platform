@@ -31,7 +31,7 @@ public class ABToGBUtil {
         return instance;
     }
 
-    public MyCanvas abCanvas;
-    public AllBinaryGameLayerManager allBinaryGameLayerManager;
+    public MyCanvas abCanvas = MyCanvas.NULL_MY_CANVAS;
+    public AllBinaryGameLayerManager allBinaryGameLayerManager = AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER;
 
 }

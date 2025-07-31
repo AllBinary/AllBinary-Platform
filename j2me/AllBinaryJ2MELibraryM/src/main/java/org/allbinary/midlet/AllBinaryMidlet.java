@@ -30,6 +30,7 @@ import javax.microedition.lcdui.Display;
 import javax.microedition.lcdui.Displayable;
 import javax.microedition.midlet.MIDlet;
 import javax.microedition.midlet.MIDletStateChangeException;
+import org.allbinary.logic.NullUtil;
 
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -155,7 +156,7 @@ implements CommandListener
     public Hashtable getCurrentStateHashtable() throws Exception
     {
         logUtil.put(commonStrings.START, this, "getStateHashtable");
-        return new Hashtable();
+        return NullUtil.getInstance().NULL_TABLE;
     }
 
     @Override

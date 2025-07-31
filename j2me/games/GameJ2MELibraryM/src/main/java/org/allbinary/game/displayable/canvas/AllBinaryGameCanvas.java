@@ -111,8 +111,8 @@ import org.allbinary.input.motion.button.TouchButtonFactory;
 import org.allbinary.input.motion.button.TouchButtonsPaintableFactory;
 import org.allbinary.input.motion.button.TouchScreenFactory;
 import org.allbinary.input.motion.gesture.observer.BasicMotionGesturesHandler;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
@@ -139,7 +139,6 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         IntermissionEnableListenerInterface, PopupMenuInterface,
         DisplayChangeEventListener
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
     protected final BasicColorSetUtil basicSetColorUtil = BasicColorSetUtil.getInstance();
@@ -163,8 +162,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     private final IntermissionInterface startIntermissionInterface = new Intermission();
     private final IntermissionInterface endLevelIntermissionInterface = new Intermission();
     private static final int id = 0;
-    protected AllBinaryGameLayerManager gameLayerManager;
-    private GameState gameState;
+    protected AllBinaryGameLayerManager gameLayerManager = AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER;
+    private GameState gameState = GameState.NO_GAME_STATE;
     private boolean gameOver;
     public static final GameState SHOW_END_RESULT_GAME_STATE =
         GameStateFactory.getInstance("SHOW_END_RESULT_GAME_STATE");
@@ -186,7 +185,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     private BasicArrayList localPlayerGameInputList = new BasicArrayList();
             //NoPlayerGameInput.getInstance();
     private boolean isCheating;
-    private Hashtable hashtable;
+    private Hashtable hashtable = this.nullUtil.NULL_TABLE;
     private boolean isSingleKeyRepeatableProcessing;
     private BasicBuildGameInitializerFactory gameInitializationInterfaceFactoryInterface;
     private Paintable touchButtonsPaintable = NullPaintable.getInstance();

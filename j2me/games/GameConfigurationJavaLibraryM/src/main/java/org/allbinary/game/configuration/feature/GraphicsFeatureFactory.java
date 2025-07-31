@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.configuration.feature;
 
+import org.allbinary.logic.string.StringUtil;
+
 public class GraphicsFeatureFactory
 {
     private static final GraphicsFeatureFactory instance = new GraphicsFeatureFactory();
@@ -26,6 +28,9 @@ public class GraphicsFeatureFactory
     {
         
     }
+
+    public final GraphicsFeature NONE = 
+        new GraphicsFeature(StringUtil.getInstance().NULL_STRING);
     
     public final GraphicsFeature TRANSPARENT_IMAGE_CREATION = 
         new GraphicsFeature("Transparent Image Creation");

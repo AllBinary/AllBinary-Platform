@@ -22,11 +22,12 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
  */
 public class NoThirdPartyStore extends ThirdPartyStore
 {
-    protected NoThirdPartyStore()
+    NoThirdPartyStore()
     {
         super(StringUtil.getInstance().EMPTY_STRING);
     }
 
+    @Override
     public void authorize(
         AbeClientInformationInterface clientInformationInterface)
     {

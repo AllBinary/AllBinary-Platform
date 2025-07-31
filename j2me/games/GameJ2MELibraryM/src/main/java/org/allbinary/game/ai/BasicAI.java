@@ -59,6 +59,7 @@ implements GameKeyEventSourceInterface
         this.gameInput = gameInput;
     }
 
+    @Override
     public void processAI(AllBinaryLayerManager allBinaryLayerManager)
             throws Exception
     {
@@ -121,7 +122,8 @@ implements GameKeyEventSourceInterface
 
         return stringBuffer.toString();
     }
-    
+
+    @Override    
     public int getSourceId()
     {
         return 1;

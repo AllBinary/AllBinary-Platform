@@ -16,6 +16,7 @@ package org.allbinary.game.layer.resources;
 import org.allbinary.game.configuration.GameConfigurationCentral;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
 
 public class BasicGameResources
@@ -24,8 +25,8 @@ public class BasicGameResources
 
     protected static final StringMaker stringBuffer = new StringMaker();
     
-    public String RESOURCE;
-    public String RESOURCE_DESTROY;
+    public String RESOURCE = StringUtil.getInstance().EMPTY_STRING;
+    public String RESOURCE_DESTROY = StringUtil.getInstance().EMPTY_STRING;
 
     protected BasicGameResources()
     {

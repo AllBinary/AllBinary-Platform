@@ -21,6 +21,7 @@ import org.allbinary.graphics.CellPosition;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;
+import org.allbinary.graphics.RectangleFactory;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -41,7 +42,7 @@ public class TouchButton extends Paintable
     protected final int xBorder;
     protected final int yBorder;
     
-    protected Rectangle rectangle;
+    protected Rectangle rectangle = RectangleFactory.SINGLETON;
     protected final CellPosition cellPosition;
     
     protected int animationX;
@@ -63,6 +64,7 @@ public class TouchButton extends Paintable
         logUtil.put(new StringMaker().append("Created: ").append(this.toString()).toString(), this, this.commonStrings.CONSTRUCTOR);
     }
 
+    @Override
     public void paint(Graphics graphics)
     {
         this.animationInterface.paint(graphics, animationX, animationY);
@@ -107,12 +109,12 @@ public class TouchButton extends Paintable
     }
     */
 
-    public CellPosition getCellPosition()
+    public CellPosition getCellPositionP()
     {
         return cellPosition;
     }
 
-    public Rectangle getRectangle()
+    public Rectangle getRectangleP()
     {
         return rectangle;
     }
@@ -128,7 +130,7 @@ public class TouchButton extends Paintable
         final StringUtil stringUtil = StringUtil.getInstance();
         
         stringBuffer.append("TouchButton: ");
-        stringBuffer.append(stringUtil.toString(this.getRectangle()));
+        stringBuffer.append(stringUtil.toString(this.rectangle));
         stringBuffer.append(" CellPosition: ");
         stringBuffer.append(stringUtil.toString(this.cellPosition));
         stringBuffer.append(" xBorder: ");
