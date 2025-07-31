@@ -19,6 +19,6 @@ package org.allbinary.game.score;
  */
 public interface HighScoresResultsListener {
     
-    void setHighScoresArray(final HighScores[] highScoresArray);
+    void setHighScoresArray(final HighScores[] highScoresArrayP);
     
 }

@@ -23,11 +23,11 @@ public class HighScoresHelper extends HighScoresHelperBase
         CircularIndexUtil.getInstance(0, 0);
 
     @Override
-    public void setHighScoresArray(final HighScores[] highScoresArray)
+    public void setHighScoresArray(final HighScores[] highScoresArrayP)
     {
-        super.setHighScoresArray(highScoresArray);
+        super.setHighScoresArray(highScoresArrayP);
 
-        this.circularIndexUtil.setSize(this.highScoresArray.length);
+        this.circularIndexUtil.setSize(this.highScoresArrayP.length);
     }
 
     int lastIndex = -1;
@@ -35,7 +35,7 @@ public class HighScoresHelper extends HighScoresHelperBase
     @Override
     public HighScores getNextHighScores()
     {        
-        HighScores highScores = this.highScoresArray[this.circularIndexUtil.getIndex()];
+        HighScores highScores = this.highScoresArrayP[this.circularIndexUtil.getIndex()];
 
         //PreLogUtil.put(commonStrings.START_LABEL + highScores.toString(), this, "getSelectHighScores");
         
@@ -43,10 +43,10 @@ public class HighScoresHelper extends HighScoresHelperBase
         int index = 0;
 
         while ((highScores.getTotal() < 1 || lastIndex == this.circularIndexUtil.getIndex()) && 
-                index < this.highScoresArray.length)
+                index < this.highScoresArrayP.length)
         {
             this.circularIndexUtil.next();
-            highScores = this.highScoresArray[this.circularIndexUtil.getIndex()];
+            highScores = this.highScoresArrayP[this.circularIndexUtil.getIndex()];
             
             //PreLogUtil.put("Selecting: " + highScores.toString(), this, "getSelectHighScores");
             
@@ -63,7 +63,7 @@ public class HighScoresHelper extends HighScoresHelperBase
     @Override
     public boolean isAnyHighScores()
     {
-        if(highScoresArray.length < 1)
+        if(highScoresArrayP.length < 1)
         {
             //PreLogUtil.put("No Scores", this, "isAnyHighScores");
             return false;
@@ -75,9 +75,9 @@ public class HighScoresHelper extends HighScoresHelperBase
         
         //PreLogUtil.put("Searching Scores", this, "isAnyHighScores");
         
-        for(int index = highScoresArray.length - 1; index >= 0; index--)
+        for(int index = highScoresArrayP.length - 1; index >= 0; index--)
         {
-            highScores = highScoresArray[index];
+            highScores = highScoresArrayP[index];
             
             if(highScores.getTotal() > 0)
             {

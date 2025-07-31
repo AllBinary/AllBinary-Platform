@@ -35,11 +35,11 @@ public class HighScoresHelper2 extends HighScoresHelperBase
     }
 
     @Override
-    public void setHighScoresArray(final HighScores[] highScoresArray)
+    public void setHighScoresArray(final HighScores[] highScoresArrayP)
     {
-        super.setHighScoresArray(highScoresArray);
+        super.setHighScoresArray(highScoresArrayP);
 
-        this.circularIndexUtil.setSize(this.highScoresArray.length);
+        this.circularIndexUtil.setSize(this.highScoresArrayP.length);
 
         this.selectHighScores();
     }
@@ -48,19 +48,19 @@ public class HighScoresHelper2 extends HighScoresHelperBase
     public void selectHighScores()
     {
 
-        if(this.highScoresArray.length == 0) {
+        if(this.highScoresArrayP.length == 0) {
             this.setSelectedHighScores(NullHighScoresSingletonFactory.getInstance());
             return;
         }
 
         this.circularIndexUtil.next();
         
-        HighScores highScores = this.highScoresArray[this.circularIndexUtil.getIndex()];
+        HighScores highScores = this.highScoresArrayP[this.circularIndexUtil.getIndex()];
 
         int index = 0;
-        while (highScores.getTotal() < 1 && index < this.highScoresArray.length)
+        while (highScores.getTotal() < 1 && index < this.highScoresArrayP.length)
         {
-            highScores = this.highScoresArray[this.circularIndexUtil.next()];
+            highScores = this.highScoresArrayP[this.circularIndexUtil.next()];
             index++;
         }
 

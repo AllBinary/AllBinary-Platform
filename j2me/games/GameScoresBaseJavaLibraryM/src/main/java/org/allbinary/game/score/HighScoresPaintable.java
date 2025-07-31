@@ -47,7 +47,8 @@ implements ColorChangeListener
     public void onEvent(AllBinaryEventObject eventObject)
     {
         //logUtil.put("Color Change Event: " + basicColor.getName(), this, "onEvent");
-        this.basicColor = ((ColorChangeEvent) eventObject).getBasicColor();
+        final ColorChangeEvent colorChangeEvent = (ColorChangeEvent) eventObject;
+        this.basicColor = colorChangeEvent.getBasicColor();
     }    
 
     private int anchor = Anchor.TOP_LEFT;
@@ -90,8 +91,7 @@ implements ColorChangeListener
                         - (charHeight * 2))
         {
             HighScore highScore = (HighScore) list.objectArray[vectorIndex];
-            int nextScoreWidth = graphics.getFont()
-                    .stringWidth(highScore.getScoreString());
+            int nextScoreWidth = graphics.getFont().stringWidth(highScore.getScoreString());
             if (nextScoreWidth > largestSecondColumnWidth)
             {
                 largestSecondColumnWidth = nextScoreWidth;

@@ -24,26 +24,26 @@ import org.allbinary.string.CommonStrings;
 public class HighScoresHelperBase implements HighScoresResultsListener {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    protected HighScores[] highScoresArray = 
+    protected HighScores[] highScoresArrayP = 
         LastFetchHighScoresFactory.getInstance().highScoresArray;
 
     @Override    
-    public void setHighScoresArray(final HighScores[] highScoresArray)
+    public void setHighScoresArray(final HighScores[] highScoresArrayP)
     {
-        if (highScoresArray != null) {
+        if (highScoresArrayP != null) {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(new StringMaker().append(commonStrings.START).append(highScoresArray.length).toString(), this, "setHighScoresArray");
+            logUtil.put(new StringMaker().append(commonStrings.START).append(highScoresArrayP.length).toString(), this, "setHighScoresArray");
         } else {
             final CommonStrings commonStrings = CommonStrings.getInstance();
             logUtil.put(commonStrings.START, this, "setHighScoresArray");
         }
 
-        this.highScoresArray = highScoresArray;
+        this.highScoresArrayP = highScoresArrayP;
     }
     
     public HighScores getNextHighScores()
     {
-        return null;
+        return NullHighScoresSingletonFactory.getInstance();
     }
     
     public boolean isAnyHighScores() {
@@ -56,12 +56,12 @@ public class HighScoresHelperBase implements HighScoresResultsListener {
 
     public HighScores getSelectedHighScores()
     {
-        return null;
+        return NullHighScoresSingletonFactory.getInstance();
     }
     
     public HighScores[] getHighScoresArray()
     {
-        return this.highScoresArray;
+        return this.highScoresArrayP;
     }
 
     public void selectHighScores() {
