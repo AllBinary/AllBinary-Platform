@@ -35,7 +35,7 @@ public class KeyValueFactory
     
     public String get(String key) {
         
-        final String value = (String) MAP.get(key);
+        final String value = (String) MAP.get((Object) key);
 
         if(value == null)
         {

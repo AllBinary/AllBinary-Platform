@@ -111,7 +111,7 @@ public class GameOptionsForm extends CommandForm
         for (int index = 0; index < size; index++)
         {
             GameConfigurationTextInput gameConfigurationTextInput = 
-                (GameConfigurationTextInput) hashtable.get(objectArray[index]);
+                (GameConfigurationTextInput) hashtable.get((Object) objectArray[index]);
 
             TextField textField = new TextField(gameConfigurationTextInput
                     .getLabel(), gameConfigurationTextInput.getText(), 30,

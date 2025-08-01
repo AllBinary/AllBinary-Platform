@@ -14,6 +14,7 @@
 package org.allbinary.game.displayable.canvas;
 
 import java.util.Hashtable;
+import java.util.Vector;
 
 import javax.microedition.lcdui.ChoiceGroup;
 import javax.microedition.lcdui.CommandListener;
@@ -472,7 +473,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                 = gameLimitedCommandTextItemArrayFactory.getCommandTextItemArrayFactory();
 
         final CustomItem[] items = commandTextItemArrayFactory.getInstance(
-                this.getCommandStack(), this.gameLayerManager
+                (Vector<Object>) this.getCommandStack(), this.gameLayerManager
                 .getBackgroundBasicColor(), this.gameLayerManager.getForegroundBasicColor());
 
         final Rectangle rectangle = formUtil.createFormRectangle();
@@ -536,7 +537,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                 .getCommandTextItemArrayFactory();
 
         final CustomItem[] items = commandTextItemArrayFactory.getInstance(
-                this.getCommandStack(), this.gameLayerManager
+                (Vector<Object>) this.getCommandStack(), this.gameLayerManager
                 .getBackgroundBasicColor(), this.gameLayerManager.getForegroundBasicColor());
 
         final int size = items.length;
@@ -1323,7 +1324,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         if (hashtable != null && hashtable.size() > 0)
         {
-            final int level = Integer.valueOf((String) hashtable.get(GameInfo.LEVEL_NAME)).intValue();
+            final String levelAsString = (String) hashtable.get((Object) GameInfo.LEVEL_NAME);
+            final int level = Integer.valueOf(levelAsString).intValue();
             final GameInfo gameInfo = this.gameLayerManager.getGameInfo();
             gameInfo.setCurrentLevel(level);
         }

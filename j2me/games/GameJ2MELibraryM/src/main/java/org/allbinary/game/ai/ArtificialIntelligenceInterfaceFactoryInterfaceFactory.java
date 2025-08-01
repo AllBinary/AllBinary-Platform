@@ -36,7 +36,7 @@ public class ArtificialIntelligenceInterfaceFactoryInterfaceFactory
    
    public ArtificialIntelligenceInterfaceFactoryInterface getInstance(Hashtable hashtable)
    {
-      Integer typeInteger = (Integer) hashtable.get(BasicAI.ID);
+      Integer typeInteger = (Integer) hashtable.get((Object) BasicAI.ID);
        
       int type = typeInteger.intValue();
       

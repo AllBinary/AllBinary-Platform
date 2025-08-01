@@ -77,7 +77,7 @@ public class RecordStoreHighScores extends HighScores
         final String highScoreName, final String heading, final String columnTwoHeading,
         final RecordComparator recordComparatorInterface)
     {
-        HighScores highScores = (HighScores) hashTable.get(highScoreName);
+        HighScores highScores = (HighScores) hashTable.get((Object) highScoreName);
 
         if (highScores == null)
         {

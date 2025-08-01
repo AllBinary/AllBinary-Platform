@@ -23,6 +23,8 @@ import org.allbinary.string.CommonStrings;
 public class CompleteMotionGestureInputEvent extends AllBinaryEventObject 
 implements CompleteMotionGestureInputInterface
 {
+    public static final CompleteMotionGestureInputEvent NULL_COMPLETE_MOTION_GESTURE_INPUT_EVENT = new CompleteMotionGestureInputEvent(StringUtil.getInstance().EMPTY_STRING, TouchMotionGestureFactory.getInstance().NO_MOTION);
+    
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     private String name = StringUtil.getInstance().EMPTY_STRING;

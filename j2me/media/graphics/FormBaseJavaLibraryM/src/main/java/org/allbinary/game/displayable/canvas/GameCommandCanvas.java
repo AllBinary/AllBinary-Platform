@@ -14,6 +14,7 @@
 
 package org.allbinary.game.displayable.canvas;
 
+import java.util.Vector;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
 
@@ -200,7 +201,7 @@ public class GameCommandCanvas
         
         final CustomItem[] items = new CommandTextItemArrayFactory(
                 new AllCommandsVisitor()).getInstance(
-                this.getCommandStack(), 
+                (Vector<Object>) this.getCommandStack(), 
                 this.backgroundBasicColor, this.foregroundBasicColor
                 );
 

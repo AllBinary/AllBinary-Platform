@@ -33,13 +33,13 @@ public class InGameFeatures extends Init
         
         BasicArrayList exclusiveOrientationSensorVector = (BasicArrayList) 
             GameFeatureChoiceGroups.getExclusiveInstance().get().get(
-                    orientationData.ORIENTATION_SENSOR_INPUT);
+                    (Object) orientationData.ORIENTATION_SENSOR_INPUT);
 
         if (exclusiveOrientationSensorVector != null)
         {
             BasicArrayList inGameExclusiveOrientationSensorVector = (BasicArrayList)
                 InGameFeatureChoiceGroups.getExclusiveInstance().get().get(
-                    orientationData.ORIENTATION_SENSOR_INPUT);
+                    (Object) orientationData.ORIENTATION_SENSOR_INPUT);
             
             if(inGameExclusiveOrientationSensorVector == null ||
                     inGameExclusiveOrientationSensorVector.size() == 0)
@@ -96,7 +96,7 @@ public class InGameFeatures extends Init
 
         BasicArrayList exclusiveOrientationSensorVector = (BasicArrayList)
             GameFeatureChoiceGroups.getExclusiveInstance().get().get(
-            OrientationData.getInstance().ORIENTATION_SENSOR_INPUT);
+            (Object) OrientationData.getInstance().ORIENTATION_SENSOR_INPUT);
 
         if (exclusiveOrientationSensorVector != null)
         {

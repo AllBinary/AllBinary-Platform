@@ -95,7 +95,7 @@ public class RemoteHighScores extends HighScores {
     //This is called when the data comes back in the response
     public void update(final Hashtable hashtable) {
         this.getList().clear();
-        final Vector vector = (Vector) hashtable.get(RemoteHighScoresData.getInstance().HIGH_SCORES);
+        final Vector vector = (Vector) hashtable.get((Object) RemoteHighScoresData.getInstance().HIGH_SCORES);
         if (vector != null) {
             for (int index = 0; index < vector.size(); index++) {
                 final Vector highScoreVector = (Vector) vector.elementAt(index);

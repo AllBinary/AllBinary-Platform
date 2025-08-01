@@ -14,6 +14,7 @@
 package org.allbinary.game.displayable.canvas;
 
 import java.util.Hashtable;
+import java.util.Vector;
 
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
@@ -364,7 +365,7 @@ public class DemoCanvas extends RunnableCanvas
             DemoLimitedCommandTextItemArrayFactory.getInstance().getCommandTextItemArrayFactory();
         
         final CustomItem[] items = commandTextItemArrayFactory.getInstance(
-            this.getCommandStack(), 
+            (Vector<Object>) this.getCommandStack(), 
             basicColorFactory.BLACK, basicColorFactory.WHITE);
 
         final FormType formType = FormTypeFactory.getInstance().getFormType();
