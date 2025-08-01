@@ -13,6 +13,7 @@
 */
 package org.allbinary.game.layer;
 
+import org.allbinary.ai.ArtificialIntelligence;
 import org.allbinary.ai.ArtificialIntelligenceInterface;
 import org.allbinary.game.collision.CollidableBaseBehavior;
 import org.allbinary.game.collision.CollidableInterfaceCompositeInterface;
@@ -80,9 +81,10 @@ implements CollidableInterfaceCompositeInterface
     public ArtificialIntelligenceInterface getArtificialIntelligenceInterface()
     {
         ForcedLogUtil.log(commonStrings.NOT_IMPLEMENTED, this);
-        return null;
+        return ArtificialIntelligence.getInstance();
     }
     
+    @Override
     public CollidableBaseBehavior getCollidableInferface()
     {
         return collidableInferface;
@@ -93,11 +95,13 @@ implements CollidableInterfaceCompositeInterface
         this.collidableInferface = collidableInferface;
     }
     
+    @Override
     public boolean implmentsCollidableInterface()
     {
         return true;
     }
     
+    @Override
     public void toString(final StringMaker stringBuffer)
     {
         final CommonSeps commonSeps = CommonSeps.getInstance();

@@ -17,7 +17,7 @@ public class PickedUpLayerType
 {
    private String name;
    
-   protected PickedUpLayerType(String name)
+   PickedUpLayerType(String name)
    {
       this.name = name;
    }

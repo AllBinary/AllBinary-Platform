@@ -34,14 +34,17 @@ public class PickedUpLayerInterfaceFactory implements
 
     }
 
+    @Override
     public AllBinaryLayer getIconLayer() {
         return iconLayer;
     }
 
+    @Override
     public Animation getAnimationInterface() {
         return animationInterface;
     }
 
+    @Override
     public PickedUpLayerType getPickedUpLayerType() {
         return pickedUpLayerType;
     }

@@ -17,7 +17,7 @@ import org.allbinary.layer.AllBinaryLayer;
 
 public class CollidableAlwaysPickupNeverCollideBehavior extends CollidableNeverCollideBehavior
 {
-    protected CollidableAlwaysPickupNeverCollideBehavior()
+    CollidableAlwaysPickupNeverCollideBehavior()
     {
         //Yes it needs to do collision test but it never collides since it is picked up
         super(true);
@@ -30,6 +30,7 @@ public class CollidableAlwaysPickupNeverCollideBehavior extends CollidableNeverC
     }
     */
     
+    @Override
     public CollisionType getCollisionTypeWith(AllBinaryLayer layerInterface)
     {
        return CollisionTypeFactory.getInstance().PICKUP;

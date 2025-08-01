@@ -7,6 +7,7 @@ extends CollisionProcessor
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
+    @Override
     public boolean isCollision(final AllBinaryLayer myLayer, final AllBinaryLayer myLayer2)
     {
 //        if(myLayer.getName().startsWith("TempExplosionWeaponLayer") || myLayer2.getName().startsWith("TempExplosionWeaponLayer")) {

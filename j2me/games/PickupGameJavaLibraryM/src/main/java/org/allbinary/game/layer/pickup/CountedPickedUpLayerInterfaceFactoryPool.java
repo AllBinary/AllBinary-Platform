@@ -17,7 +17,7 @@ import org.allbinary.util.BasicArrayList;
 
 public class CountedPickedUpLayerInterfaceFactoryPool
 {
-    private static CountedPickedUpLayerInterfaceFactoryPool SINGLETON;
+    private static CountedPickedUpLayerInterfaceFactoryPool SINGLETON = new CountedPickedUpLayerInterfaceFactoryPool();
     
     private BasicArrayList list;
     

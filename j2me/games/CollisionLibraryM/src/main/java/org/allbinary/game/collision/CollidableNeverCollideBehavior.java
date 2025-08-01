@@ -14,6 +14,7 @@
 package org.allbinary.game.collision;
 
 import org.allbinary.game.layer.CollidableCompositeLayer;
+import org.allbinary.graphics.RectangleFactory;
 
 public class CollidableNeverCollideBehavior extends CollidableBaseBehavior
 {    
@@ -24,27 +25,31 @@ public class CollidableNeverCollideBehavior extends CollidableBaseBehavior
     }
     */
 
-    protected CollidableNeverCollideBehavior(boolean isCollidable)
+    CollidableNeverCollideBehavior(boolean isCollidable)
     {
-        super(null, isCollidable);
+        super(new CollidableCompositeLayer(RectangleFactory.SINGLETON), isCollidable);
     }
     
+    @Override
     public boolean isCollision(CollidableCompositeLayer allbinaryCollidableLayer)
     {
        return false;
     }
 
+    @Override
     public void collide(CollidableCompositeLayer allbinaryCollidableLayer)
        throws Exception
     {
        // this.setPickedUp();
     }
 
+    @Override
     public void collide(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
     {
        // this.setPickedUp();
     }
     
+    @Override
     public boolean isCollision(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
     {
        return false;

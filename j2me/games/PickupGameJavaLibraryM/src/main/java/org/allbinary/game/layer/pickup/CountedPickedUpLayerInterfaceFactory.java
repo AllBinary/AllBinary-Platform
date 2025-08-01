@@ -41,17 +41,20 @@ public class CountedPickedUpLayerInterfaceFactory
         list.add(this);
     }
 
+    @Override
     public AllBinaryLayer getInstance(Hashtable hashtable, int x, int y, int z)
     throws Exception
     {
         throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
     
+    @Override
     public int getTotal()
     {
         return -1;
     }
 
+    @Override
     public int getId()
     {
         return id;
