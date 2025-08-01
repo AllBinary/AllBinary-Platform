@@ -31,6 +31,7 @@ public class GameCanvasRunnable extends GameRunnable
 
     private final GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
 
+    @Override
     public void run()
     {
         try
@@ -48,6 +49,7 @@ public class GameCanvasRunnable extends GameRunnable
         }
     }
     
+    @Override
     public void processLoopSleep()
     throws Exception
     {

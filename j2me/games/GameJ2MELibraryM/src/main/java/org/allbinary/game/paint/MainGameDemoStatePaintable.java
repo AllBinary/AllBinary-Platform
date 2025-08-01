@@ -31,6 +31,7 @@ public class MainGameDemoStatePaintable extends Paintable
         this.menuPaintableInterface = menuPaintableInterface;
     }
 
+    @Override
     public void paint(Graphics graphics)
     {
         this.menuPaintableInterface.paint(graphics);

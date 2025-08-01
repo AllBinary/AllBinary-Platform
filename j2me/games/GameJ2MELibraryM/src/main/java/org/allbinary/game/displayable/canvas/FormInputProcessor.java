@@ -39,7 +39,6 @@ extends InputProcessor
     protected final LogUtil logUtil = LogUtil.getInstance();
    
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
-    private final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
     
     private final GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
     
@@ -56,7 +55,8 @@ extends InputProcessor
     {
         this.allBinaryGameCanvas = allBinaryGameCanvas;
     }
-        
+    
+    @Override    
     public void keyPressed(final int keyCode, final int deviceId)
     {
         try
@@ -85,6 +85,7 @@ extends InputProcessor
     }
     
     //Handle the enter case as a GameKey
+    @Override
     public void keyReleased(final Canvas canvas, final int keyCode, final int deviceId) {
         try
         {

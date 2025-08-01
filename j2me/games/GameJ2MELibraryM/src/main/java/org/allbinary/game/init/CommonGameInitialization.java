@@ -38,6 +38,7 @@ extends BaseGameInitialization
         super(resourceInitializationArray, portion);
     }
 
+    @Override
     public void init(final AbeClientInformationInterface abeClientInformation, final CommandListener commandListener, final int level) throws Exception
     {
         super.init(abeClientInformation, commandListener, level);

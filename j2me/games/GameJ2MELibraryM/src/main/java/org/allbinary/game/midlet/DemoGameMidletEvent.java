@@ -24,7 +24,7 @@ public class DemoGameMidletEvent extends AllBinaryEventObject
     {
         super(object);
 
-        this.setDemoGameMidletState(demoGameMidletState);
+        this.demoGameMidletState = demoGameMidletState;
     }
 
     public void init(Object object)

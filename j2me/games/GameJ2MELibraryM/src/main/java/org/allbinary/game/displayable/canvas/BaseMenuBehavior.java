@@ -36,7 +36,7 @@ public class BaseMenuBehavior {
     }
     
     public void initSpecialPaint(final AllBinaryGameCanvas allBinaryGameCanvas) {
-        allBinaryGameCanvas.setNonBotPaintable(NullPaintable.getInstance());
+        allBinaryGameCanvas.setNonBotPaintableP(NullPaintable.getInstance());
     }
 
     public void initMenu(final AllBinaryGameCanvas allBinaryGameCanvas) throws Exception {

@@ -40,6 +40,7 @@ implements ColorChangeListener
         ColorChangeEventHandler.getInstance().addListener(this);
     }
 
+    @Override
     public void setState(int state)
     {
         //logUtil.put("Setting Main Demo State Paintable", this, "setState");
@@ -47,6 +48,7 @@ implements ColorChangeListener
         //logUtil.put("Paintable is now: ").append(this.currentStatePaintable, this, "setState");
     }
     
+    @Override
     public void onEvent(AllBinaryEventObject eventObject)
     {
     }
@@ -62,7 +64,7 @@ implements ColorChangeListener
         ScrollSelectionForm scrollSelectionForm = 
             (ScrollSelectionForm) formPaintable.getForm();
         
-        mainGameDemoStatePaintable.getOwnershipPaintableInterface().setBasicColor(basicColor);
+        mainGameDemoStatePaintable.getOwnershipPaintableInterface().setBasicColorP(basicColor);
         
         scrollSelectionForm.setButtonBasicColor(basicColor);
         

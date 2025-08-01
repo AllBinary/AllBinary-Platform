@@ -24,69 +24,83 @@ import org.allbinary.layer.AllBinaryLayerManager;
  */
 public class SpecialGameInput implements SpecialGameInputInterface {
    
+    @Override
     public void up()
     throws Exception
     {
         
     }
     
+    @Override
     public void down()
     throws Exception
     {
     }
 
+    @Override
     public void right()
     throws Exception
     {
     }
 
+    @Override
     public void left()
     throws Exception
     {
     }
 
+    @Override
     public void strafeLeft() throws Exception
     {
     }
 
+    @Override
     public void strafeRight() throws Exception
     {
     }
     
+    @Override
     public void fire(final AllBinaryLayerManager layerManager, final GameKeyEvent gameKeyEvent)
     throws Exception
     {
     }
 
+    @Override
     public void special1(final AllBinaryLayerManager layerManager, final GameKeyEvent gameKeyEvent)
     throws Exception
     {
     }    
 
+    @Override
     public void special2(final AllBinaryLayerManager layerManager, final GameKeyEvent gameKeyEvent)
     throws Exception
     {
     }
 
+    @Override
     public void special3(final AllBinaryLayerManager layerManager, final GameKeyEvent gameKeyEvent)
     throws Exception
     {
     }
 
+    @Override
     public void special4(final AllBinaryLayerManager layerManager, final GameKeyEvent gameKeyEvent)
     throws Exception
     {
     }
 
+    @Override
     public void special5(final AllBinaryLayerManager layerManager, final GameKeyEvent gameKeyEvent)
     throws Exception
     {
     }
 
+    @Override
     public void paint(Graphics graphics) {
     
     }
 
+    @Override
     public void paintThreed(Graphics graphics) {
         
     }

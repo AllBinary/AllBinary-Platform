@@ -25,13 +25,14 @@ public class StartIntermissionProcessor extends Processor
     
     private AllBinaryGameCanvas gameCanvas;
 
-    private final int WAIT = 5000;
+    private final long WAIT = 5000;
 
     public StartIntermissionProcessor(AllBinaryGameCanvas gameCanvas)
     {
         this.gameCanvas = gameCanvas;
     }
 
+    @Override
     public void process() throws Exception
     {
         if (this.gameCanvas.getStartIntermissionInterface().getTimeDelayHelper().isElapsed(WAIT))

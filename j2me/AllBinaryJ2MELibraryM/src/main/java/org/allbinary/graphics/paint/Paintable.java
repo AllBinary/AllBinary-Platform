@@ -25,7 +25,7 @@ public class Paintable
 implements PaintableInterface
 {
 
-    public void setBasicColor(final BasicColor basicColor)
+    public void setBasicColorP(final BasicColor basicColor)
     {
     }
     

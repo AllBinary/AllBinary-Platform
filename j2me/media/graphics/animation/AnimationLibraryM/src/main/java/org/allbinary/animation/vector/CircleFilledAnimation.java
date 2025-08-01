@@ -32,7 +32,7 @@ implements ColorCompositeInterface
 
       this.width = width;
       this.height = height;
-      this.setBasicColor(basicColor);
+      this.setBasicColorP(basicColor);
    }
 
    @Override
@@ -41,8 +41,8 @@ implements ColorCompositeInterface
    
    @Override
    public void paint(final Graphics graphics, final int x, final int y) {
-       this.basicSetColorUtil.setBasicColor(
-               graphics, this.getBasicColor(), this.getColor());
+       this.basicSetColorUtil.setBasicColorP(
+               graphics, this.getBasicColorP(), this.getColor());
       //graphics.fillArc(x, y, width, height, 0, TOTAL_ANGLE);
       graphics.fillRect(x, y, width, height);
    }

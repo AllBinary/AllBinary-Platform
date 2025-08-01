@@ -27,10 +27,12 @@ public class GameCanvasPauseRunnable extends GameRunnable
         this.allBinaryGameCanvas = allBinaryGameCanvas;
     }
 
+    @Override
     public void run()
     {
     }
     
+    @Override
     public void processLoopSleep()
     throws Exception
     {

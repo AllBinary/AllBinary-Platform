@@ -37,21 +37,24 @@ import org.allbinary.game.score.HighScoresResultsListener;
 import org.allbinary.game.score.NoHighScoresFactory;
 import org.allbinary.game.score.NullHighScoresSingletonFactory;
 import org.allbinary.graphics.color.BasicColorFactory;
+import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.graphics.paint.SimpleTextPaintable;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.thread.NullRunnable;
 import org.allbinary.thread.SecondaryThreadPool;
 
 public class HighScoresCanvas extends GameCommandCanvas
         implements HighScoresResultsListener
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     public static final String NAME = "HighScoresCanvas";
     
-    private Paintable paintable;
+    private Paintable paintable = NullPaintable.getInstance();
 
+    private final HighScoreCommandsFactory highScoreCommandsFactory = 
+            HighScoreCommandsFactory.getInstance();
+    
     private final SimpleTextPaintable waitPaintable = new SimpleTextPaintable(
             commonStrings.PLEASE_WAIT_FOR_SERVER, 
             BasicColorFactory.getInstance().WHITE);
@@ -67,7 +70,7 @@ public class HighScoresCanvas extends GameCommandCanvas
 
     private final HighScoresCanvasInputProcessor highScoresCanvasInputProcessor;
 
-    private Command currentCommand = HighScoreCommandsFactory.getInstance().HIGH_SCORE_COMMANDS[0];
+    private Command currentCommand = highScoreCommandsFactory.HIGH_SCORE_COMMANDS[0];
 
     public HighScoresCanvas(final CommandListener commandListener,
             final AllBinaryGameLayerManager allBinaryGameLayerManager,
@@ -109,9 +112,9 @@ public class HighScoresCanvas extends GameCommandCanvas
         // new DemoGameMidletEvent(this, DemoGameMidletStateFactory
         // .getInstance().START_INPUT_MAPPING));
 
-        this.waitPaintable.setBasicColor(allBinaryGameLayerManager.getForegroundBasicColor());
+        this.waitPaintable.setBasicColorP(allBinaryGameLayerManager.getForegroundBasicColor());
 
-        this.getHighScoresPaintable().setBasicColor(
+        this.getHighScoresPaintable().setBasicColorP(
                 allBinaryGameLayerManager.getForegroundBasicColor());
         this.colorFillPaintable = 
             ColorFillPaintableFactory.getInstance().getInstance(
@@ -128,7 +131,8 @@ public class HighScoresCanvas extends GameCommandCanvas
         final Features features = Features.getInstance();
         final boolean isHTML = features.isDefault(HTMLFeatureFactory.getInstance().HTML);
         
-        SecondaryThreadPool.getInstance().runTask(new Runnable() {
+        SecondaryThreadPool.getInstance().runTask(new NullRunnable() {
+            @Override
             public void run() {
                 
                 try {
@@ -157,6 +161,7 @@ public class HighScoresCanvas extends GameCommandCanvas
         //logUtil.put(commonStrings.END, this, commonStrings.CONSTRUCTOR);
     }
 
+    @Override
     public void initCommands(CommandListener cmdListener)
     {
         this.removeAllCommands();
@@ -166,6 +171,7 @@ public class HighScoresCanvas extends GameCommandCanvas
         this.setCommandListener(cmdListener);
     }
 
+    @Override
     public void open()
     {
         super.open();
@@ -173,6 +179,7 @@ public class HighScoresCanvas extends GameCommandCanvas
         this.highScoresCanvasInputProcessor.open();
     }
     
+    @Override
     public void close() throws Exception
     {
         super.close();
@@ -181,6 +188,7 @@ public class HighScoresCanvas extends GameCommandCanvas
     } 
     
     boolean hasPainted = false;
+    @Override
     public void paint(Graphics graphics)
     {
         this.colorFillPaintable.paint(graphics);
@@ -214,6 +222,7 @@ public class HighScoresCanvas extends GameCommandCanvas
         return highScoresPaintable;
     }
 
+    @Override
     public void setHighScoresArray(final HighScores[] highScoresArray)
     {
         try {
@@ -239,10 +248,7 @@ public class HighScoresCanvas extends GameCommandCanvas
 
         final GameCommandsFactory gameCommandsFactory = 
             GameCommandsFactory.getInstance();
-        
-        final HighScoreCommandsFactory highScoreCommandsFactory = 
-            HighScoreCommandsFactory.getInstance();
-        
+                
         if (highScoreCommandsFactory.isHighScoreCommand(command))
         {
             final int index = highScoreCommandsFactory.getIndex(command);

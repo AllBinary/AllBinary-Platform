@@ -40,7 +40,8 @@ public class CreateGameRunnable implements Runnable
         this.startGameMidletEvent = new DemoGameMidletEvent(
                 this, DemoGameMidletStateFactory.getInstance().START_GAME);        
     }
-    
+ 
+    @Override
     public void run()
     {
         try

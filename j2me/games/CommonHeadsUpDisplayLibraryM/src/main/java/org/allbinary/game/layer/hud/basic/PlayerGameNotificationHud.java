@@ -158,7 +158,7 @@ extends GameNotificationHud
         
         this.timeDelayHelper.delay = iTime;
 
-        this.setBasicColor((BasicColor) this.gameNotification.colorList.remove(0));
+        this.setBasicColorP((BasicColor) this.gameNotification.colorList.remove(0));
     }
 
     private void setNextUnremoveable()
@@ -176,7 +176,7 @@ extends GameNotificationHud
         Integer time = (Integer) this.permanentGameNotification.timeList.objectArray[index];
         this.timeDelayHelper.delay = time.intValue() * 1000;
 
-        this.setBasicColor((BasicColor)
+        this.setBasicColorP((BasicColor)
             this.permanentGameNotification.colorList.objectArray[index]);
 
         this.circularIndexUtil.next();

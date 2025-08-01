@@ -16,6 +16,7 @@ package org.allbinary.game.layer;
 //Should probably become composite of manager instead
 
 import org.allbinary.game.GameInfo;
+import org.allbinary.game.input.NullPlayerGameInputComposite;
 import org.allbinary.game.input.PlayerGameInputCompositeInterface;
 import org.allbinary.graphics.ItemColorFactory;
 import org.allbinary.graphics.color.BasicColor;
@@ -36,7 +37,7 @@ public class AllBinaryGameLayerManager extends AllBinaryLayerManager
     private BasicColor foregroundBasicColor;
     private GameInfo gameInfo;
 
-    private PlayerGameInputCompositeInterface playerGameInputCompositeInterface;
+    private PlayerGameInputCompositeInterface playerGameInputCompositeInterface = NullPlayerGameInputComposite.NULL_PLAYER_GAME_INPUT_COMPOSITE;
 
     public AllBinaryGameLayerManager(final BasicColor backgroundBasicColor,
             final BasicColor foregroundBasicColor, final GameInfo gameInfo)

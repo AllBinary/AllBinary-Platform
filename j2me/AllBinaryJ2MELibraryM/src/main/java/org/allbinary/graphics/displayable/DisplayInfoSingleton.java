@@ -242,7 +242,7 @@ public class DisplayInfoSingleton
         return this.isPortrait(this.last[WIDTH], this.last[HEIGHT]);
     }
 
-    private final DisplayChangeEvent displayChangeEvent = new DisplayChangeEvent(this);
+    public final DisplayChangeEvent displayChangeEvent = new DisplayChangeEvent(this);
 
     private final String FIRE_METHOD_NAME = "fire";
     private final String REASON = "reason: ";

@@ -47,18 +47,18 @@ public class SimpleTextPaintable extends Paintable
         
         final int topScoresWidth = (graphics.getFont().stringWidth(this.text) >> 1);
 
-        graphics.setColor(this.getBasicColor().intValue());
+        graphics.setColor(this.getBasicColorP().intValue());
         
         graphics.drawString(this.text, (width >> 1) - topScoresWidth, myFont.DEFAULT_CHAR_HEIGHT * 3, anchor);    
     }
 
     @Override
-    public void setBasicColor(final BasicColor basicColor)
+    public void setBasicColorP(final BasicColor basicColor)
     {
         this.basicColor = basicColor;
     }
 
-    private BasicColor getBasicColor()
+    private BasicColor getBasicColorP()
     {
         return basicColor;
     }

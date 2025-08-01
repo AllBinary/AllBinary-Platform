@@ -146,7 +146,7 @@ implements GeographicMapCellPositionEventListenerInterface
       {
          this.list.add(colorCompositeInterface);
          
-         BasicColor basicColor = colorCompositeInterface.getBasicColor();
+         BasicColor basicColor = colorCompositeInterface.getBasicColorP();
          
          this.basicColorList.add(basicColor);
          this.positionList.add(point);
@@ -183,7 +183,7 @@ implements GeographicMapCellPositionEventListenerInterface
          //localX = point.getX();
          //localY = point.getYP();
 
-         this.animationInterface.setBasicColor(basicColor);
+         this.animationInterface.setBasicColorP(basicColor);
          this.animationInterface.paint(graphics, 
                  //localX 
                  point.getX() + this.x, 

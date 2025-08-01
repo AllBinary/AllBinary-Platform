@@ -93,8 +93,8 @@ public class UnitRTSFormInput extends RTSFormInput
             (GeographicMapCompositeInterface) allBinaryGameLayerManager;
         final BasicGeographicMap geographicMapInterface = geographicMapCompositeInterface.getGeographicMapInterface()[0];
         
-        this.noMoneyGameNotificationEvent.setBasicColor(geographicMapInterface.getForegroundBasicColor());
-        this.newUnitGameNotificationEvent.setBasicColor(geographicMapInterface.getForegroundBasicColor());
+        this.noMoneyGameNotificationEvent.setBasicColorP(geographicMapInterface.getForegroundBasicColor());
+        this.newUnitGameNotificationEvent.setBasicColorP(geographicMapInterface.getForegroundBasicColor());
 
     }
     

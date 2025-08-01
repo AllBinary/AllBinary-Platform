@@ -168,9 +168,9 @@ public class LazyImageRotationAnimation extends RotationAnimation {
     }
 
     @Override
-    public BasicColor getBasicColor()
+    public BasicColor getBasicColorP()
     {
-        return this.animation.getBasicColor();
+        return this.animation.getBasicColorP();
     }
     
     @Override

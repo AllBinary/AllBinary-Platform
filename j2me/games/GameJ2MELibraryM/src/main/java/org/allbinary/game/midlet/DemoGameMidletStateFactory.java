@@ -17,6 +17,7 @@ public class DemoGameMidletStateFactory
 {    
     private static DemoGameMidletStateFactory STATE = new DemoGameMidletStateFactory();
     
+    public final DemoGameMidletState NONE = new DemoGameMidletState();
     public final DemoGameMidletState START_DEMO = new DemoGameMidletState();
     public final DemoGameMidletState START_GAME = new DemoGameMidletState();
     public final DemoGameMidletState START_INPUT_MAPPING = new DemoGameMidletState();

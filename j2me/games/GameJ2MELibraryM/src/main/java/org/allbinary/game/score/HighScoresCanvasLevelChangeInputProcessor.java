@@ -48,18 +48,21 @@ public class HighScoresCanvasLevelChangeInputProcessor extends
         super(highScoresCanvas);
     }
 
+    @Override
     public void open()
     {
         //BasicMotionGesturesHandler.getInstance().addListener(this);
         GameKeyEventHandler.getInstance().addListener(this);
     }
     
+    @Override
     public void close()
     {
         //BasicMotionGesturesHandler.getInstance().removeListener(this);
         GameKeyEventHandler.getInstance().removeListener(this);
     }
     
+    @Override
     public synchronized void update()
     {
         BasicArrayList list = this.getGameKeyEventList();
@@ -88,6 +91,7 @@ public class HighScoresCanvasLevelChangeInputProcessor extends
         list.clear();
     }
     
+    @Override
     public void paint(Graphics graphics)
     {
         final MyFont myFont = MyFont.getInstance();

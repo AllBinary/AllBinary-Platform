@@ -21,7 +21,6 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class NullGameCanvas extends AllBinaryGameCanvas
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private static final NullGameCanvas SINGLETON = new NullGameCanvas();
     
@@ -55,31 +54,38 @@ public class NullGameCanvas extends AllBinaryGameCanvas
         super.setWait(1200);
     }
 
+    @Override
     public synchronized boolean isGameOver()
     {
         return false;
     }
     
     private boolean running = true;
+    @Override
     public void setRunning(boolean running)
     {
         this.running = running;
     }
 
+    @Override
     public synchronized boolean isRunning()
     {
         return running;
-    }    
+    }
+    
+    @Override
     public synchronized void pause()
     {
         this.setPaused(true);
     }
 
+    @Override
     public synchronized void unPause()
     {
         this.setPaused(false);
     }
 
+    @Override
     public void initCommands(final CommandListener cmdListener)
     {
         this.removeAllCommands();
@@ -90,6 +96,7 @@ public class NullGameCanvas extends AllBinaryGameCanvas
         this.setCommandListener(cmdListener);
     }
 
+    @Override
     public void buildGame(final boolean isProgress) throws Exception
     {
         //this.getLayerManager().cleanup();
@@ -97,6 +104,7 @@ public class NullGameCanvas extends AllBinaryGameCanvas
         //this.getLayerManager().append(new PlayerGameInputGameLayer());
     }
 
+    @Override
     public void draw(final Graphics graphics)
     {
         //this.clear(graphics);
@@ -105,6 +113,7 @@ public class NullGameCanvas extends AllBinaryGameCanvas
         
     }
 
+    @Override
     public void run()
     {
         try
@@ -122,6 +131,7 @@ public class NullGameCanvas extends AllBinaryGameCanvas
     }
     
     public static final int TYPE = 1;
+    @Override
     public int getType() {
         return TYPE;
     }

@@ -162,7 +162,7 @@ public class BasicPopupMenuPaintable extends Paintable
 
        this.animationInterface.paint(graphics, x, y);
 
-       this.basicSetColorUtil.setBasicColor(graphics, this.foregroundBasicColor);
+       this.basicSetColorUtil.setBasicColorP(graphics, this.foregroundBasicColor);
        
        drawStringUtil.paintVerticle(graphics, label, x + BORDER, y + offset, 0);
        graphics.drawRect(x, y, width, height);

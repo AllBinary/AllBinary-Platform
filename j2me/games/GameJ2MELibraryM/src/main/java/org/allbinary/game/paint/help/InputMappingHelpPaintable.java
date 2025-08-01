@@ -138,7 +138,7 @@ public class InputMappingHelpPaintable extends HelpPaintable
         this.actionBasicColor = actionBasicColor;
         this.inputBasicColorArray = inputBasicColorArray;
 
-        super.setInputInfo(keyInfo);
+        super.setInputInfoP(keyInfo);
     }
     
     private String get(BasicArrayList keyList)
@@ -174,15 +174,19 @@ public class InputMappingHelpPaintable extends HelpPaintable
         
         return stringBuffer.toString();
     }
-    
+
+    @Override    
     public int getHeight()
     {
         final MyFont myFont = MyFont.getInstance();
-        return myFont.DEFAULT_CHAR_HEIGHT * (this.inputInfo.length + 4);
+        final String[] inputInfo = this.inputInfo;
+        final int size = (inputInfo.length + 4);
+        return myFont.DEFAULT_CHAR_HEIGHT * size;
     }
     
     private int anchor = Anchor.TOP_LEFT;
     
+    @Override
     public void paint(final Graphics graphics)
     {
         //this.colorFillPaintable.paint(graphics);
@@ -204,6 +208,7 @@ public class InputMappingHelpPaintable extends HelpPaintable
         
         graphics.drawString(this.TITLE, halfWidth - beginWidth, charHeight, anchor);
 
+        final String[] inputInfo = this.inputInfo;
         int size = inputInfo.length;
         int y = 0;
         int deltaX = 0;

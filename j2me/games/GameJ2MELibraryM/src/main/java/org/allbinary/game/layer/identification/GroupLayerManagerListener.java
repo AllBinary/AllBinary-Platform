@@ -50,10 +50,11 @@ extends LayerManagerEventListener
 
     public void clear()
     {
+        BasicArrayList groupList;
         int size = list.size();
         for (int index = size - 1; index >= 0; index--)
         {
-            BasicArrayList groupList = (BasicArrayList) this.list.objectArray[index];
+            groupList = (BasicArrayList) this.list.objectArray[index];
             groupList.clear();
         }
     }
@@ -66,35 +67,35 @@ extends LayerManagerEventListener
 
     public int getGroupSize(final Group groupInterface)
     {
-        int id = groupInterface.getGroupId();
+        final int id = (int) groupInterface.getGroupId();
         return this.getGroupSize(id);
     }
 
     public BasicArrayList getList(final Group groupInterface)
     {
-        int id = groupInterface.getGroupId();
+        final int id = (int) groupInterface.getGroupId();
         return this.getList(id);
     }
 
     private BasicArrayList getList(final int groupId)
     {
-        BasicArrayList groupList = (BasicArrayList) this.list.objectArray[groupId];
+        final BasicArrayList groupList = (BasicArrayList) this.list.objectArray[groupId];
         return groupList;
     }
 
     private int getGroupSize(final int groupId)
     {
-        BasicArrayList groupList = (BasicArrayList) this.list.objectArray[groupId];
+        final BasicArrayList groupList = (BasicArrayList) this.list.objectArray[groupId];
         //if(groupList == null) {
             //logUtil.put("groupId: ").append(groupId, this, "getGroupSize");
         //}
-        int size = groupList.size();
+        final int size = groupList.size();
         return size;
     }
 
     public boolean areAllOtherGroupsEmpty(final Group groupInterface)
     {
-        final int id = groupInterface.getGroupId();
+        final int id = (int) groupInterface.getGroupId();
 
         final int size = list.size();
         for (int index = size - 1; index >= 0; index--)
@@ -119,13 +120,15 @@ extends LayerManagerEventListener
         final int size = excludeGroupList.size();
         Group[] groupInterfaceArray;
         Group groupInterface;
+        int groupId;
         for (int index = size - 1; index >= 0; index--)
         {
             groupInterfaceArray = (Group[]) excludeGroupList.objectArray[index];
             final int size2 = groupInterfaceArray.length;
             for(int index2 = 0; index2 < size2; index2++) {
                 groupInterface = groupInterfaceArray[index2];
-                if (groupInterface.getGroupId() == id) {
+                groupId = (int) groupInterface.getGroupId();
+                if (groupId == id) {
                     return true;
                 }
             }
@@ -183,11 +186,13 @@ extends LayerManagerEventListener
         
     }
 
+    @Override
     public void onEvent(final AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
 
+    @Override
     public void onCreateLayerManagerEvent(final LayerManagerEvent layerManagerEvent)
         throws Exception
     {
@@ -210,7 +215,7 @@ extends LayerManagerEventListener
         int id;
         BasicArrayList groupList;
         for(int index = 0; index < size; index++) {
-            id = groupInterfaceArray[index].getGroupId();
+            id = (int) groupInterfaceArray[index].getGroupId();
 
             groupList = (BasicArrayList) this.list.objectArray[id];
 
@@ -251,6 +256,7 @@ extends LayerManagerEventListener
         }
     }
 
+    @Override
     public void onDeleteLayerManagerEvent(final LayerManagerEvent layerManagerEvent)
             throws Exception
     {
@@ -272,7 +278,7 @@ extends LayerManagerEventListener
         BasicArrayList groupList;
         for(int index = 0; index < size; index++) {
             
-            id = groupInterfaceArray[index].getGroupId();
+            id = (int) groupInterfaceArray[index].getGroupId();
 
             groupList = (BasicArrayList) this.list.objectArray[id];
 

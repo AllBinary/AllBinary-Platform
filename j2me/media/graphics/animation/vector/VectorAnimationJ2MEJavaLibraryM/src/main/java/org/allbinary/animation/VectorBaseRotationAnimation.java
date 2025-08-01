@@ -39,7 +39,7 @@ public class VectorBaseRotationAnimation
         super(angleInfo, animationBehavior);
         
         this.setPoints(currentPoints);
-        this.setBasicColor(basicColor);
+        this.setBasicColorP(basicColor);
     }
 
     public VectorBaseRotationAnimation(final AngleInfo angleInfo, final int[][] currentPoints, final BasicColor basicColor, final AnimationBehavior animationBehavior)
@@ -55,7 +55,7 @@ public class VectorBaseRotationAnimation
             this.currentPoints[0][index][1] = currentPoints[index][1];
         }
         
-        this.setBasicColor(basicColor);
+        this.setBasicColorP(basicColor);
     }
 
     public int getAnimationSize() throws Exception
@@ -63,12 +63,12 @@ public class VectorBaseRotationAnimation
         return this.getSize();
     }
     
-    public BasicColor getBasicColor()
+    public BasicColor getBasicColorP()
     {
         return this.basicColor;
     }
 
-    public void setBasicColor(final BasicColor basicColor)
+    public void setBasicColorP(final BasicColor basicColor)
     {
         this.basicColor = basicColor;
         //this.color = this.basicColor.intValue();
@@ -111,7 +111,7 @@ public class VectorBaseRotationAnimation
 
     public void paint(final Graphics graphics, final int x, final int y)
     {
-        this.basicSetColorUtil.setBasicColor(graphics, basicColor);
+        this.basicSetColorUtil.setBasicColorP(graphics, basicColor);
 
         try
         {

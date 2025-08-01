@@ -19,13 +19,12 @@ import org.allbinary.game.displayable.canvas.GameCanvasRunnableInterface;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
-import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.system.security.licensing.ClientInformationFactory;
 import org.allbinary.thread.PrimaryThreadPool;
 
 public class DemoGameMidlet extends GameMidlet
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     public DemoGameMidlet(final ClientInformationFactory clientInformationFactory)
     {
@@ -83,7 +82,8 @@ public class DemoGameMidlet extends GameMidlet
     {
         
     }
-    
+ 
+    @Override
     public synchronized void setDemo() throws Exception
     {
         logUtil.put(commonStrings.START, this, "setDemo");
@@ -96,6 +96,7 @@ public class DemoGameMidlet extends GameMidlet
         //this.postDemoSetup();
     }
 
+    @Override
     public synchronized void createGame() throws Exception
     {
         final String CREATE_GAME = "createGame";
@@ -106,7 +107,7 @@ public class DemoGameMidlet extends GameMidlet
         progressCanvas.start();
         
         Hashtable hashtable = this.getStartStateHashtable();
-        this.setStartStateHashtable(null);
+        this.setStartStateHashtable(NullUtil.getInstance().NULL_TABLE);
 
         PrimaryThreadPool.getInstance().runTask(new CreateGameRunnable(this, hashtable));
 

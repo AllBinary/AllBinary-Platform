@@ -124,9 +124,9 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
             (GeographicMapCompositeInterface) allBinaryGameLayerManager;
         final BasicGeographicMap geographicMapInterface = geographicMapCompositeInterface.getGeographicMapInterface()[0];
 
-        this.upgradeGameNotificationEvent.setBasicColor(geographicMapInterface.getForegroundBasicColor());
-        this.noMoneyGameNotificationEvent.setBasicColor(geographicMapInterface.getForegroundBasicColor());
-        this.downgradeGameNotificationEvent.setBasicColor(geographicMapInterface.getForegroundBasicColor());
+        this.upgradeGameNotificationEvent.setBasicColorP(geographicMapInterface.getForegroundBasicColor());
+        this.noMoneyGameNotificationEvent.setBasicColorP(geographicMapInterface.getForegroundBasicColor());
+        this.downgradeGameNotificationEvent.setBasicColorP(geographicMapInterface.getForegroundBasicColor());
         
     }
     

@@ -71,7 +71,7 @@ public class BuildingAdvancedRTSFormInput
             (GeographicMapCompositeInterface) allBinaryGameLayerManager;
         final BasicGeographicMap geographicMapInterface = geographicMapCompositeInterface.getGeographicMapInterface()[0];
         
-        this.atLeastOneHouseGameNotificationEvent.setBasicColor(geographicMapInterface.getForegroundBasicColor());
+        this.atLeastOneHouseGameNotificationEvent.setBasicColorP(geographicMapInterface.getForegroundBasicColor());
     }
     
     public boolean isPositionBlocked()

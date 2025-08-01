@@ -29,7 +29,7 @@ implements ColorCompositeInterface
    public RectangleAnimation(int width, int height, BasicColor basicColor) {
       this.width = width;
       this.height = height;
-      this.setBasicColor(basicColor);
+      this.setBasicColorP(basicColor);
    }
 
    @Override
@@ -38,8 +38,8 @@ implements ColorCompositeInterface
 
    @Override
    public void paint(Graphics graphics, int x, int y) {
-       this.basicSetColorUtil.setBasicColor(
-               graphics, this.getBasicColor(), this.getColor());
+       this.basicSetColorUtil.setBasicColorP(
+               graphics, this.getBasicColorP(), this.getColor());
 
       graphics.drawRect(x, y, width, height);
    }

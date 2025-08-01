@@ -43,7 +43,7 @@ public class ImageModifierUtil {
         return instance;
     }
 
-    public void setBasicColor(final BasicColor basicColor) {
+    public void setBasicColorP(final BasicColor basicColor) {
         
     }
 

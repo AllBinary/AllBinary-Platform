@@ -47,7 +47,8 @@ public class TestingInputSingleton
     }
     
     private PaintableInterface paintable = NullPaintable.getInstance();
-    
+ 
+    @Override
     public void initInputProcessors()
     {
         
@@ -116,22 +117,24 @@ public class TestingInputSingleton
     }
 
     public synchronized void processInput(
-            AllBinaryLayerManager allbinaryLayerManager, 
-            BasicArrayList list)
+            final AllBinaryLayerManager allbinaryLayerManager, 
+            final BasicArrayList list)
         throws Exception
     {
-        int size = list.size();
-
         int key = 0;
-
+        GameKeyEvent gameKeyEvent;
+        
+        final int size = list.size();
         for (int index = 0; index < size; index++)
         {
-            key = ((GameKeyEvent) list.objectArray[index]).getKey();
+            gameKeyEvent = ((GameKeyEvent) list.objectArray[index]);
+            key = gameKeyEvent.getKey();
 
-            inputProcessorArray[key].process(allbinaryLayerManager, (GameKeyEvent) null);
+            inputProcessorArray[key].process(allbinaryLayerManager, GameKeyEvent.NONE);
         }
     }
     
+    @Override
     public synchronized void processInput(AllBinaryLayerManager allbinaryLayerManager)
     throws Exception
     {
@@ -139,11 +142,13 @@ public class TestingInputSingleton
         this.getGameKeyEventList().clear();
     }
     
+    @Override
     public void paint(Graphics graphics)
     {
         this.paintable.paint(graphics);
     }
     
+    @Override
     public boolean implmentsGameInputInterface()
     {
         return true;

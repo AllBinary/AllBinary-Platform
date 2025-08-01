@@ -1564,7 +1564,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         final RTSLayerHudPaintable rtsLayerHudPaintable = 
             RTSLayerHudPaintable.getInstance();
         
-        rtsLayerHudPaintable.setBasicColor(this.allBinaryGameLayerManager.getForegroundBasicColor());
+        rtsLayerHudPaintable.setBasicColorP(this.allBinaryGameLayerManager.getForegroundBasicColor());
         rtsLayerHudPaintable.setRtsLayer(this);
         
         return rtsLayerHudPaintable;

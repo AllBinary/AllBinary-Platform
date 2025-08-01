@@ -31,6 +31,7 @@ public class DemoGameRunnable extends GameRunnable
 
     private final GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
 
+    @Override
     public void run()
     {
         try
@@ -50,6 +51,7 @@ public class DemoGameRunnable extends GameRunnable
         }
     }
     
+    @Override
     public void processLoopSleep()
     throws Exception
     {

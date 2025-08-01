@@ -15,19 +15,21 @@ package org.allbinary.game.displayable.canvas;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.NullCanvas;
 
 import org.allbinary.graphics.Anchor;
+import org.allbinary.graphics.displayable.MyCanvas;
 import org.allbinary.graphics.paint.ProcessPaintable;
 import org.allbinary.util.CircularIndexUtil;
 
 public class BufferedGameCanvasPaintHelper extends ProcessPaintable
 {
-    private AllBinaryGameCanvas gameCanvas;
+    private MyCanvas gameCanvas = MyCanvas.NULL_MY_CANVAS;
 
     // Buffering Magic
     private final static int MAX_IMAGES = 4;
     private final Image offScreenImage[] = new Image[MAX_IMAGES];
-    private Image previousImage;
+    private Image previousImage = NullCanvas.NULL_IMAGE;
 
     private final CircularIndexUtil circularIndexUtil = 
         CircularIndexUtil.getInstance(MAX_IMAGES);
@@ -56,6 +58,7 @@ public class BufferedGameCanvasPaintHelper extends ProcessPaintable
         */
     }
 
+    @Override
     public void process()
     {
         this.gameCanvas.draw(this.offScreenImage[this.circularIndexUtil.getIndex()].getGraphics());
@@ -66,6 +69,7 @@ public class BufferedGameCanvasPaintHelper extends ProcessPaintable
 
     private int anchor = Anchor.TOP_LEFT;
     
+    @Override
     public void paint(Graphics graphics)
     {
         this.previousImage = this.offScreenImage[this.drawCircularIndexUtil.getIndex()];

@@ -64,7 +64,7 @@ public class SpriteIndexedAnimation extends IndexedAnimation
         return this.getSize();
     }
     
-    public void setBasicColor(final BasicColor basicColor)
+    public void setBasicColorP(final BasicColor basicColor)
         //throws Exception
     {
         for(int index = 0; index < this.basicColorArray.length; index++)
@@ -79,7 +79,7 @@ public class SpriteIndexedAnimation extends IndexedAnimation
         }
     }
 
-    public BasicColor getBasicColor()
+    public BasicColor getBasicColorP()
     {
         if(this.basicColorArray.length < this.getFrame())
         {

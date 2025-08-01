@@ -187,6 +187,10 @@ public class MyCanvas extends Canvas
         //displayInfoSingleton.update(this);
     }
 
+    public void draw(Graphics graphics)
+    {
+    }
+
     public boolean hasChild(MyCanvas displayable) {
         return this.childNameList.contains(displayable.name);
     }

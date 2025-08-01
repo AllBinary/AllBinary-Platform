@@ -27,7 +27,8 @@ public class DemoGameStartupRunnable extends ABRunnable
     {
         this.demoCanvas = demoCanvas;
     }
-    
+
+    @Override    
     public void run()
     {
         try
@@ -56,6 +57,7 @@ public class DemoGameStartupRunnable extends ABRunnable
     }
     
     public static final int TYPE = 4;
+    @Override
     public int getType() {
         return TYPE;
     }

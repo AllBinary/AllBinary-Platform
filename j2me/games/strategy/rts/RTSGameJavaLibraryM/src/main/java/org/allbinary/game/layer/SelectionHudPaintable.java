@@ -132,13 +132,13 @@ public class SelectionHudPaintable extends InitUpdatePaintable
         return name;
     }
 
-    public void setBasicColor(BasicColor basicColor)
+    public void setBasicColorP(BasicColor basicColor)
     {
         this.basicColor = basicColor;
         this.setColor(basicColor.intValue());
     }
     
-    protected BasicColor getBasicColor()
+    protected BasicColor getBasicColorP()
     {
         return basicColor;
     }

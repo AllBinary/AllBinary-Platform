@@ -44,11 +44,13 @@ public class GamePerformanceInitUpdatePaintable extends InitUpdatePaintable
 
     private char[][] baseRefreshHelperCharArray = new char[0][0];
     
+    @Override
     public void init()
     {
         
     }
 
+    @Override
     public void update()
     {
         //baseRefreshHelperStringArray = GameStatisticsFactory.getInstance().toStringArray();
@@ -57,19 +59,27 @@ public class GamePerformanceInitUpdatePaintable extends InitUpdatePaintable
 
     private final int RED = BasicColorFactory.getInstance().RED.intValue();
     
+    @Override
     public void paint(Graphics graphics)
     {
         final MyFont myFont = MyFont.getInstance();
         
         graphics.setColor(RED);
         
-        for(int index = baseRefreshHelperCharArray.length - 2; index >= 0; index-=2)
+        char[] charArray;
+        char[] charArray2;
+        int size2;
+        int size3;
+        final int size = baseRefreshHelperCharArray.length - 2;
+        for(int index = size; index >= 0; index-=2)
         {
-            graphics.drawChars(baseRefreshHelperCharArray[index], 0, 
-                    baseRefreshHelperCharArray[index].length, 0, yArray[index], 0);
-            
-            graphics.drawChars(baseRefreshHelperCharArray[index + 1], 0, 
-                    baseRefreshHelperCharArray[index + 1].length, baseRefreshHelperCharArray[index].length * myFont.stringWidth(2), yArray[index + 1], 0);
+            charArray = baseRefreshHelperCharArray[index];
+            charArray2 = baseRefreshHelperCharArray[index + 1];
+            size2 = charArray.length;
+            size3 = charArray2.length;
+
+            graphics.drawChars(charArray, 0, size2, 0, yArray[index], 0);
+            graphics.drawChars(charArray2, 0, size3, size2 * myFont.stringWidth(2), yArray[index + 1], 0);
         }
     }
 }

@@ -30,10 +30,8 @@ import org.allbinary.util.BasicArrayList;
 
 public class PopupMenuInputProcessor extends BasicMenuInputProcessor
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final RectangleCollisionUtil rectangleCollisionUtil = RectangleCollisionUtil.getInstance();
-    private final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
     
     private final int CLICK_DELAY = 120;
     private final TimeDelayHelper clickTimeHelper = new TimeDelayHelper(CLICK_DELAY);
@@ -55,7 +53,7 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
     {
         this.rectangle = rectangle;        
     }
-    
+
     public int processInput(final int key) throws Exception
     {
         //logUtil.put(commonStrings.START_LABEL).append("Canvas.").append(CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance());
@@ -65,14 +63,16 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
         {
             //logUtil.put("Key: ").append(key, this, GameInputStrings.getInstance());
             //PreLogUtil.put("Key: ").append(key, this, GameInputStrings.getInstance());
-                        
-            ((AllBinaryGameCanvas) this.getCanvas()).toggleMenu();
+
+            final AllBinaryGameCanvas gameCanvas = (AllBinaryGameCanvas) this.getCanvas();
+            gameCanvas.toggleMenu();
             
             return 1;
         }
         return 0;
     }
 
+    @Override
     public int processInput()
         throws Exception
     {
@@ -173,7 +173,8 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
                 {
                     //PreLogUtil.put("Toggle Menu: ").append(motionGestureInput.toString(), this, gameInputStrings.PROCESS_MOTION_INPUT);
 
-                    ((AllBinaryGameCanvas) this.getCanvas()).toggleMenu();
+                    final AllBinaryGameCanvas gameCanvas = (AllBinaryGameCanvas) this.getCanvas();
+                    gameCanvas.toggleMenu();
                 }
             }
         }

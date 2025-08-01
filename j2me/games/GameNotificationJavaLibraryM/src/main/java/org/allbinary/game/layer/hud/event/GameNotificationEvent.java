@@ -36,7 +36,7 @@ public class GameNotificationEvent extends AllBinaryEventObject
         
         this.setString(string);
         this.seconds = seconds;
-        this.setBasicColor(basicColor);
+        this.setBasicColorP(basicColor);
         this.removeable = permanent;
     }
 
@@ -50,7 +50,7 @@ public class GameNotificationEvent extends AllBinaryEventObject
         return seconds;
     }
 
-    public BasicColor getBasicColor()
+    public BasicColor getBasicColorP()
     {
         return basicColor;
     }
@@ -65,7 +65,7 @@ public class GameNotificationEvent extends AllBinaryEventObject
         this.string = string;
     }
 
-    public void setBasicColor(BasicColor basicColor)
+    public void setBasicColorP(BasicColor basicColor)
     {
         this.basicColor = basicColor;
     }

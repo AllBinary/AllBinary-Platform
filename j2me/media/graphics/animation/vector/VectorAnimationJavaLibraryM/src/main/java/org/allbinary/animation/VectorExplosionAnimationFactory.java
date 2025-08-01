@@ -28,7 +28,7 @@ public class VectorExplosionAnimationFactory
 	public VectorExplosionAnimationFactory(final BasicColor basicColor, final AnimationBehaviorFactory animationBehaviorFactory) {
             
             this.animationBehaviorFactory = animationBehaviorFactory;
-            this.setBasicColor(basicColor);
+            this.setBasicColorP(basicColor);
 	}
 
 	private final VectorExplosionGenerator vectorExplosionGenerator = VectorExplosionGenerator.getInstance();
@@ -44,14 +44,14 @@ public class VectorExplosionAnimationFactory
 		final int[][][] points = vectorExplosionGenerator.getInstance(
 		        framePoints, 6, vectorExplosionGenerator.ROTATION);
 		
-		return new VectorRotationAnimation(points, this.getBasicColor(), this.animationBehaviorFactory.getOrCreateInstance());
+		return new VectorRotationAnimation(points, this.getBasicColorP(), this.animationBehaviorFactory.getOrCreateInstance());
 	}
 
-	private void setBasicColor(BasicColor basicColor) {
+	private void setBasicColorP(BasicColor basicColor) {
 		this.basicColor = basicColor;
 	}
 
-	private BasicColor getBasicColor() {
+	private BasicColor getBasicColorP() {
 		return basicColor;
 	}
 }

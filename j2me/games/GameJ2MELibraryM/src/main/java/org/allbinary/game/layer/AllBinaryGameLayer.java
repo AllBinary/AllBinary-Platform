@@ -48,7 +48,7 @@ public class AllBinaryGameLayer extends AllBinaryLayer
         private final BasicColor BLACK = BasicColorFactory.getInstance().BLACK;
         
         public void paint(Graphics graphics) {
-            basicSetColorUtil.setBasicColor(graphics, BLACK);
+            basicSetColorUtil.setBasicColorP(graphics, BLACK);
         }
     } : NullPaintable.getInstance();
 
@@ -88,6 +88,7 @@ public class AllBinaryGameLayer extends AllBinaryLayer
         throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
 
+    @Override
     public void onEvent(final AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
@@ -100,6 +101,7 @@ public class AllBinaryGameLayer extends AllBinaryLayer
         this.onChangeEvent(this.viewPositionEvent);
     }
 
+    @Override
     public void onChangeEvent(final ViewPositionEvent layerManagerEvent)
        throws Exception
     {
@@ -130,7 +132,7 @@ public class AllBinaryGameLayer extends AllBinaryLayer
 
         //logUtil.put("viewX: ").append(viewX).append(" viewY: ").append(viewY, this, canvasStrings.PAINT);
 
-        this.basicSetColorUtil.setBasicColor(graphics, RED);
+        this.basicSetColorUtil.setBasicColorP(graphics, RED);
 
         graphics.drawRect(viewX, viewY, this.getWidth(), this.getHeight());
         //this.getViewPosition().getX2() - viewX,

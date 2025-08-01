@@ -106,7 +106,7 @@ public class PtsDamageFloaters extends DamageFloaters
             {
                 int delta = 10 * (index + 2);
                 
-                this.basicSetColorUtil.setBasicColor(
+                this.basicSetColorUtil.setBasicColorP(
                         graphics, basicColorArrayIndexer.get());
                 
                 //graphics.drawString(this.lastDamageString[index],

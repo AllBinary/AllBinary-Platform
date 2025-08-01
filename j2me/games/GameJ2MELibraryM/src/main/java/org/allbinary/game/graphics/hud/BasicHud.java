@@ -46,7 +46,7 @@ public class BasicHud //implements DisplayChangeEventListener
    private int maxWidth;
    private int maxHeight;
    
-   private HudGraphicsPosition hudGraphicsPosition;
+   private HudGraphicsPosition hudGraphicsPosition = HudGraphicsPosition.NULL_HUD_GRAPHICS_POSITION;
    
    private int x;
    private int y;
@@ -54,7 +54,7 @@ public class BasicHud //implements DisplayChangeEventListener
    protected final BasicColorSetUtil basicSetColorUtil = 
        BasicColorSetUtil.getInstance();
    
-   private BasicColor basicColor;
+   private BasicColor basicColor = BasicColorFactory.getInstance().BLACK;
    private int color;
 
    public BasicHud(int location, int direction,
@@ -76,9 +76,9 @@ public class BasicHud //implements DisplayChangeEventListener
       this.setMaxWidth(maxWidth);
       this.setMaxHeight(maxHeight);
       
-      this.onDisplayChangeEvent(null);
+      this.onDisplayChangeEvent(DisplayInfoSingleton.getInstance().displayChangeEvent);
       
-      this.setBasicColor(basicColor);
+      this.setBasicColorP(basicColor);
       this.color = basicColor.intValue();      
    }
    
@@ -247,7 +247,7 @@ public class BasicHud //implements DisplayChangeEventListener
 
    public void paint(Graphics graphics, String string, String string2, int offset)
    {
-       this.basicSetColorUtil.setBasicColor(graphics, getBasicColor());
+       this.basicSetColorUtil.setBasicColorP(graphics, getBasicColorP());
 
       graphics.drawString(string,
               x, //getHudGraphicsPosition().getPoint().getX().intValue(),
@@ -277,7 +277,7 @@ public class BasicHud //implements DisplayChangeEventListener
            char[] charArray2, int offset2, int len2, 
            int xOffset, int xOffset2)
    {
-       this.basicSetColorUtil.setBasicColor(graphics, getBasicColor());
+       this.basicSetColorUtil.setBasicColorP(graphics, getBasicColorP());
        
        int y = getY();
        
@@ -299,7 +299,7 @@ public class BasicHud //implements DisplayChangeEventListener
            char[] charArray2, int offset2, int len2, 
            int xOffset)
    {
-       this.basicSetColorUtil.setBasicColor(graphics, getBasicColor());
+       this.basicSetColorUtil.setBasicColorP(graphics, getBasicColorP());
 
        int y = getY();
        
@@ -318,7 +318,7 @@ public class BasicHud //implements DisplayChangeEventListener
    
    public void paint(Graphics graphics, char[] charArray, int offset, int len)
    {
-       this.basicSetColorUtil.setBasicColor(graphics, getBasicColor());
+       this.basicSetColorUtil.setBasicColorP(graphics, getBasicColorP());
 
        int y = getY();
        
@@ -333,7 +333,7 @@ public class BasicHud //implements DisplayChangeEventListener
    
    public void paint(Graphics graphics, String string)
    {
-       this.basicSetColorUtil.setBasicColor(graphics, getBasicColor());
+       this.basicSetColorUtil.setBasicColorP(graphics, getBasicColorP());
 
        int y = getY() + offsetY;
        
@@ -372,12 +372,12 @@ public class BasicHud //implements DisplayChangeEventListener
         this.x = x;
     }
 
-    public void setBasicColor(BasicColor basicColor)
+    public void setBasicColorP(BasicColor basicColor)
     {
         this.basicColor = basicColor;
     }
 
-    public BasicColor getBasicColor()
+    public BasicColor getBasicColorP()
     {
         return basicColor;
     }

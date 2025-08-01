@@ -135,7 +135,7 @@ implements BaseMotionGestureEventListener
             (GeographicMapCompositeInterface) allBinaryGameLayerManager;
         final BasicGeographicMap geographicMapInterface = geographicMapCompositeInterface.getGeographicMapInterface()[0];
         
-        this.notYoursGameNotificationEvent.setBasicColor(geographicMapInterface.getForegroundBasicColor());
+        this.notYoursGameNotificationEvent.setBasicColorP(geographicMapInterface.getForegroundBasicColor());
         
     }
     
@@ -516,7 +516,7 @@ implements BaseMotionGestureEventListener
                 = (GeographicMapCompositeInterface) this.getGameCanvas();
             final BasicGeographicMap geographicMapInterface = geographicMapCompositeInterface.getGeographicMapInterface()[0];
             
-            multiSelectPaintable.setBasicColor(
+            multiSelectPaintable.setBasicColorP(
                     geographicMapInterface.getForegroundBasicColor());
             multiSelectPaintable.update(list);
 

@@ -139,12 +139,12 @@ public class WaypointRTSFormInput extends RTSFormInput
             (GeographicMapCompositeInterface) allBinaryGameLayerManager;
         final BasicGeographicMap geographicMapInterface = geographicMapCompositeInterface.getGeographicMapInterface()[0];
         
-        this.dragToSpotGameNotificationEvent.setBasicColor(geographicMapInterface.getForegroundBasicColor());
-        this.spotTakenGameNotificationEvent.setBasicColor(geographicMapInterface.getForegroundBasicColor());
-        this.buildingCollisionGameNotificationEvent.setBasicColor(geographicMapInterface.getForegroundBasicColor());
-        this.roadCollisionGameNotificationEvent.setBasicColor(geographicMapInterface.getForegroundBasicColor());
-        this.newWaypointGameNotificationEvent.setBasicColor(geographicMapInterface.getForegroundBasicColor());
-        this.noMoneyGameNotificationEvent.setBasicColor(geographicMapInterface.getForegroundBasicColor());
+        this.dragToSpotGameNotificationEvent.setBasicColorP(geographicMapInterface.getForegroundBasicColor());
+        this.spotTakenGameNotificationEvent.setBasicColorP(geographicMapInterface.getForegroundBasicColor());
+        this.buildingCollisionGameNotificationEvent.setBasicColorP(geographicMapInterface.getForegroundBasicColor());
+        this.roadCollisionGameNotificationEvent.setBasicColorP(geographicMapInterface.getForegroundBasicColor());
+        this.newWaypointGameNotificationEvent.setBasicColorP(geographicMapInterface.getForegroundBasicColor());
+        this.noMoneyGameNotificationEvent.setBasicColorP(geographicMapInterface.getForegroundBasicColor());
         
     }
     

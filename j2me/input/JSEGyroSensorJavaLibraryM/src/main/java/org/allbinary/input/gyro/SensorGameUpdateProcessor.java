@@ -56,10 +56,10 @@ public class SensorGameUpdateProcessor
     
     protected void setNoSensors()
     {
-        GyroSensorFactory.getInstance().setListener(
+        GyroSensorFactory.getInstance().setCompleteMotionGestureInputEventListener(
                 NoCompleteMotionGestureInputEventListener.getInstance());
 
-        AccelerometerSensorFactory.getInstance().setListener(
+        AccelerometerSensorFactory.getInstance().setCompleteMotionGestureInputEventListener(
                 NoCompleteMotionGestureInputEventListener.getInstance());
 
         this.setInputSensor(NoAllBinarySensor.getInstance());

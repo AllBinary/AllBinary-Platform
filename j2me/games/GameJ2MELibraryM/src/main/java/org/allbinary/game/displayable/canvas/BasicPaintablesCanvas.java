@@ -50,6 +50,7 @@ public class BasicPaintablesCanvas extends GameCommandCanvas
     }
     */
 
+    @Override
     public void paint(final Graphics graphics)
     {
         this.colorFillPaintable.paint(graphics);

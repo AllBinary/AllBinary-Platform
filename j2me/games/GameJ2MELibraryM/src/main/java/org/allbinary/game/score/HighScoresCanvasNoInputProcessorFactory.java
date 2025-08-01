@@ -18,6 +18,7 @@ import org.allbinary.game.score.displayable.HighScoresCanvas;
 public class HighScoresCanvasNoInputProcessorFactory
 implements HighScoresCanvasInputProcessorFactoryInterface
 {
+    @Override
     public HighScoresCanvasInputProcessor getInstance(HighScoresCanvas highScoresCanvas)
     {
         return new HighScoresCanvasInputProcessor(highScoresCanvas); 

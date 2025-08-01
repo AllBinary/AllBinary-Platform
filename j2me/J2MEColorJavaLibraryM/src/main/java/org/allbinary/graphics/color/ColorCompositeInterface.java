@@ -16,5 +16,5 @@ package org.allbinary.graphics.color;
 public interface ColorCompositeInterface 
 extends BasicColorCompositeSetterInterface
 {
-    BasicColor getBasicColor();
+    BasicColor getBasicColorP();
 }

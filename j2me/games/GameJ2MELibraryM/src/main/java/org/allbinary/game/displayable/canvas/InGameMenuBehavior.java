@@ -30,26 +30,32 @@ public class InGameMenuBehavior extends BaseMenuBehavior {
         return instance;
     }    
     
+    @Override
     public void onDisplayChangeEvent(final AllBinaryGameCanvas allBinaryGameCanvas, final DisplayChangeEvent displayChangeEvent) throws Exception {
         allBinaryGameCanvas.updateMenu(displayChangeEvent);
     }
 
+    @Override
     public void initSpecialPaint(final AllBinaryGameCanvas allBinaryGameCanvas) {
-        allBinaryGameCanvas.setNonBotPaintable(new GameCanvasNonBotPaintable(allBinaryGameCanvas));
+        allBinaryGameCanvas.setNonBotPaintableP(new GameCanvasNonBotPaintable(allBinaryGameCanvas));
     }
     
+    @Override
     public void initMenu(final AllBinaryGameCanvas allBinaryGameCanvas) throws Exception {
         allBinaryGameCanvas.initMenu2();
     }
 
+    @Override
     public void updateMenu(final AllBinaryGameCanvas allBinaryGameCanvas) throws Exception {
         allBinaryGameCanvas.initMenu2();
     }
     
+    @Override
     public void popupMenu(final AllBinaryGameCanvas allBinaryGameCanvas) throws Exception {
         allBinaryGameCanvas.popupMenu2();
     }
     
+    @Override
     public void closeMenu(final AllBinaryGameCanvas allBinaryGameCanvas) {
         allBinaryGameCanvas.closeMenu2();
     }

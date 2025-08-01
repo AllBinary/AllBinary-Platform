@@ -64,7 +64,7 @@ public class CaptionAnimationHelper extends CaptionAnimationHelperBase
     @Override
     public void update(String message, BasicColor basicColor)
     {
-        this.textAnimation.setBasicColor(basicColor);
+        this.textAnimation.setBasicColorP(basicColor);
         this.textAnimation.setText(message);
         this.animation = this.captionAnimation;
         this.timeHelper.setStartTime();

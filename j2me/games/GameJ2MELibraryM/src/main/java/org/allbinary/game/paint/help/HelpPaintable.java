@@ -48,7 +48,7 @@ public class HelpPaintable extends Paintable
         //this.color = basicColor.intValue();
     }
     
-    public void setInputInfo(final String[] inputInfo)
+    public void setInputInfoP(final String[] inputInfo)
     {
         this.inputInfo = inputInfo;
     }
@@ -61,6 +61,7 @@ public class HelpPaintable extends Paintable
     
     private int anchor = Anchor.TOP_LEFT;
     
+    @Override
     public void paint(final Graphics graphics)
     {
         final MyFont myFont = MyFont.getInstance();

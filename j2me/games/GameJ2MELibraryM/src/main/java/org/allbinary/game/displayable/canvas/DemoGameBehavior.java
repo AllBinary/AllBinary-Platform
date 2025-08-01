@@ -54,7 +54,7 @@ public class DemoGameBehavior {
     
     // Show/Hide the screen buttons
     public void updateScreenButtonPaintable(final AllBinaryGameCanvas allBinaryGameCanvas) throws Exception {
-        allBinaryGameCanvas.setTouchPaintable(NullPaintable.getInstance());
+        allBinaryGameCanvas.setTouchPaintableP(NullPaintable.getInstance());
     }
     
     public void setGameState(final AllBinaryGameCanvas allBinaryGameCanvas) throws Exception {

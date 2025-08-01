@@ -26,8 +26,6 @@ import org.allbinary.util.BasicArrayList;
 
 public class CheatGameInputProcessor extends PlayerGameInput 
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
-
     private final String PROCESS_GAME = "processGame";
 
     private final AllBinaryGameCanvas gameCanvas;
@@ -45,7 +43,8 @@ public class CheatGameInputProcessor extends PlayerGameInput
 //    public static int x;
 //    public static int y;
 //    public static int z;
-    
+
+    @Override    
     public synchronized void update()
     {
         try

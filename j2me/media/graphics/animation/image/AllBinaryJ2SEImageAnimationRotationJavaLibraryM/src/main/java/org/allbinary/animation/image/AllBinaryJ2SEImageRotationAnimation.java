@@ -85,14 +85,14 @@ public class AllBinaryJ2SEImageRotationAnimation
     }
 
     @Override
-    public void setBasicColor(final BasicColor basicColor) {
+    public void setBasicColorP(final BasicColor basicColor) {
         
         boolean changed = false;
-        if(this.getBasicColor() == null || this.getBasicColor().intValue() != basicColor.intValue()) {
+        if(this.getBasicColorP() == null || this.getBasicColorP().intValue() != basicColor.intValue()) {
             changed = true;
         }
         
-        super.setBasicColor(basicColor);
+        super.setBasicColorP(basicColor);
         
         if(changed) {
             this.setColorProcessor = SetColorProcessor.getInstance();
@@ -104,7 +104,7 @@ public class AllBinaryJ2SEImageRotationAnimation
     public void changeBasicColor(final BasicColor basicColor) {
         
         boolean changed = false;
-        if(this.getBasicColor() == null || this.getBasicColor().intValue() != basicColor.intValue()) {
+        if(this.getBasicColorP() == null || this.getBasicColorP().intValue() != basicColor.intValue()) {
             changed = true;
         }
         
@@ -166,7 +166,7 @@ public class AllBinaryJ2SEImageRotationAnimation
 
         this.imageRotationUtil.rotateImage(this.originalImageArray[0], this.twoImages[this.bufferedImageIndex], this.angleInfo.getAngle() + 90);
         this.alphaProcessor.update(imageModifierUtil, null, this.twoImages[this.bufferedImageIndex], 0, this.alphaP);
-        this.setColorProcessor.update(imageModifierUtil, null, this.twoImages[this.bufferedImageIndex], 0, this.basicColorP);
+        this.setColorProcessor.update(imageModifierUtil, null, this.twoImages[this.bufferedImageIndex], 0, this.basicColor);
         this.changeColorProcessor.update(imageModifierUtil, null, this.twoImages[this.bufferedImageIndex], 0, this.changeBasicColorP);
         this.swap();
     }

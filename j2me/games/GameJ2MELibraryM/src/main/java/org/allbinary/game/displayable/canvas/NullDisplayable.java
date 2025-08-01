@@ -23,6 +23,7 @@ public class NullDisplayable extends Canvas
     private final BaseGameStatistics baseGameStatistics = 
             GameStatisticsFactory.getInstance();
     
+    @Override
     public void paint(Graphics graphics)
     {
         baseGameStatistics.nextRefresh();

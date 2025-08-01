@@ -22,13 +22,13 @@ import org.allbinary.util.BasicArrayList;
 
 public class HighScoresCanvasInputProcessor extends PlayerGameInput
 {
-    private HighScoresCanvas highScoresCanvas;
+    private final HighScoresCanvas highScoresCanvas;
     
     public HighScoresCanvasInputProcessor(HighScoresCanvas highScoresCanvas)
     {
         super(new BasicArrayList(), -1);
 
-        this.setHighScoresCanvas(highScoresCanvas);
+        this.highScoresCanvas = highScoresCanvas;
     }
 
     public void open()
@@ -41,6 +41,7 @@ public class HighScoresCanvasInputProcessor extends PlayerGameInput
         
     }
     
+    @Override
     public synchronized void onPressGameKeyEvent(GameKeyEvent gameKeyEvent)
     {
         super.onPressGameKeyEvent(gameKeyEvent);
@@ -48,6 +49,7 @@ public class HighScoresCanvasInputProcessor extends PlayerGameInput
         this.update();
     }
     
+    @Override
     public synchronized void onDownGameKeyEvent(GameKeyEvent gameKeyEvent)
     {
         super.onDownGameKeyEvent(gameKeyEvent);
@@ -55,6 +57,7 @@ public class HighScoresCanvasInputProcessor extends PlayerGameInput
         this.update();
     }
 
+    @Override
     public synchronized void onUpGameKeyEvent(GameKeyEvent gameKeyEvent)
     {
         super.onUpGameKeyEvent(gameKeyEvent);
@@ -65,11 +68,6 @@ public class HighScoresCanvasInputProcessor extends PlayerGameInput
     public void paint(Graphics graphics)
     {
         
-    }
-
-    private void setHighScoresCanvas(HighScoresCanvas highScoresCanvas)
-    {
-        this.highScoresCanvas = highScoresCanvas;
     }
 
     public HighScoresCanvas getHighScoresCanvas()

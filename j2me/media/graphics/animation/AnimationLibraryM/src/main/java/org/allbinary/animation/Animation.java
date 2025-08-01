@@ -30,7 +30,7 @@ OpenGLSurfaceChangedInterface
     protected final BasicColorSetUtil basicSetColorUtil = 
         BasicColorSetUtil.getInstance();
 
-    protected BasicColor basicColorP = BasicColorFactory.getInstance().WHITE;
+    protected BasicColor basicColor = BasicColorFactory.getInstance().WHITE;
     protected int colorP;
     protected BasicColor changeBasicColorP = BasicColorFactory.getInstance().WHITE;
     protected int changeColorP;
@@ -38,7 +38,7 @@ OpenGLSurfaceChangedInterface
 
     protected Animation()
     {
-        //this.setBasicColor(BasicColor.WHITE);
+        //this.setBasicColorP(BasicColor.WHITE);
     }
 
     public void setAlpha(final int alpha) {
@@ -53,8 +53,8 @@ OpenGLSurfaceChangedInterface
     @Override
     public void paint(final Graphics graphics, final int x, final int y)
     {
-        this.basicSetColorUtil.setBasicColor(
-            graphics, this.getBasicColor(), this.getColor());
+        this.basicSetColorUtil.setBasicColorP(
+            graphics, this.getBasicColorP(), this.getColor());
     }
 
     @Override
@@ -66,16 +66,16 @@ OpenGLSurfaceChangedInterface
         return false;
     }
     
-    public BasicColor getBasicColor()
+    public BasicColor getBasicColorP()
     {
-        return this.basicColorP;
+        return this.basicColor;
     }
 
-    public void setBasicColor(final BasicColor basicColor)
+    public void setBasicColorP(final BasicColor basicColor)
     {
         //logUtil.put("setBasicColor", this, basicColor.toString());
-        this.basicColorP = basicColor;
-        this.colorP = this.basicColorP.intValue();
+        this.basicColor = basicColor;
+        this.colorP = this.basicColor.intValue();
     }
 
     public BasicColor getChangeBasicColor()

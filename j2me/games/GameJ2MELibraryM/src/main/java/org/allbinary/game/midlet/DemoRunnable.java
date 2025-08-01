@@ -39,6 +39,7 @@ public class DemoRunnable implements Runnable
                 DemoGameMidletStateFactory.getInstance().START_DEMO);
     }
     
+    @Override
     public void run()
     {
         try

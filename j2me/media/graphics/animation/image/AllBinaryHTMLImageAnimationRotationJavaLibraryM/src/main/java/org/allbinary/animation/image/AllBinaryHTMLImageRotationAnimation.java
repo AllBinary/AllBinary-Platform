@@ -90,14 +90,14 @@ extends ImageBaseRotationAnimation
         return canvasSurface;
     }
 
-    public void setBasicColor(final BasicColor basicColor) {
+    public void setBasicColorP(final BasicColor basicColor) {
         
         boolean changed = false;
-        if(this.getBasicColor() == null || this.getBasicColor().intValue() != basicColor.intValue()) {
+        if(this.getBasicColorP() == null || this.getBasicColorP().intValue() != basicColor.intValue()) {
             changed = true;
         }
         
-        super.setBasicColor(basicColor);
+        super.setBasicColorP(basicColor);
                 
         if(changed) {
             this.updateImage();

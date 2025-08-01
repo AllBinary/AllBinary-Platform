@@ -43,7 +43,7 @@ public class VectorAnimation extends IndexedAnimation
         
         this.setPoints(currentPoints);
 
-        this.setBasicColor(basicColor);
+        this.setBasicColorP(basicColor);
     }
 
     public VectorAnimation(final int[][] currentPoints, final BasicColor basicColor, final AnimationBehavior animationBehavior)
@@ -59,7 +59,7 @@ public class VectorAnimation extends IndexedAnimation
             this.currentPoints[0][index][1] = currentPoints[index][1];
         }
         
-        this.setBasicColor(basicColor);
+        this.setBasicColorP(basicColor);
     }
 
     public int getAnimationSize() throws Exception
@@ -67,12 +67,12 @@ public class VectorAnimation extends IndexedAnimation
         return this.getSize();
     }
 
-    public BasicColor getBasicColor()
+    public BasicColor getBasicColorP()
     {
         return this.basicColor;
     }
 
-    public void setBasicColor(final BasicColor basicColor)
+    public void setBasicColorP(final BasicColor basicColor)
     {
         this.basicColor = basicColor;
         //this.color = this.basicColor.intValue();
@@ -155,7 +155,7 @@ public class VectorAnimation extends IndexedAnimation
 
     public void paint(Graphics graphics, int x, int y)
     {
-        this.basicSetColorUtil.setBasicColor(graphics, basicColor);
+        this.basicSetColorUtil.setBasicColorP(graphics, basicColor);
 
         this.paintVectors(graphics, x, y);
     }

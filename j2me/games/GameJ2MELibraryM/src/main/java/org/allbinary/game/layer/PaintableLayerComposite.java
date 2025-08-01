@@ -28,6 +28,7 @@ public class PaintableLayerComposite extends Paintable
       this.paintableArray = paintableArray;
    }
    
+   @Override
    public void paint(final Graphics graphics)
    {
       for(int index = paintableArray.length; --index >= 0;)
@@ -36,11 +37,15 @@ public class PaintableLayerComposite extends Paintable
       }
    }
 
+   @Override   
    public void paintThreed(final Graphics graphics)
    {
+       PaintableInterface paintableInterface;
       for(int index = paintableArray.length; --index >= 0;)
       {
-         ((PaintableInterface) this.paintableArray[index]).paintThreed(graphics);
+          paintableInterface = (PaintableInterface) this.paintableArray[index];
+          paintableInterface.paintThreed(graphics);
       }
    }
+
 }

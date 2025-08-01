@@ -31,7 +31,7 @@ public class LineAnimation
 
     public LineAnimation(BasicColor basicColor)
     {
-        this.setBasicColor(basicColor);
+        this.setBasicColorP(basicColor);
     }
 
     public void init(int x, int y)
@@ -89,8 +89,8 @@ public class LineAnimation
     {
         final int[][] currentLine = this.line;
         
-        this.basicSetColorUtil.setBasicColor(
-                graphics, this.getBasicColor(), this.getColor());
+        this.basicSetColorUtil.setBasicColorP(
+                graphics, this.getBasicColorP(), this.getColor());
         graphics.drawLine(
             currentLine[0][0], currentLine[0][1],
             currentLine[1][0], currentLine[1][1]);

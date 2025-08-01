@@ -54,7 +54,7 @@ public class LockedFeatureNotificationUtil
         PrimaryPlayerQueueFactory.getInstance().add(
                 ErrorSound.getInstance());
 
-        gameNotificationEvent.setBasicColor(basicColor);
+        gameNotificationEvent.setBasicColorP(basicColor);
         
         GameNotificationEventHandler.getInstance().fireEvent(
                 gameNotificationEvent);

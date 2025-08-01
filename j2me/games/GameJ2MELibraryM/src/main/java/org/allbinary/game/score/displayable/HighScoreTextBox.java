@@ -38,7 +38,6 @@ import org.allbinary.logic.system.security.licensing.InApplicationPurchaseFactor
 public class HighScoreTextBox extends CustomTextBox
 // BasicTextBox
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final VirtualKeyboardEventHandler virtualKeyboardEventHandler = 
                 VirtualKeyboardEventHandler.getInstance();
@@ -83,17 +82,19 @@ public class HighScoreTextBox extends CustomTextBox
         }        
     }
 
+    @Override
     public void initCommands(CommandListener cmdListener)
     {
         this.removeAllCommands();
 
         PostGameCommandFactory.getInstance().addCommands(this);
 
-        this.addCommand(this.highScoreUtil.SUBMIT_TEXTBOX_COMMAND);
+        this.addCommand(HighScoreUtil.SUBMIT_TEXTBOX_COMMAND);
 
         this.setCommandListener(cmdListener);
     }
 
+    @Override
     public void open()
     {
         this.virtualKeyboardEventHandler.open();
@@ -102,6 +103,7 @@ public class HighScoreTextBox extends CustomTextBox
         super.open();
     }
 
+    @Override
     public void close() throws Exception
     {
         this.virtualKeyboardEventHandler.close();
@@ -111,7 +113,7 @@ public class HighScoreTextBox extends CustomTextBox
         
         super.close();
         
-        this.removeCommand(this.highScoreUtil.SUBMIT_TEXTBOX_COMMAND);
+        this.removeCommand(HighScoreUtil.SUBMIT_TEXTBOX_COMMAND);
         
         this.update();
         
@@ -127,6 +129,7 @@ public class HighScoreTextBox extends CustomTextBox
 
     }
 
+    @Override
     public void update() throws Exception
     {
         final String name = this.getTextFieldItem().getString();
@@ -135,6 +138,7 @@ public class HighScoreTextBox extends CustomTextBox
         super.update();
     }
 
+    @Override
     public void paint(Graphics graphics)
     {
         super.paint(graphics);
@@ -146,6 +150,7 @@ public class HighScoreTextBox extends CustomTextBox
         this.highScoreUtil.saveHighScore();
     }
     
+    @Override
     public void submit()
     {
         this.highScoreUtil.submit(this);

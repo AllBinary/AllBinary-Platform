@@ -22,7 +22,6 @@ import org.allbinary.util.BasicArrayList;
 public class PopupCommandFormInputProcessor 
 extends CommandFormInputProcessor 
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     //private PopupMenuInputProcessor popupMenuInputProcessor;
 
@@ -40,6 +39,7 @@ extends CommandFormInputProcessor
         //this.popupMenuInputProcessor = popupMenuInputProcessor;
     }
 
+    @Override
     public int processInput(int key) throws Exception
     {
         //logUtil.put(commonStrings.START_LABEL).append(" Canvas.").append(CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance());
@@ -47,6 +47,7 @@ extends CommandFormInputProcessor
         return super.processInput(key);
     }
 
+    @Override
     protected void processMotionInput(MotionGestureEvent motionGestureEvent)
         throws Exception
     {

@@ -77,7 +77,7 @@ public class TechRTSFormInput extends RTSFormInput
             = (GeographicMapCompositeInterface) allBinaryGameLayerManager;
         final BasicGeographicMap geographicMapInterface = geographicMapCompositeInterface.getGeographicMapInterface()[0];
         
-        this.noMoneyGameNotificationEvent.setBasicColor(geographicMapInterface.getForegroundBasicColor());
+        this.noMoneyGameNotificationEvent.setBasicColorP(geographicMapInterface.getForegroundBasicColor());
 
     }
      

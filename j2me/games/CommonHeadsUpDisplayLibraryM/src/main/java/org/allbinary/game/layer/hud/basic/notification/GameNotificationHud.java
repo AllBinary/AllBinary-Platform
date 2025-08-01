@@ -60,7 +60,7 @@ implements GameNotificationListenerInterface
        this.add(
                gameNotificationEvent.getString(),
                gameNotificationEvent.getSeconds(), 
-               gameNotificationEvent.getBasicColor(), 
+               gameNotificationEvent.getBasicColorP(), 
                gameNotificationEvent.getPermanent());
    }
    

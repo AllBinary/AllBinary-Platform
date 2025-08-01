@@ -66,8 +66,8 @@ public class AdjustedCircleAnimation
     @Override
    public void paint(Graphics graphics, int x, int y) {
       
-       this.basicSetColorUtil.setBasicColor(
-               graphics, this.getBasicColor(), this.getColor());
+       this.basicSetColorUtil.setBasicColorP(
+               graphics, this.getBasicColorP(), this.getColor());
       
       graphics.drawArc(x + this.xAdjustment, y + this.yAdjustment,
           width, height, 0, TOTAL_ANGLE);

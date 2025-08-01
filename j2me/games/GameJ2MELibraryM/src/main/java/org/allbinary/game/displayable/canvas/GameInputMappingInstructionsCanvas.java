@@ -29,7 +29,6 @@ import org.allbinary.logic.string.StringUtil;
 
 public class GameInputMappingInstructionsCanvas extends GameCommandCanvas
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     public static final Command DISPLAY  = new Command("Help", Command.SCREEN, 1);
     public static final Command CLOSE  = new Command("Close", Command.SCREEN, 1);
@@ -71,7 +70,8 @@ public class GameInputMappingInstructionsCanvas extends GameCommandCanvas
             ColorFillPaintableFactory.getInstance().getInstance(
                     allBinaryGameLayerManager.getBackgroundBasicColor(), false);
     }
-    
+ 
+    @Override
     public void initCommands(CommandListener cmdListener)
     {
         this.removeAllCommands();
@@ -85,6 +85,7 @@ public class GameInputMappingInstructionsCanvas extends GameCommandCanvas
     
     private final DrawStringUtil drawStringUtil = DrawStringUtil.getInstance();
     
+    @Override
     public void paint(Graphics graphics)
     {
     	//PreLogUtil.put(commonStrings.START, this, canvasStrings.PAINT);

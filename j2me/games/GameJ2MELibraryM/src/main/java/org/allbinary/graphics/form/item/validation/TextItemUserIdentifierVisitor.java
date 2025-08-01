@@ -29,6 +29,7 @@ public class TextItemUserIdentifierVisitor extends Visitor
         
     }
 
+    @Override
     public Object visit(Object object)
     {
         String value = (String) object;
@@ -86,6 +87,7 @@ public class TextItemUserIdentifierVisitor extends Visitor
     }
     
     public boolean isLetter(char charValue) {
-        return (charValue > 64 && charValue < 91) || (charValue > 96 && charValue < 123);
+        final int value = (int) charValue;
+        return (value > 64 && value < 91) || (value > 96 && value < 123);
     }
 }

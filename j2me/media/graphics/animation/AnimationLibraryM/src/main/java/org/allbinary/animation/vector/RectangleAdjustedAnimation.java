@@ -36,7 +36,7 @@ implements ColorCompositeInterface
       this.offsetX = offsetX;
       this.offsetY = offsetY;
 
-      this.setBasicColor(basicColor);
+      this.setBasicColorP(basicColor);
    }
 
    @Override
@@ -45,8 +45,8 @@ implements ColorCompositeInterface
 
    @Override
    public void paint(Graphics graphics, int x, int y) {
-       this.basicSetColorUtil.setBasicColor(
-               graphics, this.getBasicColor(), this.getColor());
+       this.basicSetColorUtil.setBasicColorP(
+               graphics, this.getBasicColorP(), this.getColor());
 
       graphics.drawRect(x + this.offsetX, y + this.offsetY, width, height);
    }

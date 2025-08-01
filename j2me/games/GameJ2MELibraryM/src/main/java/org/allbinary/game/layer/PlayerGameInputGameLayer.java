@@ -27,7 +27,6 @@ import org.allbinary.view.StaticViewPosition;
 public class PlayerGameInputGameLayer extends AllBinaryGameLayer
     implements PlayerGameInputCompositeInterface
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
     
     private PlayerGameInput playerGameInput;
    
@@ -43,21 +42,25 @@ public class PlayerGameInputGameLayer extends AllBinaryGameLayer
         final CanvasStrings canvasStrings = CanvasStrings.getInstance();
         logUtil.put("Danger Danger Danger: Should Not Be Called Except For Testing Input", this, canvasStrings.PAINT);
     }
-    
+   
+    @Override
     public PlayerGameInput getPlayerGameInput()
     {
         return this.playerGameInput;
     }
 
+    @Override
     public void initInputProcessors()
     {
     }
     
+    @Override
     public void processInput(AllBinaryLayerManager myManager) throws Exception
     {
         
     }
     
+    @Override
    public void paint(Graphics graphics)
    {
        //final CanvasStrings canvasStrings = CanvasStrings.getInstance();

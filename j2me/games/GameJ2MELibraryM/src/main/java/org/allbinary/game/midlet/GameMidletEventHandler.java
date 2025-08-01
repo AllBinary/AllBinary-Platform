@@ -31,9 +31,12 @@ public class GameMidletEventHandler extends BasicEventHandler
       return GameMidletEventHandler.gameKeyEventHandler;
    }
    
+   @Override
    protected void process(AllBinaryEventObject eventObject,
            EventListenerInterface eventListenerInterface) throws Exception {
 
-      ((GameMidletEventListener) eventListenerInterface).onGameEnd(eventObject);
+       final GameMidletEventListener gameMidletEventListener = (GameMidletEventListener) eventListenerInterface;
+       gameMidletEventListener.onGameEnd(eventObject);
+
    }   
 }

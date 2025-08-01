@@ -23,28 +23,28 @@ import org.allbinary.graphics.paint.Paintable;
 public class ColorFillBasePaintable extends Paintable 
 implements ColorCompositeInterface
 {
-    protected BasicColor basicColorP = BasicColorFactory.getInstance().WHITE;
+    protected BasicColor basicColor = BasicColorFactory.getInstance().WHITE;
     protected int colorP;
     
     public ColorFillBasePaintable(BasicColor basicColor)
     {
-       this.setBasicColor(basicColor);       
+       this.setBasicColorP(basicColor);       
     }
     
     @Override
-    public void setBasicColor(BasicColor basicColor)
+    public void setBasicColorP(BasicColor basicColor)
     {
-        this.basicColorP = basicColor;
-        this.setColor(this.getBasicColor().intValue());
+        this.basicColor = basicColor;
+        this.setColor(this.getBasicColorP().intValue());
     }
 
     /**
      * @return the basicColor
      */
     @Override
-    public BasicColor getBasicColor()
+    public BasicColor getBasicColorP()
     {
-        return basicColorP;
+        return basicColor;
     }
          
     /**

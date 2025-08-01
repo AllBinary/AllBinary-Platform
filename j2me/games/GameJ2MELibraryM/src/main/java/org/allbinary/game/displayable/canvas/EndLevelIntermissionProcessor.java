@@ -24,6 +24,7 @@ public class EndLevelIntermissionProcessor extends Processor
         this.gameCanvas = gameCanvas;
     }
     
+    @Override
     public void process() throws Exception
     {
         this.gameCanvas.processEndLevelIntermissionGameState();

@@ -26,10 +26,12 @@ public class GameCanvasPaintHelper extends ProcessPaintable
         this.gameCanvas = gameCanvas;
     }
 
+    @Override
     public void process()
     {
     }
 
+    @Override
     public void paint(Graphics graphics)
     {
         this.gameCanvas.draw(graphics);

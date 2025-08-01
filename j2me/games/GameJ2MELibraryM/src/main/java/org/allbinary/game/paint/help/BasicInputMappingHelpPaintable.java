@@ -61,7 +61,7 @@ public class BasicInputMappingHelpPaintable extends HelpPaintable
             stringMaker.delete(0, stringMaker.length());
             keyInfo[index] = stringMaker.append(gameInputMapping.getName()).append(EQUAL).append(this.get(list)).toString();
         }
-        super.setInputInfo(keyInfo);
+        super.setInputInfoP(keyInfo);
     }
     
     private String get(final BasicArrayList keyList)

@@ -48,7 +48,7 @@ implements ColorChangeListener
     {
         //logUtil.put("Color Change Event: " + basicColor.getName(), this, "onEvent");
         final ColorChangeEvent colorChangeEvent = (ColorChangeEvent) eventObject;
-        this.basicColor = colorChangeEvent.getBasicColor();
+        this.basicColor = colorChangeEvent.getBasicColorP();
     }    
 
     private int anchor = Anchor.TOP_LEFT;
@@ -63,7 +63,7 @@ implements ColorChangeListener
         int width = this.displayInfoSingleton.getLastWidth();
         int height = this.displayInfoSingleton.getLastHeight();
 
-        graphics.setColor(getBasicColor().intValue());
+        graphics.setColor(getBasicColorP().intValue());
 
         String heading = this.highScores.getHeading();
 
@@ -120,12 +120,12 @@ implements ColorChangeListener
     }
 
     @Override
-    public void setBasicColor(BasicColor basicColor)
+    public void setBasicColorP(BasicColor basicColor)
     {
         this.basicColor = basicColor;
     }
 
-    public BasicColor getBasicColor()
+    public BasicColor getBasicColorP()
     {
         return basicColor;
     }

@@ -18,6 +18,7 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.color.BasicColorSetUtil;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.FontDebugFactory;
@@ -36,7 +37,7 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
     protected AllBinaryGameCanvas gameCanvas;
     protected final String[] stringArray;
     
-    private BasicColor basicColor;
+    private BasicColor basicColor = BasicColorFactory.getInstance().BLACK;
     private int color;
 
     private final int[] lineArray;
@@ -57,7 +58,7 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
         this.gameCanvas = gameCanvas;
         this.stringArray = stringArray;
         this.lastWidth = new int[this.stringArray.length];
-        this.setBasicColor(basicColor);
+        this.setBasicColorP(basicColor);
         this.color = basicColor.intValue();
         this.lineArray = lineArray;
         
@@ -67,6 +68,7 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
      
     private int anchor = Anchor.TOP_LEFT;
     
+    @Override
     public void paint(Graphics graphics)
     {
         //logUtil.put("Intermission Processing: ", this, "draw");
@@ -77,7 +79,7 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
         
         final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         
-        basicSetColorUtil.setBasicColor(graphics, this.basicColor, this.color);
+        basicSetColorUtil.setBasicColorP(graphics, this.basicColor, this.color);
 
         int beginWidth;
         for(int index = this.stringArray.length - 1; index >= 0; index--)
@@ -100,6 +102,7 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
     
     private final String EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
     
+    @Override
     public void update()
     {
         int level = gameCanvas.getLayerManager().getGameInfo().getCurrentLevel();
@@ -111,13 +114,15 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
         }
     }
 
-    public void setBasicColor(BasicColor basicColor)
+    @Override
+    public void setBasicColorP(BasicColor basicColor)
     {
         this.basicColor = basicColor;
     }
 
-    public BasicColor getBasicColor()
+    public BasicColor getBasicColorP()
     {
         return basicColor;
     }
+
 }

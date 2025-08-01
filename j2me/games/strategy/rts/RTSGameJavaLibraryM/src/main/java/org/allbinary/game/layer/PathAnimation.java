@@ -90,30 +90,30 @@ public class PathAnimation extends Animation
 
                     for (int index = 0; index < size - 1; index++) {
                         if (index == start) {
-                            this.setBasicColor(this.startColor);
-                            this.basicSetColorUtil.setBasicColor(
-                                graphics, this.getBasicColor(), this.getColor());
+                            this.setBasicColorP(this.startColor);
+                            this.basicSetColorUtil.setBasicColorP(
+                                graphics, this.getBasicColorP(), this.getColor());
                         } /*
                     else if (index == 0)
                     {
-                        this.setBasicColor(this.middleColor);
-                        this.basicSetColorUtil.setBasicColor(
-                                graphics, this.getBasicColor(), this.getColor());
+                        this.setBasicColorP(this.middleColor);
+                        this.basicSetColorUtil.setBasicColorP(
+                                graphics, this.getBasicColorP(), this.getColor());
                     }
                     else
                     {
-                        this.setBasicColor(this.endColor);
-                        this.basicSetColorUtil.setBasicColor(
-                                graphics, this.getBasicColor(), this.getColor());
+                        this.setBasicColorP(this.endColor);
+                        this.basicSetColorUtil.setBasicColorP(
+                                graphics, this.getBasicColorP(), this.getColor());
                     }
                          */ else if (geographicMapCellHistory.isVisited(geographicMapCellPosition)) {
-                            this.setBasicColor(this.endColor);
-                            this.basicSetColorUtil.setBasicColor(
-                                graphics, this.getBasicColor(), this.getColor());
+                            this.setBasicColorP(this.endColor);
+                            this.basicSetColorUtil.setBasicColorP(
+                                graphics, this.getBasicColorP(), this.getColor());
                         } else {
-                            this.setBasicColor(this.middleColor);
-                            this.basicSetColorUtil.setBasicColor(
-                                graphics, this.getBasicColor(), this.getColor());
+                            this.setBasicColorP(this.middleColor);
+                            this.basicSetColorUtil.setBasicColorP(
+                                graphics, this.getBasicColorP(), this.getColor());
                         }
 
                         geographicMapCellPosition = (GeographicMapCellPosition) list.get(index);

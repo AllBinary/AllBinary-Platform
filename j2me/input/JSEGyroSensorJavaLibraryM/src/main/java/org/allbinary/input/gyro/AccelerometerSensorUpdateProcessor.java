@@ -31,19 +31,19 @@ public class AccelerometerSensorUpdateProcessor extends Processor
         if (Features.getInstance().isFeature(
                 sensorFeatureFactory.ORIENTATION_SENSORS))
         {
-            AccelerometerSensorFactory.getInstance().setListener(
+            AccelerometerSensorFactory.getInstance().setCompleteMotionGestureInputEventListener(
                     new SingleKeyPressGameKeyFromMotionGestureEventListener());
         }
         else if (Features.getInstance().isFeature(
                 sensorFeatureFactory.SIMULATED_ORIENTATION_SENSORS))
         {
-            AccelerometerSensorFactory.getInstance().setListener(
+            AccelerometerSensorFactory.getInstance().setCompleteMotionGestureInputEventListener(
                     new SingleKeyPressGameKeyFromMotionGestureEventListener());
         }        
         else if (Features.getInstance().isFeature(
                 sensorFeatureFactory.NO_ORIENTATION))
         {
-            AccelerometerSensorFactory.getInstance().setListener(
+            AccelerometerSensorFactory.getInstance().setCompleteMotionGestureInputEventListener(
                     NoCompleteMotionGestureInputEventListener.getInstance());
         }
         else

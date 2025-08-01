@@ -165,15 +165,15 @@ public class BuildingRTSFormInput extends RTSFormInput
             (GeographicMapCompositeInterface) allBinaryGameLayerManager;
         final BasicGeographicMap geographicMapInterface = geographicMapCompositeInterface.getGeographicMapInterface()[0];
         
-        this.buildOnPathGameNotificationEvent.setBasicColor(geographicMapInterface.getForegroundBasicColor());
-        this.spotTakenGameNotificationEvent.setBasicColor(geographicMapInterface.getForegroundBasicColor());
-        this.selectBuildSpotGameNotificationEvent.setBasicColor(geographicMapInterface.getForegroundBasicColor());
-        this.roadCollisionGameNotificationEvent.setBasicColor(geographicMapInterface.getForegroundBasicColor());
-        this.noMoneyGameNotificationEvent.setBasicColor(geographicMapInterface.getForegroundBasicColor());
-        this.buildingCollisionGameNotificationEvent.setBasicColor(geographicMapInterface.getForegroundBasicColor());
-        this.structureToCloseCollisionGameNotificationEvent.setBasicColor(geographicMapInterface.getForegroundBasicColor());
-        this.buildingGameNotificationEvent.setBasicColor(geographicMapInterface.getForegroundBasicColor());
-        this.mapEdgeGameNotificationEvent.setBasicColor(geographicMapInterface.getForegroundBasicColor());
+        this.buildOnPathGameNotificationEvent.setBasicColorP(geographicMapInterface.getForegroundBasicColor());
+        this.spotTakenGameNotificationEvent.setBasicColorP(geographicMapInterface.getForegroundBasicColor());
+        this.selectBuildSpotGameNotificationEvent.setBasicColorP(geographicMapInterface.getForegroundBasicColor());
+        this.roadCollisionGameNotificationEvent.setBasicColorP(geographicMapInterface.getForegroundBasicColor());
+        this.noMoneyGameNotificationEvent.setBasicColorP(geographicMapInterface.getForegroundBasicColor());
+        this.buildingCollisionGameNotificationEvent.setBasicColorP(geographicMapInterface.getForegroundBasicColor());
+        this.structureToCloseCollisionGameNotificationEvent.setBasicColorP(geographicMapInterface.getForegroundBasicColor());
+        this.buildingGameNotificationEvent.setBasicColorP(geographicMapInterface.getForegroundBasicColor());
+        this.mapEdgeGameNotificationEvent.setBasicColorP(geographicMapInterface.getForegroundBasicColor());
         
     }
         

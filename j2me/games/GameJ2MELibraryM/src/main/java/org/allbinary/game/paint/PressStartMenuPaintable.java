@@ -58,6 +58,7 @@ public class PressStartMenuPaintable extends Paintable
 
     private int anchor = Anchor.TOP_LEFT;
     
+    @Override
     public void paint(Graphics graphics)
     {
         if (timeDelayHelper.isTime())

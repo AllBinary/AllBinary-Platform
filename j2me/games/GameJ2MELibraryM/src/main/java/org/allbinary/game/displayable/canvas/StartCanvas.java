@@ -82,7 +82,6 @@ import org.allbinary.graphics.paint.PaintableInterface;
 import org.allbinary.graphics.paint.StatePaintable;
 import org.allbinary.graphics.paint.StatePaintableFactory;
 import org.allbinary.input.motion.gesture.observer.BasicMotionGesturesHandler;
-import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
@@ -106,7 +105,6 @@ public class StartCanvas extends RunnableCanvas
         MenuListener,
         DisplayChangeEventListener
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
     protected final Features features = Features.getInstance();
@@ -140,13 +138,13 @@ public class StartCanvas extends RunnableCanvas
     //Menu
     private BasicMenuInputProcessor menuInputProcessor =
         NoMenuInputProcessor.getInstance();
-    private ScrollSelectionForm menuForm;
+    private ScrollSelectionForm menuForm = ScrollSelectionForm.NULL_SCROLL_SELECTION_FORM;
 
     private final BasicBuildGameInitializerFactory gameInitializationInterfaceFactoryInterface;
     private boolean initialized;
     //private final DemoGameStartupRunnable demoGameRunnable;
-    private Paintable defaultPaintableInterface;
-    private PaintableInterface paintableInterface;
+    private Paintable defaultPaintableInterface = NullPaintable.getInstance();
+    private PaintableInterface paintableInterface = NullPaintable.getInstance();
     private final InitUpdatePaintable overlayPaintable;
 
     private int tempWait = NullWaitGameRunnable.getInstance().WAIT;
@@ -207,11 +205,13 @@ public class StartCanvas extends RunnableCanvas
         DisplayChangeEventHandler.getInstance().addListener(this);
     }
 
+    @Override
     public void onEvent(AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
     
+    @Override
     public void onDisplayChangeEvent(DisplayChangeEvent displayChangeEvent)
     {
         try
@@ -298,6 +298,7 @@ public class StartCanvas extends RunnableCanvas
         }
     }
 
+    @Override
     public void initCommands(CommandListener cmdListener)
     {
         this.removeAllCommands();
@@ -328,6 +329,7 @@ public class StartCanvas extends RunnableCanvas
         AllBinaryMediaManager.init(EarlySoundsFactory.getInstance());
     }
 
+    @Override
     public void itemStateChanged(Item item)
     {
         ForcedLogUtil.log(commonStrings.NOT_IMPLEMENTED, this);
@@ -375,12 +377,14 @@ public class StartCanvas extends RunnableCanvas
         this.open();
     }
     
+    @Override
     public void open()
     {
         BasicMotionGesturesHandler.getInstance().addListener(this.getMenuInputProcessor());
         GameKeyEventHandler.getInstance().addListener(this.getMenuInputProcessor());
     }
 
+    @Override
     public void close()
     {
         BasicMotionGesturesHandler.getInstance().removeListener(this.getMenuInputProcessor());
@@ -389,21 +393,25 @@ public class StartCanvas extends RunnableCanvas
     
     private static final int id = 0;
 
+    @Override
     public int getSourceId()
     {
         return id;
     }
 
+    @Override
     public void keyPressed(int keyCode)
     {
         this.keyPressed(keyCode, 0);
     }
     
+    @Override
     public void keyReleased(int keyCode)
     {
         this.keyReleased(keyCode, 0);
     }
 
+    @Override
     public void keyRepeated(int keyCode)
     {
         this.keyRepeated(keyCode, 0);
@@ -507,6 +515,7 @@ public class StartCanvas extends RunnableCanvas
         }
     }
 
+    @Override
     public synchronized void pause()
     {
         this.close();
@@ -515,6 +524,7 @@ public class StartCanvas extends RunnableCanvas
         //this.gameCanvas.pause();
     }
 
+    @Override
     public synchronized void unPause()
     {
         this.open();
@@ -523,6 +533,7 @@ public class StartCanvas extends RunnableCanvas
         //this.gameCanvas.unPause();
     }
 
+    @Override
     public boolean isPausable()
     {
         //TWB - Game is paused but UsedRunnable was set after the old runnable was called
@@ -535,12 +546,14 @@ public class StartCanvas extends RunnableCanvas
         }
     }
     
+    @Override
     public boolean isGameOver()
     {
         logUtil.put(new StringMaker().append(commonStrings.NOT_IMPLEMENTED).append(" since not a game").toString(), this, "isGameOver");
         return false;
     }
 
+    @Override
     public void setLoadStateHashtable(Hashtable hashtable) throws Exception
     {
         logUtil.put(
@@ -548,6 +561,7 @@ public class StartCanvas extends RunnableCanvas
             this, "setLoadStateHashtable");
     }
 
+    @Override
     public Hashtable getLoadStateHashtable() throws Exception
     {
         logUtil.put(
@@ -556,16 +570,19 @@ public class StartCanvas extends RunnableCanvas
         return this.nullUtil.NULL_TABLE;
     }
 
+    @Override
     public Hashtable getCurrentStateHashtable() throws Exception
     {
         logUtil.put("Trying to save the AI lol", this, "getCurrentStateHashtable");
         return this.nullUtil.NULL_TABLE;
     }
 
+    @Override
     public void setHighScoreSubmitted(boolean isNotUsed)
     {
     }
 
+    @Override
     public void paint(Graphics graphics)
     {        
         // Draw Game
@@ -587,6 +604,7 @@ public class StartCanvas extends RunnableCanvas
         this.progressPaintable.paint(graphics);
     }
 
+    @Override
     public void paintThreed(Graphics graphics)
     {
         this.paintableInterface.paintThreed(graphics);
@@ -597,6 +615,7 @@ public class StartCanvas extends RunnableCanvas
         //TWB - More 3d
     }
     
+    @Override
     public synchronized void setGameOver()
     {
         logUtil.put("Not Implemented since not a game", this, "setGameOver");
@@ -702,7 +721,7 @@ public class StartCanvas extends RunnableCanvas
 
         //this.basicColor =
             //this.gameCanvas.getLayerManager().getForegroundBasicColor();
-        //this.getRealHighScoresPaintable().setBasicColor(this.basicColor);
+        //this.getRealHighScoresPaintable().setBasicColorP(this.basicColor);
         
         //this.gameCanvas.setGameCanvasStartListener(this);
      
@@ -753,6 +772,7 @@ public class StartCanvas extends RunnableCanvas
         this.overlayPaintable.update();
     }
 
+    @Override
     public void process() throws Exception
     {
         this.getMenuInputProcessor().processInput();
@@ -762,7 +782,8 @@ public class StartCanvas extends RunnableCanvas
         if (this.state == 0)
         {
             //Don't allow the time of the animation to count towards the state time.
-            if (((IndexedAnimationBehavior) this.getSpecialAnimationInterface().getAnimationBehavior()).loopIndex < 1)
+            final IndexedAnimationBehavior indexedAnimationBehavior = (IndexedAnimationBehavior) this.getSpecialAnimationInterface().getAnimationBehavior();
+            if (indexedAnimationBehavior.loopIndex < 1)
             {
                 timeDelayHelper.setStartTime();
             }
@@ -899,6 +920,7 @@ public class StartCanvas extends RunnableCanvas
         //}
     }
     
+    @Override
     public void run()
     {
         logUtil.put(commonStrings.START_RUNNABLE, this, commonStrings.RUN);
@@ -990,6 +1012,7 @@ public class StartCanvas extends RunnableCanvas
         logUtil.put(commonStrings.END_RUNNABLE, this, commonStrings.RUN);
     }
 
+    @Override
     public void setRunning(boolean running) 
     {
         super.setRunning(running);
@@ -1035,11 +1058,13 @@ public class StartCanvas extends RunnableCanvas
         //this.stopGameDemo();
     }
     
+    @Override
     public void setGameState(GameState gameState)
     {
         
     }
     
+    @Override
     public GameState getGameState()
     {
         return GameState.PLAYING_GAME_STATE;
@@ -1060,6 +1085,7 @@ public class StartCanvas extends RunnableCanvas
         this.state = state;
     }
 
+    @Override
     public boolean isHighScoreSubmitted()
     {
         // Don't Submit AI Score Since That Is Stupidy
@@ -1148,6 +1174,7 @@ public class StartCanvas extends RunnableCanvas
     this.initialized = initialized;
     }
      */
+    @Override
     public boolean isInitialized()
     {
         return initialized;
@@ -1178,6 +1205,7 @@ public class StartCanvas extends RunnableCanvas
         return tempWait;
     }
 
+    @Override
     public boolean isSingleThread()
     {
         return OpenGLFeatureUtil.getInstance().isAnyThreed() || SWTUtil.isSWT;

@@ -29,12 +29,12 @@ public class BasicColorSetUtil
         
     }
     
-    public void setBasicColor(Graphics graphics, BasicColor basicColor)
+    public void setBasicColorP(Graphics graphics, BasicColor basicColor)
     {
         graphics.setColor(basicColor.intValue());
     }
 
-    public void setBasicColor(Graphics graphics, BasicColor basicColor, int value)
+    public void setBasicColorP(Graphics graphics, BasicColor basicColor, int value)
     {
         graphics.setColor(value);
     }

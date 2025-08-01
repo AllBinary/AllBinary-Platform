@@ -16,11 +16,14 @@ package org.allbinary.game.init;
 public class BasicBuildGameInitializerFactory
    implements GameInitializationInterfaceFactoryInterface
 {
+    public static BasicBuildGameInitializerFactory NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY = new BasicBuildGameInitializerFactory();
+
     //private static GameInitializationInterface STATIC = new BaseGameInitialization(0);
 
+    @Override
     public GameInitializationInterface getInstance()
     {
-        return null;
+        return BaseGameInitialization.NULL_BASE_GAME_INITIALIZATION;
         //return STATIC;
     }
 }

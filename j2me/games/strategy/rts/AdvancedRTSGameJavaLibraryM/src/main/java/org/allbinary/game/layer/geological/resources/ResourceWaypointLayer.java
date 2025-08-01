@@ -54,7 +54,7 @@ public class ResourceWaypointLayer
         GeologicalResourceInfoHudPaintable rtsLayerHudPaintable = 
             GeologicalResourceInfoHudPaintableSingleton.getInstance();
         
-        rtsLayerHudPaintable.setBasicColor(this.allBinaryGameLayerManager.getForegroundBasicColor());
+        rtsLayerHudPaintable.setBasicColorP(this.allBinaryGameLayerManager.getForegroundBasicColor());
         rtsLayerHudPaintable.setRtsLayer(this);
         
         return rtsLayerHudPaintable;

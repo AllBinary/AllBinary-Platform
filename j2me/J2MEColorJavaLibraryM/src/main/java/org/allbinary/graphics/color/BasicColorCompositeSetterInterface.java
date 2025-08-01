@@ -14,5 +14,5 @@
 package org.allbinary.graphics.color;
 
 public interface BasicColorCompositeSetterInterface {
-    void setBasicColor(BasicColor basicColor); //throws Exception;
+    void setBasicColorP(BasicColor basicColor); //throws Exception;
 }

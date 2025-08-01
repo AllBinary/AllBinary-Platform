@@ -20,41 +20,49 @@ implements TestInputInterface
 {
     private int testValue;
     
+    @Override
     public void up()
     {
         
     }
     
+    @Override
     public void down()
     {
         
     }
     
+    @Override
     public void left()
     {
         this.testValue++;
     }
     
+    @Override
     public void right()
     {
         this.testValue--;
     }
     
+    @Override
     public void strafeLeft()
     {
         
     }
     
+    @Override
     public void strafeRight()
     {
         
     }
     
+    @Override
     public void paint(Graphics graphics)
     {
         
     }
     
+    @Override
     public void paintThreed(Graphics graphics)
     {
     }    

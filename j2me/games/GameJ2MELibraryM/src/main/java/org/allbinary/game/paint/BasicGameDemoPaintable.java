@@ -33,7 +33,7 @@ public class BasicGameDemoPaintable
     private final Paintable ownershipPaintable;
     private final Paintable helpPaintableInterface;
     
-    private Paintable currentStatePaintable;
+    private Paintable currentStatePaintable = NullPaintable.getInstance();
 
     public BasicGameDemoPaintable(
             Paintable mainDemoStatePaintable, Paintable ownershipPaintable, Paintable helpPaintableInterface)
@@ -44,7 +44,8 @@ public class BasicGameDemoPaintable
         this.ownershipPaintable = ownershipPaintable;
         this.helpPaintableInterface = helpPaintableInterface;
     }
-    
+ 
+    @Override
     public void setState(int state)
     {
         if (state == 0)
@@ -66,6 +67,7 @@ public class BasicGameDemoPaintable
         //logUtil.put("Paintable is now: ").append(this.currentStatePaintable, this, "setState");
     }
 
+    @Override
     public void paint(Graphics graphics)
     {
         this.getCurrentStatePaintable().paint(graphics);

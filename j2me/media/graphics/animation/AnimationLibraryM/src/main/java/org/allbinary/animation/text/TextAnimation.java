@@ -52,8 +52,8 @@ public class TextAnimation extends IndexedAnimation
     @Override
     public void paint(Graphics graphics, int x, int y)
     {
-        this.basicSetColorUtil.setBasicColor(
-                graphics, this.getBasicColor(), this.getColor());
+        this.basicSetColorUtil.setBasicColorP(
+                graphics, this.getBasicColorP(), this.getColor());
 
         final int height = this.getHeight();
         final int size = textArray.length;

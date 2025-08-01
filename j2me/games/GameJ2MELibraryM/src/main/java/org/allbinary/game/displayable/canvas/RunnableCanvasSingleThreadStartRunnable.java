@@ -29,6 +29,7 @@ extends GameRunnable
         this.runnableCanvas = demoCanvas;
     }
 
+    @Override
     public void run()
     {
         try
@@ -42,6 +43,7 @@ extends GameRunnable
         }
     }
     
+    @Override
     public void processLoopSleep()
     throws Exception
     {

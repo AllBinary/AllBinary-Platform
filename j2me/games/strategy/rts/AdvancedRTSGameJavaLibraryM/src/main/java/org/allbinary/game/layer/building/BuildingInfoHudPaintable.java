@@ -69,7 +69,7 @@ public class BuildingInfoHudPaintable extends SelectionHudPaintable
             basicHudFactory.ABSOLUTE, 
             basicHudFactory.HORIZONTAL,
             this.textX, y + ((index + 1) * DEFAULT_CHAR_HEIGHT),
-            0, this.getBasicColor());
+            0, this.getBasicColorP());
         index++;
 
         this.efficiencyHud = new NumberStringHud(
@@ -77,7 +77,7 @@ public class BuildingInfoHudPaintable extends SelectionHudPaintable
             basicHudFactory.ABSOLUTE, 
             basicHudFactory.HORIZONTAL,
             this.textX, y + ((index + 1) * DEFAULT_CHAR_HEIGHT),
-            0, this.getBasicColor());
+            0, this.getBasicColorP());
         index++;
 
         int totalLength = HEALTH.length() + 1;
@@ -86,14 +86,14 @@ public class BuildingInfoHudPaintable extends SelectionHudPaintable
             basicHudFactory.ABSOLUTE, 
             basicHudFactory.HORIZONTAL,
             this.textX, y + ((index + 1) * DEFAULT_CHAR_HEIGHT),
-            0, this.getBasicColor());
+            0, this.getBasicColorP());
 
         this.maxHealthHud = new NumberStringHud(
             "/ ", 99999, 
             basicHudFactory.ABSOLUTE, 
             basicHudFactory.HORIZONTAL,
             this.textX + (totalLength * DEFAULT_CHAR_HEIGHT), y + ((index + 1) * DEFAULT_CHAR_HEIGHT),
-            0, this.getBasicColor());
+            0, this.getBasicColorP());
         }
         catch(Exception e)
         {
@@ -102,13 +102,13 @@ public class BuildingInfoHudPaintable extends SelectionHudPaintable
         }
     }
 
-    public void setBasicColor(BasicColor basicColor)
+    public void setBasicColorP(BasicColor basicColor)
     {
-        super.setBasicColor(basicColor);
-        this.productivityHud.setBasicColor(basicColor);
-        this.efficiencyHud.setBasicColor(basicColor);
-        this.healthHud.setBasicColor(basicColor);
-        this.maxHealthHud.setBasicColor(basicColor);
+        super.setBasicColorP(basicColor);
+        this.productivityHud.setBasicColorP(basicColor);
+        this.efficiencyHud.setBasicColorP(basicColor);
+        this.healthHud.setBasicColorP(basicColor);
+        this.maxHealthHud.setBasicColorP(basicColor);
     }
     
     public void paint(Graphics graphics)

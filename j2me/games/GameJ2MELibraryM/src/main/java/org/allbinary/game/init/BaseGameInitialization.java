@@ -34,6 +34,8 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 
 public class BaseGameInitialization implements GameInitializationInterface
 {
+    public static final BaseGameInitialization NULL_BASE_GAME_INITIALIZATION = new BaseGameInitialization(new ResourceInitialization[0], 0);
+
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final ResourceInitialization[] resourceInitializationArray;
@@ -69,6 +71,7 @@ public class BaseGameInitialization implements GameInitializationInterface
         }
     }
 
+    @Override
     public void init(final AbeClientInformationInterface abeClientInformation, final CommandListener commandListener, final int level) 
         throws Exception
     {        

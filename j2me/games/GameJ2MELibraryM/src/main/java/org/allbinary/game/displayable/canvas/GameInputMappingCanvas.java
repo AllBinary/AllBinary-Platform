@@ -40,7 +40,6 @@ import org.allbinary.util.BasicArrayList;
 public class GameInputMappingCanvas extends GameCommandCanvas
 implements InputMappingInterface
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
    
     private final ProcessPaintable paintable;
 
@@ -102,6 +101,7 @@ implements InputMappingInterface
                     allBinaryGameLayerManager.getBackgroundBasicColor(), false);
     }
 
+    @Override
     public void close() throws Exception
     {
         super.close();
@@ -119,6 +119,7 @@ implements InputMappingInterface
         this.update();
     }
     
+    @Override
     public void initCommands(CommandListener cmdListener)
     {
         this.removeAllCommands();
@@ -130,21 +131,25 @@ implements InputMappingInterface
         this.setCommandListener(cmdListener);
     }
 
+    @Override
     public void keyPressed(int keyCode)
     {
         this.keyPressed(keyCode, 0);
     }
     
+    @Override
     public void keyReleased(int keyCode)
     {
         this.keyReleased(keyCode, 0);
     }
 
+    @Override
     public void keyRepeated(int keyCode)
     {
         this.keyRepeated(keyCode, 0);
     }
     
+    @Override
     public void keyPressed(int keyCode, int deviceId)
     {
         // logUtil.put(commonStrings.START, this, gameInputStrings.KEY_PRESSED);        
@@ -174,6 +179,7 @@ implements InputMappingInterface
         }
     }
     
+    @Override
     public void process(final GameKey gameKey, final Input input) throws Exception
     {
         final StringMaker stringBuffer = new StringMaker();
@@ -318,6 +324,7 @@ implements InputMappingInterface
         this.repaintBehavior.onChangeRepaint(this);
     }
     
+    @Override
     public void update() throws Exception
     {
         inputMapping.update(abeClientInformation);
@@ -326,6 +333,7 @@ implements InputMappingInterface
         this.repaintBehavior.onChangeRepaint(this);
     }
 
+    @Override
     public void paint(Graphics graphics)
     {
         this.colorFillPaintable.paint(graphics);

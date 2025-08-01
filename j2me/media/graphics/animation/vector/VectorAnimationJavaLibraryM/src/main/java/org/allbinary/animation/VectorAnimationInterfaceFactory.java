@@ -29,19 +29,19 @@ public class VectorAnimationInterfaceFactory
         
 	public VectorAnimationInterfaceFactory(final int[][][] currentPoints, final BasicColor basicColor, final AnimationBehaviorFactory animationBehaviorFactory) {
 		this.currentPoints = currentPoints;
-		this.setBasicColor(basicColor);
+		this.setBasicColorP(basicColor);
                 this.animationBehaviorFactory = animationBehaviorFactory;
 	}
 
 	public Animation getInstance(final int instanceId) throws Exception {
-		return new VectorAnimation(this.currentPoints, this.getBasicColor(), this.animationBehaviorFactory.getOrCreateInstance());
+		return new VectorAnimation(this.currentPoints, this.getBasicColorP(), this.animationBehaviorFactory.getOrCreateInstance());
 	}
 
-	protected void setBasicColor(BasicColor basicColor) {
+	protected void setBasicColorP(BasicColor basicColor) {
 		this.basicColor = basicColor;
 	}
 
-	protected BasicColor getBasicColor() {
+	protected BasicColor getBasicColorP() {
 		return basicColor;
 	}
 

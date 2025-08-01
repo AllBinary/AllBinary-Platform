@@ -25,7 +25,8 @@ public class GameCanvasNonBotPaintable extends Paintable
     {
         this.gameCanvas = gameCanvas;
     }
-    
+
+    @Override    
     public void paint(Graphics graphics)
     {
         this.gameCanvas.nonBotPaint(graphics);

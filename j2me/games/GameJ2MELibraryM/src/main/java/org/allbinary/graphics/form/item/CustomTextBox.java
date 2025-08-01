@@ -19,26 +19,17 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.J2MEUtil;
 import org.allbinary.game.displayable.canvas.GameCommandCanvas;
-import org.allbinary.game.input.GameInputStrings;
 import org.allbinary.game.input.Input;
 import org.allbinary.game.input.InputFactory;
 import org.allbinary.game.input.PlatformKeyFactory;
 import org.allbinary.graphics.color.BasicColor;
-import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.form.item.validation.TextItemVisitor;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonSeps;
 
 public class CustomTextBox extends GameCommandCanvas
-{
-    protected final LogUtil logUtil = LogUtil.getInstance();
-
-    private final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
-    private final DisplayInfoSingleton displayInfoSingleton = 
-            DisplayInfoSingleton.getInstance();
-    
+{    
     private final TextFieldItem textFieldItem;
     
     public CustomTextBox(final CommandListener cmdListener, final String label, final String text, 
@@ -85,21 +76,25 @@ public class CustomTextBox extends GameCommandCanvas
         this.keyPressed(keyCode, deviceId);
     }
     
+    @Override
     public void keyPressed(final int keyCode)
     {
         this.keyPressed(keyCode, 0);
     }
     
+    @Override
     public void keyReleased(final int keyCode)
     {
         this.keyReleased(keyCode, 0);
     }
 
+    @Override
     public void keyRepeated(final int keyCode)
     {
         this.keyRepeated(keyCode, 0);
     }
     
+    @Override
     public void keyPressed(final int keyCode, final int deviceId)
     {
         try {
@@ -127,11 +122,13 @@ public class CustomTextBox extends GameCommandCanvas
         }
     }
 
+    @Override
     public void keyReleased(final int keyCode, final int deviceId)
     {
         // logUtil.put(commonStrings.START, this, gameInputStrings.KEY_RELEASED);
     }
 
+    @Override
     public void paint(final Graphics graphics)
     {
         graphics.setColor(this.backgroundColor);

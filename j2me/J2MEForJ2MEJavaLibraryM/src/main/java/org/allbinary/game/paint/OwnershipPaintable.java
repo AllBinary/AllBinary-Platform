@@ -80,13 +80,13 @@ public class OwnershipPaintable extends Paintable
     }
 
     @Override
-    public void setBasicColor(BasicColor basicColor)
+    public void setBasicColorP(BasicColor basicColor)
     {
         this.basicColor = basicColor;
         color = basicColor.intValue();
     }
 
-    public BasicColor getBasicColor()
+    public BasicColor getBasicColorP()
     {
         return basicColor;
     }

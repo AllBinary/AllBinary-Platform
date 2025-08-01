@@ -34,7 +34,6 @@ public class HighScoreUtil implements HighScoresResultsListener
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-
     private final CommonStrings commonStrings = CommonStrings.getInstance();
 
     public static final Command SUBMIT_TEXTBOX_COMMAND = 
@@ -62,6 +61,7 @@ public class HighScoreUtil implements HighScoresResultsListener
         this.gameInfo = gameInfo;
     }
 
+    @Override
     public void setHighScoresArray(final HighScores[] highScoresArray) {
         this.highScoresArray = highScoresArray;
         firstTime = false;

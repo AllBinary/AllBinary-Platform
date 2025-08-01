@@ -24,13 +24,14 @@ public class EndGameProcessor extends Processor
 
     private AllBinaryGameCanvas gameCanvas;
 
-    private final int WAIT = 5000;
+    private final long WAIT = 5000;
 
     public EndGameProcessor(AllBinaryGameCanvas gameCanvas)
     {
         this.gameCanvas = gameCanvas;
     }
     
+    @Override
     public void process() throws Exception
     {
         // Only Show End of game for people

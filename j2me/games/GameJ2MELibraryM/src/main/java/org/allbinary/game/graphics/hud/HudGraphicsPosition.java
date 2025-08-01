@@ -14,11 +14,14 @@
 package org.allbinary.game.graphics.hud;
 
 import org.allbinary.graphics.GPoint;
+import org.allbinary.graphics.PointFactory;
 
 public class HudGraphicsPosition
 {
+    public static final HudGraphicsPosition NULL_HUD_GRAPHICS_POSITION = new HudGraphicsPosition(PointFactory.getInstance().ZERO_ZERO, 9);
+    
     private int anchor;
-    private GPoint point;
+    private GPoint point = PointFactory.getInstance().ZERO_ZERO;
     
     public HudGraphicsPosition(GPoint point, int anchor)
     {

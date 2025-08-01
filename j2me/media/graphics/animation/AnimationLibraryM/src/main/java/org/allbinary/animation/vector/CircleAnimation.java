@@ -32,7 +32,7 @@ public class CircleAnimation extends Animation implements ColorCompositeInterfac
         this.width = widthAndHeight;
         this.height = widthAndHeight;
 
-        this.setBasicColor(basicColor);
+        this.setBasicColorP(basicColor);
     }
 
     public CircleAnimation(int width, int height, BasicColor basicColor)
@@ -40,7 +40,7 @@ public class CircleAnimation extends Animation implements ColorCompositeInterfac
         this.width = width;
         this.height = height;
 
-        this.setBasicColor(basicColor);
+        this.setBasicColorP(basicColor);
     }
 
     @Override
@@ -51,8 +51,8 @@ public class CircleAnimation extends Animation implements ColorCompositeInterfac
     @Override
     public void paint(Graphics graphics, int x, int y)
     {
-        this.basicSetColorUtil.setBasicColor(
-                graphics, this.getBasicColor(), this.getColor());
+        this.basicSetColorUtil.setBasicColorP(
+                graphics, this.getBasicColorP(), this.getColor());
 
         graphics.drawArc(x, y, width, height, 0, TOTAL_ANGLE);
     }

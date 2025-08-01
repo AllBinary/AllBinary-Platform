@@ -30,16 +30,6 @@ import org.allbinary.util.BasicArrayList;
 public class LoadGameForm extends CommandForm
 {
 
-    /*
-     * private static LoadGameForm FORM;
-     * 
-     * public static LoadGameForm getInstance( CommandListener commandListener,
-     * String title) throws Exception { FORM = new LoadGameForm(commandListener,
-     * title); return FORM; }
-     * 
-     * public static LoadGameForm getInstance() { return FORM; }
-     */
-
     private boolean areChoices;
     
     public LoadGameForm(CommandListener commandListener, String title,

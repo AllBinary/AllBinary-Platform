@@ -18,10 +18,11 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.Rectangle;
+import org.allbinary.graphics.RectangleFactory;
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.form.item.CustomItem;
 import org.allbinary.graphics.form.item.CustomItemInterface;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.math.RectangleCollisionUtil;
@@ -30,7 +31,10 @@ import org.allbinary.string.CommonSeps;
 
 public class ScrollSelectionForm extends PaintableForm
 {
-
+    public static final ScrollSelectionForm NULL_SCROLL_SELECTION_FORM = new ScrollSelectionForm(
+            StringUtil.getInstance().EMPTY_STRING, new CustomItem[0], RectangleFactory.SINGLETON, FormTypeFactory.getInstance().NULL_FORM_TYPE, 0,
+            BasicColorFactory.getInstance().BLACK, BasicColorFactory.getInstance().WHITE);
+        
     private final RectangleCollisionUtil rectangleCollisionUtil = RectangleCollisionUtil.getInstance();
     
     protected final int border;
