@@ -25,17 +25,19 @@ public class PointsUtil
         return instance;
     }
     
-    public int[][][] adjust(int[][][] points, int x, int y)
+    public int[][][] adjust(final int[][][] points, final int x, final int y)
     {
         // StringMaker stringBuffer = new StringMaker();
-        int[][][] newPoints = new int[points.length][0][0];
+        final int size = points.length;
+        final int[][][] newPoints = new int[size][0][0];
         // Frame
-        for (int index = 0; index < points.length; index++)
+        for (int index = 0; index < size; index++)
         {
-            newPoints[index] = new int[points[index].length][2];
+            final int size2 = points[index].length;
+            newPoints[index] = new int[size2][2];
 
             // Point
-            for (int index2 = 0; index2 < points[index].length; index2++)
+            for (int index2 = 0; index2 < size2; index2++)
             {
                 if (points[index][index2][0] != 1000)
                 {

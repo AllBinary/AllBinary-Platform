@@ -36,15 +36,22 @@ public class BasicCryptUtil
     private final String XML_START = "<?xml";
 
     public InputStream getDecryptedInputStream(
-            InputStream in, CryptInterface cryptInterface)
+            InputStream inputStream, CryptInterface cryptInterface)
             throws Exception
     {
         ByteArrayOutputStream buffer = new ByteArrayOutputStream();
         int ch;
 
-        while ((ch = in.read()) != -1)
+        //while ((ch = inputStream.read()) != -1)
+        while (true)
         {
-            buffer.write((byte) ch);
+            ch = inputStream.read();
+            if(ch == -1) {
+                break;
+            }
+
+            //buffer.write((byte) ch);
+            buffer.write(ch);
         }
 
         //TWB - debug output

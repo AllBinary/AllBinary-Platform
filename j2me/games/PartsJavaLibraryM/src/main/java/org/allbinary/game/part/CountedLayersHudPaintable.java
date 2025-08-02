@@ -52,6 +52,7 @@ public class CountedLayersHudPaintable implements PaintableInterface
       this.dropSize = dropSize;
    }
    
+   @Override
    public void paint(Graphics graphics)
    {
       int height = myFont.DEFAULT_CHAR_HEIGHT;
@@ -111,6 +112,7 @@ public class CountedLayersHudPaintable implements PaintableInterface
       }
    }
    
+   @Override
    public void paintThreed(Graphics graphics)
    {
    }

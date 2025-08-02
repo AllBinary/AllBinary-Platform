@@ -24,11 +24,13 @@ public class DestroyableBaseBehavior implements DestroyableInterface
         return instance;
     }
 
+    @Override
     public String getName()
     {
         return this.getClass().getName();
     }
     
+    @Override
     public boolean isDestroyed() throws Exception
     {
         throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);

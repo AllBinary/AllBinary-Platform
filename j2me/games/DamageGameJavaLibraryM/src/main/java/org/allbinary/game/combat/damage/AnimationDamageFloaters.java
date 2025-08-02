@@ -64,6 +64,7 @@ public class AnimationDamageFloaters extends DamageFloaters
     }
     */
 
+    @Override
     public void add(int damage)
     {
         int i = this.circularIndexUtil.getIndex();
@@ -73,6 +74,7 @@ public class AnimationDamageFloaters extends DamageFloaters
         this.circularIndexUtil.next();
     }
 
+    @Override
     public void paint(Graphics graphics)
     {
         try

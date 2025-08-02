@@ -16,26 +16,30 @@ package org.allbinary.game.layer.pickup;
 import org.allbinary.game.health.HealthInterfaceCompositeInterface;
 import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
 import org.allbinary.game.part.CountedLayerInterfaceFactoryPart;
+import org.allbinary.game.part.PartInterface;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.string.CommonStrings;
 
 public class PickupBehavior implements PickupBehaviorInterface
 {
+    public static final PickupBehavior NULL_PICKUP_BEHAVIOR = new PickupBehavior(CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER, 0);
+    
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final int countedIndex;
     
     private final CollidableDestroyableDamageableLayer ownerLayerInterface;
 
-    public PickupBehavior(CollidableDestroyableDamageableLayer ownerLayerInterface, int countedIndex)
+    public PickupBehavior(final CollidableDestroyableDamageableLayer ownerLayerInterface, final int countedIndex)
     {
         this.ownerLayerInterface = ownerLayerInterface;
         
         this.countedIndex = countedIndex;
     }
     
-    public void doPickup(PickupProcessorInterface pickupProcessorInterface)
+    @Override
+    public void doPickup(final PickupProcessorInterface pickupProcessorInterface)
     {
         try
         {
@@ -59,6 +63,7 @@ public class PickupBehavior implements PickupBehaviorInterface
         }
     }
     
+    @Override
     public void doPickup(PickedUpLayerInterface pickupLayerInterface)
     {
         try
@@ -117,7 +122,8 @@ public class PickupBehavior implements PickupBehaviorInterface
     public CountedLayerInterfaceFactoryPart getFirstAvailableCountedLayerInterfaceFactory(
             PickedUpLayerType[] pickedUpLayerTypeArray)
     {
-        int size = this.ownerLayerInterface.getPartInterfaceArray().length;
+        final PartInterface[] partInterfaceArray = this.ownerLayerInterface.getPartInterfaceArray();
+        final int size = partInterfaceArray.length;
         CountedLayerInterfaceFactoryPart nextCountedLayerInterfaceFactory;
         CountedPickedUpLayerInterfaceFactory countedPickedUpLayerInterfaceFactory;
 
@@ -148,14 +154,16 @@ public class PickupBehavior implements PickupBehaviorInterface
                 }
             }
         }
-        return null;
+        return CountedLayerInterfaceFactoryPart.NULL_COUNTED_LAYER_INTERFACE_FACTORY;
     }
 
     public CountedLayerInterfaceFactoryPart getCountedLayerInterfaceFactoryForSlot(
             int slotIndex) throws Exception
     {
         int currentSlot = 0;
-        int size = this.ownerLayerInterface.getPartInterfaceArray().length;
+
+        final PartInterface[] partInterfaceArray = this.ownerLayerInterface.getPartInterfaceArray();
+        final int size = partInterfaceArray.length;
 
         CountedLayerInterfaceFactoryPart nextCountedLayerInterfaceFactory;
 
@@ -176,7 +184,7 @@ public class PickupBehavior implements PickupBehaviorInterface
                 }
             }
         }
-        return null;
+        return CountedLayerInterfaceFactoryPart.NULL_COUNTED_LAYER_INTERFACE_FACTORY;
     }
 
     public int getCountedIndex()

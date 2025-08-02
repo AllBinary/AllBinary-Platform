@@ -24,6 +24,7 @@ extends SpecialGameInputProcessor
         super(collidableDestroyableDamageableLayer);
     }
 
+    @Override
     public void process(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent, 
     		int xAnalogValue) 
     throws Exception

@@ -13,8 +13,12 @@
 */
 package org.allbinary.game.multiplayer.layer;
 
+import org.allbinary.logic.string.StringUtil;
+
 public class MultiplayerBehavior
 {
+    public static final MultiplayerBehavior NULL_MULTIPLAYER_BEHAVIOR = new MultiplayerBehavior(StringUtil.getInstance().EMPTY_STRING);
+
     protected MultiplayerBehavior(String username)
     {
     }

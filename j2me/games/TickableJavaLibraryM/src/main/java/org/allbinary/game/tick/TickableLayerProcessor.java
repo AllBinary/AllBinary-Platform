@@ -24,6 +24,7 @@ public class TickableLayerProcessor extends LayerProcessor
         super(new TickableLayerManager());
     }
 
+    @Override
     public void process(AllBinaryLayerManager allBinaryLayerManager,
             AllBinaryLayer layerInterface, int index) throws Exception
     {
@@ -32,6 +33,7 @@ public class TickableLayerProcessor extends LayerProcessor
         tickableInterface.processTick(allBinaryLayerManager);
     }
 
+    @Override
     public boolean isProcessorLayer(AllBinaryLayer layerInterface)
     {
         if (layerInterface.implmentsTickableInterface())

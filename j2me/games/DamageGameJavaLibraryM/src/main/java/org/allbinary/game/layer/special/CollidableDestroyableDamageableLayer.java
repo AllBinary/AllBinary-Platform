@@ -19,8 +19,8 @@ import javax.microedition.lcdui.Graphics;
 import org.allbinary.game.combat.damage.DamageableInterface;
 import org.allbinary.game.combat.destroy.DestroyableInterface;
 import org.allbinary.game.combat.destroy.event.DestroyedEvent;
+import org.allbinary.game.identification.BasicGroupFactory;
 import org.allbinary.game.identification.Group;
-import org.allbinary.game.identification.GroupInterface;
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.layer.CollidableCompositeLayer;
@@ -28,7 +28,9 @@ import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
 import org.allbinary.game.layer.pickup.PickupBehavior;
 import org.allbinary.game.layer.pickup.PickupCompositeInterface;
 import org.allbinary.game.part.PartInterface;
+import org.allbinary.game.part.PartInterfaceUtil;
 import org.allbinary.graphics.Rectangle;
+import org.allbinary.graphics.RectangleFactory;
 import org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.logic.string.StringMaker;
@@ -53,8 +55,10 @@ implements DestroyableInterface, DamageableInterface,
 PickupCompositeInterface, SpecialGameInputInterface,
 OpenGLSurfaceChangedInterface
 {
+    public static final CollidableDestroyableDamageableLayer NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER = new CollidableDestroyableDamageableLayer(
+    BasicGroupFactory.getInstance().NONE_ARRAY, RectangleFactory.SINGLETON, ViewPosition.NULL_VIEW_POSITION);
+        
     //protected final LogUtil logUtil = LogUtil.getInstance();
-
 
     private Group[] groupInterface;
     private boolean readyForExplosion;
@@ -65,10 +69,10 @@ OpenGLSurfaceChangedInterface
     private int initY;
     private int initZ;
 
-    protected PartInterface[] partInterfaceArray;
-    private PickupBehavior pickupBehavior;
+    protected PartInterface[] partInterfaceArrayP = PartInterfaceUtil.getZeroArray();
+    private PickupBehavior pickupBehavior = PickupBehavior.NULL_PICKUP_BEHAVIOR;
  
-    public AllBinaryGameLayerManager allBinaryGameLayerManager;
+    public AllBinaryGameLayerManager allBinaryGameLayerManagerP = AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER;
     
     public CollidableDestroyableDamageableLayer(
             final Group[] groupInterface, final Rectangle layerInfo, final ViewPosition viewPosition)
@@ -105,22 +109,26 @@ OpenGLSurfaceChangedInterface
     }
     
     //Should be overridden
+    @Override
     public void paint(final Graphics graphics)
     {
         //logUtil.put(commonStrings.NOT_IMPLEMENTED, this, canvasStrings.PAINT);
         super.paint(graphics);
     }
 
+    @Override
     public void damage(final int damage, final int damageType) throws Exception
     {
         throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
 
+    @Override
     public int getDamage(final int damageType) throws Exception
     {
         throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
 
+    @Override
     public boolean isDestroyed() throws Exception
     {
         throw new Exception(commonStrings.NOT_IMPLEMENTED);
@@ -134,6 +142,7 @@ OpenGLSurfaceChangedInterface
     }
     */
     
+    @Override
     public Group[] getGroupInterface()
     {
         return groupInterface;
@@ -145,9 +154,9 @@ OpenGLSurfaceChangedInterface
     }
 
     public void setAllBinaryGameLayerManager(final AllBinaryGameLayerManager allBinaryGameLayerManager) throws Exception {
-        this.allBinaryGameLayerManager = allBinaryGameLayerManager;
+        this.allBinaryGameLayerManagerP = allBinaryGameLayerManager;
         //logUtil.put(new StringMaker().append(commonStrings.START).append(this.getName()).append(CommonSeps.getInstance().SPACE).append(allBinaryGameLayerManager).toString(), this, commonStrings.PROCESS);
-        if (this.allBinaryGameLayerManager == null) {
+        if (this.allBinaryGameLayerManagerP == null) {
             throw new RuntimeException();
         }
     }
@@ -182,60 +191,72 @@ OpenGLSurfaceChangedInterface
         return initY;
     }
     
+    @Override
     public void up()
     throws Exception
     {
         
     }
     
+    @Override
     public void down()
     throws Exception
     {
     }
 
+    @Override
     public void right()
     throws Exception
     {
     }
-
+    
+    @Override
     public void left()
     throws Exception
     {
     }
 
+    @Override
     public void strafeLeft() throws Exception
     {
     }
 
+    @Override
     public void strafeRight() throws Exception
     {
     }
     
+    @Override
     public void fire(final AllBinaryLayerManager layerManager, final GameKeyEvent gameKeyEvent)
     throws Exception
     {
     }
 
+    @Override
     public void special1(final AllBinaryLayerManager layerManager, final GameKeyEvent gameKeyEvent)
     throws Exception
     {
     }    
 
+    @Override
     public void special2(final AllBinaryLayerManager layerManager, final GameKeyEvent gameKeyEvent)
     throws Exception
     {
     }
 
+    @Override
     public void special3(final AllBinaryLayerManager layerManager, final GameKeyEvent gameKeyEvent)
     throws Exception
     {
     }
 
+    @Override
     public void special4(final AllBinaryLayerManager layerManager, final GameKeyEvent gameKeyEvent)
     throws Exception
     {
     }
 
+    @Override
     public void special5(final AllBinaryLayerManager layerManager, final GameKeyEvent gameKeyEvent)
     throws Exception
     {
@@ -283,11 +304,13 @@ OpenGLSurfaceChangedInterface
     {
     }
 
+    @Override
     public PickupBehavior getPickupBehavior()
     {
         return pickupBehavior;
     }
 
+    @Override
     public void setPickupBehavior(final PickupBehavior pickupBehavior)
     {
         this.pickupBehavior = pickupBehavior;
@@ -302,14 +325,15 @@ OpenGLSurfaceChangedInterface
 
     public void setPartInterfaceArray(final PartInterface[] partInterfaceArray)
     {
-        this.partInterfaceArray = partInterfaceArray;
+        this.partInterfaceArrayP = partInterfaceArray;
     }
 
     public PartInterface[] getPartInterfaceArray()
     {
-        return partInterfaceArray;
+        return partInterfaceArrayP;
     }
     
+    @Override
     public void set(final GL gl) throws Exception
     {
         //OpenGLSurfaceChangedInterface
@@ -320,6 +344,7 @@ OpenGLSurfaceChangedInterface
     
     private static final String READYFOREXPLOSION = "ReadyForExplosion: ";
     
+    @Override
     public void toString(final StringMaker stringBuffer)
     {
         final CommonSeps commonSeps = CommonSeps.getInstance();
@@ -328,17 +353,18 @@ OpenGLSurfaceChangedInterface
         
         super.toString(stringBuffer);
         stringBuffer.append(commonSeps.NEW_LINE);
-        final GroupInterface[] groupInterfaceArray = this.getGroupInterface();
+        final Group[] groupInterfaceArray = this.getGroupInterface();
         final int size = groupInterfaceArray.length;
         for(int index = 0; index < size; index++) {
             stringBuffer.append(groupInterfaceArray[index].toString());
             stringBuffer.append(commonSeps.COMMA);
         }
         
-        if (this.getPickupBehavior() != null)
+        final PickupBehavior pickupBehavior = this.getPickupBehavior();
+        if (pickupBehavior != null)
         {
             stringBuffer.append(commonSeps.NEW_LINE);
-            stringBuffer.append(this.getPickupBehavior().toString());
+            stringBuffer.append(pickupBehavior.toString());
         }
 
         /*

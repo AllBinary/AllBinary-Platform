@@ -37,7 +37,7 @@ public class PtsDamageFloaters extends DamageFloaters
     //private String[] lastDamageString = {
       //      StringUtil.getInstance(), StringUtil.getInstance(), StringUtil.getInstance(), 
         //    StringUtil.getInstance(), StringUtil.getInstance() };
-    private char[][] lastDamageString = new char[5][];
+    private char[][] lastDamageString = new char[5][0];
     private int[] lastDamageStringSizeArray = new int[5];
     
     private CircularIndexUtil circularIndexUtil = 
@@ -77,6 +77,7 @@ public class PtsDamageFloaters extends DamageFloaters
 
     }
 
+    @Override
     public void add(int damage)
     {
         int index = this.circularIndexUtil.getIndex();
@@ -94,6 +95,7 @@ public class PtsDamageFloaters extends DamageFloaters
 
     private final MyRandomFactory myRandomFactory = MyRandomFactory.getInstance();
     
+    @Override
     public void paint(Graphics graphics)
     {
         ViewPosition viewPosition = this.layerInterface.getViewPosition();

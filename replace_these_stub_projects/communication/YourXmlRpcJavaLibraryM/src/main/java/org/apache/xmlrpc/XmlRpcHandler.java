@@ -4,6 +4,6 @@ import java.util.Vector;
 
 public interface XmlRpcHandler
 {
-    public Object execute (String method, Vector params)
+    public Object execute (String method, Vector<Object> params)
             throws Exception;
 }

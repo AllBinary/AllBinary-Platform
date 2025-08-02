@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.layer.pickup;
 
+import org.allbinary.logic.string.StringUtil;
+
 public class PickedUpLayerTypeFactory
 {
     private static final PickedUpLayerTypeFactory instance = 
@@ -23,6 +25,7 @@ public class PickedUpLayerTypeFactory
         return instance;
     }
 
+    public PickedUpLayerType NONE = new PickedUpLayerType(StringUtil.getInstance().NULL_STRING);
     public PickedUpLayerType BEAM = new PickedUpLayerType("BEAM");
     public PickedUpLayerType MINE = new PickedUpLayerType("MINE");
     public PickedUpLayerType PROJECTILE = new PickedUpLayerType("PROJECTILE");

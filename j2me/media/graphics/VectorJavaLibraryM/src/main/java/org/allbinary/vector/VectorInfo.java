@@ -22,10 +22,10 @@ public class VectorInfo
    
    public VectorInfo(int width, int height, int[][] points, int totalFrames)
    {
-      this.setWidth(width);
-      this.setHeight(height);
-      this.setPoints(points);
-      this.setTotalFrames(totalFrames);
+       this.width = width;
+       this.height = height;
+       this.points = points;
+       this.totalFrames = totalFrames;
    }
 
    public int getWidth()

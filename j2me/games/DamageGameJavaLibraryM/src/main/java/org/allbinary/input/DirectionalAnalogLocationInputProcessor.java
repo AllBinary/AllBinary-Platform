@@ -35,13 +35,13 @@ public class DirectionalAnalogLocationInputProcessor
 
     private final GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
 
-    private GameKeyEvent leftGameKeyEvent;
-    private GameKeyEvent rightGameKeyEvent;
-    private GameKeyEvent upGameKeyEvent;
-    private GameKeyEvent downGameKeyEvent;
+    private GameKeyEvent leftGameKeyEvent = GameKeyEvent.NONE;
+    private GameKeyEvent rightGameKeyEvent = GameKeyEvent.NONE;
+    private GameKeyEvent upGameKeyEvent = GameKeyEvent.NONE;
+    private GameKeyEvent downGameKeyEvent = GameKeyEvent.NONE;
     
-    private GameKeyEvent leftTriggerGameKeyEvent;
-    private GameKeyEvent rightTriggerGameKeyEvent;
+    private GameKeyEvent leftTriggerGameKeyEvent = GameKeyEvent.NONE;
+    private GameKeyEvent rightTriggerGameKeyEvent = GameKeyEvent.NONE;
     
     public DirectionalAnalogLocationInputProcessor(GameInputProcessor[] inputProcessorArray) {
         this.inputProcessorArray = inputProcessorArray;
@@ -63,6 +63,7 @@ public class DirectionalAnalogLocationInputProcessor
     //private final String RIGHT_TRIGGER_VALUE = "Right Trigger Value: ";
     //private final String LEFT_TRIGGER_VALUE = "Left Trigger Value: ";    
     
+    @Override
     public void process(AllBinaryLayerManager allbinaryLayerManager, AnalogLocationInput analogLocationInput) {
         try {
             CustomGPoint customGPoint;
@@ -103,6 +104,7 @@ public class DirectionalAnalogLocationInputProcessor
         }
     }
 
+    @Override
     public int getSourceId() {
         return 0;
     }

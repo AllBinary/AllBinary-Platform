@@ -14,13 +14,16 @@
 package org.allbinary.logic.communication.xmlrpc;
 
 import org.allbinary.game.rand.MyRandomFactory;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonStrings;
+import org.apache.xmlrpc.NullXmlRpcHandler;
 import org.apache.xmlrpc.XmlRpcClient;
+import org.apache.xmlrpc.XmlRpcHandler;
 
 public class XmlRpcAbeClient
 {
@@ -30,7 +33,7 @@ public class XmlRpcAbeClient
     
     private final String remoteMethod;
     private final AbeClientInformationInterface clientInfo;
-    private XmlRpcClient client;
+    private XmlRpcHandler client = NullXmlRpcHandler.NULL_XML_RPC_HANDLER;
     private int server;
     private int start;
     private int maxServers;
@@ -102,7 +105,7 @@ public class XmlRpcAbeClient
     public Object get(Object object) throws Exception
     {
         ForcedLogUtil.log(commonStrings.NOT_IMPLEMENTED, this);
-        return null;
+        return NullUtil.getInstance().NULL_OBJECT;
     }
 
     protected Object tryAnother(Object object) throws Exception
@@ -139,7 +142,7 @@ public class XmlRpcAbeClient
     /**
      * @return the client
      */
-    protected XmlRpcClient getClient()
+    protected XmlRpcHandler getClient()
     {
         return client;
     }

@@ -60,7 +60,8 @@ public class DamageUtil
    public void debugDamage(CollidableCompositeLayer collidableInterfaceCompositeInterface1, CollidableCompositeLayer collidableInterfaceCompositeInterface) 
        throws Exception
    {
-           int damage = ((CollidableDestroyableDamageableLayer) collidableInterfaceCompositeInterface).getDamage(0);
+           final CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer = (CollidableDestroyableDamageableLayer) collidableInterfaceCompositeInterface;
+           int damage = collidableDestroyableDamageableLayer.getDamage(0);
            if(damage > 20000)
            {
                StringMaker stringBuffer = new StringMaker();

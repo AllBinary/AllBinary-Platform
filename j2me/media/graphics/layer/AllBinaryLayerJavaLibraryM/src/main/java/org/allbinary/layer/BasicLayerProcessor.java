@@ -19,6 +19,8 @@ import org.allbinary.util.BasicArrayList;
 
 public class BasicLayerProcessor
 {
+    public static final BasicLayerProcessor NULL_LAYER_PROCESSOR = new BasicLayerProcessor();
+    
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final BasicArrayList list = new BasicArrayList();

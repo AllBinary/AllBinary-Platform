@@ -34,9 +34,10 @@ implements MultiPlayerGameLayerInterface
         super(groupInterface, name, layerInfo, viewPosition);
     }
     
+    @Override
     public MultiplayerBehavior getMultiplayerBehavior()
     {
-        return null;
+        return MultiplayerBehavior.NULL_MULTIPLAYER_BEHAVIOR;
     }
     
     public void setPingInfo(boolean show)

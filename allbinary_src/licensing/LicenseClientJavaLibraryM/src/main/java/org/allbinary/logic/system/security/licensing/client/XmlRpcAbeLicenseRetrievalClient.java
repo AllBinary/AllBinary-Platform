@@ -59,8 +59,9 @@ public class XmlRpcAbeLicenseRetrievalClient extends XmlRpcAbeClient
 
             final Vector param = new Vector();
 
-            this.setClient(new XmlRpcClient(server));
-            this.getClient().setBasicAuthentication(null, null);
+            final XmlRpcClient xmlRpcClient = new XmlRpcClient(server);
+            this.setClient(xmlRpcClient);
+            xmlRpcClient.setBasicAuthentication(null, null);
 
             final Hashtable hashtable = this.getClientInfo().toHashtable();
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
@@ -76,7 +77,7 @@ public class XmlRpcAbeLicenseRetrievalClient extends XmlRpcAbeClient
 
             param.add(hashtable);
             // KeySpecFactory.DES,
-            final Object result = getClient().execute(this.getRemoteMethod(), param, cryptInterface);
+            final Object result = xmlRpcClient.execute(this.getRemoteMethod(), param, cryptInterface);
 
             /*
              * this could return without trying all servers if(result==null) {

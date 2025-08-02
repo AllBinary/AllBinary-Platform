@@ -16,6 +16,7 @@ package org.allbinary.game.layer.pickup;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.animation.Animation;
+import org.allbinary.animation.NullAnimationFactory;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.layer.AllBinaryLayer;
@@ -23,10 +24,12 @@ import org.allbinary.view.ViewPosition;
 
 public class IconLayer extends AllBinaryLayer
 {
+    public static final IconLayer NULL_ICON_LAYER = new IconLayer(NullAnimationFactory.getFactoryInstance().getInstance(0), 0, 0);
+    
     private Animation animationInterface;
 
     public IconLayer(Animation animationInterface, 
-            int width, int height) throws Exception
+            int width, int height) 
     {
         super(new Rectangle(PointFactory.getInstance().ZERO_ZERO, width, height), new ViewPosition());
 

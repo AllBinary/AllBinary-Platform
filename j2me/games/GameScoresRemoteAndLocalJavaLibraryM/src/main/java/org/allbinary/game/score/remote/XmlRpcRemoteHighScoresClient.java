@@ -68,8 +68,9 @@ public class XmlRpcRemoteHighScoresClient extends XmlRpcAbeClient
 
             //System.out.println("Renamed Server: " + serverUrl);
 
-            this.setClient(new XmlRpcClient(serverUrl));
-            this.getClient().setBasicAuthentication(null, null);
+            final XmlRpcClient xmlRpcClient = new XmlRpcClient(serverUrl);
+            this.setClient(xmlRpcClient);
+            xmlRpcClient.setBasicAuthentication(null, null);
 
             Hashtable hashtable = (Hashtable) object;
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
@@ -87,7 +88,7 @@ public class XmlRpcRemoteHighScoresClient extends XmlRpcAbeClient
             param.addElement(hashtable);
 
             // KeySpecFactory.DES,
-            Object result = getClient().execute(this.getRemoteMethod(), param, cryptInterface);
+            Object result = xmlRpcClient.execute(this.getRemoteMethod(), param, cryptInterface);
 
             /*
              * this could return without trying all servers if(result==null) {

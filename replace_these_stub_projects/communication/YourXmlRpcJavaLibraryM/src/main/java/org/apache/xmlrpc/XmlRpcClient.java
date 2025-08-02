@@ -6,11 +6,14 @@ import java.net.URL;
 import java.util.Vector;
 
 import org.allbinary.init.crypt.jcehelper.CryptInterface;
+import org.allbinary.logic.NullUtil;
 
 public class XmlRpcClient implements XmlRpcHandler
 {
+    private final URL url;
     public XmlRpcClient(URL url)
     {
+        this.url = url;
     }
 
     public XmlRpcClient(String url) throws MalformedURLException
@@ -25,22 +28,23 @@ public class XmlRpcClient implements XmlRpcHandler
 
     public URL getURL()
     {
-        return null;
+        return this.url;
     }
 
     public void setBasicAuthentication(String user, String password)
     {
     }
 
-    public Object execute(String method, Vector params)
+    @Override
+    public Object execute(String method, Vector<Object> params)
             throws XmlRpcException, IOException
     {
-        return null;
+        return NullUtil.getInstance().NULL_OBJECT;
     }
 
-    public Object execute(String method, Vector params, CryptInterface cryptInterface)
+    public Object execute(String method, Vector<Object> params, CryptInterface cryptInterface)
             throws XmlRpcException, IOException
     {
-        return null;
+        return NullUtil.getInstance().NULL_OBJECT;
     }    
 }

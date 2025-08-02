@@ -1,6 +1,6 @@
 /*
  * AllBinary Open License Version 1
- * Copyright (c) 2022 AllBinary
+ * Copyright (c) 2025 AllBinary
  * 
  * By agreeing to this license you and any business entity you represent are
  * legally bound to the AllBinary Open License Version 1 legal agreement.
@@ -11,24 +11,19 @@
  * Created By: Travis Berthelot
  * 
  */
-package org.allbinary.logic.system.security.crypt.jcehelper;
-
-import org.allbinary.init.crypt.jcehelper.CryptInterface;
+package org.allbinary.game.health;
 
 /**
  *
  * @author User
  */
-public class NoCrypt implements CryptInterface {
+public class NullHealthListener implements HealthListenerInterface {
+    
+    public static final NullHealthListener NULL_HEALTH_LISTENER = new NullHealthListener();
     
     @Override
-    public byte[] encrypt(final byte[] array) {
-        return array;
-    }
-
-    @Override
-    public byte[] decrypt(final byte[] array) {
-        return array;
+    public void onHealthChange() {
+        
     }
     
 }

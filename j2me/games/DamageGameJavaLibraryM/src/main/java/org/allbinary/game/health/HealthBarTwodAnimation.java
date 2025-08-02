@@ -24,7 +24,8 @@ public class HealthBarTwodAnimation extends HealthBarAnimation
     {
         super(layerInterface, location);
     }
-    
+
+    @Override    
     public void paint(final Graphics graphics, final int x, final int y)
     {
         final int ax = this.allbinaryLayer.getViewPosition().getX();

@@ -26,11 +26,13 @@ public class DestroyableSimpleBehavior extends DestroyableBaseBehavior
         this.ownerLayer = ownerLayer;
     }
     
+    @Override
     public boolean isDestroyed()
     {
         return this.destroyed;
     }
 
+    @Override
     public void setDestroyed(boolean destroyed)
     {
         this.destroyed = destroyed;

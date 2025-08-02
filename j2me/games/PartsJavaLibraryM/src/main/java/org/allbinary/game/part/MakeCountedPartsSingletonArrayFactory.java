@@ -19,10 +19,10 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListUtil;
 
 public class MakeCountedPartsSingletonArrayFactory
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private static final MakeCountedPartsSingletonArrayFactory instance = new MakeCountedPartsSingletonArrayFactory();
 
@@ -30,10 +30,11 @@ public class MakeCountedPartsSingletonArrayFactory
         return instance;
     }
 
-    private BasicArrayList list;
+    protected final LogUtil logUtil = LogUtil.getInstance();
+    
+    private BasicArrayList list = BasicArrayListUtil.getInstance().getImmutableInstance();
 
-    public PartInterface[] getInstance(
-            PartInterface[] partInterfaceArray) throws Exception
+    public PartInterface[] getInstance(final PartInterface[] partInterfaceArray) throws Exception
     {
         list = new BasicArrayList();
 
@@ -42,19 +43,20 @@ public class MakeCountedPartsSingletonArrayFactory
             list.add(partInterfaceArray[index]);
         }
 
-        BasicArrayList countedBasicArrayList = CountedPickedUpLayerInterfaceFactoryPool.getInstance().getList();
+        final BasicArrayList countedBasicArrayList = CountedPickedUpLayerInterfaceFactoryPool.getInstance().getList();
 
+        CountedPickedUpLayerInterfaceFactory layerInterfaceFactoryInterface;
         int size = countedBasicArrayList.size();
         for (int index = 0; index < size; index++)
         {
-            CountedPickedUpLayerInterfaceFactory layerInterfaceFactoryInterface = 
+            layerInterfaceFactoryInterface = 
                     (CountedPickedUpLayerInterfaceFactory) countedBasicArrayList.objectArray[index];
 
             list.add(new CountedLayerInterfaceFactoryPart(0,
                     layerInterfaceFactoryInterface));
         }
 
-        StringMaker stringBuffer = new StringMaker();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("Total Parts: ");
         stringBuffer.append(list.size());
@@ -64,7 +66,7 @@ public class MakeCountedPartsSingletonArrayFactory
         final CommonStrings commonStrings = CommonStrings.getInstance();
         logUtil.put(stringBuffer.toString(), this, commonStrings.GET_INSTANCE);
 
-        PartInterface[] newPartInterfaceArray = new PartInterface[list.size()];
-        return (PartInterface[]) list.toArray(newPartInterfaceArray);
+        final PartInterface[] newPartInterfaceArray = (PartInterface[]) list.toArray(new PartInterface[list.size()]);
+        return newPartInterfaceArray;
     }
 }

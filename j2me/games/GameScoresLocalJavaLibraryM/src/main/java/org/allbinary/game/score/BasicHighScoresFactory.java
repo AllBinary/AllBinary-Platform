@@ -26,12 +26,14 @@ public class BasicHighScoresFactory extends HighScoresBase
 
     private final String FETCH = "fetchHighScores";
     
+    @Override
     public void fetchHighScores(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener) {
         
         logUtil.put("Getting Local HighScores", this, FETCH);
         this.fetchHighScores(gameInfo, highScoresResultsListener, true);
     }
     
+    @Override
     public void fetchHighScores(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener, final boolean preload)
     {
         //System.gc();
@@ -48,6 +50,7 @@ public class BasicHighScoresFactory extends HighScoresBase
         }
     }
     
+    @Override
     public HighScoresHelperBase createHighScoresHelper() {
         return new HighScoresHelper2();
     }

@@ -1,6 +1,6 @@
 /*
  * AllBinary Open License Version 1
- * Copyright (c) 2022 AllBinary
+ * Copyright (c) 2025 AllBinary
  * 
  * By agreeing to this license you and any business entity you represent are
  * legally bound to the AllBinary Open License Version 1 legal agreement.
@@ -11,24 +11,23 @@
  * Created By: Travis Berthelot
  * 
  */
-package org.allbinary.logic.system.security.crypt.jcehelper;
+package org.apache.xmlrpc;
 
-import org.allbinary.init.crypt.jcehelper.CryptInterface;
+import java.util.Vector;
+import org.allbinary.logic.NullUtil;
 
 /**
  *
  * @author User
  */
-public class NoCrypt implements CryptInterface {
+public class NullXmlRpcHandler implements XmlRpcHandler {
+    
+    public static final NullXmlRpcHandler NULL_XML_RPC_HANDLER = new NullXmlRpcHandler();
     
     @Override
-    public byte[] encrypt(final byte[] array) {
-        return array;
+    public Object execute (String method, Vector<Object> params)
+            throws Exception {
+        return NullUtil.getInstance().NULL_OBJECT;
     }
 
-    @Override
-    public byte[] decrypt(final byte[] array) {
-        return array;
-    }
-    
 }

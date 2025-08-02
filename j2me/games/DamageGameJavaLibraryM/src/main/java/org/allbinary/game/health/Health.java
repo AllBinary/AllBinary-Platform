@@ -26,14 +26,15 @@ public class Health implements HealthInterface
 	private int health;
 	private int maxHealth;
 
-	private HealthListenerInterface healthListenerInterface;
+	private HealthListenerInterface healthListenerInterface = NullHealthListener.NULL_HEALTH_LISTENER;
 	
 	public Health(int maxHealth)
 	{
 		this.setMaxHealth(maxHealth);
 		this.setHealth(maxHealth);
 	}
-	
+
+        @Override
 	public void heal(int ahealth) 
 	{
 	    int newHealth = this.getHealth() + ahealth;
@@ -48,6 +49,7 @@ public class Health implements HealthInterface
         }
 	}
 
+        @Override
 	public void heal()
 	{
 	    this.setHealth(this.getMaxHealth());
@@ -65,6 +67,7 @@ public class Health implements HealthInterface
 	    }
 	}
 
+        @Override
 	public void damage(int ahealth)
 	{
 	    if(ahealth < 0)
@@ -85,6 +88,7 @@ public class Health implements HealthInterface
 	    this.setHealth(health);
 	}
 
+        @Override
 	public boolean isAlive() 
 	{
 		if (this.getHealth() <= 0) 
@@ -96,10 +100,12 @@ public class Health implements HealthInterface
 		}
 	}
 	
+        @Override
 	public int getMaxHealth() {
 		return maxHealth;
 	}
 
+        @Override
 	public void setMaxHealth(int maxHealth) {
 		this.maxHealth = maxHealth;
 	}
@@ -126,10 +132,12 @@ public class Health implements HealthInterface
 		}
 	}
 
+        @Override
 	public int getHealth() {
 		return health;
 	}
 
+        @Override
 	public void addListener(HealthListenerInterface healthGraphic)
 	{
 		this.healthListenerInterface = healthGraphic;
@@ -142,9 +150,9 @@ public class Health implements HealthInterface
 	{
 	    StringMaker stringBuffer = new StringMaker();
 
-	    stringBuffer.append(this.HEALTH_LABEL);
+	    stringBuffer.append(Health.HEALTH_LABEL);
 	    stringBuffer.append(this.health);
-	    stringBuffer.append(this.MAX_HEALTH_LABEL);
+	    stringBuffer.append(Health.MAX_HEALTH_LABEL);
 	    stringBuffer.append(this.maxHealth);
 
 	    return stringBuffer.toString();

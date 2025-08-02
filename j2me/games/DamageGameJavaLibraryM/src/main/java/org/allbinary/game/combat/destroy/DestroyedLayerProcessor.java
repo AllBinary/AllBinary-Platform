@@ -24,9 +24,8 @@ import org.allbinary.util.BasicArrayList;
 
 public class DestroyedLayerProcessor extends BasicLayerProcessor
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private static BasicLayerProcessor DESTROYED_LAYER_PROCESSOR;
+    private static BasicLayerProcessor DESTROYED_LAYER_PROCESSOR = BasicLayerProcessor.NULL_LAYER_PROCESSOR;
 
     private DestroyedLayerProcessor()
     {
@@ -42,8 +41,9 @@ public class DestroyedLayerProcessor extends BasicLayerProcessor
         return DESTROYED_LAYER_PROCESSOR;
     }
 
-    private final String LAYER_LABEL = "layerInterface: ";
-    
+    //private final String LAYER_LABEL = "layerInterface: ";
+ 
+    @Override
     public void process(AllBinaryLayerManager allBinaryLayerManager)
         throws Exception
     {

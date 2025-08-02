@@ -13,6 +13,8 @@
 */
 package org.allbinary.logic.math;
 
+import org.allbinary.logic.NullUtil;
+
 public class PrimitiveIntUtil
 {
     private PrimitiveIntUtil()
@@ -22,11 +24,11 @@ public class PrimitiveIntUtil
     
     public static int[] getArrayInstance()
     {
-        return new int[0];
+        return NullUtil.getInstance().NULL_INT_ARRAY;
     }
 
     public static int[][] getTwoDimensionalArrayInstance()
     {
-        return new int[0][0];
+        return NullUtil.getInstance().NULL_INT_ARRAY_ARRAY;
     }
 }

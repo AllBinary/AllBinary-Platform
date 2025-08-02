@@ -21,12 +21,14 @@ public class DamageableBaseBehavior implements DamageableInterface
     {
         return instance;
     }
-    
+ 
+    @Override
     public String getName()
     {
         return this.getClass().getName();
     }
     
+    @Override
     public void damage(int damage,int damageType)
     throws Exception
     {
@@ -34,6 +36,7 @@ public class DamageableBaseBehavior implements DamageableInterface
     }
 
     //Gives out damage that would be expected of a blunt object
+    @Override
     public int getDamage(int damageType)
     throws Exception
     {

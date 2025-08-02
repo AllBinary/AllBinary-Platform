@@ -18,19 +18,23 @@ import java.util.Hashtable;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.animation.Animation;
+import org.allbinary.animation.NullAnimationFactory;
 import org.allbinary.game.layer.pickup.CountedPickedUpLayerInterfaceFactory;
 import org.allbinary.graphics.font.MyFont;
 import org.allbinary.layer.AllBinaryLayer;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.math.PrimitiveLongUtil;
 
 public class CountedLayerInterfaceFactoryPart implements PartInterface
 {
-   private Animation animationInterface;
+    public static final CountedLayerInterfaceFactoryPart NULL_COUNTED_LAYER_INTERFACE_FACTORY = new CountedLayerInterfaceFactoryPart(0, CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY);
+
+   private Animation animationInterface = NullAnimationFactory.getFactoryInstance().getInstance(0);
    private int total;
    //private String totalString;
-   private char[] totalString;
+   private char[] totalString = NullUtil.getInstance().NULL_CHAR_ARRAY;
    private int xOffset;
-   private CountedPickedUpLayerInterfaceFactory countedPickedUpLayerInterfaceFactory;
+   private CountedPickedUpLayerInterfaceFactory countedPickedUpLayerInterfaceFactory = CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY;
 
    private final PrimitiveLongUtil primitiveLongUtil;
    
@@ -81,14 +85,17 @@ public class CountedLayerInterfaceFactoryPart implements PartInterface
       );
    }
 
+   @Override
    public void paint(Graphics graphics)
    {
    }
 
+   @Override
    public void paintThreed(Graphics graphics)
    {
    }
    
+   @Override
    public Animation getAnimationInterface()
    {
       return animationInterface;

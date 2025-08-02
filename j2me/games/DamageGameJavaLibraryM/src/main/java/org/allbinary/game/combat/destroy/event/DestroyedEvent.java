@@ -14,14 +14,15 @@
 package org.allbinary.game.combat.destroy.event;
 
 import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
+import org.allbinary.game.displayable.canvas.NullGameCanvas;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 
 public class DestroyedEvent extends AllBinaryEventObject {
-	private AllBinaryGameCanvas allBinaryGameCanvas;
-	private AllBinaryLayer allBinaryLayerInterface;
+	private AllBinaryGameCanvas allBinaryGameCanvas = NullGameCanvas.getInstance();
+	private AllBinaryLayer allBinaryLayerInterface = AllBinaryLayer.NULL_ALLBINARY_LAYER;
 
 	public DestroyedEvent(AllBinaryGameCanvas combatGameCanvas// ,
 	// LayerInterface allBinaryLayerInterface
