@@ -78,6 +78,7 @@ public class HealthHudWidget extends BasicHud
         }
     }
 
+    @Override
     public void setX(int x)
     {
         super.setX(x);
@@ -89,6 +90,7 @@ public class HealthHudWidget extends BasicHud
     private final TimeDelayHelper mediumBeatTimeDelayHelper = new TimeDelayHelper(640);
     private final TimeDelayHelper fastBeatTimeDelayHelper = new TimeDelayHelper(320);
 
+    @Override
     public void onHealthChange()
     {
         max = (this.healthInterface.getHealth() / this.healthScale);
@@ -114,6 +116,7 @@ public class HealthHudWidget extends BasicHud
         }
     }
 
+    @Override
     public void paint(Graphics graphics)
     {
         for (int index = 0; index < max; index++)
@@ -125,6 +128,7 @@ public class HealthHudWidget extends BasicHud
         }
     }
     
+    @Override
     public void paintThreed(Graphics graphics)
     {
     }    

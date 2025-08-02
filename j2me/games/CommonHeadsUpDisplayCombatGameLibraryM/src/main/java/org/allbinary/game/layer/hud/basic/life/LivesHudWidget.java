@@ -47,12 +47,13 @@ public class LivesHudWidget extends BasicHud
 
         this.lifeInterface = lifeInterface;
         
-        this.xArray = new int[this.getLifeInterface().getMaxlives()];
+        this.xArray = new int[(int) this.getLifeInterface().getMaxlives()];
         this.update();
 
         this.animationInterface = animationInterface;
     }
 
+    @Override
     public void onDisplayChangeEvent(DisplayChangeEvent displayChangeEvent)
     {
         super.onDisplayChangeEvent(displayChangeEvent);
@@ -63,7 +64,7 @@ public class LivesHudWidget extends BasicHud
     {
         if(this.xArray != null)
         {
-            int maxLives = this.getLifeInterface().getMaxlives();
+            int maxLives = (int) this.getLifeInterface().getMaxlives();
             for (int index = 0; index < maxLives; index++)
             {
             	//width = 16
@@ -72,12 +73,14 @@ public class LivesHudWidget extends BasicHud
         }
     }
 
+    @Override
     public void setX(int x)
     {
         super.setX(x);
         this.update();
     }
 
+    @Override
     public void paint(Graphics graphics)
     {
         for (short index = this.getLifeInterface().get(); --index >= 0;)
@@ -86,6 +89,7 @@ public class LivesHudWidget extends BasicHud
         }
     }
 
+    @Override
     public void paintThreed(Graphics graphics)
     {
     }
