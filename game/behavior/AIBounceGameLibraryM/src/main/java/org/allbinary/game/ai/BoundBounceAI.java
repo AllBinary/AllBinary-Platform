@@ -18,6 +18,7 @@ import javax.microedition.lcdui.Graphics;
 import org.allbinary.bounds.BoundsVisitorInterface;
 import org.allbinary.bounds.LayerBounds;
 import org.allbinary.game.input.GameInput;
+import org.allbinary.graphics.Rectangle;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 
@@ -43,10 +44,11 @@ public class BoundBounceAI extends BasicAI
 
    public void paint(Graphics graphics)
    {
-      graphics.drawRect(this.layerBounds.getRectangle().getPoint().getX(),
-              this.layerBounds.getRectangle().getPoint().getY(),
-              this.layerBounds.getRectangle().getWidth(),
-              this.layerBounds.getRectangle().getHeight());
+       final Rectangle rectange = this.layerBounds.getRectangleP();
+      graphics.drawRect(rectange.getPoint().getX(),
+              rectange.getPoint().getY(),
+              rectange.getWidth(),
+              rectange.getHeight());
    }
    
    public void processAI(AllBinaryLayerManager allBinaryLayerManager) 

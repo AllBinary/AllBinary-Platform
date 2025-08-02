@@ -14,12 +14,13 @@
 package org.allbinary.animation;
 
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.vector.VectorInfo;
 
 public class IndependentVectorExplosionRotationAnimationFactory implements
         ProceduralAnimationInterfaceFactoryInterface
 {
-    private int[][][] framePoints;
+    private int[][][] framePoints = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY_ARRAY;
 
     private VectorInfo vectorInfo;
     private BasicColor basicColor;
@@ -44,7 +45,8 @@ public class IndependentVectorExplosionRotationAnimationFactory implements
     }
     
     private final VectorExplosionGenerator vectorExplosionGenerator = VectorExplosionGenerator.getInstance();
-    
+
+    @Override    
     public Animation getInstance(Animation animationInterface)
             throws Exception
     {

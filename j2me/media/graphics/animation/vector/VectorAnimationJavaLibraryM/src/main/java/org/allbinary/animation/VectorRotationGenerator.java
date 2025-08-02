@@ -15,6 +15,7 @@ package org.allbinary.animation;
 
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.pipeline.BasicGraphicsPipeline;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.math.Angle;
 import org.allbinary.math.AngleFactory;
@@ -87,7 +88,7 @@ public class VectorRotationGenerator
             final CommonStrings commonStrings = CommonStrings.getInstance();
             logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
             // throw e;
-            return null;
+            return NullUtil.getInstance().NULL_INT_ARRAY_ARRAY_ARRAY;
         }
     }
 

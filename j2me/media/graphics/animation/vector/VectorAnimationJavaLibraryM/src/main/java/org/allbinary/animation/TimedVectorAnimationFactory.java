@@ -21,6 +21,7 @@ import org.allbinary.graphics.color.BasicColor;
  */
 public class TimedVectorAnimationFactory implements VectorAnimationFactoryInterface {
 
+    @Override
    public VectorAnimation getInstance(final int[][][] points, final BasicColor basicColor)
    {
       return new TimedVectorAnimation(points, basicColor, AnimationBehavior.getInstance());

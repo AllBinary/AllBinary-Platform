@@ -50,6 +50,7 @@ public class StraightMultiProjectileWeaponPart extends BasicWeaponPart {
 
    private final NoDecimalTrigTable noDecimalTrigTable = NoDecimalTrigTable.getInstance();
    
+   @Override
    public void process(final AllBinaryLayerManager allbinaryLayerManager,
            final short angle, final short otherAngle, final WeaponProperties weaponProperties, final ScoreableInterface scoreableInterface)
            throws Exception {
@@ -65,17 +66,25 @@ public class StraightMultiProjectileWeaponPart extends BasicWeaponPart {
       //???????
       //WeaponLayer[] weaponLayerArray = WeaponLayerArrayLayerCircularStaticPool.getInstance(total);
 
+      long sine;
+      int beamX;
+      long cosine;
+      int beamY;
+      WeaponLayer weaponLayer;
+      
       final int increment = reducedWidth / (this.total - 1);
       int next = -halfWidth;
       for (int index = 0; index < total; index++) {
           
-         int beamX = (int) ((next * noDecimalTrigTable.sin(angle))) / noDecimalTrigTable.SCALE;
-         int beamY = -(int) ((next * noDecimalTrigTable.cos(angle))) / noDecimalTrigTable.SCALE;
+         sine = (long) (next * noDecimalTrigTable.sin((int) angle));
+         beamX = (int) (sine / noDecimalTrigTable.SCALE);
+         cosine = (long) (next * noDecimalTrigTable.cos((int) angle));
+         beamY = -(int) (cosine / noDecimalTrigTable.SCALE);
 
-         WeaponLayer weaponLayer =
+         weaponLayer =
                  weaponLayerCircularStaticPool.getInstance(
                  sourceLayerInterface, x + beamX, y + beamY, 0, 
-                 angle, otherAngle,  
+                 (int) angle, (int) otherAngle,  
                  weaponProperties, scoreableInterface);
 
          allbinaryLayerManager.append(weaponLayer);

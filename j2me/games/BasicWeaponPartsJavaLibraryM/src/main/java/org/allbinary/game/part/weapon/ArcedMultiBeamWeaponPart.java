@@ -46,8 +46,9 @@ public class ArcedMultiBeamWeaponPart extends BasicWeaponPart {
       this.weaponLayerCircularStaticPool = weaponLayerCircularStaticPool;
    }
 
-   private final int TOTAL_ANGLE = AngleFactory.getInstance().TOTAL_ANGLE;
+   private final int TOTAL_ANGLE = (int) AngleFactory.getInstance().TOTAL_ANGLE;
    
+   @Override
    public void process(final AllBinaryLayerManager allbinaryLayerManager,
            final short angle, final short otherAngle, 
            final WeaponProperties weaponProperties, final ScoreableInterface scoreableInterface)
@@ -71,8 +72,8 @@ public class ArcedMultiBeamWeaponPart extends BasicWeaponPart {
                  this.relativeRelationship.getX(), 
                  this.relativeRelationship.getY(),
                  0,
-                 (short) (minAngle + increment),
-                 otherAngle, 
+                 (int) (minAngle + increment),
+                 (int) otherAngle, 
                  weaponProperties, scoreableInterface);
 
          allbinaryLayerManager.append(weaponLayer);

@@ -29,6 +29,7 @@ public class ColorLessVectorAnimation extends VectorAnimation
         super(currentPoints, BasicColorFactory.getInstance().WHITE, animationBehavior);
     }
 
+    @Override
     public void paint(Graphics graphics, int x, int y)
     {
         this.paintVectors(graphics, x, y);

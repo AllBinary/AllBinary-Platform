@@ -14,9 +14,12 @@
 package org.allbinary.game.terrain;
 
 import org.allbinary.math.Angle;
+import org.allbinary.math.AngleFactory;
 
 public class BasicTerrainInfo {
 
+    public static final BasicTerrainInfo NULL_BASIC_TERRAIN_INFO = new BasicTerrainInfo(AngleFactory.getInstance().NOT_ANGLE);
+    
    private Angle angle;
 
    public BasicTerrainInfo(Angle angle)

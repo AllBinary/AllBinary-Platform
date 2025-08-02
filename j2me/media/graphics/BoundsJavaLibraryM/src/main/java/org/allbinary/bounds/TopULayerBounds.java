@@ -21,20 +21,21 @@ public class TopULayerBounds extends LayerBounds
    {
        super(rectangle);
    }
-   
+
+   @Override   
    public void visit(BoundsVisitorInterface boundsVisitorInterface)
    {  
-      if (boundsVisitorInterface.getX() > this.getRectangle().getMaxX())
+      if (boundsVisitorInterface.getX() > this.rectangle.getMaxX())
       {
          boundsVisitorInterface.maxX();
       }
       
-      if (boundsVisitorInterface.getX() < this.getRectangle().getPoint().getX())
+      if (boundsVisitorInterface.getX() < this.rectangle.getPoint().getX())
       {
          boundsVisitorInterface.minX();
       }
 
-      if (boundsVisitorInterface.getY() < this.getRectangle().getPoint().getY())
+      if (boundsVisitorInterface.getY() < this.rectangle.getPoint().getY())
       {
          boundsVisitorInterface.minY();
       }

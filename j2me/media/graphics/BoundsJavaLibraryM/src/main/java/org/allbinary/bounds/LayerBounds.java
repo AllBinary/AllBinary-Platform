@@ -32,7 +32,7 @@ public class LayerBounds implements BoundsChangeEventListener
       this.rectangle = rectangle;
    }
    
-   public Rectangle getRectangle()
+   public Rectangle getRectangleP()
    {
       return rectangle;
    }
@@ -40,14 +40,17 @@ public class LayerBounds implements BoundsChangeEventListener
    public void visit(BoundsVisitorInterface boundsVisitorInterface)
    {  
    }
-   
+  
+   @Override
    public void onEvent(AllBinaryEventObject eventObject)
    {
        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
    }
    
+   @Override
    public void onBoundsChangeEvent(BoundsChangeEvent boundsChangeEvent)
    {
        this.rectangle = boundsChangeEvent.getRectangle();
    }
+   
 }

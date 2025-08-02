@@ -53,6 +53,7 @@ public class BasicProjectileWeaponPart extends BasicWeaponPart
       this.weaponLayerCircularStaticPool = weaponLayerCircularStaticPool;      
    }
 
+   @Override
    public void process(final AllBinaryLayerManager allbinaryLayerManager,
            final short angle, short otherAngle, 
            final WeaponProperties weaponProperties, 
@@ -65,7 +66,8 @@ public class BasicProjectileWeaponPart extends BasicWeaponPart
               this.relativeRelationship.getX(), 
               this.relativeRelationship.getY(),
               this.relativeRelationship.getZ(),
-              angle, otherAngle,  
+              (int) angle, 
+              (int) otherAngle,  
               weaponProperties, scoreableInterface);
 
       allbinaryLayerManager.append(weaponLayer);

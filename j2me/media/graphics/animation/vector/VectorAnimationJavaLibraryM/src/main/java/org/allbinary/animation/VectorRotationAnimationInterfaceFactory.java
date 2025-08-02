@@ -14,13 +14,15 @@
 package org.allbinary.animation;
 
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.color.BasicColorFactory;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.media.ScaleProperties;
 
 public class VectorRotationAnimationInterfaceFactory 
     implements AnimationInterfaceFactoryInterface {
 
-	private int currentPoints[][][];
-	private BasicColor basicColor;
+	private int currentPoints[][][] = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY_ARRAY;
+	private BasicColor basicColor = BasicColorFactory.getInstance().WHITE;
         protected final AnimationBehaviorFactory animationBehaviorFactory;
 
         public VectorRotationAnimationInterfaceFactory(final int[][][] currentPoints, final BasicColor basicColor) {
@@ -33,6 +35,7 @@ public class VectorRotationAnimationInterfaceFactory
                 this.animationBehaviorFactory = animationBehaviorFactory;
 	}
 
+        @Override
 	public Animation getInstance(final int instanceId) throws Exception {
 		return new VectorRotationAnimation(this.currentPoints, this.getBasicColorP(), this.animationBehaviorFactory.getOrCreateInstance());
 	}
@@ -45,6 +48,7 @@ public class VectorRotationAnimationInterfaceFactory
 		return basicColor;
 	}
 
+        @Override
    public void setInitialScale(final ScaleProperties scaleProperties) {
        
    }

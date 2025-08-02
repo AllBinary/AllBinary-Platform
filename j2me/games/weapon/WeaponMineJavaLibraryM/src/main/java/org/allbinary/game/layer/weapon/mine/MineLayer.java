@@ -60,7 +60,8 @@ public class MineLayer extends SimpleWeaponLayer
    
    private final ViewPositionEventHandler viewPositionEventHandler = 
        ViewPositionEventHandler.getInstance();
-   
+  
+   @Override
    public void init(int x, int y, int z)
    {
       this.setPosition(x + 5, y + 5, z);
@@ -71,18 +72,21 @@ public class MineLayer extends SimpleWeaponLayer
               DropWeaponSound.getInstance()
               );
    }
-      
+
+   @Override
    public void damage(int damage, int damageType)
    {
       this.totalDamage = this.getInitDamage() + 1;
    }
    
+   @Override
    public int getDamage(int damageType)
    {
        super.getDamage(damageType);
        return this.getInitDamage();
    }
    
+   @Override
    public void setDestroyed(boolean destroyed)
    {
        super.setDestroyed(destroyed);

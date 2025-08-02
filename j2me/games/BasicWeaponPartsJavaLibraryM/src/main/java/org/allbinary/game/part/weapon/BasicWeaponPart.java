@@ -16,8 +16,10 @@ package org.allbinary.game.part.weapon;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.animation.Animation;
+import org.allbinary.animation.NullAnimationFactory;
 import org.allbinary.game.combat.weapon.WeaponProperties;
 import org.allbinary.game.part.PartInterface;
+import org.allbinary.game.score.Scoreable;
 import org.allbinary.game.score.ScoreableInterface;
 import org.allbinary.graphics.RelativeRelationship;
 import org.allbinary.layer.AllBinaryLayer;
@@ -28,15 +30,17 @@ import org.allbinary.view.ViewPosition;
 public class BasicWeaponPart 
     implements PartInterface, SalvoInterface 
 {
-   private Animation animationInterface;
+    public static final BasicWeaponPart NULL_BASIC_WEAPON_PART = new BasicWeaponPart(NullAnimationFactory.getFactoryInstance().getInstance(0));
+    
+   private Animation animationInterface = NullAnimationFactory.getFactoryInstance().getInstance(0);
    
-   private AllBinaryLayer ownerLayerInterface;
+   private AllBinaryLayer ownerLayerInterface = AllBinaryLayer.NULL_ALLBINARY_LAYER;
 
-   private WeaponProperties weaponProperties;
+   private WeaponProperties weaponProperties = WeaponProperties.NULL_WEAPON_PROPERTIES;
 
-   private ScoreableInterface scoreableInterface;
+   private ScoreableInterface scoreableInterface = Scoreable.NULL_SCOREABLE;
    
-   protected RelativeRelationship relativeRelationship;
+   protected RelativeRelationship relativeRelationship = RelativeRelationship.NULL_RELATIVE_RELATIONSHIP;
 
    public BasicWeaponPart(final Animation animationInterface) {
       this.setAnimationInterface(animationInterface);
@@ -67,11 +71,13 @@ public class BasicWeaponPart
       this.relativeRelationship = relativeRelationship;
    }
    
+   @Override
    public void process(final AllBinaryLayerManager allbinaryLayerManager, final short angle, final short otherAngle)
            throws Exception {
        this.process(allbinaryLayerManager, angle, otherAngle, this.getWeaponProperties(), this.scoreableInterface);
    }
 
+   @Override
    public void process(final AllBinaryLayerManager allbinaryLayerManager, final short angle, final short otherAngle, final WeaponProperties weaponProperties, final ScoreableInterface scoreableInterface)
            throws Exception {
       throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
@@ -85,6 +91,7 @@ public class BasicWeaponPart
       this.ownerLayerInterface = ownerLayerInterface;
    }
    
+   @Override
    public Animation getAnimationInterface() {
       return animationInterface;
    }
@@ -93,6 +100,7 @@ public class BasicWeaponPart
       this.animationInterface = animationInterface;
    }
    
+   @Override
    public void paint(final Graphics graphics) {
       
        final ViewPosition viewPosition =  this.getOwnerLayerInterface().getViewPosition();
@@ -103,6 +111,7 @@ public class BasicWeaponPart
          //this.relativeRelationship.getX(), this.relativeRelationship.getY());
    }
 
+   @Override
    public void paintThreed(final Graphics graphics)
    {
    }

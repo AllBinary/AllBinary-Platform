@@ -15,7 +15,7 @@ package org.allbinary.game.terrain;
 
 import java.util.Hashtable;
 
-import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventListenerInterface;
 import org.allbinary.logic.util.event.EventStrings;
@@ -24,9 +24,8 @@ import org.allbinary.util.BasicArrayList;
 
 public class TerrainEventHandler extends BasicEventHandler
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
-   private static Hashtable hashtable;
+   private static Hashtable hashtable = NullUtil.getInstance().NULL_TABLE;
 
    public static void init()
    {
@@ -61,18 +60,21 @@ public class TerrainEventHandler extends BasicEventHandler
        }
    }
 
+   @Override
    public void removeAllListeners()
    {
        this.list.clear();
        super.removeAllListeners();
    }
 
+   @Override
    public void removeListener(EventListenerInterface eventListenerInterface)
    {
        this.list.remove(eventListenerInterface);
        super.removeListener(eventListenerInterface);
    }
 
+   @Override
    public void fireEvent(AllBinaryEventObject eventObject) throws Exception
    {        
        for (int index = this.list.size(); --index >= 0;)
@@ -91,10 +93,11 @@ public class TerrainEventHandler extends BasicEventHandler
        super.fireEvent(eventObject);
    }
 
+   @Override
    protected void process(AllBinaryEventObject eventObject,
            EventListenerInterface eventListenerInterface) throws Exception {
 
-      ((TerrainEventListenerInterface) eventListenerInterface).onTerrainEvent(
-              (TerrainEvent) eventObject);
+       final TerrainEventListenerInterface terrainEventListenerInterface = (TerrainEventListenerInterface) eventListenerInterface;
+       terrainEventListenerInterface.onTerrainEvent((TerrainEvent) eventObject);
    }
 }

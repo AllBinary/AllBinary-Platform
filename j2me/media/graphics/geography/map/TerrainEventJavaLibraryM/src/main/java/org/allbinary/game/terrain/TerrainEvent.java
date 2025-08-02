@@ -13,19 +13,20 @@
  */
 package org.allbinary.game.terrain;
 
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 
 public class TerrainEvent extends AllBinaryEventObject
 {
-    private BasicTerrainInfo basicTerrainInfo;
+    private BasicTerrainInfo basicTerrainInfo = BasicTerrainInfo.NULL_BASIC_TERRAIN_INFO;
 
     public TerrainEvent()
     {
-        super((Object) null);
+        super(NullUtil.getInstance().NULL_OBJECT);
     }
 
-    public TerrainEvent(BasicTerrainInfo basicTerrainInfo)
+    public TerrainEvent(final BasicTerrainInfo basicTerrainInfo)
     {
         super(basicTerrainInfo);
         this.setBasicTerrainInfo(basicTerrainInfo);
@@ -33,7 +34,7 @@ public class TerrainEvent extends AllBinaryEventObject
 
     public String toString()
     {
-        StringMaker stringBuffer = new StringMaker();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("TerrainEvent: \n");
         stringBuffer.append("LayerInterface: ");

@@ -36,17 +36,20 @@ public class VectorRotationAnimation
       //logUtil.put(this.angleInfo.toString(), this, commonStrings.CONSTRUCTOR);
    }
    
+   @Override
    public void setFrame(final Direction direction)
    {
       Angle angle = directionUtil.getFrameAngle(direction);
       this.adjustFrame(angle);
    }
 
+   @Override
    public void setFrame(final Angle angle)
    {
       this.adjustFrame(angle);
    }
   
+   @Override
    public void setFrame(final int index)
    {
       super.setFrame(index);
@@ -55,11 +58,13 @@ public class VectorRotationAnimation
 
    private final FrameUtil frameUtil = FrameUtil.getInstance();
 
+   @Override
    public void adjustFrame(final short newAngle)
    {
-      this.setFrame(frameUtil.getFrameForAngle(newAngle, this.angleInfo.getAngleIncrementInfo().getAngleIncrement()));
+      this.setFrame(frameUtil.getFrameForAngle(newAngle, (int) this.angleInfo.getAngleIncrementInfo().getAngleIncrement()));
    }
 
+   @Override
    public void adjustFrame(final Angle newAngle)
    {
       this.adjustFrame(newAngle.getValue());

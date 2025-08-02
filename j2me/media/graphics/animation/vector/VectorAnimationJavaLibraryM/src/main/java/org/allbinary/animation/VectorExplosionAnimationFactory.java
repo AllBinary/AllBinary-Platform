@@ -14,11 +14,12 @@
 package org.allbinary.animation;
 
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.color.BasicColorFactory;
 
 public class VectorExplosionAnimationFactory 
     implements ProceduralAnimationInterfaceFactoryInterface{
 
-	private BasicColor basicColor;
+	private BasicColor basicColor = BasicColorFactory.getInstance().WHITE;
         protected final AnimationBehaviorFactory animationBehaviorFactory;
         
         public VectorExplosionAnimationFactory(final BasicColor basicColor) {
@@ -32,7 +33,8 @@ public class VectorExplosionAnimationFactory
 	}
 
 	private final VectorExplosionGenerator vectorExplosionGenerator = VectorExplosionGenerator.getInstance();
-	
+
+        @Override
 	public Animation getInstance(final Animation animationInterface)
 	throws Exception 
 	{

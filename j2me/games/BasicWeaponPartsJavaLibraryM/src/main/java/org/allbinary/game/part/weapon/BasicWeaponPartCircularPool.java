@@ -25,7 +25,7 @@ public class BasicWeaponPartCircularPool
    //private final int MAX = 1;
    //private BasicWeaponPart[] VECTOR_GRAPHIC_ARRAY = new BasicWeaponPart[MAX];
     
-    private BasicWeaponPart basicWeaponPart;
+    private BasicWeaponPart basicWeaponPart = BasicWeaponPart.NULL_BASIC_WEAPON_PART;
 
    public void init(
            final BasicWeaponPartFactoryInterface basicWeaponPartFactoryInterface)

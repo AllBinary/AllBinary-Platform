@@ -31,11 +31,12 @@ public class BoundsChangeEventHandler extends BasicEventHandler
       return SINGLETON;
    }
    
+   @Override
    protected void process(AllBinaryEventObject eventObject,
            EventListenerInterface eventListenerInterface) throws Exception {
 
-      ((BoundsChangeEventListener) eventListenerInterface).onBoundsChangeEvent(
-              (BoundsChangeEvent) eventObject);
+       final BoundsChangeEventListener boundsChangeEventListener = (BoundsChangeEventListener) eventListenerInterface;
+       boundsChangeEventListener.onBoundsChangeEvent((BoundsChangeEvent) eventObject);
    }
    
 }

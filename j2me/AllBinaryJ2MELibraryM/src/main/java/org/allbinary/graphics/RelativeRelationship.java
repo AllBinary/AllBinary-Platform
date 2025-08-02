@@ -14,6 +14,7 @@
 package org.allbinary.graphics;
 
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListUtil;
 
 /**
  *
@@ -21,6 +22,9 @@ import org.allbinary.util.BasicArrayList;
  */
 public class RelativeRelationship
 {
+    public static final RelativeRelationship NULL_RELATIVE_RELATIONSHIP = new RelativeRelationship(
+        PointFactory.getInstance().ZERO_ZERO, BasicArrayListUtil.getInstance().getImmutableInstance());
+
    private BasicArrayList typesAllowedList;
    
    private int x;

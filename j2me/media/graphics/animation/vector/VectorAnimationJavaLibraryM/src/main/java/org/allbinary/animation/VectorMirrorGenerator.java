@@ -15,6 +15,7 @@ package org.allbinary.animation;
 
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.pipeline.BasicGraphicsPipeline;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
@@ -41,20 +42,25 @@ public class VectorMirrorGenerator
     {
         try
         {
-            BasicArrayList pointsBasicArrayList = new BasicArrayList(points.length);
-
-            PointFactory pointFactory = PointFactory.getInstance();
+            final PointFactory pointFactory = PointFactory.getInstance();
             
-            for (int frame = 0; frame < points.length; frame++)
+            BasicArrayList pointBasicArrayList;
+            int[][] nextPoints;
+            int size2;
+            final int size = points.length;
+            final BasicArrayList pointsBasicArrayList = new BasicArrayList(size);
+            
+            for (int frame = 0; frame < size; frame++)
             {
+                nextPoints = points[frame];
+                size2 = nextPoints.length;
+                pointBasicArrayList = new BasicArrayList(size2);
 
-                BasicArrayList pointBasicArrayList = new BasicArrayList(points[frame].length);
-
-                for (int index = 0; index < points[frame].length; index++)
+                for (int index = 0; index < size2; index++)
                 {
                     pointBasicArrayList.add(
                             pointFactory.getInstance(
-                            points[frame][index][0], points[frame][index][1]));
+                            nextPoints[index][0], nextPoints[index][1]));
                 }
 
                 pointsBasicArrayList.add(pointBasicArrayList);
@@ -77,7 +83,7 @@ public class VectorMirrorGenerator
             final CommonStrings commonStrings = CommonStrings.getInstance();
             logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
             // throw e;
-            return null;
+            return NullUtil.getInstance().NULL_INT_ARRAY_ARRAY_ARRAY;
         }
     }
 

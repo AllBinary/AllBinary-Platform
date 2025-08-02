@@ -35,6 +35,7 @@ public class TimedVectorAnimation extends VectorAnimation
        super(currentPoints, basicColor, animationBehavior);
     }
     
+    @Override
     public void nextFrame()
     {
        if(this.timeElapsedHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime))
