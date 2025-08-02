@@ -35,7 +35,7 @@ public class UpDownVectorAI extends BasicAI
 
       this.velocityInterface =
          velocityInterfaceCompositeInterface.getVelocityProperties();
-      this.velocityInterface.getVelocityYBasicDecimal().set(0);
+      this.velocityInterface.getVelocityYBasicDecimalP().set(0);
    }
 
    public void processAI(AllBinaryLayerManager allBinaryLayerManager) throws Exception
@@ -46,7 +46,7 @@ public class UpDownVectorAI extends BasicAI
       
       if (this.index < 5)
       {
-          BasicDecimal basicDecimal = this.velocityInterface.getVelocityYBasicDecimal();
+          BasicDecimal basicDecimal = this.velocityInterface.getVelocityYBasicDecimalP();
           
           basicDecimal.set(0);
           basicDecimal.add(y);
@@ -54,7 +54,7 @@ public class UpDownVectorAI extends BasicAI
          this.index++;
       } else if (this.index < 10)
       {
-          BasicDecimal basicDecimal = this.velocityInterface.getVelocityYBasicDecimal();
+          BasicDecimal basicDecimal = this.velocityInterface.getVelocityYBasicDecimalP();
           
           basicDecimal.set(0);
           basicDecimal.subtract(y);

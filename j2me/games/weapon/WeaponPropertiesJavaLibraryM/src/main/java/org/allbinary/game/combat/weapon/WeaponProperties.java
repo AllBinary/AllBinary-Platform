@@ -25,18 +25,23 @@ import org.allbinary.string.CommonStrings;
  */
 public class WeaponProperties extends SimpleWeaponProperties
 {
+    public static final WeaponProperties NULL_WEAPON_PROPERTIES = new WeaponProperties(0L, 0L, 0L, 0, (short) 0);
+
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
     private long reloadTime;
     private long targetingTime;
-    private BasicDecimal speed;
+    private BasicDecimal speed = BasicDecimal.ZERO_BIGDECIMAL;
     
     private static boolean messageSent = false;
+    
+    private final long MAX = 10240L;
+    private final short ZERO = 0;
     
     public WeaponProperties(
             long reloadTime, long targetingTime, long speed, int damage, short dissipation)
     {
-    	if(speed < 10240 && speed != 0 && !messageSent)
+    	if(speed < MAX && speed != 0L && !messageSent)
     	{
     	    final String MESSAGE = "Danger Danger Danger: Speed probably to slow if using 1 degree calculations as velocity for a single axis could be below 1024: ";
 
@@ -53,9 +58,12 @@ public class WeaponProperties extends SimpleWeaponProperties
         this.setDissipation(dissipation);
         this.setSpeed(new BasicDecimal(speed));
 
-        if(dissipation != 0)
+        if(dissipation != ZERO)
         {
-            this.setRange((int) ((((this.speed.getUnscaled() * damage) / (dissipation * this.speed.getScaledFactorValue()))) * 9) / 10);
+            final long unscaledDamage = this.speed.getUnscaled() * damage;
+            final int scaledDissipation = dissipation * this.speed.getScaledFactorValue();
+            final long value = (unscaledDamage / scaledDissipation);
+            this.setRange((int) (value * 9) / 10);
             
             /*
             StringMaker stringBuffer = new StringMaker();
@@ -74,9 +82,9 @@ public class WeaponProperties extends SimpleWeaponProperties
         }
     }
 
-    public WeaponProperties(int speed, int damage, short dissipation)
+    public WeaponProperties(long speed, int damage, short dissipation)
     {
-        this(-1, -1, speed, damage, dissipation);
+        this(-1L, -1L, speed, damage, dissipation);
     }
     
     private void setReloadTime(long reloadTime)
@@ -138,8 +146,8 @@ public class WeaponProperties extends SimpleWeaponProperties
     {
         int index = 0;
 
-        String[] stringArray = new String[3];
-        StringMaker stringBuffer = new StringMaker();
+        final String[] stringArray = new String[3];
+        final StringMaker stringBuffer = new StringMaker();
         
         stringArray[index++] = 
             stringBuffer.append(DAMAGE).append(this.getDamage()).toString();
@@ -158,7 +166,7 @@ public class WeaponProperties extends SimpleWeaponProperties
 
     public String toString()
     {
-        StringMaker stringBuffer = new StringMaker();
+        final StringMaker stringBuffer = new StringMaker();
          
         stringBuffer.append(DAMAGE).append(this.getDamage());
         stringBuffer.append(CommonSeps.getInstance().SPACE);

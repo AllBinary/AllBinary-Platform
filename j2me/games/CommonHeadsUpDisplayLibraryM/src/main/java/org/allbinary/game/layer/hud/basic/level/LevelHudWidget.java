@@ -19,6 +19,7 @@ import org.allbinary.game.graphics.hud.BasicHud;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.font.MyFont;
 import org.allbinary.graphics.paint.PaintableInterface;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.math.PrimitiveLongUtil;
 
 public class LevelHudWidget extends BasicHud
@@ -31,7 +32,7 @@ public class LevelHudWidget extends BasicHud
 
     //private String levelString;
     private final char[] levelString;
-    private char[] levelNumberCharArray;
+    private char[] levelNumberCharArray = NullUtil.getInstance().NULL_CHAR_ARRAY;
     private int levelNumberTotalDigits;
     private final int offset;
 
@@ -107,6 +108,7 @@ public class LevelHudWidget extends BasicHud
         }
     }
 
+    @Override
     public void paint(Graphics graphics)
     {
         super.paint(graphics, 
@@ -117,7 +119,9 @@ public class LevelHudWidget extends BasicHud
         //super.paint(graphics, levelString);
     }
     
+    @Override
     public void paintThreed(Graphics graphics)
     {
-    }    
+    }
+    
 }

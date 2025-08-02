@@ -92,6 +92,7 @@ public class NumberStringHud extends BasicHud
       this.set(this.value - value);
    }
 
+   @Override
    public void paint(Graphics graphics)
    {
        super.paint(graphics, 
@@ -119,7 +120,9 @@ public class NumberStringHud extends BasicHud
                len2, x - this.offset, y, 0);
    }
 
+   @Override
    public void paintThreed(Graphics graphics)
    {
-   }   
+   }
+
 }

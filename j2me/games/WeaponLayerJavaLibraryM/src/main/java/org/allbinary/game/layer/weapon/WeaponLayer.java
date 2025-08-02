@@ -19,6 +19,8 @@ import javax.microedition.lcdui.Graphics;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
 import org.allbinary.animation.IndexedAnimation;
+import org.allbinary.animation.NullAnimationFactory;
+import org.allbinary.animation.NullIndexedAnimationFactory;
 import org.allbinary.game.collision.CollidableBaseBehavior;
 import org.allbinary.game.combat.damage.ExplosionResources;
 import org.allbinary.game.combat.destroy.DestroyedLayerProcessor;
@@ -44,11 +46,11 @@ implements TickableInterface
 
     // private static final int MIN = 200;
 
-    private Animation animationInterface;
+    private Animation animationInterface = NullAnimationFactory.getFactoryInstance().getInstance(0);
     protected Animation initAnimationInterface;
     private Animation destroyedAnimationInterface;
 
-    private AllBinaryLayer sourceLayerInterface;
+    private AllBinaryLayer sourceLayerInterface = AllBinaryLayer.NULL_ALLBINARY_LAYER;
 
     // Initialized upon init
     // private int angle;
@@ -58,7 +60,7 @@ implements TickableInterface
     protected ScoreableInterface scoreableInterface = NoScoreable.getInstance();
     private Movement movement;
 
-    private WeaponProperties weaponProperties;
+    private WeaponProperties weaponProperties = WeaponProperties.NULL_WEAPON_PROPERTIES;
 
     private final int multiPlayerType;
 
@@ -123,7 +125,7 @@ implements TickableInterface
         this(name, movement, animationInterface, 
                 FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance()
                 .getProcedural(ExplosionResources.getInstance().THIRD_EXPLOSION_RESOURCE)
-                .getInstance(null), rectangle, viewPosition);
+                .getInstance(NullIndexedAnimationFactory.getFactoryInstance().getInstance(0)), rectangle, viewPosition);
     }
 
     protected WeaponLayer(final String name, final Movement movement, final Animation animationInterface,
@@ -152,8 +154,9 @@ implements TickableInterface
         this.multiPlayerType = multiPlayerType;
     }
 
-    private CollidableWeaponBehavior collidableWeaponBehavior;    
+    private CollidableWeaponBehavior collidableWeaponBehavior = CollidableWeaponBehavior.NULL_COLLIDABLE_WEAPON_BEHAVIOR;
 
+    @Override
     public void setCollidableInferface(CollidableBaseBehavior collidableInferface)
     {
         super.setCollidableInferface(collidableInferface);
@@ -167,7 +170,7 @@ implements TickableInterface
         this.z = z;
     }
     
-    public void init(AllBinaryLayer sourceLayerInterface, short angle, short otherAngle,
+    public void init(AllBinaryLayer sourceLayerInterface, int angle, int otherAngle,
             WeaponProperties weaponProperties, ScoreableInterface scoreable) throws Exception
     {
         /*
@@ -182,11 +185,11 @@ implements TickableInterface
         }
         */
 
-        this.setWeaponProperties(weaponProperties);
+        this.setWeaponPropertiesP(weaponProperties);
 
         this.setReadyForExplosion(false);
 
-        this.setAnimationInterface(this.getInitAnimationInterface());
+        this.setAnimationInterface(this.getInitAnimationInterfaceP());
 
         this.setOwnerLayerInterface(sourceLayerInterface);
 
@@ -201,8 +204,8 @@ implements TickableInterface
             this.scoreableInterface = scoreable;
         }
 
-        // basicVelocityProperties.getVelocityXBasicDecimal().set(0);
-        // basicVelocityProperties.getVelocityYBasicDecimal().set(0);
+        // basicVelocityProperties.getVelocityXBasicDecimalP().set(0);
+        // basicVelocityProperties.getVelocityYBasicDecimalP().set(0);
         this.totalDamage = 0;
         this.initDamage = weaponProperties.getDamage();
         this.setDestroyed(false);
@@ -222,6 +225,7 @@ implements TickableInterface
         }
     }
 
+    @Override
     public void processTick(AllBinaryLayerManager allBinaryLayerManager) throws Exception
     {
         //final GameStrings gameStrings = GameStrings.getInstance();
@@ -257,8 +261,9 @@ implements TickableInterface
                     this.setDestroyed(true);
                 }
             } else
-            {                
-                if (((CollidableWeaponBehavior) this.getCollidableInferface()).isCollided())
+            {       
+                final CollidableWeaponBehavior collidableWeaponBehavior = (CollidableWeaponBehavior) this.getCollidableInferface();
+                if (collidableWeaponBehavior.isCollided())
                 {
                     // logUtil.put("Explosion - Begin", this, tickableStrings.PROCESS_TICK);
                     //PreLogUtil.put("Explosion - Begin", this, gameStrings.PROCESS_TICK);
@@ -290,8 +295,8 @@ implements TickableInterface
         BasicVelocityProperties velocityProperties = 
             ((VelocityInterfaceCompositeInterface) movement).getVelocityProperties();
 
-        BasicDecimal xBasicDecimal = velocityProperties.getVelocityXBasicDecimal();
-        BasicDecimal yBasicDecimal = velocityProperties.getVelocityYBasicDecimal(); 
+        BasicDecimal xBasicDecimal = velocityProperties.getVelocityXBasicDecimalP();
+        BasicDecimal yBasicDecimal = velocityProperties.getVelocityYBasicDecimalP(); 
 
         //xBasicDecimal.multiply(4);
         xBasicDecimal.divide(2);
@@ -301,11 +306,13 @@ implements TickableInterface
     }
     */
     
+    @Override
     public boolean isDestroyed()
     {
         return this.destroyed;
     }
 
+    @Override
     public void damage(int damage, int damageType)
     {
         this.totalDamage += damage * damage;
@@ -333,6 +340,7 @@ implements TickableInterface
         }
     }
 
+    @Override
     public int getDamage(int damageType)
     {
         if (!this.isExhausted())
@@ -391,12 +399,12 @@ implements TickableInterface
         return animationInterface;
     }
 
-    public Animation getInitAnimationInterface()
+    public Animation getInitAnimationInterfaceP()
     {
         return initAnimationInterface;
     }
 
-    public void setInitAnimationInterface(Animation initAnimationInterface)
+    public void setInitAnimationInterfaceP(Animation initAnimationInterface)
     {
         this.initAnimationInterface = initAnimationInterface;
     }
@@ -423,6 +431,7 @@ implements TickableInterface
         this.sourceLayerInterface = sourceLayerInterface;
     }
 
+    @Override
     public void paint(Graphics graphics)
     {
         // logUtil.put(commonStrings.START, this, canvasStrings.PAINT);
@@ -441,6 +450,7 @@ implements TickableInterface
         // super.paint(graphics);
     }
 
+    @Override
     public void paintThreed(Graphics graphics)
     {
         ViewPosition viewPosition = this.getViewPosition();
@@ -468,6 +478,7 @@ implements TickableInterface
         this.movement = movement;
     }
 
+    @Override
     public int getType()
     {
         return getStaticType();
@@ -478,26 +489,29 @@ implements TickableInterface
         return 0;
     }
 
+    @Override
     public int getMultiPlayerType()
     {
         return multiPlayerType;
     }
 
-    public void setWeaponProperties(WeaponProperties weaponProperties)
+    public void setWeaponPropertiesP(WeaponProperties weaponProperties)
     {
         this.weaponProperties = weaponProperties;
     }
 
-    public WeaponProperties getWeaponProperties()
+    public WeaponProperties getWeaponPropertiesP()
     {
         return weaponProperties;
     }
 
+    @Override
     public boolean implmentsTickableInterface()
     {
         return true;
     }
     
+    @Override
     public void set(GL gl) throws Exception
     {
         //OpenGLSurfaceChangedInterface

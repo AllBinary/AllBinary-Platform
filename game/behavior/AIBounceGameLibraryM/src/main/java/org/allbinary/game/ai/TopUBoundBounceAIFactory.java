@@ -40,7 +40,7 @@ public class TopUBoundBounceAIFactory
           velocityInterfaceCompositeInterface.getVelocityProperties();
 
       int maxDistancePerTick = 
-          (velocityInterface.getMaxForwardVelocity() >> velocityInterface.getVelocityXBasicDecimal().getScaledFactor());
+          (velocityInterface.getMaxForwardVelocity() >> velocityInterface.getVelocityXBasicDecimalP().getScaledFactor());
       int halfWidth = ownerLayerInterface.getWidth() * 2 + maxDistancePerTick + 1;// / 2;
       int halfHeight = ownerLayerInterface.getHeight() * 2 + maxDistancePerTick + 1;// / 2;
 

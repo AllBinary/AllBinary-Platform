@@ -31,30 +31,34 @@ public class Life implements LifeInterface
         this.lives = lives;
         this.startLives = lives;
     }
-    
+
+    @Override    
     public short get()
     {
         return this.lives;
     }
     
+    @Override
     public void set(short lives)
     {
         this.lives = lives;
     }
 
+    @Override
     public void reset()
     {
         this.lives = this.startLives;
         //this.startLives = lives;
     }
     
+    @Override
     public void add(short lives)
     {
         if(!this.reachedLimit())
         {
             if(this.lives + lives <= this.getMaxlives())
             {
-                this.lives += lives;
+                this.lives = (short) (this.lives + lives);
             }
             else
             {
@@ -63,6 +67,7 @@ public class Life implements LifeInterface
         }
     }
 
+    @Override
     public boolean isAlive()
     {
         if (this.lives <= 0)
@@ -75,6 +80,7 @@ public class Life implements LifeInterface
         }
     }
     
+    @Override
     public short getMaxlives()
     {
         return maxlives;
@@ -92,13 +98,14 @@ public class Life implements LifeInterface
         }
     }
     
+    @Override
     public void deaths(short lives)
     {
         if(!this.reachedLimit())
         {
             if(this.lives - lives >= 0)
             {
-                this.lives -= lives;
+                this.lives = (short) (this.lives - lives);
             }
             else
             {

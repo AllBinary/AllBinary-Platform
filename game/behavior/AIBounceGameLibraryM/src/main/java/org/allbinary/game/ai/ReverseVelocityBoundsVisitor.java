@@ -58,8 +58,8 @@ public class ReverseVelocityBoundsVisitor implements BoundsVisitorInterface
    {
       //logUtil.put(commonStrings.START, this, "minX");
       //this.refract();
-      if(this.velocityInterface.getVelocityXBasicDecimal().getUnscaled() < 0)
-      this.velocityInterface.getVelocityXBasicDecimal().multiply(-1);
+      if(this.velocityInterface.getVelocityXBasicDecimalP().getUnscaled() < 0)
+      this.velocityInterface.getVelocityXBasicDecimalP().multiply(-1);
       //logUtil.put("End: " + this.velocityInterface.toString(), this, "minX");
    }
 
@@ -67,8 +67,8 @@ public class ReverseVelocityBoundsVisitor implements BoundsVisitorInterface
    {
       //logUtil.put(commonStrings.START, this, "maxX");
       //this.refract();
-      if(this.velocityInterface.getVelocityXBasicDecimal().getUnscaled() > 0)
-      this.velocityInterface.getVelocityXBasicDecimal().multiply(-1);
+      if(this.velocityInterface.getVelocityXBasicDecimalP().getUnscaled() > 0)
+      this.velocityInterface.getVelocityXBasicDecimalP().multiply(-1);
       //logUtil.put("End: " + this.velocityInterface.toString(), this, "maxX");
    }
 
@@ -76,8 +76,8 @@ public class ReverseVelocityBoundsVisitor implements BoundsVisitorInterface
    {
       //logUtil.put(commonStrings.START, this, "minY");
       //this.refract();
-      if(this.velocityInterface.getVelocityYBasicDecimal().getUnscaled() < 0)
-      this.velocityInterface.getVelocityYBasicDecimal().multiply(-1);
+      if(this.velocityInterface.getVelocityYBasicDecimalP().getUnscaled() < 0)
+      this.velocityInterface.getVelocityYBasicDecimalP().multiply(-1);
       
       //logUtil.put("End: " + this.velocityInterface.toString(), this, "minY");
    }
@@ -86,8 +86,8 @@ public class ReverseVelocityBoundsVisitor implements BoundsVisitorInterface
    {
       //logUtil.put(commonStrings.START, this, "maxY");
       //this.refract();
-      if(this.velocityInterface.getVelocityYBasicDecimal().getUnscaled() > 0)
-      this.velocityInterface.getVelocityYBasicDecimal().multiply(-1);
+      if(this.velocityInterface.getVelocityYBasicDecimalP().getUnscaled() > 0)
+      this.velocityInterface.getVelocityYBasicDecimalP().multiply(-1);
       //logUtil.put("End: " + this.velocityInterface.toString(), this, "maxY");
    }
 

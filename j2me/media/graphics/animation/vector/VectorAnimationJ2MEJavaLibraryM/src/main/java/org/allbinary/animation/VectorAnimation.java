@@ -17,6 +17,7 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorSetUtil;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.PrimitiveIntUtil;
 import org.allbinary.util.CircularIndexUtil;
@@ -26,16 +27,9 @@ public class VectorAnimation extends IndexedAnimation
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private int[][][] currentPoints;
-
-    private BasicColor basicColor;
-
-    //private int color;
+    private int[][][] currentPoints = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY_ARRAY;
     
-    private CircularIndexUtil circularIndexUtil;
-
-    protected final BasicColorSetUtil basicColorUtil = 
-        BasicColorSetUtil.getInstance();
+    private CircularIndexUtil circularIndexUtil = CircularIndexUtil.getInstance(0);
     
     public VectorAnimation(final int[][][] currentPoints, final BasicColor basicColor, final AnimationBehavior animationBehavior)
     {
@@ -62,42 +56,37 @@ public class VectorAnimation extends IndexedAnimation
         this.setBasicColorP(basicColor);
     }
 
+    @Override
     public int getAnimationSize() throws Exception
     {
         return this.getSize();
     }
 
-    public BasicColor getBasicColorP()
-    {
-        return this.basicColor;
-    }
-
-    public void setBasicColorP(final BasicColor basicColor)
-    {
-        this.basicColor = basicColor;
-        //this.color = this.basicColor.intValue();
-    }
-
+    @Override
     public int getSize()
     {
         return this.currentPoints.length;
     }
-
+    
+    @Override
     public void setSequence(final int[] sequence)
     {
 
     }
 
+    @Override
     public int[] getSequence()
     {
         return PrimitiveIntUtil.getArrayInstance();
     }
 
+    @Override
     public void nextFrame()
     {
         this.circularIndexUtil.next();
     }
 
+    @Override
     public void previousFrame()
     {
         this.circularIndexUtil.previous();
@@ -120,7 +109,8 @@ public class VectorAnimation extends IndexedAnimation
             final int[][] currentPointsFrame = this.currentPoints[this.circularIndexUtil.getIndex()];
             final int size = currentPointsFrame.length;
 
-            for (int index = size - 2; --index >= 0;)
+            int index = size - 2;
+            while (--index >= 0)
             {
                 nextPoint = currentPointsFrame[index];
                 point = currentPointsFrame[index + 1];
@@ -153,6 +143,7 @@ public class VectorAnimation extends IndexedAnimation
 
     }
 
+    @Override
     public void paint(Graphics graphics, int x, int y)
     {
         this.basicSetColorUtil.setBasicColorP(graphics, basicColor);
@@ -160,16 +151,19 @@ public class VectorAnimation extends IndexedAnimation
         this.paintVectors(graphics, x, y);
     }
 
+    @Override
     public int getFrame()
     {
         return this.circularIndexUtil.getIndex();
     }
 
+    @Override
     public void setFrame(int index)
     {
         this.circularIndexUtil.setIndex(index);
     }
 
+    @Override
     public int[][] getPoints(int frame)
     {
         return currentPoints[frame];

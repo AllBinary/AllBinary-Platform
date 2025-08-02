@@ -44,30 +44,30 @@ public class StopAtEdgeAI extends BasicAI
       int height = ownerLayerInterface.getHeight();
       
       DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
-      if (x2 + velocityProperties.getVelocityXBasicDecimal().getScaled() > displayInfo.getLastWidth())
+      if (x2 + velocityProperties.getVelocityXBasicDecimalP().getScaled() > displayInfo.getLastWidth())
       {
           ownerLayerInterface.setPosition(displayInfo.getLastWidth() - width, y, ownerLayerInterface.getZP());
          //ownerLayerInterface.setPosition(width + 1, y);
-          velocityProperties.getVelocityYBasicDecimal().set(0);
+          velocityProperties.getVelocityYBasicDecimalP().set(0);
       }
 
-      if (y2 + velocityProperties.getVelocityYBasicDecimal().getScaled() > displayInfo.getLastHeight())
+      if (y2 + velocityProperties.getVelocityYBasicDecimalP().getScaled() > displayInfo.getLastHeight())
       {
          //ownerLayerInterface.setPosition(x, height + 1);
           ownerLayerInterface.setPosition(x, displayInfo.getLastHeight() - height, ownerLayerInterface.getZP());
-          velocityProperties.getVelocityXBasicDecimal().set(0);
+          velocityProperties.getVelocityXBasicDecimalP().set(0);
       }
 
-      if (x + velocityProperties.getVelocityXBasicDecimal().getScaled() < 0)
+      if (x + velocityProperties.getVelocityXBasicDecimalP().getScaled() < 0)
       {
          ownerLayerInterface.setPosition(0, y, ownerLayerInterface.getZP());
-         velocityProperties.getVelocityYBasicDecimal().set(0);
+         velocityProperties.getVelocityYBasicDecimalP().set(0);
       }
 
-      if (y + velocityProperties.getVelocityYBasicDecimal().getScaled() < 0)
+      if (y + velocityProperties.getVelocityYBasicDecimalP().getScaled() < 0)
       {
          ownerLayerInterface.setPosition(x, 0, ownerLayerInterface.getZP());
-         velocityProperties.getVelocityXBasicDecimal().set(0);
+         velocityProperties.getVelocityXBasicDecimalP().set(0);
       }
    }
 }

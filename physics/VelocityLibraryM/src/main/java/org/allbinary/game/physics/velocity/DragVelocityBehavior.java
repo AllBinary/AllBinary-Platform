@@ -24,45 +24,48 @@ public class DragVelocityBehavior extends VelocityBehaviorBase {
 
 
     public static final DragVelocityBehavior instance = new DragVelocityBehavior();
-    
+  
+    @Override
    public void reduce(final BasicVelocityProperties velocityProperties, final int nominator, final int denominator)
    {
-      //logUtil.put("VelocityX: " + this.getVelocityXBasicDecimal().getUnscaled(), this, "friction");
-      //logUtil.put("VelocityY: " + this.getVelocityYBasicDecimal().getUnscaled(), this, "friction");
-      if(velocityProperties.getVelocityXBasicDecimal().getUnscaled() != 0)
+      //logUtil.put("VelocityX: " + this.getVelocityXBasicDecimalP().getUnscaled(), this, "friction");
+      //logUtil.put("VelocityY: " + this.getVelocityYBasicDecimalP().getUnscaled(), this, "friction");
+      if(velocityProperties.getVelocityXBasicDecimalP().getUnscaled() != 0L)
       {
-         final BasicDecimal basicDecimal = velocityProperties.getVelocityXBasicDecimal();
+         final BasicDecimal basicDecimal = velocityProperties.getVelocityXBasicDecimalP();
          basicDecimal.multiply(nominator);
          basicDecimal.divide(denominator);
          //this.setVelocityXBasicDecimal(basicDecimal);
-         //logUtil.put("After Friction VelocityX: " + this.getVelocityXBasicDecimal().getUnscaled(), this, "friction");
+         //logUtil.put("After Friction VelocityX: " + this.getVelocityXBasicDecimalP().getUnscaled(), this, "friction");
       }
 
-      if (velocityProperties.getVelocityYBasicDecimal().getUnscaled() != 0)
+      if (velocityProperties.getVelocityYBasicDecimalP().getUnscaled() != 0L)
       {
-         final BasicDecimal basicDecimal = velocityProperties.getVelocityYBasicDecimal();
+         final BasicDecimal basicDecimal = velocityProperties.getVelocityYBasicDecimalP();
          basicDecimal.multiply(nominator);
          basicDecimal.divide(denominator);
          //this.setVelocityYBasicDecimal(basicDecimal);
-         //logUtil.put("After Friction VelocityY: " + this.getVelocityYBasicDecimal().getUnscaled(), this, "friction");
+         //logUtil.put("After Friction VelocityY: " + this.getVelocityYBasicDecimalP().getUnscaled(), this, "friction");
       }
    }   
 
+   @Override
    public void reduceX(final BasicVelocityProperties velocityProperties, final int nominator, final int denominator)
    {
-      final BasicDecimal basicDecimal = velocityProperties.getVelocityXBasicDecimal();
-      if(basicDecimal.getUnscaled() != 0)
+      final BasicDecimal basicDecimal = velocityProperties.getVelocityXBasicDecimalP();
+      if(basicDecimal.getUnscaled() != 0L)
       {
          basicDecimal.multiply(nominator);
          basicDecimal.divide(denominator);
       }
    }
    
+   @Override
    public void reduceY(final BasicVelocityProperties velocityProperties, final int nominator, final int denominator)
    {
-      if (velocityProperties.getVelocityYBasicDecimal().getUnscaled() != 0)
+      if (velocityProperties.getVelocityYBasicDecimalP().getUnscaled() != 0L)
       {
-         final BasicDecimal basicDecimal = velocityProperties.getVelocityYBasicDecimal();
+         final BasicDecimal basicDecimal = velocityProperties.getVelocityYBasicDecimalP();
          basicDecimal.multiply(nominator);
          basicDecimal.divide(denominator);
       }

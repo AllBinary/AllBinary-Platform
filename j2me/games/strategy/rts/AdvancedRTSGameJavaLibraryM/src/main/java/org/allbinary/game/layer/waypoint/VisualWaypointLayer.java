@@ -51,7 +51,7 @@ public class VisualWaypointLayer
         WaypointInfoHudPaintable rtsLayerHudPaintable = 
             WaypointInfoHudPaintableSingleton.getInstance();
         
-        rtsLayerHudPaintable.setBasicColorP(this.allBinaryGameLayerManager.getForegroundBasicColor());
+        rtsLayerHudPaintable.setBasicColorP(this.allBinaryGameLayerManagerP.getForegroundBasicColor());
         rtsLayerHudPaintable.setRtsLayer(this);
         
         return rtsLayerHudPaintable;

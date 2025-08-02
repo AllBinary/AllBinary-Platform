@@ -16,26 +16,30 @@ package org.allbinary.game.layer.hud.basic.notification;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.game.graphics.hud.BasicHud;
+import org.allbinary.game.graphics.hud.BasicHudFactory;
 import org.allbinary.game.layer.hud.event.GameNotificationEvent;
 import org.allbinary.game.layer.hud.event.GameNotificationListenerInterface;
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
 
 public class GameNotificationHud extends BasicHud
 implements GameNotificationListenerInterface
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
+    public static final GameNotificationHud NULL_GAME_NOTIFICATION = new GameNotificationHud(
+            		BasicHudFactory.getInstance().TOPCENTER, 
+            		BasicHudFactory.getInstance().HORIZONTAL,
+                    0, 0, 0, BasicColorFactory.getInstance().RED);
 
-   protected GameNotificationHud(int location, int direction,
+   public GameNotificationHud(int location, int direction,
        int maxHeight, int maxWidth, int bufferZone, BasicColor basicColor)
-       throws Exception
    {
       super(location, direction, maxHeight, maxWidth, bufferZone, basicColor);
    }
 
+   @Override
    public void onEvent(AllBinaryEventObject eventObject)
    {
        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
@@ -43,8 +47,9 @@ implements GameNotificationListenerInterface
    
    private final String METHOD_NAME = "onGameNotificationEvent";
   
-   private GameNotificationEvent lastGameNotificationEvent = null;
+   private GameNotificationEvent lastGameNotificationEvent = GameNotification.NULL_GAME_NOTIFICATION_EVENT;
 
+   @Override
    public void onGameNotificationEvent(
            final GameNotificationEvent gameNotificationEvent) 
    throws Exception

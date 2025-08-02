@@ -176,7 +176,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
 
     public void updateWaypointBehavior(final BasicGeographicMap geographicMapInterface) throws Exception {
         super.updateWaypointBehavior(geographicMapInterface);
-        this.getWaypointBehavior().getWaypoint().setAllBinaryGameLayerManager(allBinaryGameLayerManager);
+        this.getWaypointBehavior().getWaypoint().setAllBinaryGameLayerManager(this.allBinaryGameLayerManagerP);
     }
     
     protected void initVisibility(
@@ -554,7 +554,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
     
     public BasicArrayList getSurroundingGeographicMapCellPositionList() throws Exception {
         final GeographicMapCompositeInterface geographicMapCompositeInterface
-            = (GeographicMapCompositeInterface) this.allBinaryGameLayerManager;
+            = (GeographicMapCompositeInterface) this.allBinaryGameLayerManagerP;
         final BasicGeographicMap geographicMapInterface = geographicMapCompositeInterface.getGeographicMapInterface()[0];
 
         geographicMapCellPositionArea.update(geographicMapInterface);

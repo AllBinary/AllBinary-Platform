@@ -27,7 +27,8 @@ extends SimpleWeaponLayer
         
         this.timeDelayHelper.delay = timeDelay;
     }
-    
+
+    @Override    
     public void processTick(AllBinaryLayerManager allBinaryLayerManager) throws Exception
     {
     	if(timeDelayHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime))

@@ -31,9 +31,9 @@ public class StoreRoleFactory {
         return instance;
     }
 
-    private final Vector roles = new Vector();
-    private final Vector subscriberRoles = new Vector();
-    private final Vector wholesaleRoles = new Vector();
+    private final Vector<Object> roles = new Vector<Object>();
+    private final Vector<Object> subscriberRoles = new Vector<Object>();
+    private final Vector<Object> wholesaleRoles = new Vector<Object>();
 
     private StoreRoleFactory()
     {
@@ -52,7 +52,7 @@ public class StoreRoleFactory {
     /**
      * @return the roles
      */
-    public Vector getRoles()
+    public Vector<Object> getRoles()
     {
         return roles;
     }
@@ -60,7 +60,7 @@ public class StoreRoleFactory {
     /**
      * @return the subscriberRoles
      */
-    public Vector getSubscriberRoles()
+    public Vector<Object> getSubscriberRoles()
     {
         return subscriberRoles;
     }
@@ -68,7 +68,7 @@ public class StoreRoleFactory {
     /**
      * @return the wholesaleRoles
      */
-    public Vector getWholesaleRoles()
+    public Vector<Object> getWholesaleRoles()
     {
         return wholesaleRoles;
     }

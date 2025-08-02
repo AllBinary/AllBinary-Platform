@@ -596,7 +596,7 @@ public class BuildingLayer
         final BuildingInfoHudPaintable buildingInfoHudPaintable = 
             BuildingInfoHudPaintable.getInstance();
         
-        buildingInfoHudPaintable.setBasicColorP(this.allBinaryGameLayerManager.getForegroundBasicColor());
+        buildingInfoHudPaintable.setBasicColorP(this.allBinaryGameLayerManagerP.getForegroundBasicColor());
         buildingInfoHudPaintable.setRtsLayer(this);
         
         return buildingInfoHudPaintable;

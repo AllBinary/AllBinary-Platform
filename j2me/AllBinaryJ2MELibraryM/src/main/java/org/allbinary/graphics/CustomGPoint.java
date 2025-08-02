@@ -15,6 +15,8 @@ package org.allbinary.graphics;
 
 public class CustomGPoint extends GPoint
 {
+    public static final CustomGPoint NULL_CUSTOM_POINT = new CustomGPoint(0, 0, 0);
+
     private int x;
     private int y;
     private int z;

@@ -29,10 +29,12 @@ extends BasicConstantVelocityMovement
     	super(basicDecimal, velocityProperties);
     }
     
-    public void init(BasicDecimal speedBasicDecimal, short angle, short otherAngle)
+    @Override
+    public void init(BasicDecimal speedBasicDecimal, int angle, int otherAngle)
     {
     }
     
+    @Override
     public void process(AllBinaryGameLayer layer) throws Exception
     {
     	if(timeDelayHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime))

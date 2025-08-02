@@ -17,6 +17,7 @@ import javax.microedition.khronos.opengles.GL;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.animation.Animation;
+import org.allbinary.animation.NullAnimationFactory;
 import org.allbinary.game.collision.CollidableAlwaysPickupNeverCollideBehaviorFactory;
 import org.allbinary.game.combat.destroy.DestroyedLayerProcessor;
 import org.allbinary.game.identification.BasicGroupFactory;
@@ -31,9 +32,9 @@ public class PickupLayer
    extends MultiPlayerGameLayer
    implements PickedUpLayerInterface, PickupableInterface
 {
-   private PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface;
+   private PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface = CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY;
    private boolean destroyed;
-   private Animation animationInterface;
+   private Animation animationInterface = NullAnimationFactory.getFactoryInstance().getInstance(0);
 
    public PickupLayer(final String name, final RemoteInfo remoteInfo, final ViewPosition viewPosition) throws Exception
    {
@@ -91,6 +92,7 @@ public class PickupLayer
       this.setPosition(x, y, z);
    }
 
+   @Override
    public void paint(Graphics graphics)
    {
        ViewPosition viewPosition = this.getViewPosition();
@@ -100,6 +102,7 @@ public class PickupLayer
        this.animationInterface.paint(graphics, viewX, viewY);
    }
 
+   @Override
    public void paintThreed(Graphics graphics)
    {
        ViewPosition viewPosition = this.getViewPosition();
@@ -109,16 +112,19 @@ public class PickupLayer
        this.animationInterface.paintThreed(graphics, viewX, viewY, 3);
    }
    
+   @Override
    public PickedUpLayerInterfaceFactoryInterface getPickedUpLayerInterfaceFactoryInterface()
    {
       return this.pickedUpLayerInterfaceFactoryInterface;
    }
 
+   @Override
    public void setPickedUp()
    {
       this.setDestroyed(true);
    }
 
+   @Override
    public boolean isDestroyed()
    {
       return destroyed;
@@ -133,15 +139,18 @@ public class PickupLayer
       }
    }
 
+   @Override
    public void damage(int damage, int damageType)
    {
    }
 
+   @Override
    public int getDamage(int damageType)
    {
       return 0;
    }
    
+   @Override
    public void set(GL gl) throws Exception
    {
        //OpenGLSurfaceChangedInterface

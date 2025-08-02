@@ -80,16 +80,16 @@ extends CollidableDestroyableDamageableBehavior
         VehicleProperties vehicleProperties = vehiclePropertiesCompositeInterface.getVehicleProperties();
 
         // Reverse Velocity of both vehicles on the side of the hit
-        long impactVelocityX = ownerVehicleProperties.getVelocityProperties().getVelocityXBasicDecimal().getUnscaled() 
-                - vehicleProperties.getVelocityProperties().getVelocityXBasicDecimal().getUnscaled();
+        long impactVelocityX = ownerVehicleProperties.getVelocityProperties().getVelocityXBasicDecimalP().getUnscaled() 
+                - vehicleProperties.getVelocityProperties().getVelocityXBasicDecimalP().getUnscaled();
 
-        long impactVelocityY = ownerVehicleProperties.getVelocityProperties().getVelocityYBasicDecimal().getUnscaled()
-                - vehicleProperties.getVelocityProperties().getVelocityYBasicDecimal().getUnscaled();
+        long impactVelocityY = ownerVehicleProperties.getVelocityProperties().getVelocityYBasicDecimalP().getUnscaled()
+                - vehicleProperties.getVelocityProperties().getVelocityYBasicDecimalP().getUnscaled();
 
         // long impactVelocityX =
-        // this.getVehicleProperties().getVelocityProperties().getVelocityXBasicDecimal().getUnscaled();
+        // this.getVehicleProperties().getVelocityProperties().getVelocityXBasicDecimalP().getUnscaled();
         // long impactVelocityY =
-        // this.getVehicleProperties().getVelocityProperties().getVelocityYBasicDecimal().getUnscaled();
+        // this.getVehicleProperties().getVelocityProperties().getVelocityYBasicDecimalP().getUnscaled();
 
         // Basic bounce off
         if (impactVelocityX != 0)
@@ -97,16 +97,16 @@ extends CollidableDestroyableDamageableBehavior
             // logUtil.put("Transfering X Velocity: " +
             // impactVelocityX, this, damageUtil.COLLIDE);
             halfImpactVelocityX = (impactVelocityX >> 1);
-            ownerVehicleProperties.getVelocityProperties().getVelocityXBasicDecimal().add(halfImpactVelocityX);
-            vehicleProperties.getVelocityProperties().getVelocityXBasicDecimal().add(halfImpactVelocityX);
+            ownerVehicleProperties.getVelocityProperties().getVelocityXBasicDecimalP().add(halfImpactVelocityX);
+            vehicleProperties.getVelocityProperties().getVelocityXBasicDecimalP().add(halfImpactVelocityX);
 
             // vehicleLayer.move((int)
-            // this.getVehicleProperties().getVelocityProperties().getVelocityXBasicDecimal().getScaled(),
+            // this.getVehicleProperties().getVelocityProperties().getVelocityXBasicDecimalP().getScaled(),
             // 0);
 
-            // this.getVehicleProperties().getVelocityProperties().getVelocityXBasicDecimal().subtract(impactVelocityX
+            // this.getVehicleProperties().getVelocityProperties().getVelocityXBasicDecimalP().subtract(impactVelocityX
             // * 2);
-            // vehicleLayer.getVehicleProperties().getVelocityProperties().getVelocityXBasicDecimal().add(impactVelocityX);
+            // vehicleLayer.getVehicleProperties().getVelocityProperties().getVelocityXBasicDecimalP().add(impactVelocityX);
         } else
         {
             // logUtil.put("No X Velocity Transfer",
@@ -119,16 +119,16 @@ extends CollidableDestroyableDamageableBehavior
             // logUtil.put("Transfering Y Velocity: " +
             // impactVelocityY, this, damageUtil.COLLIDE);
             halfImpactVelocityY = (impactVelocityY >> 1);
-            ownerVehicleProperties.getVelocityProperties().getVelocityYBasicDecimal().add(halfImpactVelocityY);
-            vehicleProperties.getVelocityProperties().getVelocityXBasicDecimal().add(halfImpactVelocityY);
+            ownerVehicleProperties.getVelocityProperties().getVelocityYBasicDecimalP().add(halfImpactVelocityY);
+            vehicleProperties.getVelocityProperties().getVelocityXBasicDecimalP().add(halfImpactVelocityY);
 
             // vehicleLayer.move((int)
-            // this.getVehicleProperties().getVelocityProperties().getVelocityYBasicDecimal().getScaled(),
+            // this.getVehicleProperties().getVelocityProperties().getVelocityYBasicDecimalP().getScaled(),
             // 0);
 
-            // this.getVehicleProperties().getVelocityProperties().getVelocityYBasicDecimal().subtract(impactVelocityY
+            // this.getVehicleProperties().getVelocityProperties().getVelocityYBasicDecimalP().subtract(impactVelocityY
             // * 2);
-            // vehicleLayer.getVehicleProperties().getVelocityProperties().getVelocityYBasicDecimal().add(impactVelocityY);
+            // vehicleLayer.getVehicleProperties().getVelocityProperties().getVelocityYBasicDecimalP().add(impactVelocityY);
         } else
         {
             // logUtil.put("No Y Velocity Transfer",
@@ -157,12 +157,12 @@ extends CollidableDestroyableDamageableBehavior
     /*
      * BasicDecimal xBasicDecimal =
      * this.getVehicleProperties().getVelocityProperties
-     * ().getVelocityXBasicDecimal(); BasicDecimal otherXBasicDecimal =
+     * ().getVelocityXBasicDecimalP(); BasicDecimal otherXBasicDecimal =
      * vehicleLayer
      * .getVehicleProperties().getVelocityProperties().getVelocityXBasicDecimal
      * (); BasicDecimal yBasicDecimal =
      * this.getVehicleProperties().getVelocityProperties
-     * ().getVelocityYBasicDecimal(); BasicDecimal otherYBasicDecimal =
+     * ().getVelocityYBasicDecimalP(); BasicDecimal otherYBasicDecimal =
      * vehicleLayer
      * .getVehicleProperties().getVelocityProperties().getVelocityYBasicDecimal
      * ();
@@ -191,20 +191,20 @@ extends CollidableDestroyableDamageableBehavior
     /*
      * long impactVelocityX =
      * this.getVehicleProperties().getVelocityProperties
-     * ().getVelocityXBasicDecimal().getUnscaled() -
+     * ().getVelocityXBasicDecimalP().getUnscaled() -
      * vehicleLayer.getVehicleProperties
-     * ().getVelocityProperties().getVelocityXBasicDecimal().getUnscaled();
+     * ().getVelocityProperties().getVelocityXBasicDecimalP().getUnscaled();
      * long impactVelocityY =
      * this.getVehicleProperties().getVelocityProperties
-     * ().getVelocityYBasicDecimal().getUnscaled() -
+     * ().getVelocityYBasicDecimalP().getUnscaled() -
      * vehicleLayer.getVehicleProperties
-     * ().getVelocityProperties().getVelocityYBasicDecimal().getUnscaled();
+     * ().getVelocityProperties().getVelocityYBasicDecimalP().getUnscaled();
      * 
      * // Basic bounce off if (impactVelocityX != 0) { //
      * logUtil.put("Transfering X Velocity: " +
      * impactVelocityX, // this, damageUtil.COLLIDE);
      * this.getVehicleProperties().getVelocityProperties
-     * ().getVelocityXBasicDecimal().add((impactVelocityX >> 1));
+     * ().getVelocityXBasicDecimalP().add((impactVelocityX >> 1));
      * vehicleLayer.getVehicleProperties
      * ().getVelocityProperties().getVelocityXBasicDecimal
      * ().add((impactVelocityX >> 1)); } else { //
@@ -215,7 +215,7 @@ extends CollidableDestroyableDamageableBehavior
      * logUtil.put("Transfering Y Velocity: " +
      * impactVelocityY, // this, damageUtil.COLLIDE);
      * this.getVehicleProperties().getVelocityProperties
-     * ().getVelocityYBasicDecimal().add((impactVelocityY >> 1));
+     * ().getVelocityYBasicDecimalP().add((impactVelocityY >> 1));
      * vehicleLayer.getVehicleProperties
      * ().getVelocityProperties().getVelocityYBasicDecimal
      * ().add((impactVelocityY >> 1)); } else { //

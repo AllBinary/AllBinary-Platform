@@ -22,7 +22,7 @@ import org.allbinary.logic.math.BasicDecimal;
  */
 public interface MovementInterface
 {
-    void init(BasicDecimal speedBasicDecimal, short angle, short otherAngle);
-    void process(AllBinaryGameLayer layer)throws Exception;
+    void init(BasicDecimal speedBasicDecimal, int angle, int otherAngle);
+    void process(AllBinaryGameLayer layer) throws Exception;
     void stop();
 }

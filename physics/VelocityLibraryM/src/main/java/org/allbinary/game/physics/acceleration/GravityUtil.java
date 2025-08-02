@@ -33,11 +33,11 @@ public class GravityUtil
 
     public final void process(BasicVelocityProperties velocityProperties)
     {
-        velocityProperties.getVelocityYBasicDecimal().add(this.GAME_GRAVITY_VELOCITY);
+        velocityProperties.getVelocityYBasicDecimalP().add(this.GAME_GRAVITY_VELOCITY);
     }
 
     public final void process(BasicVelocityProperties velocityProperties, int customGravity)
     {
-        velocityProperties.getVelocityYBasicDecimal().add(customGravity);
+        velocityProperties.getVelocityYBasicDecimalP().add(customGravity);
     }
 }

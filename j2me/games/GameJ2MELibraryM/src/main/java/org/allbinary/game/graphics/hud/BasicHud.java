@@ -67,7 +67,6 @@ public class BasicHud //implements DisplayChangeEventListener
    
    public BasicHud(int location, int direction,
            int maxHeight, int maxWidth, int bufferZone, BasicColor basicColor)
-           throws Exception
        {
       this.setLocation(location);
       this.setDirection(direction);

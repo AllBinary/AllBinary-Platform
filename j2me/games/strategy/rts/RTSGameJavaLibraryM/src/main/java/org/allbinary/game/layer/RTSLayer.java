@@ -256,7 +256,7 @@ public class RTSLayer
         super.setAllBinaryGameLayerManager(allBinaryGameLayerManager);
 
         final GeographicMapCompositeInterface geographicMapCompositeInterface = 
-            (GeographicMapCompositeInterface) this.allBinaryGameLayerManager;
+            (GeographicMapCompositeInterface) this.allBinaryGameLayerManagerP;
         final BasicGeographicMap geographicMapInterface = geographicMapCompositeInterface.getGeographicMapInterface()[0];
 
         final AllBinaryTiledLayer tiledLayer = geographicMapInterface.getAllBinaryTiledLayer();

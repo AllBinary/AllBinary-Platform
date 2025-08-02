@@ -28,11 +28,13 @@ public class ScoreableAddOnlyForHud extends Scoreable
         this.getScoreHudWidget().set(0);
     }
     
+    @Override
     public void removePoints(int points)
     {
         //this.getScoreHudWidget().reduce(value);
     }
     
+    @Override
     public void addPoints(int points)
     {
         super.addPoints(points);

@@ -37,7 +37,6 @@ import org.allbinary.util.CircularIndexUtil;
 public class PlayerGameNotificationHud
 extends GameNotificationHud
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final String EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
     private String string = this.EMPTY_STRING;
@@ -50,7 +49,7 @@ extends GameNotificationHud
     private final GameNotification gameNotification = new GameNotification();
     private final GameNotification permanentGameNotification = new GameNotification();
     
-    private CustomGPoint point; 
+    private CustomGPoint point = CustomGPoint.NULL_CUSTOM_POINT; 
 
     private final GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
 
@@ -69,6 +68,7 @@ extends GameNotificationHud
         gameNotificationEventHandler.addListener(this);
     }
 
+    @Override
     protected GPoint getPoint(int x, int y)
     {
         point = new CustomGPoint(0, 0);
@@ -80,9 +80,10 @@ extends GameNotificationHud
     private final String PERMANENT_GAME_NOTIFICATION = "Permanent Game Notification: ";
     //private final String TEMP_GAME_NOTIFICATION = "Temp Game Notification: ";
     
-    private String lastString = null;
+    private String lastString = StringUtil.getInstance().EMPTY_STRING;
     
     //Add event if it is not already there
+    @Override
     protected void add(final String string, final Integer seconds, final BasicColor basicColor, final Boolean permanent)
     {
         if (permanent.booleanValue())
@@ -105,6 +106,7 @@ extends GameNotificationHud
         }
     }
 
+    @Override
     public void processTick() throws Exception
     {
         if (this.timeDelayHelper.isTime(gameTickTimeDelayHelper.startTime))
@@ -142,7 +144,8 @@ extends GameNotificationHud
     {
         this.string = (String) this.gameNotification.stringList.remove(0);
 
-        this.setX((displayInfo.getLastWidth() - (MyFont.getInstance().stringWidth2(this.string)) >> 1));
+        final int width = MyFont.getInstance().stringWidth2(this.string);
+        this.setX((displayInfo.getLastWidth() - width) >> 1);
         //
         this.point.setX(this.getX());
         this.point.setY(this.getY());
@@ -168,7 +171,8 @@ extends GameNotificationHud
 
         this.string = (String) this.permanentGameNotification.stringList.objectArray[index];
 
-        this.setX((displayInfo.getLastWidth() - (MyFont.getInstance().stringWidth2(this.string)) >> 1));
+        final int width = MyFont.getInstance().stringWidth2(this.string);
+        this.setX((displayInfo.getLastWidth() - width) >> 1);
         //
         this.point.setX(this.getX());
         this.point.setY(this.getY());
@@ -182,12 +186,14 @@ extends GameNotificationHud
         this.circularIndexUtil.next();
     }
 
+    @Override
     public void clear()
     {
         this.gameNotification.clear();
         this.permanentGameNotification.clear();
     }
 
+    @Override
     public void paint(Graphics graphics)
     {
         //Could draw rectangle

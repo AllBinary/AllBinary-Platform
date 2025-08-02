@@ -31,7 +31,7 @@ implements VelocityInterfaceCompositeInterface
 {
     private BasicVelocityProperties velocityProperties;
 
-    private BasicDecimal speedBasicDecimal;
+    private BasicDecimal speedBasicDecimal = BasicDecimal.ZERO_BIGDECIMAL;
 
     private final AxisMathVectorUtil axisMathVectorUtil = AxisMathVectorUtil.getInstance();
     
@@ -43,11 +43,12 @@ implements VelocityInterfaceCompositeInterface
     
     public BasicConstantVelocityMovement()
     {
-        this.setSpeedBasicDecimal(ZERO_BIGDECIMAL);
+        this.setSpeedBasicDecimal(BasicDecimal.ZERO_BIGDECIMAL);
         this.velocityProperties = new BasicVelocityProperties();
     }
 
-    public void init(BasicDecimal speedBasicDecimal, short angle, short otherAngle)
+    @Override
+    public void init(BasicDecimal speedBasicDecimal, int angle, int otherAngle)
     {
         this.speedBasicDecimal = speedBasicDecimal;
         
@@ -57,7 +58,7 @@ implements VelocityInterfaceCompositeInterface
                 angleFactory.getInstance(angle), angleFactory.getInstance(otherAngle));
     }
 
-    public void moveOutsideRadius(AllBinaryLayer layer, int radius, short angle, short otherAngle)
+    public void moveOutsideRadius(AllBinaryLayer layer, long radius, int angle, int otherAngle)
     {
         int scaleFactorValue = this.speedBasicDecimal.getScaledFactorValue();
         
@@ -68,12 +69,13 @@ implements VelocityInterfaceCompositeInterface
         layer.move(xVector, yVector, zVector);
     }
 
+    @Override
     public void process(AllBinaryGameLayer layer) throws Exception
     {
         layer.move(
-                this.velocityProperties.getVelocityXBasicDecimal().getScaled(),
-                this.velocityProperties.getVelocityYBasicDecimal().getScaled(),
-                this.velocityProperties.getVelocityZBasicDecimal().getScaled()
+                this.velocityProperties.getVelocityXBasicDecimalP().getScaled(),
+                this.velocityProperties.getVelocityYBasicDecimalP().getScaled(),
+                this.velocityProperties.getVelocityZBasicDecimalP().getScaled()
                 );
     }
 
@@ -82,11 +84,13 @@ implements VelocityInterfaceCompositeInterface
     	return this.velocityProperties.toString();
     }
 
+    @Override
     public void stop()
     {
         this.velocityProperties.zero();
     }
 
+    @Override
     public BasicVelocityProperties getVelocityProperties()
     {
         return velocityProperties;

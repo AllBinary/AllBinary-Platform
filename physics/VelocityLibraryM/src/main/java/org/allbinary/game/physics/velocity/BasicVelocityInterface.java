@@ -20,9 +20,9 @@ import org.allbinary.math.Angle;
 public interface BasicVelocityInterface
 {
 
-    BasicDecimal getVelocityXBasicDecimal();
+    BasicDecimal getVelocityXBasicDecimalP();
 
-    BasicDecimal getVelocityYBasicDecimal();
+    BasicDecimal getVelocityYBasicDecimalP();
 
     void zero();
 
@@ -46,5 +46,5 @@ public interface BasicVelocityInterface
 
     void addVelocity(long magnitude, Angle angle, Angle otherAngle);
 
-    void addVelocity(long magnitude, short angle, short otherAngle);
+    void addVelocity(long magnitude, int angle, int otherAngle);
 }

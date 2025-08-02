@@ -29,7 +29,7 @@ public class WeaponLayerCircularPool extends AllBinaryLayerCircularPool
     
     public WeaponLayer getInstance(
             AllBinaryLayer sourceLayerInterface, int x, int y, int z, 
-            short angle, short otherAngle,
+            int angle, int otherAngle,
             WeaponProperties weaponProperties, 
             ScoreableInterface scoreable
             )

@@ -33,11 +33,12 @@ public class ConstantVelocityNotifyViewChangeMovement extends Movement
 
    public ConstantVelocityNotifyViewChangeMovement()
    {
-      this.speedBasicDecimal = ZERO_BIGDECIMAL;
+      this.speedBasicDecimal = BasicDecimal.ZERO_BIGDECIMAL;
       this.basicVelocityProperties = new BasicVelocityProperties();
    }
-   
-   public void init(BasicDecimal speedBasicDecimal, short angle, short otherAngle)
+ 
+   @Override
+   public void init(final BasicDecimal speedBasicDecimal, final int angle, final int otherAngle)
    {
        this.speedBasicDecimal = speedBasicDecimal;
 
@@ -47,7 +48,7 @@ public class ConstantVelocityNotifyViewChangeMovement extends Movement
                angleFactory.getInstance(angle), angleFactory.getInstance(otherAngle));
    }
 
-   public void moveOutsideRadius(AllBinaryLayer layer, int radius, short angle, short otherAngle)
+   public void moveOutsideRadius(AllBinaryLayer layer, long radius, int angle, int otherAngle)
    {
        int scaleFactorValue = this.speedBasicDecimal.getScaledFactorValue();
 
@@ -58,12 +59,13 @@ public class ConstantVelocityNotifyViewChangeMovement extends Movement
       layer.move(xVector, yVector, zVector);
    }
 
+   @Override
    public void process(AllBinaryGameLayer layer)
    throws Exception
    {
-       int x = this.basicVelocityProperties.getVelocityXBasicDecimal().getScaled();
-       int y = this.basicVelocityProperties.getVelocityYBasicDecimal().getScaled();
-       int z = this.basicVelocityProperties.getVelocityZBasicDecimal().getScaled();
+       int x = this.basicVelocityProperties.getVelocityXBasicDecimalP().getScaled();
+       int y = this.basicVelocityProperties.getVelocityYBasicDecimalP().getScaled();
+       int z = this.basicVelocityProperties.getVelocityZBasicDecimalP().getScaled();
        
        layer.move(x, y, z);
        
@@ -73,6 +75,7 @@ public class ConstantVelocityNotifyViewChangeMovement extends Movement
        }
    }
    
+   @Override
    public void stop()
    {
       this.basicVelocityProperties.zero();

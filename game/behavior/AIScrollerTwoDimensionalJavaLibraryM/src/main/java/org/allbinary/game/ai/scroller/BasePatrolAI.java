@@ -80,9 +80,9 @@ public class BasePatrolAI extends BasicAI
         BasicVelocityProperties velocityProperties =
                 velocityInterfaceCompositeInterface.getVelocityProperties();
 
-        xTotalDistance += velocityProperties.getVelocityXBasicDecimal().getScaled();
+        xTotalDistance += velocityProperties.getVelocityXBasicDecimalP().getScaled();
 
-        //yTotalDistance += velocityProperties.getVelocityYBasicDecimal()
+        //yTotalDistance += velocityProperties.getVelocityYBasicDecimalP()
           //      .getScaled();
     }
 

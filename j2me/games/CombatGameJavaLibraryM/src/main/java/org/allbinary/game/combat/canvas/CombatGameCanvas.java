@@ -55,7 +55,7 @@ public class CombatGameCanvas extends AllBinaryGameCanvas
         // this.getLayerProcessorVector().add(new TrackingLayerProcessor());
     }
 
-    //@Override
+    @Override
     protected void init(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
         this.CombatGameCanvas_init();
@@ -88,6 +88,7 @@ public class CombatGameCanvas extends AllBinaryGameCanvas
         }
     }
 
+    @Override
     protected void processPlayingGame() throws Exception
     {
         super.processPlayingGame();
@@ -98,6 +99,7 @@ public class CombatGameCanvas extends AllBinaryGameCanvas
         }
     }
     
+    @Override
     protected void cleanupGame() throws Exception
     {
         super.cleanupGame();

@@ -18,6 +18,7 @@ import org.allbinary.game.layer.AllBinaryGameLayer;
 public class NoBasicConstantVelocityMovement 
 extends BasicConstantVelocityMovement
 {
+    @Override
     public void process(AllBinaryGameLayer layer) throws Exception
     {
     }

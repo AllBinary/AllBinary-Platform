@@ -168,7 +168,7 @@ extends CollidableRTSBehavior
         final BasicArrayList partialPositionList = ownerUnitLayer.getPartialpositionlist();
         
         final GeographicMapCompositeInterface geographicMapCompositeInterface
-            = (GeographicMapCompositeInterface) ownerUnitLayer.allBinaryGameLayerManager;
+            = (GeographicMapCompositeInterface) ownerUnitLayer.allBinaryGameLayerManagerP;
         final BasicGeographicMap geographicMapInterface = geographicMapCompositeInterface.getGeographicMapInterface()[0];
         
         final BasicGeographicMap basicGeographicMap = geographicMapInterface;

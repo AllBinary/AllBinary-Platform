@@ -41,6 +41,7 @@ public class BasicVelocityProperties implements BasicVelocityInterface
         this.velocityZBasicDecimal = new BasicDecimal();
     }
 
+    @Override
     public void zero()
     {
         this.velocityXBasicDecimal.set(0);
@@ -48,7 +49,8 @@ public class BasicVelocityProperties implements BasicVelocityInterface
         this.velocityZBasicDecimal.set(0);
     }
 
-    public BasicDecimal getVelocityXBasicDecimal()
+    @Override
+    public BasicDecimal getVelocityXBasicDecimalP()
     {
         return velocityXBasicDecimal;
     }
@@ -60,7 +62,8 @@ public class BasicVelocityProperties implements BasicVelocityInterface
     }
     */
     
-    public BasicDecimal getVelocityYBasicDecimal()
+    @Override
+    public BasicDecimal getVelocityYBasicDecimalP()
     {
         return velocityYBasicDecimal;
     }
@@ -72,13 +75,14 @@ public class BasicVelocityProperties implements BasicVelocityInterface
     }
     */
 
-    public BasicDecimal getVelocityZBasicDecimal()
+    public BasicDecimal getVelocityZBasicDecimalP()
     {
         return velocityXBasicDecimal;
     }
     
     protected final DirectionUtil directionUtil = DirectionUtil.getInstance();
     
+    @Override
     public void setVelocity(final BasicDecimal magnitudeBasicDecimal, final Direction direction, final Direction otherDirection)
     {
         final Angle angle = directionUtil.getAngle(direction);
@@ -86,6 +90,7 @@ public class BasicVelocityProperties implements BasicVelocityInterface
         this.setVelocity(magnitudeBasicDecimal, angle, otherAngle);
     }
 
+    @Override
     public void setVelocity(final long magnitude, final Direction direction, final Direction otherDirection)
     {
         final Angle angle = directionUtil.getAngle(direction);
@@ -93,6 +98,7 @@ public class BasicVelocityProperties implements BasicVelocityInterface
         this.setVelocity(magnitude, angle, otherAngle);
     }
 
+    @Override
     public void addVelocity(final BasicDecimal magnitudeBasicDecimal, final Direction direction, final Direction otherDirection)
     {
         final Angle angle = directionUtil.getAngle(direction);
@@ -100,6 +106,7 @@ public class BasicVelocityProperties implements BasicVelocityInterface
         this.addVelocity(magnitudeBasicDecimal, angle, otherAngle);
     }
     
+    @Override
     public void addVelocity(final long magnitude, final Direction direction, final Direction otherDirection)
     {
         final Angle angle = directionUtil.getAngle(direction);
@@ -107,29 +114,33 @@ public class BasicVelocityProperties implements BasicVelocityInterface
         this.addVelocity(magnitude, angle, otherAngle);
     }
 
+    @Override
     public void setVelocity(final BasicDecimal magnitudeBasicDecimal, final Angle angle, final Angle otherAngle)
     {
         final long magnitude = magnitudeBasicDecimal.getUnscaled();
         this.setVelocity(magnitude, angle, otherAngle);
     }
 
+    @Override
     public void addVelocity(final BasicDecimal magnitudeBasicDecimal, final Angle angle, final Angle otherAngle)
     {
         final long magnitude = magnitudeBasicDecimal.getUnscaled();
         this.addVelocity(magnitude, angle, otherAngle);
     }
 
+    @Override
     public void setVelocity(final long magnitude, final Angle angle, final Angle otherAngle)
     {
-        this.setVelocity(magnitude, angle.getValue(), otherAngle.getValue());
+        this.setVelocity(magnitude, (int) angle.getValue(), (int) otherAngle.getValue());
     }
 
+    @Override
     public void addVelocity(final long magnitude, final Angle angle, final Angle otherAngle)
     {
-        this.addVelocity(magnitude, angle.getValue(), otherAngle.getValue());
+        this.addVelocity(magnitude, (int) angle.getValue(), (int) otherAngle.getValue());
     }
 
-    public void setVelocity(final long magnitude, final short angle, final short otherAngle)
+    public void setVelocity(final long magnitude, final int angle, final int otherAngle)
     {
         final long xVector = (axisMathVectorUtil.calculateX(magnitude, angle) / velocityXBasicDecimal.getScaledFactorValue());
         final long yVector = (axisMathVectorUtil.calculateY(magnitude, angle) / velocityYBasicDecimal.getScaledFactorValue());
@@ -155,7 +166,8 @@ public class BasicVelocityProperties implements BasicVelocityInterface
         // BlowingInTheWindTestInput.getInstance().append(this.toString());
     }
 
-    public void addVelocity(final long magnitude, final short angle, final short otherAngle)
+    @Override
+    public void addVelocity(final long magnitude, final int angle, final int otherAngle)
     {
         final long xVector = (axisMathVectorUtil.calculateX(magnitude, angle) / velocityXBasicDecimal.getScaledFactorValue());
         final long yVector = (axisMathVectorUtil.calculateY(magnitude, angle) / velocityYBasicDecimal.getScaledFactorValue());

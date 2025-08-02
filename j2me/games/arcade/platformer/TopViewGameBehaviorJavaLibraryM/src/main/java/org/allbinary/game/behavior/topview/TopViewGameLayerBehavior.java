@@ -49,7 +49,7 @@ public class TopViewGameLayerBehavior extends GameLayerBehavior {
 
     public void land(final VelocityProperties velocityProperties) {
         //logUtil.put(commonStrings.START, this, "land");
-        velocityProperties.getVelocityYBasicDecimal().set(0);
+        velocityProperties.getVelocityYBasicDecimalP().set(0);
         this.land();
         // Takes a long time - unknown
         // jumpPlayer.stop();
@@ -67,10 +67,10 @@ public class TopViewGameLayerBehavior extends GameLayerBehavior {
 
             if(gravityActionIndex < maxGravityActionIndex) {
                 final int acceleration2 = -acceleration.getForward() * accelerationMultiplier;
-                //logUtil.put("Jump: " + velocityProperties.getVelocityYBasicDecimal().getUnscaled(), this, commonStrings.UP);
+                //logUtil.put("Jump: " + velocityProperties.getVelocityYBasicDecimalP().getUnscaled(), this, commonStrings.UP);
                 //logUtil.put("Acceleration: " + acceleration2, this, commonStrings.UP);
-                velocityProperties.getVelocityYBasicDecimal().add(acceleration2);
-                //logUtil.put("Jumping: " + velocityProperties.getVelocityYBasicDecimal().getUnscaled(), this, commonStrings.UP);
+                velocityProperties.getVelocityYBasicDecimalP().add(acceleration2);
+                //logUtil.put("Jumping: " + velocityProperties.getVelocityYBasicDecimalP().getUnscaled(), this, commonStrings.UP);
                 velocityProperties.limitXYToForwardAndReverseMaxVelocity();
 
                 // this.getVelocityProperties().addVelocity(this.acceleration.getForward(), angle);
@@ -93,7 +93,7 @@ public class TopViewGameLayerBehavior extends GameLayerBehavior {
     }
     
     public void inputFrames(final VelocityProperties velocityProperties) {
-        if (this.gravityActionIndex > 0 && velocityProperties.getVelocityYBasicDecimal().getUnscaled() > 0) {
+        if (this.gravityActionIndex > 0 && velocityProperties.getVelocityYBasicDecimalP().getUnscaled() > 0) {
             //logUtil.put("Falling from jump now", this, "inputFrames");
             this.isJumpOver = true;
         }

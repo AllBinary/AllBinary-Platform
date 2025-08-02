@@ -15,6 +15,8 @@ package org.allbinary.logic.math;
 
 public class BasicDecimal
 {  
+    public static final BasicDecimal ZERO_BIGDECIMAL = new BasicDecimal();
+
    private long units;
 
    public BasicDecimal(BasicDecimal bigDecimal)

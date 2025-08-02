@@ -18,7 +18,7 @@ import java.util.Vector;
 
 public class BasicUserRole implements Serializable
 {
-   private static final Vector roleVector = new Vector();
+   private static final Vector<Object> roleVector = new Vector<Object>();
    
    private final int m_int_RoleId;
    private final String role;
@@ -26,13 +26,13 @@ public class BasicUserRole implements Serializable
    private final long sessionTimeout;
    private final long sessionInactivityTimeout;
 
-   protected BasicUserRole(String aRole, int a_int_RoleId,
+   BasicUserRole(String aRole, int a_int_RoleId,
       long aSessionTimeout, long aSessionInactivityTimeout)
    {
       this(aRole, aRole, a_int_RoleId, aSessionTimeout, aSessionInactivityTimeout);
    }
 
-   protected BasicUserRole(String aRole, String aDisplayValue, int a_int_RoleId,
+   BasicUserRole(String aRole, String aDisplayValue, int a_int_RoleId,
       long aSessionTimeout, long aSessionInactivityTimeout)
    {
       this.m_int_RoleId = a_int_RoleId;
@@ -80,7 +80,7 @@ public class BasicUserRole implements Serializable
 
    public static synchronized BasicUserRole getRole(String role) throws Exception
    {
-      final Vector roleVector = BasicUserRole.getAll();
+      final Vector<Object> roleVector = BasicUserRole.getAll();
       final int size = roleVector.size();
       for (int index = 0; index < size; index++)
       {
@@ -94,7 +94,7 @@ public class BasicUserRole implements Serializable
       throw new Exception("Unable to get role - Unknown Role");
    }
 
-   public static Vector getAll()
+   public static Vector<Object> getAll()
    {
       return BasicUserRole.roleVector;
    }

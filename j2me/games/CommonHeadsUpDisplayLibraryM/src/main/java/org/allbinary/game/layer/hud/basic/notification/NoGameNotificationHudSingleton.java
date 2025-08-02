@@ -30,7 +30,7 @@ public class NoGameNotificationHudSingleton
         return instance;
     }
 
-    private GameNotificationHud gameNotificationHud;
+    private GameNotificationHud gameNotificationHud = GameNotificationHud.NULL_GAME_NOTIFICATION;
     
     private NoGameNotificationHudSingleton()
     {        

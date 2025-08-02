@@ -84,7 +84,7 @@ public class GeographicMapTopViewGameLayerBehavior1 extends GeographicMapTopView
         // If landing fails use this for debugging
         /*
          * if(jumpIndex != 0) {
-         * this.getVelocityProperties().getVelocityYBasicDecimal().add(800);
+         * this.getVelocityProperties().getVelocityYBasicDecimalP().add(800);
          * this.getVelocityProperties().limitMaxVelocity(); }
          */
     }
@@ -168,7 +168,7 @@ public class GeographicMapTopViewGameLayerBehavior1 extends GeographicMapTopView
 //                    } else {
                         //logUtil.put("do not move", this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
                         //this.blockGeographicMapCellPosition = possibleStepGeographicMapCellPosition;
-                        velocityProperties.getVelocityXBasicDecimal().set(0);
+                        velocityProperties.getVelocityXBasicDecimalP().set(0);
                         this.previousGeographicMapCellPosition = null;
                         return null;
 //                    }
@@ -192,8 +192,8 @@ public class GeographicMapTopViewGameLayerBehavior1 extends GeographicMapTopView
     @Override
     public void moveAndLand(final BasicGeographicMap[] geographicMapInterfaceArray, final GeographicMapCellType[] geographicMapCellTypeArray, final GeographicMapCellPosition geographicMapCellPosition, final VelocityProperties velocityProperties, final AllBinaryLayer layer, final int x, final int y) throws Exception {
         
-        //final int x = velocityProperties.getVelocityXBasicDecimal().getScaled();
-        //final int y = velocityProperties.getVelocityYBasicDecimal().getScaled();
+        //final int x = velocityProperties.getVelocityXBasicDecimalP().getScaled();
+        //final int y = velocityProperties.getVelocityYBasicDecimalP().getScaled();
 
         //logUtil.put(new StringMaker().append("x: ").append(x).append(" y: ").append(y).append(CommonSeps.getInstance().SPACE).append(layer.getViewPosition().getXP()).toString(), this, "moveAndLand");
         
@@ -264,7 +264,7 @@ public class GeographicMapTopViewGameLayerBehavior1 extends GeographicMapTopView
                 if (this.autoStepBlocks) {
                     ((TopViewCharacterInterface) layer).leftp();
                 } else {
-                    velocityProperties.getVelocityXBasicDecimal().set(0);
+                    velocityProperties.getVelocityXBasicDecimalP().set(0);
                 }
             } else {
                 ((TopViewCharacterInterface) layer).leftp();
@@ -292,7 +292,7 @@ public class GeographicMapTopViewGameLayerBehavior1 extends GeographicMapTopView
                 if (this.autoStepBlocks) {
                     ((TopViewCharacterInterface) layer).rightp();
                 } else {
-                    velocityProperties.getVelocityXBasicDecimal().set(0);
+                    velocityProperties.getVelocityXBasicDecimalP().set(0);
                 }
             } else {
                 ((TopViewCharacterInterface) layer).rightp();

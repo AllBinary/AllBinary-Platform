@@ -27,12 +27,11 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBehavior
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
-
+    public static final CollidableWeaponBehavior NULL_COLLIDABLE_WEAPON_BEHAVIOR = new CollidableWeaponBehavior(CollidableCompositeLayer.NULL_COLLIDABLE_COMPOSITE_LAYER, false);
     
     private boolean collided;
     protected CollisionHelper collisionHelper;
-
+    
     public CollidableWeaponBehavior(CollidableCompositeLayer ownerLayer, boolean collidable)
     {
         super(ownerLayer, collidable);
@@ -51,6 +50,7 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
     }
 
     // TODO TWB Special Super Efficient Collision Processing
+    @Override
     public boolean isCollision(CollidableCompositeLayer collisionLayer)
     {
         if (this.collisionHelper.isCollidable(collisionLayer))
@@ -68,6 +68,7 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
     }
 
     // TODO TWB Special Super Efficient Collision Processing
+    @Override
     public void collide(CollidableCompositeLayer collisionLayer) throws Exception
     {
         // logUtil.put(this.getName() + " collided with "
@@ -80,6 +81,7 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
 
     private final LayerCollisionUtil layerCollisionUtil = LayerCollisionUtil.getInstance();
     
+    @Override
     public boolean isCollision(
             CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
     {
@@ -102,6 +104,7 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
         return false;
     }
 
+    @Override
     public void collide(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
             throws Exception
     {
@@ -125,8 +128,8 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
         BasicVelocityProperties velocityProperties = 
             ((VelocityInterfaceCompositeInterface) movement).getVelocityProperties();
 
-        BasicDecimal xBasicDecimal = velocityProperties.getVelocityXBasicDecimal();
-        BasicDecimal yBasicDecimal = velocityProperties.getVelocityYBasicDecimal(); 
+        BasicDecimal xBasicDecimal = velocityProperties.getVelocityXBasicDecimalP();
+        BasicDecimal yBasicDecimal = velocityProperties.getVelocityYBasicDecimalP(); 
 
         if(xBasicDecimal.getUnscaled() > 1000 || yBasicDecimal.getUnscaled() > 1000)
         {
@@ -136,6 +139,7 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
     }
     */
 
+    @Override
     public CollisionType getCollisionTypeWith(AllBinaryLayer layerInterface)
     {
         return CollisionTypeFactory.getInstance().COLLISION;

@@ -63,7 +63,8 @@ implements HealthListenerInterface
     {
         this(layerInterface, life, healthInterface, new HealthBarTwodAnimation(layerInterface, location), direction);
     }
-    
+  
+    @Override
     public void onHealthChange()
     {
         this.animationInterface.onHealthChange(
@@ -71,6 +72,7 @@ implements HealthListenerInterface
                 );
     }
 
+    @Override
     public void paint(Graphics graphics)
     {
         this.animationInterface.paint(graphics, 0, 0);
@@ -79,6 +81,7 @@ implements HealthListenerInterface
         // numOfHealth * 10, this.layerInterface.getY2() + 5);
     }
 
+    @Override
     public void paintThreed(Graphics graphics)
     {
         this.animationInterface.paintThreed(graphics, 0, 0, 0);

@@ -42,7 +42,7 @@ public class Timer
     public Timer(int maxTime)
     {
         this.primitiveLongUtil = new PrimitiveLongUtil(maxTime);
-        this.maxTime = maxTime;
+        this.maxTime = (long) maxTime;
     }
 
     public void start()

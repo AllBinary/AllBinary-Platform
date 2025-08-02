@@ -43,44 +43,50 @@ implements VelocityInterface
  
    public void setMaxXVelocity(int multiply)
    {
-      this.getVelocityXBasicDecimal().set(this.getMaxForwardVelocity() * multiply);
+      this.getVelocityXBasicDecimalP().set(this.getMaxForwardVelocity() * multiply);
    }
 
    public void setMaxYVelocity(int multiply)
    {
-      this.getVelocityYBasicDecimal().set(this.getMaxForwardVelocity() * multiply);
+      this.getVelocityYBasicDecimalP().set(this.getMaxForwardVelocity() * multiply);
    }
 */
+   
+   @Override
    public int getMaxForwardVelocity()
    {
       return maxForwardVelocity;
    }
 
+   @Override
    public void setMaxForwardVelocity(int maxForwardVelocity)
    {
       this.maxForwardVelocity = maxForwardVelocity;
    }
 
+   @Override
    public int getMaxReverseVelocity()
    {
       return maxReverseVelocity;
    }
 
+   @Override
    public void setMaxReverseVelocity(int maxReverseVelocity)
    {
       this.maxReverseVelocity = maxReverseVelocity;
    }
 
+   @Override
    public void limitMaxXYForwardVelocity()
    {
       this.limitMaxXYVelocity(this.getMaxForwardVelocity());
    }
 
+   @Override
    public void limitMaxXYReverseVelocity()
    {
       this.limitMaxXYVelocity(this.getMaxReverseVelocity());
    }
-
 
    public void limitMaxYForwardVelocity()
    {
@@ -111,7 +117,8 @@ implements VelocityInterface
    {
       return this.isOverXYMaxVelocity(this.getMaxReverseVelocity());
    }   
-   
+ 
+   @Override
    public void limitXYToForwardAndReverseMaxVelocity()
    {
       //logUtil.put("Limit Velocity", this, "limitMaxVelocity");
@@ -120,6 +127,7 @@ implements VelocityInterface
    }
 
    //Not very realistic but it keeps the game sane since the physics is bull
+   @Override
    public void limitMaxXYVelocity(int maxVelocity)
    {
        this.limitMaxXVelocity(maxVelocity);
@@ -184,14 +192,16 @@ implements VelocityInterface
       }
       return false;
    }
-   
-   public void setVelocity(long magnitude, short angle, short otherAngle)
+
+   @Override
+   public void setVelocity(long magnitude, int angle, int otherAngle)
    {  
       super.setVelocity(magnitude, angle, otherAngle);
       this.limitXYToForwardAndReverseMaxVelocity();
    }
 
-   public void addVelocity(long magnitude, short angle, short otherAngle)
+   @Override
+   public void addVelocity(long magnitude, int angle, int otherAngle)
    {  
       super.addVelocity(magnitude, angle, otherAngle);
       this.limitXYToForwardAndReverseMaxVelocity();

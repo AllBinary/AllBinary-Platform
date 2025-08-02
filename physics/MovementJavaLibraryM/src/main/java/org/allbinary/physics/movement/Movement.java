@@ -22,23 +22,25 @@ import org.allbinary.logic.math.BasicDecimal;
  */
 public class Movement implements MovementInterface 
 {
-   protected static final BasicDecimal ZERO_BIGDECIMAL = new BasicDecimal();
     
    public Movement()
    {
 
    }
    
-   public void init(BasicDecimal speedBasicDecimal, short angle, short otherAngle)
+   @Override
+   public void init(BasicDecimal speedBasicDecimal, int angle, int otherAngle)
    {
    }
    
+   @Override
    public void process(AllBinaryGameLayer layer)
    throws Exception
    {
       
    }
 
+   @Override
    public void stop()
    {
       

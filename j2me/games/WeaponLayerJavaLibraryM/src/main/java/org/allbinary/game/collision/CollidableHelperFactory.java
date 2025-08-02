@@ -15,6 +15,7 @@ package org.allbinary.game.collision;
 
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.GameFeatureFactory;
+import org.allbinary.layer.AllBinaryLayer;
 
 /**
  *
@@ -27,11 +28,11 @@ public class CollidableHelperFactory {
       if(Features.getInstance().isFeature(
               GameFeatureFactory.getInstance().COLLISIONS_WITH_SOURCE))
       {
-         return new CollisionHelper(null);
+         return new CollisionHelper(AllBinaryLayer.NULL_ALLBINARY_LAYER);
       }
       else
       {
-         return new SourceCollisionHelper(null);
+         return new SourceCollisionHelper(AllBinaryLayer.NULL_ALLBINARY_LAYER);
       }
    }   
 }

@@ -38,12 +38,14 @@ public class CustomGravityConstantVelocityMovement
    }
 
    private final GravityUtil gravityUtil = GravityUtil.getInstance();
-   
+
+   @Override   
    public void process(AllBinaryGameLayer layer)
    throws Exception
    {
       super.process(layer);
       gravityUtil.process(this.getVelocityProperties(), this.customGravity);
-      ((VelocityProperties) this.getVelocityProperties()).limitMaxYForwardVelocity();
+      final VelocityProperties velocityProperties = (VelocityProperties) this.getVelocityProperties();
+      velocityProperties.limitMaxYForwardVelocity();
    }
 }

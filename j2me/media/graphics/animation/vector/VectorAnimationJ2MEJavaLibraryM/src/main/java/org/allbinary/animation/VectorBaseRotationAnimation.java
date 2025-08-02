@@ -17,6 +17,7 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorSetUtil;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.PrimitiveIntUtil;
 import org.allbinary.math.AngleInfo;
@@ -28,12 +29,8 @@ public class VectorBaseRotationAnimation
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private int[][][] currentPoints;
-
-    private BasicColor basicColor;
-
-    protected final BasicColorSetUtil basicColorUtil = BasicColorSetUtil.getInstance();
-    
+    private int[][][] currentPoints = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY_ARRAY;
+   
     public VectorBaseRotationAnimation(final AngleInfo angleInfo, final int[][][] currentPoints, final BasicColor basicColor, final AnimationBehavior animationBehavior)
     {
         super(angleInfo, animationBehavior);
@@ -58,57 +55,55 @@ public class VectorBaseRotationAnimation
         this.setBasicColorP(basicColor);
     }
 
+    @Override
     public int getAnimationSize() throws Exception
     {
         return this.getSize();
     }
-    
-    public BasicColor getBasicColorP()
-    {
-        return this.basicColor;
-    }
 
-    public void setBasicColorP(final BasicColor basicColor)
-    {
-        this.basicColor = basicColor;
-        //this.color = this.basicColor.intValue();
-    }
-
+    @Override
     public int getFrame()
     {
         return this.circularIndexUtil.getIndex();
     }
 
+    @Override
     public void setFrame(int index)
     {
         this.circularIndexUtil.setIndex(index);
     }
 
+    @Override
     public void nextFrame()
     {
         this.circularIndexUtil.next();
     }
 
+    @Override
     public void previousFrame()
     {
         this.circularIndexUtil.previous();
     }
 
+    @Override
     public int getSize()
     {
         return this.currentPoints.length;
     }
 
+    @Override
     public void setSequence(final int[] sequence)
     {
 
     }
 
+    @Override
     public int[] getSequence()
     {
         return PrimitiveIntUtil.getArrayInstance();
     }
 
+    @Override
     public void paint(final Graphics graphics, final int x, final int y)
     {
         this.basicSetColorUtil.setBasicColorP(graphics, basicColor);
@@ -128,7 +123,8 @@ public class VectorBaseRotationAnimation
             final int[][] currentPointsFrame = this.currentPoints[this.circularIndexUtil.getIndex()];
             final int size = currentPointsFrame.length;
 
-            for (int index = size - 3; index >= 0; index--)
+            int index = size - 2; //3;
+            while (--index >= 0)
             {
                 nextPoint = currentPointsFrame[index];
                 point = currentPointsFrame[index + 1];
@@ -159,6 +155,7 @@ public class VectorBaseRotationAnimation
         }
     }
     
+    @Override
     public int[][] getPoints(final int frame)
     {
         return currentPoints[frame];

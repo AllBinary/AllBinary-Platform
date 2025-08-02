@@ -19,6 +19,7 @@ import org.allbinary.game.collision.CollidableBaseBehavior;
 import org.allbinary.game.collision.CollidableInterfaceCompositeInterface;
 import org.allbinary.game.collision.CollidableNeverCollideBehaviorFactory;
 import org.allbinary.graphics.Rectangle;
+import org.allbinary.graphics.RectangleFactory;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
@@ -39,6 +40,9 @@ public class CollidableCompositeLayer
 extends AllBinaryGameLayer
 implements CollidableInterfaceCompositeInterface
 {
+    public static final CollidableCompositeLayer NULL_COLLIDABLE_COMPOSITE_LAYER = new CollidableCompositeLayer(
+        RectangleFactory.SINGLETON, ViewPosition.NULL_VIEW_POSITION, CollidableNeverCollideBehaviorFactory.getInstance());
+    
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
     private CollidableBaseBehavior collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance();

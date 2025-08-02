@@ -419,7 +419,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         final Hashtable hashtable = new Hashtable();
         hashtable.put(Group.ID, this.getGroupInterface());
         hashtable.put(Layer.ID, this);
-        hashtable.put(AllBinaryGameLayerManager.ID, allBinaryGameLayerManager);
+        hashtable.put(AllBinaryGameLayerManager.ID, allBinaryGameLayerManagerP);
         
         this.setWaypointBehavior(
                 new UnitWaypointBehavior2(
@@ -484,7 +484,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
             final int sensorRange = weaponRange * SENSOR_RANGE_MULTIPLIER;
 
             final GeographicMapCompositeInterface geographicMapCompositeInterface
-                = (GeographicMapCompositeInterface) this.allBinaryGameLayerManager;
+                = (GeographicMapCompositeInterface) this.allBinaryGameLayerManagerP;
             final BasicGeographicMap geographicMapInterface = geographicMapCompositeInterface.getGeographicMapInterface()[0];
             
             final AllBinaryTiledLayer tiledLayer = 
@@ -797,7 +797,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
     throws Exception
     {
         final GeographicMapCompositeInterface geographicMapCompositeInterface
-            = (GeographicMapCompositeInterface) this.allBinaryGameLayerManager;
+            = (GeographicMapCompositeInterface) this.allBinaryGameLayerManagerP;
         final BasicGeographicMap geographicMapInterface = geographicMapCompositeInterface.getGeographicMapInterface()[0];
         
         final GeographicMapCellPosition geographicMapCellPosition =
@@ -1328,10 +1328,10 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
                     = this.getVehicleProperties().getVelocityProperties();
 
             final long velocityXScaled
-                    = velocityProperties.getVelocityXBasicDecimal().getScaled();
+                    = velocityProperties.getVelocityXBasicDecimalP().getScaled();
 
             final long velocityYScaled
-                    = velocityProperties.getVelocityYBasicDecimal().getScaled();
+                    = velocityProperties.getVelocityYBasicDecimalP().getScaled();
 
             this.getUnitWaypointBehavior().move();
 
@@ -1339,7 +1339,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
                 this.getUnitWaypointBehavior().setMoving(true);
 
                 final GeographicMapCompositeInterface geographicMapCompositeInterface
-                    = (GeographicMapCompositeInterface) this.allBinaryGameLayerManager;
+                    = (GeographicMapCompositeInterface) this.allBinaryGameLayerManagerP;
                 final BasicGeographicMap geographicMapInterface = geographicMapCompositeInterface.getGeographicMapInterface()[0];
                 
                 layerPartialCellPositionsUtil.getAll(
@@ -1396,8 +1396,8 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         final VelocityProperties velocityProperties = 
             this.getVehicleProperties().getVelocityProperties();
 
-        velocityProperties.getVelocityXBasicDecimal().set(0);
-        velocityProperties.getVelocityYBasicDecimal().set(0);
+        velocityProperties.getVelocityXBasicDecimalP().set(0);
+        velocityProperties.getVelocityYBasicDecimalP().set(0);
     }
 
     public void paint(Graphics graphics)
@@ -1564,7 +1564,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         final RTSLayerHudPaintable rtsLayerHudPaintable = 
             RTSLayerHudPaintable.getInstance();
         
-        rtsLayerHudPaintable.setBasicColorP(this.allBinaryGameLayerManager.getForegroundBasicColor());
+        rtsLayerHudPaintable.setBasicColorP(this.allBinaryGameLayerManagerP.getForegroundBasicColor());
         rtsLayerHudPaintable.setRtsLayer(this);
         
         return rtsLayerHudPaintable;

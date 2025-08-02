@@ -131,7 +131,7 @@ public class UnitRTSFormInput extends RTSFormInput
                     this.newUnconstructedRTSLayerInterfaceArray[itemIndex].getZP());
 
             final GeographicMapCompositeInterface geographicMapCompositeInterface
-                = (GeographicMapCompositeInterface) this.newUnconstructedRTSLayerInterfaceArray[itemIndex].allBinaryGameLayerManager;
+                = (GeographicMapCompositeInterface) this.newUnconstructedRTSLayerInterfaceArray[itemIndex].allBinaryGameLayerManagerP;
             final BasicGeographicMap geographicMapInterface = geographicMapCompositeInterface.getGeographicMapInterface()[0];
             
             this.newUnconstructedRTSLayerInterfaceArray[itemIndex].geographicMapCellPositionArea.update(geographicMapInterface);

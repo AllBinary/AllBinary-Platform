@@ -38,6 +38,7 @@ extends BasicConstantVelocityMovement
         this.oscillateMax = oscillateMax;
     }
     
+    @Override
     public void process(AllBinaryGameLayer layer)
     throws Exception
     {
@@ -46,25 +47,25 @@ extends BasicConstantVelocityMovement
         if(this.oscillate < this.oscillateMin)
         {
             this.oscillatePositive = true;
-            this.getVelocityProperties().getVelocityYBasicDecimal().add(3000);
+            this.getVelocityProperties().getVelocityYBasicDecimalP().add(3000);
         }
         else
         if(this.oscillate > this.oscillateMax)
         {
             this.oscillatePositive = false;
-            this.getVelocityProperties().getVelocityYBasicDecimal().subtract(3000);
+            this.getVelocityProperties().getVelocityYBasicDecimalP().subtract(3000);
         }
 
         if(this.oscillatePositive)
         {
             this.oscillate++;
-            this.getVelocityProperties().getVelocityXBasicDecimal().add(5000);
+            this.getVelocityProperties().getVelocityXBasicDecimalP().add(5000);
             
         }
         else
         {
             this.oscillate--;
-            this.getVelocityProperties().getVelocityXBasicDecimal().subtract(5000);
+            this.getVelocityProperties().getVelocityXBasicDecimalP().subtract(5000);
         }
     }
 }

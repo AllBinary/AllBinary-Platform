@@ -18,21 +18,23 @@ extends BasicConstantVelocityMovement
     	super(basicDecimal, velocityProperties);
     }
     
-    public void init(final BasicDecimal speedBasicDecimal, final short angle, final short otherAngle)
+    @Override
+    public void init(final BasicDecimal speedBasicDecimal, final int angle, final int otherAngle)
     {
     }
     
     private final int factorValue = ScaleFactorFactory.getInstance().DEFAULT_SCALE_VALUE;
     
+    @Override
     public void process(final AllBinaryGameLayer layer) throws Exception
     {
         final MathUtil mathUtil = MathUtil.getInstance();
         
     	final BasicVelocityProperties velocityProperties = this.getVelocityProperties();
 
-    	accumulatedX = (int) (accumulatedX + velocityProperties.getVelocityXBasicDecimal().getUnscaled());
-    	accumulatedY = (int) (accumulatedY + velocityProperties.getVelocityYBasicDecimal().getUnscaled());
-    	accumulatedZ = (int) (accumulatedZ + velocityProperties.getVelocityZBasicDecimal().getUnscaled());
+    	accumulatedX = (int) (accumulatedX + velocityProperties.getVelocityXBasicDecimalP().getUnscaled());
+    	accumulatedY = (int) (accumulatedY + velocityProperties.getVelocityYBasicDecimalP().getUnscaled());
+    	accumulatedZ = (int) (accumulatedZ + velocityProperties.getVelocityZBasicDecimalP().getUnscaled());
     	
         layer.move(
         		accumulatedX / factorValue,
