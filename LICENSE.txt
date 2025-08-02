@@ -30,8 +30,9 @@ given that the following conditions are met:
     "Or"
 
     You must pay a yearly subscription as determined by AllBinary.  
-    The current year subscription cost is in the YEARLY_FEE.txt file in the root 
-    of the repo which AllBinary may update without notice. 
+    The current year subscription cost is in the YEARLY_FEE.txt file in the 
+    root directory of the repo at: https://github.com/AllBinary/AllBinary-Platform
+    which AllBinary may update without notice.
 
 AllBinary may collect, contain, and transfer personal information for licensing, 
 registration, data analysis, and security purposes.  Any messages posted on our 
