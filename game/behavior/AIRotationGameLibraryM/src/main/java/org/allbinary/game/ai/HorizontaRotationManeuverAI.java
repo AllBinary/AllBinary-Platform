@@ -58,15 +58,17 @@ implements ArtificialIntelligenceTransitionInterface
         this.velocityInterface = (VelocityInterface) baseVelocityInterface; 
 
         //this.transition();
-        AngleIncrementInfo angleIncrementInfo = 
-            ((RotationAnimationInterface) this.rotationAnimationInterface).getAngleInfoP().getAngleIncrementInfo();
+        final RotationAnimationInterface rotationAnimationInterface = (RotationAnimationInterface) this.rotationAnimationInterface;
+        final AngleIncrementInfo angleIncrementInfo = rotationAnimationInterface.getAngleInfoP().getAngleIncrementInfo();
         rotationAnimationInterfaceCompositeInterface.setFrame(angleIncrementInfo.RIGHT_FRAME.intValue());
     }
 
+    @Override
     public void transition()
     {
-        AngleIncrementInfo angleIncrementInfo = 
-            ((RotationAnimationInterface) this.rotationAnimationInterface).getAngleInfoP().getAngleIncrementInfo();
+        final RotationAnimationInterface rotationAnimationInterface = (RotationAnimationInterface) this.rotationAnimationInterface;
+        final AngleIncrementInfo angleIncrementInfo = 
+            rotationAnimationInterface.getAngleInfoP().getAngleIncrementInfo();
         final RotationAnimationInterfaceCompositeInterface rotationAnimationInterfaceCompositeInterface = (RotationAnimationInterfaceCompositeInterface) this.getOwnerLayerInterface();
         rotationAnimationInterfaceCompositeInterface.setFrame(angleIncrementInfo.RIGHT_FRAME.intValue());
         
@@ -77,7 +79,8 @@ implements ArtificialIntelligenceTransitionInterface
                 allbinaryLayer.getXP(), 1, allbinaryLayer.getZP());
     }
 
-    public void processAI(AllBinaryLayerManager allBinaryLayerManager)
+    @Override
+    public void processAI(final AllBinaryLayerManager allBinaryLayerManager)
             throws Exception
     {
 
@@ -85,12 +88,12 @@ implements ArtificialIntelligenceTransitionInterface
         //int x = this.getOwnerLayerInterface().getX();
 
         //logUtil.put("Angle: " + currentAngle + " X: " + x + " Y: " + y, this, commonStrings.PROCESS);
-        AngleIncrementInfo angleIncrementInfo = 
-            ((RotationAnimationInterface) this.rotationAnimationInterface).getAngleInfoP().getAngleIncrementInfo();
+        final RotationAnimationInterface rotationAnimationInterface = ((RotationAnimationInterface) this.rotationAnimationInterface);
+        final AngleIncrementInfo angleIncrementInfo = rotationAnimationInterface.getAngleInfoP().getAngleIncrementInfo();
 
-        int frame = this.rotationAnimationInterface.getFrame();
+        final int frame = this.rotationAnimationInterface.getFrame();
 
-        AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
+        final AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
         
         if (ownerLayerInterface.getXP()
                 - ownerLayerInterface.getWidth() <= 0
@@ -100,7 +103,7 @@ implements ArtificialIntelligenceTransitionInterface
             this.drop();
         }
 
-        DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
+        final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         
         if (ownerLayerInterface.getX2()
                 + ownerLayerInterface.getWidth() > displayInfo.getLastWidth()
@@ -111,7 +114,7 @@ implements ArtificialIntelligenceTransitionInterface
             this.drop();
         }
 
-        int index = circularIndexUtil.getIndex();
+        final int index = circularIndexUtil.getIndex();
         if (index % this.currentSpeedDivisor == 0 && index % 2 == 0)
         {
             super.processAI(Canvas.UP);
@@ -134,10 +137,10 @@ implements ArtificialIntelligenceTransitionInterface
 
     protected void reverse()
     {
-        AngleIncrementInfo angleIncrementInfo = 
-            ((RotationAnimationInterface) this.rotationAnimationInterface).getAngleInfoP().getAngleIncrementInfo();
+        final RotationAnimationInterface rotationAnimationInterface = (RotationAnimationInterface) this.rotationAnimationInterface;
+        final AngleIncrementInfo angleIncrementInfo = rotationAnimationInterface.getAngleInfoP().getAngleIncrementInfo();
 
-        int frame = this.rotationAnimationInterface.getFrame();
+        final int frame = this.rotationAnimationInterface.getFrame();
 
         if (frame == angleIncrementInfo.LEFT_FRAME.intValue())
         {
@@ -164,9 +167,9 @@ implements ArtificialIntelligenceTransitionInterface
 
     private void drop()
     {
-        AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
+        final AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
         
-        DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
+        final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         int y = ownerLayerInterface.getYP();
         if (ownerLayerInterface.getY2() + ownerLayerInterface.getHeight() > displayInfo.getLastHeight())
         {
@@ -180,6 +183,7 @@ implements ArtificialIntelligenceTransitionInterface
                 ownerLayerInterface.getXP(), y, ownerLayerInterface.getZP());
     }
 
+    @Override
     public int getId()
     {
         return ArtificialIntelligenceTransitionInterface.ID;

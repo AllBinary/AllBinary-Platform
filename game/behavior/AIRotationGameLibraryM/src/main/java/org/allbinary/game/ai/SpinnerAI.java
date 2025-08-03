@@ -37,6 +37,7 @@ public class SpinnerAI extends BasicAI
      // this.rotationAnimationInterface = rotationAnimationInterfaceCompositeInterface.getRotationAnimationInterface();
    }
 
+   @Override
    public void processAI(AllBinaryLayerManager allBinaryLayerManager) throws Exception
    {
       if (isEven)

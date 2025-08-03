@@ -38,6 +38,7 @@ public class UpDownVectorAI extends BasicAI
       this.velocityInterface.getVelocityYBasicDecimalP().set(0);
    }
 
+   @Override
    public void processAI(AllBinaryLayerManager allBinaryLayerManager) throws Exception
    {
       //logUtil.put(commonStrings.START, this, commonStrings.PROCESS);
