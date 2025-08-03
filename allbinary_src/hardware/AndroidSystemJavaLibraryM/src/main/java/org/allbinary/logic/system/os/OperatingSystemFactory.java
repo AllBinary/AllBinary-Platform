@@ -27,8 +27,9 @@ public class OperatingSystemFactory
     {
         return instance;
     }
-    
-    private GenericOperatingSystem GenericOperatingSystem;
+
+    private GenericOperatingSystem genericOperatingSystem = NoOperatingSystem.NO_OPERATING_SYSTEM;
+
     private boolean hasDetected = false;
     
     private OperatingSystemFactory()
@@ -53,11 +54,11 @@ public class OperatingSystemFactory
                 {
                     logUtil.put("Found a Linux OS", this, commonStrings.GET_INSTANCE);
 
-                    GenericOperatingSystem = 
+                    genericOperatingSystem = 
                         AndroidOperatingSystemFactory.getInstance().getOperatingSystemInstance();
                     
                     //PreLogUtil.put(log.toString());
-                    logUtil.put(new StringMaker().append("Operating System Info: ").append(GenericOperatingSystem.toString()).toString(), this, commonStrings.GET_INSTANCE);
+                    logUtil.put(new StringMaker().append("Operating System Info: ").append(genericOperatingSystem.toString()).toString(), this, commonStrings.GET_INSTANCE);
                 }
                 else
                 {
@@ -67,11 +68,11 @@ public class OperatingSystemFactory
         }
         catch(Exception e)
         {
-            GenericOperatingSystem = NoOperatingSystem.NO_OPERATING_SYSTEM;
+            genericOperatingSystem = NoOperatingSystem.NO_OPERATING_SYSTEM;
             
             logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
         }
         
-        return GenericOperatingSystem;
+        return genericOperatingSystem;
     }
 }

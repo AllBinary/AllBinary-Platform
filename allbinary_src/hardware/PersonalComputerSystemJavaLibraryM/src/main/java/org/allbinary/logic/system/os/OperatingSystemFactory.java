@@ -41,7 +41,7 @@ public class OperatingSystemFactory
     
     private final CommonStrings commonStrings = CommonStrings.getInstance();
 
-    private GenericOperatingSystem GenericOperatingSystem;
+    private GenericOperatingSystem genericOperatingSystem = NoOperatingSystem.NO_OPERATING_SYSTEM;
     private boolean hasDetected = false;
     
     private OperatingSystemFactory()
@@ -70,7 +70,7 @@ public class OperatingSystemFactory
                         logUtil.put("Found a Linux OS", this, commonStrings.GET_INSTANCE);
                     }
                     
-                    this.GenericOperatingSystem =
+                    this.genericOperatingSystem =
                         (GenericOperatingSystem) 
                         LinuxOperatingSystemFactory.getInstance().getOperatingSystemInstance();
                 }
@@ -80,7 +80,7 @@ public class OperatingSystemFactory
                     {
                         logUtil.put("Found a Windows OS", this, commonStrings.GET_INSTANCE);
                     }
-                    this.GenericOperatingSystem =
+                    this.genericOperatingSystem =
                         (GenericOperatingSystem) 
                         WindowsOperatingSystemFactory.getInstance().getOperatingSystemInstance();
                 }
@@ -91,7 +91,7 @@ public class OperatingSystemFactory
                         logUtil.put("Found a Solaris OS", this, commonStrings.GET_INSTANCE);
                     }
                     
-                    this.GenericOperatingSystem =
+                    this.genericOperatingSystem =
                         (GenericOperatingSystem) new Solaris();
                 }
                 else
@@ -99,13 +99,13 @@ public class OperatingSystemFactory
                     throw new Exception(new StringMaker().append("OS Not Supported: ").append(osName).toString());
                 }
                 
-                Log log = LogFactory.getInstance(new StringMaker().append("OperatingSystem Info: ").append(StringUtil.getInstance().toString(this.GenericOperatingSystem)).toString(), this, commonStrings.GET_INSTANCE);
+                Log log = LogFactory.getInstance(new StringMaker().append("OperatingSystem Info: ").append(StringUtil.getInstance().toString(this.genericOperatingSystem)).toString(), this, commonStrings.GET_INSTANCE);
                 System.out.println(log.toString());
                 logUtil.put(log);
 
             }
                         
-            return this.GenericOperatingSystem;
+            return this.genericOperatingSystem;
         }
         catch(Exception e)
         {
