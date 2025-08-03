@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import javax.microedition.lcdui.Image;
+import org.allbinary.logic.NullUtil;
 
 import org.allbinary.platform.graphics.PlatformBitmapBase;
 import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
@@ -27,23 +28,24 @@ public class OpenGLBitmapFactory extends PlatformBitmapBaseFactory {
         
         public final Object bitmapConfig;
 
-        private Config(final Object bitmapConfig) {
+        public Config(final Object bitmapConfig) {
             this.bitmapConfig = bitmapConfig;
         }
     }
     
-    public final Config ARGB_8888 = new Config(null);
+    public final Config ARGB_8888 = new Config(NullUtil.getInstance().NULL_OBJECT);
     
     public OpenGLBitmap createBitmap(int width, int height, OpenGLBitmapFactory.Config config) {
-        return new OpenGLBitmap(null);
+        return new OpenGLBitmap(NullUtil.getInstance().NULL_OBJECT);
     }
     
-    public OpenGLBitmap decodeStream(InputStream is) throws IOException {
-        return new OpenGLBitmap(null);
+    public OpenGLBitmap decodeStream(InputStream inputStream) throws IOException {
+        return new OpenGLBitmap(NullUtil.getInstance().NULL_OBJECT);
     }
 
+    @Override
     public PlatformBitmapBase createBitmap(final Image image) {
-        return new OpenGLBitmap(null);
+        return new OpenGLBitmap(NullUtil.getInstance().NULL_OBJECT);
     }
 
 }

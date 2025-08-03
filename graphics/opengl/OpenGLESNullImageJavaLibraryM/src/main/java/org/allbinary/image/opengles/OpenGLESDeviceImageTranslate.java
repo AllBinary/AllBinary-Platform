@@ -21,10 +21,10 @@ import javax.microedition.khronos.opengles.GL10;
  */
 public class OpenGLESDeviceImageTranslate extends OpenGLESImageTranslate {
         
-    public float translateX = 0;
-    public float translateY = 0;
-    public float translateX2 = 0;
-    public float translateY2 = 0;
+    public float translateX = 0.0f;
+    public float translateY = 0.0f;
+    public float translateX2 = 0.0f;
+    public float translateY2 = 0.0f;
     
     @Override
     public void translate(final GL10 gl, final OpenGLESImage openGLESImage, final float x, final float y) {

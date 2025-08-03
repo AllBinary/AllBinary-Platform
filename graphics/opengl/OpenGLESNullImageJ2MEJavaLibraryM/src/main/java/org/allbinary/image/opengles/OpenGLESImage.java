@@ -44,7 +44,8 @@ implements OpenGLSurfaceChangedInterface
         this.openGLBitmap = bitmapFactory.createBitmap(image);
         this.textureFactory = textureFactory;
     }
-    
+
+    @Override
     public void set(GL gl) throws Exception
     {
         throw new Exception(commonStrings.NOT_IMPLEMENTED);

@@ -43,7 +43,7 @@ import org.allbinary.logic.system.hardware.components.linux.Cpu;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 
-public class Hardware implements HardwareInterface
+public class LinuxHardware implements HardwareInterface
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
@@ -68,12 +68,12 @@ public class Hardware implements HardwareInterface
    private final int MINHARDWARE = 5;
    
    //Testing
-   public Hardware(String path) throws Exception
+   public LinuxHardware(String path) throws Exception
    {
       this.init(path);
    }
    
-   public Hardware() throws Exception
+   public LinuxHardware() throws Exception
    {
       this.init(PCIFILE);
       

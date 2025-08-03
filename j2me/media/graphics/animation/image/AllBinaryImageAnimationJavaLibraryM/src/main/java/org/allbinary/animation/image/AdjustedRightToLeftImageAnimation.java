@@ -43,6 +43,7 @@ extends RightToLeftImageAnimation
         this.dy = dy;
     }
 
+    @Override
     public void paint(final Graphics graphics, final int x, final int y)
     {
         super.paint(graphics, x + this.dx, y + this.dy);

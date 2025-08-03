@@ -34,7 +34,7 @@ import org.allbinary.logic.system.hardware.components.interfaces.UsbInterface;
 import org.allbinary.logic.system.hardware.components.interfaces.VideoInterface;
 import org.allbinary.string.CommonSeps;
 
-public class Hardware implements HardwareInterface
+public class WindowsHardware implements HardwareInterface
 {
    private Vector componentInterfaceVector;
    private Vector videoInterfaceVector;
@@ -55,7 +55,7 @@ public class Hardware implements HardwareInterface
    
    private final ComponentFactory componentFactory = ComponentFactory.getInstance();
    
-   public Hardware() throws Exception
+   public WindowsHardware() throws Exception
    {
       try
       {

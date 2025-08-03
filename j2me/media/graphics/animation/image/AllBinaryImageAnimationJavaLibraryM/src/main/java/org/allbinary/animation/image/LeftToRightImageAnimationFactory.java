@@ -45,6 +45,7 @@ public class LeftToRightImageAnimationFactory
         super(image, sequenceArray, image.getWidth(), image.getHeight(), animationBehaviorFactory); //, width, height);
     }
 
+    @Override
     public Animation getInstance(final int instanceId) throws Exception {
         
         final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), 

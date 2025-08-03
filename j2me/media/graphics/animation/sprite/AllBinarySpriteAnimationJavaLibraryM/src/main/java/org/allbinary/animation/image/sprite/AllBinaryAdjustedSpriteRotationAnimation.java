@@ -34,6 +34,7 @@ extends AllBinarySpriteRotationAnimation
         this.dy = dy;
     }    
 
+    @Override
     public void paint(final Graphics g, final int x, final int y)
     {
         this.sprite.setPosition(x + this.dx, y + this.dy);

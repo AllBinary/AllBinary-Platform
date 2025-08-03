@@ -56,7 +56,7 @@ public class AnimationFactoryImageScaleUtil {
             final float scaleY = ((float) scaleHeight) / ((float) height);
 //            stringMaker.delete(0, stringMaker.length());
 //            logUtil.put(stringMaker.append("0scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS);
-            if ((scaleX == 1 && scaleY == 1) || (scaleX == 0 || scaleY == 0)) {
+            if ((scaleX == 1.0f && scaleY == 1.0f) || (scaleX == 0.0f || scaleY == 0.0f)) {
                 //scaledImage = this.imageCopyUtil.createImage(image);
                 scaledImage = image;
             } else {
@@ -80,12 +80,12 @@ public class AnimationFactoryImageScaleUtil {
 
     public void processAdjust(final BaseImageAnimationFactory baseImageAnimationFactory) throws Exception {
         
-        final ScaleProperties scaleProperties = baseImageAnimationFactory.getScaleProperties();
+        final ScaleProperties scaleProperties = baseImageAnimationFactory.getScalePropertiesP();
         if (scaleProperties.scaleWidth != 0 && scaleProperties.scaleHeight != 0) {
-            final AnimationFactoryInitializationVisitor animationFactoryInitializationVisitor = baseImageAnimationFactory.getAnimationFactoryInitializationVisitor();
+            final AnimationFactoryInitializationVisitor animationFactoryInitializationVisitor = baseImageAnimationFactory.getAnimationFactoryInitializationVisitorP();
             final float scaleX = ((float) scaleProperties.scaleWidth) / ((float) animationFactoryInitializationVisitor.width);
             final float scaleY = ((float) scaleProperties.scaleHeight) / ((float) animationFactoryInitializationVisitor.height);
-            if ((scaleX == 1 && scaleY == 1) || (scaleX == 0 || scaleY == 0)) {
+            if ((scaleX == 1.0f && scaleY == 1.0f) || (scaleX == 0.0f || scaleY == 0.0f)) {
             } else {
                 animationFactoryInitializationVisitor.dx = (int) (animationFactoryInitializationVisitor.dx * scaleX);
                 animationFactoryInitializationVisitor.dy = (int) (animationFactoryInitializationVisitor.dy * scaleY);

@@ -34,37 +34,45 @@ public class ImageAnimation extends IndexedAnimation //implements AutoCloseable
         this.image = image;
     }
     
+    @Override
     public int getAnimationSize() throws Exception
     {
         return this.getSize();
     }
     
+    @Override
     public void nextFrame()
     {
     }
 
+    @Override
     public void previousFrame()
     {
     }
 
+    @Override
     public void setFrame(int index)
     {
     }
 
+    @Override
     public int getFrame()
     {
         return 0;
     }
 
+    @Override
     public int getSize()
     {
         return 1;
     }
 
+    @Override
     public void setSequence(int[] sequence)
     {
     }
 
+    @Override
     public int[] getSequence()
     {
         return PrimitiveIntUtil.getArrayInstance();
@@ -72,6 +80,7 @@ public class ImageAnimation extends IndexedAnimation //implements AutoCloseable
 
     private int anchor = Anchor.TOP_LEFT;
     
+    @Override
     public void paint(Graphics graphics, int x, int y)
     {
         graphics.drawImage(this.image, x, y, anchor);
@@ -98,6 +107,7 @@ public class ImageAnimation extends IndexedAnimation //implements AutoCloseable
         DisposalUtil.getInstance().dispose(this.image);
     }
     
+    @Override
     protected void finalize() throws Throwable {
         DisposalUtil.getInstance().dispose(this.image);
     }

@@ -88,6 +88,7 @@ public class ImageCaptionIndexedAnimationFactory
 
     }
 
+    @Override
     public Animation getInstance(final int instanceId) throws Exception {
         final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.captionImage, this.captionImage.getWidth(), this.captionImage.getHeight(), this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
         final Animation animationInterface = new ImageAnimation(scaledImage, this.animationBehaviorFactory.getOrCreateInstance());
@@ -106,6 +107,7 @@ public class ImageCaptionIndexedAnimationFactory
             player, this.captionDx, this.captionDy, dx, dy, time, this.animationBehaviorFactory.getOrCreateInstance());
     }
 
+    @Override
     public void setInitialScale(final ScaleProperties scaleProperties) {
         
         this.scaleProperties = scaleProperties;

@@ -66,42 +66,49 @@ public class ImageSegmentAnimation
         this.sequenceArray = sequenceArray;
     }
 
-
+    @Override
     public void nextFrame()
     {
         this.circularIndexUtil.next();
     }
 
+    @Override
     public void previousFrame()
     {
         this.circularIndexUtil.previous();
     }
 
+    @Override
     public void setFrame(int index)
     {
         this.circularIndexUtil.setIndex(index);
     }
 
+    @Override
     public int getFrame()
     {
         return this.circularIndexUtil.getIndex();
     }
 
+    @Override
     public int getSize()
     {
         return this.circularIndexUtil.getSize();
     }
 
+    @Override
     public void setSequence(int[] sequenceArray)
     {
         this.sequenceArray = sequenceArray;
     }
 
+    @Override
     public int[] getSequence()
     {
         return this.sequenceArray;
     }
 
+    @Override
     public void paint(Graphics graphics, int x, int y)
     {
     }

@@ -43,28 +43,34 @@ extends ImageArrayAnimation
         this.setDy(dy);
     }
 
+    @Override
     public void paint(final Graphics graphics, final int x, final int y)
     {
         super.paint(graphics, x + this.dx, y + this.dy);
     }
 
+    @Override
     public void setDx(int dx)
     {
         this.dx = dx;
     }
 
+    @Override
     public int getDx()
     {
         return dx;
     }
 
+    @Override
     public void setDy(int dy)
     {
         this.dy = dy;
     }
 
+    @Override
     public int getDy()
     {
         return dy;
     }
+
 }

@@ -13,6 +13,9 @@
  */
 package org.allbinary.opengles;
 
+import com.jogamp.opengl.GL2;
+import com.jogamp.opengl.GL;
+
 /**
  *
  * @author User
@@ -37,9 +40,9 @@ public class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengle
 //    private final String FACE = "face: ";
 //    private final String TARGET = "target: ";
 
-    private final com.jogamp.opengl.GL2 gl11;
+    private final GL2 gl11;
 
-    public JOGL11(com.jogamp.opengl.GL gl)
+    public JOGL11(GL gl)
     {
         super(gl);
 

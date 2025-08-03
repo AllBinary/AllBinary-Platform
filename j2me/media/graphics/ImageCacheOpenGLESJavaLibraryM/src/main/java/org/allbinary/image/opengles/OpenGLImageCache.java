@@ -120,7 +120,7 @@ public class OpenGLImageCache extends ImageCache
         return image;
     }
 
-    public GL10 getGl()
+    public GL10 getGlP()
     {
         return gl;
     }

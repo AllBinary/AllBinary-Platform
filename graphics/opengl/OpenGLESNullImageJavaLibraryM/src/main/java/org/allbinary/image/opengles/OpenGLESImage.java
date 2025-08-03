@@ -16,6 +16,7 @@ package org.allbinary.image.opengles;
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.NullCanvas;
 
 import org.allbinary.platform.graphics.PlatformBitmapBase;
 import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
@@ -26,6 +27,9 @@ import org.allbinary.util.BasicArrayList;
 public class OpenGLESImage extends Image
 implements OpenGLSurfaceChangedInterface
 {
+    public static final OpenGLESImage NULL_OPENGL_IMAGE = new OpenGLESImage(
+        NullCanvas.NULL_IMAGE, PlatformBitmapBaseFactory.NULL_PLATFORM_BITMAP_BASE_FACTORY, PlatformTextureBaseFactory.NULL_PLATFORM_TEXTURE_BASE_FACTORY);
+    
     public static final BasicArrayList texture2dList = new BasicArrayList();
     
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
@@ -46,7 +50,8 @@ implements OpenGLSurfaceChangedInterface
         this.openGLBitmap = bitmapFactory.createBitmap(image);
         this.textureFactory = textureFactory;
     }
-    
+
+    @Override    
     public void set(GL gl) throws Exception
     {
         throw new Exception(commonStrings.NOT_IMPLEMENTED);

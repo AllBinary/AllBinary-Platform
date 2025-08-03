@@ -43,6 +43,7 @@ public class HackRotationSpriteIndexedAnimation extends RotationAnimation
      * this.setDx(dx); this.setDy(dy); }
      */
 
+    @Override
     public int getAnimationSize() throws Exception
     {
         return this.getSize();
@@ -54,6 +55,7 @@ public class HackRotationSpriteIndexedAnimation extends RotationAnimation
         this.paint(g, x, y);
     }
 
+    @Override
     public void paint(final Graphics g, final int x, final int y)
     {
         this.sprite.setPosition(x, y);
@@ -65,37 +67,44 @@ public class HackRotationSpriteIndexedAnimation extends RotationAnimation
         this.sprite.paint(g);
     }
 
+    @Override
     public void nextRotation()
     {
         this.sprite.nextFrame();
     }
 
+    @Override
     public void previousRotation()
     {
         this.sprite.prevFrame();
     }
 
+    @Override
     public int getSize()
     {
         // .getFrameSequenceLength()
         return this.sprite.getRawFrameCount();
     }
 
+    @Override
     public void setFrame(final int frame)
     {
         this.sprite.setFrame(frame);
     }
 
+    @Override
     public int getFrame()
     {
         return this.sprite.getFrame();
     }
 
+    @Override
     public void setSequence(final int[] sequence)
     {
 
     }
 
+    @Override
     public int[] getSequence()
     {
         return PrimitiveIntUtil.getArrayInstance();

@@ -42,6 +42,7 @@ public class ImageAnimationFactory extends BaseImageAnimationFactory {
         super(image, width, height, dx, dy, animationBehaviorFactory);
     }
     
+    @Override
     public Animation getInstance(final int instanceId) throws Exception
     {
         final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), 

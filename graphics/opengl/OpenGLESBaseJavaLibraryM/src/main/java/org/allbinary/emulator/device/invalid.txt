@@ -1,0 +1,3 @@
+//public final String pattern = " 0123456789AB   CDEFGHIJKLMNO   PQRSTUVWXYZab   cdefghijklmno   pqrstuvwxyz.?   !$%`¬¬\"££^&*(   )_+-=[]{};'#:   @~,/<>\\|®®©©";
+//shortPattern = " 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.?!$%`¬¬\"££^&*()_+-=[]{};'#:@~,/<>\\|®®©©";
+//shortPattern = " 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.?!$%`¬\"£^&*()_+-=[]{};'#:@~,/<>\\|®©";

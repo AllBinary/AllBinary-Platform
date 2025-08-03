@@ -59,11 +59,13 @@ public class SpriteIndexedAnimation extends IndexedAnimation
         }
     }
 
+    @Override
     public int getAnimationSize() throws Exception
     {
         return this.getSize();
     }
     
+    @Override
     public void setBasicColorP(final BasicColor basicColor)
         //throws Exception
     {
@@ -79,6 +81,7 @@ public class SpriteIndexedAnimation extends IndexedAnimation
         }
     }
 
+    @Override
     public BasicColor getBasicColorP()
     {
         if(this.basicColorArray.length < this.getFrame())
@@ -105,6 +108,7 @@ public class SpriteIndexedAnimation extends IndexedAnimation
         sprite.paint(graphics);
     }
 
+    @Override
     public void paint(final Graphics graphics, final int x, final int y)
     {
         this.sprite.setPosition(x, y);
@@ -116,32 +120,38 @@ public class SpriteIndexedAnimation extends IndexedAnimation
         sprite.paint(graphics);
     }
 
+    @Override
     public void nextFrame()
     {
         this.sprite.nextFrame();
     }
 
+    @Override
     public void previousFrame()
     {
         this.sprite.prevFrame();
     }
 
+    @Override
     public int getSize()
     {
         // .getFrameSequenceLength()
         return this.sprite.getRawFrameCount();
     }
 
+    @Override
     public void setFrame(final int frame)
     {
         this.sprite.setFrame(frame);
     }
 
+    @Override
     public int getFrame()
     {
         return this.sprite.getFrame();
     }
 
+    @Override
     public boolean isLastFrame()
     {
         if(this.sprite.getFrame() == this.getSize() - 1)
@@ -160,19 +170,22 @@ public class SpriteIndexedAnimation extends IndexedAnimation
         return this.getSize();
     }
 
+    @Override
     public void setSequence(final int[] sequence)
     {
 
     }
 
+    @Override
     public int[] getSequence()
     {
         return PrimitiveIntUtil.getArrayInstance();
-    }
-     
+    } 
+    
     public void close() throws Exception {
     }
  
+    @Override
     protected void finalize() throws Throwable {
     }
      

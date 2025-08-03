@@ -21,6 +21,7 @@ import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.ProceduralAnimationInterfaceFactoryInterface;
 import org.allbinary.animation.image.BaseImageAnimationFactory;
 import org.allbinary.image.sprite.AnimationFactorySpriteScaleUtil;
+import org.allbinary.logic.NullUtil;
 
 public class AllBinarySpriteRotationAnimationFactory
     extends BaseImageAnimationFactory
@@ -40,7 +41,7 @@ public class AllBinarySpriteRotationAnimationFactory
     public AllBinarySpriteRotationAnimationFactory(final Image image, final int dx, final int dy, final int unused)
         throws Exception {
         
-        this(image, null, AnimationBehaviorFactory.getInstance());
+        this(image, NullUtil.getInstance().NULL_OBJECT, AnimationBehaviorFactory.getInstance());
 
         this.animationFactoryInitializationVisitor.dx = dx;
         this.animationFactoryInitializationVisitor.dy = dy;
@@ -97,13 +98,14 @@ public class AllBinarySpriteRotationAnimationFactory
     public AllBinarySpriteRotationAnimationFactory(final Image image, final Object unused, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception {
         //Future imp may include Control fidelity for non square frames
-        super(image, (image.getHeight()), (image.getHeight()), animationBehaviorFactory);
+        super(image, image.getHeight(), image.getHeight(), animationBehaviorFactory);
         //super(image, unused == null ? image.getHeight() : (image.getHeight() >> 2), unused == null ? image.getHeight() : (image.getHeight() >> 2), animationBehaviorFactory);
         //int frameSize = (image.getHeight() >> 2);
         //this.width = frameSize;
         //this.height = frameSize;
     }
 
+    @Override
     public Animation getInstance(final int instanceId) throws Exception {
         
         final Sprite sprite = animationFactorySpriteScaleUtil.createImage(this.getImage(), this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
@@ -115,6 +117,7 @@ public class AllBinarySpriteRotationAnimationFactory
         }
     }
 
+    @Override
     public Animation getInstance(final Animation animationInterface) throws Exception {
         return this.getInstance(0);
     }

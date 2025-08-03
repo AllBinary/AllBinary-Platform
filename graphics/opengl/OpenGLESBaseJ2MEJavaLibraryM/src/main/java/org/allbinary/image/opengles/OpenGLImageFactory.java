@@ -20,6 +20,8 @@ import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
 
 public class OpenGLImageFactory
 {
+    public static final OpenGLImageFactory NULL_OPENGL_IMAGE_FACTORY = new OpenGLImageFactory();
+
 //    public Image getInstance(GL10 gl, Image image, boolean matchColor)
 //    {
 //        throw new RuntimeException();

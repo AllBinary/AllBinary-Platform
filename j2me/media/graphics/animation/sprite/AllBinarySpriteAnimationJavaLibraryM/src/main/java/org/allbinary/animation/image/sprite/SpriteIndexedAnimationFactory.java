@@ -122,6 +122,7 @@ public class SpriteIndexedAnimationFactory
         
     }
 
+    @Override
     public Animation getInstance(final int instanceId) throws Exception {
         
         final Sprite sprite = animationFactorySpriteScaleUtil.createImage(this.getImage(), 
@@ -136,7 +137,9 @@ public class SpriteIndexedAnimationFactory
         }
     }
 
+    @Override
     public Animation getInstance(final Animation animationInterface) throws Exception {
         return this.getInstance(0);
     }
+
 }

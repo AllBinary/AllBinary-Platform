@@ -24,8 +24,8 @@ import org.allbinary.media.ScaleProperties;
 public class ImageArrayAnimationFactory 
 implements AnimationInterfaceFactoryInterface
 {
-    private int dx;
-    private int dy;
+    private int dx = 0;
+    private int dy = 0;
     
     private final Image[] imageArray;
 
@@ -60,6 +60,7 @@ implements AnimationInterfaceFactoryInterface
         this.animationBehaviorFactory = animationBehaviorFactory;
     }
 
+    @Override
     public Animation getInstance(final int instanceId) throws Exception
     {
         if (dx != 0 || dy != 0) {
@@ -69,8 +70,9 @@ implements AnimationInterfaceFactoryInterface
         }
     }
 
+    @Override
     public void setInitialScale(final ScaleProperties scaleProperties) {
         
     }
-    
+
 }

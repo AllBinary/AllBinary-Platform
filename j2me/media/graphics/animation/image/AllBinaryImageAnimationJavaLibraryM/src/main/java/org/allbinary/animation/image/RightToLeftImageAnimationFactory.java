@@ -44,7 +44,8 @@ public class RightToLeftImageAnimationFactory
         throws Exception {
         super(image, image.getWidth(), image.getHeight(), animationBehaviorFactory); //, width, height);
     }
-    
+
+    @Override    
     public Animation getInstance(final int instanceId) throws Exception {
         final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
 

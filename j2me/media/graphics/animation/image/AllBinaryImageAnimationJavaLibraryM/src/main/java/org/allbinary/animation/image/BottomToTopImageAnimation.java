@@ -36,8 +36,10 @@ public class BottomToTopImageAnimation
         super(image, animationBehavior);
 
         this.setFrame(this.getSize() - 1);
+
     }
 
+    @Override
     public void nextFrame()
     {
         super.previousFrame();
@@ -45,6 +47,7 @@ public class BottomToTopImageAnimation
         this.update();
     }
 
+    @Override
     public void previousFrame()
     {
         super.nextFrame();
@@ -52,6 +55,7 @@ public class BottomToTopImageAnimation
         this.update();
     }
 
+    @Override
     public void setFrame(int index)
     {
         super.setFrame(index);
@@ -67,6 +71,7 @@ public class BottomToTopImageAnimation
 
     private int anchor = Anchor.TOP_LEFT;    
     
+    @Override
     public void paint(Graphics graphics, int x, int y)
     {
         //Image src, int x_src, int y_src, int width, int height, int transform,

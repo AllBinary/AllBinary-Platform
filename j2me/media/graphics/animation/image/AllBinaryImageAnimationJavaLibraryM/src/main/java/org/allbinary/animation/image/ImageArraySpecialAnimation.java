@@ -43,17 +43,20 @@ implements SpecialAnimationInterface
         return loopCount;
     }
     
+    @Override
     public void setLastFrame()
     {
         this.circularIndexUtil.setIndex(this.circularIndexUtil.getSize() - 1);
     }
     
+    @Override
     public void reset()
     {
         this.setFrame(this.getSize() - 1);
         loopCount = 0;
     }
 
+    @Override
     public void nextFrame()
     {
             if (this.getFrame() > 0)
@@ -73,6 +76,7 @@ implements SpecialAnimationInterface
 
     private final int loopCountTotal = 1;
     
+    @Override
     public boolean isComplete()
     {
         if (loopCount < loopCountTotal || this.getFrame() != 0)
@@ -85,6 +89,7 @@ implements SpecialAnimationInterface
         }
     }
 
+    @Override
     public void paint(final Graphics graphics, int x, int y)
     {
         x = DisplayInfoSingleton.getInstance().getLastHalfWidth() - (this.getImage(this.circularIndexUtil.getIndex()).getWidth() >> 1);

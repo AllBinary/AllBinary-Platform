@@ -27,17 +27,19 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase {
         return instance;
     }
 
-    public OpenGLESImage fontImage;
+    public OpenGLESImage fontImage = OpenGLESImage.NULL_OPENGL_IMAGE;
     
     private TrueTypeFontUtil() {
         super(1);
     }
 
+    @Override
     public int getAsTextureSize(int textureSize)
     {
         throw new RuntimeException();
     }
 
+    @Override
     public int getCellSize(int cellSize)
     {
         throw new RuntimeException();

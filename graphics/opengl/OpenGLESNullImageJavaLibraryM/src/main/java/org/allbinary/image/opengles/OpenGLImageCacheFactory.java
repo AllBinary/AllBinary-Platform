@@ -17,7 +17,7 @@ import org.allbinary.image.ImageCache;
 
 public class OpenGLImageCacheFactory
 {
-    private static ImageCache IMAGE_CACHE;
+    private static ImageCache IMAGE_CACHE = ImageCache.NULL_IMAGE_CACHE;
 
     /*
     public static void init(GL10 gl)

@@ -53,41 +53,49 @@ public class TweenedImageAnimation extends IndexedAnimation //implements AutoClo
         // logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
     }
 
+    @Override
     public int getAnimationSize() throws Exception
     {
         return this.getSize();
     }
     
+    @Override
     public void nextFrame()
     {
         this.circularIndexUtil.next();
     }
 
+    @Override
     public void previousFrame()
     {
         this.circularIndexUtil.previous();
     }
 
+    @Override
     public void setFrame(int index)
     {
         this.circularIndexUtil.setIndex(index);
     }
 
+    @Override
     public int getFrame()
     {
         return this.circularIndexUtil.getIndex();
     }
 
+    @Override
     public int getSize()
     {
         return this.totalFrames;
     }
 
+    @Override
     public void setSequence(int[] sequence)
     {
 
     }
 
+    @Override
     public int[] getSequence()
     {
         return PrimitiveIntUtil.getArrayInstance();
@@ -95,6 +103,7 @@ public class TweenedImageAnimation extends IndexedAnimation //implements AutoClo
 
     private int anchor = Anchor.TOP_LEFT;
     
+    @Override
     public void paint(Graphics graphics, int x, int y)
     {
         int frame = this.getFrame();
@@ -108,6 +117,7 @@ public class TweenedImageAnimation extends IndexedAnimation //implements AutoClo
         DisposalUtil.getInstance().dispose(this.image);
     }
     
+    @Override
     protected void finalize() throws Throwable {
         DisposalUtil.getInstance().dispose(this.image);
     }

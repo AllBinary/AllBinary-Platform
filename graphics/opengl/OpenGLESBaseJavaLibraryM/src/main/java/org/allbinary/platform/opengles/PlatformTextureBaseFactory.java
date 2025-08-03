@@ -24,6 +24,8 @@ import org.allbinary.string.CommonStrings;
  */
 public class PlatformTextureBaseFactory {
    
+    public static final PlatformTextureBaseFactory NULL_PLATFORM_TEXTURE_BASE_FACTORY = new PlatformTextureBaseFactory();
+    
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     public void load(final GL10 gl, final int target, final int level, final Image image, final int border, final boolean flip) {

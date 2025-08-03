@@ -113,6 +113,7 @@ public class ImageRotationAnimationFactory
         this.angleIncrement = angleIncrement;
     }
     
+    @Override
     public Animation getInstance(final int instanceId) throws Exception {
 
         if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
@@ -133,7 +134,7 @@ public class ImageRotationAnimationFactory
         
     }
 
-    protected short getAngleIncrement()
+    protected short getAngleIncrementP()
     {
         return angleIncrement;
     }

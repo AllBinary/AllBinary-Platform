@@ -38,6 +38,7 @@ public class RightToLeftImageAnimation
         this.setFrame(this.getSize() - 1);
     }
 
+    @Override
     public void nextFrame()
     {
         super.previousFrame();
@@ -45,6 +46,7 @@ public class RightToLeftImageAnimation
         this.update();
     }
 
+    @Override
     public void previousFrame()
     {
         super.nextFrame();
@@ -52,6 +54,7 @@ public class RightToLeftImageAnimation
         this.update();
     }
 
+    @Override
     public void setFrame(final int index)
     {
         super.setFrame(index);
@@ -67,6 +70,7 @@ public class RightToLeftImageAnimation
 
     private int anchor = Anchor.TOP_LEFT;    
     
+    @Override
     public void paint(final Graphics graphics, final int x, final int y)
     {
         //Image src, int x_src, int y_src, int width, int height, int transform,

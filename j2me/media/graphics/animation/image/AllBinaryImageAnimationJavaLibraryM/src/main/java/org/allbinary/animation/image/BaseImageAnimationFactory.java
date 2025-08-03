@@ -81,6 +81,7 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
 
     }
 
+    @Override
     public Animation getInstance(final int instanceId) throws Exception {
         return NullAnimationFactory.getFactoryInstance().getInstance(instanceId);
     }
@@ -113,6 +114,7 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
         return stringBuffer.toString();
     }
 
+    @Override
     public void setInitialScale(final ScaleProperties scaleProperties) {
         
         this.scaleProperties = scaleProperties;
@@ -132,14 +134,14 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
     /**
      * @return the animationFactoryInitializationVisitor
      */
-    public AnimationFactoryInitializationVisitor getAnimationFactoryInitializationVisitor() {
+    public AnimationFactoryInitializationVisitor getAnimationFactoryInitializationVisitorP() {
         return animationFactoryInitializationVisitor;
     }
     
     /**
      * @return the scaleProperties
      */
-    public ScaleProperties getScaleProperties() {
+    public ScaleProperties getScalePropertiesP() {
         return scaleProperties;
     }
     

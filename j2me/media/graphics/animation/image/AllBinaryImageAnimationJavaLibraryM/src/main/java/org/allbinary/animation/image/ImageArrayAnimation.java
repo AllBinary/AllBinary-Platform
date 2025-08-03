@@ -15,6 +15,7 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.NullCanvas;
 
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.IndexedAnimation;
@@ -26,12 +27,12 @@ public class ImageArrayAnimation extends IndexedAnimation
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private Image[] imageArray;
+    private Image[] imageArray = NullCanvas.NULL_IMAGE_ARRAY;
 
     // private int totalAngle;
     private int totalFrames;
 
-    protected CircularIndexUtil circularIndexUtil;
+    protected CircularIndexUtil circularIndexUtil = CircularIndexUtil.NULL_CIRCULAR_INDEX_UTIL;
     
     public ImageArrayAnimation(final Image[] imageArray, final AnimationBehavior animationBehavior) throws Exception
     {
@@ -42,41 +43,49 @@ public class ImageArrayAnimation extends IndexedAnimation
         this.setImageArray(imageArray);
     }
 
+    @Override
     public int getAnimationSize() throws Exception
     {
         return this.getSize();
     }
     
+    @Override
     public void nextFrame()
     {
         this.circularIndexUtil.next();
     }
 
+    @Override
     public void previousFrame()
     {
         this.circularIndexUtil.previous();
     }
 
+    @Override
     public void setFrame(int index)
     {
         this.circularIndexUtil.setIndex(index);
     }
 
+    @Override
     public int getFrame()
     {
         return this.circularIndexUtil.getIndex();
     }
 
+    @Override
     public int getSize()
     {
         return this.totalFrames;
     }
 
+    @Override
     public void setSequence(int[] sequence)
     {
 
     }
 
+    @Override
     public int[] getSequence()
     {
         return PrimitiveIntUtil.getArrayInstance();
@@ -101,6 +110,7 @@ public class ImageArrayAnimation extends IndexedAnimation
 
     private int anchor = Anchor.TOP_LEFT;
     
+    @Override
     public void paint(Graphics graphics, int x, int y)
     {
         graphics.drawImage(this.imageArray[this.circularIndexUtil.getIndex()], x, y, anchor);

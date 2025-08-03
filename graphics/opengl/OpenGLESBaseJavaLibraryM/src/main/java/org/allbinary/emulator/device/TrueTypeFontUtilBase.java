@@ -13,9 +13,12 @@
  */
 package org.allbinary.emulator.device;
 
+import javax.microedition.lcdui.Font;
+
 import org.allbinary.AndroidUtil;
 import org.allbinary.AvianUtil;
 import org.allbinary.graphics.font.MyFont;
+import org.allbinary.logic.string.StringUtil;
 
 /**
  *
@@ -25,7 +28,8 @@ public class TrueTypeFontUtilBase {
 
     //Include special characters 2 times handles the Android Studio issue.
     public final String shortPattern;
-    public final String pattern = " 0123456789AB   CDEFGHIJKLMNO   PQRSTUVWXYZab   cdefghijklmno   pqrstuvwxyz.?   !$%`¬¬\"££^&*(   )_+-=[]{};'#:   @~,/<>\\|®®©©";
+    private final byte[] patternAsBytes = {32, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 65, 66, 32, 32, 32, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 32, 32, 32, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 32, 32, 32, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 32, 32, 32, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 46, 63, 32, 32, 32, 33, 36, 37, 96, -62, -84, -62, -84, 34, -62, -93, -62, -93, 94, 38, 42, 40, 32, 32, 32, 41, 95, 43, 45, 61, 91, 93, 123, 125, 59, 39, 35, 58, 32, 32, 32, 64, 126, 44, 47, 60, 62, 92, 124, -62, -82, -62, -82, -62, -87, -62, -87};
+    public final String pattern = new String(patternAsBytes);
 
     public final short[] charArray = //new short[255];
     {
@@ -39,7 +43,7 @@ public class TrueTypeFontUtilBase {
     protected final int size = pattern.length();
     protected final int lastCapIndex = pattern.indexOf('Z');
 
-    public javax.microedition.lcdui.Font currentFont = javax.microedition.lcdui.Font.getDefaultFont();
+    public Font currentFont = Font.getDefaultFont();
 
     public final int scale;
     public final int CELLS_PER_ROW;
@@ -52,11 +56,15 @@ public class TrueTypeFontUtilBase {
         
     public TrueTypeFontUtilBase(final int scale) {
 
+        String shortPattern = StringUtil.getInstance().EMPTY_STRING;
         if(AvianUtil.isAvian()) {
-            shortPattern = " 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.?!$%`¬¬\"££^&*()_+-=[]{};'#:@~,/<>\\|®®©©";
+            final byte[] shortPatterAsByteArray = {32, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 46, 63, 33, 36, 37, 96, -62, -84, -62, -84, 34, -62, -93, -62, -93, 94, 38, 42, 40, 41, 95, 43, 45, 61, 91, 93, 123, 125, 59, 39, 35, 58, 64, 126, 44, 47, 60, 62, 92, 124, -62, -82, -62, -82, -62, -87, -62, -87};
+            shortPattern = new String(shortPatterAsByteArray);
         } else {
-            shortPattern = " 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.?!$%`¬\"£^&*()_+-=[]{};'#:@~,/<>\\|®©";
+            final byte[] shortPatterAsByteArray = {32, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 46, 63, 33, 36, 37, 96, -62, -84, 34, -62, -93, 94, 38, 42, 40, 41, 95, 43, 45, 61, 91, 93, 123, 125, 59, 39, 35, 58, 64, 126, 44, 47, 60, 62, 92, 124, -62, -82, -62, -87};
+            shortPattern = new String(shortPatterAsByteArray);
         }
+        this.shortPattern = shortPattern;
         
         this.scale = scale;
         //This needs to initialize after scale and in the OpenGL thread when running JOGL.
@@ -154,7 +162,23 @@ public class TrueTypeFontUtilBase {
     }
 
     public int getYOffset() {
-        return ((this.scale - 1) * (this.cellSize));
+        return ((this.scale - 1) * this.cellSize);
     }
-    
+
+//    public static void main(final String[] args) {
+//        final StringMaker stringMaker = new StringMaker();
+//        final byte[] byteArray = pattern.getBytes();
+//        final int size = byteArray.length;
+//        for(int index = 0; index < size; index++) {
+//            stringMaker.append(Byte.toString(byteArray[index]));
+//            //stringMaker.append(Integer.toString(byteArray[index], 16));
+//            //stringMaker.append('x');
+//            //stringMaker.append('0');
+//            stringMaker.append(CommonSeps.getInstance().COMMA);
+//            stringMaker.append(CommonSeps.getInstance().SPACE);
+//        }
+//        
+//        System.out.print(stringMaker.toString());
+//    }
+
 }

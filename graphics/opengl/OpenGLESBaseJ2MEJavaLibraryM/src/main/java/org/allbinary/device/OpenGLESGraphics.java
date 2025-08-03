@@ -14,7 +14,7 @@ implements OpenGLSurfaceChangedInterface, GraphicsInterface
 {
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
-    protected GL10 gl;
+    protected GL10 gl = NullGL10.NULL_GL10;
     
     protected OpenGLESGraphics()
     {
@@ -25,6 +25,7 @@ implements OpenGLSurfaceChangedInterface, GraphicsInterface
     {
     }
 
+    @Override
     public void set(GL gl)
     {
     }
@@ -49,11 +50,12 @@ implements OpenGLSurfaceChangedInterface, GraphicsInterface
         
     }
 
-    public GL10 getGl()
+    public GL10 getGlP()
     {
         return gl;
     }
-    
+
+    @Override    
     public void setFont(final Font font, final FontDebugBase fontDebug) {
         throw new RuntimeException();
     }

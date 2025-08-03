@@ -16,6 +16,9 @@ package org.allbinary.logic.system.hardware;
 import org.allbinary.logic.system.os.GenericOperatingSystem;
 import org.allbinary.logic.system.os.OperatingSystems;
 
+import org.allbinary.logic.system.hardware.linux.LinuxHardware;
+import org.allbinary.logic.system.hardware.windows.WindowsHardware;
+
 public class HardwareFactory
 {
 
@@ -30,10 +33,10 @@ public class HardwareFactory
             final OperatingSystems operatingSystems = OperatingSystems.getInstance();
             if(os.getName().compareTo(operatingSystems.LINUX) == 0)
             {
-                return (HardwareInterface) new org.allbinary.logic.system.hardware.linux.Hardware();
+                return (HardwareInterface) new LinuxHardware();
             }else if(os.getName().indexOf(operatingSystems.WINDOWS) >= 0)
             {
-                return (HardwareInterface) new org.allbinary.logic.system.hardware.windows.Hardware();
+                return (HardwareInterface) new WindowsHardware();
             }
             /*
              else

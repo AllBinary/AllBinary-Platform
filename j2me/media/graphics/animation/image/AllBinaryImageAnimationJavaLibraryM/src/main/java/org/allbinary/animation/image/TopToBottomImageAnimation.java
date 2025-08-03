@@ -42,6 +42,7 @@ public class TopToBottomImageAnimation
         }
     }
 
+    @Override
     public void nextFrame()
     {
         if(this.getSequence()[0] == -1)
@@ -56,6 +57,7 @@ public class TopToBottomImageAnimation
         this.update();
     }
 
+    @Override
     public void previousFrame()
     {
         if(this.getSequence()[0] == -1)
@@ -70,6 +72,7 @@ public class TopToBottomImageAnimation
         this.update();
     }
 
+    @Override
     public void setFrame(int index)
     {
         super.setFrame(index);
@@ -84,6 +87,7 @@ public class TopToBottomImageAnimation
 
     private int anchor = Anchor.TOP_LEFT;
     
+    @Override
     public void paint(final Graphics graphics, final int x, final int y)
     {
         //Image src, int x_src, int y_src, int width, int height, int transform,

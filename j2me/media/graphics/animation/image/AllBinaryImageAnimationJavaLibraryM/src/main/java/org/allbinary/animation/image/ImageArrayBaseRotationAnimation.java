@@ -15,6 +15,7 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.NullCanvas;
 
 import org.allbinary.DisposalUtil;
 import org.allbinary.animation.AnimationBehavior;
@@ -32,7 +33,7 @@ public class ImageArrayBaseRotationAnimation extends RotationAnimation //impleme
     private final ImageModifierUtil imageModifierUtil = ImageModifierUtil.getInstanceOrCreate();
     
     private final Image[] originalImageArray;
-    private Image[] imageArray;
+    private Image[] imageArray = NullCanvas.NULL_IMAGE_ARRAY;
 
     private Image currentImage;
     
@@ -52,11 +53,13 @@ public class ImageArrayBaseRotationAnimation extends RotationAnimation //impleme
         this.currentImage = this.imageArray[this.circularIndexUtil.getIndex()]; 
     }
 
+    @Override
     public int getAnimationSize() throws Exception
     {
         return this.getSize();
     }
 
+    @Override
     public void setAlpha(final int alpha) {
         
         if(this.alphaP != alpha) {
@@ -68,6 +71,7 @@ public class ImageArrayBaseRotationAnimation extends RotationAnimation //impleme
         }
     }
     
+    @Override
     public void nextRotation()
     {
         super.nextRotation();
@@ -77,6 +81,7 @@ public class ImageArrayBaseRotationAnimation extends RotationAnimation //impleme
         this.currentImage = this.imageArray[index];
     }
 
+    @Override
     public void previousRotation()
     {
         super.previousRotation();
@@ -86,6 +91,7 @@ public class ImageArrayBaseRotationAnimation extends RotationAnimation //impleme
         this.currentImage = this.imageArray[index];
     }
 
+    @Override
     public void setFrame(final int index2)
     {
         super.setFrame(index2);
@@ -95,11 +101,13 @@ public class ImageArrayBaseRotationAnimation extends RotationAnimation //impleme
         this.currentImage = this.imageArray[index];
     }
     
+    @Override
     public void setSequence(final int[] sequence)
     {
 
     }
 
+    @Override
     public int[] getSequence()
     {
         return PrimitiveIntUtil.getArrayInstance();
@@ -113,7 +121,8 @@ public class ImageArrayBaseRotationAnimation extends RotationAnimation //impleme
     }
 
     private int anchor = Anchor.TOP_LEFT;
-    
+
+    @Override    
     public void paint(final Graphics graphics, final int x, final int y)
     {
         graphics.drawImage(this.currentImage, x, y, anchor);
@@ -136,6 +145,7 @@ public class ImageArrayBaseRotationAnimation extends RotationAnimation //impleme
         disposalUtil.dispose(this.currentImage);
     }
  
+    @Override
     protected void finalize() throws Throwable {
         
         final DisposalUtil disposalUtil = DisposalUtil.getInstance();

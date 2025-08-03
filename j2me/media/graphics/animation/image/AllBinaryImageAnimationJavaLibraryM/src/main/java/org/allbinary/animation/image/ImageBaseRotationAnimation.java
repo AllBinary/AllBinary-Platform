@@ -37,15 +37,18 @@ public class ImageBaseRotationAnimation extends RotationAnimation //implements A
         this.image = image;
     }
 
+    @Override
     public int getAnimationSize() throws Exception
     {
         return this.getSize();
     }
     
+    @Override
     public void setSequence(int[] sequence)
     {
     }
 
+    @Override
     public int[] getSequence()
     {
         return PrimitiveIntUtil.getArrayInstance();
@@ -53,6 +56,7 @@ public class ImageBaseRotationAnimation extends RotationAnimation //implements A
 
     protected int anchor = Anchor.TOP_LEFT;
     
+    @Override
     public void paint(final Graphics graphics, final int x, final int y)
     {
         graphics.drawImage(this.image, x, y, anchor);
@@ -66,6 +70,7 @@ public class ImageBaseRotationAnimation extends RotationAnimation //implements A
         return image;
     }
 
+    @Override
     public int getWidth() {
         return this.image.getWidth();
     }
@@ -80,6 +85,7 @@ public class ImageBaseRotationAnimation extends RotationAnimation //implements A
         DisposalUtil.getInstance().dispose(this.image);
     }
     
+    @Override
     protected void finalize() throws Throwable {
         DisposalUtil.getInstance().dispose(this.image);
     }
