@@ -25,8 +25,10 @@ public class ComboSequenceAI extends SequenceAI
         super(artificialIntelligenceInterface, ownerLayerInterface, gameInput);
     }
    
+   @Override
     public void processAI(AllBinaryLayerManager allBinaryLayerManager) throws Exception {
-        int size = this.getArtificialIntelligenceInterface().length;
+        final ArtificialIntelligenceInterface[] artificialIntelligenceInterfaceArray = this.getArtificialIntelligenceInterface();
+        final int size = artificialIntelligenceInterfaceArray.length;
        for(int index = 0; index < size; index++)
        {
           this.setIndex(index);

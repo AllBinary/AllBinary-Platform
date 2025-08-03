@@ -38,6 +38,7 @@ public class KeyPressesAI extends BasicAI {
       }
    }
 
+   @Override
    public void processAI(AllBinaryLayerManager allBinaryLayerManager)
         throws Exception {
       if (on) {

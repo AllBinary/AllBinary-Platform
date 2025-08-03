@@ -20,6 +20,8 @@ import org.allbinary.layer.AllBinaryLayer;
 
 public class BasicWeaponPartCircularPool 
 {
+    public static final BasicWeaponPartCircularPool NULL_BASIC_WEAPON_PART_CIRCULAR_POOL = new BasicWeaponPartCircularPool();
+    
    //private CircularIndexUtil circularIndexUtil;
    //TODO TWB only one item in pool is stupid
    //private final int MAX = 1;

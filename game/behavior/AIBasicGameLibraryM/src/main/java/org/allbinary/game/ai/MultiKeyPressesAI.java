@@ -38,6 +38,7 @@ public class MultiKeyPressesAI extends KeyPressesAI
         this.update();
     }
 
+    @Override
     public void processAI(AllBinaryLayerManager allBinaryLayerManager)
             throws Exception
     {
@@ -49,9 +50,11 @@ public class MultiKeyPressesAI extends KeyPressesAI
     {
         GameInput gameInput = this.getGameInput();
         
+        final Integer[] keys = this.keys;
+        final int size = keys.length;
         if (isOn())
         {
-            for (int index = 0; index < keys.length; index++)
+            for (int index = 0; index < size; index++)
             {
                 int key = keys[index].intValue();
                 if (key != -1)
@@ -63,7 +66,7 @@ public class MultiKeyPressesAI extends KeyPressesAI
         }
         else
         {
-            for (int index = 0; index < keys.length; index++)
+            for (int index = 0; index < size; index++)
             {
                 int key = keys[index].intValue();
                 if (key != -1)
@@ -75,6 +78,7 @@ public class MultiKeyPressesAI extends KeyPressesAI
         }
     }
 
+    @Override
     public void toggle() throws Exception
     {
         if (this.toggleTimeHelper.isTime(this.gameTickTimeDelayHelper.startTime))
@@ -84,6 +88,7 @@ public class MultiKeyPressesAI extends KeyPressesAI
         }
     }
 
+    @Override
     public void disable() throws Exception
     {
         if (this.toggleTimeHelper.isTime(this.gameTickTimeDelayHelper.startTime))
@@ -93,6 +98,7 @@ public class MultiKeyPressesAI extends KeyPressesAI
         }
     }
 
+    @Override
     public void enable() throws Exception
     {
         if (this.toggleTimeHelper.isTime(this.gameTickTimeDelayHelper.startTime))

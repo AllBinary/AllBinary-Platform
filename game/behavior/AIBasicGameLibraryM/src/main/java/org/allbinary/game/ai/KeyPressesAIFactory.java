@@ -23,6 +23,7 @@ import org.allbinary.layer.AllBinaryLayer;
 public class KeyPressesAIFactory implements
         ArtificialIntelligenceInterfaceFactoryInterface
 {
+    @Override
     public ArtificialIntelligenceInterface getInstance(Hashtable hashtable,
             AllBinaryLayer ownerLayerInterface, GameInput gameInput)throws Exception
     {

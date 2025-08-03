@@ -24,10 +24,11 @@ public class LastKeyAIVisitor extends Visitor
     
     private final Boolean TRUE = BooleanFactory.getInstance().TRUE;
 
-    protected LastKeyAIVisitor()
+    public LastKeyAIVisitor()
     {
     }
     
+    @Override
     public Object visit(Object object)
     {
         try

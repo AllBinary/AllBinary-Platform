@@ -24,6 +24,7 @@ public class NullAIFactory
 {
     private static NullAI NULL_AI = new NullAI();
     
+    @Override
     public ArtificialIntelligenceInterface getInstance(
           Hashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput)
     {

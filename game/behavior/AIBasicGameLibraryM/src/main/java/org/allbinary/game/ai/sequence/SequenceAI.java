@@ -33,6 +33,7 @@ public class SequenceAI extends ArrayAI
       super(artificialIntelligenceInterfaceArray, ownerLayerInterface, gameInput);
    }
 
+   @Override
    public void processAI(AllBinaryLayerManager allBinaryLayerManager) throws Exception
    {
       this.getArtificialIntelligenceInterface()[index].processAI(allBinaryLayerManager);
@@ -46,7 +47,8 @@ public class SequenceAI extends ArrayAI
           this.getSelectedArtificialIntelligenceInterface();
       if(artificialIntelligenceInterface.getId() == ArtificialIntelligenceTransitionInterface.ID)
       {
-         ((ArtificialIntelligenceTransitionInterface) artificialIntelligenceInterface).transition();
+          final ArtificialIntelligenceTransitionInterface artificialIntelligenceTransitionInterface = ((ArtificialIntelligenceTransitionInterface) artificialIntelligenceInterface);
+          artificialIntelligenceTransitionInterface.transition();
       }
 
       //logUtil.put("Current AI: " + this.getSelectedArtificialIntelligenceInterface(), this, commonStrings.GET_INSTANCE);
@@ -69,6 +71,7 @@ public class SequenceAI extends ArrayAI
    }
    
    private static final String SEQUENCE_AI = "Sequence AI";
+   @Override
    public String getName()
    {
        return SEQUENCE_AI;

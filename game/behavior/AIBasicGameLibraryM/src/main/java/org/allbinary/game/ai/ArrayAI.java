@@ -30,6 +30,7 @@ public class ArrayAI extends BasicAI
       this.artificialIntelligenceInterfaceArray = artificialIntelligenceInterface;
    }
 
+   @Override
    public void processAI(AllBinaryLayerManager allBinaryLayerManager) throws Exception
    {
       int size = this.artificialIntelligenceInterfaceArray.length;

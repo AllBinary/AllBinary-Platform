@@ -46,6 +46,7 @@ public class BasicRandomAI extends BasicAI
 
     private final MyRandomFactory myRandomFactory = MyRandomFactory.getInstance();
     
+    @Override
     public void processAI(AllBinaryLayerManager allBinaryLayerManager) throws Exception
     {
         if (this.inputProbability.getTimeDelayHelper().isTime(GameTickTimeDelayHelperFactory.getInstance().startTime))

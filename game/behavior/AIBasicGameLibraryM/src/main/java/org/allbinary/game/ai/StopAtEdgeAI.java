@@ -27,13 +27,15 @@ public class StopAtEdgeAI extends BasicAI
       super(ownerLayerInterface, gameInput);
    }
 
+   @Override
    public void processAI(AllBinaryLayerManager allBinaryLayerManager)
            throws Exception
    {
        AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
        
-       BasicVelocityProperties velocityProperties = 
-    		   ((VelocityInterfaceCompositeInterface) ownerLayerInterface).getVelocityProperties();
+       final VelocityInterfaceCompositeInterface velocityInterfaceCompositeInterface = 
+           ((VelocityInterfaceCompositeInterface) ownerLayerInterface);
+       final BasicVelocityProperties velocityProperties = velocityInterfaceCompositeInterface.getVelocityProperties();
        
       int x = ownerLayerInterface.getXP();
       int y = ownerLayerInterface.getYP();
