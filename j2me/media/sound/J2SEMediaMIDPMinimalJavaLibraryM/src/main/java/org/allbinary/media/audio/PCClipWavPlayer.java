@@ -13,9 +13,11 @@
 */
 package org.allbinary.media.audio;
 
+import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
 import javax.microedition.media.Control;
+
 import javax.microedition.media.MediaException;
 import javax.microedition.media.PlayerListener;
 import javax.sound.sampled.AudioInputStream;
@@ -25,24 +27,23 @@ import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.LineEvent;
 import javax.sound.sampled.LineListener;
 
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
-import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.thread.MusicThreadPool;
 
 public class PCClipWavPlayer extends BasicPlayer implements LineListener
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private final CommonStrings commonStrings = CommonStrings.getInstance();
-
     private final AudioInputStream audioInputStream;
     private final Clip clip;
 
     public PCClipWavPlayer(InputStream inputStream)
     {
-        AudioInputStream audioInputStream = null;
-        Clip clip = null;
+        AudioInputStream audioInputStream = new AudioInputStream(new ByteArrayInputStream(NullUtil.getInstance().NULL_BYTE_ARRAY), NullAudioFormat.NULL_AUDIO_FORMAT, 0);
+        Clip clip = new NullClip();
         try
         {
             audioInputStream =
@@ -66,9 +67,11 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
         this.clip = clip;
     }
 
+    @Override
     public void close()
     {
         MusicThreadPool.getInstance().runTask(new Runnable() {
+            @Override
             public void run() {
                 try {
                     close2();
@@ -86,14 +89,17 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
         this.clip.close();
     }
     
+    @Override
     public String getContentType()
     {
-        return null;
+        return StringUtil.getInstance().EMPTY_STRING;
     }
 
+    @Override
     public synchronized void start() throws MediaException
     {
         MusicThreadPool.getInstance().runTask(new Runnable() {
+            @Override
             public void run() {
                 try {
                     start2();
@@ -125,9 +131,11 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
         return clip;
     }
 
+    @Override
     public synchronized void stop() throws MediaException
     {
         MusicThreadPool.getInstance().runTask(new Runnable() {
+            @Override
             public void run() {
                 try {
                     stop2();
@@ -148,16 +156,19 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
         super.stop();
     }
 
+    @Override
     public Control getControl(String controlType)
     {
-        return null;
+        return new NullControl();
     }
 
+    @Override
     public Control[] getControls()
     {
-        return null;
+        return new Control[0];
     }
 
+    @Override
     public void setVolume(final int leftVolume, final int rightVolume) {
         this.setVolume(((float) leftVolume) / 100.0f);
     }
@@ -175,10 +186,12 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
         masterGainFloatControl.setValue(20f * (float) Math.log10(volume));
     }
 
+    @Override
     public long getDuration() {
         return this.clip.getMicrosecondLength() / 1000;
     }
 
+    @Override
     public void update(LineEvent event)
     {
         //logUtil.put("LineEvent: " + event.getType(),  this, "update");

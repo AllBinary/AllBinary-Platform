@@ -14,6 +14,7 @@
 package org.allbinary.media.audio;
 
 import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -26,6 +27,7 @@ import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.GameFeatureFactory;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 
@@ -84,7 +86,7 @@ public class AllBinaryMediaManager {
     
     public static Player createPlayer(final String resource) throws Exception {
         if (resource.startsWith(Manager.TONE_DEVICE_LOCATOR)) {
-            return createPlayer(null, AudioContentTypeDataFactory.getInstance().MIME_AUDIO_TONE.getName());
+            return createPlayer(new ByteArrayInputStream(NullUtil.getInstance().NULL_BYTE_ARRAY), AudioContentTypeDataFactory.getInstance().MIME_AUDIO_TONE.getName());
         } else
         if (Features.getInstance().isFeature(GameFeatureFactory.getInstance().SOUND))
         {
