@@ -40,7 +40,7 @@
 
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>ResourceLibrary</artifactId>
+            <artifactId>PCResourceLibrary</artifactId>
             <version>${project.version}</version>
             <optional>true</optional>
         </dependency>

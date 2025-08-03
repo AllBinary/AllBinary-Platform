@@ -24,6 +24,7 @@ public class AllBinaryVisualDebugVibration extends AllBinaryVibrationME
 {
     private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(Integer.MAX_VALUE);
 
+    @Override
     public void vibrate(final int duration, final int type, final int volume)
     {
         this.timeDelayHelper.delay = duration;

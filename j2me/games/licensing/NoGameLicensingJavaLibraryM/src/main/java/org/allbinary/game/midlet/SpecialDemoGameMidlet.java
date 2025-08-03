@@ -34,7 +34,7 @@ extends DemoGameMidlet
         
     }
     
-    //@Override
+    @Override
     public void preInit() {
         new LicenseServerInitFileUtil().init();
     }

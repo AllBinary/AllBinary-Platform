@@ -17,7 +17,7 @@ public class LicenseLoadingType
 {
     //private final String name;
     
-    protected LicenseLoadingType(String name)
+    LicenseLoadingType(String name)
     {
         //this.name = name;
     }

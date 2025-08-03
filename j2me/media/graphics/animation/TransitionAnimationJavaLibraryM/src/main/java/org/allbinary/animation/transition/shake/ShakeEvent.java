@@ -15,7 +15,7 @@ package org.allbinary.animation.transition.shake;
 
 public class ShakeEvent
 {
-    protected ShakeEvent()
+    ShakeEvent()
     {
         
     }

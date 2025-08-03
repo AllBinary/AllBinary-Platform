@@ -18,6 +18,7 @@ import javax.microedition.media.MediaException;
 import javax.microedition.media.Player;
 import javax.microedition.media.PlayerListener;
 import javax.microedition.media.TimeBase;
+import org.allbinary.logic.string.StringUtil;
 
 import org.allbinary.util.BasicArrayList;
 
@@ -40,12 +41,12 @@ public class BasicPlayer implements Player, TimeBaseInterface, Controllable2
 
    public String getContentType()
    {
-       return null;
+       return StringUtil.getInstance().EMPTY_STRING;
    }
 
    public Control getControl(String controlType)
    {
-       return null;
+       return new NullControl();
    }
 
    public Control[] getControls()

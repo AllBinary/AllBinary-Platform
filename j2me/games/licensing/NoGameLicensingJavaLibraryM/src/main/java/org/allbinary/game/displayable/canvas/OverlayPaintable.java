@@ -38,6 +38,7 @@ extends InitUpdatePaintable
               //  14, 40, 2, BasicColor.RED);
     }
 
+    @Override
     public void update()
     {
         try
@@ -52,6 +53,7 @@ extends InitUpdatePaintable
         }
     }
 
+    @Override
     public void paint(Graphics graphics)
     {
         //this.gameNotificationHud.paint(graphics);

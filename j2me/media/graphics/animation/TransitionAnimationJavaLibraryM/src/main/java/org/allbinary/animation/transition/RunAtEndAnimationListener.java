@@ -21,12 +21,15 @@ public class RunAtEndAnimationListener implements AnimationListenerInterface
         this.runnable = runnable;
     }
     
+    @Override
     public void onAnimationStart() {
     }
 
+    @Override
     public void onAnimationEnd() {
     }
 
+    @Override
     public void onAnimationRepeat() {
     }
 
