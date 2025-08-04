@@ -25,6 +25,7 @@ public class TouchButtonResourceOpenGLESAnimationInterfaceFactoryInterfaceFactor
         super("OpenGL TouchButton Animations");
     }
 
+    @Override
     public void init(int level) 
     throws Exception
     {
@@ -32,6 +33,7 @@ public class TouchButtonResourceOpenGLESAnimationInterfaceFactoryInterfaceFactor
         //throw new Exception("OpenGL Resource Loader Only");
     }
     
+    @Override
     public boolean isFeature()
     {
         if (Features.getInstance().isDefault(OpenGLFeatureFactory.getInstance().OPENGL))
