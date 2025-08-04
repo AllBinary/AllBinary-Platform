@@ -31,7 +31,7 @@ public class BasicRandomAIFactory implements
             Hashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput)
     throws Exception
     {        
-        Visitor visitor = (Visitor) hashtable.get(BasicAI.AI_VISITOR);
+        Visitor visitor = (Visitor) hashtable.get((Object) BasicAI.AI_VISITOR);
         
         if(visitor == null)
         {
@@ -39,7 +39,7 @@ public class BasicRandomAIFactory implements
         }
         
         InputProbability inputProbability = (InputProbability) 
-            hashtable.get(InputProbability.INPUT_PROBABILITY);
+            hashtable.get((Object) InputProbability.INPUT_PROBABILITY);
 
         return new BasicRandomAI(ownerLayerInterface, gameInput, inputProbability, visitor);
     }

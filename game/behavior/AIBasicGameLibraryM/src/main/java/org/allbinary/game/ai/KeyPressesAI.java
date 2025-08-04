@@ -34,7 +34,7 @@ public class KeyPressesAI extends BasicAI {
       int size = objectArray.length;
       
       for (int index = 0; index < size; index++) {
-         keys[index] = (Integer) hashtable.get(objectArray[index]);
+         keys[index] = (Integer) hashtable.get((Object) objectArray[index]);
       }
    }
 

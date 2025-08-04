@@ -40,7 +40,7 @@ public class NumberOnOwnGroupSequenceAIFactory
 
       for (int index = 0; index < integerArray.length; index++)
       {
-         Integer integer = (Integer) hashtable.get(integerArray[index]);
+         Integer integer = (Integer) hashtable.get((Object) integerArray[index]);
          if (integer == null)
          {
             break;

@@ -26,10 +26,10 @@ public class DiveAndDirectionalTrackingAIFactory
 {
     @Override
     public ArtificialIntelligenceInterface getInstance(
-            Hashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput)
+            final Hashtable hashtable, final AllBinaryLayer ownerLayerInterface, GameInput gameInput)
     throws Exception
     {
-        Visitor visitor = (Visitor) hashtable.get(BasicAI.AI_VISITOR);
+        Visitor visitor = (Visitor) hashtable.get((Object) BasicAI.AI_VISITOR);
         
         if(visitor == null)
         {
@@ -37,11 +37,11 @@ public class DiveAndDirectionalTrackingAIFactory
             //throw new Exception("No Visitor Provided");
         }
         
-        Hashtable hashtable2 = new BasicProbabilityAIDataFactory().getInstance();
+        final Hashtable hashtable2 = new BasicProbabilityAIDataFactory().getInstance();
         
         hashtable2.put(BasicAI.AI_VISITOR, LastKeyAIVisitorFactory.getInstance());
         
-        ArtificialIntelligenceInterface artificialIntelligenceInterface = 
+        final ArtificialIntelligenceInterface artificialIntelligenceInterface = 
             new BasicRandomAIFactory().getInstance(
                 hashtable2, 
                 ownerLayerInterface, gameInput);
