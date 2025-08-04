@@ -104,13 +104,15 @@ public class BasePatrolAI extends BasicAI
         // for(int index = 0; index < directionArray.length; index++)
         if (this.lastKeyDirection == Canvas.LEFT)
         {
-            this.lastKeyDirection = keyDirection = Canvas.RIGHT;
+            keyDirection = Canvas.RIGHT;
+            this.lastKeyDirection = keyDirection;
             xTotalDistance = 0;
             //yTotalDistance = 0;
         }
         else if (this.lastKeyDirection == Canvas.RIGHT)
         {
-            this.lastKeyDirection = keyDirection = Canvas.LEFT;
+            keyDirection = Canvas.LEFT;
+            this.lastKeyDirection = keyDirection;
             xTotalDistance = 0;
             //yTotalDistance = 0;
         }

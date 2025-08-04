@@ -44,16 +44,19 @@ public class ReverseVelocityBoundsVisitor implements BoundsVisitorInterface
           velocityInterfaceCompositeInterface.getVelocityProperties();
    }
 
+   @Override
    public int getX()
    {
        return this.layerInterface.getXP();
    }
 
+   @Override
    public int getY()
    {
        return this.layerInterface.getYP();
    }
 
+   @Override
    public void minX()
    {
       //logUtil.put(commonStrings.START, this, "minX");
@@ -63,6 +66,7 @@ public class ReverseVelocityBoundsVisitor implements BoundsVisitorInterface
       //logUtil.put("End: " + this.velocityInterface.toString(), this, "minX");
    }
 
+   @Override
    public void maxX()
    {
       //logUtil.put(commonStrings.START, this, "maxX");
@@ -72,6 +76,7 @@ public class ReverseVelocityBoundsVisitor implements BoundsVisitorInterface
       //logUtil.put("End: " + this.velocityInterface.toString(), this, "maxX");
    }
 
+   @Override
    public void minY()
    {
       //logUtil.put(commonStrings.START, this, "minY");
@@ -82,6 +87,7 @@ public class ReverseVelocityBoundsVisitor implements BoundsVisitorInterface
       //logUtil.put("End: " + this.velocityInterface.toString(), this, "minY");
    }
 
+   @Override
    public void maxY()
    {
       //logUtil.put(commonStrings.START, this, "maxY");

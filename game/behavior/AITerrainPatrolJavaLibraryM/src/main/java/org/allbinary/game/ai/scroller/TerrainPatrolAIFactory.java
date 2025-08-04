@@ -24,11 +24,12 @@ import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 public class TerrainPatrolAIFactory
     implements ArtificialIntelligenceInterfaceFactoryInterface
 {
+    @Override
     public ArtificialIntelligenceInterface getInstance(
-          Hashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput)
+          final Hashtable hashtable, final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
           throws Exception
     {
-        hashtable.put(PacePatrolAI.MAX_DISTANCE, SmallIntegerSingletonFactory.getInstance().getInstance(220));
+        hashtable.put(BasePatrolAI.MAX_DISTANCE, SmallIntegerSingletonFactory.getInstance().getInstance(220));
     	return new TerrainPatrolAI(hashtable, ownerLayerInterface, gameInput);
     }
 }

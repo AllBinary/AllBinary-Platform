@@ -54,6 +54,7 @@ public class PacePatrolAI extends BasePatrolAI
         this.trackingList = new BasicArrayList();
     }
 
+    @Override
     public void processAI(AllBinaryLayerManager allBinaryLayerManager)
             throws Exception
     {
@@ -76,7 +77,8 @@ public class PacePatrolAI extends BasePatrolAI
                 super.processAI(Canvas.LEFT);
             }
                 
-            this.lastKeyDirection = keyDirection = Canvas.LEFT;
+            keyDirection = Canvas.LEFT;
+            this.lastKeyDirection = keyDirection;
             xTotalDistance = 0;
 
             //
@@ -95,7 +97,8 @@ public class PacePatrolAI extends BasePatrolAI
                 super.processAI(Canvas.RIGHT);
             }
             
-            this.lastKeyDirection = keyDirection = Canvas.RIGHT;
+            keyDirection = Canvas.RIGHT;
+            this.lastKeyDirection = keyDirection;
             xTotalDistance = 0;
             
             super.processAI(Canvas.KEY_NUM1);
@@ -112,21 +115,22 @@ public class PacePatrolAI extends BasePatrolAI
 
     private Direction setFiringDirectionForTargetIfInRange()
     {
-        DirectionFactory directionFactory = 
-            DirectionFactory.getInstance();
+        final DirectionFactory directionFactory = DirectionFactory.getInstance();
+
+        final AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
         
         Direction direction = directionFactory.NOT_BORDERED_WITH;
-
-        AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
         
-        int size = this.trackingList.size();
+        TrackingEvent lastTrackingEvent;
+        LayerInterface lastTrackingLayerInterface;
+        DirectionCompositeInterface directionCompositeInterface;
+
+        final int size = this.trackingList.size();
         for (int index = 0; index < size; index++)
         {
-            TrackingEvent lastTrackingEvent = 
-                    (TrackingEvent) this.trackingList.get(0);
+            lastTrackingEvent = (TrackingEvent) this.trackingList.get(0);
 
-            LayerInterface lastTrackingLayerInterface = 
-                    lastTrackingEvent.getLayerInterface();
+            lastTrackingLayerInterface = lastTrackingEvent.getLayerInterface();
 
             int x = lastTrackingLayerInterface.getXP();
             int y = lastTrackingLayerInterface.getYP();
@@ -146,20 +150,17 @@ public class PacePatrolAI extends BasePatrolAI
                 // Range is close enough
                 if (absXDistance < getFiringDistance() / 2)
                 {
-                    DirectionCompositeInterface directionCompositeInterface = 
-                            (DirectionCompositeInterface) this.getOwnerLayerInterface();
+                    directionCompositeInterface = (DirectionCompositeInterface) this.getOwnerLayerInterface();
 
                     // logUtil.put(" xDistance: " + xDistance + " Direction: " + directionCompositeInterface.getDirection(), this, commonStrings.PROCESS);
                     // is direction the same as enemy
                     // if on the left side and pointing left
-                    if (xDistance < 0
-                            && directionCompositeInterface.getDirection() == directionFactory.RIGHT)
+                    if (xDistance < 0 && directionCompositeInterface.getDirection() == directionFactory.RIGHT)
                     {
                         direction = directionFactory.RIGHT;
                         // if on the right side and pointing right
                     }
-                    else if (xDistance > 0
-                            && directionCompositeInterface.getDirection() == directionFactory.LEFT)
+                    else if (xDistance > 0 && directionCompositeInterface.getDirection() == directionFactory.LEFT)
                     {
                         direction = directionFactory.LEFT;
                     }
@@ -169,10 +170,12 @@ public class PacePatrolAI extends BasePatrolAI
         return direction;
     }
 
+    @Override
     public void disable()
     {
     }
 
+    @Override
     public void onEvent(AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
@@ -183,6 +186,7 @@ public class PacePatrolAI extends BasePatrolAI
          */
     }
 
+    @Override
     public void onMovement(TrackingEvent trackingEvent)
     {
         this.trackingList.clear();

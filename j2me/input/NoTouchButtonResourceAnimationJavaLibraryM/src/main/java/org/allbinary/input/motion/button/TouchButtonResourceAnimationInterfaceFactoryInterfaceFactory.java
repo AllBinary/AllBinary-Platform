@@ -33,11 +33,13 @@ public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory
         super(name);
     }
     
+    @Override
     public void init(int level) throws Exception
     {        
         this.init(ImageCacheFactory.getInstance(), level);
     }
 
+    @Override
     protected void init(ImageCache imageCache, int level) 
         throws Exception
     {
@@ -49,6 +51,7 @@ public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory
         super.init(level);
     }
 
+    @Override
     public boolean isLoadingLevel(int level)
     {
         ResourceLoadingLevelFactory resourceLoadingLevelFactory = 
@@ -64,6 +67,7 @@ public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory
         }
     }
     
+    @Override
     public boolean isFeature()
     {
         if (!Features.getInstance().isDefault(OpenGLFeatureFactory.getInstance().OPENGL))

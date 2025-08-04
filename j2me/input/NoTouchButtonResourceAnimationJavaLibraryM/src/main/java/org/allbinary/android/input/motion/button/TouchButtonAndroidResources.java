@@ -17,6 +17,7 @@ import org.allbinary.init.Init;
 
 public class TouchButtonAndroidResources extends Init
 {
+    @Override
     public void init()
     {
     }

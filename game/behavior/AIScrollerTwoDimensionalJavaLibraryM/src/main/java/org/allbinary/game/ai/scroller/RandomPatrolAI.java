@@ -40,6 +40,7 @@ public class RandomPatrolAI extends BasePatrolAI
         this.currentDistance = MyRandomFactory.getInstance().getAbsoluteNextInt(this.maxDistance.intValue());
     }
 
+    @Override
     public void processAI(AllBinaryLayerManager allBinaryLayerManager)
     throws Exception
     {
@@ -60,6 +61,7 @@ public class RandomPatrolAI extends BasePatrolAI
         }
      }
 
+    @Override
     protected void nextDirection()
     {
         super.nextDirection();

@@ -41,10 +41,11 @@ public class FlockingAI extends BasicAI
         this.allowedDistance = allowedDistance.intValue();
     }
     
+    @Override
     public void processAI(AllBinaryLayerManager allBinaryLayerManager) throws Exception
     {
         int maxDistance = 0;
-        AllBinaryLayer farAllbinaryLayer = null;
+        AllBinaryLayer farAllbinaryLayer = AllBinaryLayer.NULL_ALLBINARY_LAYER;
         
         GroupLayerManagerListener groupLayerManagerListener = 
             GroupLayerManagerListener.getInstance();
@@ -76,7 +77,7 @@ public class FlockingAI extends BasicAI
         if(maxDistance > this.allowedDistance)
         {
             // Go towards flock
-            if (farAllbinaryLayer != null)
+            if (farAllbinaryLayer != AllBinaryLayer.NULL_ALLBINARY_LAYER)
             {
                 AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
                 

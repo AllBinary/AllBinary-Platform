@@ -33,7 +33,6 @@ import org.allbinary.util.BasicArrayList;
  */
 public class TerrainPatrolAI extends PacePatrolAI
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final TerrainEventListener terrainEventListener = new TerrainEventListener();
     
@@ -54,6 +53,7 @@ public class TerrainPatrolAI extends PacePatrolAI
                 TerrainEventCircularStaticPool.getInstance().getInstance(this.CLIFF));
     }
 
+    @Override
     protected void update()
     {
         super.update();

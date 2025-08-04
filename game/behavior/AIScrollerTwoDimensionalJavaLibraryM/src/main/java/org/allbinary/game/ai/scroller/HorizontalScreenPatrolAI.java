@@ -66,6 +66,7 @@ extends BasicAI
     }
 
     //Current go left always and fire when towards the middle
+    @Override
     public void processAI(AllBinaryLayerManager allBinaryLayerManager)
     throws Exception
     {
@@ -109,7 +110,8 @@ extends BasicAI
 
 				// this.changedDirection = false;
 
-				int FIRE = (((AllBinaryGameLayerManager) allBinaryLayerManager).getGameInfo().getCurrentLevel() + 12) >> 2;
+                                final AllBinaryGameLayerManager gameLayerManager = (AllBinaryGameLayerManager) allBinaryLayerManager;
+				int FIRE = (gameLayerManager.getGameInfo().getCurrentLevel() + 12) >> 2;
 
 				if (FIRE > MAX_FIRE) 
 				{
