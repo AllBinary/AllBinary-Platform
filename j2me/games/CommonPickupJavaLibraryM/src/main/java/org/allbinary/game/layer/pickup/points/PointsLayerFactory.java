@@ -29,7 +29,8 @@ implements AllBinaryLayerFactoryInterface
 	{
 		this.points = points;
 	}
-	
+
+        @Override
    public AllBinaryLayer getInstance() 
       throws Exception
    {

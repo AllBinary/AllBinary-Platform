@@ -35,6 +35,7 @@ public class LockablePaintable
         this.lockedIndex = lockedIndex;
     }
     
+    @Override
     public void paint(Graphics graphics, int currentIndex, int x, int y)
     {
         if(LockedUtil.getInstance().isLockedFeature() && 

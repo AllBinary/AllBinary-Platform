@@ -26,18 +26,19 @@ import org.allbinary.view.ViewPosition;
 public class HealLayer extends AllBinaryLayer
         implements HealthVisitorInterface
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
    public HealLayer()
       throws Exception
    {
       super(new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0), new ViewPosition());
    }
-   
+
+   @Override   
    public void paint(Graphics graphics)
    {
    }
    
+   @Override
    public void visit(HealthInterface healthInterface)
    {
        //If not alive then heal should fail

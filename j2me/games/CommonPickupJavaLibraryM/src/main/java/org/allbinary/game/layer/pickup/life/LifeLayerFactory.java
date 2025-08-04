@@ -22,6 +22,7 @@ import org.allbinary.layer.AllBinaryLayerFactoryInterface;
  */
 public class LifeLayerFactory implements AllBinaryLayerFactoryInterface
 {
+    @Override
    public AllBinaryLayer getInstance() 
       throws Exception
    {

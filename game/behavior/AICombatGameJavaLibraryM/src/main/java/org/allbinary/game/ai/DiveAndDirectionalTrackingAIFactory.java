@@ -24,6 +24,7 @@ import org.allbinary.logic.util.visitor.Visitor;
 public class DiveAndDirectionalTrackingAIFactory 
     implements ArtificialIntelligenceInterfaceFactoryInterface
 {
+    @Override
     public ArtificialIntelligenceInterface getInstance(
             Hashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput)
     throws Exception

@@ -19,6 +19,7 @@ import org.allbinary.layer.AllBinaryLayerFactoryInterface;
 public class FallingPickupLayerFactory 
    implements AllBinaryLayerFactoryInterface
 {
+    @Override
    public AllBinaryLayer getInstance() 
       throws Exception
    {

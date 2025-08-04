@@ -75,10 +75,11 @@ public class TrackingEventHandler extends BasicEventHandler
    }
    */
    
+   @Override
    protected void process(AllBinaryEventObject eventObject,
            EventListenerInterface eventListenerInterface) throws Exception {
 
-      ((TrackingEventListenerInterface) eventListenerInterface).onMovement(
-              (TrackingEvent) eventObject);
+       final TrackingEventListenerInterface trackingEventListenerInterface = (TrackingEventListenerInterface) eventListenerInterface;
+       trackingEventListenerInterface.onMovement((TrackingEvent) eventObject);
    }   
 }

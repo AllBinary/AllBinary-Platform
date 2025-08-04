@@ -59,9 +59,9 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
     private boolean initialDropped;
     private boolean dive;
     // private boolean targeting;
-    private Direction directionOfTarget;
+    private Direction directionOfTarget = Direction.getInstance(0);
     private final int MIN_DISTANCE = 40;
-    private AllBinaryLayer lastTrackingLayerInterface;
+    private AllBinaryLayer lastTrackingLayerInterface = AllBinaryLayer.NULL_ALLBINARY_LAYER;
     // When this AI can't do anything
     private final ArtificialIntelligenceInterface artificialIntelligenceInterface;
 
@@ -100,6 +100,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
         this.init();
     }
 
+    @Override
     public void processAI(AllBinaryLayerManager allBinaryLayerManager)
             throws Exception
     {
@@ -393,6 +394,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
         }
     }
 
+    @Override
     public void onEvent(AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
@@ -404,11 +406,13 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
          */
     }
 
+    @Override
     public void onMovement(TrackingEvent trackingEvent)
     {
         this.list.add(trackingEvent);
     }
 
+    @Override
     public void onDestroyed(DestroyedEvent destroyedEvent)
     {
         if (this.getOwnerLayerInterface() == destroyedEvent.getLayerInterface())
@@ -450,6 +454,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
         }
     }
 
+    @Override
     public void setLastKey(int lastKey)
     {
         super.setLastKey(lastKey);

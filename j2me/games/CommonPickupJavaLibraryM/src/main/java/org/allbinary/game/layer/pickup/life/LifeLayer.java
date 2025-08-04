@@ -31,10 +31,12 @@ public class LifeLayer extends AllBinaryLayer
       super(new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0), new ViewPosition());
    }
    
+   @Override
    public void paint(Graphics graphics)
    {
    }
    
+   @Override
    public void visit(Life lifeInterface)
    {
       lifeInterface.add((short) 1);

@@ -19,6 +19,8 @@ import org.allbinary.string.CommonSeps;
 
 public class Health implements HealthInterface
 {
+    public static final Health NULL_HEALTH = new Health(0);
+
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
     public static final String NAME = "Health Resource";

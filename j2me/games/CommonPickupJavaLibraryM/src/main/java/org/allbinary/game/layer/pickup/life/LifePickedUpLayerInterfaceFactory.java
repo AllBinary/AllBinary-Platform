@@ -14,6 +14,7 @@
 package org.allbinary.game.layer.pickup.life;
 
 import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
+import org.allbinary.game.layer.pickup.CountedPickedUpLayerInterfaceFactory;
 import org.allbinary.game.layer.pickup.IconLayerFactory;
 import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactory;
 import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
@@ -24,7 +25,7 @@ import org.allbinary.layer.AllBinaryLayer;
 public class LifePickedUpLayerInterfaceFactory extends PickedUpLayerInterfaceFactory
    implements PickupProcessorInterface
 {
-   private static PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface;
+   private static PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface = CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY;
    
    public static void init()
       throws Exception
@@ -56,6 +57,7 @@ public class LifePickedUpLayerInterfaceFactory extends PickedUpLayerInterfaceFac
       return pickedUpLayerInterfaceFactoryInterface;
    }
 
+   @Override
    public void process(AllBinaryLayer sourceLayerInterface) throws Exception
    {
       pool.visit(sourceLayerInterface);

@@ -22,7 +22,8 @@ implements AnimationInterfaceFactoryInterface,
 ProceduralAnimationInterfaceFactoryInterface
 {
    private static NullRotationAnimationFactory NULL_ROTATION_ANIMATION_FACTORY = new NullRotationAnimationFactory();
-   private static final Animation NULL_ANIMATION = new NullRotationAnimation(AnimationBehavior.getInstance()) {
+   public final RotationAnimation[] NULL_ROTATION_ANIMATION_ARRAY = new RotationAnimation[0];
+   private final Animation NULL_ANIMATION = new NullRotationAnimation(AnimationBehavior.getInstance()) {
        
        @Override
        public void paint(final Graphics graphics, final int x, final int y) {

@@ -35,6 +35,7 @@ public class PointsLayer extends AllBinaryLayer
       this.points = points;
    }
    
+   @Override
    public void paint(Graphics graphics)
    {
    }

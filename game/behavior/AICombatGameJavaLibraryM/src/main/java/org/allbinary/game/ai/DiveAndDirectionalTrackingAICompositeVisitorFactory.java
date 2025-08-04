@@ -19,6 +19,6 @@ public class DiveAndDirectionalTrackingAICompositeVisitorFactory
 {
     public Visitor getInstance(DiveAndDirectionalTrackingAI diveBombAI)
     {
-        return null;
+        return Visitor.getInstance();
     }
 }

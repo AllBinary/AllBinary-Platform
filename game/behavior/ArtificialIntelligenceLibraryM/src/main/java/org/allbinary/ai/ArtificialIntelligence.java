@@ -28,7 +28,7 @@ public class ArtificialIntelligence
     /**
      * @return the instance
      */
-    public static ArtificialIntelligenceInterface getInstance()
+    public static ArtificialIntelligence getInstance()
     {
         return instance;
     }

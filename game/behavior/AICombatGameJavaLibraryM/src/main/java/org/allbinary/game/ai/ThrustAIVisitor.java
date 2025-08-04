@@ -26,10 +26,11 @@ public class ThrustAIVisitor extends Visitor
 
     private final Boolean TRUE = BooleanFactory.getInstance().TRUE;
 
-    protected ThrustAIVisitor()
+    public ThrustAIVisitor()
     {
     }
 
+    @Override
     public Object visit(Object object)
     {
         try

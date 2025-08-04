@@ -51,11 +51,13 @@ implements TickableInterface
      * Rectangle(PointFactory.getInstance(x, y), 10, 10), new ViewPosition()); }
      */
 
+    @Override
     public void processTick(AllBinaryLayerManager allBinaryLayerManager)
     {
         this.setPosition(this.x, this.y + 1, this.z);
     }
 
+    @Override
     public boolean implmentsTickableInterface()
     {
         return true;

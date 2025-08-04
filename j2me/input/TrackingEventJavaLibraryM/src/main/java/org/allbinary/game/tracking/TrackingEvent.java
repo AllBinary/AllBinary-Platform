@@ -19,7 +19,7 @@ import org.allbinary.logic.util.event.AllBinaryEventObject;
 
 public class TrackingEvent extends AllBinaryEventObject
 {
-    private AllBinaryLayer layerInterface;
+    private AllBinaryLayer layerInterface = AllBinaryLayer.NULL_ALLBINARY_LAYER;
 
     public TrackingEvent()
     {
