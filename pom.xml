@@ -48,9 +48,6 @@
         <module>./j2me/games/Resources/sounds/release/GameSoundsJ2SEOggResourcesJavaLibraryM</module>
         <module>./graphics/opengl/AllBinaryJOGLResourcesJavaLibraryM</module>
 
-        <!--
-        <module>AllBinaryPersistenceLibraryP</module>
-        -->
     </modules>
 
     <dependencies>

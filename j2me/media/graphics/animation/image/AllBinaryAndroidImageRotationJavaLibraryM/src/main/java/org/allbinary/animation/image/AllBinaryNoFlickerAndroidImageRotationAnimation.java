@@ -92,13 +92,13 @@ extends ImageBaseRotationAnimation
     public void setAlpha(final int alpha) {
         
         boolean changed = false;
-        if(this.alpha != alpha) {
+        if(this.alphaP != alpha) {
             changed = true;
         }
         
         super.setAlpha(alpha);
 
-        imageModifierUtil.setAlpha(this.originalImage, this.imageToShow, 0, this.alpha);
+        imageModifierUtil.setAlpha(this.originalImage, this.imageToShow, 0, this.alphaP);
 
         if(changed) {
             matrix.setRotate(0, this.halfWidth, this.halfHeight);
