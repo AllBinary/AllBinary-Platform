@@ -107,7 +107,7 @@ extends ImageBaseRotationAnimation
     public void setAlpha(final int alpha) {
         
         boolean changed = false;
-        if(this.alpha != alpha) {
+        if(this.alphaP != alpha) {
             changed = true;
         }
         
@@ -135,7 +135,7 @@ extends ImageBaseRotationAnimation
         final CanvasSurface canvasSurface = this.canvasSurfaceArray[this.bufferedImageIndex];
         canvasSurface.save();
         this.imageRotationUtil.rotateImageClear(originalImage, this.twoImages[this.bufferedImageIndex], canvasSurface, this.angleInfo.getAngle() + 90);
-        this.alphaProcessor.setAlpha(imageModifierUtil, this.originalImage, this.twoImages[this.bufferedImageIndex], this.alpha);
+        this.alphaProcessor.setAlpha(imageModifierUtil, this.originalImage, this.twoImages[this.bufferedImageIndex], this.alphaP);
         this.imageRotationUtil.drawImage(originalImage, imageToShow, canvasSurface);
         canvasSurface.restore();
         this.swap();
