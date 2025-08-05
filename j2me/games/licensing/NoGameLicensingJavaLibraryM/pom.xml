@@ -87,8 +87,8 @@
         
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>HardCodedLicenseInitInfoJavaLibraryKt</artifactId>
-<!--            <artifactId>FileLicenseInitInfoJavaLibraryKt</artifactId>-->
+            <artifactId>HardCodedLicenseInitInfoJavaLibrary</artifactId>
+<!--            <artifactId>FileLicenseInitInfoJavaLibrary</artifactId>-->
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
