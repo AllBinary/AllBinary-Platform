@@ -13,6 +13,7 @@
 */
 package org.allbinary.globals;
 
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringValidationUtil;
@@ -40,7 +41,7 @@ public class Globals {
 
         final AppUrlGlobals appUrlGlobals = new AppUrlGlobals();
         appUrlGlobals.setWebappPath(pathString);
-        org.allbinary.globals.URLGLOBALS.init(appUrlGlobals);
+        URLGLOBALS.init(appUrlGlobals);
 
         WebappClassLoaderInfo.setLoader(classLoader);
 
@@ -64,7 +65,7 @@ public class Globals {
         	stringBuffer.append(CommonSeps.getInstance().SPACE);
         	stringBuffer.append(CommonSeps.getInstance().EQUALS);
         	stringBuffer.append(CommonSeps.getInstance().SPACE);
-        	stringBuffer.append(org.allbinary.globals.URLGLOBALS.getWebappPath());
+        	stringBuffer.append(URLGLOBALS.getWebappPath());
 
             //pathString = WebappPathCmdLineFile.getPath("./");
             logUtil.put(stringBuffer.toString(), this, commonStrings.INIT);
@@ -73,7 +74,7 @@ public class Globals {
     	stringBuffer.delete(0, stringBuffer.length());
     	
     	stringBuffer.append("Webapp Path Set To: ");
-    	stringBuffer.append(org.allbinary.globals.URLGLOBALS.getWebappPath());
+    	stringBuffer.append(URLGLOBALS.getWebappPath());
 
         logUtil.put(stringBuffer.toString(), this, commonStrings.INIT);
     }

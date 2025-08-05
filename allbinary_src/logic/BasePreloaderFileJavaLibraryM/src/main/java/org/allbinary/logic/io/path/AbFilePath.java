@@ -22,7 +22,7 @@ public class AbFilePath extends AbPath
       final PathUtil abPathUtil = PathUtil.getInstance();
       
       this.schema = this.getSchema(aPath);
-      this.name = abPathUtil.getNameFromPath(aPath);
+      this.setName(abPathUtil.getNameFromPath(aPath));
       this.setPath(abPathUtil.adjust(
          this.getPath(abPathUtil.removeNameFromPath(aPath).toString()))
          );

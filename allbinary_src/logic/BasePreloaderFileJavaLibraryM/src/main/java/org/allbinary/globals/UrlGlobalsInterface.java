@@ -13,21 +13,23 @@
 */
 package org.allbinary.globals;
 
+import org.allbinary.logic.string.StringUtil;
+
 public class UrlGlobalsInterface
 {
     String getMainPath() throws Exception
     {
-        return null;
+        return StringUtil.getInstance().EMPTY_STRING;
     }
 
     String getTestHtmlPath()
     {
-        return null;
+        return StringUtil.getInstance().EMPTY_STRING;
     }
 
     String getWebappPath()
     {
-        return null;
+        return StringUtil.getInstance().EMPTY_STRING;
     }
 
     boolean isTestingMode()

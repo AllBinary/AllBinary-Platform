@@ -13,9 +13,11 @@
 */
 package org.allbinary.logic.system.loader;
 
+import org.allbinary.logic.NullUtil;
+
 public class WebappClassLoaderInfo
 {      
-   private static ClassLoader classLoader;
+   private static Object classLoader = NullUtil.getInstance().NULL_OBJECT;
    
    private WebappClassLoaderInfo()
    {
@@ -28,7 +30,7 @@ public class WebappClassLoaderInfo
 
    public static synchronized ClassLoader getLoader()
    {
-      return classLoader;
+      return (ClassLoader) classLoader;
    }
    
 }

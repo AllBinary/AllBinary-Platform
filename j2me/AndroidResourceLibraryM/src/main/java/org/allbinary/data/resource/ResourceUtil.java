@@ -19,8 +19,10 @@ import java.util.Hashtable;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
+
 import org.allbinary.debug.DebugFactory;
 import org.allbinary.debug.NoDebug;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
@@ -39,9 +41,9 @@ public class ResourceUtil
         return instance;
     }
     
-    private Activity activity;
-    private Context context;
-    private Resources resources;
+    //private Activity activity;
+    private Context context = NullAndroidContext.NULL_ANDROID_CONTEXT;
+    private Object resources = NullUtil.getInstance().NULL_OBJECT;
     private Hashtable hashMap = new Hashtable();
 
     private ResourceUtil()
@@ -77,7 +79,7 @@ public class ResourceUtil
         
         if(DebugFactory.getInstance() != NoDebug.getInstance())
         {
-            PreLogUtil.put(new StringMaker().append(resource).append(CommonSeps.getInstance().COLON).append(value).toString(), this, "getResourceId");
+            PreLogUtil.put(new StringMaker().append(resource).append(CommonSeps.getInstance().COLON).append(value.toString()).toString(), this, "getResourceId");
         }        
         
         return value;
@@ -87,7 +89,7 @@ public class ResourceUtil
     {
         if(DebugFactory.getInstance() != NoDebug.getInstance())
         {
-            PreLogUtil.put(new StringMaker().append(resource).append(CommonSeps.getInstance().COLON).append(value).toString(), this, "addResource");
+            PreLogUtil.put(new StringMaker().append(resource).append(CommonSeps.getInstance().COLON).append(value.toString()).toString(), this, "addResource");
             if(this.containsDuplicate(resource, value))
             {
                 ForcedLogUtil.log(new StringMaker().append("Found Duplicate Resource: ").append(resource).toString(), this);
@@ -103,7 +105,7 @@ public class ResourceUtil
         
         for(int index = objectArray.length; --index >= 0;)
         {
-            Integer integer = (Integer) this.hashMap.get(objectArray[index]);
+            Integer integer = (Integer) this.hashMap.get((Object) objectArray[index]);
             
             if(resource != objectArray[index])
             {
@@ -147,7 +149,7 @@ public class ResourceUtil
         // InputStream inputStream = assetManager.open(resourcePath);
         final Integer integer = (Integer) this.hashMap.get(resource);
         int id = integer.intValue();
-        final InputStream inputStream = this.resources.openRawResource(id);
+        final InputStream inputStream = ((Resources) this.resources).openRawResource(id);
 
         if (inputStream != null)
         {

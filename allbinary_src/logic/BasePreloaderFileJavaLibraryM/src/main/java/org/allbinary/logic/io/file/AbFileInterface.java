@@ -35,7 +35,7 @@ public interface AbFileInterface {
 
     void deleteOnExit();
 
-    boolean equals(Object obj);
+    //boolean equals(Object obj);
 
     boolean exists();
 
@@ -45,7 +45,7 @@ public interface AbFileInterface {
 
     //long getFreeSpace();
 
-    String getName();
+    //String getName();
 
     String getParent();
 
@@ -55,7 +55,7 @@ public interface AbFileInterface {
 
     //long getUsableSpace();
 
-    int hashCode();
+    //int hashCode();
 
     boolean isAbsolute();
 

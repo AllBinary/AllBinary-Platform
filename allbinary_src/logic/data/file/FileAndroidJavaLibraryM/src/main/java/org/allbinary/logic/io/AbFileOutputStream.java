@@ -33,6 +33,9 @@ public class AbFileOutputStream
     public AbFileOutputStream(String name) throws FileNotFoundException
     {
         //super(name);
+        
+        //TWB this should not be called.
+        this.fileOutputStream = new FileOutputStream(name);
     }
 
     /*
@@ -60,7 +63,7 @@ public class AbFileOutputStream
             new FileOutputStream(AbFileNativeUtil.get(file));
     }
     
-    protected AbFileOutputStream(FileOutputStream fileOutputStream)
+    public AbFileOutputStream(FileOutputStream fileOutputStream)
     throws FileNotFoundException
     {
         //super(fileOutputStream.toString());
@@ -68,6 +71,7 @@ public class AbFileOutputStream
         this.fileOutputStream = fileOutputStream;
     }
 
+    @Override
     public void close()
     throws IOException
     {
@@ -86,18 +90,21 @@ public class AbFileOutputStream
     }
     */
 
+    @Override
     public void write(byte[] buffer)
     throws IOException
     {
         this.fileOutputStream.write(buffer);
     }
 
+    @Override
     public void write(byte[] buffer, int offset, int count)
     throws IOException
     {
         this.fileOutputStream.write(buffer, offset, count);
     }
 
+    @Override
     public void write(int b)
     throws IOException
     {

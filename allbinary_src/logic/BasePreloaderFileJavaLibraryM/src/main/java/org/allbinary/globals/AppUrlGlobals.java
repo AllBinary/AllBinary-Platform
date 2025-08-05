@@ -18,15 +18,19 @@ import org.allbinary.logic.string.StringUtil;
 //implements
 public class AppUrlGlobals extends UrlGlobalsInterface
 {
+    public static final AppUrlGlobals NULL_APP_URL_GLOBALS = new AppUrlGlobals();
+    
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-   private String path;
+   private String path = StringUtil.getInstance().EMPTY_STRING;
    
+   @Override
    public boolean isTestingMode()
    {
       return false;
    }
    
+   @Override
    public String getWebappPath()
    {
       return this.path;
@@ -44,11 +48,13 @@ public class AppUrlGlobals extends UrlGlobalsInterface
       //PreLogUtil.put("Webapp Path: " + this.path, this, "setWebappPath");
    }  
    
+   @Override
    public String getTestHtmlPath()
    {
       return StringUtil.getInstance().EMPTY_STRING;
    }
       
+   @Override
    public String getMainPath() throws Exception
    {
       return this.path;

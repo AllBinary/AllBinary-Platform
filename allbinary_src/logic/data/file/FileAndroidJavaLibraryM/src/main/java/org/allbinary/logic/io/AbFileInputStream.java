@@ -43,7 +43,7 @@ public class AbFileInputStream
     
     private FileInputStream fileInputStream;
     
-    protected AbFileInputStream(FileInputStream fileInputStream)
+    public AbFileInputStream(FileInputStream fileInputStream)
         throws FileNotFoundException
     {
         //super(fileInputStream.toString());
@@ -51,34 +51,39 @@ public class AbFileInputStream
         this.fileInputStream = fileInputStream;
     }
 
+    @Override
     public void mark(int readlimit) 
     {
         this.fileInputStream.mark(readlimit);
     }
 
+    @Override
     public boolean markSupported() 
     {
         return this.fileInputStream.markSupported();
     }
 
+    @Override
     public synchronized void reset()
     throws IOException
     {
         this.fileInputStream.reset();
     }
 
+    @Override
     public int available()
     throws IOException
     {
         return this.fileInputStream.available();
     }
     
+    @Override
     public void close()
     throws IOException
     {
         this.fileInputStream.close();
     }
-        
+
     public FileChannel getChannel()
     {
         return this.fileInputStream.getChannel();
@@ -88,25 +93,29 @@ public class AbFileInputStream
     //{
         //return this.fileInputStream.getFD();
     //}
-    
+
+    @Override    
     public int read()
     throws IOException
     {
         return this.fileInputStream.read();
     }
     
+    @Override
     public int read(byte[] b) 
     throws IOException
     {
         return this.fileInputStream.read(b);
     }
     
+    @Override
     public int read(byte[] buffer, int offset, int count)
     throws IOException
     {
         return this.fileInputStream.read(buffer, offset, count);
     }
     
+    @Override
     public long skip(long n)
     throws IOException
     {

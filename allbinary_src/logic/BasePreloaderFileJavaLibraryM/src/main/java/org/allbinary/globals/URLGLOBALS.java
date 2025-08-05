@@ -15,7 +15,7 @@ package org.allbinary.globals;
 
 public class URLGLOBALS
 {
-   private static UrlGlobalsInterface urlGlobalsInterface;
+   private static UrlGlobalsInterface urlGlobalsInterface = AppUrlGlobals.NULL_APP_URL_GLOBALS;
    
    public static void init(UrlGlobalsInterface urlGlobalsInterface)
    {

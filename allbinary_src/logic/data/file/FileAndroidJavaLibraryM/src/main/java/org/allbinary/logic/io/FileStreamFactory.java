@@ -14,6 +14,8 @@
 package org.allbinary.logic.io;
 
 import android.content.Context;
+
+import org.allbinary.data.resource.NullAndroidContext;
 import org.allbinary.data.resource.ResourceUtil;
 
 public class FileStreamFactory
@@ -21,7 +23,7 @@ public class FileStreamFactory
     private static final FileStreamFactory SINGLETON = new FileStreamFactory(
             ResourceUtil.getInstance().getContext());
 
-    private Context context;
+    private Context context = NullAndroidContext.NULL_ANDROID_CONTEXT;
 
     private FileStreamFactory(Context context)
     {

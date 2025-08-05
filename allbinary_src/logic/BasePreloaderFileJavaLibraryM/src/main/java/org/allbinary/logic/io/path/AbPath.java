@@ -25,10 +25,10 @@ public class AbPath
     private final CommonSeps commonSeps = CommonSeps.getInstance();
     private final AbPathData abPathData = AbPathData.getInstance();
     
-   protected String schema;
-   private String path;
+   protected String schema = StringUtil.getInstance().EMPTY_STRING;
+   private String path = StringUtil.getInstance().EMPTY_STRING;
    //private int port;
-   protected String name;
+   protected String nameP = StringUtil.getInstance().EMPTY_STRING;
    
    private boolean hasSchema = false;
    private int numberOfSeps = 0;
@@ -49,7 +49,7 @@ public class AbPath
       if(!stringValidationUtil.isEmpty(aPath))
       {
          this.schema = this.getSchema(aPath);
-         this.name = EMPTY_STRING;
+         this.nameP = EMPTY_STRING;
          this.path = abPathUtil.adjustEnd(abPathUtil.adjust(this.getPath(aPath)));
          //this.port = AbPathUtil.getPort(aPath);
       }
@@ -67,7 +67,7 @@ public class AbPath
       {
          this.schema = this.getSchema(aPath);
          //this.name = AbPathUtil.getName(aPath);
-         this.name = name;
+         this.nameP = name;
          this.path = abPathUtil.adjustEnd(abPathUtil.adjust(this.getPath(aPath)));
          //this.port = AbPathUtil.getPort(aPath);
       }
@@ -77,7 +77,7 @@ public class AbPath
          
          if(!stringValidationUtil.isEmpty(name))
          {   
-            this.name = name;
+            this.nameP = name;
          }
       }
    }
@@ -87,7 +87,7 @@ public class AbPath
       this.schema = EMPTY_STRING;
       this.setPath(abPathData.SEPARATOR);
       //this.port = -1;  //use the schemas default port
-      this.name = EMPTY_STRING;
+      this.nameP = EMPTY_STRING;
    }
    
    protected String getSchema(String aPath)
@@ -149,9 +149,13 @@ public class AbPath
       //without name if any;
    }
 
+   public void setName(final String name) {
+       this.nameP = name;
+   }
+   
    public String getName()
    {
-      return this.name;
+      return this.nameP;
    }
 
    private static final String NETWORK_SEP = ":/";
@@ -171,7 +175,7 @@ public class AbPath
       }
       
       stringBuffer.append(this.getPath());
-      stringBuffer.append(this.name);
+      stringBuffer.append(this.nameP);
       
       /*
       if(this.hasName())
@@ -193,13 +197,13 @@ public class AbPath
          stringBuffer.append(commonSeps.COLON);
          stringBuffer.append(filePathData.SEPARATOR);
          stringBuffer.append(FilePathUtil.adjust(this.getPath()));
-         stringBuffer.append(this.name);
+         stringBuffer.append(this.nameP);
 
          return stringBuffer.toString();
       }
       else
       {
-         return FilePathUtil.adjust(this.getPath()) + this.name;
+         return FilePathUtil.adjust(this.getPath()) + this.nameP;
       }
    }
 
