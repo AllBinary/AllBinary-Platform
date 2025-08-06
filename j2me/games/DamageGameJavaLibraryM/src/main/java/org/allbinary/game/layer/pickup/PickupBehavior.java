@@ -68,13 +68,13 @@ public class PickupBehavior implements PickupBehaviorInterface
     {
         try
         {
-            PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface = 
+            final PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface = 
                     pickupLayerInterface.getPickedUpLayerInterfaceFactoryInterface();
 
-            PickedUpLayerType pickedUpLayerType = 
+            final PickedUpLayerType pickedUpLayerType = 
                     pickedUpLayerInterfaceFactoryInterface.getPickedUpLayerType();
 
-            PickedUpLayerTypeFactory pickedUpLayerTypeFactory = 
+            final PickedUpLayerTypeFactory pickedUpLayerTypeFactory = 
                     PickedUpLayerTypeFactory.getInstance();
 
             if (pickedUpLayerType == pickedUpLayerTypeFactory.BEAM
@@ -87,9 +87,8 @@ public class PickupBehavior implements PickupBehaviorInterface
             else if (pickedUpLayerInterfaceFactoryInterface.getPickedUpLayerType() == pickedUpLayerTypeFactory.PART)
             {
                 this.ownerLayerInterface.addPart(pickedUpLayerInterfaceFactoryInterface);
-            }
-            else
-            {
+            } else if (pickedUpLayerType == pickedUpLayerTypeFactory.NONE) {
+            } else {
                 this.doPickup((PickupProcessorInterface) pickedUpLayerInterfaceFactoryInterface);
             }
 
