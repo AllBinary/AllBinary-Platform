@@ -34,7 +34,7 @@ public class PlatformInputMappingFactory
     {
         try
         {
-            if (SINGLETON == null)
+            if (SINGLETON == PersistentInputMapping.NULL_PERSISTENT_INPUT_MAPPING)
             {
                 SINGLETON = new LaptopGameInputMapping();
             }

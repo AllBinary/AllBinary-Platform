@@ -13,11 +13,14 @@
 */
 package org.allbinary.thread;
 
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 
 public class ThreadPool
 {
+    protected final LogUtil logUtil = LogUtil.getInstance();
+    
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     protected final ThreadPoolStrings threadPoolStrings = ThreadPoolStrings.getInstance();
     protected final ThreadObjectUtil threadObjectUtil = ThreadObjectUtil.getInstance();

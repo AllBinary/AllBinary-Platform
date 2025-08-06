@@ -34,7 +34,7 @@ public class PlatformFormInputMappingFactory
     {
         try
         {
-            if (SINGLETON == null)
+            if (SINGLETON == InputToGameKeyMapping.NULL_INPUT_TO_GAME_KEY_MAPPING)
             {
                 PCKeyFactory pcKeyFactory = PCKeyFactory.getInstance();
 

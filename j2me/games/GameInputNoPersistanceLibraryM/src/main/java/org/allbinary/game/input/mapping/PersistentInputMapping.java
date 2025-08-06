@@ -30,6 +30,8 @@ import org.allbinary.util.BasicArrayList;
 
 public class PersistentInputMapping
 {
+    public static final PersistentInputMapping NULL_PERSISTENT_INPUT_MAPPING = new PersistentInputMapping();
+    
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();

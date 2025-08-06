@@ -33,7 +33,7 @@ public class PlatformFormInputMappingFactory
     {
         try
         {
-            if (SINGLETON == null)
+            if (SINGLETON == InputToGameKeyMapping.NULL_INPUT_TO_GAME_KEY_MAPPING)
             {
                 InputToGameKeyMapping inputToGameKeyMapping = new InputToGameKeyMapping();
 

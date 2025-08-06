@@ -38,7 +38,7 @@ public class InGameOptionsFormFactory
     {
         try
         {
-            if (SINGLETON == null)
+            if (SINGLETON == CommandForm.NULL_COMMAND_FORM)
             {
                 initInterface.init();
                 SINGLETON = new InGameOptionsForm(commandListener, title, backgrounBasicColor, foregroundBasicColor);
