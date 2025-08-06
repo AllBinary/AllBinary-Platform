@@ -107,7 +107,6 @@ public class GameCommandCanvas
     public GameCommandCanvas(final CommandListener cmdListener, final String name,
             final BasicColor backgroundBasicColor, 
             final BasicColor foregroundBasicColor)
-        throws Exception
     {        
         super(name, CanvasStrings.getInstance().EMPTY_CHILD_NAME_LIST);
 
@@ -125,9 +124,13 @@ public class GameCommandCanvas
 
         this.initCommands(cmdListener);
 
-        this.initMenu();
-        
-        repaintProcessor.process();
+        try {
+            this.initMenu();
+
+            repaintProcessor.process();
+        } catch(Exception e) {
+            throw new RuntimeException();
+        }
     }
  
     @Override

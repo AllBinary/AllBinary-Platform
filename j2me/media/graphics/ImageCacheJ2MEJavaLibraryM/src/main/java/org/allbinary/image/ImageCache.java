@@ -26,7 +26,7 @@ import org.allbinary.system.Memory;
 
 public class ImageCache extends ImageCacheBase
 {
-    public static final ImageCache NULL_IMAGE_CACHE = new ImageCache(); 
+    public static final ImageCache NULL_IMAGE_CACHE = new ImageCache();
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
 

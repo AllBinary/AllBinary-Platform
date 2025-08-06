@@ -191,6 +191,10 @@ public class GameConfigurationCentral
         // valueToKeep = this.SOME_GAME_CONFIGURATION.getValue();
     }
 
+    public void setGameControlFidelity(final int gameControlFidelity) {
+        this.gameControlFidelity = gameControlFidelity;
+    }
+
     public int getGameControlFidelity()
     {
         //int fidelity = GameConfigurationCentral.getInstance().CONTROL_LEVEL.getValue().intValue();

@@ -41,8 +41,10 @@ import org.allbinary.thread.ConcurrentImageLoadingProcessor;
 import org.allbinary.util.BasicArrayList;
 
 public class ImageCache extends ImageCacheBase {
+    
+    public static final ImageCache NULL_IMAGE_CACHE = new ImageCache();
+    
     protected final LogUtil logUtil = LogUtil.getInstance();
-
 
     private final BaseImageLoadingProcessor concurrentImageLoadingProcessor = new ConcurrentImageLoadingProcessor(this);
     
