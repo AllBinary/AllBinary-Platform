@@ -13,7 +13,6 @@
 */
 package org.allbinary.logic.system.hardware.linux;
 
-import java.io.LineNumberReader;
 import java.util.Hashtable;
 
 import org.allbinary.logic.NullUtil;

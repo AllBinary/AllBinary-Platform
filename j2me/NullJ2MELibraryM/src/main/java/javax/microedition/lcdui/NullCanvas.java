@@ -1,12 +1,14 @@
 package javax.microedition.lcdui;
 
 import java.util.Stack;
+import org.allbinary.logic.string.StringUtil;
 
 public class NullCanvas extends Canvas 
 {
     public static final Image[] NULL_IMAGE_ARRAY = new Image[0];
     public static final Image NULL_IMAGE = new Image();
     public static final NullCanvas NULL_CANVAS = new NullCanvas();
+    public static final Form NULL_SCREEN = new Form(StringUtil.getInstance().EMPTY_STRING);
     
     public NullCanvas()
     {

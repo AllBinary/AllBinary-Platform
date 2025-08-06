@@ -14,6 +14,7 @@
 package org.allbinary.graphics.displayable.command;
 
 import javax.microedition.lcdui.Command;
+import org.allbinary.logic.string.StringUtil;
 
 public class MyCommandsFactory
 {
@@ -24,6 +25,8 @@ public class MyCommandsFactory
         return instance;
     }
 
+    public final Command NO_COMMAND = new Command(StringUtil.getInstance().EMPTY_STRING, -1, -1);
+    
     public final Command GAUGE_CHANGE = new Command("GAUGE_CHANGE", Command.ITEM, 1);
 
     // general commands

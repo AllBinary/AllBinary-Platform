@@ -21,7 +21,7 @@ import org.allbinary.util.BasicArrayList;
 public class Tokenizer {
 
     private String sep;
-    private String endSep;
+    private String endSep = StringUtil.getInstance().EMPTY_STRING;
 
     public Tokenizer(String sep) throws Exception {
         if (sep == null || sep.compareTo(StringUtil.getInstance().EMPTY_STRING) == 0) {

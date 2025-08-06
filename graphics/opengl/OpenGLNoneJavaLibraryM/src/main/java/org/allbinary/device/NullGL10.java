@@ -1,13 +1,3 @@
-package org.allbinary.device;
-
-import javax.microedition.khronos.opengles.GL10;
-
-import java.nio.Buffer;
-import java.nio.FloatBuffer;
-import java.nio.IntBuffer;
-
-import org.allbinary.logic.string.StringUtil;
-
 /*
  * AllBinary Open License Version 1
  * Copyright (c) 2025 AllBinary
@@ -21,6 +11,16 @@ import org.allbinary.logic.string.StringUtil;
  * Created By: Travis Berthelot
  * 
  */
+package org.allbinary.device;
+
+import javax.microedition.khronos.opengles.GL10;
+
+import java.nio.Buffer;
+import java.nio.FloatBuffer;
+import java.nio.IntBuffer;
+
+import org.allbinary.logic.string.StringUtil;
+
 /**
  *
  * @author User
