@@ -24,6 +24,7 @@ implements AllBinarySensorListener
         return Orientation.NONE;
     }
     
+    @Override
     public void onSensorChange()
     {
     }
