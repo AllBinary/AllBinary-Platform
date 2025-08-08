@@ -24,6 +24,7 @@ public class UnknownHardware implements HardwareComponentInterface
         this.data = data;
     }
     
+    @Override
     public boolean compareTo(HardwareComponentInterface componentInterface)
     {
         return true;

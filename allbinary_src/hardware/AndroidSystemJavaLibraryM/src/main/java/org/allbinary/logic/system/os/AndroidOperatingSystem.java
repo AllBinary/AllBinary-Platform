@@ -32,18 +32,16 @@ public class AndroidOperatingSystem extends GenericOperatingSystem
    
    public AndroidOperatingSystem() throws Exception
    {
-        int SDK_VERSION = AndroidInfoFactory.getInstance().getVersion();
+        final int SDK_VERSION = AndroidInfoFactory.getInstance().getVersion();
         
         if(SDK_VERSION > 10)
         {
             this.scalable = true;
         }
                
-       AndroidSystemProperties properties = 
-               AndroidSystemProperties.getInstance();
+       final AndroidSystemProperties properties = AndroidSystemProperties.getInstance();
 
-       CommonSeps commonStrings = 
-           CommonSeps.getInstance();
+       final CommonSeps commonStrings = CommonSeps.getInstance();
        
        stringBuffer.append(DEVICE_ID);
        stringBuffer.append(commonStrings.EQUALS);
@@ -110,6 +108,7 @@ public class AndroidOperatingSystem extends GenericOperatingSystem
    
    private final String OUYA = "ouya";
    
+   @Override
    public boolean isOverScan()
    {
        AndroidSystemProperties properties = 
@@ -123,11 +122,13 @@ public class AndroidOperatingSystem extends GenericOperatingSystem
        return false;
    }
    
+   @Override
    public int getOverScanXPercent()
    {
        return 90;
    }
 
+   @Override
    public int getOverScanYPercent()
    {
        return 90;

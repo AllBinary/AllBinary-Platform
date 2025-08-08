@@ -338,7 +338,7 @@ public interface GL10 extends javax.microedition.khronos.opengles.GL {
 
     void glGetIntegerv(int pname, java.nio.IntBuffer params);
 
-    java.lang.String glGetString(int name);
+    String glGetString(int name);
 
     void glHint(int target, int mode);
 

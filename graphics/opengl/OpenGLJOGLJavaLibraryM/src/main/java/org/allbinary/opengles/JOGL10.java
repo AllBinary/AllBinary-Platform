@@ -406,7 +406,7 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glGetIntegerv(pname, params);
     }
 
-    public java.lang.String glGetString(int name)
+    public String glGetString(int name)
     {
         return this.gl10.glGetString(name);
     }

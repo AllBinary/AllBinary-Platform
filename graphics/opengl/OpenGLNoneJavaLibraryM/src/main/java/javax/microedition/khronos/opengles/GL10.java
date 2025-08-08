@@ -342,7 +342,7 @@ public interface GL10 extends GL {
 
     void glGetIntegerv(int pname, IntBuffer params);
 
-    java.lang.String glGetString(int name);
+    String glGetString(int name);
 
     void glHint(int target, int mode);
 
