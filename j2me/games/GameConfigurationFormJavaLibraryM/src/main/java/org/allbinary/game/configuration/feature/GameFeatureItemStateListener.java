@@ -45,19 +45,19 @@ public class GameFeatureItemStateListener implements ItemStateListener
         GameFeatureFactory gameFeatureFactory = 
             GameFeatureFactory.getInstance();
         
-        this.add(gameFeatureFactory.ARTIFICIAL_INTELLEGENCE_PROCESSOR);
-        this.add(gameFeatureFactory.COLLIDABLE_INTERFACE_LAYER_PROCESSOR);
+        GameFeatureItemStateListener.add(gameFeatureFactory.ARTIFICIAL_INTELLEGENCE_PROCESSOR);
+        GameFeatureItemStateListener.add(gameFeatureFactory.COLLIDABLE_INTERFACE_LAYER_PROCESSOR);
 
-        this.add(gameFeatureFactory.DAMAGE_FLOATERS);
-        this.add(gameFeatureFactory.DROPPED_ITEMS);
+        GameFeatureItemStateListener.add(gameFeatureFactory.DAMAGE_FLOATERS);
+        GameFeatureItemStateListener.add(gameFeatureFactory.DROPPED_ITEMS);
 
-        this.add(gameFeatureFactory.GAME_INPUT_LAYER_PROCESSOR);
+        GameFeatureItemStateListener.add(gameFeatureFactory.GAME_INPUT_LAYER_PROCESSOR);
         
-        this.add(gameFeatureFactory.HEALTH_BARS);
-        this.add(gameFeatureFactory.SOUND);
+        GameFeatureItemStateListener.add(gameFeatureFactory.HEALTH_BARS);
+        GameFeatureItemStateListener.add(gameFeatureFactory.SOUND);
         //toggleList.add(GameFeature.OPENGL);
 
-        this.add(gameFeatureFactory.TICKABLE_LAYER_PROCESSOR);
+        GameFeatureItemStateListener.add(gameFeatureFactory.TICKABLE_LAYER_PROCESSOR);
     }
 
     public static void add(GameFeature gameFeature)
