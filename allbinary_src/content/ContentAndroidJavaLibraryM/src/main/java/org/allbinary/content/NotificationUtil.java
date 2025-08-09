@@ -51,7 +51,7 @@ public class NotificationUtil
         }
         else
         {
-            notificationBuilder = null;
+            notificationBuilder = NotificationBuilder.NULL_NOTIFICATION_BUILDER;
             //notificationBuilder = new NotificationBuilderThroughAPI22();
         }
     }
@@ -82,7 +82,8 @@ public class NotificationUtil
             return;
         }
         
-        final Notification notification = notificationBuilder.build(context, command, message, integer, pendingIntent);
+        //final Notification notification = (Notification) 
+            notificationBuilder.build(context, command, message, integer, pendingIntent);
         
         //Android 13 requires a permission for this
         //notificationManager.notify(command.hashCode(), notification);

@@ -6,13 +6,15 @@ import android.view.ViewGroup;
 
 public class ViewSwapper
 {
+    private static final View[] NULL_VIEW_ARRAY = new View[0];
+
     private final int rootViewId;
     private final Activity activity;
 
     private int currentMainViewId = -1;
-    private View[] mainViewArray = null;
+    private View[] mainViewArray = NULL_VIEW_ARRAY;
     
-    private View[] topViewArray = new View[0];
+    private View[] topViewArray = NULL_VIEW_ARRAY;
 
     public ViewSwapper(Activity activity, int rootViewId)
     {

@@ -22,6 +22,7 @@ public class AndroidDebug implements DebugInterface
     
     private int bufferSize = 32 * 1024 * 1024; //24 * 1024 * 1024;
     
+    @Override
     public void start()
     {
         this.setStartTime(System.currentTimeMillis());
@@ -31,6 +32,7 @@ public class AndroidDebug implements DebugInterface
         setRunning(true);
     }
 
+    @Override
     public void stop()
     {
         startTime = Long.MAX_VALUE;
@@ -38,6 +40,7 @@ public class AndroidDebug implements DebugInterface
         setRunning(false);
     }
 
+    @Override
     public long getMaxTime()
     {
         return 120000;
@@ -48,6 +51,7 @@ public class AndroidDebug implements DebugInterface
         this.startTime = startTime;
     }
 
+    @Override
     public long getStartTime()
     {
         return startTime;
@@ -58,6 +62,7 @@ public class AndroidDebug implements DebugInterface
         this.running = running;
     }
 
+    @Override
     public boolean isRunning()
     {
         return running;

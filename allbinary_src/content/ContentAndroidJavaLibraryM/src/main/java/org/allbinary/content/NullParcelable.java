@@ -1,6 +1,6 @@
 /*
  * AllBinary Open License Version 1
- * Copyright (c) 2011 AllBinary
+ * Copyright (c) 2025 AllBinary
  * 
  * By agreeing to this license you and any business entity you represent are
  * legally bound to the AllBinary Open License Version 1 legal agreement.
@@ -13,23 +13,24 @@
  */
 package org.allbinary.content;
 
-import javax.microedition.lcdui.Command;
-
-import android.app.PendingIntent;
-import android.content.Context;
 import android.os.Parcelable;
 
 /**
  *
- * @author user
+ * @author User
  */
-public class NotificationBuilder
-{
-    public static final NotificationBuilder NULL_NOTIFICATION_BUILDER = new NotificationBuilder();
+public class NullParcelable implements Parcelable {
     
-    public Parcelable build(Context context, Command command, String message, Integer integer, PendingIntent pendingIntent)
-    {
-        return NullParcelable.NULL_PARCELABLE;
+    public static final NullParcelable NULL_PARCELABLE = new NullParcelable();
+    
+    @Override
+    public int describeContents() {
+        throw new RuntimeException();
+    }
+    
+    @Override
+    public void writeToParcel(android.os.Parcel dest, int flags) {
+        
     }
 
 }

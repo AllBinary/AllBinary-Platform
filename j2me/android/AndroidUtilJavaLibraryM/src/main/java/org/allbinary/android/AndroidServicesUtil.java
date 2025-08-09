@@ -16,6 +16,7 @@ package org.allbinary.android;
 import java.util.List;
 
 import android.app.ActivityManager;
+import android.app.ActivityManager.RunningServiceInfo;
 import android.content.ComponentName;
 import android.content.Context;
 import org.allbinary.data.resource.ResourceUtil;
@@ -50,7 +51,7 @@ public class AndroidServicesUtil {
     
     public boolean isServiceRunning(String name) {
         final ActivityManager activityManager = (ActivityManager) resourceUtil.getContext().getSystemService(Context.ACTIVITY_SERVICE);
-        final List<ActivityManager.RunningServiceInfo> runningServicesList = activityManager.getRunningServices(SERVICE_LIMIT_MAX);
+        final List<RunningServiceInfo> runningServicesList = activityManager.getRunningServices(SERVICE_LIMIT_MAX);
 
         ActivityManager.RunningServiceInfo runningServiceInfo;
         ComponentName serviceComponent;

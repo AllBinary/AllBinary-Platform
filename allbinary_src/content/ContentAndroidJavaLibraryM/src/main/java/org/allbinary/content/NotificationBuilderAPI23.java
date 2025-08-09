@@ -16,8 +16,10 @@ package org.allbinary.content;
 import javax.microedition.lcdui.Command;
 
 import android.app.Notification;
+import android.app.Notification.Builder;
 import android.app.PendingIntent;
 import android.content.Context;
+import android.os.Parcelable;
 
 /**
  *
@@ -26,10 +28,11 @@ import android.content.Context;
 public class NotificationBuilderAPI23 extends NotificationBuilder
 {
 
-    public Notification build(Context context, Command command, String message, Integer integer, PendingIntent pendingIntent)
+    @Override
+    public Parcelable build(Context context, Command command, String message, Integer integer, PendingIntent pendingIntent)
     {
         //int icon, java.lang.CharSequence tickerText, long when
-        return new Notification.Builder(context)
+        final Notification notification = new Builder(context)
                 .setSmallIcon(integer.intValue())
                 .setTicker(message)
                 .setWhen(System.currentTimeMillis())
@@ -37,6 +40,8 @@ public class NotificationBuilderAPI23 extends NotificationBuilder
                 .setContentText(message)
                 .setContentIntent(pendingIntent)
                 .build();
+
+        return notification;
 
     }
 }
