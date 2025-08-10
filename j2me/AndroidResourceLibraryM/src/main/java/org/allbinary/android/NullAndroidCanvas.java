@@ -11,26 +11,16 @@
  * Created By: Travis Berthelot
  * 
  */
-package org.allbinary.content;
+package org.allbinary.android;
 
-import android.os.Parcelable;
+import android.graphics.Canvas;
 
 /**
  *
  * @author User
  */
-public class NullParcelable implements Parcelable {
+public class NullAndroidCanvas {
     
-    public static final NullParcelable NULL_PARCELABLE = new NullParcelable();
+    public static final Canvas NULL_CANVAS = new Canvas();
     
-    @Override
-    public int describeContents() {
-        throw new RuntimeException();
-    }
-    
-    @Override
-    public void writeToParcel(android.os.Parcel dest, int flags) {
-        
-    }
-
 }

@@ -13,6 +13,7 @@
  */
 package org.allbinary.content;
 
+import org.allbinary.android.NullParcelable;
 import javax.microedition.lcdui.Command;
 
 import android.app.PendingIntent;
