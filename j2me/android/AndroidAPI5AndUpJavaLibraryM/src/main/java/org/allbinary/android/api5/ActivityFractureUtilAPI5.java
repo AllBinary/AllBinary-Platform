@@ -44,7 +44,8 @@ public class ActivityFractureUtilAPI5 extends ActivityFractureUtil
     //Since: API Level 8
     private final String FEATURE_TOUCHSCREEN_MULTITOUCH_DISTINCT = 
         "android.hardware.touchscreen.multitouch.distinct"; 
-    
+
+    @Override    
     public void process(Activity activity)
     {
         final TouchScreenFactory touchScreenFactory = 

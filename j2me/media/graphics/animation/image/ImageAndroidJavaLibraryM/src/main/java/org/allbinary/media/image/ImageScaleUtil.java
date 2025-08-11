@@ -18,10 +18,10 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 
 import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.NullCanvas;
 
 import org.allbinary.graphics.Anchor;
 import org.allbinary.image.ImageCache;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
@@ -90,8 +90,10 @@ public class ImageScaleUtil
         final int index = imageBasicArrayList.indexOf(originalImage);
         boolean alreadyAvailable = false;
         if (index >= 0) {
-            int scaleX2 = ((Float) this.scaleXBasicArrayList.get(index)).intValue();
-            int scaleY2 = ((Float) this.scaleYBasicArrayList.get(index)).intValue();
+            final Float scaleX2Float = (Float) this.scaleXBasicArrayList.get(index);
+            final float scaleX2 = scaleX2Float.floatValue();
+            final Float scaleY2Float = (Float) this.scaleYBasicArrayList.get(index);
+            final float scaleY2 = scaleY2Float.floatValue();
             if(scaleX2 == scaleX && scaleY2 == scaleY) {
                 alreadyAvailable = true;
             }
@@ -114,7 +116,7 @@ public class ImageScaleUtil
     private Image getScaledImage(final ImageCache imageCache, final Image originalImage, 
             final float scaleX, final float scaleY, final int width, final int height, final boolean cached) throws Exception {
         
-        Image image = null;
+        Image image = NullCanvas.NULL_IMAGE;
         
         if(cached)
         {

@@ -21,6 +21,8 @@ import org.allbinary.string.CommonStrings;
 public class AllBinarySensor
 implements AllBinarySensorListener
 {
+    public static final AllBinarySensor NULL_ALLBINARY_SENSOR = new AllBinarySensor();
+    
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();

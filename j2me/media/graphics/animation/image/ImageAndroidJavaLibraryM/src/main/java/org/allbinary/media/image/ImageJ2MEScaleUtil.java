@@ -45,8 +45,8 @@ public class ImageJ2MEScaleUtil {
             images[index] = ImageScaleUtil.getInstance().createImage(
                     GameFeatureImageCacheFactory.getInstance(),
                     image,
-                    width / 2, image.getWidth(),
-                    height, image.getHeight(), false);
+                    (float) width / 2, (float) image.getWidth(),
+                    (float) height, (float) image.getHeight(), false);
         }        
         return images;
     }
@@ -56,7 +56,7 @@ public class ImageJ2MEScaleUtil {
         return ImageScaleUtil.getInstance().createImage(
                 GameFeatureImageCacheFactory.getInstance(),
                 image,
-                width, image.getWidth(),
-                height, image.getHeight(), false);
+                (float) width, (float) image.getWidth(),
+                (float) height, (float) image.getHeight(), false);
     }
 }

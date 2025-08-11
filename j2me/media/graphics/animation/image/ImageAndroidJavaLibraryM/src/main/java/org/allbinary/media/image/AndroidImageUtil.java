@@ -39,20 +39,20 @@ public class AndroidImageUtil {
         bitmap.eraseColor(Color.TRANSPARENT);
         final Canvas canvas = new android.graphics.Canvas();
         canvas.setBitmap(bitmap);
-        canvas.drawBitmap(originalBitmap, 0, 0, paint);
+        canvas.drawBitmap(originalBitmap, 0.0f, 0.0f, paint);
     }
     
     public void paint(final Image image, final Image originalImage, final Paint paint) {
         image.getBitmap().eraseColor(Color.TRANSPARENT);
         final Canvas canvas = image.getCanvas();
-        canvas.drawBitmap(originalImage.getBitmap(), 0, 0, paint);
+        canvas.drawBitmap(originalImage.getBitmap(), 0.0f, 0.0f, paint);
     }
     
     public void rotate(final Image image, final Image originalImage, final Matrix matrix, final Paint paint) {
         image.getBitmap().eraseColor(Color.TRANSPARENT);
         final Canvas canvas = image.getCanvas();
         canvas.concat(matrix);
-        canvas.drawBitmap(originalImage.getBitmap(), 0, 0, paint);
+        canvas.drawBitmap(originalImage.getBitmap(), 0.0f, 0.0f, paint);
     }
 
     public void rotate(final Image image, final Image originalImage, final Matrix matrix) {

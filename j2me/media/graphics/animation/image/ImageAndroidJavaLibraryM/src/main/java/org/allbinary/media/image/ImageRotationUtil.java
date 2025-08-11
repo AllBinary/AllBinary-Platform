@@ -73,7 +73,7 @@ public class ImageRotationUtil
 
             //image.getGraphics().drawRect(0, 0, width, height);
             
-            matrix.setRotate(rotationInDegrees, (width >> 1), (height >> 1));
+            matrix.setRotate((float) rotationInDegrees, (float) (width >> 1), (float) (height >> 1));
             final Canvas canvas = image.getCanvas();
             //canvas.save();
             

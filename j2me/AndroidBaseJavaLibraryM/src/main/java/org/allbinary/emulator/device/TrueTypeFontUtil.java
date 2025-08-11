@@ -13,6 +13,9 @@
  */
 package org.allbinary.emulator.device;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.lcdui.Image;
 
 import android.graphics.Bitmap;
@@ -20,16 +23,12 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
-import java.io.File;
-import java.io.FileOutputStream;
-import javax.microedition.khronos.opengles.GL10;
 
 import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.image.PreResourceImageUtil;
 import org.allbinary.image.opengles.OpenGLESImage;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.string.CommonStrings;
@@ -48,7 +47,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase {
     
     private final int realFontSize = 18;
     
-    public OpenGLESImage fontImage;
+    public OpenGLESImage fontImage = OpenGLESImage.NULL_OPENGL_IMAGE;
     
     private TrueTypeFontUtil() {
         super(1);
@@ -112,7 +111,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase {
             final Canvas canvas = new Canvas(bitmap);
             final Paint paint = new Paint();
             paint.setTypeface(typeface);
-            paint.setTextSize(realFontSize);
+            paint.setTextSize((float) realFontSize);
             //paint.setARGB((int) (basicColor.getAlphaComponent() * 255),
             //(int) (basicColor.getRedComponent() * 255),
             //(int) (basicColor.getGreenComponent() * 255),
@@ -121,7 +120,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase {
             //(int) basicColor.red,
             //(int) basicColor.green,
             //(int) basicColor.blue);
-            paint.setAlpha(basicColor.alpha);
+            paint.setAlpha((int) basicColor.alpha);
             paint.setColor(basicColor.intValue());
 
             int biggestHeight = 0;
@@ -162,7 +161,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase {
                 }
                 y += cellSize;
                 y -= (cellSize >> 2);
-                canvas.drawText(characterArray, 0, 1, x - 3, y - 6, paint);
+                canvas.drawText(characterArray, 0, 1, (float) x - 3, (float) y - 6, paint);
             }
             canvas.save();
 
@@ -183,7 +182,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase {
 
         final Paint paint = new Paint();
         paint.setTypeface(typeface);
-        paint.setTextSize(fontSize);
+        paint.setTextSize((float) fontSize);
         paint.setARGB(255, 255, 255, 255);
 
         final Rect bounds = new Rect();
