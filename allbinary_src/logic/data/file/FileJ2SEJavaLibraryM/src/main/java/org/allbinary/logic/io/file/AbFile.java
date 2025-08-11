@@ -226,17 +226,17 @@ public class AbFile implements AbFileInterface
 
    public Object[] listFiles()
    {
-      return this.file.listFiles();
+      return (Object[]) this.file.listFiles();
    }
 
    public Object[] listFiles(final FilenameFilter filter)
    {
-      return this.file.listFiles(filter);
+      return (Object[]) this.file.listFiles(filter);
    }
 
    public Object[] listFiles(final FileFilter filter)
    {
-      return this.file.listFiles(filter);
+      return (Object[]) this.file.listFiles(filter);
    }
 
    @Override
