@@ -25,12 +25,12 @@ public class AbFile implements AbFileInterface
 {
    private final File file;
 
-   protected AbFile(final String filePath, final boolean unknown) throws Exception
+   AbFile(final String filePath, final boolean unknown) throws Exception
    {
       this.file = new File(filePath);
    }
 
-   protected AbFile(final File file) throws Exception
+   AbFile(final File file) throws Exception
    {
       this.file = file;
    }
@@ -68,6 +68,7 @@ public class AbFile implements AbFileInterface
       return this.file.getName();
    }
 
+   @Override
    public String getParent()
    {
       return this.file.getParent();
@@ -78,16 +79,19 @@ public class AbFile implements AbFileInterface
       return this.file.getParentFile();
    }
 
+   @Override
    public String getPath()
    {
       return this.file.getPath();
    }
 
+   @Override
    public boolean isAbsolute()
    {
       return this.file.isAbsolute();
    }
 
+   @Override
    public String getAbsolutePath()
    {
       return this.file.getAbsolutePath();
@@ -98,6 +102,7 @@ public class AbFile implements AbFileInterface
       return this.file.getAbsoluteFile();
    }
 
+   @Override
    public String getCanonicalPath() throws IOException
    {
       return this.file.getCanonicalPath();
@@ -114,21 +119,25 @@ public class AbFile implements AbFileInterface
    return this.file.toURL();
    }
     */
+   @Override
    public URI toURI()
    {
       return this.file.toURI();
    }
 
+   @Override
    public boolean canRead()
    {
       return this.file.canRead();
    }
 
+   @Override
    public boolean canWrite()
    {
       return this.file.canWrite();
    }
-
+   
+   @Override
    public boolean exists()
    {
       return this.file.exists();
@@ -154,52 +163,62 @@ public class AbFile implements AbFileInterface
        */
    }
 
+   @Override
    public boolean isDirectory()
    {
       return this.file.isDirectory();
    }
 
+   @Override
    public boolean isFile()
    {
       return this.file.isFile();
    }
 
+   @Override
    public boolean isHidden()
    {
       return this.file.isHidden();
    }
 
+   @Override
    public long lastModified()
    {
       return this.file.lastModified();
    }
 
+   @Override
    public long length()
    {
       return this.file.length();
    }
 
+   @Override
    public boolean createNewFile() throws IOException
    {
       return this.file.createNewFile();
    }
 
    //TWB - GAE throws exception but java.io does not
+   @Override
    public boolean delete() throws IOException
    {
       return this.file.delete();
    }
 
+   @Override
    public void deleteOnExit()
    {
       this.file.deleteOnExit();
    }
 
+   @Override
    public String[] list()
    {
       return this.file.list();
    }
 
+   @Override
    public String[] list(final FilenameFilter filter)
    {
       return this.file.list(filter);
@@ -220,11 +239,13 @@ public class AbFile implements AbFileInterface
       return this.file.listFiles(filter);
    }
 
+   @Override
    public boolean mkdir()
    {
       return this.file.mkdir();
    }
 
+   @Override
    public boolean mkdirs()
    {
       return this.file.mkdirs();
@@ -235,11 +256,13 @@ public class AbFile implements AbFileInterface
       return this.file.renameTo(dest.getFile());
    }
 
+   @Override
    public boolean setLastModified(final long time)
    {
       return this.file.setLastModified(time);
    }
 
+   @Override
    public boolean setReadOnly()
    {
       return this.file.setReadOnly();
@@ -301,11 +324,13 @@ public class AbFile implements AbFileInterface
       return this.file.compareTo(pathname);
    }
 
+   @Override
    public boolean equals(Object obj)
    {
       return this.file.equals(obj);
    }
 
+   @Override
    public int hashCode()
    {
       return this.file.hashCode();

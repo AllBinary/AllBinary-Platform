@@ -33,14 +33,19 @@ public class BufferedIOUtil
     {
         String line = StringUtil.getInstance().EMPTY_STRING;
 
-        BufferedWriter tmpOut = new BufferedWriter(
+        final BufferedWriter tmpOut = new BufferedWriter(
             new FileWriter(AbFileNativeUtil.get(backupFileBak)));
 
-        BufferedReader tmpIn = new BufferedReader(
+        final BufferedReader tmpIn = new BufferedReader(
             new FileReader(AbFileNativeUtil.get(backupFile)));
 
-        while ((line = tmpIn.readLine()) != null)
+        while (true)
         {
+            line = tmpIn.readLine();
+            if(line == null) {
+                break;
+            }
+
             tmpOut.write(line, 0, line.length());
             tmpOut.newLine();
         }
