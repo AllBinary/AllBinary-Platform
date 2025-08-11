@@ -35,7 +35,7 @@ As you may have noticed this repository only has AllBinary code. The Third-Party
 and Third-Party Integration code is in the AllBinary Platform Integration 
 repository.
 
-Who is responsible for all this shit?
+Who is responsible for this repo?
 
 Travis Berthelot travisberthelot@allbinary.com
 
