@@ -14,6 +14,7 @@
 package org.allbinary.logic.system.security.crypt.jcehelper;
 
 import org.allbinary.init.crypt.jcehelper.CryptInterface;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.java.byteutil.ByteUtil;
 import org.allbinary.string.CommonStrings;
@@ -24,13 +25,14 @@ public class BasicCrypt implements CryptInterface
 
     private final ByteUtil byteUtil = ByteUtil.getInstance();
 
-    private byte[] key;
+    private final byte[] key;
 
-    public BasicCrypt(String key)
+    public BasicCrypt(String keyAsString)
     {
+        byte[] key = NullUtil.getInstance().NULL_BYTE_ARRAY;
         try
         {
-            this.key = key.getBytes();
+            key = keyAsString.getBytes();
         } catch (Exception e)
         {
             //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CRYPTERROR))
@@ -39,9 +41,11 @@ public class BasicCrypt implements CryptInterface
             PreLogUtil.put(commonStrings.EXCEPTION, this, "AbCrypt(alg,key)", e);
             //}
         }
+        this.key = key;
     }
 
-    public byte[] encrypt(byte[] array)
+    @Override
+    public byte[] encrypt(final byte[] array)
     {
         try
         {
@@ -52,11 +56,12 @@ public class BasicCrypt implements CryptInterface
             //{
             PreLogUtil.put("Encrypt Failed", this, "encrypt", e);
             //}
-            return null;
+            return NullUtil.getInstance().NULL_BYTE_ARRAY;
         }
     }
 
-    public byte[] decrypt(byte[] array)
+    @Override
+    public byte[] decrypt(final byte[] array)
     {
         try
         {
@@ -67,7 +72,7 @@ public class BasicCrypt implements CryptInterface
             //{
             PreLogUtil.put("decrypt Failed", this, "decrypt", e);
             //}
-            return null;
+            return NullUtil.getInstance().NULL_BYTE_ARRAY;
         }
     }
 
@@ -81,13 +86,14 @@ public class BasicCrypt implements CryptInterface
      */
     public byte[] mutilate(byte[] array)
     {
+        byte value;
         for (int index = 0; index < key.length; index++)
         {
-            byte val = key[index];
+            value = key[index];
             //val = (byte) (val & (byte) 0x0F);
             //if(val < 8 && val >0)
             //{
-            array = byteUtil.xor(array, val);
+            array = byteUtil.xor(array, value);
             //}
         }
         return array;

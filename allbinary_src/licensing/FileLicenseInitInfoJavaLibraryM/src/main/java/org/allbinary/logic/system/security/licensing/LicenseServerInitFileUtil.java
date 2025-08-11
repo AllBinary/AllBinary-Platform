@@ -31,6 +31,8 @@ public class LicenseServerInitFileUtil
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
 
+    private final OutputStream NULL_OUTPUT_STREAM = OutputStream.nullOutputStream();
+    
     public final void init()
     {
         try
@@ -41,7 +43,7 @@ public class LicenseServerInitFileUtil
 
             // logUtil.put("Path: " + path, this, AndroidStrings.getInstance().START);
 
-            String filePath = LicenseInitInfoUtil.getInstance().INITFILENAME;
+            final String filePath = LicenseInitInfoUtil.getInstance().INITFILENAME;
             LicenseInitInfoUtil.getInstance().setFilePath(StringUtil.getInstance().EMPTY_STRING);
 
             //PreLogUtil.put("SecurityManager = " + System.getSecurityManager(), this, commonStrings.INIT);
@@ -61,26 +63,31 @@ public class LicenseServerInitFileUtil
 
     private void write()
     {
-        OutputStream fileOutputStream = null;
+        OutputStream fileOutputStream = NULL_OUTPUT_STREAM;
         try
         {
-            ResourceUtil resourceUtil = ResourceUtil.getInstance();
+            final ResourceUtil resourceUtil = ResourceUtil.getInstance();
 
-            String filePath = LicenseInitInfoUtil.getInstance().INITFILENAME;
+            final String filePath = LicenseInitInfoUtil.getInstance().INITFILENAME;
 
-            InputStream inputStream = resourceUtil.getResourceAsStream(filePath);
+            final InputStream inputStream = resourceUtil.getResourceAsStream(filePath);
 
             logUtil.put("Writing Default License File", this, commonStrings.INIT);
 
-            FileStreamFactory fileStreamFactory = FileStreamFactory.getInstance();
+            final FileStreamFactory fileStreamFactory = FileStreamFactory.getInstance();
 
             fileOutputStream = fileStreamFactory.getFileOutputStreamInstance(
                 StringUtil.getInstance().EMPTY_STRING, filePath);
 
             int b;
             int index = 0;
-            while ((b = inputStream.read()) != -1)
+            while (true)
             {
+                b = inputStream.read();
+                if(b == -1) {
+                    break;
+                }
+
                 fileOutputStream.write(b);
                 index++;
             }

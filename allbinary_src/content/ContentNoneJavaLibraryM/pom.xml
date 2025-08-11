@@ -41,6 +41,13 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>PCResourceLibrary</artifactId>
+<!--
+            <artifactId>ResourceJ2MEJavaLibrary</artifactId>
+            <artifactId>PCResourceLibrary</artifactId>
+            <artifactId>AndroidResourceLibrary</artifactId>
+            <artifactId>ResourceLibrary</artifactId>
+            for HTML it is in ABDKPlaynJavaLibrary
+-->
             <version>${project.version}</version>
             <optional>true</optional>
         </dependency>

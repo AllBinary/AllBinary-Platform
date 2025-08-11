@@ -40,7 +40,8 @@ public class AbCryptUtil {
         try {
             outputStream = (ByteArrayOutputStream) streamUtil.get(inputStream, new ByteArrayOutputStream(), new byte[16384]);
 
-            final AbCrypt abCrypt = new AbCrypt(KeySpecFactory.getInstance().DESEDE, key);
+            final AbCrypt abCrypt = new AbCrypt(KeySpecFactory.getInstance().DESEDE);
+            abCrypt.init(key);
             return abCrypt.decrypt(outputStream.toByteArray());
         } finally {
             streamUtil.close(outputStream);

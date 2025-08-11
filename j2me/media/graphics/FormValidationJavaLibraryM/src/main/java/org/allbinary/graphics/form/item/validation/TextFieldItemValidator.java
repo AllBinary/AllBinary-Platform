@@ -81,7 +81,8 @@ public class TextFieldItemValidator extends ValidatorBase
         } 
         else
         {
-            final String name = this.textFieldItem.getLabel().substring(0, this.textFieldItem.getLabel().length() - 2);
+            final String label = this.textFieldItem.getLabel();
+            final String name = label.substring(0, label.length() - 2);
             
             if(textLength < this.min)
             {

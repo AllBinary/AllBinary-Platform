@@ -21,6 +21,7 @@ import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 
 import org.allbinary.init.crypt.jcehelper.CryptInterface;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.java.byteutil.ByteUtil;
 import org.allbinary.string.CommonStrings;
@@ -29,33 +30,16 @@ import org.bouncycastle.jce.provider.BouncyCastleProvider;
 public class AbCrypt implements CryptInterface
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
-
-   private final ByteUtil byteUtil = ByteUtil.getInstance();
     
-   private Cipher cipher;
-   private SecretKey secretKey;
+   private BaseSecretComposite secretComposite = BaseSecretComposite.NULL_SECRET_COMPOSITE;
    private String algorithm;
-   private byte[] key;
    
-   public AbCrypt(String algorithm, String key)
+   public AbCrypt(final String algorithm)
    {
-      try
-      {
          this.algorithm = algorithm;
-         this.key = key.getBytes();
-         this.init();
-      }
-      catch(Exception e)
-      {
-         //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CRYPTERROR))
-         //{
-            final CommonStrings commonStrings = CommonStrings.getInstance();
-            PreLogUtil.put(commonStrings.CONSTRUCTOR,this,"AbCrypt(alg,key)",e);
-         //}
-      }
    }
    
-   private void init()
+   public void init(final String keyAsString)
    {
        final CommonStrings commonStrings = CommonStrings.getInstance();
       try
@@ -74,10 +58,13 @@ public class AbCrypt implements CryptInterface
               PreLogUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
           }
           
-         KeySpec keySpec = KeySpecFactory.getInstance().getInstance(this.algorithm, this.key);
-         SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(algorithm);
-         this.secretKey = keyFactory.generateSecret(keySpec);
-         this.cipher = Cipher.getInstance(algorithm);
+         final byte[] key = keyAsString.getBytes();
+         final KeySpec keySpec = KeySpecFactory.getInstance().getInstance(this.algorithm, key);
+         final SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(algorithm);
+         
+         final SecretKey secretKey = keyFactory.generateSecret(keySpec);
+         final Cipher cipher = Cipher.getInstance(algorithm);         
+         this.secretComposite = new SecretComposite(secretKey, cipher, key);
       }
       catch(Exception e)
       {
@@ -87,14 +74,13 @@ public class AbCrypt implements CryptInterface
          //}
       }
    }
-   
-   public byte[] encrypt(byte [] array)
+
+   @Override   
+   public byte[] encrypt(final byte [] array)
    {
       try
-      {         
-         cipher.init(Cipher.ENCRYPT_MODE, secretKey);
-         array = this.mutilate(array);
-         return cipher.doFinal(array);
+      {
+         return this.secretComposite.encrypt(array);
       }
       catch(Exception e)
       {
@@ -102,16 +88,16 @@ public class AbCrypt implements CryptInterface
          //{
             PreLogUtil.put("Encrypt Failed",this,"encrypt",e);
          //}
-         return null;
+         return NullUtil.getInstance().NULL_BYTE_ARRAY;
       }
    }
    
-   public byte[] decrypt(byte [] array)
+   @Override
+   public byte[] decrypt(final byte [] array)
    {
       try
       {
-         cipher.init(Cipher.DECRYPT_MODE, secretKey);         
-         return this.mutilate(cipher.doFinal(array));
+          return this.secretComposite.decrypt(array);
       }
       catch(Exception e)
       {
@@ -119,20 +105,8 @@ public class AbCrypt implements CryptInterface
          //{
             PreLogUtil.put("decrypt Failed",this,"decrypt",e);
          //}
-         return null;
+         return NullUtil.getInstance().NULL_BYTE_ARRAY;
       }
    }
    
-   public byte[] mutilate(byte [] array)
-   {
-      for(int index=0; index<key.length; index++)
-      {
-         byte val = key[index];
-         if(val < 8 && val >0)
-         {
-            array = byteUtil.xorByte(array, val);
-         }
-      }
-      return array;
-   }
 }

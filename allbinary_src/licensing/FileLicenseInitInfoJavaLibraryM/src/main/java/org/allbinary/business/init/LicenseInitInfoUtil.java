@@ -21,6 +21,7 @@ import org.allbinary.logic.io.AbDataOutputStream;
 import org.allbinary.logic.io.AbFileInputStream;
 import org.allbinary.logic.io.DataOutputStreamFactory;
 import org.allbinary.logic.io.FileStreamFactory;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.system.security.crypt.DatabaseEncoder;
 import org.allbinary.logic.system.security.crypt.WeakCrypt;
 
@@ -39,7 +40,7 @@ public class LicenseInitInfoUtil
     public final String ABOUT = "about";
     public final String PRIVACY_POLICY = "privacy_policy";
 
-    private String filePath;
+    private String filePath = StringUtil.getInstance().EMPTY_STRING;
 
     public synchronized void setFilePath(String filePath)
     {
@@ -137,7 +138,8 @@ public class LicenseInitInfoUtil
                 AbDataInputStream iData = new AbDataInputStream(iFile);
                 LicenseInitInfo initInfo = new LicenseInitInfo();
 
-                String licenseIdDecoded = new String(DatabaseEncoder.decode(iData.readUTF()));
+                byte[] decodedByteArray = DatabaseEncoder.decode(iData.readUTF());
+                String licenseIdDecoded = new String(decodedByteArray);
 
                 initInfo.setLicenseId(new WeakCrypt(1).decrypt(licenseIdDecoded));
 
@@ -149,7 +151,8 @@ public class LicenseInitInfoUtil
 
                 for (int index = 0; index < numberOfLicenseServers; index++)
                 {
-                    licenseServerDecoded = new String(DatabaseEncoder.decode(iData.readUTF()));
+                    decodedByteArray = DatabaseEncoder.decode(iData.readUTF());
+                    licenseServerDecoded = new String(decodedByteArray);
                     initInfo.setServer(new WeakCrypt(3).decrypt(licenseServerDecoded), index);
 
                     // if
@@ -175,7 +178,8 @@ public class LicenseInitInfoUtil
                 logUtil.put("Command Failed: " + INITFILENAME, this, METHOD_NAME, e);
                 // }
 
-                Thread.currentThread().sleep(2000);
+                //Thread.currentThread().sleep(2000);
+                Thread.sleep(2000);
 
                 // give up after 10tries
                 if (initializeCounter < 3)

@@ -48,8 +48,9 @@ public class AllBinaryVibration extends AllBinaryVibrationME
         }
     }
    
+   @Override
    public void vibrate(int duration, int type, int volume)
    {
-       vibrator.vibrate(duration);
+       vibrator.vibrate((long) duration);
    }
 }

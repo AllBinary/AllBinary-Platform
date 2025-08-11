@@ -14,6 +14,7 @@
 package org.allbinary.logic.system.security.crypt;
 
 import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.system.security.crypt.jcehelper.AbCrypt;
 import org.allbinary.logic.system.security.crypt.jcehelper.KeySpecFactory;
 import org.allbinary.string.CommonStrings;
@@ -50,14 +51,15 @@ public class WeakCrypt
         "4gijvqo8vq984hv984hj5j3511h832hf833"
     };
     public static int KEYMAX = keys.length;
-    private AbCrypt abCrypt;
+    private AbCrypt abCrypt = new AbCrypt(KeySpecFactory.getInstance().DES);
 
     public WeakCrypt(int key)
     {
         try
         {
             //this.key = key;
-            abCrypt = new AbCrypt(KeySpecFactory.getInstance().DES, keys[key]);
+            this.abCrypt.init(keys[key]);
+            
         } catch (Exception e)
         {
             //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CRYPTERROR))
@@ -72,16 +74,17 @@ public class WeakCrypt
     {
         try
         {
-            byte[] crypted = this.abCrypt.encrypt(value.getBytes());
+            final byte[] crypted = this.abCrypt.encrypt(value.getBytes());
             //make data database friendly
-            return new String(DatabaseEncoder.encode(crypted));
+            return DatabaseEncoder.encode(crypted);
+            //return new String();
         } catch (Exception e)
         {
             //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CRYPTERROR))
             //{
             PreLogUtil.put("Encrypt Failed", this, "encrypt", e);
             //}
-            return null;
+            return StringUtil.getInstance().EMPTY_STRING;
         }
     }
 
@@ -90,7 +93,7 @@ public class WeakCrypt
         try
         {
             //change data from database friendly data for decryption
-            byte[] decrypted = abCrypt.decrypt(DatabaseEncoder.decode(value));
+            final byte[] decrypted = abCrypt.decrypt(DatabaseEncoder.decode(value));
             return new String(decrypted);
         } catch (Exception e)
         {
@@ -98,7 +101,7 @@ public class WeakCrypt
             //{
             PreLogUtil.put("decrypt Failed", this, "decrypt", e);
             //}
-            return null;
+            return StringUtil.getInstance().EMPTY_STRING;
         }
     }
 }

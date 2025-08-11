@@ -13,8 +13,10 @@
 */
 package org.allbinary.logic.system.security.crypt;
 
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.tokens.Tokenizer;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
@@ -33,6 +35,7 @@ public class DatabaseEncoder
    {
       try
       {
+          
          byte[] array = value;
          final StringMaker stringBuffer = new StringMaker();
          
@@ -53,7 +56,7 @@ public class DatabaseEncoder
             final CommonStrings commonStrings = CommonStrings.getInstance();
             PreLogUtil.put(commonStrings.EXCEPTION, "DatabaseEncoder", "decode", e);
          //}
-         return null;
+         return StringUtil.getInstance().EMPTY_STRING;
       }
    }
    
@@ -61,23 +64,25 @@ public class DatabaseEncoder
    {
       try
       {
-         Tokenizer tokenizer = new Tokenizer(CommonSeps.getInstance().SPACE);
-         BasicArrayList vector = tokenizer.getTokens(value, new BasicArrayList());
-         BasicArrayList byteVector = new BasicArrayList();
-         int size = vector.size();
-                  
+         final Tokenizer tokenizer = new Tokenizer(CommonSeps.getInstance().SPACE);
+         final BasicArrayList vector = tokenizer.getTokens(value, new BasicArrayList());
+         final BasicArrayList byteVector = new BasicArrayList();
+         final int size = vector.size();
+
+         String byteOfData;
          for(int index = 0; index< size; index++)
          {
-            String byteOfData = (String) vector.objectArray[index];
+            byteOfData = (String) vector.objectArray[index];
             byteVector.add(new Byte(byteOfData));
          }
 
-         byte[] decode = new byte[byteVector.size()];
+         final byte[] decode = new byte[byteVector.size()];
          int decodeIndex = 0;
 
+         Byte aByte;
          for(int index = 0; index < size; index++)
          {
-            Byte aByte = (Byte) byteVector.objectArray[index];            
+            aByte = (Byte) byteVector.objectArray[index];            
             decode[decodeIndex] = aByte.byteValue();
             decodeIndex++;
          }
@@ -90,7 +95,7 @@ public class DatabaseEncoder
             final CommonStrings commonStrings = CommonStrings.getInstance();
             PreLogUtil.put(commonStrings.EXCEPTION, "DatabaseEncoder", "decode", e);
          //}
-         return null;
+         return NullUtil.getInstance().NULL_BYTE_ARRAY;
       }
    }
 }

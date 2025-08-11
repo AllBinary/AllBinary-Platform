@@ -95,7 +95,8 @@ public class NumberTextFieldItemValidator extends ValidatorBase
         
         int textLength = string.length();
         
-        final String name = this.textFieldItem.getLabel().substring(0, this.textFieldItem.getLabel().length() - 2);
+        final String label = this.textFieldItem.getLabel();
+        final String name = label.substring(0, label.length() - 2);
 
         final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
         final StringMaker stringMaker = new StringMaker();

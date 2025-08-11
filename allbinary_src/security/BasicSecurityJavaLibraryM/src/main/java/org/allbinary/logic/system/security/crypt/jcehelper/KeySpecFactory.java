@@ -82,7 +82,10 @@ public class KeySpecFactory
          {
             return (KeySpec) new DHPrivateKeySpec(new BigInteger(keyData),new BigInteger(keyData),new BigInteger(keyData));
          }*/
-         else return null;
+         else {
+             throw new RuntimeException();
+             //return null;
+         }
       }
       catch(Exception e)
       {
@@ -91,7 +94,8 @@ public class KeySpecFactory
             final CommonStrings commonStrings = CommonStrings.getInstance();
             PreLogUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
          //}
-         return null;
+         //return null;
+         throw new RuntimeException();
       }
    }
 }
