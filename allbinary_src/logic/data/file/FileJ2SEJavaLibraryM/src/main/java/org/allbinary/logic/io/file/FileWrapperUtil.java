@@ -25,7 +25,7 @@ public class FileWrapperUtil {
     {
         try
         {
-            AbFile[] abFileArray = new AbFile[files.length];
+            final AbFile[] abFileArray = new AbFile[files.length];
 
             for (int index = files.length - 1; index >= 0; index--)
             {
@@ -48,7 +48,7 @@ public class FileWrapperUtil {
         } catch (Exception e)
         {
             PreLogUtil.put("Exception Wrapping File", "FileWrapperUtil", "wrapFile", e);
-            return null;
+            return AbFile.NULL_FILE;
         }
     }
 }

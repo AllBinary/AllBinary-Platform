@@ -20,12 +20,15 @@ import java.io.IOException;
 import java.net.URI;
 
 import org.allbinary.logic.io.path.AbPath;
+import org.allbinary.logic.string.StringUtil;
 
 public class AbFile implements AbFileInterface
 {
+    public static final AbFile NULL_FILE = new AbFile(StringUtil.getInstance().EMPTY_STRING, false);
+    
    private final File file;
 
-   AbFile(final String filePath, final boolean unknown) throws Exception
+   AbFile(final String filePath, final boolean unknown)
    {
       this.file = new File(filePath);
    }
@@ -155,7 +158,7 @@ public class AbFile implements AbFileInterface
             {
                isExists = false;
             }
-            return null;
+            return NullUtil.getInstance().NULL_OBJECT;
          }
       }, AccessControlContextFactory.getInstance().getAccessControlContext());
 

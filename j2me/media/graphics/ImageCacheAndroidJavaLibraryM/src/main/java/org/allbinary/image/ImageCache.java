@@ -28,12 +28,10 @@ import org.allbinary.system.Memory;
 public class ImageCache extends ImageCacheBase
 {
     public static final ImageCache NULL_IMAGE_CACHE = new ImageCache();
-    
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
 
-    protected ImageCache()
+    ImageCache()
     // CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface)
     {
     }
@@ -42,6 +40,7 @@ public class ImageCache extends ImageCacheBase
         
     }
     
+    @Override
     public Image get(final String caller, final int width, final int height)
     throws Exception
     {        
@@ -82,6 +81,7 @@ public class ImageCache extends ImageCacheBase
         return image;
     }
     
+    @Override
     public Image get(final Object key) throws Exception
     {
         final ResourceUtil resourceUtil = ResourceUtil.getInstance();
