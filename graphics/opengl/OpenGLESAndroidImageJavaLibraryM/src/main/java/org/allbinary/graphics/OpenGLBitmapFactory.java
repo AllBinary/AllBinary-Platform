@@ -30,7 +30,7 @@ public class OpenGLBitmapFactory extends PlatformBitmapBaseFactory {
         
         public final Bitmap.Config bitmapConfig;
 
-        private Config(final Bitmap.Config bitmapConfig) {
+        Config(final Bitmap.Config bitmapConfig) {
             this.bitmapConfig = bitmapConfig;
         }
     }
@@ -41,10 +41,11 @@ public class OpenGLBitmapFactory extends PlatformBitmapBaseFactory {
         return new OpenGLBitmap(Bitmap.createBitmap(width, height, config.bitmapConfig));
     }
     
-    public OpenGLBitmap decodeStream(InputStream is) throws IOException {
-        return new OpenGLBitmap(BitmapFactory.decodeStream(is));
+    public OpenGLBitmap decodeStream(InputStream inputStream) throws IOException {
+        return new OpenGLBitmap(BitmapFactory.decodeStream(inputStream));
     }
 
+    @Override
     public PlatformBitmapBase createBitmap(final Image image) {
         return new OpenGLBitmap(image.getBitmap());
     }

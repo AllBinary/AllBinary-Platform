@@ -39,8 +39,8 @@ public class OpenGLBitmapFactory extends PlatformBitmapBaseFactory {
         return new OpenGLBitmap(Image.createImage(width, height));
     }
     
-    public OpenGLBitmap decodeStream(InputStream is) throws IOException {
-        return new OpenGLBitmap(Image.createImage(is));
+    public OpenGLBitmap decodeStream(InputStream inputStream) throws IOException {
+        return new OpenGLBitmap(Image.createImage(inputStream));
     }
 
     public PlatformBitmapBase createBitmap(final Image image) {
