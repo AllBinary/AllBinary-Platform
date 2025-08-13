@@ -27,7 +27,8 @@ public class TitleProgressBarSetProgressRunnable extends ProgressRunnable
     {
         super(midletActivity, progressCanvas);
     }
-    
+
+    @Override    
     public void run()
     {
         try

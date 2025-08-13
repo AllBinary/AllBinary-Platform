@@ -15,5 +15,5 @@ package org.allbinary.animation.transition.shake;
 
 public class NoShakeAnimationListener extends ShakeAnimationListener 
 {
-
+    public static final ShakeAnimationListener NO_SHAKE_ANIMATION_LISTENER = new NoShakeAnimationListener();
 }

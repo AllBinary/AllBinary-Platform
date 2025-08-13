@@ -34,6 +34,7 @@ public class DismissTitleProgressBarRunnable extends ProgressRunnable
     { TransistionTypes.getInstance().ZOOM_OUT,
             TransistionTypes.getInstance().ZOOM_IN };
 
+    @Override
     public void run()
     {
         try

@@ -15,19 +15,20 @@ package org.allbinary.graphics.canvas.transition.progress;
 
 import android.app.Activity;
 import org.allbinary.android.activity.SimpleProgressActivityInterface;
+import org.allbinary.thread.NullRunnable;
 
-public class ProgressRunnable  implements Runnable
+public class ProgressRunnable extends NullRunnable
 {
     protected final SimpleProgressActivityInterface midletActivity;
     protected final ProgressCanvas progressCanvas;
     
-    public ProgressRunnable(
-            Activity midletActivity, ProgressCanvas progressCanvas)
+    public ProgressRunnable(final Activity midletActivity, final ProgressCanvas progressCanvas)
     {
         this.midletActivity = (SimpleProgressActivityInterface) midletActivity;
         this.progressCanvas = progressCanvas;
     }
     
+    @Override
     public void run()
     {
     }

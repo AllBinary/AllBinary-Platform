@@ -139,14 +139,22 @@
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
         </dependency>
-                
+
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>OpenGLESAndroidJavaLibrary</artifactId>
+            <artifactId>J2MEMidletAsViewJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
         </dependency>
+
+<!--
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>OpenGLESAndroidJavaLibraryKt</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+-->
 
         <dependency>
             <groupId>org.allbinary</groupId>

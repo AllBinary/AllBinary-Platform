@@ -34,6 +34,7 @@ public class ShowTitleProgressBarRunnable extends ProgressRunnable
     { TransistionTypes.getInstance().FADE_IN_TO_HALF_ALPHA,
             TransistionTypes.getInstance().FADE_IN_FROM_HALF_ALPHA, };
     
+    @Override
     public void run()
     {
         try

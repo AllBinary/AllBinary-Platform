@@ -21,7 +21,7 @@ import android.app.Activity;
 
 public class VirtualKeyboardFactory
 {
-    private static VirtualKeyboard virtualKeyboard;
+    private static VirtualKeyboard virtualKeyboard = VirtualKeyboard.NULL_VIRTUAL_KEYBOARD;
     
     public static final void init(Activity activity)
     {

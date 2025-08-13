@@ -20,6 +20,8 @@ import org.allbinary.logic.util.event.EventStrings;
 
 public class VirtualKeyboard
 {
+    public static final VirtualKeyboard NULL_VIRTUAL_KEYBOARD = new VirtualKeyboard();
+    
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
     public void onEvent(AllBinaryEventObject eventObject)

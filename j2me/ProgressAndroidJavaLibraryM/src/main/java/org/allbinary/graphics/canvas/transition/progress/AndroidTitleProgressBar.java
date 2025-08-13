@@ -15,17 +15,13 @@ package org.allbinary.graphics.canvas.transition.progress;
 
 import javax.microedition.lcdui.Graphics;
 
+import org.allbinary.android.activity.NullProgressActivity;
 import org.allbinary.android.activity.ProgressActivityInterface;
 import org.allbinary.android.activity.SimpleProgressActivityInterface;
-
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.graphics.color.BasicColor;
 
 public class AndroidTitleProgressBar extends ProgressCanvas
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private ShowTitleProgressBarRunnable showTitleProgressBarRunnable = new ShowTitleProgressBarRunnable();
 
@@ -36,7 +32,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
     private TitleProgressBarSetProgressRunnable progressDialogSetProgressRunnable = new TitleProgressBarSetProgressRunnable();
 
     //private MidletActivity midletActivity;
-    private ProgressActivityInterface progressActivity;
+    private ProgressActivityInterface progressActivity = NullProgressActivity.NULL_PROGRESS_ACTIVITY;
 
     private int portion = 0;
 
@@ -58,12 +54,14 @@ public class AndroidTitleProgressBar extends ProgressCanvas
 
     public boolean isInitialized()
     {
-        if (this.progressActivity != null)// && this.midletActivity != null)
+        if (this.progressActivity != NullProgressActivity.NULL_PROGRESS_ACTIVITY) { // && this.midletActivity != null)
             return true;
-        else
+        } else {
             return false;
+        }
     }
 
+    @Override
     public void start()
     {
         try
@@ -80,13 +78,13 @@ public class AndroidTitleProgressBar extends ProgressCanvas
 
     }
 
+    @Override
     public void end()
     {
         try
         {
             logUtil.put(commonStrings.START, this, commonStrings.END_METHOD_NAME);
-            this.progressActivity
-                    .runOnUiThread(dismissTitleProgressBarRunnable);
+            this.progressActivity.runOnUiThread(dismissTitleProgressBarRunnable);
             // this.progressActivity = null;
             super.end();
         }
@@ -97,6 +95,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
 
     }
 
+    @Override
     public void addPortion(int value, String text, int index)
     {
         try
@@ -113,6 +112,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
         }
     }
     
+    @Override
     public void addPortion(int value, String text)
     {
         try
@@ -129,6 +129,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
         }
     }
 
+    @Override
     protected void setValue(int value)
     {
         try
@@ -149,6 +150,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
 
     }
 
+    @Override
     public void paint(Graphics graphics)
     {
         // super.paint(graphics);
@@ -157,13 +159,13 @@ public class AndroidTitleProgressBar extends ProgressCanvas
 
     class TitleProgressBarSetProgressRunnable implements Runnable
     {
+        @Override
         public void run()
         {
             try
             {
-                AndroidTitleProgressBar.this.progressActivity
-                        .onTitleProgressBarSetProgress((int) AndroidTitleProgressBar.this
-                                .getValue());
+                final int value = (int) AndroidTitleProgressBar.this.getValue();
+                AndroidTitleProgressBar.this.progressActivity.onTitleProgressBarSetProgress(value);
             }
             catch (Exception e)
             {
@@ -174,15 +176,13 @@ public class AndroidTitleProgressBar extends ProgressCanvas
 
     class TitleProgressBarPortionSetProgressRunnable implements Runnable
     {
+        @Override
         public void run()
         {
             try
             {
-                AndroidTitleProgressBar.this.progressActivity
-                        .onTitleProgressBarSetProgress((int) (AndroidTitleProgressBar.this
-                                .getValue()
-                                + AndroidTitleProgressBar.this.getMaxValue()
-                                / portion));
+                final int value = (int) (AndroidTitleProgressBar.this.getValue() + AndroidTitleProgressBar.this.getMaxValue() / portion);
+                AndroidTitleProgressBar.this.progressActivity.onTitleProgressBarSetProgress(value);
             }
             catch (Exception e)
             {
@@ -193,13 +193,13 @@ public class AndroidTitleProgressBar extends ProgressCanvas
 
     class ShowTitleProgressBarRunnable implements Runnable
     {
+        @Override
         public void run()
         {
             try
             {
-                AndroidTitleProgressBar.this.progressActivity
-                        .onShowTitleProgressBar(
-                                (int) AndroidTitleProgressBar.this.getMaxValue(), false);
+                final int maxValue = (int) AndroidTitleProgressBar.this.getMaxValue();
+                AndroidTitleProgressBar.this.progressActivity.onShowTitleProgressBar(maxValue, false);
             }
             catch (Exception e)
             {
@@ -210,12 +210,12 @@ public class AndroidTitleProgressBar extends ProgressCanvas
 
     class DismissTitleProgressBarRunnable implements Runnable
     {
+        @Override
         public void run()
         {
             try
             {
-                AndroidTitleProgressBar.this.progressActivity
-                        .onDismissTitleProgressBar();
+                AndroidTitleProgressBar.this.progressActivity.onDismissTitleProgressBar();
             }
             catch (Exception e)
             {
