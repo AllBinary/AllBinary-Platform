@@ -19,17 +19,25 @@ import javax.microedition.media.PlayerListener;
 
 import android.media.MediaPlayer;
 import org.allbinary.data.resource.ResourceUtil;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 
 public class AndroidMediaPlayerWrapper extends BasicPlayer 
    //implements LineListener
 {
+    public static final AndroidMediaPlayerWrapper NULL_ANDROID_MEDIA_PLAYER_WRAPPER = new AndroidMediaPlayerWrapper();
+    private static final MediaPlayer NULL_MEDIA_PLAYER = new MediaPlayer();
+    
     protected final LogUtil logUtil = LogUtil.getInstance();
-
-    private MediaPlayer mediaPlayer;
+    private MediaPlayer mediaPlayer = AndroidMediaPlayerWrapper.NULL_MEDIA_PLAYER;
 
     //private AndroidMediaPlayerWrapperListener mediaPlayerHelper;
 
+    private AndroidMediaPlayerWrapper() {
+        
+    }
+    
     public AndroidMediaPlayerWrapper(String resource)
     throws Exception
     {
@@ -42,12 +50,12 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
                     resourceUtil.getResourceId(resource).intValue())
                     );
 
-            if(this.getMediaPlayer() == null)
+            if(this.getMediaPlayer() == AndroidMediaPlayerWrapper.NULL_MEDIA_PLAYER)
             {
                 throw new Exception(
-                        "Failed to create media player for: " + resource + 
-                        " with id: " +
-                        resourceUtil.getResourceId(resource));
+                        new StringMaker().append("Failed to create media player for: ")
+                            .append(resource).append(" with id: ")
+                            .append(resourceUtil.getResourceId(resource).toString()).toString());
             }
             
             this.mediaPlayer.setLooping(false);
@@ -66,11 +74,12 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
         }
     }
 
+    @Override
     public void setLoopCount(int count)
     {
         super.setLoopCount(count);
         
-        if(this.mediaPlayer != null)
+        if(this.mediaPlayer != AndroidMediaPlayerWrapper.NULL_MEDIA_PLAYER)
         {
             if(count == 0)
             {
@@ -84,18 +93,21 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
         }
     }
     
+    @Override
     public synchronized void addPlayerListener(PlayerListener playerListener)
     {
         //mediaPlayerHelper = new AndroidMediaPlayerWrapperListener(this, 1);
         super.addPlayerListener(playerListener);
     }
 
+    @Override
     public void removePlayerListener(PlayerListener playerListener)
     {
         super.removePlayerListener(playerListener);
-        //mediaPlayerHelper = null;
+        //mediaPlayerHelper = AndroidMediaPlayerWrapper.NULL_MEDIA_PLAYER;
     }
 
+    @Override
     public int getState()
     {
        if(this.mediaPlayer.isPlaying())
@@ -108,12 +120,13 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
        }
     }
     
+    @Override
     public void close()
     {
         try
         {
             this.mediaPlayer.release();
-            this.mediaPlayer = null;
+            this.mediaPlayer = AndroidMediaPlayerWrapper.NULL_MEDIA_PLAYER;
         }
         catch (Exception e)
         {
@@ -121,6 +134,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
         }
     }
 
+    @Override
     public synchronized void start() throws MediaException
     {
         try
@@ -153,6 +167,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
         }
     }
 
+    @Override
     public synchronized void stop() throws MediaException
     {
         try
@@ -175,21 +190,24 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
         for (int index = 0; index < size; index++)
         {
             PlayerListener listener = (PlayerListener) this.listenersList.objectArray[index];
-            listener.playerUpdate(this, event, null);
+            listener.playerUpdate(this, event, NullUtil.getInstance().NULL_OBJECT);
         }
     }
 
+    @Override
     public void setVolume(final int leftVolume, final int rightVolume) {
         this.mediaPlayer.setVolume(((float) leftVolume) / 100.0f, ((float) rightVolume) / 100.0f);
     }
     
+    @Override
     public long getDuration()
     {
-        return mediaPlayer.getDuration();
+        return (long) mediaPlayer.getDuration();
     }
 
     public void setMediaPlayer(MediaPlayer mediaPlayer)
     {
+        
         this.mediaPlayer = mediaPlayer;
     }
 
