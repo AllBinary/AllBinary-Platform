@@ -1,5 +1,6 @@
 package org.allbinary.configuration;
 
+import java.io.Closeable;
 import java.io.InputStream;
 import java.io.OutputStream;
 
@@ -10,6 +11,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.AbDataInputStream;
 import org.allbinary.logic.io.AbDataOutputStream;
 import org.allbinary.logic.io.FileStreamFactory;
+import org.allbinary.logic.io.NullCloseable;
 import org.allbinary.logic.io.StreamUtil;
 import org.allbinary.logic.io.file.FileFactory;
 import org.allbinary.logic.string.StringMaker;
@@ -127,22 +129,22 @@ public class ApplicationConfiguration
 
     public void write() throws Exception
     {
-        AbDataOutputStream dataOutputStream = null;
+        Closeable closeable = NullCloseable.NULL_CLOSEABLE;
         try
         {
         //PreLogUtil.put("Write Configuration: " + this.toString(), this, "write");
-        logUtil.put(
-                "Write Configuration: " + this.toString(), this, "write");
+        logUtil.put("Write Configuration: " + this.toString(), this, "write");
         
-        FileStreamFactory fileInputStreamFactory = 
+        final FileStreamFactory fileInputStreamFactory = 
             FileStreamFactory.getInstance();
 
-        OutputStream fileOutputStream = 
+        final OutputStream fileOutputStream = 
             fileInputStreamFactory.getFileOutputStreamInstance(
                     StringUtil.getInstance().EMPTY_STRING, FILE);
 
-        dataOutputStream =
+        final AbDataOutputStream dataOutputStream =
             new AbDataOutputStream(fileOutputStream);
+        closeable = dataOutputStream;
 
         if (this.isFullscreen())
         {
@@ -175,7 +177,7 @@ public class ApplicationConfiguration
         }
         finally
         {
-            StreamUtil.getInstance().close(dataOutputStream);
+            StreamUtil.getInstance().close(closeable);
         }
     }
 

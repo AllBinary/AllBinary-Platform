@@ -11,7 +11,7 @@
  * Created By: Travis Berthelot
  * 
  */
-package org.allbinary.io;
+package org.allbinary.logic.io;
 
 import java.io.Closeable;
 import java.io.IOException;
