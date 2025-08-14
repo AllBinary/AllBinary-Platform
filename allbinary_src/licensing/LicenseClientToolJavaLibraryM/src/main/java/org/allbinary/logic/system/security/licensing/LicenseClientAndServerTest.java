@@ -52,7 +52,7 @@ public class LicenseClientAndServerTest
 
             LineNumberReader lineNumberReader = new LineNumberReader(reader);
 
-            for(;;)
+            while (true)
             {
                 String line = lineNumberReader.readLine();
 

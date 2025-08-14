@@ -95,7 +95,7 @@ public class SetLicenseInitInfo
 
             /*
             int index = 0;
-            for (;;)
+            while (true)
             {
                 System.out.println("New Lic Serv: ");
                 String licServer = stdinput.readLine();
@@ -115,7 +115,7 @@ public class SetLicenseInitInfo
 
             LineNumberReader lineNumberReader = new LineNumberReader(reader);
 
-            for(;;)
+            while (true)
             {
                 String line = lineNumberReader.readLine();
                 

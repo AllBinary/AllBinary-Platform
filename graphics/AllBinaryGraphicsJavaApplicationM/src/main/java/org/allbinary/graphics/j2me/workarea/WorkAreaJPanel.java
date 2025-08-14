@@ -514,7 +514,7 @@ public class WorkAreaJPanel
     {
         try
         {
-            for (;;)
+            while (true)
             {
                 if (this.isPlaying())
                 {

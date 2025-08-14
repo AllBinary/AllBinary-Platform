@@ -40,7 +40,7 @@ public class NullUtil {
     public final int[][][] NULL_INT_ARRAY_ARRAY_ARRAY = new int[0][0][0];
     public final float[] NULL_FLOAT_ARRAY = new float[0];
     
-    public final Vector EMPTY_VECTOR = new Vector();
+    public final Vector<Object> EMPTY_VECTOR = new Vector<Object>();
     public final Hashtable NULL_TABLE = new Hashtable();
 
 }
