@@ -14,6 +14,7 @@
 package org.allbinary.logic;
 
 import java.util.Hashtable;
+import java.util.Vector;
 
 /**
  *
@@ -39,6 +40,7 @@ public class NullUtil {
     public final int[][][] NULL_INT_ARRAY_ARRAY_ARRAY = new int[0][0][0];
     public final float[] NULL_FLOAT_ARRAY = new float[0];
     
+    public final Vector EMPTY_VECTOR = new Vector();
     public final Hashtable NULL_TABLE = new Hashtable();
 
 }

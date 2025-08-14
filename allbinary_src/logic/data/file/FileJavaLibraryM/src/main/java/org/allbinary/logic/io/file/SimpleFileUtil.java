@@ -15,8 +15,10 @@ package org.allbinary.logic.io.file;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
-import org.allbinary.logic.NullUtil;
+import java.io.Reader;
+import java.io.Writer;
 
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.StreamUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -40,6 +42,9 @@ public class SimpleFileUtil {
         return instance;
     }
 
+    public final Writer NULL_WRITER = Writer.nullWriter(); 
+    public final Reader NULL_READER = Reader.nullReader(); 
+    
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final NullUtil nullUtil = NullUtil.getInstance();
     private final StreamUtil streamUtil = StreamUtil.getInstance();

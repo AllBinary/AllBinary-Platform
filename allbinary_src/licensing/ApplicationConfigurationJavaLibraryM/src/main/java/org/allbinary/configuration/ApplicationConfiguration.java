@@ -174,8 +174,9 @@ public class ApplicationConfiguration
         }
         
         dataOutputStream.flush();
-        }
-        finally
+        } catch(Exception e) {
+            throw e;
+        } finally
         {
             StreamUtil.getInstance().close(closeable);
         }
