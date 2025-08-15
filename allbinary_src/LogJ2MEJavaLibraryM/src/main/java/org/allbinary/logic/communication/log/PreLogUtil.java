@@ -53,17 +53,7 @@ public class PreLogUtil
         final String functionName)
     {
         put(specialMessage, object, functionName, NullUtil.getInstance().NULL_OBJECT);
-    }
-
-    public static void put(
-        final String specialMessage,
-        final Object object,
-        final String functionName,
-        final Exception exception)
-    {
-        put(specialMessage, object, functionName, (Object) exception);
-    }
-    
+    }    
     
     private final static String LOG_SUCCESS = "org.allbinary: ";
 

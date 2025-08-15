@@ -20,7 +20,6 @@ import javax.microedition.lcdui.Image;
 import org.allbinary.animation.image.LazyImageRotationAnimation;
 import org.allbinary.canvas.GameGlobalsFactory;
 import org.allbinary.canvas.Processor;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
@@ -38,6 +37,7 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.system.Memory;
 import org.allbinary.thread.BaseImageLoadingProcessor;
 import org.allbinary.thread.ConcurrentImageLoadingProcessor;
+import org.allbinary.thread.SynchObject;
 import org.allbinary.util.BasicArrayList;
 
 public class ImageCache extends ImageCacheBase {
@@ -61,7 +61,7 @@ public class ImageCache extends ImageCacheBase {
     //public final BasicArrayList loadImageAfterList = new BasicArrayList();
     public final BasicArrayList loadAfterList = new BasicArrayList();
 
-    private final Object lock = new Object();
+    private final SynchObject lock = new SynchObject();
     
     private boolean firstTime = true;
     private int totalLoaded = 0;

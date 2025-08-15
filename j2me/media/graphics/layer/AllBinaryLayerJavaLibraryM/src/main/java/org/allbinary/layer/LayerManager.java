@@ -4,6 +4,7 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.thread.SynchObject;
 import org.allbinary.util.BasicArrayList;
 
 public class LayerManager
@@ -14,7 +15,7 @@ public class LayerManager
     
     private final LayerManagerLoggingBase layerManagerLogging;
     private final BasicArrayList list = new BasicArrayList();
-    private final Object object = new Object();
+    private final SynchObject object = new SynchObject();
 
     public LayerManager(final LayerManagerLogging layerManagerLogging)
     {

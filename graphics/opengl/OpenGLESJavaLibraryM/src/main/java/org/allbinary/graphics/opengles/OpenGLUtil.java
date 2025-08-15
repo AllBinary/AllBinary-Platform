@@ -14,12 +14,11 @@ import org.allbinary.image.PreResourceImageUtil;
 import org.allbinary.image.opengles.OpenGLESImage;
 import org.allbinary.image.opengles.OpenGLImageCache;
 import org.allbinary.image.opengles.OpenGLImageCacheFactory;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.string.StringMaker;
+import org.allbinary.thread.SynchObject;
 import org.allbinary.util.BasicArrayList;
 
 public class OpenGLUtil {
@@ -39,7 +38,8 @@ public class OpenGLUtil {
 
     private final PreResourceImageUtil preResourceImageUtil = PreResourceImageUtil.getInstance();
 
-    private final Object object = new Object();
+    private final SynchObject lockObject = new SynchObject();
+    private final SynchObject object = new SynchObject();
     private final BasicArrayList list = new BasicArrayList();
     
     public final BasicArrayList runnableList = new BasicArrayList();
@@ -135,7 +135,6 @@ public class OpenGLUtil {
         }
     }
 
-    private Object lockObject = new Object();
     public void add(final Runnable runnable) {
         
         synchronized (lockObject) {

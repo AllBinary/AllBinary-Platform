@@ -32,6 +32,7 @@ public class NullUtil {
     }
     
     public final Object NULL_OBJECT = new Object();
+    public final Class NULL_CLASS = NULL_OBJECT.getClass();
     public final Object[] NULL_OBJECT_ARRAY = new Object[0];
     public final char[] NULL_CHAR_ARRAY = new char[0];
     public final byte[] NULL_BYTE_ARRAY = new byte[0];
