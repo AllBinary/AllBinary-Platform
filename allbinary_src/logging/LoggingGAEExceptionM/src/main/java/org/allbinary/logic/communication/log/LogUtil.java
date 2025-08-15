@@ -12,6 +12,7 @@
 * 
  */
 package org.allbinary.logic.communication.log;
+import java.util.logging.Level;
 import org.allbinary.logic.string.StringMaker;
 
 
@@ -75,12 +76,45 @@ public class LogUtil {
                     className, functionName, specialMessage, exception);
 
                 //logger.warning(message);
-                logger.severe(message);
+                //logger.severe(message);
+                logger.log(Level.INFO, message);
             }
         } catch (Exception e) {
         }
     }
+    
+    //private final static String LOG_SUCCESS = "org.allbinary: ";
+    public void put(
+        final String specialMessage,
+        final Object object,
+        final String functionName,
+        final Object exception) {
+        try {
+            String className = CommonStrings.getInstance().EMPTY;
 
+            Class clazz = object.getClass();
+            if (clazz.getName() != null) {
+                className = clazz.getName();
+            }
+
+            String message = LogFormatUtil.getInstance().get(
+                className, functionName, specialMessage);
+            //className, functionName, specialMessage, exception);
+
+            if (exception != null) {
+                //logger.warning(message);
+                //logger.severe(message);
+                logger.log(Level.SEVERE, message, exception);
+            } else {
+                //Change this back to warning when I get a stable version of gaefv without massive warnings
+                logger.log(Level.INFO, message);
+                //logger.log(Level.WARNING, message);
+                //logger.info(message);
+            }
+        } catch (Exception e) {
+        }
+    }
+    
     //private final static String LOG_SUCCESS = "org.allbinary: ";
 
     /*

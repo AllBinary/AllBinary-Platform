@@ -48,21 +48,30 @@ public class PreLogUtil
     }
     */
     public static void put(
-        String specialMessage,
-        Object object,
-        String functionName)
+        final String specialMessage,
+        final Object object,
+        final String functionName)
     {
         put(specialMessage, object, functionName, NullUtil.getInstance().NULL_OBJECT);
+    }
+
+    public static void put(
+        final String specialMessage,
+        final Object object,
+        final String functionName,
+        final Exception exception)
+    {
+        put(specialMessage, object, functionName, (Object) exception);
     }
     
     
     private final static String LOG_SUCCESS = "org.allbinary: ";
 
     public static void put(
-        String specialMessage,
-        Object object,
-        String functionName,
-        Object exception)
+        final String specialMessage,
+        final Object object,
+        final String functionName,
+        final Object exception)
     {
         String className = CommonStrings.getInstance().EMPTY;
         
@@ -76,14 +85,6 @@ public class PreLogUtil
         
         System.out.print(LOG_SUCCESS);
         System.out.println(message);
-    }
-    
-    public static void put(
-        String specialMessage,
-        String className,
-        String functionName)
-    {
-        put(specialMessage, className, functionName, NullUtil.getInstance().NULL_OBJECT);
     }
     
     public static void put(

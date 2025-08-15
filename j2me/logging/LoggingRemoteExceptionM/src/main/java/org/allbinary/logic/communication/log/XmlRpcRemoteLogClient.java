@@ -54,8 +54,9 @@ public class XmlRpcRemoteLogClient extends XmlRpcAbeClient
             serverUrl = serverUrl.substring(0, index + 1) + "logservssl.php";
             //System.out.println("Renamed Server: " + serverUrl);
 
-            this.setClient(new XmlRpcClient(serverUrl));
-            this.getClient().setBasicAuthentication(null, null);
+            final XmlRpcClient xmlRpcClient = new XmlRpcClient(serverUrl);
+            this.setClient(xmlRpcClient);
+            xmlRpcClient.setBasicAuthentication(null, null);
 
             Hashtable hashtable = (Hashtable) object;
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
@@ -72,7 +73,7 @@ public class XmlRpcRemoteLogClient extends XmlRpcAbeClient
 
             param.add(hashtable);
             // KeySpecFactory.DES,
-            Object result = getClient().execute(this.getRemoteMethod(), param, noCrypt);
+            Object result = xmlRpcClient.execute(this.getRemoteMethod(), param, noCrypt);
 
             /*
              * this could return without trying all servers if(result==null) {
