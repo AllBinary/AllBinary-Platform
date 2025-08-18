@@ -24,7 +24,6 @@ import org.allbinary.string.CommonStrings;
 public class MobileClientInformation 
     extends AbeClientInformation
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected static final String DESC = "Mobile";
     protected static final String ANDROID_DESC = "Android" + DESC;
@@ -37,7 +36,8 @@ public class MobileClientInformation
                 append(PartnerIdentifierFileUtil.getInstance().get()).toString(),
                 shortName);
 
-        final String number = this.getSpecialName().substring(this.getSpecialName().length() - 1);
+        final String string = this.getSpecialName();
+        final String number = string.substring(string.length() - 1);
 
         if(Integer.getInteger(number) == null)
         //if(this.getSpecialName().endsWith("nhs"))
@@ -56,7 +56,8 @@ public class MobileClientInformation
         }
         
     }
-    
+ 
+    @Override
     public Hashtable toHashtable()
     {
         final Hashtable hashtable = super.toHashtable();
