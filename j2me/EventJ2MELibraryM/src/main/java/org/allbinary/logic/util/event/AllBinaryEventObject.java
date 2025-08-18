@@ -13,9 +13,11 @@
 */
 package org.allbinary.logic.util.event;
 
+import org.allbinary.logic.NullUtil;
+
 public class AllBinaryEventObject
 {
-   //public static final AllBinaryEventObject EVENT = new AllBinaryEventObject(null);
+   public static final AllBinaryEventObject NULL_EVENT = new AllBinaryEventObject(NullUtil.getInstance().NULL_OBJECT);
     
    private Object source;
    

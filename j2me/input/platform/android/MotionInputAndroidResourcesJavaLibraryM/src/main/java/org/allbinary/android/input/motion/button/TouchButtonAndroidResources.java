@@ -31,6 +31,7 @@ import org.allbinary.logic.system.os.OperatingSystemFactory;
 
 public class TouchButtonAndroidResources extends Init
 {
+    @Override
     public void init()
     {
         final ResourceUtil resourceUtil = ResourceUtil.getInstance();

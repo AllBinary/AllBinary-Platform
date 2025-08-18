@@ -14,6 +14,7 @@
 package org.allbinary.android;
 
 import android.graphics.Canvas;
+import android.media.MediaPlayer;
 
 /**
  *
@@ -22,5 +23,7 @@ import android.graphics.Canvas;
 public class NullAndroidCanvas {
     
     public static final Canvas NULL_CANVAS = new Canvas();
+    
+    public static final MediaPlayer NULL_MEDIA_PLAYER = new MediaPlayer();
     
 }

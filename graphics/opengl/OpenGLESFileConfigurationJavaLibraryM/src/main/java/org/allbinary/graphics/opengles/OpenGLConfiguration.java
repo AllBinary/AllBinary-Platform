@@ -13,6 +13,7 @@
 */
 package org.allbinary.graphics.opengles;
 
+import java.io.Closeable;
 import java.io.DataInputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -24,13 +25,13 @@ import org.allbinary.logic.io.file.FileFactory;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.game.configuration.event.ChangedGameFeatureListener;
 import org.allbinary.game.configuration.feature.Feature;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.MainFeatureFactory;
+import org.allbinary.logic.io.NullCloseable;
 
 public class OpenGLConfiguration
 {
@@ -190,7 +191,7 @@ public class OpenGLConfiguration
     
     public void write() throws Exception
     {
-        AbDataOutputStream dataOutputStream = null;
+        Closeable closeable = NullCloseable.NULL_CLOSEABLE;
         try
         {
             //logUtil.put("Write Configuration: " + this.toString(), this, "write");
@@ -202,7 +203,8 @@ public class OpenGLConfiguration
                     .getFileOutputStreamInstance(
                             StringUtil.getInstance().EMPTY_STRING, FILE);
 
-            dataOutputStream = new AbDataOutputStream(fileOutputStream);
+            final AbDataOutputStream dataOutputStream = new AbDataOutputStream(fileOutputStream);
+            closeable = dataOutputStream;
 
             if (this.isOpenGL())
             {
@@ -221,10 +223,11 @@ public class OpenGLConfiguration
             dataOutputStream.writeUTF(this.getColor().getName());
 
             dataOutputStream.flush();
-        }
-        finally
+        } catch(Exception e) {
+            throw e;
+        } finally
         {
-            StreamUtil.getInstance().close(dataOutputStream);
+            StreamUtil.getInstance().close(closeable);
         }
         
     }

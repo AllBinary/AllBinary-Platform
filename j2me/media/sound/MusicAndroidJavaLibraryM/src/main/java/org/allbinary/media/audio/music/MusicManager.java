@@ -5,6 +5,7 @@ import org.allbinary.android.AndroidServicesUtil;
 import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.StringUtil;
+import org.allbinary.media.audio.NoSound;
 import org.allbinary.media.audio.Sound;
 import org.allbinary.string.CommonStateStrings;
 import org.allbinary.string.CommonStrings;
@@ -39,8 +40,8 @@ public class MusicManager
     
     private final BasicArrayList songList;
 
-    private Sound currentSongSound;
-    private Sound nextSongSound;
+    private Sound currentSongSound = NoSound.getInstance();
+    private Sound nextSongSound = NoSound.getInstance();
     private int leftVolume = 100;
     private int rightVolume = 100;
 
@@ -58,10 +59,13 @@ public class MusicManager
         this.songList = songList;
     }
 
-    public void nextSong(final Sound nextSongSound, final int leftVolume, final int rightVolume) {
+    public void nextSong(Sound nextSongSound, final int leftVolume, final int rightVolume) {
         
         //PreLogUtil.put(NEXT_SONG, this, commonStrings.PROCESS);
         
+        if(nextSongSound == null) {
+            nextSongSound = NoSound.getInstance();
+        }
         this.nextSongSound = nextSongSound;
         this.leftVolume = leftVolume;
         this.rightVolume = rightVolume;
@@ -99,7 +103,7 @@ public class MusicManager
         {
             final Sound sound = (Sound) this.songList.get(index);
 
-            final long duration = sound.getDuration();
+            final long duration = (long) sound.getDuration();
 
             PreLogUtil.put(new StringBuilder().append(PLAY).append(sound.getResource()).append(FOR).append(duration).toString(), this, commonStrings.PROCESS);
         }
@@ -114,14 +118,14 @@ public class MusicManager
 
             this.resourceUtil.getContext().stopService(this.currentIntent);
 
-            if(this.nextSongSound == null) {
+            if(this.nextSongSound == NoSound.getInstance()) {
                 this.currentSongSound = (Sound) basicArrayListUtil.getRandom(this.songList);
             } else {
                 this.currentSongSound = this.nextSongSound;
-                this.nextSongSound = null;
+                this.nextSongSound = NoSound.getInstance();
             }
 
-            final long duration = this.currentSongSound.getDuration();
+            final long duration = (long) this.currentSongSound.getDuration();
 					//18000;
 
             PreLogUtil.put(new StringBuilder().append(PLAY).append(this.currentSongSound.getResource()).append(FOR).append(duration).toString(), this, commonStrings.PROCESS);

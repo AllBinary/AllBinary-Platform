@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 
 public class ViewSwapper
 {
-    private static final View[] NULL_VIEW_ARRAY = new View[0];
+    public static final View[] NULL_VIEW_ARRAY = new View[0];
 
     private final int rootViewId;
     private final Activity activity;

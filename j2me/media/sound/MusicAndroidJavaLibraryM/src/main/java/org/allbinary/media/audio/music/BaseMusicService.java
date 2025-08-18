@@ -4,9 +4,11 @@ import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.IBinder;
+import org.allbinary.android.NullAndroidCanvas;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStateStrings;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.thread.NullRunnable;
 
 public class BaseMusicService extends Service
 {
@@ -19,13 +21,13 @@ public class BaseMusicService extends Service
     private final String ALREADY_PLAYING = "This is one song per music service";
     private final String WAITING_FOR_MUSIC_TO_END = "Waiting for music to end";
 
-    private MediaPlayer player;
+    private MediaPlayer player = NullAndroidCanvas.NULL_MEDIA_PLAYER;
 
     private int songId = -1;
     private int leftVolume = -1;
     private int rightVolume = -1;
 
-    //@Override
+    @Override
     public IBinder onBind(final Intent intent)
     {
         //Toast.makeText(this, "Music Bind", Toast.LENGTH_LONG).show();
@@ -36,7 +38,7 @@ public class BaseMusicService extends Service
         return null;
     }
 
-    //@Override
+    @Override
     public void onCreate()
     {
 		//Toast.makeText(this, "Music Service Created", Toast.LENGTH_LONG).show();
@@ -45,7 +47,7 @@ public class BaseMusicService extends Service
         //PreLogUtil.put(commonStrings.START, this, "onCreate");		
     }
 
-    //@Override
+    @Override
     public void onDestroy()
     {
 		//Toast.makeText(this, "Music Service Stopped", Toast.LENGTH_LONG).show();
@@ -61,7 +63,7 @@ public class BaseMusicService extends Service
         }
     }
 
-    //@Override
+    @Override
     public void onStart(final Intent intent, final int startid)
     {
         //Toast.makeText(this, "Music Service Started", Toast.LENGTH_LONG).show();
@@ -72,7 +74,7 @@ public class BaseMusicService extends Service
         logUtil.put(commonStrings.START, this, commonStateStrings.START);
     }
 
-    //@Override
+    @Override
     public int onStartCommand(final Intent intent, final int flags, final int startId)
     {
         onStartCommand(intent);
@@ -100,7 +102,9 @@ public class BaseMusicService extends Service
             if(player != null && player.isPlaying()) { 
                 final MediaPlayer player = this.player;
                 logUtil.put(ALREADY_PLAYING, this, commonStateStrings.ON_START_COMMAND);
-                final Runnable runnable = new Runnable() {
+                final Runnable runnable = new NullRunnable() {
+                    
+                    @Override
                     public void run() {
                         try {
                             while(player.isPlaying()) {

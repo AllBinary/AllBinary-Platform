@@ -18,6 +18,7 @@ import javax.microedition.media.Player;
 import javax.microedition.media.PlayerListener;
 
 import android.media.MediaPlayer;
+import org.allbinary.android.NullAndroidCanvas;
 import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -27,10 +28,9 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
    //implements LineListener
 {
     public static final AndroidMediaPlayerWrapper NULL_ANDROID_MEDIA_PLAYER_WRAPPER = new AndroidMediaPlayerWrapper();
-    private static final MediaPlayer NULL_MEDIA_PLAYER = new MediaPlayer();
     
     protected final LogUtil logUtil = LogUtil.getInstance();
-    private MediaPlayer mediaPlayer = AndroidMediaPlayerWrapper.NULL_MEDIA_PLAYER;
+    private MediaPlayer mediaPlayer = NullAndroidCanvas.NULL_MEDIA_PLAYER;
 
     //private AndroidMediaPlayerWrapperListener mediaPlayerHelper;
 
@@ -50,7 +50,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
                     resourceUtil.getResourceId(resource).intValue())
                     );
 
-            if(this.getMediaPlayer() == AndroidMediaPlayerWrapper.NULL_MEDIA_PLAYER)
+            if(this.getMediaPlayer() == NullAndroidCanvas.NULL_MEDIA_PLAYER)
             {
                 throw new Exception(
                         new StringMaker().append("Failed to create media player for: ")
@@ -79,7 +79,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
     {
         super.setLoopCount(count);
         
-        if(this.mediaPlayer != AndroidMediaPlayerWrapper.NULL_MEDIA_PLAYER)
+        if(this.mediaPlayer != NullAndroidCanvas.NULL_MEDIA_PLAYER)
         {
             if(count == 0)
             {
@@ -126,7 +126,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
         try
         {
             this.mediaPlayer.release();
-            this.mediaPlayer = AndroidMediaPlayerWrapper.NULL_MEDIA_PLAYER;
+            this.mediaPlayer = NullAndroidCanvas.NULL_MEDIA_PLAYER;
         }
         catch (Exception e)
         {
