@@ -46,9 +46,13 @@ import java.io.InputStream;
  *
  * @author User
  */
-public class NullAndroidContext extends Context {
+public class NullAndroidContextUpToAPI29 extends Context {
  
-    public static final NullAndroidContext NULL_ANDROID_CONTEXT = new NullAndroidContext();
+    private static final Context NULL_ANDROID_CONTEXT = new NullAndroidContextUpToAPI29();
+    
+    public static final Context getInstance() {
+        return NULL_ANDROID_CONTEXT;
+    }
     
     @Override
     public AssetManager getAssets(){throw new RuntimeException();}
