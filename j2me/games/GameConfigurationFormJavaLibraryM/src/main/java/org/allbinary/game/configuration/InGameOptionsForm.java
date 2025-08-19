@@ -53,6 +53,7 @@ public class InGameOptionsForm extends CommandForm
         this.initCommands(commandListener);
     }
     
+    @Override
     public void initCommands(CommandListener cmdListener)
     {
         this.removeAllCommands();

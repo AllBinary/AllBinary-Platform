@@ -150,6 +150,7 @@ public class GameOptionsForm extends CommandForm
         }
     }
 
+    @Override
     public void initCommands(CommandListener cmdListener)
     {
         GameCommandsFactory gameCommandsFactory = 

@@ -70,6 +70,7 @@ public class GameDifficultyOptions extends CommandForm
         gameDifficultyFactory.setLevel(this.getSelectedId());
     }
     
+    @Override
     public void initCommands(CommandListener cmdListener)
     {
         GameCommandsFactory gameCommandsFactory = 

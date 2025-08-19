@@ -22,6 +22,7 @@ public class EnableFacesShaderOpenGLProcessor extends ObjectThreedOpenGLProcesso
 
     }
 
+    @Override
     public void process(final GL10 gl, final Object object)
     {
 

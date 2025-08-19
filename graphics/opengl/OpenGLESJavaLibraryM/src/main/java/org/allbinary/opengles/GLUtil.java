@@ -38,25 +38,25 @@ public class GLUtil
 
     private final int BYTES_PER_FLOAT = 4;
         
-    public FloatBuffer makeFloatBuffer3(float $a, float $b, float $c) {
+    public FloatBuffer makeFloatBuffer3(float p_a, float p_b, float p_c) {
         final ByteBuffer b = ByteBuffer.allocateDirect(3 * BYTES_PER_FLOAT);
         b.order(ByteOrder.nativeOrder());
         final FloatBuffer buffer = b.asFloatBuffer();
-        buffer.put($a);
-        buffer.put($b);
-        buffer.put($c);
+        buffer.put(p_a);
+        buffer.put(p_b);
+        buffer.put(p_c);
         this.position(buffer, 0);
         return buffer;
     }
 
-    public FloatBuffer makeFloatBuffer4(float $a, float $b, float $c, float $d) {
+    public FloatBuffer makeFloatBuffer4(float p_a, float p_b, float p_c, float p_d) {
         final ByteBuffer b = ByteBuffer.allocateDirect(4 * BYTES_PER_FLOAT);
         b.order(ByteOrder.nativeOrder());
         final FloatBuffer buffer = b.asFloatBuffer();
-        buffer.put($a);
-        buffer.put($b);
-        buffer.put($c);
-        buffer.put($d);
+        buffer.put(p_a);
+        buffer.put(p_b);
+        buffer.put(p_c);
+        buffer.put(p_d);
         this.position(buffer, 0);
         return buffer;
     }

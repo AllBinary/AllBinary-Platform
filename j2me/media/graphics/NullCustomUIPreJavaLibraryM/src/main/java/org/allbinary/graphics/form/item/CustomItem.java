@@ -20,6 +20,11 @@ public class CustomItem
         
     }
     
+    public boolean isFocusable()
+    {
+        return false;
+    }
+    
     public String getLabel() {
         return StringUtil.getInstance().EMPTY_STRING;
     }

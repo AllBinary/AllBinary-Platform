@@ -1452,6 +1452,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         this.keyRepeated(keyCode, 0);
     }
 
+    @Override
     public void keyPressed(int keyCode, int deviceId)
     {
         //logUtil.put(new StringMaker().append(this.commonLabels.START_LABEL).append(this.inputProcessor.toString()).append(CommonSeps.getInstance().SPACE).append(keyCode).toString(), this, gameInputStrings.KEY_PRESSED);
@@ -1463,6 +1464,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         this.inputProcessor.keyPressed(keyCode, deviceId);
     }
 
+    @Override
     public void keyRepeated(int keyCode, int deviceId)
     {
         // logUtil.put("Key Repeated: " +
@@ -1475,6 +1477,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         }
     }
 
+    @Override
     public void keyReleased(final int keyCode, final int deviceId)
     {
         //logUtil.put(new StringMaker().append(this.commonLabels.START_LABEL).append(this.inputProcessor.toString()).append(CommonSeps.getInstance().SPACE).append(keyCode).toString(), this, gameInputStrings.KEY_RELEASED);

@@ -62,6 +62,10 @@ public class CommandForm extends Form
       
    }
 
+    public void initCommands(final CommandListener cmdListener)
+    {
+    }
+    
     @Override
     public void open()
     {

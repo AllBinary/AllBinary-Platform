@@ -25,6 +25,7 @@ extends TextItem
         super(label, layout, altText, backgroundBasicColor, foregroundBasicColor);
     }
 
+    @Override
     public boolean isFocusable()
     {
         return true;

@@ -248,6 +248,18 @@ public class RunnableCanvas extends MyCanvas
             */        
     }
 
+    public void keyPressed(int keyCode, int deviceId)
+    {
+    }
+
+    public void keyRepeated(int keyCode, int deviceId)
+    {
+    }
+
+    public void keyReleased(int keyCode, int deviceId)
+    {
+    }
+    
     /*
     private final int preferredFrameRate = 12;
     private final int preferredFrameTime = 1000 / preferredFrameRate;

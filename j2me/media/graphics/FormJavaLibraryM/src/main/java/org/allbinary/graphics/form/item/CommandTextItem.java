@@ -29,6 +29,7 @@ public class CommandTextItem extends TextItem {
         this.command = command;
     }
 
+    @Override
     public boolean isFocusable()
     {
         return true;

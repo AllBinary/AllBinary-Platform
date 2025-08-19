@@ -417,12 +417,14 @@ public class StartCanvas extends RunnableCanvas
         this.keyRepeated(keyCode, 0);
     }
     
+    @Override
     public void keyPressed(int keyCode, int deviceId)
     {
         // logUtil.put(commonStrings.START, this, gameInputStrings.KEY_PRESSED);
         this.addGameKeyEvent(keyCode, false);
     }
 
+    @Override
     public void keyReleased(int keyCode, int deviceId)
     {
         // logUtil.put(commonStrings.START, this, gameInputStrings.KEY_RELEASED);
@@ -431,6 +433,7 @@ public class StartCanvas extends RunnableCanvas
     private boolean isSingleKeyRepeatableProcessing =
         features.isFeature(InputFeatureFactory.getInstance().SINGLE_KEY_REPEAT_PRESS);
 
+    @Override
     public void keyRepeated(int keyCode, int deviceId)
     {
         // logUtil.put("Key Repeated: " +
