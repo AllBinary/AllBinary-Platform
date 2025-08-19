@@ -15,8 +15,6 @@ package org.allbinary.logic.java.exception;
 
 import java.io.ByteArrayOutputStream;
 
-import org.allbinary.logic.NullUtil;
-
 public class ExceptionUtil
 {
 

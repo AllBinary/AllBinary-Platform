@@ -13,8 +13,6 @@
  */
 package org.allbinary.logic.java.exception;
 
-import org.allbinary.logic.NullUtil;
-
 public class ExceptionUtil
 {
 
