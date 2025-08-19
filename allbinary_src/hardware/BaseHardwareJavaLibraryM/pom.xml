@@ -33,7 +33,7 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>J2MEExceptionLibrary</artifactId>
+            <artifactId>LogJ2MEJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->

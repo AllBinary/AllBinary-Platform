@@ -4,10 +4,16 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.form.item.CustomItem;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringUtil;
+import org.allbinary.string.CommonStrings;
 
 public class CustomForm extends CustomScreen
-{    
+{
+    protected final LogUtil logUtil = LogUtil.getInstance();
+    
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+
     public CustomForm(String title, BasicColor backgroundBasicColor,
             BasicColor foregroundBasicColor)
     {
@@ -61,6 +67,11 @@ public class CustomForm extends CustomScreen
         return CustomItem.NULL_CUSTOM_ITEM;
     }
 
+    public int getWidth()
+    {
+        throw new RuntimeException();
+    }
+    
     public void paint(Graphics graphics)
     {
     }

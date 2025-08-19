@@ -19,9 +19,6 @@ public class PaintableForm extends CustomForm
         BasicColorFactory.getInstance().BLACK, 
         BasicColorFactory.getInstance().WHITE);
 
-    protected final LogUtil logUtil = LogUtil.getInstance();
-
-    protected final CommonStrings commonStrings = CommonStrings.getInstance();
     protected final CanvasStrings canvasStrings = CanvasStrings.getInstance();
     
     protected Rectangle rectangle = RectangleFactory.SINGLETON;
@@ -61,7 +58,8 @@ public class PaintableForm extends CustomForm
         
         this.formType = formType;
     }
-    
+
+    @Override
     public int getWidth()
     {
         return this.rectangle.getWidth();
