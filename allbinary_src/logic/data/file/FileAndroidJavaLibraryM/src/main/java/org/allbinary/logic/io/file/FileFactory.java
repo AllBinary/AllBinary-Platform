@@ -16,7 +16,8 @@ package org.allbinary.logic.io.file;
 import java.io.FileNotFoundException;
 
 import android.content.Context;
-import org.allbinary.data.resource.NullAndroidContext;
+import org.allbinary.data.resource.NullAndroidContextFactory;
+
 import org.allbinary.data.resource.ResourceUtil;
 
 /**
@@ -28,7 +29,7 @@ public class FileFactory {
     private static final FileFactory SINGLETON = new FileFactory(
             ResourceUtil.getInstance().getContext());
     
-    private Context context = NullAndroidContext.NULL_ANDROID_CONTEXT;
+    private Context context = NullAndroidContextFactory.getInstance();
 
     private FileFactory(Context context)
     {
