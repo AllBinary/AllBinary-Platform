@@ -22,8 +22,7 @@ public class ApplicationConfiguration
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private static final ApplicationConfiguration instance = 
-        new ApplicationConfiguration();
+    private static final ApplicationConfiguration instance = new ApplicationConfiguration();
 
     /*
      * private boolean fullscreen = true; private boolean showTitleBar = false;
@@ -41,7 +40,7 @@ public class ApplicationConfiguration
     private boolean showTitleBar = false;
     private boolean progressBarView = false;
 
-    private static final String FILE = "ReloadConfiguration.dat";
+    private final String FILE = "ReloadConfiguration.dat";
 
     private ApplicationConfiguration()
     {

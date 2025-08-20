@@ -13,10 +13,10 @@
 */
 package org.allbinary.logic.io.file;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 
 import android.content.Context;
-import org.allbinary.data.resource.NullAndroidContextFactory;
 
 import org.allbinary.data.resource.ResourceUtil;
 
@@ -29,11 +29,11 @@ public class FileFactory {
     private static final FileFactory SINGLETON = new FileFactory(
             ResourceUtil.getInstance().getContext());
     
-    private Context context = NullAndroidContextFactory.getInstance();
+    private Context context;
 
     private FileFactory(Context context)
     {
-        this.setContext(context);
+        this.context = context;
     }
     
     public static FileFactory getInstance()
@@ -45,7 +45,13 @@ public class FileFactory {
     {
         try
         {
-            context.openFileInput(path);
+//            final File file = new File(path);
+//            if (file.exists() && file.isFile()) {
+//                return true;
+//            } else {
+//                //Some early Android devices do not give true for File checking even when file does exist
+              context.openFileInput(path);
+//            }
             return true;
         }
         catch (FileNotFoundException e)
@@ -81,11 +87,6 @@ public class FileFactory {
         }
     }    
     */
-
-    public void setContext(Context context)
-    {
-        this.context = context;
-    }
 
     public Context getContext()
     {
