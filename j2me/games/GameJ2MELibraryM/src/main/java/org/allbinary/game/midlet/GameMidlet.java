@@ -29,6 +29,7 @@ import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Displayable;
+import javax.microedition.lcdui.NullCanvas;
 
 import org.allbinary.business.advertisement.GameAdStateFactory;
 import org.allbinary.canvas.FullScreenUtil;
@@ -571,7 +572,7 @@ public class GameMidlet extends ProgressMidlet
                 final MenuListener menuListener = (MenuListener) displayable;
                 menuListener.close();
 
-                this.commandAction(GameInputMappingCanvas.DISPLAY, MyCanvas.NULL_MY_CANVAS);
+                this.commandAction(GameInputMappingCanvas.DISPLAY, NullCanvas.NULL_CANVAS);
             }
             else if (command == GameInputMappingCanvas.DISPLAY)
             {
@@ -725,7 +726,7 @@ public class GameMidlet extends ProgressMidlet
                     PreLogUtil.put(
                             BasicMotionGesturesHandler.getInstance().toString(), this, COMMAND_ACTION);
                     
-                    this.commandAction(gameCommandsFactory.START_COMMAND, MyCanvas.NULL_MY_CANVAS);
+                    this.commandAction(gameCommandsFactory.START_COMMAND, NullCanvas.NULL_CANVAS);
 
                     PreLogUtil.put(
                             BasicMotionGesturesHandler.getInstance().toString(), this, COMMAND_ACTION);
@@ -784,7 +785,7 @@ public class GameMidlet extends ProgressMidlet
             }
             else if (command == gameCommandsFactory.OPEN_WEB_URL)
             {
-                this.webCommandProcessor.process(this, gameCommandsFactory.OPEN_WEB_URL, MyCanvas.NULL_MY_CANVAS);
+                this.webCommandProcessor.process(this, gameCommandsFactory.OPEN_WEB_URL, NullCanvas.NULL_CANVAS);
             }
             else if (command == gameCommandsFactory.TOGGLE_KEYBOARD)
             {

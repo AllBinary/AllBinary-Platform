@@ -13,8 +13,9 @@
  */
 package org.allbinary.game.canvas;
 
+import javax.microedition.lcdui.Canvas;
+import javax.microedition.lcdui.NullCanvas;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
-import org.allbinary.graphics.displayable.MyCanvas;
 
 /**
  *
@@ -31,7 +32,7 @@ public class ABToGBUtil {
         return instance;
     }
 
-    public MyCanvas abCanvas = MyCanvas.NULL_MY_CANVAS;
+    public Canvas abCanvas = NullCanvas.NULL_CANVAS;
     public AllBinaryGameLayerManager allBinaryGameLayerManager = AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER;
 
 }

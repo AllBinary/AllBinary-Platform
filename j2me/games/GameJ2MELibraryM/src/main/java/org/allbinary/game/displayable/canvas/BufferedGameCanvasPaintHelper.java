@@ -13,6 +13,7 @@
 */
 package org.allbinary.game.displayable.canvas;
 
+import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.NullCanvas;
@@ -24,7 +25,7 @@ import org.allbinary.util.CircularIndexUtil;
 
 public class BufferedGameCanvasPaintHelper extends ProcessPaintable
 {
-    private MyCanvas gameCanvas = MyCanvas.NULL_MY_CANVAS;
+    private Canvas gameCanvas = NullCanvas.NULL_CANVAS;
 
     // Buffering Magic
     private final static int MAX_IMAGES = 4;
@@ -61,7 +62,8 @@ public class BufferedGameCanvasPaintHelper extends ProcessPaintable
     @Override
     public void process()
     {
-        this.gameCanvas.draw(this.offScreenImage[this.circularIndexUtil.getIndex()].getGraphics());
+        final MyCanvas myCanvas = ((MyCanvas) this.gameCanvas);
+        myCanvas.draw(this.offScreenImage[this.circularIndexUtil.getIndex()].getGraphics());
 
         this.circularIndexUtil.next();
         this.drawCircularIndexUtil.next();

@@ -14,6 +14,8 @@
 
 package org.allbinary.game.displayable.canvas;
 
+import javax.microedition.lcdui.Canvas;
+import javax.microedition.lcdui.NullCanvas;
 import org.allbinary.game.input.PlayerGameInput;
 import org.allbinary.graphics.displayable.MyCanvas;
 import org.allbinary.input.motion.gesture.observer.BaseMotionGestureEventListener;
@@ -25,13 +27,13 @@ public class BasicMenuInputProcessor extends PlayerGameInput
 {
 
     public final BasicArrayList motionGestureEventList = new BasicArrayList();
-    private MyCanvas canvas = MyCanvas.NULL_MY_CANVAS;
+    private Canvas canvas = NullCanvas.NULL_CANVAS;
     
-    protected BasicMenuInputProcessor(BasicArrayList gameKeyEventList, int playerInputId, MyCanvas gameCanvas)
+    protected BasicMenuInputProcessor(BasicArrayList gameKeyEventList, int playerInputId, Canvas gameCanvas)
     {
         super(gameKeyEventList, playerInputId);
         
-        this.setCanvas(gameCanvas);
+        this.canvas = gameCanvas;
     }
     
     @Override
@@ -51,7 +53,7 @@ public class BasicMenuInputProcessor extends PlayerGameInput
 
     protected MyCanvas getCanvas()
     {
-        return canvas;
+        return (MyCanvas) canvas;
     }
 
     public int processInput()
