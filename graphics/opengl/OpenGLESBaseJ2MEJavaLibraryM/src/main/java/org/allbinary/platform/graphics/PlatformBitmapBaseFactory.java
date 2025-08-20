@@ -21,6 +21,8 @@ import javax.microedition.lcdui.Image;
  */
 public class PlatformBitmapBaseFactory {
     
+    public static final PlatformBitmapBaseFactory NULL_PLATFORM_BITMAP_BASE_FACTORY = new PlatformBitmapBaseFactory();
+    
     public PlatformBitmapBase createBitmap(final Image image) {
         throw new RuntimeException();
     }

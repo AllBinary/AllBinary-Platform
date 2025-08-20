@@ -42,7 +42,7 @@ public class ResourceUtil
     }
     
     //private Activity activity;
-    private Context context = NullAndroidContextFactory.getInstance();
+    private Object context = NullUtil.getInstance().NULL_OBJECT;
     private Object resources = NullUtil.getInstance().NULL_OBJECT;
     private Hashtable hashMap = new Hashtable();
 
@@ -52,7 +52,7 @@ public class ResourceUtil
     
     public Context getContext()
     {
-        return context;
+        return (Context) context;
     }
 
     /*

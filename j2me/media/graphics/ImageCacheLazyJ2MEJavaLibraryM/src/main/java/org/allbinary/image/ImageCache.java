@@ -136,7 +136,7 @@ public class ImageCache extends ImageCacheBase {
     private Processor processor = new FirstProcessor();
     private Processor endProcessor = Processor.getInstance();
     
-    protected ImageCache() // CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface)
+    public ImageCache() // CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface)
     {
     }
 

@@ -14,20 +14,20 @@
 package org.allbinary.logic.io;
 
 import android.content.Context;
-import org.allbinary.data.resource.NullAndroidContextFactory;
 
 import org.allbinary.data.resource.ResourceUtil;
+import org.allbinary.logic.NullUtil;
 
 public class FileStreamFactory
 {
     private static final FileStreamFactory SINGLETON = new FileStreamFactory(
             ResourceUtil.getInstance().getContext());
 
-    private Context context = NullAndroidContextFactory.getInstance();
+    private Object context;
 
-    private FileStreamFactory(Context context)
+    private FileStreamFactory(final Context context)
     {
-        this.setContext(context);
+        this.context = context;
     }
 
     public static FileStreamFactory getInstance()
@@ -35,31 +35,25 @@ public class FileStreamFactory
         return SINGLETON;
     }
 
-    public AbFileInputStream getFileInputStreamInstance(String path,
-            String fileName) throws Exception
+    public AbFileInputStream getFileInputStreamInstance(final String path, final String fileName) throws Exception
     {
         return new AbFileInputStream(this.getContext().openFileInput(fileName));
     }
 
-    public AbFileOutputStream getFileOutputStreamInstance(String path,
-            String fileName) throws Exception
+    public AbFileOutputStream getFileOutputStreamInstance(final String path, final String fileName) throws Exception
     {
-        this.getContext().deleteFile(fileName);
-        return new AbFileOutputStream(this.getContext().openFileOutput(fileName, 0));
+        final Context context = this.getContext();
+        context.deleteFile(fileName);
+        return new AbFileOutputStream(context.openFileOutput(fileName, 0));
     }
 
-    public void delete(String path, String fileName) throws Exception
+    public void delete(final String path, final String fileName) throws Exception
     {
         this.getContext().deleteFile(fileName);
-    }
-
-    private void setContext(Context context)
-    {
-        this.context = context;
     }
 
     private Context getContext()
     {
-        return context;
+        return (Context) context;
     }
 }
