@@ -16,6 +16,7 @@ package org.allbinary.image;
 import java.io.InputStream;
 
 import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.NullCanvas;
 
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
@@ -45,7 +46,7 @@ public class ImageCache extends ImageCacheBase
         int foundIndex = this.getIndex(width, height);
         Image image = this.getFromAvailable(foundIndex, width, height);
 
-        if (image == null)
+        if (image == NullCanvas.NULL_IMAGE)
         {
             volume += width * height;
             if (volume > 32000)

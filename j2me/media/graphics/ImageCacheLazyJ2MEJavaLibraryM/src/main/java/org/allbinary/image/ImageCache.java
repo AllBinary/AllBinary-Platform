@@ -16,6 +16,7 @@ package org.allbinary.image;
 import java.io.InputStream;
 
 import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.NullCanvas;
 
 import org.allbinary.animation.image.LazyImageRotationAnimation;
 import org.allbinary.canvas.GameGlobalsFactory;
@@ -358,7 +359,7 @@ public class ImageCache extends ImageCacheBase {
         int foundIndex = this.getIndex(width, height);
         Image image = this.getFromAvailable(foundIndex, width, height);
 
-        if (image == null) {
+        if (image == NullCanvas.NULL_IMAGE) {
             volume += width * height;
             if (volume > 32000) {
                 //logUtil.put(new StringMaker().append("Image for: ").append(caller).toString(), this, commonStrings.GET);

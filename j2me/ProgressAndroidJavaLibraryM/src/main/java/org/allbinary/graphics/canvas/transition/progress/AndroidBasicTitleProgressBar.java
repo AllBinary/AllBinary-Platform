@@ -354,17 +354,17 @@ implements DisplayChangeEventListener
     private void setImages(int index, int lastWidth, int lastHeight)
     throws Exception
     {
-        if (this.image != null)
+        final Image image = this.image;
+        if (image != NullCanvas.NULL_IMAGE)
         {
-            if (Features.getInstance().isFeature(
-                    MainFeatureFactory.getInstance().FULL_SCREEN))
+            if (Features.getInstance().isFeature(MainFeatureFactory.getInstance().FULL_SCREEN))
             {
                 if (this.IMAGE[index] == null)
                 {
                     this.IMAGE[index] = ImageScaleUtil.getInstance().createImage(
-                            ImageCacheFactory.getInstance(), this.image,
-                            (float) lastWidth, (float) this.image.getWidth(), (float) lastHeight - 20,
-                            (float) this.image.getHeight(), false);
+                            ImageCacheFactory.getInstance(), image,
+                            (float) lastWidth, (float) image.getWidth(), (float) lastHeight - 20,
+                            (float) image.getHeight(), false);
                 }
             }
             else
@@ -373,9 +373,9 @@ implements DisplayChangeEventListener
                 if (this.IMAGE[nextIndex] == null)
                 {
                     this.IMAGE[nextIndex] = ImageScaleUtil.getInstance().createImage(
-                            ImageCacheFactory.getInstance(), this.image,
-                            (float) lastWidth, (float) this.image.getWidth(), (float) lastHeight - 28,
-                            (float) this.image.getHeight(), false);
+                            ImageCacheFactory.getInstance(), image,
+                            (float) lastWidth, (float) image.getWidth(), (float) lastHeight - 28,
+                            (float) image.getHeight(), false);
                 }
             }
         }

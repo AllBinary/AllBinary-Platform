@@ -45,19 +45,18 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
         {
             ResourceUtil resourceUtil = ResourceUtil.getInstance();
             
-            this.setMediaPlayer(
-                    MediaPlayer.create(resourceUtil.getContext(),
-                    resourceUtil.getResourceId(resource).intValue())
-                    );
+            final MediaPlayer mediaPlayer = MediaPlayer.create(resourceUtil.getContext(),resourceUtil.getResourceId(resource).intValue());
 
-            if(this.getMediaPlayer() == NullAndroidCanvas.NULL_MEDIA_PLAYER)
+            if(mediaPlayer == null)
             {
                 throw new Exception(
                         new StringMaker().append("Failed to create media player for: ")
                             .append(resource).append(" with id: ")
                             .append(resourceUtil.getResourceId(resource).toString()).toString());
             }
-            
+
+            this.setMediaPlayer(mediaPlayer);
+
             this.mediaPlayer.setLooping(false);
             
             // TWB- M5 does the prepare in the create method now
@@ -79,7 +78,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
     {
         super.setLoopCount(count);
         
-        if(this.mediaPlayer != NullAndroidCanvas.NULL_MEDIA_PLAYER)
+        if(this.mediaPlayer != NullAndroidCanvas.NULL_MEDIA_PLAYER && this.mediaPlayer != null)
         {
             if(count == 0)
             {

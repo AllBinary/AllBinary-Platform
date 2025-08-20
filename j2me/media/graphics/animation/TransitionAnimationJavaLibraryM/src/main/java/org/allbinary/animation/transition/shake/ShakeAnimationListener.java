@@ -32,4 +32,9 @@ public class ShakeAnimationListener
     {
        
     }
+    
+    public int getType() {
+        return 0;
+    }
+
 }
