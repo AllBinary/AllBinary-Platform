@@ -38,9 +38,9 @@
         <module>../AndroidToJ2MELibraryM</module>
         -->
         <module>../../android/AndroidUtilJavaLibraryM</module>
-        <module>../../AndroidBaseJavaLibraryM</module>
-        <module>../../OpenGLAndroidJavaLibraryM</module>
         <!--
+        <module>../../OpenGLAndroidJavaLibraryM</module>
+        <module>../../AndroidBaseJavaLibraryM</module>
         <module>../../android/AndroidAPI5AndUpJavaLibraryM</module>
         <module>../../android/AndroidThroughAPI2JavaLibraryM</module>
         <module>../../android/AndroidThroughAPI4JavaLibraryM</module>
