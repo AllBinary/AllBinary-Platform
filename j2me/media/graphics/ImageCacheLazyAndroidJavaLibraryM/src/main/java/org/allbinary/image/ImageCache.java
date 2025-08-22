@@ -74,14 +74,14 @@ public class ImageCache extends ImageCacheBase
 
         return image;
     }
-    
+            
     public Image get(final Object key) throws Exception
     {
         final ResourceUtil resourceUtil = ResourceUtil.getInstance();
         final Integer resourceId = resourceUtil.getResourceId((String) key);
-        Image image = (Image) this.hashtable.get(resourceId);
+        Image image = this.getImage(resourceId);
 
-        if (image == null)
+        if (image == NullCanvas.NULL_IMAGE)
         {
             //final InputStream inputStream = resourceUtil.getResourceAsStream((String) key);
             final InputStream inputStream = null;

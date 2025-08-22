@@ -86,9 +86,9 @@ public class ImageCache extends ImageCacheBase
     @Override    
     public Image get(final Object key) throws Exception
     {
-        Image image = (Image) this.hashtable.get(key);
+        Image image = this.getImage(key);
 
-        if (image == null)
+        if (image == NullCanvas.NULL_IMAGE)
         {
             final ResourceUtil resourceUtil = ResourceUtil.getInstance();
             final InputStream inputStream = resourceUtil.getResourceAsStream((String) key);
