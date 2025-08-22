@@ -13,6 +13,7 @@
 */
 package org.allbinary.game.input;
 
+import org.allbinary.game.configuration.persistance.GamePersistanceStrings;
 import org.allbinary.game.input.mapping.InputToGameKeyMapping;
 import org.allbinary.game.input.mapping.PersistentInputMapping;
 
@@ -20,7 +21,7 @@ public class NormalJ2MEDefaultGameInputMapping extends PersistentInputMapping
 {
     public NormalJ2MEDefaultGameInputMapping()
     {
-        super(PersistentInputMapping.DEFAULT_RECORD_ID);
+        super(GamePersistanceStrings.getInstance().DEFAULT_INPUT_MAPPING_RECORD_ID);
 
         InputToGameKeyMapping inputToGameKeyMapping = this.getInputMapping();
 

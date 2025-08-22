@@ -15,6 +15,7 @@ package org.allbinary.game.input;
 
 //import org.allbinary.input.gyro.OrientationMotionGestureFactory;
 
+import org.allbinary.game.configuration.persistance.GamePersistanceStrings;
 import org.allbinary.game.input.mapping.InputToGameKeyMapping;
 import org.allbinary.game.input.mapping.PersistentInputMapping;
 
@@ -23,7 +24,7 @@ extends PersistentInputMapping
 {
     public DesktopDefaultGameInputMapping()
     {
-        super(PersistentInputMapping.DEFAULT_RECORD_ID);
+        super(GamePersistanceStrings.getInstance().DEFAULT_INPUT_MAPPING_RECORD_ID);
 
         final InputToGameKeyMapping inputToGameKeyMapping = this.getInputMapping();
         

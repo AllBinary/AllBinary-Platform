@@ -27,7 +27,6 @@ public class AbeClientInformation extends ClientInformation
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private final String NONE = "No License Id";
     public AbeClientInformation(final String name, final String version, final String specialName, final String shortName)
     {
         super(name, version, specialName, shortName);
@@ -50,6 +49,7 @@ public class AbeClientInformation extends ClientInformation
             
             if (stringValidationUtil.isEmpty(this.getLicenseId()))
             {
+                final String NONE = "No License Id";
                 this.setLicenseId(NONE);
             }
 

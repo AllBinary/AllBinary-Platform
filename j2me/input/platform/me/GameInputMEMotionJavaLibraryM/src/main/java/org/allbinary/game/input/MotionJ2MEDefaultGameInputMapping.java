@@ -13,6 +13,7 @@
 */
 package org.allbinary.game.input;
 
+import org.allbinary.game.configuration.persistance.GamePersistanceStrings;
 import org.allbinary.game.input.mapping.InputToGameKeyMapping;
 import org.allbinary.game.input.mapping.PersistentInputMapping;
 import org.allbinary.input.motion.button.BasicTouchInputFactory;
@@ -23,7 +24,7 @@ public class MotionJ2MEDefaultGameInputMapping
 {
     public MotionJ2MEDefaultGameInputMapping()
     {
-        super(PersistentInputMapping.DEFAULT_RECORD_ID);
+        super(GamePersistanceStrings.getInstance().DEFAULT_INPUT_MAPPING_RECORD_ID);
 
         final InputToGameKeyMapping inputToGameKeyMapping = this.getInputMapping();
         final GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();

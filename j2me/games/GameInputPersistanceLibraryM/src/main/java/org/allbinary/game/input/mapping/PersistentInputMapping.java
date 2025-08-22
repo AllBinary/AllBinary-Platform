@@ -15,6 +15,7 @@ package org.allbinary.game.input.mapping;
 
 import java.util.Enumeration;
 import java.util.Hashtable;
+import org.allbinary.game.configuration.persistance.GamePersistanceStrings;
 
 import org.allbinary.game.input.Input;
 import org.allbinary.game.input.InputPersistance;
@@ -36,11 +37,6 @@ public class PersistentInputMapping
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
-    //_Default_Input_Mapping
-    public static final String DEFAULT_RECORD_ID = "_DIM";
-    //_Saved_Input_Configuration
-    public static final String RECORD_ID = "_SIC";
-
     private final InputToGameKeyMapping inputMapping = new InputToGameKeyMapping();
     
     private InputMappingEventListenerInterface inputMappingEventListenerInterface = 
@@ -50,7 +46,7 @@ public class PersistentInputMapping
 
     protected PersistentInputMapping()
     {
-        inputPersistance = new InputPersistance(PersistentInputMapping.RECORD_ID);
+        inputPersistance = new InputPersistance(GamePersistanceStrings.getInstance().SAVED_INPUT_CONFIGURATION_RECORD_ID);
     }
 
     protected PersistentInputMapping(String name)
