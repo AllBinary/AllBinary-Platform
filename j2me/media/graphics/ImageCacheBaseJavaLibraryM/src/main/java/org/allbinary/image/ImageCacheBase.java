@@ -58,12 +58,12 @@ public class ImageCacheBase
     }
     
     protected Image getImage(final Object resourceId) {
-       final Image imageCanBeNull = (Image) this.hashtable.get(resourceId);
+       final Object imageCanBeNull =  this.hashtable.get(resourceId);
        if(imageCanBeNull == null) {
            return NullCanvas.NULL_IMAGE;
        }
            
-       return imageCanBeNull;
+       return (Image) imageCanBeNull;
     }
     
     public void releaseAll()
