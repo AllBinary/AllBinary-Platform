@@ -23,8 +23,6 @@ public class Input
     
     private int id;
     private String name = StringUtil.getInstance().EMPTY_STRING;
-
-    protected final InputFactory inputFactory = InputFactory.getInstance();
     
     public Input(int id, String name)
     {

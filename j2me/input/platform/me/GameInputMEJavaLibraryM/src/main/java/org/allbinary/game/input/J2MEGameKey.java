@@ -26,6 +26,7 @@ public class J2MEGameKey extends Input
         int id = this.getId();
         if(id >= 0)
         {
+            final InputFactory inputFactory = InputFactory.getInstance();
             inputFactory.add(id, this);
         }
     }

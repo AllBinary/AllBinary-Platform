@@ -14,6 +14,7 @@
 package org.allbinary.input.motion.gesture;
 
 import org.allbinary.game.input.Input;
+import org.allbinary.game.input.InputFactory;
 
 public final class MotionGestureInput extends Input
 {
@@ -23,6 +24,7 @@ public final class MotionGestureInput extends Input
     {
         super(id,  name);
 
-        this.inputFactory.add(this.getId(), this);
+        final InputFactory inputFactory = InputFactory.getInstance();
+        inputFactory.add(this.getId(), this);
     }
 }

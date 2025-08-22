@@ -16,6 +16,7 @@ package org.allbinary.input.motion.button;
 import org.allbinary.game.input.GameKey;
 import org.allbinary.game.input.GameKeyEventSourceInterface;
 import org.allbinary.game.input.Input;
+import org.allbinary.game.input.InputFactory;
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.input.event.GameKeyEventFactory;
 import org.allbinary.game.input.mapping.InputToGameKeyMapping;
@@ -36,7 +37,8 @@ public final class TouchButtonInput extends Input
     {
         super(id, name);
 
-        this.inputFactory.add(this.getId(), this);
+        final InputFactory inputFactory = InputFactory.getInstance();
+        inputFactory.add(this.getId(), this);
         
         //logUtil.put("Created", this, commonStrings.CONSTRUCTOR);
     }

@@ -58,6 +58,7 @@ public class AbeClientInformation extends ClientInformation
         }
         catch (Exception e)
         {
+            final LogUtil logUtil = LogUtil.getInstance();
             final CommonStrings commonStrings = CommonStrings.getInstance();
             logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
         }

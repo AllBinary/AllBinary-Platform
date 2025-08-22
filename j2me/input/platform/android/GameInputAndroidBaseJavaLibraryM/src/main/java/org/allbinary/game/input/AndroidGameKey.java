@@ -4,11 +4,13 @@ import org.allbinary.logic.string.StringUtil;
 
 public class AndroidGameKey extends Input
 {
+
     AndroidGameKey(int keyCode, String name)
     {
         super(keyCode, name);
         
-        this.inputFactory.inputIntegerArray[this.getId()] = this;
+        final InputFactory inputFactory = InputFactory.getInstance();
+        inputFactory.inputIntegerArray[this.getId()] = this;
     }
     
     public String toString()
