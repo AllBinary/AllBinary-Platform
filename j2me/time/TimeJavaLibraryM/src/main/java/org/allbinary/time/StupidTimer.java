@@ -67,9 +67,11 @@ public class StupidTimer
         }
     }
 
-    public synchronized void stopWaiting()
+    public void stopWaiting()
     throws Exception
     {
-        this.threadObjectUtil.notifyObject(this);
+        synchronized (this) {
+            this.threadObjectUtil.notifyObject(this);
+        }
     }
 }

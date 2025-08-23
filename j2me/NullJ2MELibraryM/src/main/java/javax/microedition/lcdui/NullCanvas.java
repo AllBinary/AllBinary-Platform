@@ -29,23 +29,23 @@ public class NullCanvas extends Canvas
         throw new RuntimeException();
     }
 
-    public synchronized boolean isCommand(Command command)
+    public boolean isCommand(Command command)
     {
         throw new RuntimeException();
     }
 
     @Override
-    public synchronized void addCommand(Command command)
+    public void addCommand(Command command)
     {
 
     }
 
     @Override
-    public synchronized void removeCommand(Command command)
+    public void removeCommand(Command command)
     {
     }
 
-    public synchronized void removeAllCommands()
+    public void removeAllCommands()
     {
     }
     
@@ -59,7 +59,7 @@ public class NullCanvas extends Canvas
         throw new RuntimeException();
     }
 
-    public synchronized boolean isPaused()
+    public boolean isPaused()
     {
         throw new RuntimeException();
     }
@@ -69,11 +69,11 @@ public class NullCanvas extends Canvas
         
     }
 
-    public synchronized void pause()
+    public void pause()
     {
     }
 
-    public synchronized void unPause()
+    public void unPause()
     {
     }
 

@@ -207,11 +207,13 @@ public class RunnableCanvas extends MyCanvas
 
     private boolean notified = false;
 
-    private synchronized void stopWaiting()
+    private void stopWaiting()
     throws Exception
     {
         this.notified = true;
-        ThreadObjectUtil.getInstance().notifyObject(this);
+        synchronized (this) {
+            this.threadObjectUtil.notifyObject(this);
+        }
         //System.out.println("TWB:RunnableCanvas:stopWaiting:repaint");
         this.repaint();
     }

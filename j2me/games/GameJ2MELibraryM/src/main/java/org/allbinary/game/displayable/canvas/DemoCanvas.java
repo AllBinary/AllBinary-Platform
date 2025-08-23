@@ -312,8 +312,7 @@ public class DemoCanvas extends RunnableCanvas
             
             commandList.add(gameCommandsFactory.DISPLAY_ABOUT);
             
-            final Command[] commandArray = (Command[])
-                    commandList.toArray(new Command[commandList.size()]);
+            final Command[] commandArray = (Command[]) commandList.toArray(new Command[commandList.size()]);
 
             return commandArray;
         }
