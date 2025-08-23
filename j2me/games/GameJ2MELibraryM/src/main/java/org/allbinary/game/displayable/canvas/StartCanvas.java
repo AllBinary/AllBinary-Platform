@@ -237,14 +237,14 @@ public class StartCanvas extends RunnableCanvas
         }
     }
     
-    protected Command[] getCustomCommands()
+    protected Object[] getCustomCommands()
     {
         final GameCommandsFactory gameCommandsFactory = GameCommandsFactory.getInstance();
 
         if (features.isDefault(htmlFeatureFactory.HTML))
         {
             //TWB - Removed Options that are not HTML5 capable yet
-            final Command[] commandArray =
+            final Object[] commandArray =
             {
                 gameCommandsFactory.START_COMMAND,
                 HighScoreCommands.getInstance().DISPLAY,
@@ -291,8 +291,7 @@ public class StartCanvas extends RunnableCanvas
             
             commandList.add(gameCommandsFactory.DISPLAY_ABOUT);
             
-            final Command[] commandArray = (Command[])
-                    commandList.toArray(new Command[commandList.size()]);
+            final Object[] commandArray = commandList.toArray();
 
             return commandArray;
         }
@@ -303,12 +302,12 @@ public class StartCanvas extends RunnableCanvas
     {
         this.removeAllCommands();
 
-        Command[] commandArray = getCustomCommands();
+        Object[] commandArray = getCustomCommands();
 
         int size = commandArray.length;
         for (int index = 0; index < size; index++)
         {
-            this.addCommand(commandArray[index]);
+            this.addCommand((Command) commandArray[index]);
         }
 
         // this.addCommand(GameCommands.SELECTCOMMAND);
