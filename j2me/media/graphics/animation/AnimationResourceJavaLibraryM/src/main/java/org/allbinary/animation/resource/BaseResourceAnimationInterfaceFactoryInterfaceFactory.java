@@ -16,8 +16,10 @@ package org.allbinary.animation.resource;
 import java.util.Hashtable;
 
 import org.allbinary.animation.BasicAnimationInterfaceFactoryInterface;
+import org.allbinary.animation.NullAnimationFactory;
 import org.allbinary.game.resource.ResourceLoadingLevelFactory;
 import org.allbinary.graphics.Rectangle;
+import org.allbinary.graphics.RectangleFactory;
 import org.allbinary.image.ImageCache;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -63,9 +65,7 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
     public void init(final int level) throws Exception
     {
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        logUtil.put(
-                new StringMaker().append("Available List of Animations: ").append(hashtable.toString()).toString(),
-                this, commonStrings.INIT);
+        logUtil.put(new StringMaker().append("Available List of Animations: ").append(hashtable.toString()).toString(),this, commonStrings.INIT);
 
         this.setInitialized(true);
     }
@@ -90,16 +90,27 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
     }
 
     @Override
-    public BasicAnimationInterfaceFactoryInterface getBasicAnimationInterfaceFactoryInstance(
-            final String resource) throws Exception
+    public BasicAnimationInterfaceFactoryInterface getBasicAnimationInterfaceFactoryInstance(final String resource) throws Exception
     {
-        return (BasicAnimationInterfaceFactoryInterface) hashtable.get(resource);
+        final Object basicAnimationInterfaceFactoryInterfaceCanBeNull = hashtable.get(resource);
+        
+        if(basicAnimationInterfaceFactoryInterfaceCanBeNull == null) {
+            return NullAnimationFactory.NULL_NOT_FOR_USE_ANIMATION_FACTORY;
+        }
+        
+        return (BasicAnimationInterfaceFactoryInterface) basicAnimationInterfaceFactoryInterfaceCanBeNull;
     }
 
     @Override
     public Rectangle getRectangle(final String resource) throws Exception
     {
-        return (Rectangle) rectangleHashtable.get(resource);
+        final Object rectangleCanBeNull = rectangleHashtable.get(resource);
+        
+        if(rectangleCanBeNull == null) {
+            return RectangleFactory.SINGLETON;
+        }
+        
+        return (Rectangle) rectangleCanBeNull;
     }
 
     public void addRectangle(final String resource, final Rectangle rectangle) throws Exception

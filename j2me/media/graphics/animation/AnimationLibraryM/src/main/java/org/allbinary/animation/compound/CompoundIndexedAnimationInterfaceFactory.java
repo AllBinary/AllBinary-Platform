@@ -34,13 +34,12 @@ public class CompoundIndexedAnimationInterfaceFactory
 
     @Override
     protected Animation[] createArray(final int size) {
-        return new IndexedAnimation[size];
+        return new Animation[size];
     }
     
     @Override
-    protected Animation getInstance(final Animation[] animationInterfaceArray) {
-        final IndexedAnimation[] indexedAnimationArray = (IndexedAnimation[]) animationInterfaceArray;
-        return new CompoundIndexedAnimation(indexedAnimationArray, this.animationBehaviorFactory.getOrCreateInstance());
+    protected Animation getInstance(final Animation[] animationArray) {
+        return new CompoundIndexedAnimation(animationArray, this.animationBehaviorFactory.getOrCreateInstance());
     }
     
 }

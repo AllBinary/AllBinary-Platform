@@ -18,6 +18,7 @@ import org.allbinary.game.configuration.GameConfigurationCentral;
 import org.allbinary.game.resource.FeaturedResourceFactory;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;
+import org.allbinary.graphics.RectangleFactory;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonSeps;
@@ -47,22 +48,22 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
         return getRectangle(resource, 0, 0);
     }
 
-    public Rectangle getRectangle(String resource, int x, int y)
+    public Rectangle getRectangle(final String resource, final int x, final int y)
             throws Exception
     {
         final BasicArrayList list = this.getList();
-        int scale = GameConfigurationCentral.getInstance().SCALE.getValue().intValue();
-        int size = getList().size();
+        final int scale = GameConfigurationCentral.getInstance().SCALE.getValue().intValue();
+        final int size = getList().size();
         for (int index = 0; index < size; index++)
         {
-            FeatureResourceAnimationInterfaceFactoryInterface featureInterface = 
+            final FeatureResourceAnimationInterfaceFactoryInterface featureInterface = 
                 (FeatureResourceAnimationInterfaceFactoryInterface) list.objectArray[index];
 
             if (featureInterface.isFeature())
             {
-                Rectangle rectangle = featureInterface.getRectangle(resource);
+                final Rectangle rectangle = featureInterface.getRectangle(resource);
 
-                if (rectangle != null)
+                if (rectangle != RectangleFactory.SINGLETON)
                 {
                     return new Rectangle(PointFactory.getInstance().getInstance(x, y),
                             ((rectangle.getWidth() * scale) >> 1), ((rectangle.getHeight() * scale) >> 1));
@@ -93,26 +94,25 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
         return (AnimationInterfaceFactoryInterface) getBasicAnimationInterfaceFactoryInstance(resource);
     }
 
-    private BasicAnimationInterfaceFactoryInterface getBasicAnimationInterfaceFactoryInstance(
-            String resource) throws Exception
+    private BasicAnimationInterfaceFactoryInterface getBasicAnimationInterfaceFactoryInstance(final String resource) throws Exception
     {
 
         final BasicArrayList list = this.getList();
         final BasicArrayList resourceTypeAvailableList = new BasicArrayList();
         int size = getList().size();
+        FeatureResourceAnimationInterfaceFactoryInterface featureInterface;
+        BasicAnimationInterfaceFactoryInterface animationInterfaceFactoryInterface;
         for (int index = 0; index < size; index++)
         {
-            FeatureResourceAnimationInterfaceFactoryInterface featureInterface = 
-                (FeatureResourceAnimationInterfaceFactoryInterface) list.objectArray[index];
+            featureInterface = (FeatureResourceAnimationInterfaceFactoryInterface) list.objectArray[index];
 
             if (featureInterface.isFeature())
             {
                 resourceTypeAvailableList.add(featureInterface);
 
-                BasicAnimationInterfaceFactoryInterface animationInterfaceFactoryInterface
-                        = featureInterface.getBasicAnimationInterfaceFactoryInstance(resource);
+                animationInterfaceFactoryInterface = featureInterface.getBasicAnimationInterfaceFactoryInstance(resource);
 
-                if (animationInterfaceFactoryInterface != null)
+                if (animationInterfaceFactoryInterface != NullAnimationFactory.NULL_NOT_FOR_USE_ANIMATION_FACTORY)
                 {
                     return animationInterfaceFactoryInterface;
                 }
@@ -132,7 +132,7 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
             final String HAS_KEY = " has: ";
             final String RESOURCES_LABEL = " resources ";
 
-            StringMaker stringBuffer = new StringMaker();
+            final StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append(NO_ANIMATION_AVAILABLE_FROM);
             stringBuffer.append(resourceTypeAvailableList.size());
@@ -153,7 +153,7 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
             {
                 stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
 
-                FeatureResourceAnimationInterfaceFactoryInterface featureInterface = (FeatureResourceAnimationInterfaceFactoryInterface) list.objectArray[index];
+                featureInterface = (FeatureResourceAnimationInterfaceFactoryInterface) list.objectArray[index];
                 if (featureInterface.isFeature())
                 {
                     stringBuffer.append(StringUtil.getInstance().toString(featureInterface));
@@ -172,16 +172,14 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
             final StringMaker stringBuffer = new StringMaker();
             for (int index = 0; index < size; index++)
             {
-                FeatureResourceAnimationInterfaceFactoryInterface featureInterface
-                        = (FeatureResourceAnimationInterfaceFactoryInterface) list.objectArray[index];
+                featureInterface = (FeatureResourceAnimationInterfaceFactoryInterface) list.objectArray[index];
                 stringBuffer.append(featureInterface.toString());
                 stringBuffer.append(CommonSeps.getInstance().SPACE);
             }
 
             final String result = stringBuffer.toString();
             stringBuffer.delete(0, stringBuffer.length());
-            throw new Exception(
-                    stringBuffer.append("No feature resource type available for Resource: ").append(resource).append(" Resource Factories Available: ").append(result).toString());
+            throw new Exception(stringBuffer.append("No feature resource type available for Resource: ").append(resource).append(" Resource Factories Available: ").append(result).toString());
         }
     }
 }

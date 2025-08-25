@@ -15,6 +15,7 @@ package org.allbinary.animation.compound;
 
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.lcdui.Graphics;
+import org.allbinary.animation.Animation;
 
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.IndexedAnimation;
@@ -30,9 +31,9 @@ public class CompoundIndexedAnimation extends IndexedAnimation
     implements CompoundAnimationInterface
 {
     private CircularIndexUtil circularIndexUtil;
-    private IndexedAnimation[] animationInterfaceArray;
+    private Animation[] animationInterfaceArray;
 
-    public CompoundIndexedAnimation(final IndexedAnimation[] animationInterfaceArray, final AnimationBehavior animationBehavior)
+    public CompoundIndexedAnimation(final Animation[] animationInterfaceArray, final AnimationBehavior animationBehavior)
     {
         super(animationBehavior);
 
@@ -43,25 +44,29 @@ public class CompoundIndexedAnimation extends IndexedAnimation
     @Override
     public void setFrame(final int index)
     {
-        this.animationInterfaceArray[this.circularIndexUtil.getIndex()].setFrame(index);
+        final IndexedAnimation indexedAnimation = (IndexedAnimation) this.animationInterfaceArray[this.circularIndexUtil.getIndex()];
+        indexedAnimation.setFrame(index);
     }
 
     @Override
     public int getFrame()
     {
-        return this.animationInterfaceArray[this.circularIndexUtil.getIndex()].getFrame();
+        final IndexedAnimation indexedAnimation = (IndexedAnimation) this.animationInterfaceArray[this.circularIndexUtil.getIndex()];
+        return indexedAnimation.getFrame();
     }
 
     @Override
     public int getSize()
     {
-        return this.animationInterfaceArray[this.circularIndexUtil.getIndex()].getSize();
+        final IndexedAnimation indexedAnimation = (IndexedAnimation) this.animationInterfaceArray[this.circularIndexUtil.getIndex()];
+        return indexedAnimation.getSize();
     }
 
     @Override
     public void previousFrame()
     {
-        this.animationInterfaceArray[this.circularIndexUtil.getIndex()].previousFrame();
+        final IndexedAnimation indexedAnimation = (IndexedAnimation) this.animationInterfaceArray[this.circularIndexUtil.getIndex()];
+        indexedAnimation.previousFrame();
     }
 
     @Override
@@ -97,7 +102,7 @@ public class CompoundIndexedAnimation extends IndexedAnimation
     @Override
     public IndexedAnimation getCurrentAnimation()
     {
-        return this.animationInterfaceArray[this.circularIndexUtil.getIndex()];
+        return (IndexedAnimation) this.animationInterfaceArray[this.circularIndexUtil.getIndex()];
     }
     
     @Override
@@ -131,7 +136,7 @@ public class CompoundIndexedAnimation extends IndexedAnimation
     /**
      * @return the animationInterfaceArray
      */
-    public IndexedAnimation[] getAnimationInterfaceArray()
+    public Animation[] getAnimationInterfaceArray()
     {
         return animationInterfaceArray;
     }
@@ -139,7 +144,7 @@ public class CompoundIndexedAnimation extends IndexedAnimation
     /**
      * @param animationInterfaceArray the animationInterfaceArray to set
      */
-    public void setAnimationInterfaceArray(final IndexedAnimation[] animationInterfaceArray)
+    public void setAnimationInterfaceArray(final Animation[] animationInterfaceArray)
     {
         this.animationInterfaceArray = animationInterfaceArray;
     }

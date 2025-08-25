@@ -66,7 +66,12 @@ public class MakeCountedPartsSingletonArrayFactory
         final CommonStrings commonStrings = CommonStrings.getInstance();
         logUtil.put(stringBuffer.toString(), this, commonStrings.GET_INSTANCE);
 
-        final PartInterface[] newPartInterfaceArray = (PartInterface[]) list.toArray(new PartInterface[list.size()]);
+        //final PartInterface[] newPartInterfaceArray = (PartInterface[]) list.toArray(new PartInterface[list.size()]);
+        final PartInterface[] newPartInterfaceArray = new PartInterface[list.size()];
+        for(int index = 0; index < size; index++) {
+            newPartInterfaceArray[index] = (PartInterface) list.get(index);
+        }
+
         return newPartInterfaceArray;
     }
 }

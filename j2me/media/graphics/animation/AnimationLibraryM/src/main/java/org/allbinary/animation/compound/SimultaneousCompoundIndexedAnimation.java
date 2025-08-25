@@ -14,6 +14,7 @@
 package org.allbinary.animation.compound;
 
 import javax.microedition.lcdui.Graphics;
+import org.allbinary.animation.Animation;
 
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.IndexedAnimation;
@@ -28,9 +29,9 @@ public class SimultaneousCompoundIndexedAnimation
     extends IndexedAnimation
     //implements IndexedAnimationInterface
 {
-    private IndexedAnimation[] animationInterfaceArray;
+    private Animation[] animationInterfaceArray;
 
-    public SimultaneousCompoundIndexedAnimation(final IndexedAnimation[] animationInterfaceArray, final AnimationBehavior animationBehavior)
+    public SimultaneousCompoundIndexedAnimation(final Animation[] animationInterfaceArray, final AnimationBehavior animationBehavior)
     {
         super(animationBehavior);
         
@@ -40,30 +41,36 @@ public class SimultaneousCompoundIndexedAnimation
     @Override
     public void setFrame(final int frameIndex)
     {
+        IndexedAnimation indexedAnimation;
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
         {
-            this.animationInterfaceArray[index].setFrame(frameIndex);
+            indexedAnimation = (IndexedAnimation) this.animationInterfaceArray[index];
+            indexedAnimation.setFrame(frameIndex);
         }
     }
 
     @Override
     public int getFrame()
     {
-        return this.animationInterfaceArray[0].getFrame();
+        final IndexedAnimation indexedAnimation = (IndexedAnimation) this.animationInterfaceArray[0];
+        return indexedAnimation.getFrame();
     }
 
     @Override
     public int getSize()
     {
-        return this.animationInterfaceArray[0].getSize();
+        final IndexedAnimation indexedAnimation = (IndexedAnimation) this.animationInterfaceArray[0];
+        return indexedAnimation.getSize();
     }
 
     @Override
     public void previousFrame()
     {
+        IndexedAnimation indexedAnimation;
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
         {
-            this.animationInterfaceArray[index].previousFrame();
+            indexedAnimation = (IndexedAnimation) this.animationInterfaceArray[index];
+            indexedAnimation.previousFrame();
         }
     }
 
@@ -110,7 +117,7 @@ public class SimultaneousCompoundIndexedAnimation
     /**
      * @return the animationInterfaceArray
      */
-    public IndexedAnimation[] getAnimationInterfaceArray()
+    public Animation[] getAnimationInterfaceArray()
     {
         return animationInterfaceArray;
     }
@@ -118,7 +125,7 @@ public class SimultaneousCompoundIndexedAnimation
     /**
      * @param animationInterfaceArray the animationInterfaceArray to set
      */
-    public void setAnimationInterfaceArray(final IndexedAnimation[] animationInterfaceArray)
+    public void setAnimationInterfaceArray(final Animation[] animationInterfaceArray)
     {
         this.animationInterfaceArray = animationInterfaceArray;
     }

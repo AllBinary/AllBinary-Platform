@@ -22,7 +22,7 @@ public class AngleIncrementInfoFactory
         return instance;
     }
     
-    private final AngleIncrementInfo[] angleIncrementInfoArray = new AngleIncrementInfo[(int) AngleFactory.getInstance().TOTAL_ANGLE];
+    private final AngleIncrementInfo[] angleIncrementInfo = new AngleIncrementInfo[(int) AngleFactory.getInstance().TOTAL_ANGLE];
     
     public AngleIncrementInfo getInstance(short angleIncrement)
     {
@@ -30,19 +30,19 @@ public class AngleIncrementInfoFactory
         
         final int halfAngleIncrement = ((int) angleIncrement >> 1);
         
-       AngleIncrementInfo angleIncrementInfo = angleIncrementInfoArray[halfAngleIncrement];
+       AngleIncrementInfo angleIncrementInfoCanBeNull = angleIncrementInfo[halfAngleIncrement];
        //hashtable.get(integer);
        
-       if(angleIncrementInfo == null)
+       if(angleIncrementInfoCanBeNull == null)
        {
            //Integer integer = SmallIntegerSingletonFactory.getInstance(angleIncrement);
-           angleIncrementInfo =
+           angleIncrementInfoCanBeNull =
                    //new AngleIncrementInfo(integer);
                    new AngleIncrementInfo(angleIncrement);
-          //hashtable.put(integer, angleIncrementInfo);
-          angleIncrementInfoArray[halfAngleIncrement] = angleIncrementInfo;
+          //hashtable.put(integer, angleIncrementInfoCanBeNull);
+          angleIncrementInfo[halfAngleIncrement] = angleIncrementInfoCanBeNull;
        }
        
-       return angleIncrementInfo;
+       return angleIncrementInfoCanBeNull;
     }
 }

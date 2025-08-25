@@ -15,16 +15,16 @@ package org.allbinary.game.input;
 
 public class GameInputProcessorUtil
 {
-    public static void init(GameInputProcessor[] inputProcessorArray)
+    public static void init(final GameInputProcessor[] inputProcessorArray)
     {
-        GameInputProcessor inputProcessor;
+        ;
         final GameInputProcessor noInputProcessor = GameInputProcessor.getInstance();
         
-        int total = InputFactory.getInstance().MAX;
+        final int total = InputFactory.getInstance().MAX;
         for(int index = 0; index < total; index++)
         {
-            inputProcessor = inputProcessorArray[index];
-            if(inputProcessor == null)
+            GameInputProcessor inputProcessorCanBeNull = inputProcessorArray[index];
+            if(inputProcessorCanBeNull == null)
             {
                 inputProcessorArray[index] = noInputProcessor;
             }

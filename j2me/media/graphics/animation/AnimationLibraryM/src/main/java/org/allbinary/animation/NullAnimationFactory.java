@@ -20,6 +20,7 @@ import org.allbinary.media.ScaleProperties;
 public class NullAnimationFactory implements 
     AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface
 {
+   public static NullAnimationFactory NULL_NOT_FOR_USE_ANIMATION_FACTORY = new NullAnimationFactory();
    private static NullAnimationFactory NULL_ANIMATION_FACTORY = new NullAnimationFactory();
    
    private final Animation NULL_ANIMATION = new Animation() {
