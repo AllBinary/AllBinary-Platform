@@ -68,7 +68,8 @@ public class MakeCountedPartsSingletonArrayFactory
 
         //final PartInterface[] newPartInterfaceArray = (PartInterface[]) list.toArray(new PartInterface[list.size()]);
         final PartInterface[] newPartInterfaceArray = new PartInterface[list.size()];
-        for(int index = 0; index < size; index++) {
+        final int newSize = newPartInterfaceArray.length;
+        for(int index = 0; index < newSize; index++) {
             newPartInterfaceArray[index] = (PartInterface) list.get(index);
         }
 
