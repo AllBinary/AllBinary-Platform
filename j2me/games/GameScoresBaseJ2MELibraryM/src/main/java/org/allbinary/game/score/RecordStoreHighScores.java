@@ -77,16 +77,16 @@ public class RecordStoreHighScores extends HighScores
         final String highScoreName, final String heading, final String columnTwoHeading,
         final RecordComparator recordComparatorInterface)
     {
-        HighScores highScores = (HighScores) hashTable.get((Object) highScoreName);
+        final Object highScoresCanBeNull = hashTable.get((Object) highScoreName);
 
-        if (highScores == null)
+        if (highScoresCanBeNull == null)
         {
-            highScores = new RecordStoreHighScores(abeClientInformation, gameInfo, 
-                highScoreName, heading, columnTwoHeading, recordComparatorInterface);
+            final HighScores highScores = new RecordStoreHighScores(abeClientInformation, gameInfo, highScoreName, heading, columnTwoHeading, recordComparatorInterface);
             hashTable.put(highScores.getName(), highScores);
+            return highScores;
         }
 
-        return highScores;
+        return (HighScores) highScoresCanBeNull;
     }
 
     private String getRecordId(final AbeClientInformationInterface abeClientInformation) {
@@ -349,8 +349,7 @@ public class RecordStoreHighScores extends HighScores
                     if (recordComparatorInterface.compare(newHighScore.getAsBytes(), highScore.getAsBytes()) == RecordComparator.FOLLOWS)
                     // if(newHighScore.getScore() > highScore.getScore())
                     {
-                        logUtil.put("Obtained a High Score", this,
-                                "isBestScore");
+                        logUtil.put("Obtained a High Score", this,"isBestScore");
                         return true;
                     }
                 }
