@@ -70,7 +70,7 @@ OpenGLSurfaceChangedInterface
     private int initZ;
 
     protected PartInterface[] partInterfaceArrayP = PartInterfaceUtil.getZeroArray();
-    private PickupBehavior pickupBehavior = PickupBehavior.NULL_PICKUP_BEHAVIOR;
+    private PickupBehavior pickupBehavior;
  
     public AllBinaryGameLayerManager allBinaryGameLayerManagerP = AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER;
     
@@ -83,6 +83,8 @@ OpenGLSurfaceChangedInterface
         this.initHeight = layerInfo.getHeight();
         
         this.groupInterface = groupInterface;
+        
+        this.pickupBehavior = PickupBehavior.NULL_PICKUP_BEHAVIOR;
     }
 
     public CollidableDestroyableDamageableLayer(
@@ -94,6 +96,8 @@ OpenGLSurfaceChangedInterface
         this.initHeight = layerInfo.getHeight();
         
         this.groupInterface = groupInterface;
+        
+        this.pickupBehavior = PickupBehavior.NULL_PICKUP_BEHAVIOR;
     }
     
     public void initPosition() throws Exception

@@ -45,7 +45,7 @@ implements CollidableInterfaceCompositeInterface
     
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private CollidableBaseBehavior collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance();
+    private CollidableBaseBehavior collidableInferface;
 
     public CollidableCompositeLayer(
             final Rectangle layerInfo, final ViewPosition viewPosition, 
@@ -53,6 +53,7 @@ implements CollidableInterfaceCompositeInterface
     {
         super(layerInfo, viewPosition);
 
+        this.collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance();
         this.setCollidableInferface(collidableInferface);
     }
 
@@ -62,6 +63,7 @@ implements CollidableInterfaceCompositeInterface
     {
         super(name, layerInfo, viewPosition);
 
+        this.collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance();
         this.setCollidableInferface(collidableInferface);
     }
     
@@ -69,17 +71,24 @@ implements CollidableInterfaceCompositeInterface
             final Rectangle layerInfo, final ViewPosition viewPosition)
     {
         super(layerInfo, viewPosition);
+        
+        collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance();
+        
     }
 
     public CollidableCompositeLayer(
             final String name, final Rectangle layerInfo, final ViewPosition viewPosition)
     {
         super(name, layerInfo, viewPosition);
+        
+        collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance();
     }
     
     public CollidableCompositeLayer(final Rectangle layerInfo)
     {
         super(layerInfo);
+        
+        collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance();
     }
 
     public ArtificialIntelligenceInterface getArtificialIntelligenceInterface()

@@ -14,6 +14,7 @@
 package org.allbinary.game.layer.pickup;
 
 import org.allbinary.game.health.HealthInterfaceCompositeInterface;
+import org.allbinary.game.layer.CollidableCompositeLayer;
 import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
 import org.allbinary.game.part.CountedLayerInterfaceFactoryPart;
 import org.allbinary.game.part.PartInterface;
@@ -23,15 +24,15 @@ import org.allbinary.string.CommonStrings;
 
 public class PickupBehavior implements PickupBehaviorInterface
 {
-    public static final PickupBehavior NULL_PICKUP_BEHAVIOR = new PickupBehavior(CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER, 0);
+    public static final PickupBehavior NULL_PICKUP_BEHAVIOR = new PickupBehavior(CollidableCompositeLayer.NULL_COLLIDABLE_COMPOSITE_LAYER, 0);
     
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final int countedIndex;
     
-    private final CollidableDestroyableDamageableLayer ownerLayerInterface;
+    private final CollidableCompositeLayer ownerLayerInterface;
 
-    public PickupBehavior(final CollidableDestroyableDamageableLayer ownerLayerInterface, final int countedIndex)
+    public PickupBehavior(final CollidableCompositeLayer ownerLayerInterface, final int countedIndex)
     {
         this.ownerLayerInterface = ownerLayerInterface;
         
@@ -86,7 +87,8 @@ public class PickupBehavior implements PickupBehaviorInterface
             }
             else if (pickedUpLayerInterfaceFactoryInterface.getPickedUpLayerType() == pickedUpLayerTypeFactory.PART)
             {
-                this.ownerLayerInterface.addPart(pickedUpLayerInterfaceFactoryInterface);
+                final CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer = (CollidableDestroyableDamageableLayer) this.ownerLayerInterface;
+                collidableDestroyableDamageableLayer.addPart(pickedUpLayerInterfaceFactoryInterface);
             } else if (pickedUpLayerType == pickedUpLayerTypeFactory.NONE) {
             } else {
                 this.doPickup((PickupProcessorInterface) pickedUpLayerInterfaceFactoryInterface);
@@ -105,23 +107,25 @@ public class PickupBehavior implements PickupBehaviorInterface
     protected void add(
             CountedPickedUpLayerInterfaceFactoryInterface countedPickedUpLayerInterfaceFactoryInterface)
     {
-        int partIndex = countedPickedUpLayerInterfaceFactoryInterface.getId() + this.countedIndex;
+        final int partIndex = countedPickedUpLayerInterfaceFactoryInterface.getId() + this.countedIndex;
         this.add(countedPickedUpLayerInterfaceFactoryInterface, partIndex);
     }
 
     protected void add(
-            CountedPickedUpLayerInterfaceFactoryInterface countedPickedUpLayerInterfaceFactoryInterface,
-            int partIndex)
+            final CountedPickedUpLayerInterfaceFactoryInterface countedPickedUpLayerInterfaceFactoryInterface,
+            final int partIndex)
     {
-        CountedLayerInterfaceFactoryPart countedLayerInterfaceFactory = (CountedLayerInterfaceFactoryPart) 
-                this.ownerLayerInterface.getPartInterfaceArray()[partIndex];
+        final CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer = (CollidableDestroyableDamageableLayer) this.ownerLayerInterface;
+        final CountedLayerInterfaceFactoryPart countedLayerInterfaceFactory = (CountedLayerInterfaceFactoryPart) 
+                collidableDestroyableDamageableLayer.getPartInterfaceArray()[partIndex];
         countedLayerInterfaceFactory.setTotal(countedLayerInterfaceFactory.getTotal() + countedPickedUpLayerInterfaceFactoryInterface.getTotal());
     }
     
     public CountedLayerInterfaceFactoryPart getFirstAvailableCountedLayerInterfaceFactory(
             PickedUpLayerType[] pickedUpLayerTypeArray)
     {
-        final PartInterface[] partInterfaceArray = this.ownerLayerInterface.getPartInterfaceArray();
+        final CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer = (CollidableDestroyableDamageableLayer) this.ownerLayerInterface;
+        final PartInterface[] partInterfaceArray = collidableDestroyableDamageableLayer.getPartInterfaceArray();
         final int size = partInterfaceArray.length;
         CountedLayerInterfaceFactoryPart nextCountedLayerInterfaceFactory;
         CountedPickedUpLayerInterfaceFactory countedPickedUpLayerInterfaceFactory;
@@ -129,7 +133,7 @@ public class PickupBehavior implements PickupBehaviorInterface
         for (int index = this.countedIndex; index < size; index++)
         {
             nextCountedLayerInterfaceFactory = (CountedLayerInterfaceFactoryPart) 
-                    this.ownerLayerInterface.getPartInterfaceArray()[index];
+                    collidableDestroyableDamageableLayer.getPartInterfaceArray()[index];
 
             countedPickedUpLayerInterfaceFactory = nextCountedLayerInterfaceFactory
                     .getCountedPickedUpLayerInterfaceFactory();
@@ -161,7 +165,8 @@ public class PickupBehavior implements PickupBehaviorInterface
     {
         int currentSlot = 0;
 
-        final PartInterface[] partInterfaceArray = this.ownerLayerInterface.getPartInterfaceArray();
+        final CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer = (CollidableDestroyableDamageableLayer) this.ownerLayerInterface;
+        final PartInterface[] partInterfaceArray = collidableDestroyableDamageableLayer.getPartInterfaceArray();
         final int size = partInterfaceArray.length;
 
         CountedLayerInterfaceFactoryPart nextCountedLayerInterfaceFactory;
@@ -169,7 +174,7 @@ public class PickupBehavior implements PickupBehaviorInterface
         for (int index = this.countedIndex; index < size; index++)
         {
             nextCountedLayerInterfaceFactory = (CountedLayerInterfaceFactoryPart) 
-                    this.ownerLayerInterface.getPartInterfaceArray()[index];
+                    collidableDestroyableDamageableLayer.getPartInterfaceArray()[index];
 
             if (nextCountedLayerInterfaceFactory.getTotal() > 0)
             {

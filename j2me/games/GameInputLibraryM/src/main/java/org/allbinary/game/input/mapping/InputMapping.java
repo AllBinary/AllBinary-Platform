@@ -60,7 +60,7 @@ public class InputMapping
 
     public void remove(final Input input, final Input mappedToInput)
     {
-        StringMaker stringBuffer = new StringMaker();
+        final StringMaker stringBuffer = new StringMaker();
         
         final StringUtil stringUtil = StringUtil.getInstance();
         
@@ -127,6 +127,7 @@ public class InputMapping
         {
             final BasicArrayList list = new BasicArrayList();
             this.hashtable.put(id, list);
+            return list;
         }
 
         return (BasicArrayList) mappingInputCanBeNullList;
