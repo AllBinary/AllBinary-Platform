@@ -39,7 +39,7 @@ public class InputMapping
 
     public int getTotalMapped()
     {
-        return this.getHashtable().size();
+        return this.hashtable.size();
     }
     
     protected boolean isDefaultNew()
@@ -54,11 +54,11 @@ public class InputMapping
     
     protected void removeAll()
     {
-        this.getHashtable().clear();
+        this.hashtable.clear();
         this.mappedList.clear();
     }
 
-    public void remove(Input input, Input mappedToInput)
+    public void remove(final Input input, final Input mappedToInput)
     {
         StringMaker stringBuffer = new StringMaker();
         
@@ -71,7 +71,7 @@ public class InputMapping
         
         logUtil.put(stringBuffer.toString(), this, "InputMapping::remove");
         
-        BasicArrayList list = this.getMappedInput(input);
+        final BasicArrayList list = this.getMappedInput(input);
         if(list.contains(mappedToInput))
         {
             list.remove(mappedToInput);
@@ -97,13 +97,13 @@ public class InputMapping
         }
     }
     
-    public void add(InputToGameKeyMapping inputToGameKeyMapping)
+    public void add(final InputToGameKeyMapping inputToGameKeyMapping)
     throws Exception
     {
         throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
     
-    public void add(Input input, Input mappedToInput)
+    public void add(final Input input, final Input mappedToInput)
     {
         //logUtil.put(commonStrings.START_LABEL + input + " == " + mappedToInput, this, "InputMapping::add");
         BasicArrayList list = this.getMappedInput(input);
@@ -114,22 +114,22 @@ public class InputMapping
         }
     }
 
-    public boolean isMapped(Input input)
+    public boolean isMapped(final Input input)
     {
         return this.mappedList.contains(input);
     }
     
-    public BasicArrayList getMappedInput(Input id)
+    public BasicArrayList getMappedInput(final Input id)
     {
-        BasicArrayList list = (BasicArrayList) this.getHashtable().get(id);
+        final Object mappingInputCanBeNullList = this.hashtable.get(id);
 
-        if (list == null)
+        if (mappingInputCanBeNullList == null)
         {
-            list = new BasicArrayList();
-            this.getHashtable().put(id, list);
+            final BasicArrayList list = new BasicArrayList();
+            this.hashtable.put(id, list);
         }
 
-        return list;
+        return (BasicArrayList) mappingInputCanBeNullList;
     }
 
     public Hashtable getHashtable()

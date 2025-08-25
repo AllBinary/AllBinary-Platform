@@ -30,7 +30,6 @@ public class GameKeyEventFactory
     }
 
     protected final LogUtil logUtil = LogUtil.getInstance();
-    protected final NullUtil nullUtil = NullUtil.getInstance();
 
     public final int TOUCH_BUTTON_SOURCE_ID = 2;
     public final int MOTION_GESTURE_SOURCE_ID = 3;
@@ -38,7 +37,6 @@ public class GameKeyEventFactory
     private final int MAX_SOURCES = 4;
 
     //private final String SOURCE_ID = "sourceId";    
-    
     private GameKeyEvent[][] ARRAY = new GameKeyEvent[MAX_SOURCES][InputFactory.getInstance().MAX];
     //private GameKeyEvent[] ARRAY = new GameKeyEvent[MAX];
 
@@ -49,6 +47,8 @@ public class GameKeyEventFactory
     public void init()
     {
         //logUtil.put(commonStrings.START, "GameKeyEventFactory", commonStrings.INIT);
+        
+        final NullUtil nullUtil = NullUtil.getInstance();
         
         /*
         for (int index2 = 0; index2 < MAX; index2++)
