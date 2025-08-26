@@ -26,7 +26,7 @@ public class AnalogLocationInputFactory {
 			analogLocationInput = (AnalogLocationInput) list.get(playerInputId);
 		}
 		
-		if(analogLocationInput == null)
+		if(analogLocationInput == AnalogLocationInput.NULL_ANALOG_LOCATION_INPUT)
 		{
 			analogLocationInput = new AnalogLocationInput(playerInputId);
 			list.add(analogLocationInput);

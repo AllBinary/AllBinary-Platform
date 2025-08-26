@@ -30,19 +30,19 @@ public class WeaponLayerArrayLayerCircularStaticPool
     private final int MAX = 5;
     private CircularIndexUtil circularIndexUtil = CircularIndexUtil.getInstance(MAX);
 
-    private Object[][][] ALL_WEAPONLAYER_ARRAY = new WeaponLayer[4][][];
+    private Object[][][] ALL_WEAPONLAYER_ARRAY = new Object[4][][];
 
     public void init()
     {
-        Object[][] WEAPONLAYER_ARRAY = new WeaponLayer[MAX * 2][];
-        Object[][] TWO_WEAPONLAYER_ARRAY = new WeaponLayer[MAX][];
-        Object[][] THREE_WEAPONLAYER_ARRAY = new WeaponLayer[MAX][];
+        Object[][] WEAPONLAYER_ARRAY = new Object[MAX * 2][];
+        Object[][] TWO_WEAPONLAYER_ARRAY = new Object[MAX][];
+        Object[][] THREE_WEAPONLAYER_ARRAY = new Object[MAX][];
 
         for (int index = 0; index < MAX; index++)
         {
-            WEAPONLAYER_ARRAY[index] = new WeaponLayer[1];
-            TWO_WEAPONLAYER_ARRAY[index] = new WeaponLayer[2];
-            THREE_WEAPONLAYER_ARRAY[index] = new WeaponLayer[3];
+            WEAPONLAYER_ARRAY[index] = new Object[1];
+            TWO_WEAPONLAYER_ARRAY[index] = new Object[2];
+            THREE_WEAPONLAYER_ARRAY[index] = new Object[3];
         }
         ALL_WEAPONLAYER_ARRAY[1] = WEAPONLAYER_ARRAY;
         ALL_WEAPONLAYER_ARRAY[2] = TWO_WEAPONLAYER_ARRAY;

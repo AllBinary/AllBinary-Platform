@@ -106,10 +106,10 @@ public class InputPersistance extends BasicPersitance
                     gameActionInput = gameKeyFactory.getInstance((int) gameActionInputId);
                     input = inputFactory.getInstance((int) inputId);
 
-                    if (input == null || gameActionInput == null) {
+                    if (input == inputFactory.NO_INPUT || gameActionInput == null) {
                         stringBuffer.delete(0, stringBuffer.length());
 
-                        if (input == null) {
+                        if (input == inputFactory.NO_INPUT) {
                             stringBuffer.append(this.persistanceStrings.ERROR_LOADING_ID);
                             stringBuffer.append(inputId);
                             stringBuffer.append(this.persistanceStrings.GAME_ACTION_INPUT);

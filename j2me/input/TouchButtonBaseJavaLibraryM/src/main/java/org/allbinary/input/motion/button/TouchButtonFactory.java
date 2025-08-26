@@ -47,7 +47,7 @@ public class TouchButtonFactory
     //throws Exception
     {
         //update savedlist and list if not in saved mode
-        if (list != null)
+        if (list != BasicArrayListUtil.getInstance().getImmutableInstance())
         {
             //PreLogUtil.put("Save: " + save + " list: " + list.toString(), this, "toggle");
             

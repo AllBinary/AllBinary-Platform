@@ -19,7 +19,6 @@ import org.allbinary.game.combat.destroy.event.DestroyedEventHandler;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.layer.BasicLayerProcessor;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.util.BasicArrayList;
 
 public class DestroyedLayerProcessor extends BasicLayerProcessor
@@ -58,14 +57,16 @@ public class DestroyedLayerProcessor extends BasicLayerProcessor
         //logUtil.put(stringBuilder.append("Removing: ").append(size).append(" left: ").append(allBinaryLayerManager.getSize()).toString(), this, commonStrings.PROCESS);
 
         //GroupLayerManagerListener.getInstance().log();
-        AllBinaryLayer layerInterface;
         DestroyedEvent destroyedEvent;
+        AllBinaryLayer layerInterface;
         for (int index = 0; index < size; index++)
         {
             // no physics here - just destroy them
-            layerInterface = (AllBinaryLayer) list.objectArray[index];
+            Object layerInterfaceCanBeNull = list.objectArray[index];
 
-            if(layerInterface != null) {
+            if(layerInterfaceCanBeNull != null) {
+                
+                layerInterface = (AllBinaryLayer) layerInterfaceCanBeNull;
                 //stringBuilder.delete(0, stringBuilder.length());
                 //logUtil.put(stringBuilder.append(LAYER_LABEL).append(layerInterface).toString(), this, commonStrings.PROCESS);
 
