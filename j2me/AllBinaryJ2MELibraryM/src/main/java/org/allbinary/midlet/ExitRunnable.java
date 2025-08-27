@@ -14,6 +14,7 @@
 package org.allbinary.midlet;
 
 import javax.microedition.lcdui.Displayable;
+import javax.microedition.lcdui.NullCanvas;
 
 import org.allbinary.canvas.Processor;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -46,7 +47,7 @@ public class ExitRunnable implements Runnable
             this.midlet.destroyApp(false, this.isProgress);
 
             // Why set to null
-            this.midlet.setDisplay((Displayable) null);
+            this.midlet.setDisplay(NullCanvas.NULL_CANVAS);
 
             // TWB - Only remove from context when multiple midlets share the
             // same emulator

@@ -18,6 +18,7 @@ import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.NullCanvas;
 import javax.microedition.lcdui.OpenGLESPostLoadPlatformImage;
+import javax.microedition.lcdui.PostLoadImageProcessor;
 import org.allbinary.graphics.GraphicsStrings;
 import org.allbinary.graphics.OpenGLBitmap;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -52,7 +53,7 @@ implements OpenGLSurfaceChangedInterface
     public OpenGLESImage(final Image image, final PlatformBitmapBaseFactory bitmapFactory, 
         final PlatformTextureBaseFactory textureFactory)
     {
-        super(image.getName(), null);
+        super(image.getName(), PostLoadImageProcessor.NULL_POST_LOAD_IMAGE_PROCESSOR);
         //super(image);
 
         //logUtil.put(new StringMaker().append("opengl: create ").append(this).append(this.getName()).append(" from " ).append(image).toString(), this, commonStrings.INIT);

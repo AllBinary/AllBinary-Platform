@@ -62,7 +62,7 @@ implements DisplayChangeEventListener
 
     private int portion = 0;
 
-    private Image[] IMAGE = new Image[4];
+    private final Image[] IMAGE = new Image[4];
 
     private Image image = NullCanvas.NULL_IMAGE;
 
@@ -78,6 +78,11 @@ implements DisplayChangeEventListener
         this.init();
         
         DisplayChangeEventHandler.getInstance().addListener(this);
+        
+        final int size = IMAGE.length;
+        for(int index = 0; index < size; index++) {
+            IMAGE[index] = NullCanvas.NULL_IMAGE;
+        }
     }
 
     private void init()
@@ -359,7 +364,7 @@ implements DisplayChangeEventListener
         {
             if (Features.getInstance().isFeature(MainFeatureFactory.getInstance().FULL_SCREEN))
             {
-                if (this.IMAGE[index] == null)
+                if (this.IMAGE[index] == NullCanvas.NULL_IMAGE)
                 {
                     this.IMAGE[index] = ImageScaleUtil.getInstance().createImage(
                             ImageCacheFactory.getInstance(), image,
@@ -370,7 +375,7 @@ implements DisplayChangeEventListener
             else
             {
                 int nextIndex = index + 1;
-                if (this.IMAGE[nextIndex] == null)
+                if (this.IMAGE[nextIndex] == NullCanvas.NULL_IMAGE)
                 {
                     this.IMAGE[nextIndex] = ImageScaleUtil.getInstance().createImage(
                             ImageCacheFactory.getInstance(), image,
@@ -392,7 +397,7 @@ implements DisplayChangeEventListener
         int size = this.IMAGE.length;
         for(int index = 0; index < size; index++)
         {
-            if(this.IMAGE[index] != null)
+            if(this.IMAGE[index] != NullCanvas.NULL_IMAGE)
             {
                 this.IMAGE[index] = preResourceImageUtil.encapsulate(this.IMAGE[index]);
             }
@@ -415,7 +420,7 @@ implements DisplayChangeEventListener
         int size = this.IMAGE.length;
         for(int index = 0; index < size; index++)
         {
-            if(this.IMAGE[index] != null)
+            if(this.IMAGE[index] != NullCanvas.NULL_IMAGE)
             {
                 preResourceImageUtil.update(graphics, this.IMAGE[index]);
             }
