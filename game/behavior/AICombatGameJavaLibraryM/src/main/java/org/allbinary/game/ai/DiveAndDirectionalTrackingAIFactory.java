@@ -29,11 +29,11 @@ public class DiveAndDirectionalTrackingAIFactory
             final Hashtable hashtable, final AllBinaryLayer ownerLayerInterface, GameInput gameInput)
     throws Exception
     {
-        Visitor visitor = (Visitor) hashtable.get((Object) BasicAI.AI_VISITOR);
+        Object visitorCanBeNull = hashtable.get((Object) BasicAI.AI_VISITOR);
         
-        if(visitor == null)
+        if(visitorCanBeNull == null)
         {
-            visitor = ThrustAIVisitorFactory.getInstance();
+            visitorCanBeNull = ThrustAIVisitorFactory.getInstance();
             //throw new Exception("No Visitor Provided");
         }
         
@@ -46,6 +46,6 @@ public class DiveAndDirectionalTrackingAIFactory
                 hashtable2, 
                 ownerLayerInterface, gameInput);
         
-        return new DiveAndDirectionalTrackingAI(ownerLayerInterface, artificialIntelligenceInterface, gameInput, visitor);
+        return new DiveAndDirectionalTrackingAI(ownerLayerInterface, artificialIntelligenceInterface, gameInput, (Visitor) visitorCanBeNull);
     }
 }

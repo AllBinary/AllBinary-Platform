@@ -27,28 +27,27 @@ public class NumberOnOwnGroupSequenceAIFactory
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-   public ArtificialIntelligenceInterface getInstance(Hashtable hashtable,
-      ArtificialIntelligenceInterface[] artificialIntelligenceInterface,
-      AllBinaryLayer ownerLayerInterface,
-      GameInput gameInput)
+   public ArtificialIntelligenceInterface getInstance(final Hashtable hashtable,
+      final ArtificialIntelligenceInterface[] artificialIntelligenceInterface,
+      final AllBinaryLayer ownerLayerInterface,
+      final GameInput gameInput)
       throws Exception
    {
-      Integer[] integerArray =
-          NumberInSameGroupSequence.getInstance().NUMBER_ON_SAME_TEAM_SEQUENCE;
+      final Integer[] integerArray = NumberInSameGroupSequence.getInstance().NUMBER_ON_SAME_TEAM_SEQUENCE;
 
-      BasicArrayList list = new BasicArrayList();
+      final BasicArrayList list = new BasicArrayList();
 
       for (int index = 0; index < integerArray.length; index++)
       {
-         Integer integer = (Integer) hashtable.get((Object) integerArray[index]);
-         if (integer == null)
+         Object integerCanBeNull = hashtable.get((Object) integerArray[index]);
+         if (integerCanBeNull == null)
          {
             break;
          }
-         list.add(integer);
+         list.add(integerCanBeNull);
       }
 
-      StringMaker stringBuffer = new StringMaker();
+      final StringMaker stringBuffer = new StringMaker();
       
       stringBuffer.append("Total AI Properties: ");
       stringBuffer.append(list.size());

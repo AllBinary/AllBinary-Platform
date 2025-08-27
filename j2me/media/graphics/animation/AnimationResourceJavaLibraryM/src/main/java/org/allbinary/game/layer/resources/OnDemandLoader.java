@@ -81,7 +81,7 @@ public class OnDemandLoader
         {
             onDemandResources = onDemandResourcesFactory.remove(onDemandIndex);
 
-            if (onDemandResources != null)
+            if (onDemandResources != OnDemandResources.NULL_ON_DEMAND_RESOURCES)
             {
                 index = onDemandResources.init(imageCache,
                         this.resourceAnimationInterfaceFactoryInterfaceFactory,
@@ -111,7 +111,7 @@ public class OnDemandLoader
             onDemandResources = onDemandResourcesFactory.remove(onDemandArray[onDemandIndex]);
 
             //if null then it is already loaded
-            if (onDemandResources != null)
+            if (onDemandResources != OnDemandResources.NULL_ON_DEMAND_RESOURCES)
             {
                 index = onDemandResources.init(imageCache,
                         this.resourceAnimationInterfaceFactoryInterfaceFactory,

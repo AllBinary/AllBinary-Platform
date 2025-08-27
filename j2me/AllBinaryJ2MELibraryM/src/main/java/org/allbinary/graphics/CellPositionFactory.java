@@ -21,8 +21,7 @@ public class CellPositionFactory
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-   private static CellPositionFactory SINGLETON =
-      new CellPositionFactory();
+   private static CellPositionFactory SINGLETON = new CellPositionFactory();
 
    public final CellPosition NONE = new CellPosition(-1, -1, -1, -1);
    
@@ -89,17 +88,16 @@ public class CellPositionFactory
       
    {
 
-      CellPosition cellPosition =
-         cellPositionArray[i_column][i_row];
+      CellPosition cellPositionCanBeNull = cellPositionArray[i_column][i_row];
 
-      if (cellPosition == null)
+      if (cellPositionCanBeNull == null)
       {
-         cellPosition = new CellPosition(i_column, i_row, this.columns, this.rows);
+         cellPositionCanBeNull = new CellPosition(i_column, i_row, this.columns, this.rows);
 
-         cellPositionArray[i_column][i_row] = cellPosition;
+         cellPositionArray[i_column][i_row] = cellPositionCanBeNull;
       }
 
-      return cellPosition;
+      return cellPositionCanBeNull;
    }
 
    public int getColumns()
