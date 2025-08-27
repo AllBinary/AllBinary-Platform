@@ -79,18 +79,20 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
             }
         }
 
-        for (int index = 0; index < this.eventListenerInterfaceList.size(); index++)
+        int index = 0;
+        EventListenerInterface eventListenerInterface;
+        while (index < this.eventListenerInterfaceList.size())
         {
             try
             {
-                EventListenerInterface eventListenerInterface = (EventListenerInterface) // enumeration.nextElement();
-                    this.eventListenerInterfaceList.get(index);
+                eventListenerInterface = (EventListenerInterface) this.eventListenerInterfaceList.get(index);
                 this.process(eventObject, eventListenerInterface);
             }
             catch (Exception e)
             {
                 logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
+            index++;
         }
 
     }
@@ -98,7 +100,8 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
     public void fireEvent(final GameKeyEvent eventObject) throws Exception {
         //ForcedLogUtil.log(this.toString(), EventStrings.getInstance().FIRE_EVENT);
 
-        for (int index = this.list.size(); --index >= 0;) {
+        final int size = this.list.size();
+        for (int index = size; --index >= 0;) {
             try {
                 //Add deviceId
                 PlayerGameInput playerGameInput = (PlayerGameInput) this.list.objectArray[index];
@@ -108,18 +111,20 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
             }
         }
 
-        for (int index = 0; index < this.eventListenerInterfaceList.size(); index++)
+        int index = 0;
+        EventListenerInterface eventListenerInterface;
+        while (index < this.eventListenerInterfaceList.size())
         {
             try
             {
-                EventListenerInterface eventListenerInterface = (EventListenerInterface) // enumeration.nextElement();
-                    this.eventListenerInterfaceList.get(index);
+                eventListenerInterface = (EventListenerInterface) this.eventListenerInterfaceList.get(index);
                 this.process(eventObject, eventListenerInterface);
             }
             catch (Exception e)
             {
                 logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
+            index++;
         }
 
     }

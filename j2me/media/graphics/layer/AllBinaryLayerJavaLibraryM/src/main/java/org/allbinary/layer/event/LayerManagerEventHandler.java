@@ -100,7 +100,8 @@ public class LayerManagerEventHandler extends BasicEventHandler
 
         EventListenerInterface eventListenerInterface;
         LayerManagerEventListenerInterface layerManagerEventListenerInterface;
-        for (int index = 0; index < eventListenerInterfaceList.size(); index++)
+        int index = 0;
+        while (index < eventListenerInterfaceList.size())
         {
             try
             {
@@ -112,6 +113,7 @@ public class LayerManagerEventHandler extends BasicEventHandler
             {
                 logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
+            index++;
         }
     }
 

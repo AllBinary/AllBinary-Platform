@@ -124,15 +124,20 @@ public class PersistentInputMapping
 
         int totalMappedTo = 0;
         //TWB - Use selected profile/id for future imp
-        for(int index = 0; index < list.size(); index++)
+        final int size = list.size();
+        Hashtable hashtable;
+        Enumeration enumeration;
+        Input mappedToInput;
+        Input gameActionInput;
+        for(int index = 0; index < size; index++)
         {
-            Hashtable hashtable = (Hashtable) list.objectArray[index];
-            Enumeration enumeration = hashtable.keys();
+            hashtable = (Hashtable) list.objectArray[index];
+            enumeration = hashtable.keys();
 
             while(enumeration.hasMoreElements())
             {
-                Input mappedToInput = (Input) enumeration.nextElement();
-                Input gameActionInput = (Input) hashtable.get(mappedToInput);
+                mappedToInput = (Input) enumeration.nextElement();
+                gameActionInput = (Input) hashtable.get(mappedToInput);
 
                 //AndroidGameKey mappedToKey
                 //MotionGestureInput mappedToKey
@@ -142,7 +147,7 @@ public class PersistentInputMapping
             }
         }
 
-        StringMaker stringBuffer = new StringMaker();
+        final StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append("End - Total Loaded Keys Mapped: ");
         stringBuffer.append(this.getTotalMapped());

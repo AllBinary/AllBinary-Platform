@@ -12,18 +12,17 @@
 * 
 */
 package org.allbinary.logic.system.security.licensing;
+
+import java.io.File;
+import java.io.FileReader;
+import java.io.LineNumberReader;
+
 import org.allbinary.logic.string.StringMaker;
-
-
 import org.allbinary.business.init.LicenseInitInfo;
 import org.allbinary.business.init.LicenseInitInfoUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.client.XmlRpcAbeLicenseRetrievalClient;
 import org.allbinary.globals.PATH_GLOBALS;
-import java.io.File;
-import java.io.FileReader;
-import java.io.LineNumberReader;
-import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.util.BasicArrayList;
 
 public class LicenseClientAndServerTest
@@ -80,7 +79,8 @@ public class LicenseClientAndServerTest
             final String END = "<br/>End<br/>";
             final String RESULT = "Test Result: ";
 
-            for (int index = 0; index < vector.size(); index++)
+            final int size = vector.size();
+            for (int index = 0; index < size; index++)
             {
                 stringBuffer.append(TESTING);
 
@@ -151,6 +151,7 @@ public class LicenseClientAndServerTest
             licensingTest.test();
         } catch (Exception e)
         {
+            final LogUtil logUtil = LogUtil.getInstance();
             logUtil.put(this.commonStrings.EXCEPTION, "main()", "main()", e);
         }
     }

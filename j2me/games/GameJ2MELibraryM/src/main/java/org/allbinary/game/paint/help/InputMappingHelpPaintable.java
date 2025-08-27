@@ -146,7 +146,8 @@ public class InputMappingHelpPaintable extends HelpPaintable
         final StringMaker stringBuffer = new StringMaker();
 
         Input key;
-        for(int index = 0; index < keyList.size(); index++)
+        final int size = keyList.size();
+        for(int index = 0; index < size; index++)
         {
             key = (Input) keyList.objectArray[index];
 

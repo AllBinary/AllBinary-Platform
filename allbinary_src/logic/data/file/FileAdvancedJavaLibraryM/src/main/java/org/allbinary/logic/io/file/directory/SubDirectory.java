@@ -63,7 +63,8 @@ public class SubDirectory
 
         final String NEW_LINE = CommonSeps.getInstance().NEW_LINE;
         
-        for (int index = 0; index < files.size(); index++)
+        final int size = files.size();
+        for (int index = 0; index < size; index++)
         {
             AbFile file = (AbFile) files.get(index);
             stringBuffer.append(file.getPath());

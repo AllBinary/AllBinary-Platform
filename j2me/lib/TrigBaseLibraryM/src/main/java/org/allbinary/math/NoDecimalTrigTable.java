@@ -1177,7 +1177,7 @@ public class NoDecimalTrigTable
 
         if ((dx >= 0 && dy < 0))
         {
-            for (short index = 180; index > 90; index--)
+            for (int index = 180; index > 90; index--)
             {
                 if (ratio <= noDecimalTan[index])
                 {
@@ -1197,7 +1197,7 @@ public class NoDecimalTrigTable
         else
         if ((dx < 0 && dy <= 0))
         {
-            for (short index = 270; index > 180; index--)
+            for (int index = 270; index > 180; index--)
             {
                 if (ratio < noDecimalTan[index] && ratio >= noDecimalTan[index - 1])
                 {
@@ -1209,7 +1209,7 @@ public class NoDecimalTrigTable
         else
         if ((dx < 0 && dy > 0))
         {
-            for (short index = (short) (noDecimalTan.length - 1); index > 270; index--)
+            for (int index = (noDecimalTan.length - 1); index > 270; index--)
             {
                 if (ratio < noDecimalTan[index])
                 {
@@ -1229,7 +1229,7 @@ public class NoDecimalTrigTable
         else
         if ((dx >= 0 && dy >= 0))
         {
-            for (short index = 90; index > 0; index--)
+            for (int index = 90; index > 0; index--)
             {
                 if (ratio < noDecimalTan[index] && ratio >= noDecimalTan[index - 1])
                 {

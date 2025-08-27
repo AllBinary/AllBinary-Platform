@@ -83,7 +83,7 @@ public class LivesHudWidget extends BasicHud
     @Override
     public void paint(Graphics graphics)
     {
-        for (short index = this.getLifeInterface().get(); --index >= 0;)
+        for (int index = (int) this.getLifeInterface().get(); --index >= 0;)
         {
             this.animationInterface.paint(graphics, xArray[index], this.getY());
         }

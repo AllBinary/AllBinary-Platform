@@ -101,7 +101,7 @@ public class UniqueTokens
       }
    }
    
-   private boolean numberOnly(String subCleaningString)
+   private boolean numberOnly(final String subCleaningString)
    {
       try
       {

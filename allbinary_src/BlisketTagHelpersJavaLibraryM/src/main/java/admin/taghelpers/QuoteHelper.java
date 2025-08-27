@@ -153,12 +153,13 @@ public class QuoteHelper extends BasicTable
 
          final String userName = this.weblisketSession.getUserName();
          
-         Vector vector = quoteRequestEntity.getIds(userName);
+         final Vector vector = quoteRequestEntity.getIds(userName);
          
          int id = 0;
          
          //get last quote request
-         for(int index = 0; index < vector.size(); index++)
+         final int size = vector.size();
+         for(int index = 0; index < size; index++)
          {
         	 int nextId = ((Integer) vector.get(index)).intValue();
         	 if(id < nextId)

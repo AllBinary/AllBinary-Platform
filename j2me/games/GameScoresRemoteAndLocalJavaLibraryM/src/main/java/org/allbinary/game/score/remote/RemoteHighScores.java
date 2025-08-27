@@ -97,7 +97,8 @@ public class RemoteHighScores extends HighScores {
         this.getList().clear();
         final Vector vector = (Vector) hashtable.get((Object) RemoteHighScoresData.getInstance().HIGH_SCORES);
         if (vector != null) {
-            for (int index = 0; index < vector.size(); index++) {
+            final int size = vector.size();
+            for (int index = 0; index < size; index++) {
                 final Vector highScoreVector = (Vector) vector.elementAt(index);
                 final String displayName = (String) highScoreVector.elementAt(0);
                 final String score = (String) highScoreVector.elementAt(1);

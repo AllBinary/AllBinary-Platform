@@ -76,18 +76,20 @@ public class UpKeyEventHandlerBase extends BasicEventHandler
            }
        }
 
-        for (int index = 0; index < this.eventListenerInterfaceList.size(); index++)
+        int index = 0;
+        EventListenerInterface eventListenerInterface;
+        while (index < this.eventListenerInterfaceList.size())
         {
             try
             {
-                EventListenerInterface eventListenerInterface = (EventListenerInterface) // enumeration.nextElement();
-                    this.eventListenerInterfaceList.get(index);
+                eventListenerInterface = (EventListenerInterface) this.eventListenerInterfaceList.get(index);
                 this.process(eventObject, eventListenerInterface);
             }
             catch (Exception e)
             {
                 logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
+            index++;
         }
    }
    

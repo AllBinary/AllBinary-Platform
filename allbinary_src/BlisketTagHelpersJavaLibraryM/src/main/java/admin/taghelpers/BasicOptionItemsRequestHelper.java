@@ -87,7 +87,7 @@ public class BasicOptionItemsRequestHelper extends ModifyTable
 
    private HashMap getHashMap()
    {
-      HashMap values = new HashMap();            
+      final HashMap values = new HashMap();            
       
       values.put(BasicItemData.ID,id);
       
@@ -110,8 +110,8 @@ public class BasicOptionItemsRequestHelper extends ModifyTable
       values.put(BasicOptionItemData.OPTION_ONE_NINE_ITEM,this.optionItem.get(8));
       values.put(BasicOptionItemData.OPTION_ONE_NINE_VALUE,this.optionValue.get(8));
       
-      Calendar calendar=Calendar.getInstance();
-      String time = new String(new Long(calendar.getTimeInMillis()).toString());
+      final Calendar calendar=Calendar.getInstance();
+      final String time = new String(new Long(calendar.getTimeInMillis()).toString());
       
       values.put(EntryData.getInstance().LASTMODIFIED,time);
       
@@ -122,13 +122,14 @@ public class BasicOptionItemsRequestHelper extends ModifyTable
    {
       try
       {
-         Calendar calendar=Calendar.getInstance();
-         String time = new String(new Long(calendar.getTimeInMillis()).toString());
-         Vector values = new Vector();
+         final Calendar calendar=Calendar.getInstance();
+         final String time = new String(new Long(calendar.getTimeInMillis()).toString());
+         final Vector values = new Vector();
                   
          values.add(id);
       
-         for(int index = 0; index < this.optionValue.size(); index++)
+         final int size = this.optionValue.size();
+         for(int index = 0; index < size; index++)
          {
             values.add(this.optionValue.get(index));
             values.add(this.optionItem.get(index));
@@ -139,7 +140,7 @@ public class BasicOptionItemsRequestHelper extends ModifyTable
          
          BasicOptionItemsEntityFactory.getInstance().getBasicOptionItemsEntityInstance().insert(values);
          
-         String success = "Successfully inserted " + id + " into items table";
+         final String success = "Successfully inserted " + id + " into items table";
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {

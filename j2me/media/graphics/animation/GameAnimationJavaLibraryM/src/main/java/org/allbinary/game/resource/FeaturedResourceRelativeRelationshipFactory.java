@@ -64,7 +64,8 @@ public class FeaturedResourceRelativeRelationshipFactory extends FeaturedResourc
    {
       BasicArrayList newList = new BasicArrayList();
       
-      for (int index = 0; index < list.size(); index++)
+      final int size = list.size();
+      for (int index = 0; index < size; index++)
       {
          RelativeRelationship relativeRelationship = (RelativeRelationship) list.objectArray[index];
          newList.add(new RelativeLayerRelationship(

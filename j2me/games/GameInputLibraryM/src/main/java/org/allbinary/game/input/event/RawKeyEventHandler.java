@@ -95,12 +95,12 @@ public class RawKeyEventHandler {
         throws Exception
     {
         RawKeyEventListener eventListenerInterface;
-        for (int index = 0; index < this.eventListenerInterfaceList.size(); index++)
+        int index = 0;
+        while (index < this.eventListenerInterfaceList.size())
         {
             try
             {
-                eventListenerInterface = (RawKeyEventListener) // enumeration.nextElement();
-                    this.eventListenerInterfaceList.get(index);
+                eventListenerInterface = (RawKeyEventListener) this.eventListenerInterfaceList.get(index);
                 this.process(keyCode, deviceId, repeated, eventListenerInterface);
             }
             catch (Exception e)
@@ -108,6 +108,7 @@ public class RawKeyEventHandler {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
                 logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
+            index++;
         }
 
     }
@@ -134,12 +135,12 @@ public class RawKeyEventHandler {
         stringBuffer.append(this.eventListenerInterfaceList.size());
 
         RawKeyEventListener eventListenerInterface;
-        for (int index = 0; index < this.eventListenerInterfaceList.size(); index++)
+        int index = 0;
+        while (index < this.eventListenerInterfaceList.size())
         {
             try
             {
-                eventListenerInterface = (RawKeyEventListener) // enumeration.nextElement();
-                    this.eventListenerInterfaceList.get(index);
+                eventListenerInterface = (RawKeyEventListener) this.eventListenerInterfaceList.get(index);
 
                 stringBuffer.append(LISTENER_LABEL);
                 stringBuffer.append(eventListenerInterface.toString());
@@ -149,6 +150,7 @@ public class RawKeyEventHandler {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
                 logUtil.put(commonStrings.EXCEPTION, this, commonStrings.TOSTRING, e);
             }
+            index++;
         }
         return stringBuffer.toString();
     }    

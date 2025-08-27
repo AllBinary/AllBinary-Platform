@@ -92,7 +92,8 @@ public class GameInput {
    public synchronized void removeDuplicates(GameKeyEvent gameKeyEvent) {
       BasicArrayList list = this.gameKeyEventList;
       Object object = gameKeyEvent;
-      for (int index = 0; index < list.size(); index++) {
+      final int size = list.size();
+      for (int index = 0; index < size; index++) {
          if (list.get(index) == object) {
             list.remove(index);
          }

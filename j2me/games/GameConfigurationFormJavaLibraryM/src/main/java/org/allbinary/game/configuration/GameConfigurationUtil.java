@@ -127,7 +127,8 @@ public class GameConfigurationUtil
             gameConfigurationCentral.SPEED_CHALLENGE_LEVEL.setValue(gameConfiguration
                     .getValue());
 
-            for (int index = 0; index < gameOptionsForm.size(); index++)
+            final int size = gameOptionsForm.size();
+            for (int index = 0; index < size; index++)
             {
                 Item item = gameOptionsForm.get(index);
                 if (item instanceof GameConfigurationGauge)

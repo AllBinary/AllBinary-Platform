@@ -165,7 +165,8 @@ public class GameOptionsForm extends CommandForm
 
     public void save(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
-        for (int index = 0; index < this.size(); index++)
+        final int size = this.size();
+        for (int index = 0; index < size; index++)
         {
             Item item = this.get(index);
             if (item instanceof GameConfigurationGauge)
@@ -197,7 +198,8 @@ public class GameOptionsForm extends CommandForm
 
         keyValuePersistance.save(abeClientInformation, hashtable);
 
-        for (int index = 0; index < list.size(); index++)
+        final int size2 = list.size();
+        for (int index = 0; index < size2; index++)
         {
             Integer integer = (Integer) list.objectArray[index];
             keyValuePersistance.delete(abeClientInformation, integer.intValue());

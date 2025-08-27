@@ -184,10 +184,11 @@ public class WorkAreaJPanel
     //hashMap keeps track of what jtree node goes with a specific canvas
     private HashMap getCanvasHashMap()
     {
-        HashMap canvasJPanelHashMap = new HashMap();
-        for (int index = 0; index < this.canvasJPanelList.size(); index++)
+        final HashMap canvasJPanelHashMap = new HashMap();
+        final int size = this.canvasJPanelList.size();
+        for (int index = 0; index < size; index++)
         {
-            CanvasJPanel canvasJPanel = (CanvasJPanel) this.canvasJPanelList.get(index);
+            final CanvasJPanel canvasJPanel = (CanvasJPanel) this.canvasJPanelList.get(index);
             canvasJPanelHashMap.put(canvasJPanel.getTreeNode(), new Integer(index));
         }
         return canvasJPanelHashMap;
@@ -238,7 +239,7 @@ public class WorkAreaJPanel
         super.setVisible(true);
         if (this.canvasHolderJPanel.getComponentCount() == 1)
         {
-            Component component = this.canvasHolderJPanel.getComponent(0);
+            final Component component = this.canvasHolderJPanel.getComponent(0);
             if (component != null)
             {
                 component.repaint();
@@ -518,7 +519,8 @@ public class WorkAreaJPanel
             {
                 if (this.isPlaying())
                 {
-                    for (int index = 0; index < this.canvasJPanelList.size(); index++)
+                    final int size = this.canvasJPanelList.size();
+                    for (int index = 0; index < size; index++)
                     {
                         if (!this.isPlaying())
                         {

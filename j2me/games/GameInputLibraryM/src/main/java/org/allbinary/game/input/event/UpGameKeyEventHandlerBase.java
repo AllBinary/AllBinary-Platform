@@ -98,11 +98,13 @@ public class UpGameKeyEventHandlerBase extends BasicEventHandler
     {
         final StringMaker stringBuffer = new StringMaker();
 
+        final int size = this.list.size();
+        
         stringBuffer.append(super.toString());
         stringBuffer.append(TOTAL_LISTENERS);
-        stringBuffer.append(this.list.size());
+        stringBuffer.append(size);
 
-        for (int index = 0; index < this.list.size(); index++)
+        for (int index = 0; index < size; index++)
         {
             try
             {

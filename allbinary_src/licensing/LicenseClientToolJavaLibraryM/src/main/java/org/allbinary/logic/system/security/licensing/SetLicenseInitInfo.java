@@ -86,7 +86,8 @@ public class SetLicenseInitInfo
              */
 
             /*
-            for (int index = 0; index < vector.size(); index++)
+            final int size = vector.size();
+            for (int index = 0; index < size; index++)
             {
                 String serverName = (String) vector.get(index);
                 licenseInitInfo.addServer(serverName);

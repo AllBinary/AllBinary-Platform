@@ -51,7 +51,7 @@ public class AngleFactory
         UP = new NamedAngle((short) 0, commonPhoneStrings.UP);
         angleArray[0] = UP;
         
-        for (short index = 1; index < 90; index++)
+        for (int index = 1; index < 90; index++)
         {
             angleArray[index] = new Angle((short) index);
         }
@@ -59,7 +59,7 @@ public class AngleFactory
         RIGHT = new NamedAngle((short) 90, commonPhoneStrings.RIGHT);
         angleArray[90] = RIGHT;
         
-        for (short index = 91; index < 180; index++)
+        for (int index = 91; index < 180; index++)
         {
             angleArray[index] = new Angle((short) index);
         }
@@ -67,7 +67,7 @@ public class AngleFactory
         DOWN = new NamedAngle((short) 180, commonPhoneStrings.DOWN);
         angleArray[180] = DOWN;
         
-        for (short index = 181; index < 270; index++)
+        for (int index = 181; index < 270; index++)
         {
             angleArray[index] = new Angle((short) index);
         }
@@ -75,7 +75,7 @@ public class AngleFactory
         LEFT = new NamedAngle((short) 270, commonPhoneStrings.LEFT);
         angleArray[270] = LEFT;
         
-        for (short index = 271; index < total; index++)
+        for (int index = 271; index < total; index++)
         {
             angleArray[index] = new Angle((short) index);
         }

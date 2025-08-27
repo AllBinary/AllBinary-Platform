@@ -84,7 +84,8 @@ public class CssPropertyValues implements DomNodeInterface
          indexPropertyValueHashMap.put(indexValue, propertyValue);
       }
 
-      for(int index = 0; index < indexPropertyValueHashMap.keySet().size(); index++)
+      final int size2 = indexPropertyValueHashMap.keySet().size();
+      for(int index = 0; index < size2; index++)
       {
          Integer indexInt = new Integer(index);
          String propertyValue = 

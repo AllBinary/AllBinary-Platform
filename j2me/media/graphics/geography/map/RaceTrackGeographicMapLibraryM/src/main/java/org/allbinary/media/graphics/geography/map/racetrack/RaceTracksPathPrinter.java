@@ -31,7 +31,8 @@ public class RaceTracksPathPrinter {
 
     private void printPath(BasicArrayList list)
     {
-        for (int index = 0; index < list.size(); index++)
+        final int size = list.size();
+        for (int index = 0; index < size; index++)
         {
             Object object = list.get(index);
             PreLogUtil.put(new StringMaker().append("pathList.add(cellPositionFactory.getInstance").append(object.toString()).append(");").toString(), this, "printPath");
@@ -40,7 +41,8 @@ public class RaceTracksPathPrinter {
 
     protected void printPaths(BasicArrayList list)
     {
-        for (int index = 0; index < list.size(); index++)
+        final int size = list.size();
+        for (int index = 0; index < size; index++)
         {
             System.out.println(new StringMaker().append(" Path ").append(index).append(CommonLabels.getInstance().COLON_SEP).toString());
             this.printPath((BasicArrayList) list.get(index));

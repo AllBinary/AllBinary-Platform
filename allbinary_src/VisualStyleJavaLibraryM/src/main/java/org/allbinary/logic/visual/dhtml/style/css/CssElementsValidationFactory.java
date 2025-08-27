@@ -26,16 +26,19 @@ public class CssElementsValidationFactory
    }
    
    //Nodes with CssElementData.NAME
-   public static Vector getInstance(Vector cssElementStyleNodeList) throws Exception
+   public static Vector getInstance(final Vector cssElementStyleNodeList) throws Exception
    //NodeList cssElementStyleNodeList
    {
-      Vector styles = new Vector();
+      final Vector styles = new Vector();
       
-      for(int index = 0; index < cssElementStyleNodeList.size(); index++)
+      final int size = cssElementStyleNodeList.size();
+      Node cssElementStyleNode;
+      ValidationInterface cssValidationInterface;
+      for(int index = 0; index < size; index++)
       {
-         Node cssElementStyleNode = (Node) cssElementStyleNodeList.get(index);
+         cssElementStyleNode = (Node) cssElementStyleNodeList.get(index);
 
-         ValidationInterface cssValidationInterface = (ValidationInterface)
+         cssValidationInterface = (ValidationInterface)
            CssElementValidationFactory.getInstance(cssElementStyleNode);
 
          styles.add(cssValidationInterface);
@@ -43,9 +46,9 @@ public class CssElementsValidationFactory
       return styles;
    }
    
-   public static Vector getInstance(HashMap hashMap)
+   public static Vector getInstance(final HashMap hashMap)
    {
-      Vector styles = new Vector();
+      final Vector styles = new Vector();
       return styles;
    }
 }

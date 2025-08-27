@@ -164,18 +164,19 @@ public class BasicEventHandler implements BasicEventHandlerInterface
         // this.eventListenerInterfaceVector.elements();
         // while(enumeration.hasMoreElements())
         EventListenerInterface eventListenerInterface;
-        for (int index = 0; index < this.eventListenerInterfaceList.size(); index++)
+        int index = 0;
+        while (index < this.eventListenerInterfaceList.size())
         {
             try
             {
-                eventListenerInterface = (EventListenerInterface) // enumeration.nextElement();
-                    this.eventListenerInterfaceList.get(index);
+                eventListenerInterface = (EventListenerInterface) this.eventListenerInterfaceList.get(index);
                 this.process(eventObject, eventListenerInterface);
             }
             catch (Exception e)
             {
                 logUtil.put(commonStrings.EXCEPTION, this, eventStrings.FIRE_EVENT, e);
             }
+            index++;
         }
 
     }
@@ -205,12 +206,12 @@ public class BasicEventHandler implements BasicEventHandlerInterface
         stringBuffer.append(this.eventListenerInterfaceList.size());
 
         EventListenerInterface eventListenerInterface;
-        for (int index = 0; index < this.eventListenerInterfaceList.size(); index++)
+        int index = 0;
+        while (index < this.eventListenerInterfaceList.size())
         {
             try
             {
-                eventListenerInterface = (EventListenerInterface) // enumeration.nextElement();
-                    this.eventListenerInterfaceList.get(index);
+                eventListenerInterface = (EventListenerInterface) this.eventListenerInterfaceList.get(index);
 
                 stringBuffer.append(eventStrings.LISTENER_LABEL);
                 stringBuffer.append(eventListenerInterface.toString());
@@ -219,6 +220,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
             {
                 logUtil.put(commonStrings.EXCEPTION, this, commonStrings.TOSTRING, e);
             }
+            index++;
         }
         return stringBuffer.toString();
     }    

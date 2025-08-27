@@ -97,8 +97,9 @@ public class CommandForm extends Form
    
     @Override
    public void removeAllCommands()
-   {      
-      for(int index = 0; index <commandStack.size(); index++)
+   {
+       final int size = commandStack.size();
+      for(int index = 0; index < size; index++)
       {
          super.removeCommand((Command) commandStack.pop());
       }

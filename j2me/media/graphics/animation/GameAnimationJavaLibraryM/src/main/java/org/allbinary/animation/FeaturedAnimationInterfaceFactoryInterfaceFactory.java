@@ -140,7 +140,8 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
             stringBuffer.append(size);
             stringBuffer.append(FOR_FACTORIES);
             
-            for(int index = 0; index < resourceTypeAvailableList.size(); index++)
+            final int size2 = resourceTypeAvailableList.size();
+            for(int index = 0; index < size2; index++)
             {
                 stringBuffer.append(resourceTypeAvailableList.get(index).toString());
                 stringBuffer.append(CommonSeps.getInstance().COMMA_SEP);

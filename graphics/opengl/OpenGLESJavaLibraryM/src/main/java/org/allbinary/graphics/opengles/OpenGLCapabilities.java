@@ -336,7 +336,8 @@ public class OpenGLCapabilities
 
             BasicArrayList list = tokenizer.getTokens(glExtensions, new BasicArrayList());
 
-            for(int index = 0; index < list.size(); index++)
+            final int size = list.size();
+            for(int index = 0; index < size; index++)
             {
                 stringBuffer.append(commonSeps.NEW_LINE);
                 stringBuffer.append(stringUtil.toString(list.objectArray[index]));

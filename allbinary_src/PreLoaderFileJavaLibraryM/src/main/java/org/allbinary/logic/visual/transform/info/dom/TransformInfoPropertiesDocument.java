@@ -33,11 +33,11 @@ public class TransformInfoPropertiesDocument
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-   private Document document;
+   private final Document document;
    
-   public TransformInfoPropertiesDocument(String filePath) throws Exception
+   public TransformInfoPropertiesDocument(final String filePath) throws Exception
    {
-      AbFile xmlFile = new AbFile(filePath);
+      final AbFile xmlFile = new AbFile(filePath);
       this.document = DomDocumentFileHelper.create(xmlFile);
    }
    
@@ -45,7 +45,7 @@ public class TransformInfoPropertiesDocument
    {
       try
       {
-         HashMap transformInfoPropertiesHashMap = new HashMap();
+         final HashMap transformInfoPropertiesHashMap = new HashMap();
 
          /*
          Node objectConfigNode = this.document.getElementsByTagName(
@@ -54,12 +54,12 @@ public class TransformInfoPropertiesDocument
          NodeList objectConfigChildNodeList = objectConfigNode.getChildNodes();
          */
          
-         Node transformInfosNode = this.document.getElementsByTagName(
+         final Node transformInfosNode = this.document.getElementsByTagName(
             TransformInfosData.getInstance().NAME).item(0);
          
-         NodeList transformInfosChildNodeList = transformInfosNode.getChildNodes();
+         final NodeList transformInfosChildNodeList = transformInfosNode.getChildNodes();
          
-         Vector transformInfoNodeVector = DomSearchHelper.getAllNodes(
+         final Vector transformInfoNodeVector = DomSearchHelper.getAllNodes(
             TransformInfoData.getInstance().NAME, transformInfosChildNodeList);
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
@@ -67,13 +67,15 @@ public class TransformInfoPropertiesDocument
             logUtil.put("Size: " + transformInfoNodeVector.size(), this, "toTransformInfoPropertiesHashMap()");
          }
 
-         for(int index = 0; index < transformInfoNodeVector.size(); index++)
+         final int size = transformInfoNodeVector.size();
+         Node node;
+         TransformInfoProperties transformInfoProperties;
+         for(int index = 0; index < size; index++)
          {
-            Node node = (Node) transformInfoNodeVector.get(index);
+            node = (Node) transformInfoNodeVector.get(index);
 
             //Add each transformInfo and its children
-            TransformInfoProperties transformInfoProperties = 
-               TransformInfoPropertiesFactory.getInstance().getInstance(node);
+            transformInfoProperties = TransformInfoPropertiesFactory.getInstance().getInstance(node);
 
             transformInfoPropertiesHashMap.put(
                transformInfoProperties.getName(), transformInfoProperties);

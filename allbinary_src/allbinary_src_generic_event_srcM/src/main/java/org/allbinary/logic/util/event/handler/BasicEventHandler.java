@@ -37,21 +37,23 @@ public class BasicEventHandler implements BasicEventHandlerInterface
     }
 
     public String toString()
-    {
+    {   
         final StringMaker stringBuffer = new StringMaker();
 
+        final String LISTENER = " Listener: ";
+        
         stringBuffer.append("Total Listeners: ");
         stringBuffer.append(this.eventListenerInterfaceList.size());
 
         EventListenerInterface eventListenerInterface;
-        for (int index = 0; index < this.eventListenerInterfaceList.size(); index++)
+        int index = 0;
+        while (index < this.eventListenerInterfaceList.size())
         {
             try
             {
-                eventListenerInterface = (EventListenerInterface) // enumeration.nextElement();
-                    this.eventListenerInterfaceList.objectArray[index];
+                eventListenerInterface = (EventListenerInterface) this.eventListenerInterfaceList.objectArray[index];
 
-                stringBuffer.append(" Listener: ");
+                stringBuffer.append(LISTENER);
                 stringBuffer.append(StringUtil.getInstance().toString(eventListenerInterface));
 
             }
@@ -60,6 +62,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
                 final CommonStrings commonStrings = CommonStrings.getInstance();
                 logUtil.put(commonStrings.EXCEPTION, this, commonStrings.TOSTRING, e);
             }
+            index++;
         }
         return stringBuffer.toString();
     }
@@ -177,16 +180,13 @@ public class BasicEventHandler implements BasicEventHandlerInterface
          * Log(this.commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e)); } finally {
          * reentrantLock.unlock(); }
          */
-        // int size = this.eventListenerInterfaceVector.size();
-        // Enumeration enumeration =
-        // this.eventListenerInterfaceVector.elements();
-        // while(enumeration.hasMoreElements())
-        for (int index = 0; index < this.eventListenerInterfaceList.size(); index++)
+        int index = 0;
+        EventListenerInterface eventListenerInterface;
+        while (index < this.eventListenerInterfaceList.size())
         {
             try
             {
-                EventListenerInterface eventListenerInterface = (EventListenerInterface) // enumeration.nextElement();
-                    this.eventListenerInterfaceList.objectArray[index];
+                eventListenerInterface = (EventListenerInterface) this.eventListenerInterfaceList.objectArray[index];
                 this.process(eventObject, eventListenerInterface);
             }
             catch (Exception e)
@@ -194,6 +194,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
                 final CommonStrings commonStrings = CommonStrings.getInstance();
                 logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
+            index++;
         }
 
     }

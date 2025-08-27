@@ -99,15 +99,16 @@ extends BasicEventHandler
             }
         }
         
-        for (int index = 0; index < list.size(); index++)
+        EventListenerInterface eventListenerInterface;
+        GeographicMapCellPositionEventListenerInterface geographicMapCellPositionEventListenerInterface;
+        final int size = list.size();
+        for (int index = 0; index < size; index++)
         {
             try
             {
-                EventListenerInterface eventListenerInterface = 
-                    (EventListenerInterface) list.get(index);
-
-                ((GeographicMapCellPositionEventListenerInterface) eventListenerInterface)
-                .onRemoveGeographicMapCellPositionEvent((GeographicMapCellPositionEvent) eventObject);
+                eventListenerInterface = (EventListenerInterface) list.get(index);
+                geographicMapCellPositionEventListenerInterface = ((GeographicMapCellPositionEventListenerInterface) eventListenerInterface);
+                geographicMapCellPositionEventListenerInterface.onRemoveGeographicMapCellPositionEvent((GeographicMapCellPositionEvent) eventObject);
 
             } catch (Exception e)
             {

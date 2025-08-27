@@ -40,7 +40,7 @@ public class PrintLicenseInitInfo
 
    public LicenseInitInfo getLicenseInitInfo() throws Exception
    {
-       LicenseInitInfoUtil licenseInitInfoUtil = LicenseInitInfoUtil.getInstance();
+       final LicenseInitInfoUtil licenseInitInfoUtil = LicenseInitInfoUtil.getInstance();
 
       if (FileFactory.getInstance().isFile(licenseInitInfoUtil.getFilePath()))
       {
@@ -56,13 +56,14 @@ public class PrintLicenseInitInfo
    {
       try
       {
-         LicenseInitInfo licenseInitInfo = this.getLicenseInitInfo();
+         final LicenseInitInfo licenseInitInfo = this.getLicenseInitInfo();
          
          System.out.println("License ID: " + licenseInitInfo.getLicenseId());
          
-         BasicArrayList list = licenseInitInfo.getServerList();
+         final BasicArrayList list = licenseInitInfo.getServerList();
          
-         for (int index = 0; index < list.size(); index++)
+         final int size = list.size();
+         for (int index = 0; index < size; index++)
          {
             System.out.println("Lic Serv: " + list.get(index));
          }
@@ -76,8 +77,7 @@ public class PrintLicenseInitInfo
 
    public static void main(String[] args) throws Exception
    {
-      PrintLicenseInitInfo initInfo =
-         new PrintLicenseInitInfo(args);
+      final PrintLicenseInitInfo initInfo =new PrintLicenseInitInfo(args);
       initInfo.printInitInfo();
    }
 }

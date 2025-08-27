@@ -88,7 +88,8 @@ public class GameFeatureFormUtil
 
     public void setDefault(CommandForm form) throws Exception
     {
-        for (int index = 0; index < form.size(); index++)
+        final int size = form.size();
+        for (int index = 0; index < size; index++)
         {
             Item item = form.get(index);
             if (item instanceof GameConfigurationGauge)
