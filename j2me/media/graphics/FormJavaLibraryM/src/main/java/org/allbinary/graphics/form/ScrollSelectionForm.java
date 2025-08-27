@@ -309,8 +309,11 @@ public class ScrollSelectionForm extends PaintableForm
         
         graphics.setColor(this.getButtonBasicColor().intValue());
         
+        //TWB - Adjust gap between menu items rectangles
+        final int adjustedBorder = 3;
+
         //graphics.drawRect(x - border, y - border_y, width + border, height + border);
-        graphics.drawRect(x - halfBorder, y - halfBorder, width + border, height + border);
+        graphics.drawRect(x - halfBorder - adjustedBorder, y - halfBorder - adjustedBorder, width + border - adjustedBorder, height + border - adjustedBorder);
 
         if (this.formType == formTypeFactory.HORIZONTAL_FORM)
         {

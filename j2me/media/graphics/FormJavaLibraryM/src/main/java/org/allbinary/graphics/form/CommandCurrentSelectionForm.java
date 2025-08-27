@@ -79,7 +79,8 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
         int width = item.getMinimumWidth();
         int height = item.getMinimumHeight();
 
-        int adjustedBorder = 1;
+        //TWB - Adjust gap between menu items rectangles
+        int adjustedBorder = 3;
             
         int offset = -(halfBorder + adjustedBorder);
 
@@ -97,7 +98,8 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
                     offset, offset, selectedButtonColor);
         }
 
-        adjustedBorder = 2;
+        //TWB - Adjust gap between menu items rectangles
+        adjustedBorder = 4;
 
         if (J2MEUtil.isJ2ME())
         {
