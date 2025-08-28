@@ -289,18 +289,21 @@ public class GameCommandCanvas
         this.keyRepeated(keyCode, 0);
     }
     
+    @Override
     public void keyPressed(final int keyCode, final int deviceId)
     {
         logUtil.put(new StringMaker().append(CommonSeps.getInstance().SPACE).append(keyCode).toString(), this, gameInputStrings.KEY_PRESSED);
         this.addGameKeyEvent(keyCode, 0, false);
     }
 
+    @Override
     public void keyReleased(final int keyCode, final int deviceId)
     {
         //logUtil.put(commonStrings.START, this, gameInputStrings.KEY_RELEASED);
         this.removeGameKeyEvent(keyCode, deviceId, false);
     }
 
+    @Override
     public void keyRepeated(final int keyCode, final int deviceId)
     {
         // logUtil.put("Key Repeated: ").append(Integer.toHexString(keyCode), this, gameInputStrings.KEY_REPEATED);
