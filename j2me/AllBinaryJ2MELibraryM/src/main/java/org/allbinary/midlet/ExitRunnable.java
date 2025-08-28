@@ -13,7 +13,6 @@
 */
 package org.allbinary.midlet;
 
-import javax.microedition.lcdui.Displayable;
 import javax.microedition.lcdui.NullCanvas;
 
 import org.allbinary.canvas.Processor;

@@ -216,6 +216,18 @@ public class MyCanvas extends Canvas
         this.isPaused = isPaused;
     }
 
+    public void keyPressed(int keyCode, int deviceId)
+    {
+    }
+
+    public void keyRepeated(int keyCode, int deviceId)
+    {
+    }
+
+    public void keyReleased(int keyCode, int deviceId)
+    {
+    }
+    
     private final TouchJ2ME touchME = new TouchJ2ME();
     
     @Override
