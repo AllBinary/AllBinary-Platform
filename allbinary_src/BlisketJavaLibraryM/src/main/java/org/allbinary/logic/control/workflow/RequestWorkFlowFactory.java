@@ -35,7 +35,7 @@ public class RequestWorkFlowFactory
 
    //Used by user request
    //Assumes store name is in request path - usually a user request
-   //i.e. getting a workflow from the db for processing the actual workflow
+   //i.e. getting a workflow from the db for processing the workflow
    public static WorkFlowInterface getInstance(ServletRequest request, 
       ServletResponse response, 
       ServletConfig servletConfig, 

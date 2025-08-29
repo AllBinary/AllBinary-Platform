@@ -15,13 +15,13 @@ package org.allbinary.canvas;
 
 import org.allbinary.logic.string.StringMaker;
 
-public class GameStatisticsFactory extends BaseGameStatistics
+public class GameStatisticsFactory extends AndroidGameStatistics
 {
-    private static final GameStatisticsFactory instance = new GameStatisticsFactory();
-
-    public static GameStatisticsFactory getInstance()
+    private static final AndroidGameStatistics SINGLETON = new GameStatisticsFactory();
+    
+    public static final AndroidGameStatistics getInstance()
     {
-        return instance;
+        return SINGLETON;
     }
     
     private StringMaker stringBuffer = new StringMaker();
@@ -41,4 +41,5 @@ public class GameStatisticsFactory extends BaseGameStatistics
     {
         return new StringMaker().append(super.toString()).append(this.stringBuffer.toString()).toString();
     }
+    
 }

@@ -40,7 +40,7 @@ extends CollidableDestroyableDamageableBehavior
     throws Exception
     {
         //Don't process non-weapon pickups if dead - Should even collisions occur if dead.
-        //I would expect just to set blank behaviors for both?
+        //I would expectt just to set blank behaviors for both?
         //if (this.getHealthInterface().isAlive())
 
         CollisionTypeFactory collisionTypeFactory = CollisionTypeFactory.getInstance();

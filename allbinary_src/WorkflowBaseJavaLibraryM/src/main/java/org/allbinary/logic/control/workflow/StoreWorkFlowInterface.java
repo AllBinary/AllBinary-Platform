@@ -13,7 +13,7 @@
 */
 package org.allbinary.logic.control.workflow;
 
-//An actual workflow could implement all of the following in the process method
+//An workflow could implement all of the following in the process method
 
 //and is determined by the request command in the url
 //extends ValidationComponentInterface, ValidationInterface, ComponentInterface, DomNodeInterface, DataMappingInterface

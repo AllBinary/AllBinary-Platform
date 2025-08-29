@@ -51,7 +51,7 @@ public class TransformInfoTag extends ModifyTag
    //inserted into database instead of file path
    private String data;
 
-   //The viewObects vector may contain actual objects or a Vector of Strings
+   //The viewObects vector may contain objects or a Vector of Strings
    //that name view objects or are the objects that implement the view interface
    //private Vector viewObjects;
       

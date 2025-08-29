@@ -45,6 +45,6 @@ extends TransformInfoHttpStore
 
    protected void setObjectConfig(String value) throws Exception
    {
-      throw new Exception("Should not set from actual config");
+      throw new Exception("Should not set from config");
    }
 }
