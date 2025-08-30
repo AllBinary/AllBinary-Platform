@@ -18,10 +18,12 @@ import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 
+//ActualPlatform
 public class LogUtil
 {
     private static final LogUtil instance = new LogUtil();
     
+    //ActualPlatform
     public static final LogUtil getInstance() {
         return instance;
     }
@@ -32,6 +34,7 @@ public class LogUtil
     {
     }
 
+    //ActualPlatform
     public void put(Log log)
     {
         String specialMessage = log.getSpecialMessage();
@@ -42,6 +45,7 @@ public class LogUtil
         put(specialMessage, object, functionName, exception);
     }
 
+    //ActualPlatform
     public void put(
         String specialMessage,
         Object object,
@@ -57,6 +61,7 @@ public class LogUtil
         FileLog.put(specialMessage, object, functionName);
     }
 
+    //ActualPlatform
     public void put(
         String specialMessage,
         Object object,

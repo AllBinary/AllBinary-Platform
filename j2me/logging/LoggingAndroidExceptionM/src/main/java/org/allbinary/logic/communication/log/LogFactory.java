@@ -13,8 +13,10 @@
 */
 package org.allbinary.logic.communication.log;
 
+//ActualPlatform
 public class LogFactory
 {
+    //ActualPlatform
     public static final Log getInstance(
             String specialMessage,
             Object object,
@@ -24,6 +26,7 @@ public class LogFactory
         return new Log(specialMessage, object, functionName, exception);
     }
 
+    //ActualPlatform
     public static final Log getInstance(
             String specialMessage,
             Object object,
@@ -33,6 +36,7 @@ public class LogFactory
         //return new Log(specialMessage, object, functionName);
     }
 
+    //ActualPlatform
     public static final Log getInstance(
             String specialMessage,
             String className,
@@ -42,6 +46,7 @@ public class LogFactory
         return LogFactory.getInstance(specialMessage, className, functionName, exception);
     }
 
+    //ActualPlatform
     public static final Log getInstance(
             String specialMessage,
             String className,

@@ -17,10 +17,12 @@ import org.allbinary.string.CommonStrings;
 
 import playn.core.PlayN;
 
+//ActualPlatform
 public class LogUtil {
 
     private static final LogUtil instance = new LogUtil();
 
+    //ActualPlatform
     public static final LogUtil getInstance() {
         return instance;
     }
@@ -30,6 +32,7 @@ public class LogUtil {
     private LogUtil() {
     }
 
+    //ActualPlatform
     public void put(final Log log) {
         final String specialMessage = log.getSpecialMessage();
         final Object object = log.getObject();
@@ -39,6 +42,7 @@ public class LogUtil {
         this.put(specialMessage, object, functionName, exception);
     }
 
+    //ActualPlatform
     public void put(
         final String specialMessage,
         final Object object,
@@ -62,6 +66,7 @@ public class LogUtil {
         //System.out.println(message);
     }
 
+    //ActualPlatform
     public void put(
         final String specialMessage,
         final Object object,

@@ -12,37 +12,32 @@
 * 
 */
 package org.allbinary.logic.communication.log;
-
-import org.allbinary.logic.string.StringUtil;
-
-//ActualPlatform
 public class LogFactory
 {
-    //ActualPlatform
+
     public static final Log getInstance(
             String specialMessage,
             Object object,
             Object exception)
     {
-        return new Log(specialMessage, object, StringUtil.getInstance().EMPTY_STRING, exception);
+        throw new RuntimeException();
     }
 
-    //ActualPlatform
+
     public static final Log getInstance(
             String specialMessage,
             Object object,
             String functionName,
             Object exception)
     {
-        return new Log(specialMessage, object, functionName, exception);
+        throw new RuntimeException();
     }
 
-    //ActualPlatform
     public static final Log getInstance(
             String specialMessage,
             Object object,
             String functionName)
     {
-        return new Log(specialMessage, object, functionName);
+        throw new RuntimeException();
     }
 }

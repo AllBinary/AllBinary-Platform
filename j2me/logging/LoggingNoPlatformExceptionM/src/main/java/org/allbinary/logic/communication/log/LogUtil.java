@@ -13,12 +13,11 @@
  */
 package org.allbinary.logic.communication.log;
 
-//ActualPlatform
+//NoPlatform
 public class LogUtil {
 
     private static final LogUtil instance = new LogUtil();
 
-    //ActualPlatform
     public static final LogUtil getInstance() {
         return instance;
     }
@@ -26,22 +25,24 @@ public class LogUtil {
     private LogUtil() {
     }
 
-    //ActualPlatform
-    public void put(Log log) {
+    public void put(final Log log) {
+        
+        throw new RuntimeException();
     }
 
-    //ActualPlatform
     public void put(
         final String specialMessage,
         final Object object,
         final String functionName) {
     }
 
-    //ActualPlatform
     public void put(
         final String specialMessage,
         final Object object,
         final String functionName,
         final Object exception) {
+        
+        throw new RuntimeException();
+
     }
 }

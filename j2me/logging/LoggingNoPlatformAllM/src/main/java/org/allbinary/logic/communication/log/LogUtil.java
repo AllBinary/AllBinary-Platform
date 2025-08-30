@@ -12,63 +12,42 @@
 * 
  */
 package org.allbinary.logic.communication.log;
-
-//ActualPlatform
 public class LogUtil {
 
     private static final LogUtil instance = new LogUtil();
 
-    //ActualPlatform
     public static final LogUtil getInstance() {
         return instance;
     }
 
-    private final String LABEL = "org.allbinary";
-    private final String LOG_SUCCESS = "org.allbinary: ";
-    
     private LogUtil() {
     }
 
-    //ActualPlatform
-    public void put(final Log log) {
+    public void put(Log log) {
         final String specialMessage = log.getSpecialMessage();
         final Object object = log.getObject();
         final String functionName = log.getFunctionName();
         final Object exception = log.getThrowable();
 
-        if (log != null) {
-            this.put(specialMessage, object, functionName, exception);
-        }
+        throw new RuntimeException();
     }
-    
-    //ActualPlatform
+
     public void put(
         final String specialMessage,
         final Object object,
         final String functionName) {
-
+        
+        throw new RuntimeException();
+        
     }
 
-    //ActualPlatform
     public void put(
         final String specialMessage,
         final Object object,
         final String functionName,
         final Object exception) {
-        String className = LABEL;
-        /*
-      if(object != null && object.getClass().getName() != null)
-      {
-         className = new String(object.getClass().getName());
-      }
-         */
-
-        className = object.getClass().getName();
-
-        final String message = LogFormatUtil.getInstance().get(
-            className, functionName, specialMessage, exception);
-
-        android.util.Log.i(LABEL, LOG_SUCCESS + message);
-        //android.util.Log.i(LABEL, message);
+        
+        throw new RuntimeException();
+        
     }
 }

@@ -17,10 +17,12 @@ import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 
+//ActualPlatform
 public class LogUtil {
 
     private static final LogUtil instance = new LogUtil();
 
+    //ActualPlatform
     public static final LogUtil getInstance() {
         return instance;
     }
@@ -33,6 +35,7 @@ public class LogUtil {
     private LogUtil() {
     }
 
+    //ActualPlatform
     public void put(final Log log) {
         final String specialMessage = log.getSpecialMessage();
         final Object object = log.getObject();
@@ -41,10 +44,12 @@ public class LogUtil {
         this.put(specialMessage, object, functionName, exception);
     }
     
+    //ActualPlatform
     public void put(final String specialMessage, final Object object, String functionName) {
         this.put(specialMessage, object, functionName, NullUtil.getInstance().NULL_OBJECT);
     }
     
+    //ActualPlatform
     public void put(final String specialMessage, final Object object, String functionName, Object exception) {
 
         String className = LABEL;

@@ -16,10 +16,12 @@ package org.allbinary.logic.communication.log;
 import org.allbinary.string.CommonStrings;
 import playn.core.PlayN;
 
+//ActualPlatform
 public class LogUtil {
 
     private static final LogUtil instance = new LogUtil();
 
+    //ActualPlatform
     public static final LogUtil getInstance() {
         return instance;
     }
@@ -29,6 +31,7 @@ public class LogUtil {
     private LogUtil() {
     }
 
+    //ActualPlatform
     public void put(final Log log) {
         if (log == null) {
             return;
@@ -42,6 +45,7 @@ public class LogUtil {
         put(specialMessage, object, functionName, exception);
     }
 
+    //ActualPlatform
     public void put(
         final String specialMessage,
         final Object object,
@@ -65,6 +69,7 @@ public class LogUtil {
         //System.out.println(message);
     }
 
+    //ActualPlatform
     public void put(
         final String specialMessage,
         final Object object,

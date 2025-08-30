@@ -20,10 +20,12 @@ import java.util.logging.Logger;
 
 import org.allbinary.string.CommonStrings;
 
+//ActualPlatform
 public class LogUtil {
 
     private static final LogUtil instance = new LogUtil();
 
+    //ActualPlatform
     public static final LogUtil getInstance() {
         return instance;
     }
@@ -50,12 +52,14 @@ public class LogUtil {
     private LogUtil() {
     }
 
+    //ActualPlatform
     public void init() {
         //String message = "The Logging path is: " + LogUtil.getFilePatternPath();
         //PreLogUtil.put(message, "LogUtil", "init()");
         PreLogUtil.put("Loggin Initialized", "LogUtil", "init()");
     }
 
+    //ActualPlatform
     public void put(Log log) {
         Object exception = log.getThrowable();
 
@@ -84,6 +88,7 @@ public class LogUtil {
     }
     
     //private final static String LOG_SUCCESS = "org.allbinary: ";
+    //ActualPlatform
     public void put(
         final String specialMessage,
         final Object object,

@@ -26,10 +26,12 @@ import org.allbinary.canvas.SpecialMessageUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.time.TimeDelayHelper;
 
+//ActualPlatform
 public class LogUtil {
 
     private static final LogUtil instance = new LogUtil();
 
+    //ActualPlatform
     public static final LogUtil getInstance() {
         return instance;
     }
@@ -44,6 +46,7 @@ public class LogUtil {
 
     private final StringMaker stringBuffer = new StringMaker();
 
+    //ActualPlatform
     public void put(Log log) {
         if (log == null) {
             return;
@@ -57,10 +60,12 @@ public class LogUtil {
         this.put(specialMessage, object, functionName, exception);
     }
     
+    //ActualPlatform
     public void put(final String specialMessage, final Object object, final String functionName) {
         
     }
     
+    //ActualPlatform
     public void put(final String specialMessage, final Object object, final String functionName, final Object exception) {
         
 
