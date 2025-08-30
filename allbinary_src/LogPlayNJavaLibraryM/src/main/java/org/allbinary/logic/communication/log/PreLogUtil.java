@@ -19,9 +19,11 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import playn.core.PlayN;
 
+//ActualPlatform
 public class PreLogUtil
 {
     
+    //ActualPlatform
     public PreLogUtil()
     {
     }
@@ -51,6 +53,7 @@ public class PreLogUtil
     }
     */
 
+    //ActualPlatform
     public static void put(
         final String specialMessage,
         final Object object,
@@ -71,9 +74,9 @@ public class PreLogUtil
         PlayN.log().debug(LOG_SUCCESS + message);
     }
 
-    
     private final static String LOG_SUCCESS = "org.allbinary: ";
 
+    //ActualPlatform
     public static void put(
         final String specialMessage,
         final Object object,
@@ -95,6 +98,7 @@ public class PreLogUtil
         PlayN.log().error(LOG_SUCCESS + message, (Throwable) exception);
     }
     
+    //ActualPlatform
     public static void put(
         final String specialMessage,
         final String className,
@@ -106,6 +110,7 @@ public class PreLogUtil
         PlayN.log().debug(LOG_SUCCESS + message);
     }
 
+    //ActualPlatform
     public static void put(
         final String specialMessage,
         final String className,
@@ -127,6 +132,7 @@ public class PreLogUtil
 //        }
 //    }
     
+    //ActualPlatform
     public static native String getClassName(Object object) /*-{
             var a = new Error().stack.split('\n');
             //Example:     at org_allbinary_..._BasicTopViewGeographicMapCellTypeFactory_$init__Lorg_allbinary_..._BasicTopViewGeographicMapCellTypeFactory_2Ljava_util_Hashtable_2V (http://...

@@ -17,10 +17,12 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+//ActualPlatform
 public class TimeStampUtil
 {
     private static final TimeStampUtil instance = new TimeStampUtil();
 
+    //ActualPlatform
     public static TimeStampUtil getInstance()
     {
         return instance;
@@ -32,6 +34,7 @@ public class TimeStampUtil
     {
     }
     
+    //ActualPlatform
     public String getAsString()
     {
         final Calendar calendar = Calendar.getInstance();

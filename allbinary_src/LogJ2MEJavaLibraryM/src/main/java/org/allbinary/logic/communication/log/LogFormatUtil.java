@@ -21,11 +21,13 @@ import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.time.TimeStampUtil;
 
+//ActualPlatform
 public class LogFormatUtil
 {
 
     private static final LogFormatUtil instance = new LogFormatUtil();
 
+    //ActualPlatform
     public static LogFormatUtil getInstance()
     {
         return instance;
@@ -51,8 +53,8 @@ public class LogFormatUtil
     {
     }
 
-    public String get(
-        final String className, final String functionName, final String specialMessage, final Object exception)
+    //ActualPlatform
+    public String get(final String className, final String functionName, final String specialMessage, final Object exception)
     {
         final StringMaker stringBuffer = get(className, functionName);
 
@@ -67,8 +69,8 @@ public class LogFormatUtil
         return stringBuffer.toString();
     }
 
-    public String get(
-        final String className, final String functionName, final String specialMessage)
+    //ActualPlatform
+    public String get(final String className, final String functionName, final String specialMessage)
     {
         final StringMaker stringBuffer = get(className, functionName);
 
@@ -84,8 +86,7 @@ public class LogFormatUtil
     //Date does not change as static
     //private final Calendar calendar = Calendar.getInstance();
     
-    private StringMaker get(
-        final String className, String functionName)
+    private StringMaker get(final String className, String functionName)
     {
         if (functionName == null)
         {
@@ -110,6 +111,7 @@ public class LogFormatUtil
     private final ExceptionUtil exceptionUtil = ExceptionUtil.getInstance();
     private final NullUtil nullUtil = NullUtil.getInstance();
     
+    //ActualPlatform
     public String get(final Object exception)
     {
         if (exception != nullUtil.NULL_OBJECT)

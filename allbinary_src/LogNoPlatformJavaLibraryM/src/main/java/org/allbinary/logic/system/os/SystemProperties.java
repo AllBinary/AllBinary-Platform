@@ -13,7 +13,7 @@
 */
 package org.allbinary.logic.system.os;
 
-//ActualPlatform
+//NoPlatform
 public class SystemProperties
 {
 
@@ -22,7 +22,6 @@ public class SystemProperties
     /**
      * @return the instance
      */
-    //ActualPlatform
     public static SystemProperties getInstance() {
         return instance;
     }
@@ -34,55 +33,52 @@ public class SystemProperties
      /*
      public String getJavaVersion()
      {
-        return System.getProperty("java.version");
+        throw new RuntimeException();
      }
      
      public String getFileSep()
      {
-        return System.getProperty("file.separator");        
+        throw new RuntimeException();
      }
      
      public String getLineSep()
      {
-         return System.getProperty("line.separator");
+         throw new RuntimeException();
      }
      
      public String getPathSep()
      {
-         return System.getProperty("path.separator");
+         throw new RuntimeException();
      }
      
      public String getClassVersion()
      {
-         return System.getProperty("java.class.version");
+         throw new RuntimeException();
      }
      
      public String getVendor()
      {         
-         return System.getProperty("java.vendor");
+         throw new RuntimeException();
      }
      
      public String getVendorUrl()
      {
-         return System.getProperty("java.vendor.url");
+         throw new RuntimeException();
      }
      */
      
-     //ActualPlatform
      public String getName()
      {
-         return "os.name";
+         throw new RuntimeException();
      }
      
-     //ActualPlatform
      public String getArch()
      {
-         return "os.arch";
+         throw new RuntimeException();
      }
      
-     //ActualPlatform
      public String getVersion()
      {
-         return "os.version";
+         throw new RuntimeException();
      }
 }

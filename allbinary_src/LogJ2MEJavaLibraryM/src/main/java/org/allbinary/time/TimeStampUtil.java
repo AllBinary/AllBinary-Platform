@@ -16,10 +16,12 @@ package org.allbinary.time;
 import java.util.Calendar;
 import java.util.Date;
 
+//ActualPlatform
 public class TimeStampUtil
 {
     private static final TimeStampUtil instance = new TimeStampUtil();
 
+    //ActualPlatform
     public static TimeStampUtil getInstance()
     {
         return instance;
@@ -29,6 +31,7 @@ public class TimeStampUtil
     {
     }
     
+    //ActualPlatform
     public String getAsString()
     {
         Calendar calendar = Calendar.getInstance();

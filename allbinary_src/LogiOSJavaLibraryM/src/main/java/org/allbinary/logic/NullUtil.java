@@ -28,7 +28,6 @@ public class NullUtil {
     /**
      * @return the instance
      */
-    //ActualPlatform
     public static NullUtil getInstance() {
         return instance;
     }
@@ -54,6 +53,7 @@ public class NullUtil {
     
     //ActualPlatform
     public final Vector<Object> EMPTY_VECTOR = new Vector<Object>();
+
     //ActualPlatform
     public final Hashtable NULL_TABLE = new Hashtable();
 

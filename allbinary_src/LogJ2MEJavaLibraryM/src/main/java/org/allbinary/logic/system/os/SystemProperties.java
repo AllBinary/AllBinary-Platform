@@ -13,6 +13,7 @@
 */
 package org.allbinary.logic.system.os;
 
+//ActualPlatform
 public class SystemProperties
 {
 
@@ -21,6 +22,7 @@ public class SystemProperties
     /**
      * @return the instance
      */
+    //ActualPlatform
     public static SystemProperties getInstance() {
         return instance;
     }
@@ -66,16 +68,19 @@ public class SystemProperties
      }
      */
      
+     //ActualPlatform
      public String getName()
      {
          return System.getProperty("os.name");
      }
      
+     //ActualPlatform
      public String getArch()
      {
          return System.getProperty("os.arch");
      }
      
+     //ActualPlatform
      public String getVersion()
      {
          return System.getProperty("os.version");

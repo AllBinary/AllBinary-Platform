@@ -14,6 +14,7 @@
 package org.allbinary.logic.communication.log;
 
 import org.allbinary.logic.NullUtil;
+import org.allbinary.string.CommonStrings;
 
 //ActualPlatform
 public class PreLogUtil
@@ -55,10 +56,9 @@ public class PreLogUtil
         final String functionName)
     {
         put(specialMessage, object, functionName, NullUtil.getInstance().NULL_OBJECT);
-    }
+    }    
     
-    private static final String LABEL = "org.allbinary";
-    //private final static String LOG_SUCCESS = "org.allbinary: ";
+    private final static String LOG_SUCCESS = "org.allbinary: ";
 
     //ActualPlatform
     public static void put(
@@ -67,47 +67,32 @@ public class PreLogUtil
         final String functionName,
         final Object exception)
     {
-        String className = LABEL;
+        String className = CommonStrings.getInstance().EMPTY;
         
-        String actualClassName = object.getClass().getName();
-        if(actualClassName != null)
+        if(object.getClass().getName() != null)
         {
-            className = actualClassName;
+            className = new String(object.getClass().getName());
         }
         
-        final String message = LogFormatUtil.getInstance().get(
+        String message = LogFormatUtil.getInstance().get(
             className, functionName, specialMessage, exception);
         
-        //android.util.Log.i(className, LOG_SUCCESS + message);
-        android.util.Log.i(LABEL, message);
-        //android.util.Log.i(className, message);
-        //System.out.print(LOG_SUCCESS);
-        //System.out.println(message);
+        System.out.print(LOG_SUCCESS);
+        System.out.println(message);
     }
     
     //ActualPlatform
     public static void put(
-        final String specialMessage,
-        final String className,
-        final String functionName)
+        String specialMessage,
+        String className,
+        String functionName,
+        Object exception)
     {
-        put(specialMessage, className, functionName, NullUtil.getInstance().NULL_OBJECT);
-    }
-    
-    //ActualPlatform
-    public static void put(
-        final String specialMessage,
-        final String className,
-        final String functionName,
-        final Object exception)
-    {
-        final String message = LogFormatUtil.getInstance().get(
+        String message = LogFormatUtil.getInstance().get(
             className, functionName, specialMessage, exception);
         
-        //android.util.Log.i(className, LOG_SUCCESS + message);
-        android.util.Log.i(className, message);
-        //System.out.print(LOG_SUCCESS);
-        //System.out.println(message);
+        System.out.print(LOG_SUCCESS);
+        System.out.println(message);
     }
     
 }

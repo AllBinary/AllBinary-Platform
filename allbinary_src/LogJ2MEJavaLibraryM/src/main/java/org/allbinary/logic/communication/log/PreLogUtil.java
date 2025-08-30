@@ -16,9 +16,11 @@ package org.allbinary.logic.communication.log;
 import org.allbinary.logic.NullUtil;
 import org.allbinary.string.CommonStrings;
 
+//ActualPlatform
 public class PreLogUtil
 {
     
+    //ActualPlatform
     public PreLogUtil()
     {
     }
@@ -47,6 +49,8 @@ public class PreLogUtil
             }
     }
     */
+    
+    //ActualPlatform
     public static void put(
         final String specialMessage,
         final Object object,
@@ -57,6 +61,7 @@ public class PreLogUtil
     
     private final static String LOG_SUCCESS = "org.allbinary: ";
 
+    //ActualPlatform
     public static void put(
         final String specialMessage,
         final Object object,
@@ -77,6 +82,7 @@ public class PreLogUtil
         System.out.println(message);
     }
     
+    //ActualPlatform
     public static void put(
         String specialMessage,
         String className,
