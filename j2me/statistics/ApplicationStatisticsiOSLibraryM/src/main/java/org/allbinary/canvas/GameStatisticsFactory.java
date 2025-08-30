@@ -15,7 +15,7 @@ package org.allbinary.canvas;
 
 import org.allbinary.logic.string.StringMaker;
 
-//J2SE
+//iOS (Same as J2ME currently)
 //ActualPlatform
 public class GameStatisticsFactory extends BaseGameStatistics
 {

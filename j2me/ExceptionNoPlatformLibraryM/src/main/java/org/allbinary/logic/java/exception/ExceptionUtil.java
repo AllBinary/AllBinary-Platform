@@ -13,7 +13,7 @@
  */
 package org.allbinary.logic.java.exception;
 
-//ActualPlatform
+//NoPlatform
 public class ExceptionUtil
 {
 
@@ -22,7 +22,6 @@ public class ExceptionUtil
     /**
      * @return the instance
      */
-    //ActualPlatform
     public static ExceptionUtil getInstance()
     {
         return instance;
@@ -32,15 +31,10 @@ public class ExceptionUtil
     {
     }
 
-    //ActualPlatform
-    public static final Exception PRETEND_EXCEPTION = new Exception("Not Really An Exception");
-    private final String NONE = "No Stack Trace";
-    
-    //ActualPlatform
+    public final Exception PRETEND_EXCEPTION = new Exception("Not Really An Exception");
+
     public String getStackTrace(Throwable e)
     {
-        e.printStackTrace();
-
-        return NONE;
+        throw new RuntimeException();
     }
 }

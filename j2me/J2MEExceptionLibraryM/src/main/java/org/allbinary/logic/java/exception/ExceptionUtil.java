@@ -15,6 +15,7 @@ package org.allbinary.logic.java.exception;
 
 import java.io.ByteArrayOutputStream;
 
+//ActualPlatform
 public class ExceptionUtil
 {
 
@@ -23,6 +24,7 @@ public class ExceptionUtil
     /**
      * @return the instance
      */
+    //ActualPlatform
     public static ExceptionUtil getInstance()
     {
         return instance;
@@ -32,9 +34,11 @@ public class ExceptionUtil
     {
     }
 
+    //ActualPlatform
     public final Exception PRETEND_EXCEPTION = new Exception("Not Really An Exception");
     private final String NONE = "No Stack Trace";
 
+    //ActualPlatform
     public String getStackTrace(Throwable e)
     {
         final ByteArrayOutputStream bs = new ByteArrayOutputStream();

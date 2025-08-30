@@ -15,24 +15,11 @@ package org.allbinary.system;
 
 import org.allbinary.logic.string.StringMaker;
 
-//J2ME
-//ActualPlatform
+//NoPlatform
 public class Memory
 {
-    //ActualPlatform
     public static String getInfo()
     {
-        StringMaker stringBuffer = new StringMaker();
-
-        stringBuffer.append("Memory: Free: ");
-        stringBuffer.append(Runtime.getRuntime().freeMemory());
-
-        //stringBuffer.append(" Max: ");
-        //stringBuffer.append(Runtime.getRuntime().maxMemory());
-
-        stringBuffer.append(" Total: ");
-        stringBuffer.append(Runtime.getRuntime().totalMemory());
-
-        return stringBuffer.toString();
+        throw new RuntimeException();
     }
 }

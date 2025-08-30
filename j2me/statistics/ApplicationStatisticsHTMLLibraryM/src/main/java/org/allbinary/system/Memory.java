@@ -15,8 +15,11 @@ package org.allbinary.system;
 
 import org.allbinary.logic.string.StringUtil;
 
+//HTML
+//ActualPlatform
 public class Memory
 {
+    //ActualPlatform
     public static String getInfo()
     {
         /*

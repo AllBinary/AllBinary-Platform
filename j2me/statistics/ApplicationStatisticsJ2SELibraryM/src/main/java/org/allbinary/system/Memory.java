@@ -15,8 +15,11 @@ package org.allbinary.system;
 
 import org.allbinary.logic.string.StringMaker;
 
+//J2SE
+//ActualPlatform
 public class Memory
 {
+    //ActualPlatform
     public static String getInfo()
     {
         StringMaker stringBuffer = new StringMaker();

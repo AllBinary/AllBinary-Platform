@@ -15,10 +15,13 @@ package org.allbinary.canvas;
 
 import org.allbinary.logic.string.StringMaker;
 
+//J2ME
+//ActualPlatform
 public class GameStatisticsFactory extends BaseGameStatistics
 {
     private static final GameStatisticsFactory instance = new GameStatisticsFactory();
 
+    //ActualPlatform
     public static GameStatisticsFactory getInstance()
     {
         return instance;
@@ -27,6 +30,7 @@ public class GameStatisticsFactory extends BaseGameStatistics
     private StringMaker stringBuffer = new StringMaker();
     
     @Override
+    //ActualPlatform
     public void add(String string)
     {
         if(this.stringBuffer.length() > 12000)
@@ -37,6 +41,7 @@ public class GameStatisticsFactory extends BaseGameStatistics
         this.stringBuffer.append(string);
     }
     
+    //ActualPlatform
     public String toString()
     {
         return new StringMaker().append(super.toString()).append(this.stringBuffer.toString()).toString();

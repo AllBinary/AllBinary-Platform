@@ -15,10 +15,13 @@ package org.allbinary.canvas;
 
 import org.allbinary.logic.string.StringMaker;
 
+//Android
+//ActualPlatform
 public class GameStatisticsFactory extends AndroidGameStatistics
 {
     private static final AndroidGameStatistics SINGLETON = new GameStatisticsFactory();
     
+    //ActualPlatform
     public static final AndroidGameStatistics getInstance()
     {
         return SINGLETON;
@@ -27,6 +30,7 @@ public class GameStatisticsFactory extends AndroidGameStatistics
     private StringMaker stringBuffer = new StringMaker();
     
     @Override
+    //ActualPlatform
     public void add(String string)
     {
         if(this.stringBuffer.length() > 12000)
@@ -37,6 +41,7 @@ public class GameStatisticsFactory extends AndroidGameStatistics
         this.stringBuffer.append(string);
     }
     
+    //ActualPlatform
     public String toString()
     {
         return new StringMaker().append(super.toString()).append(this.stringBuffer.toString()).toString();
