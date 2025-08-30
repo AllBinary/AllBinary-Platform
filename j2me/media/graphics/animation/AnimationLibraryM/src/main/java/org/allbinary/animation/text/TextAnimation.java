@@ -94,7 +94,7 @@ public class TextAnimation extends IndexedAnimation
             for(int index = 0; index < size; index++) {
                 textArray[index] = (String) list.get(index);
             }
-            this.textArray = (String[]) list.toArray();
+            this.textArray = textArray;
             //this.textArray = (String[]) list.toArray(new String[list.size()]);
         } else {
             this.textArray = StringUtil.getInstance().ONE_EMPTY_STRING_ARRAY;
