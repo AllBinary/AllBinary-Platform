@@ -26,6 +26,7 @@ import org.allbinary.graphics.color.BasicColor;
  */
 public class ImageModifierUtil {
     //protected final LogUtil logUtil = LogUtil.getInstance();
+    //protected final CommonStrings commonStrings = CommonStrings.getInstance();
 
     
     public static ImageModifierUtil getInstanceOrCreate() {
@@ -59,13 +60,13 @@ public class ImageModifierUtil {
     }
 
     public void changeColor(final Image unusedOriginalImage, final Image image, final int imageIndex, final BasicColor basicColor) {
-        
+        paint.setColorFilter(new PorterDuffColorFilter(basicColor.intValue(), PorterDuff.Mode.SRC_IN));
     }
     
     public void setAlpha(final Image originalImage, final Image image, final int imageIndex, final int alphaInt) {
         if(alphaInt != paint.getAlpha()) {
             paint.setAlpha(alphaInt);
-            //logUtil.put(new StringBuilder().append(SET_ALPHA).append(alpha).append('/').append(alpha).toString(), this, commonStrings.PROCESS);
+            //logUtil.put(new StringBuilder().append(SET_ALPHA).append(alphaInt).append('/').append(255).toString(), this, commonStrings.PROCESS);
         }
     }
     

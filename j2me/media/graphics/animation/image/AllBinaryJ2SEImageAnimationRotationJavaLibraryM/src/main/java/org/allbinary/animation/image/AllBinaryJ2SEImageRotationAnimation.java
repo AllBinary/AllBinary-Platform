@@ -104,7 +104,8 @@ public class AllBinaryJ2SEImageRotationAnimation
     public void changeBasicColor(final BasicColor basicColor) {
         
         boolean changed = false;
-        if(this.getBasicColorP() == null || this.getBasicColorP().intValue() != basicColor.intValue()) {
+        //if(this.getBasicColorP() == null || this.getBasicColorP().intValue() != basicColor.intValue()) {
+        if(this.getChangeBasicColor() == null || this.getChangeBasicColor().intValue() != basicColor.intValue()) {
             changed = true;
         }
         

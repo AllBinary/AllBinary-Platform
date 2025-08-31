@@ -78,6 +78,7 @@ extends ImageBaseRotationAnimation
         
         boolean changed = false;
         if(this.getBasicColorP() == null || this.getBasicColorP().intValue() != basicColor.intValue()) {
+            imageModifierUtil.setColor(this.originalImage, this.imageToShow, 0, basicColor);
             changed = true;
         }
         
@@ -87,6 +88,12 @@ extends ImageBaseRotationAnimation
             matrix.setRotate(0, this.halfWidth, this.halfHeight);
             this.updateImage();
         }
+    }
+    
+    @Override
+    public void changeBasicColor(final BasicColor basicColor) {
+        
+        this.setBasicColorP(basicColor);
     }
     
     public void setAlpha(final int alpha) {

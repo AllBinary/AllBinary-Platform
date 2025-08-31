@@ -62,11 +62,12 @@ extends ImageBaseRotationAnimation
         
         //logUtil.put(this.toString(), this, commonStrings.CONSTRUCTOR);
     }
-
+    
     public void setBasicColorP(final BasicColor basicColor) {
         
         boolean changed = false;
         if(this.getBasicColorP() == null || this.getBasicColorP().intValue() != basicColor.intValue()) {
+            imageModifierUtil.setColor(this.originalImage, this.getImage(), 0, basicColor);
             changed = true;
         }
         
@@ -76,6 +77,12 @@ extends ImageBaseRotationAnimation
             matrix.setRotate(0, this.halfWidth, this.halfHeight);
             this.updateImage();
         }
+    }
+
+    @Override
+    public void changeBasicColor(final BasicColor basicColor) {
+        
+        this.setBasicColorP(basicColor);
     }
     
     public void setAlpha(final int alpha) {
@@ -119,7 +126,7 @@ extends ImageBaseRotationAnimation
 
     private void updateImage() {
 
-        androidImageUtil.rotate(this.getImage(), originalImage, matrix);
+        androidImageUtil.rotate(this.getImage(), originalImage, matrix, imageModifierUtil.paint);
     }
     
     public void setFrame(final int index)
