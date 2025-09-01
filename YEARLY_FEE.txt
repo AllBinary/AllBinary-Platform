@@ -12,4 +12,4 @@ Example 3: A business deploying products with the AllBinary Platform with more t
 999,000,000 USD and less than 1,000,000,000 USD in revenue for the year must pay 999 USD for 
 the yearly subscription.
 
-Products includes but is not limited to apps, games, servers, LLMs, or the like.
+"products" includes but is not limited to apps, games, servers, LLMs, or the like.
