@@ -1,2 +1,15 @@
-The current yearly subscription cost is 1 dollar USD.
+The current yearly subscription cost is 1 dollar USD per 1 million in revenue per year.
 You must be pay via Paypal to: travisberthelot@hotmail.com
+
+Example 1: A business that is not deploying products with the AllBinary Platform regardless 
+of revenue does not need to pay the yearly subscription until publishing something with the 
+AllBinary Platform.
+
+Example 2: A business deploying products with the AllBinary Platform with less than 999,000 USD 
+in revenue for the year must pay 1 USD for the yearly subscription.
+
+Example 3: A business deploying products with the AllBinary Platform with more than 
+999,000,000 USD and less than 1,000,000,000 USD in revenue for the year must pay 999 USD for 
+the yearly subscription.
+
+Products includes but is not limited to apps, games, servers, LLMs, or the like.
