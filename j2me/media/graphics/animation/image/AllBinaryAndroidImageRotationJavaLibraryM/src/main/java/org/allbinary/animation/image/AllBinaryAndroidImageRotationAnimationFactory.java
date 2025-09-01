@@ -99,7 +99,7 @@ public class AllBinaryAndroidImageRotationAnimationFactory
         this.angleIncrement = angleIncrement;
     }
     
-    private Image secondImage = null;
+//    private Image secondImage = null;
     
     @Override
     public Animation getInstance(final int instanceId) throws Exception
@@ -107,11 +107,11 @@ public class AllBinaryAndroidImageRotationAnimationFactory
         final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), 
             this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, 
             this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
-//        final Image copyOfScaledImage = ImageCopyUtil.getInstance().createImage(scaledImage);
-        Image copyOfScaledImage = secondImage;
-        if(copyOfScaledImage == null) {
-            secondImage = copyOfScaledImage = ImageCopyUtil.getInstance().createImage(scaledImage);
-        }
+        final Image copyOfScaledImage = ImageCopyUtil.getInstance().createImage(scaledImage);
+//        Image copyOfScaledImage = secondImage;
+//        if(copyOfScaledImage == null) {
+//            secondImage = copyOfScaledImage = ImageCopyUtil.getInstance().createImage(scaledImage);
+//        }
 
         if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
             

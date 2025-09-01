@@ -36,11 +36,13 @@ public class LicenseInitInfoUtil
         return instance;
     }
 
+    private final StringUtil stringUtil = StringUtil.getInstance();
+    
     public final String INITFILENAME = "licenseinitdata.dat";
     public final String ABOUT = "about";
     public final String PRIVACY_POLICY = "privacy_policy";
 
-    private String filePath = StringUtil.getInstance().EMPTY_STRING;
+    private String filePath = stringUtil.EMPTY_STRING;
 
     public synchronized void setFilePath(String filePath)
     {
@@ -50,28 +52,29 @@ public class LicenseInitInfoUtil
     public synchronized void write(LicenseInitInfo initData)
             throws Exception
     {
-        if (this.filePath == null)
+        if (this.filePath == stringUtil.EMPTY_STRING)
         {
             this.filePath = URLGLOBALS.getMainPath() + PATH_GLOBALS.getInstance().INIT_PATH;
         }
 
         try
         {
-            AbDataOutputStream dataOutputStream =
+            final AbDataOutputStream dataOutputStream =
                 DataOutputStreamFactory.getInstance().getInstance(
                 this.filePath, INITFILENAME);
 
-            byte[] licenseIdCrypted = new WeakCrypt(1).encrypt(
+            final byte[] licenseIdCrypted = new WeakCrypt(1).encrypt(
                     initData.getLicenseId()).getBytes();
 
             dataOutputStream.writeUTF(DatabaseEncoder.encode(licenseIdCrypted));
 
-            int numberOfLicenseServers = initData.getNumberOfServers();
+            final int numberOfLicenseServers = initData.getNumberOfServers();
             dataOutputStream.writeInt(numberOfLicenseServers);
 
+            byte[] licenseServerCrypted;
             for (int index = 0; index < numberOfLicenseServers; index++)
             {
-                byte[] licenseServerCrypted = new WeakCrypt(3).encrypt(
+                licenseServerCrypted = new WeakCrypt(3).encrypt(
                         initData.getServer(index)).getBytes();
                 dataOutputStream.writeUTF(DatabaseEncoder.encode(licenseServerCrypted));
             }
@@ -111,7 +114,7 @@ public class LicenseInitInfoUtil
     {
         final String METHOD_NAME = "readAgain";
 
-        if (this.filePath == null)
+        if (this.filePath == stringUtil.EMPTY_STRING)
         {
             this.filePath = URLGLOBALS.getMainPath() + PATH_GLOBALS.getInstance().INIT_PATH;
         }
@@ -126,20 +129,18 @@ public class LicenseInitInfoUtil
             logUtil.put("LicenseInitInfo File: " + INITFILENAME, this, METHOD_NAME);
             // }
 
-            FileStreamFactory fileStreamFactory = 
-                FileStreamFactory.getInstance();
+            final FileStreamFactory fileStreamFactory = FileStreamFactory.getInstance();
             
-            AbFileInputStream iFile = fileStreamFactory
-                    .getFileInputStreamInstance(this.filePath, INITFILENAME);
+            final AbFileInputStream iFile = fileStreamFactory.getFileInputStreamInstance(this.filePath, INITFILENAME);
 
             if (iFile != null)
             {
 
-                AbDataInputStream iData = new AbDataInputStream(iFile);
-                LicenseInitInfo initInfo = new LicenseInitInfo();
+                final AbDataInputStream iData = new AbDataInputStream(iFile);
+                final LicenseInitInfo initInfo = new LicenseInitInfo();
 
                 byte[] decodedByteArray = DatabaseEncoder.decode(iData.readUTF());
-                String licenseIdDecoded = new String(decodedByteArray);
+                final String licenseIdDecoded = new String(decodedByteArray);
 
                 initInfo.setLicenseId(new WeakCrypt(1).decrypt(licenseIdDecoded));
 
@@ -179,14 +180,14 @@ public class LicenseInitInfoUtil
                 // }
 
                 //Thread.currentThread().sleep(2000);
-                Thread.sleep(2000);
-
-                // give up after 10tries
-                if (initializeCounter < 3)
-                {
-                    initializeCounter++;
-                    return readAgain(initializeCounter++);
-                }
+//                Thread.sleep(2000);
+//
+//                // give up after 10tries
+//                if (initializeCounter < 3)
+//                {
+//                    initializeCounter++;
+//                    return readAgain(initializeCounter++);
+//                }
             }
             catch (Exception se)
             {
