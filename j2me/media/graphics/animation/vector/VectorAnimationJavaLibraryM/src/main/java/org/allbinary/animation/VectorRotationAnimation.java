@@ -56,8 +56,6 @@ public class VectorRotationAnimation
       this.angleInfo.adjustAngle(this.getFrame());
    }
 
-   private final FrameUtil frameUtil = FrameUtil.getInstance();
-
    @Override
    public void adjustFrame(final short newAngle)
    {

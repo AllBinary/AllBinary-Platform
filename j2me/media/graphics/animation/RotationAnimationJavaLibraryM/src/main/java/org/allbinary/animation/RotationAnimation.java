@@ -28,7 +28,7 @@ public class RotationAnimation
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private final FrameUtil frameUtil = FrameUtil.getInstance();
+    protected final FrameUtil frameUtil = FrameUtil.getInstance();
     
     protected final DirectionUtil directionUtil = DirectionUtil.getInstance();
     protected final AngleInfo angleInfo;
