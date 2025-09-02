@@ -24,7 +24,7 @@ implements VirtualKeyboardEventListenerInterface
     public static int MIN_API = 1;
     public static int MAX_API = 2;
     
-    public VirtualKeyboardAPI1(Activity activity)
+    public VirtualKeyboardAPI1(final Activity activity)
     {
     }
 }

@@ -17,8 +17,13 @@ import android.app.Activity;
 
 public class ActivityFractureUtil
 {
-    public void process(Activity activity) throws Exception
+    public void process(final Activity activity) throws Exception
     {
         
     }
+    
+    public void setFullScreen(final Activity activity) {
+        
+    }
+
 }

@@ -14,14 +14,14 @@
 package org.allbinary.android.api5;
 
 import org.allbinary.input.motion.button.TouchScreenTypeFactory;
-import org.allbinary.android.ActivityFractureUtil;
 
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import android.app.Activity;
+import org.allbinary.android.api1.ActivityFractureUtilAPI1;
 import org.allbinary.input.motion.button.TouchScreenFactory;
 
-public class ActivityFractureUtilAPI5 extends ActivityFractureUtil
+public class ActivityFractureUtilAPI5 extends ActivityFractureUtilAPI1
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
@@ -38,6 +38,9 @@ public class ActivityFractureUtilAPI5 extends ActivityFractureUtil
     private final String FEATURE_TOUCHSCREEN_MULTITOUCH = 
         "android.hardware.touchscreen.multitouch";
 
+    //Since: API Level 3
+    //private final String FEATURE_FAKETOUCH = "android.hardware.faketouch";
+
     //Since: API Level 8
     private final String FEATURE_TOUCHSCREEN = "android.hardware.touchscreen";
         
@@ -46,7 +49,7 @@ public class ActivityFractureUtilAPI5 extends ActivityFractureUtil
         "android.hardware.touchscreen.multitouch.distinct"; 
 
     @Override    
-    public void process(Activity activity)
+    public void process(final Activity activity)
     {
         final TouchScreenFactory touchScreenFactory = 
             TouchScreenFactory.getInstance();
@@ -67,22 +70,22 @@ public class ActivityFractureUtilAPI5 extends ActivityFractureUtil
         PreLogUtil.put(touchScreenFactory.toString(), this, commonStrings.PROCESS);
     }
 
-    private boolean isTouch(Activity activity)
+    private boolean isTouch(final Activity activity)
     {
         return this.isFeature(activity, this.FEATURE_TOUCHSCREEN);   
     }
     
-    private boolean isMultiTouch(Activity activity)
+    private boolean isMultiTouch(final Activity activity)
     {
         return this.isFeature(activity, this.FEATURE_TOUCHSCREEN_MULTITOUCH);   
     }
 
-    private boolean isMultiTouchDistinct(Activity activity)
+    private boolean isMultiTouchDistinct(final Activity activity)
     {
         return this.isFeature(activity, this.FEATURE_TOUCHSCREEN_MULTITOUCH_DISTINCT);   
     }
     
-    private boolean isFeature(Activity activity, String property)
+    private boolean isFeature(final Activity activity, final String property)
     {
         return activity.getPackageManager().hasSystemFeature(property);
     }

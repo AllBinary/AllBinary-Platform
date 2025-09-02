@@ -2,13 +2,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.allbinary</groupId>
-    <artifactId>AndroidAPI5AndUpJavaLibrary</artifactId>
+    <artifactId>AndroidAPI30JavaLibrary</artifactId>
     <packaging>jar</packaging>
     <!-- AllBinary Platform Version Start -->
     <version>1.0.0-SNAPSHOT</version>
     <!-- AllBinary Platform Version End -->
 
-    <name>AndroidAPI5AndUpJavaLibrary</name>
+    <name>AndroidAPI30JavaLibrary</name>
     <url>http://www.allbinary.com/</url>
     <distributionManagement>
         <snapshotRepository>
@@ -74,25 +74,34 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>AndroidThroughAPI4JavaLibrary</artifactId>
+            <artifactId>AndroidAPI19UpTo29JavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
 
         </dependency>
 
+        <!-- API 30 Android 11 -->
         <dependency>
             <groupId>com.google.android</groupId>
             <artifactId>android</artifactId>
-            <version>2.1_r1</version>
+            <version>11.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.google.android</groupId>
             <artifactId>android</artifactId>
-            <version>2.1_r1</version>
+            <version>11.0</version>
             <scope>provided</scope>
             <classifier>sources</classifier>
+        </dependency>
+
+        <dependency>
+            <groupId>androidx.core</groupId>
+            <artifactId>core</artifactId>
+            <version>1.10.1</version>
+            <type>jar</type>
+            <scope>provided</scope>
         </dependency>
         
     </dependencies>

@@ -16,6 +16,7 @@ package org.allbinary.android.api1;
 import org.allbinary.android.ActivityFractureUtil;
 
 import android.app.Activity;
+import android.view.WindowManager;
 
 public class ActivityFractureUtilAPI1 extends ActivityFractureUtil
 {
@@ -29,7 +30,7 @@ public class ActivityFractureUtilAPI1 extends ActivityFractureUtil
     //private final int MAX_API = 4;
 
     @Override
-    public void process(Activity activity) throws Exception
+    public void process(final Activity activity) throws Exception
     {
         //Only needed it dynamic
         //this.process(activity, false);
@@ -51,4 +52,14 @@ public class ActivityFractureUtilAPI1 extends ActivityFractureUtil
         }
     }
     */
+    
+    @Override
+    public void setFullScreen(final Activity activity)
+    {
+        // FLAG_FORCE_NOT_FULLSCREEN
+        // FLAG_FULLSCREEN
+        activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    }
+    
 }
