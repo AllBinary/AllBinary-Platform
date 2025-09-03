@@ -23,6 +23,7 @@ import org.allbinary.graphics.GraphicsStrings;
 import org.allbinary.graphics.OpenGLBitmap;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.platform.graphics.PlatformBitmapBase;
 import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
 import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
 import org.allbinary.string.CommonStrings;
@@ -42,7 +43,7 @@ implements OpenGLSurfaceChangedInterface
     
     protected final PlatformTextureBaseFactory textureFactory;
     
-    public final OpenGLBitmap openGLBitmap;
+    public final PlatformBitmapBase openGLBitmap;
     
     public OpenGLESImageProcessor imageProcessor = OpenGLESImageProcessor.getInstance();
     public OpenGLESImageTranslate openGLESImageTranslate = OpenGLESImageTranslate.getInstance();
@@ -57,7 +58,7 @@ implements OpenGLSurfaceChangedInterface
         //super(image);
 
         //logUtil.put(new StringMaker().append("opengl: create ").append(this).append(this.getName()).append(" from " ).append(image).toString(), this, commonStrings.INIT);
-        this.openGLBitmap = (OpenGLBitmap) bitmapFactory.createBitmap(image);
+        this.openGLBitmap = bitmapFactory.createBitmap(image);
         this.textureFactory = textureFactory;
         OpenGLImageCacheFactory.getInstance().init(this);
         this.platformImage = OpenGLESPostLoadPlatformImage.getInstance();
@@ -73,11 +74,13 @@ implements OpenGLSurfaceChangedInterface
     */
 
     public int getHeight() {
-        return (int) (this.openGLBitmap.getHeight() * this.openGLESImageProperties.scaleY2);
+        final OpenGLBitmap openGLBitmap = ((OpenGLBitmap) this.openGLBitmap);
+        return (int) (openGLBitmap.getHeight() * this.openGLESImageProperties.scaleY2);
     }
 
     public int getWidth() {
-        return (int) (this.openGLBitmap.getWidth() * this.openGLESImageProperties.scaleX2);
+        final OpenGLBitmap openGLBitmap = ((OpenGLBitmap) this.openGLBitmap);
+        return (int) (openGLBitmap.getWidth() * this.openGLESImageProperties.scaleX2);
     }
 
     /*

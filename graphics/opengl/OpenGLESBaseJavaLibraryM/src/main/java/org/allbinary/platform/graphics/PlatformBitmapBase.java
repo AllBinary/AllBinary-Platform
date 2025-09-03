@@ -22,6 +22,8 @@ import javax.microedition.lcdui.NullCanvas;
  */
 public class PlatformBitmapBase {
     
+    public static final PlatformBitmapBase NULL_PLATFORM_BITMAP_BASE = new PlatformBitmapBase();
+    
     public int alpha = 255;
     
     public Image getImage() {
