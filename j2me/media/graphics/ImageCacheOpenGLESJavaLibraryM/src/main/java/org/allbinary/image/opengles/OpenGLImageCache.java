@@ -17,6 +17,7 @@ import java.io.InputStream;
 
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.NullCanvas;
 import org.allbinary.graphics.opengles.renderer.AllBinaryRendererBase3;
 
 import org.allbinary.util.BasicArrayList;
@@ -57,7 +58,7 @@ public class OpenGLImageCache extends ImageCache
         synchronized(lock) {
             for (int index = list.size() - 1; index >= 0; index--) {
                 OpenGLESImage openGLESImage = ((OpenGLESImage) list.objectArray[index]);
-                if(openGLESImage != null) {
+                if(openGLESImage != OpenGLESImage.NULL_OPENGL_IMAGE) {
                     openGLESImage.set(gl);
                 }
             }
@@ -88,8 +89,9 @@ public class OpenGLImageCache extends ImageCache
         
         //logUtil.put("opengl: createImageD: " + image.getName(), this, commonStrings.CREATE);
         synchronized(lock) {
-            if(image != null)
-            list.add(image);
+            if(image != NullCanvas.NULL_IMAGE) {
+                list.add(image);
+            }
         }
         
         return image; 
@@ -108,8 +110,9 @@ public class OpenGLImageCache extends ImageCache
 
         //logUtil.put("opengl: createImage: " + image.getName(), this, commonStrings.CREATE);
         synchronized(lock) {
-            if(image != null)
-            list.add(image);
+            if(image != NullCanvas.NULL_IMAGE) {
+                list.add(image);
+            }
         }
 
         //ForcedLogUtil.log(image.toString(), this);
