@@ -49,8 +49,8 @@ public class AllBinaryJ2SEImageRotationAnimation
     private Image imageToShow;
     private int bufferedImageIndex;
     
-    private float scaleX;
-    private float scaleY;
+    private float scaleX = 1.0f;
+    private float scaleY = 1.0f;
     private float maxScaleX;
     private float maxScaleY;
     

@@ -47,7 +47,7 @@ public class ScaleProcessor extends ScaleBaseProcessor {
             imageScaleUtil.scale(originalImage, originalImageArray, ximageToShowArray, unused, scaleX, scaleY, maxScaleX, maxScaleY);
 
         } catch(Exception e) {
-            logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.UPDATE);
+            logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.UPDATE, e);
         }
     }
     

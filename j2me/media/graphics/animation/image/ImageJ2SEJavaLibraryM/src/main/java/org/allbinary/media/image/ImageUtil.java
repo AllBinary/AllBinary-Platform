@@ -13,7 +13,11 @@
 */
 package org.allbinary.media.image;
 
-import java.awt.*;
+import java.awt.Graphics2D;
+import java.awt.GraphicsConfiguration;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
+import java.awt.Transparency;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 
@@ -22,6 +26,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
+import sun.awt.image.ToolkitImage;
 
 public class ImageUtil
 {
@@ -246,6 +251,24 @@ public class ImageUtil
        */
       return newBufferedImage;
    }
+
+    public BufferedImage convertToBufferedImage(java.awt.Image toolkitImage) {
+        if (toolkitImage == null) {
+            return null;
+        }
+
+        final BufferedImage bufferedImage = new BufferedImage(
+            toolkitImage.getWidth(null), 
+            toolkitImage.getHeight(null), 
+            BufferedImage.TYPE_INT_ARGB
+        );
+
+        final Graphics2D g2d = bufferedImage.createGraphics();
+        g2d.drawImage(toolkitImage, 0, 0, null);
+        g2d.dispose();
+
+        return bufferedImage;
+    }
 
    public String toString(BufferedImage bufferedImage)
    {

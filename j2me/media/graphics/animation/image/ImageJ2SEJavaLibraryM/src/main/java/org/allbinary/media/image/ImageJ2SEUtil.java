@@ -13,7 +13,7 @@
  */
 package org.allbinary.media.image;
 
-import java.awt.*;
+import java.awt.Color;
 
 /**
  *

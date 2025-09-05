@@ -13,7 +13,7 @@
 */
 package org.allbinary.media.image;
 
-import java.awt.*;
+import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 

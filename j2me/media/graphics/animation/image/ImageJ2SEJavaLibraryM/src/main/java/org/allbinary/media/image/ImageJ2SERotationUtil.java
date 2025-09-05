@@ -13,7 +13,8 @@
 */
 package org.allbinary.media.image;
 
-import java.awt.*;
+import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 
 public class ImageJ2SERotationUtil
