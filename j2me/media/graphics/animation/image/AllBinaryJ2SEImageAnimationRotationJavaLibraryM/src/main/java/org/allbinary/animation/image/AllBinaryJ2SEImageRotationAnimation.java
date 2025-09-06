@@ -49,6 +49,8 @@ public class AllBinaryJ2SEImageRotationAnimation
     private Image imageToShow;
     private int bufferedImageIndex;
     
+    private float lastScaleX = 1.0f;
+    private float lastScaleY = 1.0f;
     private float scaleX = 1.0f;
     private float scaleY = 1.0f;
     private float maxScaleX;
@@ -138,8 +140,12 @@ public class AllBinaryJ2SEImageRotationAnimation
         //logUtil.put(new StringMaker().append("scaleX: ").append(scaleX).append("scaleY: ").append(scaleY).toString(), this, "setScale");
         this.scaleX = scaleX;
         this.scaleY = scaleY;
-        this.scaleProcessor.update(this.realOriginalImage, this.originalImageArray, this.twoImages, this.bufferedImageIndex, this.scaleX, this.scaleY, this.maxScaleX, this.maxScaleY);
-        this.updateImage();
+        if(this.scaleX != this.lastScaleX || this.scaleY != this.lastScaleY) {
+            this.scaleProcessor.update(this.realOriginalImage, this.originalImageArray, this.twoImages, this.bufferedImageIndex, this.scaleX, this.scaleY, this.maxScaleX, this.maxScaleY);
+            this.updateImage();
+        }
+        this.lastScaleX = this.scaleX;
+        this.lastScaleY = this.scaleY;
     }
 
     @Override
