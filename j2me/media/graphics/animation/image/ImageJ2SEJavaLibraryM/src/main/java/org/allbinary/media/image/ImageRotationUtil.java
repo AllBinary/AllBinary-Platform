@@ -97,9 +97,8 @@ public class ImageRotationUtil
             J2SEMutableImage j2seImage = (J2SEMutableImage) image;            
             BufferedImage newBufferedImage = (BufferedImage) j2seImage.getImage();
 
-            BufferedImage bufferedImage = 
-                    ImageJ2SERotationUtil.getInstance()
-                            .getRotatedImage(originalAwtImage, newBufferedImage, rotationInDegrees);
+            BufferedImage bufferedImage = imageJ2SERotationUtil.getRotatedImage(
+                originalAwtImage, newBufferedImage, rotationInDegrees);
 
             return image;
         }

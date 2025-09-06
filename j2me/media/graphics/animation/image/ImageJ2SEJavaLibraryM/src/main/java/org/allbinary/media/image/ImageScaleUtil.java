@@ -76,7 +76,7 @@ public class ImageScaleUtil
             image = imageCache.get("createImage", (int) (width * scaleX), (int) (height * scaleY));
         }
         
-        this.scale(originalImage, image, scaleX, scaleY);
+        this.scale(originalImage, image, scaleX, scaleY, true);
         return image;
         //throw new RuntimeException("Image Scaling is not supported by J2SE with this call yet");
     }
@@ -92,10 +92,10 @@ public class ImageScaleUtil
 
         //Set the new original image to the current scale
         //logUtil.put(new StringMaker().append("scaleX: ").append(scaleX).append("scaleY: ").append(scaleY).toString(), this, this.commonStrings.UPDATE);
-        this.scale(originalImage, originalImageArray[0], scaleX, scaleY);
+        this.scale(originalImage, originalImageArray[0], scaleX, scaleY, false);
     }    
  
-    public void scale(final Image originalImage, final Image newMaxSizeImage, final float scaleX, final float scaleY) {
+    public void scale(final Image originalImage, final Image newMaxSizeImage, final float scaleX, final float scaleY, final boolean clear) {
     
         BufferedImage bufferedImage;
         //java.awt.Image newBufferedImage;
@@ -122,9 +122,14 @@ public class ImageScaleUtil
         final AffineTransform at = AffineTransform.getScaleInstance(scaleX, scaleY);
 
         final Graphics2D g = newBufferedImage.createGraphics();
-        g.setBackground(imageJ2SEUtil.TRANSPARENT_COLOR);
-        g.clearRect(0, 0, newBufferedImage.getWidth(), newBufferedImage.getHeight());
+
+        if(clear) {
+            g.setBackground(imageJ2SEUtil.TRANSPARENT_COLOR);
+            g.clearRect(0, 0, newBufferedImage.getWidth(), newBufferedImage.getHeight());
+        }
+
         g.drawRenderedImage(bufferedImage, at);
         
+        g.dispose();
     }
 }
