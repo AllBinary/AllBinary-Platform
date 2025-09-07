@@ -33,7 +33,6 @@ import org.microemu.device.j2se.J2SEMutableImage;
 public class ImageModifierUtil {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-    
     private static final ImageModifierUtil instance = new ImageModifierUtil();
 
     /**
@@ -43,6 +42,8 @@ public class ImageModifierUtil {
         return instance;
     }
 
+    private final ImageUtil imageUtil = ImageUtil.getInstance();
+    
     public void setBasicColorP(final BasicColor basicColor) {
         
     }
@@ -54,16 +55,8 @@ public class ImageModifierUtil {
 
     public void setColor(final Image unusedOriginalImage, final Image image, final int imageIndex, final BasicColor basicColor) {
 
-        BufferedImage newBufferedImage;
+        final BufferedImage newBufferedImage = this.imageUtil.getBufferedImage(image);
         //java.awt.Image newBufferedImage;
-        if(image.isMutable()) {
-            final J2SEMutableImage j2seImage = (J2SEMutableImage) image;
-            newBufferedImage = (BufferedImage) j2seImage.getImage();
-        } else {
-            final J2SEImmutableImage j2seImage = (J2SEImmutableImage) image;
-            //sun.awt.image.ToolkitImage cannot be cast to class java.awt.image.BufferedImage
-            newBufferedImage = (BufferedImage) j2seImage.getImage();                        
-        }
 
         final short r = basicColor.red;
         final short g = basicColor.green;
@@ -96,16 +89,8 @@ public class ImageModifierUtil {
 
     public void changeColor(final Image unusedOriginalImage, final Image image, final int imageIndex, final BasicColor basicColor) {
         
-        BufferedImage newBufferedImage;
+        final BufferedImage newBufferedImage = this.imageUtil.getBufferedImage(image);
         //java.awt.Image newBufferedImage;
-        if(image.isMutable()) {
-            final J2SEMutableImage j2seImage = (J2SEMutableImage) image;
-            newBufferedImage = (BufferedImage) j2seImage.getImage();
-        } else {
-            final J2SEImmutableImage j2seImage = (J2SEImmutableImage) image;
-            //sun.awt.image.ToolkitImage cannot be cast to class java.awt.image.BufferedImage
-            newBufferedImage = (BufferedImage) j2seImage.getImage();                        
-        }
 
         final float MAX = 255;
         final float r = ((float) basicColor.red) / MAX;
@@ -153,16 +138,8 @@ public class ImageModifierUtil {
     public void setAlpha(final Image unusedOriginalImage, final Image image, final int imageIndex, final int alphaInt) {
         
         byte alpha = (byte) alphaInt;
-        BufferedImage newBufferedImage;
+        final BufferedImage newBufferedImage = this.imageUtil.getBufferedImage(image);
         //java.awt.Image newBufferedImage;
-        if(image.isMutable()) {
-            final J2SEMutableImage j2seImage = (J2SEMutableImage) image;
-            newBufferedImage = (BufferedImage) j2seImage.getImage();
-        } else {
-            final J2SEImmutableImage j2seImage = (J2SEImmutableImage) image;
-            //sun.awt.image.ToolkitImage cannot be cast to class java.awt.image.BufferedImage
-            newBufferedImage = (BufferedImage) j2seImage.getImage();                        
-        }
 
         final int width = image.getWidth();
         final int height = image.getHeight();

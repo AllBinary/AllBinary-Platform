@@ -20,8 +20,6 @@ import java.awt.image.BufferedImage;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.image.ImageCache;
-import org.microemu.device.j2se.J2SEImmutableImage;
-import org.microemu.device.j2se.J2SEMutableImage;
 
 public class ImageScaleUtil
 {
@@ -34,6 +32,7 @@ public class ImageScaleUtil
         return instance;
     }
 
+    private final ImageUtil imageUtil = ImageUtil.getInstance();
     private final ImageJ2SEUtil imageJ2SEUtil = ImageJ2SEUtil.getInstance();
     private final ImageCreationUtil imageCreationUtil = ImageCreationUtil.getInstance();
     
@@ -97,27 +96,9 @@ public class ImageScaleUtil
  
     public void scale(final Image originalImage, final Image newMaxSizeImage, final float scaleX, final float scaleY, final boolean clear) {
     
-        BufferedImage bufferedImage;
-        //java.awt.Image newBufferedImage;
-        if(originalImage.isMutable()) {
-            final J2SEMutableImage j2seImage = (J2SEMutableImage) originalImage;
-            bufferedImage = (BufferedImage) j2seImage.getImage();
-        } else {
-            final J2SEImmutableImage j2seImage = (J2SEImmutableImage) originalImage;
-            //sun.awt.image.ToolkitImage cannot be cast to class java.awt.image.BufferedImage
-            bufferedImage = (BufferedImage) j2seImage.getImage();
-        }
+        final BufferedImage bufferedImage = this.imageUtil.getBufferedImage(originalImage);
 
-        BufferedImage newBufferedImage;
-        //java.awt.Image newBufferedImage;
-        if(newMaxSizeImage.isMutable()) {
-            final J2SEMutableImage j2seImage = (J2SEMutableImage) newMaxSizeImage;
-            newBufferedImage = (BufferedImage) j2seImage.getImage();
-        } else {
-            final J2SEImmutableImage j2seImage = (J2SEImmutableImage) newMaxSizeImage;
-            //sun.awt.image.ToolkitImage cannot be cast to class java.awt.image.BufferedImage
-            newBufferedImage = (BufferedImage) j2seImage.getImage();
-        }
+        final BufferedImage newBufferedImage = this.imageUtil.getBufferedImage(newMaxSizeImage);
         
         final AffineTransform at = AffineTransform.getScaleInstance(scaleX, scaleY);
 

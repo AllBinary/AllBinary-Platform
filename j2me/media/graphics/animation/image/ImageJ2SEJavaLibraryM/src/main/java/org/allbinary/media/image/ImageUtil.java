@@ -20,13 +20,15 @@ import java.awt.GraphicsEnvironment;
 import java.awt.Transparency;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
+import javax.microedition.lcdui.Image;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
-import sun.awt.image.ToolkitImage;
+import org.microemu.device.j2se.J2SEImmutableImage;
+import org.microemu.device.j2se.J2SEMutableImage;
 
 public class ImageUtil
 {
@@ -267,6 +269,21 @@ public class ImageUtil
         g2d.drawImage(toolkitImage, 0, 0, null);
         g2d.dispose();
 
+        return bufferedImage;
+    }
+
+    public BufferedImage getBufferedImage(final Image image) {
+        BufferedImage bufferedImage;
+        //java.awt.Image bufferedImage;
+        if(image.isMutable()) {
+            final J2SEMutableImage j2seImage = (J2SEMutableImage) image;
+            bufferedImage = (BufferedImage) j2seImage.getImage();
+        } else {
+            final J2SEImmutableImage j2seImage = (J2SEImmutableImage) image;
+            //sun.awt.image.ToolkitImage cannot be cast to class java.awt.image.BufferedImage
+            bufferedImage = (BufferedImage) j2seImage.getImage();                        
+        }
+        
         return bufferedImage;
     }
 
