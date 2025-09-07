@@ -14,6 +14,7 @@
 package org.allbinary.animation.image;
 
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.math.PositionStrings;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
 
@@ -37,6 +38,8 @@ public class AnimationFactoryInitializationVisitor {
         final CommonLabels commonLabels = CommonLabels.getInstance();
         final StringMaker stringBuffer = new StringMaker();
 
+        stringBuffer.append(PositionStrings.getInstance().DX_LABEL).append((float) this.dx);
+        stringBuffer.append(PositionStrings.getInstance().DY_LABEL).append((float) this.dy);
         stringBuffer.append(commonLabels.WIDTH_LABEL);
         stringBuffer.append(width);
         stringBuffer.append(commonSeps.SPACE);
