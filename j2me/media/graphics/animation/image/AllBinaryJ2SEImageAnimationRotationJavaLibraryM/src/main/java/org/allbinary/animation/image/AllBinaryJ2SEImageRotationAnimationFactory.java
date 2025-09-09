@@ -19,15 +19,19 @@ import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.game.configuration.GameConfigurationCentral;
 import org.allbinary.graphics.opengles.OpenGLUtil;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
+import org.allbinary.math.PositionStrings;
 import org.allbinary.media.image.ImageCopyUtil;
 
 public class AllBinaryJ2SEImageRotationAnimationFactory 
     extends BaseImageAnimationFactory
 {
     protected final short angleIncrement;
-
+    private final boolean resizeCanvasForRotation;
+    
     public AllBinaryJ2SEImageRotationAnimationFactory(final Image image, final int dx, final int dy)
     throws Exception
     {
@@ -105,6 +109,7 @@ public class AllBinaryJ2SEImageRotationAnimationFactory
         super(image, width, height, animationBehaviorFactory);
 
         this.angleIncrement = (short) (AngleFactory.getInstance().TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity());
+        this.resizeCanvasForRotation = false;
     }
 
     public AllBinaryJ2SEImageRotationAnimationFactory(final Image image, final int width, final int height,
@@ -113,18 +118,40 @@ public class AllBinaryJ2SEImageRotationAnimationFactory
         super(image, width, height, animationBehaviorFactory);
 
         this.angleIncrement = angleIncrement;
+        this.resizeCanvasForRotation = false;
+    }
+
+    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image, final int width, final int height,
+            final short angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory, final boolean resizeCanvasForRotation) throws Exception
+    {
+        super(image, width, height, animationBehaviorFactory);
+
+        this.angleIncrement = angleIncrement;
+        this.resizeCanvasForRotation = resizeCanvasForRotation;
     }
     
+    private Image getCanvasImage() throws Exception {
+        if(this.resizeCanvasForRotation) {
+            return ImageCopyUtil.getInstance().createImage(this.getImage(), 1.44f, false);
+        } else {
+            return this.getImage();
+        }
+    }    
+    
+    final LogUtil logUtil = LogUtil.getInstance();
     public Animation getInstance(final int instanceId) throws Exception {
         
-        Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
+        final ImageCopyUtil imageCopyUtil = ImageCopyUtil.getInstance();
+        final Image canvasImage = this.getCanvasImage();
+        Image scaledImage = animationFactoryImageScaleUtil.createImage(canvasImage, this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
         final OpenGLUtil openGLUtil = OpenGLUtil.getInstance();
         scaledImage = openGLUtil.add(scaledImage);
-        //final Image image = ImageCopyUtil.getInstance().createImage(this.image);
-        final Image copyOfScaledImage = ImageCopyUtil.getInstance().createImageForRotation(scaledImage);
+        //final Image image = imageCopyUtil.createImage(this.image);
+        final Image copyOfScaledImage = imageCopyUtil.createImageForRotation(scaledImage);
 
         if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
 
+            logUtil.put(new StringMaker().append(PositionStrings.getInstance().DX_LABEL).append((float) this.animationFactoryInitializationVisitor.dx).append(PositionStrings.getInstance().DY_LABEL).append((float) this.animationFactoryInitializationVisitor.dy).toString(), this, "getInstance");
             animationFactoryImageScaleUtil.processAdjust(this);
 
             return new AllBinaryAdjustedJ2SEImageRotationAnimation(

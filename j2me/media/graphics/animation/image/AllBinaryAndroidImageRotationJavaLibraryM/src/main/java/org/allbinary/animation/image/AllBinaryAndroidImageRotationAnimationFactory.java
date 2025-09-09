@@ -26,6 +26,7 @@ public class AllBinaryAndroidImageRotationAnimationFactory
     extends BaseImageAnimationFactory
 {
     private final short angleIncrement;
+    private final boolean resizeCanvasForRotation;
 
     public AllBinaryAndroidImageRotationAnimationFactory(final Image image, final Object unused) 
     throws Exception
@@ -89,6 +90,7 @@ public class AllBinaryAndroidImageRotationAnimationFactory
         super(image, width, height, animationBehaviorFactory);
 
         this.angleIncrement = (short) (AngleFactory.getInstance().TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity());
+        this.resizeCanvasForRotation = false;
     }
 
     public AllBinaryAndroidImageRotationAnimationFactory(final Image image, final int width, final int height,
@@ -97,6 +99,24 @@ public class AllBinaryAndroidImageRotationAnimationFactory
         super(image, width, height, animationBehaviorFactory);
 
         this.angleIncrement = angleIncrement;
+        this.resizeCanvasForRotation = false;
+    }
+
+    public AllBinaryAndroidImageRotationAnimationFactory(final Image image, final int width, final int height,
+            final short angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory, final boolean resizeCanvasForRotation) throws Exception
+    {
+        super(image, width, height, animationBehaviorFactory);
+
+        this.angleIncrement = angleIncrement;
+        this.resizeCanvasForRotation = resizeCanvasForRotation;
+    }
+
+    private Image getCanvasImage() throws Exception {
+        if(this.resizeCanvasForRotation) {
+            return ImageCopyUtil.getInstance().createImage(this.getImage(), 1.44f, false);
+        } else {
+            return this.getImage();
+        }
     }
     
 //    private Image secondImage = null;
@@ -104,9 +124,16 @@ public class AllBinaryAndroidImageRotationAnimationFactory
     @Override
     public Animation getInstance(final int instanceId) throws Exception
     {
-        final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), 
+        final Image canvasImage = this.getCanvasImage();
+        final Image scaledImage = animationFactoryImageScaleUtil.createImage(canvasImage, 
             this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, 
             this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
+        if(this.resizeCanvasForRotation) {
+            if (this.animationFactoryInitializationVisitor.dx == 0 || this.animationFactoryInitializationVisitor.dy == 0) {
+                this.animationFactoryInitializationVisitor.dx -= scaledImage.getWidth() / 8;
+                this.animationFactoryInitializationVisitor.dy -= scaledImage.getHeight() / 8;
+            }
+        }
         final Image copyOfScaledImage = ImageCopyUtil.getInstance().createImage(scaledImage);
 //        Image copyOfScaledImage = secondImage;
 //        if(copyOfScaledImage == null) {

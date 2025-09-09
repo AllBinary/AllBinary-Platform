@@ -13,6 +13,7 @@
 */
 package org.allbinary.media.image;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.GraphicsConfiguration;
 import java.awt.GraphicsDevice;
@@ -24,6 +25,7 @@ import javax.microedition.lcdui.Image;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.math.PositionStrings;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
@@ -150,6 +152,7 @@ public class ImageUtil
        return this.createBufferedImage(bufferedImage, newWidth, newHeight, scale, false);
    }
    
+   private final String TRANSLATE = "Translate ";
    public BufferedImage createBufferedImage(final BufferedImage bufferedImage, final int newWidth, int newHeight, final boolean scale, final boolean allowTranslate)
       throws Exception
    {
@@ -176,7 +179,7 @@ public class ImageUtil
       if(!scale && allowTranslate) {
           final double dx = (newWidth - width) / 2;
           final double dy = (newHeight - height) / 2;
-          logUtil.put(new StringMaker().append("Translate dx: ").append((float) dx).append(" dy: ").append((float) dy).toString(), this, CREATE_BUFFERED_IMAGE);
+          logUtil.put(new StringMaker().append(TRANSLATE).append(PositionStrings.getInstance().DX_LABEL).append((float) dx).append(PositionStrings.getInstance().DY_LABEL).append((float) dy).toString(), this, CREATE_BUFFERED_IMAGE);
           affineTransform.translate(dx, dy);
           
 //          if (newWidth < width) {
@@ -254,6 +257,46 @@ public class ImageUtil
       return newBufferedImage;
    }
 
+   public BufferedImage createBufferedImageWithLargerCanvas(final BufferedImage bufferedImage, final int newWidth, int newHeight)
+      throws Exception
+   {
+      final double width = bufferedImage.getWidth();
+      final double height = bufferedImage.getHeight();
+      final double d_newWidth = newWidth;
+      final double d_newHeight = newHeight;
+      final double widthRatio = d_newWidth / width;
+      final double heightRatio = d_newHeight / height;
+      
+      logUtil.put(new StringMaker().append((float) width).append(this.commonSeps.FORWARD_SLASH).append((float) height)
+              .append(this.commonSeps.COLON).append(newWidth).append(this.commonSeps.FORWARD_SLASH).append(newHeight).append(this.commonSeps.COLON)
+              .append((float) widthRatio).append(this.commonSeps.FORWARD_SLASH).append((float) heightRatio).toString(), this, CREATE_BUFFERED_IMAGE);
+
+      final int dx2 = (int) (newWidth - width);
+      final int dy2 = (int) (newHeight - height);
+      final int dx = (int) dx2 / 2;
+      final int dy = (int) dy2 / 2;
+      final int dx4 = (int) dx2 / 4;
+      final int dy4 = (int) dy2 / 4;
+      logUtil.put(new StringMaker().append(TRANSLATE).append(PositionStrings.getInstance().DX_LABEL).append((float) dx).append(PositionStrings.getInstance().DY_LABEL).append((float) dy).toString(), this, CREATE_BUFFERED_IMAGE);
+
+      final BufferedImage newBufferedImage = new BufferedImage(
+         newWidth, newHeight, BufferedImage.TYPE_INT_ARGB_PRE);
+
+      final Graphics2D graphics = newBufferedImage.createGraphics();
+      //graphics.drawImage(bufferedImage, dx, dy, null);
+      graphics.drawImage(bufferedImage, dx4, dy4, null);
+//      graphics.setColor(Color.white);
+//      graphics.drawRect(1, 1, (int) newWidth - 1, (int) newHeight - 1);
+//      graphics.setColor(Color.green);
+//      graphics.drawRect(dx, dy, (int) newWidth - dx2, (int) newHeight - dy2);
+//      graphics.setColor(Color.blue);
+//      graphics.drawLine(dx, dy, dx + 1, dy + 1);
+//      graphics.setColor(Color.pink);
+//      graphics.drawLine((int) newWidth - dx, (int) newHeight - dy, (int) newWidth - dx - 1, (int) newHeight - dy - 1);
+
+      return newBufferedImage;
+   }
+   
     public BufferedImage convertToBufferedImage(java.awt.Image toolkitImage) {
         if (toolkitImage == null) {
             return null;

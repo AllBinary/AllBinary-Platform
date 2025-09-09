@@ -13,11 +13,13 @@
 */
 package org.allbinary.media.image;
 
-import javax.microedition.lcdui.Graphics;
+import java.awt.image.BufferedImage;
+
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.graphics.Anchor;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.microemu.device.j2se.J2SEImmutableImage;
 
 public class ImageCopyUtil
 {
@@ -29,7 +31,8 @@ public class ImageCopyUtil
     {
         return instance;
     }
-    
+
+    private final ImageUtil imageUtil = ImageUtil.getInstance();    
     private final ImageCreationUtil imageCreationUtil = ImageCreationUtil.getInstance();
     //private final BasicColorSetUtil basicColorUtil = BasicColorSetUtil.getInstance();
 
@@ -84,27 +87,34 @@ public class ImageCopyUtil
         }
         
         //logUtil.put("newWidth: " + newWidth + " newHeight: " + newHeight, this, commonStrings.CONSTRUCTOR);
-        
-        final Image image = imageCreationUtil.getInstance(newWidth, newHeight);
 
-        if (image.isMutable())
-        {
-            final int halfWidthDelta = (newWidth - originalImage.getWidth()) / 2;
-            final int halfHeightDelta = (newHeight - originalImage.getHeight()) / 2;
-            //final CommonLabels commonLabels = CommonLabels.getInstance();
-            //logUtil.put("deltas" + commonLabels + halfWidthDelta + commonLabels + halfHeightDelta, this, commonStrings.CONSTRUCTOR);
-            final Graphics graphics = image.getGraphics();
-            graphics.drawImage(originalImage, halfWidthDelta, halfHeightDelta, anchor);
-            //this.basicSetColorUtil.setBasicColorP(graphics, BasicColorFactory.getInstance().YELLOW);
-            //graphics.drawRect(halfWidthDelta, halfHeightDelta, originalImage.getWidth(), originalImage.getHeight());
-            //this.basicSetColorUtil.setBasicColorP(graphics, BasicColorFactory.getInstance().WHITE);
-            //graphics.drawRect(0, 0, newWidth, newHeight);
-            
+        final BufferedImage originalBufferedImage = imageUtil.getBufferedImage(originalImage);
+
+        final BufferedImage bufferedImage = 
+            imageUtil.createBufferedImageWithLargerCanvas(originalBufferedImage, newWidth, newHeight);
+            //imageUtil.createBufferedImage(originalBufferedImage, newWidth, newHeight, false, true);
+        final J2SEImmutableImage image = new J2SEImmutableImage(bufferedImage);
+        
+//        final Image image = imageCreationUtil.getInstance(newWidth, newHeight);
+//
+//        if (image.isMutable())
+//        {
+//            final int halfWidthDelta = (newWidth - originalImage.getWidth()) / 2;
+//            final int halfHeightDelta = (newHeight - originalImage.getHeight()) / 2;
+//            //final CommonLabels commonLabels = CommonLabels.getInstance();
+//            //logUtil.put("deltas" + commonLabels + halfWidthDelta + commonLabels + halfHeightDelta, this, commonStrings.CONSTRUCTOR);
+//            final Graphics graphics = image.getGraphics();
+//            graphics.drawImage(originalImage, halfWidthDelta, halfHeightDelta, anchor);
+//            //this.basicSetColorUtil.setBasicColorP(graphics, BasicColorFactory.getInstance().YELLOW);
+//            //graphics.drawRect(halfWidthDelta, halfHeightDelta, originalImage.getWidth(), originalImage.getHeight());
+//            //this.basicSetColorUtil.setBasicColorP(graphics, BasicColorFactory.getInstance().WHITE);
+//            //graphics.drawRect(0, 0, newWidth, newHeight);
+//            
             return image;
-        }
-        else
-        {
-            throw new Exception("Not Mutable");
-        }
+//        }
+//        else
+//        {
+//            throw new Exception("Not Mutable");
+//        }
     }
 }
