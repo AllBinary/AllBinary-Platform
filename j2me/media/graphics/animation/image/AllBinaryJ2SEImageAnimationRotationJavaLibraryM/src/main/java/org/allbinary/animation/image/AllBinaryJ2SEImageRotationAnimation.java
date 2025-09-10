@@ -203,6 +203,7 @@ public class AllBinaryJ2SEImageRotationAnimation
     
     public void paint(final Graphics graphics, final int x, final int y)
     {
+        //graphics.drawString(this.toString(), x, y, anchor);
         graphics.drawImage(this.imageToShow, x, y, anchor);
     }
 

@@ -34,7 +34,7 @@ import org.microemu.device.j2se.J2SEMutableImage;
 
 public class ImageUtil
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
+    //protected final LogUtil logUtil = LogUtil.getInstance();
 
     private static final ImageUtil instance = new ImageUtil();
 
@@ -55,23 +55,23 @@ public class ImageUtil
 
    private ImageUtil()
    {
-      try
-      {
-         logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
-
-         /*
-         poolInterface =
-         PoolInterfaceFactory.getInstance(
-         new IIOImageCacheableFactory(),
-         PoolType.SHIFT_ONE_VECTOR_POOL,
-         CachePolicy.MAX_TIME_THOUSAND_MAX);
-          */
-
-      }
-      catch (Exception e)
-      {
-         logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
-      }
+//      try
+//      {
+//         logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+//
+//         /*
+//         poolInterface =
+//         PoolInterfaceFactory.getInstance(
+//         new IIOImageCacheableFactory(),
+//         PoolType.SHIFT_ONE_VECTOR_POOL,
+//         CachePolicy.MAX_TIME_THOUSAND_MAX);
+//          */
+//
+//      }
+//      catch (Exception e)
+//      {
+//         logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
+//      }
    }
 
    private GraphicsConfiguration getDefaultConfiguration()
@@ -152,7 +152,7 @@ public class ImageUtil
        return this.createBufferedImage(bufferedImage, newWidth, newHeight, scale, false);
    }
    
-   private final String TRANSLATE = "Translate ";
+   //private final String TRANSLATE = "Translate ";
    public BufferedImage createBufferedImage(final BufferedImage bufferedImage, final int newWidth, int newHeight, final boolean scale, final boolean allowTranslate)
       throws Exception
    {
@@ -172,14 +172,14 @@ public class ImageUtil
       
       final AffineTransform affineTransform = AffineTransform.getScaleInstance(ratioX, ratioY);
       
-      logUtil.put(new StringMaker().append((float) width).append(this.commonSeps.FORWARD_SLASH).append((float) height)
-              .append(this.commonSeps.COLON).append(newWidth).append(this.commonSeps.FORWARD_SLASH).append(newHeight).append(this.commonSeps.COLON)
-              .append((float) widthRatio).append(this.commonSeps.FORWARD_SLASH).append((float) heightRatio).toString(), this, CREATE_BUFFERED_IMAGE);
+//      logUtil.put(new StringMaker().append((float) width).append(this.commonSeps.FORWARD_SLASH).append((float) height)
+//              .append(this.commonSeps.COLON).append(newWidth).append(this.commonSeps.FORWARD_SLASH).append(newHeight).append(this.commonSeps.COLON)
+//              .append((float) widthRatio).append(this.commonSeps.FORWARD_SLASH).append((float) heightRatio).toString(), this, CREATE_BUFFERED_IMAGE);
 
       if(!scale && allowTranslate) {
           final double dx = (newWidth - width) / 2;
           final double dy = (newHeight - height) / 2;
-          logUtil.put(new StringMaker().append(TRANSLATE).append(PositionStrings.getInstance().DX_LABEL).append((float) dx).append(PositionStrings.getInstance().DY_LABEL).append((float) dy).toString(), this, CREATE_BUFFERED_IMAGE);
+          //logUtil.put(new StringMaker().append(TRANSLATE).append(PositionStrings.getInstance().DX_LABEL).append((float) dx).append(PositionStrings.getInstance().DY_LABEL).append((float) dy).toString(), this, CREATE_BUFFERED_IMAGE);
           affineTransform.translate(dx, dy);
           
 //          if (newWidth < width) {
@@ -267,9 +267,9 @@ public class ImageUtil
       final double widthRatio = d_newWidth / width;
       final double heightRatio = d_newHeight / height;
       
-      logUtil.put(new StringMaker().append((float) width).append(this.commonSeps.FORWARD_SLASH).append((float) height)
-              .append(this.commonSeps.COLON).append(newWidth).append(this.commonSeps.FORWARD_SLASH).append(newHeight).append(this.commonSeps.COLON)
-              .append((float) widthRatio).append(this.commonSeps.FORWARD_SLASH).append((float) heightRatio).toString(), this, CREATE_BUFFERED_IMAGE);
+//      logUtil.put(new StringMaker().append((float) width).append(this.commonSeps.FORWARD_SLASH).append((float) height)
+//              .append(this.commonSeps.COLON).append(newWidth).append(this.commonSeps.FORWARD_SLASH).append(newHeight).append(this.commonSeps.COLON)
+//              .append((float) widthRatio).append(this.commonSeps.FORWARD_SLASH).append((float) heightRatio).toString(), this, CREATE_BUFFERED_IMAGE);
 
       final int dx2 = (int) (newWidth - width);
       final int dy2 = (int) (newHeight - height);
@@ -277,7 +277,7 @@ public class ImageUtil
       final int dy = (int) dy2 / 2;
       final int dx4 = (int) dx2 / 4;
       final int dy4 = (int) dy2 / 4;
-      logUtil.put(new StringMaker().append(TRANSLATE).append(PositionStrings.getInstance().DX_LABEL).append((float) dx).append(PositionStrings.getInstance().DY_LABEL).append((float) dy).toString(), this, CREATE_BUFFERED_IMAGE);
+      //logUtil.put(new StringMaker().append(TRANSLATE).append(PositionStrings.getInstance().DX_LABEL).append((float) dx).append(PositionStrings.getInstance().DY_LABEL).append((float) dy).toString(), this, CREATE_BUFFERED_IMAGE);
 
       final BufferedImage newBufferedImage = new BufferedImage(
          newWidth, newHeight, BufferedImage.TYPE_INT_ARGB_PRE);

@@ -193,6 +193,7 @@ extends ImageBaseRotationAnimation
     
     public void paint(Graphics graphics, int x, int y)
     {
+        //graphics.drawString(this.toString(), x, y, anchor);
         graphics.drawImage(this.imageToShow, x, y, anchor);
     }
     

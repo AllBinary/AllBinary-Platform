@@ -14,6 +14,7 @@
 package org.allbinary.animation.image;
 
 import android.graphics.Matrix;
+import javax.microedition.lcdui.Graphics;
 
 import javax.microedition.lcdui.Image;
 
@@ -147,4 +148,11 @@ extends ImageBaseRotationAnimation
 
         this.updateImage();
     }  
+    
+//    public void paint(Graphics graphics, int x, int y)
+//    {
+//        graphics.drawString(this.toString(), x, y, anchor);
+//        super.paint(graphics, x, y);
+//    }
+    
 }
