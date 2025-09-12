@@ -88,7 +88,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase {
     }
 
     public Image getFontBitmap(final GL10 gl, final String filename, final int cellSize, final BasicColor basicColor) {
-        if (this.fontImage == null) {
+        if (this.fontImage == OpenGLESImage.NULL_OPENGL_IMAGE) {
             final int cellsPerRow2 = CELLS_PER_ROW * 2;
             final int cellsPerRow3 = CELLS_PER_ROW * 3;
             final int cellsPerRow4 = CELLS_PER_ROW * 4;

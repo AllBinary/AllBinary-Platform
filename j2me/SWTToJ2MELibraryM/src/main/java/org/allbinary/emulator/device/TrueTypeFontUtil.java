@@ -55,7 +55,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
 
     private final float[] widthFloatArray;
     
-    public OpenGLESImage fontImage;
+    public OpenGLESImage fontImage = OpenGLESImage.NULL_OPENGL_IMAGE;
 
     private final float widthScale;
     
@@ -81,7 +81,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
 
     public Image getFontBitmap(final GL10 gl, final String filename, final int cellSize, final BasicColor basicColor) {
         try {
-            if(this.fontImage == null) {
+            if(this.fontImage == OpenGLESImage.NULL_OPENGL_IMAGE) {
                 
                 final CanvasStrings canvasStrings = CanvasStrings.getInstance();
                 final OpenGLCapabilities openGLCapabilities = OpenGLCapabilities.getInstance();
