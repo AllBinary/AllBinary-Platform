@@ -95,6 +95,7 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
         final Object basicAnimationInterfaceFactoryInterfaceCanBeNull = hashtable.get(resource);
         
         if(basicAnimationInterfaceFactoryInterfaceCanBeNull == null) {
+            //logUtil.put(new StringMaker().append("No Resource for: ").append(resource).toString(),this, "getBasicAnimationInterfaceFactoryInstance");
             return NullAnimationFactory.NULL_NOT_FOR_USE_ANIMATION_FACTORY;
         }
         
