@@ -17,6 +17,8 @@ import javax.microedition.lcdui.Image;
 
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
+import org.allbinary.graphics.opengles.OpenGLUtil;
+import org.allbinary.media.image.ImageCopyUtil;
 
 /**
  *
@@ -35,6 +37,12 @@ public class ImageAnimationFactory extends BaseImageAnimationFactory {
     {
         this(image, image.getWidth(), image.getHeight(), dx, dy, AnimationBehaviorFactory.getInstance());
     }
+
+    public ImageAnimationFactory(final Image image, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
+    throws Exception
+    {
+        super(image, width, height, 0, 0, animationBehaviorFactory);
+    }
     
     public ImageAnimationFactory(final Image image, final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
     throws Exception
@@ -45,9 +53,15 @@ public class ImageAnimationFactory extends BaseImageAnimationFactory {
     @Override
     public Animation getInstance(final int instanceId) throws Exception
     {
-        final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), 
+        //final ImageCopyUtil imageCopyUtil = ImageCopyUtil.getInstance();
+        Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), 
             this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, 
             this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
+        final OpenGLUtil openGLUtil = OpenGLUtil.getInstance();
+        scaledImage = openGLUtil.add(scaledImage);
+        //final Image image = imageCopyUtil.createImage(this.image);
+        //final Image copyOfScaledImage = imageCopyUtil.createImageForRotation(scaledImage);
+        
         //final Image image = ImageCopyUtil.getInstance().createImage(this.getImage());
         //final Image copyOfScaledImage = ImageCopyUtil.getInstance().createImage(scaledImage);
 
