@@ -14,7 +14,7 @@
 package org.allbinary.game.layer.waypoint;
 
 import org.allbinary.game.layer.PathFindingLayerInterface;
-import org.allbinary.logic.communication.log.LogFactory;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;

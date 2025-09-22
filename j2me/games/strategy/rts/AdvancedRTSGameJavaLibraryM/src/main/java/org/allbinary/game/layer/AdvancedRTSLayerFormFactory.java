@@ -17,7 +17,7 @@ import org.allbinary.game.input.RTSLayerFormFactory;
 import org.allbinary.graphics.form.item.CustomItem;
 
 import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.graphics.form.ScrollSelectionForm;
 import org.allbinary.graphics.form.item.ItemArraySingletonFactoryInterface;

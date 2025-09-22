@@ -21,7 +21,7 @@ import org.allbinary.game.layer.RTSPlayerLayerInterface;
 import org.allbinary.game.layer.item.LayerInterfaceFactoryImageItem;
 import org.allbinary.graphics.form.item.CustomItem;
 
-import org.allbinary.logic.communication.log.LogFactory;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.direction.DirectionFactory;
 import org.allbinary.game.identification.Group;

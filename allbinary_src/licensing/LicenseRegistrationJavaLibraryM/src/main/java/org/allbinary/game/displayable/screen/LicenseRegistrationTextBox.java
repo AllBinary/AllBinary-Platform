@@ -20,7 +20,7 @@ import javax.microedition.lcdui.TextField;
 
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.communication.log.LogFactory;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.graphics.color.BasicColor;

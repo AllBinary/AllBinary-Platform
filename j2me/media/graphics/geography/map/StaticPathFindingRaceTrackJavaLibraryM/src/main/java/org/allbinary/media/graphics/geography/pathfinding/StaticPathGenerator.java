@@ -16,7 +16,7 @@ package org.allbinary.media.graphics.geography.pathfinding;
 import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.graphics.CellPosition;

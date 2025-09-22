@@ -18,7 +18,7 @@ import java.util.PriorityQueue;
 import java.util.Set;
 
 import org.allbinary.game.layer.AllBinaryTiledLayer;
-import org.allbinary.logic.communication.log.LogFactory;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.MathUtil;
 import org.allbinary.string.CommonStrings;

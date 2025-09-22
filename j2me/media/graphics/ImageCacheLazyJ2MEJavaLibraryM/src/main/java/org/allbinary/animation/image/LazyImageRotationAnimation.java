@@ -24,7 +24,7 @@ import org.allbinary.animation.RotationAnimation;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.image.ImageCache;
 import org.allbinary.image.ImageCacheFactory;
-import org.allbinary.logic.communication.log.LogFactory;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;

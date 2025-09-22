@@ -19,7 +19,7 @@ import org.allbinary.animation.transition.shake.ShakeAnimationListenerFactory;
 import org.allbinary.game.input.form.RTSFormInput;
 import org.allbinary.game.layer.building.event.BuildingEventHandler;
 import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.ProceduralAnimationInterfaceFactoryInterface;

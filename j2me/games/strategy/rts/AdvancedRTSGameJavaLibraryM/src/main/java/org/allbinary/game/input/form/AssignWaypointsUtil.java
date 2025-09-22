@@ -21,7 +21,7 @@ import org.allbinary.game.layer.unit.UnitWaypointBehavior;
 import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
+
 import org.allbinary.logic.communication.log.LogUtil;
 
 public class AssignWaypointsUtil

@@ -28,7 +28,7 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.tokens.Tokenizer;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.game.configuration.feature.Features;
-import org.allbinary.logic.communication.log.LogFactory;
+
 import org.allbinary.logic.communication.log.LogUtil;
 
 public class OpenGLCapabilities

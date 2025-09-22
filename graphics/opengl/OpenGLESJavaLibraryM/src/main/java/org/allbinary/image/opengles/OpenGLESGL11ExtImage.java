@@ -22,7 +22,7 @@ import javax.microedition.lcdui.Image;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
 import org.allbinary.graphics.opengles.OpenGLLogUtil;
-import org.allbinary.logic.communication.log.LogFactory;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;

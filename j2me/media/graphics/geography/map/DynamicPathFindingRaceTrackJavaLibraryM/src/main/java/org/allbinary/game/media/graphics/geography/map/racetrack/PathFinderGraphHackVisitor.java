@@ -21,7 +21,7 @@ import org.allbinary.util.BasicArrayList;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.layer.AllBinaryTiledLayer;
 import org.allbinary.graphics.CellPosition;
-import org.allbinary.logic.communication.log.LogFactory;
+
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMapCellPositionFactory;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMapUtil;

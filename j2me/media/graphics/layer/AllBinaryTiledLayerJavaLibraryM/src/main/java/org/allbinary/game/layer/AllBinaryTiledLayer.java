@@ -16,7 +16,7 @@ package org.allbinary.game.layer;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.communication.log.LogFactory;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.graphics.paint.PaintableInterface;
 import org.allbinary.layer.Layer;

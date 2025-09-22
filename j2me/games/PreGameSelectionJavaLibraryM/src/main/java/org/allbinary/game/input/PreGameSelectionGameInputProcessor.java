@@ -30,7 +30,7 @@ import org.allbinary.game.input.event.GameKeyEventHandler;
 import org.allbinary.game.input.event.GameKeyEventUtil;
 import org.allbinary.game.state.GameState;
 import org.allbinary.layer.AllBinaryLayerManager;
-import org.allbinary.logic.communication.log.LogFactory;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.media.audio.SecondaryPlayerQueueFactory;

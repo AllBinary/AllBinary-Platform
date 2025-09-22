@@ -23,7 +23,7 @@ import org.allbinary.game.input.form.RTSFormInput;
 import org.allbinary.game.multiplayer.layer.MultiPlayerGameLayer;
 
 import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;

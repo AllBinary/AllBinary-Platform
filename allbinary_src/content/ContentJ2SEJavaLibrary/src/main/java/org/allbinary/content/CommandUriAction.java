@@ -17,7 +17,7 @@ import java.util.Hashtable;
 
 import javax.microedition.lcdui.Command;
 
-import org.allbinary.logic.communication.log.LogFactory;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.resource.ResourceUtil;
 

@@ -22,7 +22,7 @@ import org.allbinary.game.layer.CollidableRTSBehavior;
 import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.input.event.GameKeyEventFactory;
 import org.allbinary.game.layer.AllBinaryTiledLayer;

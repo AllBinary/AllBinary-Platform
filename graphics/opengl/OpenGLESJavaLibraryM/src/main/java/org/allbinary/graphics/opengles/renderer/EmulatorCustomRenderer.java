@@ -18,7 +18,7 @@ import javax.microedition.khronos.opengles.GL10;
 
 import org.allbinary.emulator.InitEmulatorFactory;
 import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 

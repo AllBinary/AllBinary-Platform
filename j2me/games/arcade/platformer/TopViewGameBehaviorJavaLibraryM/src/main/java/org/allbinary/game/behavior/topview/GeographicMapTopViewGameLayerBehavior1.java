@@ -20,7 +20,7 @@ import org.allbinary.game.physics.velocity.VelocityProperties;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.communication.log.LogFactory;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;

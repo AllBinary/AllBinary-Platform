@@ -13,7 +13,7 @@
  */
 package org.allbinary.game.layer;
 
-import org.allbinary.logic.communication.log.LogFactory;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;

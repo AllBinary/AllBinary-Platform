@@ -16,7 +16,7 @@ package org.allbinary.graphics.canvas.transition.progress;
 import org.allbinary.animation.transition.TransistionTypes;
 
 import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import android.app.Activity;
 

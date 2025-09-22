@@ -17,7 +17,7 @@ import org.allbinary.canvas.Processor;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.image.ImageCacheFactory;
-import org.allbinary.logic.communication.log.LogFactory;
+
 import org.allbinary.logic.communication.log.LogUtil;
 
 /**

@@ -14,7 +14,7 @@
 package org.allbinary.game.behavior.topview.placement;
 
 import org.allbinary.game.rand.MyRandomFactory;
-import org.allbinary.logic.communication.log.LogFactory;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.mapeditor.core.TileLayer;

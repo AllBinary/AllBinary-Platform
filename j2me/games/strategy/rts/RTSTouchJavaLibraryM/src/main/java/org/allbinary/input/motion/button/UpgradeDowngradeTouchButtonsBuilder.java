@@ -19,7 +19,7 @@ import org.allbinary.game.input.resource.TouchButtonUpgradeResource;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListUtil;
 
-import org.allbinary.logic.communication.log.LogFactory;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.graphics.CellPositionFactory;
 

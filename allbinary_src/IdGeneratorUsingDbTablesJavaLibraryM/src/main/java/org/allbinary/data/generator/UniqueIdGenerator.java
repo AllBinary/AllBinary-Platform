@@ -19,7 +19,7 @@ import org.allbinary.data.tables.generator.IdGeneratorEntity;
 import org.allbinary.data.tables.generator.IdGeneratorEntityFactory;
 
 import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
+
 import org.allbinary.logic.communication.log.LogUtil;
 
 public class UniqueIdGenerator implements IdGeneratorInterface

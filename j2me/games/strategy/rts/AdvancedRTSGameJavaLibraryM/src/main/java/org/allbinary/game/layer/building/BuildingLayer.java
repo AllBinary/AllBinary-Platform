@@ -29,7 +29,7 @@ import org.allbinary.game.layer.SelectionHudPaintable;
 import org.allbinary.game.layer.waypoint.Waypoint;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.ProceduralAnimationInterfaceFactoryInterface;

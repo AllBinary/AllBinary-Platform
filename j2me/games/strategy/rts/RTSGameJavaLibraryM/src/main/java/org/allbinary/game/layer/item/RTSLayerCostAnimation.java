@@ -22,7 +22,7 @@ import org.allbinary.game.rts.technology.event.TechEventListenerInterface;
 
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
-import org.allbinary.logic.communication.log.LogFactory;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.animation.Animation;
 import org.allbinary.graphics.font.MyFont;

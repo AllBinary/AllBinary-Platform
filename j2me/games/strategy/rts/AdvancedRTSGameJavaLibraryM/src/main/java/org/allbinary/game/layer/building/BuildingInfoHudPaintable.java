@@ -19,7 +19,7 @@ import org.allbinary.game.layer.RTSLayer;
 import org.allbinary.game.layer.SelectionHudPaintable;
 
 import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.graphics.hud.BasicHudFactory;
 import org.allbinary.game.layer.hud.basic.NumberStringHud;

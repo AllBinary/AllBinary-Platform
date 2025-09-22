@@ -6,7 +6,7 @@ import org.allbinary.android.ActivityFractureUtil;
 import org.allbinary.string.CommonPhoneStrings;
 import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
+
 import org.allbinary.logic.communication.log.LogUtil;
 
 public class AndroidKeyFactory extends ActivityFractureUtil

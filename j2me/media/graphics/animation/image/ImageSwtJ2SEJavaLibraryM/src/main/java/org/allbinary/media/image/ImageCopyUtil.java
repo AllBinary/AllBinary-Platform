@@ -24,7 +24,7 @@ import org.allbinary.image.opengles.OpenGLESDeviceImageTranslate;
 import org.allbinary.image.opengles.OpenGLESImage;
 import org.allbinary.image.opengles.OpenGLESImageExclusionUtil;
 import org.allbinary.image.opengles.OpenGLESImageProperties;
-import org.allbinary.logic.communication.log.LogFactory;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonStrings;

@@ -13,7 +13,7 @@
  */
 package org.allbinary.media.graphics.geography.map.topview;
 
-import org.allbinary.logic.communication.log.LogFactory;
+
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
