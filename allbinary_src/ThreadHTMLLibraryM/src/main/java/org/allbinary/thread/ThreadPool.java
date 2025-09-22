@@ -193,14 +193,11 @@ public class ThreadPool
     public void join()
     {
 
-        synchronized (this)
-        {
             isAlive = false;
             taskQueue.clear();
             this.currentPriorityRunnable = threadObjectUtil.NULL_PRIORITY_RUNNABLE;
             //TWB - Playn Testing
             //notifyAll();
-        }
 
         //Thread[] threads = new Thread[MAX];
         //int count = threads.length;
