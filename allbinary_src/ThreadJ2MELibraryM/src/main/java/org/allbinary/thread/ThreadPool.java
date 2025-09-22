@@ -27,7 +27,9 @@ public class ThreadPool
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    protected final NullRunnable NULL_RUNNABLE = NullRunnable.getInstance();
     protected final ThreadPoolStrings threadPoolStrings = ThreadPoolStrings.getInstance();
+    protected final ThreadObjectUtil threadObjectUtil = ThreadObjectUtil.getInstance();
 
     private final String poolName;
     private final int priority;
@@ -95,7 +97,7 @@ public class ThreadPool
             //PreLogUtil.put("Add: ").append(task, this, this.threadPoolStrings.ADD_TASK);
             final int size = this.taskQueue.size();
             PriorityRunnable runnable;
-            PriorityRunnable lowerPriorityRunnable = ThreadObjectUtil.getInstance().NULL_PRIORITY_RUNNABLE;
+            PriorityRunnable lowerPriorityRunnable = threadObjectUtil.NULL_PRIORITY_RUNNABLE;
             for(int index = 0; index < size; index++) {
                 runnable = (PriorityRunnable) this.taskQueue.get(index);
                 //logUtil.put(new StringMaker().append(COMPARE_PRIORITY).append(task.getPriority()).toString(), this, this.threadPoolStrings.ADD_TASK);
@@ -105,7 +107,7 @@ public class ThreadPool
                 }
             }
             
-            if(lowerPriorityRunnable == null || lowerPriorityRunnable == NullRunnable.getInstance()) {
+            if(lowerPriorityRunnable == threadObjectUtil.NULL_PRIORITY_RUNNABLE || lowerPriorityRunnable == NULL_RUNNABLE) {
                 this.taskQueue.add(task);
             } else {
                 //logUtil.put(new StringMaker().append(ADD_PRIORITY).append(task.getPriority()).toString(), this, this.threadPoolStrings.ADD_TASK);
@@ -152,7 +154,7 @@ public class ThreadPool
         {
             if (!this.isAlive)
             {
-                return NullRunnable.getInstance();
+                return NULL_RUNNABLE;
             }
             this.wait();
         }
@@ -271,8 +273,6 @@ public class ThreadPool
         {
 
             threadStarted();
-
-            final ThreadObjectUtil threadObjectUtil = ThreadObjectUtil.getInstance();
             
             while (true)
             //while (!isInterrupted())
