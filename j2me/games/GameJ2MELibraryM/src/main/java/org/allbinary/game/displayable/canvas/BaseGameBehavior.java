@@ -12,6 +12,8 @@
  * 
  */
 package org.allbinary.game.displayable.canvas;
+import org.allbinary.thread.ARunnable;
+
 
 import org.allbinary.business.advertisement.GameAdStateFactory;
 import org.allbinary.game.GameAdState;
@@ -51,7 +53,7 @@ public class BaseGameBehavior extends DemoGameBehavior {
 
 //        if(SWTUtil.isSWT) {
 //
-//            final Runnable runnable = new Runnable() {
+//            final Runnable runnable = new ARunnable() {
 //                public void run() {
 //                    try {
 //                        allBinaryGameCanvas.processSleep();
@@ -91,7 +93,7 @@ public class BaseGameBehavior extends DemoGameBehavior {
 
 //        if(SWTUtil.isSWT) {
 //            
-//            final Runnable runnable = new Runnable() {
+//            final Runnable runnable = new ARunnable() {
 //                public void run() {
 //                    try {
 //                        allBinaryGameCanvas.run3();

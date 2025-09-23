@@ -12,6 +12,8 @@
 * 
 */
 package org.allbinary.media.audio;
+import org.allbinary.thread.ARunnable;
+
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -70,7 +72,7 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
     @Override
     public void close()
     {
-        MusicThreadPool.getInstance().runTask(new Runnable() {
+        MusicThreadPool.getInstance().runTask(new ARunnable() {
             @Override
             public void run() {
                 try {
@@ -98,7 +100,7 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
     @Override
     public synchronized void start() throws MediaException
     {
-        MusicThreadPool.getInstance().runTask(new Runnable() {
+        MusicThreadPool.getInstance().runTask(new ARunnable() {
             @Override
             public void run() {
                 try {
@@ -134,7 +136,7 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
     @Override
     public synchronized void stop() throws MediaException
     {
-        MusicThreadPool.getInstance().runTask(new Runnable() {
+        MusicThreadPool.getInstance().runTask(new ARunnable() {
             @Override
             public void run() {
                 try {

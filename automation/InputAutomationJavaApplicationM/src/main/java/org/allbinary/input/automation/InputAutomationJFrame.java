@@ -12,6 +12,8 @@
 * 
 */
 package org.allbinary.input.automation;
+import org.allbinary.thread.ARunnable;
+
 
 import java.awt.*;
 import java.net.URI;
@@ -589,7 +591,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
        URLGLOBALS.init(appUrlGlobals);
        WebappClassLoaderInfo.setLoader(appUrlGlobals.getClass().getClassLoader());
 
-      java.awt.EventQueue.invokeLater(new Runnable()
+      java.awt.EventQueue.invokeLater(new ARunnable()
       {
 
          public void run()

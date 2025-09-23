@@ -68,29 +68,6 @@
                     <showDeprecation>true</showDeprecation>
                 </configuration>
             </plugin>
-
-
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>sources</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>unpack-dependencies</goal>
-                        </goals>
-                        <configuration>
-                            <classifier>sources</classifier>
-                            <failOnMissingClassifierArtifact>false</failOnMissingClassifierArtifact>
-                            <!--
-                            <outputDirectory>${project.build.directory}/sources</outputDirectory>
-                            -->
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
             
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

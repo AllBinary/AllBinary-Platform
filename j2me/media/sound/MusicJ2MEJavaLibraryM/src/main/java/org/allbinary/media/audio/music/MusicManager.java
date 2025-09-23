@@ -1,4 +1,6 @@
 package org.allbinary.media.audio.music;
+import org.allbinary.thread.ARunnable;
+
 
 import javax.microedition.media.Player;
 import javax.microedition.media.PlayerListener;
@@ -133,7 +135,7 @@ public class MusicManager {
                 }
 
                 if (endingCurrentSongSound != NoSound.getInstance()) {
-//                    MusicThreadPool.getInstance().runTask(new Runnable() {
+//                    MusicThreadPool.getInstance().runTask(new ARunnable() {
 //                        public void run() {
 //                            try {
 
@@ -224,7 +226,7 @@ public class MusicManager {
             final Sound currentSongSound = this.currentSongSound;
             if (currentSongSound != NoSound.getInstance()) {
                 stopped = true;
-//                MusicThreadPool.getInstance().runTask(new Runnable() {
+//                MusicThreadPool.getInstance().runTask(new ARunnable() {
 //                    public void run() {
 //                        try {
                             PreLogUtil.put(new StringMaker().append(ENDING).append(currentSongSound.getResource()).toString(), this, commonStrings.PROCESS);

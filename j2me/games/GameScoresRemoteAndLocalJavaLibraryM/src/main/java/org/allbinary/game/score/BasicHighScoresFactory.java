@@ -12,6 +12,8 @@
 * 
 */
 package org.allbinary.game.score;
+import org.allbinary.thread.ARunnable;
+
 
 import org.allbinary.game.BasicHighScoresGameInfoFactory;
 import org.allbinary.game.GameInfo;
@@ -57,7 +59,7 @@ public class BasicHighScoresFactory extends HighScoresBase
     {
         //System.gc();
 
-        SecondaryThreadPool.getInstance().runTask(new Runnable() {
+        SecondaryThreadPool.getInstance().runTask(new ARunnable() {
             public void run() {
                 
                 try {

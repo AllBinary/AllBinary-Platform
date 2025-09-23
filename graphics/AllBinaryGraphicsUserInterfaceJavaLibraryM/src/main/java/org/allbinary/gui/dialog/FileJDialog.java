@@ -12,6 +12,8 @@
 * 
 */
 package org.allbinary.gui.dialog;
+import org.allbinary.thread.ARunnable;
+
 
 import java.io.File;
 
@@ -116,7 +118,7 @@ public class FileJDialog extends javax.swing.JDialog
     */
    public static void main(String args[])
    {
-       java.awt.EventQueue.invokeLater(new Runnable()
+       java.awt.EventQueue.invokeLater(new ARunnable()
        {
            public void run()
            {

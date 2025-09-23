@@ -12,6 +12,8 @@
 *
 */
 package org.allbinary.game.displayable.canvas;
+import org.allbinary.thread.ARunnable;
+
 
 import java.util.Hashtable;
 import java.util.Vector;
@@ -1655,7 +1657,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
 //        if (SWTUtil.isSWT) {
 //
-//            final Runnable runnable = new Runnable() {
+//            final Runnable runnable = new ARunnable() {
 //                public void run() {
 //                    try {
 //                        run3();

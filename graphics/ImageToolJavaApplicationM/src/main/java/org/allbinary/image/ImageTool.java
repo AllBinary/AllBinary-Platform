@@ -12,6 +12,8 @@
 * 
 */
 package org.allbinary.image;
+import org.allbinary.thread.ARunnable;
+
 
 import org.allbinary.image.gui.ImageToolJFrame;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -27,7 +29,7 @@ public class ImageTool
    
    public static void main(String[] args)
    {
-      java.awt.EventQueue.invokeLater(new Runnable()
+      java.awt.EventQueue.invokeLater(new ARunnable()
       {
          public void run()
          {

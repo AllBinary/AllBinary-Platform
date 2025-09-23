@@ -12,6 +12,8 @@
  * 
  */
 package org.allbinary.game.layer;
+import org.allbinary.thread.ARunnable;
+
 
 
 import org.allbinary.logic.communication.log.LogUtil;
@@ -35,7 +37,7 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
     private PathFindingInfo pathFindingInfo;
     private final MultipassState multipassState = new MultipassState();
     
-    private final Runnable FIRST_RUNNABLE = new Runnable() {
+    private final Runnable FIRST_RUNNABLE = new ARunnable() {
             
         public void run() {
             try {
@@ -74,7 +76,7 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
 
 //    private boolean first = true;
     
-    private final Runnable SECOND_RUNNABLE = new Runnable() {
+    private final Runnable SECOND_RUNNABLE = new ARunnable() {
         
         public void run() {
             try {
@@ -104,7 +106,7 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
         
     };
 
-    private final Runnable END_RUNNABLE = new Runnable() {
+    private final Runnable END_RUNNABLE = new ARunnable() {
             
         public void run() {
             try {
@@ -128,7 +130,7 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
         
     };
 
-    private final Runnable ALREADY_ENDED_RUNNABLE = new Runnable() {
+    private final Runnable ALREADY_ENDED_RUNNABLE = new ARunnable() {
             
         public void run() {
             throw new RuntimeException();

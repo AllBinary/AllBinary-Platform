@@ -13,7 +13,7 @@
 */
 package org.allbinary.thread;
 
-public class NullRunnable implements Runnable
+public class NullRunnable extends ARunnable
 {
     private static final NullRunnable instance = new NullRunnable();
     
@@ -22,14 +22,9 @@ public class NullRunnable implements Runnable
         return instance;
     }
 
-    public NullRunnable()
+    private NullRunnable()
     {
         
     }
     
-    @Override
-    public void run()
-    {
-        
-    }
 }

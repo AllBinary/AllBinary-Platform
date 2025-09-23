@@ -12,6 +12,8 @@
 * 
 */
 package org.allbinary.graphics.j2me.dialog;
+import org.allbinary.thread.ARunnable;
+
 
 import java.util.HashMap;
 
@@ -138,7 +140,7 @@ public class RotateJDialog extends javax.swing.JDialog
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        java.awt.EventQueue.invokeLater(new ARunnable() {
             public void run() {
                 RotateJDialog dialog = new RotateJDialog(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {

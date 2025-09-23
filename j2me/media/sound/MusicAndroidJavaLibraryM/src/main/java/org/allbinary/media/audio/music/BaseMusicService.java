@@ -1,4 +1,6 @@
 package org.allbinary.media.audio.music;
+import org.allbinary.thread.ARunnable;
+
 
 import android.app.Service;
 import android.content.Intent;
@@ -102,7 +104,7 @@ public class BaseMusicService extends Service
             if(player != null && player.isPlaying()) { 
                 final MediaPlayer player = this.player;
                 logUtil.put(ALREADY_PLAYING, this, commonStateStrings.ON_START_COMMAND);
-                final Runnable runnable = new NullRunnable() {
+                final Runnable runnable = new ARunnable() {
                     
                     @Override
                     public void run() {

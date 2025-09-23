@@ -41,7 +41,7 @@ import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.graphics.paint.SimpleTextPaintable;
 import org.allbinary.logic.string.StringMaker;
-import org.allbinary.thread.NullRunnable;
+import org.allbinary.thread.ARunnable;
 import org.allbinary.thread.SecondaryThreadPool;
 
 public class HighScoresCanvas extends GameCommandCanvas
@@ -131,7 +131,7 @@ public class HighScoresCanvas extends GameCommandCanvas
         final Features features = Features.getInstance();
         final boolean isHTML = features.isDefault(HTMLFeatureFactory.getInstance().HTML);
         
-        SecondaryThreadPool.getInstance().runTask(new NullRunnable() {
+        SecondaryThreadPool.getInstance().runTask(new ARunnable() {
             @Override
             public void run() {
                 
