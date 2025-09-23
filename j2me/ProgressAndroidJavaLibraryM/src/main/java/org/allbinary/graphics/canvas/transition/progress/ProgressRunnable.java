@@ -15,9 +15,9 @@ package org.allbinary.graphics.canvas.transition.progress;
 
 import android.app.Activity;
 import org.allbinary.android.activity.SimpleProgressActivityInterface;
-import org.allbinary.thread.NullRunnable;
+import org.allbinary.thread.ARunnable;
 
-public class ProgressRunnable extends NullRunnable
+public class ProgressRunnable extends ARunnable
 {
     protected final SimpleProgressActivityInterface midletActivity;
     protected final ProgressCanvas progressCanvas;

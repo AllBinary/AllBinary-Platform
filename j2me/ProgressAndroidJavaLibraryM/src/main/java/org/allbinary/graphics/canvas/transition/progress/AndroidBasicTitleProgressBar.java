@@ -39,6 +39,7 @@ import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.image.ImageAnimation;
 import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.logic.util.event.EventStrings;
+import org.allbinary.thread.ARunnable;
 import org.allbinary.thread.NullRunnable;
 
 public class AndroidBasicTitleProgressBar 
@@ -49,13 +50,13 @@ implements DisplayChangeEventListener
     public static final String RESOURCE = "ProgressImage";
     private static final Activity NULL_ACTIVITY = new Activity();
     
-    private NullRunnable showTitleProgressBarRunnable = NullRunnable.getInstance();
+    private ARunnable showTitleProgressBarRunnable = NullRunnable.getInstance();
 
-    private NullRunnable dismissTitleProgressBarRunnable = NullRunnable.getInstance();
+    private ARunnable dismissTitleProgressBarRunnable = NullRunnable.getInstance();
 
-    private NullRunnable titleProgressDialogPortionSetProgressRunnable = NullRunnable.getInstance();
+    private ARunnable titleProgressDialogPortionSetProgressRunnable = NullRunnable.getInstance();
 
-    private NullRunnable titleProgressDialogSetProgressRunnable = NullRunnable.getInstance();
+    private ARunnable titleProgressDialogSetProgressRunnable = NullRunnable.getInstance();
 
     //SimpleProgressActivityInterface
     private Activity midletActivity = NULL_ACTIVITY;
