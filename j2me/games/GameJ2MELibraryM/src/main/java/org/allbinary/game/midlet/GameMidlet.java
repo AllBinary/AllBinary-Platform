@@ -142,7 +142,7 @@ public class GameMidlet extends ProgressMidlet
 
     // Screens/Canvas
     //private CommandForm saveGameForm;
-    private CommandForm loadGameForm = CommandForm.NULL_COMMAND_FORM;
+    private CommandForm loadGameForm;
     private boolean isFullScreen;
     private boolean resized;
     
@@ -157,6 +157,8 @@ public class GameMidlet extends ProgressMidlet
         SmallIntegerSingletonFactory.getInstance().init(0x291, 6);
         //This can be used for J2ME but not BB
         //SmallIntegerSingletonFactory.getInstance().init(0x101, 6);
+        //This must load after SmallIntegerSingletonFactory init for InputFactory
+        loadGameForm = CommandForm.NULL_COMMAND_FORM;
 
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         progressCanvas.init(this);
