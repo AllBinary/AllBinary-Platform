@@ -86,6 +86,17 @@ public class AllBinaryAndroidImageRotationAnimationFactory
         this.animationFactoryInitializationVisitor.dy = dy;
     }
 
+    public AllBinaryAndroidImageRotationAnimationFactory(final Image image,
+            final int width, final int height, final int dx, final int dy, final short angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory, final boolean resizeCanvasForRotation) throws Exception
+    {
+
+        this(image, width, height, angleIncrement, animationBehaviorFactory, resizeCanvasForRotation);
+
+        this.animationFactoryInitializationVisitor.dx = dx;
+        this.animationFactoryInitializationVisitor.dy = dy;
+
+    }
+
     public AllBinaryAndroidImageRotationAnimationFactory(final Image image, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
             throws Exception
     {
