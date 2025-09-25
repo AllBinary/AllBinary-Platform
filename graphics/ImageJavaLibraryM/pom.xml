@@ -107,14 +107,14 @@
         <dependency>
             <groupId>org.apache.xmlgraphics</groupId>
             <artifactId>batik-codec</artifactId>
-            <version>1.7</version>
+            <version>1.15</version>
 
             <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.apache.xmlgraphics</groupId>
             <artifactId>batik-awt-util</artifactId>
-            <version>1.7</version>
+            <version>1.19</version>
             
             <optional>true</optional>
         </dependency>
