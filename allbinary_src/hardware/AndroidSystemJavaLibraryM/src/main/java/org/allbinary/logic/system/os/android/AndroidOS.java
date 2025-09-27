@@ -11,10 +11,11 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.logic.system.os;
+package org.allbinary.logic.system.os.android;
 
 import org.allbinary.android.AndroidInfoFactory;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.system.os.GenericOperatingSystem;
 import org.allbinary.string.CommonSeps;
 
 /**
@@ -22,7 +23,7 @@ import org.allbinary.string.CommonSeps;
  * @author Berthelot, Travis
  * @version 1.0
  */
-public class AndroidOperatingSystem extends GenericOperatingSystem
+public class AndroidOS extends GenericOperatingSystem
 {
    private StringBuilder stringBuffer = new StringBuilder();
    
@@ -30,7 +31,7 @@ public class AndroidOperatingSystem extends GenericOperatingSystem
    private final String DEVICE_SOFTWARE_VERSION ="DeviceSoftwareVersion";
    private final String LINE_1_NUMBER = "Line1Number";
    
-   public AndroidOperatingSystem() throws Exception
+   public AndroidOS() throws Exception
    {
         final int SDK_VERSION = AndroidInfoFactory.getInstance().getVersion();
         

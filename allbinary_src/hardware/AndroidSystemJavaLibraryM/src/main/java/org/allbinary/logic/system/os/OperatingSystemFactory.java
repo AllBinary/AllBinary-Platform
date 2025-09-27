@@ -13,6 +13,7 @@
 */
 package org.allbinary.logic.system.os;
 
+import org.allbinary.logic.system.os.android.AndroidOperatingSystemFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonStrings;

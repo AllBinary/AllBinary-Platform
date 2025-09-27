@@ -21,7 +21,7 @@ import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.system.os.linux.LinuxOperatingSystemFactory;
-import org.allbinary.logic.system.os.solaris.Solaris;
+import org.allbinary.logic.system.os.solaris.SolarisOperatingSystemFactory;
 import org.allbinary.logic.system.os.windows.WindowsOperatingSystemFactory;
 import org.allbinary.string.CommonStrings;
 
@@ -71,7 +71,6 @@ public class OperatingSystemFactory
                     }
                     
                     this.genericOperatingSystem =
-                        (GenericOperatingSystem) 
                         LinuxOperatingSystemFactory.getInstance().getOperatingSystemInstance();
                 }
                 else if(osName.indexOf(operatingSystems.WINDOWS) >= 0)
@@ -81,7 +80,6 @@ public class OperatingSystemFactory
                         logUtil.put("Found a Windows OS", this, commonStrings.GET_INSTANCE);
                     }
                     this.genericOperatingSystem =
-                        (GenericOperatingSystem) 
                         WindowsOperatingSystemFactory.getInstance().getOperatingSystemInstance();
                 }
                 else if(osName.indexOf(operatingSystems.SOLARIS) >= 0)
@@ -92,7 +90,7 @@ public class OperatingSystemFactory
                     }
                     
                     this.genericOperatingSystem =
-                        (GenericOperatingSystem) new Solaris();
+                        SolarisOperatingSystemFactory.getInstance().getOperatingSystemInstance();
                 }
                 else
                 {

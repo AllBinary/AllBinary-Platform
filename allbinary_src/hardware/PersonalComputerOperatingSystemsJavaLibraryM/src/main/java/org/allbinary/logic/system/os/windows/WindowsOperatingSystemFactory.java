@@ -48,44 +48,44 @@ public class WindowsOperatingSystemFactory
             if(osName.compareTo(operatingSystems.WINDOWS_NT)==0)
             {
                 operatingSystemInterface =
-                     new Windows();
+                     new WindowsOS();
             }
             else
             if(osName.compareTo(operatingSystems.WINDOWS_10)==0)
             {
                 operatingSystemInterface =
-                     new Windows();
+                     new WindowsOS();
             }
             else
             if(osName.compareTo(operatingSystems.WINDOWS_11)==0)
             {
                 operatingSystemInterface =
-                     new Windows();
+                     new WindowsOS();
             }
             else
             if(osName.compareTo(operatingSystems.WINDOWS2000)==0)
             {
                 operatingSystemInterface =
-                     new Windows();
+                     new WindowsOS();
             }
             else
             if(osName.compareTo(operatingSystems.WINDOWS_XP)==0)
             {
                 operatingSystemInterface =
-                     new Windows();
+                     new WindowsOS();
             }
             else
             if(osName.compareTo(operatingSystems.WINDOWS_VISTA)==0)
             {
                 operatingSystemInterface =
-                     new Windows();
+                     new WindowsOS();
             }
             else
             {
                 if(operatingSystems.isUnknownSpecificOSAllowed())
                 {
                     operatingSystemInterface =
-                         new Windows();
+                         new WindowsOS();
                 }
                 else
                 {

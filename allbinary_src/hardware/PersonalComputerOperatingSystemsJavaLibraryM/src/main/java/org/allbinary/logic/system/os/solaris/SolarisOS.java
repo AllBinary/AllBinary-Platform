@@ -15,10 +15,16 @@ package org.allbinary.logic.system.os.solaris;
 
 import org.allbinary.logic.system.os.GenericOperatingSystem;
 
-public class Solaris extends GenericOperatingSystem
+public class SolarisOS extends GenericOperatingSystem
 {
-   public Solaris() throws Exception
+   public SolarisOS() throws Exception
    {
        this.scalable = true;
    }
+   
+   @Override
+   public boolean isAutoHide() {
+       return true;
+   }
+   
 }

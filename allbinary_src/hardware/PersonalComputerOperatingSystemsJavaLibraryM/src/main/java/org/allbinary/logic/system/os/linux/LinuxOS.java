@@ -11,14 +11,20 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.logic.system.os.windows;
+package org.allbinary.logic.system.os.linux;
 
 import org.allbinary.logic.system.os.GenericOperatingSystem;
 
-public class Windows extends GenericOperatingSystem
+public class LinuxOS extends GenericOperatingSystem
 {
-   public Windows() throws Exception
+   public LinuxOS() throws Exception
    {
        this.scalable = true;
    }
+   
+   @Override
+   public boolean isAutoHide() {
+       return true;
+   }
+   
 }

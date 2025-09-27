@@ -26,6 +26,7 @@ public interface OperatingSystemInterface
    public int getOverScanXPercent();
    public int getOverScanYPercent();
    public boolean isScalable();
+   public boolean isAutoHide();
 
    String toString();      
 }

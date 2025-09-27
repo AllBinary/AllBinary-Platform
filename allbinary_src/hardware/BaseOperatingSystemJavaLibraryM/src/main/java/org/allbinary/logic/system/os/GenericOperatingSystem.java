@@ -114,11 +114,16 @@ public class GenericOperatingSystem implements OperatingSystemInterface
        return this.scalable;
    }
    
+   @Override
+   public boolean isAutoHide() {
+       return false;
+   }
+
    public String toString()
    {
        final String NEW_LINE = CommonSeps.getInstance().NEW_LINE;
 
-      StringMaker osBuffer = new StringMaker();
+      final StringMaker osBuffer = new StringMaker();
       osBuffer.append("Operating System Info: \n");
       osBuffer.append(this.getName());
       osBuffer.append(NEW_LINE);

@@ -48,14 +48,14 @@ public class LinuxOperatingSystemFactory
             if(osName.compareTo(operatingSystems.LINUX)==0)
             {
                 operatingSystemInterface =
-                     new Linux();
+                     new LinuxOS();
             }
             else
             {
                 if(operatingSystems.isUnknownSpecificOSAllowed())
                 {
                     operatingSystemInterface =
-                         new Linux();
+                         new LinuxOS();
                 }
                 else
                 {

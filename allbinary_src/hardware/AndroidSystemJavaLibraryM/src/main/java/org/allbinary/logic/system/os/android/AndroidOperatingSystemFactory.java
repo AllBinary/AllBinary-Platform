@@ -11,9 +11,13 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.logic.system.os;
+package org.allbinary.logic.system.os.android;
 
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.system.os.GenericOperatingSystem;
+import org.allbinary.logic.system.os.NoOperatingSystem;
+import org.allbinary.logic.system.os.OperatingSystems;
+import org.allbinary.logic.system.os.SystemProperties;
 import org.allbinary.string.CommonStrings;
 
 /**
@@ -46,13 +50,13 @@ public class AndroidOperatingSystemFactory {
 
             if(osName.compareTo(OperatingSystems.getInstance().ANDROID)==0)
             {
-                GenericOperatingSystem = new AndroidOperatingSystem();
+                GenericOperatingSystem = new AndroidOS();
             }
             else
             {
                 if(OperatingSystems.getInstance().isUnknownSpecificOSAllowed())
                 {
-                    GenericOperatingSystem = new AndroidOperatingSystem();
+                    GenericOperatingSystem = new AndroidOS();
                 }
                 else
                 {

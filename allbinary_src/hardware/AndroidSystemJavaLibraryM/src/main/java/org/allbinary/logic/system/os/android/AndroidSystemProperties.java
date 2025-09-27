@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.logic.system.os;
+package org.allbinary.logic.system.os.android;
 
 import android.content.Context;
 import android.os.Build;

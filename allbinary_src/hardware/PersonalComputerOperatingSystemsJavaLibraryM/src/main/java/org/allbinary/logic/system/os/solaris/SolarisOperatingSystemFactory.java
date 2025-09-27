@@ -48,14 +48,14 @@ public class SolarisOperatingSystemFactory
             if(osName.compareTo(operatingSystems.SOLARIS)==0)
             {
                 operatingSystemInterface =
-                     new Solaris();
+                     new SolarisOS();
             }
             else
             {
                 if(operatingSystems.isUnknownSpecificOSAllowed())
                 {
                     operatingSystemInterface =
-                         new Solaris();
+                         new SolarisOS();
                 }
                 else
                 {
