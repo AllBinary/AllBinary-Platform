@@ -74,6 +74,8 @@ public class AllBinaryAndroidImageRotationAnimationFactory
 
         this.animationFactoryInitializationVisitor.dx = dx;
         this.animationFactoryInitializationVisitor.dy = dy;
+        this.animationFactoryInitializationVisitor.originalDx = dx;
+        this.animationFactoryInitializationVisitor.originalDy = dy;
     }
     
     public AllBinaryAndroidImageRotationAnimationFactory(final Image image,
@@ -84,6 +86,8 @@ public class AllBinaryAndroidImageRotationAnimationFactory
 
         this.animationFactoryInitializationVisitor.dx = dx;
         this.animationFactoryInitializationVisitor.dy = dy;
+        this.animationFactoryInitializationVisitor.originalDx = dx;
+        this.animationFactoryInitializationVisitor.originalDy = dy;
     }
 
     public AllBinaryAndroidImageRotationAnimationFactory(final Image image,
@@ -94,7 +98,8 @@ public class AllBinaryAndroidImageRotationAnimationFactory
 
         this.animationFactoryInitializationVisitor.dx = dx;
         this.animationFactoryInitializationVisitor.dy = dy;
-
+        this.animationFactoryInitializationVisitor.originalDx = dx;
+        this.animationFactoryInitializationVisitor.originalDy = dy;
     }
 
     public AllBinaryAndroidImageRotationAnimationFactory(final Image image, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
@@ -142,12 +147,14 @@ public class AllBinaryAndroidImageRotationAnimationFactory
         final Image scaledImage = animationFactoryImageScaleUtil.createImage(canvasImage, 
             this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, 
             this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
-        if(this.resizeCanvasForRotation) {
-            if (this.animationFactoryInitializationVisitor.dx == 0 || this.animationFactoryInitializationVisitor.dy == 0) {
-                this.animationFactoryInitializationVisitor.dx -= scaledImage.getWidth() / 8;
-                this.animationFactoryInitializationVisitor.dy -= scaledImage.getHeight() / 8;
-            }
-        }
+//        if(this.resizeCanvasForRotation) {
+//            if (this.animationFactoryInitializationVisitor.dx == 0 || this.animationFactoryInitializationVisitor.dy == 0) {
+//                this.animationFactoryInitializationVisitor.dx -= scaledImage.getWidth() / 8;
+//                this.animationFactoryInitializationVisitor.dy -= scaledImage.getHeight() / 8;
+//                this.animationFactoryInitializationVisitor.originalDx = this.animationFactoryInitializationVisitor.dx;
+//                this.animationFactoryInitializationVisitor.originalDy = this.animationFactoryInitializationVisitor.dy;
+//            }
+//        }
         final Image copyOfScaledImage = ImageCopyUtil.getInstance().createImage(scaledImage);
 //        Image copyOfScaledImage = secondImage;
 //        if(copyOfScaledImage == null) {
@@ -156,6 +163,7 @@ public class AllBinaryAndroidImageRotationAnimationFactory
 
         if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
             
+            //logUtil.put(new StringMaker().append(PositionStrings.getInstance().DX_LABEL).append((float) this.animationFactoryInitializationVisitor.dx).append(PositionStrings.getInstance().DY_LABEL).append((float) this.animationFactoryInitializationVisitor.dy).toString(), this, "getInstance");
             animationFactoryImageScaleUtil.processAdjust(this);
             
             return new AllBinaryAdjustedAndroidImageRotationAnimation(

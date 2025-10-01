@@ -28,6 +28,8 @@ public class AnimationFactoryInitializationVisitor {
     public int height;
     public int dx;
     public int dy;
+    public int originalDx;
+    public int originalDy;
 
     public void visit() {
         

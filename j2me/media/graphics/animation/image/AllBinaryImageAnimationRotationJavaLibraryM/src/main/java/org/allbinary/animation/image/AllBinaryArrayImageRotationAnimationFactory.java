@@ -69,6 +69,8 @@ public class AllBinaryArrayImageRotationAnimationFactory
 
         this.animationFactoryInitializationVisitor.dx = dx;
         this.animationFactoryInitializationVisitor.dy = dy;
+        this.animationFactoryInitializationVisitor.originalDx = dx;
+        this.animationFactoryInitializationVisitor.originalDy = dy;
     }
 
     public AllBinaryArrayImageRotationAnimationFactory(final Image image,
@@ -85,6 +87,8 @@ public class AllBinaryArrayImageRotationAnimationFactory
 
         this.animationFactoryInitializationVisitor.dx = dx;
         this.animationFactoryInitializationVisitor.dy = dy;
+        this.animationFactoryInitializationVisitor.originalDx = dx;
+        this.animationFactoryInitializationVisitor.originalDy = dy;
     }
 
     public AllBinaryArrayImageRotationAnimationFactory(final Image image, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
@@ -124,6 +128,7 @@ public class AllBinaryArrayImageRotationAnimationFactory
         
         if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
             
+            //logUtil.put(new StringMaker().append(PositionStrings.getInstance().DX_LABEL).append((float) this.animationFactoryInitializationVisitor.dx).append(PositionStrings.getInstance().DY_LABEL).append((float) this.animationFactoryInitializationVisitor.dy).toString(), this, "getInstance");
             animationFactoryImageScaleUtil.processAdjust(this);
             
             return new AdjustedImageArrayRotationAnimation(

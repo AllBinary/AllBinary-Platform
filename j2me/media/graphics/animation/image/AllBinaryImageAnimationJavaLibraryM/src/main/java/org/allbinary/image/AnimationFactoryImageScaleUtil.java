@@ -87,8 +87,8 @@ public class AnimationFactoryImageScaleUtil {
             final float scaleY = ((float) scaleProperties.scaleHeight) / ((float) animationFactoryInitializationVisitor.height);
             if ((scaleX == 1.0f && scaleY == 1.0f) || (scaleX == 0.0f || scaleY == 0.0f)) {
             } else {
-                animationFactoryInitializationVisitor.dx = (int) (animationFactoryInitializationVisitor.dx * scaleX);
-                animationFactoryInitializationVisitor.dy = (int) (animationFactoryInitializationVisitor.dy * scaleY);
+                animationFactoryInitializationVisitor.dx = (int) (animationFactoryInitializationVisitor.originalDx * scaleX);
+                animationFactoryInitializationVisitor.dy = (int) (animationFactoryInitializationVisitor.originalDy * scaleY);
             }
 
         } else {

@@ -22,10 +22,8 @@ import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.graphics.opengles.OpenGLUtil;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.string.StringMaker;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
-import org.allbinary.math.PositionStrings;
 import org.allbinary.media.image.ImageCopyUtil;
 
 public class AllBinaryJ2SEImageRotationAnimationFactory 
@@ -74,6 +72,9 @@ public class AllBinaryJ2SEImageRotationAnimationFactory
 
         this.animationFactoryInitializationVisitor.dx = dx;
         this.animationFactoryInitializationVisitor.dy = dy;
+        this.animationFactoryInitializationVisitor.originalDx = dx;
+        this.animationFactoryInitializationVisitor.originalDy = dy;
+        
     }
 
     public AllBinaryJ2SEImageRotationAnimationFactory(final Image image,
@@ -84,6 +85,8 @@ public class AllBinaryJ2SEImageRotationAnimationFactory
 
         this.animationFactoryInitializationVisitor.dx = dx;
         this.animationFactoryInitializationVisitor.dy = dy;
+        this.animationFactoryInitializationVisitor.originalDx = dx;
+        this.animationFactoryInitializationVisitor.originalDy = dy;
 
     }
     
@@ -102,6 +105,8 @@ public class AllBinaryJ2SEImageRotationAnimationFactory
 
         this.animationFactoryInitializationVisitor.dx = dx;
         this.animationFactoryInitializationVisitor.dy = dy;
+        this.animationFactoryInitializationVisitor.originalDx = dx;
+        this.animationFactoryInitializationVisitor.originalDy = dy;
     }
 
     public AllBinaryJ2SEImageRotationAnimationFactory(final Image image)
@@ -165,7 +170,7 @@ public class AllBinaryJ2SEImageRotationAnimationFactory
 
         if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
 
-            logUtil.put(new StringMaker().append(PositionStrings.getInstance().DX_LABEL).append((float) this.animationFactoryInitializationVisitor.dx).append(PositionStrings.getInstance().DY_LABEL).append((float) this.animationFactoryInitializationVisitor.dy).toString(), this, "getInstance");
+            //logUtil.put(new StringMaker().append(PositionStrings.getInstance().DX_LABEL).append((float) this.animationFactoryInitializationVisitor.dx).append(PositionStrings.getInstance().DY_LABEL).append((float) this.animationFactoryInitializationVisitor.dy).toString(), this, "getInstance");
             animationFactoryImageScaleUtil.processAdjust(this);
 
             return new AllBinaryAdjustedJ2SEImageRotationAnimation(

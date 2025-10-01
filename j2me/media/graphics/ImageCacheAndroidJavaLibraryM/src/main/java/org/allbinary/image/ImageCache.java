@@ -21,6 +21,7 @@ import javax.microedition.lcdui.NullCanvas;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.data.resource.ResourceUtil;
+import org.allbinary.game.gd.resource.GDResources;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.system.Memory;
 
@@ -38,7 +39,20 @@ public class ImageCache extends ImageCacheBase
     public void addListener(Object renderer) {
         
     }
-    
+
+    public int getIndex(final Object key) {
+        final GDResources gdResources = GDResources.getInstance();
+        final String[] resourceStringArray = gdResources.resourceStringArray;
+        final int size = resourceStringArray.length;
+        for (int index = 0; index < size; index++) {
+            if (resourceStringArray[index] == key) {
+                return index;
+            }
+        }
+        logUtil.put(new StringMaker().append("unable to find key: ").append(StringUtil.getInstance().toString(key)).toString(), this, commonStrings.RUN);
+        throw new RuntimeException();
+    }
+
     @Override
     public Image get(final String caller, final int width, final int height)
     throws Exception
