@@ -22,6 +22,7 @@ public class ThreadPool
     protected final LogUtil logUtil = LogUtil.getInstance();
     
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    protected final NullRunnable NULL_RUNNABLE = NullRunnable.getInstance();
     protected final ThreadPoolStrings threadPoolStrings = ThreadPoolStrings.getInstance();
     protected final ThreadObjectUtil threadObjectUtil = ThreadObjectUtil.getInstance();
     
@@ -58,9 +59,14 @@ public class ThreadPool
             //logUtil.put(currentPriorityRunnable.toString(), this, "runAPriorityTask:Again");
             currentPriorityRunnable.run();
         } else {
-            currentPriorityRunnable = (PriorityRunnable) this.getTask();
+            final Runnable runnable = this.getTask();
+            if(runnable == NULL_RUNNABLE) {
+                return;
+            }
 
-            if (currentPriorityRunnable != null)
+            currentPriorityRunnable = (PriorityRunnable) runnable;
+
+            if (!(currentPriorityRunnable == threadObjectUtil.NULL_PRIORITY_RUNNABLE))
             {
                 //logUtil.put(currentPriorityRunnable.toString(), this, "runAPriorityTask:New");
                 currentPriorityRunnable.reset();
@@ -121,7 +127,7 @@ public class ThreadPool
                 }
             }
             
-            if(lowerPriorityRunnable == null) {
+            if(lowerPriorityRunnable == threadObjectUtil.NULL_PRIORITY_RUNNABLE || lowerPriorityRunnable == NULL_RUNNABLE) {
                 this.taskQueue.add(task);
             } else {
                 //logUtil.put(new StringMaker().append(ADD_PRIORITY).append(task.getPriority()).toString(), this, this.threadPoolStrings.ADD_TASK);
@@ -158,14 +164,14 @@ public class ThreadPool
     {
         if(taskQueue.isEmpty())
         {
-            return null;
+            return NULL_RUNNABLE;
         }
         /*
         while (taskQueue.size() == 0)
         {
             if (!isAlive)
             {
-                return null;
+                return NULL_RUNNABLE;
             }
             //TWB - Playn Testing
             //this.wait();
