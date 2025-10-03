@@ -1,25 +1,24 @@
 package org.allbinary.media.audio.music;
-import org.allbinary.thread.ARunnable;
-
 
 import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.IBinder;
+
 import org.allbinary.android.NullAndroidCanvas;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonStateStrings;
 import org.allbinary.string.CommonStrings;
-import org.allbinary.thread.NullRunnable;
+import org.allbinary.thread.ARunnable;
 
 public class BaseMusicService extends Service
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final CommonStateStrings commonStateStrings = CommonStateStrings.getInstance();
-    
+
     private final String ALREADY_PLAYING = "This is one song per music service";
     private final String WAITING_FOR_MUSIC_TO_END = "Waiting for music to end";
 
@@ -43,7 +42,7 @@ public class BaseMusicService extends Service
     @Override
     public void onCreate()
     {
-		//Toast.makeText(this, "Music Service Created", Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "Music Service Created", Toast.LENGTH_LONG).show();
 
         logUtil.put(commonStrings.START, this, commonStateStrings.CREATE);
         //PreLogUtil.put(commonStrings.START, this, "onCreate");		
@@ -52,17 +51,43 @@ public class BaseMusicService extends Service
     @Override
     public void onDestroy()
     {
-		//Toast.makeText(this, "Music Service Stopped", Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "Music Service Stopped", Toast.LENGTH_LONG).show();
 
         logUtil.put(commonStrings.START, this, commonStateStrings.DESTROY);
         //PreLogUtil.put(commonStrings.START, this, "onDestroy");
 
         if (player != null)
         {
+            logUtil.put(commonStrings.START, this, commonStateStrings.PAUSE);
             player.stop();
             player.reset();
             player.release();
         }
+    }
+
+    public void pause()
+    {
+        if (player != null)
+        {
+            logUtil.put(commonStrings.START, this, commonStateStrings.PAUSE);
+            player.pause();
+        }
+    }
+
+    public void resume() {
+
+        if (player != null && !player.isPlaying()) {
+            logUtil.put(commonStrings.START, this, commonStateStrings.RESUME);
+            player.start();
+        }
+    }
+
+    public void start() {
+        player = MediaPlayer.create(this, songId);
+        player.setVolume(((float) leftVolume) / 100.0f, ((float) rightVolume) / 100.0f);
+        player.setLooping(false);
+
+        player.start();
     }
 
     @Override
@@ -90,9 +115,19 @@ public class BaseMusicService extends Service
 
         final MusicStrings musicStrings = MusicStrings.getInstance();
         if(intent != null) {
-            songId = intent.getIntExtra(musicStrings.SONG_EXTRA, -1);
-            leftVolume = intent.getIntExtra(musicStrings.LEFT_VOLUME, -1);
-            rightVolume = intent.getIntExtra(musicStrings.RIGHT_VOLUME, -1);
+            final int command = intent.getIntExtra(commonStateStrings.ON_START_COMMAND, -1);
+            logUtil.put(CommonLabels.getInstance().COMMAND_LABEL + command, this, commonStateStrings.ON_START_COMMAND);
+            if(command == 1) {
+                this.pause();
+                return;
+            } else if(command == 2) {
+                this.resume();
+                return;
+            } else {
+                this.songId = intent.getIntExtra(musicStrings.SONG_EXTRA, -1);
+                this.leftVolume = intent.getIntExtra(musicStrings.LEFT_VOLUME, -1);
+                this.rightVolume = intent.getIntExtra(musicStrings.RIGHT_VOLUME, -1);
+            }
         } else {
             throw new RuntimeException("Started service without intent");
         }
@@ -101,11 +136,11 @@ public class BaseMusicService extends Service
         {
             System.gc();
 
-            if(player != null && player.isPlaying()) { 
+            if(player != null && player.isPlaying()) {
                 final MediaPlayer player = this.player;
                 logUtil.put(ALREADY_PLAYING, this, commonStateStrings.ON_START_COMMAND);
                 final Runnable runnable = new ARunnable() {
-                    
+
                     @Override
                     public void run() {
                         try {
@@ -121,14 +156,10 @@ public class BaseMusicService extends Service
                 };
                 final Thread thread = new Thread(runnable);
                 thread.start();
-                return; 
+                return;
             }
-            
-            player = MediaPlayer.create(this, songId);
-            player.setVolume(((float) leftVolume) / 100.0f, ((float) rightVolume) / 100.0f);
-            player.setLooping(false);
 
-            player.start();
+            this.start();
         }
     }
 }

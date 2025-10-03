@@ -1,5 +1,6 @@
 package org.allbinary.media.audio.music;
 
+import android.app.Activity;
 import android.content.Intent;
 import org.allbinary.android.AndroidServicesUtil;
 import org.allbinary.data.resource.ResourceUtil;
@@ -156,4 +157,21 @@ public class MusicManager
         //PreLogUtil.put(STOP_MUSIC_SERVICE, this, commonStrings.PROCESS);
         this.resourceUtil.getContext().stopService(this.currentIntent);
     }
+    
+    public static void pause(final Activity activity, Class clazz) {
+        final CommonStateStrings commonStateStrings = CommonStateStrings.getInstance();
+        final Intent musicPauseIntent = new Intent(activity, clazz);
+        musicPauseIntent.putExtra(commonStateStrings.ON_START_COMMAND, 1);
+        activity.startService(musicPauseIntent);
+    }
+    
+    public static void resume(final Activity activity, Class clazz) {
+        if (AndroidServicesUtil.getInstance().isServiceRunning(clazz.getName())) {
+            final CommonStateStrings commonStateStrings = CommonStateStrings.getInstance();
+            final Intent musicResumeIntent = new Intent(activity, clazz);
+            musicResumeIntent.putExtra(commonStateStrings.ON_START_COMMAND, 2);
+            activity.startService(musicResumeIntent);
+        }
+    }
+    
 }
