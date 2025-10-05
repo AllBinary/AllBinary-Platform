@@ -13,6 +13,7 @@
 */
 package org.allbinary.game.displayable.canvas;
 
+import org.allbinary.graphics.displayable.GameTickDisplayInfoSingleton;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.time.GameTickTimeDelayHelper;
@@ -22,6 +23,8 @@ public class GameCanvasRunnable extends GameRunnable
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    private final GameTickDisplayInfoSingleton gameTickDisplayInfoSingleton = GameTickDisplayInfoSingleton.getInstance();
+    
     private final AllBinaryGameCanvas allBinaryGameCanvas;
     
     public GameCanvasRunnable(AllBinaryGameCanvas allBinaryGameCanvas)
@@ -40,6 +43,8 @@ public class GameCanvasRunnable extends GameRunnable
             
             allBinaryGameCanvas.getLoopTimeHelperP().setStartTime(gameTickTimeDelayHelper.setStartTime());
 
+            gameTickDisplayInfoSingleton.update();
+            
             allBinaryGameCanvas.processGame();
         }
         catch (Exception e)
