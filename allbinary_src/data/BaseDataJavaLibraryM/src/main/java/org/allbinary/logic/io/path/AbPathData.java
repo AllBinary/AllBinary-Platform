@@ -14,6 +14,9 @@
 package org.allbinary.logic.io.path;
 
 //Used to correct user input for paths
+
+import org.allbinary.string.CommonSeps;
+
 public class AbPathData
 {
     private static final AbPathData instance = new AbPathData();
@@ -23,9 +26,9 @@ public class AbPathData
         return instance;
     }
     
-   public final String EXTENSION_SEP = ".";
+   public final String EXTENSION_SEP = CommonSeps.getInstance().PERIOD;
    public final char SEPARATORCHAR = '/';
-   public final String SEPARATOR = "/";
+   public final String SEPARATOR = CommonSeps.getInstance().FORWARD_SLASH;
    
    private AbPathData()
    {

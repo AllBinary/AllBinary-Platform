@@ -24,6 +24,8 @@ public class BasicColorFactory
         return instance;
     }
 
+    public final BasicColor NULL_COLOR = new BasicColor(255, 255, 255, 255, "null color");
+    
     //C9B895
     public final BasicColor TAN = new BasicColor(0xE9D8B5);
     

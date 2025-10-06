@@ -3,10 +3,9 @@ package org.platform.graphics;
 import java.io.IOException;
 import java.io.InputStream;
 
-import javax.microedition.lcdui.Image;
 
 import org.allbinary.graphics.OpenGLBitmap;
-import org.allbinary.media.image.ImageModifierUtil;
+import org.allbinary.graphics.color.BasicColor;
 
 /**
  *
@@ -29,6 +28,10 @@ public class OpenGLImageUtil {
        throw new RuntimeException();
     }
     
+    public OpenGLBitmap paint(final OpenGLBitmap colorBitmap, final OpenGLBitmap originalBitmap, final int alpha, final BasicColor basicColor) {
+        throw new RuntimeException();
+    }
+
     public OpenGLBitmap createImage(final String name) throws IOException {
         throw new RuntimeException();
         //return null;

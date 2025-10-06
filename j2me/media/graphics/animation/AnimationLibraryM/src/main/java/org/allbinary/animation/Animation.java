@@ -32,7 +32,7 @@ OpenGLSurfaceChangedInterface
 
     protected BasicColor basicColor = BasicColorFactory.getInstance().WHITE;
     protected int colorP;
-    protected BasicColor changeBasicColorP = BasicColorFactory.getInstance().WHITE;
+    protected BasicColor changeBasicColorP = BasicColorFactory.getInstance().NULL_COLOR;
     protected int changeColorP;
     public int alphaP;
 

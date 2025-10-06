@@ -33,6 +33,6 @@ public class MathData
     public String EQUALS = CommonSeps.getInstance().EQUALS;
     public String PLUS = "+";
     public String MINUS = "-";
-    public String DIVIDE = "/";
+    public String DIVIDE = CommonSeps.getInstance().FORWARD_SLASH;
     public String MULTIPLY = CommonPhoneStrings.getInstance().STAR;
 }

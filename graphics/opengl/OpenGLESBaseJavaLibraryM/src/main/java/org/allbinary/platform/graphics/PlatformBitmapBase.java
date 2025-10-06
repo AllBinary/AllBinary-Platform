@@ -15,6 +15,8 @@ package org.allbinary.platform.graphics;
 
 import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.NullCanvas;
+import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.color.BasicColorFactory;
 
 /**
  *
@@ -25,6 +27,7 @@ public class PlatformBitmapBase {
     public static final PlatformBitmapBase NULL_PLATFORM_BITMAP_BASE = new PlatformBitmapBase();
     
     public int alpha = 255;
+    public BasicColor basicColor = BasicColorFactory.getInstance().NULL_COLOR;
     
     public Image getImage() {
         return NullCanvas.NULL_IMAGE;
