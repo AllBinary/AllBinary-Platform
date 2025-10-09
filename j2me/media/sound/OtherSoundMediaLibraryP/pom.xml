@@ -33,6 +33,7 @@
         Already in Game POM
         <module>../../sound/NotDeviceSpecificNoMediaMIDP1LibraryM</module>
         
+        <module>../../sound/NullMusicAndroidJavaLibraryM</module>
         <module>../../sound/MusicAndroidJavaLibraryM</module>
         <module>../../sound/J2SEMediaMIDPJorbisJavaLibraryM</module>        
         -->
