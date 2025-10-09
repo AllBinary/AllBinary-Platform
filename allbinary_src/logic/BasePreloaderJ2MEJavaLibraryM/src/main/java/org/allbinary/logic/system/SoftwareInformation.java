@@ -13,6 +13,7 @@
 */
 package org.allbinary.logic.system;
 
+import org.allbinary.KotlinUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 
@@ -26,7 +27,9 @@ public class SoftwareInformation
     {
         this.name = name;
         this.version = version;
-        this.shortName = shortName;
+        //Records are associated with this short name and should only be a few chars to keep compatibility with the J2ME spec.  However, most J2ME devices support more than the spec.
+        //Since Kotlin build input mappings are not the same as Java for some reason we need to include that in the shortname to make sure we are not using the incorrect mapping.
+        this.shortName = shortName + KotlinUtil.getShortName();
     }
     
     public String getName()
