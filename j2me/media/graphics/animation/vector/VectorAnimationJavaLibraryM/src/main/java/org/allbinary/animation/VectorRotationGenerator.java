@@ -73,9 +73,11 @@ public class VectorRotationGenerator
                                 points[index][0], points[index][1]));
             }
 
-            for (int index = 0; index < totalAngle; index += angleIncrement)
+            int index = 0;
+            while (index < totalAngle)
             {
                 pointsBasicArrayList.add(getInstance(width, height, pointBasicArrayList, this.angleFactory.getInstance(index)));
+                index += angleIncrement;
             }
 
             int[][][] newPoints = vectorAnimationUtil
