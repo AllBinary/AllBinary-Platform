@@ -52,8 +52,7 @@ import org.allbinary.view.ViewPosition;
 public class CollidableDestroyableDamageableLayer 
 extends CollidableCompositeLayer 
 implements DestroyableInterface, DamageableInterface, 
-PickupCompositeInterface, SpecialGameInputInterface,
-OpenGLSurfaceChangedInterface
+PickupCompositeInterface, SpecialGameInputInterface
 {
     public static final CollidableDestroyableDamageableLayer NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER = new CollidableDestroyableDamageableLayer(
     BasicGroupFactory.getInstance().NONE_ARRAY, RectangleFactory.SINGLETON, ViewPosition.NULL_VIEW_POSITION);
@@ -336,14 +335,7 @@ OpenGLSurfaceChangedInterface
     {
         return partInterfaceArrayP;
     }
-    
-    @Override
-    public void set(final GL gl) throws Exception
-    {
-        //OpenGLSurfaceChangedInterface
-    	throw new Exception(commonStrings.NOT_IMPLEMENTED);
-    }
-    
+        
     //private static final String PARTS_LABEL = "Parts: ";
     
     private static final String READYFOREXPLOSION = "ReadyForExplosion: ";

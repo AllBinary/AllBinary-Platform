@@ -13,6 +13,7 @@
 */
 package org.allbinary.game.layer;
 
+import javax.microedition.khronos.opengles.GL;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.Rectangle;
@@ -21,6 +22,7 @@ import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.color.BasicColorSetUtil;
 import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
+import org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
@@ -33,7 +35,7 @@ import org.allbinary.view.event.ViewPositionEvent;
 import org.allbinary.view.event.ViewPositionEventListenerInterface;
 
 public class AllBinaryGameLayer extends AllBinaryLayer 
-   implements ViewPositionEventListenerInterface
+   implements ViewPositionEventListenerInterface, OpenGLSurfaceChangedInterface
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
@@ -68,7 +70,14 @@ public class AllBinaryGameLayer extends AllBinaryLayer
     {
         super(name, layerInfo, viewPosition);
     }
-        
+
+    @Override
+    public void set(final GL gl) throws Exception
+    {
+        //OpenGLSurfaceChangedInterface
+    	throw new Exception(commonStrings.NOT_IMPLEMENTED);
+    }
+    
     public void move() {
 
     }
