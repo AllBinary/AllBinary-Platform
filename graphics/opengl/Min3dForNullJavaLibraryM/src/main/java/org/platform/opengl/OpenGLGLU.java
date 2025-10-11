@@ -32,4 +32,14 @@ public class OpenGLGLU {
         //return -1;
     }
 
+//    public void gluPerspective(final GL10 gl, final float fovy, final float aspect, final float zNear, final float zFar) {
+//        throw new RuntimeException();
+//        //return -1;
+//    }
+
+    public void glFrustumf(final GL10 gl, final float lt, final float rt, final float btm, final float top, final float zNear, final float zFar) {
+        throw new RuntimeException();
+        //return -1;
+    }
+
 }
