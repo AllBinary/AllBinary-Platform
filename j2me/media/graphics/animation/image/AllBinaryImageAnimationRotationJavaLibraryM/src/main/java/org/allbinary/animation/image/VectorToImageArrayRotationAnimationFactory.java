@@ -14,6 +14,7 @@
 package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.NullCanvas;
 
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
@@ -30,7 +31,7 @@ import org.allbinary.vector.VectorInfo;
 public class VectorToImageArrayRotationAnimationFactory 
     extends BaseImageAnimationFactory
 {
-    private Image[] imageArray;
+    private Image[] imageArray = NullCanvas.NULL_IMAGE_ARRAY;
 
     private int angleIncrement;
 
@@ -74,20 +75,21 @@ public class VectorToImageArrayRotationAnimationFactory
         this.angleIncrement = angleFactory.TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity();
 
         this.imageArray = ImageToRotationImageArrayUtil.getInstance().generate(
-                this.getImage(), this.getAngleIncrement(), angleFactory.TOTAL_ANGLE);
+                this.getImage(), this.getAngleIncrement(), (int) angleFactory.TOTAL_ANGLE);
     }
 
+    @Override
     public Animation getInstance(final int instanceId) throws Exception
     {
         if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
             return new AdjustedImageArrayRotationAnimation(
                 this.imageArray, AngleInfo.getInstance((short) this.getAngleIncrement()),
-                AngleFactory.getInstance().TOTAL_ANGLE, this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
+                (int) AngleFactory.getInstance().TOTAL_ANGLE, this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
         } else {
             //This still offsets.
             return new AdjustedImageArrayRotationAnimation(
                 this.imageArray, AngleInfo.getInstance((short) this.angleIncrement),
-                AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehaviorFactory.getOrCreateInstance());
+                (int) AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehaviorFactory.getOrCreateInstance());
         }
     }
 
@@ -96,6 +98,7 @@ public class VectorToImageArrayRotationAnimationFactory
         return angleIncrement;
     }
     
+    @Override
     public void setInitialScale(final ScaleProperties scaleProperties) {
         
     }

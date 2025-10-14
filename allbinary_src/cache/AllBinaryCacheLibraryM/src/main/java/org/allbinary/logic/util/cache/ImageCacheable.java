@@ -15,9 +15,12 @@ package org.allbinary.logic.util.cache;
 
 //import com.abcs.logic.util.cache.CacheableInterface;
 
+import org.allbinary.logic.string.StringUtil;
+
+
 public class ImageCacheable //implements CacheableInterface
 {
-    private String name;
+    private String name = StringUtil.getInstance().EMPTY_STRING;
     //private Object object;
     
     public ImageCacheable(String name, Object object)
@@ -32,6 +35,6 @@ public class ImageCacheable //implements CacheableInterface
 
     public String toString()
     {
-        return null;
+        return name;
     }
 }

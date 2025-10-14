@@ -41,7 +41,8 @@ public class ImageCacheBase
     protected int volume = 0;
     protected int nextIndex = 0;
 
-    protected ImageCacheBase()
+    //protected
+    public ImageCacheBase()
     // CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface)
     {
         // super(cacheableInterfaceFactoryInterface);

@@ -14,6 +14,7 @@
 package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.NullCanvas;
 
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
@@ -27,7 +28,7 @@ import org.allbinary.media.ScaleProperties;
 public class AllBinaryFlickerAndroidImageRotationAnimationFactory 
     implements AnimationInterfaceFactoryInterface
 {
-    private Image image;
+    private Image image = NullCanvas.NULL_IMAGE;
 
     private final short angleIncrement;
     protected final AnimationBehaviorFactory animationBehaviorFactory;
@@ -86,6 +87,7 @@ public class AllBinaryFlickerAndroidImageRotationAnimationFactory
         return image;
     }
     
+    @Override
     public void setInitialScale(final ScaleProperties scaleProperties) {
         
     }

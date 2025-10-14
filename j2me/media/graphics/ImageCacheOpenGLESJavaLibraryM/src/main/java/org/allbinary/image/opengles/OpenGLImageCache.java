@@ -18,10 +18,10 @@ import java.io.InputStream;
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.NullCanvas;
-import org.allbinary.graphics.opengles.renderer.AllBinaryRendererBase3;
+import org.allbinary.device.NullGL10;
 
+import org.allbinary.graphics.opengles.renderer.AllBinaryRendererBase3;
 import org.allbinary.util.BasicArrayList;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.image.ImageCache;
 import org.allbinary.image.ImageCacheFactory;
 import org.allbinary.image.PreResourceImageUtil;
@@ -29,22 +29,23 @@ import org.allbinary.thread.SynchObject;
 
 public class OpenGLImageCache extends ImageCache
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
-
+    
     private final ImageCache imageCache = ImageCacheFactory.getInstance();
     private final PreResourceImageUtil preResourceImageUtil = PreResourceImageUtil.getInstance();
 
-    private GL10 gl;
+    private GL10 gl = NullGL10.NULL_GL10;
     
     private final SynchObject lock = new SynchObject();
     private final BasicArrayList list = new BasicArrayList();
     
     private AllBinaryRendererBase3 renderer = new AllBinaryRendererBase3();
     
-    protected OpenGLImageCache()
+    //protected
+    public OpenGLImageCache()
     {
     }
     
+    @Override
     public void addListener(Object renderer) {
         this.renderer = (AllBinaryRendererBase3) renderer;
     }
@@ -126,6 +127,7 @@ public class OpenGLImageCache extends ImageCache
         return gl;
     }
     
+    @Override
     public void init(final Image image) {
         try {
             //logUtil.put(new StringMaker().append("opengl: init add ").append(image).append(image.getName()).toString(), this, commonStrings.INIT);

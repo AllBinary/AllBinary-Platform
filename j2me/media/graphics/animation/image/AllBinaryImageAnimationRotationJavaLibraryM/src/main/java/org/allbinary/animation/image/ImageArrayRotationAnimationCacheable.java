@@ -14,6 +14,8 @@
 package org.allbinary.animation.image;
 
 import org.allbinary.animation.AnimationBehavior;
+import org.allbinary.logic.NullUtil;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.cache.CacheableInterface;
 
 public class ImageArrayRotationAnimationCacheable 
@@ -38,11 +40,12 @@ public class ImageArrayRotationAnimationCacheable
 	}
 	*/
 	
+        @Override
 	public Object getKey() {
-		return null;
+		return NullUtil.getInstance().NULL_OBJECT;
 	}
 
 	public String toString() {
-		return null;
+		return StringUtil.getInstance().EMPTY_STRING;
 	}
 }

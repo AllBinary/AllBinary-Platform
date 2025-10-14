@@ -37,6 +37,7 @@ extends IndexedAnimation
         this.animationInterfaceArray = animationInterfaceArray;
     }
     
+    @Override
     public void setFrame(final int frameIndex)
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
@@ -45,21 +46,25 @@ extends IndexedAnimation
         }
     }
 
+    @Override
     public int getFrame()
     {
         return this.animationInterfaceArray[0].getFrame();
     }
 
+    @Override
     public int getAnimationSize() throws Exception
     {
         return this.animationInterfaceArray[0].getAnimationSize();
     }    
     
+    @Override
     public int getSize()
     {
         return this.animationInterfaceArray[0].getSize();
     }
 
+    @Override
     public void previousFrame()
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
@@ -68,6 +73,7 @@ extends IndexedAnimation
         }
     }
 
+    @Override
     public void nextFrame()
         throws Exception {
 
@@ -77,15 +83,18 @@ extends IndexedAnimation
         }
     }
 
+    @Override
     public void setSequence(final int[] sequence)
     {
     }
 
+    @Override
     public int[] getSequence()
     {
         return PrimitiveIntUtil.getArrayInstance();
     }
 
+    @Override
     public void paint(final Graphics graphics, final int x, final int y)
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
@@ -94,6 +103,7 @@ extends IndexedAnimation
         }
     }
 
+    @Override
     public void paintThreed(final Graphics graphics, final int x, final int y, final int z)
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
@@ -102,6 +112,7 @@ extends IndexedAnimation
         }
     }
 
+    @Override
     public void set(final GL gl) throws Exception
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)

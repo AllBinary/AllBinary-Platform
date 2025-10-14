@@ -18,13 +18,13 @@ import org.allbinary.logic.string.StringMaker;
 
 public class CacheType
 {
-    private String vendor;
-    private String type;
+    private final String vendor;
+    private final String type;
     
     public CacheType(String vendor, String type)
     {
-        this.setVendor(vendor);
-        this.setType(type);
+        this.vendor = vendor;
+        this.type = type;
     }
 
     public String getVendor()
@@ -32,25 +32,15 @@ public class CacheType
         return vendor;
     }
 
-    public void setVendor(String vendor)
-    {
-        this.vendor = vendor;
-    }
-
     public String getType()
     {
         return type;
-    }
-
-    public void setType(String type)
-    {
-        this.type = type;
     }
     
    @Override
     public String toString()
     {
-       StringMaker stringBuffer = new StringMaker();
+       final StringMaker stringBuffer = new StringMaker();
        
        stringBuffer.append("CacheType: Vendor: ");
        stringBuffer.append(this.getVendor());

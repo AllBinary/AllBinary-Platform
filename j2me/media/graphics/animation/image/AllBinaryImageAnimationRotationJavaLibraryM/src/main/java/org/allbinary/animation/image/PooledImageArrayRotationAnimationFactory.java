@@ -19,6 +19,7 @@ import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.game.configuration.GameConfigurationCentral;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.media.ScaleProperties;
 import org.allbinary.media.image.ImageToRotationImageArrayUtil;
@@ -31,7 +32,7 @@ public class PooledImageArrayRotationAnimationFactory implements
     // private int width;
     // private int height;
 
-    private ImageArrayRotationAnimationInfo allBinaryImageRotationAnimationInfo;
+    private Object allBinaryImageRotationAnimationInfo = NullUtil.getInstance().NULL_OBJECT;
     private final AnimationBehaviorFactory animationBehaviorFactory;
     
     public PooledImageArrayRotationAnimationFactory(final Image image, final AnimationBehaviorFactory animationBehaviorFactory)
@@ -67,7 +68,7 @@ public class PooledImageArrayRotationAnimationFactory implements
     }
 
     public PooledImageArrayRotationAnimationFactory(final Image image,
-            final int width, final int height, final int dx, final int dy, final short angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
+            final int width, final int height, final int dx, final int dy, final int angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
     {
         this.animationBehaviorFactory = animationBehaviorFactory;
         
@@ -77,29 +78,29 @@ public class PooledImageArrayRotationAnimationFactory implements
     private void init(final Image image, final int width, final int height, final int dx, final int dy)
             throws Exception
     {
-        final int totalAngle = AngleFactory.getInstance().TOTAL_ANGLE;
+        final int totalAngle = (int) AngleFactory.getInstance().TOTAL_ANGLE;
         
-        final short angleIncrement = (short) (totalAngle / GameConfigurationCentral.getInstance().getGameControlFidelity());
+        final int angleIncrement = (totalAngle / GameConfigurationCentral.getInstance().getGameControlFidelity());
         
         this.init(image, width, height, dx, dy, angleIncrement);
     }
     
-    private void init(final Image image, final int width, final int height, final int dx, final int dy, final short angleIncrement)
+    private void init(final Image image, final int width, final int height, final int dx, final int dy, final int angleIncrement)
             throws Exception
     {
 
-        final int totalAngle = AngleFactory.getInstance().TOTAL_ANGLE;
+        final int totalAngle = (int) AngleFactory.getInstance().TOTAL_ANGLE;
         
         // this.width = width;
         // this.height = height;
 
-        final Image[] imageArray = ImageToRotationImageArrayUtil.getInstance().generate(image,
-                angleIncrement, totalAngle);
+        final Image[] imageArray = ImageToRotationImageArrayUtil.getInstance().generate(image, angleIncrement, totalAngle);
 
         allBinaryImageRotationAnimationInfo = new ImageArrayRotationAnimationInfo(
                 imageArray, angleIncrement, totalAngle, dx, dy);
     }
 
+    @Override
     public Animation getInstance(final int instanceId) throws Exception
     {
         // return new AllBinarySpriteRotationAnimation(new MESprite(image, width, height), dx, dy);
@@ -112,6 +113,7 @@ public class PooledImageArrayRotationAnimationFactory implements
           //      .getInstance().remove(allBinaryImageRotationAnimationInfo);
     }
     
+    @Override
     public void setInitialScale(final ScaleProperties scaleProperties) {
         
     }

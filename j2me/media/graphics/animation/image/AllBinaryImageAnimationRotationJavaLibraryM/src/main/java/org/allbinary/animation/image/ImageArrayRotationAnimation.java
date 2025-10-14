@@ -57,13 +57,13 @@ public class ImageArrayRotationAnimation extends
     public ImageArrayRotationAnimation(final Image[] imageArray, final AnimationBehavior animationBehavior)
             throws Exception
     {
-        this(imageArray, AngleInfo.getInstance((short) 10), AngleFactory.getInstance().TOTAL_ANGLE, animationBehavior);
+        this(imageArray, AngleInfo.getInstance((short) 10), (int) AngleFactory.getInstance().TOTAL_ANGLE, animationBehavior);
     }
 
     public ImageArrayRotationAnimation(final Image[] imageArray, final AngleInfo angleInfo,
         final AnimationBehavior animationBehavior) throws Exception
     {
-        this(imageArray, angleInfo, AngleFactory.getInstance().TOTAL_ANGLE, animationBehavior);
+        this(imageArray, angleInfo, (int) AngleFactory.getInstance().TOTAL_ANGLE, animationBehavior);
     }
 
     private void init(final Image[] imageArray, final AngleInfo angleInfo, final int totalAngle)
@@ -84,6 +84,7 @@ public class ImageArrayRotationAnimation extends
         }
     }
 
+    @Override
     public void setImageArray(final Image[] imageArray)
     {
         super.setImageArray(imageArray);

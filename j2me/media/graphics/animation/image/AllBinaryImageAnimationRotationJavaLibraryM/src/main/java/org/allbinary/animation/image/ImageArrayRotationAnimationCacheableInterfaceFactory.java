@@ -22,6 +22,7 @@ implements CacheableInterfaceFactoryInterface
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
+    @Override
     public CacheableInterface getInstance(final Object key)
     throws Exception
     {

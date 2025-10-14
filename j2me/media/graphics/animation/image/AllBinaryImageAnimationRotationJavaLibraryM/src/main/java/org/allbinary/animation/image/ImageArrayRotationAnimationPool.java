@@ -35,17 +35,18 @@ public class ImageArrayRotationAnimationPool
 		return ImageArrayRotationAnimationPool.IMAGE_ROTATION_ANIMATION_POOL;
 	}
 	
+        @Override
 	public CacheableInterface remove(Object key) throws Exception
 	{
 		//CacheableInterface cacheableInterface = 
 		//	this.cacheableInterfaceFactoryInterface.getInstance(key);
-		CacheableInterface cacheableInterface = super.remove(key);
+		final CacheableInterface cacheableInterface = super.remove(key);
 
-		ImageArrayRotationAnimationInfo allBinaryImageRotationAnimationInfo = 
+		final ImageArrayRotationAnimationInfo allBinaryImageRotationAnimationInfo = 
 			(ImageArrayRotationAnimationInfo) key;
 		
-		((ImageArrayRotationAnimationCacheable) cacheableInterface).setImageArray(
-				allBinaryImageRotationAnimationInfo.getImageArray());
+                final ImageArrayRotationAnimationCacheable imageArrayRotationAnimationCacheable = ((ImageArrayRotationAnimationCacheable) cacheableInterface);
+		imageArrayRotationAnimationCacheable.setImageArray(allBinaryImageRotationAnimationInfo.getImageArray());
 		//, 
 				//allBinaryImageRotationAnimationInfo.getDx(), 
 				//allBinaryImageRotationAnimationInfo.getDy());

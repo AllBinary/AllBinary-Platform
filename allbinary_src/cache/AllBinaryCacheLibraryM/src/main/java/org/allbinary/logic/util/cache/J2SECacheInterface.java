@@ -21,5 +21,5 @@ import java.util.Set;
  */
 public interface J2SECacheInterface extends AutomaticCacheInterface {
 
-    Set keySet();
+    Set<Object> keySet();
 }

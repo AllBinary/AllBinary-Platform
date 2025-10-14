@@ -16,21 +16,16 @@ package org.allbinary.logic.util.cache;
 
 public class PoolType
 {
-    private CacheType cacheType;
+    private final CacheType cacheType;
     
     public PoolType(CacheType cacheType)
     {
-        this.setCacheType(cacheType);
+        this.cacheType = cacheType;
     }
 
     public CacheType getCacheType()
     {
         return cacheType;
-    }
-
-    public void setCacheType(CacheType cacheType)
-    {
-        this.cacheType = cacheType;
     }
 
    @Override

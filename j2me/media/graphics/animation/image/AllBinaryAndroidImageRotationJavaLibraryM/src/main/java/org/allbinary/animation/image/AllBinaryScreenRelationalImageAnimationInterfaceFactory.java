@@ -14,6 +14,7 @@
 package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.NullCanvas;
 
 import org.allbinary.image.GameFeatureImageCacheFactory;
 
@@ -25,7 +26,7 @@ import org.allbinary.media.image.ImageScaleUtil;
 public class AllBinaryScreenRelationalImageAnimationInterfaceFactory
 extends BaseImageAnimationFactory
 {
-    private Image lastImage;
+    private Image lastImage = NullCanvas.NULL_IMAGE;
 
     public AllBinaryScreenRelationalImageAnimationInterfaceFactory(final Image image)
         throws Exception
@@ -41,7 +42,7 @@ extends BaseImageAnimationFactory
         
     	//Image image = this.getImage();
 
-    	if(lastImage != null)
+    	if(lastImage != NullCanvas.NULL_IMAGE)
     	{
             lastImage.getBitmap().recycle();
     	}

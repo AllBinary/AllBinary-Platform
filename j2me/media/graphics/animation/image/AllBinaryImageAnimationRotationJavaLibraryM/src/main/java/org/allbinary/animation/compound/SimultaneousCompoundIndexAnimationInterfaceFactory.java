@@ -34,6 +34,7 @@ public class SimultaneousCompoundIndexAnimationInterfaceFactory
 
     }
 
+    @Override
     public Animation getInstance(final int instanceId) throws Exception {
         final int size = this.basicAnimationInterfaceFactoryInterfaceArray.length;
         final IndexedAnimation[] animationInterfaceArray = new IndexedAnimation[size];
@@ -53,6 +54,7 @@ public class SimultaneousCompoundIndexAnimationInterfaceFactory
         return basicAnimationInterfaceFactoryInterfaceArray;
     }
 
+    @Override
     public void setInitialScale(final ScaleProperties scaleProperties) {
 
     }

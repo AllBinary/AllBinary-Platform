@@ -14,7 +14,6 @@
 package org.allbinary.animation.image;
 
 import android.graphics.Matrix;
-import javax.microedition.lcdui.Graphics;
 
 import javax.microedition.lcdui.Image;
 
@@ -44,7 +43,8 @@ extends ImageBaseRotationAnimation
     
     private final Image originalImage;
     
-    protected AllBinaryFlickerAndroidImageRotationAnimation(
+    //protected
+    public AllBinaryFlickerAndroidImageRotationAnimation(
             final Image originalImage, final Image image,
             final AngleInfo angleInfo, final short totalAngle, 
             final AnimationBehavior animationBehavior) throws Exception
@@ -64,6 +64,7 @@ extends ImageBaseRotationAnimation
         //logUtil.put(this.toString(), this, commonStrings.CONSTRUCTOR);
     }
     
+    @Override
     public void setBasicColorP(final BasicColor basicColor) {
         
         boolean changed = false;
@@ -75,7 +76,7 @@ extends ImageBaseRotationAnimation
         super.setBasicColorP(basicColor);
 
         if(changed) {
-            matrix.setRotate(0, this.halfWidth, this.halfHeight);
+            matrix.setRotate(0.0f, (float) this.halfWidth, (float) this.halfHeight);
             this.updateImage();
         }
     }
@@ -86,6 +87,7 @@ extends ImageBaseRotationAnimation
         this.setBasicColorP(basicColor);
     }
     
+    @Override
     public void setAlpha(final int alpha) {
         
         boolean changed = false;
@@ -98,28 +100,30 @@ extends ImageBaseRotationAnimation
         imageModifierUtil.setAlpha(this.originalImage, this.getImage(), 0, this.alphaP);
 
         if(changed) {
-            matrix.setRotate(0, this.halfWidth, this.halfHeight);
+            matrix.setRotate(0.0f, (float) this.halfWidth, (float) this.halfHeight);
             this.updateImage();
         }
     }
     
+    @Override
     public void nextRotation()
     {
         super.nextRotation();
         //logUtil.put("Frame: " + this.getFrame(), this, "nextRotation");
 
-        matrix.setRotate(this.increment, this.halfWidth, this.halfHeight);
+        matrix.setRotate((float) this.increment, (float) this.halfWidth, (float) this.halfHeight);
         //matrix.setRotate(this.angleInfo.getAngle(), this.halfWidth, this.halfHeight);
 
         this.updateImage();
     }
 
+    @Override
     public void previousRotation()
     {
         super.previousRotation();
         //logUtil.put("Frame: " + this.getFrame(), this, "previousRotation");
 
-        matrix.setRotate(-this.increment, this.halfWidth, this.halfHeight);        
+        matrix.setRotate((float) -this.increment, (float) this.halfWidth, (float) this.halfHeight);        
         //matrix.setRotate(this.angleInfo.getAngle(), this.halfWidth, this.halfHeight);
 
         this.updateImage();
@@ -130,6 +134,7 @@ extends ImageBaseRotationAnimation
         androidImageUtil.rotate(this.getImage(), originalImage, matrix, imageModifierUtil.paint);
     }
     
+    @Override
     public void setFrame(final int index)
     {
         //logUtil.put(commonLabels.INDEX_LABEL + index, this, "setRotation");
@@ -144,7 +149,7 @@ extends ImageBaseRotationAnimation
 
         this.angleInfo.adjustAngle(newFrame);
 
-        matrix.setRotate((newFrame - currentFrame) * increment, this.halfWidth, this.halfHeight);
+        matrix.setRotate((float) (newFrame - currentFrame) * increment, (float) this.halfWidth, (float) this.halfHeight);
 
         this.updateImage();
     }  

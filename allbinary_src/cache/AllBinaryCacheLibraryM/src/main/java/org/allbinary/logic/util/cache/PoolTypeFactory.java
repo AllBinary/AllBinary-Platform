@@ -8,5 +8,5 @@ public class PoolTypeFactory {
 		return instance;
 	}
 	    
-    public PoolType VECTOR_POOL = new PoolType(null);
+    public PoolType VECTOR_POOL = new PoolType(CacheTypeFactory.getInstance().NO_CACHE);
 }

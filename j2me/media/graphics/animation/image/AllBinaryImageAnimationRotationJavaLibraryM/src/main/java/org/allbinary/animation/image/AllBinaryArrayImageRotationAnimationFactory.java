@@ -14,6 +14,7 @@
 package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.NullCanvas;
 
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
@@ -25,7 +26,7 @@ import org.allbinary.media.image.ImageToRotationImageArrayUtil;
 public class AllBinaryArrayImageRotationAnimationFactory 
     extends BaseImageAnimationFactory {
 
-    private Image[] imageArray;
+    private Image[] imageArray = NullCanvas.NULL_IMAGE_ARRAY;
 
     private int angleIncrement;
 
@@ -114,9 +115,10 @@ public class AllBinaryArrayImageRotationAnimationFactory
     private void init() throws Exception
     {
         this.setImageArray(ImageToRotationImageArrayUtil.getInstance().generate(
-                this.getImage(), this.getAngleIncrement(), AngleFactory.getInstance().TOTAL_ANGLE));
+                this.getImage(), this.getAngleIncrement(), (int) AngleFactory.getInstance().TOTAL_ANGLE));
     }
 
+    @Override
     public Animation getInstance(final int instanceId) throws Exception
     {
         final Image[] scaledImageArray = new Image[this.imageArray.length];
@@ -134,11 +136,11 @@ public class AllBinaryArrayImageRotationAnimationFactory
             return new AdjustedImageArrayRotationAnimation(
                 scaledImageArray,
                 AngleInfo.getInstance((short) this.getAngleIncrement()),
-                AngleFactory.getInstance().TOTAL_ANGLE, this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
+                (int) AngleFactory.getInstance().TOTAL_ANGLE, this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
 
         } else {
             return new ImageArrayRotationAnimation(scaledImageArray,
-                AngleInfo.getInstance((short) this.angleIncrement), AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehaviorFactory.getOrCreateInstance());
+                AngleInfo.getInstance((short) this.angleIncrement), (int) AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehaviorFactory.getOrCreateInstance());
         }
     }
 

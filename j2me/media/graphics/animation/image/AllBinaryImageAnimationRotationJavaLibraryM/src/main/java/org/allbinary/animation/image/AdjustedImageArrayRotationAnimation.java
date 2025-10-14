@@ -29,7 +29,8 @@ public class AdjustedImageArrayRotationAnimation extends
     private int dx;
     private int dy;
 
-    protected AdjustedImageArrayRotationAnimation(final Object object, final AnimationBehavior animationBehavior)
+    //protected
+    public AdjustedImageArrayRotationAnimation(final Object object, final AnimationBehavior animationBehavior)
             throws Exception
     {
         super(object, animationBehavior);
@@ -43,19 +44,19 @@ public class AdjustedImageArrayRotationAnimation extends
     public AdjustedImageArrayRotationAnimation(final Image[] imageArray, final AnimationBehavior animationBehavior)
             throws Exception
     {
-        this(imageArray, AngleInfo.getInstance((short) 10), AngleFactory.getInstance().TOTAL_ANGLE, 0, 0, animationBehavior);
+        this(imageArray, AngleInfo.getInstance((short) 10), (int) AngleFactory.getInstance().TOTAL_ANGLE, 0, 0, animationBehavior);
     }
 
     public AdjustedImageArrayRotationAnimation(final Image[] imageArray,
             final int dx, final int dy, final AnimationBehavior animationBehavior) throws Exception
     {
-        this(imageArray, AngleInfo.getInstance((short) 10), AngleFactory.getInstance().TOTAL_ANGLE, dx, dy, animationBehavior);
+        this(imageArray, AngleInfo.getInstance((short) 10), (int) AngleFactory.getInstance().TOTAL_ANGLE, dx, dy, animationBehavior);
     }
 
     public AdjustedImageArrayRotationAnimation(final Image[] imageArray,
             final AngleInfo angleInfo, final int dx, final int dy, final AnimationBehavior animationBehavior) throws Exception
     {
-        this(imageArray, angleInfo, AngleFactory.getInstance().TOTAL_ANGLE, dx, dy, animationBehavior);
+        this(imageArray, angleInfo, (int) AngleFactory.getInstance().TOTAL_ANGLE, dx, dy, animationBehavior);
     }
 
     public AdjustedImageArrayRotationAnimation(final Image[] imageArray,
@@ -86,26 +87,31 @@ public class AdjustedImageArrayRotationAnimation extends
         this.setDy(dy);
     }
 
+    @Override
     public void paint(final Graphics graphics, final int x, final int y)
     {
         super.paint(graphics, x + this.dx, y + this.dy);
     }
 
+    @Override
     public void setDx(final int dx)
     {
         this.dx = dx;
     }
 
+    @Override
     public int getDx()
     {
         return dx;
     }
 
+    @Override
     public void setDy(final int dy)
     {
         this.dy = dy;
     }
 
+    @Override
     public int getDy()
     {
         return dy;

@@ -18,6 +18,7 @@ import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.NullCanvas;
 
 import android.app.Activity;
+import org.allbinary.AndroidUtil;
 
 import org.allbinary.image.GameFeatureImageCacheFactory;
 import org.allbinary.image.PreResourceImageUtil;
@@ -48,7 +49,6 @@ implements DisplayChangeEventListener
 {
 
     public static final String RESOURCE = "ProgressImage";
-    private static final Activity NULL_ACTIVITY = new Activity();
     
     private ARunnable showTitleProgressBarRunnable = NullRunnable.getInstance();
 
@@ -59,7 +59,7 @@ implements DisplayChangeEventListener
     private ARunnable titleProgressDialogSetProgressRunnable = NullRunnable.getInstance();
 
     //SimpleProgressActivityInterface
-    private Activity midletActivity = NULL_ACTIVITY;
+    private Activity midletActivity = AndroidUtil.NULL_ACTIVITY;
 
     private int portion = 0;
 
@@ -234,7 +234,7 @@ implements DisplayChangeEventListener
     
     public boolean isInitialized()
     {
-        if (this.midletActivity != AndroidBasicTitleProgressBar.NULL_ACTIVITY)// && this.midletActivity != null)
+        if (this.midletActivity != AndroidUtil.NULL_ACTIVITY)// && this.midletActivity != null)
         {
             return true;
         }
@@ -285,7 +285,7 @@ implements DisplayChangeEventListener
             this.portion = value;
             super.addEarlyPortion(value, text, index);
 
-            if(this.midletActivity != AndroidBasicTitleProgressBar.NULL_ACTIVITY)
+            if(this.midletActivity != AndroidUtil.NULL_ACTIVITY)
             {
                 this.midletActivity.runOnUiThread(titleProgressDialogPortionSetProgressRunnable);
             }

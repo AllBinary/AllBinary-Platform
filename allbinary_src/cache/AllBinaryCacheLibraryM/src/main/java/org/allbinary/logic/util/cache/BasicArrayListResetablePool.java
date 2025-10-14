@@ -20,12 +20,14 @@ public class BasicArrayListResetablePool extends AbstractArrayListPool
 	  super(cacheableInterfaceFactoryInterface);
   }
     
+  @Override
   public void clear()
   {
       //buffers.clear();
       //pos = buffers.size() - 1;
   }
   
+  @Override
   public CacheableInterface remove(Object key) throws Exception
   {
       int size = this.buffers.size();
