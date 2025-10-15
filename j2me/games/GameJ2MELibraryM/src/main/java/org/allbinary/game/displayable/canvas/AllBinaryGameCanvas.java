@@ -12,8 +12,6 @@
 *
 */
 package org.allbinary.game.displayable.canvas;
-import org.allbinary.thread.ARunnable;
-
 
 import java.util.Hashtable;
 import java.util.Vector;
@@ -367,7 +365,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         //logUtil.put(new StringMaker().append(commonLabels.START_LABEL).append(displayInfoSingleton.toString()).append(MyFont.getInstance().toString()).toString(), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
 
-        final Rectangle popupMenuRectangle = FormUtil.getInstance().createPopupMenuRectangle();
+        final FormUtil formUtil = FormUtil.getInstance();
+        final Rectangle popupMenuRectangle = formUtil.createPopupMenuRectangle();
         final BasicPopupMenuPaintable basicPopupMenuPaintable = ((BasicPopupMenuPaintable) this.getOpenMenuPaintable());
         basicPopupMenuPaintable.init(popupMenuRectangle);
 
@@ -376,7 +375,6 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             popupMenuInputProcessor.init(popupMenuRectangle);
         }
 
-        final FormUtil formUtil = FormUtil.getInstance();
         final FormType formType = FormTypeFactory.getInstance().getFormType();
         final Rectangle rectangle = formUtil.createFormRectangle();
         this.menuForm.init(rectangle, formType);
