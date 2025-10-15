@@ -87,4 +87,8 @@ public class SWTJOGLProcessor implements Runnable {
         
     }
 
+    public boolean isPortraitRatioProcessor() {
+        return true;
+    }
+    
 }
