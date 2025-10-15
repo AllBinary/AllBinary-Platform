@@ -50,10 +50,10 @@ public class DisplayInfoSingleton
     public final String ADJUSTING_FOR_SCALING_IN_PORTRAIT = "Adjusting for Scaling in portrait display ratio: ";
     public final String ADJUSTING_FOR_SCALING_IN_LANDSCAPE = "Adjusting for Scaling in landscape display ratio: ";
     
-    private int[] last = new int[2];
-    private int[] lastHalf = new int[2];
-    private int[] full = new int[2];
-
+    private int[] last = new int[4];
+    private int[] lastHalf = new int[4];
+    private int[] full = new int[4];
+    
     private int top;
     private int left;
     private int xOffset;
@@ -75,6 +75,8 @@ public class DisplayInfoSingleton
     
     public final int WIDTH = 0;
     public final int HEIGHT = 1;
+    public final int CUSTOM_WIDTH = 2;
+    public final int CUSTOM_HEIGHT = 3;
 
     private BaseScalable scalableListener = new BaseScalable();
     
@@ -221,7 +223,9 @@ public class DisplayInfoSingleton
         lastHalf[WIDTH] = (last[WIDTH] >> 1);
         last[HEIGHT] = aLastHeight;
         lastHalf[HEIGHT] = (last[HEIGHT] >> 1);
-
+        
+        SWTJOGLProcessor.getInstance().setCustom(aLastWidth, aLastHeight, this.ratio);
+        
         this.add(SET_LAST_SIZE_METHOD_NAME);
     }
     
@@ -403,12 +407,14 @@ public class DisplayInfoSingleton
                 last[HEIGHT] = aLastHeight;
                 lastHalf[HEIGHT] = (last[HEIGHT] >> 1);
 
+                SWTJOGLProcessor.getInstance().setCustom(aLastWidth, aLastHeight, this.ratio);
+                
                 this.add(commonStrings.UPDATE);
                 return;
             }
         }
     }
-
+    
     private final String DISPLAY_INFO = "Display Info: ";
     private final String FULL = "full";
     private final String LAST = "last";
@@ -487,6 +493,34 @@ public class DisplayInfoSingleton
         return this.lastHalf[HEIGHT];
     }
 
+    public int getCustomLastWidth()
+    {
+        return this.last[CUSTOM_WIDTH];
+    }
+
+    public int getCustomLastHeight()
+    {
+        return this.last[CUSTOM_HEIGHT];
+    }
+    
+    public int getRawLastWidth()
+    {
+        return this.last[WIDTH];
+    }
+
+    public int getRawLastHeight()
+    {
+        return this.last[HEIGHT];
+    }
+    
+    public void setCustom(final int width, final int height) {
+
+        this.last[CUSTOM_WIDTH] = width;
+        this.lastHalf[CUSTOM_WIDTH] = (last[CUSTOM_WIDTH] >> 1);
+        this.last[CUSTOM_HEIGHT] = height;
+        this.lastHalf[CUSTOM_HEIGHT] = (last[CUSTOM_HEIGHT] >> 1);
+    }
+    
     public void setScalableListener(BaseScalable scalableListener)
     {
         this.scalableListener = scalableListener;
