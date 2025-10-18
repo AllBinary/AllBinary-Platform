@@ -20,6 +20,7 @@ import org.allbinary.media.ScaleProperties;
 public class NullIndexedAnimationFactory implements 
     AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface
 {
+    public static final IndexedAnimationInterface[] NULL_INDEXED_ANIMATION_ARRAY = new IndexedAnimationInterface[0];
    private static NullIndexedAnimationFactory NULL_INDEXED_ANIMATION_FACTORY = new NullIndexedAnimationFactory();
    private final Animation NULL_ANIMATION = new NullIndexedAnimation(AnimationBehavior.getInstance()) {
        

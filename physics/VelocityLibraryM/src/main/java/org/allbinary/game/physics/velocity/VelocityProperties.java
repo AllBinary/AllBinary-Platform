@@ -17,6 +17,8 @@ public class VelocityProperties
 extends BasicVelocityProperties 
 implements VelocityInterface
 {
+    public static final VelocityProperties NULL_VELOCITY_PROPERTIES = new VelocityProperties(0, 0);
+
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
    private int maxForwardVelocity;
