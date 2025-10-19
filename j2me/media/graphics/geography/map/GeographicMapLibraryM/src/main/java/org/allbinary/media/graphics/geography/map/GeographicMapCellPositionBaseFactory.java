@@ -19,7 +19,7 @@ public class GeographicMapCellPositionBaseFactory
     //No Cache Version
     //For the Non Caching version - Turning off caching here requires turning of caching of paths as well
     public BasicGeographicMapCellPositionFactory getInstance(
-            BasicGeographicMap geographicMapInterface) throws Exception
+            final BasicGeographicMap geographicMapInterface) throws Exception
     {
         return new BasicGeographicMapCellPositionFactory(geographicMapInterface);
     }

@@ -23,7 +23,6 @@ public class GeographicMapCellPosition extends CellPosition
    private GPoint midPoint;
 
    public GeographicMapCellPosition(int column, int row, int columns, int rows, int width, int height)
-           throws Exception
    {
       super(column, row, columns, rows);
 
@@ -34,7 +33,7 @@ public class GeographicMapCellPosition extends CellPosition
       int x = this.getColumn() * width;
       int y = this.getRow() * height;
       
-      PointFactory pointFactory = PointFactory.getInstance();
+      final PointFactory pointFactory = PointFactory.getInstance();
       
       this.point = pointFactory.getInstance(x, y);
       this.midPoint = pointFactory.getInstance(x + (width >> 1), y + (height >> 1));

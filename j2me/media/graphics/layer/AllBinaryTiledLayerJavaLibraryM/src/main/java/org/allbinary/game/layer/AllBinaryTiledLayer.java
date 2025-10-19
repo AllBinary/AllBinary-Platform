@@ -27,7 +27,6 @@ public class AllBinaryTiledLayer extends Layer
     implements NamedInterface, PaintableInterface
 //LayerInterface
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private int cellWidth;
     private int cellHeight;
@@ -118,16 +117,19 @@ public class AllBinaryTiledLayer extends Layer
             }
         }
     }
-    
+ 
+    @Override
     public String getName()
     {
         return this.getClass().getName();
     }
 
+    @Override
     public void paint(final Graphics graphics)
     {
     }
 
+    @Override
     public void paintThreed(final Graphics graphics)
     {
     }

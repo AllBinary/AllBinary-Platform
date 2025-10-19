@@ -13,8 +13,6 @@
 */
 package org.allbinary.media.graphics.geography.map;
 
-import org.allbinary.string.CommonStrings;
-
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 

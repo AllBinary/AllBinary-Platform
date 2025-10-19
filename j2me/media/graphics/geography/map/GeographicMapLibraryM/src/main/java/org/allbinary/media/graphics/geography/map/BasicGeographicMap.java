@@ -14,6 +14,8 @@
 package org.allbinary.media.graphics.geography.map;
 
 import org.allbinary.game.layer.AllBinaryTiledLayer;
+import org.allbinary.graphics.CellPosition;
+import org.allbinary.graphics.CellPositionFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.layer.Layer;
 import org.allbinary.logic.math.MathUtil;
@@ -84,28 +86,28 @@ public class BasicGeographicMap
                 if(oldGeographicMapCellPosition.getColumn() - 1 >= 0) {
                     return geographicMapCellPositionFactory.getInstance(oldGeographicMapCellPosition.getColumn() - 1, oldGeographicMapCellPosition.getRow());
                 } else {
-                    return null;
+                    return GeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
                 }
             case 1:
                 if(oldGeographicMapCellPosition.getColumn() + 1 < this.getAllBinaryTiledLayer().getColumns()) {
                     return geographicMapCellPositionFactory.getInstance(oldGeographicMapCellPosition.getColumn() + 1, oldGeographicMapCellPosition.getRow());
                 } else {
-                    return null;
+                    return GeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
                 }
             case 2:
                 if(oldGeographicMapCellPosition.getRow() - 1 >= 0) {
                     return geographicMapCellPositionFactory.getInstance(oldGeographicMapCellPosition.getColumn(), oldGeographicMapCellPosition.getRow() - 1);
                 } else {
-                    return null;
+                    return GeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
                 }
             case 3:
                 if(oldGeographicMapCellPosition.getRow() + 1 < this.getAllBinaryTiledLayer().getRows()) {
                     return geographicMapCellPositionFactory.getInstance(oldGeographicMapCellPosition.getColumn(), oldGeographicMapCellPosition.getRow() + 1);
                 } else {
-                    return null;
+                    return GeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
                 }
             default:
-                return null;
+                return GeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
         }
     }
     
@@ -120,6 +122,7 @@ public class BasicGeographicMap
         return false;
     }
     
+    @Override
     public GeographicMapCellPosition getCellPositionAt(final int x, final int y) throws Exception {
         final AllBinaryTiledLayer allBinaryTiledLayer = this.getAllBinaryTiledLayer();
         final int i_column = mathUtil.abs(x / allBinaryTiledLayer.getCellHeight());
@@ -128,6 +131,7 @@ public class BasicGeographicMap
         return geographicMapCellPositionFactory.getInstance(i_column, i_row);
     }
 
+    @Override
     public GeographicMapCellPosition getCellPositionAtNoThrow(final int x, final int y) throws Exception {
         final AllBinaryTiledLayer allBinaryTiledLayer = this.getAllBinaryTiledLayer();
         final int i_column = mathUtil.abs(x / allBinaryTiledLayer.getCellHeight());
@@ -137,7 +141,7 @@ public class BasicGeographicMap
             && allBinaryTiledLayer.getRows() > i_row) {
             return geographicMapCellPositionFactory.getInstance(i_column, i_row);
         } else {
-            return null;
+            return GeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
         }
     }
     
@@ -178,6 +182,7 @@ public class BasicGeographicMap
     }
 
     // Assumes array is tied to the ratio of tile cell width and height
+    @Override
     public boolean getCellPositionsAt(final Layer layer,
         final GeographicMapCellPosition[][] currentCellPositionArray,
         final GeographicMapCellPosition[][] cellPositionArray) throws Exception {
@@ -203,11 +208,13 @@ public class BasicGeographicMap
         return hasChanged;
     }
 
+    @Override
     public GeographicMapCellType getCellTypeAt(int x, int y) throws Exception {
         GeographicMapCellPosition cellPosition = this.getCellPositionAt(x, y);
         return this.getCellTypeAt(cellPosition);
     }
 
+    @Override
     public BasicGeographicMapCellPositionFactory getGeographicMapCellPositionFactory() {
         return geographicMapCellPositionFactory;
     }
@@ -215,6 +222,7 @@ public class BasicGeographicMap
     /**
      * @return the geographicMapCellPositionFactoryInterface
      */
+    @Override
     public GeographicMapCellPositionFactoryInterface getGeographicMapCellPositionFactoryInterface() {
         return geographicMapCellPositionFactoryInterface;
     }

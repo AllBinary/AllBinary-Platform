@@ -13,14 +13,16 @@
 */
 package org.allbinary.media.graphics.geography.map;
 
+import org.allbinary.logic.NullUtil;
+
 /**
  *
  * @author user
  */
 public class GeographicMapCellHistoryProgress {
 
-   private int[] totalVisitedArray;
-   private GeographicMapCellHistory[] geographicMapCellHistoryArray;
+   private int[] totalVisitedArray = NullUtil.getInstance().NULL_INT_ARRAY;
+   private GeographicMapCellHistory[] geographicMapCellHistoryArray = GeographicMapCellHistory.NULL_GEOGRPAHIC_MAP_HISTORY;
    
    public GeographicMapCellHistoryProgress(GeographicMapCellHistory[] geographicMapCellHistoryArray)
    {

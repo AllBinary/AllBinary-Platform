@@ -42,9 +42,11 @@ public class BasicPlatormGeographicMapCellType //extends GeographicMapCellType
         
         final int size = types.size();
         final int[] typeArray = new int[size];
+        Integer typeAsInteger;
         int type;
         for(int index = 0; index < size; index++) {
-            type = ((Integer) types.get(index)).intValue();
+            typeAsInteger = ((Integer) types.get(index));
+            type = typeAsInteger.intValue();
             new GeographicMapCellType(type);
             typeArray[index] = type;
         }

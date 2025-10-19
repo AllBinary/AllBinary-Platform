@@ -28,8 +28,6 @@ import org.allbinary.util.BasicArrayList;
  * @author User
  */
 public class BasicPlatormGeographicMapCellTypeFactory extends GeographicMapCellTypeFactory {
-    protected final LogUtil logUtil = LogUtil.getInstance();
-
 
     public final BasicPlatormGeographicMapCellType BLOCK_CELL_TYPE;
     public final BasicPlatormGeographicMapCellType JUMP_THRU_CELL_TYPE;
@@ -88,18 +86,22 @@ public class BasicPlatormGeographicMapCellTypeFactory extends GeographicMapCellT
         
     }
 
+    @Override
     public int getStartType() {
         return this.maxTileId - 1; //7
     }
 
+    @Override
     public int getEndType() {
         return this.maxTileId - 2; //8
     }
-        
+
+    @Override
     public int getEmptyType() {
         return 0;
     }
- 
+
+    @Override
     public boolean isPath(final GeographicMapCellType cellType) {
         if(cellType.getType() == 0) {
             return true;

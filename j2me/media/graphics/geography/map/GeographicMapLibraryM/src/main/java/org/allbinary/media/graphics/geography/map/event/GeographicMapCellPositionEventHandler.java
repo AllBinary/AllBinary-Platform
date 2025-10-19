@@ -14,10 +14,6 @@
 package org.allbinary.media.graphics.geography.map.event;
 
 import org.allbinary.util.BasicArrayList;
-
-import org.allbinary.string.CommonStrings;
-
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.layer.geographic.map.MiniMapLayer;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventListenerInterface;
@@ -27,7 +23,6 @@ import org.allbinary.logic.util.event.handler.BasicEventHandler;
 public class GeographicMapCellPositionEventHandler 
 extends BasicEventHandler
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private static GeographicMapCellPositionEventHandler instance = new GeographicMapCellPositionEventHandler();
 
@@ -50,18 +45,21 @@ extends BasicEventHandler
         }
     }
 
+    @Override
     public void removeAllListeners()
     {
         this.list.clear();
         super.removeAllListeners();
     }
 
+    @Override
     public void removeListener(EventListenerInterface eventListenerInterface)
     {
         this.list.remove(eventListenerInterface);
         super.removeListener(eventListenerInterface);
     }
 
+    @Override
     public void fireEvent(AllBinaryEventObject eventObject) throws Exception
     {        
         for (int index = this.list.size(); --index >= 0;)
@@ -117,11 +115,11 @@ extends BasicEventHandler
         }
     }
 
+    @Override
     protected void process(AllBinaryEventObject eventObject,
             EventListenerInterface eventListenerInterface) throws Exception
     {
-        ((GeographicMapCellPositionEventListenerInterface) 
-                eventListenerInterface).onGeographicMapCellPositionEvent(
-                (GeographicMapCellPositionEvent) eventObject);
+        GeographicMapCellPositionEventListenerInterface geographicMapCellPositionEventListenerInterface = ((GeographicMapCellPositionEventListenerInterface) eventListenerInterface);
+        geographicMapCellPositionEventListenerInterface.onGeographicMapCellPositionEvent((GeographicMapCellPositionEvent) eventObject);
     }
 }

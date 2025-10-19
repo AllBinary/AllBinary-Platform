@@ -12,8 +12,6 @@
  * 
  */
 package org.allbinary.game.layer.unit;
-import org.allbinary.logic.string.StringMaker;
-
 
 import java.util.Hashtable;
 
@@ -40,8 +38,6 @@ import org.allbinary.game.layer.building.event.BuildingEventListenerInterface;
 import org.allbinary.game.layer.waypoint.event.WaypointEventHandlerFactory;
 import org.allbinary.media.audio.AttackSound;
 import org.allbinary.util.BasicArrayList;
-import org.allbinary.string.CommonStrings;
-
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
@@ -121,6 +117,7 @@ import org.allbinary.view.ViewPosition;
 import org.allbinary.weapon.media.audio.ExplosionBasicSound;
 import org.allbinary.game.multiplayer.layer.RemoteInfo;
 import org.allbinary.game.view.TileLayerPositionIntoViewPosition;
+import org.allbinary.graphics.CellPositionFactory;
 import org.allbinary.math.NamedAngle;
 import org.allbinary.media.graphics.geography.map.GeographicMapCompositeInterface;
 import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackGeographicMap;
@@ -142,6 +139,7 @@ public class UnitLayer extends AdvancedRTSGameLayer implements
     private final LayerPartialCellPositionsUtil layerPartialCellPositionsUtil = LayerPartialCellPositionsUtil.getInstance();
     private final LayerDistanceUtil layerDistanceUtil = LayerDistanceUtil.getInstance();
     private final AngleFactory angleFactory = AngleFactory.getInstance();
+    private final CellPositionFactory cellPositionFactory = CellPositionFactory.getInstance();
     
     //Does real path intersect with a building or unit
     //If so then change direction to go around
@@ -1348,10 +1346,9 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
                         getPartialpositionlist());
 
                 //is building in path
-                final GeographicMapCellPosition cellPosition = (GeographicMapCellPosition) DropCellPositionHistory.getInstance().getCellPositionWithDrop(
-                        getPartialpositionlist());
+                final GeographicMapCellPosition cellPosition = (GeographicMapCellPosition) DropCellPositionHistory.getInstance().getCellPositionWithDrop(getPartialpositionlist());
 
-                if (cellPosition == null) {
+                if (cellPosition == cellPositionFactory.NONE) {
                     final AllBinaryTiledLayer tiledLayer = geographicMapInterface.getAllBinaryTiledLayer();
                     final TiledLayerUtil tiledLayerUtil = TiledLayerUtil.getInstance();
 

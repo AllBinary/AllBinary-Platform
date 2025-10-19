@@ -25,12 +25,13 @@ public class BasicGeographicMapCellPositionFactory
     protected final GeographicMapCellPosition[][] geographicMapCellPositionArray;
     protected final BasicGeographicMap geographicMapInterface;
     protected final GeographicMapCellPositionFactoryInterface geographicMapCellPositionFactoryInterface;
-    protected final int columns;
-    protected final int rows;
+    private final int columns;
+    private final int rows;
 
     private final AllBinaryTiledLayer tiledLayer;
     
-    protected BasicGeographicMapCellPositionFactory(final BasicGeographicMap geographicMapInterface)
+    //protected
+    public BasicGeographicMapCellPositionFactory(final BasicGeographicMap geographicMapInterface)
         throws Exception
     {
         this.geographicMapInterface = geographicMapInterface;

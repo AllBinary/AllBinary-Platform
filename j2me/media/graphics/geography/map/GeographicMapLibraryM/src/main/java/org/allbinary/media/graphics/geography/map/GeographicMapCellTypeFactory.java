@@ -13,8 +13,6 @@
 */
 package org.allbinary.media.graphics.geography.map;
 
-import org.allbinary.string.CommonStrings;
-
 import org.allbinary.logic.communication.log.LogUtil;
 
 public class GeographicMapCellTypeFactory
@@ -27,6 +25,8 @@ public class GeographicMapCellTypeFactory
     {
         return instance;
     }
+
+    public final GeographicMapCellType NULL_GEOGRAPHIC_MAP_CELL_TYPE = new GeographicMapCellType(-1);
 
     private final GeographicMapCellType[] geographicMapCellTypeArray = new GeographicMapCellType[512];  //512 should be the max tileid
         

@@ -16,6 +16,7 @@ package org.allbinary.media.graphics.geography.map.drop;
 import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.graphics.CellPosition;
+import org.allbinary.graphics.CellPositionFactory;
 import org.allbinary.layer.AllBinaryLayer;
 
 /**
@@ -30,6 +31,9 @@ public class DropCellPositionHistory
     {
         return SINGLETON;
     }
+    
+    private final CellPositionFactory cellPositionFactory = CellPositionFactory.getInstance();
+    
     private BasicArrayList positionList = new BasicArrayList();
     private BasicArrayList layerList = new BasicArrayList();
 
@@ -106,7 +110,7 @@ public class DropCellPositionHistory
                 return cellPosition;
             }
         }
-        return null;
+        return this.cellPositionFactory.NONE;
     }
     
     public AllBinaryLayer getLayerInterface(CellPosition cellPosition)
@@ -118,7 +122,7 @@ public class DropCellPositionHistory
         }
         else
         {
-            return null;
+            return AllBinaryLayer.NULL_ALLBINARY_LAYER;
         }
     }
 }

@@ -48,7 +48,7 @@ implements LayerPositionFinderInterface
         AllBinaryLayer layerInterface =
             DropCellPositionHistory.getInstance().getLayerInterface(geographicMapCellPosition);
 
-        if(layerInterface == null)
+        if(layerInterface == AllBinaryLayer.NULL_ALLBINARY_LAYER)
         {
             layerInterface =
                 WaypointCellPositionHistory.getInstance().getLayerInterface(geographicMapCellPosition);

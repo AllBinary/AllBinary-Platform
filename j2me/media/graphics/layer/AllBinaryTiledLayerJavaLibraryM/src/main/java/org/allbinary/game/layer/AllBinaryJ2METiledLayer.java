@@ -26,7 +26,7 @@ public class AllBinaryJ2METiledLayer extends AllBinaryTiledLayer
 
     //private final StringMaker stringMaker = new StringMaker();
     
-    protected final TiledLayer tiledLayer;
+    protected final TiledLayer tiledLayerP;
     protected final int debugColor;
 
     public AllBinaryJ2METiledLayer(final Integer dataId, final TiledLayer tiledLayer, final int[][] mapTwoDArray, final int debugColor)
@@ -37,7 +37,7 @@ public class AllBinaryJ2METiledLayer extends AllBinaryTiledLayer
                 tiledLayer.getWidth(), tiledLayer.getHeight(), 
                 tiledLayer.getCellWidth(), tiledLayer.getCellHeight());
 
-        this.tiledLayer = tiledLayer;
+        this.tiledLayerP = tiledLayer;
         this.debugColor = debugColor;
 
         this.setCells(mapTwoDArray);
@@ -82,9 +82,10 @@ public class AllBinaryJ2METiledLayer extends AllBinaryTiledLayer
     }
      */
 
+    @Override
     public void paint(final Graphics graphics)
     {
-        this.tiledLayer.paint(graphics);
+        this.tiledLayerP.paint(graphics);
         
         //this.paintDebug(graphics);
 
@@ -100,13 +101,13 @@ public class AllBinaryJ2METiledLayer extends AllBinaryTiledLayer
         graphics.setColor(debugColor);
         //graphics.drawString("TiledLayer: (" + this.getX() + ", " + this.getY() + ")", this.getX(), this.getY(), 0);
         
-        int x = this.tiledLayer.getX();
-        int y = this.tiledLayer.getY();
+        int x = this.tiledLayerP.getX();
+        int y = this.tiledLayerP.getY();
 
         int firstColumn = 0;
         int firstRow = 0;
-        final int totalColumns = this.tiledLayer.getColumns();
-        final int totalRows = this.tiledLayer.getRows();
+        final int totalColumns = this.tiledLayerP.getColumns();
+        final int totalRows = this.tiledLayerP.getRows();
 
         int x0 = x;
 
@@ -114,17 +115,17 @@ public class AllBinaryJ2METiledLayer extends AllBinaryTiledLayer
         //int imgRows = img.getHeight() / tileHeight;
         int tile = 0;
 
-        final int tileHeight = this.tiledLayer.getCellHeight();
-        final int tileWidth = this.tiledLayer.getCellWidth();
+        final int tileHeight = this.tiledLayerP.getCellHeight();
+        final int tileWidth = this.tiledLayerP.getCellWidth();
 
         final CommonSeps commonSeps = CommonSeps.getInstance();
         final StringMaker stringMaker = new StringMaker();
         for (int rowIndex = firstRow; rowIndex < totalRows; rowIndex++, y += tileHeight) {
             x = x0;
             for (int columnIndex = firstColumn; columnIndex < totalColumns; columnIndex++, x += tileWidth) {
-                tile = this.tiledLayer.getCell(columnIndex, rowIndex);
+                tile = this.tiledLayerP.getCell(columnIndex, rowIndex);
                 if (tile < 0) {
-                    tile = this.tiledLayer.getAnimatedTile(tile);
+                    tile = this.tiledLayerP.getAnimatedTile(tile);
                 }
                 if (tile == 0) {
                     continue;
@@ -139,18 +140,20 @@ public class AllBinaryJ2METiledLayer extends AllBinaryTiledLayer
         graphics.setFont(font);
     }
     
+    @Override
     public void move(final int dx, final int dy)
     {
         //logUtil.put(new StringMaker().append("TiledLayer: ").append(PositionStrings.getInstance().X_LABEL).append(dx).append(PositionStrings.getInstance().Y_LABEL).append(dy).toString(), this, "move");
-        this.tiledLayer.move(dx, dy);
+        this.tiledLayerP.move(dx, dy);
         //TWB LayerInterface to Layer
         super.move(-dx, -dy);
     }
 
+    @Override
     public void setPosition(final int x, final int y, final int z)
     {
         //logUtil.put(new StringMaker().append("TiledLayer: x: ").append(x).append(" y: ").append(y).append(" z: ").append(z).toString(), this, "setPosition");
-        this.tiledLayer.setPosition(x, y);
+        this.tiledLayerP.setPosition(x, y);
         super.setPosition(-x, -y, z);
     }
 
@@ -165,34 +168,40 @@ public class AllBinaryJ2METiledLayer extends AllBinaryTiledLayer
 
     public TiledLayer getTiledLayer()
     {
-        return tiledLayer;
+        return tiledLayerP;
     }
 
+    @Override
     public int getCellWidth()
     {
-        return this.tiledLayer.getCellWidth();
+        return this.tiledLayerP.getCellWidth();
     }
 
+    @Override
     public int getCellHeight()
     {
-        return this.tiledLayer.getCellHeight();
+        return this.tiledLayerP.getCellHeight();
     }
 
+    @Override
     public int getCell(final int col, final int row)
     {
-        return this.tiledLayer.getCell(col, row);
+        return this.tiledLayerP.getCell(col, row);
     }
 
+    @Override
     public int getColumns()
     {
-        return this.tiledLayer.getColumns();
+        return this.tiledLayerP.getColumns();
     }
 
+    @Override
     public int getRows()
     {
-        return this.tiledLayer.getRows();
+        return this.tiledLayerP.getRows();
     }
 
+    @Override
     public void setCell(final int col, final int row, final int index)
     {
 //        if(tileIndex != 0) {
@@ -202,11 +211,12 @@ public class AllBinaryJ2METiledLayer extends AllBinaryTiledLayer
 
         //stringMaker.append(index).append(',');
 
-        this.tiledLayer.setCell(col, row, index);
+        this.tiledLayerP.setCell(col, row, index);
     }
     
+    @Override
     public int getAnimatedTile(final int animationTileIndex) {
-        return this.tiledLayer.getAnimatedTile(animationTileIndex);
+        return this.tiledLayerP.getAnimatedTile(animationTileIndex);
     }
     
 }

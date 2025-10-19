@@ -19,6 +19,7 @@ import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.layer.AllBinaryTiledLayer;
 import org.allbinary.game.rand.MyRandomFactory;
 import org.allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMapCellPositionFactory;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
@@ -27,22 +28,23 @@ public class AnyRandomDropCellPositionGenerator
 extends BaseDropCellPositionGenerator
 {
     protected final BasicArrayList list = new BasicArrayList();
-    protected BasicGeographicMap geographicMapInterface;
+    protected Object geographicMapInterface = NullUtil.getInstance().NULL_OBJECT;
     
-    public void update(AllBinaryGameLayerManager allBinaryGameLayerManager,
-            BasicGeographicMap geographicMapInterface) throws Exception
+    @Override
+    public void update(final AllBinaryGameLayerManager allBinaryGameLayerManager,
+            final BasicGeographicMap geographicMapInterface) throws Exception
     {
         this.geographicMapInterface = geographicMapInterface;
         
-        BasicGeographicMapCellPositionFactory basicGeographicMapCellPositionFactory =
+        final BasicGeographicMapCellPositionFactory basicGeographicMapCellPositionFactory =
                 geographicMapInterface.getGeographicMapCellPositionFactory();
         
-        MyRandomFactory randomFactory = MyRandomFactory.getInstance();
+        final MyRandomFactory randomFactory = MyRandomFactory.getInstance();
         
-        AllBinaryTiledLayer tiledLayer = 
+        final AllBinaryTiledLayer tiledLayer = 
                 geographicMapInterface.getAllBinaryTiledLayer();
         
-        int total = tiledLayer.getColumns() * tiledLayer.getRows();
+        final int total = tiledLayer.getColumns() * tiledLayer.getRows();
         
         int randomColumn;
         int randomRow;
@@ -66,6 +68,7 @@ extends BaseDropCellPositionGenerator
         }
     }
 
+    @Override
     public void processTick(AllBinaryLayerManager allBinaryLayerManager)
             throws Exception
     {

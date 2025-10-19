@@ -11,7 +11,6 @@
  * Created By: Travis Berthelot
  * 
  */
-
 package org.allbinary.game.view;
 
 import org.allbinary.view.ViewPosition;
@@ -21,10 +20,11 @@ import org.allbinary.view.ViewPositionFactoryInterface;
  *
  * @author user
  */
-public class StaticTileLayerViewPositionFactory implements ViewPositionFactoryInterface
-{
-   public ViewPosition getInstance() throws Exception
-   {
-      return new StaticTileLayerIntoPositionViewPosition();
-   }
+public class StaticTileLayerViewPositionFactory implements ViewPositionFactoryInterface {
+
+    @Override
+    public ViewPosition getInstance() throws Exception {
+        return new StaticTileLayerIntoPositionViewPosition();
+    }
+
 }

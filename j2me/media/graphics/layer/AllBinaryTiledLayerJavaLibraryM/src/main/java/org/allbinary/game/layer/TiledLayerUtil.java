@@ -24,7 +24,6 @@ import org.allbinary.logic.string.StringMaker;
 public class TiledLayerUtil {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-
     private static final TiledLayerUtil instance = new TiledLayerUtil();
 
     public static TiledLayerUtil getInstance()

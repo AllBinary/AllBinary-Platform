@@ -20,10 +20,10 @@ public class GeographicMapCellPositionTracking
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private GeographicMapCellPosition currentGeographicMapCellPosition;
-    private GeographicMapCellPosition previousGeographicMapCellPosition;
-    private GeographicMapCellPosition newGeographicMapCellPosition;
-    private GeographicMapCellType currentCellType;
+    private GeographicMapCellPosition currentGeographicMapCellPosition = GeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
+    private GeographicMapCellPosition previousGeographicMapCellPosition = GeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
+    private GeographicMapCellPosition newGeographicMapCellPosition = GeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
+    private GeographicMapCellType currentCellType = GeographicMapCellTypeFactory.getInstance().NULL_GEOGRAPHIC_MAP_CELL_TYPE;
     
     public GeographicMapCellPositionTracking()
     {

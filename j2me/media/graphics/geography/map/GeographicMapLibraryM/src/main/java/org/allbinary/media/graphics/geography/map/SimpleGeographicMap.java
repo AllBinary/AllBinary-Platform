@@ -15,6 +15,7 @@ package org.allbinary.media.graphics.geography.map;
 
 import org.allbinary.game.layer.AllBinaryTiledLayer;
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.string.CommonStrings;
 
 public class SimpleGeographicMap
@@ -28,8 +29,8 @@ public class SimpleGeographicMap
 
     private final AllBinaryTiledLayer tiledLayer;
 
-    private BasicColor foregroundBasicColor;
-    private BasicColor backgroundBasicColor;
+    private BasicColor foregroundBasicColor = BasicColorFactory.getInstance().NULL_COLOR;
+    private BasicColor backgroundBasicColor = BasicColorFactory.getInstance().NULL_COLOR;
 
     public SimpleGeographicMap(final Integer id, final String name, final int[] cellTypeIdToGeographicMapCellType,
             final AllBinaryTiledLayer tiledLayer, final BasicColor foregroundBasicColor,

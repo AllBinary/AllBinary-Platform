@@ -45,11 +45,13 @@ public class TileLayerItem extends CustomItem implements CustomItemInterface
         //this.owner = owner;
     }
 
+    @Override
     public int getMinimumWidth()
     {
         return this.tiledLayer.getWidth();
     }
 
+    @Override
     public int getMinimumHeight()
     {
         return this.tiledLayer.getHeight();
@@ -76,6 +78,7 @@ public class TileLayerItem extends CustomItem implements CustomItemInterface
     }
 
     //protected void paint(Graphics g, int w, int h);
+    @Override
     public void paint(Graphics graphics, int x, int y)
     {
         //int layout = this.getLayout();
@@ -84,6 +87,7 @@ public class TileLayerItem extends CustomItem implements CustomItemInterface
         this.tiledLayer.paint(graphics);
     }
     
+    @Override
     public void paintUnselected(Graphics graphics, int x, int y)
     {
         

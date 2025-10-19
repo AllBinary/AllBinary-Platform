@@ -10,7 +10,7 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.game.layer.geographic.map;
 
 import javax.microedition.lcdui.Graphics;
@@ -37,167 +37,151 @@ import org.allbinary.media.graphics.geography.map.event.GeographicMapCellPositio
 import org.allbinary.media.graphics.geography.map.event.GeographicMapCellPositionEventListenerInterface;
 import org.allbinary.view.ViewPosition;
 
-public class MiniMapLayer 
-extends AllBinaryLayer 
-implements GeographicMapCellPositionEventListenerInterface
-{
+public class MiniMapLayer
+    extends AllBinaryLayer
+    implements GeographicMapCellPositionEventListenerInterface {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-   //private final SimpleGeographicMap simpleGeographicMap;
-   protected final AllBinaryTiledLayer allBinaryTiledLayer;
-   private final BasicGeographicMapCellPositionFactory geographicMapCellPositionFactory;
-   
-   private final BasicArrayList list;
-   private final BasicArrayList basicColorList;
-   private final BasicArrayList positionList;
+    //private final SimpleGeographicMap simpleGeographicMap;
+    protected final AllBinaryTiledLayer allBinaryTiledLayer;
+    private final BasicGeographicMapCellPositionFactory geographicMapCellPositionFactory;
 
-   private CircleFilledAnimation animationInterface;
-   
-   public MiniMapLayer(BasicGeographicMap geographicMapInterface,
-       //GeographicMapCellPositionFactory geographicMapCellPositionFactory,
-      //ViewPosition can only be static or setPosition will need to be in paint
-      ViewPosition viewPosition) throws Exception
-   {
-      super(new Rectangle(PointFactory.getInstance().getInstance(0, viewPosition.getY()),
-         geographicMapInterface.getAllBinaryTiledLayer().getWidth(),
-         geographicMapInterface.getAllBinaryTiledLayer().getHeight()),
-         viewPosition);
+    private final BasicArrayList list;
+    private final BasicArrayList basicColorList;
+    private final BasicArrayList positionList;
 
-      //this.simpleGeographicMap = simpleGeographicMap;
-      this.allBinaryTiledLayer = geographicMapInterface.getAllBinaryTiledLayer();
-      this.geographicMapCellPositionFactory =
-          geographicMapInterface.getGeographicMapCellPositionFactory();
+    private CircleFilledAnimation animationInterface;
 
-      this.animationInterface = new CircleFilledAnimation(
-              this.allBinaryTiledLayer.getCellWidth(), 
-              this.allBinaryTiledLayer.getCellHeight(), BasicColorFactory.getInstance().WHITE);
-      
-      // allBinaryTiledLayer.setPosition(0, this.getYP());
+    public MiniMapLayer(BasicGeographicMap geographicMapInterface,
+        //GeographicMapCellPositionFactory geographicMapCellPositionFactory,
+        //ViewPosition can only be static or setPosition will need to be in paint
+        ViewPosition viewPosition) throws Exception {
+        super(new Rectangle(PointFactory.getInstance().getInstance(0, viewPosition.getY()),
+            geographicMapInterface.getAllBinaryTiledLayer().getWidth(),
+            geographicMapInterface.getAllBinaryTiledLayer().getHeight()),
+            viewPosition);
 
-      //logUtil.put("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Alpha: " + this.bufferedImage.getBitmap().getPixel(0,0), this, "updateBufferedImage");
+        //this.simpleGeographicMap = simpleGeographicMap;
+        this.allBinaryTiledLayer = geographicMapInterface.getAllBinaryTiledLayer();
+        this.geographicMapCellPositionFactory =
+            geographicMapInterface.getGeographicMapCellPositionFactory();
 
-      this.list = new BasicArrayList();
-      this.basicColorList = new BasicArrayList();
-      this.positionList = new BasicArrayList();
+        this.animationInterface = new CircleFilledAnimation(
+            this.allBinaryTiledLayer.getCellWidth(),
+            this.allBinaryTiledLayer.getCellHeight(), BasicColorFactory.getInstance().WHITE);
 
-      //GeographicMapCellPositionFactory geographicMapCellPositionFactory =
+        // allBinaryTiledLayer.setPosition(0, this.getYP());
+        //logUtil.put("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Alpha: " + this.bufferedImage.getBitmap().getPixel(0,0), this, "updateBufferedImage");
+        this.list = new BasicArrayList();
+        this.basicColorList = new BasicArrayList();
+        this.positionList = new BasicArrayList();
+
+        //GeographicMapCellPositionFactory geographicMapCellPositionFactory =
         // geographicMapInterface.getGeographicMapCellPositionFactory();
+        GeographicMapCellPositionEventHandler.getInstance().addListener(this);
 
-      GeographicMapCellPositionEventHandler.getInstance().addListener(this);
+        this.init();
+    }
 
-      this.init();
-   }
+    protected void init() throws Exception {
+        allBinaryTiledLayer.setPosition(this.x, this.y, this.z);
+    }
 
-   protected void init() throws Exception
-   {
-      allBinaryTiledLayer.setPosition(this.x, this.y, this.z);
-   }
+    @Override
+    public void onEvent(final AllBinaryEventObject eventObject) {
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
+        //this.onGeographicMapCellPositionEvent((GeographicMapCellPositionEvent) eventObject);
+    }
 
-   public void onEvent(AllBinaryEventObject eventObject)
-   {
-       ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
-      //this.onGeographicMapCellPositionEvent((GeographicMapCellPositionEvent) eventObject);
-   }
+    @Override
+    public synchronized void onRemoveGeographicMapCellPositionEvent(final GeographicMapCellPositionEvent geographicMapCellPositionEvent)
+        throws Exception {
+        final ColorCompositeInterface colorCompositeInterface =
+            (ColorCompositeInterface) geographicMapCellPositionEvent.getSource();
 
-   public synchronized void onRemoveGeographicMapCellPositionEvent(GeographicMapCellPositionEvent geographicMapCellPositionEvent) 
-   throws Exception
-   {
-       ColorCompositeInterface colorCompositeInterface =
-           (ColorCompositeInterface) geographicMapCellPositionEvent.getSource();
+        final int index = this.list.indexOf(colorCompositeInterface);
 
-       int index = this.list.indexOf(colorCompositeInterface);
+        if (index >= 0) {
+            this.list.remove(index);
+            this.basicColorList.remove(index);
+            this.positionList.remove(index);
+        }
+    }
 
-       if(index >= 0)
-       {
-           this.list.remove(index);
-           this.basicColorList.remove(index);
-           this.positionList.remove(index);
-       }
-   }
-   
-   public synchronized void onGeographicMapCellPositionEvent(
-      GeographicMapCellPositionEvent geographicMapCellPositionEvent)
-      throws Exception
-   {
-      //logUtil.put(commonStrings.START, this, "onEvent");
+    @Override
+    public synchronized void onGeographicMapCellPositionEvent(final GeographicMapCellPositionEvent geographicMapCellPositionEvent)
+        throws Exception {
+        //logUtil.put(commonStrings.START, this, "onEvent");
 
-       ColorCompositeInterface colorCompositeInterface =
-           (ColorCompositeInterface) geographicMapCellPositionEvent.getSource();
+        final ColorCompositeInterface colorCompositeInterface =
+            (ColorCompositeInterface) geographicMapCellPositionEvent.getSource();
 
-      int layerIndex = -1;
+        int layerIndex = -1;
 
-      int size = list.size();
-      for (int index = 0; index < size; index++)
-      {
-          ColorCompositeInterface nextColorCompositeInterface = (ColorCompositeInterface) list.get(index);
-         if (nextColorCompositeInterface == colorCompositeInterface)
-         {
-            layerIndex = index;
-            break;
-         }
-      }
+        int size = list.size();
+        ColorCompositeInterface nextColorCompositeInterface;
+        for (int index = 0; index < size; index++) {
+            nextColorCompositeInterface = (ColorCompositeInterface) list.get(index);
+            if (nextColorCompositeInterface == colorCompositeInterface) {
+                layerIndex = index;
+                break;
+            }
+        }
 
-      GeographicMapCellPosition geographicMapCellPosition =
-         geographicMapCellPositionFactory.getInstance(
-         geographicMapCellPositionEvent.getGeographicMapCellPosition());
-      
-      GPoint point = geographicMapCellPosition.getPoint();
-      if (layerIndex == -1)
-      {
-         this.list.add(colorCompositeInterface);
-         
-         BasicColor basicColor = colorCompositeInterface.getBasicColorP();
-         
-         this.basicColorList.add(basicColor);
-         this.positionList.add(point);
-         layerIndex = this.basicColorList.size() - 1;
-      }
-      else
-      {
-         //update
-         this.positionList.set(layerIndex, point);
-      }
-   }
+        final GeographicMapCellPosition geographicMapCellPosition =
+            geographicMapCellPositionFactory.getInstance(
+                geographicMapCellPositionEvent.getGeographicMapCellPosition());
 
-   //private final int clearColor = BasicColor.CLEAR_COLOR.intValue();
-   public void paintDots(Graphics graphics)
-   {
-      BasicArrayList localPositionList = this.positionList;
-      BasicArrayList localBasicColorList = this.basicColorList;
+        GPoint point = geographicMapCellPosition.getPoint();
+        if (layerIndex == -1) {
+            this.list.add(colorCompositeInterface);
 
-      int length = localPositionList.size();
+            BasicColor basicColor = colorCompositeInterface.getBasicColorP();
 
-      //int localX;
-      //int localY;
+            this.basicColorList.add(basicColor);
+            this.positionList.add(point);
+            layerIndex = this.basicColorList.size() - 1;
+        } else {
+            //update
+            this.positionList.set(layerIndex, point);
+        }
+    }
 
-      GPoint point;
-      BasicColor basicColor;
-      
-      for (int index = length; --index >= 0;)
-      {
-          point = (GPoint) localPositionList.get(index);
-          basicColor = (BasicColor) localBasicColorList.get(index);
+    //private final int clearColor = BasicColor.CLEAR_COLOR.intValue();
+    public void paintDots(Graphics graphics) {
+        final BasicArrayList localPositionList = this.positionList;
+        final BasicArrayList localBasicColorList = this.basicColorList;
 
-         graphics.setColor(basicColor.intValue());
+        final int length = localPositionList.size();
 
-         //localX = point.getX();
-         //localY = point.getYP();
+        //int localX;
+        //int localY;
+        GPoint point;
+        BasicColor basicColor;
 
-         this.animationInterface.setBasicColorP(basicColor);
-         this.animationInterface.paint(graphics, 
-                 //localX 
-                 point.getX() + this.x, 
-                 //localY 
-                 point.getY() + this.y);
+        for (int index = length; --index >= 0;) {
+            point = (GPoint) localPositionList.get(index);
+            basicColor = (BasicColor) localBasicColorList.get(index);
 
-      //logUtil.put("X: " + x + " Y: " + y + " Color: " + color, this, "updateBufferedImage");
-      }
+            graphics.setColor(basicColor.intValue());
 
-   }
+            //localX = point.getX();
+            //localY = point.getYP();
+            this.animationInterface.setBasicColorP(basicColor);
+            this.animationInterface.paint(graphics,
+                //localX 
+                point.getX() + this.x,
+                //localY 
+                point.getY() + this.y);
 
-   public void paint(Graphics graphics)
-   {
-      allBinaryTiledLayer.paint(graphics);
-      this.paintDots(graphics);
-   }
+            //logUtil.put("X: " + x + " Y: " + y + " Color: " + color, this, "updateBufferedImage");
+        }
+
+    }
+
+    @Override
+    public void paint(final Graphics graphics) {
+        allBinaryTiledLayer.paint(graphics);
+        this.paintDots(graphics);
+    }
 }

@@ -26,7 +26,7 @@ public class MultiGeographicMapBehavior //extends GeographicMapBehavior
             final GeographicMapCellPosition geographicMapCellPosition) throws Exception {
 
         final int size = geographicMapInterfaceArray.length;
-        GeographicMapCellType cellType = null;
+        GeographicMapCellType cellType = GeographicMapCellTypeFactory.getInstance().NULL_GEOGRAPHIC_MAP_CELL_TYPE;
         for (int index = size; --index >= 0;) {
             cellType = geographicMapInterfaceArray[index].getCellTypeAt(geographicMapCellPosition);
             geographicMapCellTypeArray[index] = cellType;

@@ -13,6 +13,8 @@
 */
 package org.allbinary.media.graphics.geography.map.event;
 
+import org.allbinary.graphics.CellPosition;
+import org.allbinary.graphics.CellPositionFactory;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
@@ -20,14 +22,14 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 
 public class GeographicMapCellPositionEvent extends AllBinaryEventObject
 {
-    private GeographicMapCellPosition geographicMapCellPosition;
+    private CellPosition geographicMapCellPosition = CellPositionFactory.getInstance().NONE;
 
-    public GeographicMapCellPositionEvent(Object object,
-            GeographicMapCellPosition geographicMapCellPosition)
+    public GeographicMapCellPositionEvent(final Object object,
+            final CellPosition geographicMapCellPosition)
     {
         super(object);
 
-        this.setGeographicMapCellPosition(geographicMapCellPosition);
+        this.geographicMapCellPosition = geographicMapCellPosition;
     }
 
     public GeographicMapCellPositionEvent(Object object, int key)
@@ -48,7 +50,7 @@ public class GeographicMapCellPositionEvent extends AllBinaryEventObject
 
     public GeographicMapCellPosition getGeographicMapCellPosition()
     {
-        return geographicMapCellPosition;
+        return (GeographicMapCellPosition) geographicMapCellPosition;
     }
 
     public String toString()

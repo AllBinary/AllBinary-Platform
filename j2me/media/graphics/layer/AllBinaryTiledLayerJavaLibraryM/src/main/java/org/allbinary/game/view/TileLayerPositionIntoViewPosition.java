@@ -27,7 +27,7 @@ public class TileLayerPositionIntoViewPosition extends ViewPosition
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-   private Layer tiledLayer = null; // = NullLayer.getInstance();
+   private Layer tiledLayer = NullLayer.getInstance();
    
    public TileLayerPositionIntoViewPosition()
    {
@@ -36,16 +36,19 @@ public class TileLayerPositionIntoViewPosition extends ViewPosition
       //logUtil.put("X: " + x, this, "getViewPositionX");
    }
 
+   @Override
    public int getX()
    {
       return super.getX() - this.tiledLayer.getXP();
    }
 
+   @Override
    public int getY()
    {
       return super.getY() - this.tiledLayer.getYP();
    }
 
+   @Override
    public int getZ()
    {
       return super.getZ() - this.tiledLayer.getZP();

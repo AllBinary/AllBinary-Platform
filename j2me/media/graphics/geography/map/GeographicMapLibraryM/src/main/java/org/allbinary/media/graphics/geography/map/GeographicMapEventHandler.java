@@ -14,11 +14,8 @@
 package org.allbinary.media.graphics.geography.map;
 
 import org.allbinary.game.layer.AllBinaryGameLayer;
-import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.util.event.EventListenerInterface;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
-
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.util.BasicArrayList;
 
@@ -27,8 +24,6 @@ import org.allbinary.util.BasicArrayList;
  * @author User
  */
 public class GeographicMapEventHandler extends BasicEventHandler {
-    protected final LogUtil logUtil = LogUtil.getInstance();
-
     
     private static GeographicMapEventHandler instance = new GeographicMapEventHandler();
 
@@ -51,12 +46,14 @@ public class GeographicMapEventHandler extends BasicEventHandler {
         }
     }
 
+    @Override
     public void removeAllListeners()
     {
         this.list.clear();
         super.removeAllListeners();
     }
 
+    @Override
     public void removeListener(EventListenerInterface eventListenerInterface)
     {
         this.list.remove(eventListenerInterface);

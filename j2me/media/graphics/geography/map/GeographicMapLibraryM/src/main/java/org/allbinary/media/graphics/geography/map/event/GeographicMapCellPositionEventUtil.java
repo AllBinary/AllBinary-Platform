@@ -13,6 +13,7 @@
 */
 package org.allbinary.media.graphics.geography.map.event;
 
+import org.allbinary.graphics.CellPositionFactory;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPositionTracking;
 
 public class GeographicMapCellPositionEventUtil
@@ -23,8 +24,7 @@ public class GeographicMapCellPositionEventUtil
 
     public GeographicMapCellPositionEventUtil(Object object)
     {
-        geographicMapCellPositionEvent = 
-            new GeographicMapCellPositionEvent(object, null);
+        geographicMapCellPositionEvent = new GeographicMapCellPositionEvent(object, CellPositionFactory.getInstance().NONE);
     }
 
     public void update(GeographicMapCellPositionTracking geographicMapCellPositionTracking)

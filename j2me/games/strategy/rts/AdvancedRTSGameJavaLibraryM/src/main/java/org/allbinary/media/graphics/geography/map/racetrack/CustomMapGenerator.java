@@ -16,6 +16,7 @@ package org.allbinary.media.graphics.geography.map.racetrack;
 import org.allbinary.game.layer.AdvancedRTSGameLayer;
 import org.allbinary.game.layer.waypoint.WaypointLayer;
 import org.allbinary.graphics.CellPosition;
+import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMapCellPositionFactory;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellTypeFactory;
 import org.allbinary.media.graphics.geography.map.drop.DropCellPositionHistory;
@@ -82,9 +83,13 @@ public class CustomMapGenerator extends CustomMapGeneratorBase
 
         if (dropCellPositionHistory.isCellPositionWithDrop(cellPosition))
         {
-            final AdvancedRTSGameLayer rtsLayer = (AdvancedRTSGameLayer) 
-                dropCellPositionHistory.getLayerInterface(cellPosition);
+            final AllBinaryLayer layer = dropCellPositionHistory.getLayerInterface(cellPosition);
+            
+            if(layer == AllBinaryLayer.NULL_ALLBINARY_LAYER) {
+                return emptyType;
+            }
 
+            final AdvancedRTSGameLayer rtsLayer = (AdvancedRTSGameLayer) layer;
             if (!(rtsLayer.getType() == WaypointLayer.getStaticType()))
             {
                 return emptyType;
