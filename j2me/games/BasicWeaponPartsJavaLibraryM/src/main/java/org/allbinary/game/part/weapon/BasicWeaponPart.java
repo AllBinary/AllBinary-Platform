@@ -19,7 +19,7 @@ import org.allbinary.animation.Animation;
 import org.allbinary.animation.NullAnimationFactory;
 import org.allbinary.game.combat.weapon.WeaponProperties;
 import org.allbinary.game.part.PartInterface;
-import org.allbinary.game.score.Scoreable;
+import org.allbinary.game.score.NoScoreable;
 import org.allbinary.game.score.ScoreableInterface;
 import org.allbinary.graphics.RelativeRelationship;
 import org.allbinary.layer.AllBinaryLayer;
@@ -38,7 +38,7 @@ public class BasicWeaponPart
 
    private WeaponProperties weaponProperties = WeaponProperties.NULL_WEAPON_PROPERTIES;
 
-   private ScoreableInterface scoreableInterface = Scoreable.NULL_SCOREABLE;
+   private ScoreableInterface scoreableInterface = NoScoreable.getInstance();
    
    protected RelativeRelationship relativeRelationship = RelativeRelationship.NULL_RELATIVE_RELATIONSHIP;
 
