@@ -1,6 +1,7 @@
 package org.allbinary.graphics.form.item;
 
 import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Screen;
 
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
@@ -12,6 +13,10 @@ public class CustomItem
         StringUtil.getInstance().EMPTY_STRING, BasicColorFactory.getInstance().BLACK, BasicColorFactory.getInstance().WHITE);
     
     protected CustomItem(String label, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
+    {
+    }
+    
+    public void setOwner(Screen owner)
     {
     }
     
