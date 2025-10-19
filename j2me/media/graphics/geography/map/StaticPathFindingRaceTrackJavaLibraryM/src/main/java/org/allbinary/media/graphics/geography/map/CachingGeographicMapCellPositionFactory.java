@@ -13,6 +13,8 @@
 */
 package org.allbinary.media.graphics.geography.map;
 
+import java.util.Hashtable;
+
 public class CachingGeographicMapCellPositionFactory extends
         BasicGeographicMapCellPositionFactory
 {
@@ -22,24 +24,25 @@ public class CachingGeographicMapCellPositionFactory extends
         super(geographicMapInterface);
     }
 
-    public GeographicMapCellPosition createInstance(int i_column, int i_row,
-            int width, int height) throws Exception
+    public GeographicMapCellPosition createInstance(final int i_column, final int i_row,
+            final int width, final int height) throws Exception
     {
-        String cellPositionKey = GeographicMapCellPosition.toString(i_column, i_row);
+        final Hashtable hashtable = GeographicMapCellPositionFactory.getHashtable();
+        
+        final String cellPositionKey = GeographicMapCellPosition.toString(i_column, i_row);
 
-        GeographicMapCellPosition cellPosition = 
-            (GeographicMapCellPosition) GeographicMapCellPositionFactory.getHashtable().get(cellPositionKey);
+        Object cellPositionCanBeNull =  hashtable.get(cellPositionKey);
 
-        if (cellPosition == null)
+        if (cellPositionCanBeNull == null)
         {
-            cellPosition = this.geographicMapCellPositionFactoryInterface
-                    .getInstance(this.geographicMapInterface, i_column, i_row,
-                            columns, rows, width, height);
-            geographicMapCellPositionArray[i_row][i_column] = cellPosition;
+            cellPositionCanBeNull = this.geographicMapCellPositionFactoryInterface.getInstance(
+                this.geographicMapInterface, i_column, i_row,
+                            this.getColumns(), this.getRows(), width, height);
+            geographicMapCellPositionArray[i_row][i_column] = (GeographicMapCellPosition) cellPositionCanBeNull;
 
-            GeographicMapCellPositionFactory.getHashtable().put(cellPositionKey, cellPosition);
+            hashtable.put(cellPositionKey, cellPositionCanBeNull);
         }
 
-        return cellPosition;
+        return (GeographicMapCellPosition) cellPositionCanBeNull;
     }
 }
