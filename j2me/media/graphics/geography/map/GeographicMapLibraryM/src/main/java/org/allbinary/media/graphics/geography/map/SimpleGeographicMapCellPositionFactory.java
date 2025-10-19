@@ -17,7 +17,7 @@ package org.allbinary.media.graphics.geography.map;
  *
  * @author user
  */
-public class GeographicMapCellPositionFactory
+public class SimpleGeographicMapCellPositionFactory
 implements GeographicMapCellPositionFactoryInterface
 {
     public static final GeographicMapCellPosition NULL_GEOGRAPHIC_MAP_CELL_POSITION = new GeographicMapCellPosition(-1, -1, -1, -1, -1, -1);

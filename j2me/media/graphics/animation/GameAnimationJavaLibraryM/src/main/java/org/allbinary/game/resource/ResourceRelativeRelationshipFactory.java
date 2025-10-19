@@ -17,10 +17,13 @@ import java.util.Hashtable;
 
 import org.allbinary.graphics.RelativeRelationship;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListUtil;
 
 public class ResourceRelativeRelationshipFactory 
     implements ResourceRelativeRelationshipFactoryInterface
 {
+    private final BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();
+    
    private final Hashtable hashtable = new Hashtable();
    
    private boolean initialized;
@@ -34,7 +37,11 @@ public class ResourceRelativeRelationshipFactory
     @Override
     public BasicArrayList getResourceRelativeRelationshipList(String resource) throws Exception
     {
-        return (BasicArrayList) this.hashtable.get(resource);
+        final Object listCanBeNull = this.hashtable.get(resource);
+        if(listCanBeNull == null) {
+            return this.basicArrayListUtil.getImmutableInstance();
+        }
+        return (BasicArrayList) listCanBeNull;
     }
     
     @Override
@@ -43,7 +50,7 @@ public class ResourceRelativeRelationshipFactory
     {
        BasicArrayList list = this.getResourceRelativeRelationshipList(resource);
        
-       if(list == null)
+       if(list == this.basicArrayListUtil.getImmutableInstance())
        {
            list = new BasicArrayList();
        }

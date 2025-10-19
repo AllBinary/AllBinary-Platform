@@ -86,28 +86,28 @@ public class BasicGeographicMap
                 if(oldGeographicMapCellPosition.getColumn() - 1 >= 0) {
                     return geographicMapCellPositionFactory.getInstance(oldGeographicMapCellPosition.getColumn() - 1, oldGeographicMapCellPosition.getRow());
                 } else {
-                    return GeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
+                    return SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
                 }
             case 1:
                 if(oldGeographicMapCellPosition.getColumn() + 1 < this.getAllBinaryTiledLayer().getColumns()) {
                     return geographicMapCellPositionFactory.getInstance(oldGeographicMapCellPosition.getColumn() + 1, oldGeographicMapCellPosition.getRow());
                 } else {
-                    return GeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
+                    return SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
                 }
             case 2:
                 if(oldGeographicMapCellPosition.getRow() - 1 >= 0) {
                     return geographicMapCellPositionFactory.getInstance(oldGeographicMapCellPosition.getColumn(), oldGeographicMapCellPosition.getRow() - 1);
                 } else {
-                    return GeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
+                    return SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
                 }
             case 3:
                 if(oldGeographicMapCellPosition.getRow() + 1 < this.getAllBinaryTiledLayer().getRows()) {
                     return geographicMapCellPositionFactory.getInstance(oldGeographicMapCellPosition.getColumn(), oldGeographicMapCellPosition.getRow() + 1);
                 } else {
-                    return GeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
+                    return SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
                 }
             default:
-                return GeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
+                return SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
         }
     }
     
@@ -141,7 +141,7 @@ public class BasicGeographicMap
             && allBinaryTiledLayer.getRows() > i_row) {
             return geographicMapCellPositionFactory.getInstance(i_column, i_row);
         } else {
-            return GeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
+            return SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
         }
     }
     

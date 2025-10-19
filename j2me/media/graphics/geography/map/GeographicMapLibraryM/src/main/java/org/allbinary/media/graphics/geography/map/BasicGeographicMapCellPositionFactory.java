@@ -148,16 +148,16 @@ public class BasicGeographicMapCellPositionFactory
     {
         // String cellPositionKey = GeographicMapCellPosition.toString(i_column, i_row);
 
-        GeographicMapCellPosition cellPosition = geographicMapCellPositionArray[i_row][i_column];
+        Object cellPositionCanBeNull = geographicMapCellPositionArray[i_row][i_column];
 
-        if (cellPosition == null)
+        if (cellPositionCanBeNull == null)
         {
-            cellPosition = this.geographicMapCellPositionFactoryInterface.getInstance(
+            cellPositionCanBeNull = this.geographicMapCellPositionFactoryInterface.getInstance(
                 this.geographicMapInterface, i_column, i_row, columns, rows, width, height);
-            geographicMapCellPositionArray[i_row][i_column] = cellPosition;
+            geographicMapCellPositionArray[i_row][i_column] = (GeographicMapCellPosition) cellPositionCanBeNull;
         }
 
-        return cellPosition;
+        return (GeographicMapCellPosition) cellPositionCanBeNull;
     }
 
     public int getColumns()

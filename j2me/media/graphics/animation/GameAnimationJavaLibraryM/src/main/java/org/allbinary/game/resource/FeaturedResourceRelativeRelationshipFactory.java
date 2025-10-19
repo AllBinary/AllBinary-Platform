@@ -36,6 +36,8 @@ public class FeaturedResourceRelativeRelationshipFactory extends FeaturedResourc
       return INSTANCE;
    }
 
+   private final BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();
+   
    public BasicArrayList getRelativeRelationshipList(String resource, AllBinaryLayer layer)
       throws Exception
    {
@@ -48,7 +50,7 @@ public class FeaturedResourceRelativeRelationshipFactory extends FeaturedResourc
          {
             BasicArrayList list = featureInterface.getResourceRelativeRelationshipList(resource);
 
-            if (list != null)
+            if (list != basicArrayListUtil.getImmutableInstance())
             {
                return this.duplicate(list, layer);
             }
