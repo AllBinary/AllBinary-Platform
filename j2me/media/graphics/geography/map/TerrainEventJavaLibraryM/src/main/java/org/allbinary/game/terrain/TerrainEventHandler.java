@@ -32,18 +32,17 @@ public class TerrainEventHandler extends BasicEventHandler
       TerrainEventHandler.hashtable = new Hashtable();
    }
    
-   public static TerrainEventHandler getInstance(Object object)
+   public static TerrainEventHandler getInstance(final Object object)
    {
-      TerrainEventHandler eventHandler = (TerrainEventHandler)
-              TerrainEventHandler.hashtable.get(object);
+      Object eventHandlerCanBeNull = TerrainEventHandler.hashtable.get(object);
 
-      if(eventHandler == null)
+      if(eventHandlerCanBeNull == null)
       {
-         eventHandler = new TerrainEventHandler();
-         TerrainEventHandler.hashtable.put(object, eventHandler);
+         eventHandlerCanBeNull = new TerrainEventHandler();
+         TerrainEventHandler.hashtable.put(object, eventHandlerCanBeNull);
       }
 
-      return eventHandler;
+      return (TerrainEventHandler) eventHandlerCanBeNull;
    }
    
    private final BasicArrayList list = new BasicArrayList();
@@ -52,7 +51,7 @@ public class TerrainEventHandler extends BasicEventHandler
    {
    }
 
-   public void addListener(TerrainEventListener terrainEventListener)
+   public void addListener(final TerrainEventListener terrainEventListener)
    {
        if(!list.contains(terrainEventListener))
        {
@@ -68,20 +67,20 @@ public class TerrainEventHandler extends BasicEventHandler
    }
 
    @Override
-   public void removeListener(EventListenerInterface eventListenerInterface)
+   public void removeListener(final EventListenerInterface eventListenerInterface)
    {
        this.list.remove(eventListenerInterface);
        super.removeListener(eventListenerInterface);
    }
 
    @Override
-   public void fireEvent(AllBinaryEventObject eventObject) throws Exception
+   public void fireEvent(final AllBinaryEventObject eventObject) throws Exception
    {        
        for (int index = this.list.size(); --index >= 0;)
        {
            try
            {
-               TerrainEventListener terrainEventListener = (TerrainEventListener) this.list.get(index);
+               final TerrainEventListener terrainEventListener = (TerrainEventListener) this.list.get(index);
                terrainEventListener.onTerrainEvent((TerrainEvent) eventObject);
            }
            catch (Exception e)
@@ -94,8 +93,8 @@ public class TerrainEventHandler extends BasicEventHandler
    }
 
    @Override
-   protected void process(AllBinaryEventObject eventObject,
-           EventListenerInterface eventListenerInterface) throws Exception {
+   protected void process(final AllBinaryEventObject eventObject,
+           final EventListenerInterface eventListenerInterface) throws Exception {
 
        final TerrainEventListenerInterface terrainEventListenerInterface = (TerrainEventListenerInterface) eventListenerInterface;
        terrainEventListenerInterface.onTerrainEvent((TerrainEvent) eventObject);
