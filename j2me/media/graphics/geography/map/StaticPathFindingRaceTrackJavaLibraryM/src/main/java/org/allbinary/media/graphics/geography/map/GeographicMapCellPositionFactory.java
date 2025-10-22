@@ -16,7 +16,6 @@ package org.allbinary.media.graphics.geography.map;
 import java.util.Hashtable;
 
 import org.allbinary.string.CommonStrings;
-
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.layer.AllBinaryTiledLayer;
 import org.allbinary.logic.string.StringMaker;
@@ -28,36 +27,33 @@ public class GeographicMapCellPositionFactory extends GeographicMapCellPositionB
     private final static Hashtable hashtable = new Hashtable();
     
   //For the Non Caching version - Turning off caching here requires turning of caching of paths as well
+    @Override
     public BasicGeographicMapCellPositionFactory getInstance(
             final BasicGeographicMap geographicMapInterface) 
         throws Exception
     {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
         final AllBinaryTiledLayer allBinaryTiledLayer = geographicMapInterface.getAllBinaryTiledLayer();
 
-        BasicGeographicMapCellPositionFactory geographicMapCellPositionFactory = 
-            (BasicGeographicMapCellPositionFactory) hashtable.get(allBinaryTiledLayer.getDataId());
+        Object geographicMapCellPositionFactoryCanBeNull = hashtable.get(allBinaryTiledLayer.getDataId());
 
-        if (geographicMapCellPositionFactory != null)
+        if (geographicMapCellPositionFactoryCanBeNull == null)
         {
-            final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(
-                new StringMaker().append("Reusing GeographicMapCellPositionFactory for TileLayer: ").append(allBinaryTiledLayer.getDataId()).toString(), 
-                this, commonStrings.GET_INSTANCE);
+            logUtil.put(new StringMaker().append("Creating GeographicMapCellPositionFactory for TileLayer: ").append(allBinaryTiledLayer.getDataId().intValue()).toString(), 
+                    this,commonStrings.GET_INSTANCE);
 
-            return geographicMapCellPositionFactory;
+            geographicMapCellPositionFactoryCanBeNull = new BasicGeographicMapCellPositionFactory(geographicMapInterface);
+
+            hashtable.put(allBinaryTiledLayer.getDataId(), geographicMapCellPositionFactoryCanBeNull);
+            return (BasicGeographicMapCellPositionFactory) geographicMapCellPositionFactoryCanBeNull;
         }
         else
         {
-            final CommonStrings commonStrings = CommonStrings.getInstance();
             logUtil.put(
-                new StringMaker().append("Creating GeographicMapCellPositionFactory for TileLayer: ").append(allBinaryTiledLayer.getDataId()).toString(), 
-                    this,commonStrings.GET_INSTANCE);
+                new StringMaker().append("Reusing GeographicMapCellPositionFactory for TileLayer: ").append(allBinaryTiledLayer.getDataId().intValue()).toString(), 
+                this, commonStrings.GET_INSTANCE);
 
-            geographicMapCellPositionFactory = new BasicGeographicMapCellPositionFactory(
-                geographicMapInterface);
-
-            hashtable.put(allBinaryTiledLayer.getDataId(), geographicMapCellPositionFactory);
-            return geographicMapCellPositionFactory;
+            return (BasicGeographicMapCellPositionFactory) geographicMapCellPositionFactoryCanBeNull;
         }
     }
 

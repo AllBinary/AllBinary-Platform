@@ -19,6 +19,7 @@ import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.racetrack.BasePathFindingInfoFactory;
 import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackRoadsGeographicMapCellHistoryFactory;
 import org.allbinary.media.graphics.geography.pathfinding.PathFindingInfo;
+import org.allbinary.media.graphics.geography.pathfinding.PathFindingNodeCostInfoFactoryBase;
 
 /**
  *
@@ -52,7 +53,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
         final CommonStrings commonStrings = CommonStrings.getInstance();
         PreLogUtil.put(commonStrings.START, this, commonStrings.GET_INSTANCE);
 
-        final PathFindingInfo pathFindingInfo = new PathFindingInfo(null);
+        final PathFindingInfo pathFindingInfo = new PathFindingInfo(new PathFindingNodeCostInfoFactoryBase());
 
         RaceTrackRoadsGeographicMapCellHistoryFactory.getInstance().init();
         

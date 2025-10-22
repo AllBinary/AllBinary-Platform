@@ -13,9 +13,7 @@
 */
 package org.allbinary.game.layer;
 
-import org.allbinary.game.layer.CollidableCompositeLayer;
 import org.allbinary.game.layer.pickup.PickedUpLayerInterface;
-
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.game.collision.CollidableInterfaceCompositeInterface;
 import org.allbinary.game.collision.CollisionType;
@@ -30,26 +28,26 @@ extends CollidableDestroyableDamageableBehavior
 
     protected long totalImpactVelocity = 0;
     
-    public CollidableVehicleBehavior(CollidableCompositeLayer ownerLayer, boolean collidable)
+    public CollidableVehicleBehavior(final CollidableCompositeLayer ownerLayer, final boolean collidable)
     {
         super(ownerLayer, collidable);
     }
 
-    // @Override
-    public void collide(CollidableCompositeLayer collidableInterfaceCompositeInterface)
+    @Override
+    public void collide(final CollidableCompositeLayer collidableInterfaceCompositeInterface)
     throws Exception
     {
         //Don't process non-weapon pickups if dead - Should even collisions occur if dead.
         //I would expectt just to set blank behaviors for both?
         //if (this.getHealthInterface().isAlive())
 
-        CollisionTypeFactory collisionTypeFactory = CollisionTypeFactory.getInstance();
-        CollisionType collisionType = collidableInterfaceCompositeInterface.getCollidableInferface().getCollisionTypeWith(this.ownerLayer);
+        final CollisionTypeFactory collisionTypeFactory = CollisionTypeFactory.getInstance();
+        final CollisionType collisionType = collidableInterfaceCompositeInterface.getCollidableInferface().getCollisionTypeWith(this.ownerLayer);
 
         if (collisionType == collisionTypeFactory.PICKUP)
         {
-            ((CollidableDestroyableDamageableLayer) this.ownerLayer).getPickupBehavior().doPickup(
-                    (PickedUpLayerInterface) collidableInterfaceCompositeInterface);
+            final CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer = ((CollidableDestroyableDamageableLayer) this.ownerLayer);
+            collidableDestroyableDamageableLayer.getPickupBehavior().doPickup((PickedUpLayerInterface) collidableInterfaceCompositeInterface);
         }
         else if (collisionType == collisionTypeFactory.COLLISION)
         {
@@ -61,8 +59,8 @@ extends CollidableDestroyableDamageableBehavior
         }
     }
 
-    // @Override
-    public void collide(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
+    @Override
+    public void collide(final CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
     {
         ForcedLogUtil.log("Don't Use Interface Version It Is Slower", this);
         //this.collide((VehicleLayer) collidableInterfaceCompositeInterface);
@@ -71,19 +69,19 @@ extends CollidableDestroyableDamageableBehavior
     private long halfImpactVelocityX;
     private long halfImpactVelocityY;
 
-    protected void collide(VehiclePropertiesCompositeInterface vehiclePropertiesCompositeInterface)
+    protected void collide(final VehiclePropertiesCompositeInterface vehiclePropertiesCompositeInterface)
     {
-        VehiclePropertiesCompositeInterface ownerVehicleLayerInterface = 
+        final VehiclePropertiesCompositeInterface ownerVehicleLayerInterface = 
             ((VehiclePropertiesCompositeInterface) this.ownerLayer);
         
-        VehicleProperties ownerVehicleProperties = ownerVehicleLayerInterface.getVehicleProperties();
-        VehicleProperties vehicleProperties = vehiclePropertiesCompositeInterface.getVehicleProperties();
+        final VehicleProperties ownerVehicleProperties = ownerVehicleLayerInterface.getVehicleProperties();
+        final VehicleProperties vehicleProperties = vehiclePropertiesCompositeInterface.getVehicleProperties();
 
         // Reverse Velocity of both vehicles on the side of the hit
-        long impactVelocityX = ownerVehicleProperties.getVelocityProperties().getVelocityXBasicDecimalP().getUnscaled() 
+        final long impactVelocityX = ownerVehicleProperties.getVelocityProperties().getVelocityXBasicDecimalP().getUnscaled() 
                 - vehicleProperties.getVelocityProperties().getVelocityXBasicDecimalP().getUnscaled();
 
-        long impactVelocityY = ownerVehicleProperties.getVelocityProperties().getVelocityYBasicDecimalP().getUnscaled()
+        final long impactVelocityY = ownerVehicleProperties.getVelocityProperties().getVelocityYBasicDecimalP().getUnscaled()
                 - vehicleProperties.getVelocityProperties().getVelocityYBasicDecimalP().getUnscaled();
 
         // long impactVelocityX =
@@ -92,7 +90,7 @@ extends CollidableDestroyableDamageableBehavior
         // this.getVehicleProperties().getVelocityProperties().getVelocityYBasicDecimalP().getUnscaled();
 
         // Basic bounce off
-        if (impactVelocityX != 0)
+        if (impactVelocityX != 0L)
         {
             // logUtil.put("Transfering X Velocity: " +
             // impactVelocityX, this, damageUtil.COLLIDE);
@@ -114,7 +112,7 @@ extends CollidableDestroyableDamageableBehavior
         }
 
         // Basic bounce off
-        if (impactVelocityY != 0)
+        if (impactVelocityY != 0L)
         {
             // logUtil.put("Transfering Y Velocity: " +
             // impactVelocityY, this, damageUtil.COLLIDE);
@@ -142,9 +140,9 @@ extends CollidableDestroyableDamageableBehavior
         totalImpactVelocity = impactVelocityX + impactVelocityY;
     }
 
-    private void collideFriction(VehiclePropertiesCompositeInterface vehiclePropertiesCompositeInterface)
+    private void collideFriction(final VehiclePropertiesCompositeInterface vehiclePropertiesCompositeInterface)
     {
-        VehicleFrictionProperties vehicleFrictionProperties = 
+        final VehicleFrictionProperties vehicleFrictionProperties = 
             vehiclePropertiesCompositeInterface.getVehicleProperties().getVehicleFrictionProperties();
 
         vehiclePropertiesCompositeInterface.getVehicleProperties()

@@ -16,6 +16,7 @@ package org.allbinary.media.graphics.geography.map.racetrack;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.layer.AllBinaryTiledLayer;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
@@ -61,6 +62,7 @@ public class BasePathFindingInfoFactory {
                    //" columns: ").append(this.mapTwoDArray.length).append(" rows: ").append(this.mapTwoDArray[0].length, this, commonStrings.CONSTRUCTOR);
             }
 
+            @Override
             public void visit(final AllBinaryTiledLayer tiledLayer, final GeographicMapCellPosition cellPosition) throws Exception
             {
                 final int row = cellPosition.getRow();
@@ -153,7 +155,7 @@ public class BasePathFindingInfoFactory {
         //startPathFindingNodeCostInfo.setTotalCost();
 
         pathFindingInfo.addStartPathFindingNode(
-            new PathFindingNode(null, startGeographicMapCellPosition));
+            new PathFindingNode(NullUtil.getInstance().NULL_OBJECT, startGeographicMapCellPosition));
            //startGeographicMapCellPosition, startPathFindingNodeCostInfo));
 
         // End Setup Start Node
@@ -174,7 +176,7 @@ public class BasePathFindingInfoFactory {
         //endPathFindingNodeCostInfo.setTotalCost();
 
         pathFindingInfo.addEndPathFindingNode(
-            new PathFindingNode(null, endGeographicMapCellPosition));
+            new PathFindingNode(NullUtil.getInstance().NULL_OBJECT, endGeographicMapCellPosition));
             //null, endGeographicMapCellPosition, endPathFindingNodeCostInfo));
 
         // End Setup Start Node

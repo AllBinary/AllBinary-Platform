@@ -17,7 +17,6 @@ import javax.microedition.media.Player;
 
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
-
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
@@ -57,9 +56,9 @@ public class Sounds
         for (int i = 0; i < soundInterfaceArray.length; i++)
         {
 
-            final Sound soundInterface = soundInterfaceArray[i];
+            Sound soundInterfaceCanBeNull = soundInterfaceArray[i];
 
-            if (soundInterface != null)
+            if (soundInterfaceCanBeNull != null)
             {
                 indexInteger = smallIntegerSingletonFactory.getInstance(i);
                 indexString = indexInteger.toString();
@@ -68,11 +67,11 @@ public class Sounds
                 stringBuffer.append(commonLabels.INDEX_LABEL);
                 stringBuffer.append(indexString);
                 stringBuffer.append(this.soundStrings.SOUND);
-                stringBuffer.append(soundInterface.getClass().getName());
+                stringBuffer.append(soundInterfaceCanBeNull.getClass().getName());
 
                 logUtil.put(stringBuffer.toString(), this, commonStrings.INIT);
                 
-                soundInterface.init();
+                soundInterfaceCanBeNull.init();
                 
                 progressCanvas.addPortion(100, new StringMaker().append(this.soundStrings.INIT_SOUND).append(indexString).toString());
             }

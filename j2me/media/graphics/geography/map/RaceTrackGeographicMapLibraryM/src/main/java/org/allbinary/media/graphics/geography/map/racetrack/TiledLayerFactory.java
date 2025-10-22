@@ -23,18 +23,20 @@ public class TiledLayerFactory {
 
     public TiledLayer getInstance(RaceTrackData raceTrackData)
     {
+        final int[][] mapArray = raceTrackData.getMapArray();
         return new TiledLayer(
-                raceTrackData.getMapArray()[0].length,
-                raceTrackData.getMapArray().length,
+                mapArray[0].length,
+                mapArray.length,
                 raceTrackData.getTileSetImage(),
                 raceTrackData.getCellWidth(), raceTrackData.getCellHeight());
     }
 
     public TiledLayer getMiniInstance(RaceTrackData raceTrackData)
     {
+        final int[][] mapArray = raceTrackData.getMapArray();
         return new TiledLayer(
-                raceTrackData.getMapArray()[0].length,
-                raceTrackData.getMapArray().length,
+                mapArray[0].length,
+                mapArray.length,
                 raceTrackData.getMiniTileSetImage(),
                 raceTrackData.getMiniCellWidth(),
                 raceTrackData.getMiniCellHeight());

@@ -25,8 +25,8 @@ public class RaceTrackGeographicMapCellTypeFactory extends GeographicMapCellType
         return instance;
     }
 
-    public GeographicMapCellType EMPTY_CELL_TYPE;
-    public GeographicMapCellType EASY_CELL_TYPE;
+    public GeographicMapCellType EMPTY_CELL_TYPE = GeographicMapCellType.NULL_GEOGRAPHIC_MAP_CELL_TYPE;
+    public GeographicMapCellType EASY_CELL_TYPE = GeographicMapCellType.NULL_GEOGRAPHIC_MAP_CELL_TYPE;
     //new GeographicMapCellType(SmallIntegerSingletonFactory.getInstance(0));
     
     public final RaceTrackGeographicMapCellType BOTTOM_LEFT_TURN_ROAD_CELL_TYPE;
@@ -40,7 +40,7 @@ public class RaceTrackGeographicMapCellTypeFactory extends GeographicMapCellType
 
     public final RaceTrackGeographicMapCellType DEFAULT_FINISH_LINE_ROAD_CELL_TYPE;
 
-    public RaceTrackGeographicMapCellType FINISH_LINE_ROAD_CELL_TYPE;
+    public GeographicMapCellType FINISH_LINE_ROAD_CELL_TYPE = GeographicMapCellType.NULL_GEOGRAPHIC_MAP_CELL_TYPE;
 
     public RaceTrackGeographicMapCellTypeFactory()
     {
@@ -57,24 +57,27 @@ public class RaceTrackGeographicMapCellTypeFactory extends GeographicMapCellType
         DEFAULT_FINISH_LINE_ROAD_CELL_TYPE = raceTrackGeographicMapCellTypes.DEFAULT_FINISH_LINE_ROAD_CELL_TYPE;
     }
 
+    @Override
     public int getStartType() {
         return this.START_LINE_ROAD_CELL_TYPE.getType();
     }
 
+    @Override
     public int getEndType() {
         return this.FINISH_LINE_ROAD_CELL_TYPE.getType();
     }
-        
+
+    @Override
     public int getEmptyType() {
         return this.EMPTY_CELL_TYPE.getType();
     }
 
+    @Override
     public boolean isPath(final GeographicMapCellType cellType)
     {
         // if(i_TileType == ROAD_CELL_TYPE_1 ||
         // i_TileType == FINISH_LINE_ROAD_CELL_TYPE)
-        if (cellType != this.EMPTY_CELL_TYPE
-                && cellType != this.EASY_CELL_TYPE)
+        if (cellType != this.EMPTY_CELL_TYPE && cellType != this.EASY_CELL_TYPE)
         {
             return true;
         }

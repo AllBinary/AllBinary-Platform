@@ -17,6 +17,7 @@ import org.allbinary.game.physics.velocity.VelocityProperties;
 
 public class VehicleProperties
 {
+    
    private final VelocityProperties velocityProperties;
    private VehicleFrictionProperties vehicleFrictionProperties;
    //private final int TAIL_SPIN_SPEED = 10 * 1000 * 1000;
@@ -25,7 +26,7 @@ public class VehicleProperties
            VehicleFrictionProperties vehicleFrictionProperties)
    {
       this.velocityProperties = velocityProperties;
-      this.setVehicleFrictionProperties(vehicleFrictionProperties);
+      this.vehicleFrictionProperties = vehicleFrictionProperties;
    }
 
    public VehicleFrictionProperties getVehicleFrictionProperties()

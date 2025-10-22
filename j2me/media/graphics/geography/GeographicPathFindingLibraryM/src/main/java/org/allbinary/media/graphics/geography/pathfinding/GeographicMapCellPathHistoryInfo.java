@@ -14,6 +14,7 @@
 package org.allbinary.media.graphics.geography.pathfinding;
 
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
+import org.allbinary.media.graphics.geography.map.SimpleGeographicMapCellPositionFactory;
 
 /**
  *
@@ -21,11 +22,11 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
  */
 public class GeographicMapCellPathHistoryInfo {
 
-   private GeographicMapCellPosition previousGeographicMapCellPosition;
-   private GeographicMapCellPosition previousOnPathGeographicMapCellPosition;
-   private GeographicMapCellPosition nextUnvisitedOnPathGeographicMapCellPosition;
-   private GeographicMapCellPosition nextOnPathGeographicMapCellPosition;
-   private GeographicMapCellPosition nextChosenOnPathGeographicMapCellPosition;
+   private GeographicMapCellPosition previousGeographicMapCellPosition = SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
+   private GeographicMapCellPosition previousOnPathGeographicMapCellPosition = SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
+   private GeographicMapCellPosition nextUnvisitedOnPathGeographicMapCellPosition = SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
+   private GeographicMapCellPosition nextOnPathGeographicMapCellPosition = SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
+   private GeographicMapCellPosition nextChosenOnPathGeographicMapCellPosition = SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
 
    public GeographicMapCellPosition getPreviousGeographicMapCellPosition()
    {

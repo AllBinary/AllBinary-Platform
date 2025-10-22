@@ -23,8 +23,8 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellPositionBaseF
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPositionFactoryInterface;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellTypeFactory;
 
-public class BaseRaceTrackGeographicMap extends BasicGeographicMap implements
-   RaceTrackGeographicMapInterface
+public class BaseRaceTrackGeographicMap extends BasicGeographicMap 
+    implements RaceTrackGeographicMapInterface
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
@@ -55,9 +55,9 @@ public class BaseRaceTrackGeographicMap extends BasicGeographicMap implements
            geographicMapCellPositionBaseFactory,
            geographicMapCellTypeFactory);
 
-        this.setRaceTrackInfo(raceTrackInfo);
+        this.raceTrackInfo = raceTrackInfo;
 
-        this.setRaceTrackData(raceTrackData);
+        this.raceTrackData = raceTrackData;
 
         this.miniGeographicMap = miniGeographicMap;
 
@@ -84,11 +84,13 @@ public class BaseRaceTrackGeographicMap extends BasicGeographicMap implements
         }
     }
 
+    @Override
     public RaceTrackInfo getRaceTrackInfo()
     {
         return raceTrackInfo;
     }
 
+    @Override
     public void setRaceTrackInfo(RaceTrackInfo aRaceTrackInfo)
     {
         raceTrackInfo = aRaceTrackInfo;
@@ -104,11 +106,13 @@ public class BaseRaceTrackGeographicMap extends BasicGeographicMap implements
         return miniGeographicMap;
     }
 
+    @Override
     public RaceTrackData getRaceTrackData()
     {
         return raceTrackData;
     }
 
+    @Override
     public void setRaceTrackData(RaceTrackData raceTrackData)
     {
         this.raceTrackData = raceTrackData;

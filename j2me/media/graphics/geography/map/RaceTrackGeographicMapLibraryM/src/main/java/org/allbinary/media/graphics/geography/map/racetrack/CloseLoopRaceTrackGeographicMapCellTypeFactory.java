@@ -13,10 +13,6 @@
 */
 package org.allbinary.media.graphics.geography.map.racetrack;
 
-import org.allbinary.logic.math.SmallIntegerSingletonFactory;
-import org.allbinary.string.CommonStrings;
-import org.allbinary.media.graphics.geography.pathfinding.PathFindingNodeCostInfoData;
-
 public class CloseLoopRaceTrackGeographicMapCellTypeFactory extends RaceTrackGeographicMapCellTypeFactory
 {
     private static final CloseLoopRaceTrackGeographicMapCellTypeFactory instance = new CloseLoopRaceTrackGeographicMapCellTypeFactory();

@@ -16,6 +16,5 @@ package org.allbinary.ai;
 
 public interface ArtificialIntelligenceFactoryInterface
 {
-    ArtificialIntelligence getInstance(Object playerLayer) 
-        throws Exception;
+    ArtificialIntelligence getInstance(Object object) throws Exception;
 }

@@ -31,20 +31,37 @@ public class BasicAIProcessor
    private GeographicMapCellHistory geographicMapCellHistory;
    private BasicArrayList geographicMapCellPositionBasicArrayList;
    
-   private GeographicMapCellPathHistoryInfo geographicMapCellPathHistoryInfo = null;
+   private GeographicMapCellPathHistoryInfo geographicMapCellPathHistoryInfo;
    
    private BasicDirectionAIHelper basicAI;
    //private int numberOfInterationsOffPath;
 
    //private int MAX_SKIP;
-   public BasicAIProcessor(String name, 
-      GeographicMapCellHistory geographicMapCellHistory,
-      BasicArrayList chosenPathList,
-      AngleInfo angleInfo, int seed)
+   
+   public BasicAIProcessor(final String name, 
+      final GeographicMapCellHistory geographicMapCellHistory,
+      final BasicArrayList chosenPathList,
+      final AngleInfo angleInfo, final int seed)
+       throws Exception
+   {
+       this(name, geographicMapCellHistory, new GeographicMapCellPathHistoryInfo(), chosenPathList, angleInfo, seed);
+   }
+
+   public BasicAIProcessor(final String name, 
+      final GeographicMapCellHistory geographicMapCellHistory,
+      final GeographicMapCellPathHistoryInfo geographicMapCellPathHistoryInfo, 
+      final BasicArrayList chosenPathList,
+      final AngleInfo angleInfo, final int seed)
       throws Exception
    {
-      this.setName(name);
+      //For Kotlin - START
+      this.name = name;
+      this.geographicMapCellHistory = geographicMapCellHistory;
+      this.geographicMapCellPositionBasicArrayList = chosenPathList;
+      this.geographicMapCellPathHistoryInfo = geographicMapCellPathHistoryInfo;
+      //For Kotlin - END
 
+      this.setName(name);
       this.setNewPath(geographicMapCellHistory, chosenPathList);
 
       this.basicAI = new BasicDirectionAIHelper(this.getName(), angleInfo);

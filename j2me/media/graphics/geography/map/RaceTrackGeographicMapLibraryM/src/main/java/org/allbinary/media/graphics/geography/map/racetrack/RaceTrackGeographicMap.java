@@ -13,8 +13,6 @@
  */
 package org.allbinary.media.graphics.geography.map.racetrack;
 
-
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPositionBaseFactory;
@@ -22,8 +20,6 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellPositionFacto
 import org.allbinary.media.graphics.geography.map.GeographicMapCellTypeFactory;
 
 public class RaceTrackGeographicMap extends BaseRaceTrackGeographicMap {
-    protected final LogUtil logUtil = LogUtil.getInstance();
-
 
     private final CustomMapGeneratorBase customMapGenerator;
 
@@ -71,30 +67,32 @@ public class RaceTrackGeographicMap extends BaseRaceTrackGeographicMap {
     //This should never happen remove when bug is found
     public boolean isValid(final GeographicMapCellPosition geographicMapCellPosition)
         throws Exception {
-        if (geographicMapCellPosition.getColumn() >= this.customMapGenerator.getCustomMapArray()[0].length) {
+        
+        final int[][] customMapArray = this.customMapGenerator.getCustomMapArray();
+        if (geographicMapCellPosition.getColumn() >= customMapArray[0].length) {
             final StringMaker stringBuffer = new StringMaker();
             stringBuffer.append("Column: ");
             stringBuffer.append(geographicMapCellPosition.getColumn());
             stringBuffer.append(" not in: ");
-            stringBuffer.append(this.customMapGenerator.getCustomMapArray()[0].length);
+            stringBuffer.append(customMapArray[0].length);
 
             logUtil.put(stringBuffer.toString(), this, commonStrings.IS_VALID);
 
-            if (geographicMapCellPosition.getColumn() == this.customMapGenerator.getCustomMapArray()[0].length) {
+            if (geographicMapCellPosition.getColumn() == customMapArray[0].length) {
                 return true;
             } else {
                 return false;
             }
-        } else if (geographicMapCellPosition.getRow() > this.customMapGenerator.getCustomMapArray().length) {
+        } else if (geographicMapCellPosition.getRow() > customMapArray.length) {
             final StringMaker stringBuffer = new StringMaker();
             stringBuffer.append("Row: ");
             stringBuffer.append(geographicMapCellPosition.getRow());
             stringBuffer.append(" not in: ");
-            stringBuffer.append(this.customMapGenerator.getCustomMapArray().length);
+            stringBuffer.append(customMapArray.length);
 
             logUtil.put(stringBuffer.toString(), this, commonStrings.IS_VALID);
 
-            if (geographicMapCellPosition.getRow() == this.customMapGenerator.getCustomMapArray().length) {
+            if (geographicMapCellPosition.getRow() == customMapArray.length) {
                 return true;
             } else {
                 return false;

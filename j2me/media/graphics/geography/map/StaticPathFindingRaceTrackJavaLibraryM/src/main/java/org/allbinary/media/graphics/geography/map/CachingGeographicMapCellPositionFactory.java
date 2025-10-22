@@ -14,6 +14,7 @@
 package org.allbinary.media.graphics.geography.map;
 
 import java.util.Hashtable;
+import org.allbinary.graphics.CellPosition;
 
 public class CachingGeographicMapCellPositionFactory extends
         BasicGeographicMapCellPositionFactory
@@ -24,12 +25,13 @@ public class CachingGeographicMapCellPositionFactory extends
         super(geographicMapInterface);
     }
 
+    @Override
     public GeographicMapCellPosition createInstance(final int i_column, final int i_row,
             final int width, final int height) throws Exception
     {
         final Hashtable hashtable = GeographicMapCellPositionFactory.getHashtable();
         
-        final String cellPositionKey = GeographicMapCellPosition.toString(i_column, i_row);
+        final String cellPositionKey = CellPosition.toString(i_column, i_row);
 
         Object cellPositionCanBeNull =  hashtable.get(cellPositionKey);
 

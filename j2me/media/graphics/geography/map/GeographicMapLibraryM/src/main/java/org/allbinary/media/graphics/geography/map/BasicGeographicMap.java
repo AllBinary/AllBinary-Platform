@@ -14,8 +14,6 @@
 package org.allbinary.media.graphics.geography.map;
 
 import org.allbinary.game.layer.AllBinaryTiledLayer;
-import org.allbinary.graphics.CellPosition;
-import org.allbinary.graphics.CellPositionFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.layer.Layer;
 import org.allbinary.logic.math.MathUtil;
@@ -25,6 +23,8 @@ public class BasicGeographicMap
     extends SimpleGeographicMap
     implements GeographicMapInterface {
 
+    public static final BasicGeographicMap[] NULL_BASIC_GEOGRAPHIC_MAP_ARRAY = new BasicGeographicMap[0];
+        
     private final MathUtil mathUtil = MathUtil.getInstance();
     
     private final BasicGeographicMapCellPositionFactory geographicMapCellPositionFactory;
@@ -42,8 +42,8 @@ public class BasicGeographicMap
 
         this.geographicMapCellPositionFactoryInterface = geographicMapCellPositionFactoryInterface;
 
-        this.geographicMapCellPositionFactory
-            = geographicMapCellPositionBaseFactory.getInstance(this);
+        this.geographicMapCellPositionFactory = 
+            geographicMapCellPositionBaseFactory.getInstance(this);
 
         this.geographicMapCellTypeFactory = geographicMapCellTypeFactory;
     }

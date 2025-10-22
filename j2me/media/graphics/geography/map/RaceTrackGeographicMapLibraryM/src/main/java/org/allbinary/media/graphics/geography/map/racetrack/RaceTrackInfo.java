@@ -30,21 +30,21 @@ public class RaceTrackInfo
    private int totalLaps;
 
    public RaceTrackInfo(
-      Integer id, String name, RaceTrackFrictionProperties raceTrackFrictionProperties,
-      BasicColor foregroundBasicColor, BasicColor backgroundBasicColor,
-      int qualifyTime, int worstContinuePosition, int totalLaps)
+      final Integer id, final String name, final RaceTrackFrictionProperties raceTrackFrictionProperties,
+      final BasicColor foregroundBasicColor, final BasicColor backgroundBasicColor,
+      final int qualifyTime, final int worstContinuePosition, final int totalLaps)
    {
-      this.setId(id);
-      this.setName(name);
+      this.id = id;
+      this.name = name;
       
-      this.setRaceTrackFrictionProperties(raceTrackFrictionProperties);
+      this.raceTrackFrictionProperties = raceTrackFrictionProperties;
 
-      this.setBackgroundBasicColor(backgroundBasicColor);
-      this.setForegroundBasicColor(foregroundBasicColor);
+      this.backgroundBasicColor = backgroundBasicColor;
+      this.foregroundBasicColor = foregroundBasicColor;
       
-      this.setQualifyTime(qualifyTime);
-      this.setWorstContinuePosition(worstContinuePosition);
-      this.setTotalLaps(totalLaps);
+      this.qualifyTime = qualifyTime;
+      this.worstContinuePosition = worstContinuePosition;
+      this.totalLaps = totalLaps;
    }
 
    public Integer getId()

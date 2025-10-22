@@ -23,13 +23,12 @@ import org.allbinary.math.AngleInfo;
 public class BasicDirectionAIHelper
 {
    private String name;
-   
    private AngleInfo angleInfo;
    
-   public BasicDirectionAIHelper(String name, AngleInfo angleInfo)
+   public BasicDirectionAIHelper(final String name, final AngleInfo angleInfo)
    {
-      this.setName(name);
-      this.setAngleInfo(angleInfo);
+      this.name = name;
+      this.angleInfo = angleInfo;
    }
    
    private int turnAI(int frame)
@@ -38,11 +37,11 @@ public class BasicDirectionAIHelper
       
       //Find out it left or right is closest
       //0-360 - 0-360 = -360-360
-      int directionAngle = this.angleInfo.getAngleIncrementInfo().getFrameAngle(frame);
+      final int directionAngle = this.angleInfo.getAngleIncrementInfo().getFrameAngle(frame);
       
-      short angle = this.angleInfo.getAngle();
+      final short angle = this.angleInfo.getAngle();
       
-      int degrees = Math.abs(directionAngle - angle);
+      final int degrees = Math.abs(directionAngle - angle);
 
       //logUtil.put(this.getName() + " Direction Angle: " + directionAngle + " Angle: " + this.getAngleInfoP().getAngle() + " degrees: " + degrees, this, "turnAI");
       
@@ -73,12 +72,13 @@ public class BasicDirectionAIHelper
       return keyDirection;
    }
    
-   private int getAIKeyPressed(Integer frame)
+   private int getAIKeyPressed(final Integer frame)
    {
       //logUtil.put("this.getAngle(): " + this.getAngleInfoP().getAngle(), this, "getAIKeyPressed");
       //logUtil.put("this.getFrameAngle(frame): " + this.getAngleInfoP().getFrameAngle(frame), this, "getAIKeyPressed");
       
-      if(this.angleInfo.getAngle() != this.angleInfo.getAngleIncrementInfo().getFrameAngle(frame.intValue()))
+      final short angle = (short) this.angleInfo.getAngleIncrementInfo().getFrameAngle(frame.intValue());
+      if(this.angleInfo.getAngle() != angle)
       {
           //PreLogUtil.put(this.angleInfo.getAngle() + " != " + this.angleInfo.getAngleIncrementInfo().getFrameAngle(frame.intValue()), this, "getAIKeyPressed");
 
@@ -91,15 +91,15 @@ public class BasicDirectionAIHelper
       }
    }
    
-   public int getAIKeyPressedFromDirection(Direction geographicMapDirectionData)
+   public int getAIKeyPressedFromDirection(final Direction geographicMapDirectionData)
    {
       int keyDirection = -1;
 
       //logUtil.put(this.getName() + " geographicMapDirectionData: " + geographicMapDirectionData, this, "getAIKeyPressedFromDirection");
       
-      AngleIncrementInfo angleIncrementInfo = this.angleInfo.getAngleIncrementInfo();
+      final AngleIncrementInfo angleIncrementInfo = this.angleInfo.getAngleIncrementInfo();
       
-      DirectionFactory directionFactory = DirectionFactory.getInstance();
+      final DirectionFactory directionFactory = DirectionFactory.getInstance();
       
       if(geographicMapDirectionData == directionFactory.DOWN)
       {
@@ -128,19 +128,19 @@ public class BasicDirectionAIHelper
       return angleInfo;
    }
 
-   protected void setAngleInfo(AngleInfo angleInfo)
-   {
-      this.angleInfo = angleInfo;
-   }
+//   protected void setAngleInfo(AngleInfo angleInfo)
+//   {
+//      this.angleInfo = angleInfo;
+//   }
    
    public String getName()
    {
       return name;
    }
 
-   public void setName(String name)
-   {
-      this.name = name;
-   }
+//   public void setName(String name)
+//   {
+//      this.name = name;
+//   }
    
 }

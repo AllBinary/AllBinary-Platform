@@ -16,11 +16,14 @@ package org.allbinary.media.graphics.geography.pathfinding;
 import java.util.Hashtable;
 
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListUtil;
 
 public class PathCacheFactory
 {
    private static PathCacheFactory pathFactory = new PathCacheFactory();
-   
+
+   private final BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();
+
    private Hashtable hashtable = new Hashtable();
 
    private PathCacheFactory()
@@ -37,12 +40,12 @@ public class PathCacheFactory
       return this.hashtable.size();
    }
    
-   public void add(Integer pathId, BasicArrayList list)
+   public void add(final Integer pathId, final BasicArrayList list)
    {
       this.hashtable.put(pathId, list);
    }
 
-   public void remove(Integer pathId)
+   public void remove(final Integer pathId)
    {
       this.hashtable.remove(pathId);
    }
@@ -57,11 +60,15 @@ public class PathCacheFactory
        }
    }
 
-   public BasicArrayList getInstance(
-      Integer pathIdInteger)
+   public BasicArrayList getInstance(final Integer pathIdInteger)
       throws Exception
    {
-       return (BasicArrayList) 
-          this.hashtable.get(pathIdInteger);
+       Object listCanBeNull = this.hashtable.get(pathIdInteger);
+       
+       if(listCanBeNull == null) {
+           listCanBeNull = basicArrayListUtil.getImmutableInstance();
+       }
+
+       return (BasicArrayList) listCanBeNull;
    }
 }

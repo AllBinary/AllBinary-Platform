@@ -13,6 +13,8 @@
  */
 package org.allbinary.media.graphics.geography.map.racetrack;
 
+import org.allbinary.logic.NullUtil;
+
 /**
  *
  * @author User
@@ -24,7 +26,7 @@ public class CustomMapGeneratorBase {
     }
 
     public int[][] getCustomMapArray() {
-        return null;
+        return NullUtil.getInstance().NULL_INT_ARRAY_ARRAY;
     }
 
     public int getCustomType(final int column, final int row, final int currentType) throws Exception {

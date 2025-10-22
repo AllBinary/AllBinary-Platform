@@ -32,7 +32,7 @@ import org.allbinary.logic.math.BasicDecimal;
 
 public class GeographicMapCellHistory
 {
-    public static final GeographicMapCellHistory[] NULL_GEOGRPAHIC_MAP_HISTORY = new GeographicMapCellHistory[0];
+    public static final GeographicMapCellHistory[] NULL_GEOGRPAHIC_MAP_HISTORY_ARRAY = new GeographicMapCellHistory[0];
 
     protected final LogUtil logUtil = LogUtil.getInstance();
 

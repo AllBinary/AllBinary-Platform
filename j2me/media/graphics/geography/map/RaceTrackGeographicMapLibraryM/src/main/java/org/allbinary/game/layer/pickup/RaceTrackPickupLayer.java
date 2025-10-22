@@ -43,6 +43,7 @@ public class RaceTrackPickupLayer extends PickupLayer
       viewPositionEventHandler.addListener((AllBinaryLayer) this);
    }
    
+   @Override
    public void setDestroyed(boolean destroyed)
    {
        super.setDestroyed(destroyed);

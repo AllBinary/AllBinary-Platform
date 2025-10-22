@@ -17,7 +17,7 @@ import org.allbinary.util.BasicArrayList;
 
 public class PathFindingInfo implements PathFindingInfoInterface
 {
-    private GeographicPathFinderBase pathFinder;
+    private GeographicPathFinderBase pathFinder = GeographicPathFinderBase.NULL_GEOGRAPHIC_PATH_FINDER_BASE;
     private final BasicArrayList startPathFindingNodeList;
     private final BasicArrayList endPathFindingNodeList;
     
@@ -33,16 +33,19 @@ public class PathFindingInfo implements PathFindingInfoInterface
        this.endPathFindingNodeList = new BasicArrayList(1);
     }
 
+    @Override
     public BasicArrayList getStartPathFindingNodeList()
     {
         return this.startPathFindingNodeList;
     }
     
+    @Override
     public BasicArrayList getEndPathFindingNodeList()
     {
         return this.endPathFindingNodeList;
     }
 
+    @Override
     public GeographicPathFinderBase getPathFinder()
     {        
         return this.pathFinder;

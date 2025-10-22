@@ -19,6 +19,7 @@ import org.allbinary.layer.AllBinaryLayerFactoryInterface;
 public class RaceTrackPickupLayerFactory 
    implements AllBinaryLayerFactoryInterface
 {
+    @Override
    public AllBinaryLayer getInstance() 
       throws Exception
    {

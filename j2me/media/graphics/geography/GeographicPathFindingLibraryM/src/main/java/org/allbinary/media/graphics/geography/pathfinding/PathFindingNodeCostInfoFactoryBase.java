@@ -23,6 +23,7 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 public class PathFindingNodeCostInfoFactoryBase
     implements PathFindingNodeCostInfoFactoryBaseInterface {
 
+    @Override
     public void create(
         final BasicGeographicMap geographicMapInterface,
         final GeographicMapCellPosition comingFromGeographicMapCellPosition,
@@ -32,9 +33,10 @@ public class PathFindingNodeCostInfoFactoryBase
         final long costFromStart,
         final long costToEnd)
         throws Exception {
-
+        throw new RuntimeException();
     }
 
+    @Override
     public long getTotalCost(
         final BasicGeographicMap geographicMapInterface,
         final GeographicMapCellPosition comingFromGeographicMapCellPosition,

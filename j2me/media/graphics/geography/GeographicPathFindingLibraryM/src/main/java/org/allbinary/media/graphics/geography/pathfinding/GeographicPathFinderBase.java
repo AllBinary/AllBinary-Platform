@@ -22,6 +22,8 @@ import org.allbinary.util.BasicArrayList;
  */
 public class GeographicPathFinderBase {
    
+    public static final GeographicPathFinderBase NULL_GEOGRAPHIC_PATH_FINDER_BASE = new GeographicPathFinderBase();
+    
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
    public BasicArrayList search(

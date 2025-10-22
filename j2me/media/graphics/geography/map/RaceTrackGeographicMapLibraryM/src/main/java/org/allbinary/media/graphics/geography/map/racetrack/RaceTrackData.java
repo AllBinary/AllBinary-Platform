@@ -14,28 +14,30 @@
 package org.allbinary.media.graphics.geography.map.racetrack;
 
 import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.NullCanvas;
 
 import org.allbinary.graphics.CellPosition;
+import org.allbinary.logic.NullUtil;
 
 public class RaceTrackData
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private Image tileSetImage;
-    private Image miniTileSetImage;
-    private int cellWidth;
-    private int cellHeight;
-    private int miniCellWidth;
-    private int miniCellHeight;
-    private int[][] mapArray;
-    private int[] cellTypeIdToGeographicMapCellTypeArray;
+    private Image tileSetImage = NullCanvas.NULL_IMAGE;
+    private Image miniTileSetImage = NullCanvas.NULL_IMAGE;
+    private int cellWidth = 0;
+    private int cellHeight = 0;
+    private int miniCellWidth = 0;
+    private int miniCellHeight = 0;
+    private int[][] mapArray = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY;
+    private int[] cellTypeIdToGeographicMapCellTypeArray = NullUtil.getInstance().NULL_INT_ARRAY;
     private CellPosition[] NO_OVER_PASSES_ARRAY = new CellPosition[0];
     private CellPosition[] overPassGeographicMapCellPositionArray = NO_OVER_PASSES_ARRAY;
     private Integer id;
 
     public RaceTrackData(final Integer id, final int cellWidth, final int cellHeight, final int miniCellWidth, final int miniCellHeight)
     {
-        this(id, cellWidth, cellHeight, miniCellWidth, miniCellHeight, null, null);
+        this(id, cellWidth, cellHeight, miniCellWidth, miniCellHeight, NullUtil.getInstance().NULL_INT_ARRAY, NullUtil.getInstance().NULL_INT_ARRAY_ARRAY);
     }
 
     public RaceTrackData(final Integer id, final int cellWidth, final int cellHeight, final int miniCellWidth, final int miniCellHeight, final int[] cellTypeIdToGeographicMapCellTypeArray, final int[][] mapArray)

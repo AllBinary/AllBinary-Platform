@@ -16,8 +16,7 @@ package org.allbinary.game.layer.pickup;
 import org.allbinary.animation.Animation;
 import org.allbinary.layer.AllBinaryLayer;
 
-public class PickedUpLayerInterfaceFactory implements
-        PickedUpLayerInterfaceFactoryInterface {
+public class PickedUpLayerInterfaceFactory extends PickedUpLayerInterfaceFactoryBase {
 
     private final PickedUpLayerType pickedUpLayerType;
     private final IconLayer iconLayer;

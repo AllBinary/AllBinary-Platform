@@ -13,8 +13,6 @@
 */
 package org.allbinary.media.graphics.geography.map.racetrack;
 
-import org.allbinary.media.graphics.geography.map.GeographicMapCellType;
-
 public class RaceTrackGeographicMapCellTypes
 {
     private static final RaceTrackGeographicMapCellTypes instance = new RaceTrackGeographicMapCellTypes();

@@ -59,6 +59,7 @@ public class RaceTrackRandomDropCellPositionGenerator
     {
     }
 
+    @Override
     public void update(AllBinaryGameLayerManager allBinaryGameLayerManager,
             BasicGeographicMap geographicMapInterface) throws Exception
     {
@@ -70,6 +71,7 @@ public class RaceTrackRandomDropCellPositionGenerator
         this.cellHeight = tiledLayer.getCellHeight() / this.cellsPerRowOrColumn;
     }
 
+    @Override
     protected void drop(AllBinaryLayerManager allBinaryLayerManager, int index)
             throws Exception
     {

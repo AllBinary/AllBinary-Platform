@@ -22,10 +22,13 @@ import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellHistory;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellTypeFactory;
 import org.allbinary.media.graphics.geography.map.drop.BaseDropCellPositionGenerator;
 import org.allbinary.media.graphics.geography.map.racetrack.BaseRaceTrackGeographicMap;
+import org.allbinary.media.graphics.geography.map.racetrack.NullRaceTrackGeographicMap;
 import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackGeographicMapCellType;
 import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackGeographicMapCellTypeFactory;
+import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackGeographicMapInterface;
 import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackRoadsGeographicMapCellHistoryFactory;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 import org.allbinary.time.TimeDelayHelper;
@@ -43,8 +46,8 @@ public class RaceTrackDropCellPositionGenerator
     // private BasicArrayList typeList = new BasicArrayList();
     private final TimeDelayHelper timeDelayHelper;
     private final int STRAIGHTAWAY = 4;
-    protected BaseRaceTrackGeographicMap raceTrackGeographicMap;
-    protected RaceTrackGeographicMapCellTypeFactory raceTrackGeographicMapCellTypeFactory;
+    protected RaceTrackGeographicMapInterface raceTrackGeographicMap = NullRaceTrackGeographicMap.NULL_RACE_TRACK_GEOGRAPHIC_MAP;
+    protected GeographicMapCellTypeFactory raceTrackGeographicMapCellTypeFactory = GeographicMapCellTypeFactory.getInstance();
 
     protected RaceTrackDropCellPositionGenerator()
     {
@@ -58,15 +61,15 @@ public class RaceTrackDropCellPositionGenerator
     }
 
     //isStraightAwayRoad
+    @Override
     public boolean isDropAllowedAt(
             final GeographicMapCellPosition geographicMapCellPosition)
             throws Exception
         {            
-            RaceTrackGeographicMapCellType raceTrackGeographicMapCellType =
-                (RaceTrackGeographicMapCellType)
-                raceTrackGeographicMap.getCellTypeAt(
-                geographicMapCellPosition);
+            final RaceTrackGeographicMapCellType raceTrackGeographicMapCellType =
+                (RaceTrackGeographicMapCellType) raceTrackGeographicMap.getCellTypeAt(geographicMapCellPosition);
 
+            final RaceTrackGeographicMapCellTypeFactory raceTrackGeographicMapCellTypeFactory = (RaceTrackGeographicMapCellTypeFactory) this.raceTrackGeographicMapCellTypeFactory;
             if (raceTrackGeographicMapCellType == raceTrackGeographicMapCellTypeFactory.HORIZONTAL_STRAIGHT_ROAD_CELL_TYPE ||
                 raceTrackGeographicMapCellType == raceTrackGeographicMapCellTypeFactory.VERTICAL_STRAIGHT_ROAD_CELL_TYPE)
             {
@@ -78,6 +81,7 @@ public class RaceTrackDropCellPositionGenerator
     /* (non-Javadoc)
      * @see allbinary.media.graphics.geography.map.racetrack.drop.DropCellPositionGeneratorInterface#update(allbinary.game.layer.AllBinaryGameLayerManager, allbinary.media.graphics.geography.map.racetrack.BaseRaceTrackGeographicMap)
      */
+    @Override
     public void update(final AllBinaryGameLayerManager allBinaryGameLayerManager,
             final BasicGeographicMap geographicMapInterface) throws Exception
     {
@@ -85,22 +89,23 @@ public class RaceTrackDropCellPositionGenerator
         
         this.init();
 
-        this.raceTrackGeographicMap = (BaseRaceTrackGeographicMap) geographicMapInterface;
-        this.raceTrackGeographicMapCellTypeFactory = 
-                (RaceTrackGeographicMapCellTypeFactory) this.raceTrackGeographicMap.getGeographicMapCellTypeFactory();
+        final BaseRaceTrackGeographicMap baseRaceTrackGeographicMap = (BaseRaceTrackGeographicMap) geographicMapInterface;
+        this.raceTrackGeographicMap = baseRaceTrackGeographicMap;
+        this.raceTrackGeographicMapCellTypeFactory = (RaceTrackGeographicMapCellTypeFactory) 
+            baseRaceTrackGeographicMap.getGeographicMapCellTypeFactory();
 
 
         //AllBinaryTiledLayer tiledLayer =
         //raceTrackGeographicMap.getAllBinaryTiledLayer();
 
-        GeographicMapCellHistory roadGeographicMapCellHistory =
+        final GeographicMapCellHistory roadGeographicMapCellHistory =
             RaceTrackRoadsGeographicMapCellHistoryFactory.getInstance();
 
-        BasicArrayList trackedList = roadGeographicMapCellHistory.getTracked();
+        final BasicArrayList trackedList = roadGeographicMapCellHistory.getTracked();
 
         GeographicMapCellPosition geographicMapCellPosition;
         
-        int lastIndex = trackedList.size() - 1;
+        final int lastIndex = trackedList.size() - 1;
         
         int total;
         int ahead;
@@ -154,7 +159,8 @@ public class RaceTrackDropCellPositionGenerator
     /* (non-Javadoc)
      * @see allbinary.media.graphics.geography.map.racetrack.drop.DropCellPositionGeneratorInterface#processTick(allbinary.layer.AllBinaryLayerManager)
      */
-    public void processTick(AllBinaryLayerManager allBinaryLayerManager)
+    @Override
+    public void processTick(final AllBinaryLayerManager allBinaryLayerManager)
         throws Exception
     {
         if (timeDelayHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime))
@@ -164,7 +170,7 @@ public class RaceTrackDropCellPositionGenerator
         }
     }
 
-    protected void drop(AllBinaryLayerManager allBinaryLayerManager, int index) throws Exception
+    protected void drop(final AllBinaryLayerManager allBinaryLayerManager, final int index) throws Exception
     {
         throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }

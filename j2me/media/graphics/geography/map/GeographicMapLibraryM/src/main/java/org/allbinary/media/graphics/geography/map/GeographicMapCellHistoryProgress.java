@@ -10,7 +10,7 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.media.graphics.geography.map;
 
 import org.allbinary.logic.NullUtil;
@@ -19,40 +19,36 @@ import org.allbinary.logic.NullUtil;
  *
  * @author user
  */
-public class GeographicMapCellHistoryProgress {
+public class GeographicMapCellHistoryProgress extends GeographicMapCellHistoryProgressBase {
 
-   private int[] totalVisitedArray = NullUtil.getInstance().NULL_INT_ARRAY;
-   private GeographicMapCellHistory[] geographicMapCellHistoryArray = GeographicMapCellHistory.NULL_GEOGRPAHIC_MAP_HISTORY;
-   
-   public GeographicMapCellHistoryProgress(GeographicMapCellHistory[] geographicMapCellHistoryArray)
-   {
-      this.geographicMapCellHistoryArray = geographicMapCellHistoryArray;
-      this.init();
-   }
-   
-   public void init()
-   {
-       this.totalVisitedArray = new int[this.geographicMapCellHistoryArray.length]; 
-   }
-   
-   public boolean isAnyProgress()
-   {
-      boolean isProgressing = false;
-      int size = geographicMapCellHistoryArray.length;
-      int currentTotalVisited;
-      int totalVisited;
-      for (int index = 0; index < size; index++)
-      {
-         totalVisited = geographicMapCellHistoryArray[index].getTotalVisited();
-         currentTotalVisited = this.totalVisitedArray[index];
+    private int[] totalVisitedArray = NullUtil.getInstance().NULL_INT_ARRAY;
+    private GeographicMapCellHistory[] geographicMapCellHistoryArray = GeographicMapCellHistory.NULL_GEOGRPAHIC_MAP_HISTORY_ARRAY;
 
-         if (currentTotalVisited < totalVisited)
-         {
-            isProgressing = true;
-            this.totalVisitedArray[index] = totalVisited;
-         }
-      }
-      return isProgressing;
-   }
-   
+    public GeographicMapCellHistoryProgress(final GeographicMapCellHistory[] geographicMapCellHistoryArray) {
+        this.geographicMapCellHistoryArray = geographicMapCellHistoryArray;
+        this.init();
+    }
+
+    @Override
+    public void init() {
+        this.totalVisitedArray = new int[this.geographicMapCellHistoryArray.length];
+    }
+
+    @Override
+    public boolean isAnyProgress() {
+        boolean isProgressing = false;
+        int size = geographicMapCellHistoryArray.length;
+        int currentTotalVisited;
+        int totalVisited;
+        for (int index = 0; index < size; index++) {
+            totalVisited = geographicMapCellHistoryArray[index].getTotalVisited();
+            currentTotalVisited = this.totalVisitedArray[index];
+            if (currentTotalVisited < totalVisited) {
+                isProgressing = true;
+                this.totalVisitedArray[index] = totalVisited;
+            }
+        }
+        return isProgressing;
+    }
+
 }

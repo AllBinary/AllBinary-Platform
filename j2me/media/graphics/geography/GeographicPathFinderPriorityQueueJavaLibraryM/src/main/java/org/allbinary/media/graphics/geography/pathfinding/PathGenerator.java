@@ -37,7 +37,7 @@ public class PathGenerator
     }
 
     public void init(
-        final BasicGeographicMap geographicMapInterface,
+        final Object geographicMapInterface,
         final int totalPaths)
         throws Exception
     {

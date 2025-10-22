@@ -8,7 +8,7 @@ public class BasicGeographicMapExtractedPathCacheFactory
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private static final  BasicGeographicMapExtractedPathCacheFactory instance =
+    private static final BasicGeographicMapExtractedPathCacheFactory instance =
         new  BasicGeographicMapExtractedPathCacheFactory();
 
     /**

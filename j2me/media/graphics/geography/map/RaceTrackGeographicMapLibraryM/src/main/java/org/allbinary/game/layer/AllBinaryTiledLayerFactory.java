@@ -28,7 +28,7 @@ import org.allbinary.media.graphics.geography.map.racetrack.TiledLayerFactory;
  */
 public class AllBinaryTiledLayerFactory implements AllBinaryTiledLayerFactoryInterface
 {
-    //@Override
+    @Override
     public AllBinaryTiledLayer getInstance(
             final RaceTrackInfo raceTrackInfo,
             final RaceTrackData raceTrackData)
@@ -46,7 +46,7 @@ public class AllBinaryTiledLayerFactory implements AllBinaryTiledLayerFactoryInt
         return allbinaryTiledLayer;
     }
 
-    //@Override
+    @Override
     public AllBinaryTiledLayer getMiniInstance(
             RaceTrackData raceTrackData)
             throws Exception

@@ -13,15 +13,17 @@
 */
 package org.allbinary.game.layer;
 
+import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+
 /**
  *
  * @author user
  */
 public class Aggression {
 
-   private Integer ram;
-   private Integer projectile;
-   private Integer drops;
+   private Integer ram = SmallIntegerSingletonFactory.getInstance().getInstance(0);
+   private Integer projectile = SmallIntegerSingletonFactory.getInstance().getInstance(0);
+   private Integer drops = SmallIntegerSingletonFactory.getInstance().getInstance(0);
    
    public Aggression(Integer ram, Integer projectile, Integer drops)
    {

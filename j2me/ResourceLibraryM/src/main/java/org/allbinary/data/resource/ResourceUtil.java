@@ -14,6 +14,7 @@
 package org.allbinary.data.resource;
 
 import java.io.InputStream;
+import org.allbinary.logic.NullUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -23,7 +24,7 @@ public class ResourceUtil {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
 
-    private static ClassLoader classLoader;
+    private static Object classLoader = NullUtil.getInstance().NULL_OBJECT;
 
     private static final ResourceUtil instance = new ResourceUtil();
 
@@ -65,7 +66,7 @@ public class ResourceUtil {
     private InputStream getResourceAsStream(final String resource, final int startIndex)
             //, Object emulatorObject)
             throws Exception {
-        final StringMaker stringMaker = new StringMaker();
+        //final StringMaker stringMaker = new StringMaker();
 
         final CommonSeps commonSeps = CommonSeps.getInstance();
         final int index = resource.indexOf(commonSeps.COLON);
@@ -86,7 +87,8 @@ public class ResourceUtil {
         }
 
         //Try getting resource with ClassLoader
-        inputStream = ResourceUtil.classLoader.getResourceAsStream(resourcePath);
+        final ClassLoader classLoader = (ClassLoader) ResourceUtil.classLoader;
+        inputStream = classLoader.getResourceAsStream(resourcePath);
 
         if (inputStream != null) {
 //            stringMaker.delete(0, stringMaker.length());

@@ -17,6 +17,8 @@ import org.allbinary.logic.string.StringMaker;
 
 public class LapInfo
 {
+    public static LapInfo NULL_LAP_INFO = new LapInfo(-1);
+
     private int numberOfLaps;
     private int totalLaps;
 
@@ -52,7 +54,7 @@ public class LapInfo
 
     public String toString()
     {
-        StringMaker stringBuffer = new StringMaker();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("isDone: ");
         stringBuffer.append(this.isDone());

@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.layer;
 
+import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+
 /**
  *
  * @author user
@@ -20,8 +22,8 @@ package org.allbinary.game.layer;
 public class Driver {
 
    //driver intelligence
-   private Integer turnSpeed;
-   private Integer trackPathSelectionSkill;
+   private Integer turnSpeed = SmallIntegerSingletonFactory.getInstance().getInstance(0);
+   private Integer trackPathSelectionSkill = SmallIntegerSingletonFactory.getInstance().getInstance(0);
 
    private Aggression aggression;
    
@@ -32,7 +34,7 @@ public class Driver {
    {
       this.setTurnSpeed(turnSpeed);
       this.setTrackPathSelectionSkill(trackPathSelectionSkill);
-      this.setAggression(aggression);
+      this.aggression = aggression;
    }
 
    public Integer getTurnSpeed()
