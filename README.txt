@@ -3,11 +3,11 @@
 About
 
 AllBinary Game Development Kit (Example Games: https://allbinary.itch.io), Freeblisket E-Commerce Solution (https://allbinary.com), AllBinary Input Automation, and everything else AllBinary. 
-The main goal of the AllBinary Platform is to help people escape the tyrants of earth. 
+The main goal of the AllBinary Platform is to help people escape the tyrants of earth.
 
 What is the AllBinary Platform?
 
-This Repository Contains the core AllBinary Platform code (https://github.com/AllBinary/AllBinary-Platform).  
+This Repository Contains the core AllBinary Platform code (https://github.com/AllBinary/AllBinary-Platform) or the Kotlin version https://github.com/AllBinary/AllBinary-Platform-KMP.  
 This repo does not include the rest of the AllBinary Platform that includes tighter third-party integration code or individual apps or games that are not tools.
 The AllBinary Platform includes but is not limited to the following projects:
 
@@ -41,8 +41,8 @@ Travis Berthelot travisberthelot@allbinary.com
 
 What games use the AllBinary Game Development Kit?
 
- - Android, HTML5, Windows Native https://allbinary.itch.io
- - J2SE and J2ME https://games.allbinary.com/AllBinaryGameDevelopmentKit.jsp
+ - Android, HTML5, Windows Native, Kotlin/KMP: https://allbinary.itch.io
+ - Legacy J2SE and J2ME: https://games.allbinary.com/AllBinaryGameDevelopmentKit.jsp
 
 What is the AllBinary Game Development Kit?
 
