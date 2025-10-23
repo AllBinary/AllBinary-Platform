@@ -16,7 +16,6 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.game.layer.AdvancedPlayerOwnedRTSLayers;
 import org.allbinary.game.layer.AdvancedRTSGameLayer;
 import org.allbinary.game.layer.AdvancedRTSPlayerLayerInterface;
-import org.allbinary.game.layer.GeographicMapCellPositionArea;
 import org.allbinary.game.layer.RTSGameStrings;
 import org.allbinary.game.layer.RTSLayer;
 import org.allbinary.game.layer.RTSPlayerLayerInterface;
@@ -30,8 +29,10 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.game.identification.Group;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
+import org.allbinary.game.layer.GeographicMapCellPositionAreaBase;
 import org.allbinary.game.layer.hud.event.GameNotificationEvent;
 import org.allbinary.game.layer.hud.event.GameNotificationEventHandler;
+import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.layer.AllBinaryLayerManager;
@@ -105,8 +106,8 @@ public class UnitRTSFormInput extends RTSFormInput
     {   
         super.process(layerManager);
    
-        final GeographicMapCellPositionArea geographicMapCellPositionArea = 
-            associatedRtsLayer.geographicMapCellPositionArea;
+        final GeographicMapCellPositionAreaBase geographicMapCellPositionArea = 
+            associatedRtsLayer.geographicMapCellPositionAreaBase;
         
         final GeographicMapCellPosition geographicMapCellPosition = geographicMapCellPositionArea
                 .getNextSurroundingGeographicMapCellPosition();
@@ -116,7 +117,7 @@ public class UnitRTSFormInput extends RTSFormInput
         this.getHashtable().put(UnitRTSFormInput.DECAL_ID, 
                 ((AdvancedRTSPlayerLayerInterface) rtsPlayerLayerInterface).getDecalBasicColor());
         
-        if(this.newUnconstructedRTSLayerInterfaceArray[itemIndex] == null)
+        if(this.newUnconstructedRTSLayerInterfaceArray[itemIndex] == CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER)
         {
             this.newUnconstructedRTSLayerInterfaceArray[itemIndex] = 
                 this.getInstance(layerManager, item, geographicMapCellPosition);
@@ -126,29 +127,31 @@ public class UnitRTSFormInput extends RTSFormInput
             //update area and position            
             GPoint cellPoint = geographicMapCellPosition.getPoint();
 
-            this.newUnconstructedRTSLayerInterfaceArray[itemIndex].setPosition(
+            final RTSLayer rtsLayer = (RTSLayer) this.newUnconstructedRTSLayerInterfaceArray[itemIndex];
+            rtsLayer.setPosition(
                     cellPoint.getX(), cellPoint.getY(), 
-                    this.newUnconstructedRTSLayerInterfaceArray[itemIndex].getZP());
+                    rtsLayer.getZP());
 
             final GeographicMapCompositeInterface geographicMapCompositeInterface
-                = (GeographicMapCompositeInterface) this.newUnconstructedRTSLayerInterfaceArray[itemIndex].allBinaryGameLayerManagerP;
+                = (GeographicMapCompositeInterface) rtsLayer.allBinaryGameLayerManagerP;
             final BasicGeographicMap geographicMapInterface = geographicMapCompositeInterface.getGeographicMapInterface()[0];
             
-            this.newUnconstructedRTSLayerInterfaceArray[itemIndex].geographicMapCellPositionArea.update(geographicMapInterface);
+            rtsLayer.geographicMapCellPositionAreaBase.update(geographicMapInterface);
         }
 
         // Move unit to center
         final GPoint cellPoint = geographicMapCellPosition.getMidPoint();
 
-        this.newUnconstructedRTSLayerInterfaceArray[itemIndex].setPosition(
-                cellPoint.getX() - this.newUnconstructedRTSLayerInterfaceArray[itemIndex].getHalfWidth(), 
-                cellPoint.getY() - this.newUnconstructedRTSLayerInterfaceArray[itemIndex].getHalfHeight(),
-                this.newUnconstructedRTSLayerInterfaceArray[itemIndex].getZP());
+        final RTSLayer rtsLayer = (RTSLayer) this.newUnconstructedRTSLayerInterfaceArray[itemIndex];
+        rtsLayer.setPosition(
+                cellPoint.getX() - rtsLayer.getHalfWidth(), 
+                cellPoint.getY() - rtsLayer.getHalfHeight(),
+                rtsLayer.getZP());
 
         //this.newUnconstructedRTSLayerInterface.geographicMapCellPositionArea.update();
         
         this.attemptBuild(associatedRtsLayer, rtsPlayerLayerInterface, layerManager,
-                this.newUnconstructedRTSLayerInterfaceArray[itemIndex], itemIndex);
+                (RTSLayer) rtsLayer, itemIndex);
     }
 
     private void attemptBuild(final RTSLayer associatedRtsLayer,
@@ -175,7 +178,7 @@ public class UnitRTSFormInput extends RTSFormInput
         {
             layerInterface.construct(rtsPlayerLayerInterface);
             
-            this.newUnconstructedRTSLayerInterfaceArray[itemIndex] = null;
+            this.newUnconstructedRTSLayerInterfaceArray[itemIndex] = CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER;
 
             rtsPlayerLayerInterface.add(BuildingSound.getInstance());
 

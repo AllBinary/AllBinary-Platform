@@ -30,9 +30,11 @@ public class TechEventHandler extends BasicEventHandler
       return TechEventHandler.eventHandler;
    }
    
+   @Override
    protected void process(AllBinaryEventObject eventObject,
            EventListenerInterface eventListenerInterface) throws Exception {
 
-      ((TechEventListenerInterface) eventListenerInterface).onTechEvent(eventObject);
+       final TechEventListenerInterface techEventListenerInterface = ((TechEventListenerInterface) eventListenerInterface);
+       techEventListenerInterface.onTechEvent(eventObject);
    }   
 }

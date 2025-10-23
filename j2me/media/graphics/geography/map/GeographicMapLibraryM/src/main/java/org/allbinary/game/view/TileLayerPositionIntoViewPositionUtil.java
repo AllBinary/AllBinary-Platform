@@ -30,8 +30,6 @@ public class TileLayerPositionIntoViewPositionUtil
 
         final BasicGeographicMap geographicMapInterface =
             geographicMapCompositeInterface.getGeographicMapInterface()[0];
-        
-        ;
 
         final AllBinaryTiledLayer tiledLayer = geographicMapInterface.getAllBinaryTiledLayer();
         viewPosition.setTiledLayer(tiledLayer);        

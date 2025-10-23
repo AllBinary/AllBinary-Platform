@@ -26,6 +26,7 @@ import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.animation.Animation;
 import org.allbinary.graphics.font.MyFont;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.math.PrimitiveLongUtil;
 import org.allbinary.logic.util.event.EventStrings;
@@ -42,7 +43,7 @@ implements TechEventListenerInterface
 
     private final Image image;
     
-    private char[] costString;
+    private char[] costString = NullUtil.getInstance().NULL_CHAR_ARRAY;
     private int len;
 
     private final String DOLLAR = "$";
@@ -61,11 +62,13 @@ implements TechEventListenerInterface
         this.update();
     }
     
+    @Override
     public void onEvent(AllBinaryEventObject event)
     {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
     
+    @Override
     public void onTechEvent(AllBinaryEventObject event)
     {
         try
@@ -91,11 +94,12 @@ implements TechEventListenerInterface
     }
     
     //-yOffset
+    @Override
     public void paint(Graphics graphics, int x, int y)
     {
         super.paint(graphics, x, y);
 
-        final int adjustedCostY = image.getHeight() - (myFont.DEFAULT_CHAR_HEIGHT);
+        final int adjustedCostY = image.getHeight() - myFont.DEFAULT_CHAR_HEIGHT;
         
         int xa = x+2;
         graphics.drawString(DOLLAR, xa, y + adjustedCostY, 0);

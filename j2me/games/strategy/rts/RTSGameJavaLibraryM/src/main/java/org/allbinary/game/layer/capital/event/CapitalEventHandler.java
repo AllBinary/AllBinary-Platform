@@ -10,23 +10,22 @@
  * 
  * Created By: Travis Berthelot
  */
-
 package org.allbinary.game.layer.capital.event;
 
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventListenerInterface;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
 
-public class CapitalEventHandler extends BasicEventHandler
-{
-   public CapitalEventHandler()
-   {
-   }
-   
-   protected void process(AllBinaryEventObject eventObject,
-           EventListenerInterface eventListenerInterface) throws Exception {
+public class CapitalEventHandler extends BasicEventHandler {
 
-      ((CapitalEventListenerInterface) eventListenerInterface).onCapitalChangeEvent(
-              (CapitalEvent) eventObject);
-   }   
+    public CapitalEventHandler() {
+    }
+
+    @Override
+    protected void process(AllBinaryEventObject eventObject,
+        EventListenerInterface eventListenerInterface) throws Exception {
+
+        final CapitalEventListenerInterface capitalEventListenerInterface = ((CapitalEventListenerInterface) eventListenerInterface);
+        capitalEventListenerInterface.onCapitalChangeEvent((CapitalEvent) eventObject);
+    }
 }

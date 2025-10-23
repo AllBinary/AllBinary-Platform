@@ -29,7 +29,7 @@ public class WaypointBehaviorBase implements TickableInterface
 
     protected boolean waypointOverridesAttacking = true;
     
-    private WaypointBase waypoint;
+    private WaypointBase waypoint = WaypointBase.NULL_WAYPOINT_BASE;
         
     public WaypointBehaviorBase()
     {
@@ -37,6 +37,7 @@ public class WaypointBehaviorBase implements TickableInterface
         this.ownedWaypointList = new BasicArrayList(1);
     }
 
+    @Override
     public String getName()
     {
         return this.getClass().getName();
@@ -46,6 +47,7 @@ public class WaypointBehaviorBase implements TickableInterface
         return false;
     }
     
+    @Override
     public void processTick(final AllBinaryLayerManager allBinaryLayerManager)
     throws Exception
     {
@@ -83,7 +85,6 @@ public class WaypointBehaviorBase implements TickableInterface
 
     public String getMovementLogicAsString() {
         throw new RuntimeException();
-        //return null;
     }
     
     public boolean isWaypointListEmptyOrOnlyTargets() {

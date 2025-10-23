@@ -109,7 +109,7 @@ public class UnitWaypointBehavior
         final AdvancedRTSGameLayer advancedRTSGameLayer =
             (AdvancedRTSGameLayer) event.getRtsLayer();
 
-        this.associatedAdvancedRTSGameLayer.waypointLogHelper.onWaypointEvent(this.associatedAdvancedRTSGameLayer, advancedRTSGameLayer);
+        this.associatedAdvancedRTSGameLayer.waypointLogHelperP.onWaypointEvent(this.associatedAdvancedRTSGameLayer, advancedRTSGameLayer);
         
         // If primary waypoint or both from parent or User/AI input
         // advancedRTSGameLayer.getParentLayer() == null for buildings
@@ -138,7 +138,7 @@ public class UnitWaypointBehavior
         {
             if (!this.targetList.contains(advancedRTSGameLayer))
             {
-                this.associatedAdvancedRTSGameLayer.waypointLogHelper.addWaypointFromBuilding(this.associatedAdvancedRTSGameLayer, advancedRTSGameLayer);
+                this.associatedAdvancedRTSGameLayer.waypointLogHelperP.addWaypointFromBuilding(this.associatedAdvancedRTSGameLayer, advancedRTSGameLayer);
                 
                 if (advancedRTSGameLayer.isDestroyed())
                 {
@@ -147,7 +147,7 @@ public class UnitWaypointBehavior
 
                 this.targetList.add(advancedRTSGameLayer);
 
-                this.associatedAdvancedRTSGameLayer.waypointLogHelper.addWaypointFromBuilding(this.associatedAdvancedRTSGameLayer, advancedRTSGameLayer, this.targetList);
+                this.associatedAdvancedRTSGameLayer.waypointLogHelperP.addWaypointFromBuilding(this.associatedAdvancedRTSGameLayer, advancedRTSGameLayer, this.targetList);
             }
         }
     }
@@ -162,7 +162,7 @@ public class UnitWaypointBehavior
     {
         if (this.canInsertWaypoint(index, rtsLayer))
         {
-            this.associatedAdvancedRTSGameLayer.waypointLogHelper.insertWaypoint(this.associatedAdvancedRTSGameLayer, index, rtsLayer, this.getName());
+            this.associatedAdvancedRTSGameLayer.waypointLogHelperP.insertWaypoint(this.associatedAdvancedRTSGameLayer, index, rtsLayer, this.getName());
 
             if(rtsLayer.isDestroyed())
             {
@@ -171,7 +171,7 @@ public class UnitWaypointBehavior
             
             this.targetList.add(index, rtsLayer);
 
-            this.associatedAdvancedRTSGameLayer.waypointLogHelper.insertWaypoint(this.associatedAdvancedRTSGameLayer, index, rtsLayer, this.getName(), this.targetList);
+            this.associatedAdvancedRTSGameLayer.waypointLogHelperP.insertWaypoint(this.associatedAdvancedRTSGameLayer, index, rtsLayer, this.getName(), this.targetList);
 
             return true;
         }
@@ -194,7 +194,7 @@ public class UnitWaypointBehavior
     {
         final int size = pathsList.size();
         
-        this.associatedAdvancedRTSGameLayer.waypointLogHelper.setRandomGeographicMapCellHistory(this.associatedAdvancedRTSGameLayer, pathsList);
+        this.associatedAdvancedRTSGameLayer.waypointLogHelperP.setRandomGeographicMapCellHistory(this.associatedAdvancedRTSGameLayer, pathsList);
 
         if (size > 0)
         {
@@ -258,7 +258,7 @@ public class UnitWaypointBehavior
         final GeographicMapCellPosition geographicMapCellPosition = 
             this.associatedAdvancedRTSGameLayer.getCurrentGeographicMapCellPosition();
 
-        final BasicArrayList list = buildingLayer.geographicMapCellPositionArea
+        final BasicArrayList list = buildingLayer.geographicMapCellPositionAreaBase
                 .getOccupyingGeographicMapCellPositionList();
 
         if (list.contains(geographicMapCellPosition))
@@ -266,7 +266,7 @@ public class UnitWaypointBehavior
 
             if (this.insertWaypoint(0, this.FAKE_WAYPOINT_LAYER))
             {
-                this.associatedAdvancedRTSGameLayer.waypointLogHelper.moveAwayFromBuilding(this.associatedAdvancedRTSGameLayer);
+                this.associatedAdvancedRTSGameLayer.waypointLogHelperP.moveAwayFromBuilding(this.associatedAdvancedRTSGameLayer);
 
                 this.setCurrentTargetLayerInterface((CollidableDestroyableDamageableLayer) this.FAKE_WAYPOINT_LAYER);
 
@@ -285,7 +285,7 @@ public class UnitWaypointBehavior
     
     public boolean needToMove()
     {
-        this.associatedAdvancedRTSGameLayer.waypointLogHelper.needToMove(this.associatedAdvancedRTSGameLayer, this);
+        this.associatedAdvancedRTSGameLayer.waypointLogHelperP.needToMove(this.associatedAdvancedRTSGameLayer, this);
         
         if(this.isTrackingWaypoint() ||
                 this.sensorAction == SensorActionFactory.getInstance().EVADE ||

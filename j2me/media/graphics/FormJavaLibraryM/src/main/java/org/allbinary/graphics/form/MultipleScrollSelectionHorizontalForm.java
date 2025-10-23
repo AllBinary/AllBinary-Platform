@@ -46,6 +46,8 @@ extends ScrollSelectionForm
         return this.getSelectedIndex();
     }
 
+    private boolean logged = false;
+    
     @Override
     public void paint(final Graphics graphics)
     {
@@ -81,7 +83,12 @@ extends ScrollSelectionForm
 
                 if (dx >= this.rectangle.getMaxX())
                 {
-                    PreLogUtil.put(new StringMaker().append("painting beyond maxx: ").append(this.rectangle.getMaxX()).toString(), this, canvasStrings.PAINT);
+                    if(logged) {
+                        
+                    } else {
+                        logged = true;
+                        PreLogUtil.put(new StringMaker().append("painting beyond maxx: ").append(this.rectangle.getMaxX()).toString(), this, canvasStrings.PAINT);
+                    }
                     //break;
                 }
                 

@@ -12,7 +12,6 @@
  * 
  */
 package org.allbinary.game.layer;
-import org.allbinary.logic.string.StringMaker;
 
 
 import java.util.Hashtable;
@@ -21,29 +20,27 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.game.input.form.RTSFormInput;
 import org.allbinary.game.multiplayer.layer.MultiPlayerGameLayer;
-
-import org.allbinary.string.CommonStrings;
-
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.animation.NullAnimationFactory;
+import org.allbinary.animation.NullIndexedAnimationFactory;
 import org.allbinary.animation.ProceduralAnimationInterfaceFactoryInterface;
 import org.allbinary.animation.RotationAnimation;
 import org.allbinary.animation.caption.CaptionAnimationHelperBase;
 import org.allbinary.game.combat.destroy.DestroyedLayerProcessor;
 import org.allbinary.game.health.Health;
 import org.allbinary.game.identification.Group;
+import org.allbinary.game.identification.GroupFactory;
 import org.allbinary.game.input.GameInputInterface;
 import org.allbinary.game.input.GameInputProcessor;
 import org.allbinary.game.input.GameInputProcessorUtil;
 import org.allbinary.game.input.GameKeyEventSourceInterface;
 import org.allbinary.game.input.InputFactory;
+import org.allbinary.game.input.form.NullRTSFormInputFactory;
 import org.allbinary.game.layer.waypoint.Waypoint2LogHelper;
 import org.allbinary.game.layer.waypoint.WaypointLogHelper;
 import org.allbinary.game.layer.waypoint.WaypointRunnableLogHelper;
-import org.allbinary.game.part.PartInterfaceUtil;
 import org.allbinary.game.tick.TickableInterface;
 import org.allbinary.game.tracking.TrackingEvent;
 import org.allbinary.game.view.TileLayerPositionIntoViewPosition;
@@ -57,6 +54,7 @@ import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.view.ViewPosition;
 import org.allbinary.view.event.ViewPositionEventHandler;
 import org.allbinary.game.multiplayer.layer.RemoteInfo;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.math.LayerDistanceUtil;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellHistory;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
@@ -76,7 +74,6 @@ public class RTSLayer
     RTSInterface,
     PathFindingLayerInterface
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final boolean debug = true;
     public final boolean showMoreCaptionStates = debug;
@@ -86,9 +83,9 @@ public class RTSLayer
 
     public RTSLayer2LogHelper rtsLayer2LogHelper = RTSLayer2LogHelper.getInstance();
 
-    public WaypointLogHelper waypointLogHelper = WaypointLogHelper.getInstance();
-    public Waypoint2LogHelper waypoint2LogHelper = Waypoint2LogHelper.getInstance();
-    public WaypointRunnableLogHelper waypointRunnableLogHelper = WaypointRunnableLogHelper.getInstance();
+    public WaypointLogHelper waypointLogHelperP = WaypointLogHelper.getInstance();
+    public Waypoint2LogHelper waypoint2LogHelperP = Waypoint2LogHelper.getInstance();
+    public WaypointRunnableLogHelper waypointRunnableLogHelperP = WaypointRunnableLogHelper.getInstance();
     
     private final RTSFormInput rtsFormInput;
     private IndexedAnimation verticleBuildAnimationInterface;
@@ -116,9 +113,9 @@ public class RTSLayer
 
     protected final Hashtable hashtable = new Hashtable();
     private final int BUILD_VALUE = 63;
-    public final GeographicMapCellPositionArea geographicMapCellPositionArea;
+    public final GeographicMapCellPositionAreaBase geographicMapCellPositionAreaBase;
     
-    private Health healthInterface;
+    private Health healthInterface = Health.NULL_HEALTH;
     private static final int id = 0;
     private int level = 1;
     private int maxLevel = 1;
@@ -128,7 +125,7 @@ public class RTSLayer
     protected int slightAngle = 0;
     protected static final int MAIN_INDEX = 0;
     protected static final int SECONDARY_INDEX = 1;
-    protected int percentComplete;
+    protected int percentCompleteP;
     private boolean destroyed = false;
 
     private boolean selected = false;
@@ -213,17 +210,15 @@ public class RTSLayer
         this.destroyAnimationInterface = (IndexedAnimation) proceduralAnimationInterfaceFactoryInterface.getInstance(
             this.indexedButShouldBeRotationAnimationInterface);
 
-        this.rangeAnimation =
-            NullAnimationFactory.getFactoryInstance().getInstance(0);
+        final Animation animation = NullAnimationFactory.getFactoryInstance().getInstance(0);
+        this.rangeAnimation = animation;
+        this.initRangeAnimation = animation;
+        this.sensorRangeAnimation = animation;
+        this.initSensorRangeAnimation = animation;
+        
+        this.animationInterface = this.initAnimationInterface;
 
-        this.sensorRangeAnimation = NullAnimationFactory.getFactoryInstance().getInstance(0);
-
-        this.animationInterface =
-            this.initAnimationInterface;
-
-        this.setPartInterfaceArray(PartInterfaceUtil.getZeroArray());
-
-        this.geographicMapCellPositionArea = new GeographicMapCellPositionArea(this);
+        this.geographicMapCellPositionAreaBase = new GeographicMapCellPositionArea(this);
 
         //this.setVisible(false);
         //ViewPositionEventHandler.getInstance().addListener(this);
@@ -233,24 +228,36 @@ public class RTSLayer
     protected RTSLayer(final RemoteInfo remoteInfo)
         throws Exception
     {
-        super(remoteInfo, null, RectangleFactory.SINGLETON,
-            new TileLayerPositionIntoViewPosition());
+        super(remoteInfo, GroupFactory.getInstance().NULL_GROUP_ARRAY, RectangleFactory.SINGLETON, new TileLayerPositionIntoViewPosition());
 
         this.initInputProcessors();
         
-        this.rtsFormInput = null;
+        this.rtsFormInput = NullRTSFormInputFactory.getInstance();
 
-        this.baseAnimationInterface = null;
-        this.buildAnimationInterface = null;
+        final Animation animation = NullAnimationFactory.getFactoryInstance().getInstance(0);
+        this.baseAnimationInterface = animation;
+        this.buildAnimationInterface = animation;
 
-        this.initAnimationInterface = null;
-        this.emptyAnimationInterface = null;
-        this.destroyAnimationInterface = null;
+        this.rangeAnimation = animation;
+        this.initRangeAnimation = animation;
+        this.sensorRangeAnimation = animation;
+        this.initSensorRangeAnimation = animation;
+        
+        this.animationInterface = animation;
 
-        this.rootName = null;
-        this.geographicMapCellPositionArea = null;
+        final IndexedAnimation indexedAnimation = (IndexedAnimation) NullIndexedAnimationFactory.getFactoryInstance().getInstance(0);
+        this.indexedButShouldBeRotationAnimationInterface = indexedAnimation;
+        this.initAnimationInterface = indexedAnimation;
+        this.emptyAnimationInterface = indexedAnimation;
+        this.destroyAnimationInterface = indexedAnimation;
+        
+        this.verticleBuildAnimationInterface = indexedAnimation;
+
+        this.rootName = StringUtil.getInstance().EMPTY_STRING;
+        this.geographicMapCellPositionAreaBase = GeographicMapCellPositionAreaBase.NULL_GEOGRPAHIC_MAP_POSITION_AREA_BASE;
     }
 
+    @Override
     public void setAllBinaryGameLayerManager(final AllBinaryGameLayerManager allBinaryGameLayerManager) throws Exception {
 
         super.setAllBinaryGameLayerManager(allBinaryGameLayerManager);
@@ -269,7 +276,7 @@ public class RTSLayer
     }
     
     public void updateWaypointBehavior(final BasicGeographicMap geographicMapInterface) throws Exception {
-        this.geographicMapCellPositionArea.update(geographicMapInterface);
+        this.geographicMapCellPositionAreaBase.update(geographicMapInterface);
     }
     
     public void construct(final RTSPlayerLayerInterface rtsPlayerLayerInterface)
@@ -292,8 +299,9 @@ public class RTSLayer
 
     public void deselect()
     {
-        this.rangeAnimation = NullAnimationFactory.getFactoryInstance().getInstance(0);
-        this.sensorRangeAnimation = NullAnimationFactory.getFactoryInstance().getInstance(0);
+        final Animation animation = NullAnimationFactory.getFactoryInstance().getInstance(0);
+        this.rangeAnimation = animation;
+        this.sensorRangeAnimation = animation;
         
         this.setSelected(false);
     }
@@ -303,21 +311,24 @@ public class RTSLayer
         this.selected = selected;
     }
 
+    @Override
     public boolean isSelected()
     {
         return this.selected;
     }
     
+    @Override
     public int getPercentComplete()
     {
-        return this.percentComplete;
+        return this.percentCompleteP;
     }
 
     public ScrollSelectionForm getScrollSelectionForm()
     {
-        return null;
+        return ScrollSelectionForm.NULL_SCROLL_SELECTION_FORM;
     }
     
+    @Override
     public void initInputProcessors()
     {
         GameInputProcessorUtil.init(this.inputProcessorArray);
@@ -329,6 +340,7 @@ public class RTSLayer
         this.animationInterface = this.indexedButShouldBeRotationAnimationInterface;
     }
 
+    @Override
     public void processTick(final AllBinaryLayerManager allBinaryLayerManager)
     {
         try
@@ -348,6 +360,7 @@ public class RTSLayer
         }
     }
 
+    @Override
     public void processInput(final AllBinaryLayerManager layerManager)
         throws Exception
     {
@@ -365,6 +378,7 @@ public class RTSLayer
     {
     }
     
+    @Override
     public void paint(final Graphics graphics)
     {
         super.paintFirst(graphics);
@@ -378,12 +392,14 @@ public class RTSLayer
         //super.paint(graphics);
     }
 
+    @Override
     public void damage(final int damage, final int damageType)
         throws Exception
     {
         //super.damage(damage, damageType);
     }
-
+    
+    @Override
     public int getSourceId()
     {
         return id;
@@ -391,16 +407,19 @@ public class RTSLayer
 
     private final RTSLayerUtil rtsLayerUtil = RTSLayerUtil.getInstance();
 
+    @Override
     public void downgrade()
     {
         rtsLayerUtil.downgrade(this);
     }
 
+    @Override
     public void upgrade()
     {
         rtsLayerUtil.upgrade(this);
     }
 
+    @Override
     public boolean isCompleted()
     {
         if (this.hackVerticleBuild < BUILD_VALUE)
@@ -424,31 +443,36 @@ public class RTSLayer
             this.hackVerticleBuild++;
         }
 
-        this.percentComplete = 100 * this.hackVerticleBuild / BUILD_VALUE;
+        this.percentCompleteP = 100 * this.hackVerticleBuild / BUILD_VALUE;
 
         this.getHudPaintable().updateInfo();
     }
 
+    @Override
     public boolean isSelfUpgradeable()
     {
         return true;
     }
     
+    @Override
     public int getCost()
     {
         return rtsLayerUtil.getCost(this);
     }
 
+    @Override
     public int getDowngradeCost()
     {
         return rtsLayerUtil.getDowngradeCost(this);
     }
 
+    @Override
     public int getUpgradeCost()
     {
         return rtsLayerUtil.getUpgradeCost(this);
     }
 
+    @Override
     public boolean isUpgradeable()
     {
         if (this.getLevel() < this.getMaxLevel())
@@ -461,6 +485,7 @@ public class RTSLayer
         }
     }
 
+    @Override
     public boolean isDowngradeable()
     {
         if (this.getLevel() > 1)
@@ -476,6 +501,7 @@ public class RTSLayer
     /**
      * @return the level
      */
+    @Override
     public int getLevel()
     {
         return level;
@@ -514,6 +540,7 @@ public class RTSLayer
     }
 
     private final LayerDistanceUtil layerDistanceUtil = LayerDistanceUtil.getInstance();
+    @Override
     public void setTarget(final PathFindingLayerInterface targetGameLayer) throws Exception {
         final int anotherTargetDistance = layerDistanceUtil.getDistance(
             (AllBinaryLayer) this, (AllBinaryLayer) targetGameLayer);
@@ -524,17 +551,19 @@ public class RTSLayer
     
     public SelectionHudPaintable createHudPaintable()
     {
-        return null;
+        throw new RuntimeException();
     }
     
+    @Override
     public SelectionHudPaintable getHudPaintable()
     {
-        return null;
+        throw new RuntimeException();
     }
 
     /**
      * @return the maxLevel
      */
+    @Override
     public int getMaxLevel()
     {
         return maxLevel;
@@ -569,9 +598,10 @@ public class RTSLayer
      */
     public RTSFormInput getRTSFormInput()
     {
-        return rtsFormInput;
+        return this.rtsFormInput;
     }
 
+    @Override
     public boolean isDestroyed()
         throws Exception
     {
@@ -599,119 +629,146 @@ public class RTSLayer
         }
     }
     
+    @Override
     public BasicArrayList getEndGeographicMapCellPositionList() {
-        return this.geographicMapCellPositionArea.getOccupyingGeographicMapCellPositionList();
+        return this.geographicMapCellPositionAreaBase.getOccupyingGeographicMapCellPositionList();
     }
 
-    public GeographicMapCellPositionArea getGeographicMapCellPositionArea() {
-        return geographicMapCellPositionArea;
+    @Override
+    public GeographicMapCellPositionAreaBase getGeographicMapCellPositionArea() {
+        return geographicMapCellPositionAreaBase;
     }
 
+    @Override
     public boolean shouldHandleStartSameAsEnd() {
         return true;
     }
 
+    @Override
     public void handleCost(PathFindingLayerInterface ownerLayer) throws Exception {
     }
 
+    @Override
     public WaypointBehaviorBase getWaypointBehavior() {
-        return null;
+        throw new RuntimeException();
     }
 
+    @Override
     public PathFindingLayerInterface getParentLayer() {
-        return null;
+        throw new RuntimeException();
     }
 
+    @Override
     public RTSLayer2LogHelper getRTSLayer2LogHelper() {
         return this.rtsLayer2LogHelper;
     }
     
+    @Override
     public WaypointLogHelper getWaypointLogHelper() {
-        return this.waypointLogHelper;
+        return this.waypointLogHelperP;
     }
 
+    @Override
     public Waypoint2LogHelper getWaypoint2LogHelper() {
-        return this.waypoint2LogHelper;
+        return this.waypoint2LogHelperP;
     }
     
+    @Override
     public WaypointRunnableLogHelper getWaypointRunnableLogHelper() {
-        return this.waypointRunnableLogHelper;
+        return this.waypointRunnableLogHelperP;
     }
 
+    @Override
     public boolean shouldAddWaypointFromBuilding() {
         return false;
     }
 
+    @Override
     public CaptionAnimationHelperBase getCaptionAnimationHelper() {
-        return null;
+        throw new RuntimeException();
     }
 
+    @Override
     public boolean isShowMoreCaptionStates() {
         return this.showMoreCaptionStates;
     }
     
+    @Override
     public void init(final GeographicMapCellHistory geographicMapCellHistory,
         final BasicArrayList geographicMapCellPositionBasicArrayList) throws Exception { 
         
     }
     
+    @Override
     public GeographicMapCellPosition getCurrentGeographicMapCellPosition()
     throws Exception
     {
-        return null;
+        throw new RuntimeException();
     }
 
+    @Override
     public GeographicMapCellPosition getTopLeftGeographicMapCellPosition()
     throws Exception
     {
-        return null;
+        throw new RuntimeException();
     }
-        
+
+    @Override
     public BasicArrayList getMoveOutOfBuildAreaPath(
         final GeographicMapCellPosition geographicMapCellPosition) {
-        return null;
+        throw new RuntimeException();
     }   
 
+    @Override
     public void setClosestGeographicMapCellHistory(final BasicArrayList pathsList)
         throws Exception
     {
     }
     
+    @Override
     public void teleportTo(final GeographicMapCellPosition geographicMapCellPosition) {
         
     }
     
+    @Override
     public void setLoad(short resource) throws Exception {
         
     }
 
+    @Override
     public BasicArrayList getSurroundingGeographicMapCellPositionList() 
         throws Exception {
-        return null;
+        throw new RuntimeException();
     }
     
+    @Override
     public void trackTo(final String reason) 
         throws Exception {
         
     }
 
+    @Override
     public void trackTo(final int dx, final int dy) 
         throws Exception {
         
     }
     
+    @Override
     public boolean isWaypointListEmptyOrOnlyTargets() {
         return false;
     }
 
+    @Override
     public TrackingEvent getTrackingEvent() {
-        return null;
+        throw new RuntimeException();
     }
 
+    @Override
     public boolean buildingChase(final AllBinaryLayer allbinaryLayer, final GeographicMapCellPosition cellPosition) throws Exception {
         return false;
     }
     
+    @Override
     public void allStop() {
         
     }
@@ -737,11 +794,13 @@ public class RTSLayer
         return false;
     }
     
+    @Override
     public boolean implmentsTickableInterface()
     {
         return true;
     }
     
+    @Override
     public boolean implmentsGameInputInterface()
     {
         return true;

@@ -21,7 +21,6 @@ import org.allbinary.game.configuration.GameConfigurationCentral;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.graphics.opengles.OpenGLUtil;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
 import org.allbinary.media.image.ImageCopyUtil;
@@ -29,7 +28,7 @@ import org.allbinary.media.image.ImageCopyUtil;
 public class AllBinaryJ2SEImageRotationAnimationFactory 
     extends BaseImageAnimationFactory
 {
-    protected final short angleIncrement;
+    protected final short angleIncrementP;
     private final boolean resizeCanvasForRotation;
     
     public AllBinaryJ2SEImageRotationAnimationFactory(final Image image, final int dx, final int dy)
@@ -126,7 +125,7 @@ public class AllBinaryJ2SEImageRotationAnimationFactory
     {
         super(image, width, height, animationBehaviorFactory);
 
-        this.angleIncrement = (short) (AngleFactory.getInstance().TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity());
+        this.angleIncrementP = (short) (AngleFactory.getInstance().TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity());
         this.resizeCanvasForRotation = false;
     }
 
@@ -135,7 +134,7 @@ public class AllBinaryJ2SEImageRotationAnimationFactory
     {
         super(image, width, height, animationBehaviorFactory);
 
-        this.angleIncrement = angleIncrement;
+        this.angleIncrementP = angleIncrement;
         this.resizeCanvasForRotation = false;
     }
 
@@ -144,7 +143,7 @@ public class AllBinaryJ2SEImageRotationAnimationFactory
     {
         super(image, width, height, animationBehaviorFactory);
 
-        this.angleIncrement = angleIncrement;
+        this.angleIncrementP = angleIncrement;
         this.resizeCanvasForRotation = resizeCanvasForRotation;
     }
     
@@ -157,7 +156,8 @@ public class AllBinaryJ2SEImageRotationAnimationFactory
         }
     }    
     
-    final LogUtil logUtil = LogUtil.getInstance();
+    //final LogUtil logUtil = LogUtil.getInstance();
+    @Override
     public Animation getInstance(final int instanceId) throws Exception {
         
         final ImageCopyUtil imageCopyUtil = ImageCopyUtil.getInstance();
@@ -175,13 +175,13 @@ public class AllBinaryJ2SEImageRotationAnimationFactory
 
             return new AllBinaryAdjustedJ2SEImageRotationAnimation(
                 scaledImage, copyOfScaledImage,
-                AngleInfo.getInstance(this.angleIncrement),
+                AngleInfo.getInstance(this.angleIncrementP),
                 AngleFactory.getInstance().TOTAL_ANGLE, this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
 
         } else {
             return new AllBinaryJ2SEImageRotationAnimation(
                 scaledImage, copyOfScaledImage,
-                AngleInfo.getInstance(this.angleIncrement),
+                AngleInfo.getInstance(this.angleIncrementP),
                 AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehaviorFactory.getOrCreateInstance());
         }
         
@@ -189,7 +189,7 @@ public class AllBinaryJ2SEImageRotationAnimationFactory
 
     protected short getAngleIncrement()
     {
-        return angleIncrement;
+        return angleIncrementP;
     }
         
 }

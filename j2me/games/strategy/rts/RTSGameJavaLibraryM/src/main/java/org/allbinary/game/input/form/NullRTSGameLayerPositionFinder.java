@@ -43,6 +43,7 @@ implements LayerPositionFinderInterface
 
     }
 
+    @Override
     public AllBinaryLayer getLayerInterface(GeographicMapCellPosition geographicMapCellPosition)
     {
         AllBinaryLayer layerInterface =

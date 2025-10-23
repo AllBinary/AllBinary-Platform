@@ -53,7 +53,8 @@ public class RTSLayerCompositePaintable extends Paintable
             this.setDownGradeCost(StringUtil.getInstance().EMPTY_STRING);
         }
     }
-    
+
+    @Override    
     public void paint(Graphics graphics)
     {
         graphics.drawString(this.getDownGradeCost(), this.upgradableRTSLayerHudPaintable.textX, this.upgradableRTSLayerHudPaintable.costY1, 0);

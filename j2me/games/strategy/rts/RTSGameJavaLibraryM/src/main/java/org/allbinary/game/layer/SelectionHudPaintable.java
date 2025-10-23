@@ -51,17 +51,16 @@ public class SelectionHudPaintable extends InitUpdatePaintable
     private String name = StringUtil.getInstance().EMPTY_STRING;
     
     // private final int ANIMATION_WIDTH_MAGIC = 70;
-    private Animation animationInterface;
+    private Animation animationInterface = NullAnimationFactory.getFactoryInstance().getInstance(0);
         
     protected SelectionHudPaintable()
     {
         this.update();
 
-        this.setAnimationInterface(NullAnimationFactory.getFactoryInstance().getInstance(0));
-
         this.primitiveLongUtil = new PrimitiveLongUtil(10000);
     }
     
+    @Override
     public void update()
     {
         final TouchButtonLocationHelper touchButtonLocationHelper = new TouchButtonLocationHelper();
@@ -97,6 +96,7 @@ public class SelectionHudPaintable extends InitUpdatePaintable
     private final int backgroundColor = BasicColorFactory.getInstance().GREY.intValue();
         //BasicColor.TRANSPARENT_GREY.intValue();
     
+    @Override
     public void paint(Graphics graphics)
     {
         graphics.setColor(backgroundColor);
@@ -132,6 +132,7 @@ public class SelectionHudPaintable extends InitUpdatePaintable
         return name;
     }
 
+    @Override
     public void setBasicColorP(BasicColor basicColor)
     {
         this.basicColor = basicColor;

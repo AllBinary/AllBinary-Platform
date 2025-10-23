@@ -29,6 +29,7 @@ public class GroupFactory {
       return instance;
    }
    
+   public final Group[] NULL_GROUP_ARRAY = new Group[0];
    private final BasicArrayList list = new BasicArrayList();
    private int index = 0;
       

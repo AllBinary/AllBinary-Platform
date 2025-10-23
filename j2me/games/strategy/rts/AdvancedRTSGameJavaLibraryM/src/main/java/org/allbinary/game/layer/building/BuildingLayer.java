@@ -22,13 +22,11 @@ import org.allbinary.game.input.form.VisibleCellPositionsSingleton;
 import org.allbinary.game.layer.AdvancedRTSGameLayer;
 import org.allbinary.game.layer.AdvancedRTSPlayerLayerInterface;
 import org.allbinary.game.layer.CollidableRTSBehavior;
-import org.allbinary.game.layer.GeographicMapCellPositionArea;
 import org.allbinary.game.layer.RTSLayerUtil;
 import org.allbinary.game.layer.RTSPlayerLayerInterface;
 import org.allbinary.game.layer.SelectionHudPaintable;
 import org.allbinary.game.layer.waypoint.Waypoint;
 import org.allbinary.util.BasicArrayList;
-import org.allbinary.string.CommonStrings;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
@@ -45,6 +43,7 @@ import org.allbinary.game.health.Health;
 import org.allbinary.game.health.HealthBar;
 import org.allbinary.game.health.HealthBarTwodAnimation;
 import org.allbinary.game.identification.Group;
+import org.allbinary.game.layer.GeographicMapCellPositionAreaBase;
 import org.allbinary.game.tracking.TrackingEvent;
 import org.allbinary.game.tracking.TrackingEventHandler;
 import org.allbinary.game.tracking.TrackingEventListenerInterface;
@@ -296,28 +295,28 @@ public class BuildingLayer
 
     public int getCost()
     {
-        final int total = RTSLayerUtil.getInstance().getCostExponential(this.getLevel() * this.getBuildingLevelCost());
+        final long total = RTSLayerUtil.getInstance().getCostExponential(this.getLevel() * this.getBuildingLevelCost());
 
-        return total;
+        return (int) total;
     }
 
     public int getDowngradeCost()
     {
-        final int downgradeCost = RTSLayerUtil.getInstance().getCostExponential((this.getLevel() - 1) * getBuildingLevelCost());
+        final long downgradeCost = RTSLayerUtil.getInstance().getCostExponential((this.getLevel() - 1) * getBuildingLevelCost());
 
         logUtil.put("Cost: " + downgradeCost, this, "getDowngradeCost");
 
-        return downgradeCost * 9 / 10;
+        return (int) downgradeCost * 9 / 10;
     }
 
     public int getUpgradeCost()
     {
-        final int upgradeCost = RTSLayerUtil.getInstance().getCostExponential(
+        final long upgradeCost = RTSLayerUtil.getInstance().getCostExponential(
                 (this.getLevel() + 1) * getBuildingLevelCost());
 
         //logUtil.put("Cost: " + upgradeCost, this, "getUpgradeCost");
 
-        return upgradeCost;
+        return (int) upgradeCost;
     }
 
     public void downgrade()
@@ -394,9 +393,9 @@ public class BuildingLayer
         throws Exception
     {
         final BasicArrayList occupyList =
-            this.geographicMapCellPositionArea.getOccupyingGeographicMapCellPositionList();
+            this.geographicMapCellPositionAreaBase.getOccupyingGeographicMapCellPositionList();
         final BasicArrayList surroundList =
-            this.geographicMapCellPositionArea.getSurroundingGeographicMapCellPositionList();
+            this.geographicMapCellPositionAreaBase.getSurroundingGeographicMapCellPositionList();
 
         final Direction NO_DIRECTION = DirectionFactory.getInstance().NO_DIRECTION;
         
@@ -449,7 +448,7 @@ public class BuildingLayer
     }
 
     public BasicArrayList getEndGeographicMapCellPositionList() {
-        return this.geographicMapCellPositionArea.getSurroundingGeographicMapCellPositionList();
+        return this.geographicMapCellPositionAreaBase.getSurroundingGeographicMapCellPositionList();
     }
 
     public boolean shouldHandleStartSameAsEnd() {
@@ -485,8 +484,8 @@ public class BuildingLayer
 
     public void addVisibility()
     {
-        final GeographicMapCellPositionArea geographicMapCellPositionArea = 
-            this.geographicMapCellPositionArea;
+        final GeographicMapCellPositionAreaBase geographicMapCellPositionArea = 
+            this.geographicMapCellPositionAreaBase;
         
         final BasicArrayList occupyList = 
             geographicMapCellPositionArea.getOccupyingGeographicMapCellPositionList();
@@ -501,12 +500,12 @@ public class BuildingLayer
     
     public void removeVisibility()
     {
-        final BasicArrayList occupyList = this.geographicMapCellPositionArea
+        final BasicArrayList occupyList = this.geographicMapCellPositionAreaBase
                 .getOccupyingGeographicMapCellPositionList();
 
         VisibleCellPositionsSingleton.getInstance().removeStationaryCellPositions(occupyList);
 
-        final BasicArrayList surroundList = this.geographicMapCellPositionArea
+        final BasicArrayList surroundList = this.geographicMapCellPositionAreaBase
                 .getSurroundingGeographicMapCellPositionList();
 
         VisibleCellPositionsSingleton.getInstance().removeStationaryCellPositions(surroundList);

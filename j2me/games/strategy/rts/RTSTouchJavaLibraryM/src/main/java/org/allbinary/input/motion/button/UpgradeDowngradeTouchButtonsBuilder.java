@@ -18,8 +18,6 @@ import org.allbinary.game.input.resource.TouchButtonDowngradeResource;
 import org.allbinary.game.input.resource.TouchButtonUpgradeResource;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListUtil;
-
-
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.graphics.CellPositionFactory;
 
@@ -28,6 +26,7 @@ extends BaseTouchInput
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    @Override
     public BasicArrayList getList()
     {
         try

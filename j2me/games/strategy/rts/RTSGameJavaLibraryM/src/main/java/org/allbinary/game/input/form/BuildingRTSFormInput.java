@@ -15,7 +15,7 @@ package org.allbinary.game.input.form;
 
 import org.allbinary.game.input.RTSPlayerGameInput;
 import org.allbinary.game.layer.DemoLockedWithCostLayerInterfaceFactoryInterface;
-import org.allbinary.game.layer.GeographicMapCellPositionArea;
+import org.allbinary.game.layer.GeographicMapCellPositionAreaBase;
 import org.allbinary.game.layer.RTSGameStrings;
 import org.allbinary.game.layer.RTSLayer;
 import org.allbinary.game.layer.RTSPlayerLayerInterface;
@@ -24,10 +24,8 @@ import org.allbinary.game.layer.item.LayerInterfaceFactoryImageItem;
 import org.allbinary.graphics.form.item.CustomItem;
 import org.allbinary.media.audio.BuildingSound;
 import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
-
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.logic.system.security.licensing.LockedFeatureNotificationUtil;
@@ -36,6 +34,7 @@ import org.allbinary.game.identification.Group;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.layer.hud.event.GameNotificationEvent;
 import org.allbinary.game.layer.hud.event.GameNotificationEventHandler;
+import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.layer.AllBinaryLayerManager;
@@ -55,7 +54,6 @@ import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackGeographicM
  */
 public class BuildingRTSFormInput extends RTSFormInput
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private boolean isUnitProducer;
 
@@ -157,6 +155,7 @@ public class BuildingRTSFormInput extends RTSFormInput
         
     }
 
+    @Override
     public void setAllBinaryGameLayerManager(final AllBinaryGameLayerManager allBinaryGameLayerManager) throws Exception {
 
         super.setAllBinaryGameLayerManager(allBinaryGameLayerManager);
@@ -176,9 +175,10 @@ public class BuildingRTSFormInput extends RTSFormInput
         this.mapEdgeGameNotificationEvent.setBasicColorP(geographicMapInterface.getForegroundBasicColor());
         
     }
-        
+
+    @Override
     public void process(
-        final RTSLayer associatedRtsLayer,
+        final CollidableDestroyableDamageableLayer associatedRtsLayer,
         final RTSPlayerLayerInterface rtsPlayerLayerInterface,
         final AllBinaryLayerManager layerManager, final CustomItem item, final int itemIndex)
         throws Exception
@@ -256,26 +256,26 @@ public class BuildingRTSFormInput extends RTSFormInput
                 
                 if (!raceTrackGeographicMapCellTypeFactory.isPath(geographicMapCellType))
                 {
-                    if(this.newUnconstructedRTSLayerInterfaceArray[itemIndex] == null)
+                    if(this.newUnconstructedRTSLayerInterfaceArray[itemIndex] == CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER)
                     {
                         this.newUnconstructedRTSLayerInterfaceArray[itemIndex] =
                             this.getInstance(layerManager, item, geographicMapCellPosition);
                     }
                     else
                     {
+                        final RTSLayer rtsLayer = (RTSLayer) this.newUnconstructedRTSLayerInterfaceArray[itemIndex];
+                        
                         //update area and position
-                        GPoint cellPoint = geographicMapCellPosition.getPoint();
+                        final GPoint cellPoint = geographicMapCellPosition.getPoint();
 
-                        this.newUnconstructedRTSLayerInterfaceArray[itemIndex].setPosition(
-                                cellPoint.getX(), cellPoint.getY(), cellPoint.getZ());
+                        rtsLayer.setPosition(cellPoint.getX(), cellPoint.getY(), cellPoint.getZ());
 
-                        this.newUnconstructedRTSLayerInterfaceArray[itemIndex].geographicMapCellPositionArea.update(geographicMapInterface);
+                        rtsLayer.geographicMapCellPositionAreaBase.update(geographicMapInterface);
                     }
 
-                    this.attemptBuild(
-                        rtsPlayerLayerInterface,
-                        layerManager,
-                        this.newUnconstructedRTSLayerInterfaceArray[itemIndex], itemIndex);
+                    final RTSLayer rtsLayer = (RTSLayer) this.newUnconstructedRTSLayerInterfaceArray[itemIndex];
+                    
+                    this.attemptBuild(rtsPlayerLayerInterface, layerManager,rtsLayer, itemIndex);
                 }
                 else
                 {
@@ -320,8 +320,8 @@ public class BuildingRTSFormInput extends RTSFormInput
     {
         logUtil.put(new StringMaker().append("Layer: ").append(StringUtil.getInstance().toString(layerInterface)).toString(), this, "attemptBuild");
 
-        final GeographicMapCellPositionArea geographicMapCellPositionArea =
-            layerInterface.geographicMapCellPositionArea;
+        final GeographicMapCellPositionAreaBase geographicMapCellPositionArea =
+            layerInterface.geographicMapCellPositionAreaBase;
 
         final BasicArrayList occupyList =
             geographicMapCellPositionArea.getOccupyingGeographicMapCellPositionList();
@@ -379,7 +379,7 @@ public class BuildingRTSFormInput extends RTSFormInput
         {
             layerInterface.construct(rtsPlayerLayerInterface);
 
-            newUnconstructedRTSLayerInterfaceArray[itemIndex] = null;
+            newUnconstructedRTSLayerInterfaceArray[itemIndex] = CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER;
 
             capital.removeMoney(cost);
 
@@ -408,8 +408,8 @@ public class BuildingRTSFormInput extends RTSFormInput
             final RTSPlayerLayerInterface rtsPlayerLayerInterface,
             final RTSLayer layerInterface) throws Exception
     {
-        final GeographicMapCellPositionArea geographicMapCellPositionArea =
-            layerInterface.geographicMapCellPositionArea;
+        final GeographicMapCellPositionAreaBase geographicMapCellPositionArea =
+            layerInterface.geographicMapCellPositionAreaBase;
 
         final BasicArrayList occupyList =
             geographicMapCellPositionArea.getOccupyingGeographicMapCellPositionList();
@@ -463,8 +463,8 @@ public class BuildingRTSFormInput extends RTSFormInput
         final AllBinaryLayerManager layerManager, final RTSLayer layerInterface)
     throws Exception
     {
-        final GeographicMapCellPositionArea geographicMapCellPositionArea =
-            layerInterface.geographicMapCellPositionArea;
+        final GeographicMapCellPositionAreaBase geographicMapCellPositionArea =
+            layerInterface.geographicMapCellPositionAreaBase;
 
         final BasicArrayList occupyList =
             geographicMapCellPositionArea.getOccupyingGeographicMapCellPositionList();
@@ -490,8 +490,8 @@ public class BuildingRTSFormInput extends RTSFormInput
 
     private boolean isSurroundingCellsOffMap(RTSLayer layerInterface)
     {
-        GeographicMapCellPositionArea geographicMapCellPositionArea =
-            layerInterface.geographicMapCellPositionArea;
+        GeographicMapCellPositionAreaBase geographicMapCellPositionArea =
+            layerInterface.geographicMapCellPositionAreaBase;
 
         BasicArrayList occupyList =
             geographicMapCellPositionArea.getOccupyingGeographicMapCellPositionList();

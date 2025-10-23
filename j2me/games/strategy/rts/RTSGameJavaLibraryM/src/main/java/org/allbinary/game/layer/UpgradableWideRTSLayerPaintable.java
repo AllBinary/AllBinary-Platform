@@ -29,6 +29,7 @@ public class UpgradableWideRTSLayerPaintable extends RTSLayerCompositePaintable
         super(upgradableRTSLayerHudPaintable);
     }
     
+    @Override
     public void update(RTSLayer rtsLayer)
     {
         super.update(rtsLayer);
@@ -36,6 +37,7 @@ public class UpgradableWideRTSLayerPaintable extends RTSLayerCompositePaintable
         this.setCost(new StringMaker().append(this.getUpgradeCost()).append(CommonSeps.getInstance().SPACE).append(this.getDownGradeCost()).toString());
     }
 
+    @Override
     public void paint(Graphics graphics)
     {
         graphics.drawString(this.getCost(), this.upgradableRTSLayerHudPaintable.textX, this.upgradableRTSLayerHudPaintable.costY, 0);

@@ -110,7 +110,7 @@ extends UnitWaypointBehavior
         
         this.sensorRange = weaponRange * 4;
         
-        this.associatedAdvancedRTSGameLayer.waypoint2LogHelper.initRange(this.associatedAdvancedRTSGameLayer, this.closeRange, this.sensorRange);
+        this.associatedAdvancedRTSGameLayer.waypoint2LogHelperP.initRange(this.associatedAdvancedRTSGameLayer, this.closeRange, this.sensorRange);
     }
 
     public GeographicMapCellPosition getNextUnvisitedPathGeographicMapCellPosition() {
@@ -237,7 +237,7 @@ extends UnitWaypointBehavior
         boolean isCurrentTargetDestroyed = 
             this.currentTargetLayerInterface != null && this.currentTargetLayerInterface.isDestroyed();
 
-        this.associatedAdvancedRTSGameLayer.waypoint2LogHelper.processPossibleTarget(this.associatedAdvancedRTSGameLayer, this, layerInterface, anotherTargetDistance, isShorterThanCurrentTargetDistance, isCurrentTargetDestroyed);
+        this.associatedAdvancedRTSGameLayer.waypoint2LogHelperP.processPossibleTarget(this.associatedAdvancedRTSGameLayer, this, layerInterface, anotherTargetDistance, isShorterThanCurrentTargetDistance, isCurrentTargetDestroyed);
 
         if (this.isWaypointListEmptyOrOnlyTargets()
                 && this.isInSensorRange(layerInterface, anotherTargetDistance) &&
@@ -247,7 +247,7 @@ extends UnitWaypointBehavior
                 // and Change Target if Target Dead
                         isCurrentTargetDestroyed))
         {
-            this.associatedAdvancedRTSGameLayer.waypoint2LogHelper.processPossibleTarget(this.associatedAdvancedRTSGameLayer,this, layerInterface, anotherTargetDistance);
+            this.associatedAdvancedRTSGameLayer.waypoint2LogHelperP.processPossibleTarget(this.associatedAdvancedRTSGameLayer,this, layerInterface, anotherTargetDistance);
 
             this.setTarget(layerInterface, anotherTargetDistance);
         }
@@ -260,7 +260,7 @@ extends UnitWaypointBehavior
                         // and Change Target if Target Dead
                  isCurrentTargetDestroyed))
         {
-            this.associatedAdvancedRTSGameLayer.waypoint2LogHelper.processPossibleTargetCloser(this.associatedAdvancedRTSGameLayer,this, layerInterface, anotherTargetDistance);
+            this.associatedAdvancedRTSGameLayer.waypoint2LogHelperP.processPossibleTargetCloser(this.associatedAdvancedRTSGameLayer,this, layerInterface, anotherTargetDistance);
             
             this.setTarget(layerInterface, anotherTargetDistance);
         }
@@ -301,7 +301,7 @@ extends UnitWaypointBehavior
         throws Exception
     {
         
-        this.associatedAdvancedRTSGameLayer.waypoint2LogHelper.setTarget(this.associatedAdvancedRTSGameLayer,this, layerInterface, anotherTargetDistance);
+        this.associatedAdvancedRTSGameLayer.waypoint2LogHelperP.setTarget(this.associatedAdvancedRTSGameLayer,this, layerInterface, anotherTargetDistance);
 
         this.associatedAdvancedRTSGameLayer.getCaptionAnimationHelper().update(TARGET, BasicColorFactory.getInstance().GREEN);
         //Drop load when going after target
@@ -354,7 +354,7 @@ extends UnitWaypointBehavior
         {
             if(this.currentTargetLayerInterface.isDestroyed())
             {
-                this.associatedAdvancedRTSGameLayer.waypoint2LogHelper.setTargetPath(this.associatedAdvancedRTSGameLayer);
+                this.associatedAdvancedRTSGameLayer.waypoint2LogHelperP.setTargetPath(this.associatedAdvancedRTSGameLayer);
                 
                 this.associatedAdvancedRTSGameLayer.getCaptionAnimationHelper().update(
                         KILL, this.basicColorFactory.ORANGE);
@@ -366,7 +366,7 @@ extends UnitWaypointBehavior
             // Ignore new path if target changed - this shouldn't happen but?
             if (this.currentTargetLayerInterface == this.waypointPathRunnable.getTargetLayer())
             {
-                this.associatedAdvancedRTSGameLayer.waypoint2LogHelper.setTargetPath(this.associatedAdvancedRTSGameLayer, this);
+                this.associatedAdvancedRTSGameLayer.waypoint2LogHelperP.setTargetPath(this.associatedAdvancedRTSGameLayer, this);
                 
                 this.insertWaypoint(0, this.currentTargetLayerInterface);
                 this.setRandomGeographicMapCellHistory(this.waypointPathsList);
@@ -395,7 +395,7 @@ extends UnitWaypointBehavior
             final AdvancedRTSGameLayer targetLayer =
                 (AdvancedRTSGameLayer) this.targetList.get(0);
 
-            this.associatedAdvancedRTSGameLayer.waypoint2LogHelper.processWaypoint(this.associatedAdvancedRTSGameLayer, this, targetLayer, size);
+            this.associatedAdvancedRTSGameLayer.waypoint2LogHelperP.processWaypoint(this.associatedAdvancedRTSGameLayer, this, targetLayer, size);
 
             // If waypoint was destroyed
             if (targetLayer.isDestroyed())
@@ -417,11 +417,11 @@ extends UnitWaypointBehavior
 
                 if (this.isTrackingWaypoint())
                 {
-                    this.associatedAdvancedRTSGameLayer.waypoint2LogHelper.processWaypointTracked(this.associatedAdvancedRTSGameLayer, this);
+                    this.associatedAdvancedRTSGameLayer.waypoint2LogHelperP.processWaypointTracked(this.associatedAdvancedRTSGameLayer, this);
 
                     if (this.visitIfAtMidPoint(geographicMapCellPosition))
                     {
-                        this.associatedAdvancedRTSGameLayer.waypoint2LogHelper.processWaypointTracked(this.associatedAdvancedRTSGameLayer, geographicMapCellPosition);
+                        this.associatedAdvancedRTSGameLayer.waypoint2LogHelperP.processWaypointTracked(this.associatedAdvancedRTSGameLayer, geographicMapCellPosition);
                     }
 
                     if (this.currentGeographicMapCellHistory.isAllVisited2() &&
@@ -491,7 +491,7 @@ extends UnitWaypointBehavior
     {
         if (this.currentGeographicMapCellHistory.isAllVisited2())
         {
-            this.associatedAdvancedRTSGameLayer.waypoint2LogHelper.wander(this.associatedAdvancedRTSGameLayer);
+            this.associatedAdvancedRTSGameLayer.waypoint2LogHelperP.wander(this.associatedAdvancedRTSGameLayer);
             
             this.associatedAdvancedRTSGameLayer.getCaptionAnimationHelper().update(
                     WANDERING, this.basicColorFactory.RED);
@@ -650,7 +650,7 @@ extends UnitWaypointBehavior
             
             if (this.currentTargetLayerInterface.isDestroyed())
             {
-                this.associatedAdvancedRTSGameLayer.waypoint2LogHelper.targetDestroyed(this.associatedAdvancedRTSGameLayer);
+                this.associatedAdvancedRTSGameLayer.waypoint2LogHelperP.targetDestroyed(this.associatedAdvancedRTSGameLayer);
                 
                 this.associatedAdvancedRTSGameLayer.getCaptionAnimationHelper().update(
                         KILL, this.basicColorFactory.ORANGE);
@@ -677,11 +677,11 @@ extends UnitWaypointBehavior
                 dx = associatedAdvancedRTSGameLayer.getXP() + associatedAdvancedRTSGameLayer.getHalfWidth() - point.getX();
                 dy = associatedAdvancedRTSGameLayer.getYP() + associatedAdvancedRTSGameLayer.getHalfHeight() - point.getY();
                 
-                this.associatedAdvancedRTSGameLayer.waypoint2LogHelper.processTargeting(this.associatedAdvancedRTSGameLayer, dx, dy);
+                this.associatedAdvancedRTSGameLayer.waypoint2LogHelperP.processTargeting(this.associatedAdvancedRTSGameLayer, dx, dy);
             }
             else
             {
-                this.associatedAdvancedRTSGameLayer.waypoint2LogHelper.processTargetingNonWayPoint(this.associatedAdvancedRTSGameLayer, dx, dy);
+                this.associatedAdvancedRTSGameLayer.waypoint2LogHelperP.processTargetingNonWayPoint(this.associatedAdvancedRTSGameLayer, dx, dy);
 
                 dx = (this.associatedAdvancedRTSGameLayer.getXP() +
                         this.associatedAdvancedRTSGameLayer.getHalfWidth()) -
@@ -774,16 +774,16 @@ extends UnitWaypointBehavior
 
     private void removeWaypoint(final RTSLayer waypointLayer, final String reason) throws Exception
     {
-        this.associatedAdvancedRTSGameLayer.waypoint2LogHelper.removeWaypoint(this.associatedAdvancedRTSGameLayer, this, waypointLayer, reason);
+        this.associatedAdvancedRTSGameLayer.waypoint2LogHelperP.removeWaypoint(this.associatedAdvancedRTSGameLayer, this, waypointLayer, reason);
 
         this.targetList.remove(waypointLayer);
 
-        this.associatedAdvancedRTSGameLayer.waypoint2LogHelper.removeWaypoint(this.associatedAdvancedRTSGameLayer, this, this.targetList);
+        this.associatedAdvancedRTSGameLayer.waypoint2LogHelperP.removeWaypoint(this.associatedAdvancedRTSGameLayer, this, this.targetList);
         
         if (this.currentTargetLayerInterface == waypointLayer)
         {
             
-            this.associatedAdvancedRTSGameLayer.waypoint2LogHelper.removeWaypointClear(this.associatedAdvancedRTSGameLayer);
+            this.associatedAdvancedRTSGameLayer.waypoint2LogHelperP.removeWaypointClear(this.associatedAdvancedRTSGameLayer);
             
             this.clearTarget();
         }
@@ -791,7 +791,7 @@ extends UnitWaypointBehavior
     
     public void clearTarget() throws Exception
     {
-        this.associatedAdvancedRTSGameLayer.waypoint2LogHelper.clearTarget(this.associatedAdvancedRTSGameLayer);
+        this.associatedAdvancedRTSGameLayer.waypoint2LogHelperP.clearTarget(this.associatedAdvancedRTSGameLayer);
 
         //this.waypointPathsList = BasicArrayListUtil.getImmutableInstance();
         this.setCurrentTargetLayerInterface(null);
@@ -868,7 +868,7 @@ extends UnitWaypointBehavior
             throw new Exception("Trying to add a dead: " + advancedRTSGameLayer);
         }
 
-        this.associatedAdvancedRTSGameLayer.waypoint2LogHelper.addWaypointFromUser(this.associatedAdvancedRTSGameLayer, advancedRTSGameLayer);
+        this.associatedAdvancedRTSGameLayer.waypoint2LogHelperP.addWaypointFromUser(this.associatedAdvancedRTSGameLayer, advancedRTSGameLayer);
 
         // clear waypoints and use player created waypoint
         this.targetList.clear();

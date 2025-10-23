@@ -25,17 +25,20 @@ public class HudCapital extends Capital
         this.capitalGraphic = moneyGraphic;
     }
     
+    @Override
     public void removeMoney(int points)
     {
         super.removeMoney(points);
         this.capitalGraphic.reduce(points);
     }
 
+    @Override
     public int getTotalMoney()
     {
         return this.capitalGraphic.get();
     }
 
+    @Override
     public void addMoney(int points)
     {
         super.addMoney(points);

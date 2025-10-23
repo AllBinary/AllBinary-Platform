@@ -12,8 +12,6 @@
  * 
  */
 package org.allbinary.game.layer;
-import org.allbinary.logic.string.StringMaker;
-
 
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.math.LayerDistanceUtil;
@@ -30,23 +28,26 @@ public class WaypointPathRunnableBase implements RunnableInterface, PriorityRunn
 
     private final LayerDistanceUtil layerDistanceUtil = LayerDistanceUtil.getInstance();
     
-    protected PathFindingLayerInterface pathFindingLayer;
-    protected PathFindingLayerInterface targetLayer;
+    protected PathFindingLayerInterface pathFindingLayer = NullPathFindingLayer.NULL_PATH_FINDING_LAYER;
+    protected PathFindingLayerInterface targetPathFindingLayer = NullPathFindingLayer.NULL_PATH_FINDING_LAYER;
 
-    protected int priority = Integer.MAX_VALUE;
+    protected int priorityP = Integer.MAX_VALUE;
     
-    protected boolean running;
+    protected boolean runningP;
 
+    @Override
     public boolean isRunning()
     {
-        return this.running;
+        return this.runningP;
     }
 
+    @Override
     public void setRunning(final boolean isRunning)
     {
-        this.running = isRunning;
+        this.runningP = isRunning;
     }
 
+    @Override
     public void setThread(final Thread thread)throws Exception
     {
 
@@ -60,7 +61,7 @@ public class WaypointPathRunnableBase implements RunnableInterface, PriorityRunn
      */
     public void setTargetLayer(final PathFindingLayerInterface waypointLayer)
     {
-        this.targetLayer = waypointLayer;
+        this.targetPathFindingLayer = waypointLayer;
         
         this.setPriority();
         
@@ -69,14 +70,14 @@ public class WaypointPathRunnableBase implements RunnableInterface, PriorityRunn
     public void setPriority() {
         
         final AllBinaryLayer pathFindingLayer = (AllBinaryLayer) this.pathFindingLayer;
-        final AllBinaryLayer targetLayer = (AllBinaryLayer) this.targetLayer;
+        final AllBinaryLayer targetLayer = (AllBinaryLayer) this.targetPathFindingLayer;
         
         if(targetLayer != null) {
             
             final int distance = layerDistanceUtil.getDistance(targetLayer, pathFindingLayer);
             
             final int distanceCategory = distance / 70;
-            this.priority = distanceCategory;
+            this.priorityP = distanceCategory;
 
             //logUtil.put(new StringMaker().append(SET_PRIORITY).append(this.priority).toString(), this, SET_TARGET);
         }
@@ -84,7 +85,7 @@ public class WaypointPathRunnableBase implements RunnableInterface, PriorityRunn
     
     public PathFindingLayerInterface getTargetLayer()
     {
-        return targetLayer;
+        return targetPathFindingLayer;
     }
 
     /**
@@ -95,18 +96,22 @@ public class WaypointPathRunnableBase implements RunnableInterface, PriorityRunn
         this.pathFindingLayer = unitLayer;
     }
     
+    @Override
     public int getPriority() {
-        return this.priority;
+        return this.priorityP;
     }
  
+    @Override
     public boolean isDone() {
         return true;
     }
 
+    @Override
     public void run()
     {
     }
 
+    @Override
     public void reset()
     {
     }

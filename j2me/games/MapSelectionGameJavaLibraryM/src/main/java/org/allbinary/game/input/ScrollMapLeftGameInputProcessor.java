@@ -23,6 +23,7 @@ public class ScrollMapLeftGameInputProcessor extends ScrollMapGameInputProcessor
         super(scrollMapPlayerGameInput);
     }
     
+    @Override
     public void process(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent)
     throws Exception
     {

@@ -72,11 +72,11 @@ public class PathFindingNodeCost extends PathFindingNode implements Comparable<P
         stringBuffer.append(" Path: ");
         stringBuffer.append(this.geographicMapCellPosition.toString());
 
-        PathFindingNode pathFindingNode = this.parent;
+        PathFindingNode pathFindingNode = (PathFindingNode) this.parent;
         while (pathFindingNode != null) {
             stringBuffer.append(pathFindingNode.geographicMapCellPosition.toString());
             stringBuffer.append(commonSeps.SPACE);
-            pathFindingNode = pathFindingNode.parent;
+            pathFindingNode = (PathFindingNode) pathFindingNode.parent;
         }
 
         return stringBuffer.toString();

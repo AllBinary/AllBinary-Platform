@@ -13,8 +13,6 @@
 */
 package org.allbinary.game.input;
 
-import org.allbinary.game.input.GameInputProcessor;
-
 public class ScrollMapGameInputProcessor extends GameInputProcessor
 {
     protected final ScrollMapPlayerGameInput scrollMapPlayerGameInput;

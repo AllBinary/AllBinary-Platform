@@ -29,7 +29,7 @@ public interface PathFindingLayerInterface extends WaypointLayerInterface, GameK
     
     boolean shouldHandleStartSameAsEnd();
     
-    GeographicMapCellPositionArea getGeographicMapCellPositionArea();
+    GeographicMapCellPositionAreaBase getGeographicMapCellPositionArea();
     
     SelectionHudPaintable getHudPaintable();
  

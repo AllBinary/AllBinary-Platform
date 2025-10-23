@@ -13,8 +13,6 @@
  */
 
 package org.allbinary.game.layer;
-import org.allbinary.logic.string.StringMaker;
-
 
 import javax.microedition.lcdui.Graphics;
 
@@ -28,6 +26,7 @@ import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellHistory;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 import org.allbinary.media.graphics.geography.map.GeographicMapCompositeInterface;
+import org.allbinary.media.graphics.geography.map.SimpleGeographicMapCellPositionFactory;
 import org.allbinary.util.BasicArrayList;
 
 public class PathAnimation extends Animation
@@ -37,7 +36,7 @@ public class PathAnimation extends Animation
     private final LinePathAnimation linePathAnimation;
     private final PathFindingLayerInterface pathFindingLayer;
     
-    protected AllBinaryGameLayerManager allBinaryGameLayerManager;
+    protected AllBinaryGameLayerManager allBinaryGameLayerManagerP = AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER;
     
     public PathAnimation(final PathFindingLayerInterface pathFindingLayer, final LinePathAnimation linePathAnimation)
     {
@@ -46,9 +45,10 @@ public class PathAnimation extends Animation
     }
     
     public void setAllBinaryGameLayerManager(final AllBinaryGameLayerManager allBinaryGameLayerManager) throws Exception {
-        this.allBinaryGameLayerManager = allBinaryGameLayerManager;
+        this.allBinaryGameLayerManagerP = allBinaryGameLayerManager;
     }
     
+    @Override
     public void nextFrame() throws Exception
     {
     }
@@ -57,6 +57,7 @@ public class PathAnimation extends Animation
     private final BasicColor middleColor = BasicColorFactory.getInstance().BLUE;
     private final BasicColor endColor = BasicColorFactory.getInstance().GREEN;
     
+    @Override
     public void paint(final Graphics graphics, final int x, final int y)
     {
         try
@@ -76,11 +77,11 @@ public class PathAnimation extends Animation
                     //final CommonSeps commonSeps = CommonSeps.getInstance();
                     
                     final GeographicMapCompositeInterface geographicMapCompositeInterface = 
-                        (GeographicMapCompositeInterface) this.allBinaryGameLayerManager;
+                        (GeographicMapCompositeInterface) this.allBinaryGameLayerManagerP;
                     final BasicGeographicMap geographicMapInterface = geographicMapCompositeInterface.getGeographicMapInterface()[0];
 
                     final AllBinaryTiledLayer tiledLayer = geographicMapInterface.getAllBinaryTiledLayer();
-                    GeographicMapCellPosition geographicMapCellPosition = null;
+                    GeographicMapCellPosition geographicMapCellPosition = SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
                         //(GeographicMapCellPosition) list.get(list.size() - 1);
 
                     GPoint nextPoint;// = geographicMapCellPosition.getMidPoint();

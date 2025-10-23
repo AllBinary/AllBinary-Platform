@@ -16,7 +16,6 @@ package org.allbinary.game.input;
 import javax.microedition.lcdui.Canvas;
 
 import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.logic.system.security.licensing.LockedFeatureNotificationUtil;
 import org.allbinary.logic.system.security.licensing.LockedUtil;
 import org.allbinary.canvas.Processor;
@@ -25,7 +24,6 @@ import org.allbinary.game.displayable.canvas.PreGameSelectorPaintable;
 import org.allbinary.game.input.event.GameKeyEventHandler;
 import org.allbinary.game.input.event.GameKeyEventUtil;
 import org.allbinary.layer.AllBinaryLayerManager;
-
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.media.audio.SecondaryPlayerQueueFactory;
@@ -50,6 +48,8 @@ public class MapSelectionGameInputProcessor extends Processor
     private final int lockedIndex;
     
     private final ABRunnable abRunnable = new ABRunnable() {
+        
+        @Override
         public void run() {
             try {
                 this.setRunning(true);
@@ -93,12 +93,14 @@ public class MapSelectionGameInputProcessor extends Processor
         this.lockedIndex = lockedIndex;
     }
 
+    @Override
     public void process() throws Exception
     {
         // logUtil.put(commonStrings.START, this, commonStrings.PROCESS);
         this.getPlayerGameInput().update();
     }
 
+    @Override
     public void onInput(BasicArrayList list) throws Exception
     {
         int size = list.size();
@@ -147,21 +149,25 @@ public class MapSelectionGameInputProcessor extends Processor
         }
     }
 
+    @Override
     public void processInput(AllBinaryLayerManager layerManager) throws Exception
     {
         
     }
     
+    @Override
     public void initInputProcessors()
     {
         
     }
     
+    @Override
     public String getName()
     {
         return this.toString();
     }
     
+    @Override
     public PlayerGameInput getPlayerGameInput()
     {
         return playerGameInput;

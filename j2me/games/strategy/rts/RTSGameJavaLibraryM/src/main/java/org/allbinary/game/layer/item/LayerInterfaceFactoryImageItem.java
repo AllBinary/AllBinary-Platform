@@ -47,7 +47,8 @@ public class LayerInterfaceFactoryImageItem extends CustomImageItem
     {
         return this.layerInterfaceFactoryInterface;
     }
-    
+
+    @Override    
     public void paint(Graphics graphics, int x, int y)
     {
         super.paint(graphics, x, y);

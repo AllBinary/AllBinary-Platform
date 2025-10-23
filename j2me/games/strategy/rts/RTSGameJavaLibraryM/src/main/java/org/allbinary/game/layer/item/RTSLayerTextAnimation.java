@@ -37,12 +37,13 @@ extends Animation
         this.text = text;
         this.image = image;
     }
-        
+
+    @Override
     public void paint(Graphics graphics, int x, int y)
     {
         super.paint(graphics, x, y);
 
-        final int adjustedCostY = image.getHeight() - (this.myFont.DEFAULT_CHAR_HEIGHT);
+        final int adjustedCostY = image.getHeight() - this.myFont.DEFAULT_CHAR_HEIGHT;
         graphics.drawString(text, x, y + adjustedCostY, 0);
         // + this.adjustedCostX
     }

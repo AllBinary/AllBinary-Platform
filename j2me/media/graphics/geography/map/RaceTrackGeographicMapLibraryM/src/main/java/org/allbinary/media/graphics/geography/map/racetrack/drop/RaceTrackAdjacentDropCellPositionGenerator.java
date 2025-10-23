@@ -18,6 +18,8 @@ import java.util.Hashtable;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.direction.Direction;
 import org.allbinary.direction.DirectionFactory;
+import org.allbinary.game.identification.BasicGroupFactory;
+import org.allbinary.game.identification.Group;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.layer.geographic.map.LayerCoveringCellPositionsUtil;
 import org.allbinary.graphics.GPoint;
@@ -194,7 +196,13 @@ public class RaceTrackAdjacentDropCellPositionGenerator
             //PreLogUtil.put(stringBuffer.toString(), this, commonStrings.DROP);
             //logUtil.put(stringBuffer.toString(), this, commonStrings.DROP);
 
-            hashtable.put(DirectionFactory.getInstance().NAME, direction);
+            final Object objectCanBeNull = this.hashtable.get(Group.ID);
+            if(objectCanBeNull != null) {
+            } else {
+                this.hashtable.put(Group.ID, BasicGroupFactory.getInstance().NONE_ARRAY);
+            }
+            
+            this.hashtable.put(DirectionFactory.getInstance().NAME, direction);
 
             final GPoint point = randomGeographicMapCellPosition.getPoint();
             final int x = point.getX();

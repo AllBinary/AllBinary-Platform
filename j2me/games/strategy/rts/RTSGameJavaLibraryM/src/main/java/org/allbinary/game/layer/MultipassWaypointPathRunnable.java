@@ -12,16 +12,16 @@
  * 
  */
 package org.allbinary.game.layer;
+
+import org.allbinary.logic.NullUtil;
 import org.allbinary.thread.ARunnable;
-
-
-
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 import org.allbinary.media.graphics.geography.pathfinding.MultipassState;
 import org.allbinary.media.graphics.geography.pathfinding.PathFindingInfo;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListUtil;
 
 /**
  *
@@ -31,14 +31,16 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private boolean done = false;
-    private BasicArrayList list;
-    
-    private PathFindingInfo pathFindingInfo;
+    private final BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();
     private final MultipassState multipassState = new MultipassState();
     
+    private boolean done = false;
+    private BasicArrayList list = basicArrayListUtil.getImmutableInstance();
+    private Object pathFindingInfo = NullUtil.getInstance().NULL_OBJECT;
+    
     private final Runnable FIRST_RUNNABLE = new ARunnable() {
-            
+
+        @Override
         public void run() {
             try {
                 pathFindingLayer.getWaypointRunnableLogHelper().start(pathFindingLayer);
@@ -52,13 +54,14 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
                     throw new Exception("Should never be running here");
                 }
 
-                pathFindingInfo = targetLayer.getWaypointBehavior().getWaypoint().getPathFindingInfo(geographicMapCellPosition);
+                pathFindingInfo = targetPathFindingLayer.getWaypointBehavior().getWaypoint().getPathFindingInfo(geographicMapCellPosition);
+                final PathFindingInfo localPathFindingInfo = (PathFindingInfo) pathFindingInfo;
                 
 //                logUtil.put("first set: " + pathFindingInfo, this, "getPathsList");
                                 
-                list = targetLayer.getWaypointBehavior().getWaypoint().getPathsList(geographicMapCellPosition, pathFindingInfo, multipassState);
+                list = targetPathFindingLayer.getWaypointBehavior().getWaypoint().getPathsList(geographicMapCellPosition, localPathFindingInfo, multipassState);
                 
-                if(list != null) {
+                if(list != basicArrayListUtil.getImmutableInstance()) {
                     END_RUNNABLE.run();
                 } else {
                     currentPassRunnable = SECOND_RUNNABLE;
@@ -78,6 +81,7 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
     
     private final Runnable SECOND_RUNNABLE = new ARunnable() {
         
+        @Override
         public void run() {
             try {
 
@@ -89,9 +93,10 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
                 final GeographicMapCellPosition geographicMapCellPosition = 
                     pathFindingLayer.getCurrentGeographicMapCellPosition();
 
-                list = targetLayer.getWaypointBehavior().getWaypoint().getPathsList(geographicMapCellPosition, pathFindingInfo, multipassState);
+                final PathFindingInfo localPathFindingInfo = (PathFindingInfo) pathFindingInfo;
+                list = targetPathFindingLayer.getWaypointBehavior().getWaypoint().getPathsList(geographicMapCellPosition, localPathFindingInfo, multipassState);
                 
-                if(list != null) {
+                if(list != basicArrayListUtil.getImmutableInstance()) {
                     END_RUNNABLE.run();
                 }
                 
@@ -108,6 +113,7 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
 
     private final Runnable END_RUNNABLE = new ARunnable() {
             
+        @Override
         public void run() {
             try {
                 final WaypointBehaviorBase waypointBehavior = pathFindingLayer.getWaypointBehavior();
@@ -132,6 +138,7 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
 
     private final Runnable ALREADY_ENDED_RUNNABLE = new ARunnable() {
             
+        @Override
         public void run() {
             throw new RuntimeException();
         }
@@ -144,17 +151,19 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
     {
     }
 
+    @Override
     public void setRunning(boolean isRunning)
     {        
-        this.running = isRunning;
+        this.runningP = isRunning;
         
-        if(this.running) {
+        if(this.runningP) {
             this.reset();
             this.done = false;
         }
         
     }
 
+    @Override
     public void run()
     {
         try
@@ -174,7 +183,7 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
         multipassState.step = 0;
         multipassState.iteration = 0;
         multipassState.iteration2 = 0;
-        pathFindingInfo = null;
+        pathFindingInfo = NullUtil.getInstance().NULL_OBJECT;
 //        first = true;
     }
     
@@ -184,10 +193,12 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
         done = true;
     }
 
+    @Override
     public boolean isDone() {
         return done;
     }
     
+    @Override
     public void reset() {
         this.reset2();
         this.currentPassRunnable = FIRST_RUNNABLE;

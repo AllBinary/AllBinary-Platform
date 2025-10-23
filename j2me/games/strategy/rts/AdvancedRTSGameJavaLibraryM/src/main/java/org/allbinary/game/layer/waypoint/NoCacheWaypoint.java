@@ -141,7 +141,7 @@ public class NoCacheWaypoint extends WaypointBase
         }
 
         final GeographicMapCompositeInterface geographicMapCompositeInterface
-            = (GeographicMapCompositeInterface) this.allBinaryGameLayerManager;
+            = (GeographicMapCompositeInterface) this.allBinaryGameLayerManagerP;
         final BasicGeographicMap geographicMapInterface = geographicMapCompositeInterface.getGeographicMapInterface()[0];
         
         final RaceTrackGeographicMap raceTrackGeographicMap =

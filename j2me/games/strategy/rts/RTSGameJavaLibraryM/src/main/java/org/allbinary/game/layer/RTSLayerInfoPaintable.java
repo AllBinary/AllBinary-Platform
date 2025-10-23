@@ -32,11 +32,13 @@ public class RTSLayerInfoPaintable extends InitUpdatePaintable
     {
     }
 
+    @Override
     public void update()
     {
         this.initUpdatePaintable.update();
     }
     
+    @Override
     public void paint(Graphics graphics)
     {
         this.initUpdatePaintable.paint(graphics);

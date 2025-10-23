@@ -15,12 +15,14 @@
 package org.allbinary.game.layer;
 
 import javax.microedition.lcdui.Graphics;
+import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
 
 import org.allbinary.logic.java.character.CharArrayFactory;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFont;
+import org.allbinary.graphics.paint.NullPaintable;
+import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.input.motion.button.CommonButtons;
-import org.allbinary.input.motion.button.TouchButtonInput;
 
 public class UpgradableRTSLayerHudPaintable 
     extends SelectionHudPaintable
@@ -36,19 +38,20 @@ public class UpgradableRTSLayerHudPaintable
     //private final String PERCENT_COMPLETE = "% Complete";
     private final String PERCENT = "%";
 
-    private RTSLayer rtsLayer;
+    private CollidableDestroyableDamageableLayer rtsLayer = CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER;
 
     protected int costY;
     protected int costY1;
     
     private int percentCompleteX2;
     
-    private RTSLayerCompositePaintable rtsLayerCompositePaintable;
+    private RTSLayerCompositePaintable rtsLayerCompositePaintableLateInit;
     
     private UpgradableRTSLayerHudPaintable()
     {
     }
 
+    @Override
     public void update()
     {
         super.update();
@@ -72,27 +75,28 @@ public class UpgradableRTSLayerHudPaintable
 
         this.percentCompleteX2 = this.imageX + CommonButtons.getInstance().STANDARD_BUTTON_SIZE - myFont.charWidth();
         
-        DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
+        final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
                 
         //!AndroidUtil.isAndroid()
         if(displayInfoSingleton.getLastWidth() > 320)
         {
-            this.rtsLayerCompositePaintable = new UpgradableWideRTSLayerPaintable(this);
+            this.rtsLayerCompositePaintableLateInit = new UpgradableWideRTSLayerPaintable(this);
         }
         else
         {
-            this.rtsLayerCompositePaintable = new RTSLayerCompositePaintable(this);
+            this.rtsLayerCompositePaintableLateInit = new RTSLayerCompositePaintable(this);
         }        
     }    
     
+    @Override
     public void updateSelectionInfo()
     {
-        this.rtsLayerCompositePaintable.update(this.getRtsLayer());
+        final RTSLayer rtsLayer = (RTSLayer) this.getRtsLayer();
+        this.rtsLayerCompositePaintableLateInit.update(rtsLayer);
         
-        this.setAnimationInterface(
-                this.getRtsLayer().getVerticleBuildAnimationInterface());
+        this.setAnimationInterface(rtsLayer.getVerticleBuildAnimationInterface());
 
-        this.setName(this.getRtsLayer().getName());
+        this.setName(rtsLayer.getName());
     }
     
     private int percentComplete;
@@ -101,9 +105,11 @@ public class UpgradableRTSLayerHudPaintable
     private char[] percentCompleteArray = CharArrayFactory.getInstance().getZeroCharArray();
     private int currentTotalDigits;
     
+    @Override
     public void updateInfo()
     {
-        this.percentComplete = this.getRtsLayer().getPercentComplete();
+        final RTSLayer rtsLayer = (RTSLayer) this.getRtsLayer();
+        this.percentComplete = rtsLayer.getPercentComplete();
 
         if (percentComplete < 10)
         {
@@ -124,11 +130,12 @@ public class UpgradableRTSLayerHudPaintable
             this.getPrimitiveLongUtil().getCurrentTotalDigits();
     }
     
+    @Override
     public void paint(Graphics graphics)
     {
         super.paint(graphics);
 
-        this.rtsLayerCompositePaintable.paint(graphics);
+        this.rtsLayerCompositePaintableLateInit.paint(graphics);
         
         graphics.drawChars(
                 percentCompleteArray, 0, this.currentTotalDigits, 
@@ -168,7 +175,7 @@ public class UpgradableRTSLayerHudPaintable
         this.rtsLayer = rtsLayer;
     }
 
-    protected RTSLayer getRtsLayer()
+    protected CollidableDestroyableDamageableLayer getRtsLayer()
     {
         return rtsLayer;
     }

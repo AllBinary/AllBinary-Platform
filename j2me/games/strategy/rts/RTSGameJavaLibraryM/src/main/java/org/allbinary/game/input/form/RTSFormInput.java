@@ -20,12 +20,11 @@ import org.allbinary.game.layer.RTSLayer;
 import org.allbinary.game.layer.RTSPlayerLayerInterface;
 import org.allbinary.game.layer.item.LayerInterfaceFactoryImageItem;
 import org.allbinary.graphics.form.item.CustomItem;
-
-
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.direction.DirectionFactory;
 import org.allbinary.game.identification.Group;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
+import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.form.ScrollSelectionForm;
 import org.allbinary.layer.AllBinaryLayerManager;
@@ -33,6 +32,7 @@ import org.allbinary.layer.LayerInterfaceFactoryInterface;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
+import org.allbinary.media.graphics.geography.map.SimpleGeographicMapCellPositionFactory;
 
 /**
  *
@@ -44,16 +44,20 @@ public class RTSFormInput
 
     private final Hashtable hashtable = new Hashtable();
         
-    protected final RTSLayer[] newUnconstructedRTSLayerInterfaceArray = new RTSLayer[7];
+    protected final CollidableDestroyableDamageableLayer[] newUnconstructedRTSLayerInterfaceArray = new CollidableDestroyableDamageableLayer[7];
     protected final Group[] groupInterfaceArray;
-    private GeographicMapCellPosition selectedGeographicCellPosition;
+    private GeographicMapCellPosition selectedGeographicCellPosition = SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
     private boolean stickyItemSelected;
     private int selectedStickyItemIndex;
-    private CustomItem selectedStickyItem;
+    private CustomItem selectedStickyItem = CustomItem.NULL_CUSTOM_ITEM;
     
     public RTSFormInput(final Group[] groupInterfaceArray)
     {
         //logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        final int size = newUnconstructedRTSLayerInterfaceArray.length;
+        for(int index = 0; index < size; index++) {
+            newUnconstructedRTSLayerInterfaceArray[index] = CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER;
+        }
 
         this.groupInterfaceArray = groupInterfaceArray;
 
@@ -75,7 +79,7 @@ public class RTSFormInput
     }
         
     public void process(
-        final RTSLayer associatedRtsLayer,
+        final CollidableDestroyableDamageableLayer associatedRtsLayer,
         final RTSPlayerLayerInterface rtsPlayerLayerInterface,
         final AllBinaryLayerManager layerManager, final GPoint point)
         throws Exception
@@ -109,7 +113,7 @@ public class RTSFormInput
     }
     
     public void process(
-        final RTSLayer associatedRtsLayer,
+        final CollidableDestroyableDamageableLayer associatedRtsLayer,
         final RTSPlayerLayerInterface rtsPlayerLayerInterface,
         final AllBinaryLayerManager layerManager, final CustomItem item, final int index)
         throws Exception
@@ -117,7 +121,7 @@ public class RTSFormInput
     }
 
     public boolean processSticky(
-        final RTSLayer associatedRtsLayer,
+        final CollidableDestroyableDamageableLayer associatedRtsLayer,
         final RTSPlayerLayerInterface rtsPlayerLayerInterface,
         final AllBinaryLayerManager layerManager, final GPoint point)
         throws Exception
@@ -148,7 +152,7 @@ public class RTSFormInput
     }
 
     public void processSticky(
-        RTSLayer associatedRtsLayer,
+        CollidableDestroyableDamageableLayer associatedRtsLayer,
         RTSPlayerLayerInterface rtsPlayerLayerInterface,
         AllBinaryLayerManager layerManager, CustomItem item, int index)
         throws Exception
@@ -181,7 +185,7 @@ public class RTSFormInput
         return scrollSelectionForm.getSelectedIndex(point);
     }
 
-    protected RTSLayer getInstance(
+    protected CollidableDestroyableDamageableLayer getInstance(
             final AllBinaryLayerManager layerManager, final CustomItem aItem, final GeographicMapCellPosition geographicMapCellPosition)
         throws Exception
     {
@@ -206,7 +210,7 @@ public class RTSFormInput
                 getHashtable(), cellPoint.getX(), cellPoint.getY(), cellPoint.getZ());
             //lastLayerInterfaceFactoryInterface = layerInterfaceFactoryInterface;
         }
-        return null;
+        return CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER;
     }
 
     /**

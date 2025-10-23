@@ -31,6 +31,7 @@ public class WaypointPathRunnable extends WaypointPathRunnableBase
     {
     }
         
+    @Override
     public void run()
     {
         try
@@ -48,7 +49,7 @@ public class WaypointPathRunnable extends WaypointPathRunnableBase
             }
             
             waypointBehavior.setWaypointPathsList(
-                this.targetLayer.getWaypointBehavior().getWaypoint().getPathsList(
+                this.targetPathFindingLayer.getWaypointBehavior().getWaypoint().getPathsList(
                     geographicMapCellPosition)
                 );
 
@@ -56,7 +57,7 @@ public class WaypointPathRunnable extends WaypointPathRunnableBase
             
             //this.actuallyRunning = false;
             
-            Thread.sleep(15 + (this.priority * 2));
+            Thread.sleep((long) 15 + (this.priorityP * 2));
         }
         catch (Exception e)
         {
@@ -67,6 +68,7 @@ public class WaypointPathRunnable extends WaypointPathRunnableBase
         }
     }
  
+    @Override
     public boolean isDone() {
         return true;
     }

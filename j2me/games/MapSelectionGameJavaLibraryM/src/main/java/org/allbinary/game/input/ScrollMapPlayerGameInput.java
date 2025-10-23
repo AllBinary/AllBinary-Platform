@@ -17,13 +17,10 @@ import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.util.BasicArrayList;
-
-import org.allbinary.string.CommonStrings;
-
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.InputFeatureFactory;
 import org.allbinary.game.input.event.GameKeyEvent;
+import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.layer.AllBinaryTiledLayer;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.layer.AllBinaryLayerManager;
@@ -38,7 +35,6 @@ import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 public class ScrollMapPlayerGameInput
    extends PlayerGameInput
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final GameInputProcessor[] inputProcessorArray = new GameInputProcessor[InputFactory.getInstance().MAX];
 
@@ -188,7 +184,7 @@ public class ScrollMapPlayerGameInput
     public void processInput(int key)
     throws Exception
     {
-        inputProcessorArray[key].process(null, (GameKeyEvent) null);
+        inputProcessorArray[key].process(AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER, GameKeyEvent.NONE);
     }
     
     public void processInput(AllBinaryLayerManager layerManager)

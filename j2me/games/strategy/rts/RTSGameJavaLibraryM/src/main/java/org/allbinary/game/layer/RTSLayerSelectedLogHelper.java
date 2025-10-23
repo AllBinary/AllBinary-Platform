@@ -48,7 +48,7 @@ public class RTSLayerSelectedLogHelper extends RTSLayerLogHelper {
     
     private final String TRACKTO_TURNTO = "trackTo:turnTo";
 
-    //@Override
+    @Override
     public void setClosestGeographicMapCellHistory(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final BasicArrayList pathsList) {
         final StringMaker stringBuffer = new StringMaker();
 
@@ -62,7 +62,7 @@ public class RTSLayerSelectedLogHelper extends RTSLayerLogHelper {
         logUtil.put(stringBuffer.toString(), this, "selected: setClosestGeographicMapCellHistory");
     }
     
-    //@Override
+    @Override
     public void trackTo(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final GeographicMapCellPosition nextUnvisitedPathGeographicMapCellPosition, final int dx, final int dy, final String reason) {
         final StringMaker stringBuffer = new StringMaker();
 
@@ -81,7 +81,7 @@ public class RTSLayerSelectedLogHelper extends RTSLayerLogHelper {
         
     }
     
-    //@Override
+    @Override
     public void turnTo(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final int dx, final int dy, final AngleInfo angleInfo, final int angle, final NamedAngle movementAngle, final boolean evading, int targetAngle) {
         final StringMaker stringBuffer = new StringMaker();
 
@@ -105,7 +105,7 @@ public class RTSLayerSelectedLogHelper extends RTSLayerLogHelper {
         stringBuffer.append(movementAngle.getValue());
         
         if(angleInfo != null) {
-            final int angleIncrement = angleInfo.getAngleIncrementInfo().getAngleIncrement();
+            final short angleIncrement = angleInfo.getAngleIncrementInfo().getAngleIncrement();
             stringBuffer.append(" angleIncrement: ");
             stringBuffer.append(angleIncrement);
         }
@@ -117,67 +117,67 @@ public class RTSLayerSelectedLogHelper extends RTSLayerLogHelper {
         
     }
 
-    //@Override
+    @Override
     public void doneMoving(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
         logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - done moving 0,0").toString(), this, TRACKTO_TURNTO);
     }
 
-    //@Override
+    @Override
     public void closeEnough(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
         logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - close enough").toString(), this, TRACKTO_TURNTO);
     }
     
-    //@Override
+    @Override
     public void movingLeft(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
         logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - allow movingLeft").toString(), this, TRACKTO_TURNTO);
     }
     
-    //@Override
+    @Override
     public void movingRight(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
         logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - allow movingRight").toString(), this, TRACKTO_TURNTO);
     }
 
-    //@Override
+    @Override
     public void movingUp(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
         logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - allow movingUp").toString(), this, TRACKTO_TURNTO);
     }
 
-    //@Override
+    @Override
     public void movingDown(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
         logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - allow movingDown").toString(), this, TRACKTO_TURNTO);
     }
 
-    //@Override
+    @Override
     public void currentMoveEnded(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
         logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - correct angle, but movement not needed for current deltas so reseting movement angle").toString(), this, TRACKTO_TURNTO);
     }
 
-    //@Override
+    @Override
     public void evade(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
         logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - evade").toString(), this, TRACKTO_TURNTO);
     }
     
-    //@Override
+    @Override
     public void rotateLeft(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
         logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - rotating left").toString(), this, TRACKTO_TURNTO);
     }
     
-    //@Override
+    @Override
     public void rotateRight(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
         logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - rotating right").toString(), this, TRACKTO_TURNTO);
     }
 
-    //@Override
+    @Override
     public void handle(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final NamedAngle movementAngle) {
         logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - movementAngle: ").append(movementAngle.name).append(commonSeps.FORWARD_SLASH).append(movementAngle.getValue()).toString(), this, TRACKTO_TURNTO);
     }
     
-    //@Override
+    @Override
     public void noRotation(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
         logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - Do not rotate").toString(), this, TRACKTO_TURNTO);
     }
 
-    //@Override
+    @Override
     public void notOnPath(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final GeographicMapCellHistory geographicMapCellHistory, final GeographicMapCellPosition currentGeographicMapCellPosition, final BasicArrayList pathList) {
         final StringUtil stringUtil = StringUtil.getInstance();
         logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(' ').append(geographicMapCellHistory.getTotalVisited()).append(' ').append(stringUtil.toString(currentGeographicMapCellPosition)).append(" - trying to move but not on path: ").append(stringUtil.toString(pathList)).toString(), this, "turnTo");

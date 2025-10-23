@@ -108,7 +108,7 @@ public class MultipassNoCacheWaypoint extends WaypointBase
         }
 
         final GeographicMapCompositeInterface geographicMapCompositeInterface
-            = (GeographicMapCompositeInterface) this.allBinaryGameLayerManager;
+            = (GeographicMapCompositeInterface) this.allBinaryGameLayerManagerP;
         final BasicGeographicMap geographicMapInterface = geographicMapCompositeInterface.getGeographicMapInterface()[0];
         
         final RaceTrackGeographicMap raceTrackGeographicMap =
@@ -159,7 +159,7 @@ public class MultipassNoCacheWaypoint extends WaypointBase
             }
 
             final GeographicMapCompositeInterface geographicMapCompositeInterface
-                = (GeographicMapCompositeInterface) this.allBinaryGameLayerManager;
+                = (GeographicMapCompositeInterface) this.allBinaryGameLayerManagerP;
             final BasicGeographicMap geographicMapInterface = geographicMapCompositeInterface.getGeographicMapInterface()[0];
             
             final BasicArrayList list = PathGenerator.getInstance().createN(

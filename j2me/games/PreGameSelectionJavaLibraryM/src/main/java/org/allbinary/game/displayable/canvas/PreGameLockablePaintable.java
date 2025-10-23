@@ -40,7 +40,8 @@ public class PreGameLockablePaintable
         this.halfWidth = GameFeatureImageCacheFactory.getInstance().get(
                 LockedResources.getInstance().LOCKED_DEMO_GAME_FEATURE_RESOURCE).getWidth()/2;
     }
-    
+  
+    @Override
     public void paint(Graphics graphics, int currentIndex, int x, int y)
     {
         if(LockedUtil.getInstance().isLockedFeature() && 

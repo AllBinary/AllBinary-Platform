@@ -17,7 +17,6 @@ public class GameInputProcessorUtil
 {
     public static void init(final GameInputProcessor[] inputProcessorArray)
     {
-        ;
         final GameInputProcessor noInputProcessor = GameInputProcessor.getInstance();
         
         final int total = InputFactory.getInstance().MAX;

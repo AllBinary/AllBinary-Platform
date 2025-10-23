@@ -38,12 +38,12 @@ public class WaypointRunnableSelectedLogHelper extends WaypointRunnableLogHelper
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
 
-    //@Override
+    @Override
     public void start(final PathFindingLayerInterface pathFindingLayerInterface) {
         logUtil.put(new StringMaker().append(pathFindingLayerInterface.getName()).append(commonStrings.START_RUNNABLE).toString(), this, commonStrings.RUN);
     }
 
-    //@Override
+    @Override
     public void end(final PathFindingLayerInterface pathFindingLayerInterface) {
         logUtil.put(new StringMaker().append(pathFindingLayerInterface.getName()).append(commonStrings.END_RUNNABLE).toString(), this, commonStrings.RUN);
     }

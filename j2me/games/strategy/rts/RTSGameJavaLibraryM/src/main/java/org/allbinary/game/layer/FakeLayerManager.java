@@ -21,23 +21,26 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCompositeInterfac
 public class FakeLayerManager extends AllBinaryGameLayerManager
     implements GeographicMapCompositeInterface {
 
-    private BasicGeographicMap[] geographicMapInterfaceArray;
-    private GeographicMapCellType[] geographicMapCellTypeArray;
+    private BasicGeographicMap[] geographicMapInterfaceArray = BasicGeographicMap.NULL_BASIC_GEOGRAPHIC_MAP_ARRAY;
+    private GeographicMapCellType[] geographicMapCellTypeArray = GeographicMapCellType.NULL_GEOGRAPHIC_MAP_CELL_TYPE_ARRAY;
 
     public FakeLayerManager(GameInfo gameInfo) {
         super(BasicColorFactory.getInstance().BLACK, BasicColorFactory.getInstance().WHITE, gameInfo);
     }
 
+    @Override
     public BasicGeographicMap[] getGeographicMapInterface() {
         return geographicMapInterfaceArray;
     }
 
+    @Override
     public void setGeographicMapInterface(
         final BasicGeographicMap[] geographicMapInterfaceArray) {
         this.geographicMapInterfaceArray = geographicMapInterfaceArray;
         this.geographicMapCellTypeArray = new GeographicMapCellType[this.geographicMapInterfaceArray.length];
     }
 
+    @Override
     public GeographicMapCellType[] geographicMapCellTypeArray() {
         return this.geographicMapCellTypeArray;
     }

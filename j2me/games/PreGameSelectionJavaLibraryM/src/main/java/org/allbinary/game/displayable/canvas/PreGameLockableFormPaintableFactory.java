@@ -27,6 +27,7 @@ public class PreGameLockableFormPaintableFactory extends ItemPaintableFactory
         this.lockedIndex = lockedIndex;   
     }
     
+    @Override
     public ItemPaintable getInstance(PaintableForm paintableForm) 
     throws Exception
     {

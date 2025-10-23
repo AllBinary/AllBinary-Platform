@@ -22,13 +22,15 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.font.MyFont;
+import org.allbinary.logic.NullUtil;
 
 public class MultiSelectPaintable 
 extends SelectionHudPaintable
 {
-    private char[] totalCharArray;
     
     private final BasicArrayList rootNameList = new BasicArrayList();
+
+    private char[] totalCharArray = NullUtil.getInstance().NULL_CHAR_ARRAY;
     private String rootNamesString = StringUtil.getInstance().EMPTY_STRING;
     //private final char[][] totalArray = char[10];
     
@@ -43,11 +45,10 @@ extends SelectionHudPaintable
         int size = list.size();
         
         this.totalCharArray = this.getPrimitiveLongUtil().getCharArray(size);
-        
-        RTSLayer rtsLayer = null;
+
         for(int index = list.size() - 1; index >= 0; index--)
         {
-            rtsLayer = (RTSLayer) list.get(index);
+            RTSLayer rtsLayer = (RTSLayer) list.get(index);
 
             if(!this.rootNameList.contains(rtsLayer.getRootName()))
             {
@@ -85,6 +86,7 @@ extends SelectionHudPaintable
     private final int backgroundColor = BasicColorFactory.getInstance().GREY.intValue();
         //BasicColor.TRANSPARENT_GREY.intValue();
     
+    @Override
     public void paint(Graphics graphics)
     {
         graphics.setColor(backgroundColor);

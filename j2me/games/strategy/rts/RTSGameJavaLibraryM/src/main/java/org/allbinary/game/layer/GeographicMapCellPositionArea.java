@@ -12,8 +12,6 @@
  * 
  */
 package org.allbinary.game.layer;
-import org.allbinary.logic.string.StringMaker;
-
 
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.CircularIndexUtil;
@@ -28,7 +26,7 @@ import org.allbinary.util.BasicArrayListUtil;
  *
  * @author user
  */
-public class GeographicMapCellPositionArea
+public class GeographicMapCellPositionArea extends GeographicMapCellPositionAreaBase
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
@@ -55,6 +53,7 @@ public class GeographicMapCellPositionArea
         this.layerInterface = layerInterface;
     }
 
+    @Override
     public void update(final BasicGeographicMap geographicMapInterface)
         throws Exception
     {
@@ -81,6 +80,7 @@ public class GeographicMapCellPositionArea
     /**
      * @return the occupyingGeographicMapCellPositionList
      */
+    @Override
     public BasicArrayList getOccupyingGeographicMapCellPositionList()
     {
         return occupyingGeographicMapCellPositionList;
@@ -89,11 +89,13 @@ public class GeographicMapCellPositionArea
     /**
      * @return the surroundingGeographicMapCellPositionList
      */
+    @Override
     public BasicArrayList getSurroundingGeographicMapCellPositionList()
     {
         return surroundingGeographicMapCellPositionList;
     }
 
+    @Override
     public GeographicMapCellPosition getNextSurroundingGeographicMapCellPosition()
     {
         final GeographicMapCellPosition geographicMapCellPosition =

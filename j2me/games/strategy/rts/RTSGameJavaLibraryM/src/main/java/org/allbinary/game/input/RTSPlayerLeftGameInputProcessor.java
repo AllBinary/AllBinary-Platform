@@ -26,6 +26,7 @@ extends RTSPlayerGameInputProcessor
         super(rtsPlayerGameInput);
     }
     
+    @Override
     public void process(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent)
     throws Exception
     {

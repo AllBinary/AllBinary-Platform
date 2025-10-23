@@ -17,5 +17,5 @@ public interface VehiclePropertiesCompositeInterface
 {
     VehicleProperties getVehicleProperties();
 
-    void setVehicleProperties(VehicleProperties vehicleProperties);
+    //void setVehicleProperties(VehicleProperties vehicleProperties);
 }

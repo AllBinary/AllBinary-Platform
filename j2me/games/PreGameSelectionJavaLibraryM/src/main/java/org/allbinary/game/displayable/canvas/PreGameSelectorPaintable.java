@@ -44,6 +44,7 @@ public class PreGameSelectorPaintable extends InitUpdatePaintable
         this.preGameScrollSelectionForm = preGameScrollSelectionForm;
     }
 
+    @Override
     public void update()
     {
         DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
@@ -52,6 +53,7 @@ public class PreGameSelectorPaintable extends InitUpdatePaintable
                 displayInfo.getLastHalfWidth(), 0);
     }
     
+    @Override
     public void paint(Graphics graphics)
     {
         graphics.setColor(BasicColorFactory.getInstance().WHITE.intValue());

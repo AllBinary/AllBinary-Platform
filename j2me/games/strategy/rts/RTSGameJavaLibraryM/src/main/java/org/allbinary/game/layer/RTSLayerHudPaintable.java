@@ -11,85 +11,74 @@
  * Created By: Travis Berthelot
  * 
  */
-
 package org.allbinary.game.layer;
 
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.AndroidUtil;
+import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
 import org.allbinary.game.part.weapon.BasicWeaponPart;
-import org.allbinary.graphics.font.MyFont;
 
 /**
- * 
+ *
  * @author user
  */
-public class RTSLayerHudPaintable extends SelectionHudPaintable
-{
+public class RTSLayerHudPaintable extends SelectionHudPaintable {
+
     private static final RTSLayerHudPaintable instance = new RTSLayerHudPaintable();
-    
-    public static final RTSLayerHudPaintable getInstance()
-    {
+
+    public static final RTSLayerHudPaintable getInstance() {
         return instance;
     }
-    
-    private final MyFont myFont = MyFont.getInstance();
-    
+
     private String[] weaponProperties = StringUtil.getInstance().getArrayInstance();
 
-    private RTSLayer rtsLayer;
-    
+    private CollidableDestroyableDamageableLayer rtsLayer = CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER;
+
     protected int costY;
     protected int costY1;
-        
-    private RTSLayerHudPaintable()
-    {
+
+    private RTSLayerHudPaintable() {
     }
 
-    public void updateSelectionInfo()
-    {        
+    @Override
+    public void updateSelectionInfo() {
         final int charHeight = this.myFont.DEFAULT_CHAR_HEIGHT;
-        
+
         this.setName(this.getRtsLayer().getName());
-        
-        final BasicWeaponPart partInterface = (BasicWeaponPart) 
-            this.getRtsLayer().getPartInterfaceArray()[0];
+
+        final BasicWeaponPart partInterface = (BasicWeaponPart) this.getRtsLayer().getPartInterfaceArray()[0];
 
         this.weaponProperties = partInterface.getWeaponProperties().toStringArray();
 
         this.costY1 = (y + ((weaponProperties.length + 1) * charHeight));
 
-        if(!AndroidUtil.isAndroid())
-        {
+        if (!AndroidUtil.isAndroid()) {
             this.costY = this.costY1;
-        } else
-        {
+        } else {
             this.costY = (y + ((weaponProperties.length + 2) * charHeight));
         }
     }
 
-    public void paint(Graphics graphics)
-    {
+    @Override
+    public void paint(Graphics graphics) {
         super.paint(graphics);
-        
+
         final int charHeight = this.myFont.DEFAULT_CHAR_HEIGHT;
-        
+
         int size = weaponProperties.length;
-        for (int index = 0; index < size; index++)
-        {
+        for (int index = 0; index < size; index++) {
             graphics.drawString(weaponProperties[index], this.textX, y
-                    + ((index + 1) * charHeight), 0);
+                + ((index + 1) * charHeight), 0);
         }
     }
 
-    public void setRtsLayer(RTSLayer rtsLayer)
-    {
+    public void setRtsLayer(RTSLayer rtsLayer) {
         this.rtsLayer = rtsLayer;
     }
 
-    private RTSLayer getRtsLayer()
-    {
+    private CollidableDestroyableDamageableLayer getRtsLayer() {
         return rtsLayer;
     }
 }

@@ -19,6 +19,7 @@ import javax.microedition.midlet.MIDlet;
  *
  * @author User
  */
+//OpenGLNoneOther
 public class SWTJOGLProcessor implements Runnable {
     
     private static final SWTJOGLProcessor instance = new SWTJOGLProcessor();

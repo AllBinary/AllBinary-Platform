@@ -25,10 +25,7 @@ import org.allbinary.media.audio.DowngradeSound;
 import org.allbinary.media.audio.UpgradeSound;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListUtil;
-
-import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
-
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.game.configuration.feature.Features;
@@ -37,6 +34,7 @@ import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.layer.hud.event.GameNotificationEvent;
 import org.allbinary.game.layer.hud.event.GameNotificationEventHandler;
+import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.logic.util.visitor.Visitor;
@@ -51,7 +49,6 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCompositeInterfac
  */
 public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final GameInputProcessor[] inputProcessorArray = 
         new GameInputProcessor[InputFactory.getInstance().MAX];
@@ -132,7 +129,7 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
     
     public boolean isSelected(RTSLayer rtsLayer)
     {
-        if(this.getSelectedBasicArrayList().contains(rtsLayer))
+        if(this.selectedRTSLayersList.contains(rtsLayer))
         {
             return true;
         }
@@ -147,9 +144,9 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
     {
         boolean anyChanged = false;
         
-        for (int index = this.getSelectedBasicArrayList().size() - 1; index >= 0; index--)
+        for (int index = this.selectedRTSLayersList.size() - 1; index >= 0; index--)
         {
-            RTSLayer rtsLayer = (RTSLayer) this.getSelectedBasicArrayList().get(index);
+            RTSLayer rtsLayer = (RTSLayer) this.selectedRTSLayersList.get(index);
 
             if (rtsLayer.isUpgradeable())
             {
@@ -191,7 +188,8 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
         //Since a set of layers could be selected just update when all are changed
         if(anyChanged)
         {
-            ((RTSPlayerGameInput) this.rtsPlayerLayerInterface.getPlayerGameInput()).updatePaintable();
+            final RTSPlayerGameInput rtsPlayerGameInput = ((RTSPlayerGameInput) this.rtsPlayerLayerInterface.getPlayerGameInput());
+            rtsPlayerGameInput.updatePaintable();
         }
     }
 
@@ -200,9 +198,9 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
     {
         boolean anyChanged = false;
         
-        for (int index = this.getSelectedBasicArrayList().size(); --index >= 0;)
+        for (int index = this.selectedRTSLayersList.size(); --index >= 0;)
         {
-            RTSLayer rtsLayer = (RTSLayer) this.getSelectedBasicArrayList().get(index);
+            RTSLayer rtsLayer = (RTSLayer) this.selectedRTSLayersList.get(index);
 
             if (rtsLayer.isDowngradeable())
             {
@@ -231,7 +229,8 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
         //Since a set of layers could be selected just update when all are changed
         if(anyChanged)
         {
-            ((RTSPlayerGameInput) this.rtsPlayerLayerInterface.getPlayerGameInput()).updatePaintable();
+            final RTSPlayerGameInput rtsPlayerGameInput = ((RTSPlayerGameInput) this.rtsPlayerLayerInterface.getPlayerGameInput());
+            rtsPlayerGameInput.updatePaintable();
         }
     }
 
@@ -248,9 +247,9 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
     public void processInput(int key)
     throws Exception
     {
-        if (this.getSelectedBasicArrayList() != null)
+        if (this.selectedRTSLayersList != null)
         {
-            this.inputProcessorArray[key].process(null, (GameKeyEvent) null);
+            this.inputProcessorArray[key].process(AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER, GameKeyEvent.NONE);
         }
     }
     
@@ -300,7 +299,7 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
     {
         this.paintSelectedRTSLayersList = BasicArrayListUtil.getInstance().getImmutableInstance();
         
-        if(selectedLayer == null)
+        if(selectedLayer == CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER)
         {
             this.deselectAll();
             this.selectedRTSLayersList.clear();
@@ -316,7 +315,7 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
         this.paintSelectedRTSLayersList = this.selectedRTSLayersList;
     }
     
-    public void setSelectedRTSLayer(RTSLayer selectedLayer)
+    public void setSelectedRTSLayer(CollidableDestroyableDamageableLayer selectedLayer)
     {
         final StringMaker stringBuffer = new StringMaker();
 
@@ -349,7 +348,7 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
         
         //this.selectedRTSLayersList.clear();
 
-        if(selectedLayer != null)
+        if(selectedLayer != CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER)
         {
             this.selectedRTSLayersList.add(selectedLayer);
         }
@@ -357,15 +356,15 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
         this.paintSelectedRTSLayersList = this.selectedRTSLayersList;
     }
 
-    public RTSLayer getLastSelectedRtsLayer()
+    public CollidableDestroyableDamageableLayer getLastSelectedRtsLayer()
     {
         if(this.isAnyRTSLayerSelected())
         {
-            return (RTSLayer) this.getSelectedBasicArrayList().get(this.selectedRTSLayersList.size() - 1);
+            return (RTSLayer) this.selectedRTSLayersList.get(this.selectedRTSLayersList.size() - 1);
         }
         else
         {
-            return null;
+            return CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER;
         }
     }
 
@@ -407,16 +406,16 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
     
     public void deselectAll()
     {
-        for(int index = this.getSelectedBasicArrayList().size() - 1; index >= 0; index--)
+        for(int index = this.selectedRTSLayersList.size() - 1; index >= 0; index--)
         {
-            RTSLayer rtsLayer = (RTSLayer) this.getSelectedBasicArrayList().get(index);
+            RTSLayer rtsLayer = (RTSLayer) this.selectedRTSLayersList.get(index);
             rtsLayer.deselect();
         }
     }
     
     public boolean isAnyRTSLayerSelected()
     {
-        if (this.getSelectedBasicArrayList().size() == 0)
+        if (this.selectedRTSLayersList.size() == 0)
         {
             return false;
         }

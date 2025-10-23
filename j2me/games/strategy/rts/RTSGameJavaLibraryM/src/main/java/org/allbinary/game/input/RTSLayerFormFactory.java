@@ -23,8 +23,9 @@ public class RTSLayerFormFactory implements RTSLayerFormFactoryInterface
     /* (non-Javadoc)
      * @see org.allbinary.game.input.RTSLayerFormFactoryInterface#getInstance(org.allbinary.game.layer.RTSLayer)
      */
+    @Override
     public ScrollSelectionForm getInstance(RTSLayer rtsLayer)
     {
-        return null;
+        throw new RuntimeException();
     }
 }

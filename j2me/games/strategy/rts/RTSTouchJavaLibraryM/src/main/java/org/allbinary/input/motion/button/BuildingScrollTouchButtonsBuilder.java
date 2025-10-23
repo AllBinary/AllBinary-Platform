@@ -16,8 +16,6 @@ package org.allbinary.input.motion.button;
 
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListUtil;
-
-
 import org.allbinary.logic.communication.log.LogUtil;
 
 public class BuildingScrollTouchButtonsBuilder
@@ -25,6 +23,7 @@ extends BaseTouchInput
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    @Override
     public BasicArrayList getList()
     {
         try

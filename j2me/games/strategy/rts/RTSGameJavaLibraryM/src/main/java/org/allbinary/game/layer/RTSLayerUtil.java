@@ -20,9 +20,11 @@ import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.direction.DirectionFactory;
+import org.allbinary.game.GameInfo;
 import org.allbinary.game.combat.weapon.WeaponProperties;
 import org.allbinary.game.identification.BasicGroupFactory;
 import org.allbinary.game.identification.Group;
+import org.allbinary.game.part.PartInterface;
 import org.allbinary.game.part.weapon.BasicWeaponPart;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
@@ -57,7 +59,7 @@ public class RTSLayerUtil
                 reloadTime, 
                 weaponProperties.getTargetingTime(),
                 //weaponProperties.getSpeed().getUnscaled() / lastLevel * currentLevel,
-                (int) weaponProperties.getSpeed().getUnscaled(), 
+                weaponProperties.getSpeed().getUnscaled(), 
                 weaponProperties.getDamage() / lastLevel * currentLevel, 
                 weaponProperties.getDissipation()
                 );
@@ -73,10 +75,12 @@ public class RTSLayerUtil
     {
         rtsLayer.setLevel(rtsLayer.getLevel() - 1);
 
+        final PartInterface[] partInterfaceArray = rtsLayer.getPartInterfaceArray();
+        final int size = partInterfaceArray.length;
         BasicWeaponPart partInterface;
-        for (int index = rtsLayer.getPartInterfaceArray().length; --index >= 0;)
+        for (int index = size; --index >= 0;)
         {
-            partInterface = (BasicWeaponPart) rtsLayer.getPartInterfaceArray()[index];
+            partInterface = (BasicWeaponPart) partInterfaceArray[index];
 
             partInterface.setWeaponProperties(
                     this.createWeaponProperties(partInterface
@@ -89,10 +93,12 @@ public class RTSLayerUtil
     {
         rtsLayer.setLevel(rtsLayer.getLevel() + 1);
 
+        final PartInterface[] partInterfaceArray = rtsLayer.getPartInterfaceArray();
+        final int size = partInterfaceArray.length;
         BasicWeaponPart partInterface;
-        for (int index = rtsLayer.getPartInterfaceArray().length; --index >= 0;)
+        for (int index = size; --index >= 0;)
         {
-            partInterface = (BasicWeaponPart) rtsLayer.getPartInterfaceArray()[index];
+            partInterface = (BasicWeaponPart) partInterfaceArray[index];
 
             partInterface.setWeaponProperties(
                     this.createWeaponProperties(partInterface
@@ -101,11 +107,11 @@ public class RTSLayerUtil
         rtsLayer.select();
     }
     
-    private final long MAX_RELOAD_TIME = Integer.MAX_VALUE / 100000;
+    private final long MAX_RELOAD_TIME = (long) Integer.MAX_VALUE / 100000;
     //1000 = 1000 10000 = 100000
-    public int getCostExponential(final long cost)
+    public long getCostExponential(final long cost)
     {
-        return (int) ((cost * cost * cost) / (cost * 1000));
+        return ((cost * cost * cost) / (cost * 1000));
     }
 
     private int getWeaponPropertiesCost(final WeaponProperties weaponProperties)
@@ -117,24 +123,27 @@ public class RTSLayerUtil
                 //this, "getWeaponPropertiesCost");
 
         //I artificially reduce the cost of reload time since they miss a bunch
-        int cost = (int) (weaponProperties.getDamage() + weaponProperties.getRange() + 
+        long cost = (weaponProperties.getDamage() + weaponProperties.getRange() + 
                 ((MAX_RELOAD_TIME / weaponProperties.getReloadTime()) >> 1));
 
         //logUtil.put("Pre Cost: ").append(cost, this, "getWeaponPropertiesCost");
         cost = this.getCostExponential(cost);
         //logUtil.put("Cost: ").append(cost, this, "getWeaponPropertiesCost");
-        return cost;
+        return (int) cost;
     }
     
     public int getCost(RTSLayer rtsLayer)
     {
         int total = 0;
 
+        final PartInterface[] partInterfaceArray = rtsLayer.getPartInterfaceArray();
+        final int size = partInterfaceArray.length;
+        
         BasicWeaponPart partInterface;
         WeaponProperties weaponProperties;
-        for (int index = rtsLayer.getPartInterfaceArray().length - 1; index >= 0; index--)
+        for (int index = size - 1; index >= 0; index--)
         {
-            partInterface = (BasicWeaponPart) rtsLayer.getPartInterfaceArray()[index];
+            partInterface = (BasicWeaponPart) partInterfaceArray[index];
             weaponProperties = partInterface.getWeaponProperties();
             total += this.getWeaponPropertiesCost(weaponProperties);
         }
@@ -144,15 +153,17 @@ public class RTSLayerUtil
 
     public int getDowngradeCost(final RTSLayer rtsLayer)
     {
+        final PartInterface[] partInterfaceArray = rtsLayer.getPartInterfaceArray();
+        final int size = partInterfaceArray.length;
+        
         int downgradeCost = 0;
         BasicWeaponPart partInterface;
         WeaponProperties weaponProperties;
         int downgradeWeaponCost;
         int currentWeaponCost;
-        for (int index = rtsLayer.getPartInterfaceArray().length - 1; index >= 0; index--)
+        for (int index = size - 1; index >= 0; index--)
         {
-            partInterface =
-                (BasicWeaponPart) rtsLayer.getPartInterfaceArray()[index];
+            partInterface = (BasicWeaponPart) partInterfaceArray[index];
             weaponProperties = partInterface.getWeaponProperties();
 
             downgradeWeaponCost =
@@ -183,15 +194,16 @@ public class RTSLayerUtil
     {
         int upgradeCost = 0;
 
+        final PartInterface[] partInterfaceArray = rtsLayer.getPartInterfaceArray();
+        final int size = partInterfaceArray.length;
+        
         BasicWeaponPart partInterface;
         WeaponProperties weaponProperties;
         int upgradedWeaponCost;
         int currentWeaponCost;        
-        for (int index = rtsLayer.getPartInterfaceArray().length - 1; index >= 0; index--)
+        for (int index = size - 1; index >= 0; index--)
         {
-            partInterface =
-                (BasicWeaponPart) rtsLayer.getPartInterfaceArray()[index];
-
+            partInterface = (BasicWeaponPart) partInterfaceArray[index];
             weaponProperties = partInterface.getWeaponProperties();
 
             upgradedWeaponCost = 
@@ -233,7 +245,7 @@ public class RTSLayerUtil
     {
         Hashtable hashtable = new Hashtable();
         
-        final FakeLayerManager layerManager = new FakeLayerManager(null);
+        final FakeLayerManager layerManager = new FakeLayerManager(GameInfo.NONE);
         layerManager.setGeographicMapInterface(new BasicGeographicMap[] { baseRaceTrackGeographicMap});
         hashtable.put(AllBinaryGameLayerManager.ID, layerManager);
         

@@ -86,7 +86,7 @@ public class WaypointLayer extends AdvancedRTSGameLayer
 
     public void construct(RTSPlayerLayerInterface rtsPlayerLayerInterface)
     {    
-        this.percentComplete = 100;
+        this.percentCompleteP = 100;
       
       //Bots don't show waypoints
         this.initVisibility(rtsPlayerLayerInterface);

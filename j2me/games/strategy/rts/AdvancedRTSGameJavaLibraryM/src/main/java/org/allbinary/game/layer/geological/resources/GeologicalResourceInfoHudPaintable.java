@@ -42,7 +42,7 @@ public class GeologicalResourceInfoHudPaintable
     {
         super.updateSelectionInfo();
         
-        BasicArrayList list = this.getRtsLayer().geographicMapCellPositionArea
+        BasicArrayList list = this.getRtsLayer().geographicMapCellPositionAreaBase
                 .getOccupyingGeographicMapCellPositionList();
 
         int total = 0;

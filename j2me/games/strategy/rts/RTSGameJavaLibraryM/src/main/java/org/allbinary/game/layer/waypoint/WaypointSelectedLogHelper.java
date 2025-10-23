@@ -45,7 +45,7 @@ public class WaypointSelectedLogHelper extends WaypointLogHelper {
     private final CommonSeps commonSeps = CommonSeps.getInstance();
     private final StringUtil stringUtil = StringUtil.getInstance();
     
-    //@Override
+    @Override
     public void onWaypointEvent(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final PathFindingLayerInterface advancedRTSGameLayer) {
 
         final StringMaker stringBuffer = new StringMaker();
@@ -65,7 +65,7 @@ public class WaypointSelectedLogHelper extends WaypointLogHelper {
         
     }
     
-    //@Override
+    @Override
     public void addWaypointFromBuilding(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final PathFindingLayerInterface advancedRTSGameLayer) {
         
         final StringMaker stringBuffer = new StringMaker();
@@ -85,7 +85,7 @@ public class WaypointSelectedLogHelper extends WaypointLogHelper {
         
     }
 
-    //@Override
+    @Override
     public void addWaypointFromBuilding(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final PathFindingLayerInterface advancedRTSGameLayer, final BasicArrayList list) {
         
         final StringMaker stringBuffer = new StringMaker();
@@ -98,7 +98,7 @@ public class WaypointSelectedLogHelper extends WaypointLogHelper {
         
     }
  
-    //@Override
+    @Override
     public void insertWaypoint(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final int index, CollidableDestroyableDamageableLayer rtsLayer, final String waypointName) {
         
         final StringMaker stringBuffer = new StringMaker();
@@ -114,7 +114,7 @@ public class WaypointSelectedLogHelper extends WaypointLogHelper {
 
     }
     
-    //@Override
+    @Override
     public void insertWaypoint(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final int index, final CollidableDestroyableDamageableLayer rtsLayer, final String waypointName, final BasicArrayList list) {
         final StringMaker stringBuffer = new StringMaker();
 
@@ -129,7 +129,7 @@ public class WaypointSelectedLogHelper extends WaypointLogHelper {
         logUtil.put(stringBuffer.toString(), this, "selected: insertWaypoint");
     }
     
-    //@Override
+    @Override
     public void setRandomGeographicMapCellHistory(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final BasicArrayList pathsList) {
 
         final int size = pathsList.size();
@@ -146,27 +146,27 @@ public class WaypointSelectedLogHelper extends WaypointLogHelper {
 
     }
 
-    //@Override
+    @Override
     public void moveAwayFromBuilding(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
         logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" Trying to move away from building").toString(), this, "selected: moveAwayFromBuilding");
     }    
     
-    //@Override
+    @Override
     public void needToMove(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final WaypointBehaviorBase unitWaypointBehavior) {
         logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(unitWaypointBehavior.getMovementLogicAsString()).toString(), this, "needToMove");
     }
 
-    //@Override
+    @Override
     public void setRandomGeographicMapCellHistory(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
         logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" pathsList is null").toString(), this, "setRandomGeographicMapCellHistory");
     }
 
-    //@Override
+    @Override
     public void setCurrentPathGeographicMapCellPosition(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final GeographicMapCellPosition existingCurrentPathGeographicMapCellPosition, final GeographicMapCellPosition currentPathGeographicMapCellPosition) {
         if(existingCurrentPathGeographicMapCellPosition == null) logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" currentPathGeographicMapCellPosition: ").append(stringUtil.toString(currentPathGeographicMapCellPosition)).toString(), this, "setCurrentPathGeographicMapCellPosition");
     }
 
-    //@Override
+    @Override
     public void setNextUnvisitedPathGeographicMapCellPosition(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final GeographicMapCellPosition existingNextUnvisitedPathGeographicMapCellPosition, final GeographicMapCellPosition nextUnvisitedPathGeographicMapCellPosition) {
         if(existingNextUnvisitedPathGeographicMapCellPosition != nextUnvisitedPathGeographicMapCellPosition) logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" nextUnvisitedPathGeographicMapCellPosition: ").append(stringUtil.toString(nextUnvisitedPathGeographicMapCellPosition)).toString(), this, "setNextUnvisitedPathGeographicMapCellPosition");
     }        

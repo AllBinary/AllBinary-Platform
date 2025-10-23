@@ -19,6 +19,7 @@ import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventListenerInterface;
 import org.allbinary.logic.util.event.EventStrings;
+import org.allbinary.media.audio.NoSound;
 import org.allbinary.media.audio.Sound;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 import org.allbinary.media.graphics.geography.pathfinding.MultipassState;
@@ -33,10 +34,13 @@ public class WaypointBase
     implements EventListenerInterface {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
+    public static WaypointBase NULL_WAYPOINT_BASE = new WaypointBase(NoSound.getInstance());
 
     private final BasicArrayList connectedWaypointList = new BasicArrayList();
     
     private final Sound sound;
+    
+    protected AllBinaryGameLayerManager allBinaryGameLayerManagerP = AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER;
     
     public WaypointBase(final Sound sound) {
         this.sound = sound;
@@ -50,10 +54,8 @@ public class WaypointBase
         return sound;
     }
     
-    protected AllBinaryGameLayerManager allBinaryGameLayerManager;
-    
     public void setAllBinaryGameLayerManager(final AllBinaryGameLayerManager allBinaryGameLayerManager) throws Exception {
-        this.allBinaryGameLayerManager = allBinaryGameLayerManager;
+        this.allBinaryGameLayerManagerP = allBinaryGameLayerManager;
     }
     
     /**
@@ -64,27 +66,28 @@ public class WaypointBase
         return connectedWaypointList;
     }
  
+    @Override
     public void onEvent(final AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
     
     public PathFindingInfo getPathFindingInfo(final GeographicMapCellPosition geographicMapCellPosition) throws Exception {
-        return null;
+        throw new RuntimeException();
     }
 
     public BasicArrayList getPathsList(final GeographicMapCellPosition geographicMapCellPosition, final PathFindingInfo pathFindingInfo, final MultipassState multipassState)
         throws Exception {
-        return null;
+        throw new RuntimeException();
     }
 
     public BasicArrayList getPathsList(final GeographicMapCellPosition geographicMapCellPosition)
         throws Exception {
-        return null;
+        throw new RuntimeException();
     }
         
     public BasicArrayList getPathsListFromCacheOnly(final GeographicMapCellPosition geographicMapCellPosition) throws Exception {
-        return null;
+        throw new RuntimeException();
     }
 
     public void visit(final PathFindingLayerInterface unitLayer) throws Exception {

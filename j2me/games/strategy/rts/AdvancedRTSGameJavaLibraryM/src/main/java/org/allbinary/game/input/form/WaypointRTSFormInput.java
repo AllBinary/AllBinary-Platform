@@ -17,7 +17,6 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.game.input.RTSPlayerGameInput;
 import org.allbinary.game.layer.AdvancedRTSGameLayer;
 import org.allbinary.game.layer.AdvancedRTSPlayerLayerInterface;
-import org.allbinary.game.layer.GeographicMapCellPositionArea;
 import org.allbinary.game.layer.RTSGameStrings;
 import org.allbinary.game.layer.RTSLayer;
 import org.allbinary.game.layer.RTSLayerEvent;
@@ -36,8 +35,10 @@ import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.game.identification.Group;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.layer.AllBinaryTiledLayer;
+import org.allbinary.game.layer.GeographicMapCellPositionAreaBase;
 import org.allbinary.game.layer.hud.event.GameNotificationEvent;
 import org.allbinary.game.layer.hud.event.GameNotificationEventHandler;
+import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.layer.AllBinaryLayerManager;
@@ -209,7 +210,7 @@ public class WaypointRTSFormInput extends RTSFormInput
         throws Exception
     {
         int itemIndex = this.getSelectedStickyItemIndex();
-        if(this.newUnconstructedRTSLayerInterfaceArray[itemIndex] == null)
+        if(this.newUnconstructedRTSLayerInterfaceArray[itemIndex] == CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER)
         {
             this.newUnconstructedRTSLayerInterfaceArray[itemIndex] = 
                 this.getInstance(layerManager, this.getSelectedStickyItem(), geographicMapCellPosition);
@@ -220,21 +221,20 @@ public class WaypointRTSFormInput extends RTSFormInput
             //GPoint cellPoint = geographicMapCellPosition.getMidPoint();
             final GPoint cellPoint = geographicMapCellPosition.getPoint();
 
-            this.newUnconstructedRTSLayerInterfaceArray[itemIndex].setPosition(
-                    cellPoint.getX(), cellPoint.getY(),
-                    this.newUnconstructedRTSLayerInterfaceArray[itemIndex].getZP());
+            final RTSLayer rtsLayer = (RTSLayer) this.newUnconstructedRTSLayerInterfaceArray[itemIndex];
+            rtsLayer.setPosition(cellPoint.getX(), cellPoint.getY(),rtsLayer.getZP());
 
             final GeographicMapCompositeInterface geographicMapCompositeInterface
-                = (GeographicMapCompositeInterface) this.newUnconstructedRTSLayerInterfaceArray[itemIndex].allBinaryGameLayerManagerP;
+                = (GeographicMapCompositeInterface) rtsLayer.allBinaryGameLayerManagerP;
             final BasicGeographicMap geographicMapInterface = geographicMapCompositeInterface.getGeographicMapInterface()[0];
             
-            this.newUnconstructedRTSLayerInterfaceArray[itemIndex].geographicMapCellPositionArea.update(geographicMapInterface);
+            rtsLayer.geographicMapCellPositionAreaBase.update(geographicMapInterface);
         }
         
         this.attemptBuild(
             rtsPlayerLayerInterface,
             layerManager,
-            this.newUnconstructedRTSLayerInterfaceArray[itemIndex], itemIndex);
+            (RTSLayer) this.newUnconstructedRTSLayerInterfaceArray[itemIndex], itemIndex);
     }
     private RTSLayer stickyAssociatedRtsLayer;
 
@@ -266,8 +266,8 @@ public class WaypointRTSFormInput extends RTSFormInput
             return false;
         }
         
-        GeographicMapCellPositionArea geographicMapCellPositionArea =
-            layerInterface.geographicMapCellPositionArea;
+        GeographicMapCellPositionAreaBase geographicMapCellPositionArea =
+            layerInterface.geographicMapCellPositionAreaBase;
 
         BasicArrayList list =
             geographicMapCellPositionArea.getOccupyingGeographicMapCellPositionList();
@@ -362,7 +362,7 @@ public class WaypointRTSFormInput extends RTSFormInput
         {
             layerInterface.construct(rtsPlayerLayerInterface);
             
-            newUnconstructedRTSLayerInterfaceArray[itemIndex] = null;
+            newUnconstructedRTSLayerInterfaceArray[itemIndex] = CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER;
 
             capital.removeMoney(cost);
 

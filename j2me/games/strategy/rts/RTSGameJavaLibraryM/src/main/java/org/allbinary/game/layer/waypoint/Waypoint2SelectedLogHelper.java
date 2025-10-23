@@ -56,7 +56,7 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
     private final String CURRENT_TARGET_NOT_AVAILABLE = " isCurrentTargetNotAvailable: ";
     private final String PROCESS_POSSIBLE_TARGET = "selected: processPossibleTarget1";
     
-    //@Override
+    @Override
     public void initRange(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final int closeRange, final int sensorRange) {
 
         final StringMaker stringBuffer = new StringMaker();
@@ -71,7 +71,7 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
 
     }
 
-    //@Override
+    @Override
     public void processPossibleTarget(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final WaypointBehaviorBase waypointBehaviorBase, final PathFindingLayerInterface layerInterface,
         final int anotherTargetDistance, final boolean isShorterThanCurrentTargetDistance, final boolean isCurrentTargetDestroyed) {
         
@@ -93,7 +93,7 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
 
     }
 
-    //@Override
+    @Override
     public void processPossibleTarget(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final WaypointBehaviorBase waypointBehaviorBase, final PathFindingLayerInterface layerInterface, final int anotherTargetDistance) {
 
         final StringMaker stringBuffer = new StringMaker();
@@ -110,7 +110,7 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
 
     }
 
-    //@Override
+    @Override
     public void processPossibleTargetCloser(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final WaypointBehaviorBase waypointBehaviorBase, final PathFindingLayerInterface layerInterface, final int anotherTargetDistance) {
 
         final StringMaker stringBuffer = new StringMaker();
@@ -127,7 +127,7 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
 
     }
 
-    //@Override
+    @Override
     public void setTarget(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final WaypointBehaviorBase waypointBehaviorBase, final PathFindingLayerInterface layerInterface, final int anotherTargetDistance) {
 
         final StringMaker stringBuffer = new StringMaker();
@@ -146,12 +146,12 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
 
     }
     
-    //@Override
+    @Override
     public void setTargetPath(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
         logUtil.put( "Target Destroyed", this, "selected: setTargetPath");
     }
 
-    //@Override
+    @Override
     public void setTargetPath(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final WaypointBehaviorBase waypointBehaviorBase) {
         
         final StringMaker stringBuffer = new StringMaker();
@@ -166,7 +166,7 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
 
     }
 
-    //@Override
+    @Override
     public void processWaypoint(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final WaypointBehaviorBase waypointBehaviorBase, final PathFindingLayerInterface targetLayer, final int size) {
 
         final StringMaker stringBuffer = new StringMaker();
@@ -187,7 +187,7 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
 
     }
 
-    //@Override
+    @Override
     public void processWaypointTracked(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final WaypointBehaviorBase waypointBehaviorBase) {
 
         final StringMaker stringBuffer = new StringMaker();
@@ -204,7 +204,7 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
 
     }
 
-    //@Override
+    @Override
     public void processWaypointTracked(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final GeographicMapCellPosition geographicMapCellPosition) {
         
         final StringMaker stringBuffer = new StringMaker();
@@ -217,22 +217,22 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
         
     }
 
-    //@Override
+    @Override
     public void processWaypointTrackedWithoutProgress(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final String reason) {
         logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(reason).toString(), this, "turnTo");
     }
     
-    //@Override
+    @Override
     public void wander(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
         logUtil.put(associatedAdvancedRTSGameLayer.getName(), this, "wander");
     }
 
-    //@Override
+    @Override
     public void targetDestroyed(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
         logUtil.put( new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" Target Destroyed").toString(), this, "selected: processTargeting");
     }
     
-    //@Override
+    @Override
     public void processTargeting(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final int dx, final int dy) {
         
         final StringMaker stringBuffer = new StringMaker();
@@ -249,7 +249,7 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
         
     }
 
-    //@Override
+    @Override
     public void processTargetingNonWayPoint(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final int dx, final int dy) {
 
         final StringMaker stringBuffer = new StringMaker();
@@ -266,7 +266,7 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
 
     }
 
-    //@Override
+    @Override
     public void removeWaypoint(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final WaypointBehaviorBase unitWaypointBehavior2, final PathFindingLayerInterface waypointLayer, final String reason) {
         
         final StringMaker stringBuffer = new StringMaker();
@@ -283,7 +283,7 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
 
     }
     
-    //@Override
+    @Override
     public void removeWaypoint(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final WaypointBehaviorBase unitWaypointBehavior2, final BasicArrayList list) {
         final StringMaker stringBuffer = new StringMaker();
 
@@ -298,17 +298,17 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
     }
     
 
-    //@Override
+    @Override
     public void removeWaypointClear(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
         logUtil.put( new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" Clearing removed waypoint").toString(), this, "selected: removeWaypoint");
     }
 
-    //@Override
+    @Override
     public void clearTarget(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
         logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" Cleared Target").toString(), this, "selected: clearTarget");
     }
 
-    //@Override
+    @Override
     public void addWaypointFromUser(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final PathFindingLayerInterface advancedRTSGameLayer) {
      
             final StringMaker stringBuffer = new StringMaker();
@@ -329,7 +329,7 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
         
     }
 
-    //@Override
+    @Override
     public void targetMovedSoRetarget(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
         logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" - target moved so retargeting").toString(), this, "turnTo");
     }

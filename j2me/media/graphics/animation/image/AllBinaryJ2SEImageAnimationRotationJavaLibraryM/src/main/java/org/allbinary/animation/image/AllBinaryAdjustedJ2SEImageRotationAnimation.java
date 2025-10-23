@@ -45,25 +45,29 @@ extends AllBinaryJ2SEImageRotationAnimation
         this.dy = dy;
     }
 
-    
+    @Override
     public void setDx(final int dx)
     {
         this.dx = dx;
     }
 
+    @Override
     public int getDx() {
         return this.dx;
     }    
 
+    @Override
     public void setDy(final int dy)
     {
         this.dy = dy;
     }
 
+    @Override
     public int getDy() {
         return this.dy;
     }    
 
+    @Override
     public void paint(final Graphics graphics, final int x, final int y)
     {
         super.paint(graphics, x + this.dx, y + this.dy);

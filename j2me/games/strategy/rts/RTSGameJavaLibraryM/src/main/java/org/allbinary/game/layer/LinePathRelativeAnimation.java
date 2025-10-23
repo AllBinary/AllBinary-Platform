@@ -32,6 +32,7 @@ public class LinePathRelativeAnimation extends LinePathAnimation {
         return instance;
     }
     
+    @Override
     public void paint(final Graphics graphics, final GPoint point, final GPoint nextPoint, final Layer tiledLayer) {
         
         graphics.drawLine(

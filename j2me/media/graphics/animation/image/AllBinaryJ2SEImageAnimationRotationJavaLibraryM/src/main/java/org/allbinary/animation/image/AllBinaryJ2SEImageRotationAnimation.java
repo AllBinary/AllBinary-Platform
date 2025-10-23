@@ -15,6 +15,7 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.NullCanvas;
 
 import org.allbinary.DisposalUtil;
 import org.allbinary.animation.AnimationBehavior;
@@ -61,7 +62,8 @@ public class AllBinaryJ2SEImageRotationAnimation
     private ModifierBaseProcessor changeColorProcessor = ModifierBaseProcessor.getInstance();
     private ScaleBaseProcessor scaleProcessor = ScaleProcessor.getInstance();
     
-    protected AllBinaryJ2SEImageRotationAnimation(
+    //protected
+    public AllBinaryJ2SEImageRotationAnimation(
             final Image originalImage, final Image image,
             final AngleInfo angleInfo, final short totalAngle,
             final AnimationBehavior animationBehavior) throws Exception
@@ -157,12 +159,14 @@ public class AllBinaryJ2SEImageRotationAnimation
         this.updateImage();
     }
     
+    @Override
     public void nextRotation()
     {
         super.nextRotation();
         this.updateImage();
     }
 
+    @Override
     public void previousRotation()
     {
         super.previousRotation();
@@ -172,12 +176,13 @@ public class AllBinaryJ2SEImageRotationAnimation
     private void updateImage() {
 
         this.imageRotationUtil.rotateImage(this.originalImageArray[0], this.twoImages[this.bufferedImageIndex], this.angleInfo.getAngle() + 90);
-        this.alphaProcessor.update(imageModifierUtil, null, this.twoImages[this.bufferedImageIndex], 0, this.alphaP);
-        this.setColorProcessor.update(imageModifierUtil, null, this.twoImages[this.bufferedImageIndex], 0, this.basicColor);
-        this.changeColorProcessor.update(imageModifierUtil, null, this.twoImages[this.bufferedImageIndex], 0, this.changeBasicColorP);
+        this.alphaProcessor.update(imageModifierUtil, NullCanvas.NULL_IMAGE, this.twoImages[this.bufferedImageIndex], 0, this.alphaP);
+        this.setColorProcessor.update(imageModifierUtil, NullCanvas.NULL_IMAGE, this.twoImages[this.bufferedImageIndex], 0, this.basicColor);
+        this.changeColorProcessor.update(imageModifierUtil, NullCanvas.NULL_IMAGE, this.twoImages[this.bufferedImageIndex], 0, this.changeBasicColorP);
         this.swap();
     }
 
+    @Override
     public void setFrame(final int index)
     {
         //logUtil.put(commonLabels.INDEX_LABEL + index, this, "setRotation");
@@ -200,13 +205,15 @@ public class AllBinaryJ2SEImageRotationAnimation
             this.bufferedImageIndex = 0;
         }
     }
-    
+
+    @Override    
     public void paint(final Graphics graphics, final int x, final int y)
     {
         //graphics.drawString(this.toString(), x, y, anchor);
         graphics.drawImage(this.imageToShow, x, y, anchor);
     }
 
+    @Override
     public void close() throws Exception {
         super.close();
 
@@ -226,6 +233,7 @@ public class AllBinaryJ2SEImageRotationAnimation
         disposalUtil.dispose(this.imageToShow);
     }
  
+    @Override
     protected void finalize() throws Throwable {
         super.finalize();
         

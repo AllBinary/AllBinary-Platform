@@ -23,7 +23,7 @@ import org.allbinary.game.identification.Group;
 public class CapitalEventHandlerFactory {
 
     //One for each Group
-    private static  final CapitalEventHandler[] capitalEventHandlerArray;
+    private static final CapitalEventHandler[] capitalEventHandlerArray;
     
     static
     {
@@ -37,7 +37,7 @@ public class CapitalEventHandlerFactory {
 
     public static CapitalEventHandler getInstance(Group groupInterface)
     {
-        return capitalEventHandlerArray[groupInterface.getGroupId()];
+        return capitalEventHandlerArray[(int) groupInterface.getGroupId()];
     }
 
     public static void removeAll()
