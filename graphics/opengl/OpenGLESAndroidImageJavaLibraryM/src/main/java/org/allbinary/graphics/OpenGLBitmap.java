@@ -24,10 +24,12 @@ public class OpenGLBitmap extends PlatformBitmapBase {
         this.bitmap.setPixels(pixels, offset, stride, x, y, width, height);
     }
     
+    @Override
     public int getWidth() {
         return this.bitmap.getWidth();
     }
 
+    @Override
     public int getHeight() {
         return this.bitmap.getHeight();
     }

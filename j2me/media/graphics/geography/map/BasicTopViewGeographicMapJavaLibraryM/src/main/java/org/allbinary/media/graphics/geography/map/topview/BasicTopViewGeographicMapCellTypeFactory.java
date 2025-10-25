@@ -16,7 +16,6 @@ package org.allbinary.media.graphics.geography.map.topview;
 import java.util.Hashtable;
 
 import org.allbinary.string.CommonStrings;
-
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellType;
@@ -30,8 +29,6 @@ import org.allbinary.util.HashtableUtil;
  * @author User
  */
 public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellTypeFactory {
-    protected final LogUtil logUtil = LogUtil.getInstance();
-
 
     public final BasicTopViewGeographicMapCellType BLOCK_CELL_TYPE;
     public final BasicTopViewGeographicMapCellType OFF_MAP_CELL_TYPE;
@@ -169,18 +166,22 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
         
     }
     
+    @Override
     public int getStartType() {
         return this.maxTileId - 1; //7
     }
 
+    @Override
     public int getEndType() {
         return this.maxTileId - 2; //8
     }
     
+    @Override
     public int getEmptyType() {
         return this.FLOOR_CELL_TYPE.getTypes()[0];
     }
 
+    @Override
     public boolean isPath(GeographicMapCellType cellType) {
         if(this.FLOOR_CELL_TYPE.isType(cellType)) {
             return true;
@@ -188,6 +189,7 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
         return false;
     }
 
+    @Override
     public String toString() {
         return new StringMaker()
             .append("key: WALL/BLOCK_CELL_TYPE: ").append(this.BLOCK_CELL_TYPE.toString())
@@ -198,5 +200,6 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
             .append("key: STAIRS_DOWN_CELL_TYPE: ").append(this.STAIRS_DOWN_CELL_TYPE.toString())
             .append("key: STAIRS_UP_CELL_TYPE: ").append(this.STAIRS_UP_CELL_TYPE.toString())
             .toString();
-    }    
+    }
+
 }

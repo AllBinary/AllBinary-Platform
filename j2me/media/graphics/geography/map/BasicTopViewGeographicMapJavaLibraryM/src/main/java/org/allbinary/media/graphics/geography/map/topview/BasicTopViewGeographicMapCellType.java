@@ -13,14 +13,12 @@
  */
 package org.allbinary.media.graphics.geography.map.topview;
 
-
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.string.CommonSeps;
-import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellType;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellTypeFactory;
 import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackGeographicMapCellType;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.util.BasicArrayList;
 
 public class BasicTopViewGeographicMapCellType //extends GeographicMapCellType
@@ -104,9 +102,11 @@ public class BasicTopViewGeographicMapCellType //extends GeographicMapCellType
         
         final int size = types.size();
         final int[] typeArray = new int[size];
+        Integer typeAsInteger;
         int type;
         for(int index = 0; index < size; index++) {
-            type = ((Integer) types.get(index)).intValue();
+            typeAsInteger = ((Integer) types.get(index));
+            type = typeAsInteger.intValue();
             
             if (GeographicMapCellTypeFactory.getInstance().getGeographicMapCellTypeArray()[type] == null) {
                 new RaceTrackGeographicMapCellType(name, type, cost);

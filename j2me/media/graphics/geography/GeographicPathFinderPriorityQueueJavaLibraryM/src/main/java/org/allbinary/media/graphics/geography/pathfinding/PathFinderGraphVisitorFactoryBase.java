@@ -14,7 +14,6 @@
 package org.allbinary.media.graphics.geography.pathfinding;
 
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
-import org.allbinary.media.graphics.geography.pathfinding.PathFinderGraphVisitorBase;
 
 /**
  *

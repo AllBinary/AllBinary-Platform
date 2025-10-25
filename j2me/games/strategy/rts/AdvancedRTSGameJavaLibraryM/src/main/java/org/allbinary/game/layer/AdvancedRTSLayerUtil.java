@@ -15,7 +15,6 @@ package org.allbinary.game.layer;
 import java.util.Hashtable;
 
 import org.allbinary.game.layer.waypoint.WorkWaypoint;
-
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.media.graphics.geography.map.racetrack.BaseRaceTrackGeographicMap;
 

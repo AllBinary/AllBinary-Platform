@@ -14,6 +14,7 @@
 package org.allbinary.media.graphics.geography.map;
 
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
 
 public class GeographicMapCellTypeFactory
 {
@@ -30,6 +31,8 @@ public class GeographicMapCellTypeFactory
         
     public GeographicMapCellType getInstance(int type)
     {
+        //final CommonStrings commonStrings = CommonStrings.getInstance();
+        //logUtil.put("type: " + Integer.toString(type), this, commonStrings.CONSTRUCTOR);
 //        final GeographicMapCellType geographicMapCellType = geographicMapCellTypeArray[type];
 //        if(geographicMapCellType == null) {
 //            logUtil.put("missing type: " + type, this, commonStrings.PROCESS);

@@ -14,7 +14,6 @@
 package org.allbinary.game.layer.unit;
 
 import org.allbinary.game.layer.resources.BasicGameResources;
-
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
 import org.allbinary.animation.NullRotationAnimationFactory;

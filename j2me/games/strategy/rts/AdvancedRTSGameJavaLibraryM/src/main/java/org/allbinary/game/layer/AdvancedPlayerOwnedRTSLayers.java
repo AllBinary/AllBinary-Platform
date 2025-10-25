@@ -16,8 +16,6 @@ package org.allbinary.game.layer;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.game.layer.AllBinaryGameLayer;
-
 public class AdvancedPlayerOwnedRTSLayers
     extends PlayerOwnedRTSLayers
 {

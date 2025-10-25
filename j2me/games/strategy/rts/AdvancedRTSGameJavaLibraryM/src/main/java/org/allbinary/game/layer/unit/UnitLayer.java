@@ -130,7 +130,6 @@ import org.allbinary.string.CommonPhoneStrings;
 public class UnitLayer extends AdvancedRTSGameLayer implements
     BuildingEventListenerInterface, TrackingEventListenerInterface
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     //private final short ANGLE_INCREMENT = 10;
 
@@ -405,6 +404,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
     }
     */
 
+    @Override
     public void setAllBinaryGameLayerManager(final AllBinaryGameLayerManager allBinaryGameLayerManager) throws Exception {
 
         super.setAllBinaryGameLayerManager(allBinaryGameLayerManager);
@@ -412,6 +412,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         this.initPathAnimation.setAllBinaryGameLayerManager(allBinaryGameLayerManager);
     }
     
+    @Override
     public void updateWaypointBehavior(final BasicGeographicMap geographicMapInterface) throws Exception {
         
         final Hashtable hashtable = new Hashtable();
@@ -440,6 +441,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         this.initRangeHack();
     }
     
+    @Override
     public void construct(RTSPlayerLayerInterface rtsPlayerLayerInterface)
     throws Exception
     {
@@ -562,12 +564,14 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         return this.sensorGeographicMapCellPositionList;
     }
 
+    @Override
     public void select()
     {
         this.pathAnimation = this.initPathAnimation;
         super.select();
     }
 
+    @Override
     public void deselect()
     {
         this.pathAnimation = NullAnimationFactory.getFactoryInstance().getInstance(0);
@@ -592,6 +596,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         }
     }
     
+    @Override
     public void setClosestGeographicMapCellHistory(final BasicArrayList pathsList)
         throws Exception
     {
@@ -636,6 +641,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         }
     }
     
+    @Override
     public void init(final GeographicMapCellHistory geographicMapCellHistory,
         final BasicArrayList geographicMapCellPositionBasicArrayList) throws Exception
     {
@@ -647,6 +653,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         //logUtil.put("geographicMapCellHistory: " + geographicMapCellHistory.getTracked().toString(), this, commonStrings.INIT);
     }
 
+    @Override
     public void onMovement(final TrackingEvent trackingEvent)
     {
         try
@@ -674,6 +681,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         }
     }
 
+    @Override
     public void onMovementFound(final TrackingEvent trackingEvent)
         throws Exception
     {
@@ -723,6 +731,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         //this.select();
     }
 
+    @Override
     public void processBuiltTick(final AllBinaryLayerManager allBinaryLayerManager)
         throws Exception
     {
@@ -780,6 +789,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         this.getUnitWaypointBehavior().processTick(allBinaryLayerManager);
     }
 
+    @Override
     public void teleportTo(
         final GeographicMapCellPosition geographicMapCellPosition)
     {
@@ -791,6 +801,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
             this.z);
     }
 
+    @Override
     public GeographicMapCellPosition getCurrentGeographicMapCellPosition()
     throws Exception
     {
@@ -815,6 +826,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         return geographicMapCellPosition;
     }
 
+    @Override
     public void fire(final AllBinaryLayerManager layerManager, final GameKeyEvent gameKeyEvent)
     throws Exception
     {
@@ -832,6 +844,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         }
     }
 
+    @Override
     public void left()
         throws Exception
     {
@@ -840,6 +853,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         this.rotationAnimationInterface.previousRotation();
     }
 
+    @Override
     public void right()
         throws Exception
     {
@@ -855,6 +869,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         this.rotationAnimationInterface.nextRotation();
     }
     
+    @Override
     public void down()
     {
         final VelocityProperties velocityProperties =
@@ -867,6 +882,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
     }
 
     //accelerate
+    @Override
     public void up()
     {
         final VelocityProperties velocityProperties = this.getVehicleProperties().getVelocityProperties();
@@ -877,6 +893,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         }
     }
     
+    @Override
     public void initInputProcessors()
     {
         this.inputProcessorArray[Canvas.RIGHT] = new SpecialRightGameInputProcessor(this);
@@ -890,7 +907,8 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         
         super.initInputProcessors();
     }
-        
+
+    @Override
     public void processInput(AllBinaryLayerManager layerManager)
         throws Exception
     {
@@ -935,6 +953,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
          */
     }
 
+    @Override
     public void downgrade()
     {
         if (getLevel() > 1)
@@ -944,6 +963,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         }
     }
 
+    @Override
     public void upgrade()
     {
         super.upgrade();
@@ -1319,6 +1339,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         }
     }
 
+    @Override
     public void move()
     {
         try {
@@ -1388,6 +1409,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         }
     }
 
+    @Override
     public void allStop()
     {
         final VelocityProperties velocityProperties = 
@@ -1397,6 +1419,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         velocityProperties.getVelocityYBasicDecimalP().set(0);
     }
 
+    @Override
     public void paint(Graphics graphics)
     {
         if (this.isVisible())
@@ -1425,6 +1448,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         }
     }
 
+    @Override
     public void onBuildingEvent(RTSLayerEvent event)
         throws Exception
     {
@@ -1441,6 +1465,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         return vehicleProperties;
     }
 
+    @Override
     public void damage(final int damage, final int damageType) throws Exception
     {
         super.damage(damage, damageType);
@@ -1455,11 +1480,13 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         }
     }
 
+    @Override
     public int getDamage(final int damageType) throws Exception
     {
         return 0;
     }
 
+    @Override
     public void setDestroyed(final boolean destroyed)
         throws Exception
     {
@@ -1520,6 +1547,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
      * @param resource
      *            the resource to set
      */
+    @Override
     public void setLoad(short resource)
     throws Exception
     {
@@ -1546,6 +1574,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
 
     private final CapitalEvent CAPITAL_EVENT = new CapitalEvent(this);
     
+    @Override
     public void handleCost(PathFindingLayerInterface ownerLayer) throws Exception {
         if (this.getLoad() > 0) {
             //Add Capital
@@ -1556,6 +1585,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         }
     }
     
+    @Override
     public SelectionHudPaintable createHudPaintable()
     {
         final RTSLayerHudPaintable rtsLayerHudPaintable = 
@@ -1567,6 +1597,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         return rtsLayerHudPaintable;
     }
 
+    @Override
     public SelectionHudPaintable getHudPaintable()
     {
         final RTSLayerHudPaintable rtsLayerHudPaintable = 
@@ -1575,6 +1606,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         return rtsLayerHudPaintable;
     }
     
+    @Override
     public int getType()
     {
         return getStaticType();
@@ -1590,16 +1622,19 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         return (UnitWaypointBehavior) this.getWaypointBehavior();
     }
 
+    @Override
     public TrackingEvent getTrackingEvent()
     {
         return trackingEvent;
     }
 
+    @Override
     public CaptionAnimationHelperBase getCaptionAnimationHelper()
     {
         return captionAnimationHelper;
     }
     
+    @Override
     public boolean isSelfUpgradeable()
     {
         return false;

@@ -14,6 +14,7 @@
 package org.allbinary.media.graphics.geography.map;
 
 import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
+import org.allbinary.game.displayable.canvas.AllBinaryGameCanvasInterface;
 import org.allbinary.layer.AllBinaryLayer;
 
 public class GeographicMapCellPositionTracking
@@ -46,7 +47,7 @@ public class GeographicMapCellPositionTracking
     }
 
     public boolean updateStart(
-            final AllBinaryGameCanvas gameCanvasInterface, 
+            final AllBinaryGameCanvasInterface gameCanvasInterface, 
             final AllBinaryLayer layer)
     throws Exception
     {

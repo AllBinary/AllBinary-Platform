@@ -33,7 +33,6 @@ import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.command.MyCommandsFactory;
 import org.allbinary.graphics.displayable.screen.CommandForm;
 import org.allbinary.input.gyro.OrientationData;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.util.BasicArrayList;
@@ -50,8 +49,8 @@ public class GameOptionsForm extends CommandForm
     }
     */
 
-    public GameOptionsForm(CommandListener commandListener, String title,
-            BasicColor backgrounBasicColor, BasicColor foregroundBasicColor)
+    public GameOptionsForm(final CommandListener commandListener, final String title,
+            final BasicColor backgrounBasicColor, final BasicColor foregroundBasicColor)
         throws Exception
     {
         super(commandListener, title, backgrounBasicColor, foregroundBasicColor);
@@ -60,7 +59,7 @@ public class GameOptionsForm extends CommandForm
 
         this.addConfiguration();
 
-        GameFeatureFormUtil gameFeatureFormUtil = 
+        final GameFeatureFormUtil gameFeatureFormUtil = 
             GameFeatureFormUtil.getInstance();
 
         gameFeatureFormUtil.addChoiceGroup(this, 
@@ -89,33 +88,34 @@ public class GameOptionsForm extends CommandForm
     private void addTextFieldsIfSimulated()
     {
         String key = OrientationData.getInstance().ORIENTATION_SENSOR_INPUT;
-        Hashtable hashtable = 
-            GameFeatureChoiceGroups.getExclusiveInstance().get();
+        final Hashtable hashtable = GameFeatureChoiceGroups.getExclusiveInstance().get();
         if(hashtable != null)
         {
-            BasicArrayList list = (BasicArrayList) hashtable.get(key);
-            if(list != null && list.contains(
-                    SensorFeatureFactory.getInstance().SIMULATED_ORIENTATION_SENSORS))
+            Object listCanBeNull = hashtable.get(key);
+            if(listCanBeNull != null)
             {
-                this.addTextFields();
+                final BasicArrayList list = (BasicArrayList) listCanBeNull;
+                if(list.contains(SensorFeatureFactory.getInstance().SIMULATED_ORIENTATION_SENSORS)) {
+                    this.addTextFields();
+                }
             }
         }
     }
     
     private void addTextFields()
     {
-        Hashtable hashtable = GameConfigurationTextInput.getHashtable();
-        int size = hashtable.size();
+        final Hashtable hashtable = GameConfigurationTextInput.getHashtable();
+        final int size = hashtable.size();
 
-        Object[] objectArray = HashtableUtil.getInstance().getKeysAsArray(hashtable);
+        final Object[] objectArray = HashtableUtil.getInstance().getKeysAsArray(hashtable);
+        GameConfigurationTextInput gameConfigurationTextInput;
+        TextField textField;
         for (int index = 0; index < size; index++)
         {
-            GameConfigurationTextInput gameConfigurationTextInput = 
-                (GameConfigurationTextInput) hashtable.get((Object) objectArray[index]);
+            gameConfigurationTextInput = (GameConfigurationTextInput) hashtable.get((Object) objectArray[index]);
 
-            TextField textField = new TextField(gameConfigurationTextInput
-                    .getLabel(), gameConfigurationTextInput.getText(), 30,
-                    TextField.ANY);
+            textField = new TextField(gameConfigurationTextInput.getLabel(), 
+                gameConfigurationTextInput.getText(), 30,TextField.ANY);
 
             this.append(textField);
         }
@@ -126,20 +126,24 @@ public class GameOptionsForm extends CommandForm
         final String METHOD_NAME = "addConfiguration";
         final String NAME = "Name: ";
         
-        BasicArrayList list = GameConfigurationSingleton.getInstance()
+        final BasicArrayList list = GameConfigurationSingleton.getInstance()
                 .getOptionsBasicArrayList();
 
-        Command GAUGE_CHANGE = MyCommandsFactory.getInstance().GAUGE_CHANGE;
+        final Command GAUGE_CHANGE = MyCommandsFactory.getInstance().GAUGE_CHANGE;
         
-        int size = list.size();
+        final StringMaker stringMaker = new StringMaker();
+        
+        final int size = list.size();
+        GameConfiguration gameConfiguration;
+        GameConfigurationGauge gauge;
         for (int index = 0; index < size; index++)
         {
-            GameConfiguration gameConfiguration =
-                (GameConfiguration) list.objectArray[index];
+            gameConfiguration = (GameConfiguration) list.objectArray[index];
 
-            logUtil.put(new StringMaker().append(NAME).append(gameConfiguration.toString()).toString(), this, METHOD_NAME);
+            stringMaker.delete(0, stringMaker.length());
+            logUtil.put(stringMaker.append(NAME).append(gameConfiguration.toString()).toString(), this, METHOD_NAME);
 
-            GameConfigurationGauge gauge = new GameConfigurationGauge(gameConfiguration);
+            gauge = new GameConfigurationGauge(gameConfiguration);
 
             gauge.setDefaultCommand(GAUGE_CHANGE);
             gauge.setItemCommandListener(new GameFeatureItemCommandListener(this));
@@ -151,9 +155,9 @@ public class GameOptionsForm extends CommandForm
     }
 
     @Override
-    public void initCommands(CommandListener cmdListener)
+    public void initCommands(final CommandListener cmdListener)
     {
-        GameCommandsFactory gameCommandsFactory = 
+        final GameCommandsFactory gameCommandsFactory = 
             GameCommandsFactory.getInstance();
         
         this.removeAllCommands();
@@ -166,9 +170,10 @@ public class GameOptionsForm extends CommandForm
     public void save(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
         final int size = this.size();
+        Item item;
         for (int index = 0; index < size; index++)
         {
-            Item item = this.get(index);
+            item = this.get(index);
             if (item instanceof GameConfigurationGauge)
             {
                 GameConfigurationUtil.getInstance().update(
@@ -182,26 +187,27 @@ public class GameOptionsForm extends CommandForm
 
         GameConfigurationUtil.getInstance().updateCompetitionValue();
 
-        Hashtable hashtable = new Hashtable();
+        final Hashtable hashtable = new Hashtable();
         
-        GameConfiguration SCALE = GameConfigurationCentral.getInstance().SCALE;
+        final GameConfiguration SCALE = GameConfigurationCentral.getInstance().SCALE;
         
         hashtable.put(SCALE.getName(), SCALE.getValue().toString());
 
-        KeyValuePersistance keyValuePersistance =
+        final KeyValuePersistance keyValuePersistance =
             GameConfigurationPersistanceSingleton.getInstance();
         
         keyValuePersistance.clear();
         keyValuePersistance.loadAll(abeClientInformation);
 
-        BasicArrayList list = keyValuePersistance.getIds();
+        final BasicArrayList list = keyValuePersistance.getIds();
 
         keyValuePersistance.save(abeClientInformation, hashtable);
 
         final int size2 = list.size();
+        Integer integer;
         for (int index = 0; index < size2; index++)
         {
-            Integer integer = (Integer) list.objectArray[index];
+            integer = (Integer) list.objectArray[index];
             keyValuePersistance.delete(abeClientInformation, integer.intValue());
         }
 

@@ -18,7 +18,6 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.game.layer.waypoint.WaypointInfoHudPaintable;
 import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.graphics.draw.KeyValueDrawCharArray;
 import org.allbinary.graphics.font.MyFont;
 
@@ -38,6 +37,7 @@ public class GeologicalResourceInfoHudPaintable
         keyvalueDrawString = new KeyValueDrawCharArray(RESOURCES, this.textX);
     }
 
+    @Override
     public void updateSelectionInfo()
     {
         super.updateSelectionInfo();
@@ -58,6 +58,7 @@ public class GeologicalResourceInfoHudPaintable
                 .getPrimitiveLongUtil().getCurrentTotalDigits());
     }
     
+    @Override
     public void paint(Graphics graphics)
     {
         super.paint(graphics);

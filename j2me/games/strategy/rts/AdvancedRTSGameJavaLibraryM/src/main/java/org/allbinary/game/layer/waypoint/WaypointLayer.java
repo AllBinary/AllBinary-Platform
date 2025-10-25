@@ -15,9 +15,6 @@ package org.allbinary.game.layer.waypoint;
 
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.string.CommonStrings;
-
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.ProceduralAnimationInterfaceFactoryInterface;
 import org.allbinary.game.health.Health;
@@ -36,8 +33,7 @@ import org.allbinary.media.audio.AttackSound;
  */
 public class WaypointLayer extends AdvancedRTSGameLayer
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
-
+    
     protected WaypointLayer(
         final RemoteInfo remoteInfo,
         final AdvancedRTSGameLayer parentLayer,
@@ -84,6 +80,7 @@ public class WaypointLayer extends AdvancedRTSGameLayer
     }
     */
 
+    @Override
     public void construct(RTSPlayerLayerInterface rtsPlayerLayerInterface)
     {    
         this.percentCompleteP = 100;
@@ -92,6 +89,7 @@ public class WaypointLayer extends AdvancedRTSGameLayer
         this.initVisibility(rtsPlayerLayerInterface);
     }
 
+    @Override
     public void paint(Graphics graphics)
     {
         if(this.isVisible())
@@ -100,6 +98,7 @@ public class WaypointLayer extends AdvancedRTSGameLayer
         }
     }
     
+    @Override
     public void processTick(AllBinaryLayerManager allBinaryLayerManager)
     {
         try
@@ -112,15 +111,18 @@ public class WaypointLayer extends AdvancedRTSGameLayer
         }
     }
 
+    @Override
     public void damage(int damage, int damageType)
     {
     }
 
+    @Override
     public int getDamage(int damageType) throws Exception
     {
         return 0;
     }
 
+    @Override
     public void setDestroyed(boolean destroyed)
         throws Exception
     {
@@ -132,6 +134,7 @@ public class WaypointLayer extends AdvancedRTSGameLayer
         }
     }
    
+    @Override
     public int getType()
     {
         return getStaticType();
@@ -142,6 +145,7 @@ public class WaypointLayer extends AdvancedRTSGameLayer
         return 4;
     }
     
+    @Override
     public boolean isSelfUpgradeable()
     {
         return false;

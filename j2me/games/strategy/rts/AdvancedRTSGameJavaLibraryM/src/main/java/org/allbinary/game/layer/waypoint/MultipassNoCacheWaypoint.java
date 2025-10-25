@@ -12,8 +12,6 @@
  * 
  */
 package org.allbinary.game.layer.waypoint;
-import org.allbinary.logic.string.StringMaker;
-
 
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.layer.PathFindingLayerInterface;
@@ -23,7 +21,6 @@ import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
 import org.allbinary.game.layer.unit.UnitWaypointBehavior;
 import org.allbinary.game.media.graphics.geography.map.racetrack.PathFindingInfoFactory;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
-
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
@@ -61,6 +58,7 @@ public class MultipassNoCacheWaypoint extends WaypointBase
 
     }
 
+    @Override
     public void setAllBinaryGameLayerManager(final AllBinaryGameLayerManager allBinaryGameLayerManager) throws Exception {
 
         super.setAllBinaryGameLayerManager(allBinaryGameLayerManager);
@@ -180,7 +178,7 @@ public class MultipassNoCacheWaypoint extends WaypointBase
                 return list;
             }
 
-            return null;
+            return BasicArrayListUtil.getInstance().getImmutableInstance();
         } catch(Exception e) {
             final CommonStrings commonStrings = CommonStrings.getInstance();
             logUtil.put(commonStrings.EXCEPTION, this, "getPathsList", e);
@@ -215,21 +213,25 @@ public class MultipassNoCacheWaypoint extends WaypointBase
         return endGeographicMapCellPosition;
     }
 
+    @Override
     public void onEvent(final AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
 
     //Clear path cache
+    @Override
     public void onBuildingEvent(final RTSLayerEvent event)
         throws Exception
     {
     }
 
+    @Override
     public void reset() {
         this.getConnectedWaypointList().clear();
     }
     
+    @Override
     public void visit(final PathFindingLayerInterface unitLayer)
         throws Exception
     {

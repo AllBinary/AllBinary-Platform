@@ -10,7 +10,7 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.graphics.paint;
 
 import javax.microedition.lcdui.Graphics;
@@ -19,12 +19,20 @@ import javax.microedition.lcdui.Graphics;
  *
  * @author user
  */
-public class LocationPaintable 
-   implements LocationPaintableInterface
-{
+public class LocationPaintable
+    implements LocationPaintableInterface {
+
+    private static final LocationPaintable instance = new LocationPaintable();
+
+    /**
+     * @return the instance
+     */
+    public static LocationPaintable getInstance() {
+        return instance;
+    }
+    
     @Override
-   public void paint(final Graphics graphics, final int x, final int y)
-   {
-   }
-   
+    public void paint(final Graphics graphics, final int x, final int y) {
+    }
+
 }

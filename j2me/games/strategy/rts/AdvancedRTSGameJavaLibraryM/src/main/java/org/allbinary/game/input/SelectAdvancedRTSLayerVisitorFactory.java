@@ -31,10 +31,9 @@ implements SelectRTSLayerVisitorFactoryInterface
         
     }
     
-    public Visitor getInstance(
-            SelectedRTSLayersPlayerGameInput selectedRTSLayersPlayerGameInput)
+    @Override
+    public Visitor getInstance(final SelectedRTSLayersPlayerGameInput selectedRTSLayersPlayerGameInput)
     {
-        return new SelectAdvancedRTSLayerVisitor(
-                selectedRTSLayersPlayerGameInput);
+        return new SelectAdvancedRTSLayerVisitor(selectedRTSLayersPlayerGameInput);
     }
 }

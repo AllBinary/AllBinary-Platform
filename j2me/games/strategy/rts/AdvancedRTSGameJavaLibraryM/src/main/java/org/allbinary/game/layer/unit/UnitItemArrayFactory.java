@@ -115,6 +115,7 @@ implements ItemArraySingletonFactoryInterface
     }
     */
 
+    @Override
     public CustomItem[] getItems() throws Exception
     {
         return ITEMS;

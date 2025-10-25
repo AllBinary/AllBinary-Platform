@@ -63,7 +63,7 @@ public class PathFindingNodeCostInfoFactory
         
 //        System.out.println(comingFromGeographicMapCellPosition + " fc: " + raceTrackGeographicMapCellType.getTravelCost());
 //        System.out.println(geographicMapCellPosition + " tc: " + raceTrackGeographicMapCellType2.getTravelCost());
-        return raceTrackGeographicMapCellType.getTravelCost() + raceTrackGeographicMapCellType2.getTravelCost();
+        return (long) raceTrackGeographicMapCellType.getTravelCost() + raceTrackGeographicMapCellType2.getTravelCost();
     }
 
 }

@@ -19,6 +19,7 @@ import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.NullCanvas;
 import javax.microedition.lcdui.OpenGLESPostLoadPlatformImage;
 import javax.microedition.lcdui.PostLoadImageProcessor;
+
 import org.allbinary.graphics.GraphicsStrings;
 import org.allbinary.graphics.OpenGLBitmap;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -74,13 +75,11 @@ implements OpenGLSurfaceChangedInterface
     */
 
     public int getHeight() {
-        final OpenGLBitmap openGLBitmap = ((OpenGLBitmap) this.openGLBitmap);
-        return (int) (openGLBitmap.getHeight() * this.openGLESImageProperties.scaleY2);
+        return (int) (this.openGLBitmap.getHeight() * this.openGLESImageProperties.scaleY2);
     }
 
     public int getWidth() {
-        final OpenGLBitmap openGLBitmap = ((OpenGLBitmap) this.openGLBitmap);
-        return (int) (openGLBitmap.getWidth() * this.openGLESImageProperties.scaleX2);
+        return (int) (this.openGLBitmap.getWidth() * this.openGLESImageProperties.scaleX2);
     }
 
     /*

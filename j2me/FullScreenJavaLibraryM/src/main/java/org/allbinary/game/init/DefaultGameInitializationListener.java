@@ -15,7 +15,6 @@ package org.allbinary.game.init;
 
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
-
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.configuration.event.GameInitializedEvent;
 import org.allbinary.game.configuration.event.GameInitializedEventHandler;
@@ -59,7 +58,7 @@ public class DefaultGameInitializationListener
         {
             logUtil.put(commonStrings.START, this, ON_GAME_INITIALIZED);
 
-            while(!swtJOGLProcessor.glHolder.isCreated) {
+            while(!swtJOGLProcessor.isHolderCreated()) {
                 logUtil.put(commonStrings.UPDATE, this, ON_GAME_INITIALIZED);
                 Thread.sleep(20);
             }

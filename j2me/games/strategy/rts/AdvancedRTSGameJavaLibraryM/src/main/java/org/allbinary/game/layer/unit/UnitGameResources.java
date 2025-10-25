@@ -15,7 +15,6 @@ package org.allbinary.game.layer.unit;
 
 import org.allbinary.game.layer.resources.BasicGameResources;
 import org.allbinary.game.layer.resources.GameGraphicsResourceUtil;
-
 import org.allbinary.AndroidUtil;
 import org.allbinary.game.configuration.feature.GraphicsFeatureFactory;
 
@@ -41,6 +40,8 @@ public class UnitGameResources extends BasicGameResources
     //private final static String EMPTY = "_empty";
 
     private final String ICON_SIZE = "_64_by_64.png";
+    
+    @Override
     protected void init(String ROOT, String sizeString) throws Exception
     {
         super.init(ROOT, sizeString);
@@ -96,7 +97,7 @@ public class UnitGameResources extends BasicGameResources
         */
     }
     
-    
+    @Override
     protected String getString() throws Exception
     {
         if (AndroidUtil.isAndroid())

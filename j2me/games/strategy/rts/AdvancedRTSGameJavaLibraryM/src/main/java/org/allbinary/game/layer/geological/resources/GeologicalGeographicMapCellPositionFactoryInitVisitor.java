@@ -24,9 +24,11 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellPositionFacto
 public class GeologicalGeographicMapCellPositionFactoryInitVisitor
 implements GeographicMapCellPositionFactoryInitVisitorInterface
 {
+    @Override
     public void visit(AllBinaryTiledLayer tiledLayer, GeographicMapCellPosition cellPosition)
            throws Exception
     {
-        ((GeologicalGeographicMapCellPosition) cellPosition).getGeologicalResource().init();
+        final GeologicalGeographicMapCellPosition geologicalGeographicMapCellPosition = ((GeologicalGeographicMapCellPosition) cellPosition);
+        geologicalGeographicMapCellPosition.getGeologicalResource().init();
     }
 }

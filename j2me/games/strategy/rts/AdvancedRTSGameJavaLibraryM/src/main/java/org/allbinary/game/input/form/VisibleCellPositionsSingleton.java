@@ -20,12 +20,12 @@ import org.allbinary.game.layer.RTSLayerEvent;
 import org.allbinary.game.layer.building.event.BuildingEventListenerInterface;
 import org.allbinary.game.layer.building.event.LocalPlayerBuildingEventHandler;
 import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.graphics.CellPosition;
 import org.allbinary.layer.event.ScrollMapEvent;
 import org.allbinary.layer.event.ScrollMapEventHandler;
 import org.allbinary.layer.event.ScrollMapEventListenerInterface;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
 
@@ -42,9 +42,9 @@ public class VisibleCellPositionsSingleton
         return instance;
     }
 
-    private short[][] stationaryVisibleCellPositions;
-    private short[][] visibleCellPositions;
-    private short[][] currentlyVisibleCellPositions = new short[0][0];
+    private short[][] stationaryVisibleCellPositions = NullUtil.getInstance().NULL_SHORT_ARRAY_ARRAY;
+    private short[][] visibleCellPositions = NullUtil.getInstance().NULL_SHORT_ARRAY_ARRAY;
+    private short[][] currentlyVisibleCellPositions = NullUtil.getInstance().NULL_SHORT_ARRAY_ARRAY;
 
     public final SimpleTiledLayer ALL_VISIBLE_TILEDLAYER = new SimpleTiledLayer(0, 0, 0, 0);
     private SimpleTiledLayer simpleTiledLayer = ALL_VISIBLE_TILEDLAYER;
@@ -74,17 +74,20 @@ public class VisibleCellPositionsSingleton
         this.setSimpleTiledLayer(simpleTiledLayer);
     }
 
+    @Override
     public void onEvent(AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
     
+    @Override
     public void onBuildingEvent(RTSLayerEvent event)
         throws Exception
     {
         this.paintSimpleTiledLayer = this.simpleTiledLayer;
     }
     
+    @Override
     public void onMoveEvent(ScrollMapEvent scrollMapEvent)
         throws Exception
     {

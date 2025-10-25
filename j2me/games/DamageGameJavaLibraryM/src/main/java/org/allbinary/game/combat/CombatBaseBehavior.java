@@ -18,6 +18,8 @@ import org.allbinary.game.combat.destroy.DestroyableBaseBehavior;
 
 public class CombatBaseBehavior
 {
+    public static final CombatBaseBehavior NULL_COMBAT_BEHAVIOR = new CombatBaseBehavior(DamageableBaseBehavior.getInstance(), DestroyableBaseBehavior.getInstance());
+    
     private final DamageableBaseBehavior damageableBaseBehavior;
     private final DestroyableBaseBehavior destroyableBaseBehavior;
     

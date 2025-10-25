@@ -29,6 +29,14 @@ public class PlatformBitmapBase {
     public int alpha = 255;
     public BasicColor basicColor = BasicColorFactory.getInstance().NULL_COLOR;
     
+    public int getWidth() {
+        return 0;
+    }
+
+    public int getHeight() {
+        return 0;
+    }
+
     public Image getImage() {
         return NullCanvas.NULL_IMAGE;
     }

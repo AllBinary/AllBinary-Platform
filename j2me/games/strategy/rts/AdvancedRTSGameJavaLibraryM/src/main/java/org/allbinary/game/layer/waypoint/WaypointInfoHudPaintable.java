@@ -39,6 +39,7 @@ public class WaypointInfoHudPaintable extends SelectionHudPaintable
      * @param selectedLayer
      *            the selectedLayer to set
      */
+    @Override
     public void updateSelectionInfo()
     {
         this.setName(this.getRtsLayer().getName());
@@ -48,6 +49,7 @@ public class WaypointInfoHudPaintable extends SelectionHudPaintable
         this.keyvalueDrawString.update(((WaypointLayer) this.getRtsLayer()).getParentLayer().getName());
     }
     
+    @Override
     public void paint(Graphics graphics)
     {
         super.paint(graphics);

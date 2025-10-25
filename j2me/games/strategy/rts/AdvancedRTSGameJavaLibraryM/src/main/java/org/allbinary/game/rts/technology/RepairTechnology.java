@@ -30,51 +30,61 @@ implements RTSInterface
         this.maxLevel = maxLevel;
     }
 
+    @Override
     public boolean isCompleted()
     {
         return false;
     }
 
+    @Override
     public int getPercentComplete()
     {
         return 0;
     }
 
+    @Override
     public int getLevel()
     {
         return level;
     }
 
+    @Override
     public int getMaxLevel()
     {
         return this.maxLevel;
     }
 
+    @Override
     public int getCost()
     {
         return 0;
     }
 
+    @Override
     public void downgrade()
     {
 
     }
 
+    @Override
     public int getDowngradeCost()
     {
         return 0;
     }
 
+    @Override
     public boolean isDowngradeable()
     {
         return false;
     }
 
+    @Override
     public int getUpgradeCost()
     {
         return (this.getLevel() * this.getLevel()) * 1000;
     }
-    
+
+    @Override    
     public boolean isUpgradeable()
     {
         if(this.getLevel() < this.getMaxLevel())
@@ -87,6 +97,7 @@ implements RTSInterface
         }
     }
 
+    @Override
     public void upgrade()
     {
         this.level++;
@@ -98,6 +109,7 @@ implements RTSInterface
             unitTechnologySingletonFactory.getRepair() + (this.getLevel() * 10));
     }
     
+    @Override
     public boolean isSelfUpgradeable()
     {
         return false;

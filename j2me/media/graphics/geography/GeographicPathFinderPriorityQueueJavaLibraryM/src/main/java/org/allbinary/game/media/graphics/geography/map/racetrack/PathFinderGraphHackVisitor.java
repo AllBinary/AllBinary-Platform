@@ -32,6 +32,7 @@ public class PathFinderGraphHackVisitor extends BasePathFinderGraphVisitor
         super(geographicMapInterface, edgeMinimum, minPathWeight, maxPathWeight);
     }
 
+    @Override
     public void visit(Object graph, //SimpleWeightedGraph
        BasicArrayList startPathFindingNodeList,
        BasicArrayList endPathFindingNodeList)
@@ -62,6 +63,7 @@ public class PathFinderGraphHackVisitor extends BasePathFinderGraphVisitor
     {
     }
 
+    @Override
     public void fixPath(BasicArrayList startPathFindingNodeList,
        BasicArrayList endPathFindingNodeList, BasicArrayList pathList)
        throws Exception
@@ -74,6 +76,7 @@ public class PathFinderGraphHackVisitor extends BasePathFinderGraphVisitor
     {
     }
 
+    @Override
     public boolean isValid(Object graphPath) //GraphPath
     {
         return false;

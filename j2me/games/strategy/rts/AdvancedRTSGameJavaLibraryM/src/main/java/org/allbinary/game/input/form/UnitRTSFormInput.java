@@ -24,7 +24,6 @@ import org.allbinary.game.layer.unit.UnitLayer;
 import org.allbinary.game.layer.waypoint.WorkWaypoint;
 import org.allbinary.graphics.form.item.CustomItem;
 import org.allbinary.media.audio.BuildingSound;
-
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.game.identification.Group;
@@ -49,7 +48,6 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCompositeInterfac
  */
 public class UnitRTSFormInput extends RTSFormInput
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     public static final Integer DECAL_ID = 
         SmallIntegerSingletonFactory.getInstance().getInstance(23);
@@ -86,6 +84,7 @@ public class UnitRTSFormInput extends RTSFormInput
                 smallIntegerSingletonFactory.getInstance(50));
     }
 
+    @Override
     public void setAllBinaryGameLayerManager(final AllBinaryGameLayerManager allBinaryGameLayerManager) throws Exception {
 
         super.setAllBinaryGameLayerManager(allBinaryGameLayerManager);

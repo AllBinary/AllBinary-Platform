@@ -13,22 +13,18 @@
  */
 package org.allbinary.game.layer.unit;
 
-import org.allbinary.game.layer.SteeringVisitor;
 import javax.microedition.lcdui.Canvas;
 
+import org.allbinary.game.layer.SteeringVisitor;
 import org.allbinary.game.layer.AdvancedRTSGameLayer;
 import org.allbinary.game.layer.CollidableCompositeLayer;
 import org.allbinary.game.layer.CollidableRTSBehavior;
 import org.allbinary.util.BasicArrayList;
-
-import org.allbinary.string.CommonStrings;
-
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.input.event.GameKeyEventFactory;
 import org.allbinary.game.layer.AllBinaryTiledLayer;
 import org.allbinary.game.layer.TiledLayerUtil;
 import org.allbinary.game.layer.geographic.map.LayerPartialCellPositionsUtil;
-import org.allbinary.game.rand.MyRandomFactory;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.math.AngleInfo;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.GeographicMapCompositeInterface;
@@ -37,7 +33,6 @@ import org.allbinary.media.graphics.geography.map.drop.DropCellPositionHistory;
 public class CollidableUnitBehavior
 extends CollidableRTSBehavior 
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final LayerPartialCellPositionsUtil layerPartialCellPositionsUtil = LayerPartialCellPositionsUtil.getInstance();
 
@@ -47,6 +42,7 @@ extends CollidableRTSBehavior
     }
     
     //Collision with RTSLayers or other none damage game objects
+    @Override
     protected void collideNone(final CollidableCompositeLayer collidableInterfaceCompositeInterface)
         throws Exception
     {
@@ -62,7 +58,8 @@ extends CollidableRTSBehavior
     }
 
     private class SimpleSteeringVisitor extends SteeringVisitor
-    {        
+    {
+        @Override
         public Object visit(final Object object)
         {
             try
@@ -79,18 +76,18 @@ extends CollidableRTSBehavior
                     if (clear)
                     {
                         this.getList().clear();
-                        return null;
+                        return NullUtil.getInstance().NULL_OBJECT;
                     }
 
                     return Boolean.TRUE;
                 }
 
-                return null;
+                return NullUtil.getInstance().NULL_OBJECT;
             }
             catch(Exception e)
             {
                 logUtil.put(commonStrings.EXCEPTION, this, "visit", e);
-                return null;
+                return NullUtil.getInstance().NULL_OBJECT;
             }
         }
 

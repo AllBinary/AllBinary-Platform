@@ -22,6 +22,7 @@ import org.allbinary.game.layer.AllBinaryTiledLayer;
 public class NoGeographicMapCellPositionFactoryInitVisitor 
     implements GeographicMapCellPositionFactoryInitVisitorInterface {
     
+    @Override
     public void visit(AllBinaryTiledLayer tiledLayer, GeographicMapCellPosition cellPosition)
            throws Exception
     {

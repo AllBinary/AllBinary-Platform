@@ -17,9 +17,7 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.game.layer.RTSLayer;
 import org.allbinary.game.layer.SelectionHudPaintable;
-
 import org.allbinary.string.CommonStrings;
-
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.graphics.hud.BasicHudFactory;
 import org.allbinary.game.layer.hud.basic.NumberStringHud;
@@ -42,8 +40,6 @@ public class BuildingInfoHudPaintable extends SelectionHudPaintable
         return instance;
     }
 
-    private final MyFont myFont = MyFont.getInstance();
-    
     private NumberStringHud productivityHud;
     private NumberStringHud efficiencyHud;
     private NumberStringHud healthHud;
@@ -102,6 +98,7 @@ public class BuildingInfoHudPaintable extends SelectionHudPaintable
         }
     }
 
+    @Override
     public void setBasicColorP(BasicColor basicColor)
     {
         super.setBasicColorP(basicColor);
@@ -111,6 +108,7 @@ public class BuildingInfoHudPaintable extends SelectionHudPaintable
         this.maxHealthHud.setBasicColorP(basicColor);
     }
     
+    @Override
     public void paint(Graphics graphics)
     {
         super.paint(graphics);
@@ -123,6 +121,7 @@ public class BuildingInfoHudPaintable extends SelectionHudPaintable
         this.getAnimationInterface().paint(graphics, this.imageX, y);
     }
 
+    @Override
     public void updateSelectionInfo()
     {
         this.setName(this.getRtsLayer().getName());

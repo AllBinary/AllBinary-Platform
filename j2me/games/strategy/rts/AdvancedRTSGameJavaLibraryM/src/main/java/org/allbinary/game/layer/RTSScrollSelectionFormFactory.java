@@ -14,7 +14,6 @@
 package org.allbinary.game.layer;
 
 import org.allbinary.graphics.form.item.CustomItem;
-
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColorFactory;
@@ -22,7 +21,6 @@ import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.form.FormTypeFactory;
 import org.allbinary.graphics.form.MultipleScrollSelectionHorizontalForm;
 import org.allbinary.input.motion.button.CommonButtons;
-import org.allbinary.input.motion.button.TouchButtonInput;
 import org.allbinary.input.motion.button.TouchButtonLocationHelper;
 
 public class RTSScrollSelectionFormFactory

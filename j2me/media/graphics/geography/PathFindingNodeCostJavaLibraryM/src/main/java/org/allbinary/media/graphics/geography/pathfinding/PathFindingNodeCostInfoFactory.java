@@ -27,6 +27,7 @@ public class PathFindingNodeCostInfoFactory
         this.pathFindingNodeCostInfoAdjacencyList = new PathFindingNodeCostInfo[max][max];
     }
 
+    @Override
     public void create(        
         final BasicGeographicMap geographicMapInterface,
         final GeographicMapCellPosition goingToGeographicMapCellPosition,
@@ -87,10 +88,11 @@ public class PathFindingNodeCostInfoFactory
         return this.pathFindingNodeCostInfoAdjacencyList[geographicMapCellPosition.getId()][goingToFromGeographicMapCellPosition.getId()];
     }
 
+    @Override
     public long getTotalCost(
         final BasicGeographicMap geographicMapInterface,
         final GeographicMapCellPosition comingFromGeographicMapCellPosition,
         final GeographicMapCellPosition geographicMapCellPosition) {
-        return this.getInstance(comingFromGeographicMapCellPosition, geographicMapCellPosition).totalCost;
+        return this.getInstance(comingFromGeographicMapCellPosition, geographicMapCellPosition).totalCostP;
     }
 }

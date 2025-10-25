@@ -10,7 +10,6 @@
  * 
  * Created By: Travis Berthelot
  */
-
 package org.allbinary.game.layer.waypoint.event;
 
 import org.allbinary.game.layer.RTSLayerEvent;
@@ -18,16 +17,18 @@ import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventListenerInterface;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
 
-public class WaypointEventHandler extends BasicEventHandler
-{
-   protected WaypointEventHandler()
-   {
-   }
-   
-   protected void process(AllBinaryEventObject eventObject,
-           EventListenerInterface eventListenerInterface) throws Exception {
+public class WaypointEventHandler extends BasicEventHandler {
 
-      ((WaypointEventListenerInterface) eventListenerInterface).onWaypointEvent(
-              (RTSLayerEvent) eventObject);
-   }   
+    //protected
+    public WaypointEventHandler() {
+    }
+
+    @Override
+    protected void process(AllBinaryEventObject eventObject,
+        EventListenerInterface eventListenerInterface) throws Exception {
+
+        final WaypointEventListenerInterface waypointEventListenerInterface =
+            ((WaypointEventListenerInterface) eventListenerInterface);
+        waypointEventListenerInterface.onWaypointEvent((RTSLayerEvent) eventObject);
+    }
 }

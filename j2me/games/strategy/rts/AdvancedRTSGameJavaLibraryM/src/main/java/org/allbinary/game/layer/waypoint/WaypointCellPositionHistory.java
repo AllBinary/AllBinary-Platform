@@ -104,7 +104,7 @@ public class WaypointCellPositionHistory
         }
         else
         {
-            return null;
+            return AllBinaryLayer.NULL_ALLBINARY_LAYER;
         }
     }
 }

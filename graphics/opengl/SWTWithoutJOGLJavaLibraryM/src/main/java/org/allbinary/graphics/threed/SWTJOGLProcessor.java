@@ -43,6 +43,10 @@ public class SWTJOGLProcessor implements Runnable {
         
     }
     
+    public boolean isHolderCreated() {
+        return glHolder.isCreated;
+    }
+    
     public void setRenderer(final Object renderer) {
 
     }

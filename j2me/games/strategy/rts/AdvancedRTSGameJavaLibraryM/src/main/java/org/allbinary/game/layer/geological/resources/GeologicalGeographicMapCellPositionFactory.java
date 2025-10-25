@@ -33,6 +33,7 @@ implements GeographicMapCellPositionFactoryInterface
         this.resourcePerMapCellType = resourcePerMapCellType;
     }
 
+    @Override
     public GeographicMapCellPosition getInstance(
         final BasicGeographicMap geographicMapInterface,
         int i_column, int i_row, int columns, int rows, int width, int height)

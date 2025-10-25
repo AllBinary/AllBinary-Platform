@@ -15,9 +15,7 @@ package org.allbinary.game.layer;
 
 import org.allbinary.game.input.RTSLayerFormFactory;
 import org.allbinary.graphics.form.item.CustomItem;
-
 import org.allbinary.string.CommonStrings;
-
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.graphics.form.ScrollSelectionForm;
 import org.allbinary.graphics.form.item.ItemArraySingletonFactoryInterface;
@@ -49,6 +47,7 @@ public class AdvancedRTSLayerFormFactory extends RTSLayerFormFactory
     /* (non-Javadoc)
      * @see org.allbinary.game.input.RTSLayerFormFactoryInterface#getInstance(org.allbinary.game.layer.RTSLayer)
      */
+    @Override
     public ScrollSelectionForm getInstance(RTSLayer rtsLayer)
     {
         return this.scrollSelectionForm;

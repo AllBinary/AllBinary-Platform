@@ -99,11 +99,13 @@ public class UnitWaypointBehavior
         this.longWeaponRange = weaponRange / 2;
     }
 
+    @Override
     public void onEvent(final AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
     
+    @Override
     public void onWaypointEvent(final RTSLayerEvent event) throws Exception
     {
         final AdvancedRTSGameLayer advancedRTSGameLayer =
@@ -152,6 +154,7 @@ public class UnitWaypointBehavior
         }
     }
 
+    @Override
     public boolean isWaypointListEmptyOrOnlyTargets()
     {
         return false;
@@ -283,6 +286,7 @@ public class UnitWaypointBehavior
 
     private final TimeDelayHelper repeatedToLong = new TimeDelayHelper(22000);
     
+    @Override
     public boolean needToMove()
     {
         this.associatedAdvancedRTSGameLayer.waypointLogHelperP.needToMove(this.associatedAdvancedRTSGameLayer, this);
@@ -305,7 +309,8 @@ public class UnitWaypointBehavior
         
         return false;
     }
-        
+
+    @Override
     public String getMovementLogicAsString() {
 
         final StringMaker stringBuffer = new StringMaker();
@@ -340,11 +345,13 @@ public class UnitWaypointBehavior
         this.movingFromStopped = movingFromStopped;
     }
 
+    @Override
     public void setWaypointPathsList(BasicArrayList waypointPathsList)
     {
         this.waypointPathsList = waypointPathsList;
     }
 
+    @Override
     public BasicArrayList getWaypointPathsList()
     {
         return waypointPathsList;
@@ -369,6 +376,7 @@ public class UnitWaypointBehavior
     /**
      * @return the trackingWaypoint
      */
+    @Override
     public boolean isTrackingWaypoint()
     {
         return trackingWaypoint;
@@ -396,6 +404,7 @@ public class UnitWaypointBehavior
         this.currentPathGeographicMapCellPosition = currentPathGeographicMapCellPosition;
     }
 
+    @Override
     public GeographicMapCellPosition getCurrentPathGeographicMapCellPosition()
     {
         return currentPathGeographicMapCellPosition;
@@ -424,6 +433,7 @@ public class UnitWaypointBehavior
         this.currentTargetLayerInterface = currentTargetLayerInterface;
     }
 
+    @Override
     public CollidableDestroyableDamageableLayer getCurrentTargetLayerInterface()
     {
         return currentTargetLayerInterface;
@@ -450,6 +460,7 @@ public class UnitWaypointBehavior
         this.currentGeographicMapCellHistory = currentGeographicMapCellHistory;
     }
 
+    @Override
     public GeographicMapCellHistory getCurrentGeographicMapCellHistory()
     {
         return currentGeographicMapCellHistory;

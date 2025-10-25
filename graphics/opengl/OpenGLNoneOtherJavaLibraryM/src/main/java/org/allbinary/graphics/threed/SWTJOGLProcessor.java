@@ -30,9 +30,21 @@ public class SWTJOGLProcessor implements Runnable {
     public static SWTJOGLProcessor getInstance() {
         return instance;
     }
-       
+
+    public Object glHolder = new Object() {
+        
+        public void run(Object renderer) {
+            
+        }
+                
+    };
+    
     public void init(final Object display, final Object comp) {
         
+    }
+    
+    public boolean isHolderCreated() {
+        return true;
     }
     
     public void setRenderer(final Object renderer) {

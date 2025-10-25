@@ -28,21 +28,25 @@ extends CollidableRTSBehavior
 
     //public void collide(CollidableCompositeLayer collidableInterfaceCompositeInterface)
     //public void collide(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
+    @Override
     public boolean isCollision(CollidableCompositeLayer collisionLayer)
     {
         return false;
     }
 
+    @Override
     public void collide(CollidableCompositeLayer collisionLayer)
             throws Exception
     {
     }
 
+    @Override
     public boolean isCollision(CollidableInterfaceCompositeInterface collidableInterface)
     {
         return false;
     }
 
+    @Override
     public void collide(CollidableInterfaceCompositeInterface collidableInterface)
             throws Exception
     {

@@ -22,18 +22,19 @@ import org.allbinary.string.CommonLabels;
 public class PathFindingNodeCost extends PathFindingNode implements Comparable<PathFindingNodeCost> {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
+    public static final PathFindingNodeCost[][] NULL_PATH_FINDING_NODE_COST_ARRAY_ARRAY = new PathFindingNodeCost[0][0];
 
     private final CommonSeps commonSeps = CommonSeps.getInstance();
 
-    public PathFindingNodeCostInfo pathFindingNodeCostInfo;
+    public PathFindingNodeCostInfo pathFindingNodeCostInfoP;
 
-    public PathFindingNodeCost(final PathFindingNodeCost parent,
+    public PathFindingNodeCost(final Object parent,
         final GeographicMapCellPosition geographicMapCellPosition,
         final PathFindingNodeCostInfo pathFindingNodeCostInfo)
         throws Exception {
         super(parent, geographicMapCellPosition);
 
-        this.pathFindingNodeCostInfo = pathFindingNodeCostInfo;
+        this.pathFindingNodeCostInfoP = pathFindingNodeCostInfo;
 
         /*
       if(this.getParent() == null)
@@ -51,16 +52,16 @@ public class PathFindingNodeCost extends PathFindingNode implements Comparable<P
     }
 
     public PathFindingNodeCostInfo getPathFindingNodeCostInfo() {
-        return pathFindingNodeCostInfo;
+        return pathFindingNodeCostInfoP;
     }
 
     public void setPathFindingNodeCostInfo(PathFindingNodeCostInfo pathFindingNodeCostInfo) {
-        this.pathFindingNodeCostInfo = pathFindingNodeCostInfo;
+        this.pathFindingNodeCostInfoP = pathFindingNodeCostInfo;
     }
 
     @Override
     public int compareTo(PathFindingNodeCost pathFindingNodeCost) {
-        return this.pathFindingNodeCostInfo.compareTo(pathFindingNodeCost.pathFindingNodeCostInfo);
+        return this.pathFindingNodeCostInfoP.compareTo(pathFindingNodeCost.pathFindingNodeCostInfoP);
     }
     
     public String toString() {

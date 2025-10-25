@@ -16,9 +16,7 @@ package org.allbinary.game.input.form;
 import org.allbinary.game.layer.RTSLayer;
 import org.allbinary.game.layer.RTSPlayerLayerInterface;
 import org.allbinary.graphics.form.item.CustomItem;
-
 import org.allbinary.string.CommonStrings;
-
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.identification.Group;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
@@ -35,7 +33,6 @@ import org.allbinary.string.CommonLabels;
  */
 public class CompositeRTSFormInput extends RTSFormInput
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final RTSFormInput[] rtsFormInputArray;
     private final int[] itemIndex;
@@ -70,6 +67,7 @@ public class CompositeRTSFormInput extends RTSFormInput
         this.rtsFormInputArray[1] = new UnitRTSFormInput(this.groupInterfaceArray);        
     }
 
+    @Override
     public void setAllBinaryGameLayerManager(final AllBinaryGameLayerManager allBinaryGameLayerManager) throws Exception {
 
         super.setAllBinaryGameLayerManager(allBinaryGameLayerManager);
@@ -176,6 +174,7 @@ public class CompositeRTSFormInput extends RTSFormInput
             layerManager, item, index);
     }
 
+    @Override
     public int getSelectedStickyItemIndex()
     {
         return this.rtsFormInputArray[0].getSelectedStickyItemIndex();
@@ -184,6 +183,7 @@ public class CompositeRTSFormInput extends RTSFormInput
     /**
      * @return the stickyItemSelected
      */
+    @Override
     public boolean isStickyItemSelected()
     {
         return this.rtsFormInputArray[0].isStickyItemSelected();
@@ -192,6 +192,7 @@ public class CompositeRTSFormInput extends RTSFormInput
     /**
      * @param stickyItemSelected the stickyItemSelected to set
      */
+    @Override
     public void setStickyItemSelected(boolean stickyItemSelected)
     {
         this.rtsFormInputArray[0].setStickyItemSelected(stickyItemSelected);
@@ -200,6 +201,7 @@ public class CompositeRTSFormInput extends RTSFormInput
     /**
      * @return the selectedStickyItem
      */
+    @Override
     public CustomItem getSelectedStickyItem()
     {
         return this.rtsFormInputArray[0].getSelectedStickyItem();
@@ -208,6 +210,7 @@ public class CompositeRTSFormInput extends RTSFormInput
     /**
      * @param selectedStickyItem the selectedStickyItem to set
      */
+    @Override
     public void setSelectedStickyItem(CustomItem selectedStickyItem)
     {
         this.rtsFormInputArray[0].setSelectedStickyItem(selectedStickyItem);

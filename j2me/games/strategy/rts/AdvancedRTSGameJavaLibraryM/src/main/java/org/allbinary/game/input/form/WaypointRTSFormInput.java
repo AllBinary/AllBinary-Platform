@@ -28,14 +28,13 @@ import org.allbinary.game.layer.waypoint.WaypointLayer;
 import org.allbinary.game.layer.waypoint.event.WaypointEventHandlerFactory;
 import org.allbinary.graphics.form.item.CustomItem;
 import org.allbinary.util.BasicArrayList;
-
-
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.game.identification.Group;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.layer.AllBinaryTiledLayer;
 import org.allbinary.game.layer.GeographicMapCellPositionAreaBase;
+import org.allbinary.game.layer.NullRTSLayer;
 import org.allbinary.game.layer.hud.event.GameNotificationEvent;
 import org.allbinary.game.layer.hud.event.GameNotificationEventHandler;
 import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
@@ -58,9 +57,8 @@ import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackGeographicM
  */
 public class WaypointRTSFormInput extends RTSFormInput
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private boolean isPrimaryWaypointCreator;
+    private final RTSLayerEvent WAYPOINT_EVENT = new RTSLayerEvent(NullRTSLayer.NULL_RTS_LAYER);
 
     protected final GameNotificationEvent dragToSpotGameNotificationEvent;
     protected final GameNotificationEvent spotTakenGameNotificationEvent;
@@ -69,6 +67,8 @@ public class WaypointRTSFormInput extends RTSFormInput
     protected final GameNotificationEvent newWaypointGameNotificationEvent;
 
     protected final GameNotificationEvent noMoneyGameNotificationEvent;
+    
+    private boolean isPrimaryWaypointCreator;
     
     public WaypointRTSFormInput(
         final Group[] groupInterface,
@@ -132,6 +132,7 @@ public class WaypointRTSFormInput extends RTSFormInput
         
     }
 
+    @Override
     public void setAllBinaryGameLayerManager(final AllBinaryGameLayerManager allBinaryGameLayerManager) throws Exception {
     
         super.setAllBinaryGameLayerManager(allBinaryGameLayerManager);
@@ -466,7 +467,6 @@ public class WaypointRTSFormInput extends RTSFormInput
         }
     }
     */
-    private final RTSLayerEvent WAYPOINT_EVENT = new RTSLayerEvent(null);
 
     private void addWayPoint(final WaypointLayer layerInterface)
         throws Exception

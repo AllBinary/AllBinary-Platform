@@ -21,16 +21,16 @@ public class PathFindingNodeCostInfo implements Comparable<PathFindingNodeCostIn
 {    
     private final PathFindingNodeCostInfoData pathFindingNodeCostInfoData = PathFindingNodeCostInfoData.getInstance();
     
-   public long costFromStart;
-   public long costToEnd;
+   public long costFromStartP;
+   public long costToEndP;
    
    //Add coming from costing
-   public long totalCost;
+   public long totalCostP;
    
    public PathFindingNodeCostInfo(final long costFromStart, final long costToGoal) throws Exception //, long totalCost)
    {
-       this.costFromStart = costFromStart;
-       this.costToEnd = costToGoal;
+       this.costFromStartP = costFromStart;
+       this.costToEndP = costToGoal;
 
       //this.setTotalCost(totalCost);
       this.setTotalCost();
@@ -38,18 +38,18 @@ public class PathFindingNodeCostInfo implements Comparable<PathFindingNodeCostIn
       
    public void setCostToEnd(final long costToEnd)
    {
-      this.costToEnd = costToEnd;
+      this.costToEndP = costToEnd;
    }
    
    public void setTotalCost(final long totalCost)
    {
-      this.totalCost = totalCost;
+      this.totalCostP = totalCost;
    }
    
    public void setTotalCost() throws Exception
    {
-      this.totalCost = costFromStart + costToEnd;
-      if(this.totalCost > pathFindingNodeCostInfoData.MAX_NODE_COST)
+      this.totalCostP = costFromStartP + costToEndP;
+      if(this.totalCostP > pathFindingNodeCostInfoData.MAX_NODE_COST)
       {
          throw new Exception("Max Cost Exceeded");
       }
@@ -61,17 +61,17 @@ public class PathFindingNodeCostInfo implements Comparable<PathFindingNodeCostIn
    public void setCostFromStart(final long cost)
    {
       //this.costFromStart += cost;
-       this.costFromStart = cost;
+       this.costFromStartP = cost;
    }
 
    public void addCostFromStart(final long cost)
    {
-       this.costFromStart += cost;
+       this.costFromStartP += cost;
    }
 
     @Override
     public int compareTo(PathFindingNodeCostInfo pathFindingNodeCostInfo) {
-        return Long.compare(this.totalCost, pathFindingNodeCostInfo.totalCost);
+        return java.lang.Long.compare(this.totalCostP, pathFindingNodeCostInfo.totalCostP);
     }
 
    public String toString()
@@ -81,11 +81,11 @@ public class PathFindingNodeCostInfo implements Comparable<PathFindingNodeCostIn
       stringBuffer.append(this.getClass().getName());
       stringBuffer.append(CommonLabels.getInstance().COLON_SEP);
       stringBuffer.append("CostFromStart: ");
-      stringBuffer.append(this.costFromStart);
+      stringBuffer.append(this.costFromStartP);
       stringBuffer.append(" CostToEnd: ");
-      stringBuffer.append(this.costToEnd);
+      stringBuffer.append(this.costToEndP);
       stringBuffer.append(" TotalCost: ");
-      stringBuffer.append(this.totalCost);
+      stringBuffer.append(this.totalCostP);
       
       return stringBuffer.toString();
    }

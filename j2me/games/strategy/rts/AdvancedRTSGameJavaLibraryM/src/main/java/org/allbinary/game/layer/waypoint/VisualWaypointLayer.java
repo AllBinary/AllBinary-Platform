@@ -46,6 +46,7 @@ public class VisualWaypointLayer
                 x, y);
     }
 
+    @Override
     public SelectionHudPaintable createHudPaintable()
     {
         WaypointInfoHudPaintable rtsLayerHudPaintable = 
@@ -57,6 +58,7 @@ public class VisualWaypointLayer
         return rtsLayerHudPaintable;
     }
 
+    @Override
     public SelectionHudPaintable getHudPaintable()
     {
         WaypointInfoHudPaintable rtsLayerHudPaintable = 

@@ -22,10 +22,7 @@ import org.allbinary.game.layer.capital.Capital;
 import org.allbinary.game.rts.technology.event.TechEventHandler;
 import org.allbinary.graphics.form.item.CustomItem;
 import org.allbinary.media.audio.BuildingSound;
-
 import org.allbinary.string.CommonStrings;
-
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.game.identification.Group;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
@@ -35,6 +32,7 @@ import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.audio.ErrorSound;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.GeographicMapCompositeInterface;
@@ -45,7 +43,6 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCompositeInterfac
  */
 public class TechRTSFormInput extends RTSFormInput
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final AllBinaryEventObject EVENT = 
         new AllBinaryEventObject(this);
@@ -68,7 +65,8 @@ public class TechRTSFormInput extends RTSFormInput
                     BooleanFactory.getInstance().FALSE);                
         
     }
-    
+ 
+    @Override
     public void setAllBinaryGameLayerManager(final AllBinaryGameLayerManager allBinaryGameLayerManager) throws Exception {
 
         super.setAllBinaryGameLayerManager(allBinaryGameLayerManager);
@@ -82,34 +80,36 @@ public class TechRTSFormInput extends RTSFormInput
     }
      
     public void process(
-        RTSLayer associatedRtsLayer,
-        RTSPlayerLayerInterface rtsPlayerLayerInterface,
-        AllBinaryLayerManager layerManager, 
-        CustomItem item, int itemIndex)
+        final RTSLayer associatedRtsLayer,
+        final RTSPlayerLayerInterface rtsPlayerLayerInterface,
+        final AllBinaryLayerManager layerManager, 
+        final CustomItem item, final int itemIndex)
         throws Exception
     {
         super.process(layerManager);
         
         final CommonStrings commonStrings = CommonStrings.getInstance();
+        final StringMaker stringMaker = new StringMaker();
         
-        TechnologyRTSInterfaceImageItem technologyRTSInterfaceImageItem = 
+        
+        final TechnologyRTSInterfaceImageItem technologyRTSInterfaceImageItem = 
             (TechnologyRTSInterfaceImageItem) item;
 
-        RTSInterface rtsInterface = technologyRTSInterfaceImageItem.getRtsInterface();
+        final RTSInterface rtsInterface = technologyRTSInterfaceImageItem.getRtsInterface();
 
-        logUtil.put("isUpgradeable: " + rtsInterface.isUpgradeable(), this, commonStrings.PROCESS);
+        logUtil.put(stringMaker.append("isUpgradeable: ").append(rtsInterface.isUpgradeable()).toString(), this, commonStrings.PROCESS);
 
         if (rtsInterface.isUpgradeable())
         {
-            int cost = rtsInterface.getUpgradeCost();
-            Capital capital = rtsPlayerLayerInterface.getCapital();
+            final int cost = rtsInterface.getUpgradeCost();
+            final Capital capital = rtsPlayerLayerInterface.getCapital();
 
-            logUtil.put(cost + "<=" + capital.getTotalMoney(), this, commonStrings.PROCESS);
+            stringMaker.delete(0, stringMaker.length());
+            logUtil.put(stringMaker.append(cost).append("<=").append(capital.getTotalMoney()).toString(), this, commonStrings.PROCESS);
 
             if (cost <= capital.getTotalMoney())
             {
-                rtsPlayerLayerInterface.add(
-                    BuildingSound.getInstance());
+                rtsPlayerLayerInterface.add(BuildingSound.getInstance());
 
                 capital.removeMoney(cost);
 

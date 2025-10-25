@@ -20,10 +20,10 @@ import org.allbinary.game.layer.RTSPlayerLayerInterface;
 import org.allbinary.game.layer.building.event.BuildingEventHandler;
 import org.allbinary.game.layer.building.event.LocalPlayerBuildingEventHandler;
 import org.allbinary.game.layer.waypoint.WaypointCellPositionHistory;
-
 import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.game.identification.Group;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
+import org.allbinary.game.layer.NullRTSLayer;
 import org.allbinary.game.layer.hud.event.GameNotificationEvent;
 import org.allbinary.game.layer.hud.event.GameNotificationEventHandler;
 import org.allbinary.graphics.color.BasicColorFactory;
@@ -41,7 +41,6 @@ import org.allbinary.media.graphics.geography.map.drop.DropCellPositionHistory;
 public class BuildingAdvancedRTSFormInput
     extends BuildingRTSFormInput
 {
-    //protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final GameNotificationEvent atLeastOneHouseGameNotificationEvent;
     
@@ -63,6 +62,7 @@ public class BuildingAdvancedRTSFormInput
                     BooleanFactory.getInstance().FALSE);
     }
 
+    @Override
     public void setAllBinaryGameLayerManager(final AllBinaryGameLayerManager allBinaryGameLayerManager) throws Exception {
 
         super.setAllBinaryGameLayerManager(allBinaryGameLayerManager);
@@ -74,6 +74,7 @@ public class BuildingAdvancedRTSFormInput
         this.atLeastOneHouseGameNotificationEvent.setBasicColorP(geographicMapInterface.getForegroundBasicColor());
     }
     
+    @Override
     public boolean isPositionBlocked()
     {
         if(DropCellPositionHistory.getInstance().isCellPositionWithDrop(
@@ -90,6 +91,7 @@ public class BuildingAdvancedRTSFormInput
         }
     }
     
+    @Override
     protected boolean isBuildAttemptValid(
             RTSPlayerLayerInterface rtsPlayerLayerInterface, 
             RTSLayer layerInterface) 
@@ -122,8 +124,9 @@ public class BuildingAdvancedRTSFormInput
                 rtsPlayerLayerInterface, layerInterface);
     }
 
-    private final RTSLayerEvent BUILD_BUILDING_RTS_LAYER_EVENT = new RTSLayerEvent(null);
+    private final RTSLayerEvent BUILD_BUILDING_RTS_LAYER_EVENT = new RTSLayerEvent(NullRTSLayer.NULL_RTS_LAYER);
     
+    @Override
     protected void add(
             RTSPlayerLayerInterface rtsPlayerLayerInterface,
         AllBinaryLayerManager layerManager, RTSLayer layerInterface)

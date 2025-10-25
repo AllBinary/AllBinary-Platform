@@ -27,7 +27,6 @@ import org.allbinary.game.layer.RTSPlayerLayerInterface;
 import org.allbinary.game.layer.SelectionHudPaintable;
 import org.allbinary.game.layer.waypoint.Waypoint;
 import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.ProceduralAnimationInterfaceFactoryInterface;
@@ -66,7 +65,6 @@ public class BuildingLayer
     implements RotationAnimationInterfaceCompositeInterface,
     TrackingEventListenerInterface
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private int buildingLevelCost;
     private int productivity;
@@ -174,6 +172,7 @@ public class BuildingLayer
 
     protected boolean local;
 
+    @Override
     protected void initVisibility(
             final RTSPlayerLayerInterface rtsPlayerLayerInterface)
     {
@@ -192,6 +191,7 @@ public class BuildingLayer
         super.initVisibility(rtsPlayerLayerInterface);
     }
     
+    @Override
     public void construct(final RTSPlayerLayerInterface rtsPlayerLayerInterface)
     throws Exception
     {
@@ -200,6 +200,7 @@ public class BuildingLayer
         TrackingEventHandler.getInstance().addListener(this);
     }
 
+    @Override
     public void onMovement(final TrackingEvent trackingEvent)
     {
         try
@@ -223,6 +224,7 @@ public class BuildingLayer
 
     protected final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(3000);
 
+    @Override
     public void processBuiltTick(AllBinaryLayerManager allBinaryLayerManager) throws Exception
     {
         if(this.getHealthInterface().isDamaged())
@@ -293,6 +295,7 @@ public class BuildingLayer
         return this.efficiencyPerLevel;
     }
 
+    @Override
     public int getCost()
     {
         final long total = RTSLayerUtil.getInstance().getCostExponential(this.getLevel() * this.getBuildingLevelCost());
@@ -300,6 +303,7 @@ public class BuildingLayer
         return (int) total;
     }
 
+    @Override
     public int getDowngradeCost()
     {
         final long downgradeCost = RTSLayerUtil.getInstance().getCostExponential((this.getLevel() - 1) * getBuildingLevelCost());
@@ -309,6 +313,7 @@ public class BuildingLayer
         return (int) downgradeCost * 9 / 10;
     }
 
+    @Override
     public int getUpgradeCost()
     {
         final long upgradeCost = RTSLayerUtil.getInstance().getCostExponential(
@@ -319,6 +324,7 @@ public class BuildingLayer
         return (int) upgradeCost;
     }
 
+    @Override
     public void downgrade()
     {
         super.downgrade();
@@ -330,6 +336,7 @@ public class BuildingLayer
             ((this.getLevel() + 1) * 100));
     }
 
+    @Override
     public void upgrade()
     {
         super.upgrade();
@@ -439,6 +446,7 @@ public class BuildingLayer
 
     }
 
+    @Override
     public BasicArrayList getMoveOutOfBuildAreaPath(
         final GeographicMapCellPosition geographicMapCellPosition)
     {
@@ -447,14 +455,17 @@ public class BuildingLayer
         return pathsList;
     }
 
+    @Override
     public BasicArrayList getEndGeographicMapCellPositionList() {
         return this.geographicMapCellPositionAreaBase.getSurroundingGeographicMapCellPositionList();
     }
 
+    @Override
     public boolean shouldHandleStartSameAsEnd() {
         return false;
     }
     
+    @Override
     public void paint(final Graphics graphics)
     {
         if (this.isVisible())
@@ -466,6 +477,7 @@ public class BuildingLayer
         }
     }
 
+    @Override
     public void damage(final int damage, final int damageType) throws Exception
     {
         super.damage(damage, damageType);
@@ -477,6 +489,7 @@ public class BuildingLayer
         this.getHealthInterface().damage(damage);
     }
 
+    @Override
     public int getDamage(int damageType) throws Exception
     {
         return 0;
@@ -511,6 +524,7 @@ public class BuildingLayer
         VisibleCellPositionsSingleton.getInstance().removeStationaryCellPositions(surroundList);
     }
 
+    @Override
     public void setDestroyed(boolean destroyed)
         throws Exception
     {
@@ -590,6 +604,7 @@ public class BuildingLayer
     }
      */
     
+    @Override
     public SelectionHudPaintable createHudPaintable()
     {
         final BuildingInfoHudPaintable buildingInfoHudPaintable = 
@@ -601,6 +616,7 @@ public class BuildingLayer
         return buildingInfoHudPaintable;
     }
 
+    @Override
     public SelectionHudPaintable getHudPaintable()
     {
         final BuildingInfoHudPaintable buildingInfoHudPaintable = 
@@ -609,6 +625,7 @@ public class BuildingLayer
         return buildingInfoHudPaintable;
     }
 
+    @Override
     public int getType()
     {
         return BuildingLayer.getStaticType();

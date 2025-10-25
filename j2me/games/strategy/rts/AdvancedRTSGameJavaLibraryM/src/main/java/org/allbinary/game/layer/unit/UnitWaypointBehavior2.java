@@ -34,6 +34,7 @@ import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.math.LayerDistanceUtil;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 import org.allbinary.thread.PathFindingThreadPool;
@@ -100,7 +101,8 @@ extends UnitWaypointBehavior
             new WaypointPathRunnable();
     
     }
-    
+   
+    @Override
     protected void initRange(int weaponRange)
     {
         super.initRange(weaponRange);
@@ -113,10 +115,12 @@ extends UnitWaypointBehavior
         this.associatedAdvancedRTSGameLayer.waypoint2LogHelperP.initRange(this.associatedAdvancedRTSGameLayer, this.closeRange, this.sensorRange);
     }
 
+    @Override
     public GeographicMapCellPosition getNextUnvisitedPathGeographicMapCellPosition() {
         return nextUnvisitedPathGeographicMapCellPosition;
     }
     
+    @Override
     public boolean isRunning() {
         if (this.waypointPathRunnable.isRunning()) {
             return true;
@@ -127,6 +131,7 @@ extends UnitWaypointBehavior
     
     //this could become somewhat event driven with a seperate waypoint processor
     //making it more performant and less polling like
+    @Override
     public void processTick(AllBinaryLayerManager allBinaryLayerManager)
     throws Exception
     {
@@ -376,6 +381,7 @@ extends UnitWaypointBehavior
 
     }
      
+    @Override
     protected void setGeographicMapCellHistoryPath(
             final BasicArrayList geographicMapCellPositionBasicArrayList)
             throws Exception
@@ -789,6 +795,7 @@ extends UnitWaypointBehavior
         }
     }
     
+    @Override
     public void clearTarget() throws Exception
     {
         this.associatedAdvancedRTSGameLayer.waypoint2LogHelperP.clearTarget(this.associatedAdvancedRTSGameLayer);
@@ -803,6 +810,7 @@ extends UnitWaypointBehavior
 
     //Returns true if no waypoints or only targets in list
     //Only public for logging
+    @Override
     public boolean isWaypointListEmptyOrOnlyTargets()
     {
         final BasicArrayList list = this.targetList;
@@ -832,6 +840,7 @@ extends UnitWaypointBehavior
         return targetDistance < this.closeRange + layerInterface.getHalfHeight();
     }
 
+    @Override
     public boolean isInSensorRange(final CollidableDestroyableDamageableLayer layerInterface, final int targetDistance)
     {
         return targetDistance < this.sensorRange + layerInterface.getHalfHeight();
@@ -840,6 +849,7 @@ extends UnitWaypointBehavior
     private static final String TARGET_DISTANCE = "Target Distance";
     private static final String TARGET_LAYER = "Target Layer";
 
+    @Override
     public String getCurrentTargetingStateString()
     {
         final StringMaker stringBuffer = new StringMaker();
@@ -860,6 +870,7 @@ extends UnitWaypointBehavior
         return stringBuffer.toString();
     }
     
+    @Override
     protected void addWaypointFromUser(final AdvancedRTSGameLayer advancedRTSGameLayer)
     throws Exception
     {
@@ -882,6 +893,7 @@ extends UnitWaypointBehavior
     {
         private final BasicArrayList positionList = new BasicArrayList();
         
+        @Override
         public Object visit(Object object)
         {
             try
@@ -900,17 +912,17 @@ extends UnitWaypointBehavior
                     if (clear) {
                         this.getList().clear();
                         this.positionList.clear();
-                        return null;
+                        return NullUtil.getInstance().NULL_OBJECT;
                     }
                     return Boolean.FALSE;
                 }
-                return null;
+                return NullUtil.getInstance().NULL_OBJECT;
             }
             catch(Exception e)
             {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
                 logUtil.put(commonStrings.EXCEPTION, this, "visit", e);
-                return null;
+                return NullUtil.getInstance().NULL_OBJECT;
             }
         }
 
@@ -923,6 +935,7 @@ extends UnitWaypointBehavior
     private final BuildingSteeringVisitor buildingSteeringVisitor = 
         new BuildingSteeringVisitor();
 
+    @Override
     public void addBuildingChase(
             final AllBinaryLayer allbinaryLayer, final GeographicMapCellPosition cellPosition)
     throws Exception

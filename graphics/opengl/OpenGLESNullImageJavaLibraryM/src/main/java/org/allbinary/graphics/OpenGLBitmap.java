@@ -19,15 +19,7 @@ public class OpenGLBitmap extends PlatformBitmapBase {
 
     public void setPixels(int[] pixels, int offset, int stride, int x, int y, int width, int height) {
     }
-    
-    public int getWidth() {
-        return 0;
-    }
-
-    public int getHeight() {
-        return 0;
-    }
-    
+        
     public void recycle() {
         
     }

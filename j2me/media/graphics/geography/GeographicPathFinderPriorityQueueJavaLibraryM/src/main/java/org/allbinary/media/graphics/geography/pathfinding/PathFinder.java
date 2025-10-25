@@ -18,11 +18,10 @@ import java.util.PriorityQueue;
 import java.util.Set;
 
 import org.allbinary.game.layer.AllBinaryTiledLayer;
-
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.MathUtil;
 import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMapCellPositionFactory;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
@@ -32,23 +31,24 @@ import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListUtil;
 
 public class PathFinder extends GeographicPathFinderBase {
+    
     protected final LogUtil logUtil = LogUtil.getInstance();
-
 
     private final BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();
     private final MathUtil mathUtil = MathUtil.getInstance();
     
-    private final PriorityQueue<PathFindingNodeCost> openPriorityQueue = new PriorityQueue<>();
-    private final Set<PathFindingNodeCost> closedSet = new HashSet<>();
+    private final PriorityQueue<PathFindingNodeCost> openPriorityQueue = new PriorityQueue<PathFindingNodeCost>();
+    private final HashSet<PathFindingNodeCost> closedSet = new HashSet<PathFindingNodeCost>();
     
-    private BasicGeographicMap geographicMapInterface;
-    private PathFindingNodeCost[][] costArray;
+    //BasicGeographicMap
+    private Object geographicMapInterface = NullUtil.getInstance().NULL_OBJECT;
+    private PathFindingNodeCost[][] costArray = PathFindingNodeCost.NULL_PATH_FINDING_NODE_COST_ARRAY_ARRAY;
 
     public void init(final BasicGeographicMap geographicMapInterface) throws Exception
     {
         this.geographicMapInterface = geographicMapInterface;
         
-        final AllBinaryTiledLayer tiledLayer = this.geographicMapInterface.getAllBinaryTiledLayer();
+        final AllBinaryTiledLayer tiledLayer = geographicMapInterface.getAllBinaryTiledLayer();
         this.costArray = new PathFindingNodeCost[tiledLayer.getColumns()][tiledLayer.getRows()];
 
         final BasicGeographicMapCellPositionFactory basicGeographicMapCellPositionFactory = geographicMapInterface.getGeographicMapCellPositionFactory();
@@ -61,11 +61,11 @@ public class PathFinder extends GeographicPathFinderBase {
             for(int row = 0; row < sizeY; row++) {
                 
                 final GeographicMapCellType geographicMapCellType = 
-                    this.geographicMapInterface.getCellTypeAt(basicGeographicMapCellPositionFactory.getInstance(column, row));
+                    geographicMapInterface.getCellTypeAt(basicGeographicMapCellPositionFactory.getInstance(column, row));
 
                 final RaceTrackGeographicMapCellType raceTrackGeographicMapCellType = (RaceTrackGeographicMapCellType) geographicMapCellType;
                 
-                node = new PathFindingNodeCost(null, basicGeographicMapCellPositionFactory.getInstance(column, row), new PathFindingNodeCostInfo(raceTrackGeographicMapCellType.getTravelCost(), -1));
+                node = new PathFindingNodeCost(NullUtil.getInstance().NULL_OBJECT, basicGeographicMapCellPositionFactory.getInstance(column, row), new PathFindingNodeCostInfo((long) raceTrackGeographicMapCellType.getTravelCost(), (long) -1));
 
                 costArray[column][row] = node;
             }
@@ -73,6 +73,7 @@ public class PathFinder extends GeographicPathFinderBase {
         
     }
     
+    @Override
     public BasicArrayList search(
         BasicArrayList startPathFindingNodeList,
         BasicArrayList endPathFindingNodeList, int totalPaths) {
@@ -82,10 +83,11 @@ public class PathFinder extends GeographicPathFinderBase {
         } catch(Exception e) {
             final CommonStrings commonStrings = CommonStrings.getInstance();
             logUtil.put(commonStrings.EXCEPTION, this, "search", e);            
-            return null;
+            return basicArrayListUtil.getImmutableInstance();
         }
     }
    
+    @Override
     public BasicArrayList searchN(
         BasicArrayList startPathFindingNodeList,
         BasicArrayList endPathFindingNodeList, int totalPaths, final MultipassState multipassState)
@@ -101,7 +103,7 @@ public class PathFinder extends GeographicPathFinderBase {
             //logUtil.put("step 2", this, "search");
             return this.searchN((PathFindingNode) startPathFindingNodeList.get(0), (PathFindingNode) endPathFindingNodeList.get(0), multipassState);
         }
-        return null;
+        return basicArrayListUtil.getImmutableInstance();
     }
 
     public BasicArrayList search(
@@ -143,7 +145,7 @@ public class PathFinder extends GeographicPathFinderBase {
         final BasicArrayList list = this.findPathEnd(startPathFindingNode.geographicMapCellPosition, endPathFindingNode.geographicMapCellPosition, multipassState);
 
         if(list == null) { 
-            return null;
+            return basicArrayListUtil.getImmutableInstance();
         }
                 
         final BasicArrayList pathList = new BasicArrayList();
@@ -165,7 +167,7 @@ public class PathFinder extends GeographicPathFinderBase {
         this.openPriorityQueue.clear();
         this.closedSet.clear();
 
-        int discoveryCalculation;
+        long discoveryCalculation;
         PathFindingNodeCost node;
 
         final int targetColumn = target.getColumn();
@@ -174,10 +176,10 @@ public class PathFinder extends GeographicPathFinderBase {
         final int sizeY = costArray[0].length;
         for(int column = 0; column < sizeX; column++) {
             for(int row = 0; row < sizeY; row++) {
-                discoveryCalculation = mathUtil.abs(column - targetColumn) + mathUtil.abs(row - targetRow);
+                discoveryCalculation = (long) mathUtil.abs(column - targetColumn) + mathUtil.abs(row - targetRow);
                 node = costArray[column][row];
-                node.pathFindingNodeCostInfo.totalCost = 0;
-                node.pathFindingNodeCostInfo.costToEnd = discoveryCalculation;
+                node.pathFindingNodeCostInfoP.totalCostP = 0;
+                node.pathFindingNodeCostInfoP.costToEndP = discoveryCalculation;
                 
                 //if(!this.geographicMapInterface.isAvailable(node.geographicMapCellPosition))) {
                     //closedSet.add(node);
@@ -189,8 +191,9 @@ public class PathFinder extends GeographicPathFinderBase {
         final PathFindingNodeCost startNode = costArray[start.getColumn()][start.getRow()];
         openPriorityQueue.add(startNode);
 
+        final BasicGeographicMap geographicMapInterface = (BasicGeographicMap) this.geographicMapInterface;
         final BasicGeographicMapCellPositionFactory basicGeographicMapCellPositionFactory = geographicMapInterface.getGeographicMapCellPositionFactory();
-        final AllBinaryTiledLayer allBinaryTiledLayer = this.geographicMapInterface.getAllBinaryTiledLayer();
+        final AllBinaryTiledLayer allBinaryTiledLayer = geographicMapInterface.getAllBinaryTiledLayer();
         
         final PathFindingNodeCost targetNode = costArray[target.getColumn()][target.getRow()];
 
@@ -211,22 +214,22 @@ public class PathFinder extends GeographicPathFinderBase {
                 for(int row = current.geographicMapCellPosition.getRow() - 1; row < current.geographicMapCellPosition.getRow() + 2; row++) {
 
                     if(column > 0 && row > 0 && column < allBinaryTiledLayer.getColumns() && row < allBinaryTiledLayer.getRows() && 
-                        this.geographicMapInterface.isOnMap(basicGeographicMapCellPositionFactory.getInstance(column, row))) {
+                        geographicMapInterface.isOnMap(basicGeographicMapCellPositionFactory.getInstance(column, row))) {
                         neighbor = costArray[column][row];
 
                         if(closedSet.contains(neighbor)) {
                             continue;
                         }
 
-                        neighborInfo = neighbor.pathFindingNodeCostInfo;
-                        calculatedCost = neighborInfo.costToEnd + neighborInfo.costFromStart + current.pathFindingNodeCostInfo.totalCost;
+                        neighborInfo = neighbor.pathFindingNodeCostInfoP;
+                        calculatedCost = neighborInfo.costToEndP + neighborInfo.costFromStartP + current.pathFindingNodeCostInfoP.totalCostP;
 
-                        if(calculatedCost < neighborInfo.totalCost || !openPriorityQueue.contains(neighbor)) {
-                            neighborInfo.totalCost = calculatedCost;
+                        if(calculatedCost < neighborInfo.totalCostP || !openPriorityQueue.contains(neighbor)) {
+                            neighborInfo.totalCostP = calculatedCost;
                             neighbor.parent = current;
 
                             if(!openPriorityQueue.contains(neighbor)) {
-                                if(this.geographicMapInterface.isOfFourDirections(current.geographicMapCellPosition, neighbor.geographicMapCellPosition)) {
+                                if(geographicMapInterface.isOfFourDirections(current.geographicMapCellPosition, neighbor.geographicMapCellPosition)) {
                                     openPriorityQueue.add(neighbor);
                                 }
                             }
@@ -248,7 +251,7 @@ public class PathFinder extends GeographicPathFinderBase {
         this.openPriorityQueue.clear();
         this.closedSet.clear();
 
-        int discoveryCalculation;
+        long discoveryCalculation;
         PathFindingNodeCost node;
 
         final int targetColumn = target.getColumn();
@@ -259,10 +262,10 @@ public class PathFinder extends GeographicPathFinderBase {
         //multipassState.iteration
         for(int column = 0; column < sizeX; column++) {
             for(int row = 0; row < sizeY; row++) {
-                discoveryCalculation = mathUtil.abs(column - targetColumn) + mathUtil.abs(row - targetRow);
+                discoveryCalculation = (long) mathUtil.abs(column - targetColumn) + mathUtil.abs(row - targetRow);
                 node = costArray[column][row];
-                node.pathFindingNodeCostInfo.totalCost = 0;
-                node.pathFindingNodeCostInfo.costToEnd = discoveryCalculation;
+                node.pathFindingNodeCostInfoP.totalCostP = 0;
+                node.pathFindingNodeCostInfoP.costToEndP = discoveryCalculation;
                 
                 //if(!this.geographicMapInterface.isAvailable(node.geographicMapCellPosition))) {
                     //closedSet.add(node);
@@ -286,9 +289,9 @@ public class PathFinder extends GeographicPathFinderBase {
     public BasicArrayList findPathEnd(final GeographicMapCellPosition start, final GeographicMapCellPosition target, final MultipassState multipassState) 
         throws Exception 
     {
-        
+        final BasicGeographicMap geographicMapInterface = (BasicGeographicMap) this.geographicMapInterface;
         final BasicGeographicMapCellPositionFactory basicGeographicMapCellPositionFactory = geographicMapInterface.getGeographicMapCellPositionFactory();
-        final AllBinaryTiledLayer allBinaryTiledLayer = this.geographicMapInterface.getAllBinaryTiledLayer();
+        final AllBinaryTiledLayer allBinaryTiledLayer = geographicMapInterface.getAllBinaryTiledLayer();
         final PathFindingNodeCost targetNode = costArray[target.getColumn()][target.getRow()];
 
         PathFindingNodeCost current;
@@ -309,22 +312,22 @@ public class PathFinder extends GeographicPathFinderBase {
                 for(int row = current.geographicMapCellPosition.getRow() - 1; row < current.geographicMapCellPosition.getRow() + 2; row++) {
 
                     if(column > 0 && row > 0 && column < allBinaryTiledLayer.getColumns() && row < allBinaryTiledLayer.getRows() && 
-                        this.geographicMapInterface.isOnMap(basicGeographicMapCellPositionFactory.getInstance(column, row))) {
+                        geographicMapInterface.isOnMap(basicGeographicMapCellPositionFactory.getInstance(column, row))) {
                         neighbor = costArray[column][row];
 
                         if(closedSet.contains(neighbor)) {
                             continue;
                         }
 
-                        neighborInfo = neighbor.pathFindingNodeCostInfo;
-                        calculatedCost = neighborInfo.costToEnd + neighborInfo.costFromStart + current.pathFindingNodeCostInfo.totalCost;
+                        neighborInfo = neighbor.pathFindingNodeCostInfoP;
+                        calculatedCost = neighborInfo.costToEndP + neighborInfo.costFromStartP + current.pathFindingNodeCostInfoP.totalCostP;
 
-                        if(calculatedCost < neighborInfo.totalCost || !openPriorityQueue.contains(neighbor)) {
-                            neighborInfo.totalCost = calculatedCost;
+                        if(calculatedCost < neighborInfo.totalCostP || !openPriorityQueue.contains(neighbor)) {
+                            neighborInfo.totalCostP = calculatedCost;
                             neighbor.parent = current;
 
                             if(!openPriorityQueue.contains(neighbor)) {
-                                if(this.geographicMapInterface.isOfFourDirections(current.geographicMapCellPosition, neighbor.geographicMapCellPosition)) {
+                                if(geographicMapInterface.isOfFourDirections(current.geographicMapCellPosition, neighbor.geographicMapCellPosition)) {
                                     openPriorityQueue.add(neighbor);
                                 }
                             }
@@ -336,7 +339,7 @@ public class PathFinder extends GeographicPathFinderBase {
           
             total++;
             if(total > 10) {
-                return null;
+                return basicArrayListUtil.getImmutableInstance();
             }
             
         } while(!openPriorityQueue.isEmpty());

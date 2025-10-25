@@ -18,6 +18,7 @@ import org.allbinary.game.layer.AdvancedRTSGameLayer;
 import org.allbinary.game.layer.RTSLayer;
 import org.allbinary.game.layer.building.BuildingLayer;
 import org.allbinary.game.layer.unit.UnitLayer;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.logic.util.visitor.Visitor;
@@ -28,34 +29,37 @@ extends Visitor
     private final SelectedRTSLayersPlayerGameInput selectedRTSLayersPlayerGameInput;
     
     public SelectAdvancedRTSLayerVisitor(
-            SelectedRTSLayersPlayerGameInput selectedRTSLayersPlayerGameInput)
+            final SelectedRTSLayersPlayerGameInput selectedRTSLayersPlayerGameInput)
     {
         this.selectedRTSLayersPlayerGameInput = selectedRTSLayersPlayerGameInput;
     }
     
+    @Override
     public Object visit(Object object)
     {
-        AdvancedRTSGameLayer selectedLayer = (AdvancedRTSGameLayer) object;
+        final AdvancedRTSGameLayer selectedLayer = (AdvancedRTSGameLayer) object;
         
         if(selectedLayer != null && selectedLayer.getType() == BuildingLayer.getStaticType())
         {
-            BasicArrayList list = selectedRTSLayersPlayerGameInput.getSelectedBasicArrayList();
+            final AssignWaypointsUtil assignWaypointsUtil = AssignWaypointsUtil.getInstance();
+            final BasicArrayList list = selectedRTSLayersPlayerGameInput.getSelectedBasicArrayList();
             
+            RTSLayer currentRTSLayer;
+            UnitLayer unitLayer;
             for(int index = list.size() - 1; index >= 0; index--)
             {
-                RTSLayer currentRTSLayer = (RTSLayer) list.get(index);
+                currentRTSLayer = (RTSLayer) list.get(index);
                 
                 if(currentRTSLayer.getType() == UnitLayer.getStaticType())
                 {
-                    UnitLayer unitLayer = (UnitLayer) currentRTSLayer;
+                    unitLayer = (UnitLayer) currentRTSLayer;
 
                     unitLayer.setParentLayer(selectedLayer);
 
-                    AssignWaypointsUtil.getInstance().set(
-                            unitLayer, selectedLayer);
+                    assignWaypointsUtil.set(unitLayer, selectedLayer);
                 }
             }
         }
-        return null;
+        return NullUtil.getInstance().NULL_OBJECT;
     }
 }

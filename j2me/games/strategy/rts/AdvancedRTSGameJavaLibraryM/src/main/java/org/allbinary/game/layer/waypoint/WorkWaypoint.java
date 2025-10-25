@@ -21,7 +21,6 @@ import org.allbinary.game.layer.unit.UnitLayer;
 import org.allbinary.game.layer.unit.UnitWaypointBehavior;
 import org.allbinary.media.audio.WorkSound;
 import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 
 /**
@@ -125,6 +124,7 @@ public class WorkWaypoint extends Waypoint
          */
     }
 
+    @Override
     public int getType()
     {
         return 2;

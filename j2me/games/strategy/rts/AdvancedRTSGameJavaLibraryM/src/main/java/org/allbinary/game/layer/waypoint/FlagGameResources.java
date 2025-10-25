@@ -38,6 +38,8 @@ public class FlagGameResources extends BasicGameResources
     //private final static String EMPTY = "_empty";
 
     private final String ICON_SIZE = "_64_by_64.png";
+    
+    @Override
     protected void init(String ROOT, String sizeString) throws Exception
     {
         super.init(ROOT, sizeString);

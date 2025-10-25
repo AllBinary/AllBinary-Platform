@@ -46,10 +46,12 @@ public class OpenGLBitmap extends PlatformBitmapBase {
         this.image.setRGB2(pixels, offset, height, x, y, width, height);
     }
     
+    @Override
     public int getWidth() {
         return this.image.getWidth();    
     }
 
+    @Override
     public int getHeight() {
         return this.image.getHeight();
     }

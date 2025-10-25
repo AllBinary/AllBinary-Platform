@@ -12,8 +12,6 @@
  * 
  */
 package org.allbinary.game.layer.waypoint;
-import org.allbinary.logic.string.StringMaker;
-
 
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.layer.PathFindingLayerInterface;
@@ -57,6 +55,7 @@ public class NoCacheWaypoint extends WaypointBase
 
     }
 
+    @Override
     public void setAllBinaryGameLayerManager(final AllBinaryGameLayerManager allBinaryGameLayerManager) throws Exception {
 
         super.setAllBinaryGameLayerManager(allBinaryGameLayerManager);
@@ -77,7 +76,7 @@ public class NoCacheWaypoint extends WaypointBase
     public BasicArrayList getPathsListFromCacheOnly(final GeographicMapCellPosition geographicMapCellPosition)
         throws Exception
     {
-        return null;
+        return BasicArrayListUtil.getInstance().getImmutableInstance();
     }
 
     @Override
@@ -195,21 +194,25 @@ public class NoCacheWaypoint extends WaypointBase
         return list;
     }
 
+    @Override
     public void onEvent(final AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
 
     //Clear path cache
+    @Override
     public void onBuildingEvent(final RTSLayerEvent event)
         throws Exception
     {
     }
 
+    @Override
     public void reset() {
         this.getConnectedWaypointList().clear();
     }
     
+    @Override
     public void visit(final PathFindingLayerInterface unitLayer)
         throws Exception
     {

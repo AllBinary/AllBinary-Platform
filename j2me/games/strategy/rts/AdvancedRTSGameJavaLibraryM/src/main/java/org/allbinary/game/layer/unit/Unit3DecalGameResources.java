@@ -16,7 +16,6 @@ package org.allbinary.game.layer.unit;
 
 import org.allbinary.game.layer.resources.BasicGameResources;
 import org.allbinary.game.layer.resources.GameGraphicsResourceUtil;
-
 import org.allbinary.AndroidUtil;
 import org.allbinary.game.configuration.feature.GraphicsFeatureFactory;
 
@@ -39,11 +38,13 @@ public class Unit3DecalGameResources extends BasicGameResources
         super.init(ROOT, SIZE);
     }
 
+    @Override
     protected void init(String ROOT, String sizeString) throws Exception
     {
         super.init(ROOT, sizeString);
     }
 
+    @Override
     protected String getString() throws Exception
     {
         if (AndroidUtil.isAndroid())

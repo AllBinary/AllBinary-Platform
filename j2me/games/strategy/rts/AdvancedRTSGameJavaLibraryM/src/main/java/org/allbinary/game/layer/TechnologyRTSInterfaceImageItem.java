@@ -17,7 +17,6 @@ import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.graphics.form.item.CustomImageItem;
-
 import org.allbinary.logic.java.character.CharArrayFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.font.MyFont;
@@ -112,6 +111,7 @@ public class TechnologyRTSInterfaceImageItem extends CustomImageItem
                         this.getRtsInterface().getLevel());
     }
 
+    @Override
     public void paint(Graphics graphics, int x, int y)
     {
         super.paint(graphics, x, y);

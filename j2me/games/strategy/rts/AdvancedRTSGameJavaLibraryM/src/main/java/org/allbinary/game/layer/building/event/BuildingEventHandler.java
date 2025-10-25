@@ -33,10 +33,11 @@ public class BuildingEventHandler extends BasicEventHandler
       return BuildingEventHandler.eventHandler;
    }
    
-   protected void process(AllBinaryEventObject eventObject,
-           EventListenerInterface eventListenerInterface) throws Exception {
+   @Override
+   protected void process(final AllBinaryEventObject eventObject,
+           final EventListenerInterface eventListenerInterface) throws Exception {
 
-      ((BuildingEventListenerInterface) eventListenerInterface).onBuildingEvent(
-              (RTSLayerEvent) eventObject);
+       final BuildingEventListenerInterface buildingEventListenerInterface = ((BuildingEventListenerInterface) eventListenerInterface);
+       buildingEventListenerInterface.onBuildingEvent((RTSLayerEvent) eventObject);
    }   
 }

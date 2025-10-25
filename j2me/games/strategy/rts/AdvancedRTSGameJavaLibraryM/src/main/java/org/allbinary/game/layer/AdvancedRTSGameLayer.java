@@ -14,6 +14,7 @@
 package org.allbinary.game.layer;
 
 import javax.microedition.lcdui.Canvas;
+
 import org.allbinary.animation.transition.shake.ShakeAnimationListener;
 import org.allbinary.animation.transition.shake.ShakeAnimationListenerFactory;
 import org.allbinary.game.input.form.RTSFormInput;
@@ -61,7 +62,6 @@ import org.allbinary.view.ViewPosition;
 public class AdvancedRTSGameLayer extends RTSLayer
     implements DestroyedEventListenerInterface
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final ShakeAnimationListener shakeListener;
     protected final AllBinaryVibrationME vibration;
@@ -172,6 +172,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
         this.setParentLayer(null);
     }
 
+    @Override
     public void updateWaypointBehavior(final BasicGeographicMap geographicMapInterface) throws Exception {
         super.updateWaypointBehavior(geographicMapInterface);
         this.getWaypointBehavior().getWaypoint().setAllBinaryGameLayerManager(this.allBinaryGameLayerManagerP);
@@ -193,6 +194,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
         }
     }
 
+    @Override
     public void construct(RTSPlayerLayerInterface rtsPlayerLayerInterface)
         throws Exception
     {
@@ -204,6 +206,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
                 this.getWaypointBehavior().getWaypoint());
     }
 
+    @Override
     public void setDestroyed(boolean destroyed)
         throws Exception
     {
@@ -225,6 +228,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
     /**
      * @return the parentLayer
      */
+    @Override
     public RTSLayer getParentLayer()
     {
         return parentLayer;
@@ -235,6 +239,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
         this.parentLayer = parentLayer;
     }
 
+    @Override
     public WaypointBehaviorBase getWaypointBehavior()
     {
         return this.waypointBehaviorBase;
@@ -245,18 +250,22 @@ public class AdvancedRTSGameLayer extends RTSLayer
         this.waypointBehaviorBase = unitWaypointHelper;
     }
 
+    @Override
     public WaypointLogHelper getWaypointLogHelper() {
         return this.waypointLogHelperP;
-    }   
+    }
 
+    @Override
     public Waypoint2LogHelper getWaypoint2LogHelper() {
         return this.waypoint2LogHelperP;
     }   
     
+    @Override
     public WaypointRunnableLogHelper getWaypointRunnableLogHelper() {
         return this.waypointRunnableLogHelperP;
     }   
 
+    @Override
     public boolean shouldAddWaypointFromBuilding() {
         if (this.parentLayer != null && this.parentLayer.getType() != UnitLayer.getStaticType()) {
             return true;
@@ -264,6 +273,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
         return false;
     }
 
+    @Override
     public boolean isWaypointListEmptyOrOnlyTargets() {
         if (this.getType() != UnitLayer.getStaticType()) {
             return true;
@@ -271,6 +281,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
         return false;
     }
     
+    @Override
     public boolean buildingChase(final AllBinaryLayer allbinaryLayer, final GeographicMapCellPosition cellPosition)
     throws Exception
     {
@@ -550,6 +561,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
         */
     }
     
+    @Override
     public BasicArrayList getSurroundingGeographicMapCellPositionList() throws Exception {
         final GeographicMapCompositeInterface geographicMapCompositeInterface
             = (GeographicMapCompositeInterface) this.allBinaryGameLayerManagerP;
@@ -578,6 +590,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
         }
     }
     
+    @Override
     public void onDestroyed(DestroyedEvent destroyedEvent)
     {
         try

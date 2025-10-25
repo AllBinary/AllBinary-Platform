@@ -16,12 +16,10 @@ package org.allbinary.game.layer.geological.resources;
 import org.allbinary.game.layer.AdvancedRTSGameLayer;
 import org.allbinary.game.layer.SelectionHudPaintable;
 import org.allbinary.game.layer.waypoint.WaypointLayer;
-
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.ProceduralAnimationInterfaceFactoryInterface;
 import org.allbinary.game.identification.Group;
 import org.allbinary.graphics.Rectangle;
-import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.game.multiplayer.layer.RemoteInfo;
 
 public class ResourceWaypointLayer
@@ -49,6 +47,7 @@ public class ResourceWaypointLayer
                 x, y);
     }
 
+    @Override
     public SelectionHudPaintable createHudPaintable()
     {
         GeologicalResourceInfoHudPaintable rtsLayerHudPaintable = 
@@ -60,7 +59,7 @@ public class ResourceWaypointLayer
         return rtsLayerHudPaintable;
     }
     
-
+    @Override
     public SelectionHudPaintable getHudPaintable()
     {
         GeologicalResourceInfoHudPaintable rtsLayerHudPaintable = 
