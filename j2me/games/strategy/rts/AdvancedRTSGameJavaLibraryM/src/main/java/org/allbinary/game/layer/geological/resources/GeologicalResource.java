@@ -36,9 +36,10 @@ public class GeologicalResource {
 
     public void add(int value)
     {
-        if(this.getTotal() + value > Integer.MAX_VALUE)
+        final int max = Integer.MAX_VALUE;
+        if(this.getTotal() + value > max)
         {
-            this.setTotal(Integer.MAX_VALUE);
+            this.setTotal(max);
         }
         else
         {

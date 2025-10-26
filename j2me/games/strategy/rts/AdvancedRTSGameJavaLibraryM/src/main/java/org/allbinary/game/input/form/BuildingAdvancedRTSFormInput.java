@@ -23,6 +23,7 @@ import org.allbinary.game.layer.waypoint.WaypointCellPositionHistory;
 import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.game.identification.Group;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
+import org.allbinary.game.layer.NullPathFindingLayer;
 import org.allbinary.game.layer.NullRTSLayer;
 import org.allbinary.game.layer.hud.event.GameNotificationEvent;
 import org.allbinary.game.layer.hud.event.GameNotificationEventHandler;
@@ -124,7 +125,7 @@ public class BuildingAdvancedRTSFormInput
                 rtsPlayerLayerInterface, layerInterface);
     }
 
-    private final RTSLayerEvent BUILD_BUILDING_RTS_LAYER_EVENT = new RTSLayerEvent(NullRTSLayer.NULL_RTS_LAYER);
+    private final RTSLayerEvent BUILD_BUILDING_RTS_LAYER_EVENT = new RTSLayerEvent(NullPathFindingLayer.NULL_PATH_FINDING_LAYER);
     
     @Override
     protected void add(

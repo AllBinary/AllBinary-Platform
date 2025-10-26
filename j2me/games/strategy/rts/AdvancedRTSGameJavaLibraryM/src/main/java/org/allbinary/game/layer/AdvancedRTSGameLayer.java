@@ -15,13 +15,11 @@ package org.allbinary.game.layer;
 
 import javax.microedition.lcdui.Canvas;
 
-import org.allbinary.animation.transition.shake.ShakeAnimationListener;
-import org.allbinary.animation.transition.shake.ShakeAnimationListenerFactory;
-import org.allbinary.game.input.form.RTSFormInput;
-import org.allbinary.game.layer.building.event.BuildingEventHandler;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.ProceduralAnimationInterfaceFactoryInterface;
+import org.allbinary.animation.transition.shake.NoShakeAnimationListener;
+import org.allbinary.animation.transition.shake.ShakeAnimationListener;
+import org.allbinary.animation.transition.shake.ShakeAnimationListenerFactory;
 import org.allbinary.direction.Direction;
 import org.allbinary.direction.DirectionFactory;
 import org.allbinary.game.GameTypeFactory;
@@ -32,6 +30,8 @@ import org.allbinary.game.configuration.GameConfigurationCentral;
 import org.allbinary.game.health.Health;
 import org.allbinary.game.identification.Group;
 import org.allbinary.game.input.event.GameKeyEventFactory;
+import org.allbinary.game.input.form.RTSFormInput;
+import org.allbinary.game.layer.building.event.BuildingEventHandler;
 import org.allbinary.game.layer.unit.UnitLayer;
 import org.allbinary.game.layer.waypoint.Waypoint2LogHelper;
 import org.allbinary.game.layer.waypoint.Waypoint2SelectedLogHelper;
@@ -40,15 +40,18 @@ import org.allbinary.game.layer.waypoint.WaypointLogHelper;
 import org.allbinary.game.layer.waypoint.WaypointRunnableLogHelper;
 import org.allbinary.game.layer.waypoint.WaypointRunnableSelectedLogHelper;
 import org.allbinary.game.layer.waypoint.WaypointSelectedLogHelper;
+import org.allbinary.game.multiplayer.layer.RemoteInfo;
+import org.allbinary.game.tick.NullTickable;
+import org.allbinary.game.tick.TickableInterface;
+import org.allbinary.game.view.TileLayerPositionIntoViewPosition;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.layer.AllBinaryLayer;
+import org.allbinary.math.AngleInfo;
+import org.allbinary.math.FrameUtil;
+import org.allbinary.media.AllBinaryNoVibration;
 import org.allbinary.media.AllBinaryVibration;
 import org.allbinary.media.AllBinaryVibrationME;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
-import org.allbinary.game.multiplayer.layer.RemoteInfo;
-import org.allbinary.game.view.TileLayerPositionIntoViewPosition;
-import org.allbinary.math.AngleInfo;
-import org.allbinary.math.FrameUtil;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 import org.allbinary.media.graphics.geography.map.GeographicMapCompositeInterface;
 import org.allbinary.media.graphics.geography.map.GeographicMapDirectionUtil;
@@ -67,12 +70,13 @@ public class AdvancedRTSGameLayer extends RTSLayer
     protected final AllBinaryVibrationME vibration;
     protected final int duration;
     
-    private AdvancedRTSGameLayer parentLayer;
-    protected WaypointBehaviorBase waypointBehaviorBase;
+    private PathFindingLayerInterface parentLayer = NullPathFindingLayer.NULL_PATH_FINDING_LAYER;
+    //WaypointBehaviorBase
+    protected TickableInterface waypointBehaviorBase = NullTickable.getInstance();
         
     public AdvancedRTSGameLayer(
             final RemoteInfo remoteInfo,
-        final AdvancedRTSGameLayer parentLayer,
+        final PathFindingLayerInterface parentLayer,
         final Group[] groupInterface,
         final String rootName,
         final String name,
@@ -108,7 +112,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
         
     public AdvancedRTSGameLayer(
             final RemoteInfo remoteInfo,
-        final AdvancedRTSGameLayer parentLayer,
+        final PathFindingLayerInterface parentLayer,
         final Group[] groupInterface,
         final String rootName,
         final String name,
@@ -163,13 +167,13 @@ public class AdvancedRTSGameLayer extends RTSLayer
 
         this.setWaypointBehavior(new WaypointBehaviorBase());
         
-        this.shakeListener = null;
+        this.shakeListener = NoShakeAnimationListener.NO_SHAKE_ANIMATION_LISTENER;
 
-        this.vibration = null;
+        this.vibration = AllBinaryNoVibration.NO_VIBRATION;
 
         this.duration = 0;
 
-        this.setParentLayer(null);
+        this.setParentLayer(NullPathFindingLayer.NULL_PATH_FINDING_LAYER);
     }
 
     @Override
@@ -229,12 +233,12 @@ public class AdvancedRTSGameLayer extends RTSLayer
      * @return the parentLayer
      */
     @Override
-    public RTSLayer getParentLayer()
+    public PathFindingLayerInterface getParentLayer()
     {
         return parentLayer;
     }
 
-    public void setParentLayer(AdvancedRTSGameLayer parentLayer)
+    public void setParentLayer(PathFindingLayerInterface parentLayer)
     {
         this.parentLayer = parentLayer;
     }
@@ -242,7 +246,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
     @Override
     public WaypointBehaviorBase getWaypointBehavior()
     {
-        return this.waypointBehaviorBase;
+        return (WaypointBehaviorBase) this.waypointBehaviorBase;
     }
 
     protected void setWaypointBehavior(WaypointBehaviorBase unitWaypointHelper)
@@ -267,8 +271,11 @@ public class AdvancedRTSGameLayer extends RTSLayer
 
     @Override
     public boolean shouldAddWaypointFromBuilding() {
-        if (this.parentLayer != null && this.parentLayer.getType() != UnitLayer.getStaticType()) {
-            return true;
+        if (this.parentLayer != NullPathFindingLayer.NULL_PATH_FINDING_LAYER) {
+            final AdvancedRTSGameLayer parentAdvancedRTSGameLayer = (AdvancedRTSGameLayer) this.parentLayer;
+            if(parentAdvancedRTSGameLayer.getType() != UnitLayer.getStaticType()) {
+                return true;
+            }
         }
         return false;
     }

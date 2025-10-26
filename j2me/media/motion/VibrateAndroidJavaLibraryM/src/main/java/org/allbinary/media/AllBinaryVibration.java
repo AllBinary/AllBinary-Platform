@@ -20,8 +20,7 @@ import org.allbinary.game.configuration.GameConfigurationCentral;
 
 public class AllBinaryVibration extends AllBinaryVibrationME
 {
-    private static AllBinaryVibrationME NO_VIBRATION = new AllBinaryNoVibration(); 
-   private static AllBinaryVibrationME VIBRATION = NO_VIBRATION;
+   private static AllBinaryVibrationME VIBRATION = AllBinaryNoVibration.NO_VIBRATION;
    
    private final Vibrator vibrator = (Vibrator) 
        ResourceUtil.getInstance().getContext().getSystemService(Context.VIBRATOR_SERVICE);
@@ -39,7 +38,7 @@ public class AllBinaryVibration extends AllBinaryVibrationME
    {
         if (GameConfigurationCentral.getInstance().VIBRATION.getValue().intValue() == 0)
         {
-            VIBRATION = NO_VIBRATION;
+            VIBRATION = AllBinaryNoVibration.NO_VIBRATION;
         }
         else
         {

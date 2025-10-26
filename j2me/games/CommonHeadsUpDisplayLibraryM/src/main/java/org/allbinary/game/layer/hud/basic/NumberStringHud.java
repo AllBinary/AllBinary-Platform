@@ -18,14 +18,21 @@ import javax.microedition.lcdui.Graphics;
 import org.allbinary.game.graphics.hud.BasicHud;
 import org.allbinary.game.graphics.hud.BasicHudFactory;
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.font.MyFont;
 import org.allbinary.graphics.paint.PaintableInterface;
 import org.allbinary.logic.math.PrimitiveLongSingleton;
 import org.allbinary.logic.math.PrimitiveLongUtil;
+import org.allbinary.logic.string.StringUtil;
 
 public class NumberStringHud extends BasicHud
    implements PaintableInterface
 {   
+    public static final NumberStringHud NULL_NUMBER_STRING_HUD = new NumberStringHud(
+                StringUtil.getInstance().EMPTY_STRING, 0,
+                BasicHudFactory.getInstance().ABSOLUTE,
+                0, 0,0, BasicColorFactory.getInstance().NULL_COLOR);    
+
    //private final String PREPEND_STRING;
     private final char[] PREPEND_STRING;
 
@@ -39,6 +46,27 @@ public class NumberStringHud extends BasicHud
 
    private final PrimitiveLongUtil primitiveLongUtil;
 
+   public NumberStringHud(String prependString, int max, int location,
+           int maxHeight, int maxWidth, int bufferZone, BasicColor basicColor)
+   {
+      super(location, 1, maxHeight, maxWidth, bufferZone, basicColor);
+
+      this.PREPEND_STRING = prependString.toCharArray();
+      //this.PREPEND_STRING = prependString;
+      final MyFont myFont = MyFont.getInstance();
+      this.offset = myFont.stringWidth(prependString) + myFont.charWidth();
+      
+      this.valueString = PrimitiveLongSingleton.getInstance().NUMBER_CHAR_ARRAYS[0];
+      //this.valueString = PrimitiveLongUtil.NUMBER_STRING_ARRAY[0];
+
+      //Note score must be (10 X 10^n) - 1
+      this.primitiveLongUtil = new PrimitiveLongUtil(max + 1);
+      
+      this.max = max;
+      this.value = 0;
+
+   }
+   
    public NumberStringHud(String prependString, int max, int location, int direction,
            int maxHeight, int maxWidth, int bufferZone, BasicColor basicColor)
            throws Exception

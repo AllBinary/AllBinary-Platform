@@ -53,8 +53,8 @@ implements ItemArraySingletonFactoryInterface
         this.resources = resources;
     }
 
-    protected CustomItem createFlagItem(FlagGameResources flagResources,
-        LayerInterfaceFactoryInterface layerInterfaceFactoryInterface)
+    protected CustomItem createFlagItem(final FlagGameResources flagResources,
+        final LayerInterfaceFactoryInterface layerInterfaceFactoryInterface)
         throws Exception
     {
         String name = flagResources.NAME;
@@ -66,14 +66,14 @@ implements ItemArraySingletonFactoryInterface
         return this.createFlagItem(flagResources, name, layerInterfaceFactoryInterface);
     }
 
-    protected CustomItem createFlagItem(FlagGameResources flagResources, String name,
-        LayerInterfaceFactoryInterface layerInterfaceFactoryInterface) throws Exception
+    protected CustomItem createFlagItem(final FlagGameResources flagResources, final String name,
+        final LayerInterfaceFactoryInterface layerInterfaceFactoryInterface) throws Exception
     {
-        ImageCache IMAGE_CACHE = GameFeatureImageCacheFactory.getInstance();
+        final ImageCache IMAGE_CACHE = GameFeatureImageCacheFactory.getInstance();
         
-        Image image = IMAGE_CACHE.get(flagResources.RESOURCE_ICON);
+        final Image image = IMAGE_CACHE.get(flagResources.RESOURCE_ICON);
         
-        CustomItem item = new LayerInterfaceFactoryImageItem(
+        final CustomItem item = new LayerInterfaceFactoryImageItem(
                 name, image,
             ImageItem.LAYOUT_DEFAULT, flagResources.NAME, basicColor,
             new Animation[] {new RTSLayerTextAnimation(RTSGameStrings.getInstance().DRAGGABLE, image)},
@@ -121,17 +121,9 @@ implements ItemArraySingletonFactoryInterface
         return ITEMS;
     }
 
-    /**
-     * @return the resources
-     */
-    public BasicGameResources[] getResources()
+    public int indexOf(final BasicGameResources basicGameResources)
     {
-        return resources;
-    }
-
-    public int indexOf(BasicGameResources basicGameResources)
-    {
-        for(int index = this.getResources().length - 1; index >= 0; index--)
+        for(int index = this.resources.length - 1; index >= 0; index--)
         {
             if(this.resources[index] == basicGameResources)
             {

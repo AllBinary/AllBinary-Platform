@@ -18,27 +18,6 @@ import java.util.Hashtable;
 import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.game.layer.PathAnimation;
-import org.allbinary.game.layer.SteeringVisitor;
-import org.allbinary.game.layer.RTSLayer2SelectedLogHelper;
-import org.allbinary.game.layer.RTSLayerSelectedLogHelper;
-import org.allbinary.game.layer.RTSLayerLogHelper;
-import org.allbinary.game.input.form.VisibleCellPositionsSingleton;
-import org.allbinary.game.input.form.WaypointRTSFormInput;
-import org.allbinary.game.layer.AdvancedRTSGameLayer;
-import org.allbinary.game.layer.CaptionResources;
-import org.allbinary.game.layer.RTSLayerEvent;
-import org.allbinary.game.layer.RTSLayerHudPaintable;
-import org.allbinary.game.layer.RTSPlayerLayerInterface;
-import org.allbinary.game.layer.SelectionHudPaintable;  
-import org.allbinary.game.layer.SensorActionFactory;
-import org.allbinary.game.layer.building.BuildingLayer;
-import org.allbinary.game.layer.building.event.BuildingEventHandler;
-import org.allbinary.game.layer.building.event.BuildingEventListenerInterface;
-import org.allbinary.game.layer.waypoint.event.WaypointEventHandlerFactory;
-import org.allbinary.media.audio.AttackSound;
-import org.allbinary.util.BasicArrayList;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
@@ -66,14 +45,32 @@ import org.allbinary.game.identification.Group;
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.input.event.GameKeyEventFactory;
 import org.allbinary.game.input.event.GameKeyEventUtil;
+import org.allbinary.game.input.form.VisibleCellPositionsSingleton;
+import org.allbinary.game.input.form.WaypointRTSFormInput;
+import org.allbinary.game.layer.AdvancedRTSGameLayer;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.layer.AllBinaryTiledLayer;
+import org.allbinary.game.layer.CaptionResources;
 import org.allbinary.game.layer.LinePathRelativeAnimation;
+import org.allbinary.game.layer.PathAnimation;
 import org.allbinary.game.layer.PathFindingLayerInterface;
 import org.allbinary.game.layer.RTSLayer2LogHelper;
+import org.allbinary.game.layer.RTSLayer2SelectedLogHelper;
+import org.allbinary.game.layer.RTSLayerEvent;
+import org.allbinary.game.layer.RTSLayerHudPaintable;
+import org.allbinary.game.layer.RTSLayerLogHelper;
+import org.allbinary.game.layer.RTSLayerSelectedLogHelper;
+import org.allbinary.game.layer.RTSPlayerLayerInterface;
+import org.allbinary.game.layer.SelectionHudPaintable;
+import org.allbinary.game.layer.SensorActionFactory;
+import org.allbinary.game.layer.SteeringVisitor;
 import org.allbinary.game.layer.TiledLayerUtil;
 import org.allbinary.game.layer.VehicleFrictionProperties;
 import org.allbinary.game.layer.VehicleProperties;
+import org.allbinary.game.layer.WaypointBehaviorBase;
+import org.allbinary.game.layer.building.BuildingLayer;
+import org.allbinary.game.layer.building.event.BuildingEventHandler;
+import org.allbinary.game.layer.building.event.BuildingEventListenerInterface;
 import org.allbinary.game.layer.capital.event.CapitalEvent;
 import org.allbinary.game.layer.capital.event.CapitalEventHandlerFactory;
 import org.allbinary.game.layer.geographic.map.LayerPartialCellPositionsUtil;
@@ -85,12 +82,16 @@ import org.allbinary.game.layer.special.SpecialUpGameInputProcessor;
 import org.allbinary.game.layer.waypoint.MultipassNoCacheWaypoint;
 import org.allbinary.game.layer.waypoint.NoCacheWaypoint;
 import org.allbinary.game.layer.waypoint.WaypointBase;
+import org.allbinary.game.layer.waypoint.event.WaypointEventHandlerFactory;
+import org.allbinary.game.multiplayer.layer.RemoteInfo;
 import org.allbinary.game.part.weapon.BasicWeaponPart;
 import org.allbinary.game.part.weapon.SalvoInterface;
 import org.allbinary.game.physics.velocity.VelocityProperties;
 import org.allbinary.game.tracking.TrackingEvent;
 import org.allbinary.game.tracking.TrackingEventHandler;
 import org.allbinary.game.tracking.TrackingEventListenerInterface;
+import org.allbinary.game.view.TileLayerPositionIntoViewPosition;
+import org.allbinary.graphics.CellPositionFactory;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColorFactory;
@@ -106,22 +107,22 @@ import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
 import org.allbinary.math.FrameUtil;
 import org.allbinary.math.LayerDistanceUtil;
+import org.allbinary.math.NamedAngle;
+import org.allbinary.media.audio.AttackSound;
 import org.allbinary.media.audio.SecondaryPlayerQueueFactory;
 import org.allbinary.media.audio.Sound;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMapCellPositionFactory;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellHistory;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
-import org.allbinary.media.graphics.geography.map.drop.DropCellPositionHistory;
-import org.allbinary.view.ViewPosition;
-import org.allbinary.weapon.media.audio.ExplosionBasicSound;
-import org.allbinary.game.multiplayer.layer.RemoteInfo;
-import org.allbinary.game.view.TileLayerPositionIntoViewPosition;
-import org.allbinary.graphics.CellPositionFactory;
-import org.allbinary.math.NamedAngle;
 import org.allbinary.media.graphics.geography.map.GeographicMapCompositeInterface;
+import org.allbinary.media.graphics.geography.map.SimpleGeographicMapCellPositionFactory;
+import org.allbinary.media.graphics.geography.map.drop.DropCellPositionHistory;
 import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackGeographicMap;
 import org.allbinary.string.CommonPhoneStrings;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.view.ViewPosition;
+import org.allbinary.weapon.media.audio.ExplosionBasicSound;
 
 /**
  * 
@@ -186,7 +187,7 @@ public class UnitLayer extends AdvancedRTSGameLayer implements
     protected RotationAnimation rotationAnimationInterface;
 
     private NamedAngle movementAngle = this.angleFactory.NOT_ANGLE;
-    private GeographicMapCellPosition steeringInsideGeographicMapCellPosition;
+    private GeographicMapCellPosition steeringInsideGeographicMapCellPosition = SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
 
     protected UnitLayer(
             final RemoteInfo remoteInfo,
@@ -337,8 +338,8 @@ public class UnitLayer extends AdvancedRTSGameLayer implements
         if (Features.getInstance().isFeature(
                 GameFeatureFactory.getInstance().DAMAGE_FLOATERS))
         {
-            this.damageFloatersPaintableInterface = this.damageFloaters =
-                new PtsDamageFloaters(this);
+            this.damageFloaters = new PtsDamageFloaters(this);
+            this.damageFloatersPaintableInterface = this.damageFloaters;
         }
         else
         {
@@ -983,7 +984,8 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
     public void trackTo(final String reason)
         throws Exception
     {
-        final GeographicMapCellPosition nextUnvisitedPathGeographicMapCellPosition = this.waypointBehaviorBase.getNextUnvisitedPathGeographicMapCellPosition();
+        final WaypointBehaviorBase waypointBehaviorBase = (WaypointBehaviorBase) this.waypointBehaviorBase;
+        final GeographicMapCellPosition nextUnvisitedPathGeographicMapCellPosition = waypointBehaviorBase.getNextUnvisitedPathGeographicMapCellPosition();
         final GPoint point = nextUnvisitedPathGeographicMapCellPosition.getMidPoint();
 
         final int dx = (this.getXP() + this.getHalfWidth()) - point.getX();
@@ -1059,7 +1061,8 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
     {
         // int angleOfTarget = NoDecimalTrigTable.antiTan(dx, dy);
 
-        final GeographicMapCellPosition nextUnvisitedPathGeographicMapCellPosition = this.waypointBehaviorBase.getNextUnvisitedPathGeographicMapCellPosition();
+        final WaypointBehaviorBase waypointBehaviorBase = (WaypointBehaviorBase) this.waypointBehaviorBase;
+        final GeographicMapCellPosition nextUnvisitedPathGeographicMapCellPosition = waypointBehaviorBase.getNextUnvisitedPathGeographicMapCellPosition();
         
         boolean evading = false;
         
@@ -1229,7 +1232,8 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
     }
 
     private void handleDeltalX(final int dx, final int dy) {
-        final GeographicMapCellPosition nextUnvisitedPathGeographicMapCellPosition = this.waypointBehaviorBase.getNextUnvisitedPathGeographicMapCellPosition();
+        final WaypointBehaviorBase waypointBehaviorBase = (WaypointBehaviorBase) this.waypointBehaviorBase;
+        final GeographicMapCellPosition nextUnvisitedPathGeographicMapCellPosition = waypointBehaviorBase.getNextUnvisitedPathGeographicMapCellPosition();
         if (dx > 0) {
             this.movementAngle = this.angleFactory.LEFT;
             this.steeringInsideGeographicMapCellPosition = nextUnvisitedPathGeographicMapCellPosition;
@@ -1244,7 +1248,8 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
     }
     
     private void handleDeltalY(final int dx, final int dy) {
-        final GeographicMapCellPosition nextUnvisitedPathGeographicMapCellPosition = this.waypointBehaviorBase.getNextUnvisitedPathGeographicMapCellPosition();
+        final WaypointBehaviorBase waypointBehaviorBase = (WaypointBehaviorBase) this.waypointBehaviorBase;
+        final GeographicMapCellPosition nextUnvisitedPathGeographicMapCellPosition = waypointBehaviorBase.getNextUnvisitedPathGeographicMapCellPosition();
         if (dy > 0) {
             this.movementAngle = this.angleFactory.UP;
             this.steeringInsideGeographicMapCellPosition = nextUnvisitedPathGeographicMapCellPosition;

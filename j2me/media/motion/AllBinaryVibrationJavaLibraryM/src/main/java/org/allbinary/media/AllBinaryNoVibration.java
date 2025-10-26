@@ -15,6 +15,8 @@ package org.allbinary.media;
 
 public class AllBinaryNoVibration extends AllBinaryVibrationME
 {
+    public static AllBinaryVibrationME NO_VIBRATION = new AllBinaryNoVibration();
+    
     @Override
     public void vibrate(int duration, int type, int volume)
     {

@@ -32,7 +32,8 @@ public class GeologicalResourceInfoHudPaintable
 
     private static final String RESOURCES = "Resources: ";
     
-    protected GeologicalResourceInfoHudPaintable()
+    //protected
+    public GeologicalResourceInfoHudPaintable()
     {
         keyvalueDrawString = new KeyValueDrawCharArray(RESOURCES, this.textX);
     }

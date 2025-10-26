@@ -82,7 +82,8 @@ extends UnitWaypointBehavior
     private static final String ALREADY_THERE = "Already There";
     private static final String NEXT_PATH_NODE = "Next Path Node";
 
-    protected UnitWaypointBehavior2(
+    //protected
+    public UnitWaypointBehavior2(
             UnitLayer ownerAdvancedRTSGameLayer,
             AdvancedRTSGameLayer fakeWaypoint)
     throws Exception

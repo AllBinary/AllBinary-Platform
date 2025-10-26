@@ -17,7 +17,7 @@ import org.allbinary.logic.util.event.AllBinaryEventObject;
 
 public class RTSLayerEvent extends AllBinaryEventObject
 {
-    private PathFindingLayerInterface rtsLayer;
+    private PathFindingLayerInterface rtsLayer = NullPathFindingLayer.NULL_PATH_FINDING_LAYER;
 
     public RTSLayerEvent(PathFindingLayerInterface rtsLayer)
     {

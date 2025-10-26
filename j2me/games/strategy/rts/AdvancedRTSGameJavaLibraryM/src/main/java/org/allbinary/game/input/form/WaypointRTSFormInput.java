@@ -28,13 +28,14 @@ import org.allbinary.game.layer.waypoint.WaypointLayer;
 import org.allbinary.game.layer.waypoint.event.WaypointEventHandlerFactory;
 import org.allbinary.graphics.form.item.CustomItem;
 import org.allbinary.util.BasicArrayList;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.game.identification.Group;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.layer.AllBinaryTiledLayer;
 import org.allbinary.game.layer.GeographicMapCellPositionAreaBase;
+import org.allbinary.game.layer.NullPathFindingLayer;
 import org.allbinary.game.layer.NullRTSLayer;
+import org.allbinary.game.layer.PathFindingLayerInterface;
 import org.allbinary.game.layer.hud.event.GameNotificationEvent;
 import org.allbinary.game.layer.hud.event.GameNotificationEventHandler;
 import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
@@ -69,6 +70,8 @@ public class WaypointRTSFormInput extends RTSFormInput
     protected final GameNotificationEvent noMoneyGameNotificationEvent;
     
     private boolean isPrimaryWaypointCreator;
+    
+    private PathFindingLayerInterface stickyAssociatedRtsLayer = NullPathFindingLayer.NULL_PATH_FINDING_LAYER;
     
     public WaypointRTSFormInput(
         final Group[] groupInterface,
@@ -237,7 +240,6 @@ public class WaypointRTSFormInput extends RTSFormInput
             layerManager,
             (RTSLayer) this.newUnconstructedRTSLayerInterfaceArray[itemIndex], itemIndex);
     }
-    private RTSLayer stickyAssociatedRtsLayer;
 
     public void processSticky(
         final RTSLayer associatedRtsLayer,
@@ -392,9 +394,8 @@ public class WaypointRTSFormInput extends RTSFormInput
             //if(this.stickyAssociatedRtsLayer.getType() != UnitLayer.getStaticType())
             layerManager.append(layerInterface);
 
-            rtsPlayerLayerInterface.add(
-                    ((AdvancedRTSGameLayer) waypointLayer
-                            ).getWaypointBehavior().getWaypoint().getSound());
+            final AdvancedRTSGameLayer waypointAvancedRTSGameLayer = (AdvancedRTSGameLayer) waypointLayer;
+            rtsPlayerLayerInterface.add(waypointAvancedRTSGameLayer.getWaypointBehavior().getWaypoint().getSound());
 
             if(!rtsPlayerLayerInterface.implmentsArtificialIntelligenceCompositeInterface())
             {
@@ -471,9 +472,9 @@ public class WaypointRTSFormInput extends RTSFormInput
     private void addWayPoint(final WaypointLayer layerInterface)
         throws Exception
     {
+        final AdvancedRTSGameLayer stickyAssociatedAdvandedRtsLayer = (AdvancedRTSGameLayer) stickyAssociatedRtsLayer;
         //Currently only one waypoint owned per layer
-        final BasicArrayList list =
-            ((AdvancedRTSGameLayer) stickyAssociatedRtsLayer).getWaypointBehavior().getOwnedWaypointList();
+        final BasicArrayList list = stickyAssociatedAdvandedRtsLayer.getWaypointBehavior().getOwnedWaypointList();
 
         RTSLayerUtil.getInstance().destroyAndClear(list);
 

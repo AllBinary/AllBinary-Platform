@@ -24,17 +24,18 @@ public class AdvancedRTSLayerFormFactory extends RTSLayerFormFactory
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private ScrollSelectionForm scrollSelectionForm;
+    private final ScrollSelectionForm scrollSelectionForm;
     
     protected AdvancedRTSLayerFormFactory(
-            String label,
-            ItemArraySingletonFactoryInterface itemArrayFactoryInterface)
+            final String label,
+            final ItemArraySingletonFactoryInterface itemArrayFactoryInterface)
     {
+        ScrollSelectionForm scrollSelectionForm = ScrollSelectionForm.NULL_SCROLL_SELECTION_FORM;
         try
         {
-            CustomItem[] items = itemArrayFactoryInterface.getItems();
+            final CustomItem[] items = itemArrayFactoryInterface.getItems();
 
-            this.scrollSelectionForm = 
+            scrollSelectionForm = 
                 RTSScrollSelectionFormFactory.getInstance(label, items);
         }
         catch (Exception e)
@@ -42,13 +43,14 @@ public class AdvancedRTSLayerFormFactory extends RTSLayerFormFactory
             final CommonStrings commonStrings = CommonStrings.getInstance();
             logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
         }
+        this.scrollSelectionForm = scrollSelectionForm;
     }
     
     /* (non-Javadoc)
      * @see org.allbinary.game.input.RTSLayerFormFactoryInterface#getInstance(org.allbinary.game.layer.RTSLayer)
      */
     @Override
-    public ScrollSelectionForm getInstance(RTSLayer rtsLayer)
+    public ScrollSelectionForm getInstance(final RTSLayer rtsLayer)
     {
         return this.scrollSelectionForm;
     }

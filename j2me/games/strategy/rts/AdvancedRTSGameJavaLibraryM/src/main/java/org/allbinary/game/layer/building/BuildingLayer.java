@@ -27,7 +27,6 @@ import org.allbinary.game.layer.RTSPlayerLayerInterface;
 import org.allbinary.game.layer.SelectionHudPaintable;
 import org.allbinary.game.layer.waypoint.Waypoint;
 import org.allbinary.util.BasicArrayList;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.ProceduralAnimationInterfaceFactoryInterface;
 import org.allbinary.animation.RotationAnimationInterfaceCompositeInterface;
@@ -43,6 +42,7 @@ import org.allbinary.game.health.HealthBar;
 import org.allbinary.game.health.HealthBarTwodAnimation;
 import org.allbinary.game.identification.Group;
 import org.allbinary.game.layer.GeographicMapCellPositionAreaBase;
+import org.allbinary.game.layer.NullPathFindingLayer;
 import org.allbinary.game.tracking.TrackingEvent;
 import org.allbinary.game.tracking.TrackingEventHandler;
 import org.allbinary.game.tracking.TrackingEventListenerInterface;
@@ -59,6 +59,7 @@ import org.allbinary.media.graphics.geography.map.drop.DropCellPositionHistory;
 import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.weapon.media.audio.ExplosionBasicSound;
 import org.allbinary.game.multiplayer.layer.RemoteInfo;
+import org.allbinary.logic.NullUtil;
 
 public class BuildingLayer
     extends AdvancedRTSGameLayer
@@ -96,7 +97,7 @@ public class BuildingLayer
         throws Exception
     {
         super(remoteInfo,
-                null,
+                NullPathFindingLayer.NULL_PATH_FINDING_LAYER,
             groupInterface, 
             rootName, name, 
             healthInterface,
@@ -113,27 +114,28 @@ public class BuildingLayer
         this.setCollidableInferface(new CollidableRTSBehavior(this, true));
         
         this.getWaypointBehavior().setWaypoint(new Waypoint(this, SelectSound.getInstance()));
-        
+
+        DamageFloaters damageFloaters = DamageFloaters.getInstance();
+        Paintable damageFloatersPaintableInterface = NullPaintable.getInstance();
         if (Features.getInstance().isFeature(GameFeatureFactory.getInstance().DAMAGE_FLOATERS))
         {
-            this.damageFloatersPaintableInterface = this.damageFloaters =
-                new PtsDamageFloaters(this);
+            damageFloaters = new PtsDamageFloaters(this);
+            damageFloatersPaintableInterface = damageFloaters;
         }
         else
         {
-            this.damageFloatersPaintableInterface = NullPaintable.getInstance();
-            this.damageFloaters = new DamageFloaters();
+            damageFloaters = new DamageFloaters();
         }
+        this.damageFloaters = damageFloaters;
+        this.damageFloatersPaintableInterface = damageFloatersPaintableInterface;
 
+        Paintable healthBar = NullPaintable.getInstance();
         if (Features.getInstance().isFeature(GameFeatureFactory.getInstance().HEALTH_BARS))
         {
-            this.healthBar = new HealthBar(this, this.getHealthInterface(),
+            healthBar = new HealthBar(this, this.getHealthInterface(),
                 new HealthBarTwodAnimation((AllBinaryLayer) this, BasicHudFactory.getInstance().BOTTOMLEFT), -1);
         }
-        else
-        {
-            this.healthBar = NullPaintable.getInstance();
-        }
+        this.healthBar = healthBar;
 
         this.pathsHashtable = new Hashtable();
 
@@ -159,15 +161,18 @@ public class BuildingLayer
         this.setCollidableInferface(new CollidableRTSBehavior(this, true));
         
         this.getWaypointBehavior().setWaypoint(new Waypoint(this, SelectSound.getInstance()));
+
+        this.efficiencyPerLevel = 0;
+        this.efficiency = 0;
         
-        this.trackingEvent = null;
-        this.damageFloaters = null;
+        this.trackingEvent = new TrackingEvent();
+        this.damageFloaters = DamageFloaters.getInstance();
 
-        this.damageFloatersPaintableInterface = null;
+        this.damageFloatersPaintableInterface = this.damageFloaters;
 
-        this.healthBar = null;
+        this.healthBar = NullPaintable.getInstance();
 
-        this.pathsHashtable = null;
+        this.pathsHashtable = NullUtil.getInstance().NULL_TABLE;
     }
 
     protected boolean local;
@@ -298,7 +303,7 @@ public class BuildingLayer
     @Override
     public int getCost()
     {
-        final long total = RTSLayerUtil.getInstance().getCostExponential(this.getLevel() * this.getBuildingLevelCost());
+        final long total = RTSLayerUtil.getInstance().getCostExponential((long) (this.getLevel() * this.getBuildingLevelCost()));
 
         return (int) total;
     }
@@ -306,7 +311,7 @@ public class BuildingLayer
     @Override
     public int getDowngradeCost()
     {
-        final long downgradeCost = RTSLayerUtil.getInstance().getCostExponential((this.getLevel() - 1) * getBuildingLevelCost());
+        final long downgradeCost = RTSLayerUtil.getInstance().getCostExponential((long) ((this.getLevel() - 1) * getBuildingLevelCost()));
 
         logUtil.put("Cost: " + downgradeCost, this, "getDowngradeCost");
 
@@ -316,8 +321,7 @@ public class BuildingLayer
     @Override
     public int getUpgradeCost()
     {
-        final long upgradeCost = RTSLayerUtil.getInstance().getCostExponential(
-                (this.getLevel() + 1) * getBuildingLevelCost());
+        final long upgradeCost = RTSLayerUtil.getInstance().getCostExponential((long) ((this.getLevel() + 1) * getBuildingLevelCost()));
 
         //logUtil.put("Cost: " + upgradeCost, this, "getUpgradeCost");
 

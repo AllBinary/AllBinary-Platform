@@ -13,6 +13,7 @@
  */
 package org.allbinary.game.input.form;
 
+import org.allbinary.game.layer.NullPathFindingLayer;
 import org.allbinary.game.layer.NullRTSLayer;
 import org.allbinary.game.layer.PathFindingLayerInterface;
 import org.allbinary.game.layer.waypoint.WaypointLayer;
@@ -33,7 +34,7 @@ public class PrimaryWaypointHelper {
         return instance;
     }
 
-    private PathFindingLayerInterface waypointLayer = NullRTSLayer.NULL_RTS_LAYER;
+    private PathFindingLayerInterface waypointLayer = NullPathFindingLayer.NULL_PATH_FINDING_LAYER;
 
     private PrimaryWaypointHelper()
     {

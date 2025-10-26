@@ -25,6 +25,7 @@ import org.allbinary.game.layer.AllBinaryTiledLayer;
 import org.allbinary.game.layer.TiledLayerUtil;
 import org.allbinary.game.layer.geographic.map.LayerPartialCellPositionsUtil;
 import org.allbinary.logic.NullUtil;
+import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.math.AngleInfo;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.GeographicMapCompositeInterface;
@@ -79,7 +80,7 @@ extends CollidableRTSBehavior
                         return NullUtil.getInstance().NULL_OBJECT;
                     }
 
-                    return Boolean.TRUE;
+                    return BooleanFactory.getInstance().TRUE;
                 }
 
                 return NullUtil.getInstance().NULL_OBJECT;
@@ -162,7 +163,7 @@ extends CollidableRTSBehavior
     {
         final UnitLayer ownerUnitLayer = (UnitLayer) this.ownerLayer;
 
-        final BasicArrayList partialPositionList = ownerUnitLayer.getPartialpositionlist();
+        final BasicArrayList partialPositionList = UnitLayer.getPartialpositionlist();
         
         final GeographicMapCompositeInterface geographicMapCompositeInterface
             = (GeographicMapCompositeInterface) ownerUnitLayer.allBinaryGameLayerManagerP;

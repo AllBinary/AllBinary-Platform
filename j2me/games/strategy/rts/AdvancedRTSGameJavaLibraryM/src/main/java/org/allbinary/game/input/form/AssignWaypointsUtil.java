@@ -14,6 +14,7 @@
 package org.allbinary.game.input.form;
 
 import org.allbinary.game.layer.AdvancedRTSGameLayer;
+import org.allbinary.game.layer.NullPathFindingLayer;
 import org.allbinary.game.layer.NullRTSLayer;
 import org.allbinary.game.layer.PathFindingLayerInterface;
 import org.allbinary.game.layer.RTSLayer;
@@ -35,7 +36,7 @@ public class AssignWaypointsUtil
         return instance;
     }
     
-    private final RTSLayerEvent WAYPOINT_EVENT = new RTSLayerEvent(NullRTSLayer.NULL_RTS_LAYER);
+    private final RTSLayerEvent WAYPOINT_EVENT = new RTSLayerEvent(NullPathFindingLayer.NULL_PATH_FINDING_LAYER);
     
     public void set(
             UnitLayer unitLayer, 
@@ -59,7 +60,7 @@ public class AssignWaypointsUtil
 
         final PathFindingLayerInterface waypointLayer = PrimaryWaypointHelper.getInstance().getWaypointLayer();
 
-        if (waypointLayer != NullRTSLayer.NULL_RTS_LAYER)
+        if (waypointLayer != NullPathFindingLayer.NULL_PATH_FINDING_LAYER)
         {
             WAYPOINT_EVENT.setRtsLayer(waypointLayer);
             unitWaypointBehavior.onWaypointEvent(WAYPOINT_EVENT);
