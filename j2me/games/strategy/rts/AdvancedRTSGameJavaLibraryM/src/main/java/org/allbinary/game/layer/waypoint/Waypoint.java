@@ -49,8 +49,8 @@ public class Waypoint extends WaypointBase
 
     protected final PathFindingLayerInterface ownerLayer;
     
-    private BasicArrayList endList;
-    private BasicArrayList[][] paths;
+    private BasicArrayList endList = BasicArrayListUtil.getInstance().getImmutableInstance();
+    private BasicArrayList[][] paths = BasicArrayListUtil.getInstance().NULL_ARRAY_OF_ARRAY;
     
     //, BasicArrayList endList
     public Waypoint(final PathFindingLayerInterface ownerLayer, final Sound sound)

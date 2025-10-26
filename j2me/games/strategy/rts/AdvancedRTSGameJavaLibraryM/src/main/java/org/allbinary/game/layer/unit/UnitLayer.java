@@ -101,6 +101,7 @@ import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.layer.Layer;
 import org.allbinary.layer.LayerInterfaceFactoryInterface;
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.math.BasicDecimal;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.math.AngleFactory;
@@ -178,13 +179,14 @@ public class UnitLayer extends AdvancedRTSGameLayer implements
     
     private static final BasicArrayList partialPositionList = new BasicArrayList(4);
 
-    private short resourceLoad = 0;
+    private int resourceLoad = 0;
     
     private int weaponRange;
     
     protected RTSLayerLogHelper rtsLogHelper = RTSLayerLogHelper.getInstance();
-    
-    protected RotationAnimation rotationAnimationInterface;
+
+    //Same as parent Animation    
+    protected RotationAnimation rotationAnimationInterfaceP;
 
     private NamedAngle movementAngle = this.angleFactory.NOT_ANGLE;
     private GeographicMapCellPosition steeringInsideGeographicMapCellPosition = SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
@@ -369,10 +371,10 @@ public class UnitLayer extends AdvancedRTSGameLayer implements
 
         this.initResourceAnimation.setFrame(direction);
         this.decalAnimation.setFrame(direction);
-        this.rotationAnimationInterface = (RotationAnimation)
+        this.rotationAnimationInterfaceP = (RotationAnimation)
                 this.indexedButShouldBeRotationAnimationInterface;
 
-        this.rotationAnimationInterface.setFrame(direction);
+        this.rotationAnimationInterfaceP.setFrame(direction);
 
         this.setMaxLevel(12);
 
@@ -851,7 +853,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
     {
         this.initResourceAnimation.previousRotation();
         this.decalAnimation.previousRotation();
-        this.rotationAnimationInterface.previousRotation();
+        this.rotationAnimationInterfaceP.previousRotation();
     }
 
     @Override
@@ -867,7 +869,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         
         this.initResourceAnimation.nextRotation();
         this.decalAnimation.nextRotation();
-        this.rotationAnimationInterface.nextRotation();
+        this.rotationAnimationInterfaceP.nextRotation();
     }
     
     @Override
@@ -920,7 +922,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
             Object object = list.get(index);
             int key = GameKeyEventUtil.getKey(object);
 
-            this.inputProcessorArray[key].process(layerManager, (GameKeyEvent) null);
+            this.inputProcessorArray[key].process(layerManager, GameKeyEvent.NONE);
         }
         list.clear();
 
@@ -931,19 +933,19 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
 
     public void accelerate(final BasicDecimal accelerate)
     {
-        this.getVehicleProperties().getVelocityProperties().addVelocity(
-                accelerate.getUnscaled(), this.rotationAnimationInterface.getAngleInfoP().getAngle(), (short) 90);
+        this.getVehicleProperties().getVelocityProperties().addVelocity(accelerate.getUnscaled(), (int) this.rotationAnimationInterfaceP.getAngleInfoP().getAngle(), 90);
     }
 
     protected void fireAll(final AllBinaryLayerManager layerManager) throws Exception
     {
-        final AngleInfo angleInfo = this.rotationAnimationInterface.getAngleInfoP();
-        final short angle = (short) (angleInfo.getAngle() + this.slightAngle);
+        final AngleInfo angleInfo = this.rotationAnimationInterfaceP.getAngleInfoP();
+        final int angle = (int) (angleInfo.getAngle() + this.slightAngle);
 
         hashtable.put(SmallIntegerSingletonFactory.getInstance().getInstance(1), 
-                SmallIntegerSingletonFactory.getInstance().getInstance(AngleFactory.getInstance().getInstance(angle).getValue()));
+                SmallIntegerSingletonFactory.getInstance().getInstance((int) AngleFactory.getInstance().getInstance(angle).getValue()));
 
-        ((SalvoInterface) this.getPartInterfaceArray()[0]).process(layerManager, angle, (short) 90);
+        final SalvoInterface salvoInterface = (SalvoInterface) this.getPartInterfaceArray()[0];
+        salvoInterface.process(layerManager, (short) angle, (short) 90);
 
         /*
          * PartInterface[] partInterfaceArray = this.getPartInterfaceArray();
@@ -1079,7 +1081,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         //final int angleOfTarget2 = angleOfTarget;
         //final int angleOfTarget2 = angleOfTarget / 10 * 10;
         //final int angleOfTarget2 = AngleFactory.getInstance().getClosestDirection(angleOfTarget).getValue();
-        final AngleInfo angleInfo = this.rotationAnimationInterface.getAngleInfoP();
+        final AngleInfo angleInfo = this.rotationAnimationInterfaceP.getAngleInfoP();
         final int angle = FrameUtil.getInstance().adjustAngleToFrameAngle(angleInfo.getAngle() - 270);
         //final int angle = angleInfo.getAngle();
 
@@ -1099,7 +1101,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
             this.rtsLogHelper.doneMoving(this);
             
             return true;
-        } else if(this.movementAngle.getValue() == angle) {
+        } else if(((int) this.movementAngle.getValue()) == angle) {
 
             if(dx > 0 && this.movementAngle == this.angleFactory.LEFT) {
                 this.rtsLogHelper.movingLeft(this);
@@ -1277,7 +1279,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
             {
                 final SteeringVisitor steeringVisitor = (SteeringVisitor) list.get(index);
                 
-                final Object object = steeringVisitor.visit(null);
+                final Object object = steeringVisitor.visit(NullUtil.getInstance().NULL_OBJECT);
                 
                 if(object == null)
                 {
@@ -1348,18 +1350,16 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
     public void move()
     {
         try {
-            final VelocityProperties velocityProperties
-                    = this.getVehicleProperties().getVelocityProperties();
+            final VelocityProperties velocityProperties = 
+                this.getVehicleProperties().getVelocityProperties();
 
-            final long velocityXScaled
-                    = velocityProperties.getVelocityXBasicDecimalP().getScaled();
+            final long velocityXScaled = (long) velocityProperties.getVelocityXBasicDecimalP().getScaled();
 
-            final long velocityYScaled
-                    = velocityProperties.getVelocityYBasicDecimalP().getScaled();
+            final long velocityYScaled = (long) velocityProperties.getVelocityYBasicDecimalP().getScaled();
 
             this.getUnitWaypointBehavior().move();
 
-            if (velocityXScaled != 0 || velocityYScaled != 0) {
+            if (velocityXScaled != 0L || velocityYScaled != 0L) {
                 this.getUnitWaypointBehavior().setMoving(true);
 
                 final GeographicMapCompositeInterface geographicMapCompositeInterface
@@ -1553,7 +1553,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
      *            the resource to set
      */
     @Override
-    public void setLoad(short resource)
+    public void setLoad(int resource)
     throws Exception
     {
         if(resource > 0)
@@ -1586,7 +1586,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
             CAPITAL_EVENT.setValue(this.getLoad());
             CapitalEventHandlerFactory.getInstance(
                 ownerLayer.getGroupInterface()[0]).fireEvent(CAPITAL_EVENT);
-            this.setLoad((short) 0);
+            this.setLoad(0);
         }
     }
     

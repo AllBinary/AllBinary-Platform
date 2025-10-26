@@ -15,6 +15,7 @@
 package org.allbinary.game.layer.geological.resources;
 
 import javax.microedition.lcdui.Graphics;
+import org.allbinary.game.layer.RTSLayer;
 
 import org.allbinary.game.layer.waypoint.WaypointInfoHudPaintable;
 import org.allbinary.util.BasicArrayList;
@@ -43,7 +44,9 @@ public class GeologicalResourceInfoHudPaintable
     {
         super.updateSelectionInfo();
         
-        BasicArrayList list = this.getRtsLayer().geographicMapCellPositionAreaBase
+        final RTSLayer rtsLayer = (RTSLayer) this.rtsLayerP;
+        
+        final BasicArrayList list = rtsLayer.geographicMapCellPositionAreaBase
                 .getOccupyingGeographicMapCellPositionList();
 
         int total = 0;

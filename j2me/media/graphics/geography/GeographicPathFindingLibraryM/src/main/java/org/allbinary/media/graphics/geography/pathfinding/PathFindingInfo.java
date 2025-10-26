@@ -14,14 +14,32 @@
 package org.allbinary.media.graphics.geography.pathfinding;
 
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListUtil;
 
 public class PathFindingInfo implements PathFindingInfoInterface
 {
+    public static final PathFindingInfo NULL_PATH_FINDING_INFO = new PathFindingInfo(
+        PathFindingNodeCostInfoFactoryBase.NULL_PATH_FINDING_NODE_COST_INFO_FACTORY_BASE, 
+        BasicArrayListUtil.getInstance().getImmutableInstance(),
+        BasicArrayListUtil.getInstance().getImmutableInstance()
+        );
+    
     private GeographicPathFinderBase pathFinder = GeographicPathFinderBase.NULL_GEOGRAPHIC_PATH_FINDER_BASE;
     private final BasicArrayList startPathFindingNodeList;
     private final BasicArrayList endPathFindingNodeList;
     
     private final PathFindingNodeCostInfoFactoryBase pathFindingNodeCostInfoFactoryInterface;
+
+    public PathFindingInfo(
+            final PathFindingNodeCostInfoFactoryBase pathFindingNodeCostInfoFactoryInterface,
+        final BasicArrayList startPathFindingNodeList, final BasicArrayList endPathFindingNodeList)
+    {
+       this.pathFindingNodeCostInfoFactoryInterface =
+           pathFindingNodeCostInfoFactoryInterface;
+
+       this.startPathFindingNodeList = startPathFindingNodeList;
+       this.endPathFindingNodeList = endPathFindingNodeList;
+    }
     
     public PathFindingInfo(
             final PathFindingNodeCostInfoFactoryBase pathFindingNodeCostInfoFactoryInterface)

@@ -36,7 +36,8 @@ public class CustomMapGenerator extends CustomMapGeneratorBase
         
         final int[][] mapArray = raceTrackGeographicMap.getRaceTrackData().getMapArray();
 
-        this.customMapArray = new int[mapArray.length][mapArray[0].length];
+        final int size2 = mapArray[0].length;
+        this.customMapArray = new int[mapArray.length][size2];
 
         if (mapArray.length != this.customMapArray.length
                 || mapArray[0].length != this.customMapArray[0].length)

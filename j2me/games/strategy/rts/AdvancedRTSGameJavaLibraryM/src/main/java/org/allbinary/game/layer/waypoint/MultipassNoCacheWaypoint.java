@@ -87,7 +87,7 @@ public class MultipassNoCacheWaypoint extends WaypointBase
 
         if(endGeographicMapCellPosition == null) {
             //return new BasicArrayList();
-            return null;
+            return PathFindingInfo.NULL_PATH_FINDING_INFO;
         }
         
         //Most likely not a building
@@ -97,7 +97,7 @@ public class MultipassNoCacheWaypoint extends WaypointBase
             //if (this.endList.size() < 2)
             {
                 //return new BasicArrayList();
-                return null;
+                return PathFindingInfo.NULL_PATH_FINDING_INFO;
             }
             else
             {

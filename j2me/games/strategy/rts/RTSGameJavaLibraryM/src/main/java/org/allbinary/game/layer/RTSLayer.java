@@ -731,7 +731,7 @@ public class RTSLayer
     }
     
     @Override
-    public void setLoad(short resource) throws Exception {
+    public void setLoad(int resource) throws Exception {
         
     }
 

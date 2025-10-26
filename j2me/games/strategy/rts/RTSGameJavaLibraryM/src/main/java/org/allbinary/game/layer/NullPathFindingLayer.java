@@ -99,7 +99,7 @@ public class NullPathFindingLayer implements PathFindingLayerInterface {
     }
     
     @Override
-    public void setLoad(short resource) throws Exception {
+    public void setLoad(int resource) throws Exception {
         throw new RuntimeException();
     }
     

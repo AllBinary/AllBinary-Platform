@@ -34,13 +34,14 @@ import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellHistory;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
+import org.allbinary.media.graphics.geography.map.SimpleGeographicMapCellPositionFactory;
 import org.allbinary.time.TimeDelayHelper;
 
 public class UnitWaypointBehavior 
     extends WaypointBehaviorBase
     implements WaypointEventListenerInterface
 {
-    //protected final LogUtil logUtil = LogUtil.getInstance();
+    private static final String PATHING = "Pathing";
     
     protected CommonSeps commonSeps = CommonSeps.getInstance();
     
@@ -50,29 +51,27 @@ public class UnitWaypointBehavior
 
     private final TimeDelayHelper completeTimeDelayHelper;
     
-    protected GeographicMapCellHistory currentGeographicMapCellHistory;
+    protected final GeographicMapCellHistory currentGeographicMapCellHistoryP;
     
-    private GeographicMapCellPosition lastPathGeographicMapCellPosition;
-    private GeographicMapCellPosition currentPathGeographicMapCellPosition;
+    private GeographicMapCellPosition lastPathGeographicMapCellPosition = SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
+    private GeographicMapCellPosition currentPathGeographicMapCellPosition = SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
 
     private final CollidableDestroyableDamageableLayer FAKE_WAYPOINT_LAYER;
     
     protected final BasicArrayList targetList;
 
-    private boolean moving = false;
-    private boolean movingFromStopped = false;
-    protected BasicArrayList waypointPathsList;
-    
     private final BasicArrayList possibleTargetList;
-    
-    private int currentTargetDistance = Integer.MAX_VALUE;
-    protected CollidableDestroyableDamageableLayer currentTargetLayerInterface;
-    
-    private boolean trackingWaypoint;
     
     protected final UnitLayer associatedAdvancedRTSGameLayer;
     
-    private static final String PATHING = "Pathing";
+    private boolean moving = false;
+    private boolean movingFromStopped = false;
+    protected BasicArrayList waypointPathsListP = BasicArrayListUtil.getInstance().getImmutableInstance();
+    
+    private int currentTargetDistance = Integer.MAX_VALUE;
+    protected CollidableDestroyableDamageableLayer currentTargetLayerInterfaceP = CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER;
+    
+    private boolean trackingWaypoint;
     
     protected UnitWaypointBehavior(
             UnitLayer associatedAdvancedRTSGameLayer,
@@ -89,7 +88,7 @@ public class UnitWaypointBehavior
 
         this.setWaypointPathsList(BasicArrayListUtil.getInstance().getImmutableInstance());
 
-        this.setCurrentGeographicMapCellHistory(new GeographicMapCellHistory());
+        this.currentGeographicMapCellHistoryP = new GeographicMapCellHistory();
 
         this.FAKE_WAYPOINT_LAYER = fakeWaypoint;
     }
@@ -212,7 +211,7 @@ public class UnitWaypointBehavior
             final BasicArrayList geographicMapCellPositionBasicArrayList)
             throws Exception
     {
-        this.lastPathGeographicMapCellPosition = null;
+        this.lastPathGeographicMapCellPosition = SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
         
         if(this.associatedAdvancedRTSGameLayer.showMoreCaptionStates)
         {
@@ -220,9 +219,9 @@ public class UnitWaypointBehavior
                     PATHING, BasicColorFactory.getInstance().GREEN);
         }
         
-        this.currentGeographicMapCellHistory.init();
+        this.currentGeographicMapCellHistoryP.init();
 
-        this.associatedAdvancedRTSGameLayer.init(this.currentGeographicMapCellHistory,
+        this.associatedAdvancedRTSGameLayer.init(this.currentGeographicMapCellHistoryP,
                 geographicMapCellPositionBasicArrayList);
 
         this.setTrackingWaypoint(true);
@@ -293,9 +292,9 @@ public class UnitWaypointBehavior
         
         if(this.isTrackingWaypoint() ||
                 this.sensorAction == SensorActionFactory.getInstance().EVADE ||
-                (this.currentTargetLayerInterface != null &&
+                (this.currentTargetLayerInterfaceP != null &&
                 this.getCurrentTargetDistance() >= this.longWeaponRange +
-                this.currentTargetLayerInterface.getHalfHeight()))
+                this.currentTargetLayerInterfaceP.getHalfHeight()))
         {
             repeatedToLong.setStartTime();
             return true;
@@ -320,13 +319,13 @@ public class UnitWaypointBehavior
         stringBuffer.append(" sensorAction: ");
         stringBuffer.append(this.sensorAction.name);
         stringBuffer.append(" getCurrentTargetLayerInterface: ");
-        stringBuffer.append(StringUtil.getInstance().toString(this.currentTargetLayerInterface));
+        stringBuffer.append(StringUtil.getInstance().toString(this.currentTargetLayerInterfaceP));
 
-        if (this.currentTargetLayerInterface != null) {
+        if (this.currentTargetLayerInterfaceP != null) {
             stringBuffer.append(" Target Range: ");
             stringBuffer.append(this.getCurrentTargetDistance());
             stringBuffer.append(" >= ");
-            stringBuffer.append(this.longWeaponRange + this.currentTargetLayerInterface.getHalfHeight());
+            stringBuffer.append(this.longWeaponRange + this.currentTargetLayerInterfaceP.getHalfHeight());
         }
         return stringBuffer.toString();
 
@@ -348,13 +347,13 @@ public class UnitWaypointBehavior
     @Override
     public void setWaypointPathsList(BasicArrayList waypointPathsList)
     {
-        this.waypointPathsList = waypointPathsList;
+        this.waypointPathsListP = waypointPathsList;
     }
 
     @Override
     public BasicArrayList getWaypointPathsList()
     {
-        return waypointPathsList;
+        return waypointPathsListP;
     }
 
     /**
@@ -423,20 +422,20 @@ public class UnitWaypointBehavior
     /**
      * @return the waypointList
      */
-    protected BasicArrayList getTargetList()
-    {
-        return targetList;
-    }
+//    protected BasicArrayList getTargetList()
+//    {
+//        return targetList;
+//    }
 
     protected void setCurrentTargetLayerInterface(CollidableDestroyableDamageableLayer currentTargetLayerInterface)
     {
-        this.currentTargetLayerInterface = currentTargetLayerInterface;
+        this.currentTargetLayerInterfaceP = currentTargetLayerInterface;
     }
 
     @Override
     public CollidableDestroyableDamageableLayer getCurrentTargetLayerInterface()
     {
-        return currentTargetLayerInterface;
+        return currentTargetLayerInterfaceP;
     }
 
     protected void setCurrentTargetDistance(int currentTargetDistance)
@@ -454,16 +453,10 @@ public class UnitWaypointBehavior
         return completeTimeDelayHelper;
     }
 
-    protected void setCurrentGeographicMapCellHistory(
-            GeographicMapCellHistory currentGeographicMapCellHistory)
-    {
-        this.currentGeographicMapCellHistory = currentGeographicMapCellHistory;
-    }
-
     @Override
     public GeographicMapCellHistory getCurrentGeographicMapCellHistory()
     {
-        return currentGeographicMapCellHistory;
+        return currentGeographicMapCellHistoryP;
     }
 
     protected void setTrackingWaypoint(boolean trackingWaypoint)

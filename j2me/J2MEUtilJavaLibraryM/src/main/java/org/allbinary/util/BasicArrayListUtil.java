@@ -31,6 +31,8 @@ public class BasicArrayListUtil
         return instance;
     }
 
+    public final BasicArrayList[][] NULL_ARRAY_OF_ARRAY = new BasicArrayList[0][0];
+
     private final MyRandomFactory myRandomFactory = MyRandomFactory.getInstance();
 
     // I should make immutable and throw on attempted edit

@@ -74,8 +74,9 @@ public class WorkWaypoint extends Waypoint
                   //logUtil.put(unitLayer.getName() + " loaded resource from " + geologicalGeographicMapCellPosition.toString(), this, "visit");
                     
                     outOfResources = false;
-                    geologicalResource.remove(unitLayer.getMaxResourceLoad());
-                    unitLayer.setLoad(unitLayer.getMaxResourceLoad());
+                    final int maxResourceLoad = (int) unitLayer.getMaxResourceLoad();
+                    geologicalResource.remove(maxResourceLoad);
+                    unitLayer.setLoad(maxResourceLoad);
                 }
             }
 

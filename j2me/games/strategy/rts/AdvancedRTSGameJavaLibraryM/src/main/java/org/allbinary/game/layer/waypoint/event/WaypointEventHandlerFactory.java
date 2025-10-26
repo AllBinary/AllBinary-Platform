@@ -36,9 +36,9 @@ public class WaypointEventHandlerFactory {
      new WaypointEventHandler()
     };
 
-    public static WaypointEventHandler getInstance(Group groupInterface)
+    public static WaypointEventHandler getInstance(final Group groupInterface)
     {
-        return eventHandlerArray[groupInterface.getGroupId()];
+        return eventHandlerArray[(int) groupInterface.getGroupId()];
     }
 
     public static void removeAll()

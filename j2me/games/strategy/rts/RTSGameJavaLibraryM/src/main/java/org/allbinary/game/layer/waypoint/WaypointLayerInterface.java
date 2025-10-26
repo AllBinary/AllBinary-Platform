@@ -36,7 +36,7 @@ public interface WaypointLayerInterface {
     
     void teleportTo(final GeographicMapCellPosition geographicMapCellPosition);
     
-    void setLoad(short resource) throws Exception;
+    void setLoad(int resource) throws Exception;
     
     BasicArrayList getSurroundingGeographicMapCellPositionList() throws Exception;
     

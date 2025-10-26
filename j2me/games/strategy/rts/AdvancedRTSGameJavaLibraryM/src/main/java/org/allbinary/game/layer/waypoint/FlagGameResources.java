@@ -15,16 +15,17 @@ package org.allbinary.game.layer.waypoint;
 
 import org.allbinary.game.layer.resources.BasicGameResources;
 import org.allbinary.game.layer.resources.GameGraphicsResourceUtil;
+import org.allbinary.logic.string.StringUtil;
 
 public class FlagGameResources extends BasicGameResources
 {
-    public String NAME;
+    public String NAME = StringUtil.getInstance().EMPTY_STRING;
     //public String RESOURCE_EMPTY;
     //public String RESOURCE_BASE;
 
-    public String RESOURCE_ICON_ANIMATION;
-    public String RESOURCE_ICON_BUILD;
-    public String RESOURCE_ICON;
+    public String RESOURCE_ICON_ANIMATION = StringUtil.getInstance().EMPTY_STRING;
+    public String RESOURCE_ICON_BUILD = StringUtil.getInstance().EMPTY_STRING;
+    public String RESOURCE_ICON = StringUtil.getInstance().EMPTY_STRING;
 
     protected FlagGameResources()
     {
