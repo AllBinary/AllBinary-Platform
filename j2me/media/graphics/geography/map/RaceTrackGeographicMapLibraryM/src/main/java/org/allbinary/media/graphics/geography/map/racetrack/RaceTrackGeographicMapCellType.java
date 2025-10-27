@@ -131,6 +131,13 @@ public class RaceTrackGeographicMapCellType extends GeographicMapCellType
       this.name = name;
       this.travelCost = travelCost;
    }
+
+   public RaceTrackGeographicMapCellType(final String name, final int type, final int travelCost, final int reset)
+   {
+      super(type, reset);
+      this.name = name;
+      this.travelCost = travelCost;
+   }
    
 
    //public void init()
