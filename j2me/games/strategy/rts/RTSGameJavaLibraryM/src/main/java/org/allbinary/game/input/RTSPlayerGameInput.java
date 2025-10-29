@@ -37,7 +37,6 @@ import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
 import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
-import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.media.audio.SecondaryPlayerQueueFactory;

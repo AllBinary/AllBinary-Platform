@@ -70,13 +70,13 @@ features include the following:
 - Tile Map Creation, Editing, and Loading
 - Touch Screen Buttons & Gestures
 - Save/Load/Delete Game State
-- Special Collision Detection
+- Custom Collision Detection
 - Vector Graphics Support
 - Custom Input Mapping
 - Key Input Processing
 - Orientation Controls
 - Transitions/Progress
-- Special Animations
+- Custom Animations
 - Heads Up Displays
 - Power-Ups/Drops
 - Screen Shakes
@@ -174,7 +174,7 @@ Multiple Product Type Support
  Options 
  Shippable 
  Downloadable 
- Special Pricing 
+ Custom Pricing 
 
 Shipping Manager 
  Order Shipment Status 

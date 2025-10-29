@@ -26,7 +26,6 @@ import org.allbinary.media.audio.UpgradeSound;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListUtil;
 import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.InputFeatureFactory;
@@ -360,7 +359,7 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
     {
         if(this.isAnyRTSLayerSelected())
         {
-            return (RTSLayer) this.selectedRTSLayersList.get(this.selectedRTSLayersList.size() - 1);
+            return (CollidableDestroyableDamageableLayer) this.selectedRTSLayersList.get(this.selectedRTSLayersList.size() - 1);
         }
         else
         {

@@ -121,6 +121,11 @@ implements ItemArraySingletonFactoryInterface
         return ITEMS;
     }
 
+    public BasicGameResources[] getResources()
+    {
+        return resources;
+    }
+
     public int indexOf(final BasicGameResources basicGameResources)
     {
         for(int index = this.resources.length - 1; index >= 0; index--)

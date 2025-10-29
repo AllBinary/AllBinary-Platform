@@ -24,6 +24,8 @@ public class GameTypeFactory
         return instance;
     }
 
+    public GameType[] NULL_GAME_TYPE_ARRAY = new GameType[0];
+
     public GameType NONE = new GameType(StringUtil.getInstance().NULL_STRING);
     public GameType SINGLE_PLAYER = new GameType("Single Player");
     public GameType MULTI_PLAYER = new GameType("Multi Player");
