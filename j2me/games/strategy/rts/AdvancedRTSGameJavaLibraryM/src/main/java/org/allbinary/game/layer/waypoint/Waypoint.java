@@ -46,11 +46,13 @@ public class Waypoint extends WaypointBase
     implements BuildingEventListenerInterface
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
+    
+    protected final BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();
 
     protected final PathFindingLayerInterface ownerLayer;
     
-    private BasicArrayList endList = BasicArrayListUtil.getInstance().getImmutableInstance();
-    private BasicArrayList[][] paths = BasicArrayListUtil.getInstance().NULL_ARRAY_OF_ARRAY;
+    private BasicArrayList endList = basicArrayListUtil.getImmutableInstance();
+    private BasicArrayList[][] paths = basicArrayListUtil.NULL_ARRAY_OF_ARRAY;
     
     //, BasicArrayList endList
     public Waypoint(final PathFindingLayerInterface ownerLayer, final Sound sound)
@@ -73,7 +75,7 @@ public class Waypoint extends WaypointBase
         
         final AllBinaryTiledLayer tiledLayer = geographicMapInterface.getAllBinaryTiledLayer();
 
-        if(paths != null) {
+        if(paths != basicArrayListUtil.NULL_ARRAY_OF_ARRAY) {
             throw new RuntimeException();
         }
 
@@ -90,7 +92,7 @@ public class Waypoint extends WaypointBase
             for(int rowIndex = paths.length; --rowIndex >= 0;)
             {
                 final BasicArrayList pathsList = this.paths[columnIndex][rowIndex];
-                if(pathsList != null)
+                if(pathsList != basicArrayListUtil.getImmutableInstance())
                 {
                     BasicGeographicMapExtractedPathsCacheFactory.getInstance().release(pathsList);
                 }
@@ -111,7 +113,7 @@ public class Waypoint extends WaypointBase
     {
         BasicArrayList pathsList = this.paths[geographicMapCellPosition.getColumn()][geographicMapCellPosition.getRow()];
 
-        if (pathsList == null)
+        if (pathsList == basicArrayListUtil.getImmutableInstance())
         {
             pathsList = this.createPaths(geographicMapCellPosition);
           
@@ -147,7 +149,7 @@ public class Waypoint extends WaypointBase
         final GeographicMapCellPosition startGeographicMapCellPosition)
     {
         GeographicMapCellPosition endGeographicMapCellPosition =
-            (GeographicMapCellPosition) BasicArrayListUtil.getInstance().getRandom(this.endList);
+            (GeographicMapCellPosition) basicArrayListUtil.getRandom(this.endList);
 
         if (startGeographicMapCellPosition == endGeographicMapCellPosition)
         {
@@ -170,7 +172,7 @@ public class Waypoint extends WaypointBase
     {
         if(this.endList.size() == 0) {
             //return new BasicArrayList();
-            return BasicArrayListUtil.getInstance().getImmutableInstance();
+            return basicArrayListUtil.getImmutableInstance();
         }
 
         final GeographicMapCellPosition endGeographicMapCellPosition =
@@ -178,7 +180,7 @@ public class Waypoint extends WaypointBase
 
         if(endGeographicMapCellPosition == null) {
             //return new BasicArrayList();
-            return BasicArrayListUtil.getInstance().getImmutableInstance();
+            return basicArrayListUtil.getImmutableInstance();
         }
         
         //Most likely not a building
@@ -188,7 +190,7 @@ public class Waypoint extends WaypointBase
             //if (this.endList.size() < 2)
             {
                 //return new BasicArrayList();
-                return BasicArrayListUtil.getInstance().getImmutableInstance();
+                return basicArrayListUtil.getImmutableInstance();
             }
             else
             {
@@ -278,7 +280,7 @@ public class Waypoint extends WaypointBase
         {
             for(int rowIndex = paths.length; --rowIndex >= 0;)
             {
-                this.paths[columnIndex][rowIndex] = null;
+                this.paths[columnIndex][rowIndex] = basicArrayListUtil.getImmutableInstance();
             }
         }
     }
