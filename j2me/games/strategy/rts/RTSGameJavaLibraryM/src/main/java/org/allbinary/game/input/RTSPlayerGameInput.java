@@ -44,6 +44,7 @@ import org.allbinary.media.audio.SelectSound;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 import org.allbinary.media.graphics.geography.map.GeographicMapCompositeInterface;
+import org.allbinary.media.graphics.geography.map.SimpleGeographicMapCellPositionFactory;
 import org.allbinary.string.CommonLabels;
 
 /**
@@ -52,7 +53,7 @@ import org.allbinary.string.CommonLabels;
  */
 public class RTSPlayerGameInput extends PlayerGameInput
 {
-
+        
     protected final GameInputProcessor[] inputProcessorArray = 
         new GameInputProcessor[InputFactory.getInstance().MAX];
     protected final GameInputProcessor[] removeInputProcessorArray = 
@@ -69,9 +70,9 @@ public class RTSPlayerGameInput extends PlayerGameInput
     private final SelectedRTSLayersPlayerGameInput selectedRTSLayerPlayerGameInput;
     private final RTSLayerInfoPaintable towerInfoPaintable;
     private final RTSPlayerLayerInterface rtsPlayerLayerInterface;
-    private RTSFormInput selectedRtsFormInput = NullRTSFormInputFactory.getInstance();
-
     private final LayerPositionFinderInterface layerPositionFinderInterface;
+
+    private RTSFormInput selectedRtsFormInput = NullRTSFormInputFactory.getInstance();
 
     //private LayerInterfaceFactoryInterface lastLayerInterfaceFactoryInterface;
     public RTSPlayerGameInput(final AllBinaryGameCanvas gameCanvas,
@@ -252,7 +253,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
         GeographicMapCellPosition geographicMapCellPosition =
             geographicMapInterface.getCellPositionAtNoThrow(x, y);
         
-        if (geographicMapCellPosition != null)
+        if (geographicMapCellPosition != SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION)
         {
             SecondaryPlayerQueueFactory.getInstance().add(
                 SelectSound.getInstance());
@@ -322,7 +323,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
                         rtsLayer.getYP() - allBinaryTiledLayer.getYP(), 
                         width, height);
             }
-        } else if (geographicMapCellPosition != null)
+        } else if (geographicMapCellPosition != SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION)
         {
             GPoint point = geographicMapCellPosition.getPoint();
 

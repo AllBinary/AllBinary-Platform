@@ -292,7 +292,7 @@ public class UnitWaypointBehavior
         
         if(this.isTrackingWaypoint() ||
                 this.sensorAction == SensorActionFactory.getInstance().EVADE ||
-                (this.currentTargetLayerInterfaceP != null &&
+                (this.currentTargetLayerInterfaceP != CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER &&
                 this.getCurrentTargetDistance() >= this.longWeaponRange +
                 this.currentTargetLayerInterfaceP.getHalfHeight()))
         {
@@ -321,7 +321,7 @@ public class UnitWaypointBehavior
         stringBuffer.append(" getCurrentTargetLayerInterface: ");
         stringBuffer.append(StringUtil.getInstance().toString(this.currentTargetLayerInterfaceP));
 
-        if (this.currentTargetLayerInterfaceP != null) {
+        if (this.currentTargetLayerInterfaceP != CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER) {
             stringBuffer.append(" Target Range: ");
             stringBuffer.append(this.getCurrentTargetDistance());
             stringBuffer.append(" >= ");

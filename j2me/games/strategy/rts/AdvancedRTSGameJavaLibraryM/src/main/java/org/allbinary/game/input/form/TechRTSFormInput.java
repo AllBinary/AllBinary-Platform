@@ -28,6 +28,7 @@ import org.allbinary.game.identification.Group;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.layer.hud.event.GameNotificationEvent;
 import org.allbinary.game.layer.hud.event.GameNotificationEventHandler;
+import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
@@ -79,8 +80,9 @@ public class TechRTSFormInput extends RTSFormInput
 
     }
      
+    @Override
     public void process(
-        final RTSLayer associatedRtsLayer,
+        final CollidableDestroyableDamageableLayer associatedRtsLayer,
         final RTSPlayerLayerInterface rtsPlayerLayerInterface,
         final AllBinaryLayerManager layerManager, 
         final CustomItem item, final int itemIndex)

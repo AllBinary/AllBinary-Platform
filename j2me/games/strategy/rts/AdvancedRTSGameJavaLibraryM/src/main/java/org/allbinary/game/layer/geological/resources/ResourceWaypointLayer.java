@@ -13,12 +13,12 @@
  */
 package org.allbinary.game.layer.geological.resources;
 
-import org.allbinary.game.layer.AdvancedRTSGameLayer;
 import org.allbinary.game.layer.SelectionHudPaintable;
 import org.allbinary.game.layer.waypoint.WaypointLayer;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.ProceduralAnimationInterfaceFactoryInterface;
 import org.allbinary.game.identification.Group;
+import org.allbinary.game.layer.PathFindingLayerInterface;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.game.multiplayer.layer.RemoteInfo;
 
@@ -27,7 +27,7 @@ public class ResourceWaypointLayer
 {
     public ResourceWaypointLayer(
             final RemoteInfo remoteInfo,
-            final AdvancedRTSGameLayer parentLayer,
+            final PathFindingLayerInterface parentLayer,
             final Group[] groupInterface,
             final String rootName,
             final String name,

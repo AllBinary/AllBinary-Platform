@@ -20,6 +20,7 @@ import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.identification.Group;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
+import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.form.ScrollSelectionForm;
 import org.allbinary.layer.AllBinaryLayerManager;
@@ -72,8 +73,8 @@ public class CompositeRTSFormInput extends RTSFormInput
 
         super.setAllBinaryGameLayerManager(allBinaryGameLayerManager);
 
-        final GeographicMapCompositeInterface geographicMapCompositeInterface
-            = (GeographicMapCompositeInterface) allBinaryGameLayerManager;
+        final GeographicMapCompositeInterface geographicMapCompositeInterface = 
+            (GeographicMapCompositeInterface) allBinaryGameLayerManager;
         final BasicGeographicMap geographicMapInterface = geographicMapCompositeInterface.getGeographicMapInterface()[0];
         
         final int size = this.rtsFormInputArray.length;
@@ -83,8 +84,9 @@ public class CompositeRTSFormInput extends RTSFormInput
         
     }
     
+    @Override
     public void process(
-        RTSLayer associatedRtsLayer,
+        final CollidableDestroyableDamageableLayer associatedRtsLayer,
         RTSPlayerLayerInterface rtsPlayerLayerInterface,
         AllBinaryLayerManager layerManager, GPoint point)
         throws Exception
@@ -116,8 +118,9 @@ public class CompositeRTSFormInput extends RTSFormInput
         }
     }
 
+    @Override
     public void process(
-        RTSLayer associatedRtsLayer,
+        final CollidableDestroyableDamageableLayer associatedRtsLayer,
         RTSPlayerLayerInterface rtsPlayerLayerInterface,
         AllBinaryLayerManager layerManager, CustomItem item, int index)
         throws Exception
@@ -150,8 +153,9 @@ public class CompositeRTSFormInput extends RTSFormInput
 
     }
 
+    @Override
     public boolean processSticky(
-        RTSLayer associatedRtsLayer,
+        final CollidableDestroyableDamageableLayer associatedRtsLayer,
         RTSPlayerLayerInterface rtsPlayerLayerInterface,
         AllBinaryLayerManager layerManager, GPoint point)
         throws Exception
@@ -162,8 +166,9 @@ public class CompositeRTSFormInput extends RTSFormInput
             layerManager, point);
     }
 
+    @Override
     public void processSticky(
-        RTSLayer associatedRtsLayer,
+        final CollidableDestroyableDamageableLayer associatedRtsLayer,
         RTSPlayerLayerInterface rtsPlayerLayerInterface,
         AllBinaryLayerManager layerManager, CustomItem item, int index)
         throws Exception

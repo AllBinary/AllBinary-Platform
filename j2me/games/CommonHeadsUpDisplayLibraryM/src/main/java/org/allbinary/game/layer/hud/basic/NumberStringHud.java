@@ -29,7 +29,7 @@ public class NumberStringHud extends BasicHud
    implements PaintableInterface
 {   
     public static final NumberStringHud NULL_NUMBER_STRING_HUD = new NumberStringHud(
-                StringUtil.getInstance().EMPTY_STRING, 0,
+                StringUtil.getInstance().EMPTY_STRING, 9,
                 BasicHudFactory.getInstance().ABSOLUTE,
                 0, 0,0, BasicColorFactory.getInstance().NULL_COLOR);    
 

@@ -200,7 +200,7 @@ extends UnitWaypointBehavior
                 layerInterface);
 
         // String destroyedTarget = NULL;
-        // if (this.currentTargetLayerInterface != null)
+        // if (this.currentTargetLayerInterface != CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER)
         // {
         // destroyedTarget =
         // Boolean.toString(this.currentTargetLayerInterface.isDestroyed());
@@ -230,7 +230,7 @@ extends UnitWaypointBehavior
             this.getCurrentTargetDistance() > anotherTargetDistance;
             
         boolean isCurrentTargetDestroyed = 
-            this.currentTargetLayerInterfaceP != null && this.currentTargetLayerInterfaceP.isDestroyed();
+            this.currentTargetLayerInterfaceP != CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER && this.currentTargetLayerInterfaceP.isDestroyed();
 
         this.associatedAdvancedRTSGameLayer.waypoint2LogHelperP.processPossibleTarget(this.associatedAdvancedRTSGameLayer, this, layerInterface, anotherTargetDistance, isShorterThanCurrentTargetDistance, isCurrentTargetDestroyed);
 
@@ -274,7 +274,7 @@ extends UnitWaypointBehavior
         {
             //If not progressing move to next position
             if (this.progressTimeDelayHelper.isTime() && 
-                    this.nextUnvisitedPathGeographicMapCellPosition != null)
+                    this.nextUnvisitedPathGeographicMapCellPosition != SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION)
             {
                 this.associatedAdvancedRTSGameLayer.teleportTo(
                         this.nextUnvisitedPathGeographicMapCellPosition);
@@ -345,7 +345,7 @@ extends UnitWaypointBehavior
     private void setTargetPath()
         throws Exception
     {
-        if(this.currentTargetLayerInterfaceP != null)
+        if(this.currentTargetLayerInterfaceP != CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER)
         {
             if(this.currentTargetLayerInterfaceP.isDestroyed())
             {
@@ -421,7 +421,7 @@ extends UnitWaypointBehavior
                     }
 
                     if (this.currentGeographicMapCellHistoryP.isAllVisited2() &&
-                        this.currentTargetLayerInterfaceP != null)
+                        this.currentTargetLayerInterfaceP != CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER)
                     {
                         final AdvancedRTSGameLayer oldWaypointLayer = (AdvancedRTSGameLayer)
                             this.currentTargetLayerInterfaceP;
@@ -510,7 +510,7 @@ extends UnitWaypointBehavior
 
         final UnitLayer unitLayer = this.associatedAdvancedRTSGameLayer;
         
-        if(geographicMapCellPosition != null && this.nextUnvisitedPathGeographicMapCellPosition == geographicMapCellPosition) {
+        if(geographicMapCellPosition != SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION && this.nextUnvisitedPathGeographicMapCellPosition == geographicMapCellPosition) {
             final GPoint point = geographicMapCellPosition.getMidPoint();
             final GPoint afterNextPoint = this.afterNextUnvisitedPathGeographicMapCellPosition.getMidPoint();
 
@@ -615,7 +615,7 @@ extends UnitWaypointBehavior
             }
         }
 
-        if (this.targetWithoutCachedPathLayerInterface != null)
+        if (this.targetWithoutCachedPathLayerInterface != CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER)
         {
             this.waitingOnTargetPath = true;
 
@@ -633,7 +633,7 @@ extends UnitWaypointBehavior
     
     private void processTargeting() throws Exception
     {
-        if (this.currentTargetLayerInterfaceP != null &&
+        if (this.currentTargetLayerInterfaceP != CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER &&
             (this.isInSensorRange(this.currentTargetLayerInterfaceP, this.getCurrentTargetDistance()) ||
             this.isTrackingWaypoint()))
         {
@@ -846,7 +846,7 @@ extends UnitWaypointBehavior
     {
         final StringMaker stringBuffer = new StringMaker();
 
-        if (this.currentTargetLayerInterfaceP != null)
+        if (this.currentTargetLayerInterfaceP != CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER)
         {
             stringBuffer.append(TARGET_LAYER);
             stringBuffer.append(commonSeps.SPACE);

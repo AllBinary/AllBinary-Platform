@@ -98,15 +98,18 @@ public class UnitRTSFormInput extends RTSFormInput
 
     }
     
-    public void process(final RTSLayer associatedRtsLayer,
+    @Override
+    public void process(final CollidableDestroyableDamageableLayer associatedRtsLayer,
             final RTSPlayerLayerInterface rtsPlayerLayerInterface, 
             final AllBinaryLayerManager layerManager,
             final CustomItem item, final int itemIndex) throws Exception
     {   
         super.process(layerManager);
    
+        final RTSLayer associatedRtsLayer2 = (RTSLayer) associatedRtsLayer;
+        
         final GeographicMapCellPositionAreaBase geographicMapCellPositionArea = 
-            associatedRtsLayer.geographicMapCellPositionAreaBase;
+            associatedRtsLayer2.geographicMapCellPositionAreaBase;
         
         final GeographicMapCellPosition geographicMapCellPosition = geographicMapCellPositionArea
                 .getNextSurroundingGeographicMapCellPosition();
@@ -149,7 +152,7 @@ public class UnitRTSFormInput extends RTSFormInput
 
         //this.newUnconstructedRTSLayerInterface.geographicMapCellPositionArea.update();
         
-        this.attemptBuild(associatedRtsLayer, rtsPlayerLayerInterface, layerManager,
+        this.attemptBuild(associatedRtsLayer2, rtsPlayerLayerInterface, layerManager,
                 (RTSLayer) rtsLayer, itemIndex);
     }
 

@@ -18,6 +18,7 @@ import org.allbinary.util.BasicArrayList;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
+import org.allbinary.media.graphics.geography.map.SimpleGeographicMapCellPositionFactory;
 
 /**
  *
@@ -58,24 +59,24 @@ public class LayerPartialCellPositionsUtil {
             layerInterface.getXP() + layerInterface.getWidth(),
             layerInterface.getYP() + layerInterface.getHeight());
 
-        if(topLeftGeographicMapCellPosition != null)
+        if(topLeftGeographicMapCellPosition != SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION)
         {
             reusableList.add(topLeftGeographicMapCellPosition);
         }
 
-        if(topRightGeographicMapCellPosition != null &&
+        if(topRightGeographicMapCellPosition != SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION &&
             topLeftGeographicMapCellPosition != topRightGeographicMapCellPosition)
         {
             reusableList.add(topRightGeographicMapCellPosition);
         }
 
-        if(bottomLeftGeographicMapCellPosition != null &&
+        if(bottomLeftGeographicMapCellPosition != SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION &&
             !reusableList.contains(bottomLeftGeographicMapCellPosition))
         {
             reusableList.add(bottomLeftGeographicMapCellPosition);
         }
 
-        if(bottomRightGeographicMapCellPosition != null &&
+        if(bottomRightGeographicMapCellPosition != SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION &&
             !reusableList.contains(bottomRightGeographicMapCellPosition))
         {
             reusableList.add(bottomRightGeographicMapCellPosition);
@@ -120,24 +121,24 @@ public class LayerPartialCellPositionsUtil {
 
         //reusableList.add(topLeftGeographicMapCellPosition);
 
-        if(topLeftGeographicMapCellPosition != null)
+        if(topLeftGeographicMapCellPosition != SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION)
         {
             reusableList.add(topLeftGeographicMapCellPosition);
         }
 
-        if(topRightGeographicMapCellPosition != null &&
+        if(topRightGeographicMapCellPosition != SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION &&
             topLeftGeographicMapCellPosition != topRightGeographicMapCellPosition)
         {
             reusableList.add(topRightGeographicMapCellPosition);
         }
 
-        if(bottomLeftGeographicMapCellPosition != null &&
+        if(bottomLeftGeographicMapCellPosition != SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION &&
             !reusableList.contains(bottomLeftGeographicMapCellPosition))
         {
             reusableList.add(bottomLeftGeographicMapCellPosition);
         }
 
-        if(bottomRightGeographicMapCellPosition != null &&
+        if(bottomRightGeographicMapCellPosition != SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION &&
             !reusableList.contains(bottomRightGeographicMapCellPosition))
         {
             reusableList.add(bottomRightGeographicMapCellPosition);

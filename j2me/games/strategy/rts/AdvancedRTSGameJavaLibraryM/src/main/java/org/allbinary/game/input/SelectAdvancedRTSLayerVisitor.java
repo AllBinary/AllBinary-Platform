@@ -39,7 +39,7 @@ extends Visitor
     {
         final CollidableDestroyableDamageableLayer selectedLayer = (CollidableDestroyableDamageableLayer) object;
 
-        if(selectedLayer != null && selectedLayer.getType() == BuildingLayer.getStaticType())
+        if(selectedLayer != CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER && selectedLayer.getType() == BuildingLayer.getStaticType())
         {
             final AdvancedRTSGameLayer rtsGameLayer = (AdvancedRTSGameLayer) selectedLayer;
             final AssignWaypointsUtil assignWaypointsUtil = AssignWaypointsUtil.getInstance();

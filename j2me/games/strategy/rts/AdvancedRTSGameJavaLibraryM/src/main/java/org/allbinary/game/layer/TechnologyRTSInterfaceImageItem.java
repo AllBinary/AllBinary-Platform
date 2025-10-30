@@ -15,6 +15,7 @@ package org.allbinary.game.layer;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.NullCanvas;
 
 import org.allbinary.graphics.form.item.CustomImageItem;
 import org.allbinary.logic.java.character.CharArrayFactory;
@@ -69,7 +70,7 @@ public class TechnologyRTSInterfaceImageItem extends CustomImageItem
         int imageHeight = 0;
 
         final Image image = this.getImage();
-        if (image != null)
+        if (image != NullCanvas.NULL_IMAGE)
         {
             imageHeight = image.getHeight();
         }

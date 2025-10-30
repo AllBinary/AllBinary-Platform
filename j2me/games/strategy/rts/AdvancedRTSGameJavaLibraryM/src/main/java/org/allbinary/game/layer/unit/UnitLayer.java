@@ -193,7 +193,7 @@ public class UnitLayer extends AdvancedRTSGameLayer implements
 
     protected UnitLayer(
             final RemoteInfo remoteInfo,
-            final AdvancedRTSGameLayer parentLayer,
+            final PathFindingLayerInterface parentLayer,
             final Group[] groupInterface,
             final String rootName,
             final String name,
@@ -225,7 +225,7 @@ public class UnitLayer extends AdvancedRTSGameLayer implements
     
     protected UnitLayer(
             final RemoteInfo remoteInfo,
-            final AdvancedRTSGameLayer parentLayer,
+            final PathFindingLayerInterface parentLayer,
             final Group[] groupInterface,
             final String rootName,
             final String name,
@@ -259,7 +259,7 @@ public class UnitLayer extends AdvancedRTSGameLayer implements
     
     protected UnitLayer(
             final RemoteInfo remoteInfo,
-            final AdvancedRTSGameLayer parentLayer,
+            final PathFindingLayerInterface parentLayer,
             final Group[] groupInterface,
             final String rootName,
             final String name,
@@ -293,7 +293,7 @@ public class UnitLayer extends AdvancedRTSGameLayer implements
     
     protected UnitLayer(
             final RemoteInfo remoteInfo,
-            final AdvancedRTSGameLayer parentLayer,
+            final PathFindingLayerInterface parentLayer,
             final Group[] groupInterface,
             final String rootName,
             final String name,
@@ -1198,7 +1198,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         } else {
             //this.slightAngle = angleOfTarget - angle;
      
-            if(nextUnvisitedPathGeographicMapCellPosition != null) {
+            if(nextUnvisitedPathGeographicMapCellPosition != SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION) {
                 
                 if(this.steeringInsideGeographicMapCellPosition != nextUnvisitedPathGeographicMapCellPosition) {
                     

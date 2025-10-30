@@ -459,7 +459,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
                 this, "buildingChase");
         }
         
-        if (geographicMapCellPosition != null)
+        if (geographicMapCellPosition != SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION)
         {
             Direction pathDirection = DirectionFactory.getInstance().NO_DIRECTION;
 

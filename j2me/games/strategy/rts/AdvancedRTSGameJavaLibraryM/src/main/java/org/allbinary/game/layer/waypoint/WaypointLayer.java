@@ -21,6 +21,7 @@ import org.allbinary.game.health.Health;
 import org.allbinary.game.identification.Group;
 import org.allbinary.game.input.form.NullRTSFormInputFactory;
 import org.allbinary.game.layer.AdvancedRTSGameLayer;
+import org.allbinary.game.layer.PathFindingLayerInterface;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.game.layer.RTSPlayerLayerInterface;
@@ -36,7 +37,7 @@ public class WaypointLayer extends AdvancedRTSGameLayer
     
     protected WaypointLayer(
         final RemoteInfo remoteInfo,
-        final AdvancedRTSGameLayer parentLayer,
+        final PathFindingLayerInterface parentLayer,
         final Group[] groupInterface,
         final String rootName,
         final String name,

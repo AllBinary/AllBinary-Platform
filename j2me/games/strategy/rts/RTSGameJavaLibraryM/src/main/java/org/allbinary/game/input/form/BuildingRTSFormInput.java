@@ -45,6 +45,7 @@ import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellType;
 import org.allbinary.media.graphics.geography.map.GeographicMapCompositeInterface;
+import org.allbinary.media.graphics.geography.map.SimpleGeographicMapCellPositionFactory;
 import org.allbinary.media.graphics.geography.map.drop.DropCellPositionHistory;
 import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackGeographicMapCellTypeFactory;
 
@@ -243,7 +244,7 @@ public class BuildingRTSFormInput extends RTSFormInput
         // If no tower is selected try to build if tower is selected
         final GeographicMapCellPosition geographicMapCellPosition =
             this.getSelectedGeographicCellPosition();
-        if (geographicMapCellPosition != null)
+        if (geographicMapCellPosition != SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION)
         {
             // if (this.modifySelectedPlayerGameInput.getSelectedLayer() ==
             // null)

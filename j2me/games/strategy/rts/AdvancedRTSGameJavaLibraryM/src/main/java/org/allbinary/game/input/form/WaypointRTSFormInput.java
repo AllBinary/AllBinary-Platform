@@ -153,8 +153,9 @@ public class WaypointRTSFormInput extends RTSFormInput
         
     }
     
+    @Override
     public void process(
-        final RTSLayer associatedRtsLayer,
+        final CollidableDestroyableDamageableLayer associatedRtsLayer,
         final RTSPlayerLayerInterface rtsPlayerLayerInterface,
         final AllBinaryLayerManager layerManager, final GPoint point)
         throws Exception
@@ -241,19 +242,19 @@ public class WaypointRTSFormInput extends RTSFormInput
             (RTSLayer) this.newUnconstructedRTSLayerInterfaceArray[itemIndex], itemIndex);
     }
 
+    @Override
     public void processSticky(
-        final RTSLayer associatedRtsLayer,
+        final CollidableDestroyableDamageableLayer associatedRtsLayer,
         final RTSPlayerLayerInterface rtsPlayerLayerInterface,
         final AllBinaryLayerManager layerManager, CustomItem item, int index)
         throws Exception
     {
-        logUtil.put(
-            "Set Sticking Item: " + item, this, "processSticky");
+        logUtil.put("Set Sticking Item: " + item, this, "processSticky");
 
         this.setSelectedStickyItem(item);
         this.setSelectedStickyItemIndex(index);
         this.setStickyItemSelected(true);
-        this.stickyAssociatedRtsLayer = associatedRtsLayer;
+        this.stickyAssociatedRtsLayer = (RTSLayer) associatedRtsLayer;
         this.getHashtable().put(Layer.ID, associatedRtsLayer);
     }
     

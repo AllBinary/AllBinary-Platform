@@ -36,7 +36,7 @@ public class GeographicMapCellPositionTracking
         final GeographicMapCellPosition geographicMapCellPosition = 
             this.currentGeographicMapCellPosition;
 
-        if (// geographicMapCellPosition != null &&
+        if (// geographicMapCellPosition != SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION &&
             geographicMapCellPosition != this.previousGeographicMapCellPosition)
         {
             // Get the location of this vehicle relative to the top righ corner of the tileLayer location
@@ -52,7 +52,7 @@ public class GeographicMapCellPositionTracking
     throws Exception
     {
         //Check to see if initialized yet - only a problem because Layer calls it
-        if (gameCanvasInterface != null)
+        if (gameCanvasInterface != SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION)
         {
             final GeographicMapCompositeInterface geographicMapCompositeInterface = 
                 (GeographicMapCompositeInterface) gameCanvasInterface.getLayerManager();
