@@ -56,7 +56,7 @@ public class BaseMusicService extends Service
         logUtil.put(commonStrings.START, this, commonStateStrings.DESTROY);
         //PreLogUtil.put(commonStrings.START, this, "onDestroy");
 
-        if (player != null)
+        if (player != NullAndroidCanvas.NULL_MEDIA_PLAYER)
         {
             logUtil.put(commonStrings.START, this, commonStateStrings.PAUSE);
             player.stop();
@@ -67,7 +67,7 @@ public class BaseMusicService extends Service
 
     public void pause()
     {
-        if (player != null)
+        if (player != NullAndroidCanvas.NULL_MEDIA_PLAYER)
         {
             logUtil.put(commonStrings.START, this, commonStateStrings.PAUSE);
             player.pause();
@@ -76,7 +76,7 @@ public class BaseMusicService extends Service
 
     public void resume() {
 
-        if (player != null && !player.isPlaying()) {
+        if (player != NullAndroidCanvas.NULL_MEDIA_PLAYER && !player.isPlaying()) {
             logUtil.put(commonStrings.START, this, commonStateStrings.RESUME);
             player.start();
         }
@@ -136,7 +136,7 @@ public class BaseMusicService extends Service
         {
             System.gc();
 
-            if(player != null && player.isPlaying()) {
+            if(player != NullAndroidCanvas.NULL_MEDIA_PLAYER && player.isPlaying()) {
                 final MediaPlayer player = this.player;
                 logUtil.put(ALREADY_PLAYING, this, commonStateStrings.ON_START_COMMAND);
                 final Runnable runnable = new ARunnable() {
