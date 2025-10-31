@@ -19,23 +19,29 @@ public class ImmutableBasicArrayList extends BasicArrayList
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private final String IMMUTABLE = "Immutable";
+    private final String name;
 
-    public ImmutableBasicArrayList(int size)
+    public ImmutableBasicArrayList(final String name, final int size)
     {
         super(size);
+        
+        this.name = name;
     }
     
     @Override
     public boolean add(Object e)
     {
-        ForcedLogUtil.log(IMMUTABLE, this);
+        ForcedLogUtil.log(this.name, this);
         return true;
     }
 
     @Override
     public void add(int index, Object element)
     {
-        ForcedLogUtil.log(IMMUTABLE, this);
-    }    
+        ForcedLogUtil.log(this.name, this);
+    }
+    
+    public String toString() {
+        return this.name;
+    }
 }

@@ -36,7 +36,7 @@ public class BasicArrayListUtil
     private final MyRandomFactory myRandomFactory = MyRandomFactory.getInstance();
 
     // I should make immutable and throw on attempted edit
-    private final BasicArrayList immutableInstance = new ImmutableBasicArrayList(0);
+    private final BasicArrayList immutableInstance = new ImmutableBasicArrayList("Immutable", 0);
 
     public Object getRandom(BasicArrayList list)
     {
