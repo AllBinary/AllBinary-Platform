@@ -350,7 +350,7 @@ public class PathFinder extends GeographicPathFinderBase {
     
     private BasicArrayList extractPath(final GeographicMapCellPosition start, PathFindingNodeCost current) {
         final BasicArrayList path = new BasicArrayList();
-        while(current.parent != null) {
+        while(current.parent != NullUtil.getInstance().NULL_OBJECT) {
             path.add(current.geographicMapCellPosition);
             current = (PathFindingNodeCost) current.parent;
         }

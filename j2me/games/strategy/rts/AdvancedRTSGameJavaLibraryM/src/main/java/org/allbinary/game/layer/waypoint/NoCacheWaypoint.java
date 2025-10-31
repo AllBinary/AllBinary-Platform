@@ -21,6 +21,7 @@ import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
 import org.allbinary.game.layer.unit.UnitWaypointBehavior;
 import org.allbinary.game.media.graphics.geography.map.racetrack.PathFindingInfoFactory;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.media.audio.Sound;
@@ -116,6 +117,7 @@ public class NoCacheWaypoint extends WaypointBase
     private BasicArrayList createPaths(final GeographicMapCellPosition startGeographicMapCellPosition)
         throws Exception
     {
+        //logUtil.put("", this, "createPaths");
         final GeographicMapCellPosition endGeographicMapCellPosition =
             this.getEndGeographicMapCellPosition(startGeographicMapCellPosition);
 
@@ -124,9 +126,12 @@ public class NoCacheWaypoint extends WaypointBase
             return BasicArrayListUtil.getInstance().getImmutableInstance();
         }
         
+        //logUtil.put("", this, "createPaths");
+        
         //Most likely not a building
         if (startGeographicMapCellPosition == endGeographicMapCellPosition)
         {
+            //logUtil.put("", this, "createPaths");
             if (this.ownerLayer.shouldHandleStartSameAsEnd())
             //if (this.endList.size() < 2)
             {
@@ -138,6 +143,8 @@ public class NoCacheWaypoint extends WaypointBase
                 throw new Exception("Start should not be End: " + endGeographicMapCellPosition);
             }
         }
+
+        //logUtil.put("", this, "createPaths");
 
         final GeographicMapCompositeInterface geographicMapCompositeInterface
             = (GeographicMapCompositeInterface) this.allBinaryGameLayerManagerP;
@@ -181,6 +188,8 @@ public class NoCacheWaypoint extends WaypointBase
             //RaceTrackRoadsGeographicMapCellHistoryFactory.getInstance(),
             pathFindingInfo, 2);
 
+        //logUtil.put("" + list.size(), this, "createPaths");
+        
         //Put map back
         //customMapArray[startGeographicMapCellPosition.getRow()][startGeographicMapCellPosition.getColumn()] = originalStartData;
         //customMapArray[endGeographicMapCellPosition.getRow()][endGeographicMapCellPosition.getColumn()] = originalEndData;
