@@ -15,7 +15,6 @@ package org.allbinary.media.graphics.geography.pathfinding;
 
 import java.util.HashSet;
 import java.util.PriorityQueue;
-import java.util.Set;
 
 import org.allbinary.game.layer.AllBinaryTiledLayer;
 import org.allbinary.logic.NullUtil;
