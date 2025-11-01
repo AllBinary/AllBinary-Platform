@@ -2,8 +2,7 @@
 
 About
 
-AllBinary Game Development Kit (Example Games: https://allbinary.itch.io), Freeblisket E-Commerce Solution (https://allbinary.com), AllBinary Input Automation, and everything else AllBinary. 
-The main goal of the AllBinary Platform is to help people escape the tyrants of earth.
+AllBinary Game Development Kit (Example Games: https://allbinary.itch.io), Freeblisket E-Commerce Solution (https://allbinary.com), AllBinary Input Automation (https://ia.allbinary.com), and everything else AllBinary.  The main goal of the AllBinary Platform is to help people escape the tyrants of earth.
 
 What is the AllBinary Platform?
 
