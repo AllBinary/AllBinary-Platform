@@ -87,7 +87,7 @@ features include the following:
 - More...
 
 For more info on the AllBinary Arcade Game Development Kit please visit:
-https://allbinarygames.appspot.com/AllBinaryGameDevelopmentKit.jsp
+https://games.allbinary.com/AllBinaryGameDevelopmentKit.jsp
 
 What is the Freeblisket/Weblisket E-Commerce Solution?
 
