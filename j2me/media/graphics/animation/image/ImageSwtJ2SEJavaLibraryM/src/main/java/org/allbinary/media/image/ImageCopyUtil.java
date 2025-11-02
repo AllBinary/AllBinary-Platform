@@ -56,6 +56,7 @@ public class ImageCopyUtil
     //private int anchor = Anchor.TOP_LEFT;
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
+    //private final CommonSeps commonSeps = CommonSeps.getInstance();
     private final GameFeatureFactory gameFeatureFactory = GameFeatureFactory.getInstance();
     private final Features features = Features.getInstance();
     private final OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
@@ -337,7 +338,7 @@ public class ImageCopyUtil
         return image;
         
     }
-
+    
     private final String INFORMATION = "about_";
     private final String LEADERBOARD = "leaderboard";
     //private final String GREEN_BUTTON = "green_button";
@@ -355,8 +356,8 @@ public class ImageCopyUtil
         //if(originalImage instanceof OpenGLESImage) {
         if(features.isFeature(openGLFeatureFactory.OPENGL)) {
             
-            final int width2 = originalImage.getWidth();
-            final int height2 = originalImage.getHeight();
+            //final float width2 = originalImage.getWidth();
+            //final float height2 = originalImage.getHeight();
             
             //logUtil.put(NO_COPY2, this, commonStrings.CONSTRUCTOR);
             //final CommonSeps commonSeps = CommonSeps.getInstance();
@@ -369,18 +370,23 @@ public class ImageCopyUtil
                 final OpenGLESImage openGLESImage = ((OpenGLESImage) originalImage);
                 final OpenGLESImageProperties openGLESImageProperties = openGLESImage.openGLESImageProperties;
                 //logUtil.put(new StringMaker().append("0sx: ").append(openGLESImageProperties.scaleX2).append(" sy: ").append(openGLESImageProperties.scaleY2).toString(), this, commonStrings.CONSTRUCTOR);
-                openGLESImageProperties.scaleX = openGLESImageProperties.scaleX2 = (float) (((float) width) / width2);
-                openGLESImageProperties.scaleY = openGLESImageProperties.scaleY2 = (float) (((float) height) / height2);
+                final int openGLWidth = openGLESImage.openGLBitmap.getWidth();
+                final int openGLHeight = openGLESImage.openGLBitmap.getHeight();
+                openGLESImageProperties.scaleX = openGLESImageProperties.scaleX2 = (((float) width) / openGLWidth);
+                openGLESImageProperties.scaleY = openGLESImageProperties.scaleY2 = (((float) height) / openGLHeight);
                 openGLESImageProperties.scaleX = openGLESImageProperties.scaleX * 0.75f;
                 openGLESImageProperties.scaleY = openGLESImageProperties.scaleY * 0.75f;
                 
                 if(originalImage.getHeight() % 2 != 0) {
-                    openGLESImageProperties.scaleX2+= 1 / ((float) width2);
-                    openGLESImageProperties.scaleY2+= 1 / ((float) height2);
+                    //logUtil.put(new StringMaker().append("sx: ").append(openGLESImageProperties.scaleX2).append(" sy: ").append(openGLESImageProperties.scaleY2).toString(), this, commonStrings.CONSTRUCTOR);
+                    openGLESImageProperties.scaleX2+= 1.0f / openGLWidth;
+                    openGLESImageProperties.scaleY2+= 1.0f / openGLHeight;
+                    //logUtil.put(new StringMaker().append("sx: ").append(openGLESImageProperties.scaleX2).append(" sy: ").append(openGLESImageProperties.scaleY2).toString(), this, commonStrings.CONSTRUCTOR);
                 }
                 
                 //openGLESImageProperties.translateY = -displayInfoSingleton.getLastHeight() / 40 / openGLESImage.scaleY;
                 image = openGLESImage;
+                //logUtil.put(new StringMaker().append("copy").append(openGLESImage.openGLBitmap.getWidth()).append(commonSeps.COLON).append(openGLESImage.openGLBitmap.getWidth()).append(commonSeps.COLON).append(image.getWidth()).append(commonSeps.COLON).append(image.getHeight()).toString(), this, commonStrings.PROCESS);
                 //logUtil.put(new StringMaker().append("sx: ").append(openGLESImageProperties.scaleX2).append(" sy: ").append(openGLESImageProperties.scaleY2).toString(), this, commonStrings.CONSTRUCTOR);
                 //logUtil.put("TWB: " + originalImage.getWidth() + " h: " + originalImage.getHeight(), this, commonStrings.CONSTRUCTOR);
                 //originalImage2 = openGLESImage.openGLBitmap.getImage();
@@ -388,6 +394,7 @@ public class ImageCopyUtil
             } else {
                 //logUtil.put("type: " + originalImage.getType(), this, commonStrings.CONSTRUCTOR);
                 image = originalImage;
+
                 final OpenGLESImage openGLESImage = (OpenGLESImage) openGLUtil.add(image);
                 final OpenGLESImageProperties openGLESImageProperties = openGLESImage.openGLESImageProperties;
                 openGLESImageProperties.scaleX = openGLESImageProperties.scaleX2 = (float) (((float) width) / openGLESImage.getWidth());
