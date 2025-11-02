@@ -354,21 +354,23 @@ public class ImageCopyUtil
 
         //if(originalImage instanceof OpenGLESImage) {
         if(features.isFeature(openGLFeatureFactory.OPENGL)) {
+            
+            final int width2 = originalImage.getWidth();
+            final int height2 = originalImage.getHeight();
+            
             //logUtil.put(NO_COPY2, this, commonStrings.CONSTRUCTOR);
             //final CommonSeps commonSeps = CommonSeps.getInstance();
-            //logUtil.put(new StringMaker().append(NO_COPY2).append(" from: ").append(originalImage.getWidth()).append(commonSeps.SPACE).append(originalImage.getHeight()).append(" to: ").append(width).append(commonSeps.SPACE).append(height).toString(), this, commonStrings.CONSTRUCTOR);
+            //logUtil.put(new StringMaker().append(NO_COPY2).append(" from: ").append(width2).append(commonSeps.SPACE).append(height2).append(" to: ").append(width).append(commonSeps.SPACE).append(height).toString(), this, commonStrings.CONSTRUCTOR);
             
             final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
             
             if (originalImage.getType() >= OpenGLESImage.TYPE) {
                 //logUtil.put("TWB0: " + originalImage.getWidth() + " h: " + originalImage.getHeight(), this, commonStrings.CONSTRUCTOR);
-                final int width2 = originalImage.getWidth();
-                final int height2 = originalImage.getHeight();
                 final OpenGLESImage openGLESImage = ((OpenGLESImage) originalImage);
                 final OpenGLESImageProperties openGLESImageProperties = openGLESImage.openGLESImageProperties;
                 //logUtil.put(new StringMaker().append("0sx: ").append(openGLESImageProperties.scaleX2).append(" sy: ").append(openGLESImageProperties.scaleY2).toString(), this, commonStrings.CONSTRUCTOR);
-                openGLESImageProperties.scaleX = openGLESImageProperties.scaleX2 = (float) (((float) width) / openGLESImage.getWidth());
-                openGLESImageProperties.scaleY = openGLESImageProperties.scaleY2 = (float) (((float) height) / openGLESImage.getHeight());
+                openGLESImageProperties.scaleX = openGLESImageProperties.scaleX2 = (float) (((float) width) / width2);
+                openGLESImageProperties.scaleY = openGLESImageProperties.scaleY2 = (float) (((float) height) / height2);
                 openGLESImageProperties.scaleX = openGLESImageProperties.scaleX * 0.75f;
                 openGLESImageProperties.scaleY = openGLESImageProperties.scaleY * 0.75f;
                 
