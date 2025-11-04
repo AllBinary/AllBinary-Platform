@@ -53,6 +53,30 @@ public class FileListFetcher
         return null;
     }
     
+    public BasicArrayList getFiles(final String path, final String[] includeExtensions)
+    {
+        try
+        {
+            final BasicArrayList includeExtensionBasicArrayList = new BasicArrayList();
+            final int size = includeExtensions.length;
+            for(int index = 0; index < size; index++) {
+                includeExtensionBasicArrayList.add(includeExtensions[index]);
+            }
+            final VisitorFileFilter visitorFileFilter = new VisitorFileFilter(
+                    new DirectoryOrIncludeFileExtensionBooleanFileVisitor(
+                            includeExtensionBasicArrayList));
+
+            final BasicArrayList files = subDirectory.search(visitorFileFilter, new AbFile(path));
+            return files;
+
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+            System.out.println("Error: " + e + "\nMsg: " + e.getMessage());
+        }
+        return null;
+    }
+
     public BasicArrayList getFiles(final String path, final String includeExtension)
     {
         try
@@ -73,7 +97,7 @@ public class FileListFetcher
         }
         return null;
     }
-
+    
     public BasicArrayList getFiles(final String path, final String pathIncludes, final String includeExtension)
     {
         try
