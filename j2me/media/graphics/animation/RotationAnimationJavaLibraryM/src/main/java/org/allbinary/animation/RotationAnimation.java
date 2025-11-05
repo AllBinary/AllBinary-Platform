@@ -64,6 +64,14 @@ public class RotationAnimation
         this.circularIndexUtil = CircularIndexUtil.getInstance(4);
     }
 
+    public void nextRotationX()
+    {
+    }
+
+    public void previousRotationX()
+    {
+    }
+    
     @Override
     public void nextRotation()
     {
