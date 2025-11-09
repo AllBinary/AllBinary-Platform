@@ -132,14 +132,17 @@ public class BasicGeographicMap
     }
 
     @Override
-    public GeographicMapCellPosition getCellPositionAtNoThrow(final int x, final int y) throws Exception {
+    public GeographicMapCellPosition getCellPositionAtNoThrow(final int x, final int y) {
         final AllBinaryTiledLayer allBinaryTiledLayer = this.getAllBinaryTiledLayer();
         final int i_column = mathUtil.abs(x / allBinaryTiledLayer.getCellHeight());
         final int i_row = mathUtil.abs(y / allBinaryTiledLayer.getCellWidth());
 
-        if (allBinaryTiledLayer.getColumns() > i_column
-            && allBinaryTiledLayer.getRows() > i_row) {
-            return geographicMapCellPositionFactory.getInstance(i_column, i_row);
+        if (allBinaryTiledLayer.getColumns() > i_column && allBinaryTiledLayer.getRows() > i_row) {
+            try {
+                return geographicMapCellPositionFactory.getInstance(i_column, i_row);
+            } catch(Exception e) {
+                return SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
+            }
         } else {
             return SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
         }
