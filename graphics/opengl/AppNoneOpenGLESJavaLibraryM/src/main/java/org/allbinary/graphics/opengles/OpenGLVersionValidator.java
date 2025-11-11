@@ -30,6 +30,10 @@ public class OpenGLVersionValidator {
         return instance;
     }
 
+    public boolean isGL31OrHigher() {
+        return false;
+    }
+
     public boolean isAvailable(final String glVersionRequired) {
         return false;
     }
