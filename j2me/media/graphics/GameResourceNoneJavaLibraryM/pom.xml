@@ -1,14 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.allbinary</groupId>
-    <artifactId>ImageCacheJ2MEJavaLibrary</artifactId>
+    <groupId>org.allbinary.game</groupId>
+    <artifactId>GameResourceNoneJavaLibrary</artifactId>
     <packaging>jar</packaging>
     <!-- AllBinary Platform Version Start -->
     <version>1.0.0-SNAPSHOT</version>
     <!-- AllBinary Platform Version End -->
 
-    <name>ImageCacheJ2MEJavaLibrary</name>
+    <name>GameResourceNoneJavaLibrary</name>
     <url>http://www.allbinary.com/</url>
     <distributionManagement>
         <snapshotRepository>
@@ -45,17 +45,7 @@
 
             <optional>true</optional>
         </dependency>
-
-        <dependency>
-            <groupId>org.allbinary.game</groupId>
-            <artifactId>GameResourceNoneJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-            <optional>true</optional>
-        </dependency>
-
+        
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>DebugJavaLibrary</artifactId>
@@ -121,7 +111,7 @@
         <dependency>
             <groupId>org.microemu</groupId>
             <artifactId>microemu-midp</artifactId>
-            <version>2.0.4</version>
+            <version>3.0.0-SNAPSHOT</version>
             <optional>true</optional>
         </dependency>
         <!--
