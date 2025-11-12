@@ -1,14 +1,14 @@
-                             AllBinary Platform
+AllBinary Platform
 
 About
 
-AllBinary Game Development Kit (Example Games: https://allbinary.itch.io), Freeblisket E-Commerce Solution (https://allbinary.com), AllBinary Input Automation (https://ia.allbinary.com), and everything else AllBinary.  The main goal of the AllBinary Platform is to help people escape the tyrants of earth.
+AllBinary Game Engine (Example Games: https://allbinary.itch.io), Freeblisket E-Commerce Solution (https://allbinary.com), AllBinary Input Automation (https://ia.allbinary.com), and everything else AllBinary.  The main goal of the AllBinary Platform is to help people escape the tyrants of earth.
 
 What is the AllBinary Platform?
 
 This Repository Contains the core AllBinary Platform code (https://github.com/AllBinary/AllBinary-Platform) or the Kotlin version https://github.com/AllBinary/AllBinary-Platform-KMP.  This repo does not include the rest of the AllBinary Platform that includes tighter third-party integration code or individual apps or games that are not tools. The AllBinary Platform includes but is not limited to the following projects:
 
-: AllBinary Game Development Kit (https://games.allbinary.com/AllBinaryGameDevelopmentKit.jsp) includes the AllBinary Multi-Platform Development Kit
+: AllBinary Game Engine (https://games.allbinary.com/AllBinaryGameDevelopmentKit.jsp) includes the AllBinary Multi-Platform Development Kit
 : Freeblisket/Weblisket E-Commerce Solution (https://allbinary.com)
 : AllBinary Input Automation
 : AllBinary Vector Graphics Tool
@@ -32,14 +32,14 @@ Who is responsible for this repo?
 
 Travis Berthelot travisberthelot@allbinary.com
 
-What games use the AllBinary Game Development Kit?
+What games use the AllBinary Game Engine?
 
  - Android, HTML5, Windows Native, Kotlin/KMP: https://allbinary.itch.io
  - Legacy J2SE and J2ME: https://games.allbinary.com/AllBinaryGameDevelopmentKit.jsp
 
-What is the AllBinary Game Development Kit?
+What is the AllBinary Game Engine?
 
-The AllBinary Game Development Kit speeds game development for 2D/3D Single or Multi-Player Multi-Platform games. It supports many platforms including Android, HTML5, J2ME (MIDP), Windows Native (Avian), and J2SE (Applet/JNLP/Standalone Applications). I will addFlash/Adobe and Native support via AOT. The device support is wide ranging including Desktops, Laptops, Notebooks, Phones, Tablets, PDAs, and more including 100,000 different devices. The Operating System support is extensive as well including Windows, Mac, Linux, Android, and more totaling >20 operating systems. It contains rapid game development tools and over 200 small libraries for creating games. The main features include the following:
+The AllBinary Game Engine speeds game development for 2D/3D Single or Multi-Player Multi-Platform games. It supports many platforms including Android, HTML5, J2ME (MIDP), Windows Native (Avian), and J2SE (Applet/JNLP/Standalone Applications). I will addFlash/Adobe and Native support via AOT. The device support is wide ranging including Desktops, Laptops, Notebooks, Phones, Tablets, PDAs, and more including 100,000 different devices. The Operating System support is extensive as well including Windows, Mac, Linux, Android, and more totaling >20 operating systems. It contains rapid game development tools and over 200 small libraries for creating games. The main features include the following:
 
 - Multi-Platform - Android, J2ME, HTML5, Windows Native (Avian), and J2SE 
   (OS support: Android, Linux/Solaris, Windows, Mac, iOS, Chrome OS, and More)
@@ -75,7 +75,7 @@ The AllBinary Game Development Kit speeds game development for 2D/3D Single or M
 For more info on the AllBinary Arcade Game Development Kit please visit:
 https://games.allbinary.com/AllBinaryGameDevelopmentKit.jsp
 
-The main goal of the AllBinary Game Development Kit is to reduce UI development cost.
+The main goal of the AllBinary Game Engine is to reduce UI development cost.
 
 What is the Freeblisket/Weblisket E-Commerce Solution?
 
