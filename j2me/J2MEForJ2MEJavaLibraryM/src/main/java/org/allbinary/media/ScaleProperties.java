@@ -27,8 +27,8 @@ public class ScaleProperties {
 //    public int width = 640;
 //    public int height = 480;
     
-    public float scaleX = 1;
-    public float scaleY = 1;
+    public float scaleX = 1.0f;
+    public float scaleY = 1.0f;
     //For CLDC 1.0 pre float builds
     //public int scaleX = 1;
     //public int scaleY = 1;
