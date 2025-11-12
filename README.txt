@@ -6,9 +6,7 @@ AllBinary Game Development Kit (Example Games: https://allbinary.itch.io), Freeb
 
 What is the AllBinary Platform?
 
-This Repository Contains the core AllBinary Platform code (https://github.com/AllBinary/AllBinary-Platform) or the Kotlin version https://github.com/AllBinary/AllBinary-Platform-KMP.  
-This repo does not include the rest of the AllBinary Platform that includes tighter third-party integration code or individual apps or games that are not tools.
-The AllBinary Platform includes but is not limited to the following projects:
+This Repository Contains the core AllBinary Platform code (https://github.com/AllBinary/AllBinary-Platform) or the Kotlin version https://github.com/AllBinary/AllBinary-Platform-KMP.  This repo does not include the rest of the AllBinary Platform that includes tighter third-party integration code or individual apps or games that are not tools. The AllBinary Platform includes but is not limited to the following projects:
 
 : AllBinary Game Development Kit (https://games.allbinary.com/AllBinaryGameDevelopmentKit.jsp) includes the AllBinary Multi-Platform Development Kit
 : Freeblisket/Weblisket E-Commerce Solution (https://allbinary.com)
@@ -20,19 +18,15 @@ The AllBinary Platform represents more than 10 years of development and > 1 mill
 
 What is the goal?
 
-The goal of the AllBinary Platform is to create a Self Replicating Robot Army 
-dedicated to protecting, building, and maintaining space ships to escape the 
-tyrants of Earth.
+The goal of the AllBinary Platform is to create a Self Replicating Robot Army  dedicated to protecting, building, and maintaining space ships to escape the  tyrants of Earth.  While this may seem ludicrous or redicoulos it really is the goal.  Reducing the cost of UI development is current task towards that goal.
 
-What is the License?
+Where is the License?
 
-Please see the LICENSE file in the root of the repository.
+The LICENSE file in the root of the repository.
 
-Where is the other code?
+What are the other dependencies?
 
-As you may have noticed this repository only has AllBinary code. The Third-Party 
-and Third-Party Integration code is in the AllBinary Platform Integration 
-repository.
+The external dependencies are defined in the dependency section of the pom files.  The Third-Party and Third-Party Integration code is in the AllBinary Platform Integration repository.  Some of the dependencies are not currently public.
 
 Who is responsible for this repo?
 
@@ -45,15 +39,7 @@ What games use the AllBinary Game Development Kit?
 
 What is the AllBinary Game Development Kit?
 
-The AllBinary Game Development Kit speeds game development for 2D/3D Single or Multi-
-Player Multi-Platform games. It supports many platforms including Android, HTML5, 
-J2ME (MIDP), Windows Native (Avian), and J2SE (Applet/JNLP/Standalone Applications). 
-I will add Flash/Adobe and Native support via AOT. The device support is wide ranging 
-including Desktops, Laptops, Notebooks, Phones, Tablets, PDAs, and more including 
-100,000 different devices. The Operating System support is extensive as well including 
-Windows, Mac, Linux, Android, and more totaling >20 operating systems. It contains 
-rapid game development tools and over 200 small libraries for creating games. The main 
-features include the following:
+The AllBinary Game Development Kit speeds game development for 2D/3D Single or Multi-Player Multi-Platform games. It supports many platforms including Android, HTML5, J2ME (MIDP), Windows Native (Avian), and J2SE (Applet/JNLP/Standalone Applications). I will addFlash/Adobe and Native support via AOT. The device support is wide ranging including Desktops, Laptops, Notebooks, Phones, Tablets, PDAs, and more including 100,000 different devices. The Operating System support is extensive as well including Windows, Mac, Linux, Android, and more totaling >20 operating systems. It contains rapid game development tools and over 200 small libraries for creating games. The main features include the following:
 
 - Multi-Platform - Android, J2ME, HTML5, Windows Native (Avian), and J2SE 
   (OS support: Android, Linux/Solaris, Windows, Mac, iOS, Chrome OS, and More)
@@ -89,12 +75,11 @@ features include the following:
 For more info on the AllBinary Arcade Game Development Kit please visit:
 https://games.allbinary.com/AllBinaryGameDevelopmentKit.jsp
 
+The main goal of the AllBinary Game Development Kit is to reduce UI development cost.
+
 What is the Freeblisket/Weblisket E-Commerce Solution?
 
-Freeblisket uses J2EE, Java, SQL, XML, XSL, and more to provide for a complete e-commerce
-solution. I developed various JSP custom tag libraries, modules, and APIs for Freeblisket.
-Freeblisket/Weblisket E-Commerce Solution is a complete E-Commerce solutions with 
-the following features:
+Freeblisket uses J2EE, Java, SQL, XML, XSL, and more to provide for a complete e-commerce solution. I developed various JSP custom tag libraries, modules, and APIs for Freeblisket. Freeblisket/Weblisket E-Commerce Solution is a complete E-Commerce solutions with the following features:
 
 Feature Summary:
 
@@ -195,13 +180,19 @@ Adjustment Manager
 
 You can find more about Freeblisket at: https://allbinary.com
 
+The main goal of Freeblisket/Weblisket is to help manage inventory and trade for e-commerce, spaceships, games, and the like.
+
 What is the AllBinary InputAutomationTool Solution? 
 
 It speeds up application testing by providing a base framework for automating input.
 : C/C++ DLLs for human input device hooks
 : OSGI plug-ins
 
-Future Implementation for the AllBinary Platform:
+The main goal of AllBinary InputAutomationTool Solution is to help reduce manual tasks.
+
+What is the planned future Implementation for the AllBinary Platform?
+
+Add TypeScript implementation from the Java code just like the Kotlin builds.
 
 Better integration with GDevelop - https://github.com/AllBinary/AllBinary-Platform-Game-With-GDevelop
 
@@ -209,24 +200,22 @@ Better integration with GDevelop - https://github.com/AllBinary/AllBinary-Platfo
 
 Multiplayer for platforms other than J2ME, Android, Avian, and J2SE.
 
-Social API integration and improvements
-
 Integration with other Scene Editors, 2d/3d animation tools (currently Spline), and other graphics tools.
 
-Robotics Integration API, 3D Printer Integration API and Resource Collection API - RTS with real robots and real maps
+Open Robots Integration, 3D Printer Integration, and Resource Collection API - RTS with real robots and real maps
 
-What is still needed to obtain the Self Replicating Robot Army to start building Space Ships?
+What is still needed to create a Self Replicating Robot Army?
 
-: MMORTS - For the control of robots based on my ZeptoWars RTS game
+: MMORTS - For the control of robots based on the ZeptoWars RTS and Multi-player games
 : Resource Collection API 
-: 3D Printer API
-: Convert existing Open Robots for the 3D printer API
-: Convert existing Open Resource Machines for the 3D Printer API - mainly smelting, ore separation, extrusion material formation
+: 3D Printer integration (preferrably the RepRap 3D printer or better)
+: Convert existing Open Robots for the 3D printer integration
+: Convert existing Open Resource Machines for the 3D Printer integration - mainly smelting, ore separation, extrusion material formation, and the like
 
 After the Self Replicating Robot Army is created what is needed for the Space Ships?
 
-: Parts Development using all off the self technologies for the following APIs in order of need:
-: Environmental Control/Life Support - Oxygen, Temperature, Gravity, and other Controls and Sensors
+Parts Development using all off the self technologies for the following in order of need:
+: Environmental Control/Life Support - Oxygen, Temperature Controls/HVAC, Gravity (From spin and/or gravity wave generator.), and other Controls and Sensors
 : Defense
 : Propulsion
 : Navigation
