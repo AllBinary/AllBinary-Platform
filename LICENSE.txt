@@ -19,15 +19,7 @@ given that the following conditions are met:
     AllBinary Platform source code as described in the PUBLISHED.txt file 
     in the root of the repo which AllBinary may update without notice.  
 
-4.  You will fulfill one of the 2 requirements below:
-
-    You must obtain one or more advert provider identifiers with instructions 
-    from AllBinary.  You must allow adverts to be displayed in your published 
-    product using this license.  If the product does not have a customer 
-    facing visual or AllBinary is not currently providing identifiers then 
-    you must use the next requirement.
-
-    "Or"
+4.  You will fulfill the following requirement below:
 
     You must pay a yearly subscription as determined by AllBinary.  
     The current year subscription cost is in the YEARLY_FEE.txt file in the 
