@@ -46,6 +46,7 @@ public class OpenGLCapabilities
     
     private final StringUtil stringUtil = StringUtil.getInstance();
     
+    private boolean initialized = false;
     private String glVersionString = stringUtil.EMPTY_STRING;
     private String glShaderVersionString = stringUtil.EMPTY_STRING;
     public int shaderVersion = 0;
@@ -95,6 +96,16 @@ public class OpenGLCapabilities
     {
     }
 
+    public boolean isInitialized() {
+        return initialized;
+    }
+
+    private void requireInitialization() {
+//        if(!initialized) {
+//            throw new RuntimeException();
+//        }
+    }
+    
     public void initCapabilities(GL10 gl)
     {
         final String METHOD_NAME = "initGLCapabilities";
@@ -239,7 +250,7 @@ public class OpenGLCapabilities
                 //{
                 //StupidTimer.visit(new RendererSurfaceCreatedVisitor());
 
-                if (this.isVertexBufferObjectSupport())
+                if (this.vertexBufferObjectSupport)
                 {
                     openGLImageSpecificFactory.setImageFactory(new OpenGLESGL11VBOImageFactory());
                 } else
@@ -283,6 +294,8 @@ public class OpenGLCapabilities
             //For now we will just use the poly version for opengl games
             //this.glThreedDrawTexture = true;
             //OpenGLImageSpecificFactory.getInstance().setImageFactory(new OpenGLESGL10RectangleImageFactory());
+            
+            initialized = true;
         }
         catch (Exception e)
         {
@@ -293,6 +306,7 @@ public class OpenGLCapabilities
     
     private boolean isExtension(OpenGLFeature gameFeature)
     {
+        
         int index = glExtensions.indexOf(gameFeature.getName());
         if(index >= 0)
         {
@@ -304,6 +318,64 @@ public class OpenGLCapabilities
         }
     }
     
+    public boolean isGlExtensionDrawTexture()
+    {
+        this.requireInitialization();
+        return glExtensionDrawTexture;
+    }
+
+    public boolean isGlExtensionGPUShader4()
+    {
+        this.requireInitialization();
+        return glExtensionGPUShader4;
+    }
+    
+    public String getGlVersion()
+    {
+        this.requireInitialization();
+        return glVersion;
+    }
+
+    public String getGlVersionString()
+    {
+        this.requireInitialization();
+        return glVersionString;
+    }
+    
+    public String getGlShaderVersion()
+    {
+        this.requireInitialization();
+        return glShaderVersionString;
+    }
+    
+    public boolean isGlThreedDrawTexture()
+    {
+        this.requireInitialization();
+        return glThreedDrawTexture;
+    }
+
+    public String getGlRenderer()
+    {
+        this.requireInitialization();
+        return glRenderer;
+    }
+
+    public boolean isVertexBufferObjectSupport()
+    {
+        this.requireInitialization();
+        return vertexBufferObjectSupport;
+    }
+
+    public boolean isTextureSizeValid(final int widthAndHeight)
+    {
+        this.requireInitialization();
+        
+        if(this.maxTextureSize >= widthAndHeight) {
+            return true;
+        }
+        return false;
+    }
+
     public String toString()
     {
         final CommonSeps commonSeps = CommonSeps.getInstance();
@@ -350,54 +422,6 @@ public class OpenGLCapabilities
         }
         
         return stringBuffer.toString();
-    }
-
-    public boolean isGlExtensionDrawTexture()
-    {
-        return glExtensionDrawTexture;
-    }
-
-    public boolean isGlExtensionGPUShader4()
-    {
-        return glExtensionGPUShader4;
-    }
-    
-    public String getGlVersion()
-    {
-        return glVersion;
-    }
-
-    public String getGlVersionString()
-    {
-        return glVersionString;
-    }
-    
-    public String getGlShaderVersion()
-    {
-        return glShaderVersionString;
-    }
-    
-    public boolean isGlThreedDrawTexture()
-    {
-        return glThreedDrawTexture;
-    }
-
-    public String getGlRenderer()
-    {
-        return glRenderer;
-    }
-
-    public boolean isVertexBufferObjectSupport()
-    {
-        return vertexBufferObjectSupport;
-    }
-
-    public boolean isTextureSizeValid(final int widthAndHeight)
-    {
-        if(this.maxTextureSize >= widthAndHeight) {
-            return true;
-        }
-        return false;
     }
     
 }
