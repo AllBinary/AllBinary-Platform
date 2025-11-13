@@ -38,7 +38,7 @@ public class PathFindingNode {
          logUtil.put("No Parent", this, commonStrings.CONSTRUCTOR);
       }
          */
-        if (this.geographicMapCellPosition == null) {
+        if (this.geographicMapCellPosition == SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION) {
             throw new Exception("No GeographicMapCellPosition");
         }
 
