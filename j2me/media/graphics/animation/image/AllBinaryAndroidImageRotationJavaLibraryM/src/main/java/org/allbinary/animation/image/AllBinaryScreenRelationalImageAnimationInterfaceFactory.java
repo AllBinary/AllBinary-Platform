@@ -22,6 +22,7 @@ import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.graphics.displayable.ScreenRelationalUtil;
 import org.allbinary.media.image.ImageScaleUtil;
+import org.microemu.android.device.AndroidImageInterface;
 
 public class AllBinaryScreenRelationalImageAnimationInterfaceFactory
 extends BaseImageAnimationFactory
@@ -44,7 +45,8 @@ extends BaseImageAnimationFactory
 
     	if(lastImage != NullCanvas.NULL_IMAGE)
     	{
-            lastImage.getBitmap().recycle();
+            final AndroidImageInterface androidImageInterface = (AndroidImageInterface) lastImage;
+            androidImageInterface.getBitmap().recycle();
     	}
 
     	float scale = ScreenRelationalUtil.getInstance().getScale(image);

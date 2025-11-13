@@ -19,6 +19,7 @@ import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import javax.microedition.lcdui.Image;
+import org.microemu.android.device.AndroidImageInterface;
 
 /**
  *
@@ -43,16 +44,20 @@ public class AndroidImageUtil {
     }
     
     public void paint(final Image image, final Image originalImage, final Paint paint) {
-        image.getBitmap().eraseColor(Color.TRANSPARENT);
-        final Canvas canvas = image.getCanvas();
-        canvas.drawBitmap(originalImage.getBitmap(), 0.0f, 0.0f, paint);
+        final AndroidImageInterface androidImage = (AndroidImageInterface) image;
+        androidImage.getBitmap().eraseColor(Color.TRANSPARENT);
+        final Canvas canvas = androidImage.getCanvas();
+        final AndroidImageInterface originalAndroidImage = (AndroidImageInterface) originalImage;
+        canvas.drawBitmap(originalAndroidImage.getBitmap(), 0.0f, 0.0f, paint);
     }
     
     public void rotate(final Image image, final Image originalImage, final Matrix matrix, final Paint paint) {
-        image.getBitmap().eraseColor(Color.TRANSPARENT);
-        final Canvas canvas = image.getCanvas();
+        final AndroidImageInterface androidImage = (AndroidImageInterface) image;
+        androidImage.getBitmap().eraseColor(Color.TRANSPARENT);
+        final Canvas canvas = androidImage.getCanvas();
         canvas.concat(matrix);
-        canvas.drawBitmap(originalImage.getBitmap(), 0.0f, 0.0f, paint);
+        final AndroidImageInterface originalAndroidImage = (AndroidImageInterface) originalImage;
+        canvas.drawBitmap(originalAndroidImage.getBitmap(), 0.0f, 0.0f, paint);
     }
 
 //    public void rotate(final Image image, final Image originalImage, final Matrix matrix) {

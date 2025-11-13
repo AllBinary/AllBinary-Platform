@@ -32,6 +32,8 @@ import org.allbinary.image.opengles.OpenGLESImage;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.string.CommonStrings;
+import org.microemu.android.device.AndroidImageInterface;
+import org.microemu.android.device.AndroidImmutableImage;
 
 public class TrueTypeFontUtil extends TrueTypeFontUtilBase {
     protected final LogUtil logUtil = LogUtil.getInstance();
@@ -79,7 +81,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase {
             final String path = file.getAbsolutePath() + CanvasStrings.getInstance().FONT_ATLAS;
             logUtil.put(path, this, commonStrings.CONSTRUCTOR);
             final FileOutputStream fos = new FileOutputStream(path);
-            final Bitmap bitmap = this.fontImage.openGLBitmap.getImage().getBitmap();
+            final Bitmap bitmap = ((AndroidImageInterface) this.fontImage.openGLBitmap.getImage()).getBitmap();
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
         } catch (Exception e) {
             final CommonStrings commonStrings = CommonStrings.getInstance();
@@ -165,7 +167,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase {
             }
             canvas.save();
 
-            final Image image = new Image(bitmap);
+            final Image image = AndroidImmutableImage.create(bitmap);
             //final String FONT_ATLAS = "font_atlas";
             //image.setName(FONT_ATLAS);
             this.fontImage = (OpenGLESImage) this.preResourceImageUtil.encapsulate(image);

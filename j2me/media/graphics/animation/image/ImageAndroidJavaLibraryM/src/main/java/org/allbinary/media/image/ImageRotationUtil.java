@@ -20,6 +20,7 @@ import org.allbinary.graphics.Anchor;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
+import org.microemu.android.device.AndroidImageInterface;
 
 public class ImageRotationUtil
 {
@@ -49,7 +50,7 @@ public class ImageRotationUtil
         {
 
             //Bitmap originalBitmap = originalImage.getBitmap();
-            final Bitmap bitmap = image.getBitmap();
+            final Bitmap bitmap = ((AndroidImageInterface) image).getBitmap();
 
             final int width = bitmap.getWidth();
             final int height = bitmap.getHeight();
@@ -74,7 +75,7 @@ public class ImageRotationUtil
             //image.getGraphics().drawRect(0, 0, width, height);
             
             matrix.setRotate((float) rotationInDegrees, (float) (width >> 1), (float) (height >> 1));
-            final Canvas canvas = image.getCanvas();
+            final Canvas canvas = ((AndroidImageInterface) image).getCanvas();
             //canvas.save();
             
             canvas.concat(matrix);

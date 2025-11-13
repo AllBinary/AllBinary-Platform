@@ -10,6 +10,7 @@ import java.io.IOException;
 
 import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
 import org.allbinary.platform.graphics.PlatformBitmapBase;
+import org.microemu.android.device.AndroidImageInterface;
 
 /**
  *
@@ -47,7 +48,7 @@ public class OpenGLBitmapFactory extends PlatformBitmapBaseFactory {
 
     @Override
     public PlatformBitmapBase createBitmap(final Image image) {
-        return new OpenGLBitmap(image.getBitmap());
+        return new OpenGLBitmap(((AndroidImageInterface) image).getBitmap());
     }
 
 }

@@ -25,6 +25,7 @@ import org.allbinary.image.ImageCache;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.microemu.android.device.AndroidImageInterface;
 
 public class ImageScaleUtil
 {
@@ -77,7 +78,8 @@ public class ImageScaleUtil
             final float scaleX, final float scaleY, final boolean cached) 
     throws Exception
     {
-        final Bitmap originalBitmap = originalImage.getBitmap();
+        final AndroidImageInterface originalAndroidImage = (AndroidImageInterface) originalImage;
+        final Bitmap originalBitmap = originalAndroidImage.getBitmap();
 
         //logUtil.put(CommonLabels.getInstance().COLON_SEP + scaleNominatorX + " / " + scaleDenominatorX + " = " + scaleX, this, commonStrings.CREATE_IMAGE);
 
@@ -149,7 +151,7 @@ public class ImageScaleUtil
     {
         matrix.setScale(scaleX, scaleY);
 
-        final Canvas canvas = image.getCanvas();
+        final Canvas canvas = ((AndroidImageInterface) image).getCanvas();
         canvas.concat(matrix);
     }
 }

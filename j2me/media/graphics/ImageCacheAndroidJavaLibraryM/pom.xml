@@ -93,7 +93,7 @@
 
         <dependency>
             <groupId>org.allbinary.game</groupId>
-            <artifactId>LazyGameResourceNoneJavaLibrary</artifactId>
+            <artifactId>GameResourceNoneJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
