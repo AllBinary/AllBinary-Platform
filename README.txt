@@ -39,7 +39,7 @@ What games use the AllBinary Game Engine?
 
 What is the AllBinary Game Engine?
 
-The AllBinary Game Engine is a Multi-Platform game engine for 2D/3D Single or Multi-Player games/apps.  Entire game engine is in 100% Java or Kotlin (Does use native libraries for desktop platforms).  It supports many platforms including Android (Without native libraries in Java or Kotlin), HTML5, J2ME (MIDP), Windows Native (Avian), and J2SE (Java or Kotlin). Has optional but no longer official support for Flash/Adobe support, J2SE Applet/JNLP/Standalone Applications, and optional CLDC 1.0 (no float). and works with Native support via AOT with GraalVM. The device support is wide ranging including Desktops, Laptops, Notebooks, Phones, Tablets, PDAs, and more including 100,000 different devices. The Operating System support is extensive as well including Windows, Mac, Linux, Android, and more totaling >20 operating systems. It contains rapid game development tools and over 200 small libraries for creating games. The main features include the following:
+The AllBinary Game Engine is a Multi-Platform game engine for 2D/3D Single or Multi-Player games/apps.  Entire game engine is in 100% Java or Kotlin (Does use native libraries for desktop platforms).  It supports many platforms including Android (Without native libraries in Java or Kotlin), HTML5, J2ME (MIDP), Windows Native (Avian), and J2SE (Java or Kotlin).  Has optional but no longer official support for Flash/Adobe support, J2SE Applet/JNLP/Standalone Applications, and optional CLDC 1.0 (no float).  Native support via AOT including GraalVM.  The device support is wide ranging including Desktops, Laptops, Notebooks, Phones, Tablets, PDAs, and more including 100,000 different devices.  The Operating System support is extensive as well including Windows, Mac, Linux, Android, and more totaling >20 operating systems.  It contains rapid game development tools and over 200 small libraries for creating games.  The main features include the following:
 
 - Multi-Platform - Android, J2ME, HTML5, Windows Native (Avian), and J2SE 
   (OS support: Android, Linux/Solaris, Windows, Mac, iOS, Chrome OS, and More)
@@ -79,7 +79,7 @@ The main goal of the AllBinary Game Engine is to reduce UI development cost.
 
 What is the Freeblisket/Weblisket E-Commerce Solution?
 
-Freeblisket uses J2EE, Java, SQL, XML, XSL, and more to provide for a complete e-commerce solution. I developed various JSP custom tag libraries, modules, and APIs for Freeblisket. Freeblisket/Weblisket E-Commerce Solution is a complete E-Commerce solutions with the following features:
+Freeblisket uses J2EE, Java, SQL, XML, XSL, and more to provide for a complete e-commerce solution.  I developed various JSP custom tag libraries, modules, and APIs for Freeblisket.  Freeblisket/Weblisket E-Commerce Solution is a complete E-Commerce solutions with the following features:
 
 Feature Summary:
 
