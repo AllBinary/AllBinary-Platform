@@ -19,18 +19,15 @@ import javax.microedition.khronos.opengles.GL10;
  *
  * @author User
  */
-public class UniformShaderOpenGLProcessor extends OpenGLTextureProcessor {
+public class UniformTextureOpenGLProcessor extends OpenGLObject3dProcessor {
 
-    private final ShaderComposite shaderComposite;
-    
-    public UniformShaderOpenGLProcessor(final ShaderComposite shaderComposite) {
-        this.shaderComposite = shaderComposite;
+    public UniformTextureOpenGLProcessor(final ShaderComposite shaderComposite, final int handleIndex) {
+
     }
 
     @Override
     public void process(final GL10 gl, final Object unused, final int index)
     {
-        //GL11 gl11 = (GL11) gl;
 
     }
 

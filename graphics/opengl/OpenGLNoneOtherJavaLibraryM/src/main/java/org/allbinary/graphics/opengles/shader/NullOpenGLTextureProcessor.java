@@ -19,12 +19,12 @@ package org.allbinary.graphics.opengles.shader;
  */
 public class NullOpenGLTextureProcessor {
     
-    private static final OpenGLTextureProcessor instance = new OpenGLTextureProcessor();
+    private static final OpenGLObject3dProcessor instance = new OpenGLObject3dProcessor();
 
     /**
      * @return the instance
      */
-    public static OpenGLTextureProcessor getInstance() {
+    public static OpenGLObject3dProcessor getInstance() {
         return instance;
     }
     

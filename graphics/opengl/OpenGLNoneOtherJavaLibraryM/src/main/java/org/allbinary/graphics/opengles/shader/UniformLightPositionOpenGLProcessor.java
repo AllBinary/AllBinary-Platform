@@ -13,19 +13,22 @@
  */
 package org.allbinary.graphics.opengles.shader;
 
+import javax.microedition.khronos.opengles.GL10;
+
 /**
  *
  * @author User
  */
-public class NullOpenGLTextureProcessor {
-    
-    private static final OpenGLObject3dProcessor instance = new OpenGLObject3dProcessor();
+public class UniformLightPositionOpenGLProcessor extends OpenGLObject3dProcessor {
 
-    /**
-     * @return the instance
-     */
-    public static OpenGLObject3dProcessor getInstance() {
-        return instance;
+    public UniformLightPositionOpenGLProcessor(final ShaderComposite shaderComposite, final int handleIndex) {
+
     }
-    
+
+    @Override
+    public void process(final GL10 gl, final Object unused)
+    {
+
+    }
+
 }
