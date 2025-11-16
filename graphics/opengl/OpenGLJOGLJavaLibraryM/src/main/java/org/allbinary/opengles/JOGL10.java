@@ -40,6 +40,8 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
     protected final String FACE = "face: ";
     protected final String TARGET = "target: ";
 
+    //private final com.jogamp.opengl.GL2ES1 gl10;
+    //private final com.jogamp.opengl.GL2 gl2;
     private final com.jogamp.opengl.GL2 gl10;
     public final GLU glu;
 
@@ -49,7 +51,7 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
 //    private final com.jogamp.opengl.GL3 gl3;
 //    private final com.jogamp.opengl.GL4 gl4;
 
-    public JOGL10(com.jogamp.opengl.GL gl)
+    public JOGL10(final com.jogamp.opengl.GL gl, final com.jogamp.opengl.GL2 gl2)
     {
         //PreLogUtil.put(StringUtil.getInstance().EMPTY_STRING, this, commonStrings.CONSTRUCTOR);
         
@@ -61,17 +63,23 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
         
         //final com.jogamp.opengl.GL2 gl2 = gl.getGL2();
         
-        final com.jogamp.opengl.GL2 gl2 = (com.jogamp.opengl.GL2) gl;
+        //jogamp.opengl.util.glsl.fixedfunc.FixedFuncImpl
+        //final com.jogamp.opengl.GL2ES1 gl2es1 = (com.jogamp.opengl.GL2ES1) gl;
+        //final com.jogamp.opengl.GL2 gl2 = (com.jogamp.opengl.GL2) gl;
+        //this.gl2 = gl2;
+        //this.gl10 = gl2es1;
         this.gl10 = gl2;
+
         this.glu = GLU.createGLU(this.gl10);
         
-        this.GL_LINE = this.gl10.GL_LINE;
-        this.GL_QUAD_STRIP = this.gl10.GL_QUAD_STRIP;
+        this.GL_LINE = com.jogamp.opengl.GL2.GL_LINE;
+        this.GL_QUAD_STRIP = com.jogamp.opengl.GL2.GL_QUAD_STRIP;
         
         //GLRendererQuirks glRendererQuirks = gl10.getContext().getRendererQuirks();
     }
 
     public com.jogamp.opengl.GL2 getJOGLGL() {
+        //return this.gl2;
         return this.gl10;
     }
     

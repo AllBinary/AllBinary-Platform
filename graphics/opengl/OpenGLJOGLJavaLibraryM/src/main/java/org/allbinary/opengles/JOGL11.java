@@ -13,8 +13,8 @@
  */
 package org.allbinary.opengles;
 
-import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GL;
+import com.jogamp.opengl.GL2;
 
 /**
  *
@@ -42,9 +42,14 @@ public class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengle
 
     private final GL2 gl11;
 
-    public JOGL11(GL gl)
+    public JOGL11(final GL gl)
     {
-        super(gl);
+        this(gl, (com.jogamp.opengl.GL2) gl);
+    }
+    
+    public JOGL11(final GL gl, final com.jogamp.opengl.GL2 gl2)
+    {
+        super(gl, gl2);
 
         //PreLogUtil.put(StringUtil.getInstance().EMPTY_STRING, this, commonStrings.CONSTRUCTOR);
         this.gl11 = getJOGLGL();
@@ -83,6 +88,7 @@ public class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengle
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append("plane: ").append(plane).append(" equation: ").append(equation.length).toString(), this, "GL11.glClipPlanef");
         this.gl11.glClipPlanef(plane, equation, offset);
+        //throw new RuntimeException();
     }
 
     public void glClipPlanef(int plane, java.nio.FloatBuffer equation)
@@ -90,6 +96,7 @@ public class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengle
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append("plane: ").append(plane).append(" equation: ").append(equation).toString(), this, "GL11.glClipPlanef");
         this.gl11.glClipPlanef(plane, equation);
+        //throw new RuntimeException();
     }
 
 //    public void glClipPlanex(int plane, int[] equation, int offset)
@@ -188,6 +195,7 @@ public class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengle
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(" eqn: ").append(eqn.length).toString(), this, "GL11.glGetClipPlanef");
         this.gl11.glGetClipPlanef(pname, eqn, offset);
+        //throw new RuntimeException();
     }
 
     public void glGetClipPlanef(int pname, java.nio.FloatBuffer eqn)
@@ -195,6 +203,7 @@ public class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengle
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(" eqn: ").append(eqn).toString(), this, "GL11.glGetClipPlanef");
         this.gl11.glGetClipPlanef(pname, eqn);
+        //throw new RuntimeException();
     }
 
 //    public void glGetClipPlanex(int pname, int[] eqn, int offset)
