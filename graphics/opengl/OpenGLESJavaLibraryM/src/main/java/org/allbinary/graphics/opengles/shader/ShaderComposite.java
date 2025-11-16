@@ -50,6 +50,7 @@ public class ShaderComposite {
     
     public OpenGLObject3dProcessor uniformLightPositionOpenGLProcessor = NullOpenGLTextureProcessor.getInstance();
     public OpenGLObject3dProcessor uniformLightColorOpenGLProcessor = NullOpenGLTextureProcessor.getInstance();
+    public OpenGLObject3dProcessor uniformCameraPositionOpenGLProcessor = NullOpenGLTextureProcessor.getInstance();
     
     public OpenGLObject3dProcessor uniformTextureUnitOpenGLProcessor = NullOpenGLTextureProcessor.getInstance();
 
