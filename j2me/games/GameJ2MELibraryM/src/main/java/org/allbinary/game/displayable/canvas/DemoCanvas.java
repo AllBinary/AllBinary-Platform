@@ -12,8 +12,6 @@
 * 
 */
 package org.allbinary.game.displayable.canvas;
-import org.allbinary.thread.ARunnable;
-
 
 import java.util.Hashtable;
 import java.util.Vector;
@@ -174,7 +172,7 @@ public class DemoCanvas extends RunnableCanvas
     private final InputToGameKeyMapping inputToGameKeyMapping = 
         PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping();
     
-    private GameRunnable gameRunnable = NullWaitGameRunnable.getInstance();
+    protected GameRunnable gameRunnable = NullWaitGameRunnable.getInstance();
     
     public DemoCanvas(final AbeClientInformationInterface abeClientInformation,
         final CommandListener commandListener,

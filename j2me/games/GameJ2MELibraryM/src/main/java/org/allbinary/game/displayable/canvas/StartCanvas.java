@@ -152,7 +152,7 @@ public class StartCanvas extends RunnableCanvas
     private final InputToGameKeyMapping inputToGameKeyMapping = 
         PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping();
     
-    private GameRunnable gameRunnable = NullWaitGameRunnable.getInstance();
+    protected GameRunnable gameRunnable = NullWaitGameRunnable.getInstance();
 
     private PaintableInterface progressPaintable = ProgressCanvasFactory.getLazyInstance();
 
