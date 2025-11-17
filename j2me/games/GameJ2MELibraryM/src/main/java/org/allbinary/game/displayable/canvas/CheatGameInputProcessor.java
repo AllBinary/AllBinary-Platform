@@ -64,8 +64,8 @@ public class CheatGameInputProcessor extends PlayerGameInput
                     inputProcessor.strafeLeft();
                     
                     gameLayerManager.getGameInfo().previousGameLevel();
-                    logUtil.put(new StringMaker().append("Down Level Cheat: ").append(gameLayerManager.getGameInfo().getCurrentLevel()).toString(),this, PROCESS_GAME);
-                    this.gameCanvas.buildGame(true);
+                    //logUtil.put(new StringMaker().append("Down Level Cheat: ").append(gameLayerManager.getGameInfo().getCurrentLevel()).toString(),this, PROCESS_GAME);
+                    //this.gameCanvas.buildGame(true);
                     break;
                 }
                 else if (key == gameKeyFactory.LEVEL_UP.getId())
@@ -73,8 +73,8 @@ public class CheatGameInputProcessor extends PlayerGameInput
                     inputProcessor.strafeRight();
                     
                     gameLayerManager.getGameInfo().nextGameLevel();
-                    logUtil.put(new StringMaker().append("Up Level Cheat: ").append(gameLayerManager.getGameInfo().getCurrentLevel()).toString(),this, PROCESS_GAME);
-                    this.gameCanvas.buildGame(true);
+                    //logUtil.put(new StringMaker().append("Up Level Cheat: ").append(gameLayerManager.getGameInfo().getCurrentLevel()).toString(),this, PROCESS_GAME);
+                    //this.gameCanvas.buildGame(true);
                     break;
                 }
                 
