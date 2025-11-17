@@ -63,7 +63,7 @@ public class CheatGameInputProcessor extends PlayerGameInput
                 {
                     inputProcessor.strafeLeft();
                     
-                    gameLayerManager.getGameInfo().previousGameLevel();
+                    //gameLayerManager.getGameInfo().previousGameLevel();
                     //logUtil.put(new StringMaker().append("Down Level Cheat: ").append(gameLayerManager.getGameInfo().getCurrentLevel()).toString(),this, PROCESS_GAME);
                     //this.gameCanvas.buildGame(true);
                     break;
@@ -72,7 +72,7 @@ public class CheatGameInputProcessor extends PlayerGameInput
                 {
                     inputProcessor.strafeRight();
                     
-                    gameLayerManager.getGameInfo().nextGameLevel();
+                    //gameLayerManager.getGameInfo().nextGameLevel();
                     //logUtil.put(new StringMaker().append("Up Level Cheat: ").append(gameLayerManager.getGameInfo().getCurrentLevel()).toString(),this, PROCESS_GAME);
                     //this.gameCanvas.buildGame(true);
                     break;
