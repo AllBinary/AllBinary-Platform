@@ -717,19 +717,19 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         final Features features = Features.getInstance();
 
-//        if (features.isFeature(GameFeatureFactory.getInstance().CHEATING))
-//        {
-//            this.isCheating = true;
+        if (features.isFeature(GameFeatureFactory.getInstance().CHEATING))
+        {
+            this.isCheating = true;
             this.cheatProcessor = new CheatGameInputProcessor(this);
 
             this.gameKeyEventHandler.addListener(this.cheatProcessor);
-//
-//        }
-//        else
-//        {
-//            this.isCheating = false;
-//            this.cheatProcessor = NoPlayerGameInput.getInstance();
-//        }
+
+        }
+        else
+        {
+            this.isCheating = false;
+            this.cheatProcessor = NoPlayerGameInput.getInstance();
+        }
 
         this.realEndGameProcessor = new EndGameProcessor(this);
         this.setEndGameProcessor(Processor.getInstance());
