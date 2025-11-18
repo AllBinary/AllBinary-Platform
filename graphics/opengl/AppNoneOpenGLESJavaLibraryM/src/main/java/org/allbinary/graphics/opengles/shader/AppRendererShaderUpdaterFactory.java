@@ -37,5 +37,8 @@ public class AppRendererShaderUpdaterFactory extends ShaderUpdater {
     public ShaderOpenGLProcessor[] getTestShaders() {
         return shaderOpenGLProcessorArray;
     }
+   
+    public void setShaderComposite(final Object object3d) {
+    }
     
 }
