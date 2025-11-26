@@ -67,6 +67,8 @@ public class OpenGLCapabilities
 
     public final String VERSION_UNK = "Unk";
 
+    public final String GL_EXT_GPU_SHADER_100 = "GL_ARB_shading_language_100";
+    
     //OpenGLVersionValidator contains the version mapping for Android
     //Shader    to      OpenGL Version    
     //1.10              2.0
@@ -89,6 +91,7 @@ public class OpenGLCapabilities
     
     private boolean glThreedDrawTexture;
     private boolean glExtensionGPUShader4;
+    private boolean glExtensionGPUShader100;
 
     private boolean vertexBufferObjectSupport;
     
@@ -119,53 +122,60 @@ public class OpenGLCapabilities
 
             final StringMaker stringBuffer = new StringMaker();
 
-            glVersionString = gl.glGetString(GL10.GL_VERSION);
+            this.glVersionString = gl.glGetString(GL10.GL_VERSION);
             
             final int GL_SHADING_LANGUAGE_VERSION = 0x8b8c;
-            glShaderVersionString = gl.glGetString(GL_SHADING_LANGUAGE_VERSION);
+            this.glShaderVersionString = gl.glGetString(GL_SHADING_LANGUAGE_VERSION);
             //GL_NV_gpu_program4: SM 4.0 or better.
             //GL_NV_vertex_program3: SM 3.0 or better.
             //GL_ARB_fragment_program: SM 2.0 or better.            
-            if(glShaderVersionString == null) {
-                glShaderVersionString = stringUtil.EMPTY_STRING;
+            if(this.glShaderVersionString == null) {
+                this.glShaderVersionString = stringUtil.EMPTY_STRING;
             }
             try {
-                if(glShaderVersionString != null && glShaderVersionString.indexOf('.') >= 0) {
+                if(this.glShaderVersionString != null && this.glShaderVersionString.indexOf('.') >= 0) {
 
-                    final int startIndex = glShaderVersionString.lastIndexOf(' ');
+                    final int startIndex = this.glShaderVersionString.lastIndexOf(' ');
                     if (startIndex >= 0) {
-                        glShaderVersionString = glShaderVersionString.substring(startIndex + 1);
+                        this.glShaderVersionString = this.glShaderVersionString.substring(startIndex + 1);
                     }
 
-                    shaderVersion = Integer.parseInt(glShaderVersionString.replace(CommonSeps.getInstance().PERIOD, StringUtil.getInstance().EMPTY_STRING));
+                    this.shaderVersion = Integer.parseInt(this.glShaderVersionString.replace(CommonSeps.getInstance().PERIOD, StringUtil.getInstance().EMPTY_STRING));
                 }
             } catch(Exception e) {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
                 logUtil.put(commonStrings.EXCEPTION, this, METHOD_NAME, e);
             }
 
-            glRenderer = gl.glGetString(GL10.GL_RENDERER);
-            glVendor = gl.glGetString(GL10.GL_VENDOR);
-            glExtensions = gl.glGetString(GL10.GL_EXTENSIONS);
-            if(glExtensions.indexOf(this.GL_EXT_GPU_SHADER4) >= 0) {
-                glExtensionGPUShader4 = true;
+            this.glRenderer = gl.glGetString(GL10.GL_RENDERER);
+            this.glVendor = gl.glGetString(GL10.GL_VENDOR);
+            this.glExtensions = gl.glGetString(GL10.GL_EXTENSIONS);
+            
+            if(this.glExtensions.indexOf(this.GL_EXT_GPU_SHADER_100) >= 0) {
+                this.glExtensionGPUShader100 = true;
             } else {
-                glExtensionGPUShader4 = false;
+                this.glExtensionGPUShader100 = false;
+            }
+            
+            if(this.glExtensions.indexOf(this.GL_EXT_GPU_SHADER4) >= 0) {
+                this.glExtensionGPUShader4 = true;
+            } else {
+                this.glExtensionGPUShader4 = false;
             }
             
 
-            if(glRenderer == null) {
-                glRenderer = stringUtil.EMPTY_STRING;
+            if(this.glRenderer == null) {
+                this.glRenderer = stringUtil.EMPTY_STRING;
             }
 
-            if (glRenderer.toLowerCase().indexOf("pixelflinger") >= 0)
+            if (this.glRenderer.toLowerCase().indexOf("pixelflinger") >= 0)
             {
-                acceleratedString = "Probably Not for " + glRenderer;
-                possiblyAccelerated = false;
+                this.acceleratedString = "Probably Not for " + this.glRenderer;
+                this.possiblyAccelerated = false;
             } else
             {
-                acceleratedString = "Probably for " + glRenderer;;
-                possiblyAccelerated = true;
+                this.acceleratedString = "Probably for " + this.glRenderer;;
+                this.possiblyAccelerated = true;
             }
 
             /*
@@ -220,15 +230,15 @@ public class OpenGLCapabilities
                 this.glInstanceVersion = this.VERSION_1_0;
             }
 
-            if(glVendor == null) {
-                glVendor = stringUtil.EMPTY_STRING;
+            if(this.glVendor == null) {
+                this.glVendor = stringUtil.EMPTY_STRING;
             }
                         
-            if(glExtensions == null) {
-                glExtensions = stringUtil.EMPTY_STRING;
+            if(this.glExtensions == null) {
+                this.glExtensions = stringUtil.EMPTY_STRING;
             }
 
-            if (possiblyAccelerated)
+            if (this.possiblyAccelerated)
             {
                 PreLogUtil.put(new StringMaker().append("VBO:?").append((this.glInstanceVersion == this.VERSION_1_1)).append("||").append(this.isExtension(openGLFeatureFactory.OPENGL_VERTEX_BUFFER_OBJECT)).toString(), this, METHOD_NAME);
                 if ((this.glInstanceVersion == this.VERSION_1_1 || this.isExtension(openGLFeatureFactory.OPENGL_VERTEX_BUFFER_OBJECT)))
@@ -295,7 +305,7 @@ public class OpenGLCapabilities
             //this.glThreedDrawTexture = true;
             //OpenGLImageSpecificFactory.getInstance().setImageFactory(new OpenGLESGL10RectangleImageFactory());
             
-            initialized = true;
+            this.initialized = true;
         }
         catch (Exception e)
         {
@@ -307,7 +317,7 @@ public class OpenGLCapabilities
     private boolean isExtension(OpenGLFeature gameFeature)
     {
         
-        int index = glExtensions.indexOf(gameFeature.getName());
+        int index = this.glExtensions.indexOf(gameFeature.getName());
         if(index >= 0)
         {
             return true;
@@ -321,49 +331,54 @@ public class OpenGLCapabilities
     public boolean isGlExtensionDrawTexture()
     {
         this.requireInitialization();
-        return glExtensionDrawTexture;
+        return this.glExtensionDrawTexture;
+    }
+
+    public boolean isGlExtensionGPUShader100()
+    {
+        return this.glExtensionGPUShader100;
     }
 
     public boolean isGlExtensionGPUShader4()
     {
         this.requireInitialization();
-        return glExtensionGPUShader4;
+        return this.glExtensionGPUShader4;
     }
     
     public String getGlVersion()
     {
         this.requireInitialization();
-        return glVersion;
+        return this.glVersion;
     }
 
     public String getGlVersionString()
     {
         this.requireInitialization();
-        return glVersionString;
+        return this.glVersionString;
     }
     
     public String getGlShaderVersion()
     {
         this.requireInitialization();
-        return glShaderVersionString;
+        return this.glShaderVersionString;
     }
     
     public boolean isGlThreedDrawTexture()
     {
         this.requireInitialization();
-        return glThreedDrawTexture;
+        return this.glThreedDrawTexture;
     }
 
     public String getGlRenderer()
     {
         this.requireInitialization();
-        return glRenderer;
+        return this.glRenderer;
     }
 
     public boolean isVertexBufferObjectSupport()
     {
         this.requireInitialization();
-        return vertexBufferObjectSupport;
+        return this.vertexBufferObjectSupport;
     }
 
     public boolean isTextureSizeValid(final int widthAndHeight)
@@ -383,16 +398,16 @@ public class OpenGLCapabilities
         final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("GL_VERSION: ");
-        stringBuffer.append(glVersionString);
+        stringBuffer.append(this.glVersionString);
         stringBuffer.append(" GL_SHADING_LANGUAGE_VERSION: ");
         stringBuffer.append(this.glShaderVersionString);
         stringBuffer.append(" GL_RENDERER: ");
-        stringBuffer.append(glRenderer);
+        stringBuffer.append(this.glRenderer);
         stringBuffer.append(" GL_VENDOR: ");
-        stringBuffer.append(glVendor);
+        stringBuffer.append(this.glVendor);
         stringBuffer.append(commonSeps.NEW_LINE);
         stringBuffer.append(" Is Accelerated: ");
-        stringBuffer.append(acceleratedString);
+        stringBuffer.append(this.acceleratedString);
         stringBuffer.append(commonSeps.NEW_LINE);
         stringBuffer.append(" VBO Support: ");
         stringBuffer.append(this.isVertexBufferObjectSupport());
@@ -406,7 +421,7 @@ public class OpenGLCapabilities
         {
             Tokenizer tokenizer = new Tokenizer(commonSeps.SPACE);
 
-            BasicArrayList list = tokenizer.getTokens(glExtensions, new BasicArrayList());
+            BasicArrayList list = tokenizer.getTokens(this.glExtensions, new BasicArrayList());
 
             final int size = list.size();
             for(int index = 0; index < size; index++)
