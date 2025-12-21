@@ -101,7 +101,7 @@ public class TextAnimation extends IndexedAnimation
         }
     }
 
-    public String[] getText()
+    public String[] getTextArray()
     {
         return textArray;
     }

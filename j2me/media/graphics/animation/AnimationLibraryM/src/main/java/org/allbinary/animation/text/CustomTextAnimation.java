@@ -25,6 +25,7 @@ import org.allbinary.logic.string.StringUtil;
  * @author User
  */
 public class CustomTextAnimation extends TextAnimation
+    implements GetTextInterface
 {
 
     protected final FontDebugFactory fontDebugFactory = FontDebugFactory.getInstance();
@@ -104,6 +105,10 @@ public class CustomTextAnimation extends TextAnimation
 //            final CommonLabels commonLabels = CommonLabels.getInstance();
 //            logUtil.put(new StringMaker().append("setText - font: ").append(font.getSize()).append(commonLabels.WIDTH_LABEL).append(font.stringWidth(text)).append(" text: ").append(text).toString(), this, commonStrings.PROCESS);
 //        }
+    }
+
+    public String getText() {
+        return this.lastText;
     }
 
     private int textWidth;
