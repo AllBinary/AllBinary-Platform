@@ -29,7 +29,7 @@ public class SoftwareInformation
         this.version = version;
         //Records are associated with this short name and should only be a few chars to keep compatibility with the J2ME spec.  However, most J2ME devices support more than the spec.
         //Since Kotlin build input mappings are not the same as Java for some reason we need to include that in the shortname to make sure we are not using the incorrect mapping.
-        this.shortName = shortName + KotlinUtil.getShortName();
+        this.shortName = new StringMaker().append(shortName).append(KotlinUtil.getShortName()).toString();
     }
     
     public String getName()
