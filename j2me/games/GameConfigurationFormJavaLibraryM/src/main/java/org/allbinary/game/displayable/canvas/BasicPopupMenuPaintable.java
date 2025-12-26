@@ -21,7 +21,6 @@ import org.allbinary.animation.Animation;
 import org.allbinary.animation.NullAnimationFactory;
 import org.allbinary.animation.vector.RectangleFilledAnimation;
 import org.allbinary.game.configuration.feature.Features;
-import org.allbinary.game.configuration.feature.HTMLFeatureFactory;
 import org.allbinary.game.layer.SWTUtil;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.Rectangle;
@@ -78,11 +77,10 @@ public class BasicPopupMenuPaintable extends Paintable
         this.rectangle = rectangle;
         
         final Features features = Features.getInstance();
-        final boolean isHTML = features.isDefault(HTMLFeatureFactory.getInstance().HTML);
         final boolean isOpenGL = features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL);
 
         int BORDER = 0;
-        if(isHTML || (AndroidUtil.isAndroid() && isOpenGL)) {
+        if(J2MEUtil.isHTML() || (AndroidUtil.isAndroid() && isOpenGL)) {
             BORDER = MyFont.getInstance().charWidth() / 2;
         } else if(AndroidUtil.isAndroid() || J2MEUtil.isJ2SE() || SWTUtil.isSWT) {
             BORDER = MyFont.getInstance().charWidth();

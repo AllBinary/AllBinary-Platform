@@ -52,7 +52,6 @@ import org.allbinary.game.configuration.event.ChangedGameFeatureListener;
 import org.allbinary.game.configuration.event.GameFeatureEventHandler;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.GameFeatureFormUtil;
-import org.allbinary.game.configuration.feature.HTMLFeatureFactory;
 import org.allbinary.game.configuration.feature.MainFeatureFactory;
 import org.allbinary.game.configuration.persistance.GamePersistanceSingleton;
 import org.allbinary.game.configuration.persistance.KeyValuePersistance;
@@ -115,7 +114,6 @@ public class GameMidlet extends ProgressMidlet
 
     protected final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
     protected final Features features = Features.getInstance();
-    protected final HTMLFeatureFactory htmlFeatureFactory = HTMLFeatureFactory.getInstance();
     protected final MidletStrings midletStrings = MidletStrings.getInstance();
     protected final MyCommandsFactory myCommandsFactory = MyCommandsFactory.getInstance();
     protected final GameStrings gameStrings = GameStrings.getInstance();
@@ -580,7 +578,7 @@ public class GameMidlet extends ProgressMidlet
             {
                 //TWB - Called for HTML5 but not others?
 
-                if (features.isDefault(htmlFeatureFactory.HTML))
+                if (J2MEUtil.isHTML())
                 {
                     this.pauseAppBackground(false);
                 }

@@ -13,9 +13,8 @@
 */
 package org.allbinary.thread;
 
+import org.allbinary.J2MEUtil;
 import org.allbinary.canvas.RunnableCanvas;
-import org.allbinary.game.configuration.feature.Features;
-import org.allbinary.game.configuration.feature.HTMLFeatureFactory;
 import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
 import org.allbinary.game.displayable.canvas.DemoCanvas;
 import org.allbinary.game.displayable.canvas.GameCanvasRunnableInterface;
@@ -50,9 +49,8 @@ public class ThreadFactoryUtil
     private Thread getInstance(final Runnable runnable, final int type)
     {
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        final Features features = Features.getInstance();
 
-        if (features.isDefault(HTMLFeatureFactory.getInstance().HTML))
+        if (J2MEUtil.isHTML())
         {
             if (type == DemoCanvas.TYPE || type == AllBinaryGameCanvas.TYPE)
             {

@@ -15,8 +15,8 @@ package org.allbinary.graphics.opengles;
 
 import javax.microedition.lcdui.Displayable;
 
+import org.allbinary.J2MEUtil;
 import org.allbinary.game.configuration.feature.Features;
-import org.allbinary.game.configuration.feature.HTMLFeatureFactory;
 import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
 import org.allbinary.game.displayable.canvas.DemoCanvas;
 import org.allbinary.game.displayable.canvas.GameInputMappingCanvas;
@@ -26,6 +26,7 @@ import org.allbinary.game.displayable.canvas.NullDisplayable;
 import org.allbinary.game.displayable.canvas.NullWaitGameRunnable;
 import org.allbinary.game.layer.SWTUtil;
 import org.allbinary.game.score.displayable.HighScoresCanvas;
+import org.allbinary.graphics.GraphicsStrings;
 import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.graphics.displayable.MyCanvas;
 import org.allbinary.logic.communication.log.PreLogUtil;
@@ -141,9 +142,9 @@ public class CurrentDisplayableFactory
             if (SWTUtil.isSWT && !features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL)) {
                 PreLogUtil.put(stringMaker.append(commonSeps.SPACE).append(SWTUtil.SWT).append(commonSeps.SPACE).append(RUNNABLE).append(this.stringUtil.toString(NullRunnable.getInstance())).toString(), this, commonStrings.UPDATE);
                 this.setUsedRunnable(NullWaitGameRunnable.getInstance());
-            } else if (features.isDefault(HTMLFeatureFactory.getInstance().HTML))
+            } else if (J2MEUtil.isHTML())
             {
-                PreLogUtil.put(stringMaker.append(commonSeps.SPACE).append(HTMLFeatureFactory.getInstance().HTML.toString()).append(commonSeps.SPACE).append(RUNNABLE).append(this.stringUtil.toString(runnable)).toString(), this, commonStrings.UPDATE);
+                PreLogUtil.put(stringMaker.append(commonSeps.SPACE).append(GraphicsStrings.getInstance().HTML).append(commonSeps.SPACE).append(RUNNABLE).append(this.stringUtil.toString(runnable)).toString(), this, commonStrings.UPDATE);
                 this.setUsedRunnable(runnable);
             } else if (openGlReadydisplayable instanceof DemoCanvas || 
                     openGlReadydisplayable instanceof AllBinaryGameCanvas ||

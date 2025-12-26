@@ -33,5 +33,7 @@ public class GraphicsStrings {
     public final String MOVEMENT_ANGLE = "movement_angle";
     public final String ROTATION = "rotation";
     public final String OPACITY = "opacity";
+
+    public final String HTML = "HTML";
     
 }

@@ -18,6 +18,7 @@ import java.io.InputStream;
 import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.NullCanvas;
 
+import org.allbinary.J2MEUtil;
 import org.allbinary.animation.image.LazyImageRotationAnimation;
 import org.allbinary.canvas.GameGlobalsFactory;
 import org.allbinary.canvas.Processor;
@@ -26,8 +27,6 @@ import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.game.canvas.ABToGBUtil;
-import org.allbinary.game.configuration.feature.Features;
-import org.allbinary.game.configuration.feature.HTMLFeatureFactory;
 import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
 import org.allbinary.game.gd.resource.GDLazyResources;
 import org.allbinary.game.gd.resource.GDResources;
@@ -110,12 +109,10 @@ public class ImageCache extends ImageCacheBase {
 
     }
     
-    private boolean isHTML;
     private class FirstProcessor extends Processor {
         
         public void process() {
-            final Features features = Features.getInstance();
-            isHTML = features.isDefault(HTMLFeatureFactory.getInstance().HTML);
+            final boolean isHTML = J2MEUtil.isHTML();
             //logUtil.put(new StringMaker().append("isHTML: ").append(isHTML).toString(), this, commonStrings.RUN);
             if (isHTML) {
                 processor = Processor.getInstance();
@@ -225,6 +222,7 @@ public class ImageCache extends ImageCacheBase {
 
             //logUtil.put("should end progress? " + this.loadNowList.size(), this, commonStrings.RUN);
             final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+            final boolean isHTML = J2MEUtil.isHTML();
             if (this.loadNowList.isEmpty() && (!isHTML || this.firstTime)) {
                 //logUtil.put("end progress", this, commonStrings.RUN);
                 progressCanvas.endFromInitialLazyLoadingComplete();

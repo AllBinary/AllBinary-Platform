@@ -17,10 +17,10 @@ import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
 
+import org.allbinary.J2MEUtil;
 import org.allbinary.game.GameInfo;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.configuration.feature.Features;
-import org.allbinary.game.configuration.feature.HTMLFeatureFactory;
 import org.allbinary.game.displayable.canvas.GameCommandCanvas;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.paint.ColorFillBasePaintable;
@@ -127,15 +127,13 @@ public class HighScoresCanvas extends GameCommandCanvas
             this.updateCommand(this.currentCommand);
             this.setPaintable(this.getHighScoresPaintable());
         }
-
-        final Features features = Features.getInstance();
-        final boolean isHTML = features.isDefault(HTMLFeatureFactory.getInstance().HTML);
         
         SecondaryThreadPool.getInstance().runTask(new ARunnable() {
             @Override
             public void run() {
                 
                 try {
+                    final boolean isHTML = J2MEUtil.isHTML();
                     if (!isHTML) {
                         while (!hasPainted) {
                         }

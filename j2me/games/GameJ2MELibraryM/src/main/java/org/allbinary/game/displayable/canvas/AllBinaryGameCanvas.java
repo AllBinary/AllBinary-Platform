@@ -23,6 +23,7 @@ import javax.microedition.lcdui.Item;
 import javax.microedition.lcdui.NullCommandListener;
 
 import org.allbinary.AndroidUtil;
+import org.allbinary.J2MEUtil;
 import org.allbinary.business.advertisement.GameAdStateFactory;
 import org.allbinary.canvas.BaseGameStatistics;
 import org.allbinary.canvas.GameStatisticsFactory;
@@ -47,7 +48,6 @@ import org.allbinary.game.configuration.event.GameInitializedEventHandler;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.GameFeatureFactory;
 import org.allbinary.game.configuration.feature.GameFeatureUtil;
-import org.allbinary.game.configuration.feature.HTMLFeatureFactory;
 import org.allbinary.game.configuration.feature.InputFeatureFactory;
 import org.allbinary.game.configuration.feature.MainFeatureFactory;
 import org.allbinary.game.configuration.feature.SensorFeatureFactory;
@@ -75,6 +75,7 @@ import org.allbinary.game.score.NullHighScoresSingletonFactory;
 import org.allbinary.game.score.displayable.HighScoreTextBox;
 import org.allbinary.game.state.GameState;
 import org.allbinary.game.state.GameStateFactory;
+import org.allbinary.graphics.GraphicsStrings;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.ScreenCapture;
 import org.allbinary.graphics.ScreenCaptureFactory;
@@ -327,10 +328,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     @Override
     public void setCurrentThread()
     {
-        final Features features = Features.getInstance();
-        final HTMLFeatureFactory htmlFeatureFactory = HTMLFeatureFactory.getInstance();
-
-        if(features.isDefault(htmlFeatureFactory.HTML))
+        if(J2MEUtil.isHTML())
         {
             super.setCurrentThreadFake();
         }
@@ -901,7 +899,6 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     {
         final GameCommandsFactory gameCommandsFactory = GameCommandsFactory.getInstance();
         final MyCommandsFactory myCommandsFactory = MyCommandsFactory.getInstance();
-        final HTMLFeatureFactory htmlFeatureFactory = HTMLFeatureFactory.getInstance();
 
         if (DebugFactory.getInstance() != NoDebug.getInstance())
         {
@@ -918,7 +915,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         final Features features = Features.getInstance();
 
-        if(features.isDefault(htmlFeatureFactory.HTML)) {
+        if(J2MEUtil.isHTML()) {
         } else if(SWTUtil.isSWT) {
         } else if(!isOverScan) {
 
@@ -1651,7 +1648,6 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     public void run2() throws Exception {
 
         final Features features = Features.getInstance();
-        final HTMLFeatureFactory htmlFeatureFactory = HTMLFeatureFactory.getInstance();
 
 //        if (SWTUtil.isSWT) {
 //
@@ -1677,15 +1673,14 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 //            currentDisplayableFactory.setRunnable(gameRunnable);
 //
 //        } else 
-            if (features.isDefault(openGLFeatureFactory.OPENGL_AS_GAME_THREAD)
-                || features.isDefault(htmlFeatureFactory.HTML)) {
+            if (features.isDefault(openGLFeatureFactory.OPENGL_AS_GAME_THREAD) || J2MEUtil.isHTML()) {
             
             if (features.isDefault(openGLFeatureFactory.OPENGL_AS_GAME_THREAD)) {
                 logUtil.put(openGLFeatureFactory.OPENGL_AS_GAME_THREAD.getName(), this, commonStrings.RUN);
             }
 
-            if (features.isDefault(htmlFeatureFactory.HTML)) {
-                logUtil.put(htmlFeatureFactory.HTML.getName(), this, commonStrings.RUN);
+            if (J2MEUtil.isHTML()) {
+                logUtil.put(GraphicsStrings.getInstance().HTML, this, commonStrings.RUN);
             }
 
             final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
@@ -1768,7 +1763,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             } else {
                 //If game thread is not actually running                
                 if (features.isDefault(openGLFeatureFactory.OPENGL) ||
-                    //features.isDefault(htmlFeatureFactory.HTML)) ||
+                    //J2MEUtil.isHTML()) ||
                     SWTUtil.isSWT) {
                     
                     if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT) {

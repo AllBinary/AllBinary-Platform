@@ -13,8 +13,8 @@
  */
 package org.allbinary.game.layer.unit;
 
+import org.allbinary.J2MEUtil;
 import org.allbinary.game.configuration.feature.Features;
-import org.allbinary.game.configuration.feature.HTMLFeatureFactory;
 import org.allbinary.game.layer.SteeringVisitor;
 import org.allbinary.game.layer.AdvancedRTSGameLayer;
 import org.allbinary.game.layer.MultipassWaypointPathRunnable;
@@ -84,10 +84,9 @@ extends UnitWaypointBehavior
         this.wanderPathsList = new BasicArrayList();
         
         final Features features = Features.getInstance();
-        final boolean isHTML = features.isDefault(HTMLFeatureFactory.getInstance().HTML);
 
         this.waypointPathRunnable = 
-            isHTML ? new MultipassWaypointPathRunnable() : 
+            J2MEUtil.isHTML() ? new MultipassWaypointPathRunnable() : 
             new WaypointPathRunnable();
     
     }

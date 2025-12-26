@@ -76,7 +76,7 @@ public class BaseGameBehavior extends DemoGameBehavior {
 //            
 //        } else 
             if (features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD) 
-                //|| features.isDefault(HTMLFeatureFactory.getInstance().HTML)
+                //|| J2MEUtil.isHTML())
                 ) {
             
             //logUtil.put("pause", this, METHOD_NAME);

@@ -21,6 +21,7 @@ import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Item;
 
+import org.allbinary.J2MEUtil;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.IndexedAnimationBehavior;
 import org.allbinary.animation.special.SpecialAnimation;
@@ -36,7 +37,6 @@ import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.configuration.event.ChangedGameFeatureListener;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.GameFeatureFactory;
-import org.allbinary.game.configuration.feature.HTMLFeatureFactory;
 import org.allbinary.game.configuration.feature.InputFeatureFactory;
 import org.allbinary.game.configuration.feature.MainFeatureFactory;
 import org.allbinary.game.init.BasicBuildGameInitializerFactory;
@@ -258,11 +258,9 @@ public class DemoCanvas extends RunnableCanvas
     
     protected Object[] getCustomCommands()
     {
-        final Features features = Features.getInstance();
         final GameCommandsFactory gameCommandsFactory = GameCommandsFactory.getInstance();
-        final HTMLFeatureFactory htmlFeatureFactory = HTMLFeatureFactory.getInstance();
 
-        if (features.isDefault(htmlFeatureFactory.HTML))
+        if (J2MEUtil.isHTML())
         {
             //TWB - Removed Options that are not HTML5 capable yet
             final Object[] commandArray =
@@ -906,13 +904,10 @@ public class DemoCanvas extends RunnableCanvas
     public void showGamePaintable()
     {
         final String METHOD_NAME = "showGamePaintable";
-        
-        final Features features = Features.getInstance();
-        final HTMLFeatureFactory htmlFeatureFactory = HTMLFeatureFactory.getInstance();
-        
+                
         PreLogUtil.put(commonStrings.START, this, METHOD_NAME);
         
-        final boolean isDefault = features.isDefault(htmlFeatureFactory.HTML);
+        final boolean isDefault = J2MEUtil.isHTML();
         if (this.gameCanvas != NullGameCanvas.getInstance() && 
                 (this.gameCanvas.isRunning() || isDefault || SWTUtil.isSWT)
                 && !(this.gameCanvas.getType() == NullGameCanvas.TYPE)
@@ -978,7 +973,6 @@ public class DemoCanvas extends RunnableCanvas
         {
             final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
             final Features features = Features.getInstance();
-            final HTMLFeatureFactory htmlFeatureFactory = HTMLFeatureFactory.getInstance();
             final OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
 
             progressCanvas.addPortion(50, "Demo Thread");
@@ -1059,8 +1053,7 @@ public class DemoCanvas extends RunnableCanvas
                 OpenGLThreadUtil.getInstance().onResume();
             }
 
-            if (features.isDefault(openGLFeatureFactory.OPENGL_AS_GAME_THREAD) ||
-                    features.isDefault(htmlFeatureFactory.HTML))
+            if (features.isDefault(openGLFeatureFactory.OPENGL_AS_GAME_THREAD) || J2MEUtil.isHTML())
             {
                 //PreLogUtil.put(commonStrings.START, this, "OPENGL_AS_GAME_THREAD 2");
 
@@ -1110,7 +1103,6 @@ public class DemoCanvas extends RunnableCanvas
         try
         {
             final Features features = Features.getInstance();
-            final HTMLFeatureFactory htmlFeatureFactory = HTMLFeatureFactory.getInstance();
             final OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
             
             //If game thread is not actually running
@@ -1123,8 +1115,7 @@ public class DemoCanvas extends RunnableCanvas
 //                    swtRunnableProcessor.runnable = NullRunnable.getInstance();
 //                }
                 
-                if ((features.isDefault(openGLFeatureFactory.OPENGL) || 
-                    features.isDefault(htmlFeatureFactory.HTML)) || 
+                if ((features.isDefault(openGLFeatureFactory.OPENGL) || J2MEUtil.isHTML()) || 
                     SWTUtil.isSWT) {
                     final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
                     currentDisplayableFactory.clearRunnable();

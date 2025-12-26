@@ -16,8 +16,8 @@ package org.allbinary.graphics.draw;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.AndroidUtil;
+import org.allbinary.J2MEUtil;
 import org.allbinary.game.configuration.feature.Features;
-import org.allbinary.game.configuration.feature.HTMLFeatureFactory;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.font.MyFont;
 import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
@@ -46,11 +46,9 @@ public class DrawStringUtil
         final OpenGLFeatureUtil openGLFeatureUtil = OpenGLFeatureUtil.getInstance();
 
         int charHeight = myFont.DEFAULT_CHAR_HEIGHT;
-        
-        final Features features = Features.getInstance();
-        final boolean isHTML = features.isDefault(HTMLFeatureFactory.getInstance().HTML);
+
         int offsetY = 0;
-        if(isHTML) {
+        if(J2MEUtil.isHTML()) {
             charHeight += 1;
         } else if(openGLFeatureUtil.isAnyThreed()) {
             charHeight += 2;

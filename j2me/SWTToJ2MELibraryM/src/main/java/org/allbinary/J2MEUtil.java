@@ -28,5 +28,9 @@ public class J2MEUtil
     {
         return false;
     }
+
+    public static boolean isHTML() {
+        return false;
+    }
     
 }

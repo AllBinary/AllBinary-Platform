@@ -18,6 +18,7 @@ import java.util.Hashtable;
 import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Graphics;
 
+import org.allbinary.J2MEUtil;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
@@ -36,7 +37,6 @@ import org.allbinary.game.combat.damage.PtsDamageFloaters;
 import org.allbinary.game.combat.weapon.WeaponProperties;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.GameFeatureFactory;
-import org.allbinary.game.configuration.feature.HTMLFeatureFactory;
 import org.allbinary.game.graphics.hud.BasicHudFactory;
 import org.allbinary.game.health.Health;
 import org.allbinary.game.health.HealthBar;
@@ -432,10 +432,9 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
                 );
 
         final Features features = Features.getInstance();
-        final boolean isHTML = features.isDefault(HTMLFeatureFactory.getInstance().HTML);
         
         final WaypointBase waypoint = 
-            isHTML ? new MultipassNoCacheWaypoint(this, AttackSound.getInstance()) : 
+            J2MEUtil.isHTML() ? new MultipassNoCacheWaypoint(this, AttackSound.getInstance()) : 
             new NoCacheWaypoint(this, AttackSound.getInstance());
         this.getWaypointBehavior().setWaypoint(waypoint);
         

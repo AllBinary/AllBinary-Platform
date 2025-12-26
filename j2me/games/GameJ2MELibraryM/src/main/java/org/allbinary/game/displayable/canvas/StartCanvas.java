@@ -20,6 +20,7 @@ import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Item;
 
+import org.allbinary.J2MEUtil;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.IndexedAnimationBehavior;
 import org.allbinary.animation.special.SpecialAnimation;
@@ -34,7 +35,6 @@ import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.configuration.event.ChangedGameFeatureListener;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.GameFeatureFactory;
-import org.allbinary.game.configuration.feature.HTMLFeatureFactory;
 import org.allbinary.game.configuration.feature.InputFeatureFactory;
 import org.allbinary.game.configuration.feature.MainFeatureFactory;
 import org.allbinary.game.init.BasicBuildGameInitializerFactory;
@@ -83,7 +83,6 @@ import org.allbinary.graphics.paint.StatePaintable;
 import org.allbinary.graphics.paint.StatePaintableFactory;
 import org.allbinary.input.motion.gesture.observer.BasicMotionGesturesHandler;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.logic.string.StringMaker;
@@ -108,7 +107,6 @@ public class StartCanvas extends RunnableCanvas
 
     protected final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
     protected final Features features = Features.getInstance();
-    protected final HTMLFeatureFactory htmlFeatureFactory = HTMLFeatureFactory.getInstance();
     protected final OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
     protected final MyCommandsFactory myCommandsFactory = MyCommandsFactory.getInstance();
     protected final GameAdStateFactory gameAdStateFactory = GameAdStateFactory.getInstance();
@@ -241,7 +239,7 @@ public class StartCanvas extends RunnableCanvas
     {
         final GameCommandsFactory gameCommandsFactory = GameCommandsFactory.getInstance();
 
-        if (features.isDefault(htmlFeatureFactory.HTML))
+        if (J2MEUtil.isHTML())
         {
             //TWB - Removed Options that are not HTML5 capable yet
             final Object[] commandArray =
@@ -863,7 +861,7 @@ public class StartCanvas extends RunnableCanvas
 //        
 //        if (this.gameCanvas != NullGameCanvas.getInstance() && 
 //                (this.gameCanvas.isRunning() || 
-//                features.isDefault(htmlFeatureFactory.HTML))
+//                J2MEUtil.isHTML())
 //                && !(this.gameCanvas instanceof NullGameCanvas)
 //                )
 //        {
@@ -978,8 +976,7 @@ public class StartCanvas extends RunnableCanvas
                 OpenGLThreadUtil.getInstance().onResume();
             }
 
-            if (features.isDefault(openGLFeatureFactory.OPENGL_AS_GAME_THREAD) ||
-                    features.isDefault(htmlFeatureFactory.HTML))
+            if (features.isDefault(openGLFeatureFactory.OPENGL_AS_GAME_THREAD) || J2MEUtil.isHTML())
             {
                 //PreLogUtil.put(commonStrings.START, this, "OPENGL_AS_GAME_THREAD 2");
 
@@ -1022,8 +1019,7 @@ public class StartCanvas extends RunnableCanvas
         try
         {
             //If game thread is not actually running
-            if ((features.isDefault(openGLFeatureFactory.OPENGL) ||
-                    features.isDefault(htmlFeatureFactory.HTML))
+            if ((features.isDefault(openGLFeatureFactory.OPENGL) || J2MEUtil.isHTML())
                     && !running)
             {
                 final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
