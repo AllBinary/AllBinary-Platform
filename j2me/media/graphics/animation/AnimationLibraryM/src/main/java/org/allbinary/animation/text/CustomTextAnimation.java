@@ -53,8 +53,7 @@ public class CustomTextAnimation extends TextAnimation
 //    private void hack() {
 //        //TWB - Hack for HTML5 build since FontUtil microemu-playn kerning is not correct
 //        final Features features = Features.getInstance();
-//        final boolean isHTML = features.isDefault(HTMLFeatureFactory.getInstance().HTML);
-//        if(isHTML) {
+//        if(J2MEUtil.isHTML()) {
 //            if(fontSize >= 15 && fontSize <= 23) {
 //                this.xtraWidth = (fontSize * this.getText().length * this.getText().length);
 //            } else if(fontSize < 15) {

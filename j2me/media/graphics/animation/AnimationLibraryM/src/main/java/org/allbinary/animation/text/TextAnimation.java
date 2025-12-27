@@ -27,6 +27,9 @@ public class TextAnimation extends IndexedAnimation
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
+    //private final int WIDTH = 13;
+    //private final int HEIGHT = 8;
+    
     protected String[] textArray = StringUtil.getInstance().ONE_EMPTY_STRING_ARRAY;
     
     private int anchor = Anchor.TOP_LEFT;
@@ -60,6 +63,7 @@ public class TextAnimation extends IndexedAnimation
         for(int index = 0; index < size; index++) {
             //logUtil.put(new StringMaker().append(textArray[index]).append(' ').append(x).append(' ').append(y).toString(), this, commonStrings.PROCESS);
             graphics.drawString(textArray[index], x, y + (index * height), anchor);
+            //graphics.drawString(textArray[index], x + WIDTH, y + (index * height) + HEIGHT, anchor);
         }
 
     }

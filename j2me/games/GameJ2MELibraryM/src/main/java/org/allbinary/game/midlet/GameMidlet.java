@@ -30,6 +30,7 @@ import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Displayable;
 import javax.microedition.lcdui.NullCanvas;
+import org.allbinary.J2MEUtil;
 
 import org.allbinary.business.advertisement.GameAdStateFactory;
 import org.allbinary.canvas.FullScreenUtil;
