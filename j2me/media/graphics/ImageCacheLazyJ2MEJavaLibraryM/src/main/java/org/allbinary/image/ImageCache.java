@@ -65,7 +65,8 @@ public class ImageCache extends ImageCacheBase {
     
     private boolean firstTime = true;
     private int totalLoaded = 0;
-    public  boolean hasAnyLazyAnimationFactories = false;
+    public boolean progressEnded = false;
+    public boolean hasAnyLazyAnimationFactories = false;
 
     private class NotHTMLProcessor extends Processor {
         
@@ -149,8 +150,8 @@ public class ImageCache extends ImageCacheBase {
             //logUtil.put(commonStrings.START, this, "waitForLoadNow");
             final ABToGBUtil abToGBUtil = ABToGBUtil.getInstance();
             final AllBinaryGameCanvas abCanvas = (AllBinaryGameCanvas) abToGBUtil.abCanvas;
-            while (loadNowList.isEmpty() && (!abCanvas.isInitialized() || (abCanvas.isInitialized() && this.hasAnyLazyAnimationFactories))) {
-                //logUtil.put("Still Empty: " + this.loadAfterList.size(), this, "waitForLoadNow");
+            while (loadNowList.isEmpty() && (!abCanvas.isInitialized() || (abCanvas.isInitialized() && this.hasAnyLazyAnimationFactories)) && !this.progressEnded) {
+                //logUtil.put(new StringMaker().append("Still Empty: ").append(this.loadNowList.size()).append(" after: ").append(this.loadAfterList.size()).append(" all: ").append(this.loadList.size()).toString(), this, "waitForLoadNow");
                 Thread.sleep(120);
             }
             firstTime = false;
@@ -547,7 +548,11 @@ public class ImageCache extends ImageCacheBase {
 
         //}
     }
-    
+
+    public void progressEnded() {
+        this.progressEnded = true;
+    }    
+
     public void runTask() throws Exception {
         //logUtil.put(commonStrings.START + this.processor, this, "runTask");
         this.processor.process();

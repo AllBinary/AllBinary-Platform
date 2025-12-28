@@ -147,6 +147,10 @@ public class ImageCache extends ImageCacheBase
         
     }
 
+    public void progressEnded() {
+    
+    }    
+    
     public void runTask() {
     
     }    
