@@ -35,6 +35,7 @@ import org.allbinary.string.CommonStrings;
 import org.microemu.android.device.AndroidImageInterface;
 import org.microemu.android.device.AndroidImmutableImage;
 
+//TTF
 public class TrueTypeFontUtil extends TrueTypeFontUtilBase {
     protected final LogUtil logUtil = LogUtil.getInstance();
 

@@ -33,13 +33,12 @@ import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.graphics.opengles.OpenGLCapabilities;
 import org.allbinary.image.PreResourceImageUtil;
 import org.allbinary.image.opengles.OpenGLESImage;
-
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 
+//TTF
 public class TrueTypeFontUtil extends TrueTypeFontUtilBase
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
@@ -320,10 +319,12 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
                 
                 //if(characterArray[0] == 'r' || characterArray[0] == 't' || characterArray[0] == 'i' || characterArray[0] == 'l') _characterWidth[index] -= 3;
                 //if(characterArray[0] == 'E' || characterArray[0] == 'P') _characterWidth[index] += 5;
+                if(characterArray[0] == '.' || characterArray[0] == '1') _characterWidth[index] += 4;
                 if(characterArray[0] >= 'a' && characterArray[0] < 'k') _characterWidth[index] -= 2;
                 if(characterArray[0] >= 'k' && characterArray[0] < 'v') _characterWidth[index] -= 4;
                 if(characterArray[0] >= 'v' && characterArray[0] < 'z') _characterWidth[index] -= 8;
-                //if(characterArray[0] == 'A' || characterArray[0] == 'Z') _characterWidth[index] += 6;
+                if(characterArray[0] == 'D') _characterWidth[index] -= 4;
+                if(characterArray[0] >= 'A' && characterArray[0] <= 'Z') _characterWidth[index] -= 2;
             }
             _characterWidth[index] *= this.widthScale;
             

@@ -14,6 +14,7 @@
 package org.allbinary.image.opengles;
 
 import javax.microedition.lcdui.Image;
+import org.allbinary.util.BasicArrayList;
 
 /**
  *
@@ -32,12 +33,30 @@ public class OpenGLESImageExclusionUtil {
     }
 
     private final String EXCLUSION = "font";
+    public final BasicArrayList list = new BasicArrayList();
     
-    private final String GREEN_BUTTON = "green_button";
-    
+    private OpenGLESImageExclusionUtil() {
+    }
+
     public boolean isCustomScaling(final Image image) {
-        if(image.getName().startsWith(EXCLUSION) || image.getName().startsWith(GREEN_BUTTON)) {
-           return false; 
+        final String imageName = image.getName();
+        boolean isNormalScaling = list.size() == 0 || imageName.startsWith(EXCLUSION);
+        if(isNormalScaling) {
+            return false; 
+        } else {
+
+            final int size = list.size();
+            String name;
+            for (int index = 0; index < size; index++) {
+                name = (String) list.get(index);
+                if (imageName.startsWith(name)) {
+                    isNormalScaling = true;
+                }
+            }
+        }
+
+        if(isNormalScaling) {
+            return false; 
         } else {
             return true;
         }

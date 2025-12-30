@@ -15,6 +15,8 @@ package org.allbinary.image.opengles;
 
 import javax.microedition.lcdui.Image;
 
+import org.allbinary.util.BasicArrayList;
+
 /**
  *
  * @author User
@@ -31,6 +33,8 @@ public class OpenGLESImageExclusionUtil {
         return instance;
     }
 
+    public final BasicArrayList list = new BasicArrayList();
+    
     public boolean isCustomScaling(final Image image) {
         return false;
     }
