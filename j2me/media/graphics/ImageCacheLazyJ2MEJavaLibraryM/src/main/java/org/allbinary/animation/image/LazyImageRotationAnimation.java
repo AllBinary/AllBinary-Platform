@@ -162,6 +162,42 @@ public class LazyImageRotationAnimation extends RotationAnimation {
     }
 
     @Override
+    public void nextRotation()
+    {
+        ((RotationAnimation) this.animation).nextRotation();
+    }
+
+    @Override
+    public void previousRotation()
+    {
+        ((RotationAnimation) this.animation).previousRotation();
+    }
+
+    @Override
+    public void nextRotationX()
+    {
+        ((RotationAnimation) this.animation).nextRotationX();
+    }
+
+    @Override
+    public void previousRotationX()
+    {
+        ((RotationAnimation) this.animation).previousRotationX();
+    }
+    
+    @Override
+    public void nextRotationZ()
+    {
+        ((RotationAnimation) this.animation).nextRotationZ();
+    }
+
+    @Override
+    public void previousRotationZ()
+    {
+        ((RotationAnimation) this.animation).previousRotationZ();
+    }
+    
+    @Override
     public void changeBasicColor(final BasicColor basicColor)
     {
         this.animation.changeBasicColor(basicColor);

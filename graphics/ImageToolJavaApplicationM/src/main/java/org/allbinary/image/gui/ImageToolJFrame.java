@@ -105,6 +105,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
       mirrorJMenuItem = new javax.swing.JMenuItem();
       scaleImagesJMenuItem = new javax.swing.JMenuItem();
       canvasImagesJMenuItem = new javax.swing.JMenuItem();
+      createIconImagesJMenuItem = new javax.swing.JMenuItem();
 
       analysisActionJDialog.setMinimumSize(new java.awt.Dimension(350, 250));
 
@@ -292,7 +293,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
          }
       });
       processingJMenu.add(scaleImagesJMenuItem);
-
+      
       canvasImagesJMenuItem.setText("Canvas Image(s)");
       canvasImagesJMenuItem.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -300,7 +301,15 @@ public class ImageToolJFrame extends javax.swing.JFrame
          }
       });
       processingJMenu.add(canvasImagesJMenuItem);
-      
+
+      createIconImagesJMenuItem.setText("Create Icon Image(s)");
+      createIconImagesJMenuItem.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            createIconsJMenuItemActionPerformed(evt);
+         }
+      });
+      processingJMenu.add(createIconImagesJMenuItem);
+
       mainJMenuBar.add(processingJMenu);
 
       setJMenuBar(mainJMenuBar);
@@ -530,7 +539,26 @@ public class ImageToolJFrame extends javax.swing.JFrame
       }
 }//GEN-LAST:event_scaleImagesJMenuItemActionPerformed
 
-private void canvasImagesJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scaleImagesJMenuItemActionPerformed
+   private void createIconsJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createIconsJMenuItemActionPerformed
+      try
+      {
+         logUtil.put(this.commonStrings.START, this, "createIconsJMenuItemActionPerformed");
+
+         final CreateIconImagesJPanel createIconImagesJPanel = new CreateIconImagesJPanel(this.imageProcessorInput);
+
+         this.jPanel1.removeAll();
+         this.jPanel1.add(createIconImagesJPanel);
+         this.jPanel1.updateUI();
+
+         imageProcessorInputCompositeInterface = createIconImagesJPanel;
+      }
+      catch (Exception e)
+      {
+         logUtil.put(commonStrings.EXCEPTION, this, "scaleImagesJMenuItemActionPerformed", e);
+      }
+}//GEN-LAST:createIconsJMenuItemActionPerformed
+       
+   private void canvasImagesJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scaleImagesJMenuItemActionPerformed
       try
       {
          logUtil.put(this.commonStrings.START, this, "canvasImagesJMenuItemActionPerformed");
@@ -710,6 +738,7 @@ private void mirrorJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//G
    private javax.swing.JLabel redJLabel;
    private javax.swing.JMenuItem scaleImagesJMenuItem;
    private javax.swing.JMenuItem canvasImagesJMenuItem;
+   private javax.swing.JMenuItem createIconImagesJMenuItem;
    private javax.swing.JLabel titleJLabel;
    // End of variables declaration//GEN-END:variables
     
