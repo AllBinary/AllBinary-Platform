@@ -582,31 +582,30 @@ public class ImageCopyUtil
         }
         else
         {
-//            final SwtImmutableImage originalImmutableImage = (SwtImmutableImage) image;
-//
-//            ImageData originalImageData = ((org.eclipse.swt.graphics.Image) originalImage.getImage()).getImageData();
-//
-//            final int halfWidthDelta = (newWidth - originalImage.getWidth()) / 2;
-//            final int halfHeightDelta = (newHeight - originalImage.getHeight()) / 2;
-//            
-//            final int[] originalPixelArray = new int[originalImage.getWidth() * originalImage.getHeight()];
-//            final int[] newPixelArray = new int[image.getWidth() * image.getHeight()];
-//            
-//            final int width = originalImage.getWidth();
-//            final int height = originalImage.getHeight();
-//            for (int i = 0; i < height; i++) {
-//                originalImageData.getPixels(0, i, width, originalPixelArray, (i * width));
-//            }
-//                        
-//            for(int index = halfWidthDelta; index < width; index++) {
-//                for(int index2 = halfHeightDelta; index2 < height; index2++) {
-//                    newPixelArray[index + (index2 * width)] = originalPixelArray[(index - halfWidthDelta) + ((index2 - halfHeightDelta) * width)];
-//                }
-//            }
-//            ((org.eclipse.swt.graphics.Image) originalImmutableImage.getImage()).getImageData().setPixels(0, 0, image.getWidth(), newPixelArray, 0);
-//            
-//            return image;
-            throw new Exception("Not Mutable");
+            final SwtImmutableImage originalImmutableImage = (SwtImmutableImage) image;
+
+            ImageData originalImageData = ((org.eclipse.swt.graphics.Image) originalImage.getImage()).getImageData();
+
+            final int halfWidthDelta = (newWidth - originalImage.getWidth()) / 2;
+            final int halfHeightDelta = (newHeight - originalImage.getHeight()) / 2;
+            
+            final int[] originalPixelArray = new int[originalImage.getWidth() * originalImage.getHeight()];
+            final int[] newPixelArray = new int[image.getWidth() * image.getHeight()];
+            
+            final int width = originalImage.getWidth();
+            final int height = originalImage.getHeight();
+            for (int i = 0; i < height; i++) {
+                originalImageData.getPixels(0, i, width, originalPixelArray, (i * width));
+            }
+                        
+            for(int index = halfWidthDelta; index < width; index++) {
+                for(int index2 = halfHeightDelta; index2 < height; index2++) {
+                    newPixelArray[index + (index2 * width)] = originalPixelArray[(index - halfWidthDelta) + ((index2 - halfHeightDelta) * width)];
+                }
+            }
+            ((org.eclipse.swt.graphics.Image) originalImmutableImage.getImage()).getImageData().setPixels(0, 0, image.getWidth(), newPixelArray, 0);
+            
+            return image;
         }
     }
 }
