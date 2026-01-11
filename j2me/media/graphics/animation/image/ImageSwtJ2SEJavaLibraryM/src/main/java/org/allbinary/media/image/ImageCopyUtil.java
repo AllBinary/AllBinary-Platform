@@ -24,9 +24,7 @@ import org.allbinary.image.opengles.OpenGLESDeviceImageTranslate;
 import org.allbinary.image.opengles.OpenGLESImage;
 import org.allbinary.image.opengles.OpenGLESImageExclusionUtil;
 import org.allbinary.image.opengles.OpenGLESImageProperties;
-
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonStrings;
 import org.eclipse.swt.graphics.ImageData;
 import org.microemu.app.ui.swt.SwtDeviceComponent;
@@ -220,7 +218,12 @@ public class ImageCopyUtil
 //            imageData0.transparentPixel = 0x00FFFFFF;
 //            image = new SwtMutableImage(SwtDeviceComponent.createImage(imageData0));
 
-            image = new SwtMutableImage(SwtDeviceComponent.createImage(originalImmutableImage.image.getImageData()));
+//              if(originalImmutableImage.getImage() != null) {
+                  image = new SwtMutableImage(SwtDeviceComponent.createImage(originalImmutableImage.image.getImageData()));
+//              } else {
+//                  //image = new SwtImmutableImage(originalImmutableImage.getName(), new PostLoadSwtImmutableImageProcessor(originalImmutableImage));
+//                  return originalImage;
+//              }
 
 //            for(int x = 0; x < width; x++) {
 //                for(int y = 0; y < height; y++) {
@@ -316,8 +319,13 @@ public class ImageCopyUtil
             final SwtMutableImage originalMutableImage = (SwtMutableImage) originalImage2;
             
             if(originalMutableImage.getImage() != null) {
-                final ImageData imageData = originalMutableImage.image.getImageData().scaledTo(width, height);
-                image = new SwtMutableImage(SwtDeviceComponent.createImage(imageData));
+                final ImageData imageData2 = originalMutableImage.image.getImageData();
+//                if(imageData2.data.length != 120000) {
+                    final ImageData imageData = imageData2.scaledTo(width, height);
+                    image = new SwtMutableImage(SwtDeviceComponent.createImage(imageData));
+//                } else {
+//                    return originalImage;
+//                }
             } else {
                 image = new SwtMutableImage(originalMutableImage.getName(), new PostLoadSwtMutableImageProcessor(originalMutableImage));
             }
@@ -326,11 +334,19 @@ public class ImageCopyUtil
             final SwtImmutableImage originalImmutableImage = (SwtImmutableImage) originalImage2;
 
             if(originalImmutableImage.getImage() != null) {
-                final ImageData imageData = originalImmutableImage.image.getImageData().scaledTo(width, height);
-                image = new SwtImmutableImage(originalImage.getName(), SwtDeviceComponent.createImage(imageData));
+                final ImageData imageData2 = originalImmutableImage.image.getImageData();
+                //logUtil.put(new StringMaker().append("witdh: ").append(width).append(" height: ").append(height).toString(), this, commonStrings.CONSTRUCTOR);
+//                if(imageData2.data.length != 120000) {
+                    final ImageData imageData = imageData2.scaledTo(width, height);
+                    image = new SwtImmutableImage(originalImage.getName(), SwtDeviceComponent.createImage(imageData));
+                    //image = new SwtMutableImage(originalImage.getName(), SwtDeviceComponent.createImage(imageData));
+//                } else {
+//                    return originalImage;
+//                }
             } else {
                 image = new SwtImmutableImage(originalImmutableImage.getName(), new PostLoadSwtImmutableImageProcessor(originalImmutableImage));
             }
+            
         }
         
         image = openGLUtil.add(image);
@@ -465,8 +481,13 @@ public class ImageCopyUtil
                 final SwtMutableImage originalMutableImage = (SwtMutableImage) originalImage2;
 
                 if (originalMutableImage.getImage() != null) {
-                    final ImageData imageData = originalMutableImage.image.getImageData().scaledTo(width, height);
-                    image = new SwtMutableImage(SwtDeviceComponent.createImage(imageData));
+                    final ImageData imageData2 = originalMutableImage.image.getImageData();
+//                    if (imageData2.data.length != 120000) {
+                        final ImageData imageData = imageData2.scaledTo(width, height);
+                        image = new SwtMutableImage(SwtDeviceComponent.createImage(imageData));
+//                    } else {
+//                        return originalImage;
+//                    }
                 } else {
                     image = new SwtMutableImage(originalMutableImage.getName(), new PostLoadSwtMutableImageProcessor(originalMutableImage));
                 }
@@ -475,8 +496,14 @@ public class ImageCopyUtil
                 final SwtImmutableImage originalImmutableImage = (SwtImmutableImage) originalImage2;
 
                 if (originalImmutableImage.getImage() != null) {
-                    final ImageData imageData = originalImmutableImage.image.getImageData().scaledTo(width, height);
-                    image = new SwtImmutableImage(originalImage.getName(), SwtDeviceComponent.createImage(imageData));
+                    final ImageData imageData2 = originalImmutableImage.image.getImageData();
+//                    if (imageData2.data.length != 120000) {
+                        final ImageData imageData = imageData2.scaledTo(width, height);
+                        image = new SwtImmutableImage(originalImage.getName(), SwtDeviceComponent.createImage(imageData));
+                        //image = new SwtMutableImage(originalImage.getName(), SwtDeviceComponent.createImage(imageData));
+//                    } else {
+//                        return originalImage;
+//                    }
                 } else {
                     image = new SwtImmutableImage(originalImmutableImage.getName(), new PostLoadSwtImmutableImageProcessor(originalImmutableImage));
                 }
@@ -500,7 +527,7 @@ public class ImageCopyUtil
 
 //        final SpacialStrings spacialStrings = SpacialStrings.getInstance();
 //        logUtil.put(new StringBuilder().append(spacialStrings.WIDTH_LABEL).append(originalImage.getWidth()).append(spacialStrings.HEIGHT_LABEL).append(originalImage.getHeight()).toString(), this, commonStrings.CONSTRUCTOR);
-        
+
         int newWidth = (int) (originalImage.getWidth() * canvasScale);
         int newHeight = (int) (originalImage.getHeight() * canvasScale);
         
@@ -555,6 +582,30 @@ public class ImageCopyUtil
         }
         else
         {
+//            final SwtImmutableImage originalImmutableImage = (SwtImmutableImage) image;
+//
+//            ImageData originalImageData = ((org.eclipse.swt.graphics.Image) originalImage.getImage()).getImageData();
+//
+//            final int halfWidthDelta = (newWidth - originalImage.getWidth()) / 2;
+//            final int halfHeightDelta = (newHeight - originalImage.getHeight()) / 2;
+//            
+//            final int[] originalPixelArray = new int[originalImage.getWidth() * originalImage.getHeight()];
+//            final int[] newPixelArray = new int[image.getWidth() * image.getHeight()];
+//            
+//            final int width = originalImage.getWidth();
+//            final int height = originalImage.getHeight();
+//            for (int i = 0; i < height; i++) {
+//                originalImageData.getPixels(0, i, width, originalPixelArray, (i * width));
+//            }
+//                        
+//            for(int index = halfWidthDelta; index < width; index++) {
+//                for(int index2 = halfHeightDelta; index2 < height; index2++) {
+//                    newPixelArray[index + (index2 * width)] = originalPixelArray[(index - halfWidthDelta) + ((index2 - halfHeightDelta) * width)];
+//                }
+//            }
+//            ((org.eclipse.swt.graphics.Image) originalImmutableImage.getImage()).getImageData().setPixels(0, 0, image.getWidth(), newPixelArray, 0);
+//            
+//            return image;
             throw new Exception("Not Mutable");
         }
     }

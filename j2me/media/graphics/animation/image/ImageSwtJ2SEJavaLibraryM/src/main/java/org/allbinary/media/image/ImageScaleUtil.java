@@ -21,11 +21,6 @@ import org.allbinary.image.ImageCache;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.GC;
-import org.eclipse.swt.graphics.Transform;
-import org.microemu.device.swt.SwtImmutableImage;
-import org.microemu.device.swt.SwtMutableImage;
 
 public class ImageScaleUtil {
     protected final LogUtil logUtil = LogUtil.getInstance();
@@ -103,7 +98,8 @@ public class ImageScaleUtil {
         final int width = originalImage.getWidth();
         final int height = originalImage.getHeight();
         
-        final Image scaledImage = this.imageCopyUtil.createImage(originalImage, (int) (scaleX * width), (int) (scaleY * height), mutable);
+        //final Image scaledImage = this.imageCopyUtil.createImage(originalImage, (int) (scaleX * width), (int) (scaleY * height), mutable);
+        final Image scaledImage = this.imageCopyUtil.createImage(originalImage, (int) scaleX, (int) scaleY, mutable);
         originalImageArray[0] = scaledImage;
     }    
 

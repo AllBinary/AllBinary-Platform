@@ -51,9 +51,9 @@ public class ImageRotationUtil {
                 final OpenGLESImage openGLESImage = ((OpenGLESImage) originalImage);
                 //originalImage2 = openGLESImage.openGLBitmap.getImage();
                 openGLESImage.openGLESImageProperties.angle = totalAngle;
-                if(originalImage != image) {
-                    throw new RuntimeException();
-                }
+//                if(originalImage != image) {
+//                    throw new RuntimeException();
+//                }
                 return;
             } else {
                 PreLogUtil.put("OpenGL but image is: " + originalImage + " type: " + originalImage.getType(), this, "rotateImage");
