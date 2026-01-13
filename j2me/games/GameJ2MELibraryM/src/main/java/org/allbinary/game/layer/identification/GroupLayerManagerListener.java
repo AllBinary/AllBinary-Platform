@@ -26,22 +26,26 @@ import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 
 public class GroupLayerManagerListener
 extends LayerManagerEventListener
 {
-    protected final LogUtil logUtil = LogUtil.getInstance();
 
     private static GroupLayerManagerListener SINGLETON = 
         new GroupLayerManagerListener();
-
-    private final BasicArrayList list = new BasicArrayList();
 
     public static GroupLayerManagerListener getInstance()
     {
         return SINGLETON;
     }
+
+    protected final LogUtil logUtil = LogUtil.getInstance();
+    
+    //private final CommonStrings commonStrings = CommonStrings.getInstance();
+
+    private final BasicArrayList list = new BasicArrayList();
 
     private GroupLayerManagerListener()
     {
@@ -106,8 +110,7 @@ extends LayerManagerEventListener
 
                 if (groupSize != 0)
                 {
-                    logUtil.put(
-                        new StringMaker().append("Group Size: ").append(groupSize).toString(), this, "areAllOtherGroupsEmpty");
+                    logUtil.put(new StringMaker().append("Group Size: ").append(groupSize).toString(), this, "areAllOtherGroupsEmpty");
                     return false;
                 }
             }
@@ -199,7 +202,7 @@ extends LayerManagerEventListener
 
         final AllBinaryLayer layerInterface = layerManagerEvent.getLayerInterface();
 
-        //logUtil.put(commonStrings.START, this, "onCreateLayerManagerEvent: ").append(layerInterface.toString());
+        //logUtil.put(new StringMaker().append("onCreateLayerManagerEvent: ").append(layerInterface.toString()).toString(), this, commonStrings.CREATE);
         
         //Ignore weapons
         /*

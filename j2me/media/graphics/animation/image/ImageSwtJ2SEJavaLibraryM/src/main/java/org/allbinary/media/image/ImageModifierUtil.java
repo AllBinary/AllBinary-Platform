@@ -22,6 +22,7 @@ import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.image.opengles.ModifierOpenGLESImageProcessor;
 import org.allbinary.image.opengles.OpenGLESImage;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.PreLogUtil;
 
@@ -35,7 +36,7 @@ import org.microemu.device.swt.SwtMutableImage;
  * @author User
  */
 public class ImageModifierUtil {
-    //protected final LogUtil logUtil = LogUtil.getInstance();
+    protected final LogUtil logUtil = LogUtil.getInstance();
 
 
     private static final ImageModifierUtil instance = new ImageModifierUtil();
@@ -138,8 +139,8 @@ public class ImageModifierUtil {
         final float g = ((float) basicColor.green) / MAX;
         final float b = ((float) basicColor.blue) / MAX;
 
-        final int width = image.getWidth();
-        final int height = image.getHeight();
+//        final int width = image.getWidth();
+//        final int height = image.getHeight();
 
         //int ax;
         int rx;
@@ -148,27 +149,51 @@ public class ImageModifierUtil {
         final ImageData imageData = newBufferedImage.getImageData();
 
         if (imageData.depth == 24) {
-            //int pixel;
-            int index3;
-            for (int index = 0; index < width; index++) {
-                for (int index2 = 0; index2 < height; index2++) {
+            
+//            if(width * height > imageData.data.length / 4) {
+//                logUtil.put(new StringMaker().append("total: ").append((width * height)).append(" more than size: ").append(imageData.data.length / 4).toString(), this, "changeColor");
+//                //return;
+//            }
+            
+            final int size = imageData.data.length;
+            for (int index = 0; index < size; index+=4) {
                     //ax = imageData.getAlpha(index, index2);
                     //pixel = imageData.getPixel(index, index2);
-                    index3 = (index2 * imageData.bytesPerLine) + (index * 4);
-                    rx = (imageData.data[index3] & 0xFF) << 16;
-                    gx = (imageData.data[index3 + 1] & 0xFF) << 8;
-                    bx = (imageData.data[index3 + 2] & 0xFF);
+                    rx = (imageData.data[index] & 0xFF) << 16;
+                    gx = (imageData.data[index + 1] & 0xFF) << 8;
+                    bx = (imageData.data[index + 2] & 0xFF);
                     //ax *= a;
                     rx *= r;
                     gx *= g;
                     bx *= b;
 
-                    imageData.data[index3] = (byte) rx;
-                    imageData.data[index3 + 1] = (byte) gx;
-                    imageData.data[index3 + 2] = (byte) bx;
-                }
+                    imageData.data[index] = (byte) rx;
+                    imageData.data[index + 1] = (byte) gx;
+                    imageData.data[index + 2] = (byte) bx;
             }
         }
+            
+            //int pixel;
+//            int index3;
+//            for (int index = 0; index < width; index++) {
+//                for (int index2 = 0; index2 < height; index2++) {
+//                    //ax = imageData.getAlpha(index, index2);
+//                    //pixel = imageData.getPixel(index, index2);
+//                    index3 = (index2 * imageData.bytesPerLine) + (index * 4);
+//                    rx = (imageData.data[index3] & 0xFF) << 16;
+//                    gx = (imageData.data[index3 + 1] & 0xFF) << 8;
+//                    bx = (imageData.data[index3 + 2] & 0xFF);
+//                    //ax *= a;
+//                    rx *= r;
+//                    gx *= g;
+//                    bx *= b;
+//
+//                    imageData.data[index3] = (byte) rx;
+//                    imageData.data[index3 + 1] = (byte) gx;
+//                    imageData.data[index3 + 2] = (byte) bx;
+//                }
+//            }
+//        }
 
 //        final Graphics2D graphics = newBufferedImage.createGraphics();
 //        graphics.setBackground(new Color(0, 0, 0, 0));
