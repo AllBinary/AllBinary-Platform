@@ -19,12 +19,11 @@ import javax.microedition.lcdui.Image;
 
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.IndexedAnimation;
-import org.allbinary.animation.NullIndexedAnimation;
+import org.allbinary.animation.NullRotationAnimationFactory;
 import org.allbinary.animation.RotationAnimation;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.image.ImageCache;
 import org.allbinary.image.ImageCacheFactory;
-
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
@@ -37,7 +36,6 @@ import org.allbinary.media.ScaleProperties;
  */
 public class LazyImageRotationAnimation extends RotationAnimation {
     protected final LogUtil logUtil = LogUtil.getInstance();
-
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
 
@@ -65,12 +63,15 @@ public class LazyImageRotationAnimation extends RotationAnimation {
         
         this.scaleProperties = scaleProperties;
 
-        NULL_INDEX_ANIMATION = new NullIndexedAnimation(animationBehavior) {
-            public void paint(final Graphics graphics, final int x, final int y) {
-            }
-        };
-        
-        animation = new IndexedAnimation(animationBehavior) {
+        this.NULL_INDEX_ANIMATION = (IndexedAnimation) NullRotationAnimationFactory.getFactoryInstance().getInstance(0);
+//            new NullIndexedAnimation(animationBehavior) {
+//            public void paint(final Graphics graphics, final int x, final int y) {
+//            }
+//        };
+
+        //logUtil.put(this.NULL_INDEX_ANIMATION.toString(), this, this.commonStrings.PROCESS);
+
+        this.animation = new RotationAnimation(animationBehavior) {
             
             private int index;
             
@@ -105,6 +106,7 @@ public class LazyImageRotationAnimation extends RotationAnimation {
             }
             
         };
+        //logUtil.put(this.animation.toString(), this, this.commonStrings.PROCESS);
 
     }
 

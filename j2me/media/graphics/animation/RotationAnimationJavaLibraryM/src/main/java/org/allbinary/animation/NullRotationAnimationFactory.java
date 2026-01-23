@@ -40,7 +40,7 @@ ProceduralAnimationInterfaceFactoryInterface
    }
    
    @Override
-   public Animation getInstance(final int instanceId) throws Exception
+   public Animation getInstance(final int instanceId)
    {
        return NULL_ANIMATION;
    }
