@@ -13,7 +13,11 @@
 */
 package org.allbinary.game.displayable.canvas;
 
+import org.allbinary.AndroidUtil;
+import org.allbinary.game.configuration.feature.Features;
+import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
 
 public class GameCanvasPauseRunnable extends GameRunnable
 {
@@ -35,21 +39,20 @@ public class GameCanvasPauseRunnable extends GameRunnable
     public void processLoopSleep()
     throws Exception
     {
-        //No need to pause for OpenGL on J2SE.  Is this needed for Android?
-//        try
-//        {
-//            final Features features = Features.getInstance();
-//            final boolean isOpenGL = features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL);
-//            
-//            if(!isOpenGL) {
-//                allBinaryGameCanvas.processSleep();
-//            }
-//        }
-//        catch (Exception e)
-//        {
-//            final CommonStrings commonStrings = CommonStrings.getInstance();
-//            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
-//        }        
+        //No need to pause for OpenGL on J2SE.
+        if(AndroidUtil.isAndroid()) {
+            try {
+                final Features features = Features.getInstance();
+                final boolean isOpenGL = features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL);
+
+                if (isOpenGL) {
+                    allBinaryGameCanvas.processSleep();
+                }
+            } catch (Exception e) {
+                final CommonStrings commonStrings = CommonStrings.getInstance();
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+            }
+        }
         //allBinaryGameCanvas.processLoopSleep();
     }
 }

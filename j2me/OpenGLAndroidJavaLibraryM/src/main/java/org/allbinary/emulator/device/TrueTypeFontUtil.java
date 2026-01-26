@@ -198,13 +198,16 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase {
                     _characterWidth[index] = bounds.right + 3;
                 } else if (characterArray[0] == 'J' || characterArray[0] == 'V'
                     || characterArray[0] == '2' || characterArray[0] == '9'
-                    || characterArray[0] == 'H' || characterArray[0] == 'I' || characterArray[0] == 'N'
+                    || characterArray[0] == 'I' || characterArray[0] == 'N'
                     || characterArray[0] == 'U') {
                     _characterWidth[index] = bounds.right + 1;
                 } else if (characterArray[0] == '4' || characterArray[0] == 'C' || characterArray[0] == 'E'
                         || characterArray[0] == 'O') {
                     _characterWidth[index] = bounds.right - 2;
-                } else if (characterArray[0] == 'G'
+                } else if (characterArray[0] == 'B'
+                        || characterArray[0] == 'D'
+                        || characterArray[0] == 'G'
+                        || characterArray[0] == 'H'
                         || characterArray[0] == 'T'
                         || characterArray[0] == 'W') {
                     _characterWidth[index] = bounds.right - 3;
