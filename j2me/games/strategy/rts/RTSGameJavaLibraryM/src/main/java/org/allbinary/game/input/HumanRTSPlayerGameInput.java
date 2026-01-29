@@ -73,8 +73,9 @@ implements BaseMotionGestureEventListener
     //private final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
     private final RectangleCollisionUtil rectangleCollisionUtil = RectangleCollisionUtil.getInstance();
 
-    private final MotionGestureInput PRESSED = TouchMotionGestureFactory.getInstance().PRESSED;
-    private final MotionGestureInput RELEASED = TouchMotionGestureFactory.getInstance().RELEASED;
+    private final TouchMotionGestureFactory touchMotionGestureFactory = TouchMotionGestureFactory.getInstance();
+    private final MotionGestureInput PRESSED = touchMotionGestureFactory.PRESSED;
+    private final MotionGestureInput RELEASED = touchMotionGestureFactory.RELEASED;
 
     private final TouchButtonsBuilderFactory touchButtonsBuilderFactory;
 
@@ -144,7 +145,7 @@ implements BaseMotionGestureEventListener
     }
     
     private boolean processDraggingMotionInput(
-            AllBinaryLayerManager layerManager) 
+            final AllBinaryLayerManager layerManager) 
         throws Exception
     {
         final MotionGestureEvent motionGestureEvent = (MotionGestureEvent) 
@@ -157,7 +158,7 @@ implements BaseMotionGestureEventListener
         
         if (motionGestureInput == PRESSED)
         {
-            GPoint point = motionGestureEvent.getCurrentPoint();
+            final GPoint point = motionGestureEvent.getCurrentPoint();
 
             if (this.getRtsPlayerLayerInterface().getCurrentScrollSelectionForm().isInForm(point))
             {
@@ -167,7 +168,7 @@ implements BaseMotionGestureEventListener
             }
         } else if (motionGestureInput == RELEASED)
         {
-            GPoint point = motionGestureEvent.getCurrentPoint();
+            final GPoint point = motionGestureEvent.getCurrentPoint();
 
             if (this.getRtsPlayerLayerInterface().getCurrentScrollSelectionForm().isInForm(point))
             {
@@ -178,7 +179,7 @@ implements BaseMotionGestureEventListener
 
             } else if (rtsFormInput.isStickyItemSelected())
             {
-                RTSFormInput previousRtsFormInput = rtsFormInput;
+                final RTSFormInput previousRtsFormInput = rtsFormInput;
 
                 this.select(motionGestureEvent);
 
@@ -216,7 +217,7 @@ implements BaseMotionGestureEventListener
     
     private void makeSelection()
     {        
-        BasicArrayList rtsLayerList = 
+        final BasicArrayList rtsLayerList = 
             this.getRtsPlayerLayerInterface().getPlayerOwnedRTSLayers().rtsLayerList;
         
         int rectX1 = this.startPoint.getX();
@@ -303,27 +304,27 @@ implements BaseMotionGestureEventListener
     }
     
     private void processSelectionBoxMotionInput(
-            AllBinaryLayerManager layerManager) 
+            final AllBinaryLayerManager layerManager) 
         throws Exception
     {
         for(int index = this.getMotionGestureInputList().size() - 1; index >= 0; index--)
         {
-            MotionGestureEvent motionGestureEvent = (MotionGestureEvent) 
+            final MotionGestureEvent motionGestureEvent = (MotionGestureEvent) 
                 this.getMotionGestureInputList().get(index);
             
-            MotionGestureInput motionGestureInput = 
+            final MotionGestureInput motionGestureInput = 
                 motionGestureEvent.getMotionGesture();
             
-            GPoint point = motionGestureEvent.getCurrentPoint();
+            final GPoint point = motionGestureEvent.getCurrentPoint();
             
-            if (motionGestureInput == TouchMotionGestureFactory.getInstance().PRESSED)
+            if (motionGestureInput == touchMotionGestureFactory.PRESSED)
             {
                 //Start selection box
                 this.startPoint = point;
                 this.endPoint = point;
             } 
             else 
-                if (motionGestureInput == TouchMotionGestureFactory.getInstance().RELEASED)
+                if (motionGestureInput == touchMotionGestureFactory.RELEASED)
                 {
                     this.endPoint = point;
                     
@@ -342,7 +343,7 @@ implements BaseMotionGestureEventListener
     }
     
     @Override
-    public void processMotionInput(AllBinaryLayerManager layerManager) throws Exception
+    public void processMotionInput(final AllBinaryLayerManager layerManager) throws Exception
     {
         //logUtil.put(commonStrings.START, this, gameInputStrings.PROCESS_MOTION_INPUT);
 
@@ -369,7 +370,7 @@ implements BaseMotionGestureEventListener
      * @param selectedRtsFormInput the selectedRtsFormInput to set
      */
     @Override
-    public void setSelectedRtsFormInput(RTSFormInput selectedRtsFormInput)
+    public void setSelectedRtsFormInput(final RTSFormInput selectedRtsFormInput)
     {
         final LogUtil logUtil = LogUtil.getInstance();
         logUtil.put(new StringMaker().append(CommonLabels.getInstance().START).append(StringUtil.getInstance().toString(selectedRtsFormInput)).toString(), this, "setSelectedRtsFormInput");
@@ -378,7 +379,7 @@ implements BaseMotionGestureEventListener
         this.setSelectedRtsLayer(CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER);
     }
 
-    private void updateForm(RTSLayer rtsLayer)
+    private void updateForm(final RTSLayer rtsLayer)
     {
         final ScrollSelectionForm scrollSelectionForm = rtsLayer.getScrollSelectionForm();
 
@@ -406,8 +407,8 @@ implements BaseMotionGestureEventListener
     }
 
     private void updateForm(
-            ScrollSelectionForm scrollSelectionForm, 
-            RTSFormInput rtfFormInput)
+            final ScrollSelectionForm scrollSelectionForm, 
+            final RTSFormInput rtfFormInput)
     {
         // Waypoints are the only games objects still without menus
         this.getRtsPlayerLayerInterface().setCurrentScrollSelectionForm(scrollSelectionForm);
@@ -432,7 +433,7 @@ implements BaseMotionGestureEventListener
 
         //deselect all?
 
-        AllBinaryGameCanvas gameCanvas = this.getGameCanvas();
+        final AllBinaryGameCanvas gameCanvas = this.getGameCanvas();
         
         if (rtSLayer != CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER)
         {
@@ -579,7 +580,7 @@ implements BaseMotionGestureEventListener
     }
 
     @Override
-    public void onMotionGestureEvent(MotionGestureEvent motionGestureEvent)
+    public void onMotionGestureEvent(final MotionGestureEvent motionGestureEvent)
     {
         //logUtil.put("motionGestureEvent: ").append(motionGestureEvent, this, "onMotionGestureEvent");
 
@@ -597,7 +598,7 @@ implements BaseMotionGestureEventListener
     /**
      * @param selectedRtsLayer the selectedRtsLayer to set
      */
-    private void setSelectedRtsLayer(CollidableDestroyableDamageableLayer selectedRtsLayer)
+    private void setSelectedRtsLayer(final CollidableDestroyableDamageableLayer selectedRtsLayer)
     {
         this.selectedRtsLayer = selectedRtsLayer;
     }

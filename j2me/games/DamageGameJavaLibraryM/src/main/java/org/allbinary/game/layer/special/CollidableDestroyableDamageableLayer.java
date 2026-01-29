@@ -73,6 +73,9 @@ PickupCompositeInterface, SpecialGameInputInterface
  
     public AllBinaryGameLayerManager allBinaryGameLayerManagerP = AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER;
     
+    public boolean isDraggable = false;
+    public boolean isDragged = false;
+    
     public CollidableDestroyableDamageableLayer(
             final Group[] groupInterface, final Rectangle layerInfo, final ViewPosition viewPosition)
     {

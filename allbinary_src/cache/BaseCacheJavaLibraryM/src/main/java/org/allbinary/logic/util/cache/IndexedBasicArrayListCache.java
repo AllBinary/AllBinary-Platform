@@ -90,8 +90,8 @@ public class IndexedBasicArrayListCache
     {
         //logUtil.put("List: " + this.log(), this, "clear");
         
-        //logUtil.put("PathWrapper count: " + this.index, this, "release");
-        //PreLogUtil.put("abstractPathElementList: " + BasicArrayListUtil.log(this.abstractPathElementList), this, "release");
+        //logUtil.put("PathWrapper count: " + this.index, this, "clear");
+        //PreLogUtil.put("abstractPathElementList: " + BasicArrayListUtil.log(this.abstractPathElementList), this, "clear");
 
         index = 0;
     }
