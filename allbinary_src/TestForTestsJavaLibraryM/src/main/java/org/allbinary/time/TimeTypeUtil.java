@@ -1,7 +1,9 @@
 package org.allbinary.time;
 
-import java.time.Instant;
-import java.time.LocalTime;
+//import java.time.Instant;
+//import java.time.LocalTime;
+import java.util.Calendar;
+import java.util.TimeZone;
 
 /**
  *
@@ -47,7 +49,9 @@ public class TimeTypeUtil {
     }
     
     public int getHourOfDay() {
-        return LocalTime.now().getHour();
+        //return LocalTime.now().getHour();
+        final Calendar calendar = Calendar.getInstance();
+        return calendar.get(Calendar.HOUR_OF_DAY);
     }
     
     public String getNightOrDay() {
@@ -55,7 +59,11 @@ public class TimeTypeUtil {
     }
     
     public int getHourOfDay(long timeInMillis) {
-        return Instant.ofEpochMilli(timeInMillis).atZone(java.time.ZoneId.systemDefault()).getHour();
+        //final int hoursOfDay = this.getHourOfDay(timeInMillis);
+        //return hoursOfDay < 6 || hoursOfDay > 18;        
+        final Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(timeInMillis);
+        return calendar.get(Calendar.HOUR_OF_DAY);
     }
     
     public boolean isNight(long timeInMillis) {

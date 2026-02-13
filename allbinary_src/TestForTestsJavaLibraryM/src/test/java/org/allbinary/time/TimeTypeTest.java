@@ -1,9 +1,10 @@
 package org.allbinary.time;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.ZoneId;
+//import java.time.LocalDate;
+//import java.time.LocalDateTime;
+//import java.time.LocalTime;
+//import java.time.ZoneId;
+import java.util.Calendar;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -12,9 +13,15 @@ import org.junit.jupiter.api.Test;
 public class TimeTypeTest {
 
     private static long millisForHourLocal(int hour) {
-        LocalDate today = LocalDate.now();
-        LocalDateTime ldt = LocalDateTime.of(today, LocalTime.of(hour, 0));
-        return ldt.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
+        //LocalDate today = LocalDate.now();
+        //LocalDateTime ldt = LocalDateTime.of(today, LocalTime.of(hour, 0));
+        //return ldt.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();        
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.HOUR_OF_DAY, hour);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        return cal.getTimeInMillis();
     }
 
     private static class TestableTimeTypeUtil extends TimeTypeUtil {
