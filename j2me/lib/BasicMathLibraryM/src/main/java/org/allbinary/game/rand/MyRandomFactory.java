@@ -42,6 +42,7 @@ public class MyRandomFactory
         rand = new Random(seed);
     }
 
+    //Example: 3 would result in the possible results 0, 1, 2, -1, -2.
     public int getNextInt(int range)
     {
         int div = (Integer.MAX_VALUE / range) + 1;
@@ -107,6 +108,18 @@ public class MyRandomFactory
     
     public static void main(final String[] args) {
         final MyRandomFactory randomFactory = MyRandomFactory.getInstance();
+        
+        final StringMaker stringBuilder = new StringMaker();
+        
+        final int size2 = 100;
+        for(int index = 0; index < size2; index++) {
+            stringBuilder.append(randomFactory.getAbsoluteNextInt(3)).append(',');
+        }
+        
+        System.out.println(stringBuilder.toString());
+        
+        stringBuilder.delete(0, stringBuilder.length());
+        
         final int[] intArray = new int[52];
         final int[] intArray2 = new int[52];
         final int size = intArray.length;
@@ -116,7 +129,6 @@ public class MyRandomFactory
         }
         randomFactory.shuffle(intArray, intArray2);
         
-        final StringMaker stringBuilder = new StringMaker();
         for(int index = 0; index < size; index++) {
             stringBuilder.append(intArray[index]).append(',');
         }
