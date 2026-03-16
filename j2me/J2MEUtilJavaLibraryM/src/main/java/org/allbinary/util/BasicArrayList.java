@@ -116,6 +116,7 @@ public class BasicArrayList
         else
         {
             for (int index = 0; index < currentIndex; index++) {
+                //Handle cases like File where the equals does not check for the same object
                 if (object == objectArray[index] || object.equals(objectArray[index])) {
                     final int numMoved = currentIndex - index - 1;
 
