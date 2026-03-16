@@ -104,8 +104,9 @@ public class BasicArrayList
                 if (objectArray[index] == null) {
                     final int numMoved = currentIndex - index - 1;
 
-                    if (numMoved > 0)
+                    if (numMoved > 0) {
                         System.arraycopy(objectArray, index + 1, objectArray, index, numMoved);
+                    }
 
                     objectArray[--currentIndex] = null;
                     return true;
@@ -115,11 +116,12 @@ public class BasicArrayList
         else
         {
             for (int index = 0; index < currentIndex; index++) {
-                if (object.equals(objectArray[index])) {
+                if (object == objectArray[index] || object.equals(objectArray[index])) {
                     final int numMoved = currentIndex - index - 1;
 
-                    if (numMoved > 0)
+                    if (numMoved > 0) {
                         System.arraycopy(objectArray, index + 1, objectArray, index, numMoved);
+                    }
 
                     objectArray[--currentIndex] = null;
                     return true;
