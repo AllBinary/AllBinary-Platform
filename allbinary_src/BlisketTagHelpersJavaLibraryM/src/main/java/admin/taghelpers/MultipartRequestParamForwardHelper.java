@@ -84,9 +84,10 @@ public class MultipartRequestParamForwardHelper
 
     private String getParams()
     {
-        final String AMP = CommonSeps.getInstance().AMP;
-        final String QUESTION = CommonSeps.getInstance().QUESTION;
-        final String EQUALS = CommonSeps.getInstance().EQUALS;
+        final CommonSeps commonSeps = CommonSeps.getInstance();
+        final String AMP = commonSeps.AMPERSAND;
+        final String QUESTION = commonSeps.QUESTION;
+        final String EQUALS = commonSeps.EQUALS;
 
         final HashMap hashMap =
             this.requestMapInterface.getRequestHashMap();

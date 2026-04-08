@@ -61,7 +61,7 @@ public class TextAnimation extends IndexedAnimation
         final int height = this.getHeight();
         final int size = textArray.length;
         for(int index = 0; index < size; index++) {
-            //logUtil.put(new StringMaker().append(textArray[index]).append(' ').append(x).append(' ').append(y).toString(), this, commonStrings.PROCESS);
+            //logUtil.put(new StringMaker().append(textArray[index]).append(CommonSeps.getInstance().SPACE).append(x).append(CommonSeps.getInstance().SPACE).append(y).toString(), this, commonStrings.PROCESS);
             graphics.drawString(textArray[index], x, y + (index * height), anchor);
             //graphics.drawString(textArray[index], x + WIDTH, y + (index * height) + HEIGHT, anchor);
         }

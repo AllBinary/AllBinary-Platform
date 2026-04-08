@@ -40,6 +40,6 @@ public class PrimitiveLongSingleton
                 return this.NUMBER_ARRAY[index];
             }
         }
-        throw new Exception(new StringMaker().append("numberAsChar was not in array: ").append(numberAsChar).toString());
+        throw new Exception(new StringMaker().append("numberAsChar was not in array: ").appendC(numberAsChar).toString());
     }
 }

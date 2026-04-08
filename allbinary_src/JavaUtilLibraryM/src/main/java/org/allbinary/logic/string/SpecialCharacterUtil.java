@@ -36,7 +36,7 @@ public class SpecialCharacterUtil {
       hashMap.put("$",stringUtil.EMPTY_STRING);
       hashMap.put("%",stringUtil.EMPTY_STRING);
       hashMap.put("^",stringUtil.EMPTY_STRING);
-      hashMap.put(CommonSeps.getInstance().AMP,stringUtil.EMPTY_STRING);
+      hashMap.put(CommonSeps.getInstance().AMPERSAND,stringUtil.EMPTY_STRING);
       hashMap.put(commonPhoneStrings.STAR,stringUtil.EMPTY_STRING);
       hashMap.put("(",stringUtil.EMPTY_STRING);
       hashMap.put(")",stringUtil.EMPTY_STRING);

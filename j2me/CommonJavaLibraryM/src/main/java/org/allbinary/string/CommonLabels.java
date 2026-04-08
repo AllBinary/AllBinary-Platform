@@ -26,7 +26,7 @@ public class CommonLabels {
      * @return the instance
      */
     public static CommonLabels getInstance() {
-        return instance;
+        return CommonLabels.instance;
     }
     
     public final String WIDTH_LABEL = " Width: ";
@@ -39,7 +39,7 @@ public class CommonLabels {
     public final String COMMAND_LABEL = "Command: ";
     public final String NAME_LABEL = "Name: ";
     
-    public final String START = START_LABEL;
+    public final String START = this.START_LABEL;
     public final String ELAPSED = " Elapsed: ";
     public final String CURRENT = " Current: ";
     public final String ITEM_LABEL = "Item: ";

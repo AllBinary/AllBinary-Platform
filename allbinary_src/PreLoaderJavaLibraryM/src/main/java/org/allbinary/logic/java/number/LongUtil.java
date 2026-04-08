@@ -14,6 +14,7 @@
 package org.allbinary.logic.java.number;
 
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonPhoneStrings;
 
 public class LongUtil
 {
@@ -22,13 +23,14 @@ public class LongUtil
     {
     }
     
-    public static String fillIn(String end)
+    public static String fillIn(final String end)
     {
-        StringMaker frameStringBuffer = new StringMaker();
+        final StringMaker frameStringBuffer = new StringMaker();
         if(frameStringBuffer.length() < LongData.MAX_LONG_LENGTH) {
+            final CommonPhoneStrings commonPhoneStrings = CommonPhoneStrings.getInstance();
             final int size = LongData.MAX_LONG_LENGTH - frameStringBuffer.length();
             for(int index = 0; index < size; index++) {
-                frameStringBuffer.append('0');
+                frameStringBuffer.append(commonPhoneStrings.ZERO);
             }
         }
         frameStringBuffer.append(end);

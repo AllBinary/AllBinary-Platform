@@ -44,7 +44,7 @@ public class CustomTextAnimation extends TextAnimation
         this.fontSize = fontSize;
         this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, fontSize);
         //final CommonLabels commonLabels = CommonLabels.getInstance();
-        //logUtil.put(new StringMaker().append("Font size: ").append(fontSize).append(' ').append(font.getSize()).append(commonLabels.WIDTH_LABEL).append(font.stringWidth(text)).append(" text: ").append(text).toString(), this, commonStrings.PROCESS);
+        //logUtil.put(new StringMaker().append("Font size: ").append(fontSize).append(CommonSeps.getInstance().SPACE).append(font.getSize()).append(commonLabels.WIDTH_LABEL).append(font.stringWidth(text)).append(" text: ").append(text).toString(), this, commonStrings.PROCESS);
         
         //this.hack();
     }

@@ -19,7 +19,7 @@ public class CommonStrings
     
     public static CommonStrings getInstance()
     {
-        return instance;
+        return CommonStrings.instance;
     }
 
     public final String EMPTY = "Empty";
@@ -70,7 +70,7 @@ public class CommonStrings
 
     public final String VISIT = "visit";
 
-    public final String START_METHOD_NAME = START; //"start";
+    public final String START_METHOD_NAME = this.START; //"start";
     public final String END_METHOD_NAME = "end";
 
     public final String GET = "get";

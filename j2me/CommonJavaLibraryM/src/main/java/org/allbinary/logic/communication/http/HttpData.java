@@ -24,15 +24,20 @@ public class HttpData
      */
     public static HttpData getInstance()
     {
-        return instance;
+        return HttpData.instance;
     }
 
+    public final String EQUALS;
+    public final String PARAM_SEP;
+    public final String URL_PARAM_SEP;
+    public final String URL_LABEL = "Url: ";
+    
     private HttpData()
     {
+        final CommonSeps commonSeps = CommonSeps.getInstance();
+        this.EQUALS = commonSeps.EQUALS;
+        this.PARAM_SEP = commonSeps.AMPERSAND;
+        this.URL_PARAM_SEP = commonSeps.QUESTION;
     }
 
-    public final String EQUALS = CommonSeps.getInstance().EQUALS;
-    public final String PARAM_SEP = CommonSeps.getInstance().AMP;
-    public final String URL_PARAM_SEP = CommonSeps.getInstance().QUESTION;
-    public final String URL_LABEL = "Url: ";
 }

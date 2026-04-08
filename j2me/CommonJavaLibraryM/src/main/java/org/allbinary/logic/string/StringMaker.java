@@ -9,15 +9,15 @@ public class StringMaker
 
     public StringMaker()
     {
-        charArray = new char[20];
+        this.charArray = new char[20];
     }
     
     public StringMaker append(final String string)
     {
         final int stringLength = string.length();
-        ensureCapacity(currentLength + stringLength);
-        string.getChars(0, stringLength, charArray, currentLength);
-        currentLength += stringLength;
+        ensureCapacity(this.currentLength + stringLength);
+        string.getChars(0, stringLength, this.charArray, this.currentLength);
+        this.currentLength += stringLength;
         return this;
     }
 
@@ -31,10 +31,10 @@ public class StringMaker
 //        return this;
 //    }
     
-    public StringMaker append(final char c)
+    public StringMaker appendC(final char c)
     {
-        ensureCapacity(currentLength + 1);
-        charArray[currentLength++] = c;
+        ensureCapacity(this.currentLength + 1);
+        this.charArray[this.currentLength++] = c;
         return this;
     }
 
@@ -85,25 +85,25 @@ public class StringMaker
     {
         if (bool)
         {
-            ensureCapacity(currentLength + 4);
-            charArray[currentLength++] = 't';
-            charArray[currentLength++] = 'r';
-            charArray[currentLength++] = 'u';
-            charArray[currentLength++] = 'e';
+            ensureCapacity(this.currentLength + 4);
+            this.charArray[this.currentLength++] = 't';
+            this.charArray[this.currentLength++] = 'r';
+            this.charArray[this.currentLength++] = 'u';
+            this.charArray[this.currentLength++] = 'e';
         } else {
-            ensureCapacity(currentLength + 5);
-            charArray[currentLength++] = 'f';
-            charArray[currentLength++] = 'a';
-            charArray[currentLength++] = 'l';
-            charArray[currentLength++] = 's';
-            charArray[currentLength++] = 'e';
+            ensureCapacity(this.currentLength + 5);
+            this.charArray[this.currentLength++] = 'f';
+            this.charArray[this.currentLength++] = 'a';
+            this.charArray[this.currentLength++] = 'l';
+            this.charArray[this.currentLength++] = 's';
+            this.charArray[this.currentLength++] = 'e';
         }
         return this;
     }
 
     public void ensureCapacity(final int minSize)
     {
-        final int oldCapacity = charArray.length;
+        final int oldCapacity = this.charArray.length;
 
         if (minSize > oldCapacity) 
         {
@@ -114,15 +114,15 @@ public class StringMaker
 
             final char[] copy = new char[newCapacity];
 
-            final int min = min(charArray.length, newCapacity);
+            final int min = min(this.charArray.length, newCapacity);
 
-            System.arraycopy(charArray, 0, copy, 0, min);
+            System.arraycopy(this.charArray, 0, copy, 0, min);
 
-            charArray = copy;
+            this.charArray = copy;
         }
     }
 
-    //mathUtil.min(charArray.length, newCapacity)
+    //mathUtil.min(this.charArray.length, newCapacity)
     public int min(int value, int value2) {
         return (value <= value2) ? value : value2;
     }
@@ -140,6 +140,6 @@ public class StringMaker
     
     public String toString()
     {
-        return new String(charArray, 0, currentLength);
+        return new String(this.charArray, 0, this.currentLength);
     }
 }

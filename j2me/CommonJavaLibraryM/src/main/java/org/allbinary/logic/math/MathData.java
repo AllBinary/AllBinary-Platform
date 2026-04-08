@@ -23,16 +23,23 @@ public class MathData
 
     public static MathData getInstance()
     {
-        return instance;
+        return MathData.instance;
     }
 
+    public final String EQUALS;
+    public final String PLUS = "+";
+    public final String GREATER_THAN = ">";
+    public final String MINUS;
+    public final String DIVIDE;
+    public final String MULTIPLY;
+    
     private MathData()
     {
+        final CommonSeps commonSeps = CommonSeps.getInstance();
+        this.EQUALS = commonSeps.EQUALS;
+        this.MINUS = commonSeps.DASH;
+        this.DIVIDE = commonSeps.FORWARD_SLASH;
+        this.MULTIPLY = CommonPhoneStrings.getInstance().STAR;
     }
 
-    public String EQUALS = CommonSeps.getInstance().EQUALS;
-    public String PLUS = "+";
-    public String MINUS = "-";
-    public String DIVIDE = CommonSeps.getInstance().FORWARD_SLASH;
-    public String MULTIPLY = CommonPhoneStrings.getInstance().STAR;
 }

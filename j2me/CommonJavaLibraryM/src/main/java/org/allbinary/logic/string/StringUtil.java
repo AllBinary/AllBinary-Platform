@@ -18,7 +18,7 @@ public class StringUtil {
     private static final StringUtil instance = new StringUtil();
 
     public static StringUtil getInstance() {
-        return instance;
+        return StringUtil.instance;
     }
 
     public final String NULL_STRING = "null";
@@ -32,14 +32,14 @@ public class StringUtil {
     //Could Make a NulString
     public String getInstance(String string) {
         if (string == null) {
-            return EMPTY_STRING;
+            return this.EMPTY_STRING;
         } else {
             return string;
         }
     }
 
     public String[] getArrayInstance() {
-        return stringArray;
+        return this.stringArray;
     }
 
     public int count(final String string, final char aChar) {

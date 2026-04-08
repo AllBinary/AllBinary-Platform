@@ -38,7 +38,7 @@ public class TransactionResult implements TransactionResultInterface
       try
       {
          this.result = result;
-         Tokenizer tokenizer = new Tokenizer(CommonSeps.getInstance().AMP);
+         Tokenizer tokenizer = new Tokenizer(CommonSeps.getInstance().AMPERSAND);
          BasicArrayList tokens = tokenizer.getTokens(result, new BasicArrayList());
          Tokenizer tokenizer2 = new Tokenizer(CommonSeps.getInstance().EQUALS);
          

@@ -34,7 +34,7 @@ public class UniqueTokens
 	   specialCharacters.add("$");
 	   specialCharacters.add("%");
 	   specialCharacters.add("^");
-	   specialCharacters.add(CommonSeps.getInstance().AMP);
+	   specialCharacters.add(CommonSeps.getInstance().AMPERSAND);
 	   specialCharacters.add(CommonPhoneStrings.getInstance().STAR);
 	   specialCharacters.add("(");
 	   specialCharacters.add(")");

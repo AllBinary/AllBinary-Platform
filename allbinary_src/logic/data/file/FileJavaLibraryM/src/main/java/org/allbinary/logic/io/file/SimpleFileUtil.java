@@ -24,6 +24,7 @@ import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.StreamUtil;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 
@@ -157,6 +158,7 @@ public class SimpleFileUtil {
         }
 
         //final StringMaker stringMaker = new StringMaker();
+        //final CommonSeps commonSeps = CommonSeps.getInstance();
         
         final int size = byteArray.length;
         //logUtil.put("size: " + size, this, commonStrings.PROCESS);
@@ -180,7 +182,7 @@ public class SimpleFileUtil {
             
             final String s = new String(byteArray, startIndex, (index + includeReturnLine - returnLine - startIndex));
             stringList.add(s);
-            //stringMaker.append(s).append('\n');
+            //stringMaker.append(s).append(commonSeps.NEW_LINE);
             index++;
         }
         

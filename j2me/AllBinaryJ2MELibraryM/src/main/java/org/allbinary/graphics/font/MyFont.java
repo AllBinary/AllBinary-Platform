@@ -16,6 +16,7 @@ package org.allbinary.graphics.font;
 import javax.microedition.lcdui.Font;
 
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonSeps;
 
 public class MyFont
 {
@@ -70,6 +71,7 @@ public class MyFont
    }
    
    public String toString() {
-       return new StringMaker().append(this.getClass().toString()).append(this.DEFAULT_CHAR_WIDTH).append('/').append(this.DEFAULT_CHAR_HEIGHT).toString();
+       final CommonSeps commonSeps = CommonSeps.getInstance();
+       return new StringMaker().append(this.getClass().toString()).append(this.DEFAULT_CHAR_WIDTH).append(commonSeps.FORWARD_SLASH).append(this.DEFAULT_CHAR_HEIGHT).toString();
    }
 }

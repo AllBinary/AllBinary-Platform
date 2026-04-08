@@ -20,6 +20,7 @@ import java.io.DataOutputStream;
 
 import org.allbinary.game.GameInfo;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonSeps;
 
 public class HighScore
 {
@@ -60,8 +61,8 @@ public class HighScore
 
     public byte[] getAsBytes() throws Exception
     {
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        DataOutputStream outputStream = new DataOutputStream(byteArrayOutputStream);
+        final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        final DataOutputStream outputStream = new DataOutputStream(byteArrayOutputStream);
         outputStream.writeUTF(this.getName());
         outputStream.writeLong(this.getScore());
         return byteArrayOutputStream.toByteArray();
@@ -83,7 +84,8 @@ public class HighScore
     }
     
     public String toString() {
-        return new StringMaker().append(name).append(':').append(this.score).append('/').append(this.scoreString).toString();
+        final CommonSeps commonSeps = CommonSeps.getInstance();
+        return new StringMaker().append(name).append(commonSeps.COLON).append(this.score).append(commonSeps.FORWARD_SLASH).append(this.scoreString).toString();
     }
 
 }

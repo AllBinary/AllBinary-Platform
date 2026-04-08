@@ -15,7 +15,12 @@ package org.allbinary.string;
 
 public class CommonPhoneStrings
 {
-    private final static CommonPhoneStrings SINGLETON = new CommonPhoneStrings();
+    private final static CommonPhoneStrings instance = new CommonPhoneStrings();
+
+    public static final CommonPhoneStrings getInstance()
+    {
+        return CommonPhoneStrings.instance;
+    }
 
     public final String UP = "UP";
     public final String DOWN = "DOWN";
@@ -37,8 +42,4 @@ public class CommonPhoneStrings
 
     public final String FIRE = "FIRE";
     
-    public static final CommonPhoneStrings getInstance()
-    {
-        return SINGLETON;
-    }
 }

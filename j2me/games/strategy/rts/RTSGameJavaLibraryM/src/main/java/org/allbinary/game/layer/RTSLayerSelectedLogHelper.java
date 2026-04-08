@@ -180,7 +180,7 @@ public class RTSLayerSelectedLogHelper extends RTSLayerLogHelper {
     @Override
     public void notOnPath(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final GeographicMapCellHistory geographicMapCellHistory, final GeographicMapCellPosition currentGeographicMapCellPosition, final BasicArrayList pathList) {
         final StringUtil stringUtil = StringUtil.getInstance();
-        logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(' ').append(geographicMapCellHistory.getTotalVisited()).append(' ').append(stringUtil.toString(currentGeographicMapCellPosition)).append(" - trying to move but not on path: ").append(stringUtil.toString(pathList)).toString(), this, "turnTo");
+        logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(CommonSeps.getInstance().SPACE).append(geographicMapCellHistory.getTotalVisited()).append(CommonSeps.getInstance().SPACE).append(stringUtil.toString(currentGeographicMapCellPosition)).append(" - trying to move but not on path: ").append(stringUtil.toString(pathList)).toString(), this, "turnTo");
     }
                     
 

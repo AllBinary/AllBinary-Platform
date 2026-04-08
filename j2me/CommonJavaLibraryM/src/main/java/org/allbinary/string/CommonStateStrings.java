@@ -19,7 +19,7 @@ public class CommonStateStrings
 
     public static CommonStateStrings getInstance()
     {
-        return instance;
+        return CommonStateStrings.instance;
     }
     
     public final String CONTEXT = "Context: ";

@@ -119,7 +119,7 @@ public class PathFinder extends GeographicPathFinderBase {
         final BasicArrayList pathList = new BasicArrayList();
         pathList.add(list);
 
-        //logUtil.put(new StringMaker().append("finish A* ").append(list.size()).append(' ').append(pathList.size()).append(' ').append(list.toString()).toString(), this, "search");
+        //logUtil.put(new StringMaker().append("finish A* ").append(list.size()).append(CommonSeps.getInstance().SPACE).append(pathList.size()).append(CommonSeps.getInstance().SPACE).append(list.toString()).toString(), this, "search");
         
         return pathList;
 
@@ -150,7 +150,7 @@ public class PathFinder extends GeographicPathFinderBase {
         final BasicArrayList pathList = new BasicArrayList();
         pathList.add(list);
 
-        //logUtil.put(new StringMaker().append("finish A* ").append(list.size()).append(' ').append(pathList.size()).append(' ').append(list.toString()).toString(), this, "search");
+        //logUtil.put(new StringMaker().append("finish A* ").append(list.size()).append(CommonSeps.getInstance().SPACE).append(pathList.size()).append(CommonSeps.getInstance().SPACE).append(list.toString()).toString(), this, "search");
         
         multipassState.iteration = 0;
         multipassState.step = 0;

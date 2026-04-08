@@ -93,7 +93,7 @@ public class NoCacheWaypoint extends WaypointBase
     {
         final BasicArrayList endList = this.ownerLayer.getEndGeographicMapCellPositionList();
         
-        //logUtil.put(new StringMaker().append(this.ownerLayer.getName()).append(" c: ").append(this.ownerLayer.getCurrentGeographicMapCellPosition()).append(' ').append(this.ownerLayer.getTopLeftGeographicMapCellPosition()).append(" endList: ").append(endList).toString(), this, "visit");
+        //logUtil.put(new StringMaker().append(this.ownerLayer.getName()).append(" c: ").append(this.ownerLayer.getCurrentGeographicMapCellPosition()).append(CommonSeps.getInstance().SPACE).append(this.ownerLayer.getTopLeftGeographicMapCellPosition()).append(" endList: ").append(endList).toString(), this, "visit");
         
         GeographicMapCellPosition endGeographicMapCellPosition =
             (GeographicMapCellPosition) BasicArrayListUtil.getInstance().getRandom(endList);

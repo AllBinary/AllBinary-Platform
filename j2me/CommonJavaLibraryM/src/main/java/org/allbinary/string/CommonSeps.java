@@ -16,11 +16,11 @@ package org.allbinary.string;
 public class CommonSeps
 {
 
-    private static final CommonSeps SINGLETON = new CommonSeps();
+    private static final CommonSeps instance = new CommonSeps();
 
     public static CommonSeps getInstance()
     {
-        return SINGLETON;
+        return CommonSeps.instance;
     }
 
     public final String NEW_LINE = "\n";
@@ -32,8 +32,8 @@ public class CommonSeps
     public final String COLON = ":";
     public final String PERIOD = ".";
     public final String UNDERSCORE = "_";
-    public final String COLON_SEP = COLON + SPACE;
-    public final String COMMA_SEP = COMMA + SPACE;
+    public final String COLON_SEP = this.COLON + this.SPACE;
+    public final String COMMA_SEP = this.COMMA + this.SPACE;
     public final String PARENTHESIS_OPEN = "(";
     public final String PARENTHESIS_CLOSE = ")";
     public final String BRACE_OPEN = "{";
@@ -49,7 +49,6 @@ public class CommonSeps
     public final String FORWARD_SLASH = "/";
     public final String BACK_SLASH = "\\";
 
-    public final String AMP = "&";
     public final String QUESTION = "?";
     
     public final String QUOTE = "\"";
