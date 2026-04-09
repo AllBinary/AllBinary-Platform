@@ -38,19 +38,19 @@ public class StringMaker
         return this;
     }
 
-//    public StringMaker append(final byte b)
-//    {
-//      //change to PrimitiveLongUtil
-//        this.append(Integer.toString(b));
-//        return this;
-//    }
-//
-//    public StringMaker append(final short b)
-//    {
-//      //change to PrimitiveLongUtil
-//        this.append(Integer.toString(b));
-//        return this;
-//    }
+    public StringMaker appendbyte(final byte b)
+    {
+      //change to PrimitiveLongUtil
+        this.append(Integer.toString(b));
+        return this;
+    }
+
+    public StringMaker appendshort(final short b)
+    {
+      //change to PrimitiveLongUtil
+        this.append(Integer.toString(b));
+        return this;
+    }
     
     public StringMaker appendint(final int i)
     {

@@ -106,6 +106,7 @@ public class CustomTextAnimation extends TextAnimation
 //        }
     }
 
+    @Override
     public String getText() {
         return this.lastText;
     }
@@ -114,7 +115,7 @@ public class CustomTextAnimation extends TextAnimation
     @Override
     public int getWidth() {
         if(this.hasChanged) {
-            this.textWidth = this.font.stringWidth(this.textArray[0]);
+            this.textWidth = this.font.stringWidth(this.textArrayP[0]);
             this.hasChanged = false;
         }
         return this.textWidth;

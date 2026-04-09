@@ -136,7 +136,7 @@ public class AngleFactory
         for(int index = 0; index < 360; index++) {
             stringMaker.appendint(index)
                 .append(CommonSeps.getInstance().FORWARD_SLASH)
-                .appendint(angleFactory.getClosestDirection(index).getValue())
+                .appendshort(angleFactory.getClosestDirection(index).getValue())
                 .append(CommonSeps.getInstance().NEW_LINE);
         }
         LogUtil.getInstance().put(stringMaker.toString(), "main", "main");

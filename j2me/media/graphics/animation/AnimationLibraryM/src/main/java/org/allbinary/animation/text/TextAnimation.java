@@ -30,7 +30,7 @@ public class TextAnimation extends IndexedAnimation
     //private final int WIDTH = 13;
     //private final int HEIGHT = 8;
     
-    protected String[] textArray = StringUtil.getInstance().ONE_EMPTY_STRING_ARRAY;
+    protected String[] textArrayP = StringUtil.getInstance().ONE_EMPTY_STRING_ARRAY;
     
     private int anchor = Anchor.TOP_LEFT;
     
@@ -59,10 +59,10 @@ public class TextAnimation extends IndexedAnimation
                 graphics, this.getBasicColorP(), this.getColor());
 
         final int height = this.getHeight();
-        final int size = textArray.length;
+        final int size = textArrayP.length;
         for(int index = 0; index < size; index++) {
             //logUtil.put(new StringMaker().append(textArray[index]).append(CommonSeps.getInstance().SPACE).append(x).append(CommonSeps.getInstance().SPACE).append(y).toString(), this, commonStrings.PROCESS);
-            graphics.drawString(textArray[index], x, y + (index * height), anchor);
+            graphics.drawString(textArrayP[index], x, y + (index * height), anchor);
             //graphics.drawString(textArray[index], x + WIDTH, y + (index * height) + HEIGHT, anchor);
         }
 
@@ -98,16 +98,16 @@ public class TextAnimation extends IndexedAnimation
             for(int index = 0; index < size; index++) {
                 textArray[index] = (String) list.get(index);
             }
-            this.textArray = textArray;
+            this.textArrayP = textArray;
             //this.textArray = (String[]) list.toArray(new String[list.size()]);
         } else {
-            this.textArray = StringUtil.getInstance().ONE_EMPTY_STRING_ARRAY;
+            this.textArrayP = StringUtil.getInstance().ONE_EMPTY_STRING_ARRAY;
         }
     }
 
     public String[] getTextArray()
     {
-        return textArray;
+        return textArrayP;
     }
     
     public int getHeight() {

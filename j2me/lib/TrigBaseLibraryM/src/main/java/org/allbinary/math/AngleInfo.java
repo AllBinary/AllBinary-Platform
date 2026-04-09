@@ -69,7 +69,7 @@ public class AngleInfo
       StringMaker stringBuffer = new StringMaker();
       
       stringBuffer.append(ANGLE);
-      stringBuffer.appendint(this.angle);
+      stringBuffer.appendshort(this.angle);
       stringBuffer.append(CommonSeps.getInstance().SPACE);
       stringBuffer.append(StringUtil.getInstance().toString(this.getAngleIncrementInfo()));
       

@@ -149,7 +149,7 @@ public class ArrayUtil
 
         for (int index = 0; index < byteArray.length; index++)
         {
-                stringBuffer.appendint(byteArray[index]);
+                stringBuffer.appendbyte(byteArray[index]);
                 stringBuffer.append(commonSeps.COMMA_SEP);
         }
 
