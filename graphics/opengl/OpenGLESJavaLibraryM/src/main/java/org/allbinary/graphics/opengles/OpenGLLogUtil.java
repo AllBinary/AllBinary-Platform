@@ -30,7 +30,7 @@ public class OpenGLLogUtil
             final StringMaker stringBuffer = new StringMaker();
             
             stringBuffer.append(OpenGLStrings.getInstance().GL_ERROR_LABEL);
-            stringBuffer.append(error);
+            stringBuffer.appendint(error);
             if(error == 1281)
             {
                 stringBuffer.append(MAX_TEXTURE);
@@ -38,7 +38,7 @@ public class OpenGLLogUtil
                 final int[] maxTextureSize = new int[1];
                 gl.glGetIntegerv(GL10.GL_MAX_TEXTURE_SIZE, maxTextureSize, 0);
                 
-                stringBuffer.append(maxTextureSize[0]);
+                stringBuffer.appendint(maxTextureSize[0]);
             }
 
             if(error == 1280) {
@@ -61,7 +61,7 @@ public class OpenGLLogUtil
             final StringMaker stringBuffer = new StringMaker();
             
             stringBuffer.append(OpenGLStrings.getInstance().GL_ERROR_LABEL);
-            stringBuffer.append(error);
+            stringBuffer.appendint(error);
             if(error == 1281)
             {
                 stringBuffer.append(MAX_TEXTURE);
@@ -69,7 +69,7 @@ public class OpenGLLogUtil
                 final int[] maxTextureSize = new int[1];
                 gl.glGetIntegerv(GL10.GL_MAX_TEXTURE_SIZE, maxTextureSize, 0);
                 
-                stringBuffer.append(maxTextureSize[0]);
+                stringBuffer.appendint(maxTextureSize[0]);
             }
 
             stringBuffer.append(IMAGE);

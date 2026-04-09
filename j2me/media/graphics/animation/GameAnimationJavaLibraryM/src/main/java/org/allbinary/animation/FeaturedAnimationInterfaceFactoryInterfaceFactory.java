@@ -135,9 +135,9 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
             final StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append(NO_ANIMATION_AVAILABLE_FROM);
-            stringBuffer.append(resourceTypeAvailableList.size());
+            stringBuffer.appendint(resourceTypeAvailableList.size());
             stringBuffer.append(CommonSeps.getInstance().FORWARD_SLASH);
-            stringBuffer.append(size);
+            stringBuffer.appendint(size);
             stringBuffer.append(FOR_FACTORIES);
             
             final int size2 = resourceTypeAvailableList.size();
@@ -159,7 +159,7 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
                 {
                     stringBuffer.append(StringUtil.getInstance().toString(featureInterface));
                     stringBuffer.append(HAS_KEY);
-                    stringBuffer.append(featureInterface.getHashtable().size());
+                    stringBuffer.appendint(featureInterface.getHashtable().size());
                     stringBuffer.append(RESOURCES_LABEL);
                     //To large
                     //stringBuffer.append(" resources: ");

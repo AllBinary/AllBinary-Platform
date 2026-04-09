@@ -68,20 +68,22 @@ public class BasicArrayListUtil
         }
     }	
     
-    public String log(BasicArrayList list)
+    public String log(final BasicArrayList list)
     {
-        int size = list.size();
+        final String S_LABEL = " s: ";
+        
+        final int size = list.size();
 
         StringMaker stringBuffer = new StringMaker();
         stringBuffer.append(CommonLabels.getInstance().TOTAL_LABEL);
-        stringBuffer.append(size);
+        stringBuffer.appendint(size);
 
         for (int index = size - 1; index >= 0; index--)
         {
             BasicArrayList usedList = (BasicArrayList) list.objectArray[index];
 
-            stringBuffer.append(" s: ");
-            stringBuffer.append(usedList.size());
+            stringBuffer.append(S_LABEL);
+            stringBuffer.appendint(usedList.size());
         }
         return stringBuffer.toString();
     }

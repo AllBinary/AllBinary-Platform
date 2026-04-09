@@ -51,7 +51,7 @@ public class GameFeatureUtil
         int total = choiceGroup.getSelectedFlags(selectedArray_return);
         
         stringBuffer.append("Multiple Total Choices: ");
-        stringBuffer.append(total);
+        stringBuffer.appendint(total);
         
         logUtil.put(stringBuffer.toString(), this, METHOD_NAME);
 
@@ -64,9 +64,9 @@ public class GameFeatureUtil
             stringBuffer.delete(0, stringBuffer.length());
             
             stringBuffer.append(SELECTED_ARRAY_RETURN);
-            stringBuffer.append(index);
+            stringBuffer.appendint(index);
             stringBuffer.append(SELECTED_SEP);
-            stringBuffer.append(isSelected);
+            stringBuffer.appendboolean(isSelected);
             
             logUtil.put(stringBuffer.toString(), this, METHOD_NAME);
             
@@ -98,7 +98,7 @@ public class GameFeatureUtil
         int total = choiceGroup.getSelectedFlags(selectedArray_return);
 
         stringBuffer.append("Multiple Total Choices: ");
-        stringBuffer.append(total);
+        stringBuffer.appendint(total);
         
         logUtil.put(stringBuffer.toString(), this, METHOD_NAME);
 
@@ -111,9 +111,9 @@ public class GameFeatureUtil
             stringBuffer.delete(0, stringBuffer.length());
             
             stringBuffer.append(SELECTED_ARRAY_RETURN);
-            stringBuffer.append(index);
+            stringBuffer.appendint(index);
             stringBuffer.append(SELECTED_SEP);
-            stringBuffer.append(isSelected);
+            stringBuffer.appendboolean(isSelected);
             
             logUtil.put(stringBuffer.toString(), this, METHOD_NAME);
 
@@ -144,7 +144,7 @@ public class GameFeatureUtil
         int total = choiceGroup.getSelectedFlags(selectedArray_return);
 
         stringBuffer.append("Exclusive Total Choices: 1==");
-        stringBuffer.append(total);
+        stringBuffer.appendint(total);
         
         logUtil.put(stringBuffer.toString(), this, METHOD_NAME);
 
@@ -155,9 +155,9 @@ public class GameFeatureUtil
             stringBuffer.delete(0, stringBuffer.length());
 
             stringBuffer.append(SELECTED_ARRAY_RETURN);
-            stringBuffer.append(index);
+            stringBuffer.appendint(index);
             stringBuffer.append(SELECTED_SEP);
-            stringBuffer.append(isSelected);
+            stringBuffer.appendboolean(isSelected);
 
             logUtil.put(stringBuffer.toString(), this, METHOD_NAME);
 

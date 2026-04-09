@@ -227,9 +227,9 @@ public class UpdateFileValidationView
                     StringMaker stringBuffer = new StringMaker();
 
                     stringBuffer.append("File Size To Large: ");
-                    stringBuffer.append(size);
+                    stringBuffer.appendlong(size);
                     stringBuffer.append(">");
-                    stringBuffer.append(fileData.MAXIMAGEFILESIZE);
+                    stringBuffer.appendint(fileData.MAXIMAGEFILESIZE);
 
                     logUtil.put(stringBuffer.toString(), this, commonStrings.IS_VALID);
                 }
@@ -255,17 +255,17 @@ public class UpdateFileValidationView
                     if (!StringValidationUtil.getInstance().isValidRequired(fileName, fileData.MINLEN, fileData.MAXLEN))
                     {
                         stringBuffer.append("FileName must be >");
-                        stringBuffer.append(fileData.MINLEN);
+                        stringBuffer.appendint(fileData.MINLEN);
                         stringBuffer.append("and <");
-                        stringBuffer.append(fileData.MAXLEN);
+                        stringBuffer.appendint(fileData.MAXLEN);
                         stringBuffer.append("<br />");
                     }
                 } else
                 {
                     stringBuffer.append("Image File Is Not The Right Size. ");
-                    stringBuffer.append(fileData.MINIMAGEFILESIZE);
+                    stringBuffer.appendint(fileData.MINIMAGEFILESIZE);
                     stringBuffer.append("< > ");
-                    stringBuffer.append(fileData.MAXIMAGEFILESIZE);
+                    stringBuffer.appendint(fileData.MAXIMAGEFILESIZE);
                     stringBuffer.append("<br />");
                 }
             }

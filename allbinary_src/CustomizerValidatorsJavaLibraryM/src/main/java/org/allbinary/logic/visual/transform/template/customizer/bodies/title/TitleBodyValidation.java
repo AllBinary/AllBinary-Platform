@@ -152,9 +152,9 @@ public class TitleBodyValidation extends Validation implements DomNodeInterface
          //if(!isValid.booleanValue())
          {
             stringBuffer.append("Error: Data submitted is < ");
-            stringBuffer.append(BodyData.getInstance().MIN);
+            stringBuffer.appendint(BodyData.getInstance().MIN);
             stringBuffer.append(" or > ");
-            stringBuffer.append(AbSqlData.MAXBLOB);
+            stringBuffer.appendint(AbSqlData.MAXBLOB);
          }
          
          return stringBuffer.toString();

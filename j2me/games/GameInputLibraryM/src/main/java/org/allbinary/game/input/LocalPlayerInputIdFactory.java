@@ -79,7 +79,7 @@ public class LocalPlayerInputIdFactory {
         }
         else
         {
-            logUtil.put(new StringMaker().append("Added DeviceId: ").append(deviceId).append(" beyond fast Id list").toString(), this, "getPlayerForDevice");
+            logUtil.put(new StringMaker().append("Added DeviceId: ").appendint(deviceId).append(" beyond fast Id list").toString(), this, "getPlayerForDevice");
         }
 
         this.playerIdToDeviceId[index] = deviceId;
@@ -88,7 +88,7 @@ public class LocalPlayerInputIdFactory {
 
         totalDevicesMapped++;
 
-        logUtil.put(new StringMaker().append("Added DeviceId: ").append(deviceId).append(" at: ").append(index).append(" Total: ").append(this.totalDevicesMapped).toString(), this, "getPlayerForDevice");
+        logUtil.put(new StringMaker().append("Added DeviceId: ").appendint(deviceId).append(" at: ").appendint(index).append(" Total: ").appendint(this.totalDevicesMapped).toString(), this, "getPlayerForDevice");
         //At some point add Ouya and other special mapping here and return it instead of the internal mapping
         //int playerNum = OuyaController.getPlayerNumByDeviceId(deviceId);
         return index;
@@ -137,13 +137,13 @@ public class LocalPlayerInputIdFactory {
 
     public void setPlayerInPlay(int playerInputId)
     {
-        logUtil.put(new StringMaker().append("Setting PlayerInPlay with playerInputId: ").append(playerInputId).toString(), this, "setPlayerInPlay");
+        logUtil.put(new StringMaker().append("Setting PlayerInPlay with playerInputId: ").appendint(playerInputId).toString(), this, "setPlayerInPlay");
         playersInPlay[playerInputId] = true;
     }
 
     public void setPlayerOutOfPlay(int playerInputId)
     {
-        logUtil.put(new StringMaker().append("Setting PlayerOutOfPlay with playerInputId: ").append(playerInputId).toString(), this, "setPlayerOutOfPlay");
+        logUtil.put(new StringMaker().append("Setting PlayerOutOfPlay with playerInputId: ").appendint(playerInputId).toString(), this, "setPlayerOutOfPlay");
         playersInPlay[playerInputId] = false;
     }   
     

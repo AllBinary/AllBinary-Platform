@@ -40,7 +40,7 @@ public class PixelDelta implements CacheableInterface
     
     public static Object getKey(GPoint point, ColorDelta colorDelta)
     {
-        return new StringMaker().append(point.hashCode()).append(CommonSeps.getInstance().UNDERSCORE).append(colorDelta.getKey().toString()).toString();
+        return new StringMaker().appendint(point.hashCode()).append(CommonSeps.getInstance().UNDERSCORE).append(colorDelta.getKey().toString()).toString();
     }
     
     public GPoint getPoint()

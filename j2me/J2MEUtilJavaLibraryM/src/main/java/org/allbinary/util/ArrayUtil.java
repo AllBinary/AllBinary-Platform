@@ -116,7 +116,7 @@ public class ArrayUtil
             stringBuffer.append(commonSeps.BRACE_OPEN);
             for (int index2 = 0; index2 < endIndex2; index2++)
             {
-                stringBuffer.append(twoDimensionalIntArray[index][index2]);
+                stringBuffer.appendint(twoDimensionalIntArray[index][index2]);
                 stringBuffer.append(commonSeps.COMMA_SEP);
             }
             stringBuffer.append(commonSeps.BRACE_CLOSE);
@@ -149,7 +149,7 @@ public class ArrayUtil
 
         for (int index = 0; index < byteArray.length; index++)
         {
-                stringBuffer.append(byteArray[index]);
+                stringBuffer.appendint(byteArray[index]);
                 stringBuffer.append(commonSeps.COMMA_SEP);
         }
 

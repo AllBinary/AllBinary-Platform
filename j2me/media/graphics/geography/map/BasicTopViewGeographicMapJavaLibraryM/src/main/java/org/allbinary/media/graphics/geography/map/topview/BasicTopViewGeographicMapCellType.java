@@ -146,7 +146,7 @@ public class BasicTopViewGeographicMapCellType //extends GeographicMapCellType
 
         final int size = types.length;
         for(int index = 0; index < size; index++) {
-            stringMaker.append(types[index]).append(CommonSeps.getInstance().COMMA);
+            stringMaker.appendint(types[index]).append(CommonSeps.getInstance().COMMA);
         }        
 
         return stringMaker.toString();

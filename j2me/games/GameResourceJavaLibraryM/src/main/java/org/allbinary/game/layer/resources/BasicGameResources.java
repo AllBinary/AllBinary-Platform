@@ -43,7 +43,7 @@ public class BasicGameResources
                 this.init(ROOT, SIZE[scale - 1]);
             } else
             {
-                throw new Exception(new StringMaker().append("Invalid Value: ").append(scale).toString());
+                throw new Exception(new StringMaker().append("Invalid Value: ").appendint(scale).toString());
             }
 
             //logUtil.put("Resource: ").append(this.RESOURCE).append(" Destroy: ").append(this.RESOURCE_DESTROY, this, commonStrings.INIT);

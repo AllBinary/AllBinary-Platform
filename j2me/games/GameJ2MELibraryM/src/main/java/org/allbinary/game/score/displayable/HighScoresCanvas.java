@@ -140,14 +140,14 @@ public class HighScoresCanvas extends GameCommandCanvas
                         hasPainted = false;
                     }
                     final StringMaker stringMaker = new StringMaker();
-                    logUtil.put(stringMaker.append("HighScoresCanvas - Request repaint to be sure: ").append(System.currentTimeMillis()).toString(), this, commonStrings.RUN);
+                    logUtil.put(stringMaker.append("HighScoresCanvas - Request repaint to be sure: ").appendlong(System.currentTimeMillis()).toString(), this, commonStrings.RUN);
                     repaintBehavior.onChangeRepaint(HighScoresCanvas.this);
                     if (!isHTML) {
                         while (!hasPainted) {
                         }
                     }
                     stringMaker.delete(0, stringMaker.length());
-                    logUtil.put(stringMaker.append("HighScoresCanvas - Now that the canvas has completed repaint go ahead and fetch the scores: ").append(System.currentTimeMillis()).toString(), this, commonStrings.RUN);
+                    logUtil.put(stringMaker.append("HighScoresCanvas - Now that the canvas has completed repaint go ahead and fetch the scores: ").appendlong(System.currentTimeMillis()).toString(), this, commonStrings.RUN);
                     executeUpdate();
                 } catch (Exception e) {
                     logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
@@ -225,7 +225,7 @@ public class HighScoresCanvas extends GameCommandCanvas
     {
         try {
             if (highScoresArray != null) {
-                logUtil.put(new StringMaker().append(commonStrings.START).append(highScoresArray.length).toString(), this, "setHighScoresArray");
+                logUtil.put(new StringMaker().append(commonStrings.START).appendint(highScoresArray.length).toString(), this, "setHighScoresArray");
             } else {
                 logUtil.put(commonStrings.START, this, "setHighScoresArray");
             }

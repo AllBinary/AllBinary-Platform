@@ -32,7 +32,7 @@ public class HighScoresHelperBase implements HighScoresResultsListener {
     {
         if (highScoresArrayP != null) {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(new StringMaker().append(commonStrings.START).append(highScoresArrayP.length).toString(), this, "setHighScoresArray");
+            logUtil.put(new StringMaker().append(commonStrings.START).appendint(highScoresArrayP.length).toString(), this, "setHighScoresArray");
         } else {
             final CommonStrings commonStrings = CommonStrings.getInstance();
             logUtil.put(commonStrings.START, this, "setHighScoresArray");

@@ -261,7 +261,7 @@ public class TransformInfoObjectConfig
 	              stringBuffer.append("Number Of ");
 	              stringBuffer.append(nodeName );
 	              stringBuffer.append(" Nodes: ");
-	              stringBuffer.append(numberOfViews);
+	              stringBuffer.appendint(numberOfViews);
 
 	             logUtil.put(stringBuffer.toString(), this, "getNodeVector(nodename)");
 	             //logUtil.put("Document: " +

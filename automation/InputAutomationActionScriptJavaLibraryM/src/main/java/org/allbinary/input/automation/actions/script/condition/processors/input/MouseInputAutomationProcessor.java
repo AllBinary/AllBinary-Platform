@@ -35,7 +35,7 @@ public class MouseInputAutomationProcessor
         logUtil.put(
             new StringMaker().append("Start - Processing Mouse Input at: ")
                 .append(mouseActionScriptInputInterface.getPoint().toString())
-                .append(" clicks: ").append(mouseActionScriptInputInterface.getButtonClicks()).toString(),
+                .append(" clicks: ").appendint(mouseActionScriptInputInterface.getButtonClicks()).toString(),
             "MouseInputAutomationProcessor", commonStrings.PROCESS);
 
         InputRobotInterface inputRobotInterface = 

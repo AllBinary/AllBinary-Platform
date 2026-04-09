@@ -185,15 +185,15 @@ public class BasicColor
         
         stringBuffer.append("BasicColor: ");
         stringBuffer.append("Alpha: ");
-        stringBuffer.append(this.alpha);
+        stringBuffer.appendint(this.alpha);
         stringBuffer.append(" Red: ");
-        stringBuffer.append(this.red);
+        stringBuffer.appendint(this.red);
         stringBuffer.append(" Green: ");
-        stringBuffer.append(this.green);
+        stringBuffer.appendint(this.green);
         stringBuffer.append(" Blue: ");
-        stringBuffer.append(this.blue);
+        stringBuffer.appendint(this.blue);
         stringBuffer.append(" Value: ");
-        stringBuffer.append(this.value);
+        stringBuffer.appendint(this.value);
 
         return stringBuffer.toString();
     }

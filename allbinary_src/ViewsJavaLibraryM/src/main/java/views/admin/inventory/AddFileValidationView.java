@@ -284,9 +284,9 @@ public class AddFileValidationView
                     final StringMaker stringBuffer = new StringMaker();
 
                     stringBuffer.append("File Size To Large: ");
-                    stringBuffer.append(size);
+                    stringBuffer.appendlong(size);
                     stringBuffer.append(">");
-                    stringBuffer.append(fileData.MAXIMAGEFILESIZE);
+                    stringBuffer.appendint(fileData.MAXIMAGEFILESIZE);
 
                     logUtil.put(
                         stringBuffer.toString(), this, commonStrings.IS_VALID);
@@ -302,9 +302,9 @@ public class AddFileValidationView
                 final StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append("File Size To Small: ");
-                stringBuffer.append(size);
+                stringBuffer.appendlong(size);
                 stringBuffer.append(">");
-                stringBuffer.append(fileData.MINIMAGEFILESIZE);
+                stringBuffer.appendint(fileData.MINIMAGEFILESIZE);
 
                 logUtil.put(stringBuffer.toString(), this, commonStrings.IS_VALID);
             }
@@ -330,9 +330,9 @@ public class AddFileValidationView
                         fileName, fileData.MINLEN, fileData.MAXLEN))
                     {
                         stringBuffer.append("FileName must be >");
-                        stringBuffer.append(fileData.MINLEN);
+                        stringBuffer.appendint(fileData.MINLEN);
                         stringBuffer.append(" and <");
-                        stringBuffer.append(fileData.MAXLEN);
+                        stringBuffer.appendint(fileData.MAXLEN);
                         stringBuffer.append("<br/>");
                     } else
                     {
@@ -351,18 +351,18 @@ public class AddFileValidationView
                 } else
                 {
                     stringBuffer.append("Image File Is To Large. ");
-                    stringBuffer.append(fileData.MINIMAGEFILESIZE);
+                    stringBuffer.appendint(fileData.MINIMAGEFILESIZE);
                     stringBuffer.append(" < > ");
-                    stringBuffer.append(fileData.MAXIMAGEFILESIZE);
+                    stringBuffer.appendint(fileData.MAXIMAGEFILESIZE);
                     stringBuffer.append("<br/>");
                 }
             }
         } else
         {
             stringBuffer.append("Image File Is To Small. ");
-            stringBuffer.append(fileData.MINIMAGEFILESIZE);
+            stringBuffer.appendint(fileData.MINIMAGEFILESIZE);
             stringBuffer.append(" < > ");
-            stringBuffer.append(fileData.MAXIMAGEFILESIZE);
+            stringBuffer.appendint(fileData.MAXIMAGEFILESIZE);
             stringBuffer.append("<br/>");
         }
     }

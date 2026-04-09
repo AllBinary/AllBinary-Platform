@@ -57,7 +57,7 @@ public class DeleteCloud
                 stringBuffer.append("Searched: ");
                 stringBuffer.append(path.toFileSystemString());
                 stringBuffer.append(" BasicArrayList: ");
-                stringBuffer.append(size);
+                stringBuffer.appendint(size);
 
                 int portion = size / total + 1;
 
@@ -71,9 +71,9 @@ public class DeleteCloud
                 }
 
                 stringBuffer.append(" Section: ");
-                stringBuffer.append(start);
+                stringBuffer.appendint(start);
                 stringBuffer.append(" - ");
-                stringBuffer.append(end);
+                stringBuffer.appendint(end);
 
                 logUtil.put(
                     stringBuffer.toString(), this, "initialize()");

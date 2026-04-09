@@ -99,7 +99,7 @@ public class TechRTSFormInput extends RTSFormInput
 
         final RTSInterface rtsInterface = technologyRTSInterfaceImageItem.getRtsInterface();
 
-        logUtil.put(stringMaker.append("isUpgradeable: ").append(rtsInterface.isUpgradeable()).toString(), this, commonStrings.PROCESS);
+        logUtil.put(stringMaker.append("isUpgradeable: ").appendboolean(rtsInterface.isUpgradeable()).toString(), this, commonStrings.PROCESS);
 
         if (rtsInterface.isUpgradeable())
         {
@@ -107,7 +107,7 @@ public class TechRTSFormInput extends RTSFormInput
             final Capital capital = rtsPlayerLayerInterface.getCapital();
 
             stringMaker.delete(0, stringMaker.length());
-            logUtil.put(stringMaker.append(cost).append("<=").append(capital.getTotalMoney()).toString(), this, commonStrings.PROCESS);
+            logUtil.put(stringMaker.appendint(cost).append("<=").appendint(capital.getTotalMoney()).toString(), this, commonStrings.PROCESS);
 
             if (cost <= capital.getTotalMoney())
             {

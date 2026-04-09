@@ -56,7 +56,7 @@ public class XmlRpcRemoteHighScoresClient extends XmlRpcAbeClient
             
             StringMaker stringBuffer = new StringMaker();
             stringBuffer.append(TRYING);
-            stringBuffer.append(this.getServer());
+            stringBuffer.appendint(this.getServer());
             stringBuffer.append(SEP);
             stringBuffer.append(serverUrl);
 

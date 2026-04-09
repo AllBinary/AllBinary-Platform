@@ -51,7 +51,7 @@ public class ConstructorUtil
             stringBuffer.append(commonSeps.SPACE);
             stringBuffer.append(classes[index].getName());
             stringBuffer.append(commonSeps.COLON);
-            stringBuffer.append(index);
+            stringBuffer.appendint(index);
          }
          stringBuffer.append(lineBreak);
          return stringBuffer.toString();

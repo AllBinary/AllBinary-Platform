@@ -62,7 +62,7 @@ public class BufferedImageFrameCacheable
         StringMaker stringBuffer = new StringMaker();
         stringBuffer.append(this.getClass().getName());
         stringBuffer.append(" Frame: ");
-        stringBuffer.append(this.getFrame());
+        stringBuffer.appendlong(this.getFrame());
         return stringBuffer.toString();
     }
 }

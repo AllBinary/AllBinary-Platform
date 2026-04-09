@@ -279,7 +279,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
         else
         {
             final CommonLabels commonLabels = CommonLabels.getInstance();
-            logUtil.put(new StringMaker().append("Off Of Map -").append(commonLabels.WIDTH_LABEL).append(allBinaryTiledLayer.getWidth()).append(commonLabels.HEIGHT_LABEL).append(allBinaryTiledLayer.getHeight()).toString(), this, "select");
+            logUtil.put(new StringMaker().append("Off Of Map -").append(commonLabels.WIDTH_LABEL).appendint(allBinaryTiledLayer.getWidth()).append(commonLabels.HEIGHT_LABEL).appendint(allBinaryTiledLayer.getHeight()).toString(), this, "select");
         }
     }
 

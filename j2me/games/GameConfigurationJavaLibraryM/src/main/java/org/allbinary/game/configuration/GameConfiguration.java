@@ -50,7 +50,7 @@ public class GameConfiguration
             final Integer oldValue = this.value;
             this.value = value;
             GameFeatureEventHandler.getInstance().fireEvent(
-                    new GameFeatureEvent(this, new StringMaker().append(this.name).append(" value: from: ").append(oldValue.intValue()).append(" to ").append(this.value.intValue()).toString()));
+                    new GameFeatureEvent(this, new StringMaker().append(this.name).append(" value: from: ").appendint(oldValue.intValue()).append(" to ").appendint(this.value.intValue()).toString()));
         }
     }
 
@@ -111,15 +111,15 @@ public class GameConfiguration
         stringBuffer.append("Name: ");
         stringBuffer.append(this.name);
         stringBuffer.append(" Min: ");
-        stringBuffer.append(this.getMinValue().intValue());
+        stringBuffer.appendint(this.getMinValue().intValue());
         stringBuffer.append(" Max: ");
-        stringBuffer.append(this.getMaxValue().intValue());
+        stringBuffer.appendint(this.getMaxValue().intValue());
         stringBuffer.append(" Value: ");
-        stringBuffer.append(this.getValue().intValue());
+        stringBuffer.appendint(this.getValue().intValue());
         stringBuffer.append(" Default: ");
-        stringBuffer.append(this.getDefaultValue().intValue());
+        stringBuffer.appendint(this.getDefaultValue().intValue());
         stringBuffer.append(" Modifiable: ");
-        stringBuffer.append(this.isModifiable());
+        stringBuffer.appendboolean(this.isModifiable());
 
         return stringBuffer.toString();
     }

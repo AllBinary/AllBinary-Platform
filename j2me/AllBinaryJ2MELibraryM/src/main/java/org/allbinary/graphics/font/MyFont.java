@@ -72,6 +72,6 @@ public class MyFont
    
    public String toString() {
        final CommonSeps commonSeps = CommonSeps.getInstance();
-       return new StringMaker().append(this.getClass().toString()).append(this.DEFAULT_CHAR_WIDTH).append(commonSeps.FORWARD_SLASH).append(this.DEFAULT_CHAR_HEIGHT).toString();
+       return new StringMaker().append(this.getClass().toString()).appendint(this.DEFAULT_CHAR_WIDTH).append(commonSeps.FORWARD_SLASH).appendint(this.DEFAULT_CHAR_HEIGHT).toString();
    }
 }

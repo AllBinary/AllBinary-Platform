@@ -129,6 +129,6 @@ public class PlayerQueue
 
     public String toString()
     {
-        return new StringMaker().append(TOTAL).append(this.list.size()).toString();
+        return new StringMaker().append(TOTAL).appendint(this.list.size()).toString();
     }
 }

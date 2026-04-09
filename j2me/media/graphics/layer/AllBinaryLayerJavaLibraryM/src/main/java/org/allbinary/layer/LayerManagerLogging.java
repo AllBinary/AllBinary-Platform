@@ -53,13 +53,13 @@ public class LayerManagerLogging extends LayerManagerLoggingBase {
     public void append(final AllBinaryLayer layerInterface) throws Exception
     {
         stringBuilder.delete(0, stringBuilder.length());
-        logUtil.put(stringBuilder.append(this.hashCode()).append(APPEND_).append(layerInterface.getName()).toString(), this, APPEND);
+        logUtil.put(stringBuilder.appendint(this.hashCode()).append(APPEND_).append(layerInterface.getName()).toString(), this, APPEND);
     }
     
     @Override
     public void append(final AllBinaryLayer layerInterface, final int index) {
         stringBuilder.delete(0, stringBuilder.length());
-        logUtil.put(stringBuilder.append(this.hashCode()).append(APPEND_).append(layerInterface.getName()).append(_AT_).append(index).toString(), this, APPEND);
+        logUtil.put(stringBuilder.appendint(this.hashCode()).append(APPEND_).append(layerInterface.getName()).append(_AT_).appendint(index).toString(), this, APPEND);
     }
     
     @Override
@@ -67,10 +67,10 @@ public class LayerManagerLogging extends LayerManagerLoggingBase {
         
         if(layerInterface == null) {
             stringBuilder.delete(0, stringBuilder.length());
-            logUtil.put(stringBuilder.append(this.hashCode()).append(ATTEMPT_REMOVE_).append(StringUtil.getInstance().toString(layerInterface)).toString(), this, REMOVE);
+            logUtil.put(stringBuilder.appendint(this.hashCode()).append(ATTEMPT_REMOVE_).append(StringUtil.getInstance().toString(layerInterface)).toString(), this, REMOVE);
         } else {
             stringBuilder.delete(0, stringBuilder.length());
-            logUtil.put(stringBuilder.append(this.hashCode()).append(ATTEMPT_REMOVE_).append(layerInterface.getName()).toString(), this, REMOVE);
+            logUtil.put(stringBuilder.appendint(this.hashCode()).append(ATTEMPT_REMOVE_).append(layerInterface.getName()).toString(), this, REMOVE);
         }
     }
 
@@ -79,11 +79,11 @@ public class LayerManagerLogging extends LayerManagerLoggingBase {
         
         if(layerInterface == null) {
             stringBuilder.delete(0, stringBuilder.length());
-            logUtil.put(stringBuilder.append(this.hashCode()).append(REMOVE_).append(StringUtil.getInstance().toString(layerInterface)).toString(), this, REMOVE);
+            logUtil.put(stringBuilder.appendint(this.hashCode()).append(REMOVE_).append(StringUtil.getInstance().toString(layerInterface)).toString(), this, REMOVE);
         } else if(result) {
             if (LayerManagerLogging.removeFailed) {
                 stringBuilder.delete(0, stringBuilder.length());
-                logUtil.put(stringBuilder.append(this.hashCode()).append(REMOVE_).append(layerInterface.getName()).toString(), this, REMOVE);
+                logUtil.put(stringBuilder.appendint(this.hashCode()).append(REMOVE_).append(layerInterface.getName()).toString(), this, REMOVE);
             }
             
             //if (this.removeFailed) {
@@ -93,7 +93,7 @@ public class LayerManagerLogging extends LayerManagerLoggingBase {
         } else {
             stringBuilder.delete(0, stringBuilder.length());
             //logUtil.put(stringBuilder.append(DID_NOT_REMOVE).append(layerInterface.toString()).toString(), this, REMOVE, new Exception());
-            logUtil.put(stringBuilder.append(this.hashCode()).append(DID_NOT_REMOVE).append(layerInterface.getName()).toString(), this, REMOVE);
+            logUtil.put(stringBuilder.appendint(this.hashCode()).append(DID_NOT_REMOVE).append(layerInterface.getName()).toString(), this, REMOVE);
             
             //this.log(layerManager);
             LayerManagerLogging.removeFailed = true;
@@ -106,7 +106,7 @@ public class LayerManagerLogging extends LayerManagerLoggingBase {
         final int size = layerManager.getSize();
         final CommonSeps commonSeps = CommonSeps.getInstance();
         stringBuilder.append(Integer.toHexString(layerManager.hashCode())).append(commonSeps.COLON_SEP);
-        stringBuilder.append(size).append(commonSeps.COLON_SEP);
+        stringBuilder.appendint(size).append(commonSeps.COLON_SEP);
 
         AllBinaryLayer allBinaryLayer;
         for (int index = 0; index < size; index++) { 
@@ -119,6 +119,6 @@ public class LayerManagerLogging extends LayerManagerLoggingBase {
     @Override
     public void clear() {
         stringBuilder.delete(0, stringBuilder.length());
-        logUtil.put(stringBuilder.append(this.hashCode()).append(CLEAR).toString(), this, CLEAR);
+        logUtil.put(stringBuilder.appendint(this.hashCode()).append(CLEAR).toString(), this, CLEAR);
     }
 }

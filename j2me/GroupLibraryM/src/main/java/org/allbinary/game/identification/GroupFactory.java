@@ -69,7 +69,7 @@ public class GroupFactory {
           else
           {
               stringMaker.delete(0, stringMaker.length());
-              name = stringMaker.append(TEAM).append(size).toString();
+              name = stringMaker.append(TEAM).appendint(size).toString();
           }
 
          list.add(new Group(name, (short) (size + 3)));

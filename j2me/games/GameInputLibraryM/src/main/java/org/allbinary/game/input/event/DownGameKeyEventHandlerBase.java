@@ -102,7 +102,7 @@ public class DownGameKeyEventHandlerBase extends BasicEventHandler {
 
         stringBuffer.append(super.toString());
         stringBuffer.append(TOTAL_LISTENERS);
-        stringBuffer.append(this.list.size());
+        stringBuffer.appendint(this.list.size());
 
         EventListenerInterface eventListenerInterface;
         final int size = this.list.size();

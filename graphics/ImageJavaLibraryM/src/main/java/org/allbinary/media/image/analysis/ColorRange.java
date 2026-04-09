@@ -16,6 +16,7 @@ package org.allbinary.media.image.analysis;
 import java.awt.*;
 
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonSeps;
 
 public class ColorRange
     implements ColorRangeInterface
@@ -119,22 +120,22 @@ public class ColorRange
         StringMaker stringBuffer = new StringMaker();
          
         stringBuffer.append("getMinRed(): ");
-        stringBuffer.append(this.getMinRed());
-        stringBuffer.append("\n");
+        stringBuffer.appendint(this.getMinRed());
+        stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
         stringBuffer.append("getMaxRed(): ");
-        stringBuffer.append(this.getMaxRed());
-        stringBuffer.append("\n");
+        stringBuffer.appendint(this.getMaxRed());
+        stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
         stringBuffer.append("getMinGreen(): ");
-        stringBuffer.append(this.getMinGreen());
-        stringBuffer.append("\n");
+        stringBuffer.appendint(this.getMinGreen());
+        stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
         stringBuffer.append("getMaxGreen(): ");
-        stringBuffer.append(this.getMaxGreen());
-        stringBuffer.append("\n");
+        stringBuffer.appendint(this.getMaxGreen());
+        stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
         stringBuffer.append("getMinBlue(): ");
-        stringBuffer.append(this.getMinGreen());
-        stringBuffer.append("\n");
+        stringBuffer.appendint(this.getMinGreen());
+        stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
         stringBuffer.append("getMaxBlue(): ");
-        stringBuffer.append(this.getMaxBlue());
+        stringBuffer.appendint(this.getMaxBlue());
         
         return stringBuffer.toString();
     }

@@ -39,7 +39,7 @@ public class GameKeyCompleteMotionGestureInputEventFactory
     
     public void updateAll()
     {
-        logUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(eventList.size()).toString(), this, "updateAll");
+        logUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).appendint(eventList.size()).toString(), this, "updateAll");
         
         for(int index = eventList.size() - 1; index >= 0; index--)
         {

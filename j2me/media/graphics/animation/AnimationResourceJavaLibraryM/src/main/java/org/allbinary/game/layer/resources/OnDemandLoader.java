@@ -102,7 +102,7 @@ public class OnDemandLoader
         int index = 0;
 
         final int[] onDemandArray = layerPlacementInterfaceBasicArrayListFactoryInterface.getOnDemandResources();
-        PreLogUtil.put(new StringMaker().append(commonStrings.START).append(onDemandArray.length).toString(), this, "initLevel");
+        PreLogUtil.put(new StringMaker().append(commonStrings.START).appendint(onDemandArray.length).toString(), this, "initLevel");
 
         OnDemandResources onDemandResources;
         

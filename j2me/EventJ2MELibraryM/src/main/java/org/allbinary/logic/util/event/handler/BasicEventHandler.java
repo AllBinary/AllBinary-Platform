@@ -203,7 +203,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
         final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(eventStrings.TOTAL_LISTENERS);
-        stringBuffer.append(this.eventListenerInterfaceList.size());
+        stringBuffer.appendint(this.eventListenerInterfaceList.size());
 
         EventListenerInterface eventListenerInterface;
         int index = 0;

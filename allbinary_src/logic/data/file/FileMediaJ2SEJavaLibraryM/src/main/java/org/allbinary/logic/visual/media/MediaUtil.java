@@ -80,20 +80,20 @@ public class MediaUtil
         	stringBuffer.append(category);
         	stringBuffer.append("\nSave File Type: ");
         	stringBuffer.append(mediaData.getName());
-            //"\n" + commonLabels + width +
-            //"\n" + commonLabels + height +
+            //CommonSeps.getInstance().NEW_LINE + commonLabels + width +
+            //CommonSeps.getInstance().NEW_LINE + commonLabels + height +
         	stringBuffer.append("\nNew").append(commonLabels.WIDTH_LABEL);
-        	stringBuffer.append(newWidth);
+        	stringBuffer.appendint(newWidth);
         	stringBuffer.append("\nNew").append(commonLabels.HEIGHT_LABEL);
-        	stringBuffer.append(newHeight);
+        	stringBuffer.appendint(newHeight);
             //"\nNew Double" commonLabels+ d_newWidth +
             //"\nNew Double" commonLabels+ d_newHeight +
             //"\ncommonLabels Ratio: " + widthRatio +
             //"\ncommonLabels Ratio: " + heightRatio +
         	stringBuffer.append("\nFile Length: ");
-        	stringBuffer.append(originalImageFile.length());
+        	stringBuffer.appendlong(originalImageFile.length());
         	stringBuffer.append("\nNew File Length: ");
-        	stringBuffer.append(imageFile.length());
+        	stringBuffer.appendlong(imageFile.length());
 
             logUtil.put(
             		stringBuffer.toString(), this, "saveImageFile()");        }

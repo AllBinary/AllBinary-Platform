@@ -96,7 +96,7 @@ public class InsertCustomizerValidationView extends HttpStoreComponentView
                     StringMaker stringBuffer = new StringMaker();
 
                     stringBuffer.append("Pointing ");
-                    stringBuffer.append(componentVector.size());
+                    stringBuffer.appendint(componentVector.size());
                     stringBuffer.append(" Components");
 
                     logUtil.put(stringBuffer.toString(), this, commonStrings.IS_VALID);

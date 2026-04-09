@@ -787,7 +787,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         {
             final Features features = Features.getInstance();
 
-            logUtil.put(new StringMaker().append("Sound Changing To: ").append(
+            logUtil.put(new StringMaker().append("Sound Changing To: ").appendboolean(
                     features.isFeature(gameFeatureFactory.SOUND)).toString(), this, "initConfigurable");
 
             this.mediaInit();
@@ -1073,7 +1073,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             this.highScoresHelper.setSelectedHighScores(NullHighScoresSingletonFactory.getInstance());
         }
 
-        logUtil.put(new StringMaker().append("isHighScoreSubmitted: ").append(highScoreSubmitted).toString(), this, "setHighScoreSubmitted");
+        logUtil.put(new StringMaker().append("isHighScoreSubmitted: ").appendboolean(highScoreSubmitted).toString(), this, "setHighScoreSubmitted");
     }
 
     @Override
@@ -1288,7 +1288,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public void buildGame2() {
         //logUtil.put("Clearing Keys From Last Level", this, BUILD_GAME);
-        PreLogUtil.put(new StringMaker().append(this.gameInputStrings.ENABLE_PLAYER_GAME_INPUTS).append(this.localPlayerGameInputList.size()).toString(), this, BUILD_GAME);
+        PreLogUtil.put(new StringMaker().append(this.gameInputStrings.ENABLE_PLAYER_GAME_INPUTS).appendint(this.localPlayerGameInputList.size()).toString(), this, BUILD_GAME);
 
         PlayerGameInput playerGameInput;
         for (int index = this.localPlayerGameInputList.size() - 1; index >= 0; index--) {

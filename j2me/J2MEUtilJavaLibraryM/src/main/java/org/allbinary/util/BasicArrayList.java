@@ -20,7 +20,7 @@ public class BasicArrayList
         //currentIndex = 0;
 
         if (size < 0) {
-            throw new IllegalArgumentException(new StringMaker().append("Init Size Exception: ").append(size).toString());
+            throw new IllegalArgumentException(new StringMaker().append("Init Size Exception: ").appendint(size).toString());
         }
 
         objectArray = new Object[size];
@@ -53,9 +53,9 @@ public class BasicArrayList
             StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append(CommonLabels.getInstance().INDEX_LABEL);
-            stringBuffer.append(index);
+            stringBuffer.appendint(index);
             stringBuffer.append(SIZE);
-            stringBuffer.append(currentIndex);
+            stringBuffer.appendint(currentIndex);
 
             throw new IndexOutOfBoundsException(stringBuffer.toString());
         }
@@ -79,9 +79,9 @@ public class BasicArrayList
             final StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append(CommonLabels.getInstance().INDEX_LABEL);
-            stringBuffer.append(index);
+            stringBuffer.appendint(index);
             stringBuffer.append(SIZE);
-            stringBuffer.append(currentIndex);
+            stringBuffer.appendint(currentIndex);
 
             throw new IndexOutOfBoundsException(stringBuffer.toString());
         }
@@ -239,9 +239,9 @@ public class BasicArrayList
             final StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append(CommonLabels.getInstance().INDEX_LABEL);
-            stringBuffer.append(index);
+            stringBuffer.appendint(index);
             stringBuffer.append(SIZE);
-            stringBuffer.append(currentIndex);
+            stringBuffer.appendint(currentIndex);
 
             throw new IndexOutOfBoundsException(stringBuffer.toString());
         }
@@ -255,9 +255,9 @@ public class BasicArrayList
             final StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append(CommonLabels.getInstance().INDEX_LABEL);
-            stringBuffer.append(index);
+            stringBuffer.appendint(index);
             stringBuffer.append(SIZE);
-            stringBuffer.append(currentIndex);
+            stringBuffer.appendint(currentIndex);
 
             throw new IndexOutOfBoundsException(stringBuffer.toString());
         }

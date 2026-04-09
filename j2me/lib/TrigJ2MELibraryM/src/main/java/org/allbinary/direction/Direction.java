@@ -79,7 +79,7 @@ public class Direction
         stringBuffer.append(" Or: ");
         stringBuffer.append(this.getOtherName());
         stringBuffer.append(" Value: ");
-        stringBuffer.append(this.value);
+        stringBuffer.appendint(this.value);
 
         return stringBuffer.toString();
     }

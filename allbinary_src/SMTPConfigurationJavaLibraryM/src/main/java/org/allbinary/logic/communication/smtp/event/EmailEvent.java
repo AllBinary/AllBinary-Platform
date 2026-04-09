@@ -58,7 +58,7 @@ public class EmailEvent extends EventObject
     	stringBuffer.append(this.userEmailEventNameData.toString());
     	stringBuffer.append(this.getEmailInfo().toString());
     	stringBuffer.append("\nNumber of Attempts: ");
-    	stringBuffer.append(this.getAttempts());
+    	stringBuffer.appendint(this.getAttempts());
     	
        return stringBuffer.toString();
     }

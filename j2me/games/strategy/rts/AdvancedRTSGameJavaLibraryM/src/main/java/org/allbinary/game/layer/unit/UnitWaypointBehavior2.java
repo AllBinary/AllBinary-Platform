@@ -855,7 +855,7 @@ extends UnitWaypointBehavior
 
             stringBuffer.append(TARGET_DISTANCE);
             stringBuffer.append(commonSeps.SPACE);
-            stringBuffer.append(getCurrentTargetDistance());
+            stringBuffer.appendint(getCurrentTargetDistance());
         }
 
         return stringBuffer.toString();

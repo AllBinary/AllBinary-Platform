@@ -81,14 +81,14 @@ public class Rectangle
        stringBuffer.append(this.getPoint().toString());
        stringBuffer.append(CommonSeps.getInstance().SPACE);
        stringBuffer.append(CommonLabels.getInstance().WIDTH_LABEL);
-       stringBuffer.append(this.getWidth());
+       stringBuffer.appendint(this.getWidth());
        stringBuffer.append(CommonSeps.getInstance().SPACE);
        stringBuffer.append(CommonLabels.getInstance().HEIGHT_LABEL);
-       stringBuffer.append(this.getHeight());
+       stringBuffer.appendint(this.getHeight());
        stringBuffer.append(" MaxX: ");
-       stringBuffer.append(this.getMaxX());
+       stringBuffer.appendint(this.getMaxX());
        stringBuffer.append(" MaxY: ");
-       stringBuffer.append(this.getMaxY());
+       stringBuffer.appendint(this.getMaxY());
        return stringBuffer.toString();
    }
 }

@@ -153,7 +153,7 @@ public class TimeDelayHelper
         {
             final CommonLabels commonLabels = CommonLabels.getInstance();
             final String elapsedAsString = Long.toString(elapsed);
-            return new StringMaker().append(commonLabels.START).append(this.startTime).append(commonLabels.CURRENT).append(currentTime).append(commonLabels.ELAPSED).append(elapsedAsString).toString();
+            return new StringMaker().append(commonLabels.START).appendlong(this.startTime).append(commonLabels.CURRENT).appendlong(currentTime).append(commonLabels.ELAPSED).append(elapsedAsString).toString();
         }
         else
         {
@@ -170,7 +170,7 @@ public class TimeDelayHelper
         {
             final CommonLabels commonLabels = CommonLabels.getInstance();
             final String elapsedAsString = Long.toString(elapsed);
-            return new StringMaker().append(commonLabels.START).append(this.startTime).append(commonLabels.CURRENT).append(currentTime).append(commonLabels.ELAPSED).append(elapsedAsString).toString();
+            return new StringMaker().append(commonLabels.START).appendlong(this.startTime).append(commonLabels.CURRENT).appendlong(currentTime).append(commonLabels.ELAPSED).append(elapsedAsString).toString();
         }
         else
         {

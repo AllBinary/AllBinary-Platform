@@ -100,7 +100,7 @@ public class AndroidMediaPlayerWrapperListener {
     private MediaPlayer.OnBufferingUpdateListener mOnBufferingUpdateListener = new MediaPlayerOnBufferingUpdateListener() {
         @Override
         public void onBufferingUpdate(final MediaPlayer mediaPlayer, final int i) {
-            logUtil.put(new StringMaker().append("Update buffer: ").append(i).append("%").toString(), this, AndroidMediaPlayerWrapperListener.ON_BUFFERING_UPDATE);
+            logUtil.put(new StringMaker().append("Update buffer: ").appendint(i).append("%").toString(), this, AndroidMediaPlayerWrapperListener.ON_BUFFERING_UPDATE);
             AndroidMediaPlayerWrapperListener.this.androidMediaPlayerWrapper.update(PlayerListener.DEVICE_UNAVAILABLE);
         }
     };
@@ -115,7 +115,7 @@ public class AndroidMediaPlayerWrapperListener {
 
     private MediaPlayer.OnErrorListener mOnErrorListener = new MediaPlayerOnErrorListener() {
         public boolean onError(final MediaPlayer mp, final int what, final int extra) {
-            logUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append("What: ").append(what).append(" Extra: ").append(extra).toString(), this, AndroidMediaPlayerWrapperListener.ON_ERROR);
+            logUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append("What: ").appendint(what).append(" Extra: ").appendint(extra).toString(), this, AndroidMediaPlayerWrapperListener.ON_ERROR);
             AndroidMediaPlayerWrapperListener.this.androidMediaPlayerWrapper.update(PlayerListener.ERROR);
             return true;
         }

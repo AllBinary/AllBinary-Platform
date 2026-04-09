@@ -39,7 +39,7 @@ public class PrimaryThreadPool extends ThreadPool
     @Override
     public void runTask(Runnable task)
     {
-        logUtil.put(new StringMaker().append(StringUtil.getInstance().toString(task)).append(System.currentTimeMillis()).toString(), this, this.threadPoolStrings.ADD_TASK);
+        logUtil.put(new StringMaker().append(StringUtil.getInstance().toString(task)).appendlong(System.currentTimeMillis()).toString(), this, this.threadPoolStrings.ADD_TASK);
 
         super.runTask(task);
     }

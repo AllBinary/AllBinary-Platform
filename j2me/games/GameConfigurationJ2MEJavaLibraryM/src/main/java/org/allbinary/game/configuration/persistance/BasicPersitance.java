@@ -65,7 +65,7 @@ public class BasicPersitance
         
         try {
             
-        logUtil.put(new StringMaker().append(this.persistanceStrings.DELETING_WITH_ID).append(deleteId).toString(), this, this.commonStrings.delete);
+        logUtil.put(new StringMaker().append(this.persistanceStrings.DELETING_WITH_ID).appendint(deleteId).toString(), this, this.commonStrings.delete);
         
         recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 

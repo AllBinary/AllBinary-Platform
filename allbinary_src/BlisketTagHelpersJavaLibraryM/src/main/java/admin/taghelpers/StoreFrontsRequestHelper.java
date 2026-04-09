@@ -161,9 +161,9 @@ public class StoreFrontsRequestHelper extends ModifyTable
             StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append("Intall StoreFront Successfully: ");
-            stringBuffer.append(this.portion.getCurrent().intValue());
+            stringBuffer.appendint(this.portion.getCurrent().intValue());
             stringBuffer.append(" of ");
-            stringBuffer.append(this.portion.getTotal().intValue());
+            stringBuffer.appendint(this.portion.getTotal().intValue());
 
             String success = stringBuffer.toString();
 

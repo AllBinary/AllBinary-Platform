@@ -666,10 +666,10 @@ public class GameMidlet extends ProgressMidlet
 
                 final StringMaker stringBuffer = new StringMaker();
                 stringBuffer.append("Close isFullScreen/change: ");
-                stringBuffer.append(isFullScreen);
-                stringBuffer.append(fullScreenUtil.isScreenChange(isFullScreen));
+                stringBuffer.appendboolean(isFullScreen);
+                stringBuffer.appendboolean(fullScreenUtil.isScreenChange(isFullScreen));
                 stringBuffer.append(" isResized: ");
-                stringBuffer.append(this.isResized());
+                stringBuffer.appendboolean(this.isResized());
 
                 PreLogUtil.put(stringBuffer.toString(), this, COMMAND_ACTION);
 
@@ -919,7 +919,7 @@ public class GameMidlet extends ProgressMidlet
         //thread = 
             thread = threadFactoryUtil.getInstance(this.allbinaryGameCanvasRunnableInterface);
 
-        logUtil.put(new StringMaker().append("Thread Priority: ").append(thread.getPriority()).toString(), this, "startGameCanvasRunnableInterface");
+        logUtil.put(new StringMaker().append("Thread Priority: ").appendint(thread.getPriority()).toString(), this, "startGameCanvasRunnableInterface");
 
         // canvasThread.setPriority(Thread.NORM_PRIORITY).append(2);
         //thread.setPriority(Thread.MAX_PRIORITY);

@@ -94,7 +94,7 @@ public class GameKeyEvent extends AllBinaryEventObject
       stringBuffer.append("\nMapped Key: ");
       */
       stringBuffer.append("\nKey: ");
-      stringBuffer.append(this.getKey());
+      stringBuffer.appendint(this.getKey());
       
       /*
       stringBuffer.append("\nMapping: ");

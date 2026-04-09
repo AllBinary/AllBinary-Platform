@@ -51,7 +51,7 @@ public class Group implements GroupInterface
       stringBuffer.append(GROUP_NAME_LABEL);
       stringBuffer.append(this.name);
       stringBuffer.append(ID_LABEL);
-      stringBuffer.append(this.teamId);
+      stringBuffer.appendint(this.teamId);
 
       this.string = stringBuffer.toString();
    }

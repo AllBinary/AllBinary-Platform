@@ -373,7 +373,7 @@ public class BasicProfileActionScriptCondition
     throws Exception
     {
         logUtil.put(
-            new StringMaker().append("Start - Processing ").append(
+            new StringMaker().append("Start - Processing ").appendint(
             this.getProfileActionProcessorInterfaceVector().size()).append(
             " inputs").toString(), this, commonStrings.PROCESS);
         

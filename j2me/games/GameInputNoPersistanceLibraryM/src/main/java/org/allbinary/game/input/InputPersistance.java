@@ -73,7 +73,7 @@ public class InputPersistance extends BasicPersitance
             id = recordEnum.nextRecordId();
 
             stringBuffer.delete(0, stringBuffer.length());
-            logUtil.put(stringBuffer.append(this.persistanceStrings.LOADING_ID).append(id).toString(), this, this.persistanceStrings.LOAD_ALL);
+            logUtil.put(stringBuffer.append(this.persistanceStrings.LOADING_ID).appendint(id).toString(), this, this.persistanceStrings.LOAD_ALL);
 
             //byteArrayInputStream = 
               //  new ByteArrayInputStream(recordStore.getRecord(id));

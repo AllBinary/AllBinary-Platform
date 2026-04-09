@@ -131,11 +131,11 @@ public class TouchScreenFactory
         */
         
         stringBuffer.append("TouchScreen: ");
-        stringBuffer.append(this.isTouch());
+        stringBuffer.appendboolean(this.isTouch());
         stringBuffer.append(" MultiTouch: ");
-        stringBuffer.append(this.isMultiTouch());
+        stringBuffer.appendboolean(this.isMultiTouch());
         stringBuffer.append(" Distinct MultiTouch: ");
-        stringBuffer.append(this.isMultiTouchDistinct());
+        stringBuffer.appendboolean(this.isMultiTouchDistinct());
         stringBuffer.append(" TouchScreenType: ");
         stringBuffer.append(StringUtil.getInstance().toString(this.getTouchScreenType()));
 

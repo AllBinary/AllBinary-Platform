@@ -81,22 +81,22 @@ public class TouchButtonLocationHelper
         StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append("totalColumns: ");
-        stringBuffer.append(totalColumns);
+        stringBuffer.appendint(totalColumns);
 
         stringBuffer.append(" totalRows: ");
-        stringBuffer.append(totalRows);
+        stringBuffer.appendint(totalRows);
 
         stringBuffer.append(" columnsRemainder: ");
-        stringBuffer.append(columnsRemainder);
+        stringBuffer.appendint(columnsRemainder);
 
         stringBuffer.append(" rowsRemainder: ");
-        stringBuffer.append(rowsRemainder);
+        stringBuffer.appendint(rowsRemainder);
 
         stringBuffer.append(" columnsRemainderHalf: ");
-        stringBuffer.append(columnsRemainderHalf);
+        stringBuffer.appendint(columnsRemainderHalf);
         
         stringBuffer.append(" rowsRemainderHalf: ");
-        stringBuffer.append(rowsRemainderHalf);
+        stringBuffer.appendint(rowsRemainderHalf);
 
         return stringBuffer.toString();
     }

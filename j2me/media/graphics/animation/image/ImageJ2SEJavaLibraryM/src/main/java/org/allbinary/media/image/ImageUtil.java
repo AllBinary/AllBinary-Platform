@@ -337,11 +337,11 @@ public class ImageUtil
 
       stringBuffer.append(" BufferedImage -");
       stringBuffer.append(commonLabels.WIDTH_LABEL);
-      stringBuffer.append(bufferedImage.getWidth());
+      stringBuffer.appendint(bufferedImage.getWidth());
       stringBuffer.append(commonLabels.HEIGHT_LABEL);
-      stringBuffer.append(bufferedImage.getHeight());
+      stringBuffer.appendint(bufferedImage.getHeight());
       stringBuffer.append(" Type: ");
-      stringBuffer.append(bufferedImage.getType());
+      stringBuffer.appendint(bufferedImage.getType());
 
       return stringBuffer.toString();
    }

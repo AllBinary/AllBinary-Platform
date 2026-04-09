@@ -240,7 +240,7 @@ public class OpenGLCapabilities
 
             if (this.possiblyAccelerated)
             {
-                PreLogUtil.put(new StringMaker().append("VBO:?").append((this.glInstanceVersion == this.VERSION_1_1)).append("||").append(this.isExtension(openGLFeatureFactory.OPENGL_VERTEX_BUFFER_OBJECT)).toString(), this, METHOD_NAME);
+                PreLogUtil.put(new StringMaker().append("VBO:?").appendboolean((this.glInstanceVersion == this.VERSION_1_1)).append("||").appendboolean(this.isExtension(openGLFeatureFactory.OPENGL_VERTEX_BUFFER_OBJECT)).toString(), this, METHOD_NAME);
                 if ((this.glInstanceVersion == this.VERSION_1_1 || this.isExtension(openGLFeatureFactory.OPENGL_VERTEX_BUFFER_OBJECT)))
                 {
                     if(AndroidUtil.isAndroid()) {
@@ -410,10 +410,10 @@ public class OpenGLCapabilities
         stringBuffer.append(this.acceleratedString);
         stringBuffer.append(commonSeps.NEW_LINE);
         stringBuffer.append(" VBO Support: ");
-        stringBuffer.append(this.isVertexBufferObjectSupport());
+        stringBuffer.appendboolean(this.isVertexBufferObjectSupport());
         stringBuffer.append(commonSeps.NEW_LINE);
         stringBuffer.append(" Max Texture Size: ");
-        stringBuffer.append(this.maxTextureSize);
+        stringBuffer.appendint(this.maxTextureSize);
         stringBuffer.append(commonSeps.NEW_LINE);
         stringBuffer.append(" GL_EXTENSIONS: ");
         

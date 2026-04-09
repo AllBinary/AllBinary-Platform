@@ -158,7 +158,7 @@ public class AbeClientLicense implements AbeLicenseInterface
         stringBuffer.append(BREAK);
         
         stringBuffer.append("Is Valid: ");
-        stringBuffer.append(this.isValid());
+        stringBuffer.appendboolean(this.isValid());
         stringBuffer.append(BREAK);
 
         stringBuffer.append("Keys: ");

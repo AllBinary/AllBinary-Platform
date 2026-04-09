@@ -106,7 +106,7 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
     public void update()
     {
         int level = gameCanvas.getLayerManager().getGameInfo().getCurrentLevel();
-        this.stringArray[0] = new StringMaker().append(BEGIN_LEVEL).append(level).toString();
+        this.stringArray[0] = new StringMaker().append(BEGIN_LEVEL).appendint(level).toString();
 
         for(int index = this.stringArray.length - 1; index >= 1; index--)
         {

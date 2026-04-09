@@ -148,7 +148,7 @@ public class BasicProfileActionScriptInput
           stringBuffer.append(StringUtil.getInstance().NULL_STRING);
       }
       stringBuffer.append(" Time: ");
-      stringBuffer.append(this.getTime());
+      stringBuffer.appendlong(this.getTime());
       
       return stringBuffer.toString();
    }

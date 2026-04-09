@@ -72,9 +72,9 @@ public class RaceTrackGeographicMap extends BaseRaceTrackGeographicMap {
         if (geographicMapCellPosition.getColumn() >= customMapArray[0].length) {
             final StringMaker stringBuffer = new StringMaker();
             stringBuffer.append("Column: ");
-            stringBuffer.append(geographicMapCellPosition.getColumn());
+            stringBuffer.appendint(geographicMapCellPosition.getColumn());
             stringBuffer.append(" not in: ");
-            stringBuffer.append(customMapArray[0].length);
+            stringBuffer.appendint(customMapArray[0].length);
 
             logUtil.put(stringBuffer.toString(), this, commonStrings.IS_VALID);
 
@@ -86,9 +86,9 @@ public class RaceTrackGeographicMap extends BaseRaceTrackGeographicMap {
         } else if (geographicMapCellPosition.getRow() > customMapArray.length) {
             final StringMaker stringBuffer = new StringMaker();
             stringBuffer.append("Row: ");
-            stringBuffer.append(geographicMapCellPosition.getRow());
+            stringBuffer.appendint(geographicMapCellPosition.getRow());
             stringBuffer.append(" not in: ");
-            stringBuffer.append(customMapArray.length);
+            stringBuffer.appendint(customMapArray.length);
 
             logUtil.put(stringBuffer.toString(), this, commonStrings.IS_VALID);
 

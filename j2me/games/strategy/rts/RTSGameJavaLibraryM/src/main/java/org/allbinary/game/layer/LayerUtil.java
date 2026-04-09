@@ -35,13 +35,13 @@ public class LayerUtil
         stringBuffer.append(StringUtil.getInstance().toString(hashtable));
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(positionStrings.X_LABEL);
-        stringBuffer.append(x);
+        stringBuffer.appendint(x);
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(positionStrings.Y_LABEL);
-        stringBuffer.append(y);
+        stringBuffer.appendint(y);
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(positionStrings.Z_LABEL);
-        stringBuffer.append(z);
+        stringBuffer.appendint(z);
         
         return stringBuffer.toString();
     }

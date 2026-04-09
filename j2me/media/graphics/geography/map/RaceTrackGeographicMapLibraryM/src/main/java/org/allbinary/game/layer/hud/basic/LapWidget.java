@@ -40,9 +40,9 @@ public class LapWidget extends BasicHud
       
 	   stringBuffer.delete(0, stringBuffer.length());
 	   stringBuffer.append(LAP_STR);
-	   stringBuffer.append(lapInfo.getCurrentLap());
+	   stringBuffer.appendint(lapInfo.getCurrentLap());
 	   stringBuffer.append(OF_STR);
-	   stringBuffer.append(lapInfo.getTotalLaps());
+	   stringBuffer.appendint(lapInfo.getTotalLaps());
       this.string = stringBuffer.toString();
    }
    

@@ -46,7 +46,7 @@ public class WeaponProperties extends SimpleWeaponProperties
     	    final String MESSAGE = "Danger Danger Danger: Speed probably to slow if using 1 degree calculations as velocity for a single axis could be below 1024: ";
 
             final CommonStrings commonStrings = CommonStrings.getInstance();
-    	    PreLogUtil.put(new StringMaker().append(MESSAGE).append(speed).toString(), this, commonStrings.CONSTRUCTOR);
+    	    PreLogUtil.put(new StringMaker().append(MESSAGE).appendlong(speed).toString(), this, commonStrings.CONSTRUCTOR);
     	    //throw new Exception(MESSAGE + speed);
     	    
     	    messageSent = true;
@@ -150,16 +150,16 @@ public class WeaponProperties extends SimpleWeaponProperties
         final StringMaker stringBuffer = new StringMaker();
         
         stringArray[index++] = 
-            stringBuffer.append(DAMAGE).append(this.getDamage()).toString();
+            stringBuffer.append(DAMAGE).appendint(this.getDamage()).toString();
 
         stringBuffer.delete(0, stringBuffer.length());
         stringArray[index++] = 
-            stringBuffer.append(RANGE).append(this.getRange()).toString();
+            stringBuffer.append(RANGE).appendint(this.getRange()).toString();
         //stringArray[index++] = "Speed: " + this.getSpeed();
 
         stringBuffer.delete(0, stringBuffer.length());
         stringArray[index++] =
-            stringBuffer.append(RELOAD).append(this.getReloadTime()).toString();
+            stringBuffer.append(RELOAD).appendlong(this.getReloadTime()).toString();
         
         return stringArray;
     }
@@ -168,11 +168,11 @@ public class WeaponProperties extends SimpleWeaponProperties
     {
         final StringMaker stringBuffer = new StringMaker();
          
-        stringBuffer.append(DAMAGE).append(this.getDamage());
+        stringBuffer.append(DAMAGE).appendint(this.getDamage());
         stringBuffer.append(CommonSeps.getInstance().SPACE);
-        stringBuffer.append(RANGE).append(this.getRange());
+        stringBuffer.append(RANGE).appendint(this.getRange());
         stringBuffer.append(CommonSeps.getInstance().SPACE);
-        stringBuffer.append(RELOAD).append(this.getReloadTime());
+        stringBuffer.append(RELOAD).appendlong(this.getReloadTime());
 
         return stringBuffer.toString();
     }

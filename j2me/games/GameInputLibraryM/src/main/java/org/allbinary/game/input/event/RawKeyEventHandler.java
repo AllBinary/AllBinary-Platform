@@ -132,7 +132,7 @@ public class RawKeyEventHandler {
         final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(TOTAL_LISTENERS);
-        stringBuffer.append(this.eventListenerInterfaceList.size());
+        stringBuffer.appendint(this.eventListenerInterfaceList.size());
 
         RawKeyEventListener eventListenerInterface;
         int index = 0;

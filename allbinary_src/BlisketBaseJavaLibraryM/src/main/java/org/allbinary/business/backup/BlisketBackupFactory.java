@@ -251,7 +251,7 @@ public class BlisketBackupFactory
             stringBuffer.append("ZipFile: ");
             stringBuffer.append(zipFile);
             stringBuffer.append(" BasicArrayList: ");
-            stringBuffer.append(fileBasicArrayList.size());
+            stringBuffer.appendint(fileBasicArrayList.size());
 
             //logUtil.put(
               //  "Creating Backup Zip File: " + stringBuffer.toString(), this, "backup()");

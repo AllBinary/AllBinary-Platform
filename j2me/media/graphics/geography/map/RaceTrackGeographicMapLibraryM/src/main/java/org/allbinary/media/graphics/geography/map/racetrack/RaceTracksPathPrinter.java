@@ -44,7 +44,7 @@ public class RaceTracksPathPrinter {
         final int size = list.size();
         for (int index = 0; index < size; index++)
         {
-            System.out.println(new StringMaker().append(" Path ").append(index).append(CommonLabels.getInstance().COLON_SEP).toString());
+            System.out.println(new StringMaker().append(" Path ").appendint(index).append(CommonLabels.getInstance().COLON_SEP).toString());
             this.printPath((BasicArrayList) list.get(index));
         }
     }

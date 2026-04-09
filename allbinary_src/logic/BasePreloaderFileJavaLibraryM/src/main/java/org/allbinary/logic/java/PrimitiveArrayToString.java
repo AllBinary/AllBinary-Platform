@@ -19,10 +19,10 @@ public class PrimitiveArrayToString
 {
     public static String toString(float[] floats)
     {
-        StringMaker stringBuffer = new StringMaker();
+        final StringMaker stringBuffer = new StringMaker();
         for(int index = 0; index < floats.length; index++)
         {
-            stringBuffer.append(floats[index]);
+            stringBuffer.appendfloat(floats[index]);
         }
         return stringBuffer.toString();
     }

@@ -239,19 +239,19 @@ public class AdvancedPlayerOwnedRTSLayers
 
         stringBuffer.append(super.toString());
         stringBuffer.append(" Bases: ");
-        stringBuffer.append(this.getBaseList().size());
+        stringBuffer.appendint(this.getBaseList().size());
         stringBuffer.append(" Factory: ");
-        stringBuffer.append(this.getFactoryList().size());
+        stringBuffer.appendint(this.getFactoryList().size());
         stringBuffer.append(" Garrison: ");
-        stringBuffer.append(this.getGarrisonList().size());
+        stringBuffer.appendint(this.getGarrisonList().size());
         stringBuffer.append(" Labs: ");
-        stringBuffer.append(this.getLabList().size());
+        stringBuffer.appendint(this.getLabList().size());
         stringBuffer.append(" Houses: ");
-        stringBuffer.append(this.getHouseList().size());
+        stringBuffer.appendint(this.getHouseList().size());
         stringBuffer.append(" Waypoints: ");
-        stringBuffer.append(this.getWaypointsList().size());
+        stringBuffer.appendint(this.getWaypointsList().size());
         stringBuffer.append(" Units: ");
-        stringBuffer.append(this.getUnitsList().size());
+        stringBuffer.appendint(this.getUnitsList().size());
 
         return stringBuffer.toString();
     }

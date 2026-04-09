@@ -152,7 +152,7 @@ public class DownloadableItemValidation extends Validation
             this.downloadableItem.getId().length()>AbSqlData.MAXNUM)
          {
              stringBuffer.append("Id is invalid. Must be number < ");
-             stringBuffer.append(AbSqlData.MAXNUM);
+             stringBuffer.appendint(AbSqlData.MAXNUM);
              stringBuffer.append(" and > 0 digits.<br/>");
          }
 
@@ -167,7 +167,7 @@ public class DownloadableItemValidation extends Validation
             this.downloadableItem.getSystem().length()>AbSqlData.MAXSTRING )
          {
              stringBuffer.append("System value is invalid. Must be < ");
-             stringBuffer.append(AbSqlData.MAXSTRING);
+             stringBuffer.appendint(AbSqlData.MAXSTRING);
              stringBuffer.append(" and > 0 characters long.<br/>");
          }
 
@@ -176,7 +176,7 @@ public class DownloadableItemValidation extends Validation
             this.downloadableItem.getPlatform().length()>AbSqlData.MAXSTRING )
          {
              stringBuffer.append("Platform value is invalid. Must be < ");
-             stringBuffer.append(AbSqlData.MAXSTRING);
+             stringBuffer.appendint(AbSqlData.MAXSTRING);
              stringBuffer.append(" and > 0 characters long.<br/>");
          }
 
@@ -185,7 +185,7 @@ public class DownloadableItemValidation extends Validation
             this.downloadableItem.getSpecialName().length()>AbSqlData.MAXSTRING )
          {
              stringBuffer.append("Special Name value is invalid. Must be < ");
-             stringBuffer.append(AbSqlData.MAXSTRING);
+             stringBuffer.appendint(AbSqlData.MAXSTRING);
              stringBuffer.append(" and > 0 characters long.<br/>");
          }
 
@@ -194,7 +194,7 @@ public class DownloadableItemValidation extends Validation
             this.downloadableItem.getVersion().length()>AbSqlData.MAXSTRING )
          {
              stringBuffer.append("Version value is invalid. Must be < ");
-             stringBuffer.append(AbSqlData.MAXSTRING);
+             stringBuffer.appendint(AbSqlData.MAXSTRING);
              stringBuffer.append(" and > 0 characters long.<br/>");
          }
 
@@ -203,7 +203,7 @@ public class DownloadableItemValidation extends Validation
             this.downloadableItem.getChanges().length()>AbSqlData.MAXBLOB)
          {
              stringBuffer.append("Changes value is invalid. Must be < ");
-             stringBuffer.append(AbSqlData.MAXBLOB);
+             stringBuffer.appendint(AbSqlData.MAXBLOB);
              stringBuffer.append(" and >= 0 characters long.<br/>");
          }
 
@@ -221,7 +221,7 @@ public class DownloadableItemValidation extends Validation
              if(size.length() < 1 || size.length() > AbSqlData.MAXNUM)
              {
                  stringBuffer.append("File Size is invalid. Must be number < ");
-                 stringBuffer.append(AbSqlData.MAXNUM);
+                 stringBuffer.appendint(AbSqlData.MAXNUM);
                  stringBuffer.append(" and > 0 digits.<br/>");
              }
          }
@@ -237,7 +237,7 @@ public class DownloadableItemValidation extends Validation
              if(size.length() < 1 || size.length() > AbSqlData.MAXNUM)
              {
                  stringBuffer.append("Valid Time is invalid. Must be number < ");
-                 stringBuffer.append(AbSqlData.MAXNUM);
+                 stringBuffer.appendint(AbSqlData.MAXNUM);
                  stringBuffer.append(" and > 0 digits.<br/>");
              }
          }
@@ -253,7 +253,7 @@ public class DownloadableItemValidation extends Validation
              if(size.length() < 1 || size.length() > AbSqlData.MAXNUM)
              {
                  stringBuffer.append("Retries is invalid. Must be number < ");
-                 stringBuffer.append(AbSqlData.MAXNUM);
+                 stringBuffer.appendint(AbSqlData.MAXNUM);
                  stringBuffer.append(" and > 0 digits.<br/>");
              }
          }

@@ -81,7 +81,7 @@ public class TransformsGeneratorUtil
             StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append("Processing ");
-            stringBuffer.append(transformInfoObjectConfigComponentVector.size());
+            stringBuffer.appendint(transformInfoObjectConfigComponentVector.size());
             stringBuffer.append(" Components Group: ");
             stringBuffer.append(group);
 

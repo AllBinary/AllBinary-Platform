@@ -71,7 +71,7 @@ public class DamageUtil
                stringBuffer.append(" with: ");
                stringBuffer.append(collidableInterfaceCompositeInterface.toString());
                stringBuffer.append(" damage: ");
-               stringBuffer.append(damage);
+               stringBuffer.appendint(damage);
                
                logUtil.put(stringBuffer.toString(), collidableInterfaceCompositeInterface1, COLLIDE);
            }

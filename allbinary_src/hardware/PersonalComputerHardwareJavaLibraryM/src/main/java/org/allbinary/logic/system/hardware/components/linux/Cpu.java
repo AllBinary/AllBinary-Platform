@@ -83,7 +83,7 @@ public class Cpu implements CpuInterface, HardwareComponentInterface
             
             if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OS))
             {
-               logUtil.put(new StringMaker().append("Cpu File Vector Size: ").append(fileVector.size()).toString(), this, this.commonStrings.CONSTRUCTOR);
+               logUtil.put(new StringMaker().append("Cpu File Vector Size: ").appendint(fileVector.size()).toString(), this, this.commonStrings.CONSTRUCTOR);
             }
             
             //size() > 0

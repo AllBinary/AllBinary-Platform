@@ -186,7 +186,7 @@ public class InputToGameKeyMapping extends InputMapping
                 platformToGameKeyMapping[key] = gameKey;
             }
         } else {
-            PreLogUtil.put(new StringMaker().append(gameKey.toString()).append(CommonSeps.getInstance().COLON_SEP).append(key).toString(), this, commonStrings.INIT, new Exception());
+            PreLogUtil.put(new StringMaker().append(gameKey.toString()).append(CommonSeps.getInstance().COLON_SEP).appendint(key).toString(), this, commonStrings.INIT, new Exception());
         }
         //Still could have a negative key that is out of range
 

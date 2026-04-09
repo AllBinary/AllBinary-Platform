@@ -151,7 +151,7 @@ public class AllMotionRectangles extends MotionRectangles
                         nextMotionRectangle.getRectangle().x < 600 && nextMotionRectangle.getRectangle().y < 365)
                     {
                         stringBuffer.append(nextMotionRectangle.getRectangle());
-                        stringBuffer.append("\n");
+                        stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
                     }
                 }
                 logUtil.put(new StringMaker().append("Adding motionRectangle: " +

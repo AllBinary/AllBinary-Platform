@@ -1242,13 +1242,13 @@ public class NoDecimalTrigTable
         final StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append("Invalid Ratio: ");
-        stringBuffer.append(ratio);
+        stringBuffer.appendlong(ratio);
         stringBuffer.append(CommonSeps.getInstance().SPACE);
         stringBuffer.append(PositionStrings.getInstance().DX_LABEL);
-        stringBuffer.append(dx);
+        stringBuffer.appendint(dx);
         stringBuffer.append(CommonSeps.getInstance().SPACE);
         stringBuffer.append(PositionStrings.getInstance().DX_LABEL);
-        stringBuffer.append(dy);
+        stringBuffer.appendint(dy);
         
         throw new Exception(stringBuffer.toString());
     }
@@ -1262,7 +1262,7 @@ public class NoDecimalTrigTable
 
                 final StringMaker stringMaker = new StringMaker();
                 
-		PreLogUtil.put(stringMaker.append("screenX: ").append(screenX).append(" screenY: ").append(screenY).append(" targetX: ").append(targetX).append(" targetY: ").append(targetY).toString(), this, METHOD_NAME);
+		PreLogUtil.put(stringMaker.append("screenX: ").appendint(screenX).append(" screenY: ").appendint(screenY).append(" targetX: ").appendint(targetX).append(" targetY: ").appendint(targetY).toString(), this, METHOD_NAME);
 		
 		int targetX2 = (int) -targetX;
 		int targetY2 = (int) -targetY;
@@ -1293,7 +1293,7 @@ public class NoDecimalTrigTable
 				angleOfTarget = this.antiTan(dx[index], dy[index2]);
 				angle = angleFactory.getInstance((int) angleOfTarget);
                                 stringMaker.delete(0, stringMaker.length());
-				PreLogUtil.put(stringMaker.append(CommonLabels.getInstance().INDEX_LABEL).append(index).append(" index2: ").append(index2).append(PositionStrings.getInstance().DX_LABEL).append(dx[index]).append(PositionStrings.getInstance().DY_LABEL).append(dy[index2]).append(TARGET_ANGLE).append(angleOfTarget).append(CommonSeps.getInstance().EQUALS).append(angle.getValue()).toString(), this, METHOD_NAME);
+				PreLogUtil.put(stringMaker.append(CommonLabels.getInstance().INDEX_LABEL).appendint(index).append(" index2: ").appendint(index2).append(PositionStrings.getInstance().DX_LABEL).appendint(dx[index]).append(PositionStrings.getInstance().DY_LABEL).appendint(dy[index2]).append(TARGET_ANGLE).appendint(angleOfTarget).append(CommonSeps.getInstance().EQUALS).appendint(angle.getValue()).toString(), this, METHOD_NAME);
 			}
 		}
 

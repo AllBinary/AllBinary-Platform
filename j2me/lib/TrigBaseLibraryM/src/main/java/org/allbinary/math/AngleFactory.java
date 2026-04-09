@@ -134,9 +134,9 @@ public class AngleFactory
         //System.out.println(angleFactory.TOTAL_ANGLE >> 2); /4
         
         for(int index = 0; index < 360; index++) {
-            stringMaker.append(index)
+            stringMaker.appendint(index)
                 .append(CommonSeps.getInstance().FORWARD_SLASH)
-                .append(angleFactory.getClosestDirection(index).getValue())
+                .appendint(angleFactory.getClosestDirection(index).getValue())
                 .append(CommonSeps.getInstance().NEW_LINE);
         }
         LogUtil.getInstance().put(stringMaker.toString(), "main", "main");

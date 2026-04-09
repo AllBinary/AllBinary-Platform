@@ -110,7 +110,7 @@ extends LayerManagerEventListener
 
                 if (groupSize != 0)
                 {
-                    logUtil.put(new StringMaker().append("Group Size: ").append(groupSize).toString(), this, "areAllOtherGroupsEmpty");
+                    logUtil.put(new StringMaker().append("Group Size: ").appendint(groupSize).toString(), this, "areAllOtherGroupsEmpty");
                     return false;
                 }
             }
@@ -223,7 +223,7 @@ extends LayerManagerEventListener
             groupList = (BasicArrayList) this.list.objectArray[id];
 
             if(groupList == null) {
-                logUtil.put(new StringMaker().append("id: ").append(id).toString(), this, "onCreateLayerManagerEvent");
+                logUtil.put(new StringMaker().append("id: ").appendint(id).toString(), this, "onCreateLayerManagerEvent");
             }
             
             //if(Group.ENEMY.getGroupId() == id)
@@ -329,10 +329,10 @@ extends LayerManagerEventListener
             //stringBuffer.delete(0, stringBuffer.length());
 
             stringBuffer.append(GROUP);
-            stringBuffer.append(index);
+            stringBuffer.appendint(index);
             stringBuffer.append(SPACE);
             stringBuffer.append(TOTAL_LABEL);
-            stringBuffer.append(groupList.size());
+            stringBuffer.appendint(groupList.size());
             stringBuffer.append(SPACE);
             
             //logUtil.put(stringBuffer.toString(), this, "log");

@@ -27,7 +27,7 @@ public class IntArrayUtil
       StringMaker stringBuffer = new StringMaker();
       for (int index = 0; index < array.length; index++)
       {
-         stringBuffer.append(array[index]);
+         stringBuffer.appendint(array[index]);
 
          if (index < array.length)
          {
@@ -46,7 +46,7 @@ public class IntArrayUtil
          stringBuffer.append("{");
          for (int index2 = 0; index2 < array[index].length; index2++)
          {
-            stringBuffer.append(array[index][index2]);
+            stringBuffer.appendint(array[index][index2]);
 
             if (index2 < array[index].length - 1)
             {
@@ -75,7 +75,7 @@ public class IntArrayUtil
 
             for (int index3 = 0; index3 < array[index][index2].length; index3++)
             {
-               stringBuffer.append(array[index][index2][index3]);
+               stringBuffer.appendint(array[index][index2][index3]);
 
                if (index3 < array[index][index2].length - 1)
                {

@@ -413,7 +413,7 @@ public class FileUtil
                     stringBuffer.delete(0, stringBuffer.length());
 
                     stringBuffer.append("Newer by: ");
-                    stringBuffer.append(fromFile.lastModified() - toFile.lastModified());
+                    stringBuffer.appendlong(fromFile.lastModified() - toFile.lastModified());
                     stringBuffer.append("ms ");
                     stringBuffer.append("Copying File: ");
                     stringBuffer.append(toFile.getPath());
@@ -468,7 +468,7 @@ public class FileUtil
                 StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append("Copying ");
-                stringBuffer.append(fromFile.length());
+                stringBuffer.appendlong(fromFile.length());
                 stringBuffer.append(" bytes from File: ");
                 stringBuffer.append(fromFile.getPath());
                 stringBuffer.append(" to: ");
@@ -552,7 +552,7 @@ public class FileUtil
         stringBuffer.append("Searched: ");
         stringBuffer.append(file.getPath());
         stringBuffer.append(" Total: ");
-        stringBuffer.append(size);
+        stringBuffer.appendint(size);
 
         //Add one to round up so files will not be missed
         int portion = size / total + 1;
@@ -567,9 +567,9 @@ public class FileUtil
         }
 
         stringBuffer.append(" Section: ");
-        stringBuffer.append(start);
+        stringBuffer.appendint(start);
         stringBuffer.append(" - ");
-        stringBuffer.append(end);
+        stringBuffer.appendint(end);
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
         {
@@ -657,7 +657,7 @@ public class FileUtil
                 final StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append("Copying ");
-                stringBuffer.append(size);
+                stringBuffer.appendint(size);
                 stringBuffer.append(" files from: ");
                 stringBuffer.append(fromFile.getPath());
                 stringBuffer.append(" to: ");

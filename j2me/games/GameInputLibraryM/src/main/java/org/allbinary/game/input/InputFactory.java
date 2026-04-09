@@ -68,7 +68,7 @@ public class InputFactory
         if(id > inputIntegerArray.length) {
             //Using the Exception for HTML5 build causes the game to hang.
             //logUtil.put(new StringMaker().append("id: ").append(id).toString(), this, commonStrings.GET_INSTANCE, new Exception());
-            logUtil.put(new StringMaker().append("Warning id: ").append(id).toString(), this, commonStrings.GET_INSTANCE);
+            logUtil.put(new StringMaker().append("Warning id: ").appendint(id).toString(), this, commonStrings.GET_INSTANCE);
             return NO_INPUT;
         }
 

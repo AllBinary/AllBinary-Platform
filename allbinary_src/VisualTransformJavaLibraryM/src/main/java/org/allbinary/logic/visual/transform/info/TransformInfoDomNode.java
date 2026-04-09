@@ -56,7 +56,7 @@ public class TransformInfoDomNode
                 stringBuffer.append("Constructing Complete TransformInfo Node For: ");
                 stringBuffer.append(name);
                 stringBuffer.append(" with ");
-                stringBuffer.append(nodeList.getLength());
+                stringBuffer.appendint(nodeList.getLength());
                 stringBuffer.append(" children");
 
                 logUtil.put(stringBuffer.toString(),
@@ -96,7 +96,7 @@ public class TransformInfoDomNode
                 stringBuffer.append("Constructing Partial TransformInfo Node For: ");
                 stringBuffer.append(name);
                 stringBuffer.append(" with ");
-                stringBuffer.append(nodeList.getLength());
+                stringBuffer.appendint(nodeList.getLength());
                 stringBuffer.append(" children");
 
                 logUtil.put(stringBuffer.toString(),

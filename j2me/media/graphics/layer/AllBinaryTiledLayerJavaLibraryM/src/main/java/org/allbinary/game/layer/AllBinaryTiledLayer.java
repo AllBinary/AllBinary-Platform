@@ -70,13 +70,13 @@ public class AllBinaryTiledLayer extends Layer
         final StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append("Start: r: ");
-        stringBuffer.append(mapTwoDArray.length);
+        stringBuffer.appendint(mapTwoDArray.length);
         stringBuffer.append(" c: ");
-        stringBuffer.append(mapTwoDArray[0].length);
+        stringBuffer.appendint(mapTwoDArray[0].length);
         stringBuffer.append(" rows: ");
-        stringBuffer.append(this.getRows());
+        stringBuffer.appendint(this.getRows());
         stringBuffer.append(" columns: ");
-        stringBuffer.append(this.getColumns());
+        stringBuffer.appendint(this.getColumns());
 
         logUtil.put(stringBuffer.toString(), this, "setCells");
 

@@ -30,9 +30,9 @@ public class BufferedImageInfoFactory
     {
         StringMaker stringbuffer = new StringMaker();
         
-        stringbuffer.append(width);
-        stringbuffer.append(height);
-        stringbuffer.append(type);
+        stringbuffer.appendint(width);
+        stringbuffer.appendint(height);
+        stringbuffer.appendint(type);
         
         String key = stringbuffer.toString();
         

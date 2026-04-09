@@ -156,7 +156,7 @@ public class CustomizerUtil
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
             stringBuffer.append("Total Views For Modification: ");
-            stringBuffer.append(allViewsToBeModified.size());
+            stringBuffer.appendint(allViewsToBeModified.size());
             stringBuffer.append(" New Xml/Data: ");
             stringBuffer.append(documentString);
 

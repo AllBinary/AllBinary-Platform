@@ -43,7 +43,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
         final String LISTENER = " Listener: ";
         
         stringBuffer.append("Total Listeners: ");
-        stringBuffer.append(this.eventListenerInterfaceList.size());
+        stringBuffer.appendint(this.eventListenerInterfaceList.size());
 
         EventListenerInterface eventListenerInterface;
         int index = 0;

@@ -136,10 +136,10 @@ public class ImageComparisonResult
     public String toString()
     {
         return new StringMaker().append("ImageComparisonInfo: ").append(this.name)
-                .append(" Number Of Matching Pixels: ").append(this.pixelsThatMatch)
-                .append("\nNumber Of Non-Matching Pixels: ").append(this.getNonMatchingPixelVector().size())
-                .append("\nNumber Of Pixels Ignored: ").append(this.pixelsIgnored)
-                .append("\nMatching Percentage: ").append(this.getMatchingPercent()).toString();
+                .append(" Number Of Matching Pixels: ").appendint(this.pixelsThatMatch)
+                .append("\nNumber Of Non-Matching Pixels: ").appendint(this.getNonMatchingPixelVector().size())
+                .append("\nNumber Of Pixels Ignored: ").appendint(this.pixelsIgnored)
+                .append("\nMatching Percentage: ").appendfloat(this.getMatchingPercent()).toString();
     }
     
     public BufferedImage[] getBufferedImages()

@@ -20,6 +20,7 @@ import java.util.Vector;
 import org.allbinary.input.automation.ImageOutputData;
 import org.allbinary.logic.java.number.LongUtil;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonSeps;
 
 public class FrameLog
 {
@@ -55,7 +56,7 @@ public class FrameLog
     public void addAction(String action)
     {
         this.actionsStringBuffer.append(action);
-        this.actionsStringBuffer.append("\n");
+        this.actionsStringBuffer.append(CommonSeps.getInstance().NEW_LINE);
     }
 
     public void write()

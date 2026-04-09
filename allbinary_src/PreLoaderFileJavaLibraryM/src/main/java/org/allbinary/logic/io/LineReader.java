@@ -16,6 +16,7 @@ package org.allbinary.logic.io;
 import java.io.DataInputStream;
 
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 
 public class LineReader {
@@ -48,7 +49,7 @@ public class LineReader {
 
     public boolean hasNext() {
         try {
-            final int nextIndex = string.indexOf("\n", index);
+            final int nextIndex = string.indexOf(CommonSeps.getInstance().NEW_LINE, index);
             if (nextIndex == -1) {
                 return false;
             }
@@ -65,7 +66,7 @@ public class LineReader {
 
     public String next() throws Exception {
         try {
-            final int nextIndex = string.indexOf("\n", index);
+            final int nextIndex = string.indexOf(CommonSeps.getInstance().NEW_LINE, index);
 
             if (nextIndex == -1) {
                 throw new Exception("next() should have been called first");

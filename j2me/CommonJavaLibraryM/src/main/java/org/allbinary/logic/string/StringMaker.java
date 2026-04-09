@@ -15,7 +15,7 @@ public class StringMaker
     public StringMaker append(final String string)
     {
         final int stringLength = string.length();
-        ensureCapacity(this.currentLength + stringLength);
+        this.ensureCapacity(this.currentLength + stringLength);
         string.getChars(0, stringLength, this.charArray, this.currentLength);
         this.currentLength += stringLength;
         return this;
@@ -31,42 +31,42 @@ public class StringMaker
 //        return this;
 //    }
     
-    public StringMaker appendC(final char c)
+    public StringMaker appendchar(final char c)
     {
-        ensureCapacity(this.currentLength + 1);
+        this.ensureCapacity(this.currentLength + 1);
         this.charArray[this.currentLength++] = c;
         return this;
     }
 
-    public StringMaker append(final byte b)
-    {
-      //change to PrimitiveLongUtil
-        this.append(Integer.toString(b));
-        return this;
-    }
-
-    public StringMaker append(final short b)
-    {
-      //change to PrimitiveLongUtil
-        this.append(Integer.toString(b));
-        return this;
-    }
+//    public StringMaker append(final byte b)
+//    {
+//      //change to PrimitiveLongUtil
+//        this.append(Integer.toString(b));
+//        return this;
+//    }
+//
+//    public StringMaker append(final short b)
+//    {
+//      //change to PrimitiveLongUtil
+//        this.append(Integer.toString(b));
+//        return this;
+//    }
     
-    public StringMaker append(final int i)
+    public StringMaker appendint(final int i)
     {
       //change to PrimitiveLongUtil
         this.append(Integer.toString(i));
         return this;
     }
     
-    public StringMaker append(final long l)
+    public StringMaker appendlong(final long l)
     {
       //change to PrimitiveLongUtil
         this.append(Long.toString(l));
         return this;
     }
 
-    public StringMaker append(float f)
+    public StringMaker appendfloat(float f)
     {
       //change to PrimitiveLongUtil
         this.append(Float.toString(f));
@@ -81,17 +81,17 @@ public class StringMaker
 //        return this;
 //    }
     
-    public StringMaker append(final boolean bool)
+    public StringMaker appendboolean(final boolean bool)
     {
         if (bool)
         {
-            ensureCapacity(this.currentLength + 4);
+            this.ensureCapacity(this.currentLength + 4);
             this.charArray[this.currentLength++] = 't';
             this.charArray[this.currentLength++] = 'r';
             this.charArray[this.currentLength++] = 'u';
             this.charArray[this.currentLength++] = 'e';
         } else {
-            ensureCapacity(this.currentLength + 5);
+            this.ensureCapacity(this.currentLength + 5);
             this.charArray[this.currentLength++] = 'f';
             this.charArray[this.currentLength++] = 'a';
             this.charArray[this.currentLength++] = 'l';
@@ -114,7 +114,7 @@ public class StringMaker
 
             final char[] copy = new char[newCapacity];
 
-            final int min = min(this.charArray.length, newCapacity);
+            final int min = this.min(this.charArray.length, newCapacity);
 
             System.arraycopy(this.charArray, 0, copy, 0, min);
 

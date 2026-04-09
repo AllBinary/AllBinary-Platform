@@ -330,6 +330,6 @@ public class LazyImageRotationAnimation extends RotationAnimation {
     public String toString() {
         final CommonSeps commonSeps = CommonSeps.getInstance();
         final Image image = this.animationInterfaceFactoryInterface.getImage();
-        return new StringMaker().append(super.toString()).append(commonSeps.SPACE).append(image.getName()).append(commonSeps.SPACE).append(image.getWidth()).append(commonSeps.SPACE).append(image.getHeight()).toString();
+        return new StringMaker().append(super.toString()).append(commonSeps.SPACE).append(image.getName()).append(commonSeps.SPACE).appendint(image.getWidth()).append(commonSeps.SPACE).appendint(image.getHeight()).toString();
     }
 }

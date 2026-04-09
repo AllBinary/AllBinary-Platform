@@ -26,7 +26,7 @@ public class PlayerOwnedRTSLayers
         final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("All: ");
-        stringBuffer.append(this.rtsLayerList.size());
+        stringBuffer.appendint(this.rtsLayerList.size());
 
         return stringBuffer.toString();
     }

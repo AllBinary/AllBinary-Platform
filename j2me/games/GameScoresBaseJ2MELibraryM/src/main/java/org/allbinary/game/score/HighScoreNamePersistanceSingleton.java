@@ -84,7 +84,7 @@ public class HighScoreNamePersistanceSingleton
         RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;
         try {
 
-        logUtil.put(new StringMaker().append("Deleting: ").append(deleteId).toString(), this, commonStrings.delete);
+        logUtil.put(new StringMaker().append("Deleting: ").appendint(deleteId).toString(), this, commonStrings.delete);
 
         recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
@@ -130,7 +130,7 @@ public class HighScoreNamePersistanceSingleton
                 {
                     final int id = recordEnum.nextRecordId();
 
-                    logUtil.put(new StringMaker().append(LOADING_ID).append(id).toString(), this, commonStrings.LOAD);
+                    logUtil.put(new StringMaker().append(LOADING_ID).appendint(id).toString(), this, commonStrings.LOAD);
 
                     recordAsBytes = recordStore.getRecord(id);
                     byteArrayInputStream = new ByteArrayInputStream(recordAsBytes);

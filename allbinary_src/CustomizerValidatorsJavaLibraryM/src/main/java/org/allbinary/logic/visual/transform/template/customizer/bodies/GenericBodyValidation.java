@@ -112,9 +112,9 @@ public class GenericBodyValidation extends Validation implements DomNodeInterfac
          //if(!isValid.booleanValue())
          {
             stringBuffer.append("Error: Data submitted is < ");
-            stringBuffer.append(BodyData.getInstance().MIN);
+            stringBuffer.appendint(BodyData.getInstance().MIN);
             stringBuffer.append(" or > ");
-            stringBuffer.append(AbSqlData.MAXBLOB);
+            stringBuffer.appendint(AbSqlData.MAXBLOB);
          }
          
          return stringBuffer.toString();

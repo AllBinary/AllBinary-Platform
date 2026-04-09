@@ -337,7 +337,7 @@ public class CanvasImageJPanel extends javax.swing.JPanel
        final boolean isWritten = 
                ImageIO.write((RenderedImage) CanvasImageJPanel.this.result, imageStrings.PNG, file);
 
-       logUtil.put(new StringMaker().append("File: ").append(StringUtil.getInstance().toString(file)).append(" Wrote: ").append(isWritten).toString(), this, commonStrings.RUN);
+       logUtil.put(new StringMaker().append("File: ").append(StringUtil.getInstance().toString(file)).append(" Wrote: ").appendboolean(isWritten).toString(), this, commonStrings.RUN);
    }
    
 }

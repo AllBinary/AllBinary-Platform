@@ -59,9 +59,9 @@ public class MakeCountedPartsSingletonArrayFactory
         final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("Total Parts: ");
-        stringBuffer.append(list.size());
+        stringBuffer.appendint(list.size());
         stringBuffer.append(" Counted: ");
-        stringBuffer.append(countedBasicArrayList.size());
+        stringBuffer.appendint(countedBasicArrayList.size());
 
         final CommonStrings commonStrings = CommonStrings.getInstance();
         logUtil.put(stringBuffer.toString(), this, commonStrings.GET_INSTANCE);

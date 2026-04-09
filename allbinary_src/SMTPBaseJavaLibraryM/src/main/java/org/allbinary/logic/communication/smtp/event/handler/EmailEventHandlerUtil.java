@@ -70,7 +70,7 @@ public class EmailEventHandlerUtil
     	  final StringMaker stringBuffer = new StringMaker();
     	  
     	  stringBuffer.append("Returning UserEmailEventHandler for ");
-    	  stringBuffer.append(userVector.size());
+    	  stringBuffer.appendint(userVector.size());
     	  stringBuffer.append(" users.");
     	  
     	  logUtil.put(stringBuffer.toString(), this, "getEventHandler");

@@ -99,7 +99,7 @@ public class RecordStoreHighScores extends HighScores
         RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;
         try
         {
-            logUtil.put(new StringMaker().append("Adding HighScore: ").append(newHighScore.getScore()).toString(),this, commonStrings.ADD);
+            logUtil.put(new StringMaker().append("Adding HighScore: ").appendlong(newHighScore.getScore()).toString(),this, commonStrings.ADD);
 
             // remove score replacing
             if (this.isTooManyHighScores())
@@ -186,7 +186,7 @@ public class RecordStoreHighScores extends HighScores
 
             if (bestHighScore.getId() != -1)
             {
-                logUtil.put(new StringMaker().append("Removing Lowest HighScore: ").append(bestHighScore.getScore()).toString(), this, commonStrings.LOAD);
+                logUtil.put(new StringMaker().append("Removing Lowest HighScore: ").appendlong(bestHighScore.getScore()).toString(), this, commonStrings.LOAD);
                 recordStore.deleteRecord(bestHighScore.getId());
             }
 
@@ -318,7 +318,7 @@ public class RecordStoreHighScores extends HighScores
         }
         else
         {
-            logUtil.put(new StringMaker().append("HighScores RecordStore Max Reached: ").append(this.MAXHIGHSCORES).toString(), this, "isTooManyHighScores");
+            logUtil.put(new StringMaker().append("HighScores RecordStore Max Reached: ").appendint(this.MAXHIGHSCORES).toString(), this, "isTooManyHighScores");
             return true;
         }
     }

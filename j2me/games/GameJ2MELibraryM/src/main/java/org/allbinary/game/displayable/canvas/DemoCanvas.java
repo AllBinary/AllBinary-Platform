@@ -493,7 +493,7 @@ public class DemoCanvas extends RunnableCanvas
             {
                 if(lastKeyNotMapped != keyCode) {
                     lastKeyNotMapped = keyCode;
-                    logUtil.put(new StringMaker().append(this.gameInputStrings.NO_KEY).append(keyCode).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
+                    logUtil.put(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
                 }
                 
             }
@@ -532,7 +532,7 @@ public class DemoCanvas extends RunnableCanvas
             }
             else
             {
-                logUtil.put(new StringMaker().append(this.gameInputStrings.NO_KEY).append(keyCode).toString(), this, this.gameInputStrings.REMOVE_KEY_EVENT);
+                logUtil.put(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.REMOVE_KEY_EVENT);
             }
         }
         catch (Exception e)

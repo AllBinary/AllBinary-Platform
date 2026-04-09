@@ -77,7 +77,7 @@ public class Health implements HealthInterface
 	        StringMaker stringBuffer = new StringMaker();
 	        
 	        stringBuffer.append("******* Trying to heal when damaging. Damage: ");
-	        stringBuffer.append(ahealth);
+	        stringBuffer.appendint(ahealth);
 	        stringBuffer.append(CommonSeps.getInstance().SPACE);
 	        stringBuffer.append(this.toString());
 
@@ -153,9 +153,9 @@ public class Health implements HealthInterface
 	    StringMaker stringBuffer = new StringMaker();
 
 	    stringBuffer.append(Health.HEALTH_LABEL);
-	    stringBuffer.append(this.health);
+	    stringBuffer.appendint(this.health);
 	    stringBuffer.append(Health.MAX_HEALTH_LABEL);
-	    stringBuffer.append(this.maxHealth);
+	    stringBuffer.appendint(this.maxHealth);
 
 	    return stringBuffer.toString();
 	}

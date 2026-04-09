@@ -119,7 +119,7 @@ public class BasicTouchInputFactory
             InputToGameKeyMapping inputToGameKeyMapping)
     {
         logUtil.put(
-                new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(list.size()).toString(), this,
+                new StringMaker().append(CommonLabels.getInstance().START_LABEL).appendint(list.size()).toString(), this,
                 "updateAll");
 
         TouchButtonInput touchButtonInput;

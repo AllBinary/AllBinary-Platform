@@ -90,7 +90,7 @@ extends InputProcessor
             }
             else
             {
-                logUtil.put(new StringMaker().append(this.gameInputStrings.NO_KEY).append(keyCode).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
+                logUtil.put(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
             }
 
             final Integer keyCodeAsInteger = smallIntegerSingletonFactory.getInstanceNoThrow(keyCode);
@@ -135,7 +135,7 @@ extends InputProcessor
             }
             else
             {
-                logUtil.put(new StringMaker().append(this.gameInputStrings.NO_KEY).append(keyCode).toString(), this, this.gameInputStrings.REMOVE_KEY_EVENT);
+                logUtil.put(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.REMOVE_KEY_EVENT);
             }
 
             //This is for key released events if needed

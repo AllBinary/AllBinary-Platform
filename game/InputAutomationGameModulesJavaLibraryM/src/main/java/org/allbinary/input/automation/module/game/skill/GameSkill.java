@@ -93,15 +93,16 @@ public class GameSkill
     
     public String toString()
     {
-        StringMaker stringBuffer = new StringMaker();
+        final CommonSeps commonSeps = CommonSeps.getInstance();
+        final StringMaker stringBuffer = new StringMaker();
         stringBuffer.append(GAME_SKILL_LABEL);
         stringBuffer.append(this.getGameSkillType().toString());
-        stringBuffer.append(CommonSeps.getInstance().SPACE);
+        stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(EXTRA_LABEL);
         stringBuffer.append(this.getExtra());
-        stringBuffer.append(CommonSeps.getInstance().SPACE);
+        stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(TIME_LABEL);
-        stringBuffer.append(this.getTime());
+        stringBuffer.appendlong(this.getTime());
         
         return stringBuffer.toString();
     }

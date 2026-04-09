@@ -17,6 +17,7 @@ package org.allbinary.media.graphics.geography.map;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.layer.AllBinaryTiledLayer;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonSeps;
 
 public class BasicGeographicMapCellPositionFactory
 {
@@ -98,7 +99,8 @@ public class BasicGeographicMapCellPositionFactory
         }
         catch(Exception e)
         {
-            logUtil.put(new StringMaker().append("[").append(rows).append("][").append(columns).append("]").toString(), this, "visit", e);
+            final CommonSeps commonSeps = CommonSeps.getInstance();
+            logUtil.put(new StringMaker().append(commonSeps.BRACKET_OPEN).appendint(rows).append(commonSeps.BRACKET_CLOSE).append(commonSeps.BRACKET_OPEN).appendint(columns).append(commonSeps.BRACKET_CLOSE).toString(), this, "visit", e);
             throw e;
         }
     }

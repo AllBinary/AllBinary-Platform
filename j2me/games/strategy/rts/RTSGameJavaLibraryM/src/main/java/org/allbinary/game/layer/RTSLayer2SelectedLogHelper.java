@@ -54,12 +54,12 @@ public class RTSLayer2SelectedLogHelper extends RTSLayer2LogHelper {
     
     @Override
     public void buildingChaseLeft(final PathFindingLayerInterface pathFindingLayerInterface, final int angle) {
-        logUtil.put(new StringMaker().append(pathFindingLayerInterface.getName()).append(" steering - Going Left: ").append(angle).toString(), this, BUILDING_CHASE);
+        logUtil.put(new StringMaker().append(pathFindingLayerInterface.getName()).append(" steering - Going Left: ").appendint(angle).toString(), this, BUILDING_CHASE);
     }
     
     @Override
     public void buildingChaseRight(final PathFindingLayerInterface pathFindingLayerInterface, final int angle) {
-        logUtil.put(new StringMaker().append(pathFindingLayerInterface.getName()).append(" steering - Going Right: ").append(angle).toString(), this, BUILDING_CHASE);
+        logUtil.put(new StringMaker().append(pathFindingLayerInterface.getName()).append(" steering - Going Right: ").appendint(angle).toString(), this, BUILDING_CHASE);
     }
     
     @Override
@@ -69,12 +69,12 @@ public class RTSLayer2SelectedLogHelper extends RTSLayer2LogHelper {
     
     @Override
     public void buildingChaseDown(final PathFindingLayerInterface pathFindingLayerInterface, final int angle) {
-        logUtil.put(new StringMaker().append(pathFindingLayerInterface.getName()).append(" steering - Going Down: ").append(angle).toString(), this, BUILDING_CHASE);
+        logUtil.put(new StringMaker().append(pathFindingLayerInterface.getName()).append(" steering - Going Down: ").appendint(angle).toString(), this, BUILDING_CHASE);
     }
 
     @Override
     public void buildingChaseUp(final PathFindingLayerInterface pathFindingLayerInterface, final int angle) {
-        logUtil.put(new StringMaker().append(pathFindingLayerInterface.getName()).append(" steering - Going Up: ").append(angle).toString(), this, BUILDING_CHASE);
+        logUtil.put(new StringMaker().append(pathFindingLayerInterface.getName()).append(" steering - Going Up: ").appendint(angle).toString(), this, BUILDING_CHASE);
     }
 
     public void buildingLeft(final PathFindingLayerInterface pathFindingLayerInterface) {

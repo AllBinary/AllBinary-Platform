@@ -19,6 +19,7 @@ import java.util.Vector;
 
 import org.allbinary.logic.java.object.clazz.ClassUtil;
 import org.allbinary.logic.string.StringUtil;
+import org.allbinary.string.CommonSeps;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
@@ -131,7 +132,7 @@ public class ModDomHelper
           */
          else
          {
-            throw new Exception("HashMap value is the wrong instance and is: " + ClassUtil.viewAll(object,"\n"));
+            throw new Exception("HashMap value is the wrong instance and is: " + ClassUtil.viewAll(object,CommonSeps.getInstance().NEW_LINE));
          }
       }
       return node;
@@ -237,7 +238,7 @@ public class ModDomHelper
          /*
          else
          {
-            throw new Exception("HashMap value is the wrong instance and is: " + ClassUtil.viewAll(object, "\n"));
+            throw new Exception("HashMap value is the wrong instance and is: " + ClassUtil.viewAll(object, CommonSeps.getInstance().NEW_LINE));
          }
          */
       }

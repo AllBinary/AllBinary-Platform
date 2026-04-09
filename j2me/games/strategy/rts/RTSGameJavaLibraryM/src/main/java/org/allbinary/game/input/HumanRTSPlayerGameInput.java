@@ -240,13 +240,13 @@ implements BaseMotionGestureEventListener
         final StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append(AT);
-        stringBuffer.append(rectX1);
+        stringBuffer.appendint(rectX1);
         stringBuffer.append(SPACE);
-        stringBuffer.append(rectY1);
+        stringBuffer.appendint(rectY1);
         stringBuffer.append(SPACE);
-        stringBuffer.append(rectX2);
+        stringBuffer.appendint(rectX2);
         stringBuffer.append(SPACE);
-        stringBuffer.append(rectY2);
+        stringBuffer.appendint(rectY2);
 
         logUtil.put(stringBuffer.toString(), this, METHOD);
         
@@ -262,9 +262,9 @@ implements BaseMotionGestureEventListener
             stringBuffer.append(rtsLayer.getName());
             stringBuffer.append(SPACE);
             stringBuffer.append(AT);
-            stringBuffer.append((rtsLayer.getViewPosition().getX() + rtsLayer.getHalfWidth()));
+            stringBuffer.appendint((rtsLayer.getViewPosition().getX() + rtsLayer.getHalfWidth()));
             stringBuffer.append(SPACE);
-            stringBuffer.append((rtsLayer.getViewPosition().getY() + rtsLayer.getHalfHeight()));
+            stringBuffer.appendint((rtsLayer.getViewPosition().getY() + rtsLayer.getHalfHeight()));
 
             logUtil.put(stringBuffer.toString(), this, METHOD);
 

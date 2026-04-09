@@ -109,7 +109,7 @@ public class AbeFactory
         	 stringBuffer.append("Failure for: ");
         	 stringBuffer.append(className);
         	 stringBuffer.append(CommonSeps.getInstance().SPACE);
-        	 stringBuffer.append(ConstructorUtil.view(constructor, "\n"));
+        	 stringBuffer.append(ConstructorUtil.view(constructor, CommonSeps.getInstance().NEW_LINE));
              
         	 logUtil.put(stringBuffer.toString(), this, "getInstance(className,params)", e);
          }
@@ -124,7 +124,7 @@ public class AbeFactory
         	 stringBuffer.append("Failure for: ");
         	 stringBuffer.append(className);
         	 stringBuffer.append(CommonSeps.getInstance().SPACE);
-        	 stringBuffer.append(ConstructorUtil.view(constructor, "\n"));
+        	 stringBuffer.append(ConstructorUtil.view(constructor, CommonSeps.getInstance().NEW_LINE));
              
         	 logUtil.put(stringBuffer.toString(), this, "getInstance(className,params)", e);
          }
@@ -176,7 +176,7 @@ public class AbeFactory
         	 stringBuffer.append("Failure for: ");
         	 stringBuffer.append(className);
         	 stringBuffer.append(commonStrings.SPACE);
-        	 stringBuffer.append(ConstructorUtil.view(constructor, "\n"));
+        	 stringBuffer.append(ConstructorUtil.view(constructor, CommonSeps.getInstance().NEW_LINE));
              
         	 logUtil.put(stringBuffer.toString(), this, "getNoLicenseInstance(String className, Class classes[], Object params[])", e);
          }
@@ -367,7 +367,7 @@ public class AbeFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
-            logUtil.put("Failure for: " + className + " " + allbinary.java.object.ObjectInfo.viewConstructor(constructor, "\n"), this,"getInstance(className,params)", e);
+            logUtil.put("Failure for: " + className + " " + allbinary.java.object.ObjectInfo.viewConstructor(constructor, CommonSeps.getInstance().NEW_LINE), this,"getInstance(className,params)", e);
          }
          return null;
       }

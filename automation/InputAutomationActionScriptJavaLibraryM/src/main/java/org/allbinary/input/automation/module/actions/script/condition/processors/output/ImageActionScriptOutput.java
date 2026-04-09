@@ -172,9 +172,9 @@ public class ImageActionScriptOutput
     {
         StringMaker stringBuffer = new StringMaker(); 
         stringBuffer.append(" Is Save: ");
-        stringBuffer.append(this.isSaved());
+        stringBuffer.appendboolean(this.isSaved());
         stringBuffer.append(" Is Display: ");
-        stringBuffer.append(this.isDisplay());
+        stringBuffer.appendboolean(this.isDisplay());
         stringBuffer.append(" ");
         stringBuffer.append(this.getImageTypes().toString());
         

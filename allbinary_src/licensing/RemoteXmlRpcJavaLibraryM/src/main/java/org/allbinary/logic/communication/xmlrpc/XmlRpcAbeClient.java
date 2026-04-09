@@ -94,7 +94,7 @@ public class XmlRpcAbeClient
         final StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append(START_SERVER);
-        stringBuffer.append(this.getServer());
+        stringBuffer.appendint(this.getServer());
         stringBuffer.append(SEP);
         stringBuffer.append(clientInfo.getLicenseServer(this.getServer()));
         

@@ -29,7 +29,7 @@ public class BaseBasicArrayListCache {
         final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("S: ");
-        stringBuffer.append(this.list.size());
+        stringBuffer.appendint(this.list.size());
 
         return stringBuffer.toString();
     }

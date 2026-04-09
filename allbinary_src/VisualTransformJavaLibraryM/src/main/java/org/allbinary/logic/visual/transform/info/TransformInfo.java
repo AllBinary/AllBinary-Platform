@@ -40,6 +40,7 @@ import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjec
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigInterface;
 import org.allbinary.logic.visual.transform.info.template.TransformInfoTemplateData;
 import org.allbinary.logic.visual.transform.info.viewObject.TransformInfoObjectData;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.w3c.dom.Document;
 
@@ -307,7 +308,7 @@ public class TransformInfo implements TransformInfoInterface
         stringBuffer.append(this.dataFileName);
         stringBuffer.append("\nStore Name: ");
         stringBuffer.append(this.storeName);
-        stringBuffer.append("\n");
+        stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
         stringBuffer.append(this.getObjectFile());
         stringBuffer.append("->TransformInfo");
         stringBuffer.append("TransformInfoInterface(HashMap)");

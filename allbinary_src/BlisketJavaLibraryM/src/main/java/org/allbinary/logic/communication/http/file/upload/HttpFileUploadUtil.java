@@ -16,6 +16,7 @@ package org.allbinary.logic.communication.http.file.upload;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.object.clazz.ClassUtil;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonSeps;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemStream;
 
@@ -49,7 +50,7 @@ public class HttpFileUploadUtil
             }
             else
             {
-                throw new Exception("Object Not Instance Of FileItem but is: " + ClassUtil.viewAll(object, "\n"));
+                throw new Exception("Object Not Instance Of FileItem but is: " + ClassUtil.viewAll(object, CommonSeps.getInstance().NEW_LINE));
             }
         }
         return false;
@@ -60,18 +61,19 @@ public class HttpFileUploadUtil
     {
         final LogUtil logUtil = LogUtil.getInstance();
         final StringMaker stringBuffer = new StringMaker();
+        final CommonSeps commonSeps = CommonSeps.getInstance();
 
         stringBuffer.append("FileItem Log:");
-        stringBuffer.append("\n");
+        stringBuffer.append(commonSeps.NEW_LINE);
         stringBuffer.append("Content Type:");
         stringBuffer.append(fileItem.getContentType());
-        stringBuffer.append("\n");
+        stringBuffer.append(commonSeps.NEW_LINE);
         stringBuffer.append("Field Name:");
         stringBuffer.append(fileItem.getFieldName());
-        stringBuffer.append("\n");
+        stringBuffer.append(commonSeps.NEW_LINE);
         stringBuffer.append("Name:");
         stringBuffer.append(fileItem.getName());
-        stringBuffer.append("\n");
+        stringBuffer.append(commonSeps.NEW_LINE);
         stringBuffer.append("Size:");
         //result.append(fileItem.openStream().available());
         stringBuffer.append(" Not Calculated Yet");
@@ -87,20 +89,21 @@ public class HttpFileUploadUtil
     {
         final LogUtil logUtil = LogUtil.getInstance();
         final StringMaker stringBuffer = new StringMaker();
+        final CommonSeps commonSeps = CommonSeps.getInstance();
 
         stringBuffer.append("FileItem Log:");
-        stringBuffer.append("\n");
+        stringBuffer.append(commonSeps.NEW_LINE);
         stringBuffer.append("Content Type:");
         stringBuffer.append(fileItem.getContentType());
-        stringBuffer.append("\n");
+        stringBuffer.append(commonSeps.NEW_LINE);
         stringBuffer.append("Field Name:");
         stringBuffer.append(fileItem.getFieldName());
-        stringBuffer.append("\n");
+        stringBuffer.append(commonSeps.NEW_LINE);
         stringBuffer.append("Name:");
         stringBuffer.append(fileItem.getName());
-        stringBuffer.append("\n");
+        stringBuffer.append(commonSeps.NEW_LINE);
         stringBuffer.append("Size:");
-        stringBuffer.append(fileItem.getSize());
+        stringBuffer.appendlong(fileItem.getSize());
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))

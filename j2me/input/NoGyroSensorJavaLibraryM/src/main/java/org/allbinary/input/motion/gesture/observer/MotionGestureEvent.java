@@ -94,7 +94,7 @@ public class MotionGestureEvent extends AllBinaryEventObject {
         stringBuffer.append(PREVIOUS);
         stringBuffer.append(stringUtil.toString(this.previousPoint));
         stringBuffer.append(HASHCODE);
-        stringBuffer.append(this.hashCode());
+        stringBuffer.appendint(this.hashCode());
         return stringBuffer.toString();
     }
 

@@ -138,7 +138,7 @@ public class WaypointSelectedLogHelper extends WaypointLogHelper {
         stringBuffer.append(associatedAdvancedRTSGameLayer.getName());
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(CommonLabels.getInstance().START);
-        stringBuffer.append(size);
+        stringBuffer.appendint(size);
         stringBuffer.append(" -> ");
         stringBuffer.append(stringUtil.toString(pathsList));
 

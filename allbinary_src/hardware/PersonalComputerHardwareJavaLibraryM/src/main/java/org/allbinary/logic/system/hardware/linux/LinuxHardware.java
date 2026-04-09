@@ -40,6 +40,7 @@ import org.allbinary.logic.system.hardware.components.interfaces.MonitorInterfac
 import org.allbinary.logic.system.hardware.components.interfaces.UsbInterface;
 import org.allbinary.logic.system.hardware.components.interfaces.VideoInterface;
 import org.allbinary.logic.system.hardware.components.linux.Cpu;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 
@@ -180,7 +181,7 @@ public class LinuxHardware implements HardwareInterface
                }
                
                componentData.append(nextLine);
-               componentData.append("\n");
+               componentData.append(CommonSeps.getInstance().NEW_LINE);
                //System.out.println(nextLine);
                nextLine = lineNumberReader.readLine();
                String componentType = PCComponentFactory.getInstance().getComponentType(nextLine);
@@ -188,7 +189,7 @@ public class LinuxHardware implements HardwareInterface
                while(lineNumberReader != null)
                {
                   componentData.append(nextLine);
-                  componentData.append("\n");
+                  componentData.append(CommonSeps.getInstance().NEW_LINE);
                   nextLine = lineNumberReader.readLine();
                   if(nextLine == null || this.isNextHardware(nextLine))
                   {
@@ -292,10 +293,10 @@ public class LinuxHardware implements HardwareInterface
        {
          HardwareComponentInterface componentInterface = (HardwareComponentInterface) componentInterfaceVector.get(index);
          hardwareBuffer.append("Component ");
-         hardwareBuffer.append(index);
+         hardwareBuffer.appendint(index);
          hardwareBuffer.append(": \n");
          hardwareBuffer.append(componentInterface.toString());
-         hardwareBuffer.append("\n");
+         hardwareBuffer.append(CommonSeps.getInstance().NEW_LINE);
       }
       return hardwareBuffer.toString();
    }

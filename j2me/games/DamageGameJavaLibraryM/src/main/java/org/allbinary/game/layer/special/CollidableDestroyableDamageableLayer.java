@@ -384,17 +384,17 @@ PickupCompositeInterface, SpecialGameInputInterface
         
         stringBuffer.append(commonSeps.NEW_LINE);
         stringBuffer.append(READYFOREXPLOSION);
-        stringBuffer.append(readyForExplosion);
+        stringBuffer.appendboolean(readyForExplosion);
 
         stringBuffer.append(commonSeps.NEW_LINE);
         stringBuffer.append(commonStrings.INIT);
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(positionStrings.X_LABEL);
-        stringBuffer.append(initX);
+        stringBuffer.appendint(initX);
         stringBuffer.append(positionStrings.Y_LABEL);
-        stringBuffer.append(initX);
+        stringBuffer.appendint(initX);
         stringBuffer.append(positionStrings.Z_LABEL);
-        stringBuffer.append(initZ);
+        stringBuffer.appendint(initZ);
         
     }
     

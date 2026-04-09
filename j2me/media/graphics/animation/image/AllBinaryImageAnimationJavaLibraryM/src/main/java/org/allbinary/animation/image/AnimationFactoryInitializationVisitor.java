@@ -40,13 +40,13 @@ public class AnimationFactoryInitializationVisitor {
         final CommonLabels commonLabels = CommonLabels.getInstance();
         final StringMaker stringBuffer = new StringMaker();
 
-        stringBuffer.append(PositionStrings.getInstance().DX_LABEL).append((float) this.dx);
-        stringBuffer.append(PositionStrings.getInstance().DY_LABEL).append((float) this.dy);
+        stringBuffer.append(PositionStrings.getInstance().DX_LABEL).appendfloat((float) this.dx);
+        stringBuffer.append(PositionStrings.getInstance().DY_LABEL).appendfloat((float) this.dy);
         stringBuffer.append(commonLabels.WIDTH_LABEL);
-        stringBuffer.append(width);
+        stringBuffer.appendint(width);
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(commonLabels.HEIGHT_LABEL);
-        stringBuffer.append(height);
+        stringBuffer.appendint(height);
 
         return stringBuffer.toString();
     }

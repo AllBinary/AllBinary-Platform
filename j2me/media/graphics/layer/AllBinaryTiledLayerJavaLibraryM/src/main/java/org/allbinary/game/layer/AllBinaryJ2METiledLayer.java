@@ -133,7 +133,7 @@ public class AllBinaryJ2METiledLayer extends AllBinaryTiledLayer
 
                 tile--;
                 stringMaker.delete(0, stringMaker.length());
-                graphics.drawString(stringMaker.append(columnIndex).append(commonSeps.COMMA).append(rowIndex).append(commonSeps.COLON).append(tile).toString(), x + 5, y + 10, 0);
+                graphics.drawString(stringMaker.appendint(columnIndex).append(commonSeps.COMMA).appendint(rowIndex).append(commonSeps.COLON).appendint(tile).toString(), x + 5, y + 10, 0);
             }
         }
      

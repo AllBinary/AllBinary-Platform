@@ -80,14 +80,16 @@ public class KeylessBasicArrayListCache
         final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("S: ");
-        stringBuffer.append(this.list.size());
+        stringBuffer.appendint(this.list.size());
 
+        final String S_LABEL = " s: ";
+        
         BasicArrayList basicArrayList;
         for (int index = this.list.size() - 1; index >= 0; index--)
         {
-            stringBuffer.append(" s: ");
+            stringBuffer.append(S_LABEL);
             basicArrayList = ((BasicArrayList) this.list.objectArray[index]);
-            stringBuffer.append(basicArrayList.size());
+            stringBuffer.appendint(basicArrayList.size());
         }
 
         return stringBuffer.toString();

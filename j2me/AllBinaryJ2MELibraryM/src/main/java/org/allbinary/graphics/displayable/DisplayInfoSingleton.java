@@ -148,8 +148,8 @@ public class DisplayInfoSingleton
 
         stringMaker.delete(0, stringMaker.length());
         logUtil.put(stringMaker
-            .append(FULL_WIDTH).append(aFullWidth)
-            .append(FULL_HEIGHT).append(aFullHeight)
+            .append(FULL_WIDTH).appendint(aFullWidth)
+            .append(FULL_HEIGHT).appendint(aFullHeight)
             .append(this.toString())
             .toString(), this, SET_LAST_SIZE_METHOD_NAME);
 
@@ -168,7 +168,7 @@ public class DisplayInfoSingleton
                     this.displayRatio = scaleLargestTo / aLastHeight;
                     this.ratio = aLastHeight / scaleLargestTo;
                     stringMaker.delete(0, stringMaker.length());
-                    logUtil.put(stringMaker.append(this.ADJUSTING_FOR_SCALING_IN_PORTRAIT).append(displayRatio).toString(), this, SET_LAST_SIZE_METHOD_NAME);
+                    logUtil.put(stringMaker.append(this.ADJUSTING_FOR_SCALING_IN_PORTRAIT).appendfloat(displayRatio).toString(), this, SET_LAST_SIZE_METHOD_NAME);
                     aLastWidth = (int) (aLastWidth * displayRatio);
                     aLastHeight = (int) (aLastHeight * displayRatio);
                     this.scalableListener.scale((float) ratio);
@@ -182,7 +182,7 @@ public class DisplayInfoSingleton
                     this.displayRatio = scaleLargestTo / aLastWidth;
                     this.ratio = aLastWidth / scaleLargestTo;
                     stringMaker.delete(0, stringMaker.length());
-                    logUtil.put(stringMaker.append(this.ADJUSTING_FOR_SCALING_IN_LANDSCAPE).append(displayRatio).toString(), this, SET_LAST_SIZE_METHOD_NAME);
+                    logUtil.put(stringMaker.append(this.ADJUSTING_FOR_SCALING_IN_LANDSCAPE).appendfloat(displayRatio).toString(), this, SET_LAST_SIZE_METHOD_NAME);
                     aLastWidth = (int) (aLastWidth * displayRatio);
                     aLastHeight = (int) (aLastHeight * displayRatio);
                     this.scalableListener.scale((float) ratio);
@@ -196,8 +196,8 @@ public class DisplayInfoSingleton
 
         stringMaker.delete(0, stringMaker.length());
         logUtil.put(stringMaker
-            .append(LAST_WIDTH).append(aLastWidth)
-            .append(LAST_HEIGHT).append(aLastHeight)
+            .append(LAST_WIDTH).appendint(aLastWidth)
+            .append(LAST_HEIGHT).appendint(aLastHeight)
             .toString(), this, SET_LAST_SIZE_METHOD_NAME);
 
         this.xOffset = aFullWidth - aLastWidth;
@@ -303,8 +303,8 @@ public class DisplayInfoSingleton
         final StringMaker stringMaker = new StringMaker();
         logUtil.put(stringMaker
                 .append(CommonLabels.getInstance().START_LABEL).append(reason)
-                .append(LAST_WIDTH).append(aLastWidth)
-                .append(LAST_HEIGHT).append(aLastHeight)
+                .append(LAST_WIDTH).appendint(aLastWidth)
+                .append(LAST_HEIGHT).appendint(aLastHeight)
                 .append(commonSeps.SPACE)
                 .append(this.toString())
                 .toString(), this, commonStrings.UPDATE);
@@ -342,7 +342,7 @@ public class DisplayInfoSingleton
                             this.ratio = aLastHeight / scaleLargestTo;
        
                             stringMaker.delete(0, stringMaker.length()); 
-                            logUtil.put(stringMaker.append(this.ADJUSTING_FOR_SCALING_IN_PORTRAIT).append(displayRatio).toString(), this, commonStrings.UPDATE);
+                            logUtil.put(stringMaker.append(this.ADJUSTING_FOR_SCALING_IN_PORTRAIT).appendfloat(displayRatio).toString(), this, commonStrings.UPDATE);
                             aLastWidth = (int) (aLastWidth * displayRatio);
                             aLastHeight = (int) (aLastHeight * displayRatio);
                             this.scalableListener.scale((float) ratio);
@@ -361,7 +361,7 @@ public class DisplayInfoSingleton
                             this.ratio = aLastWidth / scaleLargestTo;
                             
                             stringMaker.delete(0, stringMaker.length());
-                            logUtil.put(stringMaker.append(this.ADJUSTING_FOR_SCALING_IN_LANDSCAPE).append(displayRatio).toString(), this, commonStrings.UPDATE);
+                            logUtil.put(stringMaker.append(this.ADJUSTING_FOR_SCALING_IN_LANDSCAPE).appendfloat(displayRatio).toString(), this, commonStrings.UPDATE);
                             aLastWidth = (int) (aLastWidth * displayRatio);
                             aLastHeight = (int) (aLastHeight * displayRatio);
                             this.scalableListener.scale((float) ratio);
@@ -376,8 +376,8 @@ public class DisplayInfoSingleton
                 stringMaker.delete(0, stringMaker.length());        
                 logUtil.put(
                         stringMaker.append(UPDATE_FROM_ORIENTATION_CHANGE)
-                        .append(LAST_WIDTH).append(aLastWidth)
-                        .append(LAST_HEIGHT).append(aLastHeight)
+                        .append(LAST_WIDTH).appendint(aLastWidth)
+                        .append(LAST_HEIGHT).appendint(aLastHeight)
                         .toString(), this, commonStrings.UPDATE);
 
                 this.xOffset = aFullWidth - aLastWidth;
@@ -431,27 +431,27 @@ public class DisplayInfoSingleton
         stringBuffer.append(DISPLAY_INFO);
         stringBuffer.append(FULL);
         stringBuffer.append(commonLabels.WIDTH_LABEL);
-        stringBuffer.append(full[WIDTH]);
+        stringBuffer.appendint(full[WIDTH]);
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(FULL);
         stringBuffer.append(commonLabels.HEIGHT_LABEL);
-        stringBuffer.append(full[HEIGHT]);
+        stringBuffer.appendint(full[HEIGHT]);
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(LAST);
         stringBuffer.append(commonLabels.WIDTH_LABEL);
-        stringBuffer.append(last[WIDTH]);
+        stringBuffer.appendint(last[WIDTH]);
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(LAST);
         stringBuffer.append(commonLabels.HEIGHT_LABEL);
-        stringBuffer.append(last[HEIGHT]);
+        stringBuffer.appendint(last[HEIGHT]);
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(LAST_HALF);
         stringBuffer.append(commonLabels.WIDTH_LABEL);
-        stringBuffer.append(lastHalf[WIDTH]);
+        stringBuffer.appendint(lastHalf[WIDTH]);
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(LAST_HALF);
         stringBuffer.append(commonLabels.HEIGHT_LABEL);
-        stringBuffer.append(lastHalf[HEIGHT]);
+        stringBuffer.appendint(lastHalf[HEIGHT]);
 
         return stringBuffer.toString();
     }

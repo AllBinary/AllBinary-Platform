@@ -541,7 +541,7 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
 
           final int extensionIndex = filePath.indexOf(imageStrings.PNG_EXTENSION);
 
-          filePath = new StringMaker().append(filePath.substring(0, extensionIndex)).append(CommonSeps.getInstance().UNDERSCORE).append(this.imageUnifierProperties.getColumns()).append("_By_").append(this.imageUnifierProperties.getRows()).append("_Unified").append(imageStrings.PNG_EXTENSION).toString();
+          filePath = new StringMaker().append(filePath.substring(0, extensionIndex)).append(CommonSeps.getInstance().UNDERSCORE).appendint(this.imageUnifierProperties.getColumns()).append("_By_").appendint(this.imageUnifierProperties.getRows()).append("_Unified").append(imageStrings.PNG_EXTENSION).toString();
 
           logUtil.put("New File Path: " + filePath, this, StringUtil.getInstance().EMPTY_STRING);
           

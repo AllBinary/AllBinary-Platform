@@ -99,6 +99,6 @@ public class CircularIndexUtil
     }
     
     public String toString() {
-        return new StringMaker().append(CommonLabels.getInstance().INDEX_LABEL).append(this.index).append("lastIndex: ").append(this.lastIndex).append("size: ").append(this.size).toString();
+        return new StringMaker().append(CommonLabels.getInstance().INDEX_LABEL).appendint(this.index).append("lastIndex: ").appendint(this.lastIndex).append("size: ").appendint(this.size).toString();
     }
 }

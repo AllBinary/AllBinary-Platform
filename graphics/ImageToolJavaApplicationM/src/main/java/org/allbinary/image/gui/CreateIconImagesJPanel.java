@@ -151,12 +151,12 @@ public class CreateIconImagesJPanel extends javax.swing.JPanel
                             final String path = filePath.substring(0, endIndex + 1);
                                                             
                             stringMaker.delete(0, stringMaker.length());
-                            stringMaker.append(path).append(ANDROID).append(width).append(CanvasStrings.getInstance()._PNG);
+                            stringMaker.append(path).append(ANDROID).appendint(width).append(CanvasStrings.getInstance()._PNG);
                             String newFilePath = stringMaker.toString();
                             imagePersistanceUtil.saveWithBatik(new AbFile(newFilePath), generatedBufferedImageArray[index]);
 
                             stringMaker.delete(0, stringMaker.length());
-                            stringMaker.append(path).append(IOS).append(width).append(CanvasStrings.getInstance()._PNG);
+                            stringMaker.append(path).append(IOS).appendint(width).append(CanvasStrings.getInstance()._PNG);
                             newFilePath = stringMaker.toString();
                             imagePersistanceUtil.saveWithBatik(new AbFile(newFilePath), generatedBufferedImageArray[index]);
                         }

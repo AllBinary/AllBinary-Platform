@@ -462,7 +462,7 @@ public class StoreFront implements StoreFrontInterface
             final StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append("Name is invalid. Must be < ");
-            stringBuffer.append(MAXCHAR);
+            stringBuffer.appendint(MAXCHAR);
             stringBuffer.append(" and > 0 characters.<br>");
 
             return stringBuffer.toString();
@@ -483,35 +483,35 @@ public class StoreFront implements StoreFrontInterface
             if (!stringValidationUtil.isValidRequired(this.basketName, MINCHAR, MAXCHAR))
             {
                 stringBuffer.append("Basket name is invalid. Must be < ");
-                stringBuffer.append(MAXCHAR);
+                stringBuffer.appendint(MAXCHAR);
                 stringBuffer.append(" and > 0 characters.<br>");
             }
 
             if (!stringValidationUtil.isValidRequired(this.homeHostName, MINCHAR, MAXCHAR))
             {
                 stringBuffer.append("Home host name is invalid. Must be < ");
-                stringBuffer.append(MAXCHAR);
+                stringBuffer.appendint(MAXCHAR);
                 stringBuffer.append(" and > 0 characters.<br>");
             }
 
             if (!stringValidationUtil.isValidNotRequired(this.homeHostNamePath.toString(), MINCHAR, MAXCHAR))
             {
                 stringBuffer.append("Home host name path is invalid. Must be < ");
-                stringBuffer.append(MAXCHAR);
+                stringBuffer.appendint(MAXCHAR);
                 stringBuffer.append(" and > 0 characters.<br>");
             }
 
             if (!stringValidationUtil.isValidRequired(this.hostName, MINCHAR, MAXCHAR))
             {
                 stringBuffer.append("Host name is invalid. Must be < ");
-                stringBuffer.append(MAXCHAR);
+                stringBuffer.appendint(MAXCHAR);
                 stringBuffer.append(" and > 0 characters.<br>");
             }
 
             if (!stringValidationUtil.isValidRequired(this.hostNamePath.toString(), MINCHAR, MAXCHAR))
             {
                 stringBuffer.append("Host name path is invalid. Must be < ");
-                stringBuffer.append(MAXCHAR);
+                stringBuffer.appendint(MAXCHAR);
                 stringBuffer.append(" and > 0 characters.<br>");
             }
 
@@ -1150,7 +1150,7 @@ public class StoreFront implements StoreFrontInterface
         stringBuffer.delete(0, stringBuffer.length());
         stringBuffer.append(URLGLOBALS.getMainPath());
         stringBuffer.append(this.getCurrentHomeHostNamePath());
-        stringBuffer.append(AbPathData.getInstance().SEPARATORCHAR);
+        stringBuffer.append(AbPathData.getInstance().SEPARATOR);
         stringBuffer.append(this.getCategoryPath());
 
         final AbPath categoryAbPath = new AbPath(stringBuffer.toString());

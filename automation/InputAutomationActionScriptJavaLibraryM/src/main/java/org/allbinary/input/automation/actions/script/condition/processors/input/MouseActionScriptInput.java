@@ -21,6 +21,7 @@ import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.logic.string.StringMaker;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -193,35 +194,37 @@ public class MouseActionScriptInput
 
         buttonStringBuffer.append("1: ");
         
+        final BooleanFactory booleanFactory = BooleanFactory.getInstance();
+        
         if((this.getButtonClicks() & InputEvent.BUTTON1_MASK) != 0)
         {
-            buttonStringBuffer.append(Boolean.TRUE);
+            buttonStringBuffer.append(booleanFactory.TRUE_STRING);
         }
         else
         {
-            buttonStringBuffer.append(Boolean.FALSE);
+            buttonStringBuffer.append(booleanFactory.FALSE_STRING);
         }
 
         buttonStringBuffer.append(" 2: ");
 
         if((this.getButtonClicks() & InputEvent.BUTTON2_MASK) != 0)
         {
-            buttonStringBuffer.append(Boolean.TRUE);
+            buttonStringBuffer.append(booleanFactory.TRUE_STRING);
         }
         else
         {
-            buttonStringBuffer.append(Boolean.FALSE);
+            buttonStringBuffer.append(booleanFactory.FALSE_STRING);
         }
 
         buttonStringBuffer.append(" 3: ");
 
         if((this.getButtonClicks() & InputEvent.BUTTON3_MASK) != 0)
         {
-            buttonStringBuffer.append(Boolean.TRUE);
+            buttonStringBuffer.append(booleanFactory.TRUE_STRING);
         }
         else
         {
-            buttonStringBuffer.append(Boolean.FALSE);
+            buttonStringBuffer.append(booleanFactory.FALSE_STRING);
         }
         
         logUtil.put(

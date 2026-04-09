@@ -24,6 +24,7 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellTypeFactory;
 import org.allbinary.media.graphics.geography.pathfinding.PathFindingInfo;
 import org.allbinary.media.graphics.geography.pathfinding.PathFindingNode;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPositionFactoryInitVisitorInterface;
+import org.allbinary.string.CommonSeps;
 
 /**
  *
@@ -128,9 +129,11 @@ public class BasePathFindingInfoFactory {
                 }
                 catch(Exception e)
                 {
+                    final CommonSeps commonSeps = CommonSeps.getInstance();
                     logUtil.put(
-                            new StringMaker().append("[").append(row).append("][").append(column).append("] in [").append(
-                            mapArray.length).append("][").append(mapArray[0].length).append("]").toString(), 
+                            new StringMaker().append(commonSeps.BRACKET_OPEN).appendint(row).append(commonSeps.BRACKET_CLOSE)
+                                .append(commonSeps.BRACKET_OPEN).appendint(column).append("] in [").appendint(mapArray.length).append(commonSeps.BRACKET_CLOSE)
+                                .append(commonSeps.BRACKET_OPEN).appendint(mapArray[0].length).append(commonSeps.BRACKET_CLOSE).toString(), 
                             this, "visit", e);
                     throw e;
                 }

@@ -469,7 +469,7 @@ public class StartCanvas extends RunnableCanvas
             }
             else
             {
-                logUtil.put(new StringMaker().append(this.gameInputStrings.NO_KEY).append(keyCode).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
+                logUtil.put(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
             }
         }
         catch (Exception e)
@@ -506,7 +506,7 @@ public class StartCanvas extends RunnableCanvas
             }
             else
             {
-                logUtil.put(new StringMaker().append(this.gameInputStrings.NO_KEY).append(keyCode).toString(), this, this.gameInputStrings.REMOVE_KEY_EVENT);
+                logUtil.put(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.REMOVE_KEY_EVENT);
             }
         }
         catch (Exception e)

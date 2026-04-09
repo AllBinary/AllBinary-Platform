@@ -86,7 +86,7 @@ public class ZipFileUtil
                 {
                     stringBuffer.delete(0, stringBuffer.length());
 
-                    stringBuffer.append(current);
+                    stringBuffer.appendint(current);
                     stringBuffer.append(" Creating Zip File Entry: ");
                     stringBuffer.append(file.getPath());
 
@@ -153,9 +153,9 @@ public class ZipFileUtil
                     stringBuffer.append("ZipEntry Name: ");
                     stringBuffer.append(entryName);
                     stringBuffer.append(" isFile: ");
-                    stringBuffer.append(entryFile.isFile());
+                    stringBuffer.appendboolean(entryFile.isFile());
                     stringBuffer.append(" isDirectory: ");
-                    stringBuffer.append(entryFile.isDirectory());
+                    stringBuffer.appendboolean(entryFile.isDirectory());
                     stringBuffer.append(" getParent: ");
                     stringBuffer.append(entryFile.getParent());
 

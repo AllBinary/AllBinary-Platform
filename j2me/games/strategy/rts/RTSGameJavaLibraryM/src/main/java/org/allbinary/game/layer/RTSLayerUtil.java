@@ -185,7 +185,7 @@ public class RTSLayerUtil
 
         downgradeCost = downgradeCost * 9 / 10;
         
-        logUtil.put(new StringMaker().append("Total Cost: ").append(downgradeCost).toString(), this, "getDowngradeCost");
+        logUtil.put(new StringMaker().append("Total Cost: ").appendint(downgradeCost).toString(), this, "getDowngradeCost");
 
         return downgradeCost;
     }
@@ -222,7 +222,7 @@ public class RTSLayerUtil
                 //    " CurrentWeapon Cost: ").append(currentWeaponCost +
                   //  " Part Cost: " + upgradeCost, this, "getUpgradeCost");
         }
-        logUtil.put(new StringMaker().append("Total Cost: ").append(upgradeCost).toString(), this, "getUpgradeCost");
+        logUtil.put(new StringMaker().append("Total Cost: ").appendint(upgradeCost).toString(), this, "getUpgradeCost");
 
         return upgradeCost;
     }

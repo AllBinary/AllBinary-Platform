@@ -115,11 +115,11 @@ public class AuthenticationHelper
                     StringMaker stringBuffer = new StringMaker();
 
                     stringBuffer.append("Session Is Old - Timeout: ");
-                    stringBuffer.append(sessionTimout);
+                    stringBuffer.appendlong(sessionTimout);
                     stringBuffer.append(" Eval: ");
-                    stringBuffer.append(timeFirst);
+                    stringBuffer.appendlong(timeFirst);
                     stringBuffer.append(" > ");
-                    stringBuffer.append(timeCreated);
+                    stringBuffer.appendlong(timeCreated);
 
                     logUtil.put(stringBuffer.toString(), this, "isSessionOld()");
                 }
@@ -156,11 +156,11 @@ public class AuthenticationHelper
                 StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append("Session Is Rarely Used - Timeout: ");
-                stringBuffer.append(lastAccess);
+                stringBuffer.appendlong(lastAccess);
                 stringBuffer.append(" Eval: ");
-                stringBuffer.append(timeFirst);
+                stringBuffer.appendlong(timeFirst);
                 stringBuffer.append(" > ");
-                stringBuffer.append(inactivityAllowed);
+                stringBuffer.appendlong(inactivityAllowed);
 
                 logUtil.put(stringBuffer.toString(), this, "isRarelyUsedSession()");
             }
@@ -428,13 +428,13 @@ public class AuthenticationHelper
                 //Remarked code shows user time left in session and last use
                 stringBuffer.append("<br/>\n");
                 stringBuffer.append("Time Left: ");
-                stringBuffer.append((role.getSessionTimeout() - (calendar.getTimeInMillis() - timeCreated)));
+                stringBuffer.appendlong((role.getSessionTimeout() - (calendar.getTimeInMillis() - timeCreated)));
                 stringBuffer.append("<br/>\n");
                 stringBuffer.append("Inactivity Time Allowed: ");
-                stringBuffer.append(role.getSessionTimeout());
+                stringBuffer.appendlong(role.getSessionTimeout());
                 stringBuffer.append("<br/>\n");
                 stringBuffer.append("Inactivity Time Allowed: ");
-                stringBuffer.append(role.getSessionInactivityTimeout());
+                stringBuffer.appendlong(role.getSessionInactivityTimeout());
                 stringBuffer.append("<br/>\n");
             } else
             {

@@ -162,9 +162,9 @@ public class TouchButton extends Paintable
         stringBuffer.append(" CellPosition: ");
         stringBuffer.append(stringUtil.toString(this.cellPositionP));
         stringBuffer.append(" xBorder: ");
-        stringBuffer.append(this.xBorder);
+        stringBuffer.appendint(this.xBorder);
         stringBuffer.append(" yBorder: ");
-        stringBuffer.append(this.yBorder);
+        stringBuffer.appendint(this.yBorder);
         
         return stringBuffer.toString();
     }

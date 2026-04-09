@@ -84,19 +84,20 @@ public class HitPointGameObject extends MeteredGameObject
 
    public String toString()
    {
-      StringMaker stringBuffer = new StringMaker();
+       final CommonSeps commonSeps = CommonSeps.getInstance();
+      final StringMaker stringBuffer = new StringMaker();
       
       stringBuffer.append(HP_LABEL);
 
       stringBuffer.append(super.toString());
       
-      stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
+      stringBuffer.append(commonSeps.NEW_LINE);
       stringBuffer.append(IS_DAMAGED_LABEL);
-      stringBuffer.append(this.isDamaged());
+      stringBuffer.appendboolean(this.isDamaged());
 
-      stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
+      stringBuffer.append(commonSeps.NEW_LINE);
       stringBuffer.append(IS_CLOSE_DEATH_LABEL);
-      stringBuffer.append(this.isCloseDeath());
+      stringBuffer.appendboolean(this.isCloseDeath());
       
       return stringBuffer.toString();
    }

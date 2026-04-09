@@ -78,7 +78,7 @@ public class TransformFactory {
             /*
          if(!(object instanceof TransformInterface))
          {
-            throw new Exception("View Object Not Instance Of TransformInterface but is: " + ClassUtil.viewAll(object,"\n"));
+            throw new Exception("View Object Not Instance Of TransformInterface but is: " + ClassUtil.viewAll(object,CommonSeps.getInstance().NEW_LINE));
          }
          else
              */
@@ -133,7 +133,7 @@ public class TransformFactory {
          if(!(object instanceof TransformInterface)) 
          {
             throw new Exception("View Object Not Instance Of TransformInterface but is: " + 
-               ClassUtil.viewAll(object,"\n"));
+               ClassUtil.viewAll(object,CommonSeps.getInstance().NEW_LINE));
          }
          else
              */
@@ -175,7 +175,7 @@ public class TransformFactory {
             /*
          if(!(object instanceof TransformInterface)) 
          {
-            throw new Exception("View Object Not Instance Of TransformInterface but is: " + ClassUtil.viewAll(object,"\n"));
+            throw new Exception("View Object Not Instance Of TransformInterface but is: " + ClassUtil.viewAll(object,CommonSeps.getInstance().NEW_LINE));
          }
          else
              */

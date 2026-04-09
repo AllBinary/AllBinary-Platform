@@ -122,7 +122,7 @@ public class SqlConnectionPool
                             stringBuffer.append(NUMBER_OF_SQL_CONNECTIONS_FOR);
                             stringBuffer.append(url);
                             stringBuffer.append(IS);
-                            stringBuffer.append(connectionVector.size());
+                            stringBuffer.appendint(connectionVector.size());
 
                             logUtil.put(NUMBER_OF_SQL_CONNECTION_VECTORS
                                 + this.connectionHashMap.size(), this, METHOD_GET);
@@ -189,7 +189,7 @@ public class SqlConnectionPool
                 stringBuffer.append(NUMBER_OF_SQL_CONNECTIONS_FOR);
                 stringBuffer.append(url);
                 stringBuffer.append(IS);
-                stringBuffer.append(connectionVector.size());
+                stringBuffer.appendint(connectionVector.size());
 
 
                 logUtil.put(NUMBER_OF_SQL_CONNECTION_VECTORS

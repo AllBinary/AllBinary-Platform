@@ -64,10 +64,10 @@ extends InputProcessor
             PreLogUtil.put(
                     new StringMaker()
                             .append(inputFactory.KEY_CODE_LABEL)
-                            .append(keyCode)
+                            .appendint(keyCode)
                             .append(CommonSeps.getInstance().SPACE)
                             .append(inputFactory.DEVICE_ID_LABEL)
-                            .append(deviceId)
+                            .appendint(deviceId)
                             .toString()
                     , this, this.gameInputStrings.KEY_PRESSED);
 
@@ -105,10 +105,10 @@ extends InputProcessor
                 PreLogUtil.put(
                     new StringMaker()
                         .append(inputFactory.KEY_CODE_LABEL)
-                        .append(keyCode)
+                        .appendint(keyCode)
                         .append(CommonSeps.getInstance().SPACE)
                         .append(inputFactory.DEVICE_ID_LABEL)
-                        .append(deviceId)
+                        .appendint(deviceId)
                         .toString(),
                      this, gameInputStrings.KEY_RELEASED);
           

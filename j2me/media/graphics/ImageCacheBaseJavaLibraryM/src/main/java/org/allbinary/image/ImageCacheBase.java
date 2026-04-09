@@ -155,14 +155,14 @@ public class ImageCacheBase
             final int totalAvailable = availableListOfList[index].size();
 
             stringBuffer.append(" w: ");
-            stringBuffer.append(width);
+            stringBuffer.appendint(width);
             stringBuffer.append(" h: ");
-            stringBuffer.append(height);
+            stringBuffer.appendint(height);
             stringBuffer.append(CommonSeps.getInstance().SPACE);
             stringBuffer.append(CommonLabels.getInstance().TOTAL_LABEL);
-            stringBuffer.append(total);
+            stringBuffer.appendint(total);
             stringBuffer.append(" available: ");
-            stringBuffer.append(totalAvailable);
+            stringBuffer.appendint(totalAvailable);
         }
         return stringBuffer.toString();
     }

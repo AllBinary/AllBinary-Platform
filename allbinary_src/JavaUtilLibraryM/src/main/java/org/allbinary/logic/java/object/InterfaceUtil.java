@@ -14,6 +14,7 @@
 package org.allbinary.logic.java.object;
 
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonSeps;
 
 public class InterfaceUtil
 {
@@ -96,7 +97,7 @@ public class InterfaceUtil
          stringBuffer.append(" should be = ");
          stringBuffer.append(classes[index].getName());
          stringBuffer.append(classes[index].getName());
-         stringBuffer.append("\n");
+         stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
       }
 
       return stringBuffer.toString();

@@ -70,7 +70,7 @@ public class AngleIncrementInfo
    
    public String toString()
    {
-      return new StringMaker().append(INCREMENT).append(this.angleIncrement).toString();
+      return new StringMaker().append(INCREMENT).appendint(this.angleIncrement).toString();
    }
    
    public int getClosestGeneralDirection(short angle)

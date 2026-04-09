@@ -68,9 +68,9 @@ public class FeaturedResourceFactory
                             .append(this.IS_LOADING_LEVEL_LABEL)
                             .append(ResourceLoadingLevelFactory.getInstance().getLevelString(level))
                             .append(CommonSeps.getInstance().COLON_SEP)
-                            .append(isLoadingLevel)
+                            .appendboolean(isLoadingLevel)
                             .append(this.IS_FEATURE)
-                            .append(isFeature).toString(), 
+                            .appendboolean(isFeature).toString(), 
                     this, commonStrings.INIT);
 
             if (isLoadingLevel && isFeature)
@@ -93,9 +93,9 @@ public class FeaturedResourceFactory
         StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append(ANIMATION_FEATURES);
-        stringBuffer.append(features.isFeature(graphicsFeatureFactory.VECTOR_GRAPHICS));
+        stringBuffer.appendboolean(features.isFeature(graphicsFeatureFactory.VECTOR_GRAPHICS));
         stringBuffer.append(IMAGE_LABEL);
-        stringBuffer.append(features.isFeature(graphicsFeatureFactory.IMAGE_GRAPHICS));
+        stringBuffer.appendboolean(features.isFeature(graphicsFeatureFactory.IMAGE_GRAPHICS));
         
         logUtil.put(stringBuffer.toString(), this, commonStrings.INIT);
 
@@ -104,13 +104,13 @@ public class FeaturedResourceFactory
             stringBuffer.delete(0, stringBuffer.length());
 
             stringBuffer.append(IMAGE_GRAPHICS_ARRAY);
-            stringBuffer.append(features.isFeature(graphicsFeatureFactory.IMAGE_TO_ARRAY_GRAPHICS));
+            stringBuffer.appendboolean(features.isFeature(graphicsFeatureFactory.IMAGE_TO_ARRAY_GRAPHICS));
             stringBuffer.append(IMAGE_GRAPHICS_ROTATION);
-            stringBuffer.append(features.isFeature(graphicsFeatureFactory.IMAGE_TO_ARRAY_GRAPHICS));
+            stringBuffer.appendboolean(features.isFeature(graphicsFeatureFactory.IMAGE_TO_ARRAY_GRAPHICS));
             stringBuffer.append(SPRITE_QUARTER);
-            stringBuffer.append(features.isFeature(graphicsFeatureFactory.SPRITE_QUARTER_ROTATION_GRAPHICS));
+            stringBuffer.appendboolean(features.isFeature(graphicsFeatureFactory.SPRITE_QUARTER_ROTATION_GRAPHICS));
             stringBuffer.append(SPRITE_FULL);
-            stringBuffer.append(features.isFeature(graphicsFeatureFactory.SPRITE_FULL_GRAPHICS));
+            stringBuffer.appendboolean(features.isFeature(graphicsFeatureFactory.SPRITE_FULL_GRAPHICS));
 
             logUtil.put(stringBuffer.toString(), this, commonStrings.INIT);
         }

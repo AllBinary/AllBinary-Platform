@@ -25,13 +25,13 @@ public class Memory
         StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("Memory: Free: ");
-        stringBuffer.append(Runtime.getRuntime().freeMemory());
+        stringBuffer.appendlong(Runtime.getRuntime().freeMemory());
 
         stringBuffer.append(" Max: ");
-        stringBuffer.append(Runtime.getRuntime().maxMemory());
+        stringBuffer.appendlong(Runtime.getRuntime().maxMemory());
 
         stringBuffer.append(" Total: ");
-        stringBuffer.append(Runtime.getRuntime().totalMemory());
+        stringBuffer.appendlong(Runtime.getRuntime().totalMemory());
 
         return stringBuffer.toString();
     }

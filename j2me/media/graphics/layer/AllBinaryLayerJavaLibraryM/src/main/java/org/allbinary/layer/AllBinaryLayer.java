@@ -203,23 +203,23 @@ implements LayerInterface
         stringBuffer.append(this.getName());
         stringBuffer.append(commonSeps.COLON);
         stringBuffer.append(TYPE);
-        stringBuffer.append(this.getType());
+        stringBuffer.appendint(this.getType());
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(positionStrings.X_LABEL);
-        stringBuffer.append(this.getXP());
+        stringBuffer.appendint(this.getXP());
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(positionStrings.Y_LABEL);
-        stringBuffer.append(this.getYP());
+        stringBuffer.appendint(this.getYP());
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(positionStrings.Z_LABEL);
-        stringBuffer.append(this.getZP());
+        stringBuffer.appendint(this.getZP());
 
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(commonLabels.WIDTH_LABEL);
-        stringBuffer.append(this.getWidth());
+        stringBuffer.appendint(this.getWidth());
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(commonLabels.HEIGHT_LABEL);
-        stringBuffer.append(this.getHeight());
+        stringBuffer.appendint(this.getHeight());
 
     }
     

@@ -38,7 +38,7 @@ public class StupidTimer
         {
             if(index % 10 == 0)
             {
-                PreLogUtil.put(new StringMaker().append(WAITING_FOR).append(index).toString(), this, commonStrings.VISIT);
+                PreLogUtil.put(new StringMaker().append(WAITING_FOR).appendint(index).toString(), this, commonStrings.VISIT);
             }
             
             index++;

@@ -177,7 +177,7 @@ public class BasicTransformer extends AbTransformer {
                         //stringBuffer.delete(0, stringBuffer.length());
 
                         stringBuffer.append("Encrypted Template File isFile=");
-                        stringBuffer.append(encFile.isFile());
+                        stringBuffer.appendboolean(encFile.isFile());
                         stringBuffer.append("\nEncTemplateFilePath: ");
                         stringBuffer.append(encFile.getPath());
 

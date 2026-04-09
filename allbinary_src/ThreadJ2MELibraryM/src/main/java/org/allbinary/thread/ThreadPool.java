@@ -262,7 +262,7 @@ public class ThreadPool
         public PooledThread()
         {
             //super(ThreadPool.this, 
-            super(new StringMaker().append(poolName).append(ROOT_NAME).append(threadID++).toString());
+            super(new StringMaker().append(poolName).append(ROOT_NAME).appendint(threadID++).toString());
             logUtil.put(commonStrings.CONSTRUCTOR, this, commonStrings.CONSTRUCTOR);
         }
 

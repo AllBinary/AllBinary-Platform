@@ -14,6 +14,7 @@
 package org.allbinary.media.image.analysis;
 
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonSeps;
 
 public class ColorAverage
 {
@@ -33,14 +34,14 @@ public class ColorAverage
         StringMaker stringBuffer = new StringMaker();
          
         stringBuffer.append("getAvgRed(): ");
-        stringBuffer.append(this.getAvgRed());
-        stringBuffer.append("\n");
+        stringBuffer.appendfloat(this.getAvgRed());
+        stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
         stringBuffer.append("getAvgRed(): ");
-        stringBuffer.append(this.getAvgRed());
-        stringBuffer.append("\n");
+        stringBuffer.appendfloat(this.getAvgRed());
+        stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
         stringBuffer.append("getAvgGreen(): ");
-        stringBuffer.append(this.getAvgGreen());
-        stringBuffer.append("\n");
+        stringBuffer.appendfloat(this.getAvgGreen());
+        stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
         
         return stringBuffer.toString();
     }

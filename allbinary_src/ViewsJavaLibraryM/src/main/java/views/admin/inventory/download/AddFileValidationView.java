@@ -469,9 +469,9 @@ public class AddFileValidationView
                     StringMaker stringBuffer = new StringMaker();
 
                     stringBuffer.append("File Size To Large: ");
-                    stringBuffer.append(size);
+                    stringBuffer.appendlong(size);
                     stringBuffer.append(">");
-                    stringBuffer.append(fileData.MAXDOWNLOADABLEFILESIZE);
+                    stringBuffer.appendint(fileData.MAXDOWNLOADABLEFILESIZE);
 
                     logUtil.put(
                         stringBuffer.toString(), this, commonStrings.IS_VALID);
@@ -485,9 +485,9 @@ public class AddFileValidationView
                 StringMaker stringBuffer = new StringMaker();
 
                 stringBuffer.append("File Size To Small: ");
-                stringBuffer.append(size);
+                stringBuffer.appendlong(size);
                 stringBuffer.append(">");
-                stringBuffer.append(fileData.MINDOWNLOADABLEFILESIZE);
+                stringBuffer.appendint(fileData.MINDOWNLOADABLEFILESIZE);
 
                 logUtil.put(
                     stringBuffer.toString(), this, commonStrings.IS_VALID);
@@ -511,9 +511,9 @@ public class AddFileValidationView
                     fileName, fileData.MINLEN, fileData.MAXLEN))
                 {
                     stringBuffer.append("File Name must be more than ");
-                    stringBuffer.append(fileData.MINLEN);
+                    stringBuffer.appendint(fileData.MINLEN);
                     stringBuffer.append(" and less than ");
-                    stringBuffer.append(fileData.MAXLEN);
+                    stringBuffer.appendint(fileData.MAXLEN);
                     stringBuffer.append(" characters in length: ");
                     stringBuffer.append(fileName);
                     stringBuffer.append("<br/>");
@@ -524,9 +524,9 @@ public class AddFileValidationView
             } else
             {
                 stringBuffer.append("File Is Not The Right Size. ");
-                stringBuffer.append(fileData.MINDOWNLOADABLEFILESIZE);
+                stringBuffer.appendint(fileData.MINDOWNLOADABLEFILESIZE);
                 stringBuffer.append("< >");
-                stringBuffer.append(fileData.MAXDOWNLOADABLEFILESIZE);
+                stringBuffer.appendint(fileData.MAXDOWNLOADABLEFILESIZE);
                 stringBuffer.append("<br/>");
             }
         }

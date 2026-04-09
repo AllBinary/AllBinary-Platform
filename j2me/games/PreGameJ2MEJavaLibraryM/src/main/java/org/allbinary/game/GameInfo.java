@@ -93,7 +93,7 @@ public class GameInfo
    public void setCurrentLevel(final int currentLevel)
    {
       this.currentLevel = currentLevel;
-      logUtil.put(new StringMaker().append(NEW_LEVEL).append(this.getCurrentLevel()).toString(), this, SET_CURRENT_LEVEL);
+      logUtil.put(new StringMaker().append(NEW_LEVEL).appendint(this.getCurrentLevel()).toString(), this, SET_CURRENT_LEVEL);
    }
 
    private final String NEXT = "Next ";
@@ -106,7 +106,7 @@ public class GameInfo
           this.currentLevel++;
       }
 
-      logUtil.put(new StringMaker().append(NEXT).append(NEW_LEVEL).append(this.getCurrentLevel()).toString(), this, NEXT_GAME_LEVEL);
+      logUtil.put(new StringMaker().append(NEXT).append(NEW_LEVEL).appendint(this.getCurrentLevel()).toString(), this, NEXT_GAME_LEVEL);
    }
    
    public void previousGameLevel()
@@ -166,13 +166,13 @@ public class GameInfo
        
        stringBuffer.append(this.gameInfoData.HIGHEST_LEVEL);
        stringBuffer.append(commonSeps.EQUALS);
-       stringBuffer.append(this.getHighestLevel());
+       stringBuffer.appendint(this.getHighestLevel());
        
        stringBuffer.append(commonSeps.COMMA_SEP);
        
        stringBuffer.append(this.gameInfoData.CURRENT_LEVEL);
        stringBuffer.append(commonSeps.EQUALS);
-       stringBuffer.append(this.currentLevel);
+       stringBuffer.appendint(this.currentLevel);
        
        return stringBuffer.toString();
    }

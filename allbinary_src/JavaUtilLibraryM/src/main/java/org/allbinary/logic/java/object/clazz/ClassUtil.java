@@ -47,7 +47,7 @@ public class ClassUtil
          stringBuffer.append("Class: ");
          stringBuffer.append(myClass.getName());
          stringBuffer.append(" uses ");
-         stringBuffer.append(classes.length);
+         stringBuffer.appendint(classes.length);
          stringBuffer.append(" other classes");
          stringBuffer.append(lineBreak);
 

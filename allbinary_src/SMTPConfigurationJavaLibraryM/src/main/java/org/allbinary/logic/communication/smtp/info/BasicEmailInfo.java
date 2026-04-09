@@ -16,6 +16,7 @@ package org.allbinary.logic.communication.smtp.info;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.smtp.configuration.server.EmailServerConfigurationInterface;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 
 public class BasicEmailInfo
@@ -64,7 +65,7 @@ public class BasicEmailInfo
 	   final StringMaker stringBuffer = new StringMaker();
 	   
 	   stringBuffer.append(this.getEmailServerConfigurationInterface().toString());
-	   stringBuffer.append("\n");
+	   stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
 	   stringBuffer.append("Subject: \n");
 	   stringBuffer.append(this.getSubject());
 	   stringBuffer.append("\nText Body: \n");

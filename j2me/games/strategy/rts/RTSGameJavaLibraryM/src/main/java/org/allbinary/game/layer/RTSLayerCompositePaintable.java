@@ -39,7 +39,7 @@ public class RTSLayerCompositePaintable extends Paintable
     {
         if (rtsLayer.isUpgradeable())
         {
-            this.setUpgradeCost(new StringMaker().append(UPGRADE).append(rtsLayer.getUpgradeCost()).toString());
+            this.setUpgradeCost(new StringMaker().append(UPGRADE).appendint(rtsLayer.getUpgradeCost()).toString());
         } else
         {
             this.setUpgradeCost(StringUtil.getInstance().EMPTY_STRING);
@@ -47,7 +47,7 @@ public class RTSLayerCompositePaintable extends Paintable
 
         if (rtsLayer.isDowngradeable())
         {
-            this.setDownGradeCost(new StringMaker().append(DOWNGRADE).append(rtsLayer.getDowngradeCost()).toString());
+            this.setDownGradeCost(new StringMaker().append(DOWNGRADE).appendint(rtsLayer.getDowngradeCost()).toString());
         } else
         {
             this.setDownGradeCost(StringUtil.getInstance().EMPTY_STRING);

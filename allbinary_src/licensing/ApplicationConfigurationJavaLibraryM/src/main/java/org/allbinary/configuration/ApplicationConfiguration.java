@@ -242,13 +242,13 @@ public class ApplicationConfiguration
         StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append("isFullscreen: ");
-        stringBuffer.append(this.isFullscreen());
+        stringBuffer.appendboolean(this.isFullscreen());
 
         stringBuffer.append(" isProgressBarView: ");
-        stringBuffer.append(this.isProgressBarView());
+        stringBuffer.appendboolean(this.isProgressBarView());
 
         stringBuffer.append(" isShowTitleBar: ");
-        stringBuffer.append(this.isShowTitleBar());
+        stringBuffer.appendboolean(this.isShowTitleBar());
 
         return stringBuffer.toString();
     }

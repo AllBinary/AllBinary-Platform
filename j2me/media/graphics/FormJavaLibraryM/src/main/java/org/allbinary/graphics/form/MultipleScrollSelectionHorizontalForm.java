@@ -87,7 +87,7 @@ extends ScrollSelectionForm
                         
                     } else {
                         logged = true;
-                        PreLogUtil.put(new StringMaker().append("painting beyond maxx: ").append(this.rectangle.getMaxX()).toString(), this, canvasStrings.PAINT);
+                        PreLogUtil.put(new StringMaker().append("painting beyond maxx: ").appendint(this.rectangle.getMaxX()).toString(), this, canvasStrings.PAINT);
                     }
                     //break;
                 }

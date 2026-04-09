@@ -52,15 +52,15 @@ public class Memory
             //(int) (vm.getExternalBytesAllocated() + Runtime.getRuntime().totalMemory());
             Runtime.getRuntime().totalMemory();
         stringBuffer.append("APK Memory: Available: ");
-        stringBuffer.append(maxUtilizedMemoryAvailable);
+        stringBuffer.appendlong(maxUtilizedMemoryAvailable);
         stringBuffer.append("/");
-        stringBuffer.append(Runtime.getRuntime().maxMemory());
+        stringBuffer.appendlong(Runtime.getRuntime().maxMemory());
         stringBuffer.append(" Used: ");
-        stringBuffer.append(memoryUsed);
+        stringBuffer.appendlong(memoryUsed);
         stringBuffer.append(" Free: ");
-        stringBuffer.append(maxUtilizedMemoryAvailable - memoryUsed);
+        stringBuffer.appendlong(maxUtilizedMemoryAvailable - memoryUsed);
         stringBuffer.append("/");
-        stringBuffer.append(Runtime.getRuntime().maxMemory() - memoryUsed);
+        stringBuffer.appendlong(Runtime.getRuntime().maxMemory() - memoryUsed);
 
         return stringBuffer.toString();
     }

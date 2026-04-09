@@ -50,7 +50,7 @@ public class XmlRpcAbeLicenseRetrievalClient extends XmlRpcAbeClient
             final StringMaker stringBuffer = new StringMaker();
             
             stringBuffer.append(TRYING);
-            stringBuffer.append(this.getServer());
+            stringBuffer.appendint(this.getServer());
             stringBuffer.append(SEP);
             stringBuffer.append(server);
             

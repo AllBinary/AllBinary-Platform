@@ -64,7 +64,7 @@ public class TitleNotRequiredValidation extends TitleView implements ValidationI
              stringBuffer.append("Title: ");
              stringBuffer.append(this.getTitle());
              stringBuffer.append("End: ");
-             stringBuffer.append(valid);
+             stringBuffer.appendboolean(valid);
 
             logUtil.put(stringBuffer.toString(), this, commonStrings.IS_VALID);
          }

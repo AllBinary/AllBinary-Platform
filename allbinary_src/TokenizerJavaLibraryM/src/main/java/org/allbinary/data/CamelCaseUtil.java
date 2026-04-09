@@ -67,7 +67,7 @@ public class CamelCaseUtil
                 //word = word.isEmpty() ? word : word.toLowerCase();
             //} else
             //{
-                word = stringValidationUtil.isEmpty(word) ? word : new StringMaker().appendC(Character.toUpperCase(word.charAt(0))).append(word.substring(1).toLowerCase()).toString();
+                word = stringValidationUtil.isEmpty(word) ? word : new StringMaker().appendchar(Character.toUpperCase(word.charAt(0))).append(word.substring(1).toLowerCase()).toString();
             //}
             stringBuilder.append(word);
         }

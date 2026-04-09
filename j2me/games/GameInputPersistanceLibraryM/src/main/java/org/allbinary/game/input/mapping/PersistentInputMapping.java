@@ -149,9 +149,9 @@ public class PersistentInputMapping
         final StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append("End - Total Loaded Keys Mapped: ");
-        stringBuffer.append(this.getTotalMapped());
+        stringBuffer.appendint(this.getTotalMapped());
         stringBuffer.append(" to: ");
-        stringBuffer.append(totalMappedTo);
+        stringBuffer.appendint(totalMappedTo);
         
         logUtil.put(stringBuffer.toString(), this, commonStrings.INIT);
     }

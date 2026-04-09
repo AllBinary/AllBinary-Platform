@@ -102,7 +102,7 @@ public class UpGameKeyEventHandlerBase extends BasicEventHandler
         
         stringBuffer.append(super.toString());
         stringBuffer.append(TOTAL_LISTENERS);
-        stringBuffer.append(size);
+        stringBuffer.appendint(size);
 
         for (int index = 0; index < size; index++)
         {

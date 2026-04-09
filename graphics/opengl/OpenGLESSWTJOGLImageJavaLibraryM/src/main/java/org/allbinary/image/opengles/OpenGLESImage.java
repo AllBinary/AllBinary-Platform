@@ -208,7 +208,7 @@ implements OpenGLSurfaceChangedInterface
 
     public String toString() {
         final GraphicsStrings graphicsStrings = GraphicsStrings.getInstance();
-        return new StringMaker().append(this.getName()).append(super.toString()).append(graphicsStrings.OPACITY).append(this.openGLESImageProperties.alphaf).toString();
+        return new StringMaker().append(this.getName()).append(super.toString()).append(graphicsStrings.OPACITY).appendfloat(this.openGLESImageProperties.alphaf).toString();
     }    
 
 }

@@ -17,6 +17,7 @@ import java.util.Random;
 
 import org.allbinary.logic.math.MathUtil;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonSeps;
 
 //Do not use in client code for money related things.
 public class MyRandomFactory
@@ -110,10 +111,11 @@ public class MyRandomFactory
         final MyRandomFactory randomFactory = MyRandomFactory.getInstance();
         
         final StringMaker stringBuilder = new StringMaker();
+        final CommonSeps commonSeps = CommonSeps.getInstance();
         
         final int size2 = 100;
         for(int index = 0; index < size2; index++) {
-            stringBuilder.append(randomFactory.getAbsoluteNextInt(3)).append(',');
+            stringBuilder.appendint(randomFactory.getAbsoluteNextInt(3)).append(commonSeps.COMMA);
         }
         
         System.out.println(stringBuilder.toString());
@@ -130,14 +132,14 @@ public class MyRandomFactory
         randomFactory.shuffle(intArray, intArray2);
         
         for(int index = 0; index < size; index++) {
-            stringBuilder.append(intArray[index]).append(',');
+            stringBuilder.appendint(intArray[index]).append(commonSeps.COMMA);
         }
         
         System.out.println(stringBuilder.toString());
         
         stringBuilder.delete(0, stringBuilder.length());
         for(int index = 0; index < size; index++) {
-            stringBuilder.append(intArray2[index]).append(',');
+            stringBuilder.appendint(intArray2[index]).append(commonSeps.COMMA);
         }
         
         System.out.println(stringBuilder.toString());

@@ -74,7 +74,7 @@ public class VectorCenterGenerator {
         int middle = max / 2;
 
         final CommonLabels commonLabels = CommonLabels.getInstance();
-        final String s = new StringMaker().append(commonLabels.WIDTH_LABEL).append(getWidth()).append(commonLabels.HEIGHT_LABEL).append(getHeight()).append(" max: ").append(max).append(" middle: ").append(middle).toString();
+        final String s = new StringMaker().append(commonLabels.WIDTH_LABEL).appendint(getWidth()).append(commonLabels.HEIGHT_LABEL).appendint(getHeight()).append(" max: ").appendint(max).append(" middle: ").appendint(middle).toString();
         logUtil.put(s, this, commonStrings.GET_INSTANCE);
 
         int currentMiddleX = minX + getWidth() / 2;
@@ -88,7 +88,7 @@ public class VectorCenterGenerator {
     public void transform(HashMap hashMap) throws Exception {
 
         this.calculate(hashMap);
-        logUtil.put(new StringMaker().append(" dx: ").append(dx).append(" dy: ").append(dy).toString(), this, commonStrings.GET_INSTANCE);
+        logUtil.put(new StringMaker().append(" dx: ").appendint(dx).append(" dy: ").appendint(dy).toString(), this, commonStrings.GET_INSTANCE);
 
         final Object[] graphicItemArray = hashMap.keySet().toArray();
         final int size = graphicItemArray.length;

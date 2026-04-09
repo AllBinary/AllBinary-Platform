@@ -78,7 +78,7 @@ public class InputPersistance extends BasicPersitance
             final int id = recordEnum.nextRecordId();
 
             stringBuffer.delete(0, stringBuffer.length());
-            logUtil.put(stringBuffer.append(this.persistanceStrings.LOADING_ID).append(id).toString(), this, this.persistanceStrings.LOAD_ALL);
+            logUtil.put(stringBuffer.append(this.persistanceStrings.LOADING_ID).appendint(id).toString(), this, this.persistanceStrings.LOAD_ALL);
 
             recordAsBytes = recordStore.getRecord(id);
             if(recordAsBytes != null) {
@@ -111,9 +111,9 @@ public class InputPersistance extends BasicPersitance
 
                         if (input == inputFactory.NO_INPUT) {
                             stringBuffer.append(this.persistanceStrings.ERROR_LOADING_ID);
-                            stringBuffer.append(inputId);
+                            stringBuffer.appendlong(inputId);
                             stringBuffer.append(this.persistanceStrings.GAME_ACTION_INPUT);
-                            stringBuffer.append(gameActionInputId);
+                            stringBuffer.appendlong(gameActionInputId);
 
                             //logUtil.put(stringBuffer.toString(), this, persistanceStrings.LOAD_ALL);
                             PreLogUtil.put(stringBuffer.toString(), this, this.persistanceStrings.LOAD_ALL);
@@ -122,9 +122,9 @@ public class InputPersistance extends BasicPersitance
                             stringBuffer.delete(0, stringBuffer.length());
 
                             stringBuffer.append(this.persistanceStrings.ERROR_LOADING);
-                            stringBuffer.append(gameActionInputId);
+                            stringBuffer.appendlong(gameActionInputId);
                             stringBuffer.append(this.persistanceStrings.ID);
-                            stringBuffer.append(inputId);
+                            stringBuffer.appendlong(inputId);
 
                             //logUtil.put(stringBuffer.toString(), this, persistanceStrings.LOAD_ALL);
                             PreLogUtil.put(stringBuffer.toString(), this, this.persistanceStrings.LOAD_ALL);

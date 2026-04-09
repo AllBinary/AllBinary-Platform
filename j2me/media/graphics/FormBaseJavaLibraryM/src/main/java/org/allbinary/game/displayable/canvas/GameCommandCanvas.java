@@ -292,7 +292,7 @@ public class GameCommandCanvas
     @Override
     public void keyPressed(final int keyCode, final int deviceId)
     {
-        logUtil.put(new StringMaker().append(CommonSeps.getInstance().SPACE).append(keyCode).toString(), this, gameInputStrings.KEY_PRESSED);
+        logUtil.put(new StringMaker().append(CommonSeps.getInstance().SPACE).appendint(keyCode).toString(), this, gameInputStrings.KEY_PRESSED);
         this.addGameKeyEvent(keyCode, 0, false);
     }
 
@@ -342,7 +342,7 @@ public class GameCommandCanvas
             }
             else
             {
-                logUtil.put(new StringMaker().append(this.gameInputStrings.NO_KEY).append(keyCode).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
+                logUtil.put(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
             }
         }
         catch (Exception e)
@@ -379,7 +379,7 @@ public class GameCommandCanvas
             }
             else
             {
-                logUtil.put(new StringMaker().append(this.gameInputStrings.NO_KEY).append(keyCode).toString(), this, this.gameInputStrings.REMOVE_KEY_EVENT);
+                logUtil.put(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.REMOVE_KEY_EVENT);
             }
         }
         catch (Exception e)

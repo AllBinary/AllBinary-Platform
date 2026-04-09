@@ -202,18 +202,18 @@ public class BaseGameStatistics
         StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(STRING_ARRAY[0]);
-        stringBuffer.append(totalTime);
+        stringBuffer.appendlong(totalTime);
         stringBuffer.append(STRING_ARRAY[2]);
-        stringBuffer.append(this.totalFrames);
+        stringBuffer.appendlong(this.totalFrames);
         stringBuffer.append(STRING_ARRAY[4]);
-        stringBuffer.append(this.totalFrames / totalTime);
+        stringBuffer.appendlong(this.totalFrames / totalTime);
         
         if(this.totalRefreshes > 0)
         {
             stringBuffer.append(STRING_ARRAY[6]);
-            stringBuffer.append(this.totalRefreshes);
+            stringBuffer.appendlong(this.totalRefreshes);
             stringBuffer.append(STRING_ARRAY[8]);
-            stringBuffer.append(this.totalRefreshes / totalTime);
+            stringBuffer.appendlong(this.totalRefreshes / totalTime);
             stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
         }
 

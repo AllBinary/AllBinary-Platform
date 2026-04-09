@@ -50,9 +50,9 @@ public class NumberOnOwnGroupSequenceAIFactory
       final StringMaker stringBuffer = new StringMaker();
       
       stringBuffer.append("Total AI Properties: ");
-      stringBuffer.append(list.size());
+      stringBuffer.appendint(list.size());
       stringBuffer.append(" == Total AI: ");
-      stringBuffer.append(artificialIntelligenceInterface.length);
+      stringBuffer.appendint(artificialIntelligenceInterface.length);
       stringBuffer.append(" + 1");
       
       final CommonStrings commonStrings = CommonStrings.getInstance();

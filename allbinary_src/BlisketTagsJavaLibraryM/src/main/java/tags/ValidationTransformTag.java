@@ -123,7 +123,7 @@ public class ValidationTransformTag extends TransformTag
              stringBuffer.append("View File: ");
              stringBuffer.append(this.getObjectFile());
              stringBuffer.append("\nLogic includes body if true=");
-             stringBuffer.append(this.logic);
+             stringBuffer.appendboolean(this.logic);
 
              logUtil.put(stringBuffer.toString(), this, "doStartTag");
             }
@@ -151,7 +151,7 @@ public class ValidationTransformTag extends TransformTag
                 stringBuffer.append(this.getObjectFile());
                 stringBuffer.append("\nisValid()=false");
                 stringBuffer.append("\nLogic skips body if true=");
-                stringBuffer.append(this.logic);
+                stringBuffer.appendboolean(this.logic);
                 
                 logUtil.put(stringBuffer.toString(), this, "doStartTag");
             }

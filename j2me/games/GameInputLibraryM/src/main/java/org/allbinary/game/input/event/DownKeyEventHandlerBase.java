@@ -147,7 +147,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
 
         stringBuffer.append(super.toString());
         stringBuffer.append(TOTAL_LISTENERS);
-        stringBuffer.append(this.list.size());
+        stringBuffer.appendint(this.list.size());
 
         EventListenerInterface eventListenerInterface;
         for (int index = 0; index < this.list.size(); index++) {

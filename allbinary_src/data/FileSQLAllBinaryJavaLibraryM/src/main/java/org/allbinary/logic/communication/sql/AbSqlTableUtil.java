@@ -176,7 +176,7 @@ public class AbSqlTableUtil
 
     private String convertNewLines(String value)
     {
-        //Replace replace = new Replace("\n","\\n");
+        //Replace replace = new Replace(CommonSeps.getInstance().NEW_LINE,"\\n");
         StringMaker stringBuffer = new StringMaker();
 
         int index = 0;

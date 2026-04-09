@@ -20,6 +20,7 @@ import org.allbinary.business.category.properties.CategoryPropertiesView;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.object.InterfaceUtil;
+import org.allbinary.string.CommonSeps;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
@@ -77,7 +78,7 @@ public class CategoryView implements DomNodeInterface
          else
          {
             String isImpl =
-               InterfaceUtil.viewAll(object.getClass(),"\n");
+               InterfaceUtil.viewAll(object.getClass(),CommonSeps.getInstance().NEW_LINE);
             /*
              * classname.class is not obfuscated correctly
                InterfaceUtil.isImplementedView(

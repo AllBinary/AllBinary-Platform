@@ -92,13 +92,13 @@ public class GPoint
 
       stringBuffer.append(POINT_LABEL);
       stringBuffer.append(positionStrings.X_LABEL);
-      stringBuffer.append(x);
+      stringBuffer.appendint(x);
       stringBuffer.append(CommonSeps.getInstance().SPACE);
       stringBuffer.append(positionStrings.Y_LABEL);
-      stringBuffer.append(y);
+      stringBuffer.appendint(y);
       stringBuffer.append(CommonSeps.getInstance().SPACE);
       stringBuffer.append(positionStrings.Z_LABEL);
-      stringBuffer.append(z);
+      stringBuffer.appendint(z);
 
       return stringBuffer.toString();
    }

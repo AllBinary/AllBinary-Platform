@@ -318,11 +318,11 @@ public class KeyboardActionScriptInput extends BasicProfileActionScriptInput
       stringBuffer.append(" Text: ");
       stringBuffer.append(this.getText());
       stringBuffer.append(" isPress: ");
-      stringBuffer.append(this.isPress());
+      stringBuffer.appendboolean(this.isPress());
       stringBuffer.append(" isRelease: ");
-      stringBuffer.append(this.isRelease());
+      stringBuffer.appendboolean(this.isRelease());
       stringBuffer.append(" Between Key Delay: ");
-      stringBuffer.append(this.getDelayBetweenKeys());
+      stringBuffer.appendint(this.getDelayBetweenKeys());
       
       return stringBuffer.toString();
    }

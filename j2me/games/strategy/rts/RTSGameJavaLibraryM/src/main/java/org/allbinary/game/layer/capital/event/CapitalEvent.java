@@ -29,7 +29,7 @@ public class CapitalEvent extends AllBinaryEventObject
         final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("CapitalEvent: Value: \n");
-        stringBuffer.append(this.getValue());
+        stringBuffer.appendint(this.getValue());
 
         return stringBuffer.toString();
     }
