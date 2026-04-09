@@ -102,12 +102,12 @@ public class RTSLayerSelectedLogHelper extends RTSLayerLogHelper {
         stringBuffer.append(" movementAngle: ");
         stringBuffer.append(movementAngle.name);
         stringBuffer.append(commonSeps.FORWARD_SLASH);
-        stringBuffer.appendint(movementAngle.getValue());
+        stringBuffer.appendshort(movementAngle.getValue());
         
         if(angleInfo != null) {
             final short angleIncrement = angleInfo.getAngleIncrementInfo().getAngleIncrement();
             stringBuffer.append(" angleIncrement: ");
-            stringBuffer.appendint(angleIncrement);
+            stringBuffer.appendshort(angleIncrement);
         }
         stringBuffer.append(" Evading: ");
         stringBuffer.appendboolean(evading);
@@ -169,7 +169,7 @@ public class RTSLayerSelectedLogHelper extends RTSLayerLogHelper {
 
     @Override
     public void handle(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final NamedAngle movementAngle) {
-        logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - movementAngle: ").append(movementAngle.name).append(commonSeps.FORWARD_SLASH).appendint(movementAngle.getValue()).toString(), this, TRACKTO_TURNTO);
+        logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - movementAngle: ").append(movementAngle.name).append(commonSeps.FORWARD_SLASH).appendshort(movementAngle.getValue()).toString(), this, TRACKTO_TURNTO);
     }
     
     @Override
