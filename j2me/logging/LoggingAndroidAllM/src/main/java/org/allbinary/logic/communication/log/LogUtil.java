@@ -28,7 +28,9 @@ public class LogUtil {
     }
 
     private final CommonSeps commonSeps = CommonSeps.getInstance();
-    
+
+    private final LogFormatUtil logFormatUtil = LogFormatUtil.getInstance();
+
     private final String LABEL = "org.allbinary";
     //private final String LOG_SUCCESS = "org.allbinary: ";
 
@@ -68,7 +70,7 @@ public class LogUtil {
          */
         className = new String(new StringMaker().append(object.getClass().getName()).append(commonSeps.COLON).append(Integer.toHexString(object.hashCode())).toString());
 
-        final String message = LogFormatUtil.getInstance().get(
+        final String message = logFormatUtil.get(
             className, functionName, specialMessage, exception);
 
         android.util.Log.i(LABEL, message);

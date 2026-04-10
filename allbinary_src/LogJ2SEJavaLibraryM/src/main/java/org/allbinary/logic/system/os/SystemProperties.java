@@ -24,9 +24,13 @@ public class SystemProperties
      */
     //ActualPlatform
     public static SystemProperties getInstance() {
-        return instance;
+        return SystemProperties.instance;
     }
     
+    private final String OS_NAME = "os.name";
+    private final String OS_ARCH = "os.arch";
+    private final String OS_VERSION = "os.version";
+
      private SystemProperties()
      {         
      }
@@ -71,18 +75,19 @@ public class SystemProperties
      //ActualPlatform
      public String getName()
      {
-         return System.getProperty("os.name");
+         return System.getProperty(OS_NAME);
      }
      
      //ActualPlatform
      public String getArch()
      {
-         return System.getProperty("os.arch");
+         return System.getProperty(OS_ARCH);
      }
      
      //ActualPlatform
      public String getVersion()
      {
-         return System.getProperty("os.version");
+         return System.getProperty(OS_VERSION);
      }
+
 }

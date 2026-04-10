@@ -30,7 +30,7 @@ public class NullUtil {
      */
     //ActualPlatform
     public static NullUtil getInstance() {
-        return instance;
+        return NullUtil.instance;
     }
     
     //ActualPlatform

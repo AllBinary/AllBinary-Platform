@@ -32,7 +32,9 @@ public class GuiLog
     {
         return instance;
     }
-    
+
+    private final LogFormatUtil logFormatUtil = LogFormatUtil.getInstance();
+
     private final CommonStrings commonStrings = CommonStrings.getInstance();
 
    private GuiLog()
@@ -79,7 +81,7 @@ public class GuiLog
    {
       try
       {
-         String data = LogFormatUtil.getInstance().get(specialMessage, 
+         String data = logFormatUtil.get(specialMessage, 
                object.getClass().getName(), functionName, exception);
          this.showDialog(data);
          System.out.println(data);
@@ -108,7 +110,7 @@ public class GuiLog
    {      
       try
       {
-         String data = LogFormatUtil.getInstance().get(specialMessage, 
+         String data = logFormatUtil.get(specialMessage, 
                className, functionName, exception);
          this.showDialog(data);
          System.out.println(data);

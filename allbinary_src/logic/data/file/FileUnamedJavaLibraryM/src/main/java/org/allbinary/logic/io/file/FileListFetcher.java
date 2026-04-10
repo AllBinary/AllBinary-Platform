@@ -13,6 +13,7 @@
  */
 package org.allbinary.logic.io.file;
 
+import org.allbinary.logic.io.file.directory.DirectoryBooleanFileVisitor;
 import org.allbinary.logic.io.file.directory.DirectoryOrIncludeFileExtensionBooleanFileVisitor;
 import org.allbinary.logic.io.file.directory.SubDirectory;
 import org.allbinary.logic.io.file.filter.VisitorFileFilter;
@@ -118,4 +119,23 @@ public class FileListFetcher
         }
         return null;
     }
+
+    public BasicArrayList getDirectories(final String path)
+    {
+        try
+        {
+            final VisitorFileFilter visitorFileFilter = new VisitorFileFilter(
+                    new DirectoryBooleanFileVisitor());
+
+            final BasicArrayList files = subDirectory.search(visitorFileFilter, new AbFile(path));
+            return files;
+
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+            System.out.println("Error: " + e + "\nMsg: " + e.getMessage());
+        }
+        return null;
+    }
+
 }

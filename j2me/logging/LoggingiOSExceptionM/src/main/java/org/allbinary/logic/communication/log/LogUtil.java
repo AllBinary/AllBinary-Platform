@@ -25,6 +25,8 @@ public class LogUtil {
         return instance;
     }
 
+    private final LogFormatUtil logFormatUtil = LogFormatUtil.getInstance();
+    
     private final String LOG_SUCCESS = "org.allbinary: ";
 
     private LogUtil() {
@@ -68,7 +70,7 @@ public class LogUtil {
             className = new String(object.getClass().getName());
         }
 
-        final String message = LogFormatUtil.getInstance().get(
+        final String message = logFormatUtil.get(
             className, functionName, specialMessage, exception);
 
         System.out.print(LOG_SUCCESS);

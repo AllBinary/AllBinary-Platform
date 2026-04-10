@@ -28,6 +28,8 @@ public class XmlRpcRemoteLogClient extends XmlRpcAbeClient
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
+    //private final LogFormatUtil logFormatUtil = LogFormatUtil.getInstance();
+    
     private final NoCrypt noCrypt = new NoCrypt();
     
     public XmlRpcRemoteLogClient(final AbeClientInformationInterface clientInfo)
@@ -102,7 +104,7 @@ public class XmlRpcRemoteLogClient extends XmlRpcAbeClient
 
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSINGERROR))
             // {
-            //String message = LogFormatUtil.getInstance().get(error, stringUtil.EMPTY_STRING, stringUtil.EMPTY_STRING, e);
+            //String message = logFormatUtil.get(error, stringUtil.EMPTY_STRING, stringUtil.EMPTY_STRING, e);
             //System.out.println(message);
             //logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET, e);
             // }
@@ -130,7 +132,7 @@ public class XmlRpcRemoteLogClient extends XmlRpcAbeClient
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSINGERROR))
             // {
             //Can't log this since that is what the log is using
-            //String message = LogFormatUtil.getInstance().get(error, StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING, e);
+            //String message = logFormatUtil.get(error, StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING, e);
             //System.out.println(message);
             //logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET, e);
             // }
@@ -141,7 +143,7 @@ public class XmlRpcRemoteLogClient extends XmlRpcAbeClient
 
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSINGERROR))
             // {
-            //String message = LogFormatUtil.getInstance().get(error, StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING, e);
+            //String message = logFormatUtil.get(error, StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING, e);
             //System.out.println(message);
             //logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET, e);
             // }

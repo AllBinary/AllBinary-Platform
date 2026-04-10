@@ -23,6 +23,8 @@ public class LogUtil {
         return instance;
     }
 
+    private final LogFormatUtil logFormatUtil = LogFormatUtil.getInstance();
+    
     private final String LABEL = "org.allbinary";
     private final String LOG_SUCCESS = "org.allbinary: ";
     
@@ -65,7 +67,7 @@ public class LogUtil {
 
         className = object.getClass().getName();
 
-        final String message = LogFormatUtil.getInstance().get(
+        final String message = logFormatUtil.get(
             className, functionName, specialMessage, exception);
 
         android.util.Log.i(LABEL, LOG_SUCCESS + message);

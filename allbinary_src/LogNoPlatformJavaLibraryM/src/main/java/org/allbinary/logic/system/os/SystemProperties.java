@@ -23,9 +23,9 @@ public class SystemProperties
      * @return the instance
      */
     public static SystemProperties getInstance() {
-        return instance;
+        return SystemProperties.instance;
     }
-    
+       
      private SystemProperties()
      {         
      }

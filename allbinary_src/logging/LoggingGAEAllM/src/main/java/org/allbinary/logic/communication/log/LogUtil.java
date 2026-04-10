@@ -31,6 +31,8 @@ public class LogUtil {
 
     private final Logger logger = Logger.getLogger(LogUtil.class.getName());
 
+    private final LogFormatUtil logFormatUtil = LogFormatUtil.getInstance();
+    
     /*
    private final static String DEFAULT_PATH;
 
@@ -88,12 +90,12 @@ public class LogUtil {
         try {
             String className = CommonStrings.getInstance().EMPTY;
 
-            Class clazz = object.getClass();
+            final Class clazz = object.getClass();
             if (clazz.getName() != null) {
                 className = clazz.getName();
             }
 
-            String message = LogFormatUtil.getInstance().get(
+            final String message = logFormatUtil.getS(
                 className, functionName, specialMessage);
             //className, functionName, specialMessage, exception);
 

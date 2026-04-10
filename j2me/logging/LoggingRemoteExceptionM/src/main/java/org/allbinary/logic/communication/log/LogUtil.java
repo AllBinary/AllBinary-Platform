@@ -36,6 +36,8 @@ public class LogUtil {
         return instance;
     }
 
+    private final LogFormatUtil logFormatUtil = LogFormatUtil.getInstance();
+    
     private boolean isFirstException = true;
     private TimeDelayHelper timeDelayHelper = new TimeDelayHelper(200000);
 
@@ -87,7 +89,7 @@ public class LogUtil {
                     className = new String(object.getClass().getName());
                 }
 
-                String message = LogFormatUtil.getInstance().get(
+                final String message = LogFormatUtil.getInstance().get(
                     className, functionName, specialMessage, exception);
 
                 try {

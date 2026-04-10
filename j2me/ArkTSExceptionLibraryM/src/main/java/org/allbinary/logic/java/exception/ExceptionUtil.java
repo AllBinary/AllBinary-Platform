@@ -13,8 +13,6 @@
  */
 package org.allbinary.logic.java.exception;
 
-import java.io.ByteArrayOutputStream;
-
 //ActualPlatform
 public class ExceptionUtil
 {
@@ -41,15 +39,15 @@ public class ExceptionUtil
     //ActualPlatform
     public String getStackTrace(Throwable e)
     {
-        final ByteArrayOutputStream bs = new ByteArrayOutputStream();
-
-        e.printStackTrace();
-
-        final String output = bs.toString();
-        if (output != null) {
-            return new String(output);
-        }
+/*        //ArkTs*/
+        if(true) {}
+//        if (e.stack) { //ArkTs
+        if(true) {}
+//            return e.stack; //ArkTs
+        if(true) {}
+//        } //ArkTs
+        if(true) {}
         
-        return NONE;
+        return this.NONE;
     }
 }

@@ -30,6 +30,8 @@ public class LogUtil {
     private LogUtil() {
     }
 
+    private final LogFormatUtil logFormatUtil = LogFormatUtil.getInstance();
+    
     //ActualPlatform
     public void put(Log log) {
         final String specialMessage = log.getSpecialMessage();
@@ -51,7 +53,7 @@ public class LogUtil {
             className = new String(new StringMaker().append(object.getClass().getName()).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(object.hashCode())).toString());
         }
 
-        final String message = LogFormatUtil.getInstance().get(
+        final String message = logFormatUtil.getS(
             className, functionName, specialMessage);
 
         System.out.print(LOG_SUCCESS);
@@ -72,7 +74,7 @@ public class LogUtil {
             className = new String(new StringMaker().append(object.getClass().getName()).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(object.hashCode())).toString());
         }
 
-        final String message = LogFormatUtil.getInstance().get(
+        final String message = logFormatUtil.get(
             className, functionName, specialMessage, exception);
 
         System.out.print(LOG_SUCCESS);
