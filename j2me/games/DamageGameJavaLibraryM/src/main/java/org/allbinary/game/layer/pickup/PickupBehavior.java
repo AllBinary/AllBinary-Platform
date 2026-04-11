@@ -100,7 +100,7 @@ public class PickupBehavior implements PickupBehaviorInterface
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
             //logUtil.put(commonStrings.EXCEPTION, this, "doPickup");
-            PreLogUtil.put(commonStrings.EXCEPTION, this, "doPickup", e);
+            PreLogUtil.putOE(commonStrings.EXCEPTION, this, "doPickup", e);
         }
     }
     

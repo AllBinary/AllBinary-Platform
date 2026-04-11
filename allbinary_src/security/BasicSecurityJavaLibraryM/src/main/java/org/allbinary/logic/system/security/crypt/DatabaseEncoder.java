@@ -54,7 +54,7 @@ public class DatabaseEncoder
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CRYPTERROR))
          //{
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            PreLogUtil.put(commonStrings.EXCEPTION, "DatabaseEncoder", "decode", e);
+            PreLogUtil.putOE(commonStrings.EXCEPTION, "DatabaseEncoder", "decode", e);
          //}
          return StringUtil.getInstance().EMPTY_STRING;
       }
@@ -93,7 +93,7 @@ public class DatabaseEncoder
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CRYPTERROR))
          //{
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            PreLogUtil.put(commonStrings.EXCEPTION, "DatabaseEncoder", "decode", e);
+            PreLogUtil.putSE(commonStrings.EXCEPTION, "DatabaseEncoder", "decode", e);
          //}
          return NullUtil.getInstance().NULL_BYTE_ARRAY;
       }

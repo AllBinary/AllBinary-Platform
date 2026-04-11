@@ -73,7 +73,7 @@ public class Directory
         {
             //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FILEERROR))
             //{
-            PreLogUtil.put("Error Creating Directories: " + directory, this, "create", e);
+            PreLogUtil.putOE("Error Creating Directories: " + directory, this, "create", e);
             //}
             return false;
         }

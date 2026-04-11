@@ -152,7 +152,7 @@ public class Features
         }
         catch (Exception e)
         {
-            PreLogUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
+            PreLogUtil.putOE(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
         }
     }
 

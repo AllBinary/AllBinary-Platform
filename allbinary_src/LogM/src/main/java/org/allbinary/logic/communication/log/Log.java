@@ -57,40 +57,40 @@ public class Log
         this.specialMessage = specialMessage;
         this.object = object;
         this.functionName = functionName;
-        this.exception = nullUtil.NULL_OBJECT;
+        this.exception = this.nullUtil.NULL_OBJECT;
 
     }
 
     public String getSpecialMessage()
     {
-        return specialMessage;
+        return this.specialMessage;
     }
 
     public Object getObject()
     {
-        return object;
+        return this.object;
     }
 
     public String getFunctionName()
     {
-        return functionName;
+        return this.functionName;
     }
 
     public Object getThrowable()
     {
-        return exception;
+        return this.exception;
     }
 
     public String toString()
     {
         String className = CommonStrings.getInstance().EMPTY;
 
-        Class clazz = object.getClass();
+        Class clazz = this.object.getClass();
         if (clazz.getName() != null)
         {
             className = clazz.getName();
         }
 
-        return logFormatUtil.get(className, this.functionName, this.specialMessage, this.exception);
+        return this.logFormatUtil.get(className, this.functionName, this.specialMessage, this.exception);
     }
 }

@@ -55,13 +55,13 @@ public class PreLogUtil
         final Object object,
         final String functionName)
     {
-        put(specialMessage, object, functionName, NullUtil.getInstance().NULL_OBJECT);
+        putOE(specialMessage, object, functionName, NullUtil.getInstance().NULL_OBJECT);
     }    
     
     private final static String LOG_SUCCESS = "org.allbinary: ";
 
     //ActualPlatform
-    public static void put(
+    public static void putOE(
         final String specialMessage,
         final Object object,
         final String functionName,
@@ -82,7 +82,7 @@ public class PreLogUtil
     }
     
     //ActualPlatform
-    public static void put(
+    public static void putSE(
         String specialMessage,
         String className,
         String functionName,

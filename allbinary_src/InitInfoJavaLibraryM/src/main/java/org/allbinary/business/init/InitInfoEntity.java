@@ -93,7 +93,7 @@ public class InitInfoEntity extends InitSql
         {
             if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR))
             {
-                PreLogUtil.put(this.commonStrings.EXCEPTION, this.NAME, this.METHOD_GET, e);
+                PreLogUtil.putOE(this.commonStrings.EXCEPTION, this.NAME, this.METHOD_GET, e);
             }
             return false;
         }
@@ -121,7 +121,7 @@ public class InitInfoEntity extends InitSql
         {
             if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR))
             {
-                PreLogUtil.put(this.commonStrings.EXCEPTION, this.NAME, this.METHOD_IS, e);
+                PreLogUtil.putOE(this.commonStrings.EXCEPTION, this.NAME, this.METHOD_IS, e);
             }
             return false;
         }
@@ -147,7 +147,7 @@ public class InitInfoEntity extends InitSql
         {
             if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR))
             {
-                PreLogUtil.put(this.commonStrings.EXCEPTION, this.NAME, this.METHOD_ADD, e);
+                PreLogUtil.putOE(this.commonStrings.EXCEPTION, this.NAME, this.METHOD_ADD, e);
             }
         }
     }

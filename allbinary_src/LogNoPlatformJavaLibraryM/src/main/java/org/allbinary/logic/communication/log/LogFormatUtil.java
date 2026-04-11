@@ -41,17 +41,12 @@ public class LogFormatUtil
         throw new RuntimeException();
     }
 
-    public String get(final String className, final String functionName, final String specialMessage)
+    public String getS(final String className, final String functionName, final String specialMessage)
     {
         throw new RuntimeException();
     }
 
-    private StringMaker get(final String className, String functionName)
-    {
-        throw new RuntimeException();
-    }
-
-    public String get(final Object exception)
+    public String getO(final Object exception)
     {
         throw new RuntimeException();
     }

@@ -89,7 +89,7 @@ public class GuiLog
       }
       catch (Exception e)
       {
-          PreLogUtil.put(commonStrings.EXCEPTION, this, "put", e);
+          PreLogUtil.putOE(commonStrings.EXCEPTION, this, "put", e);
          return "Logging Error";
       }
    }
@@ -118,7 +118,7 @@ public class GuiLog
       }
       catch (Exception e)
       {
-          PreLogUtil.put(commonStrings.EXCEPTION, this, "put", e);
+          PreLogUtil.putOE(commonStrings.EXCEPTION, this, "put", e);
          return "Logging Error";
       }
    }

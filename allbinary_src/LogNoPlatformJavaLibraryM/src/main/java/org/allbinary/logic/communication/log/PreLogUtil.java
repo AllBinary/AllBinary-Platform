@@ -35,10 +35,10 @@ public class PreLogUtil
         final Object object,
         final String functionName)
     {
-        put(specialMessage, object, functionName, NullUtil.getInstance().NULL_OBJECT);
+        putOE(specialMessage, object, functionName, NullUtil.getInstance().NULL_OBJECT);
     }    
     
-    public static void put(
+    public static void putOE(
         final String specialMessage,
         final Object object,
         final String functionName,
@@ -47,7 +47,7 @@ public class PreLogUtil
         throw new RuntimeException();
     }
     
-    public static void put(
+    public static void putSE(
         String specialMessage,
         String className,
         String functionName,

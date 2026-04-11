@@ -113,7 +113,7 @@ public class InitInfo
       {
          if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR))
          {         
-            PreLogUtil.put("error","InitInfo","set()",e);
+            PreLogUtil.putOE("error","InitInfo","set()",e);
          }
       }
    }
@@ -130,7 +130,7 @@ public class InitInfo
       {
          if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR))
          {         
-            PreLogUtil.put("error","InitInfo","set()",e);
+            PreLogUtil.putOE("error","InitInfo","set()",e);
          }
       }
    }
@@ -150,7 +150,7 @@ public class InitInfo
       {
          if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR))
          {         
-            PreLogUtil.put("error","InitInfo","set()",e);
+            PreLogUtil.putOE("error","InitInfo","set()",e);
          }
          return;
       }
@@ -175,7 +175,7 @@ public class InitInfo
       {
          if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR))
          {         
-            PreLogUtil.put("error","InitInfo","updateIfNeeded()",e);
+            PreLogUtil.putOE("error","InitInfo","updateIfNeeded()",e);
          }
          return;
       }
@@ -192,7 +192,7 @@ public class InitInfo
       {
          if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR))
          {         
-            PreLogUtil.put("error","InitInfo","updateIfNeeded()",e);
+            PreLogUtil.putOE("error","InitInfo","updateIfNeeded()",e);
          }
          return false;
       }

@@ -35,7 +35,7 @@ public class FileWrapperUtil {
             return abFileArray;
         } catch (Exception e)
         {
-            PreLogUtil.put("Exception Wrapping Files", "FileWrapperUtil", "wrapFiles", e);
+            PreLogUtil.putSE("Exception Wrapping Files", "FileWrapperUtil", "wrapFiles", e);
             return new AbFile[0];
         }
     }
@@ -47,7 +47,7 @@ public class FileWrapperUtil {
             return new AbFile(file);
         } catch (Exception e)
         {
-            PreLogUtil.put("Exception Wrapping File", "FileWrapperUtil", "wrapFile", e);
+            PreLogUtil.putSE("Exception Wrapping File", "FileWrapperUtil", "wrapFile", e);
             return AbFile.NULL_FILE;
         }
     }

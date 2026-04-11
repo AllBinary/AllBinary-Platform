@@ -273,7 +273,7 @@ public class DisplayInfoSingleton
             list.clear();
         }catch(Exception e)
         {
-            PreLogUtil.put(commonStrings.EXCEPTION, this, FIRE_METHOD_NAME, e);
+            PreLogUtil.putOE(commonStrings.EXCEPTION, this, FIRE_METHOD_NAME, e);
         }
     }
 
@@ -287,7 +287,7 @@ public class DisplayInfoSingleton
             swtJOGLProcessor.onSurfaceChanged();
         }catch(Exception e)
         {
-            PreLogUtil.put(commonStrings.EXCEPTION, this, FIRE_METHOD_NAME, e);
+            PreLogUtil.putOE(commonStrings.EXCEPTION, this, FIRE_METHOD_NAME, e);
         }
         
     }

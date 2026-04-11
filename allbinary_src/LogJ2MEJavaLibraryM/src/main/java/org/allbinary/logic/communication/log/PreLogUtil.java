@@ -15,6 +15,7 @@ package org.allbinary.logic.communication.log;
 
 import org.allbinary.logic.NullUtil;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.LogFormatUtil;
 
 //ActualPlatform
 public class PreLogUtil
@@ -56,13 +57,13 @@ public class PreLogUtil
         final Object object,
         final String functionName)
     {
-        put(specialMessage, object, functionName, NullUtil.getInstance().NULL_OBJECT);
+        PreLogUtil.putOE(specialMessage, object, functionName, NullUtil.getInstance().NULL_OBJECT);
     }    
     
     private final static String LOG_SUCCESS = "org.allbinary: ";
 
     //ActualPlatform
-    public static void put(
+    public static void putOE(
         final String specialMessage,
         final Object object,
         final String functionName,
@@ -75,24 +76,24 @@ public class PreLogUtil
             className = new String(object.getClass().getName());
         }
         
-        String message = LogFormatUtil.getInstance().get(
+        final String message = LogFormatUtil.getInstance().get(
             className, functionName, specialMessage, exception);
         
-        System.out.print(LOG_SUCCESS);
+        System.out.print(PreLogUtil.LOG_SUCCESS);
         System.out.println(message);
     }
     
     //ActualPlatform
-    public static void put(
-        String specialMessage,
-        String className,
-        String functionName,
-        Object exception)
+    public static void putSE(
+        final String specialMessage,
+        final String className,
+        final String functionName,
+        final Object exception)
     {
-        String message = LogFormatUtil.getInstance().get(
+        final String message = LogFormatUtil.getInstance().get(
             className, functionName, specialMessage, exception);
         
-        System.out.print(LOG_SUCCESS);
+        System.out.print(PreLogUtil.LOG_SUCCESS);
         System.out.println(message);
     }
     

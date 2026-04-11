@@ -47,7 +47,7 @@ public class AbBasicCrypt implements CryptInterface
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CRYPTERROR))
          //{
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            PreLogUtil.put(commonStrings.EXCEPTION, this, "AbCrypt(alg,key)", e);
+            PreLogUtil.putOE(commonStrings.EXCEPTION, this, "AbCrypt(alg,key)", e);
          //}
       }
    }
@@ -68,7 +68,7 @@ public class AbBasicCrypt implements CryptInterface
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CRYPTERROR))
          //{
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            PreLogUtil.put("init Failed", this, commonStrings.INIT,e);
+            PreLogUtil.putOE("init Failed", this, commonStrings.INIT,e);
          //}
       }
    }
@@ -104,7 +104,7 @@ public class AbBasicCrypt implements CryptInterface
       {
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CRYPTERROR))
          //{
-            PreLogUtil.put("Encrypt Failed",this,"encrypt",e);
+            PreLogUtil.putOE("Encrypt Failed",this,"encrypt",e);
          //}
          return null;
       }
@@ -141,7 +141,7 @@ public class AbBasicCrypt implements CryptInterface
       {
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CRYPTERROR))
          //{
-            PreLogUtil.put("decrypt Failed",this,"decrypt",e);
+            PreLogUtil.putOE("decrypt Failed",this,"decrypt",e);
          //}
          return null;
       }

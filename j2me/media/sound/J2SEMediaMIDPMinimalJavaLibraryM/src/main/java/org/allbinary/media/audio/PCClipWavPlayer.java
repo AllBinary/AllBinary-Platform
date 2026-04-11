@@ -78,7 +78,7 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
                 try {
                     close2();
                 } catch (Exception e) {
-                    PreLogUtil.put(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
+                    PreLogUtil.putOE(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
                 }
             }
         }
@@ -106,7 +106,7 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
                 try {
                     start2();
                 } catch (Exception e) {
-                    PreLogUtil.put(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
+                    PreLogUtil.putOE(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
                 }
             }
         }
@@ -142,7 +142,7 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
                 try {
                     stop2();
                 } catch (Exception e) {
-                    PreLogUtil.put(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
+                    PreLogUtil.putOE(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
                 }
             }
         }

@@ -56,9 +56,9 @@ public class LogFormatUtil
     //ActualPlatform
     public String get(final String className, final String functionName, final String specialMessage, final Object exception)
     {
-        final StringMaker stringBuffer = get(className, functionName);
+        final StringMaker stringBuffer = getF(className, functionName);
 
-        stringBuffer.append(this.get(exception));
+        stringBuffer.append(this.getO(exception));
 
         stringBuffer.append(SPECIAL_MESSAGE);
         stringBuffer.append(specialMessage);
@@ -70,9 +70,9 @@ public class LogFormatUtil
     }
 
     //ActualPlatform
-    public String get(final String className, final String functionName, final String specialMessage)
+    public String getS(final String className, final String functionName, final String specialMessage)
     {
-        final StringMaker stringBuffer = get(className, functionName);
+        final StringMaker stringBuffer = getF(className, functionName);
 
         stringBuffer.append(SPECIAL_MESSAGE);
         stringBuffer.append(specialMessage);
@@ -86,7 +86,7 @@ public class LogFormatUtil
     //Date does not change as static
     //private final Calendar calendar = Calendar.getInstance();
     
-    private StringMaker get(final String className, String functionName)
+    private StringMaker getF(final String className, String functionName)
     {
         if (functionName == null)
         {
@@ -112,7 +112,7 @@ public class LogFormatUtil
     private final NullUtil nullUtil = NullUtil.getInstance();
     
     //ActualPlatform
-    public String get(final Object exception)
+    public String getO(final Object exception)
     {
         if (exception != nullUtil.NULL_OBJECT)
         {

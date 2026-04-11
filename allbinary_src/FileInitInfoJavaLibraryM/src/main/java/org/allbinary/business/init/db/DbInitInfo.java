@@ -150,7 +150,7 @@ public class DbInitInfo extends DbConnectionInfo
         {
             if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR))
             {
-                PreLogUtil.put("Failed Write: " + FILEABPATH.toString(), this, "write", e);
+                PreLogUtil.putOE("Failed Write: " + FILEABPATH.toString(), this, "write", e);
             }
         }
     }
@@ -213,7 +213,7 @@ public class DbInitInfo extends DbConnectionInfo
         {
             if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR))
             {
-                PreLogUtil.put("Failed Loading: " + FILEABPATH.toString(), this, commonStrings.LOAD, e);
+                PreLogUtil.putOE("Failed Loading: " + FILEABPATH.toString(), this, commonStrings.LOAD, e);
             }
         }
     }
@@ -236,7 +236,7 @@ public class DbInitInfo extends DbConnectionInfo
         {
             if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR))
             {
-                PreLogUtil.put(commonStrings.EXCEPTION, this, "updateIfNeeded", e);
+                PreLogUtil.putOE(commonStrings.EXCEPTION, this, "updateIfNeeded", e);
             }
         }
     }

@@ -65,7 +65,7 @@ public class WeakCrypt
             //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CRYPTERROR))
             //{
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            PreLogUtil.put(commonStrings.EXCEPTION, this, "SuperCrypt(key)", e);
+            PreLogUtil.putOE(commonStrings.EXCEPTION, this, "SuperCrypt(key)", e);
             //}
         }
     }
@@ -82,7 +82,7 @@ public class WeakCrypt
         {
             //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CRYPTERROR))
             //{
-            PreLogUtil.put("Encrypt Failed", this, "encrypt", e);
+            PreLogUtil.putOE("Encrypt Failed", this, "encrypt", e);
             //}
             return StringUtil.getInstance().EMPTY_STRING;
         }
@@ -99,7 +99,7 @@ public class WeakCrypt
         {
             //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CRYPTERROR))
             //{
-            PreLogUtil.put("decrypt Failed", this, "decrypt", e);
+            PreLogUtil.putOE("decrypt Failed", this, "decrypt", e);
             //}
             return StringUtil.getInstance().EMPTY_STRING;
         }

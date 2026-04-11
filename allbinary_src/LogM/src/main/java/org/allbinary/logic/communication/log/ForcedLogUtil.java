@@ -14,6 +14,7 @@
 package org.allbinary.logic.communication.log;
 
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.PreLogUtil;
 
 public class ForcedLogUtil
 {
@@ -27,7 +28,7 @@ public class ForcedLogUtil
         catch (Exception e)
         {
             //logUtil.put(CommonStrings.getInstance().EXCEPTION, object, "log", e);
-            PreLogUtil.put(CommonStrings.getInstance().EXCEPTION, object, "log", e);
+            PreLogUtil.putOE(CommonStrings.getInstance().EXCEPTION, object, "log", e);
         }
     }
 }

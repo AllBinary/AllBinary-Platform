@@ -55,7 +55,7 @@ public class AbCrypt implements CryptInterface
           }
           catch(Exception e)
           {
-              PreLogUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
+              PreLogUtil.putOE(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
           }
           
          final byte[] key = keyAsString.getBytes();
@@ -70,7 +70,7 @@ public class AbCrypt implements CryptInterface
       {
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CRYPTERROR))
          //{
-          PreLogUtil.put("init Failed",this, commonStrings.INIT, e);
+          PreLogUtil.putOE("init Failed",this, commonStrings.INIT, e);
          //}
       }
    }
@@ -86,7 +86,7 @@ public class AbCrypt implements CryptInterface
       {
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CRYPTERROR))
          //{
-            PreLogUtil.put("Encrypt Failed",this,"encrypt",e);
+            PreLogUtil.putOE("Encrypt Failed",this,"encrypt",e);
          //}
          return NullUtil.getInstance().NULL_BYTE_ARRAY;
       }
@@ -103,7 +103,7 @@ public class AbCrypt implements CryptInterface
       {
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CRYPTERROR))
          //{
-            PreLogUtil.put("decrypt Failed",this,"decrypt",e);
+            PreLogUtil.putOE("decrypt Failed",this,"decrypt",e);
          //}
          return NullUtil.getInstance().NULL_BYTE_ARRAY;
       }

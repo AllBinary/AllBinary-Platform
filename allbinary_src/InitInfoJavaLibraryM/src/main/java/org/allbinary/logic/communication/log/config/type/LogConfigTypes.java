@@ -87,7 +87,7 @@ public class LogConfigTypes
       }
       catch(Exception e)
       {
-         PreLogUtil.put("Unable to initialize LogConfigTypes","LogConfigTypes","init()", e);
+         PreLogUtil.putSE("Unable to initialize LogConfigTypes","LogConfigTypes","init()", e);
       }
    }
    

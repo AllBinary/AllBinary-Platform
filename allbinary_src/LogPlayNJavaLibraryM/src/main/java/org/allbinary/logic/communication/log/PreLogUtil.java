@@ -68,7 +68,7 @@ public class PreLogUtil
 
         className = new StringMaker().append(className).append(CommonSeps.getInstance().FORWARD_SLASH).append(StringUtil.getInstance().toString(object)).toString();
         
-        final String message = LogFormatUtil.getInstance().get(
+        final String message = LogFormatUtil.getInstance().getS(
             className, functionName, specialMessage);
 
         PlayN.log().debug(LOG_SUCCESS + message);
@@ -77,7 +77,7 @@ public class PreLogUtil
     private final static String LOG_SUCCESS = "org.allbinary: ";
 
     //ActualPlatform
-    public static void put(
+    public static void putOE(
         final String specialMessage,
         final Object object,
         final String functionName,
@@ -99,19 +99,19 @@ public class PreLogUtil
     }
     
     //ActualPlatform
-    public static void put(
+    public static void putS(
         final String specialMessage,
         final String className,
         final String functionName)
     {        
-        final String message = LogFormatUtil.getInstance().get(
+        final String message = LogFormatUtil.getInstance().getS(
             className, functionName, specialMessage);
 
         PlayN.log().debug(LOG_SUCCESS + message);
     }
 
     //ActualPlatform
-    public static void put(
+    public static void putSE(
         final String specialMessage,
         final String className,
         final String functionName,
