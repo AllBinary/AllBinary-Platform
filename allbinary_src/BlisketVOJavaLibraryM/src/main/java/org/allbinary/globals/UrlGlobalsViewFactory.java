@@ -37,7 +37,7 @@ public class UrlGlobalsViewFactory
          final CommonStrings commonStrings = CommonStrings.getInstance();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FACTORYERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION, "GlobalsViewFactory",commonStrings.GET_INSTANCE,e);
+            logUtil.put(commonStrings.EXCEPTION, "GlobalsViewFactory",commonStrings.GET_INSTANCE,e);
          }
          return null;
       }

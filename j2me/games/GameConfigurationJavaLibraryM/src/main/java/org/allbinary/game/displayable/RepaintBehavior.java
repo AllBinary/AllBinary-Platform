@@ -64,7 +64,8 @@ public class RepaintBehavior {
                         DisplayInfoSingleton.getInstance().process();
                     } catch (Exception e) {
                         final CommonStrings commonStrings = CommonStrings.getInstance();
-                        this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                        final LogUtil logUtil = LogUtil.getInstance();
+                        logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
                     }
                 }
             }, NAME);

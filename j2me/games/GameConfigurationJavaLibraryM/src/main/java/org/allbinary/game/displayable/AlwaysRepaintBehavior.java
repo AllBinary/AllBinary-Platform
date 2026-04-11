@@ -20,6 +20,7 @@ import javax.microedition.lcdui.Canvas;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.thread.NullRunnable;
 
@@ -59,7 +60,8 @@ public class AlwaysRepaintBehavior extends RepaintBehavior {
                         DisplayInfoSingleton.getInstance().process();
                     } catch (Exception e) {
                         final CommonStrings commonStrings = CommonStrings.getInstance();
-                        this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                        final LogUtil logUtil = LogUtil.getInstance();
+                        logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
                     }
                 }
             }, NAME);

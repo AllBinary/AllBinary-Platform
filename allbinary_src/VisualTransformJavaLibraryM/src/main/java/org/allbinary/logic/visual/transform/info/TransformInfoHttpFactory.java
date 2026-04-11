@@ -69,7 +69,7 @@ public class TransformInfoHttpFactory
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
              final CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, "TransformInfoFactory",commonStrings.GET_INSTANCE, e);
+            logUtil.put(commonStrings.EXCEPTION, "TransformInfoFactory",commonStrings.GET_INSTANCE, e);
          }
          throw e;
       }

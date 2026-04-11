@@ -53,7 +53,7 @@ public class AllBinaryMediaManager {
         throws Exception {
         final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonString = CommonStrings.getInstance();
-        this.logUtil.put(commonString.START, THIS, commonString.INIT);
+        logUtil.put(commonString.START, THIS, commonString.INIT);
         ProgressCanvasFactory.getInstance().addPortion(50, "Media Manager");
 
         new Sounds(soundsFactoryInterface).init();
@@ -73,14 +73,14 @@ public class AllBinaryMediaManager {
     {
         final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonString = CommonStrings.getInstance();
-        this.logUtil.put(commonString.START, THIS, "creatPlayer(InputStream)");
+        logUtil.put(commonString.START, THIS, "creatPlayer(InputStream)");
         return (Player) NoPlayer.NO_PLAYER;
     }
 
     public static Player createPlayer(String locator) {
         final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonString = CommonStrings.getInstance();
-        this.logUtil.put(commonString.START, THIS, "creatPlayer(locator)");
+        logUtil.put(commonString.START, THIS, "creatPlayer(locator)");
         return (Player) NoPlayer.NO_PLAYER;
     }
 
