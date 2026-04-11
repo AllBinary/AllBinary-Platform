@@ -37,14 +37,14 @@ public class ConstrainedMotionRectangles extends MotionRectangles
         
         this.setMotionRectangleConstraintsInterface(motionRectangleConstraintsInterface);
 
-        //logUtil.put(
+        //this.logUtil.put(
           //  "After - Number Of Rectangles: " + this.getVector().size(), this, this.commonStrings.CONSTRUCTOR);
     }
     
     public void applyMotionRectangleConstraints(final MotionRectangles motionRectangles)
     throws Exception
     {
-        logUtil.put("Start - Size Before: " + motionRectangles.getVector().size(),
+        this.logUtil.put("Start - Size Before: " + motionRectangles.getVector().size(),
             this, "applyMotionRectangleConstraints");
 
         final BufferedImage[] bufferedImageArray =
@@ -69,7 +69,7 @@ public class ConstrainedMotionRectangles extends MotionRectangles
             
             if(isTooSmall)
             {
-                //logUtil.put("Target is to small: " +
+                //this.logUtil.put("Target is to small: " +
                   //  rectangle, this, "getTargetableRectangles");
                 continue;
             }
@@ -80,7 +80,7 @@ public class ConstrainedMotionRectangles extends MotionRectangles
             
             if(isAreaTooSmall)
             {
-                //logUtil.put("Target area is to small: " +
+                //this.logUtil.put("Target area is to small: " +
                   //  rectangle, this, "getTargetableRectangles");
                 continue;
             }
@@ -91,7 +91,7 @@ public class ConstrainedMotionRectangles extends MotionRectangles
             
             if(isTooBig)
             {
-                //logUtil.put("Target is to big: " +
+                //this.logUtil.put("Target is to big: " +
                   //  rectangle, this, "getTargetableRectangles");
                 continue;
             }

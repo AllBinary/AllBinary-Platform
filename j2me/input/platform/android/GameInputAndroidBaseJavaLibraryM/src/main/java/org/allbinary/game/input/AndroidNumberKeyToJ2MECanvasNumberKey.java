@@ -33,7 +33,7 @@ public class AndroidNumberKeyToJ2MECanvasNumberKey
     //since Canvas number keys are used instead of
     public static int getKey(int key)
     {
-        // logUtil.put("Canvas Left: " + Canvas.LEFT +
+        // this.logUtil.put("Canvas Left: " + Canvas.LEFT +
         // "== " + KeyEvent.KEYCODE_DPAD_LEFT + "==" +
         // KeyEvent.KEYCODE_SOFT_LEFT + " key: " + key, "AndroidToJ2MEKey",
         // "getKey");

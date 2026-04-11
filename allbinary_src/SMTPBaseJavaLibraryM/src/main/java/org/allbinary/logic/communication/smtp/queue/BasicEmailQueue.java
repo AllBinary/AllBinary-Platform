@@ -93,14 +93,14 @@ public class BasicEmailQueue extends BasicQueue
          //Should start thread here
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
          {
-            logUtil.put("Sending: " + emailInterface.log(), this, "send");
+            this.logUtil.put("Sending: " + emailInterface.log(), this, "send");
          }
          
          Transport.send(emailInterface.getMimeMessage());
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
          {
-            logUtil.put("Email Send Debug: " + emailInterface.getDebugInfo(), this, "send");
+            this.logUtil.put("Email Send Debug: " + emailInterface.getDebugInfo(), this, "send");
          }
          return true;
       }
@@ -110,7 +110,7 @@ public class BasicEmailQueue extends BasicQueue
          //Should fire email send event error
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
          {
-            logUtil.put("Failed Email Send Debug: " + emailInterface.getDebugInfo(), this, "send", e);
+            this.logUtil.put("Failed Email Send Debug: " + emailInterface.getDebugInfo(), this, "send", e);
          }
          return false;
       }

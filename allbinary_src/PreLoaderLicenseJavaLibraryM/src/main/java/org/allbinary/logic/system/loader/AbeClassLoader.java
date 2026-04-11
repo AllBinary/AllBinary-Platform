@@ -53,7 +53,7 @@ public class AbeClassLoader extends ClassLoader
       /*
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))
       {
-         logUtil.put("Path: " + PATH, this,"AbeClassLoader(key)");
+         this.logUtil.put("Path: " + PATH, this,"AbeClassLoader(key)");
       }
        */
     }
@@ -70,7 +70,7 @@ public class AbeClassLoader extends ClassLoader
     
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))
       {
-         logUtil.put("Path: " + PATH, this,"AbeClassLoader(key)");
+         this.logUtil.put("Path: " + PATH, this,"AbeClassLoader(key)");
       }
    }
     */
@@ -118,7 +118,7 @@ public class AbeClassLoader extends ClassLoader
          /*
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))
          {
-            logUtil.put("Loading CustomClass: " + name, this,"loadClass");
+            this.logUtil.put("Loading CustomClass: " + name, this,"loadClass");
          }*/
             
             //Step 1 = Check to see if encrypted class is already loaded
@@ -136,7 +136,7 @@ public class AbeClassLoader extends ClassLoader
                /*
                if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))
                {
-                  logUtil.put("Loaded Class: " + name + " with: " + loadedWith , this,"loadClass");
+                  this.logUtil.put("Loaded Class: " + name + " with: " + loadedWith , this,"loadClass");
                }
                 */
                     
@@ -155,7 +155,7 @@ public class AbeClassLoader extends ClassLoader
                 }
                 catch (NoClassDefFoundError e)
                 {
-                    logBuffer.add(LogFactory.getInstance("NoClassDefFoundError Failed Loaded Class: " + name + "\nwith: " + loadedWith, this,"loadClass"));
+                    logBuffer.add(LogFactory.getInstanceF("NoClassDefFoundError Failed Loaded Class: " + name + "\nwith: " + loadedWith, this,"loadClass"));
                 }
                 
                 //Step 4 = Try to load an encrypted class
@@ -178,13 +178,13 @@ public class AbeClassLoader extends ClassLoader
             /*
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))
             {
-               logUtil.put("Loaded CustomClass: " + name + " with: " + loadedWith , this,"loadClass");
+               this.logUtil.put("Loaded CustomClass: " + name + " with: " + loadedWith , this,"loadClass");
             }
              */
             }
             else
             {
-                logBuffer.add(LogFactory.getInstance("Already Loaded: " + name + "\nwith: " + loadedWith, this, "loadClass"));
+                logBuffer.add(LogFactory.getInstanceF("Already Loaded: " + name + "\nwith: " + loadedWith, this, "loadClass"));
             }
             
             //if (resolve)
@@ -197,7 +197,7 @@ public class AbeClassLoader extends ClassLoader
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
             {
                 logBuffer.logAll();
-                logUtil.put("Failure loading: " + name + "\nwith: " + loadedWith, this, "loadClass", e);
+                this.logUtil.put("Failure loading: " + name + "\nwith: " + loadedWith, this, "loadClass", e);
             }
             return null;
         }
@@ -214,7 +214,7 @@ public class AbeClassLoader extends ClassLoader
          /*
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))
          {
-            logUtil.put("Crypted Class name: " + name + " path: " + cname , this,"loadClassBytes");
+            this.logUtil.put("Crypted Class name: " + name + " path: " + cname , this,"loadClassBytes");
          }
           */
             
@@ -225,7 +225,7 @@ public class AbeClassLoader extends ClassLoader
          /*
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))
          {
-            logUtil.put("Decrypted with: " + this.key, this,"loadClassBytes");
+            this.logUtil.put("Decrypted with: " + this.key, this,"loadClassBytes");
          }
           */
             
@@ -235,7 +235,7 @@ public class AbeClassLoader extends ClassLoader
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
             {
-                logUtil.put("(Before LogBuffer Output) Failure loading Encrypted: " + name + " File: " + cname, "AbeClassLoader","loadClassBytes", e);
+                this.logUtil.put("(Before LogBuffer Output) Failure loading Encrypted: " + name + " File: " + cname, "AbeClassLoader","loadClassBytes", e);
             }
             
             StreamUtil.getInstance().close(in);
@@ -245,7 +245,7 @@ public class AbeClassLoader extends ClassLoader
             final String loadedWith = "loadClassBytes";
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
             {
-                logUtil.put("(Before LogBuffer Output) Failed to Loaded Class: " + name  + " File: " + cname + "\nwith: " + loadedWith, this,"loadClassBytes", e);
+                this.logUtil.put("(Before LogBuffer Output) Failed to Loaded Class: " + name  + " File: " + cname + "\nwith: " + loadedWith, this,"loadClassBytes", e);
             }
         }
         catch (NoClassDefFoundError e)
@@ -253,7 +253,7 @@ public class AbeClassLoader extends ClassLoader
             final String loadedWith = "loadClassBytes";
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
             {
-                logUtil.put("(Before LogBuffer Output) NoClassDefFoundError Failed Loaded Class: " + name  + " File: " + cname + "\nwith: " + loadedWith, this,"loadClassBytes");
+                this.logUtil.put("(Before LogBuffer Output) NoClassDefFoundError Failed Loaded Class: " + name  + " File: " + cname + "\nwith: " + loadedWith, this,"loadClassBytes");
             }
         }
         return null;
@@ -296,7 +296,7 @@ public class AbeClassLoader extends ClassLoader
          /*
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))
          {
-            logUtil.put("Loading CustomClass: " + name, this,"loadClass");
+            this.logUtil.put("Loading CustomClass: " + name, this,"loadClass");
          }*/
             
          /*
@@ -310,7 +310,7 @@ public class AbeClassLoader extends ClassLoader
           
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))
             {
-               logUtil.put("Loaded Class: " + name + " with: " + loadedWith , this,"loadClass");
+               this.logUtil.put("Loaded Class: " + name + " with: " + loadedWith , this,"loadClass");
             }
           
             if(webappClass!=null)
@@ -337,7 +337,7 @@ public class AbeClassLoader extends ClassLoader
              
                if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))
                {
-                  logUtil.put("Loaded SystemClass: " + name + " with: " + loadedWith , this,"loadClass");
+                  this.logUtil.put("Loaded SystemClass: " + name + " with: " + loadedWith , this,"loadClass");
                }
              
                if(systemClass!=null)
@@ -358,7 +358,7 @@ public class AbeClassLoader extends ClassLoader
              
                if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))
                {
-                  logUtil.put("Loaded SystemClass: " + name + " with: " + loadedWith , this,"loadClass");
+                  this.logUtil.put("Loaded SystemClass: " + name + " with: " + loadedWith , this,"loadClass");
                }
              
                if(loadedClass!=null)
@@ -380,7 +380,7 @@ public class AbeClassLoader extends ClassLoader
                /*
                if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))
                {
-                  logUtil.put("Loaded Class: " + name + " with: " + loadedWith , this,"loadClass");
+                  this.logUtil.put("Loaded Class: " + name + " with: " + loadedWith , this,"loadClass");
                }
                 */
                     
@@ -393,21 +393,21 @@ public class AbeClassLoader extends ClassLoader
                 {
                     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))
                     {
-                        logUtil.put("Failed Loaded Class: " + name + " with: " + loadedWith , this,"loadClass");
+                        this.logUtil.put("Failed Loaded Class: " + name + " with: " + loadedWith , this,"loadClass");
                     }
                 }
                 catch (Exception e)
                 {
                     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))
                     {
-                        logUtil.put("Failed Loaded Class: " + name + " with: " + loadedWith , this,"loadClass");
+                        this.logUtil.put("Failed Loaded Class: " + name + " with: " + loadedWith , this,"loadClass");
                     }
                 }
                 catch (NoClassDefFoundError e)
                 {
                     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))
                     {
-                        logUtil.put("Failed Loaded Class: " + name + " with: " + loadedWith , this,"loadClass");
+                        this.logUtil.put("Failed Loaded Class: " + name + " with: " + loadedWith , this,"loadClass");
                     }
                 }
                 
@@ -447,7 +447,7 @@ public class AbeClassLoader extends ClassLoader
              
                if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))
                {
-                  logUtil.put("Loaded Class: " + name + " with: " + loadedWith , this,"loadClass");
+                  this.logUtil.put("Loaded Class: " + name + " with: " + loadedWith , this,"loadClass");
                }
              
                return normalClass;
@@ -464,7 +464,7 @@ public class AbeClassLoader extends ClassLoader
             /*
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))
             {
-               logUtil.put("Loaded CustomClass: " + name + " with: " + loadedWith , this,"loadClass");
+               this.logUtil.put("Loaded CustomClass: " + name + " with: " + loadedWith , this,"loadClass");
             }
              */
             }
@@ -472,7 +472,7 @@ public class AbeClassLoader extends ClassLoader
             {
                 if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))
                 {
-                    logUtil.put("Already Loaded: " + name + " with: " + loadedWith , this,"loadClass");
+                    this.logUtil.put("Already Loaded: " + name + " with: " + loadedWith , this,"loadClass");
                 }
             }
             
@@ -486,7 +486,7 @@ public class AbeClassLoader extends ClassLoader
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
             {
-                logUtil.put("Failure loading: " + name, "AbeClassLoader","loadClass", e);
+                this.logUtil.put("Failure loading: " + name, "AbeClassLoader","loadClass", e);
             }
             
             return null;

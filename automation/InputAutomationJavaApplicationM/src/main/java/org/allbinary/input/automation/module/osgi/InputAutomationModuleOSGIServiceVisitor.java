@@ -58,7 +58,7 @@ public class InputAutomationModuleOSGIServiceVisitor
         }
         catch(Exception e)
         {
-            logUtil.put(this.commonStrings.EXCEPTION, this, "visit", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "visit", e);
             return Boolean.FALSE;
         }
     }

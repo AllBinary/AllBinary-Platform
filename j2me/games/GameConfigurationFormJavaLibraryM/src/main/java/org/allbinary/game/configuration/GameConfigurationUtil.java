@@ -75,7 +75,7 @@ public class GameConfigurationUtil
         stringBuffer.append(TO);
         stringBuffer.appendint(value.intValue());
         
-        logUtil.put(stringBuffer.toString(), this, commonStrings.UPDATE);
+        this.logUtil.put(stringBuffer.toString(), this, commonStrings.UPDATE);
         
         gameConfiguration.setValue(value);
     }
@@ -96,7 +96,7 @@ public class GameConfigurationUtil
         stringBuffer.append(TO);
         stringBuffer.appendint(gameConfiguration.getDefaultValue().intValue());
         
-        logUtil.put(stringBuffer.toString(), this, "setDefault");
+        this.logUtil.put(stringBuffer.toString(), this, "setDefault");
 
         gauge.setValue(gameConfiguration.getDefaultValue().intValue() - gameConfiguration.getMinValue().intValue());
         gameConfiguration.setValue(gameConfiguration.getDefaultValue());
@@ -116,7 +116,7 @@ public class GameConfigurationUtil
         
         if (gameConfiguration == gameConfigurationCentral.CHALLENGE_LEVEL)
         {
-            logUtil.put(commonStrings.START, this, "updateChallange");
+            this.logUtil.put(commonStrings.START, this, "updateChallange");
 
             gameConfigurationCentral.COLLIDE_DAMAGE.setValue(gameConfiguration
                     .getValue());
@@ -168,7 +168,7 @@ public class GameConfigurationUtil
 
     public void updateCompetitionValue()
     {
-        logUtil.put(commonStrings.START, this, "updateCompetitionValue");
+        this.logUtil.put(commonStrings.START, this, "updateCompetitionValue");
 
         GameConfigurationCentral gameConfigurationCentral = 
             GameConfigurationCentral.getInstance();

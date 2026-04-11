@@ -80,7 +80,7 @@ extends InputProcessor
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, this.gameInputStrings.ADD_KEY_EVENT, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, this.gameInputStrings.ADD_KEY_EVENT, e);
         }
     }
     
@@ -121,7 +121,7 @@ extends InputProcessor
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, this.gameInputStrings.ADD_KEY_EVENT, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, this.gameInputStrings.ADD_KEY_EVENT, e);
         }
         
     }

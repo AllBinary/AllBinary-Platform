@@ -453,7 +453,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
         
         if(this.isSelected())
         {
-        logUtil.put(
+        this.logUtil.put(
                 geographicMapCellPosition.toString() + " and " +  
                 " path: " + this.getCurrentGeographicMapCellHistory().getTracked().toString(), 
                 this, "buildingChase");
@@ -487,7 +487,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
                     //this.getCurrentGeographicMapCellHistory().getFirstUnvisited();
                     if(this.isSelected())
                     {
-                        logUtil.put("Not handled", this, "buildingChase");
+                        this.logUtil.put("Not handled", this, "buildingChase");
                     }
                     
                     return;
@@ -518,7 +518,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
 
             if(this.isSelected())
             {
-            logUtil.put(
+            this.logUtil.put(
                     "Direction Around Building path: " + pathDirection.toString(), 
                     this, "buildingChase");
             }
@@ -528,7 +528,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
             {
                 if(this.isSelected())
                 {
-                logUtil.put(
+                this.logUtil.put(
                         "Moving Around Building to the Right", this, "buildingChase");
                 }
                 this
@@ -541,7 +541,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
             {
                 if(this.isSelected())
                 {                
-                logUtil.put(
+                this.logUtil.put(
                         "Moving Around Building to the Left", this, "buildingChase");
                 }
 
@@ -614,7 +614,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, "onDestroyed", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "onDestroyed", e);
         }
     }
 }

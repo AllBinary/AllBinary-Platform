@@ -73,13 +73,13 @@ public class PaymentEntity extends AbSqlBean implements PaymentEntityInterface
             super.updateWhere(whereKeyAndValue, updateKeyAndValue);
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                logUtil.put(this.commonStrings.SUCCESS, this, "setDefault");
+                this.logUtil.put(this.commonStrings.SUCCESS, this, "setDefault");
             }
         }catch(Exception e)
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                logUtil.put(this.commonStrings.FAILURE, this, "setDefault", e);
+                this.logUtil.put(this.commonStrings.FAILURE, this, "setDefault", e);
             }
         }
     }
@@ -112,7 +112,7 @@ public class PaymentEntity extends AbSqlBean implements PaymentEntityInterface
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                logUtil.put(this.commonStrings.FAILURE, this, commonStrings.GET, e);
+                this.logUtil.put(this.commonStrings.FAILURE, this, commonStrings.GET, e);
             }
             return null;
         }
@@ -133,7 +133,7 @@ public class PaymentEntity extends AbSqlBean implements PaymentEntityInterface
                 Payment payment = new Payment(paymentHashMap);
                 if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
                 {
-                    logUtil.put(this.commonStrings.SUCCESS, this, "getDefault");
+                    this.logUtil.put(this.commonStrings.SUCCESS, this, "getDefault");
                 }
                 return (PaymentInterface) payment;
             }else
@@ -144,7 +144,7 @@ public class PaymentEntity extends AbSqlBean implements PaymentEntityInterface
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                logUtil.put(this.commonStrings.FAILURE, this, "getDefault", e);
+                this.logUtil.put(this.commonStrings.FAILURE, this, "getDefault", e);
             }
             return null;
         }
@@ -161,13 +161,13 @@ public class PaymentEntity extends AbSqlBean implements PaymentEntityInterface
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                logUtil.put(this.commonStrings.SUCCESS, this, "remove");
+                this.logUtil.put(this.commonStrings.SUCCESS, this, "remove");
             }
         }catch(Exception e)
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                logUtil.put(this.commonStrings.FAILURE, this, "remove", e);
+                this.logUtil.put(this.commonStrings.FAILURE, this, "remove", e);
             }
         }
     }
@@ -201,13 +201,13 @@ public class PaymentEntity extends AbSqlBean implements PaymentEntityInterface
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                logUtil.put(this.commonStrings.SUCCESS, this, "add");
+                this.logUtil.put(this.commonStrings.SUCCESS, this, "add");
             }
         }catch(Exception e)
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                logUtil.put(this.commonStrings.FAILURE, this, "add", e);
+                this.logUtil.put(this.commonStrings.FAILURE, this, "add", e);
             }
         }
     }

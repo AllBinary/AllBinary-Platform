@@ -38,7 +38,7 @@ public class OpenGLFeatureUtil
         (features.isFeature(openGLFeatureFactory.OPENGL_2D_AND_3D) ||
         features.isFeature(openGLFeatureFactory.OPENGL_3D));
         
-//        logUtil.put(new StringMaker().append("isOpenGL: ").append(openGLConfiguration.isOpenGL())
+//        this.logUtil.put(new StringMaker().append("isOpenGL: ").append(openGLConfiguration.isOpenGL())
 //            .append(" OPENGL_2D_AND_3D: ").append(features.isFeature(openGLFeatureFactory.OPENGL_2D_AND_3D))
 //            .append(" OPENGL_3D: ").append(features.isFeature(openGLFeatureFactory.OPENGL_3D))
 //            .append(" anyThreed: ").append(anyThreed).toString(), this, commonStrings.CONSTRUCTOR);

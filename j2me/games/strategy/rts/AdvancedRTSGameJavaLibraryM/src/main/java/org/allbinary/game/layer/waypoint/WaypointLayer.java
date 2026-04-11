@@ -64,7 +64,7 @@ public class WaypointLayer extends AdvancedRTSGameLayer
             rectangle,
             x, y);
 
-        //logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
         
         this.setCollidableInferface(new CollidableWaypointBehavior(this, true));
         
@@ -108,7 +108,7 @@ public class WaypointLayer extends AdvancedRTSGameLayer
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, "processTick", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "processTick", e);
         }
     }
 

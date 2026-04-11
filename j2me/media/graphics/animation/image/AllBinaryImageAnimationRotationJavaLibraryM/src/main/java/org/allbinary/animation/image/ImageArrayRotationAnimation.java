@@ -35,7 +35,7 @@ public class ImageArrayRotationAnimation extends
                 ((ImageArrayRotationAnimationInfo) object).getAngleInfoP(),
                 animationBehavior);
 
-        // logUtil.put(commonStrings.CONSTRUCTOR,
+        // this.logUtil.put(commonStrings.CONSTRUCTOR,
         // this, "AllBinaryImageRotationAnimation");
         ImageArrayRotationAnimationInfo allBinaryImageRotationAnimationInfo = (ImageArrayRotationAnimationInfo) object;
 
@@ -49,7 +49,7 @@ public class ImageArrayRotationAnimation extends
     {
         super(imageArray, angleInfo, animationBehavior);
 
-        // logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        // this.logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
         this.init(imageArray, angleInfo, totalAngle);
     }
@@ -70,7 +70,7 @@ public class ImageArrayRotationAnimation extends
             throws Exception
     {
 
-        // logUtil.put(commonStrings.START,
+        // this.logUtil.put(commonStrings.START,
         // this, "AllBinaryImageRotationAnimation");
 
         this.expectedTotalFrames = totalAngle

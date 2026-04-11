@@ -60,7 +60,7 @@ public class TouchButtonsMappingPaintable extends Paintable
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, this, "updateRectangle", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "updateRectangle", e);
         }
     }
 

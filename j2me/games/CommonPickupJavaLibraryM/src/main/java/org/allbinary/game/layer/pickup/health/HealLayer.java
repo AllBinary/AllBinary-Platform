@@ -48,7 +48,7 @@ public class HealLayer extends AllBinaryLayer
       }
       else
       {
-          logUtil.put("Heal attempt on dead: Does not currently occur", this, "visit");
+          this.logUtil.put("Heal attempt on dead: Does not currently occur", this, "visit");
       }
    }
 }

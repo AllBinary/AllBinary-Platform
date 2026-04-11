@@ -42,7 +42,7 @@ public class StoreValidationTransformTag extends ValidationTransformTag
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
             {
-                logUtil.put("Tag Start", this, "doStartTag");
+                this.logUtil.put("Tag Start", this, "doStartTag");
             }
 
             return super.doStartTag();

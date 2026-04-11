@@ -55,7 +55,7 @@ public class VirtualKeyboardEventHandler extends BasicEventHandler
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, "open", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "open", e);
         }
 
     }
@@ -69,7 +69,7 @@ public class VirtualKeyboardEventHandler extends BasicEventHandler
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CLOSE, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CLOSE, e);
         }
 
     }

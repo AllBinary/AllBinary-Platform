@@ -85,7 +85,7 @@ public class TerrainEventHandler extends BasicEventHandler
            }
            catch (Exception e)
            {
-               logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
+               this.logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
            }
        }
 

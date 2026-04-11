@@ -50,7 +50,7 @@ public class TouchJ2ME
         catch(Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, this, "pointerDragged", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "pointerDragged", e);
         }
     }
 
@@ -63,7 +63,7 @@ public class TouchJ2ME
         catch(Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, this, "pointerPressed", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "pointerPressed", e);
         }
     }
 
@@ -76,7 +76,7 @@ public class TouchJ2ME
         catch(Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, this, "pointerReleased", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "pointerReleased", e);
         }
     }
 }

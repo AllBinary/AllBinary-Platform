@@ -46,7 +46,7 @@ public class TransformInfoObjectFactory
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY))
             {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                logUtil.put("Creating View: " + transformInfoInterface.getName(), this, commonStrings.GET_INSTANCE);
+                this.logUtil.put("Creating View: " + transformInfoInterface.getName(), this, commonStrings.GET_INSTANCE);
             }
 
             //validate view data before creating view object
@@ -97,7 +97,7 @@ public class TransformInfoObjectFactory
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
             {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                logUtil.put(error, this, commonStrings.GET_INSTANCE, e);
+                this.logUtil.put(error, this, commonStrings.GET_INSTANCE, e);
             }
             throw e;
         } catch (Exception e)
@@ -113,7 +113,7 @@ public class TransformInfoObjectFactory
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
             {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                logUtil.put(error, this, commonStrings.GET_INSTANCE, e);
+                this.logUtil.put(error, this, commonStrings.GET_INSTANCE, e);
             }
             throw e;
         }

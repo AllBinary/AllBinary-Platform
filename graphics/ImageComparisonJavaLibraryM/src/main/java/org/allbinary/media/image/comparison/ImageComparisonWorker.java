@@ -83,7 +83,7 @@ public class ImageComparisonWorker
     {
         try
         {
-            logUtil.put(this.commonStrings.START, this, this.commonStrings.RUN);
+            this.logUtil.put(this.commonStrings.START, this, this.commonStrings.RUN);
             
             this.setRunning(true);
             
@@ -124,11 +124,11 @@ public class ImageComparisonWorker
                     this.fireEvent(new ImageComparisonResultsEvent(
                         this, imageComparisonResult));
                     
-                    logUtil.put(new StringMaker().append("Image Comparison Result: ").append(imageComparisonResult.toString()).append(" for frame: ").appendlong(frame).toString(), this, this.commonStrings.RUN);
+                    this.logUtil.put(new StringMaker().append("Image Comparison Result: ").append(imageComparisonResult.toString()).append(" for frame: ").appendlong(frame).toString(), this, this.commonStrings.RUN);
                 }
                 else
                 {
-                    logUtil.put(
+                    this.logUtil.put(
                         "An Image Was Not Valid: Image Worker Event Processing terminated", this, this.commonStrings.RUN);
                 }
             }
@@ -138,15 +138,15 @@ public class ImageComparisonWorker
             index2++;
             
             final String message = new StringMaker().append("Frame: ").appendint(index2).append(CommonLabels.getInstance().ELAPSED).appendlong(timeHelper.getElapsed()).toString();
-            logUtil.put(message, this, this.commonStrings.RUN);
+            this.logUtil.put(message, this, this.commonStrings.RUN);
             
             this.setRunning(false);
             
-            logUtil.put(this.commonStrings.END, this, this.commonStrings.RUN);
+            this.logUtil.put(this.commonStrings.END, this, this.commonStrings.RUN);
         }
         catch (Exception e)
         {
-            logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
         }
     }
 }

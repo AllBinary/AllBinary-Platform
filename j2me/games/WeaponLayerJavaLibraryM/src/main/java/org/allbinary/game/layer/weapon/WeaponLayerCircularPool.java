@@ -41,7 +41,7 @@ public class WeaponLayerCircularPool extends AllBinaryLayerCircularPool
         /*
         if(!weaponLayer.isDestroyed())
         {
-            logUtil.put("TWB Exception: WeaponLayer Pool Is Too Small For: " + weaponLayer, this, commonStrings.GET_INSTANCE);
+            this.logUtil.put("TWB Exception: WeaponLayer Pool Is Too Small For: " + weaponLayer, this, commonStrings.GET_INSTANCE);
         }
         */
 

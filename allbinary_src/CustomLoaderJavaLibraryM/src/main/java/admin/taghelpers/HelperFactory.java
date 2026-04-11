@@ -67,7 +67,7 @@ public class HelperFactory
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
-            logUtil.put(error, factoryName + "->HelperFactory",
+            this.logUtil.put(error, factoryName + "->HelperFactory",
             "getInstance(String, String, HashMap, PageContext)", e);
          }
          throw e;
@@ -78,7 +78,7 @@ public class HelperFactory
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
-            logUtil.put(error,factoryName + "->HelperFactory",
+            this.logUtil.put(error,factoryName + "->HelperFactory",
             "getInstance(String, String, HashMap, PageContext)", e);
          }
          return null;
@@ -119,7 +119,7 @@ public class HelperFactory
              String error = "Failed To Get Instance Args: HashMap=" +
                  hashMap.toString() + " PageContext=" + pageContext;
 
-            logUtil.put(error, factoryName + "->HelperFactory",
+            this.logUtil.put(error, factoryName + "->HelperFactory",
             "getInstance(String, String, HashMap, PageContext)", e);
          }
          throw e;
@@ -130,7 +130,7 @@ public class HelperFactory
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
              final CommonStrings commonStrings = CommonStrings.getInstance();
-             logUtil.put(commonStrings.EXCEPTION,factoryName + "->HelperFactory",
+             this.logUtil.put(commonStrings.EXCEPTION,factoryName + "->HelperFactory",
                  "getInstance(String, String, HashMap, PageContext)", e);
          }
          return null;
@@ -173,7 +173,7 @@ public class HelperFactory
              String error = "Failed To Get Instance Args: HashMap=" + 
                  hashMap.toString() + " PageContext=" + pageContext;
 
-             logUtil.put(error, factoryName + "->HelperFactory",
+             this.logUtil.put(error, factoryName + "->HelperFactory",
                  "getInstance(String, String, HashMap, PageContext)",e);
          }
          throw e;
@@ -184,7 +184,7 @@ public class HelperFactory
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION,factoryName + "->HelperFactory",
+            this.logUtil.put(commonStrings.EXCEPTION,factoryName + "->HelperFactory",
             "getInstance(String, String, HashMap, PageContext)",e);
          }
          return null;
@@ -207,7 +207,7 @@ public class HelperFactory
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, factoryName + "->HelperFactory",
+            this.logUtil.put(commonStrings.EXCEPTION, factoryName + "->HelperFactory",
             "getInstance(String, String, HashMap, PageContext)", e);
          }
          throw e;
@@ -218,7 +218,7 @@ public class HelperFactory
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION,factoryName + "->HelperFactory",
+            this.logUtil.put(commonStrings.EXCEPTION,factoryName + "->HelperFactory",
             "getInstance(String, String, HashMap, PageContext)", e);
          }
          return null;

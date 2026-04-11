@@ -42,7 +42,7 @@ public class ImageAnalysis
    public ImageAnalysisResults[] process(BufferedImage[] bufferedImageArray, ColorRangeInterface colorRangeInterface) throws Exception
    {
        final CommonStrings commonStrings = CommonStrings.getInstance();
-      logUtil.put(CommonLabels.getInstance().START + colorRangeInterface.toString(), this, commonStrings.PROCESS);
+      this.logUtil.put(CommonLabels.getInstance().START + colorRangeInterface.toString(), this, commonStrings.PROCESS);
 
       ImageAnalysisResults[] imageAnalysisResultsArray = new ImageAnalysisResults[bufferedImageArray.length];
 
@@ -98,7 +98,7 @@ public class ImageAnalysis
          imageAnalysisResults.getImageColorRangeResults().addMatchingPixelsChecked();
       } else
       {
-         // logUtil.put("Invalid Color: " + color, "ImageAnalysis", commonStrings.PROCESS);
+         // this.logUtil.put("Invalid Color: " + color, "ImageAnalysis", commonStrings.PROCESS);
       }
       imageAnalysisResults.getImageColorRangeResults().addTotalPixelsChecked();
    }

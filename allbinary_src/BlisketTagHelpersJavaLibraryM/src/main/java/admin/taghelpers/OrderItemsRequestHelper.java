@@ -59,7 +59,7 @@ public class OrderItemsRequestHelper
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,"setOrderStatus(newStatus)");
+            this.logUtil.put(success,this,"setOrderStatus(newStatus)");
          }
          return success;
       }
@@ -68,7 +68,7 @@ public class OrderItemsRequestHelper
          String error = "Failed to view order table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"setOrderStatus(newStatus)",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"setOrderStatus(newStatus)",e);
          }
          return error;         
       }
@@ -83,7 +83,7 @@ public class OrderItemsRequestHelper
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,"setOrderStatus(newStatus)");
+            this.logUtil.put(success,this,"setOrderStatus(newStatus)");
          }
          return success;
       }
@@ -92,7 +92,7 @@ public class OrderItemsRequestHelper
          String error = "Failed to view order table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"setOrderStatus(newStatus)",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"setOrderStatus(newStatus)",e);
          }
          return error;         
       }

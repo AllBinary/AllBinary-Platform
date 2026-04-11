@@ -61,7 +61,7 @@ public class PaymentTransactionInterfaceFactory
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENTERROR))
          {
              final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put("Failed to generate test data",this, commonStrings.GET_INSTANCE, e);
+            this.logUtil.put("Failed to generate test data",this, commonStrings.GET_INSTANCE, e);
          }
          throw e;
       }

@@ -43,13 +43,13 @@ public class AngleIncrementInfo
 
       /*
       String message = "DOWN_FRAME = " + this.DOWN_FRAME + " Angle: " + this.getFrameAngle(this.DOWN_FRAME);
-      logUtil.put(message, this, commonStrings.CONSTRUCTOR);
+      this.logUtil.put(message, this, commonStrings.CONSTRUCTOR);
       message = "UP_FRAME = " + this.UP_FRAME + " Angle: " + this.getFrameAngle(this.UP_FRAME);
-      logUtil.put(message, this, commonStrings.CONSTRUCTOR);
+      this.logUtil.put(message, this, commonStrings.CONSTRUCTOR);
       message = "LEFT_FRAME = " + this.LEFT_FRAME + " Angle: " + this.getFrameAngle(this.LEFT_FRAME);
-      logUtil.put(message, this, commonStrings.CONSTRUCTOR);
+      this.logUtil.put(message, this, commonStrings.CONSTRUCTOR);
       message = "RIGHT_FRAME = " + this.RIGHT_FRAME + " Angle: " + this.getFrameAngle(this.RIGHT_FRAME);
-      logUtil.put(message, this, commonStrings.CONSTRUCTOR);
+      this.logUtil.put(message, this, commonStrings.CONSTRUCTOR);
        */
    }
    

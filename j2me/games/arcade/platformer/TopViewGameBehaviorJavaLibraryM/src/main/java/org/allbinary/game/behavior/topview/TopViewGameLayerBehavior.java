@@ -48,7 +48,7 @@ public class TopViewGameLayerBehavior extends GameLayerBehavior {
     }
 
     public void land(final VelocityProperties velocityProperties) {
-        //logUtil.put(commonStrings.START, this, "land");
+        //this.logUtil.put(commonStrings.START, this, "land");
         velocityProperties.getVelocityYBasicDecimalP().set(0);
         this.land();
         // Takes a long time - unknown
@@ -67,19 +67,19 @@ public class TopViewGameLayerBehavior extends GameLayerBehavior {
 
             if(gravityActionIndex < maxGravityActionIndex) {
                 final int acceleration2 = -acceleration.getForward() * accelerationMultiplier;
-                //logUtil.put("Jump: " + velocityProperties.getVelocityYBasicDecimalP().getUnscaled(), this, commonStrings.UP);
-                //logUtil.put("Acceleration: " + acceleration2, this, commonStrings.UP);
+                //this.logUtil.put("Jump: " + velocityProperties.getVelocityYBasicDecimalP().getUnscaled(), this, commonStrings.UP);
+                //this.logUtil.put("Acceleration: " + acceleration2, this, commonStrings.UP);
                 velocityProperties.getVelocityYBasicDecimalP().add(acceleration2);
-                //logUtil.put("Jumping: " + velocityProperties.getVelocityYBasicDecimalP().getUnscaled(), this, commonStrings.UP);
+                //this.logUtil.put("Jumping: " + velocityProperties.getVelocityYBasicDecimalP().getUnscaled(), this, commonStrings.UP);
                 velocityProperties.limitXYToForwardAndReverseMaxVelocity();
 
                 // this.getVelocityProperties().addVelocity(this.acceleration.getForward(), angle);
                 gravityActionIndex++;
             } else {
-                //logUtil.put("Jump peaked", this, commonStrings.UP);
+                //this.logUtil.put("Jump peaked", this, commonStrings.UP);
             }
         } else {
-            //logUtil.put("Jump over", this, commonStrings.UP);
+            //this.logUtil.put("Jump over", this, commonStrings.UP);
         }
 
         if (isJumpAction) {
@@ -94,7 +94,7 @@ public class TopViewGameLayerBehavior extends GameLayerBehavior {
     
     public void inputFrames(final VelocityProperties velocityProperties) {
         if (this.gravityActionIndex > 0 && velocityProperties.getVelocityYBasicDecimalP().getUnscaled() > 0) {
-            //logUtil.put("Falling from jump now", this, "inputFrames");
+            //this.logUtil.put("Falling from jump now", this, "inputFrames");
             this.isJumpOver = true;
         }
     }

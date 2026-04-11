@@ -46,7 +46,7 @@ public class StaticPagesTag extends TableTag
    {
       try
       {
-         //logUtil.put(this.commonStrings.START, this, "generateStaticPages()");
+         //this.logUtil.put(this.commonStrings.START, this, "generateStaticPages()");
 
          Object object = new StaticPagesRequestHelperFactory().getInstance(
          this.getPropertiesHashMap(), this.pageContext);
@@ -68,7 +68,7 @@ public class StaticPagesTag extends TableTag
          String error = "Failed to generate staticpages table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"generateStaticPages()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"generateStaticPages()",e);
          }
          return error;
       }
@@ -98,7 +98,7 @@ public class StaticPagesTag extends TableTag
          String error = "Failed to makePublic";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"makePublic()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"makePublic()",e);
          }
          return error;
       }
@@ -112,7 +112,7 @@ public class StaticPagesTag extends TableTag
          {
             if(this.getCommand()!=null)
             {
-               //logUtil.put(CommonLabels.getInstance().START + this.getCommand(), this, "doStartTag");
+               //this.logUtil.put(CommonLabels.getInstance().START + this.getCommand(), this, "doStartTag");
 
                if (this.getCommand().compareTo(SearchData.GENERATESTATICPAGES)==0)
                {

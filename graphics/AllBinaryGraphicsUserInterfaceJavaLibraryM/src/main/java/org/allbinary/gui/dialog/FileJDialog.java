@@ -92,7 +92,7 @@ public class FileJDialog extends javax.swing.JDialog
    {//GEN-HEADEREND:event_jFileChooser1ActionPerformed
 // TODO add your handling code here:
        
-       logUtil.put("Starting Action Command: " + evt.getActionCommand(), this, "ActionPerformed");
+       this.logUtil.put("Starting Action Command: " + evt.getActionCommand(), this, "ActionPerformed");
        
        File[] files = this.getJFileChooser1().getSelectedFiles();
        

@@ -36,7 +36,7 @@ public class CapturedImageInputOutput implements ImageIOInterface {
         
         final BufferedImageFrameCacheable capturedBufferedImageCacheable
                 = ((BufferedImageFrameCacheable) (Object) ((AutomaticCacheInterface) CapturedBufferedImagesCacheSingleton.getInstance()).get(frame));
-        logUtil.put(("Saving: "
+        this.logUtil.put(("Saving: "
                 + capturedBufferedImageCacheable.toString()),
                 this, commonStrings.SAVE);
         save(capturedBufferedImageCacheable.getBufferedImage(), frame);
@@ -52,7 +52,7 @@ public class CapturedImageInputOutput implements ImageIOInterface {
         filePathStringBuffer.append(LongUtil.fillIn(frame.toString()));
         filePathStringBuffer.append(MediaDataFactory.getInstance().JPG.getExtension());
         String filePath = filePathStringBuffer.toString();
-        logUtil.put(("Image File Path: " + filePath
+        this.logUtil.put(("Image File Path: " + filePath
                 + imageUtil.toString(bufferedImage)),
                 this, commonStrings.SAVE);
         final ImagePersistanceUtil imagePersistanceUtil = ImagePersistanceUtil.getInstance();

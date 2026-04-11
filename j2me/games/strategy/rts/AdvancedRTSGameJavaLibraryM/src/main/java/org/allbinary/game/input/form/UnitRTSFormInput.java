@@ -174,7 +174,7 @@ public class UnitRTSFormInput extends RTSFormInput
         stringBuffer.append(" with ");
         stringBuffer.appendint(capital.getTotalMoney());
 
-        logUtil.put(stringBuffer.toString(), this, "attemptBuild");        
+        this.logUtil.put(stringBuffer.toString(), this, "attemptBuild");        
 
         if (cost <= capital.getTotalMoney())
         {

@@ -59,7 +59,7 @@ public class DomNodeHelper
            {
                break;
            }
-           //logUtil.put("NodeType: " + node.getNodeType(), this, "getDoc()");
+           //this.logUtil.put("NodeType: " + node.getNodeType(), this, "getDoc()");
        }
    }
    return node;

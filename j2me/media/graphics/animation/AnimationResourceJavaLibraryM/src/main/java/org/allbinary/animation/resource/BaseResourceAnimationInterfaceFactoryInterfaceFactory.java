@@ -65,7 +65,7 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
     public void init(final int level) throws Exception
     {
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        logUtil.put(new StringMaker().append("Available List of Animations: ").append(hashtable.toString()).toString(),this, commonStrings.INIT);
+        this.logUtil.put(new StringMaker().append("Available List of Animations: ").append(hashtable.toString()).toString(),this, commonStrings.INIT);
 
         this.setInitialized(true);
     }
@@ -95,7 +95,7 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
         final Object basicAnimationInterfaceFactoryInterfaceCanBeNull = hashtable.get(resource);
         
         if(basicAnimationInterfaceFactoryInterfaceCanBeNull == null) {
-            //logUtil.put(new StringMaker().append("No Resource for: ").append(resource).toString(),this, "getBasicAnimationInterfaceFactoryInstance");
+            //this.logUtil.put(new StringMaker().append("No Resource for: ").append(resource).toString(),this, "getBasicAnimationInterfaceFactoryInstance");
             return NullAnimationFactory.NULL_NOT_FOR_USE_ANIMATION_FACTORY;
         }
         

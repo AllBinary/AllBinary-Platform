@@ -99,14 +99,14 @@ public class CategoryEntity extends AbSqlBean implements CategoryEntityInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
-            logUtil.put(this.commonStrings.SUCCESS,this,INSERT);
+            this.logUtil.put(this.commonStrings.SUCCESS,this,INSERT);
          }
       }
       catch(Exception e)
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
-            logUtil.put(this.commonStrings.FAILURE,this,INSERT,e);
+            this.logUtil.put(this.commonStrings.FAILURE,this,INSERT,e);
          }
       }
    }
@@ -118,14 +118,14 @@ public class CategoryEntity extends AbSqlBean implements CategoryEntityInterface
          super.deleteWhere(CategoryData.getInstance().NAME,value);
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
-            logUtil.put(this.commonStrings.SUCCESS,this, commonStrings.delete);
+            this.logUtil.put(this.commonStrings.SUCCESS,this, commonStrings.delete);
          }
       }
       catch(Exception e)
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
-            logUtil.put(this.commonStrings.FAILURE,this, commonStrings.delete,e);
+            this.logUtil.put(this.commonStrings.FAILURE,this, commonStrings.delete,e);
          }
       }
    }

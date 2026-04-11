@@ -70,7 +70,7 @@ public class InputAutomationModuleBundleActivator
         }
         else
         {
-            logUtil.put("No ServiceReference: " +
+            this.logUtil.put("No ServiceReference: " +
                 InputAutomationConfigurationModuleChangeListener.class.getName(), this, "addModules");
             return null;
         }
@@ -80,7 +80,7 @@ public class InputAutomationModuleBundleActivator
     {
         try
         {
-            logUtil.put(this.commonStrings.START, this, "addModules");
+            this.logUtil.put(this.commonStrings.START, this, "addModules");
             
             InputAutomationConfigurationModuleChangeListener
                 inputAutomationConfigurationModuleChangeListener =
@@ -102,7 +102,7 @@ public class InputAutomationModuleBundleActivator
         }
         catch(Exception e)
         {
-            logUtil.put(this.commonStrings.EXCEPTION, this, "addModules");
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "addModules");
         }
     }
     
@@ -119,7 +119,7 @@ public class InputAutomationModuleBundleActivator
     {
         try
         {
-            logUtil.put(this.commonStrings.START, this, "removeModules");
+            this.logUtil.put(this.commonStrings.START, this, "removeModules");
             InputAutomationConfigurationModuleChangeListener
                 inputAutomationConfigurationModuleChangeListener =
                 this.getInputAutomationConfigurationModuleChangeListener(context);
@@ -140,14 +140,14 @@ public class InputAutomationModuleBundleActivator
         }
         catch(Exception e)
         {
-            logUtil.put(this.commonStrings.EXCEPTION, this, "removeModules");
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "removeModules");
         }
     }
     
     public void start(BundleContext context)
     throws Exception
     {
-        logUtil.put(this.commonStrings.START, this, this.commonStrings.START);
+        this.logUtil.put(this.commonStrings.START, this, this.commonStrings.START);
         
         this.addModules(context);
         
@@ -157,7 +157,7 @@ public class InputAutomationModuleBundleActivator
     public void stop(BundleContext context)
     throws Exception
     {
-        logUtil.put(this.commonStrings.START, this, "stop");
+        this.logUtil.put(this.commonStrings.START, this, "stop");
         
         this.removeModules(context);
     }

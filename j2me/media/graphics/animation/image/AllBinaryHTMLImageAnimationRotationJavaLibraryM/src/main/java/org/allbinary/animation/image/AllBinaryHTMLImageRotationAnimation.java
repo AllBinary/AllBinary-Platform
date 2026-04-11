@@ -79,7 +79,7 @@ extends ImageBaseRotationAnimation
         this.canvasSurfaceArray[0] = this.getCanvasSurface(this.twoImages[0]);
         this.canvasSurfaceArray[1] = this.getCanvasSurface(this.twoImages[1]);
 
-        //logUtil.put(this.toString(), this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.put(this.toString(), this, commonStrings.CONSTRUCTOR);
     }
 
     public CanvasSurface getCanvasSurface(final Image image) {
@@ -143,10 +143,10 @@ extends ImageBaseRotationAnimation
 
     public void setFrame(final int index)
     {
-        //logUtil.put(commonLabels.INDEX_LABEL + index, this, "setRotation");
+        //this.logUtil.put(commonLabels.INDEX_LABEL + index, this, "setRotation");
 
         //final int currentFrame = this.circularIndexUtil.getIndex();
-        //logUtil.put("currentFrame: " + currentFrame, this, "setRotation");
+        //this.logUtil.put("currentFrame: " + currentFrame, this, "setRotation");
         
         super.setFrame(index);
 

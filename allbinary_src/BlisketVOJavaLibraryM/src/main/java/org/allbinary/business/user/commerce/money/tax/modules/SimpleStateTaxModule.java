@@ -100,7 +100,7 @@ public class SimpleStateTaxModule implements TaxModuleInterface
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAX))
       {
-         logUtil.put("Tax Doc: " + DomDocumentHelper.toString(document), this,"getTaxRate");
+         this.logUtil.put("Tax Doc: " + DomDocumentHelper.toString(document), this,"getTaxRate");
       }
       
       String state = this.streetAddress.getState();
@@ -165,7 +165,7 @@ public class SimpleStateTaxModule implements TaxModuleInterface
 
       if(   org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAX))
       {
-         logUtil.put("Tax Doc: " + DomDocumentHelper.toString(document), this, commonStrings.IS_VALID);
+         this.logUtil.put("Tax Doc: " + DomDocumentHelper.toString(document), this, commonStrings.IS_VALID);
       }
 
       String country = this.streetAddress.getCountry();
@@ -179,7 +179,7 @@ public class SimpleStateTaxModule implements TaxModuleInterface
       /*
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAX))
       {
-         logUtil.put("Number Of Tax Nodes: " + nodeList.getLength(), this,commonStrings.IS_VALID);
+         this.logUtil.put("Number Of Tax Nodes: " + nodeList.getLength(), this,commonStrings.IS_VALID);
       }
       */
       
@@ -190,7 +190,7 @@ public class SimpleStateTaxModule implements TaxModuleInterface
          /*
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAX))
          {
-            logUtil.put("Node: " + node.getNodeName(), this,commonStrings.IS_VALID);
+            this.logUtil.put("Node: " + node.getNodeName(), this,commonStrings.IS_VALID);
          }
          */
          
@@ -199,7 +199,7 @@ public class SimpleStateTaxModule implements TaxModuleInterface
          /*
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAX))
          {
-            logUtil.put("Number Of Tax Child Nodes: " + taxNodeChildren.getLength(), this,commonStrings.IS_VALID);
+            this.logUtil.put("Number Of Tax Child Nodes: " + taxNodeChildren.getLength(), this,commonStrings.IS_VALID);
          }
          */
          
@@ -217,7 +217,7 @@ public class SimpleStateTaxModule implements TaxModuleInterface
              stringBuffer.append(" Number Of Children: ");
              stringBuffer.append(streetAddressNode.getChildNodes().getLength());
 
-            logUtil.put(stringBuffer.toString(), this,commonStrings.IS_VALID);
+            this.logUtil.put(stringBuffer.toString(), this,commonStrings.IS_VALID);
          }
 
          StreetAddress taxableStreetAddress = new StreetAddress(streetAddressNode);                  
@@ -249,7 +249,7 @@ public class SimpleStateTaxModule implements TaxModuleInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            logUtil.put("Failed to validate", this, commonStrings.IS_VALID, e);
+            this.logUtil.put("Failed to validate", this, commonStrings.IS_VALID, e);
          }
          return Boolean.FALSE;
       }

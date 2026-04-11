@@ -77,7 +77,7 @@ public class EditThemeValidationView extends ThemeCustomizerView implements Vali
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            logUtil.put("Setting Data: " + documentString, this, this.commonStrings.CONSTRUCTOR);
+            this.logUtil.put("Setting Data: " + documentString, this, this.commonStrings.CONSTRUCTOR);
          }
 
          this.getTransformInfoInterface().setData(documentString);
@@ -88,7 +88,7 @@ public class EditThemeValidationView extends ThemeCustomizerView implements Vali
       {
           if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
           {
-             logUtil.put("Failed to validate",this,commonStrings.IS_VALID,e);
+             this.logUtil.put("Failed to validate",this,commonStrings.IS_VALID,e);
           }
          return Boolean.FALSE;
       }
@@ -108,7 +108,7 @@ public class EditThemeValidationView extends ThemeCustomizerView implements Vali
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            logUtil.put("Failed to generate validation error info",this,"validationInfo()",e);
+            this.logUtil.put("Failed to generate validation error info",this,"validationInfo()",e);
          }
          return "Error Getting Validation Info";
       }

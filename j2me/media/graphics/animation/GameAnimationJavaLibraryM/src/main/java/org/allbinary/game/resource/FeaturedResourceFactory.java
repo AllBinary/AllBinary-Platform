@@ -62,7 +62,7 @@ public class FeaturedResourceFactory
             
             boolean isLoadingLevel = featureInterface.isLoadingLevel(level);
             boolean isFeature = featureInterface.isFeature();
-            logUtil.put(
+            this.logUtil.put(
                     new StringMaker().append(this.GAME_FEATURE_CONTROLLED)
                             .append(featureInterface.toString())
                             .append(this.IS_LOADING_LEVEL_LABEL)
@@ -75,7 +75,7 @@ public class FeaturedResourceFactory
 
             if (isLoadingLevel && isFeature)
             {
-//                logUtil.put(new StringBuilder()
+//                this.logUtil.put(new StringBuilder()
 //                        .append(commonStrings.INIT)
 //                        .append(CommonSeps.getInstance().SPACE)
 //                        .append(this.GAME_FEATURE_CONTROLLED)
@@ -97,7 +97,7 @@ public class FeaturedResourceFactory
         stringBuffer.append(IMAGE_LABEL);
         stringBuffer.appendboolean(features.isFeature(graphicsFeatureFactory.IMAGE_GRAPHICS));
         
-        logUtil.put(stringBuffer.toString(), this, commonStrings.INIT);
+        this.logUtil.put(stringBuffer.toString(), this, commonStrings.INIT);
 
         if (features.isFeature(graphicsFeatureFactory.IMAGE_GRAPHICS))
         {
@@ -112,7 +112,7 @@ public class FeaturedResourceFactory
             stringBuffer.append(SPRITE_FULL);
             stringBuffer.appendboolean(features.isFeature(graphicsFeatureFactory.SPRITE_FULL_GRAPHICS));
 
-            logUtil.put(stringBuffer.toString(), this, commonStrings.INIT);
+            this.logUtil.put(stringBuffer.toString(), this, commonStrings.INIT);
         }
     }
     
@@ -123,7 +123,7 @@ public class FeaturedResourceFactory
 
     public void add(GameFeatureControlledInterface featureInterface)
     {
-        logUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(featureInterface)).toString(), this, commonStrings.ADD);
+        this.logUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(featureInterface)).toString(), this, commonStrings.ADD);
         
         this.list.add(featureInterface);
     }

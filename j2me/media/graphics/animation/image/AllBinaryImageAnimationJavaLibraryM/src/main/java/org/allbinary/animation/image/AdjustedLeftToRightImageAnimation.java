@@ -31,7 +31,7 @@ extends LeftToRightImageAnimation
     {
         super(image, sequenceArray, animationBehavior);
 
-        // logUtil.put(, this,);
+        // this.logUtil.put(, this,);
 
         this.init(dx, dy);
         //-(imageArray[0].getWidth() >> 2), -(imageArray[0].getHeight() >> 2)

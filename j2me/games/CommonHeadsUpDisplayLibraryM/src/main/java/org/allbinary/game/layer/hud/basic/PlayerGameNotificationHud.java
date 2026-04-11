@@ -90,7 +90,7 @@ extends GameNotificationHud
         {
             if(lastString != string) {
                 this.lastString = string;
-                logUtil.put(new StringMaker().append(PERMANENT_GAME_NOTIFICATION).append(string).toString(), this, commonStrings.ADD);
+                this.logUtil.put(new StringMaker().append(PERMANENT_GAME_NOTIFICATION).append(string).toString(), this, commonStrings.ADD);
             }
             this.permanentGameNotification.add(string, seconds, basicColor);
             this.circularIndexUtil.setSize(this.permanentGameNotification.getSize());
@@ -99,7 +99,7 @@ extends GameNotificationHud
         {
             //if(seconds.intValue() > 0)
             //{
-                //logUtil.put(TEMP_GAME_NOTIFICATION).append(string, this, commonStrings.ADD);
+                //this.logUtil.put(TEMP_GAME_NOTIFICATION).append(string, this, commonStrings.ADD);
             //}
 
             this.gameNotification.add(string, seconds, basicColor);

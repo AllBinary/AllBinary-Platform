@@ -49,7 +49,7 @@ public class LogUtil {
     private final StringMaker stringBuffer = new StringMaker();
 
     //ActualPlatform
-    public void put(Log log) {
+    public void putL(Log log) {
         if (log == null) {
             return;
         }
@@ -63,7 +63,7 @@ public class LogUtil {
     }
     
     //ActualPlatform
-    public void put(final String specialMessage, final Object object, final String functionName) {
+    public void putF(final String specialMessage, final Object object, final String functionName) {
         
     }
     
@@ -187,7 +187,7 @@ public class LogUtil {
         }
     }
 
-    public static void put(
+    public static void putF(
         String specialMessage,
         String className,
         String functionName)

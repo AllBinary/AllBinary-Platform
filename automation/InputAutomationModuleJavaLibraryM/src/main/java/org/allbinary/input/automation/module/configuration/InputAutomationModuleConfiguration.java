@@ -102,26 +102,26 @@ public class InputAutomationModuleConfiguration
             }
             else
             {
-                logUtil.put("Class Node Null", this,this.commonStrings.INIT);
+                this.logUtil.put("Class Node Null", this,this.commonStrings.INIT);
             }
         }
         else
         {
-            logUtil.put(InputAutomationData.NAME + " Node Has No Children", this,"Contructor");
+            this.logUtil.put(InputAutomationData.NAME + " Node Has No Children", this,"Contructor");
         }
     }
     
     public void init(final AbeClientInformationInterface abeClientInformation)
     {
         try {
-            logUtil.put("Name: " + getName(), this, this.commonStrings.INIT);
-            logUtil.put("ClassName: " + className, this, this.commonStrings.INIT);
+            this.logUtil.put("Name: " + getName(), this, this.commonStrings.INIT);
+            this.logUtil.put("ClassName: " + className, this, this.commonStrings.INIT);
 
             this.setInputAutomationModuleInterface(
                     (InputAutomationModuleFactoryInterface) AbeFactory.getInstance().getInstance().getInstance(abeClientInformation, getClassName()));
 
         } catch(Exception e) {
-            logUtil.put(commonStrings.EXCEPTION, this, this.commonStrings.INIT, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, this.commonStrings.INIT, e);
             throw new RuntimeException();
         }
     }
@@ -144,7 +144,7 @@ public class InputAutomationModuleConfiguration
     
     public void setName(String name)
     {
-        logUtil.put("Name: " + name, this, "setName");
+        this.logUtil.put("Name: " + name, this, "setName");
         this.name = name;
     }
     
@@ -155,7 +155,7 @@ public class InputAutomationModuleConfiguration
 
     public void setClassName(final String className)
     {
-        logUtil.put("ClassName : " + className, this, "setClassName");
+        this.logUtil.put("ClassName : " + className, this, "setClassName");
         this.className = className;
     }
     
@@ -166,7 +166,7 @@ public class InputAutomationModuleConfiguration
     
     public void setInputAutomationModuleInterface(InputAutomationModuleFactoryInterface inputAutomationModuleInterface)
     {
-        logUtil.put("InputAutomationModuleFactoryInterface : " + inputAutomationModuleInterface, this, "setInputAutomationModuleInterface");
+        this.logUtil.put("InputAutomationModuleFactoryInterface : " + inputAutomationModuleInterface, this, "setInputAutomationModuleInterface");
         this.inputAutomationModuleInterface = inputAutomationModuleInterface;
         this.setName(this.inputAutomationModuleInterface.getName());
     }

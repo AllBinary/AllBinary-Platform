@@ -40,7 +40,7 @@ public class ImageModifierUtil {
     
     
     public void setColor(final Image unusedOriginalImage, final Image image, final int imageIndex, final BasicColor basicColor) {
-        //logUtil.put(new StringBuilder().append(SET_COLOR).append(basicColor.toString()).toString(), this, commonStrings.PROCESS);
+        //this.logUtil.put(new StringBuilder().append(SET_COLOR).append(basicColor.toString()).toString(), this, commonStrings.PROCESS);
 
         paint.setColorFilter(new PorterDuffColorFilter(basicColor.intValue(), PorterDuff.Mode.SRC_IN));
         //paint.setColorFilter(new LightingColorFilter(basicColor.intValue(), 0));
@@ -66,7 +66,7 @@ public class ImageModifierUtil {
     public void setAlpha(final Image originalImage, final Image image, final int imageIndex, final int alphaInt) {
         if(alphaInt != paint.getAlpha()) {
             paint.setAlpha(alphaInt);
-            //logUtil.put(new StringBuilder().append(SET_ALPHA).append(alphaInt).append('/').append(255).toString(), this, commonStrings.PROCESS);
+            //this.logUtil.put(new StringBuilder().append(SET_ALPHA).append(alphaInt).append('/').append(255).toString(), this, commonStrings.PROCESS);
         }
     }
     

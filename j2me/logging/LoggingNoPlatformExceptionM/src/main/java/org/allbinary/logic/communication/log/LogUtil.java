@@ -25,12 +25,12 @@ public class LogUtil {
     private LogUtil() {
     }
 
-    public void put(final Log log) {
+    public void putL(final Log log) {
         
         throw new RuntimeException();
     }
 
-    public void put(
+    public void putF(
         final String specialMessage,
         final Object object,
         final String functionName) {

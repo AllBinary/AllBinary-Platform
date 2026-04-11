@@ -56,12 +56,12 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
 
     public int processInput(final int key) throws Exception
     {
-        //logUtil.put(commonStrings.START_LABEL).append("Canvas.").append(CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance());
+        //this.logUtil.put(commonStrings.START_LABEL).append("Canvas.").append(CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance());
 
         //4,8,KEY_STAR
         if (key == Canvas.KEY_STAR)
         {
-            //logUtil.put("Key: ").append(key, this, GameInputStrings.getInstance());
+            //this.logUtil.put("Key: ").append(key, this, GameInputStrings.getInstance());
             //PreLogUtil.put("Key: ").append(key, this, GameInputStrings.getInstance());
 
             final AllBinaryGameCanvas gameCanvas = (AllBinaryGameCanvas) this.getCanvas();
@@ -115,7 +115,7 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, GameInputStrings.getInstance().PROCESS_INPUT, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, GameInputStrings.getInstance().PROCESS_INPUT, e);
             return -1;
         }
     }
@@ -142,11 +142,11 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
     protected void processMotionInput(final MotionGestureEvent motionGestureEvent)
         throws Exception
     {
-        //logUtil.put(commonStrings.START, this, gameInputStrings.PROCESS_MOTION_INPUT);
+        //this.logUtil.put(commonStrings.START, this, gameInputStrings.PROCESS_MOTION_INPUT);
 
         if(motionGestureEvent == null)
         {
-            logUtil.put("Exception: Bug", this, gameInputStrings.PROCESS_MOTION_INPUT);
+            this.logUtil.put("Exception: Bug", this, gameInputStrings.PROCESS_MOTION_INPUT);
             return;
         }
         

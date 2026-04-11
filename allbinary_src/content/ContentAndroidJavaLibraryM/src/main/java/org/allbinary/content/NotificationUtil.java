@@ -78,7 +78,7 @@ public class NotificationUtil
 
         if(notificationBuilder == null) {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.NOT_IMPLEMENTED);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.NOT_IMPLEMENTED);
             return;
         }
         

@@ -692,7 +692,7 @@ public class CanvasJPanel extends javax.swing.JPanel
         } catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, this, gameInputStrings.KEY_PRESSED, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, gameInputStrings.KEY_PRESSED, e);
         }
 
         if (this.getSelectedTool() != null && this.getSelectedTool().isActive())

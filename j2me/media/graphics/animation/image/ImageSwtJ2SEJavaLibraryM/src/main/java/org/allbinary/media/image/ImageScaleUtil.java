@@ -62,7 +62,7 @@ public class ImageScaleUtil {
         throws Exception {
         
         if(!features.isFeature(gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
-            logUtil.put(NO_COPY, this, commonStrings.CONSTRUCTOR);
+            this.logUtil.put(NO_COPY, this, commonStrings.CONSTRUCTOR);
             return originalImage;
         }
         
@@ -106,7 +106,7 @@ public class ImageScaleUtil {
 //    private void scale(final Image originalImage, final Image newMaxSizeImage, final float scaleX, final float scaleY) {
 //
 //        if(!features.isFeature(gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
-//            logUtil.put(NO_COPY, this, commonStrings.CONSTRUCTOR);
+//            this.logUtil.put(NO_COPY, this, commonStrings.CONSTRUCTOR);
 //            return;
 //        }
 

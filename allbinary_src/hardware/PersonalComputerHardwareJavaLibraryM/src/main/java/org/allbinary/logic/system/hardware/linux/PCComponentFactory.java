@@ -96,7 +96,7 @@ public class PCComponentFactory
          if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
          {
              //String error = "Failed to getInstance for: " + component;
-            logUtil.put(commonStrings.EXCEPTION, this,commonStrings.GET_INSTANCE,e);
+            this.logUtil.put(commonStrings.EXCEPTION, this,commonStrings.GET_INSTANCE,e);
          }
          return new Unknown(commonStrings.EXCEPTION);
       }

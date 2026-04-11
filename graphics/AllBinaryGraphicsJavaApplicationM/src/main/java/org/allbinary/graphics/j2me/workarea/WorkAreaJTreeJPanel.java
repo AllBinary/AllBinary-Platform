@@ -100,7 +100,7 @@ public class WorkAreaJTreeJPanel extends javax.swing.JPanel
    public void deselectAll() throws Exception
    {
       int size = highlightedBasicArrayList.size();
-      logUtil.put("size: " + size, this, "deselectAll");
+      this.logUtil.put("size: " + size, this, "deselectAll");
 
       for (int index = 0; index < size; index++)
       {
@@ -285,7 +285,7 @@ public class WorkAreaJTreeJPanel extends javax.swing.JPanel
       }
       catch (Exception e)
       {
-         logUtil.put(commonStrings.EXCEPTION, this, "rotateJMenuItemMousePressed", e);
+         this.logUtil.put(commonStrings.EXCEPTION, this, "rotateJMenuItemMousePressed", e);
       }
    }//GEN-LAST:event_rotateJMenuItemMousePressed
 
@@ -335,7 +335,7 @@ public class WorkAreaJTreeJPanel extends javax.swing.JPanel
       }
       catch (Exception e)
       {
-         logUtil.put(commonStrings.EXCEPTION, this, "workAreaJTreeMousePressed", e);
+         this.logUtil.put(commonStrings.EXCEPTION, this, "workAreaJTreeMousePressed", e);
       }
    }//GEN-LAST:event_workAreaJTreeMousePressed
 
@@ -355,7 +355,7 @@ public class WorkAreaJTreeJPanel extends javax.swing.JPanel
       }
       catch (Exception e)
       {
-         logUtil.put(commonStrings.EXCEPTION, this, "copyJMenuItemMousePressed", e);
+         this.logUtil.put(commonStrings.EXCEPTION, this, "copyJMenuItemMousePressed", e);
       }
    }//GEN-LAST:event_copyJMenuItemMousePressed
 
@@ -376,7 +376,7 @@ public class WorkAreaJTreeJPanel extends javax.swing.JPanel
       }
       catch (Exception e)
       {
-         logUtil.put(commonStrings.EXCEPTION, this, "deleteJMenuItemMousePressed", e);
+         this.logUtil.put(commonStrings.EXCEPTION, this, "deleteJMenuItemMousePressed", e);
       }
    }//GEN-LAST:event_deleteJMenuItemMousePressed
 

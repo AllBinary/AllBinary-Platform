@@ -23,7 +23,7 @@ implements AllBinarySensorListener
 
     public NoGyroSensor()
     {
-        logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
+        this.logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
     }
  
     @Override

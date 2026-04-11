@@ -49,7 +49,7 @@ public class HttpComponentView extends TransformInfoHttpComposite
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            logUtil.put("View Name: " + transformInfoInterface.getName(), this, "ComponentView()");
+            this.logUtil.put("View Name: " + transformInfoInterface.getName(), this, "ComponentView()");
         }
 
         this.domNodeInterfaceVector = new Vector();
@@ -97,7 +97,7 @@ public class HttpComponentView extends TransformInfoHttpComposite
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
             {
-                logUtil.put(commonStrings.EXCEPTION, this, "toXmlDoc()", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "toXmlDoc()", e);
             }
             throw e;
         }
@@ -139,7 +139,7 @@ public class HttpComponentView extends TransformInfoHttpComposite
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
             {
-                logUtil.put(commonStrings.EXCEPTION, this, "view()", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "view()", e);
             }
             throw e;
         }

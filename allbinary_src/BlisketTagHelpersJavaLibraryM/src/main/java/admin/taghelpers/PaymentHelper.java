@@ -76,7 +76,7 @@ public class PaymentHelper extends Table
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,"addPayment()");
+            this.logUtil.put(success,this,"addPayment()");
          }
          return success;
       }
@@ -86,7 +86,7 @@ public class PaymentHelper extends Table
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"addPayment()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"addPayment()",e);
          }
          return error;
       }
@@ -107,7 +107,7 @@ public class PaymentHelper extends Table
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,"selectPayment()");
+            this.logUtil.put(success,this,"selectPayment()");
          }
          return success;
       }
@@ -117,7 +117,7 @@ public class PaymentHelper extends Table
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"selectPayment()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"selectPayment()",e);
          }
          return error;
       }
@@ -148,7 +148,7 @@ public class PaymentHelper extends Table
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,"removePayment()");
+            this.logUtil.put(success,this,"removePayment()");
          }
          return success;
       }
@@ -158,7 +158,7 @@ public class PaymentHelper extends Table
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"removePayment()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"removePayment()",e);
          }         
          return error;
       }
@@ -174,7 +174,7 @@ public class PaymentHelper extends Table
          String success = paymentEntity.dropTable();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,commonStrings.DROP);
+            this.logUtil.put(success,this,commonStrings.DROP);
          }
          return success;
       }
@@ -184,7 +184,7 @@ public class PaymentHelper extends Table
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,commonStrings.DROP,e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,commonStrings.DROP,e);
          }
          return error;
       }
@@ -201,7 +201,7 @@ public class PaymentHelper extends Table
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,"create()");
+            this.logUtil.put(success,this,"create()");
          }
          return success;
       }
@@ -211,7 +211,7 @@ public class PaymentHelper extends Table
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"create()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"create()",e);
          }
          return error;         
       }
@@ -225,7 +225,7 @@ public class PaymentHelper extends Table
          final String result = AbSqlTableUtil.getInstance().restoreTable(PaymentEntityFactory.getInstance().getPaymentEntityInstance(), portion);
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,"restore()");
+            this.logUtil.put(success,this,"restore()");
          }
          return result;
       }
@@ -235,7 +235,7 @@ public class PaymentHelper extends Table
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"restore()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"restore()",e);
          }
          return error;
       }
@@ -249,7 +249,7 @@ public class PaymentHelper extends Table
          final String result = AbSqlTableUtil.getInstance().backupTable(PaymentEntityFactory.getInstance().getPaymentEntityInstance());
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,"backup()");
+            this.logUtil.put(success,this,"backup()");
          }
          return result;
       }
@@ -259,7 +259,7 @@ public class PaymentHelper extends Table
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"backup()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"backup()",e);
          }
          return error;
       }

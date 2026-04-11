@@ -55,7 +55,7 @@ public class ImageUtil {
 
     private ImageUtil() {
         try {
-            logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+            this.logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
             /*
          poolInterface =
@@ -65,7 +65,7 @@ public class ImageUtil {
          CachePolicy.MAX_TIME_THOUSAND_MAX);
              */
         } catch (Exception e) {
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
         }
     }
 
@@ -153,7 +153,7 @@ public class ImageUtil {
             ratioY = heightRatio;
         }
 
-        logUtil.put(new StringMaker().appendfloat(width).append(this.commonSeps.FORWARD_SLASH).appendfloat(height)
+        this.logUtil.put(new StringMaker().appendfloat(width).append(this.commonSeps.FORWARD_SLASH).appendfloat(height)
             .append(this.commonSeps.COLON).appendint(newWidth).append(this.commonSeps.FORWARD_SLASH).appendint(newHeight).append(this.commonSeps.COLON)
             .appendfloat(widthRatio).append(this.commonSeps.FORWARD_SLASH).appendfloat(heightRatio).toString(), this, CREATE_BUFFERED_IMAGE);
 
@@ -162,30 +162,30 @@ public class ImageUtil {
         if (!scale && allowTranslate) {
             dx = (newWidth - width) / 2;
             dy = (newHeight - height) / 2;
-            logUtil.put(new StringMaker().append("Translate dx: ").appendfloat(dx).append(" dy: ").appendfloat(dy).toString(), this, CREATE_BUFFERED_IMAGE);
+            this.logUtil.put(new StringMaker().append("Translate dx: ").appendfloat(dx).append(" dy: ").appendfloat(dy).toString(), this, CREATE_BUFFERED_IMAGE);
 
 //          if (newWidth < width) {
 //              final double translate = -(width - newWidth);
-//              logUtil.put("Translating to keep image centered x3: " + translate, this, CREATE_BUFFERED_IMAGE);
+//              this.logUtil.put("Translating to keep image centered x3: " + translate, this, CREATE_BUFFERED_IMAGE);
 //              affineTransform.translate(translate, 0);
 //          }
 //          if (newHeight < height) {
 //              //final double translate = -(height - newHeight) / 2;
 //              final double translate = -(height - newHeight);
-//              logUtil.put("Translating to keep image centered y0: " + translate, this, CREATE_BUFFERED_IMAGE);
+//              this.logUtil.put("Translating to keep image centered y0: " + translate, this, CREATE_BUFFERED_IMAGE);
 //              affineTransform.translate(0, translate);
 //          }
 //
 //          //if(newHeight > height && widthRatio <= 1) {
 //          if (newHeight > height) {
 //              final double translate = (newHeight - height) / 2;
-//              logUtil.put("Translating to keep image centered y1: " + translate, this, CREATE_BUFFERED_IMAGE);
+//              this.logUtil.put("Translating to keep image centered y1: " + translate, this, CREATE_BUFFERED_IMAGE);
 //              affineTransform.translate(0, translate);
 //          }
 //          //if(newWidth > width && heightRatio <= 1) {
 //          if (newWidth > width) {
 //              final double translate = (newWidth - width) / 2;
-//              logUtil.put("Translating to keep image centered x2: " + translate, this, CREATE_BUFFERED_IMAGE);
+//              this.logUtil.put("Translating to keep image centered x2: " + translate, this, CREATE_BUFFERED_IMAGE);
 //              affineTransform.translate(translate, 0);
 //          }
         }

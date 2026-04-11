@@ -46,11 +46,11 @@ public class BasicGameResources
                 throw new Exception(new StringMaker().append("Invalid Value: ").appendint(scale).toString());
             }
 
-            //logUtil.put("Resource: ").append(this.RESOURCE).append(" Destroy: ").append(this.RESOURCE_DESTROY, this, commonStrings.INIT);
+            //this.logUtil.put("Resource: ").append(this.RESOURCE).append(" Destroy: ").append(this.RESOURCE_DESTROY, this, commonStrings.INIT);
         } catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
         }
     }
 

@@ -58,7 +58,7 @@ public class InputAutomationModuleFactoryFactory
         }
         
         this.defaultListModelHelper.initDefaultModelList();
-        logUtil.put("Loaded " + this.hashMap.size() + "/" + this.defaultListModelHelper.getListModel().getSize() + " Input Automation Modules", this,"Contructor");
+        this.logUtil.put("Loaded " + this.hashMap.size() + "/" + this.defaultListModelHelper.getListModel().getSize() + " Input Automation Modules", this,"Contructor");
     }
     
     private void add(final InputAutomationModuleConfiguration inputAutomationModuleConfiguration)
@@ -86,10 +86,10 @@ public class InputAutomationModuleFactoryFactory
     public InputAutomationModuleFactoryInterface getInstance(final String moduleName)
     {
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        logUtil.put("Getting Module: " + moduleName, this, commonStrings.GET_INSTANCE);
+        this.logUtil.put("Getting Module: " + moduleName, this, commonStrings.GET_INSTANCE);
         final InputAutomationModuleFactoryInterface inputAutomationModuleFactoryInterface = (InputAutomationModuleFactoryInterface) this.hashMap.get(moduleName);
         if(inputAutomationModuleFactoryInterface == null) {
-            logUtil.put("Module: " + moduleName + " was null", this, commonStrings.GET_INSTANCE);
+            this.logUtil.put("Module: " + moduleName + " was null", this, commonStrings.GET_INSTANCE);
         }
 
         return inputAutomationModuleFactoryInterface;

@@ -144,7 +144,7 @@ public class OpenGLCapabilities
                 }
             } catch(Exception e) {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                logUtil.put(commonStrings.EXCEPTION, this, METHOD_NAME, e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, METHOD_NAME, e);
             }
 
             this.glRenderer = gl.glGetString(GL10.GL_RENDERER);
@@ -310,7 +310,7 @@ public class OpenGLCapabilities
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, this, METHOD_NAME, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, METHOD_NAME, e);
         }
     }
     

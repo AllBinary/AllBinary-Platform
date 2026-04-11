@@ -81,7 +81,7 @@ public class TouchButton extends Paintable
         
         this.updateRectangle();
         
-        logUtil.put(new StringMaker().append("Created: ").append(this.toString()).toString(), this, commonStrings.CONSTRUCTOR);
+        this.logUtil.put(new StringMaker().append("Created: ").append(this.toString()).toString(), this, commonStrings.CONSTRUCTOR);
     }
     
     public void paintHint(Graphics graphics)
@@ -117,7 +117,7 @@ public class TouchButton extends Paintable
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, "updateRectangle", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "updateRectangle", e);
         }
     }
 

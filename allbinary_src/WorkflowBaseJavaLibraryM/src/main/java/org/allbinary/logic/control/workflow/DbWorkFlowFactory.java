@@ -64,7 +64,7 @@ public class DbWorkFlowFactory
          {
         	 //String error = "Failed To Get Instance Args: HashMap=" + hashMap.toString();
              final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, this, "getInstance(HashMap)",e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "getInstance(HashMap)",e);
          }
          throw e;
       }
@@ -74,7 +74,7 @@ public class DbWorkFlowFactory
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
              final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, this, "getInstance(HashMap)",e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "getInstance(HashMap)",e);
          }
          throw e;
       }

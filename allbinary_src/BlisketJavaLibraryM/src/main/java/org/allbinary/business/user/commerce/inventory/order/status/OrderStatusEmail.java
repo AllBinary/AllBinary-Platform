@@ -78,7 +78,7 @@ import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
          {
-            logUtil.put("Order Email", this, "emailStoreAdmin");
+            this.logUtil.put("Order Email", this, "emailStoreAdmin");
          }
 
          String adminEmailSubject = "Order " + this.orderHistory.getStatus() + " Attempt";
@@ -114,7 +114,7 @@ import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGINGERROR))
          {
-            logUtil.put(this.commonStrings.EXCEPTION, this, "emailAdmin", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "emailAdmin", e);
          }
          //throw e;
       }
@@ -127,7 +127,7 @@ import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
          {
-            logUtil.put("Email User", this, "notifyUser()");
+            this.logUtil.put("Email User", this, "notifyUser()");
          }
 
          String subject = "Order " + this.orderHistory.getStatus() + " Attempt";
@@ -152,7 +152,7 @@ import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGINGERROR))
          {
-            logUtil.put(this.commonStrings.EXCEPTION, this, "notifyUser", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "notifyUser", e);
          }
          throw e;
       }

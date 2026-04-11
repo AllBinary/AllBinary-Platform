@@ -64,7 +64,7 @@ public class RawKeyEventHandler {
     {
         if (!this.eventListenerInterfaceList.contains(eventListenerInterface))
         {
-            //logUtil.put(CommonLabels.getInstance().START + eventListenerInterface, this, commonStrings.ADD_LISTENER);
+            //this.logUtil.put(CommonLabels.getInstance().START + eventListenerInterface, this, commonStrings.ADD_LISTENER);
             this.eventListenerInterfaceList.add(eventListenerInterface);
         }
     }
@@ -73,14 +73,14 @@ public class RawKeyEventHandler {
     {
         if (!this.eventListenerInterfaceList.contains(eventListenerInterface))
         {
-            //logUtil.put(CommonLabels.getInstance().START + eventListenerInterface, this, commonStrings.ADD_LISTENER);
+            //this.logUtil.put(CommonLabels.getInstance().START + eventListenerInterface, this, commonStrings.ADD_LISTENER);
             this.eventListenerInterfaceList.add(eventListenerInterface);
         }
     }
 
     public void removeListenerSingleThreaded(final RawKeyEventListener eventListenerInterface)
      {
-            //logUtil.put(
+            //this.logUtil.put(
               //      CommonLabels.getInstance().START + eventListenerInterface, this, commonStrings.ADD_LISTENER);
 
         this.eventListenerInterfaceList.remove(eventListenerInterface);
@@ -106,7 +106,7 @@ public class RawKeyEventHandler {
             catch (Exception e)
             {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
             index++;
         }
@@ -148,7 +148,7 @@ public class RawKeyEventHandler {
             catch (Exception e)
             {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.TOSTRING, e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.TOSTRING, e);
             }
             index++;
         }

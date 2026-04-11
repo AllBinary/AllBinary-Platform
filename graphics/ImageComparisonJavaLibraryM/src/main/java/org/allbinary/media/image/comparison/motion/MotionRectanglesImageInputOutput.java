@@ -78,7 +78,7 @@ public class MotionRectanglesImageInputOutput implements ImageIOInterface
         }
         else
         {
-            logUtil.put("No Motion Rectangle Results for Frame: " + frame, this, commonStrings.SAVE);
+            this.logUtil.put("No Motion Rectangle Results for Frame: " + frame, this, commonStrings.SAVE);
         }
     }
     
@@ -107,9 +107,9 @@ public class MotionRectanglesImageInputOutput implements ImageIOInterface
         filePathStringBuffer3.append(filePathStringBuffer.toString());
         filePathStringBuffer3.append(MediaDataFactory.getInstance().JPG.getExtension());
         
-        logUtil.put("Motion Image File Path 1: " + filePathStringBuffer1.toString(), this, commonStrings.SAVE);
-        logUtil.put("Motion Image File Path 2: " + filePathStringBuffer2.toString(), this, commonStrings.SAVE);
-        logUtil.put("Motion Image File Path 2: " + filePathStringBuffer3.toString(), this, commonStrings.SAVE);
+        this.logUtil.put("Motion Image File Path 1: " + filePathStringBuffer1.toString(), this, commonStrings.SAVE);
+        this.logUtil.put("Motion Image File Path 2: " + filePathStringBuffer2.toString(), this, commonStrings.SAVE);
+        this.logUtil.put("Motion Image File Path 2: " + filePathStringBuffer3.toString(), this, commonStrings.SAVE);
         
         BufferedImageCacheable[] bufferedImageCacheables =
             new BufferedImageCacheable[NUMBER_OF_IMAGES];
@@ -192,7 +192,7 @@ public class MotionRectanglesImageInputOutput implements ImageIOInterface
             //For test frame
             if(rectangle.x > 560 && rectangle.y > 330 && 
                rectangle.x < 600 && rectangle.y < 365)// && imageComparisonInfo.getFrameTwo() == 19)
-            logUtil.put("TreasureRectangles: " + rectangle.toString(), this, this.commonStrings.CONSTRUCTOR);
+            this.logUtil.put("TreasureRectangles: " + rectangle.toString(), this, this.commonStrings.CONSTRUCTOR);
              */
         }
         

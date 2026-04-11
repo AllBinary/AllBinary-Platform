@@ -61,7 +61,7 @@ implements AllBinarySensorListener
     
     public void shutdown()
     {
-        logUtil.put(commonStrings.START, this, "shutdown");
+        this.logUtil.put(commonStrings.START, this, "shutdown");
     }
 
     @Override    

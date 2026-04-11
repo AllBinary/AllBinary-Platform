@@ -130,7 +130,7 @@ public class ResourceUtil
 
     public void setResources(final Resources resources)
     {
-        logUtil.put(new StringMaker().append("Resource Loader: ").append(resources.getClass().getName()).toString(), this, "setResources");
+        this.logUtil.put(new StringMaker().append("Resource Loader: ").append(resources.getClass().getName()).toString(), this, "setResources");
 
         this.resources = resources;
     }
@@ -142,7 +142,7 @@ public class ResourceUtil
     public InputStream getResourceAsStream(final String resource) // , Object emulatorObject)
         throws Exception
     {   
-        //logUtil.put(new StringMaker().append(GETTING).append(resource).toString(), this, METHOD_NAME);
+        //this.logUtil.put(new StringMaker().append(GETTING).append(resource).toString(), this, METHOD_NAME);
 
         // Try getting resource with normal resource access
         // AssetManager assetManager = resources.getAssets();
@@ -153,7 +153,7 @@ public class ResourceUtil
 
         if (inputStream != null)
         {
-            //logUtil.put(RESOURCE, this, METHOD_NAME);
+            //this.logUtil.put(RESOURCE, this, METHOD_NAME);
 
             return inputStream;
         }

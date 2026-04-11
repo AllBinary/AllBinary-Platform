@@ -75,7 +75,7 @@ public class DeleteCloud
                 stringBuffer.append(" - ");
                 stringBuffer.appendint(end);
 
-                logUtil.put(
+                this.logUtil.put(
                     stringBuffer.toString(), this, "initialize()");
 
                 for (int index = start; index < end; index++)
@@ -96,13 +96,13 @@ public class DeleteCloud
                     }
                 }
 
-                logUtil.put("Deleted Files From Cloud", this, "initialize()");
+                this.logUtil.put("Deleted Files From Cloud", this, "initialize()");
             }
 
             return true;
         } catch (Exception e)
         {
-            logUtil.put("Unable to copy installer files into cloud", this, "initialize()", e);
+            this.logUtil.put("Unable to copy installer files into cloud", this, "initialize()", e);
             return false;
         }
     }

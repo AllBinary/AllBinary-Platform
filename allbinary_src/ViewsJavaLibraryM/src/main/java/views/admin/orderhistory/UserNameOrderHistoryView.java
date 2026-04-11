@@ -81,7 +81,7 @@ public class UserNameOrderHistoryView extends HttpStoreComponentView implements 
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"view()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"view()",e);
          }
          throw e;
       }
@@ -109,7 +109,7 @@ public class UserNameOrderHistoryView extends HttpStoreComponentView implements 
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            logUtil.put("Attempt to View a users order history",this,"view");
+            this.logUtil.put("Attempt to View a users order history",this,"view");
          }
          
          node.appendChild(ModDomHelper.createNameValueNodes(document,
@@ -143,7 +143,7 @@ public class UserNameOrderHistoryView extends HttpStoreComponentView implements 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XSLLOGGINGERROR))
          {
-            logUtil.put(this.commonStrings.FAILURE,this,"toXmlNode",e);
+            this.logUtil.put(this.commonStrings.FAILURE,this,"toXmlNode",e);
          }
          return null;
       }
@@ -154,7 +154,7 @@ public class UserNameOrderHistoryView extends HttpStoreComponentView implements 
    {      
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         logUtil.put("Started",this,commonStrings.IS_VALID);
+         this.logUtil.put("Started",this,commonStrings.IS_VALID);
       }      
       
       if(UserName.getInstance().isValid(this.userName) == Boolean.TRUE)

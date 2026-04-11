@@ -56,7 +56,7 @@ public class WorkFlowRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,"delete()");
+            this.logUtil.put(success,this,"delete()");
          }
          return success;
       }
@@ -71,7 +71,7 @@ public class WorkFlowRequestHelper extends ModifyTable
             //this.workFlowInterface.getStoreName();
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-               logUtil.put(commonStrings.EXCEPTION,this,"delete()",e);
+               this.logUtil.put(commonStrings.EXCEPTION,this,"delete()",e);
             }
             throw new Exception(e);
          }
@@ -81,7 +81,7 @@ public class WorkFlowRequestHelper extends ModifyTable
             
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-               logUtil.put(commonStrings.EXCEPTION,this,"delete()",ex);
+               this.logUtil.put(commonStrings.EXCEPTION,this,"delete()",ex);
             }
             return error;
          }         
@@ -100,7 +100,7 @@ public class WorkFlowRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,"add()");
+            this.logUtil.put(success,this,"add()");
          }
          return success;
       }
@@ -109,7 +109,7 @@ public class WorkFlowRequestHelper extends ModifyTable
          String error = "Failed to add User";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"add()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"add()",e);
          }
          return error;
       }
@@ -127,7 +127,7 @@ public class WorkFlowRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,"update()");
+            this.logUtil.put(success,this,"update()");
          }
          return success;
       }
@@ -136,7 +136,7 @@ public class WorkFlowRequestHelper extends ModifyTable
          String error = "Failed to update WorkFlow";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"update()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"update()",e);
          }
          return error;
       }

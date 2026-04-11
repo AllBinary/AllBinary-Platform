@@ -68,7 +68,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION_LABEL + resource, this, commonStrings.CONSTRUCTOR, e);
+            this.logUtil.put(commonStrings.EXCEPTION_LABEL + resource, this, commonStrings.CONSTRUCTOR, e);
             throw e;
         }
     }
@@ -129,7 +129,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CLOSE, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CLOSE, e);
         }
     }
 
@@ -138,7 +138,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
     {
         try
         {
-            // logUtil.put(commonStrings.START, this, CommonStrings.getInstance());
+            // this.logUtil.put(commonStrings.START, this, CommonStrings.getInstance());
 
             if(this.mediaPlayer.isPlaying()) {
                 this.mediaPlayer.pause();
@@ -152,7 +152,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
                     new MediaPlayer.OnCompletionListener(){
                         public void onCompletion(MediaPlayer mp)
                         {
-                            logUtil.put(commonStrings.START, this, "onComplete())");
+                            this.logUtil.put(commonStrings.START, this, "onComplete())");
                             AndroidMediaPlayerWrapper.this.update(PlayerListener.END_OF_MEDIA);
                         }
                     });
@@ -162,7 +162,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.START_METHOD_NAME, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.START_METHOD_NAME, e);
         }
     }
 
@@ -177,13 +177,13 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, "stop", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "stop", e);
         }
     }
 
     public void update(String event)
     {
-        logUtil.put("LineEvent: " + event, this, commonStrings.UPDATE);
+        this.logUtil.put("LineEvent: " + event, this, commonStrings.UPDATE);
 
         int size = this.listenersList.size();
         for (int index = 0; index < size; index++)

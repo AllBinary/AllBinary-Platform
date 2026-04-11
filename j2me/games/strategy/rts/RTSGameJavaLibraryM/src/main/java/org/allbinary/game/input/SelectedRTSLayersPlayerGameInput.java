@@ -278,7 +278,7 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
 
         } catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, gameInputStrings.PROCESS_INPUT, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, gameInputStrings.PROCESS_INPUT, e);
         }
     }
 
@@ -324,7 +324,7 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
             stringBuffer.append(selectedLayer.getName());
         }
          
-        logUtil.put(
+        this.logUtil.put(
                 stringBuffer.toString(), this, "setSelectedRTSLayer");
 
         this.paintSelectedRTSLayersList = BasicArrayListUtil.getInstance().getImmutableInstance();
@@ -342,7 +342,7 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
             this.preSelectedRTSLayersList = this.selectedRTSLayersList;
             this.selectedRTSLayersList = tempList;
             
-            logUtil.put(new StringMaker().append("Preselected: ").append(this.preSelectedRTSLayersList.toString()).toString(), this, "setSelectedRTSLayer");
+            this.logUtil.put(new StringMaker().append("Preselected: ").append(this.preSelectedRTSLayersList.toString()).toString(), this, "setSelectedRTSLayer");
         }
         
         //this.selectedRTSLayersList.clear();
@@ -374,7 +374,7 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
         stringBuffer.append("Select all Preselected: ");
         stringBuffer.append(this.preSelectedRTSLayersList.toString());
 
-        logUtil.put(
+        this.logUtil.put(
                 stringBuffer.toString(), this, "selectAllPreselected");
 
         for(int index = this.preSelectedRTSLayersList.size() - 1; index >= 0; index--)
@@ -391,7 +391,7 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
         stringBuffer.append("Deselect all Preselected: ");
         stringBuffer.append(this.preSelectedRTSLayersList.toString());
 
-        logUtil.put(
+        this.logUtil.put(
                 stringBuffer.toString(), this, "deselectAllPreselected");
 
         for(int index = this.preSelectedRTSLayersList.size() - 1; index >= 0; index--)

@@ -51,7 +51,7 @@ public class GameFeatureItemCommandListener implements ItemCommandListener
         try
         {
             String itemLabel = item.getLabel();
-            logUtil.put(new StringMaker().append(CommonLabels.getInstance().ITEM_LABEL).append(itemLabel).toString(), this, MidletStrings.getInstance().COMMAND_ACTION);
+            this.logUtil.put(new StringMaker().append(CommonLabels.getInstance().ITEM_LABEL).append(itemLabel).toString(), this, MidletStrings.getInstance().COMMAND_ACTION);
 
             if (item instanceof GameConfigurationGauge)
             {
@@ -63,7 +63,7 @@ public class GameFeatureItemCommandListener implements ItemCommandListener
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, this, MidletStrings.getInstance().COMMAND_ACTION, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, MidletStrings.getInstance().COMMAND_ACTION, e);
         }
     }
 }

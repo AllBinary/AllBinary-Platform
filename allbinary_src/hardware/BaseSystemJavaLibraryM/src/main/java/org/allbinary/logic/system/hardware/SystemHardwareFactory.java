@@ -53,15 +53,15 @@ public class SystemHardwareFactory {
 
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OS))
          //{
-            //logUtil.put(static_toString(), this, commonStrings.CONSTRUCTOR);
-    	    logUtil.put("Found Hardware", this, commonStrings.CONSTRUCTOR);
+            //this.logUtil.put(static_toString(), this, commonStrings.CONSTRUCTOR);
+    	    this.logUtil.put("Found Hardware", this, commonStrings.CONSTRUCTOR);
          //}
       }
       catch(Exception e)
       {
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OS))
          //{
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
          //}
       }
       return hardwareInterface;

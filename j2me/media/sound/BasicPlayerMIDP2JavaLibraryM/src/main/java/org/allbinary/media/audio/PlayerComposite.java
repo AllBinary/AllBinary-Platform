@@ -115,7 +115,7 @@ public class PlayerComposite implements Controllable, Player
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, "prefetch", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "prefetch", e);
         }
     }
 
@@ -127,7 +127,7 @@ public class PlayerComposite implements Controllable, Player
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, "realize", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "realize", e);
         }
     }
 
@@ -145,12 +145,12 @@ public class PlayerComposite implements Controllable, Player
     {
         try
         {
-            // logUtil.put(commonStrings.START, this, commonStrings);
+            // this.logUtil.put(commonStrings.START, this, commonStrings);
             return this.player.setMediaTime(now);
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, "setMediaTime", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "setMediaTime", e);
             return -1;
         }
     }
@@ -169,7 +169,7 @@ public class PlayerComposite implements Controllable, Player
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.START_METHOD_NAME, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.START_METHOD_NAME, e);
         }
     }
 
@@ -181,7 +181,7 @@ public class PlayerComposite implements Controllable, Player
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, "stop", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "stop", e);
         }
     }
 

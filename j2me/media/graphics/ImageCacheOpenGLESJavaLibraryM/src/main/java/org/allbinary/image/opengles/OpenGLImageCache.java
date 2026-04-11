@@ -52,7 +52,7 @@ public class OpenGLImageCache extends ImageCache
     
     public void update(final GL10 gl) throws Exception
     {
-        //logUtil.put(CommonLabels.getInstance().START_LABEL + list, this, commonStrings.UPDATE);
+        //this.logUtil.put(CommonLabels.getInstance().START_LABEL + list, this, commonStrings.UPDATE);
      
         this.gl = gl;
         
@@ -88,7 +88,7 @@ public class OpenGLImageCache extends ImageCache
         final Image image2 = this.imageCache.get(caller, width, height);
         final Image image = preResourceImageUtil.encapsulate(image2);
         
-        //logUtil.put("opengl: createImageD: " + image.getName(), this, commonStrings.CREATE);
+        //this.logUtil.put("opengl: createImageD: " + image.getName(), this, commonStrings.CREATE);
         synchronized(lock) {
             if(image != NullCanvas.NULL_IMAGE) {
                 list.add(image);
@@ -109,7 +109,7 @@ public class OpenGLImageCache extends ImageCache
         //return new OpenGLESImage(cachedImage);
         final Image image = preResourceImageUtil.encapsulate(cachedImage);
 
-        //logUtil.put("opengl: createImage: " + image.getName(), this, commonStrings.CREATE);
+        //this.logUtil.put("opengl: createImage: " + image.getName(), this, commonStrings.CREATE);
         synchronized(lock) {
             if(image != NullCanvas.NULL_IMAGE) {
                 list.add(image);
@@ -117,7 +117,7 @@ public class OpenGLImageCache extends ImageCache
         }
 
         //ForcedLogUtil.log(image.toString(), this);
-        //logUtil.put(key + " = " + image.toString(), this, commonStrings.GET);
+        //this.logUtil.put(key + " = " + image.toString(), this, commonStrings.GET);
 
         return image;
     }
@@ -130,7 +130,7 @@ public class OpenGLImageCache extends ImageCache
     @Override
     public void init(final Image image) {
         try {
-            //logUtil.put(new StringMaker().append("opengl: init add ").append(image).append(image.getName()).toString(), this, commonStrings.INIT);
+            //this.logUtil.put(new StringMaker().append("opengl: init add ").append(image).append(image.getName()).toString(), this, commonStrings.INIT);
             
             synchronized(lock) {
                 if (list.contains(image)) {
@@ -143,7 +143,7 @@ public class OpenGLImageCache extends ImageCache
             this.renderer.add(image);
 
         } catch(Exception e) {
-            logUtil.put(this.commonStrings.EXCEPTION, this, commonStrings.INIT, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, commonStrings.INIT, e);
         }
     }
 

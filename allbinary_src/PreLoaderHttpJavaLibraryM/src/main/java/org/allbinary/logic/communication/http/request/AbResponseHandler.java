@@ -33,9 +33,7 @@ public class AbResponseHandler
    {
    }
    
-   public static void sendJspTagRedirect(
-   PageContext pageContext,   
-   Exception e) throws JspTagException
+   public static void sendJspTagRedirect(final PageContext pageContext, final Exception e) throws JspTagException
    {
        final LogUtil logUtil = LogUtil.getInstance();
       try
@@ -58,9 +56,7 @@ public class AbResponseHandler
    }
 
 
-   public static void sendServletRedirect(
-   PageContext pageContext,
-   Exception e) throws ServletException
+   public static void sendServletRedirect(final PageContext pageContext, final Exception e) throws ServletException
    {
        final LogUtil logUtil = LogUtil.getInstance();
       try
@@ -82,8 +78,7 @@ public class AbResponseHandler
       }
    }
 
-   public static void sendJspTagLicensingRedirect(
-   PageContext pageContext, Exception e) throws JspTagException
+   public static void sendJspTagLicensingRedirect(final PageContext pageContext, final Exception e) throws JspTagException
    {
        final LogUtil logUtil = LogUtil.getInstance();
       try
@@ -104,7 +99,7 @@ public class AbResponseHandler
       }
    }
 
-   public static void sendServletLicensingRedirect(PageContext pageContext, Exception e) throws ServletException
+   public static void sendServletLicensingRedirect(final PageContext pageContext, final Exception e) throws ServletException
    {
        final LogUtil logUtil = LogUtil.getInstance();
       try
@@ -125,14 +120,14 @@ public class AbResponseHandler
       }
    }
    
-   public static void sendRedirect(PageContext pageContext,String page) throws Exception
+   public static void sendRedirect(final PageContext pageContext, final String page) throws Exception
    {
-      HttpServletRequest request = 
+      final HttpServletRequest request = 
          (HttpServletRequest) pageContext.getRequest();
-      HttpServletResponse response = 
+      final HttpServletResponse response = 
          (HttpServletResponse) pageContext.getResponse();
 
-      RequestDispatcher requestDispatcher =
+      final RequestDispatcher requestDispatcher =
          request.getRequestDispatcher(page);
 
       if(response.isCommitted())

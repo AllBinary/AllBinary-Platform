@@ -72,7 +72,7 @@ public class RemoveActionScriptItemJPanel extends java.awt.Panel
             this.genericProfileActionJPanel.getGenericProfileAction();
 
         if(genericProfileAction == null) {
-            logUtil.put("GenericProfileAction was null", this, "removeJButtonActionPerformed");
+            this.logUtil.put("GenericProfileAction was null", this, "removeJButtonActionPerformed");
             return;
         }
         

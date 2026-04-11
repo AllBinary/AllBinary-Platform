@@ -13,14 +13,14 @@
 */
 package org.allbinary.logic.communication.log;
 
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.communication.log.Log;
 
 //ActualPlatform
 public class LogFactory
 {
     //ActualPlatform
-    public static final Log getInstance(
+    public static final Log getInstanceNoF(
             String specialMessage,
             Object object,
             Object exception)
@@ -39,11 +39,11 @@ public class LogFactory
     }
 
     //ActualPlatform
-    public static final Log getInstance(
+    public static final Log getInstanceF(
             String specialMessage,
             Object object,
             String functionName)
     {
-        return new Log(specialMessage, object, functionName);
+        return new Log(specialMessage, object, functionName, NullUtil.getInstance().NULL_OBJECT);
     }
 }

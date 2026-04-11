@@ -97,7 +97,7 @@ public class CategoryAbstractFactory implements CategoryFactoryInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
          {
-            logUtil.put(this.commonStrings.START, this, "getInstance(String)");
+            this.logUtil.put(this.commonStrings.START, this, "getInstance(String)");
          }
          
          CategoryPropertiesFactoryInterface categoryPropertiesFactoryInterface = 
@@ -111,7 +111,7 @@ public class CategoryAbstractFactory implements CategoryFactoryInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION, this, "getInstance(String, int)", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "getInstance(String, int)", e);
          }
          return null;
       }
@@ -152,7 +152,7 @@ public class CategoryAbstractFactory implements CategoryFactoryInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
          {
-            logUtil.put(this.commonStrings.START, this, "getInstance(CategoryInterface, CategoryInterface, String)");
+            this.logUtil.put(this.commonStrings.START, this, "getInstance(CategoryInterface, CategoryInterface, String)");
          }
 
          CategoryPropertiesFactoryInterface categoryPropertiesFactoryInterface = 
@@ -166,7 +166,7 @@ public class CategoryAbstractFactory implements CategoryFactoryInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION, this, "getInstance(CategoryInterface, CategoryInterface , String, int)", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "getInstance(CategoryInterface, CategoryInterface , String, int)", e);
          }
          return null;
       }
@@ -178,7 +178,7 @@ public class CategoryAbstractFactory implements CategoryFactoryInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
          {
-            logUtil.put(this.commonStrings.START, this, "getInstance(Node)");
+            this.logUtil.put(this.commonStrings.START, this, "getInstance(Node)");
          }
          
          CategoryPropertiesFactoryInterface categoryPropertiesFactoryInterface = 
@@ -191,7 +191,7 @@ public class CategoryAbstractFactory implements CategoryFactoryInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION, this, "getInstance(Node, int)", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "getInstance(Node, int)", e);
          }
          return null;
       }
@@ -228,7 +228,7 @@ public class CategoryAbstractFactory implements CategoryFactoryInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
          {
-            logUtil.put(this.commonStrings.START, this, "getInstance(CategoryInterface, CategoryInterface, Node)");
+            this.logUtil.put(this.commonStrings.START, this, "getInstance(CategoryInterface, CategoryInterface, Node)");
          }
          
          CategoryPropertiesFactoryInterface categoryPropertiesFactoryInterface = 
@@ -242,7 +242,7 @@ public class CategoryAbstractFactory implements CategoryFactoryInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION, this,
+            this.logUtil.put(commonStrings.EXCEPTION, this,
               "getInstance(CategoryInterface, CategoryInterface, Node, int)", e);
          }
          return null;
@@ -282,7 +282,7 @@ public class CategoryAbstractFactory implements CategoryFactoryInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
          {
-            logUtil.put(this.commonStrings.START, this, "getInstance(CategoryInterface, CategoryInterface, HashMap)");
+            this.logUtil.put(this.commonStrings.START, this, "getInstance(CategoryInterface, CategoryInterface, HashMap)");
          }
          
          CategoryPropertiesFactoryInterface categoryPropertiesFactoryInterface = 
@@ -298,7 +298,7 @@ public class CategoryAbstractFactory implements CategoryFactoryInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORYERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION, this,
+            this.logUtil.put(commonStrings.EXCEPTION, this,
                "getInstance(CategoryInterface, CategoryInterface, HashMap)", e);
          }
          return null;

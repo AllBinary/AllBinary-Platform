@@ -57,7 +57,7 @@ public class SmallLongFactory
             lastNegativeMin = negativeValue;
             //MIN = negativeValue;
         }
-        //logUtil.put("? " + NEGATIVE_INTEGER_ARRAY[5], stringUtil.EMPTY_STRING, "?????????");
+        //this.logUtil.put("? " + NEGATIVE_INTEGER_ARRAY[5], stringUtil.EMPTY_STRING, "?????????");
     }
 
     public void init()
@@ -72,7 +72,7 @@ public class SmallLongFactory
                     INTEGER_ARRAY[index] = new Long(-index);
                 }
 
-                //logUtil.put("? " + NEGATIVE_INTEGER_ARRAY[5], CommonPhoneStrings.getInstance().TWO, "?????????");
+                //this.logUtil.put("? " + NEGATIVE_INTEGER_ARRAY[5], CommonPhoneStrings.getInstance().TWO, "?????????");
                 lastMin = POSITIVE_MAX;
                 lastNegativeMin = NEGATIVE_MAX;
             }

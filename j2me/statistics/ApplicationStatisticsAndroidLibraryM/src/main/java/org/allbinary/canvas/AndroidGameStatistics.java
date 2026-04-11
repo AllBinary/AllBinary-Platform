@@ -49,7 +49,7 @@ public class AndroidGameStatistics extends BaseGameStatistics
     @Override
     public void process()
     {
-        // logUtil.put(commonStrings.START, "Refresh", commonStrings.PROCESS);
+        // this.logUtil.put(commonStrings.START, "Refresh", commonStrings.PROCESS);
         // timeElapsed = currentTime - timeElapsed;
         // if (timeElapsed > 50)
         // {

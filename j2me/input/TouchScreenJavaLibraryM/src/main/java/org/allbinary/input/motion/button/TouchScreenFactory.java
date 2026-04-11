@@ -68,7 +68,7 @@ public class TouchScreenFactory
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, SINGLETON, commonStrings.GET_INSTANCE, e);
+            this.logUtil.put(commonStrings.EXCEPTION, SINGLETON, commonStrings.GET_INSTANCE, e);
         }
     }
 

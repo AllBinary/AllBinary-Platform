@@ -96,7 +96,7 @@ public class ImagesRatioUtil
         }
         
         final CommonLabels commonLabels = CommonLabels.getInstance();
-        logUtil.put(
+        this.logUtil.put(
             commonLabels.WIDTH_LABEL + bufferedImage.getWidth() + " newWidth: " + newWidth +
             commonLabels.HEIGHT_LABEL + bufferedImage.getHeight() + " newHeight: " + newHeight +
             " needed ratio: " + ((double) newWidth/newHeight),
@@ -113,7 +113,7 @@ public class ImagesRatioUtil
             final int[] data = new int[bufferedImage.getHeight()];
             final byte[] bytes = new byte[data.length * 4];
          
-            logUtil.put("Get the first column of the original of: " + bytes.length, 
+            this.logUtil.put("Get the first column of the original of: " + bytes.length, 
                 this, "fudge");
 
             bufferedImage.getRGB(
@@ -139,7 +139,7 @@ public class ImagesRatioUtil
             BufferedImage lastColumnBufferedImage = bufferedImage.getSubimage(
                 bufferedImage.getWidth() - 1, 0, 1, bufferedImage.getHeight());
             
-            logUtil.put("Draw some columns to fill in gap", this, "fudge");
+            this.logUtil.put("Draw some columns to fill in gap", this, "fudge");
             
             //g.setColor(Color.RED);
             
@@ -159,7 +159,7 @@ public class ImagesRatioUtil
             final int[] data = new int[bufferedImage.getWidth()];
             final byte[] bytes = new byte[data.length * 4];
          
-            logUtil.put("Get the first row of the original of: " + bytes.length, 
+            this.logUtil.put("Get the first row of the original of: " + bytes.length, 
                 this, "fudge");
 
             bufferedImage.getRGB(
@@ -186,7 +186,7 @@ public class ImagesRatioUtil
             BufferedImage lastRowBufferedImage = bufferedImage.getSubimage(
                 0, bufferedImage.getHeight() - 1, bufferedImage.getWidth(), 1);
             
-            logUtil.put("Draw some rows to fill in gap", this, "fudge");
+            this.logUtil.put("Draw some rows to fill in gap", this, "fudge");
             
             //g.setColor(Color.RED);
             

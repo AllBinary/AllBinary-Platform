@@ -58,7 +58,7 @@ public class ApplicationConfiguration
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
         }
     }
 
@@ -122,7 +122,7 @@ public class ApplicationConfiguration
         }
 
         //PreLogUtil.put("Read Configuration: " + this.toString(), this, "read");
-        logUtil.put(
+        this.logUtil.put(
                 "Read Configuration: " + this.toString(), this, "read");
     }
 
@@ -132,7 +132,7 @@ public class ApplicationConfiguration
         try
         {
         //PreLogUtil.put("Write Configuration: " + this.toString(), this, "write");
-        logUtil.put("Write Configuration: " + this.toString(), this, "write");
+        this.logUtil.put("Write Configuration: " + this.toString(), this, "write");
         
         final FileStreamFactory fileInputStreamFactory = 
             FileStreamFactory.getInstance();

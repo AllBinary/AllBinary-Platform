@@ -244,7 +244,7 @@ public class RootStoreCategoryProperties
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
       {
-         logUtil.put(new StringMaker()
+         this.logUtil.put(new StringMaker()
              .append("filePath = ").append(this.fileAbPath.toString())
              .append("\npath = ").append(this.abPath.toString())
              .append("\ncategory = ").append(this.category).toString(), 

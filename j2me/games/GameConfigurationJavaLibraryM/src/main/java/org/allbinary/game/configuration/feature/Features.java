@@ -51,7 +51,7 @@ public class Features
     //For default or reload required features
     public void addDefault(final Feature gameFeature) throws Exception
     {
-        //logUtil.put(
+        //this.logUtil.put(
           //      commonStrings.START_LABEL).append(gameFeature.toString(), 
             //    "GameFeature", "addDefault");
 
@@ -71,7 +71,7 @@ public class Features
 //            {
 //                ForcedLogUtil.log("here it is: ").append(this.getClass().getClassLoader().getClass().getName()).append(this.getClass().getClassLoader().hashCode() , this);
 //            }
-            logUtil.put(
+            this.logUtil.put(
                     new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameFeature.toString()).toString(), this, commonStrings.ADD);
 
             list.add(gameFeature);
@@ -84,7 +84,7 @@ public class Features
   //For default or reload required features
     public void removeDefault(final Feature gameFeature) throws Exception
     {
-        logUtil.put(
+        this.logUtil.put(
                 new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameFeature.toString()).toString(), this, "removeDefault");
 
         this.remove(gameFeature);
@@ -95,7 +95,7 @@ public class Features
     {
         if (list.contains(gameFeature))
         {
-            logUtil.put(commonStrings.START, this, commonStrings.REMOVE);
+            this.logUtil.put(commonStrings.START, this, commonStrings.REMOVE);
             list.remove(gameFeature);
             GameFeatureEventHandler.getInstance().fireEvent(
                     new GameFeatureEvent(gameFeature, gameFeature.toString()));

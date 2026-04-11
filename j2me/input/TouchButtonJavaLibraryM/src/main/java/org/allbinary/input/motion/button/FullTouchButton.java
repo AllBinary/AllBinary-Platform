@@ -60,7 +60,7 @@ public class FullTouchButton extends TouchButton
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, "updateRectangle", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "updateRectangle", e);
         }
     }
 

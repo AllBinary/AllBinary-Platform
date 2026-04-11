@@ -54,7 +54,7 @@ public class UsersView extends HttpContextView implements DomNodeInterface
             }
             else
             {
-               logUtil.put("UserHelper",this,"toXmlNode");
+               this.logUtil.put("UserHelper",this,"toXmlNode");
             }
          }
          
@@ -64,7 +64,7 @@ public class UsersView extends HttpContextView implements DomNodeInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XSLLOGGINGERROR))
          {
-            logUtil.put(this.commonStrings.FAILURE, this, "toXmlNode", e);
+            this.logUtil.put(this.commonStrings.FAILURE, this, "toXmlNode", e);
          }
          return null;
       }
@@ -86,7 +86,7 @@ public class UsersView extends HttpContextView implements DomNodeInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"view()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"view()",e);
          }
          throw e;
       }

@@ -30,14 +30,14 @@ public class OptimizedGameInputLayerProcessorForCollidableLayer extends LayerPro
 	public void process(final AllBinaryLayerManager allBinaryLayerManager,
 	        final AllBinaryLayer layerInterface, final int index) throws Exception {
 		final AllBinaryGameLayer gameInputInterface = (AllBinaryGameLayer) layerInterface;
-                //logUtil.put(new StringMaker().append("processInput: ").append(layerInterface).toString(), this, gameInputStrings.PROCESS_INPUT);
+                //this.logUtil.put(new StringMaker().append("processInput: ").append(layerInterface).toString(), this, gameInputStrings.PROCESS_INPUT);
 		gameInputInterface.processInput(allBinaryLayerManager);
 	}
 
         //private final String IS_PROCESSING_LAYER = "isProcessorLayer";
         @Override
 	public boolean isProcessorLayer(final AllBinaryLayer layerInterface) {
-                //logUtil.put(new StringMaker().append("isProcessorLayer: ").append(layerInterface).toString(), this, IS_PROCESSING_LAYER);
+                //this.logUtil.put(new StringMaker().append("isProcessorLayer: ").append(layerInterface).toString(), this, IS_PROCESSING_LAYER);
 		if (layerInterface.implmentsGameInputInterface()) {
 			return true;
 		} else {

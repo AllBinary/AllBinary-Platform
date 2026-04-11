@@ -38,7 +38,7 @@ public class NoHighScoresFactory extends HighScoresBase
     @Override
     public void fetchHighScores(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener)
     {   
-        logUtil.put("Getting No HighScores", this, "fetchHighScores");
+        this.logUtil.put("Getting No HighScores", this, "fetchHighScores");
         highScoresResultsListener.setHighScoresArray(NO_HIGH_SCORES);
     }
     

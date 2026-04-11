@@ -50,7 +50,7 @@ public class WorkFlowHelper extends BasicTable
          String error = "Failed to drop view info table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,commonStrings.DROP,e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,commonStrings.DROP,e);
          }
          return error;
       }
@@ -67,7 +67,7 @@ public class WorkFlowHelper extends BasicTable
          String error = "Failed to create workflow table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"create()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"create()",e);
          }
          return error;
       }
@@ -81,7 +81,7 @@ public class WorkFlowHelper extends BasicTable
          final String result = AbSqlTableUtil.getInstance().restoreTable(WorkFlowEntityFactory.getInstance().create2(), this.portion);
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,"restore()");
+            this.logUtil.put(success,this,"restore()");
          }
          return result;
       }
@@ -91,7 +91,7 @@ public class WorkFlowHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"restore()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"restore()",e);
          }
          return error;
       }
@@ -105,7 +105,7 @@ public class WorkFlowHelper extends BasicTable
          final String result = AbSqlTableUtil.getInstance().backupTable(WorkFlowEntityFactory.getInstance().create2());
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,"backup()");
+            this.logUtil.put(success,this,"backup()");
          }
          return result;
       }
@@ -115,7 +115,7 @@ public class WorkFlowHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"backup()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"backup()",e);
          }
          return error;
       }

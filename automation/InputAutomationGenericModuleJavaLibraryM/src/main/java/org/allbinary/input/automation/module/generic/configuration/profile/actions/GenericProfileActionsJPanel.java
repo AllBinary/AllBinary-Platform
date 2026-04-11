@@ -216,7 +216,7 @@ public class GenericProfileActionsJPanel extends javax.swing.JPanel
         }
         catch (Exception e)
         {
-            logUtil.put(this.commonStrings.EXCEPTION, this, "saveJButtonActionPerformed", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "saveJButtonActionPerformed", e);
         }
     }//GEN-LAST:event_saveJButtonActionPerformed
     
@@ -258,7 +258,7 @@ public class GenericProfileActionsJPanel extends javax.swing.JPanel
                 javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 );
             
-            logUtil.put("Setting Configuration Profile Actions JPanel", this,
+            this.logUtil.put("Setting Configuration Profile Actions JPanel", this,
                 "genericProfileActionsJListValueChanged");
         }
     }
@@ -275,7 +275,7 @@ public class GenericProfileActionsJPanel extends javax.swing.JPanel
         }
         catch (Exception e)
         {
-            logUtil.put(this.commonStrings.EXCEPTION, this, "genericProfileActionsJListValueChanged", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "genericProfileActionsJListValueChanged", e);
         }
     }//GEN-LAST:event_genericProfileActionsJListValueChanged
     
@@ -297,7 +297,7 @@ public class GenericProfileActionsJPanel extends javax.swing.JPanel
         }
         catch (Exception e)
         {
-            logUtil.put(this.commonStrings.EXCEPTION, this, "okNewProfileActionJButtonActionPerformed", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "okNewProfileActionJButtonActionPerformed", e);
         }
     }//GEN-LAST:event_okNewProfileActionJButtonActionPerformed
     
@@ -317,7 +317,7 @@ public class GenericProfileActionsJPanel extends javax.swing.JPanel
         }
         catch (Exception e)
         {
-            logUtil.put(this.commonStrings.EXCEPTION, this, "deleteActionJButtonActionPerformed", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "deleteActionJButtonActionPerformed", e);
         }
     }//GEN-LAST:event_deleteActionJButtonActionPerformed
     

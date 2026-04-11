@@ -42,7 +42,7 @@ public class GameInputProcessorComposite extends PlayerGameInput
         }
         catch(Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e);
         }
     }
     

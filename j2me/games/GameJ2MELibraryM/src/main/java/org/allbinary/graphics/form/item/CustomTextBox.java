@@ -59,7 +59,7 @@ public class CustomTextBox extends GameCommandCanvas
         
         this.textFieldItem = textFieldItem;
 
-        //logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
         this.setTitle(label);
         
     }
@@ -72,7 +72,7 @@ public class CustomTextBox extends GameCommandCanvas
     private final InputFactory inputFactory = InputFactory.getInstance();
 
     public void onEvent(final int keyCode, final int deviceId, final boolean repeated) {
-        logUtil.put(new StringMaker().append(commonStrings.START).appendint(keyCode).toString(), this, "onEvent");
+        this.logUtil.put(new StringMaker().append(commonStrings.START).appendint(keyCode).toString(), this, "onEvent");
         this.keyPressed(keyCode, deviceId);
     }
     
@@ -99,7 +99,7 @@ public class CustomTextBox extends GameCommandCanvas
     {
         try {
 
-            logUtil.put(new StringMaker().append(CommonSeps.getInstance().SPACE).appendint(keyCode).toString(), this, gameInputStrings.KEY_PRESSED);
+            this.logUtil.put(new StringMaker().append(CommonSeps.getInstance().SPACE).appendint(keyCode).toString(), this, gameInputStrings.KEY_PRESSED);
 
             final PlatformKeyFactory platformKeyFactory = PlatformKeyFactory.getInstance();
 
@@ -118,14 +118,14 @@ public class CustomTextBox extends GameCommandCanvas
             }
             
         } catch(Exception e) {
-            logUtil.put(commonStrings.EXCEPTION, this, gameInputStrings.KEY_PRESSED, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, gameInputStrings.KEY_PRESSED, e);
         }
     }
 
     @Override
     public void keyReleased(final int keyCode, final int deviceId)
     {
-        // logUtil.put(commonStrings.START, this, gameInputStrings.KEY_RELEASED);
+        // this.logUtil.put(commonStrings.START, this, gameInputStrings.KEY_RELEASED);
     }
 
     @Override

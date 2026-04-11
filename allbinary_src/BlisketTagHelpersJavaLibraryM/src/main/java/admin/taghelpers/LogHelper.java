@@ -47,7 +47,7 @@ public class LogHelper extends BasicTable
          String error = "Failed to drop log table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,commonStrings.DROP,e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,commonStrings.DROP,e);
          }
          return error;  
       }
@@ -64,7 +64,7 @@ public class LogHelper extends BasicTable
          String error = "Failed to create new log table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"create()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"create()",e);
          }
          return error;  
       }
@@ -79,7 +79,7 @@ public class LogHelper extends BasicTable
          final String result = AbSqlTableUtil.getInstance().restoreTable(logTableEntity, this.portion);
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,"restore()");
+            this.logUtil.put(success,this,"restore()");
          }
          return result;
       }
@@ -89,7 +89,7 @@ public class LogHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"restore()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"restore()",e);
          }
          return error;
       }
@@ -103,7 +103,7 @@ public class LogHelper extends BasicTable
          final String result = AbSqlTableUtil.getInstance().backupTable(LogTableEntityFactory.getInstance().getLogTableEntityInstance());
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,"backup()");
+            this.logUtil.put(success,this,"backup()");
          }
          return result;
       }
@@ -113,7 +113,7 @@ public class LogHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"backup()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"backup()",e);
          }
          return error;
       }

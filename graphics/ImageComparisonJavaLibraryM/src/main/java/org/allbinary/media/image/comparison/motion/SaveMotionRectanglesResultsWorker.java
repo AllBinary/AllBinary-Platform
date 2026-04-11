@@ -72,7 +72,7 @@ public class SaveMotionRectanglesResultsWorker
     {
         try
         {
-            logUtil.put(this.commonStrings.START, this, this.commonStrings.RUN);
+            this.logUtil.put(this.commonStrings.START, this, this.commonStrings.RUN);
             
             this.setRunning(true);
             
@@ -92,14 +92,14 @@ public class SaveMotionRectanglesResultsWorker
             
             this.getMotionRectanglesVector().remove(motionRectangles);
             
-            logUtil.put(
+            this.logUtil.put(
                 CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN);
             
-            logUtil.put(this.commonStrings.END, this, this.commonStrings.RUN);
+            this.logUtil.put(this.commonStrings.END, this, this.commonStrings.RUN);
         }
         catch (Exception e)
         {
-            logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
         }
     }
     

@@ -55,7 +55,7 @@ public class MotionGestureToMotionGestureActionAssociation
         int size = aList.size();
         if (this.list.size() != size)
         {
-            //logUtil.put("List Is Not The Same Size", this, "isMotionGestureArrayEquals");
+            //this.logUtil.put("List Is Not The Same Size", this, "isMotionGestureArrayEquals");
             
             return false;
         }
@@ -64,7 +64,7 @@ public class MotionGestureToMotionGestureActionAssociation
         {
             if (aList.objectArray[i] != this.list.objectArray[i])
             {
-                //logUtil.put("List is different: aList: " + aList + " list: " + this.list, this, "isMotionGestureArrayEquals");
+                //this.logUtil.put("List is different: aList: " + aList + " list: " + this.list, this, "isMotionGestureArrayEquals");
                 
                 return false;
             }

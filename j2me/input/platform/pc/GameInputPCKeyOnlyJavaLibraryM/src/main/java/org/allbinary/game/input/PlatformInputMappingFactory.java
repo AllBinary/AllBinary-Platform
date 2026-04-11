@@ -42,7 +42,7 @@ public class PlatformInputMappingFactory
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
         }
         return SINGLETON;
     }

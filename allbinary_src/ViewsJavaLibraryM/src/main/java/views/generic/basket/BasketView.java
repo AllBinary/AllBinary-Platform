@@ -96,7 +96,7 @@ public class BasketView extends HttpStoreComponentView implements DomNodeInterfa
             }
             else
             {
-               logUtil.put("Product Failed: " + product,this,"toXmlNode");
+               this.logUtil.put("Product Failed: " + product,this,"toXmlNode");
             }
             numberOfResults++;
          }
@@ -124,7 +124,7 @@ public class BasketView extends HttpStoreComponentView implements DomNodeInterfa
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XSLLOGGINGERROR))
          {
-            logUtil.put(this.commonStrings.FAILURE,this,"toXmlNode",e);
+            this.logUtil.put(this.commonStrings.FAILURE,this,"toXmlNode",e);
          }
          throw e;
       }
@@ -146,7 +146,7 @@ public class BasketView extends HttpStoreComponentView implements DomNodeInterfa
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"view()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"view()",e);
          }
          throw e;
       }

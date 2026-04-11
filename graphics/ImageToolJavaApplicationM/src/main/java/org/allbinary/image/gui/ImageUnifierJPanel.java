@@ -93,7 +93,7 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
       }
       catch (Exception e)
       {
-         logUtil.put(commonStrings.EXCEPTION, this, this.commonStrings.INIT, e);
+         this.logUtil.put(commonStrings.EXCEPTION, this, this.commonStrings.INIT, e);
       }
 
    }
@@ -155,7 +155,7 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
       }
       catch (Exception e)
       {
-         logUtil.put(commonStrings.EXCEPTION, this, "updateImage", e);
+         this.logUtil.put(commonStrings.EXCEPTION, this, "updateImage", e);
       }
 
    }
@@ -200,7 +200,7 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
       }
       catch (Exception e)
       {
-         logUtil.put(commonStrings.EXCEPTION, this, "updateImageWithFudgedImages", e);
+         this.logUtil.put(commonStrings.EXCEPTION, this, "updateImageWithFudgedImages", e);
       }
    }
 
@@ -543,14 +543,14 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
 
           filePath = new StringMaker().append(filePath.substring(0, extensionIndex)).append(CommonSeps.getInstance().UNDERSCORE).appendint(this.imageUnifierProperties.getColumns()).append("_By_").appendint(this.imageUnifierProperties.getRows()).append("_Unified").append(imageStrings.PNG_EXTENSION).toString();
 
-          logUtil.put("New File Path: " + filePath, this, StringUtil.getInstance().EMPTY_STRING);
+          this.logUtil.put("New File Path: " + filePath, this, StringUtil.getInstance().EMPTY_STRING);
           
           final File outputFile = new File(filePath);
           ImagePersistanceUtil.getInstance().saveWithBatik(FileWrapperUtil.wrapFile(outputFile), this.result);
       }
       catch (Exception e)
       {
-         logUtil.put(commonStrings.EXCEPTION, this, "jButton1ActionPerformed", e);
+         this.logUtil.put(commonStrings.EXCEPTION, this, "jButton1ActionPerformed", e);
       }
     }//GEN-LAST:event_jButton1ActionPerformed
 

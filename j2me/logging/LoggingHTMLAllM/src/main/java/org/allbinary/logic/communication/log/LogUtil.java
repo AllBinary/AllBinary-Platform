@@ -35,7 +35,7 @@ public class LogUtil {
     private final LogFormatUtil logFormatUtil = LogFormatUtil.getInstance();
     
     //ActualPlatform
-    public void put(final Log log) {
+    public void putL(final Log log) {
         final String specialMessage = log.getSpecialMessage();
         final Object object = log.getObject();
         final String functionName = log.getFunctionName();
@@ -45,7 +45,7 @@ public class LogUtil {
     }
 
     //ActualPlatform
-    public void put(
+    public void putF(
         final String specialMessage,
         final Object object,
         final String functionName) {
@@ -60,7 +60,7 @@ public class LogUtil {
 //        {
 //            className = new String(object.getClass().getName());
 //        }
-        final String message = logFormatUtil.get(
+        final String message = logFormatUtil.getS(
             className, functionName, specialMessage);
 
         PlayN.log().debug(LOG_SUCCESS + message);

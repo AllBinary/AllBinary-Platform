@@ -50,14 +50,14 @@ public class AllBinaryLayerManager extends LayerManager
 
     public final void log()
     {
-        //logUtil.put(this.commonLabels.TOTAL_LABEL + this.getSize(), this, "log");
+        //this.logUtil.put(this.commonLabels.TOTAL_LABEL + this.getSize(), this, "log");
 
         int size = this.basicLayerProcessorArray.length;
         for (int index = 0; index < size; index++)
         {
             LayerProcessor layerProcessorInterface = basicLayerProcessorArray[index];
 
-            //logUtil.put(layerProcessorInterface.getClass().getName() + CommonSeps.getInstance().SPACE + this.commonLabels.TOTAL_LABEL +
+            //this.logUtil.put(layerProcessorInterface.getClass().getName() + CommonSeps.getInstance().SPACE + this.commonLabels.TOTAL_LABEL +
             //    layerProcessorInterface.getLayerManager().getSize(), this, "log");
         }
     }
@@ -89,22 +89,22 @@ public class AllBinaryLayerManager extends LayerManager
     private void appendProcessors(final AllBinaryLayer layerInterface)
         throws Exception
     {
-        //logUtil.put("Append: " + layerInterface, this, "appendProcessors");
+        //this.logUtil.put("Append: " + layerInterface, this, "appendProcessors");
         this.createLayerManagerEvent.setLayerInterface(layerInterface);
         layerManagerEventHandler.fireEvent(this.createLayerManagerEvent);
 
         LayerProcessor layerProcessorInterface;
 
-        //logUtil.put("Total BasicLayerProcessors: " + this.basicLayerProcessorArray.length, this, "appendProcessors");
+        //this.logUtil.put("Total BasicLayerProcessors: " + this.basicLayerProcessorArray.length, this, "appendProcessors");
         for (int index = this.basicLayerProcessorArray.length; --index >= 0;)
         {
             layerProcessorInterface = basicLayerProcessorArray[index];
 
-            //logUtil.put("Processing BasicLayerProcessor: " + layerProcessorInterface.getClass().getName(), this, "appendProcessors");
+            //this.logUtil.put("Processing BasicLayerProcessor: " + layerProcessorInterface.getClass().getName(), this, "appendProcessors");
 
             if (layerProcessorInterface.isProcessorLayer(layerInterface))
             {
-                //logUtil.put("Appending BasicLayerProcessor: " + layerProcessorInterface.getClass().getName(), this, "appendProcessors");
+                //this.logUtil.put("Appending BasicLayerProcessor: " + layerProcessorInterface.getClass().getName(), this, "appendProcessors");
                 layerProcessorInterface.getLayerManager().append(layerInterface);
             }
         }
@@ -114,7 +114,7 @@ public class AllBinaryLayerManager extends LayerManager
     public synchronized void remove(final AllBinaryLayer layerInterface)
         throws Exception
     {
-        //logUtil.put("Remove: " + layerInterface, this, "remove");
+        //this.logUtil.put("Remove: " + layerInterface, this, "remove");
         
         deleteLayerManagerEvent.setLayerInterface(layerInterface);
         layerManagerEventHandler.fireDeleteEvent(this.deleteLayerManagerEvent);
@@ -125,7 +125,7 @@ public class AllBinaryLayerManager extends LayerManager
         {
             layerProcessorInterface = basicLayerProcessorArray[index];
 
-            //logUtil.put("Processing BasicLayerProcessor: " + layerProcessorInterface.getClass().getName(), this, "processGame");
+            //this.logUtil.put("Processing BasicLayerProcessor: " + layerProcessorInterface.getClass().getName(), this, "processGame");
 
             layerProcessorInterface.getLayerManager().remove(layerInterface);
         }
@@ -142,20 +142,20 @@ public class AllBinaryLayerManager extends LayerManager
         
         int size = this.basicLayerProcessorArray.length;
         
-        //logUtil.put(commonStrings.START + size, this, commonStrings.PROCESS);
+        //this.logUtil.put(commonStrings.START + size, this, commonStrings.PROCESS);
         
         for (int index = 0; index < size; index++)
         {
             layerProcessorInterface = basicLayerProcessorArray[index];
 
-            //logUtil.put(layerProcessorInterface.getClass().getName() + CommonSeps.getInstance().SPACE + CommonLabels.getInstance().TOTAL_LABEL + 
+            //this.logUtil.put(layerProcessorInterface.getClass().getName() + CommonSeps.getInstance().SPACE + CommonLabels.getInstance().TOTAL_LABEL + 
             //        layerProcessorInterface.getLayerManager().getSize(), this, commonStrings.PROCESS);
 
             // if(index != damageIndex)
             layerProcessorInterface.process(this);
             // else
             // {
-            // logUtil.put("Processing BasicLayerProcessor: " +
+            // this.logUtil.put("Processing BasicLayerProcessor: " +
             // layerProcessorInterface.getClass().getName(), this, commonStrings.PROCESS);
             // layerProcessorInterface.processConcurrent(this);
             // }

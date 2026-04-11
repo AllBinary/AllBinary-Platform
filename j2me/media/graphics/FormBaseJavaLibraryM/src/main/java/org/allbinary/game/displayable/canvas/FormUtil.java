@@ -44,7 +44,7 @@ public class FormUtil
                 displayInfo.getLastWidth() - 30,
                 displayInfo.getLastHeight() - 35);
         
-        //logUtil.put("form menu rectangle: " + rectangle.toString(), this, commonStrings.PROCESS);
+        //this.logUtil.put("form menu rectangle: " + rectangle.toString(), this, commonStrings.PROCESS);
 
         return rectangle;
     }
@@ -65,7 +65,7 @@ public class FormUtil
             popupMenuRectangle = new Rectangle(
                     PointFactory.getInstance().getInstance(0, 25), myFont.stringWidth(3), (myFont.DEFAULT_CHAR_HEIGHT * 4) + 2);
             
-            //logUtil.put("popupMenuRectangle: " + popupMenuRectangle.toString(), this, commonStrings.PROCESS);
+            //this.logUtil.put("popupMenuRectangle: " + popupMenuRectangle.toString(), this, commonStrings.PROCESS);
         }
         else
         {
@@ -73,7 +73,7 @@ public class FormUtil
                     PointFactory.getInstance().getInstance(
                     0, displayInfo.getLastHalfHeight() - 70), myFont.stringWidth(3), (myFont.DEFAULT_CHAR_HEIGHT * 5));
             
-            //logUtil.put("large popupMenuRectangle: " + popupMenuRectangle.toString(), this, commonStrings.PROCESS);
+            //this.logUtil.put("large popupMenuRectangle: " + popupMenuRectangle.toString(), this, commonStrings.PROCESS);
         }
         
         return popupMenuRectangle;

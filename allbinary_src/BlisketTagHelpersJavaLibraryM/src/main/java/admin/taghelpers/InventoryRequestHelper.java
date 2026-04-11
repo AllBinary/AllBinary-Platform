@@ -66,7 +66,7 @@ public class InventoryRequestHelper extends ModifyTable
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
             {
-                logUtil.put(success, this, "insert()");
+                this.logUtil.put(success, this, "insert()");
             }
             return success;
         } catch (Exception e)
@@ -75,7 +75,7 @@ public class InventoryRequestHelper extends ModifyTable
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                logUtil.put(commonStrings.EXCEPTION, this, "insert()", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "insert()", e);
             }
             return error;
         }
@@ -103,7 +103,7 @@ public class InventoryRequestHelper extends ModifyTable
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
             {
-                logUtil.put(success, this, "doStartTag()");
+                this.logUtil.put(success, this, "doStartTag()");
             }
             return success;
         } catch (Exception e)
@@ -112,7 +112,7 @@ public class InventoryRequestHelper extends ModifyTable
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                logUtil.put(commonStrings.EXCEPTION, this, "doStartTag()", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "doStartTag()", e);
             }
             return error;
         }
@@ -153,7 +153,7 @@ public class InventoryRequestHelper extends ModifyTable
             String success = "Item Successfully Updated";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
             {
-                logUtil.put(success, this, "update()");
+                this.logUtil.put(success, this, "update()");
             }
             return success;
         } catch (Exception e)
@@ -161,7 +161,7 @@ public class InventoryRequestHelper extends ModifyTable
             String error = "Failed To Update Item";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                logUtil.put(commonStrings.EXCEPTION, this, "update()", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "update()", e);
             }
             return error;
         }

@@ -79,7 +79,7 @@ public class LicenseRegistrationTextBox
 
        } catch (Exception e)
        {
-           logUtil.put(commonStrings.EXCEPTION, this, "open", e);
+           this.logUtil.put(commonStrings.EXCEPTION, this, "open", e);
        }
        
        super.open();
@@ -100,7 +100,7 @@ public class LicenseRegistrationTextBox
            
        } catch (Exception e)
        {
-           logUtil.put(commonStrings.EXCEPTION, this, "open", e);
+           this.logUtil.put(commonStrings.EXCEPTION, this, "open", e);
        }
 
        this.paintable = this.pleaseWaitPaintable;

@@ -50,7 +50,7 @@ public class ToolFactory
             this.tool = tool;
         } catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, "setSelectionTool", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "setSelectionTool", e);
         }
     }
 
@@ -62,7 +62,7 @@ public class ToolFactory
         {
             this.selectedTool = GraphicItemFactory.getInstance().getInstance(tool);
 
-            logUtil.put("New Tool: " + this.selectedTool, this, "getSelectedToolFactory");
+            this.logUtil.put("New Tool: " + this.selectedTool, this, "getSelectedToolFactory");
 
             return this.selectedTool;
         }

@@ -57,7 +57,7 @@ public class SmallIntegerSingletonFactory
             lastNegativeMin = negativeValue;
             //MIN = negativeValue;
         }
-        //logUtil.put("? " + NEGATIVE_INTEGER_ARRAY[5], stringUtil.EMPTY_STRING, "?????????");
+        //this.logUtil.put("? " + NEGATIVE_INTEGER_ARRAY[5], stringUtil.EMPTY_STRING, "?????????");
     }
 
     public void init()
@@ -74,7 +74,7 @@ public class SmallIntegerSingletonFactory
                 INTEGER_ARRAY[index] = new Integer(-index);
             }
 
-            //logUtil.put("? " + NEGATIVE_INTEGER_ARRAY[5], CommonPhoneStrings.getInstance().TWO, "?????????");
+            //this.logUtil.put("? " + NEGATIVE_INTEGER_ARRAY[5], CommonPhoneStrings.getInstance().TWO, "?????????");
 
             lastMin = POSITIVE_MAX;
             lastNegativeMin = NEGATIVE_MAX;
@@ -139,11 +139,11 @@ public class SmallIntegerSingletonFactory
      * public Integer getInstance(int index) { if(index >= 0) { Integer
      * integer = INTEGER_ARRAY[index]; if(integer == null) { try { throw new
      * Exception("Out of Range: " + index); } catch(Exception e) {
-     * logUtil.put(commonStrings.EXCEPTION,
+     * this.logUtil.put(commonStrings.EXCEPTION,
      * this, commonStrings.GET_INSTANCE, e); } } return integer;
      * }else { Integer integer = NEGATIVE_INTEGER_ARRAY[-index]; if(integer ==
      * null) { try { throw new Exception("Out of Range: " + index); }
-     * catch(Exception e) { logUtil.put(commonStrings.EXCEPTION,
+     * catch(Exception e) { this.logUtil.put(commonStrings.EXCEPTION,
      * this, commonStrings.GET_INSTANCE, e); } } return integer; }
      * }
      */

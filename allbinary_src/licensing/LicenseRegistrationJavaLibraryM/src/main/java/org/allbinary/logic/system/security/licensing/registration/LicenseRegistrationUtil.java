@@ -47,7 +47,7 @@ public class LicenseRegistrationUtil
         }
         catch (Exception e)
         {
-            PreLogUtil.put("License Registration Exception", "LicenseRegistrationUtil", "License Registration", e);
+            PreLogUtil.putOE("License Registration Exception", "LicenseRegistrationUtil", "License Registration", e);
         }
     }
 }

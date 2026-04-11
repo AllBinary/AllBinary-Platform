@@ -117,7 +117,7 @@ public class WorkAreaJPanel
         {
             if (LOGGING.contains(LOGGING.LOADINGERROR))
             {
-                logUtil.put("Constructor Error", this, "WorkAreaJPanel", e);
+                this.logUtil.put("Constructor Error", this, "WorkAreaJPanel", e);
             }
 
             throw e;

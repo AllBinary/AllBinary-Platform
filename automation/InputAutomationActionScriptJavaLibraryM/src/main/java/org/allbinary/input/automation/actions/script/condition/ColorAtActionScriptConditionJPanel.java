@@ -35,7 +35,7 @@ public class ColorAtActionScriptConditionJPanel
     public ColorAtActionScriptConditionJPanel(
         ColorAtActionScriptConditionInterface colorAtActionScriptConditionInterface)
     {
-        logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
+        this.logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         
         initComponents();
         

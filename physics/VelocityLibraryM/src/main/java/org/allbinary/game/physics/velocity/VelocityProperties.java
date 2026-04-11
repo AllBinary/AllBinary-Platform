@@ -123,7 +123,7 @@ implements VelocityInterface
    @Override
    public void limitXYToForwardAndReverseMaxVelocity()
    {
-      //logUtil.put("Limit Velocity", this, "limitMaxVelocity");
+      //this.logUtil.put("Limit Velocity", this, "limitMaxVelocity");
       this.limitMaxXYForwardVelocity();
       this.limitMaxXYReverseVelocity();
    }

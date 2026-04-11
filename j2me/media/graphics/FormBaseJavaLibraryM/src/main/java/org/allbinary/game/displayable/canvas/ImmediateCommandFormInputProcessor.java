@@ -44,7 +44,7 @@ public class ImmediateCommandFormInputProcessor
     {
         try
         {
-            //logUtil.put(commonStrings.START, this, "onPressGameKeyEvent: " + gameKeyEvent.getSourceId());
+            //this.logUtil.put(commonStrings.START, this, "onPressGameKeyEvent: " + gameKeyEvent.getSourceId());
             //PreLogUtil.put(commonStrings.START, this, gameInputStrings.ON_PRESS_GAME_KEY);
 
             super.onPressGameKeyEvent(gameKeyEvent);
@@ -57,7 +57,7 @@ public class ImmediateCommandFormInputProcessor
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, gameInputStrings.ON_PRESS_GAME_KEY, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, gameInputStrings.ON_PRESS_GAME_KEY, e);
         }
     }
     
@@ -66,7 +66,7 @@ public class ImmediateCommandFormInputProcessor
     {
         try
         {
-            //logUtil.put(commonStrings.START, this, "onDownGameKeyEvent: " + gameKeyEvent.getSourceId());
+            //this.logUtil.put(commonStrings.START, this, "onDownGameKeyEvent: " + gameKeyEvent.getSourceId());
             //PreLogUtil.put(commonStrings.START, this, gameInputStrings.ON_DOWN_GAME_KEY);
 
             super.onDownGameKeyEvent(gameKeyEvent);
@@ -79,7 +79,7 @@ public class ImmediateCommandFormInputProcessor
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, gameInputStrings.ON_DOWN_GAME_KEY, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, gameInputStrings.ON_DOWN_GAME_KEY, e);
         }
     }
 
@@ -88,7 +88,7 @@ public class ImmediateCommandFormInputProcessor
     {
         try
         {
-            //logUtil.put(commonStrings.START, this, "onUpGameKeyEvent: " + gameKeyEvent.getSourceId());
+            //this.logUtil.put(commonStrings.START, this, "onUpGameKeyEvent: " + gameKeyEvent.getSourceId());
             //PreLogUtil.put(commonStrings.START, this, gameInputStrings.ON_UP_GAME_KEY);
             
             super.onUpGameKeyEvent(gameKeyEvent);
@@ -101,7 +101,7 @@ public class ImmediateCommandFormInputProcessor
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, gameInputStrings.ON_UP_GAME_KEY, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, gameInputStrings.ON_UP_GAME_KEY, e);
         }
     }
 
@@ -110,7 +110,7 @@ public class ImmediateCommandFormInputProcessor
     {
         try
         {
-            //logUtil.put(commonStrings.START, this, "onMotionGestureEvent: " + motionGestureEvent.getId());
+            //this.logUtil.put(commonStrings.START, this, "onMotionGestureEvent: " + motionGestureEvent.getId());
             //PreLogUtil.put(commonStrings.START, this, "onMotionGestureEvent");
             
             super.onMotionGestureEvent(motionGestureEvent);
@@ -122,7 +122,7 @@ public class ImmediateCommandFormInputProcessor
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, "onMotionGestureEvent", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "onMotionGestureEvent", e);
         }
     }
 }

@@ -114,7 +114,7 @@ public class UploadFileServlet extends HttpServlet
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
             {
-                logUtil.put(this.commonStrings.EXCEPTION, this, "processRequest()", e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, "processRequest()", e);
             }
             isError = true;
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
@@ -164,7 +164,7 @@ public class UploadFileServlet extends HttpServlet
                     stringBuffer.append(" New File: ");
                     stringBuffer.append(file.getPath());
 
-                    logUtil.put(stringBuffer.toString(), this, "saveFile()");
+                    this.logUtil.put(stringBuffer.toString(), this, "saveFile()");
                 }
                 HttpFileUploadUtil.log(fileItem);
 

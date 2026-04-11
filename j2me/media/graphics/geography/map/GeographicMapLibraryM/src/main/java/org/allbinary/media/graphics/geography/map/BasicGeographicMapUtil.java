@@ -123,7 +123,7 @@ public class BasicGeographicMapUtil {
     public void setPosition(final BasicGeographicMap[] geographicMapInterfaceArray, final int x, final int y) {
 
         //final CommonStrings commonStrings = CommonStrings.getInstance();
-        //logUtil.put(new StringMaker().append("x: ").append(x).append(" y: ").append(y).toString(), this, commonStrings.PROCESS);
+        //this.logUtil.put(new StringMaker().append("x: ").append(x).append(" y: ").append(y).toString(), this, commonStrings.PROCESS);
         BasicGeographicMap geographicMapInterface;
         final int size = geographicMapInterfaceArray.length;
         for(int index = size; --index >= 0;) {

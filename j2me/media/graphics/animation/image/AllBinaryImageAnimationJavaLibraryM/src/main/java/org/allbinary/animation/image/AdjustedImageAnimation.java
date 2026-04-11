@@ -34,7 +34,7 @@ public class AdjustedImageAnimation extends ImageAnimation {
     {
         super(image, animationBehavior);
 
-        // logUtil.put(, this,);
+        // this.logUtil.put(, this,);
 
         this.init(dx, dy);
         //-(imageArray[0].getWidth() >> 2), -(imageArray[0].getHeight() >> 2)

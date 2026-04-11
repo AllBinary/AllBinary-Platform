@@ -32,7 +32,7 @@ public class MouseInputAutomationProcessor
     {
         final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        logUtil.put(
+        this.logUtil.put(
             new StringMaker().append("Start - Processing Mouse Input at: ")
                 .append(mouseActionScriptInputInterface.getPoint().toString())
                 .append(" clicks: ").appendint(mouseActionScriptInputInterface.getButtonClicks()).toString(),
@@ -63,6 +63,6 @@ public class MouseInputAutomationProcessor
 
         Thread.sleep(mouseActionScriptInputInterface.getTime());
         
-        //logUtil.put(this.commonStrings.END, "MouseInputAutomationProcessor", commonStrings.PROCESS);
+        //this.logUtil.put(this.commonStrings.END, "MouseInputAutomationProcessor", commonStrings.PROCESS);
     }
 }

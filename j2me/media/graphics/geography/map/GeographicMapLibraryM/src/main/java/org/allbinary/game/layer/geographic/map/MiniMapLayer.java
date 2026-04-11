@@ -71,7 +71,7 @@ public class MiniMapLayer
             this.allBinaryTiledLayer.getCellHeight(), BasicColorFactory.getInstance().WHITE);
 
         // allBinaryTiledLayer.setPosition(0, this.getYP());
-        //logUtil.put("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Alpha: " + this.bufferedImage.getBitmap().getPixel(0,0), this, "updateBufferedImage");
+        //this.logUtil.put("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Alpha: " + this.bufferedImage.getBitmap().getPixel(0,0), this, "updateBufferedImage");
         this.list = new BasicArrayList();
         this.basicColorList = new BasicArrayList();
         this.positionList = new BasicArrayList();
@@ -111,7 +111,7 @@ public class MiniMapLayer
     @Override
     public synchronized void onGeographicMapCellPositionEvent(final GeographicMapCellPositionEvent geographicMapCellPositionEvent)
         throws Exception {
-        //logUtil.put(commonStrings.START, this, "onEvent");
+        //this.logUtil.put(commonStrings.START, this, "onEvent");
 
         final ColorCompositeInterface colorCompositeInterface =
             (ColorCompositeInterface) geographicMapCellPositionEvent.getSource();
@@ -174,7 +174,7 @@ public class MiniMapLayer
                 //localY 
                 point.getY() + this.y);
 
-            //logUtil.put("X: " + x + " Y: " + y + " Color: " + color, this, "updateBufferedImage");
+            //this.logUtil.put("X: " + x + " Y: " + y + " Color: " + color, this, "updateBufferedImage");
         }
 
     }

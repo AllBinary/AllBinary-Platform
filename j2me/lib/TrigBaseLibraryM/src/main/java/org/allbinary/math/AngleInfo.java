@@ -34,7 +34,7 @@ public class AngleInfo
    private AngleInfo(AngleIncrementInfo angleIncrementInfo)
    {
       this.angleIncrementInfo = angleIncrementInfo;
-      //logUtil.put(this.angleIncrementInfo.toString(), this, "getAngleIncrementInfo()");
+      //this.logUtil.put(this.angleIncrementInfo.toString(), this, "getAngleIncrementInfo()");
    }
    
    private final FrameUtil frameUtil = FrameUtil.getInstance();
@@ -52,13 +52,13 @@ public class AngleInfo
    
    public void setAngle(short angle)
    {
-      //logUtil.put("Set Angle: " + angle, this, "setAngle");
+      //this.logUtil.put("Set Angle: " + angle, this, "setAngle");
       this.angle = angle;
    }
 
    public AngleIncrementInfo getAngleIncrementInfo()
    {
-	  //logUtil.put(angleIncrementInfo.toString(), this, "getAngleIncrementInfo()");
+	  //this.logUtil.put(angleIncrementInfo.toString(), this, "getAngleIncrementInfo()");
       return this.angleIncrementInfo;
    }
    

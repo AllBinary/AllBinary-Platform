@@ -144,7 +144,7 @@ public class PathAnimation extends Animation
         }
         catch (Exception e)
         {
-            logUtil.put("Cleared Target", this, "paint");
+            this.logUtil.put("Cleared Target", this, "paint");
         }
     }
 }

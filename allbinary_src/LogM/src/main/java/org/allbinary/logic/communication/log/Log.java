@@ -13,29 +13,18 @@
 */
 package org.allbinary.logic.communication.log;
 
-import org.allbinary.logic.NullUtil;
-import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.LogFormatUtil;
 
 public class Log
 {
-    private final NullUtil nullUtil = NullUtil.getInstance();
+    
     private final LogFormatUtil logFormatUtil = LogFormatUtil.getInstance();
 
     private final String specialMessage;
     private final Object object;
     private final String functionName;
     private final Object exception;
-
-    public Log()
-    {
-        final StringUtil stringUtil = StringUtil.getInstance();
-        
-        this.specialMessage = stringUtil.EMPTY_STRING;
-        this.object = nullUtil.NULL_OBJECT;
-        this.functionName = stringUtil.EMPTY_STRING;
-        this.exception = nullUtil.NULL_OBJECT;
-    }
     
     public Log(
         final String specialMessage,
@@ -47,18 +36,6 @@ public class Log
         this.object = object;
         this.functionName = functionName;
         this.exception = exception;
-    }
-
-    public Log(
-        final String specialMessage,
-        final Object object,
-        final String functionName)
-    {
-        this.specialMessage = specialMessage;
-        this.object = object;
-        this.functionName = functionName;
-        this.exception = this.nullUtil.NULL_OBJECT;
-
     }
 
     public String getSpecialMessage()

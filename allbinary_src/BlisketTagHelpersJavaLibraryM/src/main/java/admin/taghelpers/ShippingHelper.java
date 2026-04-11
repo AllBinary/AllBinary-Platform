@@ -77,7 +77,7 @@ public class ShippingHelper
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {            
-            logUtil.put(success,this,"setShippingType()");
+            this.logUtil.put(success,this,"setShippingType()");
          }
          return success;
       }
@@ -87,7 +87,7 @@ public class ShippingHelper
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"setShippingType()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"setShippingType()",e);
          }
          return error;
       }

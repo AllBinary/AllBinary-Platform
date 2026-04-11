@@ -112,12 +112,12 @@ public class StaticPathGenerator {
                 pathCacheFactory.remove(smallIntegerSingletonFactory.getInstance(id));
             }
 
-            logUtil.put(new StringMaker().append("Using Cached Path(s): ").append(StringUtil.getInstance().toString(list)).toString(), this, commonStrings.GET_INSTANCE);
+            this.logUtil.put(new StringMaker().append("Using Cached Path(s): ").append(StringUtil.getInstance().toString(list)).toString(), this, commonStrings.GET_INSTANCE);
 
             return list;
 
         } catch (Exception e) {
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
             return new BasicArrayList();
         }
     }

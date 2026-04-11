@@ -49,13 +49,13 @@ public class AllBinaryPreloaderActivator
     {
         try
         {
-            logUtil.put(this.commonStrings.START, this, "start");
+            this.logUtil.put(this.commonStrings.START, this, "start");
             AllBinaryPreloaderActivator.context = context;
             this.registerAsService();
         }
         catch(Exception e)
         {
-            logUtil.put(this.commonStrings.EXCEPTION, this, "start", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "start", e);
             throw e;
         }
     }
@@ -81,6 +81,6 @@ public class AllBinaryPreloaderActivator
     public void stop(BundleContext context)
     throws Exception
     {
-        logUtil.put(this.commonStrings.START, this, "stop");
+        this.logUtil.put(this.commonStrings.START, this, "stop");
     }    
 }

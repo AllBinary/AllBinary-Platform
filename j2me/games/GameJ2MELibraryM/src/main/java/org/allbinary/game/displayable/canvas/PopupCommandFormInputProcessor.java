@@ -34,7 +34,7 @@ extends CommandFormInputProcessor
     {
         super(gameKeyEventList, playerInputId, gameCanvas, form);
 
-        //logUtil.put(commonStrings.CONSTRUCTOR, this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.put(commonStrings.CONSTRUCTOR, this, commonStrings.CONSTRUCTOR);
         
         //this.popupMenuInputProcessor = popupMenuInputProcessor;
     }
@@ -42,7 +42,7 @@ extends CommandFormInputProcessor
     @Override
     public int processInput(int key) throws Exception
     {
-        //logUtil.put(commonStrings.START_LABEL).append(" Canvas.").append(CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance());
+        //this.logUtil.put(commonStrings.START_LABEL).append(" Canvas.").append(CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance());
         //this.popupMenuInputProcessor.processInput(key);
         return super.processInput(key);
     }

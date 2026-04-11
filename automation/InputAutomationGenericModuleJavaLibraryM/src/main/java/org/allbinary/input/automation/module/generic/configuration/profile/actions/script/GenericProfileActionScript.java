@@ -91,7 +91,7 @@ public class GenericProfileActionScript
     public void addCondition(
         ProfileActionScriptNodeInterface profileActionScriptNodeInterface)
     {
-        logUtil.put(this.commonStrings.START, this, "addCondition");
+        this.logUtil.put(this.commonStrings.START, this, "addCondition");
         this.getProfileActionConditionInterfaceVector().add(
             profileActionScriptNodeInterface);
         this.add(profileActionScriptNodeInterface);
@@ -100,7 +100,7 @@ public class GenericProfileActionScript
     public void removeCondition(
         ProfileActionScriptNodeInterface profileActionScriptNodeInterface)
     {
-        logUtil.put(this.commonStrings.START, this, "removeCondition");
+        this.logUtil.put(this.commonStrings.START, this, "removeCondition");
         this.getProfileActionConditionInterfaceVector().remove(
             profileActionScriptNodeInterface);
         this.remove(profileActionScriptNodeInterface);
@@ -110,7 +110,7 @@ public class GenericProfileActionScript
     {
         HashMap hashMap = new HashMap();
 
-        logUtil.put("HashMap: " + hashMap.toString(), this, "toHashMap()");
+        this.logUtil.put("HashMap: " + hashMap.toString(), this, "toHashMap()");
         
         return hashMap;
     }

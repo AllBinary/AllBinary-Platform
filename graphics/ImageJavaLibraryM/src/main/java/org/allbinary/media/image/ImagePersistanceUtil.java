@@ -59,7 +59,7 @@ public class ImagePersistanceUtil {
     	  StreamUtil.getInstance().close(fileOutputStream);
       }
       
-      logUtil.put("Wrote Image: " + file.getAbsolutePath(), this, commonStrings.SAVE);
+      this.logUtil.put("Wrote Image: " + file.getAbsolutePath(), this, commonStrings.SAVE);
    }
 
                         /*
@@ -96,7 +96,7 @@ public class ImagePersistanceUtil {
                     generatedBufferedImageArray[index],
                     "PNG",
                     files[index]);
-                    logUtil.put("Wrote: " + isWritten, this, stringUtil.EMPTY_STRING);
+                    this.logUtil.put("Wrote: " + isWritten, this, stringUtil.EMPTY_STRING);
                      */
 
         /*
@@ -178,7 +178,7 @@ public class ImagePersistanceUtil {
          */
     /*
     public void paint(Graphics graphics) {
-    logUtil.put(commonStrings.START, this, canvasStrings.PAINT);
+    this.logUtil.put(commonStrings.START, this, canvasStrings.PAINT);
      */
     //graphics.setColor(BasicColors.BLUE.toColor());
     //graphics.fillRect(0, 0, getWidth(),getHeight());
@@ -250,7 +250,7 @@ public class ImagePersistanceUtil {
          // Validate existence of writer.
          if (!iter.hasNext())
          {
-            logUtil.put("Unable to save image to jpeg file type.", this, commonStrings.SAVE);
+            this.logUtil.put("Unable to save image to jpeg file type.", this, commonStrings.SAVE);
             return;
          }
 
@@ -280,11 +280,11 @@ public class ImagePersistanceUtil {
 
          //poolInterface.add(iioImageCacheable);
 
-         logUtil.put("Wrote Image: " + file.getAbsolutePath(), this, commonStrings.SAVE);
+         this.logUtil.put("Wrote Image: " + file.getAbsolutePath(), this, commonStrings.SAVE);
       }
       catch (Exception e)
       {
-         logUtil.put(commonStrings.EXCEPTION, this, commonStrings.SAVE, e);
+         this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.SAVE, e);
       }
       finally
       {
@@ -301,12 +301,12 @@ public class ImagePersistanceUtil {
         {
             if (ios != null)
             {
-                logUtil.put(ios.toString(), ios, commonStrings.CLOSE);
+                this.logUtil.put(ios.toString(), ios, commonStrings.CLOSE);
                 ios.close();
             }
         } catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, ios, commonStrings.CLOSE, e);
+            this.logUtil.put(commonStrings.EXCEPTION, ios, commonStrings.CLOSE, e);
         }               
             }
 
@@ -317,7 +317,7 @@ public class ImagePersistanceUtil {
          }
          catch (IOException e2)
          {
-            logUtil.put(this.commonStrings.EXCEPTION, this, commonStrings.SAVE, e2);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, commonStrings.SAVE, e2);
          }
       }
    }

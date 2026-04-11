@@ -61,7 +61,7 @@ public class Cpu implements CpuInterface, HardwareComponentInterface
       {
          if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OS))
          {
-            logUtil.put(new StringMaker().append("Cpu Data: ").append(this.toString()).toString(), this, this.commonStrings.CONSTRUCTOR, e);
+            this.logUtil.put(new StringMaker().append("Cpu Data: ").append(this.toString()).toString(), this, this.commonStrings.CONSTRUCTOR, e);
          }
          throw e;
       }
@@ -83,7 +83,7 @@ public class Cpu implements CpuInterface, HardwareComponentInterface
             
             if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OS))
             {
-               logUtil.put(new StringMaker().append("Cpu File Vector Size: ").appendint(fileVector.size()).toString(), this, this.commonStrings.CONSTRUCTOR);
+               this.logUtil.put(new StringMaker().append("Cpu File Vector Size: ").appendint(fileVector.size()).toString(), this, this.commonStrings.CONSTRUCTOR);
             }
             
             //size() > 0

@@ -37,7 +37,7 @@ public class BasicPlatormGeographicMapCellTypeFactory extends GeographicMapCellT
     
     public BasicPlatormGeographicMapCellTypeFactory(final Hashtable tileTypeToTileIdsMap, final int maxTileId) {
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        logUtil.put(commonStrings.START, this, commonStrings.INIT);
+        this.logUtil.put(commonStrings.START, this, commonStrings.INIT);
 
         this.maxTileId = maxTileId;
         
@@ -60,7 +60,7 @@ public class BasicPlatormGeographicMapCellTypeFactory extends GeographicMapCellT
         while(enumeration.hasMoreElements()) {
             key = (String) enumeration.nextElement();
             
-            logUtil.put(key, this, commonStrings.INIT);
+            this.logUtil.put(key, this, commonStrings.INIT);
             
             idsWithTypeList = (BasicArrayList) tileTypeToTileIdsMap.get(key);
 

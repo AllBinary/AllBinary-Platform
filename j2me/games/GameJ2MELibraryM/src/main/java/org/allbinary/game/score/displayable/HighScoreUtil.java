@@ -76,12 +76,12 @@ public class HighScoreUtil implements HighScoresResultsListener
 
     public void saveHighScore()
     {
-        logUtil.put(new StringMaker().append(commonStrings.START).append(StringUtil.getInstance().toString(this.highScore)).toString(), this, "saveHighScore");
+        this.logUtil.put(new StringMaker().append(commonStrings.START).append(StringUtil.getInstance().toString(this.highScore)).toString(), this, "saveHighScore");
         
         final int size = this.highScoresArray.length;
         
         if(firstTime && size == 0) {
-            logUtil.put("Games canvas did not give us any HighScores", this, "saveHighScore");
+            this.logUtil.put("Games canvas did not give us any HighScores", this, "saveHighScore");
             highScoresFactoryInterface.fetchHighScores(gameInfo, this);
             return;
         }
@@ -93,7 +93,7 @@ public class HighScoreUtil implements HighScoresResultsListener
             highScores = highScoresArray[index];
             highScores.addHighScore(this.highScore);
             highScoresAsString = highScores.toString();
-            logUtil.put(new StringMaker().append("Added/Adding Score: ").append(highScoresAsString).toString(), this, "saveHighScore");
+            this.logUtil.put(new StringMaker().append("Added/Adding Score: ").append(highScoresAsString).toString(), this, "saveHighScore");
         }
         
         this.highScoresHelper.setHighScoresArray(highScoresArray);

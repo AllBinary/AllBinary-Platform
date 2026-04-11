@@ -124,7 +124,7 @@ public class AbSqlBasic
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
-                logUtil.put(FAILED_SQL_STATEMENT + statement, this, METHOD_EXECUTED_SQL_STATEMENT, e);
+                this.logUtil.put(FAILED_SQL_STATEMENT + statement, this, METHOD_EXECUTED_SQL_STATEMENT, e);
             }
 
             this.conn.close();
@@ -154,14 +154,14 @@ public class AbSqlBasic
             this.executeSQLStatement(sqlStrings.CREATE_DATABASE + databaseName);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                logUtil.put(this.DATABASE_CREATED_LABEL + databaseName, this, METHOD_CREATE);
+                this.logUtil.put(this.DATABASE_CREATED_LABEL + databaseName, this, METHOD_CREATE);
             }
             return databaseName + sqlStrings.CREATE_RETURN;
         } catch (Exception e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
-                logUtil.put(DATABASE_CREATION_FAILED_LABEL + databaseName, this, this.METHOD_CREATE, e);
+                this.logUtil.put(DATABASE_CREATION_FAILED_LABEL + databaseName, this, this.METHOD_CREATE, e);
             }
             return DATABASE_CREATION_FAILED_LABEL + databaseName;
         }
@@ -185,7 +185,7 @@ public class AbSqlBasic
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
-                logUtil.put(SQL_CONNECTION_RETRYING, this, METHOD_CREATE_CONNECTION, se);
+                this.logUtil.put(SQL_CONNECTION_RETRYING, this, METHOD_CREATE_CONNECTION, se);
             }
             try
             {
@@ -202,7 +202,7 @@ public class AbSqlBasic
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
                 {
-                    logUtil.put(SQL_CONNECTION_RETRY + se.getMessage(), this, this.METHOD_CREATE_CONNECTION, e);
+                    this.logUtil.put(SQL_CONNECTION_RETRY + se.getMessage(), this, this.METHOD_CREATE_CONNECTION, e);
                 }
 
             }
@@ -234,8 +234,8 @@ public class AbSqlBasic
                 {
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
                     {
-                        logUtil.put(LOAD_JDBC_DRIVER_FAILED_LABEL + this.getDatabaseConnectionInfoInterface().getJdbcDriver(), this, METHOD_INITIALIZE, e);
-                        //logUtil.put("Load mySQL Driver Failed: com.mysql.jdbc.Driver",this,"initialize",e);
+                        this.logUtil.put(LOAD_JDBC_DRIVER_FAILED_LABEL + this.getDatabaseConnectionInfoInterface().getJdbcDriver(), this, METHOD_INITIALIZE, e);
+                        //this.logUtil.put("Load mySQL Driver Failed: com.mysql.jdbc.Driver",this,"initialize",e);
                     }
                 }
 
@@ -253,7 +253,7 @@ public class AbSqlBasic
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
-                logUtil.put(SQL_CONNECTION_FAILED, this, this.METHOD_INITIALIZE, se);
+                this.logUtil.put(SQL_CONNECTION_FAILED, this, this.METHOD_INITIALIZE, se);
             }
         }
     }

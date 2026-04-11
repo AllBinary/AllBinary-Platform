@@ -103,7 +103,7 @@ public class AlwaysActionScriptCondition
 
         hashMap.put(AlwaysActionScriptConditionData.IS_ON, Boolean.toString(this.isIsOn()));
 
-        logUtil.put("HashMap: " + hashMap.toString(), this, "toHashMap()");
+        this.logUtil.put("HashMap: " + hashMap.toString(), this, "toHashMap()");
 
         return hashMap;
     }
@@ -130,6 +130,6 @@ public class AlwaysActionScriptCondition
     
     public void log()
     {
-        logUtil.put("Is On: " + this.isIsOn(), this, "log");
+        this.logUtil.put("Is On: " + this.isIsOn(), this, "log");
     }
 }

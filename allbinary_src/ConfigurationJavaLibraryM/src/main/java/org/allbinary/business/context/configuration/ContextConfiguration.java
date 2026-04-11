@@ -30,14 +30,14 @@ public class ContextConfiguration implements ContextConfigurationInterface
 
     public ContextConfiguration()
     {
-        logUtil.put(commonStrings.START, this, "ContextConfiguration");
+        this.logUtil.put(commonStrings.START, this, "ContextConfiguration");
 
         this.setEmailServerConfigurationInterface((EmailServerConfigurationInterface) new EmailServerConfiguration());
     }
 
     public ContextConfiguration(HashMap hashMap)
     {
-        logUtil.put(commonStrings.START, this, "ContextConfiguration(HashMap)");
+        this.logUtil.put(commonStrings.START, this, "ContextConfiguration(HashMap)");
 
         this.setEmailServerConfigurationInterface((EmailServerConfigurationInterface) new EmailServerConfiguration(hashMap));
     }

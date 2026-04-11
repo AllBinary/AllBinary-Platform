@@ -44,7 +44,7 @@ public class GenericProfileActionScriptJPanel
     /** Creates new form GenericProfileActionScriptJPanel */
     public GenericProfileActionScriptJPanel()
     {
-        logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
+        this.logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         
         initComponents();
     }
@@ -58,7 +58,7 @@ public class GenericProfileActionScriptJPanel
         
         this.repaint();
         
-        logUtil.put("Updated UI", this, "updateJTree");
+        this.logUtil.put("Updated UI", this, "updateJTree");
     }
     
     public GenericProfileActionScript getGenericProfileActionScript()

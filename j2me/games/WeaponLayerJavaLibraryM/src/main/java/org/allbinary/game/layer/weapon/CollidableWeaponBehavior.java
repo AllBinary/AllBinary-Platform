@@ -57,7 +57,7 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
         {
             if (this.ownerLayer.getGroupInterface()[0] != collisionLayer.getGroupInterface()[0])
             {
-                // logUtil.put("isCollision: " +
+                // this.logUtil.put("isCollision: " +
                 // this.getGroupInterface().getGroupName() + "==" +
                 // collisionLayer.getGroupInterface().getGroupName(), this,
                 // damageUtil.IS_COLLISION);
@@ -71,7 +71,7 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
     @Override
     public void collide(CollidableCompositeLayer collisionLayer) throws Exception
     {
-        // logUtil.put(this.getName() + " collided with "
+        // this.logUtil.put(this.getName() + " collided with "
         // + collisionLayer.getName(), this, damageUtil.COLLIDE);
         //this.slow();
 
@@ -89,7 +89,7 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
         {
             final AllBinaryLayer layerInterface = (AllBinaryLayer) collidableInterfaceCompositeInterface;
 
-            // logUtil.put("isCollision: " +
+            // this.logUtil.put("isCollision: " +
             // this.getGroupInterface().getGroupName() + "==" +
             // layerInterface.getGroupInterface().getGroupName(),
             // this, damageUtil.IS_COLLISION);
@@ -108,7 +108,7 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
     public void collide(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
             throws Exception
     {
-        // logUtil.put(commonStrings.START, this, damageUtil.COLLIDE);
+        // this.logUtil.put(commonStrings.START, this, damageUtil.COLLIDE);
         
         //this.slow();
         

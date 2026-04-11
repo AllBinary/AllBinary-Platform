@@ -48,17 +48,17 @@ public class FileLockUtil
             FileLock fileLock = getLock(file);
             if(fileLock != null)
             {
-                logUtil.put("File Lock Obtained: " + file.getAbsolutePath(), this, "getAll");
+                this.logUtil.put("File Lock Obtained: " + file.getAbsolutePath(), this, "getAll");
                 fileLockVector.add(fileLock);
             }
             else
             if(isReturnOnFailure)
             {
-                logUtil.put("Total Locks Obtained: " + fileLockVector.size(), this, "getAll");
+                this.logUtil.put("Total Locks Obtained: " + fileLockVector.size(), this, "getAll");
                 return fileLockVector;
             }
         }
-        logUtil.put("Total Locks Obtained: " + fileLockVector.size(), this, "getAll");
+        this.logUtil.put("Total Locks Obtained: " + fileLockVector.size(), this, "getAll");
         return fileLockVector;
     }
 
@@ -91,7 +91,7 @@ public class FileLockUtil
         }
         catch(Exception e)
         {
-            logUtil.put("Exception returns null", this, "getLock", e );
+            this.logUtil.put("Exception returns null", this, "getLock", e );
             return null;
         }
         finally
@@ -109,12 +109,12 @@ public class FileLockUtil
         }
         catch(Exception e)
         {
-            logUtil.put("Exception returns null", this, "getLock", e);
+            this.logUtil.put("Exception returns null", this, "getLock", e);
             return null;
         }
         finally
         {
-            logUtil.put("Finally - Closing FileOutputStream", this, "getLock");
+            this.logUtil.put("Finally - Closing FileOutputStream", this, "getLock");
             StreamUtil.getInstance().close(fileOutputStream);
         }
     }
@@ -130,12 +130,12 @@ public class FileLockUtil
         }
         catch(Exception e)
         {
-            logUtil.put("Exception returns null", this, "getLock", e);
+            this.logUtil.put("Exception returns null", this, "getLock", e);
             return null;
         }
         finally
         {
-            logUtil.put("Finally - Closing FileChannel", this, "getLock");
+            this.logUtil.put("Finally - Closing FileChannel", this, "getLock");
             fileChannel.close();
         }
     }

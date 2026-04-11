@@ -41,7 +41,7 @@ public class ValidationOnlyTempUtil
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            logUtil.put("View Name: " + validationComponentInterface.getTransformInfoInterface().getName(), this, "view()");
+            this.logUtil.put("View Name: " + validationComponentInterface.getTransformInfoInterface().getName(), this, "view()");
          }
 
 /*
@@ -58,7 +58,7 @@ public class ValidationOnlyTempUtil
          //String error = "Failed to view: " + validationComponentInterface.getTransformInfoInterface().getName();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION, this, "view()", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "view()", e);
          }
          throw e;
       }

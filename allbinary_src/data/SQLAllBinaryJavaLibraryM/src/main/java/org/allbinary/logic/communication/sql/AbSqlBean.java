@@ -66,7 +66,7 @@ public class AbSqlBean extends AbSqlRow
                     stringBuffer.append(sqlStrings.FIELD_VALUE);
                     stringBuffer.append(field);
 
-                    logUtil.put(stringBuffer.toString(), this, METHOD_GET_FIELD);
+                    this.logUtil.put(stringBuffer.toString(), this, METHOD_GET_FIELD);
                 }
 
                 return field;
@@ -76,7 +76,7 @@ public class AbSqlBean extends AbSqlRow
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
-                logUtil.put(this.FAILED_SQL_STATEMENT + sqlStatement, this, METHOD_GET_FIELD, e);
+                this.logUtil.put(this.FAILED_SQL_STATEMENT + sqlStatement, this, METHOD_GET_FIELD, e);
             }
             return this.FAILED_SQL_STATEMENT + sqlStatement;
         }
@@ -133,7 +133,7 @@ public class AbSqlBean extends AbSqlRow
                     stringBuffer.append(sqlStrings.FIELD_VALUE);
                     stringBuffer.append(field);
 
-                    logUtil.put(stringBuffer.toString(), this, METHOD_GET_FIELD);
+                    this.logUtil.put(stringBuffer.toString(), this, METHOD_GET_FIELD);
                 }
                 return field;
             }
@@ -144,7 +144,7 @@ public class AbSqlBean extends AbSqlRow
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
-                logUtil.put(this.FAILED_SQL_STATEMENT + sqlStatement, this, METHOD_GET_FIELD, e);
+                this.logUtil.put(this.FAILED_SQL_STATEMENT + sqlStatement, this, METHOD_GET_FIELD, e);
             }
             return this.FAILED_SQL_STATEMENT + sqlStatement;
         }
@@ -213,7 +213,7 @@ public class AbSqlBean extends AbSqlRow
             final String sqlStatement = stringBuffer.toString();
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
-                logUtil.put(this.FAILED_SQL_STATEMENT + sqlStatement, this, METHOD_IS_SUBSET_OF_ENTRY, e);
+                this.logUtil.put(this.FAILED_SQL_STATEMENT + sqlStatement, this, METHOD_IS_SUBSET_OF_ENTRY, e);
             }
             return this.FAILED_SQL_STATEMENT + sqlStatement;
         }

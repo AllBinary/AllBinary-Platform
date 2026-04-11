@@ -57,7 +57,7 @@ public class ImageCopyUtil
             throws Exception
     {
         if(!features.isFeature(gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
-            logUtil.put(NO_COPY, this, commonStrings.CONSTRUCTOR, new Exception());
+            this.logUtil.put(NO_COPY, this, commonStrings.CONSTRUCTOR, new Exception());
             return originalImage;
         }
         
@@ -80,12 +80,12 @@ public class ImageCopyUtil
             throws Exception
     {
         if(!features.isFeature(gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
-            logUtil.put(NO_COPY, this, commonStrings.CONSTRUCTOR, new Exception());
+            this.logUtil.put(NO_COPY, this, commonStrings.CONSTRUCTOR, new Exception());
             return originalImage;
         }
         
         //final CommonLabels commonLabels = CommonLabels.getInstance();
-        //logUtil.put(commonLabels + originalImage.getWidth() + commonLabels + originalImage.getHeight(), this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.put(commonLabels + originalImage.getWidth() + commonLabels + originalImage.getHeight(), this, commonStrings.CONSTRUCTOR);
         
         int newWidth = (int) (originalImage.getWidth() * canvasScale);
         int newHeight = (int) (originalImage.getHeight() * canvasScale);
@@ -100,7 +100,7 @@ public class ImageCopyUtil
             }
         }
         
-        //logUtil.put("newWidth: " + newWidth + " newHeight: " + newHeight, this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.put("newWidth: " + newWidth + " newHeight: " + newHeight, this, commonStrings.CONSTRUCTOR);
         
         final Image image = imageCreationUtil.getInstance(newWidth, newHeight);
 
@@ -109,7 +109,7 @@ public class ImageCopyUtil
             final int halfWidthDelta = (newWidth - originalImage.getWidth()) / 2;
             final int halfHeightDelta = (newHeight - originalImage.getHeight()) / 2;
             //final CommonLabels commonLabels = CommonLabels.getInstance();
-            //logUtil.put("deltas" + commonLabels + halfWidthDelta + commonLabels + halfHeightDelta, this, commonStrings.CONSTRUCTOR);
+            //this.logUtil.put("deltas" + commonLabels + halfWidthDelta + commonLabels + halfHeightDelta, this, commonStrings.CONSTRUCTOR);
             final Graphics graphics = image.getGraphics();
             graphics.drawImage(originalImage, halfWidthDelta, halfHeightDelta, anchor);
             //this.basicSetColorUtil.setBasicColorP(graphics, BasicColorFactory.getInstance().YELLOW);

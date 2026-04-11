@@ -55,7 +55,7 @@ public class TransformInfoRequestHelper extends ModifyTable
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,"update()");
+            this.logUtil.put(success,this,"update()");
          }
          return success;
       }
@@ -64,7 +64,7 @@ public class TransformInfoRequestHelper extends ModifyTable
          String error = "Failed to update storefronts table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"update()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"update()",e);
          }
          return error;
       }
@@ -81,7 +81,7 @@ public class TransformInfoRequestHelper extends ModifyTable
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,"insert()");
+            this.logUtil.put(success,this,"insert()");
          }
          return success;
       }
@@ -90,7 +90,7 @@ public class TransformInfoRequestHelper extends ModifyTable
          String error = "Failed to add storefronts table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"insert()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"insert()",e);
          }
          return error;
       }
@@ -106,7 +106,7 @@ public class TransformInfoRequestHelper extends ModifyTable
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,"delete()");
+            this.logUtil.put(success,this,"delete()");
          }
          return success;
       }
@@ -115,7 +115,7 @@ public class TransformInfoRequestHelper extends ModifyTable
          String error = "Failed to delete storefronts table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"delete()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"delete()",e);
          }
          return error;
       }

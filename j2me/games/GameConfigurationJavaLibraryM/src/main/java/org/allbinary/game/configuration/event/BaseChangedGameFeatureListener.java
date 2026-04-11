@@ -42,7 +42,7 @@ public class BaseChangedGameFeatureListener implements GameFeatureListenerInterf
     @Override
     public void onGameFeatureChange(GameFeatureEvent gameFeatureEvent)
     {
-        logUtil.put(new StringMaker().append(gameFeatureUtil.GAME_FEATURE_CHANGED).append(gameFeatureEvent.getWhatChanged()).toString(), this, gameFeatureUtil.ON_GAME_FEATURE_CHANGE);
+        this.logUtil.put(new StringMaker().append(gameFeatureUtil.GAME_FEATURE_CHANGED).append(gameFeatureEvent.getWhatChanged()).toString(), this, gameFeatureUtil.ON_GAME_FEATURE_CHANGE);
 
        list.add(gameFeatureEvent.getGameOption());
 
@@ -82,7 +82,7 @@ public class BaseChangedGameFeatureListener implements GameFeatureListenerInterf
         stringBuffer.append(" isChanged: ");
         stringBuffer.appendboolean(isChanged);
         
-        logUtil.put(stringBuffer.toString(), this, "isChanged");
+        this.logUtil.put(stringBuffer.toString(), this, "isChanged");
         
         return isChanged;
     }

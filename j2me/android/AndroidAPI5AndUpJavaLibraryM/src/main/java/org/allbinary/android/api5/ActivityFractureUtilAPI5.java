@@ -66,7 +66,7 @@ public class ActivityFractureUtilAPI5 extends ActivityFractureUtilAPI1
         touchScreenTypeFactory.update(activity);
         
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        //logUtil.put(touchScreenFactory.toString(), this, commonStrings.PROCESS);
+        //this.logUtil.put(touchScreenFactory.toString(), this, commonStrings.PROCESS);
         PreLogUtil.put(touchScreenFactory.toString(), this, commonStrings.PROCESS);
     }
 

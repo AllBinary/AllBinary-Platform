@@ -112,7 +112,7 @@ public class ResizeImageJPanel extends javax.swing.JPanel
                     ResizeImageJPanel.this.getParent().repaint();
 
                 } catch (Exception e) {
-                    logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                    this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
                 }
             }
         }.start();
@@ -138,7 +138,7 @@ public class ResizeImageJPanel extends javax.swing.JPanel
                     ResizeImageJPanel.this.getParent().repaint();
 
                 } catch (Exception e) {
-                    logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                    this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
                 }
             }
         }.start();
@@ -164,7 +164,7 @@ public class ResizeImageJPanel extends javax.swing.JPanel
                     ResizeImageJPanel.this.getParent().repaint();
 
                 } catch (Exception e) {
-                    logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                    this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
                 }
             }
         }.start();
@@ -190,7 +190,7 @@ public class ResizeImageJPanel extends javax.swing.JPanel
                     ResizeImageJPanel.this.getParent().repaint();
 
                 } catch (Exception e) {
-                    logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                    this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
                 }
             }
         }.start();

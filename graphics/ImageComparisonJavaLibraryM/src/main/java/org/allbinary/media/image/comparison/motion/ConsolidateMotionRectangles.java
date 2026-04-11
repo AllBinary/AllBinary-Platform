@@ -40,14 +40,14 @@ public class ConsolidateMotionRectangles extends MotionRectangles
 
         consolidateMotionRectangles();
 
-        //logUtil.put(
+        //this.logUtil.put(
           //  "After - Number Of Rectangles: " + vector.size(), this, this.commonStrings.CONSTRUCTOR);
     }
 
     private void consolidateMotionRectangles()
     {
         final Vector vector = this.getVector();
-        logUtil.put("Start - Size Before: " + vector.size(),
+        this.logUtil.put("Start - Size Before: " + vector.size(),
             this, "consolidateMotionRectangleConstraints");
         
         final Vector removeVector = new Vector();
@@ -74,7 +74,7 @@ public class ConsolidateMotionRectangles extends MotionRectangles
                         x2 >= rightX && y2 >= bottomY)
                     {
                         /*
-        logUtil.put(new StringMaker().append("Should Consolidating: " + rectangle.x + "<" + rectangle2.x + " " + 
+        this.logUtil.put(new StringMaker().append("Should Consolidating: " + rectangle.x + "<" + rectangle2.x + " " + 
             rectangle.y + "<" + rectangle2.y + " " + x2 + ">" + rightX + " " + y2 + ">" + bottomY,
             this, "consolidateMotionRectangleConstraints");
                         */

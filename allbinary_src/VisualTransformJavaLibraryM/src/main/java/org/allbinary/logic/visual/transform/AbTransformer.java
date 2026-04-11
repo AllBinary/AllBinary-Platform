@@ -75,7 +75,7 @@ public class AbTransformer implements BasicTransformerInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XMLLOGGING))
          {
-            logUtil.put("xml: \n" + xmlDocumentStr, this, "translate(String xmlDocumentStr)");
+            this.logUtil.put("xml: \n" + xmlDocumentStr, this, "translate(String xmlDocumentStr)");
          }
 
          if(this.getURIResolver() == null)
@@ -89,7 +89,7 @@ public class AbTransformer implements BasicTransformerInterface
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XSLLOGGING))
          {
-            logUtil.put("translated xml: " + result, this, "translate(String xmlDocumentStr)");
+            this.logUtil.put("translated xml: " + result, this, "translate(String xmlDocumentStr)");
          }
 
          TransformInfoObjectConfigGenerator 
@@ -103,7 +103,7 @@ public class AbTransformer implements BasicTransformerInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            logUtil.put(this.transformInfoInterface.log(), this, "translate(document)", e);
+            this.logUtil.put(this.transformInfoInterface.log(), this, "translate(document)", e);
          }
          throw e;
       }

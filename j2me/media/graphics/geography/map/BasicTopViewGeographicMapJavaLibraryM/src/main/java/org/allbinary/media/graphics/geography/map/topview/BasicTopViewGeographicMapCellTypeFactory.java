@@ -70,7 +70,7 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
     
     public BasicTopViewGeographicMapCellTypeFactory(final Hashtable tileTypeToTileIdsMap, final int maxTileId) {
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        this.logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
         this.maxTileId = maxTileId;
 
@@ -87,7 +87,7 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
         if(geographicMapCellTypeArray[type] == null) {
             new RaceTrackGeographicMapCellType(type, 999);
         } else {
-            //logUtil.put(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, commonStrings.CONSTRUCTOR);
+            //this.logUtil.put(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, commonStrings.CONSTRUCTOR);
         }
         
         BasicTopViewGeographicMapCellType BLOCK_CELL_TYPE = new BasicTopViewGeographicMapCellType(basicTopViewGeographicMapStrings.DEFAULT, 1, 1);
@@ -112,11 +112,11 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
         for(int index = 0; index < size; index++) {
             key = (String) keyArray[index];
             
-            //logUtil.put(key, this, commonStrings.INIT);
+            //this.logUtil.put(key, this, commonStrings.INIT);
             
             idsWithTypeList = (BasicArrayList) tileTypeToTileIdsMap.get(key);
 
-            //logUtil.put(new StringMaker().append("key: ").append(key).append(CommonLabels.getInstance().COLON_SEP).append(idsWithTypeList.toString()).toString(), this, commonStrings.INIT);
+            //this.logUtil.put(new StringMaker().append("key: ").append(key).append(CommonLabels.getInstance().COLON_SEP).append(idsWithTypeList.toString()).toString(), this, commonStrings.INIT);
             if(key.equals(basicTopViewGeographicMapStrings.WALL)) {
                 basicPlatormGeographicMapCellType = new BasicTopViewGeographicMapCellType(basicTopViewGeographicMapStrings.WALL, idsWithTypeList, 1000);
                 BLOCK_CELL_TYPE = basicPlatormGeographicMapCellType;
@@ -154,14 +154,14 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
         if(geographicMapCellTypeArray[type] == null) {
             new RaceTrackGeographicMapCellType(commonStrings.START, type, 1);
         } else {
-            //logUtil.put(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, commonStrings.CONSTRUCTOR);
+            //this.logUtil.put(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, commonStrings.CONSTRUCTOR);
         }
 
         type = this.maxTileId - 2;
         if(geographicMapCellTypeArray[type] == null) {
             new RaceTrackGeographicMapCellType(commonStrings.START, type, 1);
         } else {
-            //logUtil.put(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, commonStrings.CONSTRUCTOR);
+            //this.logUtil.put(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, commonStrings.CONSTRUCTOR);
         }
         
     }

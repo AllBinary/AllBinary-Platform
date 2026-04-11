@@ -120,7 +120,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
     public void saveFontAtlasAsFile() {
         
         //final CommonStrings commonStrings = CommonStrings.getInstance();
-        //logUtil.put(commonStrings.START, this, "saveFontAtlasAsFile");
+        //this.logUtil.put(commonStrings.START, this, "saveFontAtlasAsFile");
         
         final Image image = this.getFontBitmap2(null, cellSize, BasicColorFactory.getInstance().WHITE);
         final ImageLoader imageLoader = new ImageLoader();
@@ -136,7 +136,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
         
         //final String GET_FONT_BITMAP = "getFontBitmap";
         //final CommonStrings commonStrings = CommonStrings.getInstance();
-        //logUtil.put(commonStrings.START, this, GET_FONT_BITMAP);
+        //this.logUtil.put(commonStrings.START, this, GET_FONT_BITMAP);
         
         final int cellsPerRow2 = CELLS_PER_ROW * 2;
         final int cellsPerRow3 = CELLS_PER_ROW * 3;
@@ -149,15 +149,15 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
         //Typeface.createFromAsset(ResourceUtil.getInstance().getContext().getAssets(), filename);
 
         //Must make bitmap as texture for GL so it must be as a texture size. 
-        //logUtil.put("textureSize: " + textureSize, this, GET_FONT_BITMAP);
+        //this.logUtil.put("textureSize: " + textureSize, this, GET_FONT_BITMAP);
 
         final Image image = Image.createImage(textureSize, textureSize);
 
         final Graphics graphics = image.getGraphics();
         graphics.setColor(basicColor.intValue());
         
-        //logUtil.put("basicColor: " + basicColor, this, GET_FONT_BITMAP);
-        //logUtil.put("graphics: " + graphics, this, GET_FONT_BITMAP);
+        //this.logUtil.put("basicColor: " + basicColor, this, GET_FONT_BITMAP);
+        //this.logUtil.put("graphics: " + graphics, this, GET_FONT_BITMAP);
         
         int biggestHeight = 0;
         final Rectangle bounds = new Rectangle(PointFactory.getInstance().getInstance(0, 0), cellSize, cellSize);
@@ -305,12 +305,12 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
             if(characterArray[0] == ' ') {
                 _characterWidth[index] = (fontSize / 4);
             } else {
-                //logUtil.put("widthFloatArray: " + widthFloatArray.length, this, commonStrings.START);
-                //logUtil.put("character: " + characterArray[0], this, commonStrings.START);
+                //this.logUtil.put("widthFloatArray: " + widthFloatArray.length, this, commonStrings.START);
+                //this.logUtil.put("character: " + characterArray[0], this, commonStrings.START);
                 final int shortPatternIndex = this.shortPattern.indexOf(characterArray[0]);
-                //logUtil.put("shortPatternIndex: " + shortPatternIndex, this, commonStrings.START);
+                //this.logUtil.put("shortPatternIndex: " + shortPatternIndex, this, commonStrings.START);
                 final int w = (int) (widthFloatArray[shortPatternIndex] / 75) + 19;
-//                logUtil.put(new StringMaker().append('w').append(CommonSeps.getInstance().SPACE).append(characterArray[0]).append(w).append(';')
+//                this.logUtil.put(new StringMaker().append('w').append(CommonSeps.getInstance().SPACE).append(characterArray[0]).append(w).append(';')
 //                    //.append(_characterWidth[index])
 //                    .append(bounds.getMaxX())
 //                    .toString(), this, commonStrings.START);

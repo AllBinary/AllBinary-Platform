@@ -84,7 +84,7 @@ public class LicenseInitInfoUtil
             // if
             // (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSINGERROR))
             // {
-            logUtil.put("Command Failed: " + INITFILENAME, this, "write", e);
+            this.logUtil.put("Command Failed: " + INITFILENAME, this, "write", e);
             // }
             FileStreamFactory.getInstance().delete(
                     this.filePath, INITFILENAME);
@@ -124,9 +124,9 @@ public class LicenseInitInfoUtil
             // if
             // (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
-            // logUtil.put("LicenseInitInfo File: " +
+            // this.logUtil.put("LicenseInitInfo File: " +
             // FILEABPATH.toString(),
-            logUtil.put("LicenseInitInfo File: " + INITFILENAME, this, METHOD_NAME);
+            this.logUtil.put("LicenseInitInfo File: " + INITFILENAME, this, METHOD_NAME);
             // }
 
             final FileStreamFactory fileStreamFactory = FileStreamFactory.getInstance();
@@ -159,7 +159,7 @@ public class LicenseInitInfoUtil
                     // if
                     // (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
                     // {
-                    logUtil.put(NEXT_FILE + initInfo.getServer(index), this, METHOD_NAME);
+                    this.logUtil.put(NEXT_FILE + initInfo.getServer(index), this, METHOD_NAME);
                     // }
                 }
                 return initInfo;
@@ -176,7 +176,7 @@ public class LicenseInitInfoUtil
                 // if
                 // (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADER))
                 // {
-                logUtil.put("Command Failed: " + INITFILENAME, this, METHOD_NAME, e);
+                this.logUtil.put("Command Failed: " + INITFILENAME, this, METHOD_NAME, e);
                 // }
 
                 //Thread.currentThread().sleep(2000);
@@ -194,7 +194,7 @@ public class LicenseInitInfoUtil
                 // if
                 // (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADERERROR))
                 // {
-                logUtil.put("LicenseInitInfo Read Retry: " + INITFILENAME, this, "readAgain()", se);
+                this.logUtil.put("LicenseInitInfo Read Retry: " + INITFILENAME, this, "readAgain()", se);
                 // }
             }
             throw new Exception("LicenseInitInfo Read Error: " + INITFILENAME);

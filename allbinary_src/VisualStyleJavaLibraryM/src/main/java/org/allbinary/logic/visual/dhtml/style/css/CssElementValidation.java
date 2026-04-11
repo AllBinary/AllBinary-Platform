@@ -48,7 +48,7 @@ public class CssElementValidation extends CssElementView implements ValidationIn
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            logUtil.put("CssElementValidation",this,commonStrings.IS_VALID);
+            this.logUtil.put("CssElementValidation",this,commonStrings.IS_VALID);
          }
 
          /*
@@ -72,7 +72,7 @@ public class CssElementValidation extends CssElementView implements ValidationIn
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            logUtil.put("CssElementValidation: " + valid,this,commonStrings.IS_VALID);
+            this.logUtil.put("CssElementValidation: " + valid,this,commonStrings.IS_VALID);
          }
          
          return valid;
@@ -81,7 +81,7 @@ public class CssElementValidation extends CssElementView implements ValidationIn
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            logUtil.put("Failed to validate data",this,commonStrings.IS_VALID,e);
+            this.logUtil.put("Failed to validate data",this,commonStrings.IS_VALID,e);
          }
          return Boolean.FALSE;
       }
@@ -102,7 +102,7 @@ public class CssElementValidation extends CssElementView implements ValidationIn
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            logUtil.put("Failed to generate validation info error",this,"validationInfo()",e);
+            this.logUtil.put("Failed to generate validation info error",this,"validationInfo()",e);
          }
          return "Error Validating Data";
       }

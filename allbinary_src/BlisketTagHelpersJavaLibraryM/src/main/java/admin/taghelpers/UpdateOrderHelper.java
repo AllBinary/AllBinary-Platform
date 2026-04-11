@@ -191,7 +191,7 @@ public class UpdateOrderHelper
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,"update()");
+            this.logUtil.put(success,this,"update()");
          }
          return success;
       }
@@ -200,7 +200,7 @@ public class UpdateOrderHelper
          String error = "Failed to update order table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"update()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"update()",e);
          }
          return error;
       }

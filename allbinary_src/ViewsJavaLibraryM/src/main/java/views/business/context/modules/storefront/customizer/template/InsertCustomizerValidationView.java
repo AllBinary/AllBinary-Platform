@@ -53,7 +53,7 @@ public class InsertCustomizerValidationView extends HttpStoreComponentView
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            logUtil.put("View Name: " + transformInfoInterface.getName(), this, this.commonStrings.CONSTRUCTOR);
+            this.logUtil.put("View Name: " + transformInfoInterface.getName(), this, this.commonStrings.CONSTRUCTOR);
         }
 
         HashMap requestHashMap =
@@ -71,7 +71,7 @@ public class InsertCustomizerValidationView extends HttpStoreComponentView
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                logUtil.put("Started Validation", this, commonStrings.IS_VALID);
+                this.logUtil.put("Started Validation", this, commonStrings.IS_VALID);
             }
 
             Boolean isValid = Boolean.TRUE;
@@ -99,7 +99,7 @@ public class InsertCustomizerValidationView extends HttpStoreComponentView
                     stringBuffer.appendint(componentVector.size());
                     stringBuffer.append(" Components");
 
-                    logUtil.put(stringBuffer.toString(), this, commonStrings.IS_VALID);
+                    this.logUtil.put(stringBuffer.toString(), this, commonStrings.IS_VALID);
                 }
 
                 for(int index = 0; index < size; index++)
@@ -110,7 +110,7 @@ public class InsertCustomizerValidationView extends HttpStoreComponentView
 
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                     {
-                        logUtil.put("Setting Template Component with ViewName: "
+                        this.logUtil.put("Setting Template Component with ViewName: "
                             + transformInfoName, this, commonStrings.IS_VALID);
                     }
 
@@ -173,7 +173,7 @@ public class InsertCustomizerValidationView extends HttpStoreComponentView
                         stringBuffer.append("\n Now Pointing To View Name: ");
                         stringBuffer.append(newViewName);
 
-                        logUtil.put(stringBuffer.toString(), this, commonStrings.IS_VALID);
+                        this.logUtil.put(stringBuffer.toString(), this, commonStrings.IS_VALID);
                     }
 
                     templateViewObjectConfig.set(newViewName);
@@ -188,7 +188,7 @@ public class InsertCustomizerValidationView extends HttpStoreComponentView
                         stringBuffer.append("\n with ObjectConfig: ");
                         stringBuffer.append(templateViewObjectConfig.toString());
 
-                        logUtil.put(stringBuffer.toString(), this, commonStrings.IS_VALID);
+                        this.logUtil.put(stringBuffer.toString(), this, commonStrings.IS_VALID);
                     }
 
                     componentInterface.getTransformInfoInterface().setObjectConfigInterface(
@@ -204,7 +204,7 @@ public class InsertCustomizerValidationView extends HttpStoreComponentView
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
             {
-                logUtil.put("Failed to validate", this, commonStrings.IS_VALID, e);
+                this.logUtil.put("Failed to validate", this, commonStrings.IS_VALID, e);
             }
             return Boolean.FALSE;
         }
@@ -223,7 +223,7 @@ public class InsertCustomizerValidationView extends HttpStoreComponentView
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
             {
-                logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
+                this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
             }
             return "Error Getting Validation Info";
         }

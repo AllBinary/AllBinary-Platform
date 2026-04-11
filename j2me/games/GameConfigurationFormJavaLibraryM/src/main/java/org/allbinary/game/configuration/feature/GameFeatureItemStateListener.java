@@ -40,7 +40,7 @@ public class GameFeatureItemStateListener implements ItemStateListener
     {
         this.gameOptionsForm = gameOptionsForm;
         
-        // logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        // this.logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
         GameFeatureFactory gameFeatureFactory = 
             GameFeatureFactory.getInstance();
@@ -81,7 +81,7 @@ public class GameFeatureItemStateListener implements ItemStateListener
         {
             String itemLabel = item.getLabel();
 
-            logUtil.put(new StringMaker().append(CommonLabels.getInstance().ITEM_LABEL).append(itemLabel).toString(), this, "itemStateChanged");
+            this.logUtil.put(new StringMaker().append(CommonLabels.getInstance().ITEM_LABEL).append(itemLabel).toString(), this, "itemStateChanged");
 
             if (item instanceof GameConfigurationGauge)
             {
@@ -107,7 +107,7 @@ public class GameFeatureItemStateListener implements ItemStateListener
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, this, "itemStateChanged", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "itemStateChanged", e);
         }
     }
 }

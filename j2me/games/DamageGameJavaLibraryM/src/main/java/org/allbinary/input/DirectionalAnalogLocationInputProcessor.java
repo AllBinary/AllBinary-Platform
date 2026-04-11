@@ -56,7 +56,7 @@ public class DirectionalAnalogLocationInputProcessor
             this.rightTriggerGameKeyEvent = GameKeyEventFactory.getInstance().getInstance(this, gameKeyFactory.KEY_NUM5);
         } catch (Exception e) {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
         }
     }
 
@@ -87,8 +87,8 @@ public class DirectionalAnalogLocationInputProcessor
                 inputProcessorArray[this.upGameKeyEvent.getKey()].process(allbinaryLayerManager, this.upGameKeyEvent, y);
             }
             
-            //logUtil.put(RIGHT_TRIGGER_VALUE + rightTrigger, this, commonStrings.PROCESS);
-            //logUtil.put(LEFT_TRIGGER_VALUE + leftTrigger, this, commonStrings.PROCESS);
+            //this.logUtil.put(RIGHT_TRIGGER_VALUE + rightTrigger, this, commonStrings.PROCESS);
+            //this.logUtil.put(LEFT_TRIGGER_VALUE + leftTrigger, this, commonStrings.PROCESS);
             
             if (leftTrigger > 0) {
                 inputProcessorArray[this.leftTriggerGameKeyEvent.getKey()].process(allbinaryLayerManager, this.leftTriggerGameKeyEvent, leftTrigger);
@@ -100,7 +100,7 @@ public class DirectionalAnalogLocationInputProcessor
             
         } catch (Exception e) {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put("Unable to process analog input", this, commonStrings.PROCESS, e);
+            this.logUtil.put("Unable to process analog input", this, commonStrings.PROCESS, e);
         }
     }
 

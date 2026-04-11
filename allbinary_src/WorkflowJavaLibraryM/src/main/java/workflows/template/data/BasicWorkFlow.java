@@ -44,7 +44,7 @@ public class BasicWorkFlow implements WorkFlowInterface
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().WORKFLOW))
       {
-         logUtil.put("Properties: " + propertiesHashMap.toString(), this, "BasicWorkFlow()");
+         this.logUtil.put("Properties: " + propertiesHashMap.toString(), this, "BasicWorkFlow()");
       }
       
       this.propertiesHashMap = propertiesHashMap;
@@ -73,7 +73,7 @@ public class BasicWorkFlow implements WorkFlowInterface
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().WORKFLOW))
       {
-         logUtil.put(this.commonStrings.START,this,commonStrings.PROCESS);
+         this.logUtil.put(this.commonStrings.START,this,commonStrings.PROCESS);
       }
       
       if(this.validationDomNodeInterface.isValid().booleanValue())

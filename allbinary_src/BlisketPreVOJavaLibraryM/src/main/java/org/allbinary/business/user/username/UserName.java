@@ -62,7 +62,7 @@ public class UserName
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put("Failed to validate form", this, "isUserNameValid()", e);
+            this.logUtil.put("Failed to validate form", this, "isUserNameValid()", e);
          }
          return Boolean.FALSE;
       }
@@ -84,14 +84,14 @@ public class UserName
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VALIDATION))
          {
-            logUtil.put("UserName: " + aUserName, this, commonStrings.IS_VALID);
+            this.logUtil.put("UserName: " + aUserName, this, commonStrings.IS_VALID);
          }
 
          if(!StringValidationUtil.getInstance().isValidRequired(aUserName, 5, UserData.MAXLEN))
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VALIDATION))
             {
-               logUtil.put("UserName is invalid", this, commonStrings.IS_VALID);
+               this.logUtil.put("UserName is invalid", this, commonStrings.IS_VALID);
             }
 
             valid = booleanFactory.FALSE;
@@ -103,7 +103,7 @@ public class UserName
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put("Failed to validate form", this, commonStrings.IS_VALID,e);
+            this.logUtil.put("Failed to validate form", this, commonStrings.IS_VALID,e);
          }
          return Boolean.FALSE;
       }

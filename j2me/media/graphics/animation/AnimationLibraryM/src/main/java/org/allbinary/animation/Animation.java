@@ -73,7 +73,7 @@ OpenGLSurfaceChangedInterface
 
     public void setBasicColorP(final BasicColor basicColor)
     {
-        //logUtil.put("setBasicColor", this, basicColor.toString());
+        //this.logUtil.put("setBasicColor", this, basicColor.toString());
         this.basicColor = basicColor;
         this.colorP = this.basicColor.intValue();
     }
@@ -85,7 +85,7 @@ OpenGLSurfaceChangedInterface
 
     public void changeBasicColor(final BasicColor basicColor)
     {
-        //logUtil.put("setBasicColor", this, basicColor.toString());
+        //this.logUtil.put("setBasicColor", this, basicColor.toString());
         this.changeBasicColorP = basicColor;
         this.changeColorP = this.changeBasicColorP.intValue();
     }

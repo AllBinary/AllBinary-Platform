@@ -41,7 +41,7 @@ public class BasePathFindingInfoFactory {
         throws Exception
     {
         //TWB - PathFinding
-        //logUtil.put("Map Info: \n").append(ArrayUtil.toString(mapArray), this, commonStrings.INIT);
+        //this.logUtil.put("Map Info: \n").append(ArrayUtil.toString(mapArray), this, commonStrings.INIT);
 
         class RaceTrackGeographicMapCellPositionFactoryInitVisitor implements
            GeographicMapCellPositionFactoryInitVisitorInterface
@@ -58,7 +58,7 @@ public class BasePathFindingInfoFactory {
                 this.startLineId = raceTrackGeographicMapCellTypeFactory.getStartType();
                 this.finishLineId = raceTrackGeographicMapCellTypeFactory.getEndType();
 
-                //logUtil.put(
+                //this.logUtil.put(
                   // "Race Track Map Array: ").append(PathFindingInfoFactory.this.getName() +
                    //" columns: ").append(this.mapTwoDArray.length).append(" rows: ").append(this.mapTwoDArray[0].length, this, commonStrings.CONSTRUCTOR);
             }
@@ -121,7 +121,7 @@ public class BasePathFindingInfoFactory {
                 }
                 else
                 {
-                    // logUtil.put("Not Added For Tracking: " +
+                    // this.logUtil.put("Not Added For Tracking: " +
                     // cellPosition).append(" Type: ").append(this.mapTwoDArray[row][col],
                     // this, "setMap");
                 }
@@ -130,7 +130,7 @@ public class BasePathFindingInfoFactory {
                 catch(Exception e)
                 {
                     final CommonSeps commonSeps = CommonSeps.getInstance();
-                    logUtil.put(
+                    this.logUtil.put(
                             new StringMaker().append(commonSeps.BRACKET_OPEN).appendint(row).append(commonSeps.BRACKET_CLOSE)
                                 .append(commonSeps.BRACKET_OPEN).appendint(column).append("] in [").appendint(mapArray.length).append(commonSeps.BRACKET_CLOSE)
                                 .append(commonSeps.BRACKET_OPEN).appendint(mapArray[0].length).append(commonSeps.BRACKET_CLOSE).toString(), 
@@ -148,7 +148,7 @@ public class BasePathFindingInfoFactory {
             final GeographicMapCellPosition startGeographicMapCellPosition)
        throws Exception
     {
-        //logUtil.put(commonStrings.START, this, "addStartPathFindingNode");
+        //this.logUtil.put(commonStrings.START, this, "addStartPathFindingNode");
 
         //int extraTravelCost = RaceTrackGeographicMapCellType.FINISH_LINE_ROAD_CELL_TYPE.getTravelCost();
         // Setup Start Node
@@ -168,7 +168,7 @@ public class BasePathFindingInfoFactory {
             final GeographicMapCellPosition endGeographicMapCellPosition)
        throws Exception
     {
-        //logUtil.put(commonStrings.START, this, "addEndPathFindingNode");
+        //this.logUtil.put(commonStrings.START, this, "addEndPathFindingNode");
 
         // Setup Start Node
         //int extraTravelCost = RaceTrackGeographicMapCellType.FINISH_LINE_ROAD_CELL_TYPE.getTravelCost();

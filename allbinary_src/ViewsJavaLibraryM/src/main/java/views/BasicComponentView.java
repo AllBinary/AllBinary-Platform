@@ -42,7 +42,7 @@ public class BasicComponentView implements TransformInterface
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         logUtil.put("View Name: " + transformInfoInterface.getName(), this, commonStrings.CONSTRUCTOR);
+         this.logUtil.put("View Name: " + transformInfoInterface.getName(), this, commonStrings.CONSTRUCTOR);
       }
 
       this.setTransformInfoInterface(transformInfoInterface);
@@ -112,7 +112,7 @@ public class BasicComponentView implements TransformInterface
          //String error = "Failed to Component view";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION, this, "view()", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "view()", e);
          }
          throw e;
       }

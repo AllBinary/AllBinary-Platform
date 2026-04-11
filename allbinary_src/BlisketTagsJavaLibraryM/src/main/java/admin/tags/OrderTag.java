@@ -73,7 +73,7 @@ public class OrderTag extends CustomTagSupport
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,commonStrings.PROCESS,e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,commonStrings.PROCESS,e);
          }
          return error;
       }
@@ -102,7 +102,7 @@ public class OrderTag extends CustomTagSupport
          String error = "Failed to setPaymentGateway for Order";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION, this, "setPaymentGateway()", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "setPaymentGateway()", e);
          }
          return Boolean.FALSE;
       }
@@ -131,7 +131,7 @@ public class OrderTag extends CustomTagSupport
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"getMaxAmount()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"getMaxAmount()",e);
          }
          return "Unknown";
       }
@@ -160,7 +160,7 @@ public class OrderTag extends CustomTagSupport
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"getOrderIdFromSession()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"getOrderIdFromSession()",e);
          }
          return "Unknown";
       }

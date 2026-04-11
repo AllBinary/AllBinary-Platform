@@ -66,7 +66,7 @@ public class SqlConnectionPool
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGPOOL))
             {
-                logUtil.put(FIRST_NEW_CONNECTION_CREATED + url, this, METHOD_GET);
+                this.logUtil.put(FIRST_NEW_CONNECTION_CREATED + url, this, METHOD_GET);
             }
 
             return DriverManager.getConnection(url);
@@ -89,7 +89,7 @@ public class SqlConnectionPool
                     stringBuffer.append(url);
                     stringBuffer.append(CREATED);
 
-                    logUtil.put(stringBuffer.toString(), this, METHOD_GET);
+                    this.logUtil.put(stringBuffer.toString(), this, METHOD_GET);
                 }
 
                 return DriverManager.getConnection(url);
@@ -98,7 +98,7 @@ public class SqlConnectionPool
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                     org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGPOOL))
                 {
-                    logUtil.put(new StringBuilder().append(NEW_CONNECTION_FOR).append(url).append(CREATED).toString(), this, METHOD_GET);
+                    this.logUtil.put(new StringBuilder().append(NEW_CONNECTION_FOR).append(url).append(CREATED).toString(), this, METHOD_GET);
                 }
                 return DriverManager.getConnection(url);
             } else
@@ -124,9 +124,9 @@ public class SqlConnectionPool
                             stringBuffer.append(IS);
                             stringBuffer.appendint(connectionVector.size());
 
-                            logUtil.put(NUMBER_OF_SQL_CONNECTION_VECTORS
+                            this.logUtil.put(NUMBER_OF_SQL_CONNECTION_VECTORS
                                 + this.connectionHashMap.size(), this, METHOD_GET);
-                            logUtil.put(stringBuffer.toString(), this, METHOD_GET);
+                            this.logUtil.put(stringBuffer.toString(), this, METHOD_GET);
                         }
                         return (Connection) sqlConnection;
                     }
@@ -144,7 +144,7 @@ public class SqlConnectionPool
             stringBuffer.append(url);
             stringBuffer.append(CREATED);
 
-            logUtil.put(stringBuffer.toString(), this, METHOD_GET);
+            this.logUtil.put(stringBuffer.toString(), this, METHOD_GET);
         }
 
         return DriverManager.getConnection(url);
@@ -192,16 +192,16 @@ public class SqlConnectionPool
                 stringBuffer.appendint(connectionVector.size());
 
 
-                logUtil.put(NUMBER_OF_SQL_CONNECTION_VECTORS
+                this.logUtil.put(NUMBER_OF_SQL_CONNECTION_VECTORS
                     + this.connectionHashMap.size(), this, METHOD_ADD);
-                logUtil.put(stringBuffer.toString(), this, METHOD_ADD);
+                this.logUtil.put(stringBuffer.toString(), this, METHOD_ADD);
             }
         }
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGPOOL))
         {
-            logUtil.put(CONNECTION_ALLREADY_CLOSED, this, METHOD_ADD);
+            this.logUtil.put(CONNECTION_ALLREADY_CLOSED, this, METHOD_ADD);
         }
     }
 

@@ -109,7 +109,7 @@ public class OrderHelper
                 stringBuffer.append(" to: ");
                 stringBuffer.append(orderInterface.getPaymentMethod());
 
-                logUtil.put(stringBuffer.toString(), this, "setPaymentGateway()");
+                this.logUtil.put(stringBuffer.toString(), this, "setPaymentGateway()");
             }
             return paymentGatewayBoolean;
         } catch (Exception e)
@@ -134,7 +134,7 @@ public class OrderHelper
                     stringBuffer.append(" Exception Getting");
                 }
 
-                logUtil.put(stringBuffer.toString(), this, "setPaymentGateway()", e);
+                this.logUtil.put(stringBuffer.toString(), this, "setPaymentGateway()", e);
             }
             return Boolean.FALSE;
         }
@@ -153,7 +153,7 @@ public class OrderHelper
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
             {
-                logUtil.put("Successfully Processed Order: " + result, this, "processOrder()");
+                this.logUtil.put("Successfully Processed Order: " + result, this, "processOrder()");
             }
             return result;
 
@@ -176,7 +176,7 @@ public class OrderHelper
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
             }
             return error;
         }
@@ -193,7 +193,7 @@ public class OrderHelper
 
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
     {
-    logUtil.put("Successfully Authorized Order: " + result,this,"authorizeOrder()");
+    this.logUtil.put("Successfully Authorized Order: " + result,this,"authorizeOrder()");
     }
     return result;
     }
@@ -201,7 +201,7 @@ public class OrderHelper
     {
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
     {
-    logUtil.put(commonStrings.EXCEPTION,this,"authorizeOrder()",e);
+    this.logUtil.put(commonStrings.EXCEPTION,this,"authorizeOrder()",e);
     }
     return Boolean.FALSE;
     }

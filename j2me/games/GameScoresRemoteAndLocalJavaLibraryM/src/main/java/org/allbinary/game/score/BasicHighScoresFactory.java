@@ -51,7 +51,7 @@ public class BasicHighScoresFactory extends HighScoresBase
     
     public void fetchHighScores(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener)
     {
-        logUtil.put("Getting Remote/Local HighScores", this, FETCH);
+        this.logUtil.put("Getting Remote/Local HighScores", this, FETCH);
         this.fetchHighScores(gameInfo, highScoresResultsListener, true);
     }
     
@@ -63,7 +63,7 @@ public class BasicHighScoresFactory extends HighScoresBase
             public void run() {
                 
                 try {
-                    logUtil.put(commonStrings.START, this, FETCH);
+                    this.logUtil.put(commonStrings.START, this, FETCH);
 
                     highScoresArray[0] = RecordStoreHighScores.getInstance(abeClientInformation, gameInfo,
                         TOP, PERSONAL_HIGH_SCORES, SCORES, new ScoreComparator(true));
@@ -85,12 +85,12 @@ public class BasicHighScoresFactory extends HighScoresBase
                             softwareInformation, gameInfo2,
                             WORLD_TOP_SCORES, SCORES, BooleanFactory.getInstance().FALSE, preload);
 
-                    logUtil.put(commonStrings.END, this, FETCH);
+                    this.logUtil.put(commonStrings.END, this, FETCH);
 
                     LastFetchHighScoresFactory.getInstance().highScoresArray = highScoresArray;
                     highScoresResultsListener.setHighScoresArray(highScoresArray);
                 } catch (Exception e) {
-                    logUtil.put(commonStrings.EXCEPTION, this, FETCH, e);
+                    this.logUtil.put(commonStrings.EXCEPTION, this, FETCH, e);
 
                     //return super.createHighScores(gameInfo);
                 }

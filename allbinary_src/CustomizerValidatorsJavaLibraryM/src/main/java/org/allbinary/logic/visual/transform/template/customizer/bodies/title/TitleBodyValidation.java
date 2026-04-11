@@ -45,7 +45,7 @@ public class TitleBodyValidation extends Validation implements DomNodeInterface
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
+         this.logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
       }
 
       final StringUtil stringUtil = StringUtil.getInstance();
@@ -57,7 +57,7 @@ public class TitleBodyValidation extends Validation implements DomNodeInterface
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         logUtil.put(this.commonStrings.CONSTRUCTOR,this,"Constructor(document)");
+         this.logUtil.put(this.commonStrings.CONSTRUCTOR,this,"Constructor(document)");
       }
 
       NodeList nodeList = document.getElementsByTagName(BodyData.getInstance().NAME);
@@ -81,7 +81,7 @@ public class TitleBodyValidation extends Validation implements DomNodeInterface
          {
             if( org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               logUtil.put("To Many Body Nodes", this, this.commonStrings.CONSTRUCTOR);
+               this.logUtil.put("To Many Body Nodes", this, this.commonStrings.CONSTRUCTOR);
             }
          }
       }
@@ -91,7 +91,7 @@ public class TitleBodyValidation extends Validation implements DomNodeInterface
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         logUtil.put(this.commonStrings.START, this, "Constructor(hashmap)");
+         this.logUtil.put(this.commonStrings.START, this, "Constructor(hashmap)");
       }
       
       this.getFormData(hashMap);
@@ -111,7 +111,7 @@ public class TitleBodyValidation extends Validation implements DomNodeInterface
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            logUtil.put("TitleBodyValidation", this, commonStrings.IS_VALID);
+            this.logUtil.put("TitleBodyValidation", this, commonStrings.IS_VALID);
          }
 
          if(!StringValidationUtil.getInstance().isValidNotRequired(this.body, BodyData.getInstance().MIN, AbSqlData.MAXBLOB))
@@ -126,7 +126,7 @@ public class TitleBodyValidation extends Validation implements DomNodeInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            logUtil.put("TitleBodyValidation: " + isValid,this,commonStrings.IS_VALID);
+            this.logUtil.put("TitleBodyValidation: " + isValid,this,commonStrings.IS_VALID);
          }
          
          return isValid;
@@ -135,7 +135,7 @@ public class TitleBodyValidation extends Validation implements DomNodeInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put("Failed to validate form", this, commonStrings.IS_VALID, e);
+            this.logUtil.put("Failed to validate form", this, commonStrings.IS_VALID, e);
          }
          return Boolean.FALSE;
       }
@@ -163,7 +163,7 @@ public class TitleBodyValidation extends Validation implements DomNodeInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
+            this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
          }
          return "Error Validating Form";
       }
@@ -183,7 +183,7 @@ public class TitleBodyValidation extends Validation implements DomNodeInterface
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         logUtil.put("Title Body: " + this.body, this, "toXmlNode(document)");
+         this.logUtil.put("Title Body: " + this.body, this, "toXmlNode(document)");
       }
 
       Node node = 

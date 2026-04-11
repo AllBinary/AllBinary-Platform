@@ -42,7 +42,7 @@ public class ThrustAIVisitor extends Visitor
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.VISIT, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.VISIT, e);
         }
         return TRUE;
     }

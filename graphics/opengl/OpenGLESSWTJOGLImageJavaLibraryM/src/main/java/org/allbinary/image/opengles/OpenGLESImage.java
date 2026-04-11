@@ -58,7 +58,7 @@ implements OpenGLSurfaceChangedInterface
         super(image.getName(), PostLoadImageProcessor.NULL_POST_LOAD_IMAGE_PROCESSOR);
         //super(image);
 
-        //logUtil.put(new StringMaker().append("opengl: create ").append(this).append(this.getName()).append(" from " ).append(image).toString(), this, commonStrings.INIT);
+        //this.logUtil.put(new StringMaker().append("opengl: create ").append(this).append(this.getName()).append(" from " ).append(image).toString(), this, commonStrings.INIT);
         this.openGLBitmap = bitmapFactory.createBitmap(image);
         this.textureFactory = textureFactory;
         OpenGLImageCacheFactory.getInstance().init(this);
@@ -90,7 +90,7 @@ implements OpenGLSurfaceChangedInterface
             this.set(gl);
         } catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e);
         }
     }
     */

@@ -32,11 +32,11 @@ public class GeographicMapCellType
    
    public GeographicMapCellType(final int type, final int reset)
    {
-       //logUtil.put(Integer.toString(type), this, commonStrings.CONSTRUCTOR);
+       //this.logUtil.put(Integer.toString(type), this, commonStrings.CONSTRUCTOR);
       this.type = type;
       if(type != Integer.MIN_VALUE) {
           //final CommonStrings commonStrings = CommonStrings.getInstance();
-          //logUtil.put("type: " + Integer.toString(type), this, commonStrings.CONSTRUCTOR);
+          //this.logUtil.put("type: " + Integer.toString(type), this, commonStrings.CONSTRUCTOR);
           final GeographicMapCellTypeFactory geographicMapCellTypeFactory = GeographicMapCellTypeFactory.getInstance();
           final GeographicMapCellType[] geographicMapCellTypeArray = geographicMapCellTypeFactory.getGeographicMapCellTypeArray();
           if(geographicMapCellTypeArray[type] == null || reset == 1) {

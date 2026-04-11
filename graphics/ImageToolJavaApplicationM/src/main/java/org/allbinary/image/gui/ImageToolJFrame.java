@@ -331,7 +331,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
        }
        catch (Exception e)
        {
-          logUtil.put(commonStrings.EXCEPTION, this, "createStripImageJMenuItemActionPerformed", e);
+          this.logUtil.put(commonStrings.EXCEPTION, this, "createStripImageJMenuItemActionPerformed", e);
        }
     }//GEN-LAST:event_createStripImageJMenuItemActionPerformed
 
@@ -339,7 +339,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
     {//GEN-HEADEREND:event_okJButtonActionPerformed
        try
        {
-          logUtil.put("Starting", this, "okJButtonActionPerformed");
+          this.logUtil.put("Starting", this, "okJButtonActionPerformed");
 
           final ImageAnalysisResults[] imageAnalysisResultsArray = ImageAnalysis.getInstance().process(
              imageProcessorInput.getBufferedImageArray(), this.getColorRangeInterface());
@@ -355,7 +355,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
        }
        catch (Exception e)
        {
-          logUtil.put(commonStrings.EXCEPTION, this, "okJButtonActionPerformed", e);
+          this.logUtil.put(commonStrings.EXCEPTION, this, "okJButtonActionPerformed", e);
        }
     }//GEN-LAST:event_okJButtonActionPerformed
 
@@ -368,12 +368,12 @@ public class ImageToolJFrame extends javax.swing.JFrame
     {//GEN-HEADEREND:event_openImageJMenuItemActionPerformed
        try
        {
-          logUtil.put("Starting", this, "openImageJMenuItemActionPerformed");
+          this.logUtil.put("Starting", this, "openImageJMenuItemActionPerformed");
           fileJDialog.setVisible(true);
        }
        catch (Exception e)
        {
-          logUtil.put(commonStrings.EXCEPTION, this, "openImageJMenuItemActionPerformed", e);
+          this.logUtil.put(commonStrings.EXCEPTION, this, "openImageJMenuItemActionPerformed", e);
        }
     }//GEN-LAST:event_openImageJMenuItemActionPerformed
 
@@ -381,7 +381,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
    {
       try
       {
-         logUtil.put("Reading " + files.length + " files.", this, "onFiles");
+         this.logUtil.put("Reading " + files.length + " files.", this, "onFiles");
 
           Arrays.sort(files, new Comparator<File>() {
 
@@ -432,7 +432,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
       }
       catch (Exception e)
       {
-         logUtil.put(commonStrings.EXCEPTION, this, "onFiles", e);
+         this.logUtil.put(commonStrings.EXCEPTION, this, "onFiles", e);
       }
    }
 
@@ -445,12 +445,12 @@ public class ImageToolJFrame extends javax.swing.JFrame
    {//GEN-HEADEREND:event_analyzeJMenuItemActionPerformed
       try
       {
-         logUtil.put("Starting", this, "analyzeJMenuItemActionPerformed");
+         this.logUtil.put("Starting", this, "analyzeJMenuItemActionPerformed");
          this.analysisActionJDialog.setVisible(true);
       }
       catch (Exception e)
       {
-         logUtil.put(commonStrings.EXCEPTION, this, "analyzeJMenuItemActionPerformed", e);
+         this.logUtil.put(commonStrings.EXCEPTION, this, "analyzeJMenuItemActionPerformed", e);
       }
    }//GEN-LAST:event_analyzeJMenuItemActionPerformed
 
@@ -458,7 +458,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
    {//GEN-HEADEREND:event_generateRotationSpriteJMenuItemActionPerformed
       try
       {
-         logUtil.put("Starting", this, "generateRotationSpriteJMenuItemActionPerformed");
+         this.logUtil.put("Starting", this, "generateRotationSpriteJMenuItemActionPerformed");
 
          RotationSpriteImageJPanel spriteImageJPanel =
             new RotationSpriteImageJPanel(
@@ -472,7 +472,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
       }
       catch (Exception e)
       {
-         logUtil.put(commonStrings.EXCEPTION, this, "generateRotationSpriteJMenuItemActionPerformed", e);
+         this.logUtil.put(commonStrings.EXCEPTION, this, "generateRotationSpriteJMenuItemActionPerformed", e);
       }
 }//GEN-LAST:event_generateRotationSpriteJMenuItemActionPerformed
            
@@ -480,7 +480,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
    {//GEN-HEADEREND:event_generateRotationMenuItemActionPerformed
       try
       {
-         logUtil.put("Starting", this, "generateRotationSpriteJMenuItemActionPerformed");
+         this.logUtil.put("Starting", this, "generateRotationSpriteJMenuItemActionPerformed");
 
          SpriteSplitterImageJPanel imageJPanel =
             new SpriteSplitterImageJPanel(
@@ -494,7 +494,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
       }
       catch (Exception e)
       {
-         logUtil.put(commonStrings.EXCEPTION, this, "generateRotationMenuItemActionPerformed", e);
+         this.logUtil.put(commonStrings.EXCEPTION, this, "generateRotationMenuItemActionPerformed", e);
       }
 }//GEN-LAST:event_generateRotationMenuItemActionPerformed
            
@@ -502,7 +502,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
    {//GEN-HEADEREND:event_generateRotationMenuItemActionPerformed
       try
       {
-         logUtil.put("Starting", this, "generateRotationSpriteJMenuItemActionPerformed");
+         this.logUtil.put("Starting", this, "generateRotationSpriteJMenuItemActionPerformed");
 
          RotationImageJPanel rotationImageJPanel =
             new RotationImageJPanel(
@@ -516,14 +516,14 @@ public class ImageToolJFrame extends javax.swing.JFrame
       }
       catch (Exception e)
       {
-         logUtil.put(commonStrings.EXCEPTION, this, "generateRotationMenuItemActionPerformed", e);
+         this.logUtil.put(commonStrings.EXCEPTION, this, "generateRotationMenuItemActionPerformed", e);
       }
 }//GEN-LAST:event_generateRotationMenuItemActionPerformed
    
    private void scaleImagesJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scaleImagesJMenuItemActionPerformed
       try
       {
-         logUtil.put(this.commonStrings.START, this, "scaleImagesJMenuItemActionPerformed");
+         this.logUtil.put(this.commonStrings.START, this, "scaleImagesJMenuItemActionPerformed");
 
          final ResizeImageJPanel resizeImageJPanel = new ResizeImageJPanel(this.imageProcessorInput);
 
@@ -535,14 +535,14 @@ public class ImageToolJFrame extends javax.swing.JFrame
       }
       catch (Exception e)
       {
-         logUtil.put(commonStrings.EXCEPTION, this, "scaleImagesJMenuItemActionPerformed", e);
+         this.logUtil.put(commonStrings.EXCEPTION, this, "scaleImagesJMenuItemActionPerformed", e);
       }
 }//GEN-LAST:event_scaleImagesJMenuItemActionPerformed
 
    private void createIconsJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createIconsJMenuItemActionPerformed
       try
       {
-         logUtil.put(this.commonStrings.START, this, "createIconsJMenuItemActionPerformed");
+         this.logUtil.put(this.commonStrings.START, this, "createIconsJMenuItemActionPerformed");
 
          final CreateIconImagesJPanel createIconImagesJPanel = new CreateIconImagesJPanel(this.imageProcessorInput);
 
@@ -554,14 +554,14 @@ public class ImageToolJFrame extends javax.swing.JFrame
       }
       catch (Exception e)
       {
-         logUtil.put(commonStrings.EXCEPTION, this, "scaleImagesJMenuItemActionPerformed", e);
+         this.logUtil.put(commonStrings.EXCEPTION, this, "scaleImagesJMenuItemActionPerformed", e);
       }
 }//GEN-LAST:createIconsJMenuItemActionPerformed
        
    private void canvasImagesJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scaleImagesJMenuItemActionPerformed
       try
       {
-         logUtil.put(this.commonStrings.START, this, "canvasImagesJMenuItemActionPerformed");
+         this.logUtil.put(this.commonStrings.START, this, "canvasImagesJMenuItemActionPerformed");
 
          final CanvasImageJPanel resizeImageJPanel = new CanvasImageJPanel(this.imageProcessorInput);
 
@@ -573,14 +573,14 @@ public class ImageToolJFrame extends javax.swing.JFrame
       }
       catch (Exception e)
       {
-         logUtil.put(commonStrings.EXCEPTION, this, "scaleImagesJMenuItemActionPerformed", e);
+         this.logUtil.put(commonStrings.EXCEPTION, this, "scaleImagesJMenuItemActionPerformed", e);
       }
 }
    
 private void generateMirrorSpriteMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateMirrorSpriteMenuItemActionPerformed
    try
    {
-      logUtil.put("Starting", this, "generateMirrorSpriteJMenuItemActionPerformed");
+      this.logUtil.put("Starting", this, "generateMirrorSpriteJMenuItemActionPerformed");
 
       MirrorSpriteImageJPanel spriteImageJPanel =
          new MirrorSpriteImageJPanel(
@@ -594,14 +594,14 @@ private void generateMirrorSpriteMenuItemActionPerformed(java.awt.event.ActionEv
    }
    catch (Exception e)
    {
-      logUtil.put(commonStrings.EXCEPTION, this, "generateMirrorSpriteJMenuItemActionPerformed", e);
+      this.logUtil.put(commonStrings.EXCEPTION, this, "generateMirrorSpriteJMenuItemActionPerformed", e);
    }
 }//GEN-LAST:event_generateMirrorSpriteMenuItemActionPerformed
 
 private void mirrorJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mirrorJMenuItemActionPerformed
    try
    {
-      logUtil.put("Starting", this, "generateMirrorJMenuItemActionPerformed");
+      this.logUtil.put("Starting", this, "generateMirrorJMenuItemActionPerformed");
 
       MirrorImageJPanel mirrorImageJPanel =
          new MirrorImageJPanel(
@@ -615,7 +615,7 @@ private void mirrorJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//G
    }
    catch (Exception e)
    {
-      logUtil.put(commonStrings.EXCEPTION, this, "generateMirrorJMenuItemActionPerformed", e);
+      this.logUtil.put(commonStrings.EXCEPTION, this, "generateMirrorJMenuItemActionPerformed", e);
    }
 }//GEN-LAST:event_mirrorJMenuItemActionPerformed
    
@@ -705,7 +705,7 @@ private void mirrorJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//G
    /*
    public void paint(Graphics graphics)
    {
-      logUtil.put(commonStrings.START, this, canvasStrings.PAINT);
+      this.logUtil.put(commonStrings.START, this, canvasStrings.PAINT);
    }
     */
    

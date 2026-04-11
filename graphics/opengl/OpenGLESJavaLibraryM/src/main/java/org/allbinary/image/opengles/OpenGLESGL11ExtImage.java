@@ -66,13 +66,13 @@ public class OpenGLESGL11ExtImage extends OpenGLESImage
     {
         try
         {
-            logUtil.put(commonStrings.START, this, "onResize");
+            this.logUtil.put(commonStrings.START, this, "onResize");
             
             this.a = DisplayInfoSingleton.getInstance().getLastHeight() - this.getHeight();
         }
         catch(Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, "onResize", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "onResize", e);
         }
     }
     

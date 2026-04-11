@@ -63,7 +63,7 @@ public class StatesView implements DomNodeInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
-            logUtil.put(this.commonStrings.FAILURE,this,"toXmlNode",e);
+            this.logUtil.put(this.commonStrings.FAILURE,this,"toXmlNode",e);
          }
          //throw e;
          return null;

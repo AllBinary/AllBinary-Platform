@@ -27,7 +27,7 @@ public class LogFactory
     }
 
     //ActualPlatform
-    public static final Log getInstance(
+    public static final Log getInstanceF(
             String specialMessage,
             Object object,
             String functionName)
@@ -37,7 +37,7 @@ public class LogFactory
     }
 
     //ActualPlatform
-    public static final Log getInstance(
+    public static final Log getInstanceSE(
             String specialMessage,
             String className,
             String functionName,
@@ -47,12 +47,12 @@ public class LogFactory
     }
 
     //ActualPlatform
-    public static final Log getInstance(
-            String specialMessage,
-            String className,
-            String functionName)
-    {
-        return null;
-        //return LogFactory.getInstance(specialMessage, className, functionName);
-    }
+//    public static final Log getInstanceSF(
+//            String specialMessage,
+//            String className,
+//            String functionName)
+//    {
+//        return null;
+//        //return LogFactory.getInstance(specialMessage, className, functionName);
+//    }
 }

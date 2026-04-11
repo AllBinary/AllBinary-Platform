@@ -121,7 +121,7 @@ public class MultipassNoCacheWaypoint extends WaypointBase
         customMapGenerator.copyMapIntoCustomMap();
         final int[][] customMapArray = customMapGenerator.getCustomMapArray();
 
-        //logUtil.put("Start GeographicMapCellPosition: " + startGeographicMapCellPosition.toString(), this, "createPaths");
+        //this.logUtil.put("Start GeographicMapCellPosition: " + startGeographicMapCellPosition.toString(), this, "createPaths");
         //int originalStartData = 
           //  customMapArray[startGeographicMapCellPosition.getRow()][startGeographicMapCellPosition.getColumn()];
         
@@ -149,10 +149,10 @@ public class MultipassNoCacheWaypoint extends WaypointBase
     {
         try {
 
-            //logUtil.put("geographicMapInterface.getGeographicMapCellTypeFactory().toString(): " + geographicMapInterface.getGeographicMapCellTypeFactory().toString(), this, "getPathsList");
+            //this.logUtil.put("geographicMapInterface.getGeographicMapCellTypeFactory().toString(): " + geographicMapInterface.getGeographicMapCellTypeFactory().toString(), this, "getPathsList");
             //This should not be possible right?
             if (pathFindingInfo == null) {
-                logUtil.put("pathFindingInfo: " + pathFindingInfo, this, "getPathsList");
+                this.logUtil.put("pathFindingInfo: " + pathFindingInfo, this, "getPathsList");
                 return BasicArrayListUtil.getInstance().getImmutableInstance();
             }
 
@@ -181,7 +181,7 @@ public class MultipassNoCacheWaypoint extends WaypointBase
             return BasicArrayListUtil.getInstance().getImmutableInstance();
         } catch(Exception e) {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, this, "getPathsList", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "getPathsList", e);
             return BasicArrayListUtil.getInstance().getImmutableInstance();
         }
     }
@@ -192,7 +192,7 @@ public class MultipassNoCacheWaypoint extends WaypointBase
     {
         final BasicArrayList endList = this.ownerLayer.getEndGeographicMapCellPositionList();
         
-        //logUtil.put(new StringMaker().append(this.ownerLayer.getName()).append(" c: ").append(this.ownerLayer.getCurrentGeographicMapCellPosition()).append(CommonSeps.getInstance().SPACE).append(this.ownerLayer.getTopLeftGeographicMapCellPosition()).append(" endList: ").append(endList).toString(), this, "visit");
+        //this.logUtil.put(new StringMaker().append(this.ownerLayer.getName()).append(" c: ").append(this.ownerLayer.getCurrentGeographicMapCellPosition()).append(CommonSeps.getInstance().SPACE).append(this.ownerLayer.getTopLeftGeographicMapCellPosition()).append(" endList: ").append(endList).toString(), this, "visit");
         
         GeographicMapCellPosition endGeographicMapCellPosition =
             (GeographicMapCellPosition) BasicArrayListUtil.getInstance().getRandom(endList);
@@ -261,7 +261,7 @@ public class MultipassNoCacheWaypoint extends WaypointBase
                     //if (this.getOwnerLayer() != rtsLayer)
                     //{
                     unitLayer.handleCost(this.ownerLayer);
-                    //logUtil.put("Sending: " + unitLayer.getName(), this, "visit");
+                    //this.logUtil.put("Sending: " + unitLayer.getName(), this, "visit");
                     
                     unitWaypointBehavior.insertWaypoint(0, rtsLayer);
                     break;

@@ -66,7 +66,7 @@ public class AllMotionRecognizer extends MotionRecognizer
             point.setX(x);
             point.setY(y);
 
-//            logUtil.put(
+//            this.logUtil.put(
 //                    new StringBuilder().append(commonStrings.START_LABEL)
 //                            .append("point: ").append(point.toString()).toString(),
 //                    this, "processStartMotionEvent");
@@ -92,7 +92,7 @@ public class AllMotionRecognizer extends MotionRecognizer
             point.setX(x);
             point.setY(y);
 
-//            logUtil.put(
+//            this.logUtil.put(
 //                    new StringBuilder().append(commonStrings.START_LABEL)
 //                            .append("point: ").append(point.toString()).toString(),
 //                    this, "processEndMotionEvent");

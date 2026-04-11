@@ -60,14 +60,14 @@ public class OperatingSystemFactory
             
             if(!this.hasDetected)
             {
-                logUtil.put("osName: " + osName, this, commonStrings.GET_INSTANCE);
+                this.logUtil.put("osName: " + osName, this, commonStrings.GET_INSTANCE);
                 
                 this.hasDetected = true;
                 if(osName.indexOf(operatingSystems.LINUX) >= 0)
                 {
                     if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
                     {
-                        logUtil.put("Found a Linux OS", this, commonStrings.GET_INSTANCE);
+                        this.logUtil.put("Found a Linux OS", this, commonStrings.GET_INSTANCE);
                     }
                     
                     this.genericOperatingSystem =
@@ -77,7 +77,7 @@ public class OperatingSystemFactory
                 {
                     if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
                     {
-                        logUtil.put("Found a Windows OS", this, commonStrings.GET_INSTANCE);
+                        this.logUtil.put("Found a Windows OS", this, commonStrings.GET_INSTANCE);
                     }
                     this.genericOperatingSystem =
                         WindowsOperatingSystemFactory.getInstance().getOperatingSystemInstance();
@@ -86,7 +86,7 @@ public class OperatingSystemFactory
                 {
                     if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
                     {
-                        logUtil.put("Found a Solaris OS", this, commonStrings.GET_INSTANCE);
+                        this.logUtil.put("Found a Solaris OS", this, commonStrings.GET_INSTANCE);
                     }
                     
                     this.genericOperatingSystem =
@@ -97,9 +97,9 @@ public class OperatingSystemFactory
                     throw new Exception(new StringMaker().append("OS Not Supported: ").append(osName).toString());
                 }
                 
-                Log log = LogFactory.getInstance(new StringMaker().append("OperatingSystem Info: ").append(StringUtil.getInstance().toString(this.genericOperatingSystem)).toString(), this, commonStrings.GET_INSTANCE);
+                Log log = LogFactory.getInstanceF(new StringMaker().append("OperatingSystem Info: ").append(StringUtil.getInstance().toString(this.genericOperatingSystem)).toString(), this, commonStrings.GET_INSTANCE);
                 System.out.println(log.toString());
-                logUtil.put(log);
+                this.logUtil.put(log);
 
             }
                         
@@ -109,7 +109,7 @@ public class OperatingSystemFactory
         {
             if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
             {
-                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
             }
             //throw e;
             return NoOperatingSystem.NO_OPERATING_SYSTEM;

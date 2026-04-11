@@ -37,19 +37,19 @@ public class ImageThreadPool extends ThreadPool
 
     public synchronized void runTask(Runnable task)
     {
-        //logUtil.put(new StringMaker().append(task).append(System.currentTimeMillis()).toString(), this, this.threadPoolStrings.ADD_TASK);
+        //this.logUtil.put(new StringMaker().append(task).append(System.currentTimeMillis()).toString(), this, this.threadPoolStrings.ADD_TASK);
 
         super.runTask(task);
     }
 
     protected void startTask(Runnable task)
     {
-        //logUtil.put(new StringMaker().append(this.threadPoolStrings.START_TASK).append(task).append(System.currentTimeMillis()).toString(), this, this.commonStrings.RUN);
+        //this.logUtil.put(new StringMaker().append(this.threadPoolStrings.START_TASK).append(task).append(System.currentTimeMillis()).toString(), this, this.commonStrings.RUN);
     }
 
     protected void completedTask(Runnable task)
     {
-        //logUtil.put(new StringMaker().append(this.threadPoolStrings.COMPLETE_TASK).append(task).append(System.currentTimeMillis()).toString(), this, this.commonStrings.RUN);
+        //this.logUtil.put(new StringMaker().append(this.threadPoolStrings.COMPLETE_TASK).append(task).append(System.currentTimeMillis()).toString(), this, this.commonStrings.RUN);
     }
 
 }

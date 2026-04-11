@@ -27,7 +27,7 @@ public class LogFactory
     }
 
     //ActualPlatform
-    public static final Log getInstance(
+    public static final Log getInstanceF(
             String specialMessage,
             Object object,
             String functionName)

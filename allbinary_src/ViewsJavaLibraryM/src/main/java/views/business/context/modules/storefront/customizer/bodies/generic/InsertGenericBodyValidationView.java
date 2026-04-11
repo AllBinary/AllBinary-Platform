@@ -52,7 +52,7 @@ public class InsertGenericBodyValidationView extends GenericBodyCustomizerView i
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            logUtil.put("Started Validation",this,commonStrings.IS_VALID);
+            this.logUtil.put("Started Validation",this,commonStrings.IS_VALID);
          }
          
          Boolean isValid = this.body.isValid();
@@ -71,7 +71,7 @@ public class InsertGenericBodyValidationView extends GenericBodyCustomizerView i
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            logUtil.put("Failed to validate",this,commonStrings.IS_VALID,e);
+            this.logUtil.put("Failed to validate",this,commonStrings.IS_VALID,e);
          }
          return Boolean.FALSE;
       }
@@ -91,7 +91,7 @@ public class InsertGenericBodyValidationView extends GenericBodyCustomizerView i
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            logUtil.put("Failed to generate validation error info",this,"validationInfo()",e);
+            this.logUtil.put("Failed to generate validation error info",this,"validationInfo()",e);
          }
          return "Error Getting Validation Info";
       }
@@ -117,7 +117,7 @@ public class InsertGenericBodyValidationView extends GenericBodyCustomizerView i
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"view()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"view()",e);
          }
          throw e;
       }

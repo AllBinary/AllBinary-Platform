@@ -57,7 +57,7 @@ public class StoreTagWorkFlowFactory
                 stringBuffer.append(instance.getClass().getName());
 
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                logUtil.put(stringBuffer.toString(), this, commonStrings.GET_INSTANCE);
+                this.logUtil.put(stringBuffer.toString(), this, commonStrings.GET_INSTANCE);
             }
 
             Object params[] = new Object[2];
@@ -87,7 +87,7 @@ public class StoreTagWorkFlowFactory
                 stringBuffer.append(instance.getClass().getName());
 
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                logUtil.put(stringBuffer.toString(), this, commonStrings.GET_INSTANCE, e);
+                this.logUtil.put(stringBuffer.toString(), this, commonStrings.GET_INSTANCE, e);
             }
             throw e;
         } catch (Exception e)
@@ -105,7 +105,7 @@ public class StoreTagWorkFlowFactory
                 stringBuffer.append(instance.getClass().getName());
 
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                logUtil.put(stringBuffer.toString(), this, commonStrings.GET_INSTANCE, e);
+                this.logUtil.put(stringBuffer.toString(), this, commonStrings.GET_INSTANCE, e);
             }
             throw e;
         }

@@ -55,7 +55,7 @@ public class BasicCryptUtil
         }
 
         //TWB - debug output
-        //logUtil.put("Crypted: " + buffer.toString(), this, "encRespXMLRPC");
+        //this.logUtil.put("Crypted: " + buffer.toString(), this, "encRespXMLRPC");
         //PreLogUtil.put("Crypted: " + buffer.toString(), this, "encRespXMLRPC");
 
         //String responseData = buffer.toString();
@@ -72,12 +72,12 @@ public class BasicCryptUtil
         int index = decryptedString.indexOf(XML_START);
         if (index > 0)
         {
-            //logUtil.put("Removing Pre Decrypted XML data", this, "encRespXMLRPC");
+            //this.logUtil.put("Removing Pre Decrypted XML data", this, "encRespXMLRPC");
             ////System.out.println("Removing Pre Decrypted XML data");
             decryptedString = decryptedString.substring(index);
         }
 
-        //logUtil.put(new String(decryptedString), this, "decRespXMLRPC");
+        //this.logUtil.put(new String(decryptedString), this, "decRespXMLRPC");
         ////PreLogUtil.put(new String(decryptedString), this, "decRespXMLRPC");
         return new ByteArrayInputStream(decryptedString.getBytes());
     }

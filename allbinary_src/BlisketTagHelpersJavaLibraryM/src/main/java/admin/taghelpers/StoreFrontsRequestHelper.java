@@ -89,7 +89,7 @@ public class StoreFrontsRequestHelper extends ModifyTable
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
             {
-                logUtil.put(success, this, "update()");
+                this.logUtil.put(success, this, "update()");
             }
             return success;
         } catch (Exception e)
@@ -98,7 +98,7 @@ public class StoreFrontsRequestHelper extends ModifyTable
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                logUtil.put(commonStrings.EXCEPTION, this, "update()", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "update()", e);
             }
             return error;
         }
@@ -173,7 +173,7 @@ public class StoreFrontsRequestHelper extends ModifyTable
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
             {
-                logUtil.put(success, this, "install()");
+                this.logUtil.put(success, this, "install()");
             }
             return success;
         } catch (Exception e)
@@ -181,7 +181,7 @@ public class StoreFrontsRequestHelper extends ModifyTable
             String error = "Failed to Install storefront";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                logUtil.put(commonStrings.EXCEPTION, this, "install()", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "install()", e);
             }
             return error;
         }
@@ -199,7 +199,7 @@ public class StoreFrontsRequestHelper extends ModifyTable
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
             {
-                logUtil.put(success, this, "insert()");
+                this.logUtil.put(success, this, "insert()");
             }
             return success;
         } catch (Exception e)
@@ -207,7 +207,7 @@ public class StoreFrontsRequestHelper extends ModifyTable
             String error = "Failed to add storefront";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                logUtil.put(commonStrings.EXCEPTION, this, "insert()", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "insert()", e);
             }
             return error;
         }
@@ -222,7 +222,7 @@ public class StoreFrontsRequestHelper extends ModifyTable
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
             {
-                logUtil.put(success, this, "delete()");
+                this.logUtil.put(success, this, "delete()");
             }
             return success;
         } catch (Exception e)
@@ -230,7 +230,7 @@ public class StoreFrontsRequestHelper extends ModifyTable
             String error = "Failed to delete storefronts table";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                logUtil.put(commonStrings.EXCEPTION, this, "delete()", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "delete()", e);
             }
             return error;
         }

@@ -28,7 +28,7 @@ public class GraphicsException extends java.lang.Exception
       try
       {
          guiLog.showDialog(msg);
-         logUtil.put(msg, obj, method, this);
+         this.logUtil.put(msg, obj, method, this);
       }
       catch(Exception e)
       {
@@ -41,7 +41,7 @@ public class GraphicsException extends java.lang.Exception
       try
       {
          guiLog.showDialog(msg);
-         logUtil.put(msg, className, method, this);
+         this.logUtil.put(msg, className, method, this);
       }
       catch(Exception e)
       {

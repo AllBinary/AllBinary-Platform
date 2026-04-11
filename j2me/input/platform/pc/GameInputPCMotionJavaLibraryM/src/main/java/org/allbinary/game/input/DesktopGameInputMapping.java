@@ -24,7 +24,7 @@ public class DesktopGameInputMapping  extends PCGameInputMapping
     @Override
     protected InputToGameKeyMapping getDefault()
     {
-        //logUtil.put("Use Default GameKey Mappings", this, "addDefault");
+        //this.logUtil.put("Use Default GameKey Mappings", this, "addDefault");
 
         return new DesktopDefaultGameInputMapping().getInputMapping();
     }

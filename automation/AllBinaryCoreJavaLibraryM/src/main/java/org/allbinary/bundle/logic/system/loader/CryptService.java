@@ -41,7 +41,7 @@ public class CryptService
    {
       Globals.getInstance().init(this.getClass().getClassLoader(), "./");
 
-      logUtil.put("Set Globals: " + URLGLOBALS.getWebappPath(), this, this.commonStrings.CONSTRUCTOR);
+      this.logUtil.put("Set Globals: " + URLGLOBALS.getWebappPath(), this, this.commonStrings.CONSTRUCTOR);
    }
 
    public InputStream getDecryptedInputStream(final AbeClientInformationInterface abeClientInformation, final String name, final InputStream inputStream)
@@ -76,7 +76,7 @@ public class CryptService
    {
       try
       {
-         logUtil.put(commonStrings.EXCEPTION, this, this.commonStrings.INIT, e);
+         this.logUtil.put(commonStrings.EXCEPTION, this, this.commonStrings.INIT, e);
 
          final BasicTextJDialog basicTextJDialog = new BasicTextJDialog(e.getMessage());
 
@@ -93,14 +93,14 @@ public class CryptService
             }
          } catch (LicensingException e2)
          {
-            logUtil.put(commonStrings.EXCEPTION, this, this.commonStrings.INIT, e2);
+            this.logUtil.put(commonStrings.EXCEPTION, this, this.commonStrings.INIT, e2);
          }
 
          basicTextJDialog.addCloseListener(new ExitCloseListener());
          basicTextJDialog.setVisible(true);
       } catch (Exception e3)
       {
-         logUtil.put(commonStrings.EXCEPTION, this, this.commonStrings.INIT, e3);
+         this.logUtil.put(commonStrings.EXCEPTION, this, this.commonStrings.INIT, e3);
       }
    }
 }

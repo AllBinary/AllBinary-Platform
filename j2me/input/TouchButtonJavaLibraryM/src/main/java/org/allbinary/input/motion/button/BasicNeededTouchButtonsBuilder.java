@@ -29,7 +29,7 @@ public class BasicNeededTouchButtonsBuilder
     {
         try
         {
-            logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+            this.logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
             
             final BasicArrayList list = new BasicArrayList();
             
@@ -87,7 +87,7 @@ public class BasicNeededTouchButtonsBuilder
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_LIST, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_LIST, e);
             return BasicArrayListUtil.getInstance().getImmutableInstance();
         }
     }

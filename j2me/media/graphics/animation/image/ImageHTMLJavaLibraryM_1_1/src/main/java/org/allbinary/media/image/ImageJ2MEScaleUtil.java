@@ -79,7 +79,7 @@ public class ImageJ2MEScaleUtil {
         final CanvasImage canvasImage = (CanvasImage) htmlImage.getImage();
         final CanvasSurface canvasSurface = htmlImage.getCanvasSurface(canvasImage);
         
-        //logUtil.put(new StringMaker().append("TWB w:").append(image.getWidth()).append(" h: ").append(image.getHeight()).append(" w: ").append(scaledImage.getWidth()).append(" h: ").append(scaledImage.getHeight()).toString(), this, "scale");
+        //this.logUtil.put(new StringMaker().append("TWB w:").append(image.getWidth()).append(" h: ").append(image.getHeight()).append(" w: ").append(scaledImage.getWidth()).append(" h: ").append(scaledImage.getHeight()).toString(), this, "scale");
         
         canvasSurface.drawImage(originalPlayNImage, 0, 0, scaledImage.getWidth(), scaledImage.getHeight(), 0, 0, image.getWidth(), image.getHeight());
 

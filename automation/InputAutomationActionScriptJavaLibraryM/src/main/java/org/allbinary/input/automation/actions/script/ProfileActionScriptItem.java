@@ -55,7 +55,7 @@ public class ProfileActionScriptItem extends DefaultMutableTreeNode
         super(label);
         this.init();
         
-        logUtil.put("Label: " + label, this, this.commonStrings.CONSTRUCTOR);
+        this.logUtil.put("Label: " + label, this, this.commonStrings.CONSTRUCTOR);
     }
     
     public ProfileActionScriptItem(
@@ -64,7 +64,7 @@ public class ProfileActionScriptItem extends DefaultMutableTreeNode
         super(label);
         this.init();
         
-        logUtil.put("Label: " + label, this, this.commonStrings.CONSTRUCTOR);
+        this.logUtil.put("Label: " + label, this, this.commonStrings.CONSTRUCTOR);
     }
 
     private void init()

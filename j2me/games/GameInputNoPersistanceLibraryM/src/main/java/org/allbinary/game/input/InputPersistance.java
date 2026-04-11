@@ -73,7 +73,7 @@ public class InputPersistance extends BasicPersitance
             id = recordEnum.nextRecordId();
 
             stringBuffer.delete(0, stringBuffer.length());
-            logUtil.put(stringBuffer.append(this.persistanceStrings.LOADING_ID).appendint(id).toString(), this, this.persistanceStrings.LOAD_ALL);
+            this.logUtil.put(stringBuffer.append(this.persistanceStrings.LOADING_ID).appendint(id).toString(), this, this.persistanceStrings.LOAD_ALL);
 
             //byteArrayInputStream = 
               //  new ByteArrayInputStream(recordStore.getRecord(id));
@@ -104,7 +104,7 @@ public class InputPersistance extends BasicPersitance
                         stringBuffer.append(GAME_ACTION_INPUT);
                         stringBuffer.append(gameActionInputId);
                         
-                        //logUtil.put(stringBuffer.toString(), this, persistanceStrings.LOAD_ALL);
+                        //this.logUtil.put(stringBuffer.toString(), this, persistanceStrings.LOAD_ALL);
                         PreLogUtil.put(stringBuffer.toString(), this, METHOD_NAME);
                     }
                     if (gameActionInput == null)
@@ -116,13 +116,13 @@ public class InputPersistance extends BasicPersitance
                         stringBuffer.append(ID);
                         stringBuffer.append(inputId);
                         
-                        //logUtil.put(stringBuffer.toString(), this, persistanceStrings.LOAD_ALL);
+                        //this.logUtil.put(stringBuffer.toString(), this, persistanceStrings.LOAD_ALL);
                         PreLogUtil.put(stringBuffer.toString(), this, METHOD_NAME);
                     }
                 }
                 else
                 {
-                    //logUtil.put("Load Mapping from: "
+                    //this.logUtil.put("Load Mapping from: "
                       //     ).append(input.toString()).append(" to: "
                         //   ).append(gameActionInput.toString(), this, persistanceStrings.LOAD_ALL);
                 }
@@ -141,7 +141,7 @@ public class InputPersistance extends BasicPersitance
     public void save(final AbeClientInformationInterface abeClientInformation, Hashtable hashtable) throws Exception
     {
         PreLogUtil.put(new StringMaker().append(this.persistanceStrings.NOT_SAVING).append(StringUtil.getInstance().toString(hashtable)).toString(), this, this.commonStrings.SAVE);
-        //logUtil.put("Saving: ").append(hashtable, this, commonStrings.SAVE);
+        //this.logUtil.put("Saving: ").append(hashtable, this, commonStrings.SAVE);
         
         final RecordStore recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
@@ -183,7 +183,7 @@ public class InputPersistance extends BasicPersitance
 
                 //PreLogUtil.put(stringBuffer.toString(), this, commonStrings.SAVE);
                 
-                //logUtil.put("Save Mapping from: "
+                //this.logUtil.put("Save Mapping from: "
                 //     ).append(input.toString()).append(" to: "
                   //   ).append(gameActionInput.toString(), this, commonStrings.SAVE);
             }

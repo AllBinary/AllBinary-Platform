@@ -54,7 +54,7 @@ public class OwnershipPaintable extends Paintable
     
     public void paint(final Graphics graphics)
     {
-        //logUtil.put(commonStrings.START, this, canvasStrings.PAINT);
+        //this.logUtil.put(commonStrings.START, this, canvasStrings.PAINT);
         
         graphics.setColor(color);
         

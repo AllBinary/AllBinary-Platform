@@ -46,7 +46,7 @@ public class InGameOptionsFormFactory
         } catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
         }
     }
     

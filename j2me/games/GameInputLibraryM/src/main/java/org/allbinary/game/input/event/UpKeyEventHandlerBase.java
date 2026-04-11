@@ -72,7 +72,7 @@ public class UpKeyEventHandlerBase extends BasicEventHandler
            }
            catch (Exception e)
            {
-               logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
+               this.logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
            }
        }
 
@@ -87,7 +87,7 @@ public class UpKeyEventHandlerBase extends BasicEventHandler
             }
             catch (Exception e)
             {
-                logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
             index++;
         }
@@ -124,7 +124,7 @@ public class UpKeyEventHandlerBase extends BasicEventHandler
             }
             catch (Exception e)
             {
-                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.TOSTRING, e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.TOSTRING, e);
             }
         }
         return stringBuffer.toString();

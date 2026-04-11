@@ -42,7 +42,7 @@ public class PageValidationView extends PageView implements ValidationComponentI
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         logUtil.put("View Name: " + transformInfoInterface.getName(), this, "PageViewValidation()");
+         this.logUtil.put("View Name: " + transformInfoInterface.getName(), this, "PageViewValidation()");
       }
    }
    
@@ -54,7 +54,7 @@ public class PageValidationView extends PageView implements ValidationComponentI
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            logUtil.put(this.commonStrings.START, this, commonStrings.IS_VALID);
+            this.logUtil.put(this.commonStrings.START, this, commonStrings.IS_VALID);
          }
 
          //Insert XML into the view specified by the Object Config for this view
@@ -77,7 +77,7 @@ public class PageValidationView extends PageView implements ValidationComponentI
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            logUtil.put("Views To Be Modified: " + allViewsToBeModifiedVector.size(), this, "get(transformInfoInterface)");
+            this.logUtil.put("Views To Be Modified: " + allViewsToBeModifiedVector.size(), this, "get(transformInfoInterface)");
          }
          
          final int size = allViewsToBeModifiedVector.size();
@@ -97,7 +97,7 @@ public class PageValidationView extends PageView implements ValidationComponentI
             	stringBuffer.append(" is modifying view: ");
             	stringBuffer.append(viewNameOfViewToBeModified);
 
-            	logUtil.put(stringBuffer.toString(), this, "insert()");
+            	this.logUtil.put(stringBuffer.toString(), this, "insert()");
             }
 
             TransformInfoHttpInterface httpTransformInfoInterface = 
@@ -117,7 +117,7 @@ public class PageValidationView extends PageView implements ValidationComponentI
             	stringBuffer.append(" is adding data to view: ");
             	stringBuffer.append(viewNameOfViewToBeModified);
             	
-               logUtil.put(stringBuffer.toString(), this, "insert()");
+               this.logUtil.put(stringBuffer.toString(), this, "insert()");
             }
 
             HashMap hashMap =  new HashMap();            
@@ -157,7 +157,7 @@ public class PageValidationView extends PageView implements ValidationComponentI
                     stringBuffer.append(" to the following data:\n");
                     stringBuffer.append(documentString);
 
-                    logUtil.put(stringBuffer.toString(), this, commonStrings.IS_VALID);
+                    this.logUtil.put(stringBuffer.toString(), this, commonStrings.IS_VALID);
                }
 
                //save xml data to specified view
@@ -170,7 +170,7 @@ public class PageValidationView extends PageView implements ValidationComponentI
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            logUtil.put("Failed to validate",this,commonStrings.IS_VALID,e);
+            this.logUtil.put("Failed to validate",this,commonStrings.IS_VALID,e);
          }
          return Boolean.FALSE;
       }
@@ -235,7 +235,7 @@ public class PageValidationView extends PageView implements ValidationComponentI
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            logUtil.put("Failed to generate validation error info",this,"validationInfo()",e);
+            this.logUtil.put("Failed to generate validation error info",this,"validationInfo()",e);
          }
          return "An auto generated page name was invalid.";
       }

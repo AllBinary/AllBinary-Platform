@@ -188,7 +188,7 @@ extends UnitWaypointBehavior
         /*
         if(this.getOwnerAdvancedRTSGameLayer().isSelected())
         {
-            logUtil.put(
+            this.logUtil.put(
                     "Enemy Possible Target: " + layerInterface.getName(), this, 
                     "selected: onEnemyMovement");                    
         }
@@ -205,7 +205,7 @@ extends UnitWaypointBehavior
         // Boolean.toString(this.currentTargetLayerInterface.isDestroyed());
         // }
 
-        // logUtil.put(
+        // this.logUtil.put(
         // "Weapons Range: " + this.hackRange +
         // " anotherTargetDistance: " + anotherTargetDistance +
         // getCurrentTargetingStateString(),
@@ -335,7 +335,7 @@ extends UnitWaypointBehavior
                 this.setTargetPath();
             }
         }
-        // logUtil.put("Weapons Range: " +
+        // this.logUtil.put("Weapons Range: " +
         // this.longWeaponRange + 
         //getCurrentTargetingStateString(), 
         //this, "onMovementFound");
@@ -474,7 +474,7 @@ extends UnitWaypointBehavior
                 if (this.currentTargetLayerInterface == null &&
                 this.getWaypointList().size() == 0)
                 {
-                logUtil.put(
+                this.logUtil.put(
                 "No Waypoints or Target", this, "processWaypoint");
                 }
                  */
@@ -572,7 +572,7 @@ extends UnitWaypointBehavior
      * (GeographicMapCellPosition)
      * surroundingGeographicMapCellPositionList.get(0);
      * 
-     * logUtil.put( "Inserting Waypoint: " +
+     * this.logUtil.put( "Inserting Waypoint: " +
      * emptyGeographicMapCellPosition, this, "processMidWaypoint");
      * 
      * GPoint point = emptyGeographicMapCellPosition.getPoint();
@@ -639,7 +639,7 @@ extends UnitWaypointBehavior
             /*
             if(this.getOwnerAdvancedRTSGameLayer().isSelected())
             {
-                logUtil.put(commonStrings.START, this, "selected: processTargeting");
+                this.logUtil.put(commonStrings.START, this, "selected: processTargeting");
             }
             */
             
@@ -807,7 +807,7 @@ extends UnitWaypointBehavior
         final BasicArrayList list = this.targetList;
         if (list.size() == 0)
         {
-            //logUtil.put("No Waypoints", this, "isWaypointListEmptyOrOnlyTargets");
+            //this.logUtil.put("No Waypoints", this, "isWaypointListEmptyOrOnlyTargets");
 
             return true;
         }
@@ -822,7 +822,7 @@ extends UnitWaypointBehavior
                 return false;
             }
         }
-        //logUtil.put("All Waypoints Targets/Units", this, "isWaypointListEmptyOrOnlyTargets");
+        //this.logUtil.put("All Waypoints Targets/Units", this, "isWaypointListEmptyOrOnlyTargets");
         return true;
     }
         
@@ -890,7 +890,7 @@ extends UnitWaypointBehavior
             try
             {
                 if (this.getList().size() > 0) {
-                    //logUtil.put("steering", this, "visit");
+                    //this.logUtil.put("steering", this, "visit");
 
                     final AllBinaryLayer allbinaryLayer = (AllBinaryLayer) this.getList().get(0);
 
@@ -912,7 +912,7 @@ extends UnitWaypointBehavior
             catch(Exception e)
             {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                logUtil.put(commonStrings.EXCEPTION, this, "visit", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "visit", e);
                 return NullUtil.getInstance().NULL_OBJECT;
             }
         }

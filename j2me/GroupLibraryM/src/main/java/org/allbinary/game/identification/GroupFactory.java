@@ -36,7 +36,7 @@ public class GroupFactory {
    public Group getNextGroup()
    {
       Group group = (Group) list.objectArray[index];
-      //logUtil.put(new StringMaker().append("group: ").append(group).append(" index: ").append(index).toString(), this, "getNextGroup");
+      //this.logUtil.put(new StringMaker().append("group: ").append(group).append(" index: ").append(index).toString(), this, "getNextGroup");
       index++;
       return group;
    }
@@ -44,7 +44,7 @@ public class GroupFactory {
    public Group getNextGroup(final String name)
    {
       final Group group = this.getNextGroup();
-      //logUtil.put(new StringMaker().append("group: ").append(group).append(" name: ").append(name).toString(), this, "getNextGroup");
+      //this.logUtil.put(new StringMaker().append("group: ").append(group).append(" name: ").append(name).toString(), this, "getNextGroup");
       group.setName(name);
       return group;
    }
@@ -76,7 +76,7 @@ public class GroupFactory {
          size++;
       }
       
-      //logUtil.put("size: " + list.size(), this, this.commonStrings.INIT);
+      //this.logUtil.put("size: " + list.size(), this, this.commonStrings.INIT);
    }
    
 }

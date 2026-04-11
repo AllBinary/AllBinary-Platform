@@ -27,7 +27,7 @@ public class ForcedLogUtil
         }
         catch (Exception e)
         {
-            //logUtil.put(CommonStrings.getInstance().EXCEPTION, object, "log", e);
+            //this.logUtil.put(CommonStrings.getInstance().EXCEPTION, object, "log", e);
             PreLogUtil.putOE(CommonStrings.getInstance().EXCEPTION, object, "log", e);
         }
     }

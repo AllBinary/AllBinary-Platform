@@ -58,7 +58,7 @@ public class BlisketBackupFactory
     {
         try
         {
-            logUtil.put(this.commonStrings.START, this, "backup()");
+            this.logUtil.put(this.commonStrings.START, this, "backup()");
 
             StringMaker stringBuffer = new StringMaker();
 
@@ -75,7 +75,7 @@ public class BlisketBackupFactory
 
         } catch (Exception e)
         {
-            logUtil.put(this.commonStrings.EXCEPTION, this, "backup()", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "backup()", e);
         }
     }
 
@@ -83,7 +83,7 @@ public class BlisketBackupFactory
     {
         try
         {
-            logUtil.put(this.commonStrings.START, this, "backupViews()");
+            this.logUtil.put(this.commonStrings.START, this, "backupViews()");
 
             StringMaker stringBuffer = new StringMaker();
 
@@ -130,7 +130,7 @@ public class BlisketBackupFactory
 
         } catch (Exception e)
         {
-            logUtil.put(this.commonStrings.EXCEPTION, this, "backupViews()", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "backupViews()", e);
         }
     }
 
@@ -138,7 +138,7 @@ public class BlisketBackupFactory
     {
         try
         {
-            logUtil.put(this.commonStrings.START, this, "backupResources()");
+            this.logUtil.put(this.commonStrings.START, this, "backupResources()");
 
             StringMaker stringBuffer = new StringMaker();
 
@@ -190,7 +190,7 @@ public class BlisketBackupFactory
 
         } catch (Exception e)
         {
-            logUtil.put(this.commonStrings.EXCEPTION, this, "backupResources()", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "backupResources()", e);
         }
     }
 
@@ -198,7 +198,7 @@ public class BlisketBackupFactory
     {
         try
         {
-            logUtil.put(this.commonStrings.START, this, "backupJsps()");
+            this.logUtil.put(this.commonStrings.START, this, "backupJsps()");
 
             StringMaker stringBuffer = new StringMaker();
 
@@ -237,7 +237,7 @@ public class BlisketBackupFactory
 
         } catch (Exception e)
         {
-            logUtil.put(this.commonStrings.EXCEPTION, this, "backupJsps()", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "backupJsps()", e);
         }
     }
 
@@ -253,18 +253,18 @@ public class BlisketBackupFactory
             stringBuffer.append(" BasicArrayList: ");
             stringBuffer.appendint(fileBasicArrayList.size());
 
-            //logUtil.put(
+            //this.logUtil.put(
               //  "Creating Backup Zip File: " + stringBuffer.toString(), this, "backup()");
             PreLogUtil.put("Creating Backup Zip File: " + stringBuffer.toString(), this, "backup()");
 
             ZipFileUtil.getInstance().create(zipFile, fileBasicArrayList);
 
-            logUtil.put(
+            this.logUtil.put(
                 "Created Backup Zip File", this, "backup()");
 
         } catch (Exception e)
         {
-            logUtil.put(this.commonStrings.EXCEPTION, this, "backup()", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "backup()", e);
         }
     }
 }

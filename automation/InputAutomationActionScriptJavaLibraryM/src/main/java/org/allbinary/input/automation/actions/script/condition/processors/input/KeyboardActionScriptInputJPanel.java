@@ -40,7 +40,7 @@ public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
    public KeyboardActionScriptInputJPanel(KeyboardActionScriptInputInterface keyActionScriptInputInterface)
    throws Exception
    {
-      logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
+      this.logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
       
       initComponents();
       
@@ -448,7 +448,7 @@ public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
        }
        catch(Exception e)
        {
-          logUtil.put(this.commonStrings.EXCEPTION, this, "okButtonActionPerformed", e);
+          this.logUtil.put(this.commonStrings.EXCEPTION, this, "okButtonActionPerformed", e);
        }
        
     }//GEN-LAST:event_okJButtonActionPerformed

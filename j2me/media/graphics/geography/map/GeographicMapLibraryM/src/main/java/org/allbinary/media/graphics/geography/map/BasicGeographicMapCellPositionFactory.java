@@ -60,10 +60,10 @@ public class BasicGeographicMapCellPositionFactory
 
         for (int column = 0; column < columns; column++)
         {
-            // logUtil.put("Initializing Column: ").append(col, this, commonStrings.INIT);
+            // this.logUtil.put("Initializing Column: ").append(col, this, commonStrings.INIT);
             for (int row = 0; row < rows; row++)
             {
-                // logUtil.put("Initializing Row: ").append(row, this, commonStrings.INIT);
+                // this.logUtil.put("Initializing Row: ").append(row, this, commonStrings.INIT);
                 // GeographicMapCellPosition cellPosition =
                 this.createInstance(column, row, width, height);
             }
@@ -87,10 +87,10 @@ public class BasicGeographicMapCellPositionFactory
             GeographicMapCellPosition cellPosition;
         for (int column = 0; column < columns; column++)
         {
-            // logUtil.put("Initializing Column: ").append(col, this, commonStrings.INIT);
+            // this.logUtil.put("Initializing Column: ").append(col, this, commonStrings.INIT);
             for (int row = 0; row < rows; row++)
             {
-                // logUtil.put("Initializing Row: ").append(row, this, commonStrings.INIT);
+                // this.logUtil.put("Initializing Row: ").append(row, this, commonStrings.INIT);
                 cellPosition = this.getInstance(column, row);
                 geographicMapCelPositionFactoryInitVisitorInterface.visit(tiledLayer, cellPosition);
             }
@@ -100,7 +100,7 @@ public class BasicGeographicMapCellPositionFactory
         catch(Exception e)
         {
             final CommonSeps commonSeps = CommonSeps.getInstance();
-            logUtil.put(new StringMaker().append(commonSeps.BRACKET_OPEN).appendint(rows).append(commonSeps.BRACKET_CLOSE).append(commonSeps.BRACKET_OPEN).appendint(columns).append(commonSeps.BRACKET_CLOSE).toString(), this, "visit", e);
+            this.logUtil.put(new StringMaker().append(commonSeps.BRACKET_OPEN).appendint(rows).append(commonSeps.BRACKET_CLOSE).append(commonSeps.BRACKET_OPEN).appendint(columns).append(commonSeps.BRACKET_CLOSE).toString(), this, "visit", e);
             throw e;
         }
     }

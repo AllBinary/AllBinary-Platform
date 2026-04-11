@@ -79,14 +79,14 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
                     spriteSplitterUtil.process(SpriteSplitterImageJPanel.this.getImageProcessorInput(), totalFrames, totalAnimations, widthReduction, heightReduction, increaseWidth, increaseHeight, spriteType, SpriteSplitterImageJPanel.this);
 
                 } catch (Exception e) {
-                    logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                    this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
                 }
             }
         }.start();
     }
     /*
     public void paint(Graphics graphics) {
-    logUtil.put(commonStrings.START, this, canvasStrings.PAINT);
+    this.logUtil.put(commonStrings.START, this, canvasStrings.PAINT);
      */
     //graphics.setColor(BasicColors.BLUE.toColor());
     //graphics.fillRect(0, 0, getWidth(),getHeight());
@@ -388,7 +388,7 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
    @Override
    public void visit(final BufferedImage generatedBufferedImage, final String name, final int index) throws IOException {
        
-       logUtil.put(commonStrings.VISIT, this, commonStrings.VISIT);
+       this.logUtil.put(commonStrings.VISIT, this, commonStrings.VISIT);
        
        this.result = generatedBufferedImage;
        //ImageJ2SERotationUtil.getInstance().createSpriteImage(
@@ -408,7 +408,7 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
        final boolean isWritten = 
                ImageIO.write((RenderedImage) SpriteSplitterImageJPanel.this.result, imageStrings.PNG, file);
 
-       logUtil.put(new StringMaker().append("File: ").append(StringUtil.getInstance().toString(file)).append(" Wrote: ").appendboolean(isWritten).toString(), this, commonStrings.RUN);
+       this.logUtil.put(new StringMaker().append("File: ").append(StringUtil.getInstance().toString(file)).append(" Wrote: ").appendboolean(isWritten).toString(), this, commonStrings.RUN);
    }
    
 }

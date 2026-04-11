@@ -46,7 +46,7 @@ public class KeyboardActionScriptInput extends BasicProfileActionScriptInput
    {
       super(NAME, node);
       
-      logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
+      this.logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
       
       Node actionNode = DomSearchHelper.getNode(
             KeyboardActionScriptInputData.NAME, node.getChildNodes());
@@ -177,7 +177,7 @@ public class KeyboardActionScriptInput extends BasicProfileActionScriptInput
    public void setKeyArray(Integer[] keyArray)
    {
       if(keyArray != null)
-      logUtil.put(CommonLabels.getInstance().START + keyArray.length, this, "setKeyArray");
+      this.logUtil.put(CommonLabels.getInstance().START + keyArray.length, this, "setKeyArray");
       
       this.keyArray = keyArray;
    }
@@ -195,7 +195,7 @@ public class KeyboardActionScriptInput extends BasicProfileActionScriptInput
    
    public void setText(String text)
    {
-      logUtil.put(CommonLabels.getInstance().START + text, this, "setText");
+      this.logUtil.put(CommonLabels.getInstance().START + text, this, "setText");
       Integer[] integerArray = this.integerArrayValue(text);
       this.setKeyArray(integerArray);
    }
@@ -226,7 +226,7 @@ public class KeyboardActionScriptInput extends BasicProfileActionScriptInput
    
    private Integer[] integerArrayValue(String text)
    {
-      logUtil.put(CommonLabels.getInstance().START + text, this, "integerArrayValue");
+      this.logUtil.put(CommonLabels.getInstance().START + text, this, "integerArrayValue");
       
       Vector vector = new Vector();
       int index = 0;
@@ -242,7 +242,7 @@ public class KeyboardActionScriptInput extends BasicProfileActionScriptInput
                {
                   String nextCharString = text.substring(index + 2, endIndex);
 
-                  logUtil.put("Next Char String: " + nextCharString, this, "integerArrayValue");
+                  this.logUtil.put("Next Char String: " + nextCharString, this, "integerArrayValue");
                   
                   vector.add(Integer.valueOf(
                         nextCharString.substring(index, nextCharString.length())));
@@ -285,7 +285,7 @@ public class KeyboardActionScriptInput extends BasicProfileActionScriptInput
 
       hashMap.put(KeyboardActionScriptInputData.RELEASE, Boolean.toString(this.isRelease()));
       
-      logUtil.put("HashMap: " + hashMap.toString(), this, "toHashMap()");
+      this.logUtil.put("HashMap: " + hashMap.toString(), this, "toHashMap()");
       
       return hashMap;
    }
@@ -307,7 +307,7 @@ public class KeyboardActionScriptInput extends BasicProfileActionScriptInput
    
    public void log()
    {
-      logUtil.put(this.toString(), this, "log");
+      this.logUtil.put(this.toString(), this, "log");
    }
    
    public String toString()

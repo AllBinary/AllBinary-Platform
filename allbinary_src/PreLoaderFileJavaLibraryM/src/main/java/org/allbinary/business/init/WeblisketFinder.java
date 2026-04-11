@@ -49,15 +49,15 @@ public class WeblisketFinder
     {
         try
         {
-            logUtil.put(this.commonStrings.START, this, "findAll");
+            this.logUtil.put(this.commonStrings.START, this, "findAll");
 
             return subDirectory.search(KEY, new AbFile(path));
         } catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, "findAll", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "findAll", e);
             if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR))
             {
-                logUtil.put(commonStrings.EXCEPTION, this, "findAll", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "findAll", e);
             }
 
             //return new BasicArrayList();
@@ -81,7 +81,7 @@ public class WeblisketFinder
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADERERROR))
             {
-                logUtil.put(commonStrings.EXCEPTION, this, "getInstallationPath", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "getInstallationPath", e);
             }
             return null;
         }

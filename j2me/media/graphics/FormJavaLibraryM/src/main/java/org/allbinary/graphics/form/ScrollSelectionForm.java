@@ -137,7 +137,7 @@ public class ScrollSelectionForm extends PaintableForm
         stringBuffer.append(commonLabels.TOTAL_LABEL);
         stringBuffer.appendint(size);
         
-        logUtil.put(stringBuffer.toString(), this, GET_SELECTED_INDEX);
+        this.logUtil.put(stringBuffer.toString(), this, GET_SELECTED_INDEX);
 
         CustomItemInterface item;
         int width;
@@ -166,7 +166,7 @@ public class ScrollSelectionForm extends PaintableForm
                 throw new Exception(formTypeFactory.UNK);
             }
             
-//            logUtil.put(new StringBuilder().append("Checking: ")
+//            this.logUtil.put(new StringBuilder().append("Checking: ")
 //                    .append(diffX).append(CommonSeps.getInstance().COMMA)
 //                    .append((dy - this.halfBorder)).append(CommonSeps.getInstance().COMMA)
 //                    .append((diffX + width + this.border)).append(CommonSeps.getInstance().COMMA)
@@ -187,7 +187,7 @@ public class ScrollSelectionForm extends PaintableForm
                 stringBuffer.append(commonLabels.INDEX_LABEL);
                 stringBuffer.appendint(index);
                 
-                logUtil.put(stringBuffer.toString(), this, GET_SELECTED_INDEX);
+                this.logUtil.put(stringBuffer.toString(), this, GET_SELECTED_INDEX);
 
                 return index;
             }
@@ -220,7 +220,7 @@ public class ScrollSelectionForm extends PaintableForm
 
     public int processInput(final int gameKeyCode) throws Exception
     {
-        //logUtil.put("Start - Selected ").append(commonLabels.INDEX_LABEL).append(this.getSelectedIndex()).append(" of: ").append(this.size(), this, GameInputStrings.getInstance());
+        //this.logUtil.put("Start - Selected ").append(commonLabels.INDEX_LABEL).append(this.getSelectedIndex()).append(" of: ").append(this.size(), this, GameInputStrings.getInstance());
         //PreLogUtil.put("Start - Selected " commonLabels.INDEX_LABEL).append(this.getSelectedIndex()).append(" of: ").append(this.size(), this, GameInputStrings.getInstance());
 
         final FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
@@ -277,7 +277,7 @@ public class ScrollSelectionForm extends PaintableForm
         }
 
         //PreLogUtil.put("End - Selected ").append(commonLabels.INDEX_LABEL).append(this.getSelectedIndex(), this, GameInputStrings.getInstance());
-        //logUtil.put("End - Selected ").append(commonLabels.INDEX_LABEL).append(this.getSelectedIndex(), this, GameInputStrings.getInstance());
+        //this.logUtil.put("End - Selected ").append(commonLabels.INDEX_LABEL).append(this.getSelectedIndex(), this, GameInputStrings.getInstance());
         return -1;
     }
 
@@ -286,12 +286,12 @@ public class ScrollSelectionForm extends PaintableForm
     
     public boolean isInForm(final GPoint point)
     {
-        //logUtil.put(new StringMaker().append("Checking: Rectangle: ").append(this.rectangle).append(" to ").append(point).toString(), this, IS_IN_FORM);
+        //this.logUtil.put(new StringMaker().append("Checking: Rectangle: ").append(this.rectangle).append(" to ").append(point).toString(), this, IS_IN_FORM);
 
         //- halfBorder
         if (rectangleCollisionUtil.isInside(x, y - halfBorder, this.rectangle.getMaxX() + border, this.rectangle.getMaxY() + border,point.getX(), point.getY()))
         {
-            logUtil.put(new StringMaker().append(StringUtil.getInstance().toString(point)).append(INSIDE_FORM).toString(), this, IS_IN_FORM);
+            this.logUtil.put(new StringMaker().append(StringUtil.getInstance().toString(point)).append(INSIDE_FORM).toString(), this, IS_IN_FORM);
             return true;
         }
         return false;

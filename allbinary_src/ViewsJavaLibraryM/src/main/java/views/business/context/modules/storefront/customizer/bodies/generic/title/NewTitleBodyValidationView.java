@@ -33,7 +33,7 @@ public class NewTitleBodyValidationView extends TitleBodyCustomizerView implemen
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         logUtil.put("View Name: " + transformInfoInterface.getName(), this, "NewTitleBodyValidationView()");
+         this.logUtil.put("View Name: " + transformInfoInterface.getName(), this, "NewTitleBodyValidationView()");
       }
 
       this.titleBody = new TitleBodyValidation();
@@ -50,7 +50,7 @@ public class NewTitleBodyValidationView extends TitleBodyCustomizerView implemen
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            logUtil.put("View Name: " + this.getTransformInfoInterface().getName(), this, commonStrings.IS_VALID);
+            this.logUtil.put("View Name: " + this.getTransformInfoInterface().getName(), this, commonStrings.IS_VALID);
          }
          //Boolean isValid = this.heading.isValid();
                   
@@ -67,7 +67,7 @@ public class NewTitleBodyValidationView extends TitleBodyCustomizerView implemen
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            logUtil.put("Failed to validate",this,commonStrings.IS_VALID,e);
+            this.logUtil.put("Failed to validate",this,commonStrings.IS_VALID,e);
          }
          return Boolean.FALSE;
       }
@@ -87,7 +87,7 @@ public class NewTitleBodyValidationView extends TitleBodyCustomizerView implemen
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            logUtil.put("Failed to generate validation error info",this,"validationInfo()",e);
+            this.logUtil.put("Failed to generate validation error info",this,"validationInfo()",e);
          }
          return "Error Getting Validation Info";
       }

@@ -57,7 +57,7 @@ public class ThreadPool
     {
         if (!this.isAlive)
         {
-            //logUtil.put(this.commonStrings.INIT, this, this.commonStrings.INIT);
+            //this.logUtil.put(this.commonStrings.INIT, this, this.commonStrings.INIT);
             this.isAlive = true;
 
             this.taskQueue = new BasicArrayList();
@@ -93,14 +93,14 @@ public class ThreadPool
         if (task != null)
         {
 
-            //logUtil.put(new StringMaker().append("Add: ").append(task).toString(), this, this.threadPoolStrings.ADD_TASK);
+            //this.logUtil.put(new StringMaker().append("Add: ").append(task).toString(), this, this.threadPoolStrings.ADD_TASK);
             //PreLogUtil.put("Add: ").append(task, this, this.threadPoolStrings.ADD_TASK);
             final int size = this.taskQueue.size();
             PriorityRunnable runnable;
             PriorityRunnable lowerPriorityRunnable = threadObjectUtil.NULL_PRIORITY_RUNNABLE;
             for(int index = 0; index < size; index++) {
                 runnable = (PriorityRunnable) this.taskQueue.get(index);
-                //logUtil.put(new StringMaker().append(COMPARE_PRIORITY).append(task.getPriority()).toString(), this, this.threadPoolStrings.ADD_TASK);
+                //this.logUtil.put(new StringMaker().append(COMPARE_PRIORITY).append(task.getPriority()).toString(), this, this.threadPoolStrings.ADD_TASK);
                 if(runnable.getPriority() > task.getPriority()) {
                     lowerPriorityRunnable = runnable;
                     break;
@@ -110,9 +110,9 @@ public class ThreadPool
             if(lowerPriorityRunnable == threadObjectUtil.NULL_PRIORITY_RUNNABLE || lowerPriorityRunnable == NULL_RUNNABLE) {
                 this.taskQueue.add(task);
             } else {
-                //logUtil.put(new StringMaker().append(ADD_PRIORITY).append(task.getPriority()).toString(), this, this.threadPoolStrings.ADD_TASK);
+                //this.logUtil.put(new StringMaker().append(ADD_PRIORITY).append(task.getPriority()).toString(), this, this.threadPoolStrings.ADD_TASK);
                 final int index = this.taskQueue.indexOf(lowerPriorityRunnable);
-                //logUtil.put(new StringMaker().append(ADD_PRIORITY).append(index).append(CommonSeps.getInstance().SPACE).append(this.taskQueue.size()).toString(), this, this.threadPoolStrings.ADD_TASK);
+                //this.logUtil.put(new StringMaker().append(ADD_PRIORITY).append(index).append(CommonSeps.getInstance().SPACE).append(this.taskQueue.size()).toString(), this, this.threadPoolStrings.ADD_TASK);
                 this.taskQueue.add(index, task);
             }
             
@@ -135,7 +135,7 @@ public class ThreadPool
         if (task != null)
         {
 
-            //logUtil.put("Add: ").append(task, this, this.threadPoolStrings.ADD_TASK);
+            //this.logUtil.put("Add: ").append(task, this, this.threadPoolStrings.ADD_TASK);
             //PreLogUtil.put("Add: ").append(task, this, this.threadPoolStrings.ADD_TASK);
 
             this.taskQueue.add(task);
@@ -170,7 +170,7 @@ public class ThreadPool
             
         if (this.isAlive)
         {
-            //logUtil.put("clear", this, this.commonStrings.RUN);
+            //this.logUtil.put("clear", this, this.commonStrings.RUN);
             this.taskQueue.clear();
         }
         
@@ -184,7 +184,7 @@ public class ThreadPool
         if (this.isAlive)
         {
             this.isAlive = false;
-            //logUtil.put("clear2", this, this.commonStrings.RUN);
+            //this.logUtil.put("clear2", this, this.commonStrings.RUN);
             this.taskQueue.clear();
             //interrupt();
         }
@@ -198,7 +198,7 @@ public class ThreadPool
         synchronized (this)
         {
             this.isAlive = false;
-            //logUtil.put("clear3", this, this.commonStrings.RUN);
+            //this.logUtil.put("clear3", this, this.commonStrings.RUN);
             this.taskQueue.clear();
             notifyAll();
         }
@@ -263,6 +263,7 @@ public class ThreadPool
         {
             //super(ThreadPool.this, 
             super(new StringMaker().append(poolName).append(ROOT_NAME).appendint(threadID++).toString());
+            final LogUtil logUtil = LogUtil.getInstance();
             logUtil.put(commonStrings.CONSTRUCTOR, this, commonStrings.CONSTRUCTOR);
         }
 
@@ -282,13 +283,14 @@ public class ThreadPool
                 try
                 {
                     task2 = getTask();
-                    //logUtil.put(task + " with Thread: " + this.toString(), this, commonStrings.RUN);
+                    //this.logUtil.put(task + " with Thread: " + this.toString(), this, commonStrings.RUN);
                     runningTask = true;
 
                     startTask(task2);
 
                 } catch (InterruptedException ex)
                 {
+                    final LogUtil logUtil = LogUtil.getInstance();
                     logUtil.put(INTERRUPT_EXCEPTION, this, commonStrings.RUN);
                     break;
                 }
@@ -311,6 +313,7 @@ public class ThreadPool
                     runningTask = false;
                 } catch (Exception e)
                 {
+                    final LogUtil logUtil = LogUtil.getInstance();
                     logUtil.put(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(StringUtil.getInstance().toString(task2)).toString(), this, commonStrings.RUN, e);
                 }
             }

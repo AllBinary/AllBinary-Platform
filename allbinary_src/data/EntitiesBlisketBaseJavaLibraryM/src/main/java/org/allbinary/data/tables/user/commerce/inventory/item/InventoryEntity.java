@@ -48,13 +48,13 @@ public class InventoryEntity extends AbSqlBean implements InventoryEntityInterfa
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                logUtil.put(this.commonStrings.SUCCESS, this, INSERT);
+                this.logUtil.put(this.commonStrings.SUCCESS, this, INSERT);
             }
         } catch (Exception e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                logUtil.put(this.commonStrings.FAILURE, this, INSERT, e);
+                this.logUtil.put(this.commonStrings.FAILURE, this, INSERT, e);
             }
         }
     }
@@ -66,13 +66,13 @@ public class InventoryEntity extends AbSqlBean implements InventoryEntityInterfa
             super.deleteWhere(BasicItemData.ID, value);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                logUtil.put(this.commonStrings.SUCCESS, this, commonStrings.delete);
+                this.logUtil.put(this.commonStrings.SUCCESS, this, commonStrings.delete);
             }
         } catch (Exception e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                logUtil.put(this.commonStrings.FAILURE, this, commonStrings.delete, e);
+                this.logUtil.put(this.commonStrings.FAILURE, this, commonStrings.delete, e);
             }
         }
     }
@@ -82,7 +82,7 @@ public class InventoryEntity extends AbSqlBean implements InventoryEntityInterfa
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
         {
-            logUtil.put("Getting Items For: " + storeFrontInterface.getName(), this, "getItems");
+            this.logUtil.put("Getting Items For: " + storeFrontInterface.getName(), this, "getItems");
         }
 
         Vector itemVector = new Vector();

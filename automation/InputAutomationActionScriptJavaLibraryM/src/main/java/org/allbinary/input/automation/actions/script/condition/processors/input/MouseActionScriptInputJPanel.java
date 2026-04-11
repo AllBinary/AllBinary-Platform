@@ -44,7 +44,7 @@ public class MouseActionScriptInputJPanel
          final MouseActionScriptInputInterface mouseActionScriptInputInterface)
          throws Exception
    {
-      logUtil.put(CommonLabels.getInstance().START + mouseActionScriptInputInterface, this, commonStrings.CONSTRUCTOR);
+      this.logUtil.put(CommonLabels.getInstance().START + mouseActionScriptInputInterface, this, commonStrings.CONSTRUCTOR);
       
       initComponents();
       
@@ -121,7 +121,7 @@ public class MouseActionScriptInputJPanel
       this.mouseActionScriptInputInterface.setTime(
             Integer.valueOf(this.mouseDelayJTextField.getText()));
       
-      logUtil.put("Button State: " +
+      this.logUtil.put("Button State: " +
             this.mouseActionScriptInputInterface.getButtonClicks(),
             this, "update");
       
@@ -133,7 +133,7 @@ public class MouseActionScriptInputJPanel
             this.mouseActionScriptInputInterface.setButtonClicks(
                   this.mouseActionScriptInputInterface.getButtonClicks() |
                   InputEvent.BUTTON1_MASK);
-            logUtil.put("Button 1 Selected: " +
+            this.logUtil.put("Button 1 Selected: " +
                   this.mouseActionScriptInputInterface.getButtonClicks(),
                   this, "update");
          }
@@ -146,7 +146,7 @@ public class MouseActionScriptInputJPanel
             this.mouseActionScriptInputInterface.setButtonClicks(
                   this.mouseActionScriptInputInterface.getButtonClicks() ^
                   InputEvent.BUTTON1_MASK);
-            logUtil.put("Button 1 Deselected: " +
+            this.logUtil.put("Button 1 Deselected: " +
                   this.mouseActionScriptInputInterface.getButtonClicks(),
                   this, "update");
          }
@@ -160,7 +160,7 @@ public class MouseActionScriptInputJPanel
             this.mouseActionScriptInputInterface.setButtonClicks(
                   this.mouseActionScriptInputInterface.getButtonClicks() |
                   InputEvent.BUTTON2_MASK);
-            logUtil.put("Button 2 Selected: " +
+            this.logUtil.put("Button 2 Selected: " +
                   this.mouseActionScriptInputInterface.getButtonClicks(),
                   this, "update");
          }
@@ -173,7 +173,7 @@ public class MouseActionScriptInputJPanel
             this.mouseActionScriptInputInterface.setButtonClicks(
                   this.mouseActionScriptInputInterface.getButtonClicks() ^
                   InputEvent.BUTTON2_MASK);
-            logUtil.put("Button 2 Deselected: " +
+            this.logUtil.put("Button 2 Deselected: " +
                   this.mouseActionScriptInputInterface.getButtonClicks(),
                   this, "update");
          }
@@ -396,7 +396,7 @@ public class MouseActionScriptInputJPanel
        }
        catch(Exception e)
        {
-          logUtil.put(commonStrings.EXCEPTION, this, "okButtonActionPerformed", e);
+          this.logUtil.put(commonStrings.EXCEPTION, this, "okButtonActionPerformed", e);
        }
     }//GEN-LAST:event_okJButtonActionPerformed
     

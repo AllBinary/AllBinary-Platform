@@ -21,7 +21,7 @@ public class NormalJ2MEGameInputMapping  extends J2MEGameInputMapping
     @Override
     protected InputToGameKeyMapping getDefault()
     {
-        //logUtil.put("Use Default GameKey Mappings", this, "addDefault");
+        //this.logUtil.put("Use Default GameKey Mappings", this, "addDefault");
 
         return new NormalJ2MEDefaultGameInputMapping().getInputMapping();
     }

@@ -35,7 +35,7 @@ public class LogUtil
     }
 
     //ActualPlatform
-    public void put(Log log)
+    public void putL(Log log)
     {
         String specialMessage = log.getSpecialMessage();
         Object object = log.getObject();
@@ -46,7 +46,7 @@ public class LogUtil
     }
 
     //ActualPlatform
-    public void put(
+    public void putF(
         String specialMessage,
         Object object,
         String functionName)

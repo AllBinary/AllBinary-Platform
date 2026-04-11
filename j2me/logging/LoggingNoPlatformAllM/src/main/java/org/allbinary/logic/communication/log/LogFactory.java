@@ -12,10 +12,12 @@
 * 
 */
 package org.allbinary.logic.communication.log;
+
+//NoPlatform
 public class LogFactory
 {
 
-    public static final Log getInstance(
+    public static final Log getInstanceNoF(
             String specialMessage,
             Object object,
             Object exception)
@@ -33,7 +35,7 @@ public class LogFactory
         throw new RuntimeException();
     }
 
-    public static final Log getInstance(
+    public static final Log getInstanceF(
             String specialMessage,
             Object object,
             String functionName)

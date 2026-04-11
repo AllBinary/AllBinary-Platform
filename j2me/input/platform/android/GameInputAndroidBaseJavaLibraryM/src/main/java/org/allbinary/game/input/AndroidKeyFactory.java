@@ -518,7 +518,7 @@ public class AndroidKeyFactory extends ActivityFractureUtil
     public void init()
     {
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        logUtil.put("Start/End", this, commonStrings.INIT);
+        this.logUtil.put("Start/End", this, commonStrings.INIT);
     }
 
     public boolean isSubmission(Input input)

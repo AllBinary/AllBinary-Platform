@@ -62,7 +62,7 @@ public class AbeLicenseInterfaceFactory
         {
             //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             //{
-                logUtil.put("Getting Keys", this, commonStrings.GET);
+                this.logUtil.put("Getting Keys", this, commonStrings.GET);
             //}
             
             abeLicenseInterface = AbeNoLicense.getInstance();
@@ -73,7 +73,7 @@ public class AbeLicenseInterfaceFactory
          //{
             if(abeLicenseInterface!=null)
             {
-                logUtil.put("Default Key: " + abeLicenseInterface.getKey(AbeClientInformationData.getInstance().KEY), this, commonStrings.GET);
+                this.logUtil.put("Default Key: " + abeLicenseInterface.getKey(AbeClientInformationData.getInstance().KEY), this, commonStrings.GET);
             }
          //}
  
@@ -83,7 +83,7 @@ public class AbeLicenseInterfaceFactory
         {
             //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSINGERROR))
             //{
-                logUtil.put("Licensing IO Error", this, commonStrings.GET, e);
+                this.logUtil.put("Licensing IO Error", this, commonStrings.GET, e);
             //}
             throw new LicensingException("License Server Connection Error");
         }
@@ -97,7 +97,7 @@ public class AbeLicenseInterfaceFactory
         {
             //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSINGERROR))
             //{
-                logUtil.put("Licensing Failure", this, commonStrings.GET, e);
+                this.logUtil.put("Licensing Failure", this, commonStrings.GET, e);
             //}
                 throw new LicensingException("Unknown License Failure: " + this.getClass().getName());
         }

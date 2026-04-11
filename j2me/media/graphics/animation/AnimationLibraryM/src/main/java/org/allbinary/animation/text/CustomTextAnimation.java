@@ -44,7 +44,7 @@ public class CustomTextAnimation extends TextAnimation
         this.fontSize = fontSize;
         this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, fontSize);
         //final CommonLabels commonLabels = CommonLabels.getInstance();
-        //logUtil.put(new StringMaker().append("Font size: ").append(fontSize).append(CommonSeps.getInstance().SPACE).append(font.getSize()).append(commonLabels.WIDTH_LABEL).append(font.stringWidth(text)).append(" text: ").append(text).toString(), this, commonStrings.PROCESS);
+        //this.logUtil.put(new StringMaker().append("Font size: ").append(fontSize).append(CommonSeps.getInstance().SPACE).append(font.getSize()).append(commonLabels.WIDTH_LABEL).append(font.stringWidth(text)).append(" text: ").append(text).toString(), this, commonStrings.PROCESS);
         
         //this.hack();
     }
@@ -83,11 +83,11 @@ public class CustomTextAnimation extends TextAnimation
             throw new RuntimeException();
         }
 
-        //logUtil.put(new StringMaker().append("setScale font: ").append((fontSize * scaleX)).append(" text: ").append(this.getText()).toString(), this, commonStrings.PROCESS);
+        //this.logUtil.put(new StringMaker().append("setScale font: ").append((fontSize * scaleX)).append(" text: ").append(this.getText()).toString(), this, commonStrings.PROCESS);
         this.hasChanged = true;
         this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, (int) (fontSize * scaleX));
 //        if(this.getText().length > 0) {
-//            logUtil.put(new StringMaker().append("setScale font: ").append(font.getSize()).append(" text: ").append(this.getText()[0]).toString(), this, commonStrings.PROCESS);
+//            this.logUtil.put(new StringMaker().append("setScale font: ").append(font.getSize()).append(" text: ").append(this.getText()[0]).toString(), this, commonStrings.PROCESS);
 //        }
     }
     
@@ -102,7 +102,7 @@ public class CustomTextAnimation extends TextAnimation
 
 //        if(font != null) {
 //            final CommonLabels commonLabels = CommonLabels.getInstance();
-//            logUtil.put(new StringMaker().append("setText - font: ").append(font.getSize()).append(commonLabels.WIDTH_LABEL).append(font.stringWidth(text)).append(" text: ").append(text).toString(), this, commonStrings.PROCESS);
+//            this.logUtil.put(new StringMaker().append("setText - font: ").append(font.getSize()).append(commonLabels.WIDTH_LABEL).append(font.stringWidth(text)).append(" text: ").append(text).toString(), this, commonStrings.PROCESS);
 //        }
     }
 

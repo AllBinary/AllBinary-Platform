@@ -30,7 +30,7 @@ public class StupidTimer
         boolean tookTooLong = false;
 
         final String WAITING_FOR = "Waiting for: ";
-        //logUtil.put(WAITING_FOR).append(visitorInterface, this, commonStrings.VISIT);
+        //this.logUtil.put(WAITING_FOR).append(visitorInterface, this, commonStrings.VISIT);
         PreLogUtil.put(new StringMaker().append(WAITING_FOR).append(StringUtil.getInstance().toString(visitorInterface)).toString(), this, commonStrings.VISIT);
 
         int index = 0;
@@ -57,7 +57,7 @@ public class StupidTimer
 
         if (tookTooLong)
         {
-            logUtil.put(
+            this.logUtil.put(
                     commonStrings.EXCEPTION, this, commonStrings.VISIT, 
                     new Exception(new StringMaker().append("Took Too Long: ").append(StringUtil.getInstance().toString(visitorInterface)).toString()));
         }

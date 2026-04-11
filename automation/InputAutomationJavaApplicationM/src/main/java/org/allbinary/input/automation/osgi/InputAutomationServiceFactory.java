@@ -41,7 +41,7 @@ public class InputAutomationServiceFactory
     
     public Object getService(final Bundle bundle, final ServiceRegistration registration)
     {
-        logUtil.put(this.commonStrings.START, this, "getService");
+        this.logUtil.put(this.commonStrings.START, this, "getService");
 
         return InputAutomationJFrame.getInstance();
         

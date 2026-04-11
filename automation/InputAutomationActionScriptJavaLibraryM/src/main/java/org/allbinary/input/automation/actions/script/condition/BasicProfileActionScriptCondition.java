@@ -196,7 +196,7 @@ public class BasicProfileActionScriptCondition
     public void addProcessor
         (ProfileActionScriptProcessorInterface profileActionProcessorInterface)
     {
-        logUtil.put(this.commonStrings.START, this, "addInput");
+        this.logUtil.put(this.commonStrings.START, this, "addInput");
         this.getProfileActionProcessorInterfaceVector().add(
             profileActionProcessorInterface);
         this.add(profileActionProcessorInterface);
@@ -205,7 +205,7 @@ public class BasicProfileActionScriptCondition
     public void removeProcessor(
         ProfileActionScriptProcessorInterface profileActionProcessorInterface)
     {
-        logUtil.put(this.commonStrings.START, this, "removeInput");
+        this.logUtil.put(this.commonStrings.START, this, "removeInput");
         this.getProfileActionProcessorInterfaceVector().remove(
             profileActionProcessorInterface);
         this.remove(profileActionProcessorInterface);
@@ -214,7 +214,7 @@ public class BasicProfileActionScriptCondition
     public void removeCondition(
         ProfileActionScriptNodeInterface profileActionScriptNodeInterface)
     {
-        logUtil.put(this.commonStrings.START, this, "removeCondition");
+        this.logUtil.put(this.commonStrings.START, this, "removeCondition");
         this.getProfileActionConditionInterfaceVector().remove(
             profileActionScriptNodeInterface);
         this.remove(profileActionScriptNodeInterface);
@@ -224,7 +224,7 @@ public class BasicProfileActionScriptCondition
     public void addCondition(
         ProfileActionScriptNodeInterface profileActionScriptNodeInterface)
     {
-        logUtil.put(this.commonStrings.START, this, "addCondition");
+        this.logUtil.put(this.commonStrings.START, this, "addCondition");
         this.getProfileActionConditionInterfaceVector().add(
             profileActionScriptNodeInterface);
         this.add(profileActionScriptNodeInterface);
@@ -329,7 +329,7 @@ public class BasicProfileActionScriptCondition
         }
         catch(Exception e)
         {
-            logUtil.put("Error", this, "actionPerformed", e);
+            this.logUtil.put("Error", this, "actionPerformed", e);
         }
     }
     
@@ -372,7 +372,7 @@ public class BasicProfileActionScriptCondition
     public void process(Long frame)
     throws Exception
     {
-        logUtil.put(
+        this.logUtil.put(
             new StringMaker().append("Start - Processing ").appendint(
             this.getProfileActionProcessorInterfaceVector().size()).append(
             " inputs").toString(), this, commonStrings.PROCESS);

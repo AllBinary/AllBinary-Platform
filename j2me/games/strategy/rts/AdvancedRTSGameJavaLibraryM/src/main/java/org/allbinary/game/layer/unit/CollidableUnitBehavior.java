@@ -47,7 +47,7 @@ extends CollidableRTSBehavior
     protected void collideNone(final CollidableCompositeLayer collidableInterfaceCompositeInterface)
         throws Exception
     {
-        //logUtil.put(CommonLabels.getInstance().START + collidableInterface.getName(), this, "collideNone");
+        //this.logUtil.put(CommonLabels.getInstance().START + collidableInterface.getName(), this, "collideNone");
         
         this.chase(collidableInterfaceCompositeInterface);        
         
@@ -67,7 +67,7 @@ extends CollidableRTSBehavior
             {
                 if (this.getList().size() > 0)
                 {
-                    ///logUtil.put("steering", this, "visit");
+                    ///this.logUtil.put("steering", this, "visit");
                     
                     final CollidableCompositeLayer allbinaryLayer = 
                         (CollidableCompositeLayer) this.getList().get(0);
@@ -87,7 +87,7 @@ extends CollidableRTSBehavior
             }
             catch(Exception e)
             {
-                logUtil.put(commonStrings.EXCEPTION, this, "visit", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "visit", e);
                 return NullUtil.getInstance().NULL_OBJECT;
             }
         }
@@ -99,7 +99,7 @@ extends CollidableRTSBehavior
     private boolean steer(final CollidableCompositeLayer collidableInterfaceCompositeInterface)
     throws Exception
     {        
-        //logUtil.put("Unit: " + collidableInterface.getName(), this, "chase");
+        //this.logUtil.put("Unit: " + collidableInterface.getName(), this, "chase");
     
         final UnitLayer ownerUnitLayer = (UnitLayer) this.ownerLayer;
         
@@ -111,7 +111,7 @@ extends CollidableRTSBehavior
         final AngleInfo angleInfo = ownerUnitLayer.getRotationAnimationInterface().getAngleInfoP();
         final int angle = angleInfo.getAngle() - angleInfo2.getAngle();
         
-        //logUtil.put("Unit: " + collidableInterface.getName(), this, "chase");
+        //this.logUtil.put("Unit: " + collidableInterface.getName(), this, "chase");
         
         if (angle < 90 || angle > 270)
         {
@@ -131,7 +131,7 @@ extends CollidableRTSBehavior
     private void chase(final CollidableCompositeLayer collidableInterfaceCompositeInterface)
     throws Exception
     {
-        //logUtil.put(CommonLabels.getInstance().START + collidableInterface.getName(), this, "chase");
+        //this.logUtil.put(CommonLabels.getInstance().START + collidableInterface.getName(), this, "chase");
 
         final AdvancedRTSGameLayer rtsLayer = (AdvancedRTSGameLayer) collidableInterfaceCompositeInterface;
         if (rtsLayer.getType() == UnitLayer.getStaticType())

@@ -54,7 +54,7 @@ public class AndroidHardware implements HardwareInterface
             throw new Exception("Not Enough Data For A Valid License On Linux");
         }
 
-        //logUtil.put("Hardware Data: " + this.toString(), this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.put("Hardware Data: " + this.toString(), this, commonStrings.CONSTRUCTOR);
     }
 
     private void init(final String filePath) throws Exception
@@ -66,14 +66,14 @@ public class AndroidHardware implements HardwareInterface
             lineNumberReader = this.get(filePath);
 
         } catch (Exception e) {
-            logUtil.put("Hardware Data: " + this.toString(), this, commonStrings.INIT, e);
+            this.logUtil.put("Hardware Data: " + this.toString(), this, commonStrings.INIT, e);
             throw e;
         }
         finally
         {
             if (lineNumberReader != null)
             {
-                //logUtil.put("closing", this, commonStrings.INIT);
+                //this.logUtil.put("closing", this, commonStrings.INIT);
                 lineNumberReader.close();
             }
         }
@@ -88,14 +88,14 @@ public class AndroidHardware implements HardwareInterface
 
         //if (lineNumberReader != null)
         //{
-        logUtil.put("File Found", this, commonStrings.CONSTRUCTOR);
+        this.logUtil.put("File Found", this, commonStrings.CONSTRUCTOR);
 
         String nextLine = lineNumberReader.readLine();
 
         //Get to the first line with Bus info
         //lineNumberReader != null && 
         while (nextLine != null) {
-            //logUtil.put("Found Hardware Device: " + componentInterfaceVector.size(), this, commonStrings.INIT);
+            //this.logUtil.put("Found Hardware Device: " + componentInterfaceVector.size(), this, commonStrings.INIT);
 
             nextLine = lineNumberReader.readLine();
             componentInterfaceVector.add(new UnknownHardware(nextLine));
@@ -104,7 +104,7 @@ public class AndroidHardware implements HardwareInterface
         /*
             else
             {
-                logUtil.put("Could not load File", this, commonStrings.INIT);
+                this.logUtil.put("Could not load File", this, commonStrings.INIT);
             }
          */
 

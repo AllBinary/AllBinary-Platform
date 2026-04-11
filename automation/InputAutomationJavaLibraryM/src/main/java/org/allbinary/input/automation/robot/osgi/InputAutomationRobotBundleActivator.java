@@ -76,7 +76,7 @@ public class InputAutomationRobotBundleActivator
         }
         else
         {
-            logUtil.put("No ServiceReference: " +
+            this.logUtil.put("No ServiceReference: " +
                 InputAutomationRobotChangeListener.class.getName(), this, "getInputAutomationRobotChangeListener");
             return null;
         }
@@ -86,7 +86,7 @@ public class InputAutomationRobotBundleActivator
     {
         try
         {
-            logUtil.put(this.commonStrings.START, this, "addRobots");
+            this.logUtil.put(this.commonStrings.START, this, "addRobots");
             
             InputAutomationRobotChangeListener
                 inputAutomationRobotChangeListener =
@@ -107,7 +107,7 @@ public class InputAutomationRobotBundleActivator
         }
         catch(Exception e)
         {
-            logUtil.put(this.commonStrings.EXCEPTION, this, "addModules");
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "addModules");
         }
     }
     
@@ -115,7 +115,7 @@ public class InputAutomationRobotBundleActivator
     {
         try
         {
-            logUtil.put(this.commonStrings.START, this, "removeRobots");
+            this.logUtil.put(this.commonStrings.START, this, "removeRobots");
             InputAutomationRobotChangeListener
                 inputAutomationRobotChangeListener =
                 this.getInputAutomationRobotChangeListener(context);
@@ -135,14 +135,14 @@ public class InputAutomationRobotBundleActivator
         }
         catch(Exception e)
         {
-            logUtil.put(this.commonStrings.EXCEPTION, this, "removeRobots");
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "removeRobots");
         }
     }
     
     public void start(BundleContext context)
     throws Exception
     {
-        logUtil.put(this.commonStrings.START, this, this.commonStrings.START);
+        this.logUtil.put(this.commonStrings.START, this, this.commonStrings.START);
         
         //TWB - It is possible that the injectors get 
         //added twice but that will not cause failure.
@@ -154,7 +154,7 @@ public class InputAutomationRobotBundleActivator
     public void stop(BundleContext context)
     throws Exception
     {
-        logUtil.put("Stop", this, this.commonStrings.START);
+        this.logUtil.put("Stop", this, this.commonStrings.START);
         
         this.removeRobots(context);
         //TWB - add imp for removal InputRobotFactory.getInstance().remove

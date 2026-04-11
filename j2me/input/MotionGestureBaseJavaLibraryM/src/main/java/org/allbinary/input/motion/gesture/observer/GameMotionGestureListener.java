@@ -36,7 +36,7 @@ public class GameMotionGestureListener implements MotionGestureEventListener
     public GameMotionGestureListener(
             CompleteMotionGestureListenerInterface signed)
     {
-        logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        this.logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
         this.signed = signed;
     }
 
@@ -119,7 +119,7 @@ public class GameMotionGestureListener implements MotionGestureEventListener
            stringBuffer.append(commonStrings.EXCEPTION_LABEL);
            stringBuffer.append(StringUtil.getInstance().toString(ev.getMotionGesture()));
 
-           logUtil.put(stringBuffer.toString(), this, "release", e);
+           this.logUtil.put(stringBuffer.toString(), this, "release", e);
         }
     }
 
@@ -152,7 +152,7 @@ public class GameMotionGestureListener implements MotionGestureEventListener
            stringBuffer.append(commonStrings.EXCEPTION_LABEL);
            stringBuffer.append(StringUtil.getInstance().toString(ev.getMotionGesture()));
 
-            logUtil.put(stringBuffer.toString(), this, "onMotionGestureEvent", e);
+            this.logUtil.put(stringBuffer.toString(), this, "onMotionGestureEvent", e);
         }
     }
 }

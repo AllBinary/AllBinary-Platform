@@ -54,7 +54,7 @@ public class JavaHelpUtil
                 if (helpBroker.getHelpSet().getNavigatorView(navigatorViewName) != null)
                 {
                     helpBroker.setCurrentView(navigatorViewName);
-                    logUtil.put("SetCurrentView", this, "show");
+                    this.logUtil.put("SetCurrentView", this, "show");
                 }
      */
     
@@ -72,7 +72,7 @@ public class JavaHelpUtil
         }
         catch (Exception e)
         {
-            logUtil.put(this.commonStrings.EXCEPTION, getInstance(), "set", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, getInstance(), "set", e);
             return null;
         }
     }
@@ -85,7 +85,7 @@ public class JavaHelpUtil
         }
         catch (Exception e)
         {
-            logUtil.put(this.commonStrings.EXCEPTION, getInstance(), "set", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, getInstance(), "set", e);
             return null;
         }
     }
@@ -100,11 +100,11 @@ public class JavaHelpUtil
             helpBroker.setSize(dimension);
             
             new CSH.DisplayHelpFromSource(helpBroker).actionPerformed(contextSensitiveHelpActionEvent);
-            logUtil.put("CSH Action", getInstance(), "show");
+            this.logUtil.put("CSH Action", getInstance(), "show");
         }
         catch (Exception e)
         {
-            logUtil.put(this.commonStrings.EXCEPTION, getInstance(), "show", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, getInstance(), "show", e);
         }
     }
     

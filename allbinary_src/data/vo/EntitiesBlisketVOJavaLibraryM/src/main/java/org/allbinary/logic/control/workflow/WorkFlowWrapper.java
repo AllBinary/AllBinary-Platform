@@ -51,7 +51,7 @@ public class WorkFlowWrapper implements WorkFlowInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION, this, "getName()", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "getName()", e);
          }
          throw new Exception(error);
       }
@@ -72,7 +72,7 @@ public class WorkFlowWrapper implements WorkFlowInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION, this, "getStoreName()", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "getStoreName()", e);
          }
          throw new Exception(error);
       }
@@ -93,7 +93,7 @@ public class WorkFlowWrapper implements WorkFlowInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
          }
          throw new Exception(error);
       }

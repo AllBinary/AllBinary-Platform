@@ -242,7 +242,7 @@ public class KeySingletonFactory
       }
       catch(Exception e)
       {
-         logUtil.put(commonStrings.EXCEPTION, "KeySingleFactory", STATIC_BLOCK, e);
+         this.logUtil.put(commonStrings.EXCEPTION, "KeySingleFactory", STATIC_BLOCK, e);
       }
    }
    

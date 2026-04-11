@@ -221,7 +221,7 @@ public class BuildingRTSFormInput extends RTSFormInput
         throws Exception
     {
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        logUtil.put(commonStrings.START, this, "buildFromMotionInput");
+        this.logUtil.put(commonStrings.START, this, "buildFromMotionInput");
 
         if(layerManager == null) {
             throw new RuntimeException();
@@ -319,7 +319,7 @@ public class BuildingRTSFormInput extends RTSFormInput
             final RTSLayer layerInterface, final int itemIndex)
     throws Exception
     {
-        logUtil.put(new StringMaker().append("Layer: ").append(StringUtil.getInstance().toString(layerInterface)).toString(), this, "attemptBuild");
+        this.logUtil.put(new StringMaker().append("Layer: ").append(StringUtil.getInstance().toString(layerInterface)).toString(), this, "attemptBuild");
 
         final GeographicMapCellPositionAreaBase geographicMapCellPositionArea =
             layerInterface.geographicMapCellPositionAreaBase;
@@ -327,7 +327,7 @@ public class BuildingRTSFormInput extends RTSFormInput
         final BasicArrayList occupyList =
             geographicMapCellPositionArea.getOccupyingGeographicMapCellPositionList();
 
-        //logUtil.put("List: ").append(list, this, "attemptBuild");
+        //this.logUtil.put("List: ").append(list, this, "attemptBuild");
 
         if(!this.isBuildAttemptValid(rtsPlayerLayerInterface, layerInterface))
         {
@@ -374,7 +374,7 @@ public class BuildingRTSFormInput extends RTSFormInput
         stringBuffer.append(" with ");
         stringBuffer.appendint(capital.getTotalMoney());
 
-        logUtil.put(stringBuffer.toString(), this, "attemptBuild");
+        this.logUtil.put(stringBuffer.toString(), this, "attemptBuild");
 
         if (cost <= capital.getTotalMoney())
         {
@@ -520,7 +520,7 @@ public class BuildingRTSFormInput extends RTSFormInput
         stringBuffer.append(" surroundList: ");
         stringBuffer.append(StringUtil.getInstance().toString(surroundList));
 
-        logUtil.put(stringBuffer.toString(),
+        this.logUtil.put(stringBuffer.toString(),
             this, "isSurroundingCellsOffMap");
 
         boolean isSurroundOffMap = false;

@@ -44,7 +44,7 @@ public class ReleaseControlledMotionGestureListener implements MotionGestureEven
 
     public ReleaseControlledMotionGestureListener(CompleteMotionGestureListenerInterface signed)
     {
-        logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        this.logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
         this.signed = signed;
     }
 
@@ -119,7 +119,7 @@ public class ReleaseControlledMotionGestureListener implements MotionGestureEven
                 return;
             isMouseGestureOccurring = false;
             
-            //logUtil.put(commonStrings.START_LABEL).append(ev.getMotionGesture(), this, "release");
+            //this.logUtil.put(commonStrings.START_LABEL).append(ev.getMotionGesture(), this, "release");
             signed.onMotionGestureCompleted(motionGestureCollection);
             //List is only compared and not referenced again so it is safe just to clear
             //TWB - Although this could be dangerous
@@ -127,14 +127,14 @@ public class ReleaseControlledMotionGestureListener implements MotionGestureEven
         }
         catch(Exception e)
         {
-            logUtil.put(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(StringUtil.getInstance().toString(ev.getMotionGesture())).toString(), this, "release", e);
+            this.logUtil.put(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(StringUtil.getInstance().toString(ev.getMotionGesture())).toString(), this, "release", e);
         }
     }
 
     @Override
     public void onMotionGestureEvent(MotionGestureEvent ev)
     {
-        //logUtil.put(commonStrings.START_LABEL).append(ev.getMotionGesture(), this, "onMotionGestureEvent");
+        //this.logUtil.put(commonStrings.START_LABEL).append(ev.getMotionGesture(), this, "onMotionGestureEvent");
 
         //currentMotionGesture == TouchMotionGestureFactory.getInstance().NO_MOTION &&
         if (isMouseGestureOccurring == false)

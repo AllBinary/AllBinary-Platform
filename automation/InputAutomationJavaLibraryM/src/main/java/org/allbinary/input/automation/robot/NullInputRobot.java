@@ -51,27 +51,27 @@ public class NullInputRobot extends AbstractInputRobot
    
    public void keyPress(Integer keycode)
    {
-       logUtil.put("KeyCode: " + keycode, this, "keyPress");
+       this.logUtil.put("KeyCode: " + keycode, this, "keyPress");
    }
    
    public void keyRelease(Integer keycode)
    {
-      logUtil.put("KeyCode: " + keycode, this, "keyRelease");
+      this.logUtil.put("KeyCode: " + keycode, this, "keyRelease");
    }
    
    public void mouseMove(Integer x, Integer y)
    {
-      logUtil.put("X: " + x + " Y: " + y, this, "mouseMove");
+      this.logUtil.put("X: " + x + " Y: " + y, this, "mouseMove");
    }
 
    public void mousePress(Integer buttons)
    {
-       logUtil.put("Buttons: " + buttons, this, "mousePress");
+       this.logUtil.put("Buttons: " + buttons, this, "mousePress");
    }
    
    public void mouseRelease(Integer buttons)
    {
-      logUtil.put("Buttons: " + buttons, this, "mouseRelease");
+      this.logUtil.put("Buttons: " + buttons, this, "mouseRelease");
    }
 
    public BufferedImage createScreenCapture(Rectangle screenRect)

@@ -96,7 +96,7 @@ public class ProductListing implements ProductListingInterface
 
         //if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().S))
         //{
-        //  logUtil.put("Keyword/Categories: " + keywords, this, "generateAll()");
+        //  this.logUtil.put("Keyword/Categories: " + keywords, this, "generateAll()");
         //}
 
         UniqueTokens uniqueTokens = new UniqueTokens();
@@ -110,7 +110,7 @@ public class ProductListing implements ProductListingInterface
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().STATICPAGEGENERATIONLOGGING))
         {
             //Creates a new File
-            logUtil.put("Creating File: " + file, this, "generateAll()");
+            this.logUtil.put("Creating File: " + file, this, "generateAll()");
         }
 
         AbFile newFile = new AbFile(file);
@@ -132,7 +132,7 @@ public class ProductListing implements ProductListingInterface
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().STATICPAGEGENERATIONLOGGING))
         {
-            logUtil.put("Wrote Total Bytes: " + newFile.length(), this, "generateAll()");
+            this.logUtil.put("Wrote Total Bytes: " + newFile.length(), this, "generateAll()");
         }
 
         } else
@@ -183,7 +183,7 @@ public class ProductListing implements ProductListingInterface
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().STATICPAGEGENERATIONLOGGING))
             {
-                logUtil.put("Saving Listing: " + index, this, "generateAll()");
+                this.logUtil.put("Saving Listing: " + index, this, "generateAll()");
             }
 
             String indexStr = StringUtil.getInstance().EMPTY_STRING;
@@ -255,7 +255,7 @@ public class ProductListing implements ProductListingInterface
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().STATICPAGEGENERATIONLOGGING))
             {
-                logUtil.put("Store Static Pages Path: " + staticPath, this, "generateAll()");
+                this.logUtil.put("Store Static Pages Path: " + staticPath, this, "generateAll()");
             }
 
             //compile a list of possible keywords

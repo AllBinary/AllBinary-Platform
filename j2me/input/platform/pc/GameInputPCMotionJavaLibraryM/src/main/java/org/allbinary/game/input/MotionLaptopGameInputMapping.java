@@ -22,7 +22,7 @@ public class MotionLaptopGameInputMapping extends PCGameInputMapping
     @Override
     protected InputToGameKeyMapping getDefault()
     {
-        //logUtil.put("Use Default GameKey Mappings", this, "addDefault");
+        //this.logUtil.put("Use Default GameKey Mappings", this, "addDefault");
 
         return new MotionLaptopDefaultGameInputMapping().getInputMapping();
     }

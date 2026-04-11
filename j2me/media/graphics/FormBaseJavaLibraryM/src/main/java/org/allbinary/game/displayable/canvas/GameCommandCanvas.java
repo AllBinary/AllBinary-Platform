@@ -146,7 +146,7 @@ public class GameCommandCanvas
     {
         try
         {
-            logUtil.put(commonStrings.START, this, canvasStrings.ON_DISPLAY_CHANGE_EVENT);
+            this.logUtil.put(commonStrings.START, this, canvasStrings.ON_DISPLAY_CHANGE_EVENT);
             
             final Rectangle rectangle = this.createRectangle(this.menuForm.size());
 
@@ -159,7 +159,7 @@ public class GameCommandCanvas
         }
         catch(Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, "onResize", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "onResize", e);
         }
     }
     
@@ -235,8 +235,8 @@ public class GameCommandCanvas
             displayInfo.getLastWidth() - 30,
             startY);
 
-        //logUtil.put(displayInfo.toString(), this, "createRectangle");
-        //logUtil.put(rectangle.toString(), this, "createRectangle");
+        //this.logUtil.put(displayInfo.toString(), this, "createRectangle");
+        //this.logUtil.put(rectangle.toString(), this, "createRectangle");
         
         return rectangle;
     }
@@ -244,7 +244,7 @@ public class GameCommandCanvas
     @Override
     public void open()
     {
-        logUtil.put(commonStrings.START, this, "open");
+        this.logUtil.put(commonStrings.START, this, "open");
 
         BasicMotionGesturesHandler.getInstance().addListener(this.getMenuInputProcessor());
         GameKeyEventHandler.getInstance().addListener(this.getMenuInputProcessor());
@@ -254,7 +254,7 @@ public class GameCommandCanvas
     @Override
     public void close() throws Exception
     {
-        logUtil.put(commonStrings.START, this, commonStrings.CLOSE);
+        this.logUtil.put(commonStrings.START, this, commonStrings.CLOSE);
 
         BasicMotionGesturesHandler.getInstance().removeListener(this.getMenuInputProcessor());
         GameKeyEventHandler.getInstance().removeListener(this.getMenuInputProcessor());
@@ -292,21 +292,21 @@ public class GameCommandCanvas
     @Override
     public void keyPressed(final int keyCode, final int deviceId)
     {
-        logUtil.put(new StringMaker().append(CommonSeps.getInstance().SPACE).appendint(keyCode).toString(), this, gameInputStrings.KEY_PRESSED);
+        this.logUtil.put(new StringMaker().append(CommonSeps.getInstance().SPACE).appendint(keyCode).toString(), this, gameInputStrings.KEY_PRESSED);
         this.addGameKeyEvent(keyCode, 0, false);
     }
 
     @Override
     public void keyReleased(final int keyCode, final int deviceId)
     {
-        //logUtil.put(commonStrings.START, this, gameInputStrings.KEY_RELEASED);
+        //this.logUtil.put(commonStrings.START, this, gameInputStrings.KEY_RELEASED);
         this.removeGameKeyEvent(keyCode, deviceId, false);
     }
 
     @Override
     public void keyRepeated(final int keyCode, final int deviceId)
     {
-        // logUtil.put("Key Repeated: ").append(Integer.toHexString(keyCode), this, gameInputStrings.KEY_REPEATED);
+        // this.logUtil.put("Key Repeated: ").append(Integer.toHexString(keyCode), this, gameInputStrings.KEY_REPEATED);
         if (this.isSingleKeyRepeatableProcessing)
         {
             this.addGameKeyEvent(keyCode, deviceId, true);
@@ -317,11 +317,11 @@ public class GameCommandCanvas
     {
         try
         {
-            //logUtil.put(new StringMaker().append("Key Code (Hex): ").append(Integer.toHexString(keyCode)).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
+            //this.logUtil.put(new StringMaker().append("Key Code (Hex): ").append(Integer.toHexString(keyCode)).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
 
             final GameKey gameKey = this.inputToGameKeyMapping.getInstance(this, keyCode);
 
-            //logUtil.put(new StringMaker().append("GameKey: ").append(gameKey).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
+            //this.logUtil.put(new StringMaker().append("GameKey: ").append(gameKey).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
 
             if (gameKey != this.gameKeyFactory.NONE)
             {
@@ -330,7 +330,7 @@ public class GameCommandCanvas
                 /*
                  * //This is for key input debugging only GameKeyEvent
                  * gameKeyEvent = GameKeyEventFactory.getInstance(this, keyCode, gameActionKeyCode, gameKey.getKey(), repeated);
-                 * logUtil.put(gameKeyEvent.toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
+                 * this.logUtil.put(gameKeyEvent.toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
                  */
 
                 downGameKeyEventHandler.fireEvent(gameKeyEvent);
@@ -342,12 +342,12 @@ public class GameCommandCanvas
             }
             else
             {
-                logUtil.put(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
+                this.logUtil.put(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
             }
         }
         catch (Exception e)
         {
-            logUtil.put("Key Event Error", this, this.gameInputStrings.ADD_KEY_EVENT, e);
+            this.logUtil.put("Key Event Error", this, this.gameInputStrings.ADD_KEY_EVENT, e);
         }
     }
 
@@ -355,11 +355,11 @@ public class GameCommandCanvas
     {
         try
         {
-            //logUtil.put(new StringMaker().append("Key Code: " + Integer.toHexString(keyCode), this, this.gameInputStrings.REMOVE_KEY_EVENT);
+            //this.logUtil.put(new StringMaker().append("Key Code: " + Integer.toHexString(keyCode), this, this.gameInputStrings.REMOVE_KEY_EVENT);
 
             final GameKey gameKey = this.inputToGameKeyMapping.getInstance(this, keyCode);
 
-            //logUtil.put(new StringMaker().append("GameKey: ").append(gameKey, this, this.gameInputStrings.REMOVE_KEY_EVENT);
+            //this.logUtil.put(new StringMaker().append("GameKey: ").append(gameKey, this, this.gameInputStrings.REMOVE_KEY_EVENT);
 
             if (gameKey != this.gameKeyFactory.NONE)
             {
@@ -368,7 +368,7 @@ public class GameCommandCanvas
                 /*
                  * //This is for key input debugging only GameKeyEvent
                  * gameKeyEvent = GameKeyEventFactory.getInstance(this, keyCode, gameActionKeyCode, gameKey.getKey(), repeated);
-                 * logUtil.put(gameKeyEvent.toString(), this, this.gameInputStrings.REMOVE_KEY_EVENT);
+                 * this.logUtil.put(gameKeyEvent.toString(), this, this.gameInputStrings.REMOVE_KEY_EVENT);
                  */
 
                 // TODO TWB - Remove or improve key input event handling
@@ -379,12 +379,12 @@ public class GameCommandCanvas
             }
             else
             {
-                logUtil.put(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.REMOVE_KEY_EVENT);
+                this.logUtil.put(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.REMOVE_KEY_EVENT);
             }
         }
         catch (Exception e)
         {
-            logUtil.put("Key Event Error", this, this.gameInputStrings.REMOVE_KEY_EVENT, e);
+            this.logUtil.put("Key Event Error", this, this.gameInputStrings.REMOVE_KEY_EVENT, e);
         }
     }
 

@@ -54,7 +54,7 @@ public class InsertTemplateCustomizerTransformInfoObjectConfig extends NoTemplat
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            logUtil.put("Setting: " + aParentViewName, this, "set()");
+            this.logUtil.put("Setting: " + aParentViewName, this, "set()");
         }
 
         Document document = this.toXmlDoc();
@@ -68,7 +68,7 @@ public class InsertTemplateCustomizerTransformInfoObjectConfig extends NoTemplat
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                logUtil.put("Replacing", this, "set()");
+                this.logUtil.put("Replacing", this, "set()");
             }
         	
             Node componentNode =
@@ -85,7 +85,7 @@ public class InsertTemplateCustomizerTransformInfoObjectConfig extends NoTemplat
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                logUtil.put("Setting", this, "set()");
+                this.logUtil.put("Setting", this, "set()");
             }
         	
             Node objectConfigNode = document.getElementsByTagName(

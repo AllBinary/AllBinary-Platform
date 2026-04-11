@@ -49,7 +49,7 @@ public class TouchScreenTypeFactory
             
             if(!touchScreenFactory.isTouch())
             {
-                //logUtil.put("Not Really Exception: This indicates that a touch screen does exist but is not API8 so we will try it", this, commonStrings.PROCESS);
+                //this.logUtil.put("Not Really Exception: This indicates that a touch screen does exist but is not API8 so we will try it", this, commonStrings.PROCESS);
                 PreLogUtil.put("Not Really Exception: This indicates that a touch screen does exist but is not API8 so we will try it", this, commonStrings.PROCESS);
                 
                 touchScreenFactory.setTouch(true);
@@ -62,7 +62,7 @@ public class TouchScreenTypeFactory
                 
                 if(!touchScreenFactory.isTouch())
                 {
-                    //logUtil.put("Not Really Exception: This indicates that a touch screen does exist but is not API8 so we will try it", this, commonStrings.PROCESS);
+                    //this.logUtil.put("Not Really Exception: This indicates that a touch screen does exist but is not API8 so we will try it", this, commonStrings.PROCESS);
                     
                     PreLogUtil.put("Not Really Exception: This indicates that a touch screen does exist but is not API8 so we will try it", this, commonStrings.PROCESS);
                     

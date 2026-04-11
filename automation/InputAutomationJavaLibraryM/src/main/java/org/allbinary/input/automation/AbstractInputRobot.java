@@ -39,7 +39,7 @@ public class AbstractInputRobot
     {
         this.mouseMove(point.x, point.y);
         
-        logUtil.put(
+        this.logUtil.put(
             "Moved Mouse To: x: " + point.x + " y: " + point.y,
             this, "moveMouse");
     }
@@ -50,7 +50,7 @@ public class AbstractInputRobot
         
         this.mouseMove(point.x + x, point.y + y);
         
-        logUtil.put(
+        this.logUtil.put(
             "Moved Mouse To: x: " + point.x + " y: " + point.y + " in the middle of: " + rectangle,
             this, "moveMouseToTarget");
     }

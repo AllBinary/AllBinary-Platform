@@ -56,13 +56,13 @@ public class ComparisonImageInputOutput implements ImageIOInterface
             }
             else
             {
-                logUtil.put("Comparison Results Not Available for Output: " +
+                this.logUtil.put("Comparison Results Not Available for Output: " +
                     frame, this, commonStrings.SAVE);
             }
         }
         else
         {
-            logUtil.put("No Comparison Results: for first frame: " +
+            this.logUtil.put("No Comparison Results: for first frame: " +
                 frame, this, commonStrings.SAVE);
         }
     }
@@ -92,8 +92,8 @@ public class ComparisonImageInputOutput implements ImageIOInterface
             ChangedPixelsUtil.generateBufferedImageChacheables(
             imageComparisonResult);
         
-        logUtil.put("Comparison Image File Path 1: " + filePath1, this, commonStrings.SAVE);
-        logUtil.put("Comparison Image File Path 2: " + filePath2, this, commonStrings.SAVE);
+        this.logUtil.put("Comparison Image File Path 1: " + filePath1, this, commonStrings.SAVE);
+        this.logUtil.put("Comparison Image File Path 2: " + filePath2, this, commonStrings.SAVE);
         
         final BufferedImage[] bufferedImageArray = new BufferedImage[2];
         

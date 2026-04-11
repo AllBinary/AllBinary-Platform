@@ -35,7 +35,7 @@ public class DemoGameStartupRunnable extends ABRunnable
         {
             this.setRunning(true);
 //            final CommonStrings commonStrings = CommonStrings.getInstance();
-//            logUtil.put(commonStrings.START, this, commonStrings.RUN);
+//            this.logUtil.put(commonStrings.START, this, commonStrings.RUN);
 
             this.demoCanvas.stopGameDemo();
 
@@ -45,14 +45,14 @@ public class DemoGameStartupRunnable extends ABRunnable
 
             this.setRunning(false);
             
-//            logUtil.put(commonStrings.END, this, commonStrings.RUN);
+//            this.logUtil.put(commonStrings.END, this, commonStrings.RUN);
             
         }
         catch (Exception e)
         {
             this.setRunning(false);
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
         }
     }
     

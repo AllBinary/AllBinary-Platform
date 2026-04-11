@@ -85,7 +85,7 @@ public class BasicUriResolver implements URIResolver
                 stringBuffer.append(REQUIRED_EXTENSION);
                 stringBuffer.append(extension);
 
-                logUtil.put(stringBuffer.toString(), this, RESOLVE);
+                this.logUtil.put(stringBuffer.toString(), this, RESOLVE);
             }
 
             return new StreamSource(new CryptFileReader(

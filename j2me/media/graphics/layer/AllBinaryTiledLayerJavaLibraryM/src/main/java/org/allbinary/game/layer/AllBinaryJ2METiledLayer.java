@@ -42,7 +42,7 @@ public class AllBinaryJ2METiledLayer extends AllBinaryTiledLayer
 
         this.setCells(mapTwoDArray);
         //final CommonStrings commonStrings = CommonStrings.getInstance();
-        //logUtil.put(stringMaker.toString(), this, commonStrings.PROCESS);
+        //this.logUtil.put(stringMaker.toString(), this, commonStrings.PROCESS);
     }
 
     //TWB LayerInterface to Layer
@@ -94,7 +94,7 @@ public class AllBinaryJ2METiledLayer extends AllBinaryTiledLayer
     final Font font2 = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, 4);
     public void paintDebug(final Graphics graphics)
     {
-        //logUtil.put(commonStrings.START, this, "paint");
+        //this.logUtil.put(commonStrings.START, this, "paint");
         final Font font = graphics.getFont();
 
         graphics.setFont(font2);
@@ -143,7 +143,7 @@ public class AllBinaryJ2METiledLayer extends AllBinaryTiledLayer
     @Override
     public void move(final int dx, final int dy)
     {
-        //logUtil.put(new StringMaker().append("TiledLayer: ").append(PositionStrings.getInstance().X_LABEL).append(dx).append(PositionStrings.getInstance().Y_LABEL).append(dy).toString(), this, "move");
+        //this.logUtil.put(new StringMaker().append("TiledLayer: ").append(PositionStrings.getInstance().X_LABEL).append(dx).append(PositionStrings.getInstance().Y_LABEL).append(dy).toString(), this, "move");
         this.tiledLayerP.move(dx, dy);
         //TWB LayerInterface to Layer
         super.move(-dx, -dy);
@@ -152,7 +152,7 @@ public class AllBinaryJ2METiledLayer extends AllBinaryTiledLayer
     @Override
     public void setPosition(final int x, final int y, final int z)
     {
-        //logUtil.put(new StringMaker().append("TiledLayer: x: ").append(x).append(" y: ").append(y).append(" z: ").append(z).toString(), this, "setPosition");
+        //this.logUtil.put(new StringMaker().append("TiledLayer: x: ").append(x).append(" y: ").append(y).append(" z: ").append(z).toString(), this, "setPosition");
         this.tiledLayerP.setPosition(x, y);
         super.setPosition(-x, -y, z);
     }
@@ -206,7 +206,7 @@ public class AllBinaryJ2METiledLayer extends AllBinaryTiledLayer
     {
 //        if(tileIndex != 0) {
 //            final CommonStrings commonStrings = CommonStrings.getInstance();
-//            logUtil.put(new StringMaker().append("tileIndex: ").append(tileIndex).toString(), this, commonStrings.PROCESS);
+//            this.logUtil.put(new StringMaker().append("tileIndex: ").append(tileIndex).toString(), this, commonStrings.PROCESS);
 //        }
 
         //stringMaker.append(index).append(',');

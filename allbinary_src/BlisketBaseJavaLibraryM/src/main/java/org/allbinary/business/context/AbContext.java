@@ -36,7 +36,7 @@ public class AbContext
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         logUtil.put("Properties HashMap: " + propertiesHashMap.toString(), this, commonStrings.CONSTRUCTOR);
+         this.logUtil.put("Properties HashMap: " + propertiesHashMap.toString(), this, commonStrings.CONSTRUCTOR);
       }
 
       this.propertiesHashMap = propertiesHashMap;

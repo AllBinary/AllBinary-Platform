@@ -57,7 +57,7 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
                 pathFindingInfo = targetPathFindingLayer.getWaypointBehavior().getWaypoint().getPathFindingInfo(geographicMapCellPosition);
                 final PathFindingInfo localPathFindingInfo = (PathFindingInfo) pathFindingInfo;
                 
-//                logUtil.put("first set: " + pathFindingInfo, this, "getPathsList");
+//                this.logUtil.put("first set: " + pathFindingInfo, this, "getPathsList");
                                 
                 list = targetPathFindingLayer.getWaypointBehavior().getWaypoint().getPathsList(geographicMapCellPosition, localPathFindingInfo, multipassState);
                 
@@ -68,8 +68,8 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
                 }
             } catch (Exception e) {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
-                //logUtil.put(commonStrings.EXCEPTION, this, "run", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                //this.logUtil.put(commonStrings.EXCEPTION, this, "run", e);
                 setRunning(false);
                 finish();
             }
@@ -87,7 +87,7 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
 
 //                if(first) {
 //                    first = false;
-//                    logUtil.put("second set: " + pathFindingInfo, this, "getPathsList");
+//                    this.logUtil.put("second set: " + pathFindingInfo, this, "getPathsList");
 //                }
                 
                 final GeographicMapCellPosition geographicMapCellPosition = 
@@ -102,8 +102,8 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
                 
             } catch (Exception e) {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
-                //logUtil.put(commonStrings.EXCEPTION, this, "run", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                //this.logUtil.put(commonStrings.EXCEPTION, this, "run", e);
                 setRunning(false);
                 finish();
             }
@@ -118,7 +118,7 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
             try {
                 final WaypointBehaviorBase waypointBehavior = pathFindingLayer.getWaypointBehavior();
                 
-//                logUtil.put("end: " + pathFindingInfo, this, "getPathsList");
+//                this.logUtil.put("end: " + pathFindingInfo, this, "getPathsList");
 
                 waypointBehavior.setWaypointPathsList(list);
 
@@ -126,8 +126,8 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
                 
             } catch (Exception e) {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
-                //logUtil.put(commonStrings.EXCEPTION, this, "run", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                //this.logUtil.put(commonStrings.EXCEPTION, this, "run", e);
                 setRunning(false);
             }
 
@@ -173,8 +173,8 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
-            //logUtil.put(commonStrings.EXCEPTION, this, "run", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+            //this.logUtil.put(commonStrings.EXCEPTION, this, "run", e);
             this.setRunning(false);
         }
     }

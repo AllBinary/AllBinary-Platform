@@ -32,7 +32,7 @@ public class ToastUtil {
 	        {
 	            try
 	            {
-	            	//logUtil.put("Trying to Toast: "+ string, this, commonStrings.RUN);
+	            	//this.logUtil.put("Trying to Toast: "+ string, this, commonStrings.RUN);
 	            	//PreLogUtil.put("Trying to Toast: "+ string, this, commonStrings.RUN);
 	                
 	                Toast.makeText(context, string, time).show();
@@ -40,7 +40,7 @@ public class ToastUtil {
 	            catch(Exception e)
 	            {
                         final CommonStrings commonStrings = CommonStrings.getInstance();
-	                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+	                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
 	            }
 	        }
 	    }

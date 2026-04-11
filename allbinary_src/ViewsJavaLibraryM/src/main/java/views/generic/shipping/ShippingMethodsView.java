@@ -138,7 +138,7 @@ public class ShippingMethodsView extends HttpStoreComponentView implements DomNo
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XSLLOGGINGERROR))
          {
-            logUtil.put(this.commonStrings.FAILURE,this,"toXmlNode",e);
+            this.logUtil.put(this.commonStrings.FAILURE,this,"toXmlNode",e);
          }
          throw e;
       }
@@ -161,7 +161,7 @@ public class ShippingMethodsView extends HttpStoreComponentView implements DomNo
          String error = "Failed to view ShippingMethods";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"view()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"view()",e);
          }
          return error;
       }

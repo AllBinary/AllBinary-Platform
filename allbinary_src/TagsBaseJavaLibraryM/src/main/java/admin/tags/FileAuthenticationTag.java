@@ -160,7 +160,7 @@ public class FileAuthenticationTag extends CustomTagSupport
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                logUtil.put(commonStrings.EXCEPTION, this, "invalidateSession()", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "invalidateSession()", e);
             }
             return false;
         }
@@ -176,7 +176,7 @@ public class FileAuthenticationTag extends CustomTagSupport
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                logUtil.put(commonStrings.EXCEPTION, this, "invalidateSession()", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "invalidateSession()", e);
             }
             return TagSupport.SKIP_BODY;
         }
@@ -208,7 +208,7 @@ public class FileAuthenticationTag extends CustomTagSupport
                         stringBuffer.append(" > ");
                         stringBuffer.appendlong(timeCreated);
 
-                        logUtil.put(stringBuffer.toString(), this, "isSessionOld()");
+                        this.logUtil.put(stringBuffer.toString(), this, "isSessionOld()");
                     }
 
                     return Boolean.TRUE.booleanValue();
@@ -217,7 +217,7 @@ public class FileAuthenticationTag extends CustomTagSupport
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATION))
                 {
-                    logUtil.put("Role Is Not In Session", this, "isSessionOld()");
+                    this.logUtil.put("Role Is Not In Session", this, "isSessionOld()");
                 }
             }
             return this.isRarelyUsedSession().booleanValue();
@@ -226,7 +226,7 @@ public class FileAuthenticationTag extends CustomTagSupport
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                logUtil.put(commonStrings.EXCEPTION, this, "isSessionOld()", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "isSessionOld()", e);
             }
             return false;
         }
@@ -257,7 +257,7 @@ public class FileAuthenticationTag extends CustomTagSupport
                 stringBuffer.append(" > ");
                 stringBuffer.appendlong(timePassed);
 
-                logUtil.put(stringBuffer.toString(), this, "isRarelyUsedSession()");
+                this.logUtil.put(stringBuffer.toString(), this, "isRarelyUsedSession()");
             }
             
             /*
@@ -274,7 +274,7 @@ public class FileAuthenticationTag extends CustomTagSupport
                     stringBuffer.append(" > ");
                     stringBuffer.append(timePassed);
 
-                    logUtil.put(stringBuffer.toString(), this, "isRarelyUsedSession()");
+                    this.logUtil.put(stringBuffer.toString(), this, "isRarelyUsedSession()");
                 }
 
                 return Boolean.TRUE;
@@ -284,7 +284,7 @@ public class FileAuthenticationTag extends CustomTagSupport
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATION))
             {
-                logUtil.put("Role Is Not In Session", this, "isRarelyUsedSession()");
+                this.logUtil.put("Role Is Not In Session", this, "isRarelyUsedSession()");
             }
         }
 
@@ -301,7 +301,7 @@ public class FileAuthenticationTag extends CustomTagSupport
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                logUtil.put(commonStrings.EXCEPTION, this, "isRoleValid()", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "isRoleValid()", e);
             }
             return false;
         }
@@ -324,7 +324,7 @@ public class FileAuthenticationTag extends CustomTagSupport
             String error = "Failed to set valid role";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                logUtil.put(commonStrings.EXCEPTION, this, "validRole()", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "validRole()", e);
             }
             return error;
         }
@@ -345,7 +345,7 @@ public class FileAuthenticationTag extends CustomTagSupport
             String error = "Failed to set role invalid";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                logUtil.put(commonStrings.EXCEPTION, this, "invalidRole()", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "invalidRole()", e);
             }
             return error;
         }
@@ -376,7 +376,7 @@ public class FileAuthenticationTag extends CustomTagSupport
             //String error = "Failed to validate previously authenticated Session";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                logUtil.put(commonStrings.EXCEPTION, this, "isAuthenticationSessionValid()", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "isAuthenticationSessionValid()", e);
             }
             return false;
         }
@@ -388,7 +388,7 @@ public class FileAuthenticationTag extends CustomTagSupport
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
             {
-                logUtil.put("Starting for User: " + this.userName + " Attempt: " + this.weblisketSession.getAttempts(), this, "processIfNewLogin()");
+                this.logUtil.put("Starting for User: " + this.userName + " Attempt: " + this.weblisketSession.getAttempts(), this, "processIfNewLogin()");
             }
 
             if (userName != null && userName.compareTo(StringUtil.getInstance().EMPTY_STRING) != 0 && password != null && password.compareTo(StringUtil.getInstance().EMPTY_STRING) != 0)
@@ -423,7 +423,7 @@ public class FileAuthenticationTag extends CustomTagSupport
             //String error = "Failed to validate new login";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                logUtil.put(commonStrings.EXCEPTION, this, "processIfNewLogin()", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "processIfNewLogin()", e);
             }
             return false;
         }
@@ -447,7 +447,7 @@ public class FileAuthenticationTag extends CustomTagSupport
             //String error = "Failed check if already set to invalidate";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                logUtil.put(commonStrings.EXCEPTION, this, "isSetToInvalidate()", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "isSetToInvalidate()", e);
             }
             return false;
         }
@@ -465,7 +465,7 @@ public class FileAuthenticationTag extends CustomTagSupport
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
             {
-                logUtil.put("Started", this, "doStartTag()");
+                this.logUtil.put("Started", this, "doStartTag()");
             }
 
             if (command != null)
@@ -478,7 +478,7 @@ public class FileAuthenticationTag extends CustomTagSupport
                 {
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
                     {
-                        logUtil.put("Change Password", this, "doStartTag()");
+                        this.logUtil.put("Change Password", this, "doStartTag()");
                     }
 
                     if (!this.changePassword())
@@ -495,7 +495,7 @@ public class FileAuthenticationTag extends CustomTagSupport
                 {
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
                     {
-                        logUtil.put("INVALIDATESESSION", this, "doStartTag()");
+                        this.logUtil.put("INVALIDATESESSION", this, "doStartTag()");
                     }
                     return this.invalidateSession();
                 } else
@@ -513,14 +513,14 @@ public class FileAuthenticationTag extends CustomTagSupport
                     {
                         //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
                         //{
-                        // logUtil.put("Session is old", this, "doStartTag()");
+                        // this.logUtil.put("Session is old", this, "doStartTag()");
                         //}
 
                         if (this.processInvalidation())
                         {
                             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
                             {
-                                logUtil.put("Processing Invalidation", this, "doStartTag()");
+                                this.logUtil.put("Processing Invalidation", this, "doStartTag()");
                             }
 
                             //invalidates session based on a timeout
@@ -536,7 +536,7 @@ public class FileAuthenticationTag extends CustomTagSupport
                         {
                             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
                             {
-                                logUtil.put("Preparing session for invalidation", this, "doStartTag()");
+                                this.logUtil.put("Preparing session for invalidation", this, "doStartTag()");
                             }
 
                             //prepares session for timeout
@@ -571,7 +571,7 @@ public class FileAuthenticationTag extends CustomTagSupport
                     {
                         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
                         {
-                            logUtil.put("Authenticated session is valid", this, "doStartTag()");
+                            this.logUtil.put("Authenticated session is valid", this, "doStartTag()");
                         }
 
                         if (command.compareTo(org.allbinary.globals.GLOBALS2.PROCESSBODYIFAUTHENTICATED) == 0)
@@ -587,14 +587,14 @@ public class FileAuthenticationTag extends CustomTagSupport
                     {
                         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
                         {
-                            logUtil.put("Processing new login.", this, "doStartTag()");
+                            this.logUtil.put("Processing new login.", this, "doStartTag()");
                         }
 
                         if (this.isRoleValid())
                         {
                             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
                             {
-                                logUtil.put("Role is valid - Processing new login", this, "doStartTag()");
+                                this.logUtil.put("Role is valid - Processing new login", this, "doStartTag()");
                             }
 
                             pageContext.getOut().print(validRole());
@@ -609,7 +609,7 @@ public class FileAuthenticationTag extends CustomTagSupport
                         {
                             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
                             {
-                                logUtil.put("Role is not valid - Processing new login", this, "doStartTag()");
+                                this.logUtil.put("Role is not valid - Processing new login", this, "doStartTag()");
                             }
 
                             pageContext.getOut().print(invalidRole());
@@ -625,7 +625,7 @@ public class FileAuthenticationTag extends CustomTagSupport
                     {
                         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
                         {
-                            logUtil.put("Invalid Login", this, "doStartTag()");
+                            this.logUtil.put("Invalid Login", this, "doStartTag()");
                         }
 
                         if (userName != null && userName.compareTo(StringUtil.getInstance().EMPTY_STRING) != 0
@@ -646,7 +646,7 @@ public class FileAuthenticationTag extends CustomTagSupport
                         stringBuffer.append(" Command: ");
                         stringBuffer.append(this.command);
 
-                        logUtil.put(stringBuffer.toString(), this, "doStartTag()");
+                        this.logUtil.put(stringBuffer.toString(), this, "doStartTag()");
                     }
 
                     //pageContext.getOut().print("Not a new attempt or previously authorized<p>");

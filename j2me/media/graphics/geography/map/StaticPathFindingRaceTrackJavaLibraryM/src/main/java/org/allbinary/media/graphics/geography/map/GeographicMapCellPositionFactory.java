@@ -39,7 +39,7 @@ public class GeographicMapCellPositionFactory extends GeographicMapCellPositionB
 
         if (geographicMapCellPositionFactoryCanBeNull == null)
         {
-            logUtil.put(new StringMaker().append("Creating GeographicMapCellPositionFactory for TileLayer: ").appendint(allBinaryTiledLayer.getDataId().intValue()).toString(), 
+            this.logUtil.put(new StringMaker().append("Creating GeographicMapCellPositionFactory for TileLayer: ").appendint(allBinaryTiledLayer.getDataId().intValue()).toString(), 
                     this,commonStrings.GET_INSTANCE);
 
             geographicMapCellPositionFactoryCanBeNull = new BasicGeographicMapCellPositionFactory(geographicMapInterface);
@@ -49,7 +49,7 @@ public class GeographicMapCellPositionFactory extends GeographicMapCellPositionB
         }
         else
         {
-            logUtil.put(
+            this.logUtil.put(
                 new StringMaker().append("Reusing GeographicMapCellPositionFactory for TileLayer: ").appendint(allBinaryTiledLayer.getDataId().intValue()).toString(), 
                 this, commonStrings.GET_INSTANCE);
 

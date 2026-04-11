@@ -103,7 +103,7 @@ public class BasicAIProcessor
    {
       int keyDirection = -1;
 
-      //logUtil.put(this.getName() + " Off Path - Trying to get back on the path", this, commonStrings.PROCESS);
+      //this.logUtil.put(this.getName() + " Off Path - Trying to get back on the path", this, commonStrings.PROCESS);
 
       GeographicMapCellPosition goToGeographicMapCellPosition =
          this.geographicMapCellPathHistoryInfo.getNextChosenOnPathGeographicMapCellPosition();
@@ -125,7 +125,7 @@ public class BasicAIProcessor
       /*
       if(numberOfInterationsOffPath > 3)
       {
-      logUtil.put(this.getName() + " Off Path - for a while", this, commonStrings.PROCESS);
+      this.logUtil.put(this.getName() + " Off Path - for a while", this, commonStrings.PROCESS);
       keyDirection = this.randomDirectionGenerator.get();
       numberOfInterationsOffPath--;
       }
@@ -222,7 +222,7 @@ public class BasicAIProcessor
    
    if(currentGeographicMapCellPosition != previousGeographicMapCellPosition)
    {
-   //logUtil.put(this.getName() + " currentGeographicMapCellPosition: " + currentGeographicMapCellPosition, this, commonStrings.PROCESS);
+   //this.logUtil.put(this.getName() + " currentGeographicMapCellPosition: " + currentGeographicMapCellPosition, this, commonStrings.PROCESS);
    
    keyDirection = this.update(currentGeographicMapCellPosition);
    

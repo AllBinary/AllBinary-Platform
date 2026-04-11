@@ -72,7 +72,7 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
         }
 
         /*
-         * logUtil.put( "No animation available for current feature
+         * this.logUtil.put( "No animation available for current feature
          * selection or Resource: ").append(resource, "FeaturedAnimationInterfaceFactoryInterfaceFactory",
          * "getAnimationInterfaceInstance");
          */
@@ -120,7 +120,7 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
         }
 
         /*
-         * logUtil.put( "No animation available for current feature
+         * this.logUtil.put( "No animation available for current feature
          * selection or Resource: ").append(resource, "FeaturedAnimationInterfaceFactoryInterfaceFactory",
          * "getAnimationInterfaceInstance");
          */

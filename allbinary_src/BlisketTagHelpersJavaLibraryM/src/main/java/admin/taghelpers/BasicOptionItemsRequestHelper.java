@@ -144,7 +144,7 @@ public class BasicOptionItemsRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,"insert()");
+            this.logUtil.put(success,this,"insert()");
          }
          return success;
       }
@@ -154,7 +154,7 @@ public class BasicOptionItemsRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"inserts()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"inserts()",e);
          }
          return error;
       }
@@ -170,7 +170,7 @@ public class BasicOptionItemsRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,"delete()");
+            this.logUtil.put(success,this,"delete()");
          }
          return success;
       }
@@ -180,7 +180,7 @@ public class BasicOptionItemsRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"delete()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"delete()",e);
          }
          return error;
       }
@@ -197,7 +197,7 @@ public class BasicOptionItemsRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(id + " " + success,this,"update()");
+            this.logUtil.put(id + " " + success,this,"update()");
          }
          return success;
       }
@@ -207,7 +207,7 @@ public class BasicOptionItemsRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"update()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"update()",e);
          }
          return error;
       }

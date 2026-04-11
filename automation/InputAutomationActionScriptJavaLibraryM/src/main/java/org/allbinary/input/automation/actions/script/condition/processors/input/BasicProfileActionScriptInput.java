@@ -45,7 +45,7 @@ public class BasicProfileActionScriptInput
     {
         super(label, node);
         
-        logUtil.put(commonStrings.START + label, this, commonStrings.CONSTRUCTOR);
+        this.logUtil.put(commonStrings.START + label, this, commonStrings.CONSTRUCTOR);
         
         final Node actionNode = DomSearchHelper.getNode(
             GenericProfileActionScriptInputData.TYPE,
@@ -75,7 +75,7 @@ public class BasicProfileActionScriptInput
     {
         super(label);
         
-        logUtil.put(commonStrings.START + label, this, commonStrings.CONSTRUCTOR);
+        this.logUtil.put(commonStrings.START + label, this, commonStrings.CONSTRUCTOR);
         
         final InputRobotFactory inputRobotFactory = InputRobotFactory.getInstance();
         final Hashtable hashtable = (Hashtable) inputRobotFactory.get();
@@ -112,7 +112,7 @@ public class BasicProfileActionScriptInput
         hashMap.put(GenericProfileActionScriptInputData.TYPE, this.getInputRobotInterface().getName());
         hashMap.put(GenericProfileActionScriptInputData.DELAY, Integer.toString(this.getTime()));
 
-        logUtil.put("HashMap: " + hashMap.toString(), this, "toHashMap()");
+        this.logUtil.put("HashMap: " + hashMap.toString(), this, "toHashMap()");
 
         return hashMap;
     }

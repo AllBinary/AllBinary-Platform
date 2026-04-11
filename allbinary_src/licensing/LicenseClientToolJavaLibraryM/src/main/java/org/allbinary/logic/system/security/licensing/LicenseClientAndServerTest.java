@@ -110,22 +110,22 @@ public class LicenseClientAndServerTest
 
                 stringBuffer.append(END);
 
-                logUtil.put(RESULT + stringBuffer.toString(), this, "test");
+                this.logUtil.put(RESULT + stringBuffer.toString(), this, "test");
                 
                 stringBuffer.delete(0, stringBuffer.length());
 
         } catch (Exception e)
         {
             list.add(serverName);
-            logUtil.put("Test Error: " + stringBuffer.toString(), this, "test", e);
+            this.logUtil.put("Test Error: " + stringBuffer.toString(), this, "test", e);
         }
 
             }
 
-            logUtil.put("Total Servers Failed: " + list.size() + " Failed Servers: " + list.toString(), this, "test");
+            this.logUtil.put("Total Servers Failed: " + list.size() + " Failed Servers: " + list.toString(), this, "test");
         } catch (Exception e)
         {
-            logUtil.put("Test Error: " + stringBuffer.toString(), this, "test", e);
+            this.logUtil.put("Test Error: " + stringBuffer.toString(), this, "test", e);
         }
     }
 
@@ -139,7 +139,7 @@ public class LicenseClientAndServerTest
     System.out.println(licenseInfo);
     } catch (Exception e)
     {
-    logUtil.put(this.commonStrings.EXCEPTION, this, "test()", e);
+    this.logUtil.put(this.commonStrings.EXCEPTION, this, "test()", e);
     }
     }
      */
@@ -152,7 +152,7 @@ public class LicenseClientAndServerTest
         } catch (Exception e)
         {
             final LogUtil logUtil = LogUtil.getInstance();
-            logUtil.put(this.commonStrings.EXCEPTION, "main()", "main()", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, "main()", "main()", e);
         }
     }
 }

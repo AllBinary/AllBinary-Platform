@@ -170,8 +170,8 @@ public class BasicHud //implements DisplayChangeEventListener
    {
        try
        {
-           //logUtil.put(commonStrings.START, this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
-           //logUtil.put(commonStrings.START_LABEL).append(DisplayInfoSingleton.getInstance().toString(), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
+           //this.logUtil.put(commonStrings.START, this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
+           //this.logUtil.put(commonStrings.START_LABEL).append(DisplayInfoSingleton.getInstance().toString(), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
            
            DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
 
@@ -184,7 +184,7 @@ public class BasicHud //implements DisplayChangeEventListener
        catch(Exception e)
        {
            final CommonStrings commonStrings = CommonStrings.getInstance();
-           logUtil.put(commonStrings.EXCEPTION, this, canvasStrings.ON_DISPLAY_CHANGE_EVENT, e);
+           this.logUtil.put(commonStrings.EXCEPTION, this, canvasStrings.ON_DISPLAY_CHANGE_EVENT, e);
        }
    }
    

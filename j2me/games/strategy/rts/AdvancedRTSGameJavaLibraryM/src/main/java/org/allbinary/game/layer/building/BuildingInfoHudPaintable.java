@@ -98,7 +98,7 @@ public class BuildingInfoHudPaintable extends SelectionHudPaintable {
             
         } catch (Exception e) {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
         }
         this.productivityHud = productivityHud;
         this.efficiencyHud = efficiencyHud;

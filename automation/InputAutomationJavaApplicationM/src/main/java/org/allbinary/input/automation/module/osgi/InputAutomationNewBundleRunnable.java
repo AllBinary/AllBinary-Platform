@@ -92,7 +92,7 @@ public class InputAutomationNewBundleRunnable
     private void updateModules()
     throws Exception
     {
-        logUtil.put(this.commonStrings.START, this, "updateModules");
+        this.logUtil.put(this.commonStrings.START, this, "updateModules");
         
         final BasicArrayList list = this.findNewModules();
         final int size = list.size();
@@ -112,12 +112,12 @@ public class InputAutomationNewBundleRunnable
     private HashMap getAllJarSymbolicNameHashMap()
     throws Exception
     {
-        logUtil.put(this.commonStrings.START, this, "getAllJarSymbolicNameHashMap");
+        this.logUtil.put(this.commonStrings.START, this, "getAllJarSymbolicNameHashMap");
         
         final HashMap hashMap = new HashMap();
         final BasicArrayList jarFileBasicArrayList = this.getJarModuleFileBasicArrayList();
         
-        logUtil.put("Jar Module Files: " + jarFileBasicArrayList, this, "getAllJarSymbolicNameHashMap");
+        this.logUtil.put("Jar Module Files: " + jarFileBasicArrayList, this, "getAllJarSymbolicNameHashMap");
         
         final int size = jarFileBasicArrayList.size();
         File file;
@@ -149,7 +149,7 @@ public class InputAutomationNewBundleRunnable
     
     private BasicArrayList getJarModuleFileBasicArrayList()
     {
-        logUtil.put(this.commonStrings.START, this, "getJarModuleFileBasicArrayList");
+        this.logUtil.put(this.commonStrings.START, this, "getJarModuleFileBasicArrayList");
         
         String baseJarPath = System.getProperty(JAR_DIR_PROP);
         
@@ -162,11 +162,11 @@ public class InputAutomationNewBundleRunnable
         
         String path = baseJarPath + INPUT_AUTMATION_MODULE_BUNDLE_JAR_PATH;
         
-        logUtil.put("Path: " + path, this, "getJarModuleFileBasicArrayList");
+        this.logUtil.put("Path: " + path, this, "getJarModuleFileBasicArrayList");
         
         File file = new File(path);
         
-        logUtil.put("File: " + file.getAbsolutePath() +
+        this.logUtil.put("File: " + file.getAbsolutePath() +
             " isDirectory: " + file.isDirectory(), this, "getJarModuleFileBasicArrayList");
         
         return SubDirectory.getInstance().search(jarFileFilter, FileWrapperUtil.wrapFile(file));
@@ -175,7 +175,7 @@ public class InputAutomationNewBundleRunnable
     private BasicArrayList getInstalledJarSymbolicNameBasicArrayList()
     throws Exception
     {
-        logUtil.put(this.commonStrings.START, this, "getInstalledJarSymbolicNameBasicArrayList");
+        this.logUtil.put(this.commonStrings.START, this, "getInstalledJarSymbolicNameBasicArrayList");
         
         BasicArrayList vector = new BasicArrayList();
         
@@ -186,7 +186,7 @@ public class InputAutomationNewBundleRunnable
         
         if(bundleArray != null)
         {
-            logUtil.put("bundleArray: " + bundleArray.length,this, "getInputAutomationModuleServices");
+            this.logUtil.put("bundleArray: " + bundleArray.length,this, "getInputAutomationModuleServices");
             
             for(int index = 0; index < bundleArray.length; index++)
             {
@@ -200,7 +200,7 @@ public class InputAutomationNewBundleRunnable
     private boolean isInstalled(String symbolicName)
     throws Exception
     {
-        logUtil.put(CommonLabels.getInstance().START + symbolicName, this, "isInstalled");
+        this.logUtil.put(CommonLabels.getInstance().START + symbolicName, this, "isInstalled");
         
         final BasicArrayList list = this.getInstalledJarSymbolicNameBasicArrayList();
         final int size = list.size();
@@ -218,12 +218,12 @@ public class InputAutomationNewBundleRunnable
     
     private BasicArrayList findNewModules() throws Exception
     {
-        logUtil.put(this.commonStrings.START, this, "findNewModules");
+        this.logUtil.put(this.commonStrings.START, this, "findNewModules");
         
         BasicArrayList vector = new BasicArrayList();
         HashMap hashMap = this.getAllJarSymbolicNameHashMap();
         
-        logUtil.put("All: " + hashMap, this, "findNewModules");
+        this.logUtil.put("All: " + hashMap, this, "findNewModules");
         
         Set set = hashMap.keySet();
         
@@ -242,7 +242,7 @@ public class InputAutomationNewBundleRunnable
     
     private Bundle install(URL url) throws Exception
     {
-        logUtil.put(CommonLabels.getInstance().START + url, this, "install");
+        this.logUtil.put(CommonLabels.getInstance().START + url, this, "install");
         
         BundleContext bundleContext =
             InputAutomationBundleActivator.getBundleContext();
@@ -254,7 +254,7 @@ public class InputAutomationNewBundleRunnable
     {
         try
         {
-            logUtil.put(this.commonStrings.START, this, this.commonStrings.RUN);
+            this.logUtil.put(this.commonStrings.START, this, this.commonStrings.RUN);
             
             this.setRunning(true);
             
@@ -264,18 +264,18 @@ public class InputAutomationNewBundleRunnable
             {
                 timeHelper.setStartTime();
                 
-                logUtil.put(
+                this.logUtil.put(
                     CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN);
                 
                 this.updateModules();
                 //Thread.sleep(10000);
                 break;
             }
-            logUtil.put(this.commonStrings.END, this, this.commonStrings.RUN);
+            this.logUtil.put(this.commonStrings.END, this, this.commonStrings.RUN);
         }
         catch (Exception e)
         {
-            logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
         }
     }
 }

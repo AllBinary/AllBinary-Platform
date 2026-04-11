@@ -93,7 +93,7 @@ public class CssElementView implements DomNodeInterface
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            logUtil.put(new StringMaker().append("Value: ").append(this.value).append("\nTitle: ").append(this.title).append("\nDescription: ").append(this.description).toString(), this, commonStrings.CONSTRUCTOR);
+            this.logUtil.put(new StringMaker().append("Value: ").append(this.value).append("\nTitle: ").append(this.title).append("\nDescription: ").append(this.description).toString(), this, commonStrings.CONSTRUCTOR);
          }
          
          //Nodes with CssElementData.NAME
@@ -103,7 +103,7 @@ public class CssElementView implements DomNodeInterface
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            logUtil.put("Child Css Elements: " + cssElementStyleNodeVector.size(),
+            this.logUtil.put("Child Css Elements: " + cssElementStyleNodeVector.size(),
                this, "CssElementView()");
          }
 
@@ -118,7 +118,7 @@ public class CssElementView implements DomNodeInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            logUtil.put(new StringMaker().append("Value: ").append(this.value).append("\nTitle: ").append(this.title).append("\nDescription: ").append(this.description).toString(), this, this.commonStrings.CONSTRUCTOR,e);
+            this.logUtil.put(new StringMaker().append("Value: ").append(this.value).append("\nTitle: ").append(this.title).append("\nDescription: ").append(this.description).toString(), this, this.commonStrings.CONSTRUCTOR,e);
          }
          throw new Exception("CssElementView");
       }
@@ -145,7 +145,7 @@ public class CssElementView implements DomNodeInterface
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         logUtil.put("CssView HashMap: " + hashMap.toString(),this,"toXmlNode");
+         this.logUtil.put("CssView HashMap: " + hashMap.toString(),this,"toXmlNode");
       }
       
       Node node = ModDomHelper.createNodeWithValueNodes(

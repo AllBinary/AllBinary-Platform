@@ -27,6 +27,6 @@ public class KeyFactoryInitializer extends Init
     @Override
     public void init()
     {
-        logUtil.put(this.commonStrings.START, this, this.commonStrings.INIT);
+        this.logUtil.put(this.commonStrings.START, this, this.commonStrings.INIT);
     }
 }

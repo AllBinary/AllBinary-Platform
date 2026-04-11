@@ -106,7 +106,7 @@ public class StoreFront implements StoreFrontInterface
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
         {
-            logUtil.put("TWB- needs update for adding and updating context configuration - currently defaults to admin context config", this, "StoreFront");
+            this.logUtil.put("TWB- needs update for adding and updating context configuration - currently defaults to admin context config", this, "StoreFront");
         }
 
         //TWB - Define Context From request HashMap - new Imp
@@ -647,7 +647,7 @@ public class StoreFront implements StoreFrontInterface
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
+                this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
             }
             return "Error Validating Form";
         }
@@ -1115,7 +1115,7 @@ public class StoreFront implements StoreFrontInterface
             //String error = "Failed to install storefront";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                logUtil.put(commonStrings.EXCEPTION, this, "install()", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "install()", e);
             }
             throw e;
         }

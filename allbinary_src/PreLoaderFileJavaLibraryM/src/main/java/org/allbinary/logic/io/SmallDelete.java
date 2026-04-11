@@ -45,7 +45,7 @@ public class SmallDelete
             beginIndex = this.string.indexOf(start);
             endIndex = this.string.indexOf(end);
 
-            //logUtil.put("StartIndex: " + beginIndex + " EndIndex: " + endIndex, this, "deleteAtStart");
+            //this.logUtil.put("StartIndex: " + beginIndex + " EndIndex: " + endIndex, this, "deleteAtStart");
             
             if (endIndex > beginIndex && beginIndex >= 0 && endIndex >= 0 && beginIndex < 10 && endIndex < 525)
             {
@@ -63,7 +63,7 @@ public class SmallDelete
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().IDLOGGING))
             {
-                logUtil.put(commonStrings.EXCEPTION, this, "deleteAtStart", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "deleteAtStart", e);
             }
             return false;
         }
@@ -78,7 +78,7 @@ public class SmallDelete
             beginIndex = this.string.indexOf(start);
             endIndex = this.string.indexOf(end);
 
-            //logUtil.put("StartIndex: " + beginIndex + " EndIndex: " + endIndex, this, "deleteAtStart");
+            //this.logUtil.put("StartIndex: " + beginIndex + " EndIndex: " + endIndex, this, "deleteAtStart");
             
             if (endIndex > beginIndex && beginIndex >= 0 && endIndex >= 0 && beginIndex < 50 && endIndex < 425)
             {
@@ -98,7 +98,7 @@ public class SmallDelete
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().IDLOGGING))
             {
-                logUtil.put(commonStrings.EXCEPTION, this, "deleteAtStart", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "deleteAtStart", e);
             }
             return false;
         }

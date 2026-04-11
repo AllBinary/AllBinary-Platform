@@ -59,7 +59,7 @@ public class CustomLoaderTag extends CustomTagSupport
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION, this, "setCustomLoaderWebappPath()", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "setCustomLoaderWebappPath()", e);
          }
       }
    }
@@ -73,7 +73,7 @@ public class CustomLoaderTag extends CustomTagSupport
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
          {
-            logUtil.put(this.commonStrings.START, this, "doStartTag()");
+            this.logUtil.put(this.commonStrings.START, this, "doStartTag()");
          }
          
          if(command!=null)

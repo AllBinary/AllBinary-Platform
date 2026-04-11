@@ -71,7 +71,7 @@ public class BasicWeightShippingModuleView extends BasicWeightShippingModule imp
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
-            logUtil.put(this.commonStrings.EXCEPTION, this, "toXmlNode", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "toXmlNode", e);
          }
          //throw e;
          return null;
@@ -97,7 +97,7 @@ public class BasicWeightShippingModuleView extends BasicWeightShippingModule imp
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
-            logUtil.put(this.commonStrings.EXCEPTION, this, "toXmlDoc", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "toXmlDoc", e);
          }
          //throw e;
          return null;
@@ -114,7 +114,7 @@ public class BasicWeightShippingModuleView extends BasicWeightShippingModule imp
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
-            logUtil.put(this.commonStrings.EXCEPTION, this, "view", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "view", e);
          }
          //throw e;
          return null;

@@ -85,8 +85,8 @@ public class VectorExplosionGenerator
 
                 BasicArrayList pointBasicArrayList = getInstance(
                         tempBasicArrayList, points, howMuch, type);
-                // logUtil.put("Adding Point BasicArrayList commonStrings.TOTAL_LABEL + pointBasicArrayList.size() + " should be == " + firstPointBasicArrayList.size(), this, commonStrings.GET_INSTANCE);
-                // logUtil.put("Point BasicArrayList: " + pointBasicArrayList.toString(), this, commonStrings.GET_INSTANCE);
+                // this.logUtil.put("Adding Point BasicArrayList commonStrings.TOTAL_LABEL + pointBasicArrayList.size() + " should be == " + firstPointBasicArrayList.size(), this, commonStrings.GET_INSTANCE);
+                // this.logUtil.put("Point BasicArrayList: " + pointBasicArrayList.toString(), this, commonStrings.GET_INSTANCE);
                 pointsBasicArrayList.add(pointBasicArrayList);
 
                 frameIndex++;
@@ -97,13 +97,13 @@ public class VectorExplosionGenerator
                 pointsBasicArrayList.remove(0);
             }
 
-            // logUtil.put(IntArrayUtil.toString(newPoints), this, commonStrings.GET_INSTANCE);
+            // this.logUtil.put(IntArrayUtil.toString(newPoints), this, commonStrings.GET_INSTANCE);
             return pointsBasicArrayList;
 
         }
         catch (Exception e)
         {
-            //logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
+            //this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
             throw e;
         }
     }

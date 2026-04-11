@@ -88,7 +88,7 @@ public class InventoryHelper extends TagHelper
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put("Successfull Inventory View Summary",this,"viewSummary()");
+            this.logUtil.put("Successfull Inventory View Summary",this,"viewSummary()");
          }
          return result;
       }
@@ -98,7 +98,7 @@ public class InventoryHelper extends TagHelper
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"viewSummary()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"viewSummary()",e);
          }
          return error + "<br>" + "Exception: " + e + "<br>";
       }
@@ -124,7 +124,7 @@ public class InventoryHelper extends TagHelper
             
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put("Successful Inventory Dynamic Search",this,"searchSingleDynamicPage()");
+            this.logUtil.put("Successful Inventory Dynamic Search",this,"searchSingleDynamicPage()");
          }
          return result;
 
@@ -138,7 +138,7 @@ public class InventoryHelper extends TagHelper
             
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
             {
-               logUtil.put("Successful Inventory Dynamic Search",this,"search(String,HttpServletResponse)");
+               this.logUtil.put("Successful Inventory Dynamic Search",this,"search(String,HttpServletResponse)");
             }
             return result;
          }
@@ -147,7 +147,7 @@ public class InventoryHelper extends TagHelper
             response.sendRedirect(fileName);            
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
             {
-               logUtil.put("Successful Inventory Static Search",this,"search(String,HttpServletResponse)");
+               this.logUtil.put("Successful Inventory Static Search",this,"search(String,HttpServletResponse)");
             }
             return null;
          }
@@ -159,7 +159,7 @@ public class InventoryHelper extends TagHelper
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"searchSingleDynamicPage()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"searchSingleDynamicPage()",e);
          }
          return error + "<br>" + "Exception: " + e + "<br>";
       }

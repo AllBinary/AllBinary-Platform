@@ -33,7 +33,7 @@ public class EmailServerConfiguration implements EmailServerConfigurationInterfa
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
         final CommonStrings commonStrings = CommonStrings.getInstance();
-         logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+         this.logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
       }
 
       this.setSmtpServer(StringUtil.getInstance().EMPTY_STRING);
@@ -44,7 +44,7 @@ public class EmailServerConfiguration implements EmailServerConfigurationInterfa
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
         final CommonStrings commonStrings = CommonStrings.getInstance();
-         logUtil.put(commonStrings.START, this, "EmailServerConfiguration(HashMap)");
+         this.logUtil.put(commonStrings.START, this, "EmailServerConfiguration(HashMap)");
       }
 
       this.setAccountName((String) hashMap.get(EmailServerConfigurationData.ACCOUNT));
@@ -59,7 +59,7 @@ public class EmailServerConfiguration implements EmailServerConfigurationInterfa
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
         final CommonStrings commonStrings = CommonStrings.getInstance();
-         logUtil.put(commonStrings.START, this, "EmailServerConfiguration(HashMap)");
+         this.logUtil.put(commonStrings.START, this, "EmailServerConfiguration(HashMap)");
       }
 
       this.setAccountName(account);
@@ -103,7 +103,7 @@ public class EmailServerConfiguration implements EmailServerConfigurationInterfa
     {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
-         logUtil.put(this.toString(), this, "EmailServerConfiguration");
+         this.logUtil.put(this.toString(), this, "EmailServerConfiguration");
       }
     }
     

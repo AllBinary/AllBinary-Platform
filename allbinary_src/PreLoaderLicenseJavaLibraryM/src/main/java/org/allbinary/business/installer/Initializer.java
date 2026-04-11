@@ -97,7 +97,7 @@ public class Initializer
             stringBuffer.append(" Value: ");
             stringBuffer.append(values[0]);
             
-            logUtil.put(stringBuffer.toString(), this, "getFormData()");
+            this.logUtil.put(stringBuffer.toString(), this, "getFormData()");
         }
         this.getFormData(hashMap);
     }
@@ -160,7 +160,7 @@ public class Initializer
 
         } catch (Exception e)
         {
-            logUtil.put("Unable to get form data", this, "getFormData()", e);
+            this.logUtil.put("Unable to get form data", this, "getFormData()", e);
         }
     }
 
@@ -175,7 +175,7 @@ public class Initializer
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADERERROR))
             {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.IS_VALID, e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.IS_VALID, e);
             }
             return false;
         }
@@ -455,7 +455,7 @@ public class Initializer
      */
     public void set() throws Exception
     {
-        logUtil.put("Creating DB connection files", this, "set()");
+        this.logUtil.put("Creating DB connection files", this, "set()");
 
         UserDbInitInfo userDbInitInfo = new UserDbInitInfo(false);
         userDbInitInfo.setJdbcDriver(this.userJdbcDriver);
@@ -516,6 +516,6 @@ public class Initializer
         inventoryDbInitInfo.setHasRead(true);
         inventoryDbInitInfo.write();
 
-        logUtil.put("Created DB connection files", this, "set()");
+        this.logUtil.put("Created DB connection files", this, "set()");
     }
 }

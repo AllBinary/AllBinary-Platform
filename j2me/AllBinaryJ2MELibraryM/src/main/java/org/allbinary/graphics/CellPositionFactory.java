@@ -55,14 +55,14 @@ public class CellPositionFactory
       stringBuffer.append(" rows: ");
       stringBuffer.appendint(rows);
       
-      logUtil.put(stringBuffer.toString(), this, commonStrings.INIT);
+      this.logUtil.put(stringBuffer.toString(), this, commonStrings.INIT);
       
       for (int column = 0; column < columns; column++)
       {
-         // logUtil.put("Initializing Column: ").append(col, this, commonStrings.INIT);
+         // this.logUtil.put("Initializing Column: ").append(col, this, commonStrings.INIT);
          for (int row = 0; row < rows; row++)
          {
-            // logUtil.put("Initializing Row: ").append(row, this, commonStrings.INIT);
+            // this.logUtil.put("Initializing Row: ").append(row, this, commonStrings.INIT);
             //CellPosition cellPosition =
                this.createInstance(column, row);
          }
@@ -78,7 +78,7 @@ public class CellPositionFactory
       catch (Exception e)
       {
           final CommonStrings commonStrings = CommonStrings.getInstance();
-         logUtil.put(new StringMaker().append("columns: ").appendint(this.getColumns()).append(" rows: ").appendint(this.getRows()).append(" col: ").appendint(i_column).append(" row: ").appendint(i_row).toString(), this, commonStrings.GET_INSTANCE, e);
+         this.logUtil.put(new StringMaker().append("columns: ").appendint(this.getColumns()).append(" rows: ").appendint(this.getRows()).append(" col: ").appendint(i_column).append(" row: ").appendint(i_row).toString(), this, commonStrings.GET_INSTANCE, e);
          return NONE;
       }
    }

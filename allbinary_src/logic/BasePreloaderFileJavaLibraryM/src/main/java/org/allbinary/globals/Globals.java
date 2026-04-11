@@ -52,7 +52,7 @@ public class Globals {
         stringBuffer.append(" ClassLoader: ");
         stringBuffer.append(classLoader.getClass().getName());
         
-        logUtil.put(stringBuffer.toString(), this, commonStrings.INIT);
+        this.logUtil.put(stringBuffer.toString(), this, commonStrings.INIT);
 
         final StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
         
@@ -68,7 +68,7 @@ public class Globals {
         	stringBuffer.append(URLGLOBALS.getWebappPath());
 
             //pathString = WebappPathCmdLineFile.getPath("./");
-            logUtil.put(stringBuffer.toString(), this, commonStrings.INIT);
+            this.logUtil.put(stringBuffer.toString(), this, commonStrings.INIT);
         }
 
     	stringBuffer.delete(0, stringBuffer.length());
@@ -76,6 +76,6 @@ public class Globals {
     	stringBuffer.append("Webapp Path Set To: ");
     	stringBuffer.append(URLGLOBALS.getWebappPath());
 
-        logUtil.put(stringBuffer.toString(), this, commonStrings.INIT);
+        this.logUtil.put(stringBuffer.toString(), this, commonStrings.INIT);
     }
 }

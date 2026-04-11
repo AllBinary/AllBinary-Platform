@@ -55,7 +55,7 @@ public class RunnableCanvas extends MyCanvas
     {
         super(CommonStrings.getInstance().UNKNOWN, childNameList);
         
-        logUtil.put(new StringMaker().append("delay: ").appendint(this.loopTimeHelper.delay).toString(), this, this.commonStrings.CONSTRUCTOR);
+        this.logUtil.put(new StringMaker().append("delay: ").appendint(this.loopTimeHelper.delay).toString(), this, this.commonStrings.CONSTRUCTOR);
         
         //this.processPaintable = ProcessPaintableSingletonFactory.getInstance();
         this.runnableCanvasRefreshHelper = new RunnableCanvasRefreshHelper(this);
@@ -64,7 +64,7 @@ public class RunnableCanvas extends MyCanvas
         {
             this.initCommands(commandListener);
         } else if(hasParam) {
-            logUtil.put("commandListener was null", this, "initCommands");
+            this.logUtil.put("commandListener was null", this, "initCommands");
         }
     }
 
@@ -80,7 +80,7 @@ public class RunnableCanvas extends MyCanvas
     //Empty method for overriding 
     public void initCommands(CommandListener cmdListener)
     {
-        logUtil.put(commonStrings.NOT_IMPLEMENTED, this, "initCommands");
+        this.logUtil.put(commonStrings.NOT_IMPLEMENTED, this, "initCommands");
     }
 
     public boolean isMainCanvas()
@@ -118,7 +118,7 @@ public class RunnableCanvas extends MyCanvas
             }
         }
 
-        logUtil.put(new StringMaker().append(IS_RUNNING).appendboolean(this.running).toString(), this, SET_RUNNING);
+        this.logUtil.put(new StringMaker().append(IS_RUNNING).appendboolean(this.running).toString(), this, SET_RUNNING);
     }
 
     protected final String SET_RUNNING = "setRunning";
@@ -137,7 +137,7 @@ public class RunnableCanvas extends MyCanvas
             // This is should be remarked out for production since it is called
             // every frame
             /*
-             * if (!running) { logUtil.put(NOT_RUNNING,
+             * if (!running) { this.logUtil.put(NOT_RUNNING,
              * this, IS_RUNNING); }
              */
             return running;
@@ -157,7 +157,7 @@ public class RunnableCanvas extends MyCanvas
             }
             
             
-            logUtil.put(stringBuffer.toString(), this, IS_RUNNING);
+            this.logUtil.put(stringBuffer.toString(), this, IS_RUNNING);
             return false;
         }
     }
@@ -175,7 +175,7 @@ public class RunnableCanvas extends MyCanvas
         // this.wait = wait;
         this.pauseWait = (long) wait * 3;
         
-        logUtil.put(new StringMaker().append("setWait - delay: ").appendint(this.loopTimeHelper.delay).toString(), this, this.commonStrings.CONSTRUCTOR);
+        this.logUtil.put(new StringMaker().append("setWait - delay: ").appendint(this.loopTimeHelper.delay).toString(), this, this.commonStrings.CONSTRUCTOR);
     }
 
     protected int getWait()
@@ -201,7 +201,7 @@ public class RunnableCanvas extends MyCanvas
             this.stopWaiting();
         } catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, "showNotify", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "showNotify", e);
         }
     }
 
@@ -237,15 +237,15 @@ public class RunnableCanvas extends MyCanvas
 
             while (!this.isDisplayed())
             {
-                logUtil.put("Waiting for it to be displayed", this,
+                this.logUtil.put("Waiting for it to be displayed", this,
                         "waitUntilDisplayed");
                 Thread.sleep(200);
             }
-            logUtil.put("Displayed", this, "waitUntilDisplayed");
+            this.logUtil.put("Displayed", this, "waitUntilDisplayed");
 
         } catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, "waitUntilDisplayed", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "waitUntilDisplayed", e);
         }
             */        
     }
@@ -261,8 +261,8 @@ public class RunnableCanvas extends MyCanvas
     //private final String GAME_SLEEP = "game sleep";
     public void processSleep() throws Exception
     {
-        //logUtil.put(PAUSE_SLEEP + this.pauseWait, this, commonStrings.PROCESS);
-        //logUtil.put(PAUSE_SLEEP + System.currentTimeMillis(), this, commonStrings.PROCESS);
+        //this.logUtil.put(PAUSE_SLEEP + this.pauseWait, this, commonStrings.PROCESS);
+        //this.logUtil.put(PAUSE_SLEEP + System.currentTimeMillis(), this, commonStrings.PROCESS);
         Thread.sleep(pauseWait);
     }
 
@@ -273,7 +273,7 @@ public class RunnableCanvas extends MyCanvas
     
     public void processGameSleep(long sleep) throws Exception
     {
-        //logUtil.put(GAME_SLEEP + sleep, this, commonStrings.PROCESS);
+        //this.logUtil.put(GAME_SLEEP + sleep, this, commonStrings.PROCESS);
         Thread.sleep(sleep);
     }
     
@@ -282,7 +282,7 @@ public class RunnableCanvas extends MyCanvas
     private final String PROCESS_LOOP_SLEEP = "processLoopSleep";
     public void processLoopSleep() throws Exception
     {
-        //logUtil.put(commonStrings.START, this, PROCESS_LOOP_SLEEP);
+        //this.logUtil.put(commonStrings.START, this, PROCESS_LOOP_SLEEP);
         
         this.runnableCanvasRefreshHelper.process();
         
@@ -290,13 +290,13 @@ public class RunnableCanvas extends MyCanvas
         
         if(this.isPaused() && this.isRunning() && !this.isSingleThread()) {
             final StringMaker stringMaker = new StringMaker();
-            logUtil.put(stringMaker.append(START_PAUSE).appendlong(System.currentTimeMillis()).append(PAUSE_SLEEP).appendlong(this.pauseWait).toString(), this, PROCESS_LOOP_SLEEP);
+            this.logUtil.put(stringMaker.append(START_PAUSE).appendlong(System.currentTimeMillis()).append(PAUSE_SLEEP).appendlong(this.pauseWait).toString(), this, PROCESS_LOOP_SLEEP);
             while (this.isPaused() && this.isRunning() && !this.isSingleThread()) {
                 this.processSleep();
 
                 if (!this.isPausable()) {
                     stringMaker.delete(0, stringMaker.length());
-                    logUtil.put(stringMaker.append(END_PAUSE).appendlong(System.currentTimeMillis()).toString(), this, PROCESS_LOOP_SLEEP);
+                    this.logUtil.put(stringMaker.append(END_PAUSE).appendlong(System.currentTimeMillis()).toString(), this, PROCESS_LOOP_SLEEP);
                     return;
                 }
             }

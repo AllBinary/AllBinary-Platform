@@ -41,7 +41,7 @@ public class AuthenticationHelperUtil
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
         {
-            logUtil.put(CommonLabels.getInstance().START + filePath, this, "isAuthorized()");
+            this.logUtil.put(CommonLabels.getInstance().START + filePath, this, "isAuthorized()");
         }
 
         int endIndex = HttpRequestUtil.getInstance().getLastSeparatorIndex(filePath);
@@ -60,7 +60,7 @@ public class AuthenticationHelperUtil
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                logUtil.put("Authorized", this, "isAuthorized()");
+                this.logUtil.put("Authorized", this, "isAuthorized()");
             }
         	
             return true;
@@ -68,7 +68,7 @@ public class AuthenticationHelperUtil
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                logUtil.put("Not Authorized: " + basicUserRole.toString(), this, "isAuthorized()");
+                this.logUtil.put("Not Authorized: " + basicUserRole.toString(), this, "isAuthorized()");
             }
 
             return false;

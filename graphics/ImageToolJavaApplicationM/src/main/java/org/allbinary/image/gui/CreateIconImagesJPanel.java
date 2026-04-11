@@ -165,7 +165,7 @@ public class CreateIconImagesJPanel extends javax.swing.JPanel
                     CreateIconImagesJPanel.this.getParent().repaint();
 
                 } catch (Exception e) {
-                    logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                    this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
                 }
             }
         }.start();

@@ -36,7 +36,7 @@ public class RootContextView extends HttpStoreComponentView
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         logUtil.put("View Name: " + transformInfoInterface.getName(), this, "RootContextView()");
+         this.logUtil.put("View Name: " + transformInfoInterface.getName(), this, "RootContextView()");
       }
    }
 
@@ -47,7 +47,7 @@ public class RootContextView extends HttpStoreComponentView
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            logUtil.put("View Name: " + this.getTransformInfoInterface().getName(), this, "view()");
+            this.logUtil.put("View Name: " + this.getTransformInfoInterface().getName(), this, "view()");
          }
 
          String viewName = this.getName();
@@ -61,7 +61,7 @@ public class RootContextView extends HttpStoreComponentView
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION, this, "view()", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "view()", e);
          }
          throw e;
       }
@@ -93,7 +93,7 @@ public class RootContextView extends HttpStoreComponentView
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            logUtil.put("Root Template With View Name: " + viewName, this, "getName()");
+            this.logUtil.put("Root Template With View Name: " + viewName, this, "getName()");
          }
 
          if(StringValidationUtil.getInstance().isEmpty(viewName))
@@ -107,7 +107,7 @@ public class RootContextView extends HttpStoreComponentView
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION, this, "getName()", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "getName()", e);
          }
          throw e;
       }

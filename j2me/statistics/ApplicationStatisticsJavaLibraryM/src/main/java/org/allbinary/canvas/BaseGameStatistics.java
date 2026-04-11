@@ -40,7 +40,7 @@ public class BaseGameStatistics
     {
         /*
          * try { this.primitiveLongUtil = new PrimitiveLongUtil(1000000000); }
-         * catch(Exception e) { logUtil.put(commonStrings.EXCEPTION,
+         * catch(Exception e) { this.logUtil.put(commonStrings.EXCEPTION,
          * this, commonStrings.CONSTRUCTOR); }
          */
     }
@@ -59,7 +59,7 @@ public class BaseGameStatistics
     // never really implemented
     public void process()
     {
-        // logUtil.put(commonStrings.START, "Refresh", commonStrings.PROCESS);
+        // this.logUtil.put(commonStrings.START, "Refresh", commonStrings.PROCESS);
         // if (timeDelayHelper.isTime())
         // {
 

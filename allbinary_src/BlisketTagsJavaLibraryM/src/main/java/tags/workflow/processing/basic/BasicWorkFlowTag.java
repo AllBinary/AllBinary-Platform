@@ -30,7 +30,7 @@ public class BasicWorkFlowTag extends StoreWorkFlowTag
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
       {
-         logUtil.put(this.commonStrings.START,this,this.commonStrings.CONSTRUCTOR);
+         this.logUtil.put(this.commonStrings.START,this,this.commonStrings.CONSTRUCTOR);
       }
    }
    
@@ -40,7 +40,7 @@ public class BasicWorkFlowTag extends StoreWorkFlowTag
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
          {
-            logUtil.put(this.commonStrings.START,this,"doStartTag()");
+            this.logUtil.put(this.commonStrings.START,this,"doStartTag()");
          }
 
          //Temporary should be replaced by view in xml of workflow

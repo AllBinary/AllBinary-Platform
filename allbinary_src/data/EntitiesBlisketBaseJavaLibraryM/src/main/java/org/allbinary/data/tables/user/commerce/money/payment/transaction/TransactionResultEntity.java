@@ -53,13 +53,13 @@ public class TransactionResultEntity extends AbSqlBean
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                logUtil.put(this.commonStrings.SUCCESS, this, "remove");
+                this.logUtil.put(this.commonStrings.SUCCESS, this, "remove");
             }
         }catch(Exception e)
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                logUtil.put(this.commonStrings.FAILURE, this, "remove", e);
+                this.logUtil.put(this.commonStrings.FAILURE, this, "remove", e);
             }
         }
     }
@@ -83,13 +83,13 @@ public class TransactionResultEntity extends AbSqlBean
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                logUtil.put(this.commonStrings.SUCCESS, this, "add");
+                this.logUtil.put(this.commonStrings.SUCCESS, this, "add");
             }
         }catch(Exception e)
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                logUtil.put(this.commonStrings.FAILURE, this, "add", e);
+                this.logUtil.put(this.commonStrings.FAILURE, this, "add", e);
             }
         }
     }
@@ -108,7 +108,7 @@ public class TransactionResultEntity extends AbSqlBean
                 TransactionResult transactionResult = new TransactionResult(resultHashMap);
                 if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
                 {
-                    logUtil.put(this.commonStrings.SUCCESS, this, "getTransactionResultInterface");
+                    this.logUtil.put(this.commonStrings.SUCCESS, this, "getTransactionResultInterface");
                 }
                 return (TransactionResultInterface) transactionResult;
             }else
@@ -119,7 +119,7 @@ public class TransactionResultEntity extends AbSqlBean
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                logUtil.put(this.commonStrings.FAILURE, this, "getTransactionResultInterface", e);
+                this.logUtil.put(this.commonStrings.FAILURE, this, "getTransactionResultInterface", e);
             }
             return null;
         }

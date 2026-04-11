@@ -35,7 +35,7 @@ public class ModifyTag extends HelperTag
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
       {
-         logUtil.put(this.commonStrings.START,this, this.commonStrings.CONSTRUCTOR);
+         this.logUtil.put(this.commonStrings.START,this, this.commonStrings.CONSTRUCTOR);
       }
    }
       
@@ -55,7 +55,7 @@ public class ModifyTag extends HelperTag
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"insert()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"insert()",e);
          }
          return error;
       }
@@ -77,7 +77,7 @@ public class ModifyTag extends HelperTag
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"delete()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"delete()",e);
          }
          return error;
       }
@@ -99,7 +99,7 @@ public class ModifyTag extends HelperTag
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"update()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"update()",e);
          }
          return error;
       }
@@ -121,7 +121,7 @@ public class ModifyTag extends HelperTag
               stringBuffer.append(" Request URI: ");
               stringBuffer.append(request.getRequestURI());
 
-              logUtil.put(stringBuffer.toString(), this, "doStartTag()");
+              this.logUtil.put(stringBuffer.toString(), this, "doStartTag()");
           }
     	  
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))

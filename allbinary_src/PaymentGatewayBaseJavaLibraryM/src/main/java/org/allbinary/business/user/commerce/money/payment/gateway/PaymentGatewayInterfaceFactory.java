@@ -40,7 +40,7 @@ public class PaymentGatewayInterfaceFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
          {
-            logUtil.put("Getting", this, commonStrings.GET_INSTANCE);
+            this.logUtil.put("Getting", this, commonStrings.GET_INSTANCE);
          }
          
          return this.getInstance(
@@ -50,7 +50,7 @@ public class PaymentGatewayInterfaceFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENTERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION, this, "getInstance(HttpServletRequest)", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "getInstance(HttpServletRequest)", e);
          }
          throw e;
       }
@@ -77,7 +77,7 @@ public class PaymentGatewayInterfaceFactory
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
          {
-            logUtil.put("Getting PaymentGatewayInterface for PaymentType: " +
+            this.logUtil.put("Getting PaymentGatewayInterface for PaymentType: " +
                paymentType.getName() + " with: " + hashMap, this, commonStrings.GET_INSTANCE);
          }
 
@@ -91,7 +91,7 @@ public class PaymentGatewayInterfaceFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENTERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
          }
          throw e;
       }

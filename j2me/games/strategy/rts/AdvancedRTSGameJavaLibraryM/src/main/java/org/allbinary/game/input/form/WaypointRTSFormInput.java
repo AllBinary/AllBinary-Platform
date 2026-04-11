@@ -249,7 +249,7 @@ public class WaypointRTSFormInput extends RTSFormInput
         final AllBinaryLayerManager layerManager, CustomItem item, int index)
         throws Exception
     {
-        logUtil.put("Set Sticking Item: " + item, this, "processSticky");
+        this.logUtil.put("Set Sticking Item: " + item, this, "processSticky");
 
         this.setSelectedStickyItem(item);
         this.setSelectedStickyItemIndex(index);
@@ -263,10 +263,10 @@ public class WaypointRTSFormInput extends RTSFormInput
         final AllBinaryLayerManager layerManager, final RTSLayer layerInterface, final int itemIndex) 
     throws Exception
     {
-        logUtil.put("Layer: " + layerInterface, this, "attemptBuild");
+        this.logUtil.put("Layer: " + layerInterface, this, "attemptBuild");
 
         if(layerInterface == null) {
-            logUtil.put("Layer was null", this, "attemptBuild", new Exception());
+            this.logUtil.put("Layer was null", this, "attemptBuild", new Exception());
             return false;
         }
         
@@ -276,7 +276,7 @@ public class WaypointRTSFormInput extends RTSFormInput
         BasicArrayList list =
             geographicMapCellPositionArea.getOccupyingGeographicMapCellPositionList();
 
-        //logUtil.put("List: " + list, this, "attemptBuild");
+        //this.logUtil.put("List: " + list, this, "attemptBuild");
 
         if (DropCellPositionHistory.getInstance().anyCellPositionWithDrop(list) ||
             WaypointCellPositionHistory.getInstance().anyCellPositionWithDrop(list))
@@ -359,7 +359,7 @@ public class WaypointRTSFormInput extends RTSFormInput
         stringBuffer.append(" with ");
         stringBuffer.appendint(capital.getTotalMoney());
 
-        logUtil.put(
+        this.logUtil.put(
                 stringBuffer.toString(), this, "attemptBuild");
 
         if (cost <= capital.getTotalMoney())
@@ -443,7 +443,7 @@ public class WaypointRTSFormInput extends RTSFormInput
         int occupySize = occupyList.size();
         int surroundSize = surroundList.size();
 
-        logUtil.put(
+        this.logUtil.put(
             "occupySize: " + occupySize +
             " surroundSize: " + surroundSize +
             " surroundList: " + surroundList,

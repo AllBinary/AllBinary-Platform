@@ -62,14 +62,14 @@ public class RotationImageJPanel extends javax.swing.JPanel
                     ImageArrayRotationUtil.getInstance().process(RotationImageJPanel.this.getImageProcessorInput(), angleAsString, RotationImageJPanel.this);                        
 
                 } catch (Exception e) {
-                    logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                    this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
                 }
             }
         }.start();
     }
     /*
     public void paint(Graphics graphics) {
-    logUtil.put(commonStrings.START, this, canvasStrings.PAINT);
+    this.logUtil.put(commonStrings.START, this, canvasStrings.PAINT);
      */
     //graphics.setColor(BasicColors.BLUE.toColor());
     //graphics.fillRect(0, 0, getWidth(),getHeight());
@@ -267,6 +267,6 @@ private void totalAngleJComboBoxActionPerformed(java.awt.event.ActionEvent evt) 
        final boolean isWritten
                = ImageIO.write((RenderedImage) RotationImageJPanel.this.result, imageStrings.PNG, file);
 
-       logUtil.put("File: " + file + " Wrote: " + isWritten, this, commonStrings.RUN);
+       this.logUtil.put("File: " + file + " Wrote: " + isWritten, this, commonStrings.RUN);
    }
 }

@@ -60,7 +60,7 @@ public class InputRobot
       this.robot.mouseMove(point.x + x, point.y + y);
 
       final String message = new StringMaker().append("Moved Mouse To: x: ").appendint(point.x).append(" y: ").appendint(point.y).append(" in the middle of: ").append(StringUtil.getInstance().toString(rectangle)).toString();
-      logUtil.put(message, this, "moveMouseToTarget");
+      this.logUtil.put(message, this, "moveMouseToTarget");
    }
 
    public void mouseMove(Point point) 
@@ -73,7 +73,7 @@ public class InputRobot
       this.robot.mouseMove(x, y);
 
       final String message = new StringMaker().append("Moved Mouse To: x: ").appendint(x).append(" y: ").appendint(y).toString();
-      logUtil.put(message,this, "moveMouse");
+      this.logUtil.put(message,this, "moveMouse");
    }
    
    public void mouseMoveToTarget(Rectangle rectangle) throws Exception

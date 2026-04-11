@@ -135,7 +135,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION, this, "view()", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "view()", e);
          }
          throw e;
       }
@@ -156,7 +156,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
         	 stringBuffer.append(this.toDate);
         	 stringBuffer.append(") and status");
         	 
-        	 logUtil.put(stringBuffer.toString(), this, "view");
+        	 this.logUtil.put(stringBuffer.toString(), this, "view");
          }
          
          Node node = document.createElement(OrderData.ORDERS);
@@ -253,7 +253,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               logUtil.put("Adding Preprocessing Orders", this, "toXmlNode");
+               this.logUtil.put("Adding Preprocessing Orders", this, "toXmlNode");
             }
             
             Vector orderHistoryVector = OrderHistoryEntityFactory.getInstance().getOrders(OrderHistoryData.PREPROCESSING ,fromDate, toDate);
@@ -270,7 +270,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               logUtil.put("Adding Shipped Orders",this, "toXmlNode");
+               this.logUtil.put("Adding Shipped Orders",this, "toXmlNode");
             }
 
             Vector orderHistoryVector = OrderHistoryEntityFactory.getInstance().getOrders(OrderHistoryData.SHIPPED ,fromDate, toDate);
@@ -287,7 +287,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               logUtil.put("Adding Partially Shipped Orders", this, "toDomNode");
+               this.logUtil.put("Adding Partially Shipped Orders", this, "toDomNode");
             }
             
             Vector orderHistoryVector = OrderHistoryEntityFactory.getInstance().getOrders(OrderHistoryData.PARTIALLYSHIPPED ,fromDate, toDate);
@@ -304,7 +304,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               logUtil.put("Adding Processing Orders", this, "toXmlNode");
+               this.logUtil.put("Adding Processing Orders", this, "toXmlNode");
             }
             
             Vector orderHistoryVector = OrderHistoryEntityFactory.getInstance().getOrders(OrderHistoryData.PROCESSING ,fromDate, toDate);
@@ -321,7 +321,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               logUtil.put("Adding Cancelled Orders", this, "view");
+               this.logUtil.put("Adding Cancelled Orders", this, "view");
             }
             
             Vector orderHistoryVector = OrderHistoryEntityFactory.getInstance().getOrders(OrderHistoryData.CANCELLED ,fromDate, toDate);
@@ -365,7 +365,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XSLLOGGINGERROR))
          {
-            logUtil.put(this.commonStrings.FAILURE, this, "toXmlNode", e);
+            this.logUtil.put(this.commonStrings.FAILURE, this, "toXmlNode", e);
          }
          return null;
       }
@@ -469,7 +469,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
         	 stringBuffer.append(this.toDate);
         	 stringBuffer.append(")");
 
-        	 logUtil.put(stringBuffer.toString(), this, commonStrings.IS_VALID);
+        	 this.logUtil.put(stringBuffer.toString(), this, commonStrings.IS_VALID);
          }
          
          return isValid;
@@ -479,7 +479,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            logUtil.put("Exception in validation", this, commonStrings.IS_VALID, e);
+            this.logUtil.put("Exception in validation", this, commonStrings.IS_VALID, e);
          }
          return Boolean.FALSE;
       }
@@ -527,7 +527,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
+            this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
          }
          return "Error Getting Validation Info";
       }

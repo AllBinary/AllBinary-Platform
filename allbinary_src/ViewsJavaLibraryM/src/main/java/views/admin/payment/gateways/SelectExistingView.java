@@ -48,7 +48,7 @@ public class SelectExistingView extends PaymentGatewayViewAbstract
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION, this, "view", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "view", e);
          }
          throw e;
       }

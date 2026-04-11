@@ -40,7 +40,7 @@ public class StoreWorkFlowTag extends HelperTag
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
       {
-         logUtil.put(this.commonStrings.START,this,this.commonStrings.CONSTRUCTOR);
+         this.logUtil.put(this.commonStrings.START,this,this.commonStrings.CONSTRUCTOR);
       }
    }
 
@@ -64,7 +64,7 @@ public class StoreWorkFlowTag extends HelperTag
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
          {
-            logUtil.put(this.commonStrings.START,this,commonStrings.PROCESS);
+            this.logUtil.put(this.commonStrings.START,this,commonStrings.PROCESS);
          }
          
          Class helperClass = this.getHelper().getClass();
@@ -76,7 +76,7 @@ public class StoreWorkFlowTag extends HelperTag
       {         
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,commonStrings.PROCESS,e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,commonStrings.PROCESS,e);
          }
          throw e;
       }
@@ -88,7 +88,7 @@ public class StoreWorkFlowTag extends HelperTag
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
          {
-            logUtil.put(this.commonStrings.START,this,"doStartTag()");
+            this.logUtil.put(this.commonStrings.START,this,"doStartTag()");
          }
          
          this.setHelper();

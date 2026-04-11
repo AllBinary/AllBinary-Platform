@@ -81,7 +81,7 @@ public class HttpFileUploadUtil
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTP))
         {
-            logUtil.put(stringBuffer.toString(), getInstance(), "log()");
+            this.logUtil.put(stringBuffer.toString(), getInstance(), "log()");
         }
     }
 
@@ -108,7 +108,7 @@ public class HttpFileUploadUtil
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
         {
-            logUtil.put(stringBuffer.toString(), getInstance(), "log()");
+            this.logUtil.put(stringBuffer.toString(), getInstance(), "log()");
         }
     }
 }

@@ -92,7 +92,7 @@ public class GeographicMapCellHistory
          this.list.add(geographicMapCellPosition);
          this.visitedList.add(booleanFactory.FALSE);
       }
-   //logUtil.put("Position: " + geographicMapCellPosition, this, "track");
+   //this.logUtil.put("Position: " + geographicMapCellPosition, this, "track");
    }
 
    public BasicArrayList getTracked()
@@ -194,7 +194,7 @@ public class GeographicMapCellHistory
       }
       else
       {
-         //logUtil.put(geographicMapCellPosition.toString() + " not being tracked", this, "visit");
+         //this.logUtil.put(geographicMapCellPosition.toString() + " not being tracked", this, "visit");
       }
       return false;
    }
@@ -217,7 +217,7 @@ public class GeographicMapCellHistory
       }
       else
       {
-         //logUtil.put(geographicMapCellPosition.toString() + " not being tracked", this, "visit");
+         //this.logUtil.put(geographicMapCellPosition.toString() + " not being tracked", this, "visit");
       }
       return false;
    }
@@ -276,7 +276,7 @@ public class GeographicMapCellHistory
       final int numberNotVisited = this.getSize() - 1 - this.totalVisited;
 
       /*
-      logUtil.put(
+      this.logUtil.put(
          "Total Visited: " + (size - numberNotVisited) +
          " out of " + size + " Number Required: " + numberRequired,
          this, "isMostlyVisited");
@@ -326,8 +326,8 @@ public class GeographicMapCellHistory
    /*
    if(currentTime - lastTime > 2000)
    {
-   //logUtil.put("x: " + x, this, "paintNotVisited");
-   //logUtil.put("y: " + y, this, "paintNotVisited");
+   //this.logUtil.put("x: " + x, this, "paintNotVisited");
+   //this.logUtil.put("y: " + y, this, "paintNotVisited");
    lastTime = currentTime;
    }
     */
@@ -369,7 +369,7 @@ public class GeographicMapCellHistory
       catch (Exception e)
       {
           final CommonStrings commonStrings = CommonStrings.getInstance();
-         logUtil.put(commonStrings.EXCEPTION, this, "paintNotVisited", e);
+         this.logUtil.put(commonStrings.EXCEPTION, this, "paintNotVisited", e);
       }
    }
    

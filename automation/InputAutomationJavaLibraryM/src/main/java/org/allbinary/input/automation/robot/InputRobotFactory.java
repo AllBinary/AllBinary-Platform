@@ -57,15 +57,15 @@ public class InputRobotFactory
             for (int i = 0; i < screens.length; i++)
             {
                 inputRobotInterface = (InputRobotInterface) new InputRobot(screens [i]);
-                logUtil.put("Adding Robot: " + inputRobotInterface.getName(), this, "getRobots");
+                this.logUtil.put("Adding Robot: " + inputRobotInterface.getName(), this, "getRobots");
                 this.get().put(inputRobotInterface.getName(), inputRobotInterface);
             }
             
-            logUtil.put("Number Of Robots: " + this.hashtable.size(), this, "getRobots");
+            this.logUtil.put("Number Of Robots: " + this.hashtable.size(), this, "getRobots");
         }
         catch(Exception e)
         {
-            logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR);
         }
     }
     
@@ -77,7 +77,7 @@ public class InputRobotFactory
     public void add(final InputRobotInterface inputRobotInterface)
     throws Exception
     {
-        logUtil.put("Adding InputRobotInterface: " + inputRobotInterface.getName(), this, "add");
+        this.logUtil.put("Adding InputRobotInterface: " + inputRobotInterface.getName(), this, "add");
         this.get().put(inputRobotInterface.getName(), inputRobotInterface);
         
         final HelpSet helpSet = inputRobotInterface.getHelpSet();
@@ -94,13 +94,13 @@ public class InputRobotFactory
             }
             else
             {
-                logUtil.put("Null HelpSet For: " +
+                this.logUtil.put("Null HelpSet For: " +
                     inputRobotInterface.getName(), this, "add");
             }
         }
         else
         {
-            logUtil.put("No HelpSet Listener", this, "add");
+            this.logUtil.put("No HelpSet Listener", this, "add");
         }
     }
     
@@ -108,7 +108,7 @@ public class InputRobotFactory
     throws Exception
     {
         final Set set = this.get().keySet();
-        logUtil.put("Loading Libraries", this, "loadLibraries");
+        this.logUtil.put("Loading Libraries", this, "loadLibraries");
 
         final Object[] nameArray = set.toArray();
         final int size = nameArray.length;
@@ -124,7 +124,7 @@ public class InputRobotFactory
     throws Exception
     {
         final LogUtil logUtil = LogUtil.getInstance();
-        logUtil.put("Loading Libraries", "InputRobotFactory", "loadLibraries");
+        this.logUtil.put("Loading Libraries", "InputRobotFactory", "loadLibraries");
         final Iterator iterator = collection.iterator();
         while(iterator.hasNext())
         {
@@ -138,7 +138,7 @@ public class InputRobotFactory
         final LogUtil logUtil = LogUtil.getInstance();
         if(InterfaceUtil.isImplemented(SecuredNativeLibraryInterface.class, inputRobotInterface))
         {
-            logUtil.put("Loading Library: " + 
+            this.logUtil.put("Loading Library: " + 
                 inputRobotInterface.getName(), 
                 "InputRobotFactory", "loadLibraries");
             
@@ -151,7 +151,7 @@ public class InputRobotFactory
     public void unloadLibraries() 
         throws Exception
     {
-        logUtil.put("Unloading Libraries", this, "unloadLibraries");
+        this.logUtil.put("Unloading Libraries", this, "unloadLibraries");
         final Set set = this.get().keySet();
 
         InputRobotInterface inputRobotInterface;
@@ -165,7 +165,7 @@ public class InputRobotFactory
             if(InterfaceUtil.isImplemented(
                 SecuredNativeLibraryInterface.class, inputRobotInterface))
             {
-                logUtil.put("Unloading Library: " + inputRobotInterface.getName(),
+                this.logUtil.put("Unloading Library: " + inputRobotInterface.getName(),
                     this, "unloadLibraries");
                 
                 SecuredNativeLibraryInterface securedNativeLibraryInterface =
@@ -182,7 +182,7 @@ public class InputRobotFactory
     
     public InputRobotInterface get(final String name)
     {
-        logUtil.put("Getting Robot: " + name, this, "getRobots");
+        this.logUtil.put("Getting Robot: " + name, this, "getRobots");
         return (InputRobotInterface) this.hashtable.get(name);
     }
 }

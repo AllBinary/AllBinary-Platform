@@ -64,7 +64,7 @@ public class HighScoreTextBox extends CustomTextBox
 
         highScoreUtil = new HighScoreUtil(highScoresFactoryInterface, highScoresHelper, abeClientInformation, gameInfo, cmdListener, name, highScore);
         
-        //logUtil.put("Score: ").append(score, this, "compare");
+        //this.logUtil.put("Score: ").append(score, this, "compare");
 
         final GenericOperatingSystem operatingSystemInterface
                 = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
@@ -118,10 +118,10 @@ public class HighScoreTextBox extends CustomTextBox
         this.update();
         
         if(this.submitted) {
-            //logUtil.put("Saving HighScores", this, commonStrings.CLOSE);
+            //this.logUtil.put("Saving HighScores", this, commonStrings.CLOSE);
             this.highScoreUtil.saveHighScore();
         } else {
-            //logUtil.put("Not Saving HighScores", this, commonStrings.CLOSE);
+            //this.logUtil.put("Not Saving HighScores", this, commonStrings.CLOSE);
         }
         
         this.paintable = NullPaintable.getInstance();

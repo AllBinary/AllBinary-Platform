@@ -97,7 +97,7 @@ public class AbSqlTableUtil
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                logUtil.put(SAVING + tableName, this, this.METHOD_GET_OUTPUT_STREAM);
+                this.logUtil.put(SAVING + tableName, this, this.METHOD_GET_OUTPUT_STREAM);
             }
 
             AbPath backupFilePath = new AbPath(backupPath, fileName);
@@ -120,7 +120,7 @@ public class AbSqlTableUtil
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
-                logUtil.put("Create File", this, this.METHOD_GET_OUTPUT_STREAM, e);
+                this.logUtil.put("Create File", this, this.METHOD_GET_OUTPUT_STREAM, e);
             }
             return null;
         }
@@ -153,7 +153,7 @@ public class AbSqlTableUtil
                 stringBuffer.append(FILE_LABEL);
                 stringBuffer.append(fileName);
 
-                logUtil.put(stringBuffer.toString(), this, this.METHOD_BACKUP_FILE);
+                this.logUtil.put(stringBuffer.toString(), this, this.METHOD_BACKUP_FILE);
             }
 
             Directory.create(backupAbPath);
@@ -168,7 +168,7 @@ public class AbSqlTableUtil
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
-                logUtil.put(this.commonStrings.EXCEPTION, this, this.METHOD_BACKUP_FILE, e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, this.METHOD_BACKUP_FILE, e);
             }
             return false;
         }
@@ -223,7 +223,7 @@ public class AbSqlTableUtil
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
                 {
-                    logUtil.put(ERROR_CREATING + path, this, this.METHOD_BACKUP_TABLE);
+                    this.logUtil.put(ERROR_CREATING + path, this, this.METHOD_BACKUP_TABLE);
                 }
             }
 
@@ -263,7 +263,7 @@ public class AbSqlTableUtil
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
                 {
-                    logUtil.put(APPENDING + sqlStatementLine, this, this.METHOD_BACKUP_TABLE);
+                    this.logUtil.put(APPENDING + sqlStatementLine, this, this.METHOD_BACKUP_TABLE);
                 }
 
                 outputStream.write(sqlStatementLine.getBytes());
@@ -276,7 +276,7 @@ public class AbSqlTableUtil
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
-                logUtil.put("Backup Table Failed\nSQL Statement", this, this.METHOD_BACKUP_TABLE, e);
+                this.logUtil.put("Backup Table Failed\nSQL Statement", this, this.METHOD_BACKUP_TABLE, e);
             }
             return TABLE_LABEL + tableName + " Backup Failed";
         }
@@ -298,7 +298,7 @@ public class AbSqlTableUtil
                 {
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
                     {
-                        logUtil.put(this.ERROR_CREATING + path, this, this.METHOD_RESTORE_TABLE);
+                        this.logUtil.put(this.ERROR_CREATING + path, this, this.METHOD_RESTORE_TABLE);
                     }
                 }
             }
@@ -332,7 +332,7 @@ public class AbSqlTableUtil
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                logUtil.put(stringBuffer.toString(), this, this.METHOD_RESTORE_TABLE);
+                this.logUtil.put(stringBuffer.toString(), this, this.METHOD_RESTORE_TABLE);
             }
 
             //If the readahead is less than 2 lines then this will only work some of the time
@@ -358,7 +358,7 @@ public class AbSqlTableUtil
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
-                logUtil.put("Restore Table Failed\nSQL Statement", this, this.METHOD_RESTORE_TABLE, e);
+                this.logUtil.put("Restore Table Failed\nSQL Statement", this, this.METHOD_RESTORE_TABLE, e);
             }
 
             StringMaker stringBuffer = new StringMaker();

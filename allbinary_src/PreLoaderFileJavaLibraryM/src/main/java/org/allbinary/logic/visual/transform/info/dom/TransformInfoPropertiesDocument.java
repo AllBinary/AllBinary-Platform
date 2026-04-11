@@ -64,7 +64,7 @@ public class TransformInfoPropertiesDocument
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            logUtil.put("Size: " + transformInfoNodeVector.size(), this, "toTransformInfoPropertiesHashMap()");
+            this.logUtil.put("Size: " + transformInfoNodeVector.size(), this, "toTransformInfoPropertiesHashMap()");
          }
 
          final int size = transformInfoNodeVector.size();
@@ -88,7 +88,7 @@ public class TransformInfoPropertiesDocument
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, this, "toTransformInfoPropertiesHashMap()", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "toTransformInfoPropertiesHashMap()", e);
          }
          return null;
       }

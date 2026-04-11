@@ -76,7 +76,7 @@ public class AbSqlColumn extends AbSqlTable
                 stringBuffer.append(LARGEST_INT_VALUE_IN_COLUMN);
                 stringBuffer.append(largestAsString);
 
-                logUtil.put(stringBuffer.toString(), this, METHOD_GET_LARGETS_INTEGER_IN_COLUMN);
+                this.logUtil.put(stringBuffer.toString(), this, METHOD_GET_LARGETS_INTEGER_IN_COLUMN);
             }
 
             return largestAsString;
@@ -84,7 +84,7 @@ public class AbSqlColumn extends AbSqlTable
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
-                logUtil.put(this.FAILED_SQL_STATEMENT + sqlStatement, this, METHOD_GET_LARGETS_INTEGER_IN_COLUMN, e);
+                this.logUtil.put(this.FAILED_SQL_STATEMENT + sqlStatement, this, METHOD_GET_LARGETS_INTEGER_IN_COLUMN, e);
             }
             return INVALID_RESULT;
         }
@@ -121,7 +121,7 @@ public class AbSqlColumn extends AbSqlTable
                 stringBuffer.append(sqlStrings.COLUMN_VALUE);
                 stringBuffer.append(column.toString());
 
-                logUtil.put(stringBuffer.toString(), this, METHOD_GET_COLUMN);
+                this.logUtil.put(stringBuffer.toString(), this, METHOD_GET_COLUMN);
             }
 
             return column;
@@ -129,7 +129,7 @@ public class AbSqlColumn extends AbSqlTable
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
-                logUtil.put(this.FAILED_SQL_STATEMENT + sqlStatement, this, METHOD_GET_COLUMN, e);
+                this.logUtil.put(this.FAILED_SQL_STATEMENT + sqlStatement, this, METHOD_GET_COLUMN, e);
             }
             return column;
         }
@@ -171,7 +171,7 @@ public class AbSqlColumn extends AbSqlTable
                 stringBuffer.append(sqlStrings.COLUMN_VALUE);
                 stringBuffer.append(column.toString());
 
-                logUtil.put(stringBuffer.toString(), this, METHOD_GET_COLUMN_WHERE);
+                this.logUtil.put(stringBuffer.toString(), this, METHOD_GET_COLUMN_WHERE);
             }
 
             return column;
@@ -179,7 +179,7 @@ public class AbSqlColumn extends AbSqlTable
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
-                logUtil.put(this.FAILED_SQL_STATEMENT + sqlStatement, this, this.METHOD_GET_COLUMN_WHERE, e);
+                this.logUtil.put(this.FAILED_SQL_STATEMENT + sqlStatement, this, this.METHOD_GET_COLUMN_WHERE, e);
             }
             return column;
         }
@@ -222,7 +222,7 @@ public class AbSqlColumn extends AbSqlTable
                 stringBuffer.append(sqlStrings.COLUMN_VALUE);
                 stringBuffer.append(column.toString());
 
-                logUtil.put(stringBuffer.toString(), this, "getColumnWhereLike");
+                this.logUtil.put(stringBuffer.toString(), this, "getColumnWhereLike");
             }
 
             return column;
@@ -230,7 +230,7 @@ public class AbSqlColumn extends AbSqlTable
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
-                logUtil.put(this.FAILED_SQL_STATEMENT + sqlStatement, this, "getColumn", e);
+                this.logUtil.put(this.FAILED_SQL_STATEMENT + sqlStatement, this, "getColumn", e);
             }
             return column;
         }

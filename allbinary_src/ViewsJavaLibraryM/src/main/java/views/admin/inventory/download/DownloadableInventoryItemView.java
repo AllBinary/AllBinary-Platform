@@ -106,7 +106,7 @@ public class DownloadableInventoryItemView
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
             {
-                logUtil.put(commonStrings.EXCEPTION, this, "view()", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "view()", e);
             }
             throw e;
         }
@@ -124,10 +124,10 @@ public class DownloadableInventoryItemView
     {
     int size = this.processFile(fileKeyArray[index]);
 
-    logUtil.put("Size: " + size, this, "processFiles()");
+    this.logUtil.put("Size: " + size, this, "processFiles()");
     if(index == 1)
     {
-    logUtil.put("set", this, "processFiles()");
+    this.logUtil.put("set", this, "processFiles()");
     this.getRequestHashMap().put(DownloadItemData.SIZE, Integer.valueOf(size));
     }
     }
@@ -173,11 +173,11 @@ public class DownloadableInventoryItemView
         stringBuffer.append(fullPath);
         stringBuffer.append(fileName);
 
-        logUtil.put("FileName: " + fileName, this, "processFile()");
+        this.logUtil.put("FileName: " + fileName, this, "processFile()");
 
         final AbFile file = new AbFile(stringBuffer.toString());
 
-        logUtil.put(file.getPath(), this, "processFiles()");
+        this.logUtil.put(file.getPath(), this, "processFiles()");
 
         file.createNewFile();
 
@@ -200,11 +200,11 @@ public class DownloadableInventoryItemView
         stringBuffer.append(fullPath);
         stringBuffer.append(fileName);
 
-        logUtil.put("FileName: " + fileName, this, "unzip()");
+        this.logUtil.put("FileName: " + fileName, this, "unzip()");
 
         final AbFile file = new AbFile(stringBuffer.toString());
 
-        logUtil.put(file.getPath(), this, "unzip()");
+        this.logUtil.put(file.getPath(), this, "unzip()");
 
         ZipFileUtil.getInstance().unzip(fullPath, file, fileName);
     }

@@ -170,7 +170,7 @@ public class ColorAtActionScriptCondition
         hashMap.put(ColorAtActionScriptConditionData.MIN_BLUE, Integer.toString(this.getColorRangeInterface().getMinBlue()));
         hashMap.put(ColorAtActionScriptConditionData.MAX_BLUE, Integer.toString(this.getColorRangeInterface().getMaxBlue()));
 
-        logUtil.put("HashMap: " + hashMap.toString(), this, "toHashMap()");
+        this.logUtil.put("HashMap: " + hashMap.toString(), this, "toHashMap()");
 
         return hashMap;
     }
@@ -216,7 +216,7 @@ public class ColorAtActionScriptCondition
     {
         final String message = new StringMaker().append("getPoint(): ").append(this.getPoint().toString()).append(CommonSeps.getInstance().NEW_LINE).append(this.getColorRangeInterface().toString()).toString();
 
-        logUtil.put(message, this, "log");
+        this.logUtil.put(message, this, "log");
     }
 
     public ColorRangeInterface getColorRangeInterface()

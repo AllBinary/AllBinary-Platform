@@ -64,7 +64,7 @@ public class CheatGameInputProcessor extends PlayerGameInput
                     inputProcessor.strafeLeft();
                     
                     //gameLayerManager.getGameInfo().previousGameLevel();
-                    //logUtil.put(new StringMaker().append("Down Level Cheat: ").append(gameLayerManager.getGameInfo().getCurrentLevel()).toString(),this, PROCESS_GAME);
+                    //this.logUtil.put(new StringMaker().append("Down Level Cheat: ").append(gameLayerManager.getGameInfo().getCurrentLevel()).toString(),this, PROCESS_GAME);
                     //this.gameCanvas.buildGame(true);
                     break;
                 }
@@ -73,7 +73,7 @@ public class CheatGameInputProcessor extends PlayerGameInput
                     inputProcessor.strafeRight();
                     
                     //gameLayerManager.getGameInfo().nextGameLevel();
-                    //logUtil.put(new StringMaker().append("Up Level Cheat: ").append(gameLayerManager.getGameInfo().getCurrentLevel()).toString(),this, PROCESS_GAME);
+                    //this.logUtil.put(new StringMaker().append("Up Level Cheat: ").append(gameLayerManager.getGameInfo().getCurrentLevel()).toString(),this, PROCESS_GAME);
                     //this.gameCanvas.buildGame(true);
                     break;
                 }
@@ -82,28 +82,28 @@ public class CheatGameInputProcessor extends PlayerGameInput
                 {   
                     inputProcessor.left();
 //                    x+=1;
-//                    logUtil.put(new StringMaker().append("x: ").append(x).toString(),this, PROCESS_GAME);
+//                    this.logUtil.put(new StringMaker().append("x: ").append(x).toString(),this, PROCESS_GAME);
                     break;
                 }
                 else if (key == gameKeyFactory.RIGHT.getId())
                 {   
                     inputProcessor.right();
 //                    x-=1;
-//                    logUtil.put(new StringMaker().append("x: ").append(x).toString(),this, PROCESS_GAME);
+//                    this.logUtil.put(new StringMaker().append("x: ").append(x).toString(),this, PROCESS_GAME);
                     break;
                 }
                 else if (key == gameKeyFactory.UP.getId())
                 {
                     inputProcessor.up();
 //                    y+=1;
-//                    logUtil.put(new StringMaker().append("y: ").append(y).toString(),this, PROCESS_GAME);   
+//                    this.logUtil.put(new StringMaker().append("y: ").append(y).toString(),this, PROCESS_GAME);   
                     break;
                 }
                 else if (key == gameKeyFactory.DOWN.getId())
                 {
                     inputProcessor.down();
 //                    y-=1;
-//                    logUtil.put(new StringMaker().append("y: ").append(y).toString(),this, PROCESS_GAME);
+//                    this.logUtil.put(new StringMaker().append("y: ").append(y).toString(),this, PROCESS_GAME);
                     break;
                 }
                 //3
@@ -111,7 +111,7 @@ public class CheatGameInputProcessor extends PlayerGameInput
                 {
                     inputProcessor.special1(gameLayerManager, GameKeyEvent.NONE);
 //                    z+=1;
-//                    logUtil.put(new StringMaker().append("z: ").append(z).toString(),this, PROCESS_GAME);
+//                    this.logUtil.put(new StringMaker().append("z: ").append(z).toString(),this, PROCESS_GAME);
                     break;
                 }
                 //4
@@ -119,7 +119,7 @@ public class CheatGameInputProcessor extends PlayerGameInput
                 {
                     inputProcessor.special2(gameLayerManager, GameKeyEvent.NONE);
 //                    z-=1;
-//                    logUtil.put(new StringMaker().append("z: ").append(z).toString(),this, PROCESS_GAME);
+//                    this.logUtil.put(new StringMaker().append("z: ").append(z).toString(),this, PROCESS_GAME);
                     break;
                 }
                 
@@ -129,7 +129,7 @@ public class CheatGameInputProcessor extends PlayerGameInput
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e);
         }
     }
 

@@ -75,7 +75,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
                 PlayerGameInput playerGameInput = (PlayerGameInput) this.list.objectArray[index];
                 playerGameInput.onDownKeyEvent(eventObject);
             } catch (Exception e) {
-                logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
         }
 
@@ -90,7 +90,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
             }
             catch (Exception e)
             {
-                logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
             index++;
         }
@@ -107,7 +107,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
                 PlayerGameInput playerGameInput = (PlayerGameInput) this.list.objectArray[index];
                 playerGameInput.onDownKeyEvent(eventObject);
             } catch (Exception e) {
-                logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
         }
 
@@ -122,7 +122,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
             }
             catch (Exception e)
             {
-                logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
             index++;
         }
@@ -158,7 +158,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
                 stringBuffer.append(LISTENER_LABEL);
                 stringBuffer.append(eventListenerInterface.toString());
             } catch (Exception e) {
-                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.TOSTRING, e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.TOSTRING, e);
             }
         }
         return stringBuffer.toString();

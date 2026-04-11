@@ -42,7 +42,7 @@ implements CompleteMotionGestureInputInterface
         catch(Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, this, "InputToGameKeyEventAction", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "InputToGameKeyEventAction", e);
         }        
     }
     

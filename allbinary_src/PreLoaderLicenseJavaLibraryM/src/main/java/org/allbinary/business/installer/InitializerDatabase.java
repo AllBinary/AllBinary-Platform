@@ -68,7 +68,7 @@ public class InitializerDatabase
             stringBuffer.append(" Value: ");
             stringBuffer.append(values[0]);
             
-            logUtil.put(stringBuffer.toString(), this, "getFormData()");
+            this.logUtil.put(stringBuffer.toString(), this, "getFormData()");
         }
         this.getFormData(abeClientInformation, hashMap);
     }
@@ -108,7 +108,7 @@ public class InitializerDatabase
 
         } catch (Exception e)
         {
-            logUtil.put("Unable to get form data", this, "getFormData()", e);
+            this.logUtil.put("Unable to get form data", this, "getFormData()", e);
         }
     }
 
@@ -123,7 +123,7 @@ public class InitializerDatabase
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADERERROR))
             {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.IS_VALID, e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.IS_VALID, e);
             }
             return false;
         }
@@ -204,7 +204,7 @@ public class InitializerDatabase
             return true;
         } catch (Exception e)
         {
-            logUtil.put("Unable to Create Users", this, "createUsers()", e);
+            this.logUtil.put("Unable to Create Users", this, "createUsers()", e);
             return false;
         }
     }
@@ -217,7 +217,7 @@ public class InitializerDatabase
             return true;
         } catch (Exception e)
         {
-            logUtil.put("Unable to Create Databases", this, "createDatabases()", e);
+            this.logUtil.put("Unable to Create Databases", this, "createDatabases()", e);
             return false;
         }
     }
@@ -230,7 +230,7 @@ public class InitializerDatabase
             return true;
         } catch (Exception e)
         {
-            logUtil.put("Unable to Create Tables", this, "createTables()", e);
+            this.logUtil.put("Unable to Create Tables", this, "createTables()", e);
             return false;
         }
     }

@@ -65,7 +65,7 @@ public class UpdateFileValidationView
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
-                    logUtil.put("Invalid AdminCommand=" + command, this, commonStrings.IS_VALID);
+                    this.logUtil.put("Invalid AdminCommand=" + command, this, commonStrings.IS_VALID);
                 }
                 return Boolean.FALSE;
             }
@@ -82,7 +82,7 @@ public class UpdateFileValidationView
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                     org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
-                    logUtil.put("Existing Item With MoneyException", this, commonStrings.IS_VALID, e);
+                    this.logUtil.put("Existing Item With MoneyException", this, commonStrings.IS_VALID, e);
                 }
             }
 
@@ -90,7 +90,7 @@ public class UpdateFileValidationView
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
-                    logUtil.put("Item Does Not Exist", this, commonStrings.IS_VALID);
+                    this.logUtil.put("Item Does Not Exist", this, commonStrings.IS_VALID);
                 }
 
                 return Boolean.FALSE;
@@ -100,7 +100,7 @@ public class UpdateFileValidationView
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
-                    logUtil.put("BasicItem is not valid", this, commonStrings.IS_VALID);
+                    this.logUtil.put("BasicItem is not valid", this, commonStrings.IS_VALID);
                 }
 
                 return Boolean.FALSE;
@@ -125,7 +125,7 @@ public class UpdateFileValidationView
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
-                    logUtil.put("Category Does Not Exist: " + fullCategory, this, commonStrings.IS_VALID);
+                    this.logUtil.put("Category Does Not Exist: " + fullCategory, this, commonStrings.IS_VALID);
                 }
 
                 return Boolean.FALSE;
@@ -247,7 +247,7 @@ public class UpdateFileValidationView
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
-                    logUtil.put("DownloadableItem is not valid", this, commonStrings.IS_VALID);
+                    this.logUtil.put("DownloadableItem is not valid", this, commonStrings.IS_VALID);
                 }
 
                 return Boolean.FALSE;
@@ -258,7 +258,7 @@ public class UpdateFileValidationView
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
             {
-                logUtil.put("Exception in validation", this, commonStrings.IS_VALID, e);
+                this.logUtil.put("Exception in validation", this, commonStrings.IS_VALID, e);
             }
             return Boolean.FALSE;
         }
@@ -295,7 +295,7 @@ public class UpdateFileValidationView
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
-                    logUtil.put(ITEM_NOT_FOUND, this, "validationInfo()");
+                    this.logUtil.put(ITEM_NOT_FOUND, this, "validationInfo()");
                 }
 
                 return ITEM_NOT_FOUND;
@@ -322,7 +322,7 @@ public class UpdateFileValidationView
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                logUtil.put("Category: " + fullCategory, this, "validationInfo()");
+                this.logUtil.put("Category: " + fullCategory, this, "validationInfo()");
             }
 
             AbFile categoryFile = new AbFile(fullCategory);
@@ -398,7 +398,7 @@ public class UpdateFileValidationView
                     final String log = downloadableItemValidation.validationInfo();
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                     {
-                        logUtil.put(log, this, commonStrings.IS_VALID);
+                        this.logUtil.put(log, this, commonStrings.IS_VALID);
                     }
 
                     stringBuffer.append(log);
@@ -412,7 +412,7 @@ public class UpdateFileValidationView
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
             {
-                logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
+                this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
             }
             return "Error Getting Validation Info";
         }
@@ -439,7 +439,7 @@ public class UpdateFileValidationView
                         stringBuffer.append("File name is not valid: ");
                         stringBuffer.append(fileName);
 
-                        logUtil.put(
+                        this.logUtil.put(
                             stringBuffer.toString(), this, commonStrings.IS_VALID);
                     }
 
@@ -470,7 +470,7 @@ public class UpdateFileValidationView
                     stringBuffer.append(">");
                     stringBuffer.appendint(fileData.MAXDOWNLOADABLEFILESIZE);
 
-                    logUtil.put(
+                    this.logUtil.put(
                         stringBuffer.toString(), this, commonStrings.IS_VALID);
                 }
                 return Boolean.FALSE;
@@ -486,7 +486,7 @@ public class UpdateFileValidationView
                 stringBuffer.append(">");
                 stringBuffer.appendint(fileData.MINDOWNLOADABLEFILESIZE);
 
-                logUtil.put(
+                this.logUtil.put(
                     stringBuffer.toString(), this, commonStrings.IS_VALID);
             }
             return Boolean.FALSE;

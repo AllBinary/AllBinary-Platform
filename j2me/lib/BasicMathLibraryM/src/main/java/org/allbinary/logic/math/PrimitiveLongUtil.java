@@ -38,7 +38,7 @@ public class PrimitiveLongUtil
         
         if(powerOfTen % 10 != 0)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR,
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR,
                     new Exception("Max must be power of 10"));
         }
     }

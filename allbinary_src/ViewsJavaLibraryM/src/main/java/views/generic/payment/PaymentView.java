@@ -56,7 +56,7 @@ public class PaymentView  extends HttpStoreComponentView implements DomNodeInter
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
-            logUtil.put(this.commonStrings.FAILURE,this,"toXmlNode",e);
+            this.logUtil.put(this.commonStrings.FAILURE,this,"toXmlNode",e);
          }
          throw e;
       }
@@ -79,7 +79,7 @@ public class PaymentView  extends HttpStoreComponentView implements DomNodeInter
          String error = "Failed to view Payment";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"view()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"view()",e);
          }
          return error;
       }

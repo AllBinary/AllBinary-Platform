@@ -39,7 +39,7 @@ public class AbKeys
       {
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))
          //{
-            logUtil.put("Getting Key: " + keyName, this, "getKey");
+            this.logUtil.put("Getting Key: " + keyName, this, "getKey");
          //}
 
          //TWB - Replace with key from server
@@ -61,7 +61,7 @@ public class AbKeys
       {
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSINGERROR))
          //{
-            logUtil.put("Licensing Failure", this, "getKey()", e);
+            this.logUtil.put("Licensing Failure", this, "getKey()", e);
          //}
          throw new LicensingException("Unknown License Failure");
       }

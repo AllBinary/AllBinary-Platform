@@ -78,7 +78,7 @@ implements TechEventListenerInterface
         catch(Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, this, "onTechEvent", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "onTechEvent", e);
         }
     }
 

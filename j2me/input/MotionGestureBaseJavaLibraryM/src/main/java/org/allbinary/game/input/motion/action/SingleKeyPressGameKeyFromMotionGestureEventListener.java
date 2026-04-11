@@ -39,19 +39,19 @@ extends CompleteMotionGestureInputEventListener
     {
         try
         {
-            //logUtil.put("Start GameKey: " + ((GameKeyCompleteMotionGestureInputEvent) completeMotionGestureInputEvent).getGameKey(), this, "onCompleteMotionGestureInputEvent");
+            //this.logUtil.put("Start GameKey: " + ((GameKeyCompleteMotionGestureInputEvent) completeMotionGestureInputEvent).getGameKey(), this, "onCompleteMotionGestureInputEvent");
             
             final GameKeyCompleteMotionGestureInputEvent gameKeyCompleteMotionGestureInputEvent = (GameKeyCompleteMotionGestureInputEvent) completeMotionGestureInputEvent;
             final GameKeyEvent gameKeyEvent = gameKeyCompleteMotionGestureInputEvent.getGameKeyEvent();
 
-            //logUtil.put("gameKeyEvent: " + gameKeyEvent, this, "onCompleteMotionGestureInputEvent");
+            //this.logUtil.put("gameKeyEvent: " + gameKeyEvent, this, "onCompleteMotionGestureInputEvent");
 
             PressGameKeyEventHandler.getInstance().fireEvent(gameKeyEvent);
         }
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, this, "onCompleteMotionGestureInputEvent", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "onCompleteMotionGestureInputEvent", e);
         }
     }
 }

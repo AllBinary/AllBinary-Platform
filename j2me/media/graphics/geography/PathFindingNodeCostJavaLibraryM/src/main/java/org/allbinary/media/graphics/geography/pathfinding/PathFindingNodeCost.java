@@ -39,7 +39,7 @@ public class PathFindingNodeCost extends PathFindingNode implements Comparable<P
         /*
       if(this.getParent() == null)
       {
-         logUtil.put("No Parent", this, this.commonStrings.CONSTRUCTOR);
+         this.logUtil.put("No Parent", this, this.commonStrings.CONSTRUCTOR);
       }
          */
         if (this.geographicMapCellPosition == null) {

@@ -43,7 +43,7 @@ public class MirrorImageJPanel extends javax.swing.JPanel
    {
       super();
 
-      logUtil.put("Starting", this, this.commonStrings.CONSTRUCTOR);
+      this.logUtil.put("Starting", this, this.commonStrings.CONSTRUCTOR);
 
       initComponents();
       this.imageProcessorInput = imageProcessorInput;
@@ -90,7 +90,7 @@ public class MirrorImageJPanel extends javax.swing.JPanel
                      
                      filePath = filePath.substring(0, extensionIndex) + "_mirror" + imageStrings.PNG_EXTENSION;
                      
-                     logUtil.put("Renamed File: " + filePath, this, commonStrings.RUN);
+                     this.logUtil.put("Renamed File: " + filePath, this, commonStrings.RUN);
                      
                      file = new File(filePath);
                   }
@@ -99,14 +99,14 @@ public class MirrorImageJPanel extends javax.swing.JPanel
                         (RenderedImage) MirrorImageJPanel.this.result,
                         imageStrings.PNG, file);
                   
-                  logUtil.put("File: " + file + " Wrote: " + isWritten, this, commonStrings.RUN);
+                  this.logUtil.put("File: " + file + " Wrote: " + isWritten, this, commonStrings.RUN);
                   MirrorImageJPanel.this.getParent().repaint();
                }
 
             }
             catch (Exception e)
             {
-               logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+               this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
             }
          }
       }.start();

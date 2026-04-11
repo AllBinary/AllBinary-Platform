@@ -41,13 +41,13 @@ public class CapturedBufferedImagesCacheSingleton
         final String instance = "CapturedBufferedImagesCacheSingleton";
 	try {
             
-	    logUtil.put(commonStrings.START, instance,STATIC_BLOCK);
+	    this.logUtil.put(commonStrings.START, instance,STATIC_BLOCK);
 	    cacheInterface = (AutomaticCacheInterface) 
                     CacheInterfaceFactory.getInstance((CacheTypeFactory.getInstance().SET),
 						    (CachePolicyFactory.getInstance().ONE_MINUTE_FIVE_MAX));
-	    logUtil.put(commonStrings.END, instance,STATIC_BLOCK);
+	    this.logUtil.put(commonStrings.END, instance,STATIC_BLOCK);
 	} catch (Exception e) {
-	    logUtil.put(commonStrings.EXCEPTION, instance,STATIC_BLOCK, e);
+	    this.logUtil.put(commonStrings.EXCEPTION, instance,STATIC_BLOCK, e);
 	}
     }
 }

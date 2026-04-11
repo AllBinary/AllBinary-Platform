@@ -44,7 +44,7 @@ public class ImageActionScriptOutput
     {
         super(NAME, node);
 
-        logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
+        this.logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
 
         Node actionNode = DomSearchHelper.getNode(
             ImageActionScriptOutputData.NAME,
@@ -117,7 +117,7 @@ public class ImageActionScriptOutput
         hashMap.put(ImageActionScriptOutputData.SAVE, 
             Boolean.toString(this.isSaved()));
         
-        logUtil.put("HashMap: " + hashMap.toString(), this, "toHashMap()");
+        this.logUtil.put("HashMap: " + hashMap.toString(), this, "toHashMap()");
 
         return hashMap;
     }
@@ -183,7 +183,7 @@ public class ImageActionScriptOutput
 
     public void log()
     {
-        logUtil.put(this.future_toString(), this, "log");
+        this.logUtil.put(this.future_toString(), this, "log");
     }
     
     public ImageTypes getImageTypes()

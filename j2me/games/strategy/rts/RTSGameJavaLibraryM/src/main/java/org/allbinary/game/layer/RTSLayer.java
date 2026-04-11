@@ -289,7 +289,7 @@ public class RTSLayer
     
     public void select()
     {
-        //logUtil.put("selected: ", this, "selected: select");
+        //this.logUtil.put("selected: ", this, "selected: select");
         
         this.rangeAnimation = this.initRangeAnimation;
         this.sensorRangeAnimation = this.initSensorRangeAnimation;
@@ -356,7 +356,7 @@ public class RTSLayer
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, "processTick", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "processTick", e);
         }
     }
 
@@ -621,7 +621,7 @@ public class RTSLayer
             stringBuffer.append("setDestroyed: ");
             stringBuffer.append(this.getName());
             
-            logUtil.put(stringBuffer.toString(), this, "setDestroyed");
+            this.logUtil.put(stringBuffer.toString(), this, "setDestroyed");
             */
             
             DestroyedLayerProcessor.getInstance().add(this);

@@ -90,7 +90,7 @@ public class ZipFileUtil
                     stringBuffer.append(" Creating Zip File Entry: ");
                     stringBuffer.append(file.getPath());
 
-                    logUtil.put(
+                    this.logUtil.put(
                         stringBuffer.toString(), this, "create()");
 
                     try
@@ -106,7 +106,7 @@ public class ZipFileUtil
                         streamUtil.close(fileInputStream);
                     } catch (Exception e)
                     {
-                        logUtil.put(
+                        this.logUtil.put(
                             "Skipping File (Probably Local): " + file.getPath(), this, "create()");
                     }
                 }
@@ -117,7 +117,7 @@ public class ZipFileUtil
 
         } catch (Exception e)
         {
-            logUtil.put(this.commonStrings.EXCEPTION, this, "create", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "create", e);
         }
     }
 
@@ -159,7 +159,7 @@ public class ZipFileUtil
                     stringBuffer.append(" getParent: ");
                     stringBuffer.append(entryFile.getParent());
 
-                    logUtil.put(stringBuffer.toString(), this, "unzip");
+                    this.logUtil.put(stringBuffer.toString(), this, "unzip");
 
                     AbDataOutputStream dataOutputStream =
                         DataOutputStreamFactory.getInstance().getInstance(entryFile);

@@ -69,7 +69,7 @@ public class KeyValuePersistance extends BasicPersitance
             final int id = recordEnum.nextRecordId();
 
             stringBuffer.delete(0, stringBuffer.length());
-            logUtil.put(stringBuffer.append(this.persistanceStrings.LOADING_ID).appendint(id).toString(), this, this.persistanceStrings.LOAD_ALL);
+            this.logUtil.put(stringBuffer.append(this.persistanceStrings.LOADING_ID).appendint(id).toString(), this, this.persistanceStrings.LOAD_ALL);
             
             recordAsBytes = recordStore.getRecord(id);
             if(recordAsBytes != null) {
@@ -106,7 +106,7 @@ public class KeyValuePersistance extends BasicPersitance
         
         try {
 
-        logUtil.put(new StringMaker().append(this.persistanceStrings.SAVING).append(StringUtil.getInstance().toString(hashtable)).toString(), this, this.commonStrings.SAVE);
+        this.logUtil.put(new StringMaker().append(this.persistanceStrings.SAVING).append(StringUtil.getInstance().toString(hashtable)).toString(), this, this.commonStrings.SAVE);
         
         recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 

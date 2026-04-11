@@ -35,18 +35,18 @@ public class ColorCacheFactory
 
         try
         {            
-            logUtil.put(commonStrings.START, ColorCacheFactory.class, STATIC_BLOCK);
+            this.logUtil.put(commonStrings.START, ColorCacheFactory.class, STATIC_BLOCK);
             
             cacheInterface = AutomaticCacheInterfaceFactory.getInstance(
                 new ColorCacheableFactory(),
                 CacheTypeFactory.getInstance().CACHE, 
                 CachePolicyFactory.getInstance().THIRTY_MINUTES_TEN_THOUSAND_MAX);
             
-            logUtil.put(commonStrings.END, ColorCacheFactory.class, STATIC_BLOCK);
+            this.logUtil.put(commonStrings.END, ColorCacheFactory.class, STATIC_BLOCK);
         }
         catch(Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, ColorCacheFactory.class, STATIC_BLOCK, e);
+            this.logUtil.put(commonStrings.EXCEPTION, ColorCacheFactory.class, STATIC_BLOCK, e);
         }
     }
     

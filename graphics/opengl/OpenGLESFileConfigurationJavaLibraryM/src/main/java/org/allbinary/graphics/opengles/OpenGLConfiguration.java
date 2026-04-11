@@ -81,7 +81,7 @@ public class OpenGLConfiguration
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this,
+            this.logUtil.put(commonStrings.EXCEPTION, this,
                     commonStrings.CONSTRUCTOR, e);
         }
     }
@@ -194,7 +194,7 @@ public class OpenGLConfiguration
         Closeable closeable = NullCloseable.NULL_CLOSEABLE;
         try
         {
-            //logUtil.put("Write Configuration: " + this.toString(), this, "write");
+            //this.logUtil.put("Write Configuration: " + this.toString(), this, "write");
             PreLogUtil.put("Write Configuration: " + this.toString(), this, "write");
 
             final FileStreamFactory fileInputStreamFactory = FileStreamFactory.getInstance();
@@ -243,38 +243,38 @@ public class OpenGLConfiguration
             {
                 if (!features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL))
                 {
-                    logUtil.put("Turning on OpenGL",
+                    this.logUtil.put("Turning on OpenGL",
                             this, commonStrings.INIT);
                     
                     features.addDefault(OpenGLFeatureFactory.getInstance().OPENGL);
                     
-                    logUtil.put("Using OpenGL Type Feature: "
+                    this.logUtil.put("Using OpenGL Type Feature: "
                             + this.getType(), this, commonStrings.INIT);
                     
                     features.addDefault(this.getType());
                     
-                    logUtil.put("Using OpenGL ImageColor Feature: "
+                    this.logUtil.put("Using OpenGL ImageColor Feature: "
                             + this.getImageColor(), this, commonStrings.INIT);
                     features.addDefault(this.getImageColor());
 
-                    logUtil.put("Using OpenGL Color Feature: "
+                    this.logUtil.put("Using OpenGL Color Feature: "
                             + this.getColor(), this, commonStrings.INIT);
                     features.addDefault(this.getColor());
 
-                    logUtil.put("Using OpenGL Version Selector Feature: "
+                    this.logUtil.put("Using OpenGL Version Selector Feature: "
                             + this.getVersionSelector(), this, commonStrings.INIT);
                     features.addDefault(this.getVersionSelector());
                 }
             }
             else
             {
-                logUtil.put("OpenGL is Off", this,
+                this.logUtil.put("OpenGL is Off", this,
                         commonStrings.INIT);
 
                 // Turning off OpenGL
                 // if(features.isDefault(OpenGLFeature.OPENGL))
                 // {
-                // logUtil.put("Turning off OpenGL",
+                // this.logUtil.put("Turning off OpenGL",
                 // this, commonStrings.INIT);
                 // features.removeDefault(OpenGLFeature.OPENGL);
                 // }

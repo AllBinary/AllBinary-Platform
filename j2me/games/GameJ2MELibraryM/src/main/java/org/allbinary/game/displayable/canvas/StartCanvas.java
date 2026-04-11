@@ -216,7 +216,7 @@ public class StartCanvas extends RunnableCanvas
         {
             //MyFont.getInstance().update();
             
-            //logUtil.put(new StringMaker().append(commonLabels.START_LABEL).append(displayInfoSingleton.toString()).append(MyFont.getInstance().toString()).toString(), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
+            //this.logUtil.put(new StringMaker().append(commonLabels.START_LABEL).append(displayInfoSingleton.toString()).append(MyFont.getInstance().toString()).toString(), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
             
             ScrollSelectionForm scrollSelectionForm = this.getMenuForm();
             
@@ -231,7 +231,7 @@ public class StartCanvas extends RunnableCanvas
         }
         catch(Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT, e);
         }
     }
     
@@ -322,7 +322,7 @@ public class StartCanvas extends RunnableCanvas
 
     public void mediaInit() throws Exception
     {
-        //logUtil.put(commonStrings.START, this, "mediaInit");
+        //this.logUtil.put(commonStrings.START, this, "mediaInit");
         AllBinaryMediaManager.init(EarlySoundsFactory.getInstance());
     }
 
@@ -417,14 +417,14 @@ public class StartCanvas extends RunnableCanvas
     @Override
     public void keyPressed(int keyCode, int deviceId)
     {
-        // logUtil.put(commonStrings.START, this, gameInputStrings.KEY_PRESSED);
+        // this.logUtil.put(commonStrings.START, this, gameInputStrings.KEY_PRESSED);
         this.addGameKeyEvent(keyCode, false);
     }
 
     @Override
     public void keyReleased(int keyCode, int deviceId)
     {
-        // logUtil.put(commonStrings.START, this, gameInputStrings.KEY_RELEASED);
+        // this.logUtil.put(commonStrings.START, this, gameInputStrings.KEY_RELEASED);
         this.removeGameKeyEvent(keyCode, false);
     }
     private boolean isSingleKeyRepeatableProcessing =
@@ -433,7 +433,7 @@ public class StartCanvas extends RunnableCanvas
     @Override
     public void keyRepeated(int keyCode, int deviceId)
     {
-        // logUtil.put("Key Repeated: " +
+        // this.logUtil.put("Key Repeated: " +
         // Integer.toHexString(keyCode),
         // this, gameInputStrings.KEY_REPEATED);
         if (this.isSingleKeyRepeatableProcessing)
@@ -449,11 +449,11 @@ public class StartCanvas extends RunnableCanvas
     {
         try
         {
-            //logUtil.put(new StringMaker().append("Key Code (Hex): ").append(Integer.toHexString(keyCode)).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
+            //this.logUtil.put(new StringMaker().append("Key Code (Hex): ").append(Integer.toHexString(keyCode)).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
 
             GameKey gameKey = this.inputToGameKeyMapping.getInstance(this, keyCode);
 
-            //logUtil.put(new StringMaker().append("GameKey: ").append(gameKey).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
+            //this.logUtil.put(new StringMaker().append("GameKey: ").append(gameKey).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
 
             if (gameKey != NONE)
             {
@@ -462,19 +462,19 @@ public class StartCanvas extends RunnableCanvas
                  * //This is for key input debugging only GameKeyEvent
                  * gameKeyEvent = GameKeyEventFactory.getInstance(this, keyCode,
                  * gameActionKeyCode, gameKey.getKey(), repeated);
-                 * logUtil.put(gameKeyEvent.toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
+                 * this.logUtil.put(gameKeyEvent.toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
                  */
 
                 DownGameKeyEventHandler.getInstance().fireEvent(gameKeyEvent);
             }
             else
             {
-                logUtil.put(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
+                this.logUtil.put(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
             }
         }
         catch (Exception e)
         {
-            logUtil.put("Key Event Error", this, this.gameInputStrings.ADD_KEY_EVENT, e);
+            this.logUtil.put("Key Event Error", this, this.gameInputStrings.ADD_KEY_EVENT, e);
         }
     }
 
@@ -482,11 +482,11 @@ public class StartCanvas extends RunnableCanvas
     {
         try
         {
-            // logUtil.put(new StringMaker().append("Key Code: " + Integer.toHexString(keyCode), this, this.gameInputStrings.REMOVE_KEY_EVENT);
+            // this.logUtil.put(new StringMaker().append("Key Code: " + Integer.toHexString(keyCode), this, this.gameInputStrings.REMOVE_KEY_EVENT);
 
             GameKey gameKey = this.inputToGameKeyMapping.getInstance(this, keyCode);
 
-            //logUtil.put("GameKey: ").append(gameKey, this, this.gameInputStrings.REMOVE_KEY_EVENT);
+            //this.logUtil.put("GameKey: ").append(gameKey, this, this.gameInputStrings.REMOVE_KEY_EVENT);
 
             if (gameKey != NONE)
             {
@@ -496,7 +496,7 @@ public class StartCanvas extends RunnableCanvas
                  * //This is for key input debugging only GameKeyEvent
                  * gameKeyEvent = GameKeyEventFactory.getInstance(this, keyCode,
                  * gameActionKeyCode, gameKey.getKey(), repeated);
-                 * logUtil.put(gameKeyEvent.toString(), this, this.gameInputStrings.REMOVE_KEY_EVENT);
+                 * this.logUtil.put(gameKeyEvent.toString(), this, this.gameInputStrings.REMOVE_KEY_EVENT);
                  */
 
                 // TODO TWB - Remove or improve key input event handling
@@ -506,12 +506,12 @@ public class StartCanvas extends RunnableCanvas
             }
             else
             {
-                logUtil.put(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.REMOVE_KEY_EVENT);
+                this.logUtil.put(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.REMOVE_KEY_EVENT);
             }
         }
         catch (Exception e)
         {
-            logUtil.put("Key Event Error", this, this.gameInputStrings.REMOVE_KEY_EVENT, e);
+            this.logUtil.put("Key Event Error", this, this.gameInputStrings.REMOVE_KEY_EVENT, e);
         }
     }
 
@@ -549,14 +549,14 @@ public class StartCanvas extends RunnableCanvas
     @Override
     public boolean isGameOver()
     {
-        logUtil.put(new StringMaker().append(commonStrings.NOT_IMPLEMENTED).append(" since not a game").toString(), this, "isGameOver");
+        this.logUtil.put(new StringMaker().append(commonStrings.NOT_IMPLEMENTED).append(" since not a game").toString(), this, "isGameOver");
         return false;
     }
 
     @Override
     public void setLoadStateHashtable(Hashtable hashtable) throws Exception
     {
-        logUtil.put(
+        this.logUtil.put(
             "Trying to continue a demo lol - only continue a game canvas not the demo",
             this, "setLoadStateHashtable");
     }
@@ -564,7 +564,7 @@ public class StartCanvas extends RunnableCanvas
     @Override
     public Hashtable getLoadStateHashtable() throws Exception
     {
-        logUtil.put(
+        this.logUtil.put(
             "Trying to continue a demo lol - only continue a game canvas not the demo",
             this, "getLoadStateHashtable");
         return this.nullUtil.NULL_TABLE;
@@ -573,7 +573,7 @@ public class StartCanvas extends RunnableCanvas
     @Override
     public Hashtable getCurrentStateHashtable() throws Exception
     {
-        logUtil.put("Trying to save the AI lol", this, "getCurrentStateHashtable");
+        this.logUtil.put("Trying to save the AI lol", this, "getCurrentStateHashtable");
         return this.nullUtil.NULL_TABLE;
     }
 
@@ -618,7 +618,7 @@ public class StartCanvas extends RunnableCanvas
     @Override
     public synchronized void setGameOver()
     {
-        logUtil.put("Not Implemented since not a game", this, "setGameOver");
+        this.logUtil.put("Not Implemented since not a game", this, "setGameOver");
     }
     
     protected void demoStateChange()
@@ -658,7 +658,7 @@ public class StartCanvas extends RunnableCanvas
     protected void setState()
     {
         PreLogUtil.put(SmallIntegerSingletonFactory.getInstance().createInstance(this.state).toString(), this, SET_STATE);
-        //logUtil.put("Current Demo State: ").append(this.getState(), this, SET_STATE);
+        //this.logUtil.put("Current Demo State: ").append(this.getState(), this, SET_STATE);
 
         this.getBasicGameDemoPaintable().setState(this.state);
 
@@ -740,7 +740,7 @@ public class StartCanvas extends RunnableCanvas
 
         //PreLogUtil.put("Game Thread Priority: ").append(
         //      canvasThread.getPriority(), this, commonStrings);
-        //logUtil.put(
+        //this.logUtil.put(
         //      "Game Thread Priority: ").append(canvasThread.getPriority(), this, commonStrings);
 
         //threadFactoryUtil.start(this.canvasThread);
@@ -816,7 +816,7 @@ public class StartCanvas extends RunnableCanvas
             //{
 //                if (!demoGameRunnable.isRunning())
 //                {
-//                    //logUtil.put("Starting Game Demo", this, commonStrings.PROCESS);
+//                    //this.logUtil.put("Starting Game Demo", this, commonStrings.PROCESS);
 //                    //PreLogUtil.put("Starting Game Demo", this, commonStrings.PROCESS);
 //
 //                    this.startDemoGame();
@@ -844,7 +844,7 @@ public class StartCanvas extends RunnableCanvas
 //        if (this.gameCanvas != NullGameCanvas.getInstance())
 //        {
 //            //PreLogUtil.put("Set Running False", this, "stopGameDemo");
-//            logUtil.put("Set Running False", this, "stopGameDemo");
+//            this.logUtil.put("Set Running False", this, "stopGameDemo");
 //            this.gameCanvas.setRunning(false);
 //        }
 //
@@ -891,7 +891,7 @@ public class StartCanvas extends RunnableCanvas
 
         //if(runningTimeDelayHelper.isTime())
         //{
-            //logUtil.put(commonStrings.RUNNING, this, commonStrings.RUN);
+            //this.logUtil.put(commonStrings.RUNNING, this, commonStrings.RUN);
         //}
 
         //Viewer Game is initialized and and
@@ -923,7 +923,7 @@ public class StartCanvas extends RunnableCanvas
     @Override
     public void run()
     {
-        logUtil.put(commonStrings.START_RUNNABLE, this, commonStrings.RUN);
+        this.logUtil.put(commonStrings.START_RUNNABLE, this, commonStrings.RUN);
 
         try
         {
@@ -1005,10 +1005,10 @@ public class StartCanvas extends RunnableCanvas
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
         }
 
-        logUtil.put(commonStrings.END_RUNNABLE, this, commonStrings.RUN);
+        this.logUtil.put(commonStrings.END_RUNNABLE, this, commonStrings.RUN);
     }
 
     @Override
@@ -1028,7 +1028,7 @@ public class StartCanvas extends RunnableCanvas
             }
         } catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, SET_RUNNING, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, SET_RUNNING, e);
         }        
     }
     
@@ -1048,7 +1048,7 @@ public class StartCanvas extends RunnableCanvas
             progressCanvas.start();
         }
 
-        logUtil.put("Demo End", this, commonStrings.RUN);
+        this.logUtil.put("Demo End", this, commonStrings.RUN);
 
         this.close();
         DisplayChangeEventHandler.getInstance().removeListener(this);
@@ -1087,7 +1087,7 @@ public class StartCanvas extends RunnableCanvas
     public boolean isHighScoreSubmitted()
     {
         // Don't Submit AI Score Since That Is Stupidy
-        logUtil.put("Wow the AI got a high score!", this, "isHighScoreSubmitted");
+        this.logUtil.put("Wow the AI got a high score!", this, "isHighScoreSubmitted");
         return false;
     }
 
@@ -1104,7 +1104,7 @@ public class StartCanvas extends RunnableCanvas
 
     protected void setSpecialAnimationInterface(SpecialAnimation specialAnimationInterface)
     {
-        //logUtil.put("specialAnimationInterface: " + specialAnimationInterface, this, "setSpecialAnimationInterface");
+        //this.logUtil.put("specialAnimationInterface: " + specialAnimationInterface, this, "setSpecialAnimationInterface");
         specialAnimationInterface.setFrame(0);
         this.specialAnimationInterface = specialAnimationInterface;
     }

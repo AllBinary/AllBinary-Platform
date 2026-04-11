@@ -73,7 +73,7 @@ public class SpriteIndexedAnimation extends IndexedAnimation
         {
             if(basicColor == this.basicColorArray[index])
             {
-                //logUtil.put(
+                //this.logUtil.put(
                   //  "BasicColor: " + basicColor.getName() + "==" + this.basicColorArray[index].getName() + commonLabels.INDEX_LABEL + index, this, "setBasicColor");
                 this.setFrame(index);
                 break;

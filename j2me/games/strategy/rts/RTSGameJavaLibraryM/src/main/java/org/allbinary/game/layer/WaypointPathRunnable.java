@@ -36,7 +36,7 @@ public class WaypointPathRunnable extends WaypointPathRunnableBase
     {
         try
         {
-            //logUtil.put("", this, "run");
+            //this.logUtil.put("", this, "run");
                 
             pathFindingLayer.getWaypointRunnableLogHelper().start(pathFindingLayer);
 
@@ -64,8 +64,8 @@ public class WaypointPathRunnable extends WaypointPathRunnableBase
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
-            //logUtil.put(commonStrings.EXCEPTION, this, "run", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+            //this.logUtil.put(commonStrings.EXCEPTION, this, "run", e);
             this.setRunning(false);
         }
     }

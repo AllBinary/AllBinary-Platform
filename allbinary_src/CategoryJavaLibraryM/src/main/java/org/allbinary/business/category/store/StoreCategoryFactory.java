@@ -36,7 +36,7 @@ public class StoreCategoryFactory extends CategoryAbstractFactory
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
       {
-         logUtil.put(commonStrings.START, this, "StoreCategoryFactory(TransformInfoInterface transformInfoInterface)");
+         this.logUtil.put(commonStrings.START, this, "StoreCategoryFactory(TransformInfoInterface transformInfoInterface)");
       }
 
       this.transformInfoInterface = transformInfoInterface;
@@ -59,7 +59,7 @@ public class StoreCategoryFactory extends CategoryAbstractFactory
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION, this, "getInstance(String, int)", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "getInstance(String, int)", e);
          }
          return null;
       }
@@ -86,7 +86,7 @@ public class StoreCategoryFactory extends CategoryAbstractFactory
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                  org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION, this, "getInstance(String, int)", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "getInstance(String, int)", e);
          }
          return null;
       }
@@ -114,7 +114,7 @@ public class StoreCategoryFactory extends CategoryAbstractFactory
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION, this, "getInstance(String, int)", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "getInstance(String, int)", e);
          }
          return null;
       }

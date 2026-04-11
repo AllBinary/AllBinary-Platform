@@ -28,7 +28,7 @@ public class AllBinaryMediaManagerShutdown
     {
         final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        logUtil.put(commonStrings.START, instance, "shutdown");
+        this.logUtil.put(commonStrings.START, instance, "shutdown");
         AllBinaryMediaManager.shutdown(soundsFactoryInterface);
     }
     

@@ -73,7 +73,7 @@ public class ShippingAddressHelper extends BasicTable
          String success = new ShippingAddressesEntity(stringUtil.EMPTY_STRING).drop();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,commonStrings.DROP);
+            this.logUtil.put(success,this,commonStrings.DROP);
          }
          return success;
       }
@@ -83,7 +83,7 @@ public class ShippingAddressHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,commonStrings.DROP,e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,commonStrings.DROP,e);
          }
          return error;
       }
@@ -97,7 +97,7 @@ public class ShippingAddressHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,"create()");
+            this.logUtil.put(success,this,"create()");
          }
          return success;
       }
@@ -107,7 +107,7 @@ public class ShippingAddressHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"create()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"create()",e);
          }
          return error;
       }
@@ -121,7 +121,7 @@ public class ShippingAddressHelper extends BasicTable
          final String result = AbSqlTableUtil.getInstance().restoreTable(new ShippingAddressesEntity(StringUtil.getInstance().EMPTY_STRING), portion);
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,"restore()");
+            this.logUtil.put(success,this,"restore()");
          }
          return result;
       }
@@ -131,7 +131,7 @@ public class ShippingAddressHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"restore()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"restore()",e);
          }
          return error;
       }
@@ -145,7 +145,7 @@ public class ShippingAddressHelper extends BasicTable
          final String result = AbSqlTableUtil.getInstance().backupTable(new ShippingAddressesEntity(StringUtil.getInstance().EMPTY_STRING));
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,"backup()");
+            this.logUtil.put(success,this,"backup()");
          }
          return result;
       }
@@ -155,7 +155,7 @@ public class ShippingAddressHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"backup()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"backup()",e);
          }
          return error;
       }
@@ -171,7 +171,7 @@ public class ShippingAddressHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,"insert");
+            this.logUtil.put(success,this,"insert");
          }
          return success;
       }
@@ -181,7 +181,7 @@ public class ShippingAddressHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"insert",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"insert",e);
          }
          return error;
       }
@@ -199,7 +199,7 @@ public class ShippingAddressHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put("Successfull update of a Users Shipping Address table",this,"update()");
+            this.logUtil.put("Successfull update of a Users Shipping Address table",this,"update()");
          }
          return success;
       }
@@ -208,7 +208,7 @@ public class ShippingAddressHelper extends BasicTable
          String error = "Failed update of a Users Shipping Address Table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"update",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"update",e);
          }
          return error;
       }
@@ -238,7 +238,7 @@ public class ShippingAddressHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"setToBillingAddress()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"setToBillingAddress()",e);
          }
          return error;
       }
@@ -255,7 +255,7 @@ public class ShippingAddressHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,"remove()");
+            this.logUtil.put(success,this,"remove()");
          }
          return success;
       }
@@ -265,7 +265,7 @@ public class ShippingAddressHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"remove()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"remove()",e);
          }
          return error;
       }
@@ -283,7 +283,7 @@ public class ShippingAddressHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {            
-            logUtil.put(success,this,"set()");
+            this.logUtil.put(success,this,"set()");
          }
          return success;         
       }
@@ -293,7 +293,7 @@ public class ShippingAddressHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"set()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"set()",e);
          }
          return error;
       }

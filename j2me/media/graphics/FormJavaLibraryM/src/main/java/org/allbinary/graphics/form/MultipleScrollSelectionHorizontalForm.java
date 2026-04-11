@@ -114,7 +114,7 @@ extends ScrollSelectionForm
         } catch (Exception e)
         {
             PreLogUtil.put(commonStrings.EXCEPTION, this, canvasStrings.PAINT);
-            //logUtil.put(commonStrings.EXCEPTION, this, canvasStrings.PAINT, e);
+            //this.logUtil.put(commonStrings.EXCEPTION, this, canvasStrings.PAINT, e);
         }
     }
 

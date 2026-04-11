@@ -32,7 +32,7 @@ public class UserEmailConfiguration implements UserEmailConfigurationInterface
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
-         logUtil.put(this.commonStrings.CONSTRUCTOR, this,this.commonStrings.CONSTRUCTOR);
+         this.logUtil.put(this.commonStrings.CONSTRUCTOR, this,this.commonStrings.CONSTRUCTOR);
       }
       
       this.setUserEmailEventsConfigurationInterface(new UserEmailEventsConfiguration());
@@ -42,7 +42,7 @@ public class UserEmailConfiguration implements UserEmailConfigurationInterface
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
-         logUtil.put(this.commonStrings.CONSTRUCTOR, this, this.commonStrings.CONSTRUCTOR);
+         this.logUtil.put(this.commonStrings.CONSTRUCTOR, this, this.commonStrings.CONSTRUCTOR);
       }
       
       this.setUserEmailEventsConfigurationInterface(new UserEmailEventsConfiguration(hashMap));

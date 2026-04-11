@@ -56,7 +56,7 @@ public class MyCanvas extends Canvas
     
     public MyCanvas(final String name, final BasicArrayList childNameList)
     {
-        logUtil.put(commonStrings.CONSTRUCTOR, this, commonStrings.CONSTRUCTOR);
+        this.logUtil.put(commonStrings.CONSTRUCTOR, this, commonStrings.CONSTRUCTOR);
 
         //This should update display info for J2ME Emulator. 
         //It could also be set with basically an event.
@@ -150,7 +150,7 @@ public class MyCanvas extends Canvas
 
     public synchronized void pause()
     {
-        logUtil.put(commonStrings.START, this, canvasStrings.PAUSE);
+        this.logUtil.put(commonStrings.START, this, canvasStrings.PAUSE);
         this.removePauseCommand();
         this.addCommand(MyCommandsFactory.getInstance().RESUME_COMMAND);
         this.setPaused(true);
@@ -158,7 +158,7 @@ public class MyCanvas extends Canvas
 
     public synchronized void unPause()
     {
-        logUtil.put(commonStrings.START, this, canvasStrings.UN_PAUSE);
+        this.logUtil.put(commonStrings.START, this, canvasStrings.UN_PAUSE);
 
         this.removeCommand(MyCommandsFactory.getInstance().RESUME_COMMAND);
         this.addCommand(MyCommandsFactory.getInstance().PAUSE_COMMAND);
@@ -196,7 +196,7 @@ public class MyCanvas extends Canvas
     
     public void destroy()
     {
-        logUtil.put("Destroyed MyCanvas", this, "destroy");
+        this.logUtil.put("Destroyed MyCanvas", this, "destroy");
     }
 
     /*
@@ -233,7 +233,7 @@ public class MyCanvas extends Canvas
     @Override
     protected void pointerDragged(int x, int y)
     {
-        //logUtil.put(commonStrings.START, this, "pointerDragged");
+        //this.logUtil.put(commonStrings.START, this, "pointerDragged");
         //PreLogUtil.put(commonStrings.START, this, "pointerDragged");
 
         touchME.pointerDragged(x, y);
@@ -242,7 +242,7 @@ public class MyCanvas extends Canvas
     @Override
     protected void pointerPressed(int x, int y)
     {
-        //logUtil.put(commonStrings.START, this, "pointerPressed");
+        //this.logUtil.put(commonStrings.START, this, "pointerPressed");
         //PreLogUtil.put(commonStrings.START, this, "pointerPressed");
 
         touchME.pointerPressed(x, y);
@@ -251,7 +251,7 @@ public class MyCanvas extends Canvas
     @Override
     protected void pointerReleased(int x, int y)
     {
-        //logUtil.put(commonStrings.START, this, "pointerReleased");
+        //this.logUtil.put(commonStrings.START, this, "pointerReleased");
         //PreLogUtil.put(commonStrings.START, this, "pointerReleased");
 
         touchME.pointerReleased(x, y);

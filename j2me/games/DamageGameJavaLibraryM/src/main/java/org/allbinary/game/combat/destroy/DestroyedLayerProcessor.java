@@ -54,7 +54,7 @@ public class DestroyedLayerProcessor extends BasicLayerProcessor
             DestroyEventCircularStaticPool.getInstance();
         
         //final StringBuilder stringBuilder = new StringBuilder();
-        //logUtil.put(stringBuilder.append("Removing: ").append(size).append(" left: ").append(allBinaryLayerManager.getSize()).toString(), this, commonStrings.PROCESS);
+        //this.logUtil.put(stringBuilder.append("Removing: ").append(size).append(" left: ").append(allBinaryLayerManager.getSize()).toString(), this, commonStrings.PROCESS);
 
         //GroupLayerManagerListener.getInstance().log();
         DestroyedEvent destroyedEvent;
@@ -68,14 +68,14 @@ public class DestroyedLayerProcessor extends BasicLayerProcessor
                 
                 layerInterface = (AllBinaryLayer) layerInterfaceCanBeNull;
                 //stringBuilder.delete(0, stringBuilder.length());
-                //logUtil.put(stringBuilder.append(LAYER_LABEL).append(layerInterface).toString(), this, commonStrings.PROCESS);
+                //this.logUtil.put(stringBuilder.append(LAYER_LABEL).append(layerInterface).toString(), this, commonStrings.PROCESS);
 
                 //stringBuilder.delete(0, stringBuilder.length());
-                //logUtil.put(stringBuilder.append("Processing: ").append(allBinaryLayerManager.getSize()).toString(), this, commonStrings.PROCESS);
+                //this.logUtil.put(stringBuilder.append("Processing: ").append(allBinaryLayerManager.getSize()).toString(), this, commonStrings.PROCESS);
                 allBinaryLayerManager.remove(layerInterface);
 
                 //stringBuilder.delete(0, stringBuilder.length());
-                //logUtil.put(stringBuilder.append("After: ").append(allBinaryLayerManager.getSize()).toString(), this, commonStrings.PROCESS);
+                //this.logUtil.put(stringBuilder.append("After: ").append(allBinaryLayerManager.getSize()).toString(), this, commonStrings.PROCESS);
                 destroyedEvent = destroyEventCircularStaticPool.getInstance(layerInterface);
 
                 // Notify Listeners of Destroyed Layer
@@ -84,7 +84,7 @@ public class DestroyedLayerProcessor extends BasicLayerProcessor
                 //final CommonStrings commonStrings = CommonStrings.getInstance();
                 //final StringMaker stringBuilder = new StringMaker();
                 //stringBuilder.delete(0, stringBuilder.length());
-                //logUtil.put(stringBuilder.append(LAYER_LABEL).append(layerInterface).toString(), this, commonStrings.PROCESS, new Exception());
+                //this.logUtil.put(stringBuilder.append(LAYER_LABEL).append(layerInterface).toString(), this, commonStrings.PROCESS, new Exception());
             }
             
         }

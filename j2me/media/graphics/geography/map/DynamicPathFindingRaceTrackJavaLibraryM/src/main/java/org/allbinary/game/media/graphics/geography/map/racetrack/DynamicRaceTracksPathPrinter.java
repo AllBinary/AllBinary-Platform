@@ -68,7 +68,7 @@ public class DynamicRaceTracksPathPrinter extends RaceTracksPathPrinter
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
         }
     }
 

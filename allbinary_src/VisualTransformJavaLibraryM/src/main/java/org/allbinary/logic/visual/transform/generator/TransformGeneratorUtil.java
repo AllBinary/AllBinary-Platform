@@ -42,7 +42,7 @@ public class TransformGeneratorUtil {
         final TransformInfoInterface ownerTransformInfoInterface) throws Exception {
         try {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
-                logUtil.put("Generating View: " + transformInfoInterface.getName(),
+                this.logUtil.put("Generating View: " + transformInfoInterface.getName(),
                     this, "generate()");
             }
 
@@ -69,7 +69,7 @@ public class TransformGeneratorUtil {
                 componentInterface.getTransformInfoInterface()).process(result);
         } catch (Exception e) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR)) {
-                logUtil.put("Failed to generate a view",
+                this.logUtil.put("Failed to generate a view",
                     this, "generate()", e);
             }
             throw e;

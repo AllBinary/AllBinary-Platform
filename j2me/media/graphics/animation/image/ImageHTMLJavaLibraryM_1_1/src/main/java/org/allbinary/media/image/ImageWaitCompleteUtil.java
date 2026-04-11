@@ -43,7 +43,7 @@ public class ImageWaitCompleteUtil extends ImageCompleteUtil {
     
     public ImageWaitCompleteUtil() {
         //final CommonStrings commonStrings = CommonStrings.getInstance();
-        //logUtil.put(commonStrings.CONSTRUCTOR, this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.put(commonStrings.CONSTRUCTOR, this, commonStrings.CONSTRUCTOR);
     }
     
     @Override

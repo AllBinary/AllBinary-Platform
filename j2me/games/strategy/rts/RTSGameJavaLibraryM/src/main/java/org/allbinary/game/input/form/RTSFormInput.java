@@ -53,7 +53,7 @@ public class RTSFormInput
     
     public RTSFormInput(final Group[] groupInterfaceArray)
     {
-        //logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
         final int size = newUnconstructedRTSLayerInterfaceArray.length;
         for(int index = 0; index < size; index++) {
             newUnconstructedRTSLayerInterfaceArray[index] = CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER;
@@ -71,7 +71,7 @@ public class RTSFormInput
             this.hashtable.put(Group.ID, groupInterfaceArray);
         }
         
-        //logUtil.put(commonStrings.END, this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.put(commonStrings.END, this, commonStrings.CONSTRUCTOR);
     }
 
     public void setAllBinaryGameLayerManager(final AllBinaryGameLayerManager allBinaryGameLayerManager) throws Exception {
@@ -164,7 +164,7 @@ public class RTSFormInput
         final GPoint point)
         throws Exception
     {
-        logUtil.put(new StringMaker().append("Point: ").append(StringUtil.getInstance().toString(point)).toString(), this, "getItemAt");
+        this.logUtil.put(new StringMaker().append("Point: ").append(StringUtil.getInstance().toString(point)).toString(), this, "getItemAt");
 
         final ScrollSelectionForm scrollSelectionForm =
             rtsPlayerLayerInterface.getCurrentScrollSelectionForm();
@@ -177,7 +177,7 @@ public class RTSFormInput
         final GPoint point)
         throws Exception
     {
-        logUtil.put(new StringMaker().append("Point: ").append(StringUtil.getInstance().toString(point)).toString(), this, "getItemAt");
+        this.logUtil.put(new StringMaker().append("Point: ").append(StringUtil.getInstance().toString(point)).toString(), this, "getItemAt");
 
         final ScrollSelectionForm scrollSelectionForm =
             rtsPlayerLayerInterface.getCurrentScrollSelectionForm();
@@ -228,7 +228,7 @@ public class RTSFormInput
     public void setSelectedGeographicCellPosition(
         GeographicMapCellPosition selectedGeographicCellPosition)
     {
-        logUtil.put(
+        this.logUtil.put(
             new StringMaker().append("Selected GeographicMapCellPosition: ")
                     .append(selectedGeographicCellPosition.toString()).toString(),
             this, "setSelectedGeographicCellPosition");

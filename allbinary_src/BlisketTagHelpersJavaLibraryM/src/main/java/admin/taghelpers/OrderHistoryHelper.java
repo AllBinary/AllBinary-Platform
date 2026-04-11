@@ -41,7 +41,7 @@ public class OrderHistoryHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,commonStrings.DROP);
+            this.logUtil.put(success,this,commonStrings.DROP);
          }
          return success;
       }
@@ -50,7 +50,7 @@ public class OrderHistoryHelper extends BasicTable
          String error = "Failed to drop order history table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,commonStrings.DROP,e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,commonStrings.DROP,e);
          }
          return error;
       }
@@ -64,7 +64,7 @@ public class OrderHistoryHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,"create()");
+            this.logUtil.put(success,this,"create()");
          }
          return success;
       }
@@ -73,7 +73,7 @@ public class OrderHistoryHelper extends BasicTable
          String error="Failed to create new order history table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"create()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"create()",e);
          }
          return error;
       }
@@ -87,7 +87,7 @@ public class OrderHistoryHelper extends BasicTable
          final String result = AbSqlTableUtil.getInstance().restoreTable(OrderHistoryEntityFactory.getInstance(), this.portion);
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,"restore()");
+            this.logUtil.put(success,this,"restore()");
          }
          return result;
       }
@@ -97,7 +97,7 @@ public class OrderHistoryHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"restore()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"restore()",e);
          }
          return error;
       }
@@ -111,7 +111,7 @@ public class OrderHistoryHelper extends BasicTable
          final String result = AbSqlTableUtil.getInstance().backupTable(OrderHistoryEntityFactory.getInstance());
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,"backup()");
+            this.logUtil.put(success,this,"backup()");
          }
          return result;
       }
@@ -121,7 +121,7 @@ public class OrderHistoryHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"backup()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"backup()",e);
          }
          return error;
       }

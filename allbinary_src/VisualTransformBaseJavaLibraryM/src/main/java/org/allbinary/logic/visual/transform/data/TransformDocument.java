@@ -45,14 +45,14 @@ public class TransformDocument
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(this.log(), this, this.commonStrings.CONSTRUCTOR);
+            this.logUtil.put(this.log(), this, this.commonStrings.CONSTRUCTOR);
          }
       }
       catch(Exception e)
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e);
          }
          throw e;
       }

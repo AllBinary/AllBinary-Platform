@@ -41,7 +41,7 @@ public class AdvancedRTSLayerFormFactory extends RTSLayerFormFactory
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
         }
         this.scrollSelectionForm = scrollSelectionForm;
     }

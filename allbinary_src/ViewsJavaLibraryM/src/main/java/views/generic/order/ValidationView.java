@@ -65,7 +65,7 @@ public class ValidationView extends OrderView implements ValidationComponentInte
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            logUtil.put("Failed to validate form",this,commonStrings.IS_VALID,e);
+            this.logUtil.put("Failed to validate form",this,commonStrings.IS_VALID,e);
          }
          return Boolean.FALSE;
       }
@@ -116,7 +116,7 @@ public class ValidationView extends OrderView implements ValidationComponentInte
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
+            this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
          }
          return "Error Validating Form";
       }

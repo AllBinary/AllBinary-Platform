@@ -84,7 +84,7 @@ public class CategoryRequestHelper extends ModifyTable
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"CategoryRequestHelper()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"CategoryRequestHelper()",e);
          }
       }
    }
@@ -116,7 +116,7 @@ public class CategoryRequestHelper extends ModifyTable
             
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
             {
-               logUtil.put(xmlRequest, this, "getXmlData()");
+               this.logUtil.put(xmlRequest, this, "getXmlData()");
             }
 
             Document document = DomDocumentHelper.create(xmlRequest);
@@ -126,7 +126,7 @@ public class CategoryRequestHelper extends ModifyTable
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
             {
-               logUtil.put(DomDocumentHelper.toString(document), this, "getXmlData()");
+               this.logUtil.put(DomDocumentHelper.toString(document), this, "getXmlData()");
             }
 
             this.setCategoryLoader(requestNode);
@@ -148,7 +148,7 @@ public class CategoryRequestHelper extends ModifyTable
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
             {
                this.categoryInterface.log();
-               logUtil.put("Loaded Parent Category", this, "getXmlData()");
+               this.logUtil.put("Loaded Parent Category", this, "getXmlData()");
             }
 
             Node childCategoryNode = DomSearchHelper.getNodeNoThrow(
@@ -158,7 +158,7 @@ public class CategoryRequestHelper extends ModifyTable
             {
                if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
                {
-                  logUtil.put("Loading Child Category", this, "getXmlData()");
+                  this.logUtil.put("Loading Child Category", this, "getXmlData()");
                }
                
                this.childCategoryInterface = (CategoryInterface) 
@@ -170,7 +170,7 @@ public class CategoryRequestHelper extends ModifyTable
                if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
                {
                   this.childCategoryInterface.log();
-                  logUtil.put("Loaded Child Category", this, "getXmlData()");
+                  this.logUtil.put("Loaded Child Category", this, "getXmlData()");
                }
             }
             else
@@ -183,7 +183,7 @@ public class CategoryRequestHelper extends ModifyTable
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"getXmlData()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"getXmlData()",e);
          }
       }
    }
@@ -243,7 +243,7 @@ public class CategoryRequestHelper extends ModifyTable
          hashMap.put(stringUtil.EMPTY_STRING;,new String(values[0]));
          if(key.startsWith(
          addVector.add(new Category(hashMap));
-         //logUtil.put("key: " + key + " Value: " + values[0],this,"getFormData()");
+         //this.logUtil.put("key: " + key + " Value: " + values[0],this,"getFormData()");
       }
     
       this.addCategories = new Categories(addHashMap);
@@ -261,7 +261,7 @@ public class CategoryRequestHelper extends ModifyTable
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put("inserting",this,"insert()");
+            this.logUtil.put("inserting",this,"insert()");
          }
          
          this.categoryLoaderInterface.insert(
@@ -269,7 +269,7 @@ public class CategoryRequestHelper extends ModifyTable
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,"insert()");
+            this.logUtil.put(success,this,"insert()");
          }
          return success;
       }
@@ -279,7 +279,7 @@ public class CategoryRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"insert()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"insert()",e);
          }
          return error;
       }
@@ -294,7 +294,7 @@ public class CategoryRequestHelper extends ModifyTable
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put("Deleting",this,"delete()");
+            this.logUtil.put("Deleting",this,"delete()");
          }
          
          this.categoryLoaderInterface.delete(
@@ -302,7 +302,7 @@ public class CategoryRequestHelper extends ModifyTable
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,"delete()");
+            this.logUtil.put(success,this,"delete()");
          }
 
          return success;
@@ -315,7 +315,7 @@ public class CategoryRequestHelper extends ModifyTable
          
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-               logUtil.put(commonStrings.EXCEPTION, this, "delete()", e);
+               this.logUtil.put(commonStrings.EXCEPTION, this, "delete()", e);
             }
             return error;
          }
@@ -325,7 +325,7 @@ public class CategoryRequestHelper extends ModifyTable
          
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-               logUtil.put(commonStrings.EXCEPTION, this, "delete()", e2);
+               this.logUtil.put(commonStrings.EXCEPTION, this, "delete()", e2);
             }
             return error;
          }
@@ -343,7 +343,7 @@ public class CategoryRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(xmlString,this,"viewCategory()");
+            this.logUtil.put(xmlString,this,"viewCategory()");
          }
          return xmlString;
       }
@@ -352,7 +352,7 @@ public class CategoryRequestHelper extends ModifyTable
          String error = "Failed to get Category";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"viewCategory()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"viewCategory()",e);
          }
          return error;
       }
@@ -369,7 +369,7 @@ public class CategoryRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,"viewCategories()");
+            this.logUtil.put(success,this,"viewCategories()");
          }
          return success;
       }
@@ -378,7 +378,7 @@ public class CategoryRequestHelper extends ModifyTable
          String error = "Failed to view Categories table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"viewCategories()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"viewCategories()",e);
          }
          return error;
       }
@@ -396,7 +396,7 @@ public class CategoryRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            logUtil.put(success,this,"update()");
+            this.logUtil.put(success,this,"update()");
          }
          return success;
       }
@@ -405,7 +405,7 @@ public class CategoryRequestHelper extends ModifyTable
          String error = "Failed to add Item";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"update()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"update()",e);
          }
          return error;
       }

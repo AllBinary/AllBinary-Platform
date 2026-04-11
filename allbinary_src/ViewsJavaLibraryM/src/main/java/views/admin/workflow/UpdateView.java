@@ -44,7 +44,7 @@ public class UpdateView extends WorkFlowView implements ValidationComponentInter
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               logUtil.put("WorkFlow does not exist.",this,commonStrings.IS_VALID);
+               this.logUtil.put("WorkFlow does not exist.",this,commonStrings.IS_VALID);
             }
             return Boolean.FALSE;
          }         
@@ -55,7 +55,7 @@ public class UpdateView extends WorkFlowView implements ValidationComponentInter
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            logUtil.put("Failed to validate",this,commonStrings.IS_VALID,e);
+            this.logUtil.put("Failed to validate",this,commonStrings.IS_VALID,e);
          }
          return Boolean.FALSE;
       }
@@ -75,7 +75,7 @@ public class UpdateView extends WorkFlowView implements ValidationComponentInter
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               logUtil.put("WorkFlow does not exist.",this,"validationInfo()");
+               this.logUtil.put("WorkFlow does not exist.",this,"validationInfo()");
             }
             stringBuffer.append("WorkFlow does not exist<br />");
          }
@@ -86,7 +86,7 @@ public class UpdateView extends WorkFlowView implements ValidationComponentInter
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            logUtil.put("Failed to generate validation error info",this,"validationInfo()",e);
+            this.logUtil.put("Failed to generate validation error info",this,"validationInfo()",e);
          }
          return "Error Getting Validation Info";
       }

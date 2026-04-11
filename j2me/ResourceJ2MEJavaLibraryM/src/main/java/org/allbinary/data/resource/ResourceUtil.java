@@ -57,7 +57,7 @@ public class ResourceUtil
                     
                     final int index = resource.lastIndexOf('/');
                     String resourcePath = resource.substring(index + 1);
-//                    logUtil.put(stringMaker.append(GET_RESOURCE).append(resourcePath).toString(), this, METHOD_NAME);
+//                    this.logUtil.put(stringMaker.append(GET_RESOURCE).append(resourcePath).toString(), this, METHOD_NAME);
                     inputStream = resource.getClass().getResourceAsStream(resourcePath);
 
                     if (inputStream == null)
@@ -65,7 +65,7 @@ public class ResourceUtil
 
                         resourcePath = resource.substring(index);
 //                        stringMaker.delete(0, stringMaker.length());
-//                        logUtil.put(stringMaker.append(GET_RESOURCE).append(resourcePath).toString(), this, METHOD_NAME);
+//                        this.logUtil.put(stringMaker.append(GET_RESOURCE).append(resourcePath).toString(), this, METHOD_NAME);
                         inputStream = resource.getClass().getResourceAsStream(resourcePath);
 
                         if (inputStream == null)
@@ -74,7 +74,7 @@ public class ResourceUtil
                             final String RES = "res";
                             resourcePath = stringMaker.append(RES).append(resource.substring(index)).toString();
 //                            stringMaker.delete(0, stringMaker.length());
-//                            logUtil.put(stringMaker.append(GET_RESOURCE).append(resourcePath).toString(), this, METHOD_NAME);
+//                            this.logUtil.put(stringMaker.append(GET_RESOURCE).append(resourcePath).toString(), this, METHOD_NAME);
                             inputStream = resource.getClass().getResourceAsStream(resourcePath);
 
                             if (inputStream == null)
@@ -83,7 +83,7 @@ public class ResourceUtil
                                 stringMaker.delete(0, stringMaker.length());
                                 resourcePath = stringMaker.append("/").append(RES).append(resource.substring(index)).toString();
 //                                stringMaker.delete(0, stringMaker.length());
-//                                logUtil.put(stringMaker.append(GET_RESOURCE).append(resourcePath).toString(), this, METHOD_NAME);
+//                                this.logUtil.put(stringMaker.append(GET_RESOURCE).append(resourcePath).toString(), this, METHOD_NAME);
                                 inputStream = resource.getClass().getResourceAsStream(resourcePath);
 
                                 final String COLON = CommonSeps.getInstance().COLON;
@@ -94,7 +94,7 @@ public class ResourceUtil
                                     stringMaker.delete(0, stringMaker.length());
                                     resourcePath = stringMaker.append(RES).append(COLON).append(resource.substring(index)).toString();
 //                                    stringMaker.delete(0, stringMaker.length());
-//                                    logUtil.put(stringMaker.append(GET_RESOURCE).append(resourcePath).toString(), this, METHOD_NAME);
+//                                    this.logUtil.put(stringMaker.append(GET_RESOURCE).append(resourcePath).toString(), this, METHOD_NAME);
                                     inputStream = resource.getClass().getResourceAsStream(resourcePath);
 
                                     if (inputStream == null)
@@ -103,7 +103,7 @@ public class ResourceUtil
                                         stringMaker.delete(0, stringMaker.length());
                                         resourcePath = stringMaker.append(RES).append(COLON).append(resource.substring(index + 1)).toString();
 //                                        stringMaker.delete(0, stringMaker.length());
-//                                        logUtil.put(stringMaker.append(GET_RESOURCE).append(resourcePath).toString(), this, METHOD_NAME);
+//                                        this.logUtil.put(stringMaker.append(GET_RESOURCE).append(resourcePath).toString(), this, METHOD_NAME);
                                         inputStream = resource.getClass().getResourceAsStream(resourcePath);
                                         if (inputStream == null)
                                         {
@@ -112,7 +112,7 @@ public class ResourceUtil
                                             stringMaker.delete(0, stringMaker.length());
                                             resourcePath = stringMaker.append(RESOURCE_STRING).append(COLON).append(resource.substring(index)).toString();
 //                                            stringMaker.delete(0, stringMaker.length());
-//                                            logUtil.put(stringMaker.append(GET_RESOURCE).append(resourcePath).toString(), this, METHOD_NAME);
+//                                            this.logUtil.put(stringMaker.append(GET_RESOURCE).append(resourcePath).toString(), this, METHOD_NAME);
                                             inputStream = resource.getClass().getResourceAsStream(resourcePath);
 
                                             if (inputStream == null)
@@ -120,7 +120,7 @@ public class ResourceUtil
                                                 stringMaker.delete(0, stringMaker.length());
                                                 resourcePath = stringMaker.append(RESOURCE_STRING).append(COLON).append(resource.substring(index + 1)).toString();
 //                                                stringMaker.delete(0, stringMaker.length());
-//                                                logUtil.put(stringMaker.append(GET_RESOURCE).append(resourcePath).toString(), this, METHOD_NAME);
+//                                                this.logUtil.put(stringMaker.append(GET_RESOURCE).append(resourcePath).toString(), this, METHOD_NAME);
                                                 inputStream = resource.getClass().getResourceAsStream(resourcePath);
 
                                                 //inputStream = resource.getClass().getResourceAsStream("res:").append(resource);
@@ -160,16 +160,16 @@ public class ResourceUtil
         int index = resource.indexOf(CommonSeps.getInstance().COLON);
         final String resourcePath = resource.substring(index + startIndex);
 
-//        logUtil.put(stringMaker.append(GET_RESOURCE).append(resourcePath).toString(), this, METHOD_NAME);
+//        this.logUtil.put(stringMaker.append(GET_RESOURCE).append(resourcePath).toString(), this, METHOD_NAME);
 //        stringMaker.delete(0, stringMaker.length());
-//        logUtil.put(stringMaker.append("Start Index: ").append(startIndex).toString(), this, METHOD_NAME);
+//        this.logUtil.put(stringMaker.append("Start Index: ").append(startIndex).toString(), this, METHOD_NAME);
 
         //Try getting resource with normal resource access
         final InputStream inputStream = resource.getClass().getResourceAsStream(resourcePath);
 
         if (inputStream != null)
         {
-//            logUtil.put("Resource Found", this, METHOD_NAME);
+//            this.logUtil.put("Resource Found", this, METHOD_NAME);
             return inputStream;
         }
 

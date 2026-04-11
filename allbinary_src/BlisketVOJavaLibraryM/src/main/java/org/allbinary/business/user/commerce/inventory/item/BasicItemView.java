@@ -44,7 +44,7 @@ public class BasicItemView implements DomNodeInterface
    {
        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
        {
-          logUtil.put(this.commonStrings.START, this, "toXmlNode");
+          this.logUtil.put(this.commonStrings.START, this, "toXmlNode");
        }
 
       /*

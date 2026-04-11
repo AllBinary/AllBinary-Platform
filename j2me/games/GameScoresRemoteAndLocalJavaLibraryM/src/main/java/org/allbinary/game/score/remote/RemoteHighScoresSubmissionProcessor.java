@@ -45,7 +45,7 @@ public class RemoteHighScoresSubmissionProcessor
     {
         try
         {
-            logUtil.put("Begin Remote HighScores Submission", this, commonStrings.PROCESS);
+            this.logUtil.put("Begin Remote HighScores Submission", this, commonStrings.PROCESS);
 
             final GameInfoData gameInfoData = GameInfoData.getInstance();
             
@@ -91,7 +91,7 @@ public class RemoteHighScoresSubmissionProcessor
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
         }
     }
 }

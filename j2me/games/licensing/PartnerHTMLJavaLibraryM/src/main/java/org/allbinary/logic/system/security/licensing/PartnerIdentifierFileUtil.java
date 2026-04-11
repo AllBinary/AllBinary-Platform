@@ -65,7 +65,7 @@ public class PartnerIdentifierFileUtil
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET, e);
 
             return StringUtil.getInstance().NULL_STRING;
         }

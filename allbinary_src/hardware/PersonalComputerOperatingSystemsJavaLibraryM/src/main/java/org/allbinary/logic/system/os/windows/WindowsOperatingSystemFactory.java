@@ -100,7 +100,7 @@ public class WindowsOperatingSystemFactory
             if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
             {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
             }
             return NoOperatingSystem.NO_OPERATING_SYSTEM;
         }

@@ -38,7 +38,7 @@ public class ImageArrayAnimation extends IndexedAnimation
     {
         super(animationBehavior);
 
-        // logUtil.put(, this, );
+        // this.logUtil.put(, this, );
 
         this.setImageArray(imageArray);
     }

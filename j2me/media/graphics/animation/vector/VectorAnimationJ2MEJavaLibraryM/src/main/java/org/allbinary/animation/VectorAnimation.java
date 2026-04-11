@@ -120,7 +120,7 @@ public class VectorAnimation extends IndexedAnimation
                 
                 if (nextPointX != 1000)
                 {
-                    // logUtil.put("Next Line: x1: " +
+                    // this.logUtil.put("Next Line: x1: " +
                     // this.currentPoints[this.currentFrame][index][0] + x +
                     // " y1: "
                     // + this.currentPoints[this.currentFrame][index][1] + y,
@@ -138,7 +138,7 @@ public class VectorAnimation extends IndexedAnimation
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, "paintVectors", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "paintVectors", e);
         }
 
     }

@@ -89,7 +89,7 @@ public class TransformInfoObjectConfig
     	  stringBuffer.append("\nConstructed with document: ");
     	  stringBuffer.append(this.toString());
     	  
-          logUtil.put(stringBuffer.toString(), this, "Constructor(TransformInfoInterface)");
+          this.logUtil.put(stringBuffer.toString(), this, "Constructor(TransformInfoInterface)");
       }
    }
 
@@ -125,7 +125,7 @@ public class TransformInfoObjectConfig
     	  stringBuffer.append("\nConstructed with document: ");
     	  stringBuffer.append(this.toString());
     	  
-         logUtil.put(stringBuffer.toString(), this, "Constructor(TransformInfoInterface, Document)");
+         this.logUtil.put(stringBuffer.toString(), this, "Constructor(TransformInfoInterface, Document)");
       }
    }
 
@@ -166,7 +166,7 @@ public class TransformInfoObjectConfig
     	  stringBuffer.append("\nConstructed with document: ");
     	  stringBuffer.append(this.toString());
     	  
-         logUtil.put(stringBuffer.toString(), this, "Constructor(TransformInfoInterface, name, type)");
+         this.logUtil.put(stringBuffer.toString(), this, "Constructor(TransformInfoInterface, name, type)");
       }
    }
 
@@ -263,8 +263,8 @@ public class TransformInfoObjectConfig
 	              stringBuffer.append(" Nodes: ");
 	              stringBuffer.appendint(numberOfViews);
 
-	             logUtil.put(stringBuffer.toString(), this, "getNodeVector(nodename)");
-	             //logUtil.put("Document: " +
+	             this.logUtil.put(stringBuffer.toString(), this, "getNodeVector(nodename)");
+	             //this.logUtil.put("Document: " +
 	             //DomHelper.toString(this.document), this, "getComponents()");
 	          }
 	          return viewNodeVector;
@@ -312,7 +312,7 @@ public class TransformInfoObjectConfig
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         logUtil.put("Started: " + group, this, "getTransformsGroup()");
+         this.logUtil.put("Started: " + group, this, "getTransformsGroup()");
       }
 
       Vector viewVector = new Vector();
@@ -348,8 +348,8 @@ public class TransformInfoObjectConfig
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            logUtil.put("Number Of Nodes: " + numberOfViews, this, "getTransformsGroup()");
-            //logUtil.put("Document: " +
+            this.logUtil.put("Number Of Nodes: " + numberOfViews, this, "getTransformsGroup()");
+            //this.logUtil.put("Document: " +
             //DomHelper.toString(this.document), this, "getTransformsGroup()");
          }
 
@@ -367,11 +367,11 @@ public class TransformInfoObjectConfig
          {
         	 if(componentsNodeList == null)
         	 {
-        		 logUtil.put("Number Of Nodes: NULL", this, "getTransformsGroup()"); 
+        		 this.logUtil.put("Number Of Nodes: NULL", this, "getTransformsGroup()"); 
         	 }
         	 else
         	 {
-        		 logUtil.put("Number Of Nodes: 0", this, "getTransformsGroup()");
+        		 this.logUtil.put("Number Of Nodes: 0", this, "getTransformsGroup()");
         	 }
          }
       }
@@ -460,7 +460,7 @@ public class TransformInfoObjectConfig
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            logUtil.put("DOM Document error", this, commonStrings.TOSTRING);
+            this.logUtil.put("DOM Document error", this, commonStrings.TOSTRING);
          }
          return null;
       }

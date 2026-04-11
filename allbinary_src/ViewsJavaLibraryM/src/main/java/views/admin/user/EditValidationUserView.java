@@ -68,7 +68,7 @@ public class EditValidationUserView extends UserView
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            logUtil.put("Failed to validate form",this,commonStrings.IS_VALID,e);
+            this.logUtil.put("Failed to validate form",this,commonStrings.IS_VALID,e);
          }
          return Boolean.FALSE;
       }
@@ -84,7 +84,7 @@ public class EditValidationUserView extends UserView
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               logUtil.put("User Name is valid",this,"validationInfo()");
+               this.logUtil.put("User Name is valid",this,"validationInfo()");
             }
             
             this.user = UserEntityFactory.getInstance().getUser(this.userName);
@@ -104,7 +104,7 @@ public class EditValidationUserView extends UserView
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               logUtil.put("User exists but is invalid - Probably manually modified",this,"validationInfo()");
+               this.logUtil.put("User exists but is invalid - Probably manually modified",this,"validationInfo()");
             }
             stringBuffer.append("User data is not valid - Please call administrator.<br />");
             stringBuffer.append(this.user.validationInfo());
@@ -115,7 +115,7 @@ public class EditValidationUserView extends UserView
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            logUtil.put("Failed to generate validation error info",this,"validationInfo()",e);
+            this.logUtil.put("Failed to generate validation error info",this,"validationInfo()",e);
          }
          return "Error Validating Form";
       }

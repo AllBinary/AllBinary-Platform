@@ -43,13 +43,13 @@ extends InitUpdatePaintable
     {
         try
         {
-            //logUtil.put(commonStrings.START, this, commonStrings.UPDATE);
+            //this.logUtil.put(commonStrings.START, this, commonStrings.UPDATE);
             //this.gameNotificationHud.processTick();
         }
         catch(Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e);
         }
     }
 

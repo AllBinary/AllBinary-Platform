@@ -94,13 +94,13 @@ public class ImageCache extends ImageCacheBase {
         public void process() {
 
             final int size = gdResources.currentLayoutRequiredTotal;;
-            //if(size != 0) logUtil.put("totalLoaded: " + totalLoaded, this, commonStrings.RUN);
+            //if(size != 0) this.logUtil.put("totalLoaded: " + totalLoaded, this, commonStrings.RUN);
             if (size == 0) {
-                //logUtil.put(new StringMaker().append("end with totalLoaded loaded: ").append(totalLoaded).append(" i:").append(size).toString(), this, commonStrings.RUN);
+                //this.logUtil.put(new StringMaker().append("end with totalLoaded loaded: ").append(totalLoaded).append(" i:").append(size).toString(), this, commonStrings.RUN);
                 final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
                 progressCanvas.endIfPaintedSinceStart();
             } else if (totalLoaded > size / 12) {
-                //logUtil.put(new StringMaker().append("end with totalLoaded loaded: ").append(totalLoaded).append(" i:").append(size).toString(), this, commonStrings.RUN);
+                //this.logUtil.put(new StringMaker().append("end with totalLoaded loaded: ").append(totalLoaded).append(" i:").append(size).toString(), this, commonStrings.RUN);
                 final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
                 progressCanvas.endIfPaintedSinceStart();
                 endProcessor = new NotHTMLEndProcessor();
@@ -114,18 +114,18 @@ public class ImageCache extends ImageCacheBase {
         
         public void process() {
             final boolean isHTML = J2MEUtil.isHTML();
-            //logUtil.put(new StringMaker().append("isHTML: ").append(isHTML).toString(), this, commonStrings.RUN);
+            //this.logUtil.put(new StringMaker().append("isHTML: ").append(isHTML).toString(), this, commonStrings.RUN);
             if (isHTML) {
                 processor = Processor.getInstance();
                 endProcessor = new HTMLEndProcessor();
             } else {
-                //logUtil.put("Setting processor", this, commonStrings.RUN);
+                //this.logUtil.put("Setting processor", this, commonStrings.RUN);
                 processor = new NotHTMLProcessor();
                 endProcessor = new NotHTMLEndProcessor();
                 try {
                     runTask();
                 } catch (Exception e) {
-                    logUtil.put(commonStrings.EXCEPTION, this, commonStrings.END_METHOD_NAME);
+                    this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.END_METHOD_NAME);
                 }
             }
         }
@@ -147,11 +147,11 @@ public class ImageCache extends ImageCacheBase {
     public void waitForLoadNow() throws Exception {
         if(firstTime) {
             
-            //logUtil.put(commonStrings.START, this, "waitForLoadNow");
+            //this.logUtil.put(commonStrings.START, this, "waitForLoadNow");
             final ABToGBUtil abToGBUtil = ABToGBUtil.getInstance();
             final AllBinaryGameCanvas abCanvas = (AllBinaryGameCanvas) abToGBUtil.abCanvas;
             while (loadNowList.isEmpty() && (!abCanvas.isInitialized() || (abCanvas.isInitialized() && this.hasAnyLazyAnimationFactories)) && !this.progressEnded) {
-                //logUtil.put(new StringMaker().append("Still Empty: ").append(this.loadNowList.size()).append(" after: ").append(this.loadAfterList.size()).append(" all: ").append(this.loadList.size()).toString(), this, "waitForLoadNow");
+                //this.logUtil.put(new StringMaker().append("Still Empty: ").append(this.loadNowList.size()).append(" after: ").append(this.loadAfterList.size()).append(" all: ").append(this.loadList.size()).toString(), this, "waitForLoadNow");
                 Thread.sleep(120);
             }
             firstTime = false;
@@ -181,18 +181,18 @@ public class ImageCache extends ImageCacheBase {
 
                     } else {
                         lazyImageRotationAnimation = (LazyImageRotationAnimation) this.loadAfterList.get(0);
-                        //logUtil.put("loadAfterList: " + lazyImageRotationAnimation, this, commonStrings.RUN);
+                        //this.logUtil.put("loadAfterList: " + lazyImageRotationAnimation, this, commonStrings.RUN);
                         if (this.loadImageForAnimation(lazyImageRotationAnimation)) {
-                            //logUtil.put("Loaded associated Animation for Game Layer that is painted", this, commonStrings.RUN);
+                            //this.logUtil.put("Loaded associated Animation for Game Layer that is painted", this, commonStrings.RUN);
                             loadAfterList.remove(lazyImageRotationAnimation);
                         }
                     }
 
                 } else {
                     lazyImageRotationAnimation = (LazyImageRotationAnimation) this.loadSoonList.get(0);
-                    //logUtil.put("loadSoonList: " + lazyImageRotationAnimation, this, commonStrings.RUN);
+                    //this.logUtil.put("loadSoonList: " + lazyImageRotationAnimation, this, commonStrings.RUN);
                     if (this.loadImageForAnimation(lazyImageRotationAnimation)) {
-                        //logUtil.put("Loaded associated Animation for Game Layer that is painted", this, commonStrings.RUN);
+                        //this.logUtil.put("Loaded associated Animation for Game Layer that is painted", this, commonStrings.RUN);
                         loadSoonList.remove(lazyImageRotationAnimation);
                     }
                 }
@@ -202,30 +202,30 @@ public class ImageCache extends ImageCacheBase {
             lazyImageRotationAnimation = (LazyImageRotationAnimation) loadNowList.get(0);
         }
         if(this.loadImageForAnimation(lazyImageRotationAnimation)) {
-            //logUtil.put(new StringMaker().append("loadNowList loaded: ").append(this.totalLoaded).append(" i:").append(this.loadList.size()).toString(), this, commonStrings.RUN);
+            //this.logUtil.put(new StringMaker().append("loadNowList loaded: ").append(this.totalLoaded).append(" i:").append(this.loadList.size()).toString(), this, commonStrings.RUN);
             //final Image image = lazyImageRotationAnimation.animationInterfaceFactoryInterface.getImage();
-            //logUtil.put("loadNowList loaded: " + image.getName(), this, commonStrings.RUN);
+            //this.logUtil.put("loadNowList loaded: " + image.getName(), this, commonStrings.RUN);
             synchronized (lock) {
                 loadNowList.remove(lazyImageRotationAnimation);
             }
 
             if (lazyImageRotationAnimation.layoutIndex != 0) {
                 final BasicArrayList list = this.getAssociated(lazyImageRotationAnimation);
-                //logUtil.put("loadNowList list: " + list, this, commonStrings.RUN);
+                //this.logUtil.put("loadNowList list: " + list, this, commonStrings.RUN);
                 synchronized (lock) {
                     final int size = list.size();
                     if(size > 0) {
-                        //logUtil.put("addAssociated: " + size, this, commonStrings.RUN);
+                        //this.logUtil.put("addAssociated: " + size, this, commonStrings.RUN);
                         loadSoonList.addAll(list);
                     }
                 }
             }
 
-            //logUtil.put("should end progress? " + this.loadNowList.size(), this, commonStrings.RUN);
+            //this.logUtil.put("should end progress? " + this.loadNowList.size(), this, commonStrings.RUN);
             final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
             final boolean isHTML = J2MEUtil.isHTML();
             if (this.loadNowList.isEmpty() && (!isHTML || this.firstTime)) {
-                //logUtil.put("end progress", this, commonStrings.RUN);
+                //this.logUtil.put("end progress", this, commonStrings.RUN);
                 progressCanvas.endFromInitialLazyLoadingComplete();
             } else {
                 if(this.totalLoaded % 10 == 0) {
@@ -249,24 +249,24 @@ public class ImageCache extends ImageCacheBase {
         while (!loadList.isEmpty() || !loadNowList.isEmpty()) {
 
             loadImageForAnimations();
-            //logUtil.put("load image", this, commonStrings.RUN);
+            //this.logUtil.put("load image", this, commonStrings.RUN);
             loadImage();
         }
     }
     
     public void loadImageForAnimations() throws Exception {
         while (!loadNowList.isEmpty()) {
-            //logUtil.put("load lazy animation image", this, commonStrings.RUN);
+            //this.logUtil.put("load lazy animation image", this, commonStrings.RUN);
             loadImageForAnimation();
         }
     }
     
     public void loadRemainingAnimations() throws Exception {
-        //logUtil.put("load remaining lazy animations", this, commonStrings.RUN);
+        //this.logUtil.put("load remaining lazy animations", this, commonStrings.RUN);
         while (!this.loadAfterList.isEmpty() || !this.loadNowList.isEmpty()) {
             
             while (!loadNowList.isEmpty()) {
-                //logUtil.put("load lazy animation image", this, commonStrings.RUN);
+                //this.logUtil.put("load lazy animation image", this, commonStrings.RUN);
                 loadImageForAnimation();
             }
 
@@ -287,7 +287,7 @@ public class ImageCache extends ImageCacheBase {
         final Image image = lazyImageRotationAnimation.animationInterfaceFactoryInterface.getImage();
         
         if(this.loadImage(image)) {
-            //logUtil.put(new StringMaker().append("processing loaded resource: ").append(lazyImageRotationAnimation).toString(), this, commonStrings.RUN);
+            //this.logUtil.put(new StringMaker().append("processing loaded resource: ").append(lazyImageRotationAnimation).toString(), this, commonStrings.RUN);
             lazyImageRotationAnimation.setRealAnimation();
             return true;
         }
@@ -309,7 +309,7 @@ public class ImageCache extends ImageCacheBase {
 
         if (image.isReady()) {
             
-            //logUtil.put(new StringMaker().append("already loaded resource image: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN);
+            //this.logUtil.put(new StringMaker().append("already loaded resource image: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN);
             return true;
             
         } else {
@@ -318,20 +318,20 @@ public class ImageCache extends ImageCacheBase {
                 //HTML only
                 if(image.setReady()) {
                     this.totalLoaded++;
-                    //logUtil.put(new StringMaker().append("setReady resource HTML5 image: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN);
+                    //this.logUtil.put(new StringMaker().append("setReady resource HTML5 image: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN);
                     return true;
                 }
             } else {
-                //logUtil.put(new StringMaker().append("attempt loading resource image: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN);
+                //this.logUtil.put(new StringMaker().append("attempt loading resource image: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN);
                 final String key = image.getName();
                 final Image image2 = this.creatImage(key);
                 if (image2.isReady()) {
-                    //logUtil.put(new StringMaker().append("setImage resource Now image: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN);
+                    //this.logUtil.put(new StringMaker().append("setImage resource Now image: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN);
                     this.init(image, image2);
                     return true;
                 } else {
                     //HTML only
-                    //logUtil.put(new StringMaker().append("setImage resource HTML5 image: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN);
+                    //this.logUtil.put(new StringMaker().append("setImage resource HTML5 image: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN);
                     image.setImage(image2.getImage());
                 }
             }
@@ -341,9 +341,9 @@ public class ImageCache extends ImageCacheBase {
     }
 
     protected void init(final Image image, final Image image2) throws Exception {
-        //logUtil.put(new StringMaker().append("loading resource: ").append(image).append(image.getName()).append(commonSeps.SPACE).append(image.getWidth()).append(commonSeps.SPACE).append(image.getHeight()).toString(), this, commonStrings.RUN);
+        //this.logUtil.put(new StringMaker().append("loading resource: ").append(image).append(image.getName()).append(commonSeps.SPACE).append(image.getWidth()).append(commonSeps.SPACE).append(image.getHeight()).toString(), this, commonStrings.RUN);
         image.init(image2.getImage());
-        //logUtil.put(new StringMaker().append("loaded resource: ").append(image).append(image.getName()).append(commonSeps.SPACE).append(image.getWidth()).append(commonSeps.SPACE).append(image.getHeight()).toString(), this, commonStrings.RUN);
+        //this.logUtil.put(new StringMaker().append("loaded resource: ").append(image).append(image.getName()).append(commonSeps.SPACE).append(image.getWidth()).append(commonSeps.SPACE).append(image.getHeight()).toString(), this, commonStrings.RUN);
     }
 
     protected Image creatImage(final String key) throws Exception {
@@ -361,15 +361,15 @@ public class ImageCache extends ImageCacheBase {
         if (image == NullCanvas.NULL_IMAGE) {
             volume += width * height;
             if (volume > 32000) {
-                //logUtil.put(new StringMaker().append("Image for: ").append(caller).toString(), this, commonStrings.GET);
+                //this.logUtil.put(new StringMaker().append("Image for: ").append(caller).toString(), this, commonStrings.GET);
                 System.gc();
                 //System.gc();
                 volume = 0;
-                //logUtil.put(Memory.getInfo(), this, commonStrings.GET);
+                //this.logUtil.put(Memory.getInfo(), this, commonStrings.GET);
             }
 
             image = this.createImage(caller, width, height);
-            //logUtil.put(new StringMaker().append("Image: ").append(image.getName()).toString(), this, commonStrings.GET);
+            //this.logUtil.put(new StringMaker().append("Image: ").append(image.getName()).toString(), this, commonStrings.GET);
 
             if (nextIndex > widths.length - 1) {
                 if (foundIndex == -1) {
@@ -402,15 +402,15 @@ public class ImageCache extends ImageCacheBase {
             //throw new RuntimeException(new StringMaker().append("Image resource is not available for key: ").append(key).toString());
             //}
             try {
-                //logUtil.put(Memory.getInfo(), this, commonStrings.GET);
+                //this.logUtil.put(Memory.getInfo(), this, commonStrings.GET);
                 image = this.createImage(key, inputStream);
             } catch (Exception e) {
-                logUtil.put("Exception: Trying Again After GC", this, commonStrings.GET, e);
+                this.logUtil.put("Exception: Trying Again After GC", this, commonStrings.GET, e);
 
-                logUtil.put(new StringMaker().append("InputStream: ").append(StringUtil.getInstance().toString(inputStream)).toString(), this, commonStrings.GET);
+                this.logUtil.put(new StringMaker().append("InputStream: ").append(StringUtil.getInstance().toString(inputStream)).toString(), this, commonStrings.GET);
                 System.gc();
                 System.gc();
-                logUtil.put(Memory.getInfo(), this, commonStrings.GET);
+                this.logUtil.put(Memory.getInfo(), this, commonStrings.GET);
                 Thread.sleep(100);
                 image = this.createImage(key, inputStream);
             }
@@ -424,8 +424,8 @@ public class ImageCache extends ImageCacheBase {
         }
 
 //        final CommonLabels commonLabels = CommonLabels.getInstance();
-//        logUtil.put(commonLabels.WIDTH_LABEL + image.getWidth() + commonLabels.HEIGHT_LABEL + image.getHeight(), this, commonStrings.CONSTRUCTOR);
-//        logUtil.put(key + " = " + image.toString(), this, commonStrings.CONSTRUCTOR);
+//        this.logUtil.put(commonLabels.WIDTH_LABEL + image.getWidth() + commonLabels.HEIGHT_LABEL + image.getHeight(), this, commonStrings.CONSTRUCTOR);
+//        this.logUtil.put(key + " = " + image.toString(), this, commonStrings.CONSTRUCTOR);
         return image;
     }
 
@@ -438,7 +438,7 @@ public class ImageCache extends ImageCacheBase {
                 return index;
             }
         }
-        logUtil.put(new StringMaker().append("unable to find key: ").append(StringUtil.getInstance().toString(key)).toString(), this, commonStrings.RUN);
+        this.logUtil.put(new StringMaker().append("unable to find key: ").append(StringUtil.getInstance().toString(key)).toString(), this, commonStrings.RUN);
         throw new RuntimeException();
     }
 
@@ -451,7 +451,7 @@ public class ImageCache extends ImageCacheBase {
         for(int index = 0; index < size; index++) {
             //if(((String) key).compareTo(resourceStringArray[index]) == 0) {
             if(key == resourceStringArray[index]) {
-                //logUtil.put(new StringMaker().append("create now: ").append(key).toString(), this, commonStrings.RUN);
+                //this.logUtil.put(new StringMaker().append("create now: ").append(key).toString(), this, commonStrings.RUN);
                 return this.creatImage((String) key);
             }
         }
@@ -465,7 +465,7 @@ public class ImageCache extends ImageCacheBase {
         final Image image = this.createImageLater((String) key, width, height);
 
         synchronized (lock) {
-            //logUtil.put(new StringMaker().append("add: ").append(image.getName()).append(index).toString(), this, commonStrings.RUN);
+            //this.logUtil.put(new StringMaker().append("add: ").append(image.getName()).append(index).toString(), this, commonStrings.RUN);
             loadList.add(image);
         }
 
@@ -502,7 +502,7 @@ public class ImageCache extends ImageCacheBase {
     
     public void add(final LazyImageRotationAnimation lazyImageRotationAnimation) {
         synchronized (lock) {
-            //logUtil.put("adding to loadAfterList: " + lazyImageRotationAnimation, this, commonStrings.RUN);
+            //this.logUtil.put("adding to loadAfterList: " + lazyImageRotationAnimation, this, commonStrings.RUN);
             //this.loadImageAfterList.add(lazyImageRotationAnimation.animationInterfaceFactoryInterface.getImage());
             this.loadAfterList.add(lazyImageRotationAnimation);
         }
@@ -512,10 +512,10 @@ public class ImageCache extends ImageCacheBase {
             //final Image image = lazyImageRotationAnimation.animationInterfaceFactoryInterface.getImage();
 //            if (image.getImage() != null) {
 //                try {
-//                    logUtil.put("animation image is already loaded: " + image.getName(), this, commonStrings.RUN);
+//                    this.logUtil.put("animation image is already loaded: " + image.getName(), this, commonStrings.RUN);
 //                    lazyImageRotationAnimation.setRealAnimation();
 //                } catch (Exception e) {
-//                    logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+//                    this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
 //                }
 //            } else {
 
@@ -523,7 +523,7 @@ public class ImageCache extends ImageCacheBase {
                 
             } else {
 
-                //logUtil.put(new StringMaker().append("loadNowList insert: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN);
+                //this.logUtil.put(new StringMaker().append("loadNowList insert: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN);
             synchronized (lock) {
                 this.loadNowList.add(lazyImageRotationAnimation);
                 this.loadAfterList.remove(lazyImageRotationAnimation);
@@ -533,9 +533,9 @@ public class ImageCache extends ImageCacheBase {
 //                    this.loadImageAfterList.remove(indexOfImage);
 //                    final LazyImageRotationAnimation lazyImageRotationAnimation2 = (LazyImageRotationAnimation) this.loadAfterList.remove(indexOfImage);
 //                    if(lazyImageRotationAnimation2 == lazyImageRotationAnimation) {
-//                        logUtil.put(new StringMaker().append("insert resource: ").append(lazyImageRotationAnimation2).toString(), this, commonStrings.RUN);
+//                        this.logUtil.put(new StringMaker().append("insert resource: ").append(lazyImageRotationAnimation2).toString(), this, commonStrings.RUN);
 //                    } else {
-//                        logUtil.put(new StringMaker().append("insert duplicate resource: ").append(lazyImageRotationAnimation2).toString(), this, commonStrings.RUN);
+//                        this.logUtil.put(new StringMaker().append("insert duplicate resource: ").append(lazyImageRotationAnimation2).toString(), this, commonStrings.RUN);
 //                    }
 //                    this.loadNowList.add(lazyImageRotationAnimation2);
 //                }
@@ -554,12 +554,12 @@ public class ImageCache extends ImageCacheBase {
     }    
 
     public void runTask() throws Exception {
-        //logUtil.put(commonStrings.START + this.processor, this, "runTask");
+        //this.logUtil.put(commonStrings.START + this.processor, this, "runTask");
         this.processor.process();
     }
     
     public void initProgress() {
-        //logUtil.put("reset totalFrames", this, commonStrings.RUN);
+        //this.logUtil.put("reset totalFrames", this, commonStrings.RUN);
         
         if(firstTime) {
             firstTime = false;

@@ -73,7 +73,7 @@ public class MapSelectionGameInputProcessor extends Processor
             } catch (Exception e) {
                 this.setRunning(false);
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
             }
         }
     };
@@ -96,7 +96,7 @@ public class MapSelectionGameInputProcessor extends Processor
     @Override
     public void process() throws Exception
     {
-        // logUtil.put(commonStrings.START, this, commonStrings.PROCESS);
+        // this.logUtil.put(commonStrings.START, this, commonStrings.PROCESS);
         this.getPlayerGameInput().update();
     }
 

@@ -183,7 +183,7 @@ public class DomHelper
         for (int index = 0; index < numberOfNodes; index++)
         {
             Node node = nodeList.item(index);
-            logUtil.put("NodeName: " + node.getNodeName(), this, "searchNodeList");
+            this.logUtil.put("NodeName: " + node.getNodeName(), this, "searchNodeList");
             if (node.getNodeName().compareTo(nodeName) == 0)
             {
                 return node;
@@ -198,7 +198,7 @@ public class DomHelper
         for (int index = 0; index < numberOfNodes; index++)
         {
             Node node = (Node) nodeList.get(index);
-            logUtil.put("NodeName: " + node.getNodeName(), this, "searchNodeList");
+            this.logUtil.put("NodeName: " + node.getNodeName(), this, "searchNodeList");
             if (node.getNodeName().compareTo(nodeName) == 0)
             {
                 return node;

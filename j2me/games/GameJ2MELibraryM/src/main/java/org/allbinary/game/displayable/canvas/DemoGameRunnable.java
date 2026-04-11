@@ -36,7 +36,7 @@ public class DemoGameRunnable extends GameRunnable
     {
         try
         {
-            //logUtil.put(commonStrings.START, this, commonStrings.RUN);
+            //this.logUtil.put(commonStrings.START, this, commonStrings.RUN);
 
             //final AllBinaryGameCanvas allBinaryGameCanvas = this.allBinaryGameCanvas;
             
@@ -47,7 +47,7 @@ public class DemoGameRunnable extends GameRunnable
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION,this, commonStrings.RUN, e);
+            this.logUtil.put(commonStrings.EXCEPTION,this, commonStrings.RUN, e);
         }
     }
     

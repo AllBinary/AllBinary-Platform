@@ -45,7 +45,7 @@ public class MouseActionScriptInput
     {
         super(NAME, node);
 
-        logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
+        this.logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         
         this.point = new Point();
         
@@ -155,7 +155,7 @@ public class MouseActionScriptInput
         
         hashMap.put(MouseActionScriptInputData.BUTTONS, Integer.toString(this.getButtonClicks()));
 
-        logUtil.put("HashMap: " + hashMap.toString(), this, "toHashMap()");
+        this.logUtil.put("HashMap: " + hashMap.toString(), this, "toHashMap()");
 
         return hashMap;
     }
@@ -227,7 +227,7 @@ public class MouseActionScriptInput
             buttonStringBuffer.append(booleanFactory.FALSE_STRING);
         }
         
-        logUtil.put(
+        this.logUtil.put(
             "Input Type: " + this.getInputRobotInterface().getName() + 
             " Point: " + this.getPoint() + " Buttons Clicked: " + 
             buttonStringBuffer.toString(), this, "log");

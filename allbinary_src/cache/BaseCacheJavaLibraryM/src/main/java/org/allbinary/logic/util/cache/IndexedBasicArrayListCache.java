@@ -88,9 +88,9 @@ public class IndexedBasicArrayListCache
     @Override
     public void clear()
     {
-        //logUtil.put("List: " + this.log(), this, "clear");
+        //this.logUtil.put("List: " + this.log(), this, "clear");
         
-        //logUtil.put("PathWrapper count: " + this.index, this, "clear");
+        //this.logUtil.put("PathWrapper count: " + this.index, this, "clear");
         //PreLogUtil.put("abstractPathElementList: " + BasicArrayListUtil.log(this.abstractPathElementList), this, "clear");
 
         index = 0;

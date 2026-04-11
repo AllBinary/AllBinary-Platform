@@ -71,7 +71,7 @@ public class WorkWaypoint extends Waypoint
                 
                 if (geologicalResource.getTotal() >= 1)
                 {
-                  //logUtil.put(unitLayer.getName() + " loaded resource from " + geologicalGeographicMapCellPosition.toString(), this, "visit");
+                  //this.logUtil.put(unitLayer.getName() + " loaded resource from " + geologicalGeographicMapCellPosition.toString(), this, "visit");
                     
                     outOfResources = false;
                     final int maxResourceLoad = (int) unitLayer.getMaxResourceLoad();
@@ -92,7 +92,7 @@ public class WorkWaypoint extends Waypoint
             //Stop if our of resources
             if(!outOfResources)
             {
-                //logUtil.put("Returning: " + unitLayer.getName(), this, "visit");
+                //this.logUtil.put("Returning: " + unitLayer.getName(), this, "visit");
 
                 final UnitWaypointBehavior unitWaypointBehavior = 
                     (UnitWaypointBehavior) unitLayer.getWaypointBehavior();

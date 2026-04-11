@@ -37,7 +37,7 @@ public class AbSqlTablePresentation extends AbSqlBasic
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
          {
-            logUtil.put("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getTable",e);
+            this.logUtil.put("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getTable",e);
          }
          return "Get Table Failed";
       }
@@ -62,7 +62,7 @@ public class AbSqlTablePresentation extends AbSqlBasic
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
          {
-            logUtil.put("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getTableWhere(key,value)",e);
+            this.logUtil.put("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getTableWhere(key,value)",e);
          }
          return "getTableWhere(key,value)";
       }
@@ -97,7 +97,7 @@ public class AbSqlTablePresentation extends AbSqlBasic
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
          {
-            logUtil.put("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getTableWhere()",e);
+            this.logUtil.put("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getTableWhere()",e);
          }
          return "getTableWhere()";
       }
@@ -141,7 +141,7 @@ public class AbSqlTablePresentation extends AbSqlBasic
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
          {
-            logUtil.put("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getTableWhereBetween()",e);
+            this.logUtil.put("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getTableWhereBetween()",e);
          }
          return "getTableWhereBetween() Failed";
       }
@@ -183,7 +183,7 @@ public class AbSqlTablePresentation extends AbSqlBasic
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
          {
-            logUtil.put("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getInputWhere",e);
+            this.logUtil.put("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getInputWhere",e);
          }
          return "Get Html Inputs Failed";
       }

@@ -71,7 +71,7 @@ public class LinesGraphicItem implements GraphicItemInterface
       this.active = true;
       } catch (Exception e)
       {
-         logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
+         this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
       }            
       
    }
@@ -198,7 +198,7 @@ public class LinesGraphicItem implements GraphicItemInterface
    {
       this.points.getPoints().add(point);
       
-      logUtil.put(point.toString(), this, "addPoint");
+      this.logUtil.put(point.toString(), this, "addPoint");
       
       this.pointTreeNodeVector.add(new DefaultMutableTreeNode(point.toString()));
       this.treeNode.add((DefaultMutableTreeNode) this.pointTreeNodeVector.get(this.pointTreeNodeVector.size()-1));
@@ -311,7 +311,7 @@ public class LinesGraphicItem implements GraphicItemInterface
          
       } catch (Exception e)
       {
-         logUtil.put(commonStrings.EXCEPTION, this, "mouseMoved", e);
+         this.logUtil.put(commonStrings.EXCEPTION, this, "mouseMoved", e);
       }
    }
 
@@ -366,7 +366,7 @@ public class LinesGraphicItem implements GraphicItemInterface
          this.currentMousePoint = mousePoint;
       } catch (Exception e)
       {
-         logUtil.put(commonStrings.EXCEPTION, this, "mouseMoved", e);
+         this.logUtil.put(commonStrings.EXCEPTION, this, "mouseMoved", e);
       }
    }
 
@@ -399,7 +399,7 @@ public class LinesGraphicItem implements GraphicItemInterface
          this.currentMousePoint = point;
       } catch (Exception e)
       {
-         logUtil.put(commonStrings.EXCEPTION, this, "mouseMoved", e);
+         this.logUtil.put(commonStrings.EXCEPTION, this, "mouseMoved", e);
       }
    }
 
@@ -436,7 +436,7 @@ public class LinesGraphicItem implements GraphicItemInterface
           }
       } catch (Exception e)
       {
-         logUtil.put(commonStrings.EXCEPTION, this, gameInputStrings.KEY_PRESSED, e);
+         this.logUtil.put(commonStrings.EXCEPTION, this, gameInputStrings.KEY_PRESSED, e);
       }
    }
 

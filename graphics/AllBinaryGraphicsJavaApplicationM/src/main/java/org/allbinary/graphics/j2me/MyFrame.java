@@ -402,7 +402,7 @@ public class MyFrame extends javax.swing.JFrame
                    MyCanvasEventService.EXPLODE, null)));
        } catch (Exception e)
        {
-           logUtil.put(commonStrings.EXCEPTION, this, "explodeAllJMenuItemMousePressed", e);
+           this.logUtil.put(commonStrings.EXCEPTION, this, "explodeAllJMenuItemMousePressed", e);
        }
    }//GEN-LAST:event_explodeAllJMenuItemMousePressed
 
@@ -414,7 +414,7 @@ public class MyFrame extends javax.swing.JFrame
                    MyCanvasEventService.AUTOEXPLODE, null)));
        } catch (Exception e)
        {
-           logUtil.put(commonStrings.EXCEPTION, this, "autoExplodeJMenuItemMousePressed", e);
+           this.logUtil.put(commonStrings.EXCEPTION, this, "autoExplodeJMenuItemMousePressed", e);
        }
    }//GEN-LAST:event_autoExplodeJMenuItemMousePressed
 
@@ -516,7 +516,7 @@ public class MyFrame extends javax.swing.JFrame
                     MyCanvasEventService.CENTER, null)));
         } catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, "centerJMenuItemActionPerformed", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "centerJMenuItemActionPerformed", e);
         }
     }//GEN-LAST:event_centerJMenuItemActionPerformed
 
@@ -540,7 +540,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
          * */
     } catch (Exception e)
     {
-        logUtil.put(commonStrings.EXCEPTION, this, "centerJMenuItemActionPerformed", e);
+        this.logUtil.put(commonStrings.EXCEPTION, this, "centerJMenuItemActionPerformed", e);
     }
 }//GEN-LAST:event_jMenuItem1ActionPerformed
 
@@ -548,7 +548,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     {
         try
         {
-            logUtil.put("Reading: " + files, this, "onFiles");
+            this.logUtil.put("Reading: " + files, this, "onFiles");
 
             for (int index = 0; index < files.length; index++)
             {
@@ -565,7 +565,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
             this.fileJDialog.setVisible(false);
         } catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, "onFiles", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "onFiles", e);
         }
     }
 
@@ -593,7 +593,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     {
         try
         {
-            logUtil.put("Starting", this, "openImageJMenuItemActionPerformed");
+            this.logUtil.put("Starting", this, "openImageJMenuItemActionPerformed");
             fileJDialog.setVisible(true);
         } catch (Exception e)
         {
@@ -612,7 +612,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
             File file = new File(this.SAVE_PATH + "/" + workAreaJPanel.getName() + JAVAEXTENSION);
             Document document = workAreaJPanel.toDocument();
 
-            logUtil.put("Export: " + DomHelper.getInstance().toString(document), this, "exportJMenuItem1ActionPerformed");
+            this.logUtil.put("Export: " + DomHelper.getInstance().toString(document), this, "exportJMenuItem1ActionPerformed");
 
             xslHelper.export(file, this.TEMPLATE_EXPORT_PATH + "/" + this.JAVA_TEMPLATE, document);
         } catch (Exception e)
@@ -721,7 +721,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         } catch (Exception e)
         {
             final LogUtil logUtil = LogUtil.getInstance();
-            logUtil.put(CommonStrings.getInstance().EXCEPTION, null, "main", e);
+            this.logUtil.put(CommonStrings.getInstance().EXCEPTION, null, "main", e);
         }
     }
 

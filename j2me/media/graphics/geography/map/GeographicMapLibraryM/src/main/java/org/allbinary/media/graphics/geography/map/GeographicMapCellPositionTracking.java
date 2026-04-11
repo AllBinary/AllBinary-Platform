@@ -41,7 +41,7 @@ public class GeographicMapCellPositionTracking
         {
             // Get the location of this vehicle relative to the top righ corner of the tileLayer location
             this.currentCellType = geographicMap.getCellTypeAt(geographicMapCellPosition);
-            // logUtil.put("currentCellType: " + currentCellType, this, "getCurrentCellType");
+            // this.logUtil.put("currentCellType: " + currentCellType, this, "getCurrentCellType");
         }
         return this.currentCellType;
     }

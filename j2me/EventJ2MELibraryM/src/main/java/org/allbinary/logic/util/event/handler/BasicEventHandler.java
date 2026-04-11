@@ -71,7 +71,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
     {
         if (!this.eventListenerInterfaceList.contains(eventListenerInterface))
         {
-            //logUtil.put(CommonLabels.getInstance().START + eventListenerInterface, this, commonStrings.ADD_LISTENER);
+            //this.logUtil.put(CommonLabels.getInstance().START + eventListenerInterface, this, commonStrings.ADD_LISTENER);
             this.eventListenerInterfaceList.add(eventListenerInterface);
         }
     }
@@ -86,17 +86,17 @@ public class BasicEventHandler implements BasicEventHandlerInterface
          * while(this.reentrantLock.getHoldCount() > 1) {
          * this.condition.await(); }
          */
-        // logUtil.put("Start: Locks Held: " +
+        // this.logUtil.put("Start: Locks Held: " +
         // reentrantLock.getHoldCount() + " Held By Current Thread: " +
         // reentrantLock.isHeldByCurrentThread(), this, commonStrings.ADD_LISTENER);
         if (!this.eventListenerInterfaceList.contains(eventListenerInterface))
         {
-            //logUtil.put(CommonLabels.getInstance().START + eventListenerInterface, this, commonStrings.ADD_LISTENER);
+            //this.logUtil.put(CommonLabels.getInstance().START + eventListenerInterface, this, commonStrings.ADD_LISTENER);
             this.eventListenerInterfaceList.add(eventListenerInterface);
         }
         /*
          * this.condition.signal();
-         *  } catch(Exception e) { logUtil.put(this.commonStrings.EXCEPTION, this,
+         *  } catch(Exception e) { this.logUtil.put(this.commonStrings.EXCEPTION, this,
          * commonStrings.ADD_LISTENER, e); } finally { reentrantLock.unlock(); }
          */
     }
@@ -104,7 +104,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
     public void removeListenerSingleThreaded(final EventListenerInterface eventListenerInterface)
      {
 
-            //logUtil.put(
+            //this.logUtil.put(
               //      CommonLabels.getInstance().START + eventListenerInterface, this, commonStrings.ADD_LISTENER);
 
          this.eventListenerInterfaceList.remove(eventListenerInterface);
@@ -119,11 +119,11 @@ public class BasicEventHandler implements BasicEventHandlerInterface
          * while(this.reentrantLock.getHoldCount() > 1) {
          * this.condition.await(); }
          */
-        // logUtil.put("Start: Locks Held: " +
+        // this.logUtil.put("Start: Locks Held: " +
         // reentrantLock.getHoldCount() + " Held By Current Thread: " +
         // reentrantLock.isHeldByCurrentThread(), this, commonStrings.REMOVE_LISTENER);
 
-        //logUtil.put(
+        //this.logUtil.put(
           //      CommonLabels.getInstance().START + eventListenerInterface, this, commonStrings.ADD_LISTENER);
 
         this.eventListenerInterfaceList.remove(eventListenerInterface);
@@ -147,7 +147,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
          * //if(this instance of DestroyedEventHandler) //LogUtil.put(new
          * Log("Start: Locks Held: " + reentrantLock.getHoldCount() + " Held By
          * Current Thread: " + reentrantLock.isHeldByCurrentThread(), this,
-         * EventStrings.getInstance().FIRE_EVENT)); //logUtil.put(this.commonStrings.START, this, EventStrings.getInstance().FIRE_EVENT);
+         * EventStrings.getInstance().FIRE_EVENT)); //this.logUtil.put(this.commonStrings.START, this, EventStrings.getInstance().FIRE_EVENT);
          *
          * iter = this.eventListenerInterfaceVector; while
          * (iter.hasNext()) { EventListenerInterface eventListenerInterface =
@@ -174,7 +174,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
             }
             catch (Exception e)
             {
-                logUtil.put(commonStrings.EXCEPTION, this, eventStrings.FIRE_EVENT, e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, eventStrings.FIRE_EVENT, e);
             }
             index++;
         }
@@ -218,7 +218,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
             }
             catch (Exception e)
             {
-                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.TOSTRING, e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.TOSTRING, e);
             }
             index++;
         }

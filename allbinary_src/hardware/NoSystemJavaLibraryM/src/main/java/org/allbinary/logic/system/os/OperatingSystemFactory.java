@@ -48,7 +48,7 @@ public class OperatingSystemFactory
 
             final String osString = new StringMaker().append("OperatingSystem Info: ").append(genericOperatingSystem.toString()).toString();
             System.out.println(osString);
-            logUtil.put(osString, this, commonStrings.GET_INSTANCE);
+            this.logUtil.put(osString, this, commonStrings.GET_INSTANCE);
 
             //throw new Exception("OS Not Supported: ").append(osName);
         }
@@ -56,7 +56,7 @@ public class OperatingSystemFactory
         {
             //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FACTORYERROR))
             //{
-                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
             //}
         }
         return genericOperatingSystem;

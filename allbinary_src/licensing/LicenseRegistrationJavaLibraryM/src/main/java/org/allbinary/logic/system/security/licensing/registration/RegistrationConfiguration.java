@@ -56,7 +56,7 @@ public class RegistrationConfiguration
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION, this,commonStrings.CONSTRUCTOR, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this,commonStrings.CONSTRUCTOR, e);
         }
     }
 
@@ -88,7 +88,7 @@ public class RegistrationConfiguration
         try
         {
             
-        logUtil.put(
+        this.logUtil.put(
                 new StringMaker().append("Write Configuration: ").append(this.toString()).toString(), this, "write");
         //PreLogUtil.put("Write Configuration: ").append(this.toString(), this, "write");
         

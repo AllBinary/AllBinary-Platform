@@ -28,7 +28,7 @@ extends BaseTouchInput
     {
         try
         {
-            logUtil.put(commonStrings.START, this, commonStrings.GET_LIST);
+            this.logUtil.put(commonStrings.START, this, commonStrings.GET_LIST);
 
             final BasicArrayList list = new BasicArrayList();
 
@@ -73,7 +73,7 @@ extends BaseTouchInput
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_LIST, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_LIST, e);
             return BasicArrayListUtil.getInstance().getImmutableInstance();
         }
     }

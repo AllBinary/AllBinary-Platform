@@ -47,7 +47,7 @@ public class MediaUtil
         if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
         {
             HashMap hashMap = this.getImageBufferPropertyHashMap(bufferedImage);
-            logUtil.put("Image Properties: " + hashMap.toString(), this, "saveImageFile()");
+            this.logUtil.put("Image Properties: " + hashMap.toString(), this, "saveImageFile()");
         }
 
         final AbFile imageFile = new AbFile(category + newImageFileName);
@@ -95,7 +95,7 @@ public class MediaUtil
         	stringBuffer.append("\nNew File Length: ");
         	stringBuffer.appendlong(imageFile.length());
 
-            logUtil.put(
+            this.logUtil.put(
             		stringBuffer.toString(), this, "saveImageFile()");        }
     }
 

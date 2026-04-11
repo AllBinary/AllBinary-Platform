@@ -46,7 +46,7 @@ public class CreateGameRunnable implements Runnable
     {
         try
         {
-            logUtil.put(commonStrings.START_RUNNABLE, this, commonStrings.RUN);
+            this.logUtil.put(commonStrings.START_RUNNABLE, this, commonStrings.RUN);
 
             final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
             
@@ -73,11 +73,11 @@ public class CreateGameRunnable implements Runnable
             DemoGameMidletEventHandler.getInstance().fireEvent(
                     this.startGameMidletEvent);
             
-            logUtil.put(commonStrings.END_RUNNABLE, this, commonStrings.RUN);
+            this.logUtil.put(commonStrings.END_RUNNABLE, this, commonStrings.RUN);
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
         }
     }
 }

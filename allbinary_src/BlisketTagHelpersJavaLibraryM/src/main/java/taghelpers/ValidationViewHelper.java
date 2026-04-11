@@ -36,7 +36,7 @@ public class ValidationViewHelper extends ViewHelper implements ValidationCompon
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
       {
-         logUtil.put(this.commonStrings.START, this,this.commonStrings.CONSTRUCTOR);
+         this.logUtil.put(this.commonStrings.START, this,this.commonStrings.CONSTRUCTOR);
       }      
    }
          
@@ -46,7 +46,7 @@ public class ValidationViewHelper extends ViewHelper implements ValidationCompon
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
          {
-            logUtil.put("Started",this,commonStrings.IS_VALID);
+            this.logUtil.put("Started",this,commonStrings.IS_VALID);
          }      
          
          return viewInterface.isValid();
@@ -60,7 +60,7 @@ public class ValidationViewHelper extends ViewHelper implements ValidationCompon
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,commonStrings.IS_VALID,e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,commonStrings.IS_VALID,e);
          }
          return Boolean.FALSE;
       }
@@ -82,7 +82,7 @@ public class ValidationViewHelper extends ViewHelper implements ValidationCompon
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"validationInfo()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"validationInfo()",e);
          }
          return "Unknown Validation Error";
       }
@@ -104,7 +104,7 @@ public class ValidationViewHelper extends ViewHelper implements ValidationCompon
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"toValidationInfoDoc()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"toValidationInfoDoc()",e);
          }
          return null;
       }
@@ -126,7 +126,7 @@ public class ValidationViewHelper extends ViewHelper implements ValidationCompon
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"toValidationInfoNode()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"toValidationInfoNode()",e);
          }
          return null;
       }

@@ -43,7 +43,7 @@ public class StoreWorkFlowWrapper extends WorkFlowWrapper
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
              final CommonStrings commonStrings = CommonStrings.getInstance();
-            logUtil.put(commonStrings.EXCEPTION,this,"getStoreName()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"getStoreName()",e);
          }
          throw new Exception(error);
       }

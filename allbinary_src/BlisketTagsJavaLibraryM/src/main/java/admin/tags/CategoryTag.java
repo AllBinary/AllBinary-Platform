@@ -65,7 +65,7 @@ public class CategoryTag extends TableTag
          String error = "Failed to view a Category";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"viewCategory()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"viewCategory()",e);
          }
          return error;
       }
@@ -94,7 +94,7 @@ public class CategoryTag extends TableTag
          String error = "Failed to view a Categories";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            logUtil.put(commonStrings.EXCEPTION,this,"viewCategories()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"viewCategories()",e);
          }
          return error;
       }

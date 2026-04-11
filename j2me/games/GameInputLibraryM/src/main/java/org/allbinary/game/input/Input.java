@@ -29,7 +29,7 @@ public class Input
         this.setId(id);
         this.setName(name);
 
-        //logUtil.put(
+        //this.logUtil.put(
           //      "Name: " + this.getName() + " = " + this.getId(), this,
             //    commonStrings.CONSTRUCTOR);
     }

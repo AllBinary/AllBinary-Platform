@@ -75,12 +75,12 @@ public class TerrainPatrolAI extends PacePatrolAI
 
             if (angle == DOWN)
             {
-                // logUtil.put("TerrainEvent: " + terrainEvent.getBasicTerrainInfo().getAngle().getValue(), this, commonStrings.PROCESS);
+                // this.logUtil.put("TerrainEvent: " + terrainEvent.getBasicTerrainInfo().getAngle().getValue(), this, commonStrings.PROCESS);
                 this.nextDirection();
 
                 if (!this.isFollowLimitedByTerrain)
                 {
-                    logUtil.put("Following Limited", this, "onTerrainEvent");
+                    this.logUtil.put("Following Limited", this, "onTerrainEvent");
                     this.isFollowLimitedByTerrain = true;
                 }
 

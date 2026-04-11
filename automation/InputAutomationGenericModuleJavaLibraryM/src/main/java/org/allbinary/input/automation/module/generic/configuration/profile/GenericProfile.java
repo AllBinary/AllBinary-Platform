@@ -39,7 +39,7 @@ public class GenericProfile
         
         NodeList nodeList = node.getChildNodes();
         
-        logUtil.put("Name: " + this.getName() + " Child Nodes: " + nodeList.getLength(), this,"Contructor");
+        this.logUtil.put("Name: " + this.getName() + " Child Nodes: " + nodeList.getLength(), this,"Contructor");
         
         for(int index = 0; index < nodeList.getLength(); index++)
         {
@@ -49,7 +49,7 @@ public class GenericProfile
             {
                 GenericProfileDataWorkerType genericProfileDataWorkerType =
                      GenericProfileDataWorkerType.getInstance(profileNode);
-                logUtil.put("Adding GenericProfileDataWorkerType: " + 
+                this.logUtil.put("Adding GenericProfileDataWorkerType: " + 
                     genericProfileDataWorkerType.toString(), this,"Contructor");
                 this.vector.add(genericProfileDataWorkerType);
             }

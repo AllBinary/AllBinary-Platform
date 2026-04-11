@@ -36,7 +36,7 @@ public class GameDifficultyOptions extends CommandForm
     {
         super(commandListener, title, backgrounBasicColor, foregroundBasicColor);
 
-        logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        this.logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
         
         this.list = list;
 
@@ -116,7 +116,7 @@ public class GameDifficultyOptions extends CommandForm
         {
             Object object = list.objectArray[index];
 
-            logUtil.put(new StringMaker().append(NAME).append(object.toString()).toString(), this, METHOD_NAME);
+            this.logUtil.put(new StringMaker().append(NAME).append(object.toString()).toString(), this, METHOD_NAME);
 
             choiceGroup.append(object.toString(), NullCanvas.NULL_IMAGE);
         }

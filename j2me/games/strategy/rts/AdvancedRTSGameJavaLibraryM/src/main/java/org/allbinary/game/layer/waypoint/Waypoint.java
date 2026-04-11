@@ -214,7 +214,7 @@ public class Waypoint extends WaypointBase
         customMapGenerator.copyMapIntoCustomMap();
         final int[][] customMapArray = customMapGenerator.getCustomMapArray();
 
-        //logUtil.put("Start GeographicMapCellPosition: " + startGeographicMapCellPosition.toString(), this, "createPaths");
+        //this.logUtil.put("Start GeographicMapCellPosition: " + startGeographicMapCellPosition.toString(), this, "createPaths");
         //int originalStartData = 
           //  customMapArray[startGeographicMapCellPosition.getRow()][startGeographicMapCellPosition.getColumn()];
         
@@ -232,7 +232,7 @@ public class Waypoint extends WaypointBase
             raceTrackGeographicMap,
             customMapArray);
         
-        //logUtil.put("geographicMapInterface.getGeographicMapCellTypeFactory().toString(): " + geographicMapInterface.getGeographicMapCellTypeFactory().toString(), this, "createPaths");
+        //this.logUtil.put("geographicMapInterface.getGeographicMapCellTypeFactory().toString(): " + geographicMapInterface.getGeographicMapCellTypeFactory().toString(), this, "createPaths");
 
         final BasicArrayList list = 
             PathGenerator.getInstance().getInstanceNoCache(
@@ -321,7 +321,7 @@ public class Waypoint extends WaypointBase
                     //if (this.getOwnerLayer() != rtsLayer)
                     //{
                     unitLayer.handleCost(this.ownerLayer);
-                    //logUtil.put("Sending: " + unitLayer.getName(), this, "visit");
+                    //this.logUtil.put("Sending: " + unitLayer.getName(), this, "visit");
                     
                     unitWaypointBehavior.insertWaypoint(0, rtsLayer);
                     break;

@@ -35,9 +35,9 @@ public class CompositeSound extends Sound
     {
        if(this.playerComposite.setMediaTime(500) == -1)
        {
-           logUtil.put("Unable To Set Media Time", this, commonStrings.INIT);
+           this.logUtil.put("Unable To Set Media Time", this, commonStrings.INIT);
        }
-       logUtil.put("Set MediaTime: " + this.playerComposite.getMediaTime(), this, commonStrings.INIT);
+       this.logUtil.put("Set MediaTime: " + this.playerComposite.getMediaTime(), this, commonStrings.INIT);
     }
      */
 

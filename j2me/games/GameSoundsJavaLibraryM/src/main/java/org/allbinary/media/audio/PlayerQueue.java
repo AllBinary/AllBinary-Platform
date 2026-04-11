@@ -43,7 +43,7 @@ public class PlayerQueue
             {
                 //final String message = "Adding: ").append(sound.getResource();
                 
-                //logUtil.put(new StringMaker().append("Adding: ").append(sound.getResource()).toString(), this, commonStrings.ADD);
+                //this.logUtil.put(new StringMaker().append("Adding: ").append(sound.getResource()).toString(), this, commonStrings.ADD);
 
                 list.add(sound);
             }
@@ -69,7 +69,7 @@ public class PlayerQueue
                 if (sound != null)
                 {
                     //final String message = "Playing: ").append(sound.getResource();
-                    //logUtil.put(new StringMaker().append("Playing: ").append(sound.getResource()).toString(), this, commonStrings.PROCESS);
+                    //this.logUtil.put(new StringMaker().append("Playing: ").append(sound.getResource()).toString(), this, commonStrings.PROCESS);
 
                     //For BB only
                     //SoundThreadPool.getInstance().runTask(sound);
@@ -92,7 +92,7 @@ public class PlayerQueue
             {
                 resource = sound.getResource();
             }
-            //logUtil.put(commonStrings.EXCEPTION_LABEL).append(resource, this,
+            //this.logUtil.put(commonStrings.EXCEPTION_LABEL).append(resource, this,
             //      commonStrings.PROCESS, e);
 
             /*

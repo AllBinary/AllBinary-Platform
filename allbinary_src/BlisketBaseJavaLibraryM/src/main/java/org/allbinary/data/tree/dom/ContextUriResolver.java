@@ -70,7 +70,7 @@ public class ContextUriResolver implements URIResolver
         	 stringBuffer.append("\nRequired Extension: ");
         	 stringBuffer.append(this.basicURIResolver.getExtension());
              
-            logUtil.put(stringBuffer.toString(), this, "resolve");
+            this.logUtil.put(stringBuffer.toString(), this, "resolve");
          }
          
          return new StreamSource(new CryptFileReader(

@@ -39,7 +39,7 @@ public class InputAutomationGenericModuleServiceFactory
         }
         catch(Exception e)
         {
-            logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e);
         }
     }
     

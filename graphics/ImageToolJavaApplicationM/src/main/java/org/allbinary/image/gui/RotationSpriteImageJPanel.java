@@ -85,7 +85,7 @@ public class RotationSpriteImageJPanel extends javax.swing.JPanel
                             String filePath = file.getAbsolutePath();
                             final int extensionIndex = filePath.indexOf(imageStrings.PNG_EXTENSION);
                             filePath = new StringMaker().append(filePath.substring(0, extensionIndex)).append(CommonSeps.getInstance().UNDERSCORE).append("sprite").append(imageStrings.PNG_EXTENSION).toString();
-                            logUtil.put("New File Path: " + filePath, this, commonStrings.RUN);
+                            this.logUtil.put("New File Path: " + filePath, this, commonStrings.RUN);
                             
                             file = new File(filePath);
                         }
@@ -93,19 +93,19 @@ public class RotationSpriteImageJPanel extends javax.swing.JPanel
                         boolean isWritten =
                                 ImageIO.write((RenderedImage) RotationSpriteImageJPanel.this.result, imageStrings.PNG, file);
 
-                        logUtil.put("File: " + file + " Wrote: " + isWritten, this, commonStrings.RUN);
+                        this.logUtil.put("File: " + file + " Wrote: " + isWritten, this, commonStrings.RUN);
 
                     }
 
                 } catch (Exception e) {
-                    logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                    this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
                 }
             }
         }.start();
     }
     /*
     public void paint(Graphics graphics) {
-    logUtil.put(commonStrings.START, this, canvasStrings.PAINT);
+    this.logUtil.put(commonStrings.START, this, canvasStrings.PAINT);
      */
     //graphics.setColor(BasicColors.BLUE.toColor());
     //graphics.fillRect(0, 0, getWidth(),getHeight());

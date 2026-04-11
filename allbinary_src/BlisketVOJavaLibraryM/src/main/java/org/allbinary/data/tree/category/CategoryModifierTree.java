@@ -33,7 +33,7 @@ public class CategoryModifierTree extends CategoryPrivateTree implements Categor
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
       {
-         logUtil.put(commonStrings.START, this, "CategoryModifierTree(CategoryFactoryInterface categoryFactoryInterface)");
+         this.logUtil.put(commonStrings.START, this, "CategoryModifierTree(CategoryFactoryInterface categoryFactoryInterface)");
       }
    }
 
@@ -46,7 +46,7 @@ public class CategoryModifierTree extends CategoryPrivateTree implements Categor
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
          {
-            logUtil.put("Inserting", this, "insert()");
+            this.logUtil.put("Inserting", this, "insert()");
          }
       
          if(parentCategoryInterface.isValid().booleanValue())
@@ -62,7 +62,7 @@ public class CategoryModifierTree extends CategoryPrivateTree implements Categor
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
             {
-               logUtil.put("Saving", this, "insert()");
+               this.logUtil.put("Saving", this, "insert()");
             }
 
             this.save(parentCategoryInterface);
@@ -75,7 +75,7 @@ public class CategoryModifierTree extends CategoryPrivateTree implements Categor
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
-            logUtil.put(this.commonStrings.FAILURE, this, "insert", e);
+            this.logUtil.put(this.commonStrings.FAILURE, this, "insert", e);
          }
       }
    }
@@ -108,7 +108,7 @@ public class CategoryModifierTree extends CategoryPrivateTree implements Categor
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
-            logUtil.put(this.commonStrings.FAILURE, this, commonStrings.delete, e);
+            this.logUtil.put(this.commonStrings.FAILURE, this, commonStrings.delete, e);
          }
       }
    }

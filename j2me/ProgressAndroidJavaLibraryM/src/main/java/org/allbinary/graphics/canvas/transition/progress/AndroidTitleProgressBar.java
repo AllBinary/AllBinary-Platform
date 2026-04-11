@@ -66,14 +66,14 @@ public class AndroidTitleProgressBar extends ProgressCanvas
     {
         try
         {
-            logUtil.put(commonStrings.START, this, commonStrings.START_METHOD_NAME);
+            this.logUtil.put(commonStrings.START, this, commonStrings.START_METHOD_NAME);
             super.start();
             // this.midletActivity.startProgressActivity();
             this.progressActivity.runOnUiThread(showTitleProgressBarRunnable);
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.START_METHOD_NAME, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.START_METHOD_NAME, e);
         }
 
     }
@@ -83,14 +83,14 @@ public class AndroidTitleProgressBar extends ProgressCanvas
     {
         try
         {
-            logUtil.put(commonStrings.START, this, commonStrings.END_METHOD_NAME);
+            this.logUtil.put(commonStrings.START, this, commonStrings.END_METHOD_NAME);
             this.progressActivity.runOnUiThread(dismissTitleProgressBarRunnable);
             // this.progressActivity = null;
             super.end();
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.END_METHOD_NAME, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.END_METHOD_NAME, e);
         }
 
     }
@@ -100,7 +100,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
     {
         try
         {
-            //logUtil.put(commonStrings.START, this, ADD_PORTION);
+            //this.logUtil.put(commonStrings.START, this, ADD_PORTION);
 
             super.addPortion(value, text, index);
             this.portion = value;
@@ -108,7 +108,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, ADD_PORTION, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, ADD_PORTION, e);
         }
     }
     
@@ -117,7 +117,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
     {
         try
         {
-            //logUtil.put(commonStrings.START, this, ADD_PORTION);
+            //this.logUtil.put(commonStrings.START, this, ADD_PORTION);
 
             super.addPortion(value, text);
             this.portion = value;
@@ -125,7 +125,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, ADD_PORTION, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, ADD_PORTION, e);
         }
     }
 
@@ -140,7 +140,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, "setValue", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "setValue", e);
         }
 
     }
@@ -169,7 +169,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
             }
             catch (Exception e)
             {
-                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
             }
         }
     }
@@ -186,7 +186,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
             }
             catch (Exception e)
             {
-                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
             }
         }
     }
@@ -203,7 +203,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
             }
             catch (Exception e)
             {
-                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
             }
         }
     }
@@ -219,7 +219,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
             }
             catch (Exception e)
             {
-                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
             }
         }
     }

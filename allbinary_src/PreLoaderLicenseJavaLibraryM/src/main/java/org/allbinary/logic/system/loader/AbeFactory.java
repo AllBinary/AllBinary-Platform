@@ -56,7 +56,7 @@ public class AbeFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
-            logUtil.put("Failure for: " + className, this,"getInstance(classname)", e);
+            this.logUtil.put("Failure for: " + className, this,"getInstance(classname)", e);
          }
          throw e;         
       }
@@ -64,7 +64,7 @@ public class AbeFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
-            logUtil.put("Failure for: " + className, this,"getInstance(classname)", e);
+            this.logUtil.put("Failure for: " + className, this,"getInstance(classname)", e);
          }
          return null;         
       }
@@ -111,7 +111,7 @@ public class AbeFactory
         	 stringBuffer.append(CommonSeps.getInstance().SPACE);
         	 stringBuffer.append(ConstructorUtil.view(constructor, CommonSeps.getInstance().NEW_LINE));
              
-        	 logUtil.put(stringBuffer.toString(), this, "getInstance(className,params)", e);
+        	 this.logUtil.put(stringBuffer.toString(), this, "getInstance(className,params)", e);
          }
          throw e;
       }
@@ -126,7 +126,7 @@ public class AbeFactory
         	 stringBuffer.append(CommonSeps.getInstance().SPACE);
         	 stringBuffer.append(ConstructorUtil.view(constructor, CommonSeps.getInstance().NEW_LINE));
              
-        	 logUtil.put(stringBuffer.toString(), this, "getInstance(className,params)", e);
+        	 this.logUtil.put(stringBuffer.toString(), this, "getInstance(className,params)", e);
          }
          return null;
       }
@@ -148,7 +148,7 @@ public class AbeFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
-            logUtil.put("Failure for: " + className, this,"getInstance(classname)", e);
+            this.logUtil.put("Failure for: " + className, this,"getInstance(classname)", e);
          }
          return null;         
       }
@@ -178,7 +178,7 @@ public class AbeFactory
         	 stringBuffer.append(commonStrings.SPACE);
         	 stringBuffer.append(ConstructorUtil.view(constructor, CommonSeps.getInstance().NEW_LINE));
              
-        	 logUtil.put(stringBuffer.toString(), this, "getNoLicenseInstance(String className, Class classes[], Object params[])", e);
+        	 this.logUtil.put(stringBuffer.toString(), this, "getNoLicenseInstance(String className, Class classes[], Object params[])", e);
          }
          return null;
       }
@@ -211,7 +211,7 @@ public class AbeFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
-            logUtil.put("Failure for: " + className, this,"getClass(className)", e);
+            this.logUtil.put("Failure for: " + className, this,"getClass(className)", e);
          }
          throw e;
       }
@@ -219,7 +219,7 @@ public class AbeFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
-            logUtil.put("Failure for: " + className, this,"getClass(className)", e);
+            this.logUtil.put("Failure for: " + className, this,"getClass(className)", e);
          }
          return null;
       }
@@ -250,7 +250,7 @@ public class AbeFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
-            logUtil.put("Failure for: " + className, this,"getClass(className)", e);
+            this.logUtil.put("Failure for: " + className, this,"getClass(className)", e);
          }
          throw e;
       }
@@ -258,7 +258,7 @@ public class AbeFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
-            logUtil.put("Failure for: " + className, this,"getClass(className)", e);
+            this.logUtil.put("Failure for: " + className, this,"getClass(className)", e);
          }
          return null;
       }
@@ -284,7 +284,7 @@ public class AbeFactory
          /*
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))
             {
-               logUtil.put("Getting Instance", this,commonStrings.GET_INSTANCE);
+               this.logUtil.put("Getting Instance", this,commonStrings.GET_INSTANCE);
             }
           */
    //    ClassLoader loader = new AbeClassLoader(AbKeys.key);
@@ -293,11 +293,11 @@ public class AbeFactory
             {
                if(loader==null)
                {
-                  logUtil.put("Loader Null", this,commonStrings.GET_INSTANCE);
+                  this.logUtil.put("Loader Null", this,commonStrings.GET_INSTANCE);
                }
                else
                {
-                  logUtil.put("Loader Not Null", this,commonStrings.GET_INSTANCE);
+                  this.logUtil.put("Loader Not Null", this,commonStrings.GET_INSTANCE);
                }
             }
  */
@@ -310,12 +310,12 @@ public class AbeFactory
             {
                if(c==null)
                {
-                  logUtil.put("Class Null", this,commonStrings.GET_INSTANCE);
+                  this.logUtil.put("Class Null", this,commonStrings.GET_INSTANCE);
                }
                else
                {
-                  //logUtil.put("isInstance: " + myClass.isInstance(), this,commonStrings.GET_INSTANCE);
-                  logUtil.put("Class Not Null", this,commonStrings.GET_INSTANCE);
+                  //this.logUtil.put("isInstance: " + myClass.isInstance(), this,commonStrings.GET_INSTANCE);
+                  this.logUtil.put("Class Not Null", this,commonStrings.GET_INSTANCE);
                }
             }
    */
@@ -330,7 +330,7 @@ public class AbeFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
-            logUtil.put("Failure for: " + className, this,"getInstance(classname)", e);
+            this.logUtil.put("Failure for: " + className, this,"getInstance(classname)", e);
          }
          return null;
       }
@@ -348,7 +348,7 @@ public class AbeFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
-            logUtil.put("Failure for: " + className, this,"getInstance(classname)", e);
+            this.logUtil.put("Failure for: " + className, this,"getInstance(classname)", e);
          }
          return null;
       }
@@ -367,7 +367,7 @@ public class AbeFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
-            logUtil.put("Failure for: " + className + " " + allbinary.java.object.ObjectInfo.viewConstructor(constructor, CommonSeps.getInstance().NEW_LINE), this,"getInstance(className,params)", e);
+            this.logUtil.put("Failure for: " + className + " " + allbinary.java.object.ObjectInfo.viewConstructor(constructor, CommonSeps.getInstance().NEW_LINE), this,"getInstance(className,params)", e);
          }
          return null;
       }

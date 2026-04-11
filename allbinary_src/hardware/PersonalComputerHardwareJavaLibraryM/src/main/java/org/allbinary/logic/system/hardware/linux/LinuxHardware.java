@@ -92,7 +92,7 @@ public class LinuxHardware implements HardwareInterface
       
       if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OS))
       {
-         logUtil.put("Hardware Data: " + this.toString(), this, this.commonStrings.CONSTRUCTOR);
+         this.logUtil.put("Hardware Data: " + this.toString(), this, this.commonStrings.CONSTRUCTOR);
       }
    }
    
@@ -107,7 +107,7 @@ public class LinuxHardware implements HardwareInterface
       {
          if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OS))
          {
-            logUtil.put("Hardware Data: " + this.toString(), this, this.commonStrings.CONSTRUCTOR,e);
+            this.logUtil.put("Hardware Data: " + this.toString(), this, this.commonStrings.CONSTRUCTOR,e);
          }
          throw e;
       }
@@ -155,7 +155,7 @@ public class LinuxHardware implements HardwareInterface
          {
             if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OS))
             {
-               logUtil.put("PCI File Found", this, this.commonStrings.CONSTRUCTOR);
+               this.logUtil.put("PCI File Found", this, this.commonStrings.CONSTRUCTOR);
             }
             
             String nextLine = lineNumberReader.readLine();
@@ -177,7 +177,7 @@ public class LinuxHardware implements HardwareInterface
 
                if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OS))
                {
-                  logUtil.put("Found Hardware Device: " + componentInterfaceVector.size(), this, this.commonStrings.CONSTRUCTOR);
+                  this.logUtil.put("Found Hardware Device: " + componentInterfaceVector.size(), this, this.commonStrings.CONSTRUCTOR);
                }
                
                componentData.append(nextLine);
@@ -210,7 +210,7 @@ public class LinuxHardware implements HardwareInterface
          {
             if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OS))
             {
-               logUtil.put("Could not load PCI File", this, this.commonStrings.CONSTRUCTOR);
+               this.logUtil.put("Could not load PCI File", this, this.commonStrings.CONSTRUCTOR);
             }
          }
          

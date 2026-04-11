@@ -19,7 +19,7 @@ import org.allbinary.logic.string.StringUtil;
 //NoPlatform
 public class LogFactory
 {
-    public static final Log LOG = new Log(StringUtil.getInstance().EMPTY_STRING, NullUtil.getInstance().NULL_OBJECT, StringUtil.getInstance().EMPTY_STRING);
+    public static final Log LOG = new Log(StringUtil.getInstance().EMPTY_STRING, NullUtil.getInstance().NULL_OBJECT, StringUtil.getInstance().EMPTY_STRING, NullUtil.getInstance().NULL_OBJECT);
     
     public static final Log getInstance(
             String specialMessage,
@@ -30,7 +30,7 @@ public class LogFactory
         throw new RuntimeException();
     }
 
-    public static final Log getInstance(
+    public static final Log getInstanceF(
             String specialMessage,
             Object object,
             String functionName)

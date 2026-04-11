@@ -33,7 +33,7 @@ public class TimeIntervalActionScriptConditionJPanel
     public TimeIntervalActionScriptConditionJPanel(
         TimeIntervalActionScriptConditionInterface timeIntervalActionScriptConditionInterface)
     {
-        logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
+        this.logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         
         initComponents();
         

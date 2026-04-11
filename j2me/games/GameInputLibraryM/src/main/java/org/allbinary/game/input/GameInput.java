@@ -48,14 +48,14 @@ public class GameInput {
       //TODO TWB - fix all null and duplicate issue for better performance
       if(this.isRemoveDuplicateKeyPresses && this.gameKeyEventList.contains(gameKeyEvent))
       {
-          //logUtil.put("Danger Danger Danger: Duplicate GameKeyEvent", this, commonStrings.ADD);
+          //this.logUtil.put("Danger Danger Danger: Duplicate GameKeyEvent", this, commonStrings.ADD);
           return;
       }
        
       if (gameKeyEvent != null) {
           this.gameKeyEventList.add(gameKeyEvent);
       } else {
-          logUtil.put("Danger Passed Null GameKeyEvent", this, commonStrings.ADD);
+          this.logUtil.put("Danger Passed Null GameKeyEvent", this, commonStrings.ADD);
       }
    }
 

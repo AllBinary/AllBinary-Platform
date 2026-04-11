@@ -47,7 +47,7 @@ public class InputAutomationBundleActivator
     {
         try
         {
-            logUtil.put(this.commonStrings.START, this, this.commonStrings.START);
+            this.logUtil.put(this.commonStrings.START, this, this.commonStrings.START);
             
             this.bundleContext = bundleContext;
         /*
@@ -56,13 +56,13 @@ public class InputAutomationBundleActivator
         {
             public Object addingService(ServiceReference serviceReference)
             {
-                logUtil.put("Start Name: " + serviceReference.getBundle().getSymbolicName(), this, "addingService");
+                this.logUtil.put("Start Name: " + serviceReference.getBundle().getSymbolicName(), this, "addingService");
                 Object obj = super.addingService(serviceReference);
                 return obj;
             }
             public void removedService(ServiceReference serviceReference, Object service)
             {
-                logUtil.put("Start Name: " + serviceReference.getBundle().getSymbolicName(), this, "removedService");
+                this.logUtil.put("Start Name: " + serviceReference.getBundle().getSymbolicName(), this, "removedService");
                 super.removedService(serviceReference, service);
             }
         };
@@ -85,7 +85,7 @@ public class InputAutomationBundleActivator
         }
         catch(Exception e)
         {
-            logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.START, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.START, e);
             throw e;
         }
     }
@@ -113,14 +113,14 @@ public class InputAutomationBundleActivator
     public void stop(final BundleContext context)
     throws Exception
     {
-        logUtil.put(this.commonStrings.START, this, "stop");
+        this.logUtil.put(this.commonStrings.START, this, "stop");
         if(InputAutomationJFrame.getInstance() != null)
         {
             InputAutomationJFrame.destroy();
         }
         else
         {
-            logUtil.put("Nothing to stop", this, "stop");
+            this.logUtil.put("Nothing to stop", this, "stop");
         }
     }
 }

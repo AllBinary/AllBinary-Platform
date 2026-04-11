@@ -59,7 +59,7 @@ public class LicenseServerInitFileUtil
             // File file = this.getFilesDir();
             // String path = file.getAbsolutePath() + FilePathData.SEPARATOR;
 
-            // logUtil.put("Path: " + path, this, AndroidStrings.getInstance().START);
+            // this.logUtil.put("Path: " + path, this, AndroidStrings.getInstance().START);
 
             final String filePath = LicenseInitInfoUtil.getInstance().INITFILENAME;
             LicenseInitInfoUtil.getInstance().setFilePath(StringUtil.getInstance().EMPTY_STRING);
@@ -68,14 +68,14 @@ public class LicenseServerInitFileUtil
 
             if (FileFactory.getInstance().isFile(filePath))
             {
-                logUtil.put("Using Existing License File", this, commonStrings.INIT);
+                this.logUtil.put("Using Existing License File", this, commonStrings.INIT);
             } else
             {
                 write();
             }
         } catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
         }
     }
 
@@ -90,7 +90,7 @@ public class LicenseServerInitFileUtil
 
             final InputStream inputStream = resourceUtil.getResourceAsStream(filePath);
 
-            logUtil.put("Writing Default License File", this, commonStrings.INIT);
+            this.logUtil.put("Writing Default License File", this, commonStrings.INIT);
 
             final FileStreamFactory fileStreamFactory = FileStreamFactory.getInstance();
 
@@ -110,12 +110,12 @@ public class LicenseServerInitFileUtil
                 index++;
             }
 
-            logUtil.put("Wrote Bytes: " + index, this, commonStrings.INIT);
+            this.logUtil.put("Wrote Bytes: " + index, this, commonStrings.INIT);
 
             fileOutputStream.flush();
         } catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
         } finally
         {
             StreamUtil.getInstance().close(fileOutputStream);

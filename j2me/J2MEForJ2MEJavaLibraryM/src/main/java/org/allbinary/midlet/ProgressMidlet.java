@@ -49,14 +49,14 @@ public class ProgressMidlet extends AllBinaryMidlet
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, "exit", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "exit", e);
             try
             {
                 processor.process();
             }
             catch (Exception e2)
             {
-                logUtil.put(commonStrings.EXCEPTION, this, "exit", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "exit", e);
             }
         }
     }

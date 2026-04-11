@@ -131,13 +131,13 @@ public class RTSPlayerGameInput extends PlayerGameInput
     {
         try
         {
-            logUtil.put(commonStrings.START, this, "onDisplayChangeEvent");
+            this.logUtil.put(commonStrings.START, this, "onDisplayChangeEvent");
 
             this.getRTSLayerInfoPaintable().update();
         }
         catch(Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, "onDisplayChangeEvent", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "onDisplayChangeEvent", e);
         }
     }
 
@@ -221,7 +221,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
         }
         catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, gameInputStrings.PROCESS_INPUT, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, gameInputStrings.PROCESS_INPUT, e);
         }
     }
 
@@ -244,7 +244,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
         final int y = point.getY() + allBinaryTiledLayer.getYP();
 
         //final SpacialStrings commonLabels = SpacialStrings.getInstance();
-        //logUtil.put(
+        //this.logUtil.put(
         //      "CellPosition Selection: point x: ").append(point.getX() +
           //    " y: ").append(point.getY()).append(" x: ").append(x).append(" y: ").append(y).append(
         //commonLabels).append(allBinaryTiledLayer.getWidth() +
@@ -279,7 +279,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
         else
         {
             final CommonLabels commonLabels = CommonLabels.getInstance();
-            logUtil.put(new StringMaker().append("Off Of Map -").append(commonLabels.WIDTH_LABEL).appendint(allBinaryTiledLayer.getWidth()).append(commonLabels.HEIGHT_LABEL).appendint(allBinaryTiledLayer.getHeight()).toString(), this, "select");
+            this.logUtil.put(new StringMaker().append("Off Of Map -").append(commonLabels.WIDTH_LABEL).appendint(allBinaryTiledLayer.getWidth()).append(commonLabels.HEIGHT_LABEL).appendint(allBinaryTiledLayer.getHeight()).toString(), this, "select");
         }
     }
 
@@ -359,7 +359,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
      */
     public void setSelectedRtsFormInput(RTSFormInput selectedRtsFormInput)
     {
-        logUtil.put(new StringMaker().append("RTSFormInput: ").append(StringUtil.getInstance().toString(selectedRtsFormInput)).toString(), this, "setSelectedRtsFormInput");
+        this.logUtil.put(new StringMaker().append("RTSFormInput: ").append(StringUtil.getInstance().toString(selectedRtsFormInput)).toString(), this, "setSelectedRtsFormInput");
         this.selectedRtsFormInput = selectedRtsFormInput;
     }
 

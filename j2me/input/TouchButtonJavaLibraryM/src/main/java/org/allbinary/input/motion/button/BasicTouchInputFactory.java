@@ -118,7 +118,7 @@ public class BasicTouchInputFactory
     public void updateAll(BasicArrayList list,
             InputToGameKeyMapping inputToGameKeyMapping)
     {
-        logUtil.put(
+        this.logUtil.put(
                 new StringMaker().append(CommonLabels.getInstance().START_LABEL).appendint(list.size()).toString(), this,
                 "updateAll");
 

@@ -41,7 +41,7 @@ public class ExitRunnable implements Runnable
     {
         try
         {
-            logUtil.put(commonStrings.START_RUNNABLE, this, commonStrings.RUN);
+            this.logUtil.put(commonStrings.START_RUNNABLE, this, commonStrings.RUN);
 
             this.midlet.destroyApp(false, this.isProgress);
 
@@ -54,19 +54,19 @@ public class ExitRunnable implements Runnable
             // when resuming from onSaveInstanceState
             this.midlet.notifyDestroyed();
 
-            logUtil.put(commonStrings.END_RUNNABLE, this, commonStrings.RUN);
+            this.logUtil.put(commonStrings.END_RUNNABLE, this, commonStrings.RUN);
 
             processor.process();
         } catch (Exception e)
         {
-            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
 
             try
             {
                 processor.process();
             } catch (Exception e2)
             {
-                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
             }
         }
     }

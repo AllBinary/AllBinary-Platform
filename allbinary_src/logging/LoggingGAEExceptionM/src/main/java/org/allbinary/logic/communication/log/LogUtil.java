@@ -62,7 +62,7 @@ public class LogUtil {
     }
 
     //ActualPlatform
-    public void put(Log log) {
+    public void putL(Log log) {
         Object exception = log.getThrowable();
 
         try {
