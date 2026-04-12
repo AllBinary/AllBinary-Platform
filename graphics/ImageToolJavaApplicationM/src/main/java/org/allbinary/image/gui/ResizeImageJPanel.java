@@ -69,6 +69,7 @@ public class ResizeImageJPanel extends javax.swing.JPanel
 
             @Override
             public void run() {
+                final LogUtil logUtil = LogUtil.getInstance();
                 try {
                     final ImageUtil imageUtil = ImageUtil.getInstance();
                     final Integer percent = Integer.valueOf((String) ResizeImageJPanel.this.jComboBox1.getSelectedItem());
@@ -112,7 +113,7 @@ public class ResizeImageJPanel extends javax.swing.JPanel
                     ResizeImageJPanel.this.getParent().repaint();
 
                 } catch (Exception e) {
-                    this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                    logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
                 }
             }
         }.start();
@@ -123,6 +124,7 @@ public class ResizeImageJPanel extends javax.swing.JPanel
 
             @Override
             public void run() {
+                final LogUtil logUtil = LogUtil.getInstance();
                 try {
                     final ImageProcessorInput imageProcessorInput = ResizeImageJPanel.this.getImageProcessorInput();
                     
@@ -138,7 +140,7 @@ public class ResizeImageJPanel extends javax.swing.JPanel
                     ResizeImageJPanel.this.getParent().repaint();
 
                 } catch (Exception e) {
-                    this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                    logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
                 }
             }
         }.start();
@@ -149,6 +151,7 @@ public class ResizeImageJPanel extends javax.swing.JPanel
 
             @Override
             public void run() {
+                final LogUtil logUtil = LogUtil.getInstance();
                 try {
                     final ImageProcessorInput imageProcessorInput = ResizeImageJPanel.this.getImageProcessorInput();
                     
@@ -164,7 +167,7 @@ public class ResizeImageJPanel extends javax.swing.JPanel
                     ResizeImageJPanel.this.getParent().repaint();
 
                 } catch (Exception e) {
-                    this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                    logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
                 }
             }
         }.start();
@@ -175,6 +178,7 @@ public class ResizeImageJPanel extends javax.swing.JPanel
 
             @Override
             public void run() {
+                final LogUtil logUtil = LogUtil.getInstance();
                 try {
                     final ImageProcessorInput imageProcessorInput = ResizeImageJPanel.this.getImageProcessorInput();
                     
@@ -190,7 +194,7 @@ public class ResizeImageJPanel extends javax.swing.JPanel
                     ResizeImageJPanel.this.getParent().repaint();
 
                 } catch (Exception e) {
-                    this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                    logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
                 }
             }
         }.start();

@@ -57,6 +57,7 @@ public class RotationSpriteImageJPanel extends javax.swing.JPanel
         new Thread() {
 
             public void run() {
+                final LogUtil logUtil = LogUtil.getInstance();
                 try {
                     BufferedImage generatedBufferedImageArray[];
 
@@ -85,7 +86,7 @@ public class RotationSpriteImageJPanel extends javax.swing.JPanel
                             String filePath = file.getAbsolutePath();
                             final int extensionIndex = filePath.indexOf(imageStrings.PNG_EXTENSION);
                             filePath = new StringMaker().append(filePath.substring(0, extensionIndex)).append(CommonSeps.getInstance().UNDERSCORE).append("sprite").append(imageStrings.PNG_EXTENSION).toString();
-                            this.logUtil.putF("New File Path: " + filePath, this, commonStrings.RUN);
+                            logUtil.putF("New File Path: " + filePath, this, commonStrings.RUN);
                             
                             file = new File(filePath);
                         }
@@ -93,12 +94,12 @@ public class RotationSpriteImageJPanel extends javax.swing.JPanel
                         boolean isWritten =
                                 ImageIO.write((RenderedImage) RotationSpriteImageJPanel.this.result, imageStrings.PNG, file);
 
-                        this.logUtil.putF("File: " + file + " Wrote: " + isWritten, this, commonStrings.RUN);
+                        logUtil.putF("File: " + file + " Wrote: " + isWritten, this, commonStrings.RUN);
 
                     }
 
                 } catch (Exception e) {
-                    this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                    logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
                 }
             }
         }.start();

@@ -40,6 +40,7 @@ import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.graphics.paint.SimpleTextPaintable;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.thread.ARunnable;
 import org.allbinary.thread.SecondaryThreadPool;
@@ -132,6 +133,7 @@ public class HighScoresCanvas extends GameCommandCanvas
             @Override
             public void run() {
                 
+                final LogUtil logUtil = LogUtil.getInstance();
                 try {
                     final boolean isHTML = J2MEUtil.isHTML();
                     if (!isHTML) {
@@ -140,17 +142,17 @@ public class HighScoresCanvas extends GameCommandCanvas
                         hasPainted = false;
                     }
                     final StringMaker stringMaker = new StringMaker();
-                    this.logUtil.putF(stringMaker.append("HighScoresCanvas - Request repaint to be sure: ").appendlong(System.currentTimeMillis()).toString(), this, commonStrings.RUN);
+                    logUtil.putF(stringMaker.append("HighScoresCanvas - Request repaint to be sure: ").appendlong(System.currentTimeMillis()).toString(), this, commonStrings.RUN);
                     repaintBehavior.onChangeRepaint(HighScoresCanvas.this);
                     if (!isHTML) {
                         while (!hasPainted) {
                         }
                     }
                     stringMaker.delete(0, stringMaker.length());
-                    this.logUtil.putF(stringMaker.append("HighScoresCanvas - Now that the canvas has completed repaint go ahead and fetch the scores: ").appendlong(System.currentTimeMillis()).toString(), this, commonStrings.RUN);
+                    logUtil.putF(stringMaker.append("HighScoresCanvas - Now that the canvas has completed repaint go ahead and fetch the scores: ").appendlong(System.currentTimeMillis()).toString(), this, commonStrings.RUN);
                     executeUpdate();
                 } catch (Exception e) {
-                    this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                    logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
                 }
                 
             }

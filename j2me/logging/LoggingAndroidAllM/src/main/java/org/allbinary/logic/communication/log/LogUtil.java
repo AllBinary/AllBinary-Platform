@@ -38,7 +38,7 @@ public class LogUtil {
     }
 
     //ActualPlatform
-    public void put(final Log log) {
+    public void putL(final Log log) {
         final String specialMessage = log.getSpecialMessage();
         final Object object = log.getObject();
         final String functionName = log.getFunctionName();
@@ -47,7 +47,7 @@ public class LogUtil {
     }
     
     //ActualPlatform
-    public void put(final String specialMessage, final Object object, String functionName) {
+    public void putF(final String specialMessage, final Object object, String functionName) {
         this.put(specialMessage, object, functionName, NullUtil.getInstance().NULL_OBJECT);
     }
     

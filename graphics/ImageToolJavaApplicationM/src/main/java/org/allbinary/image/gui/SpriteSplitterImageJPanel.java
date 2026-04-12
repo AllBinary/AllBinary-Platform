@@ -65,6 +65,7 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
         new Thread() {
 
             public void run() {
+                final LogUtil logUtil = LogUtil.getInstance();
                 try {
                     final SpriteSplitterUtil spriteSplitterUtil = SpriteSplitterUtil.getInstance();
 
@@ -79,7 +80,7 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
                     spriteSplitterUtil.process(SpriteSplitterImageJPanel.this.getImageProcessorInput(), totalFrames, totalAnimations, widthReduction, heightReduction, increaseWidth, increaseHeight, spriteType, SpriteSplitterImageJPanel.this);
 
                 } catch (Exception e) {
-                    this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                    logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
                 }
             }
         }.start();

@@ -116,6 +116,7 @@ import org.allbinary.input.motion.button.TouchButtonsPaintableFactory;
 import org.allbinary.input.motion.button.TouchScreenFactory;
 import org.allbinary.input.motion.gesture.observer.BasicMotionGesturesHandler;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
@@ -1859,6 +1860,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                 
                 @Override
                 public void run() {
+                    final LogUtil logUtil = LogUtil.getInstance();
                     try {
                         //Let the endgame sound play first
 //                                Thread.sleep(100);
@@ -1870,7 +1872,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                             textBox.saveHighScore();
                         }
                     } catch (Exception e) {
-                        this.logUtil.put(commonStrings.EXCEPTION, this, "run", e);
+                        logUtil.put(commonStrings.EXCEPTION, this, "run", e);
                         progressCanvas.end();
                     }
                 }

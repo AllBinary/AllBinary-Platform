@@ -33,7 +33,7 @@ public class CaptureWorkerUtil
     {
         final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        this.logUtil.putF(commonStrings.START, "CaptureWorkerUtil", "processProfileActionConditions");
+        logUtil.putF(commonStrings.START, "CaptureWorkerUtil", "processProfileActionConditions");
 
         final int size = vector.size();
         for(int index = 0; index < size; index++)
@@ -42,12 +42,12 @@ public class CaptureWorkerUtil
                 (ProfileActionScriptConditionInterface) vector.get(index);
             if(profileActionConditionInterface.shouldProcess(frame))
             {
-                //this.logUtil.putF("Should Process", this, "processProfileActionConditions");
+                //logUtil.putF("Should Process", this, "processProfileActionConditions");
                 profileActionConditionInterface.process(frame);
             }
             else
             {
-                //this.logUtil.putF("Should Not Process", this, "processProfileActionConditions");
+                //logUtil.putF("Should Not Process", this, "processProfileActionConditions");
             }
         }
     }

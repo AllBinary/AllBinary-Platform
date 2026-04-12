@@ -66,6 +66,7 @@ public class CanvasImageJPanel extends javax.swing.JPanel
         new Thread() {
 
             public void run() {
+                final LogUtil logUtil = LogUtil.getInstance();
                 try {
                     final CanvasTrimUtil canvasTrimUtil = CanvasTrimUtil.getInstance();
                     final CanvasExpandUtil canvasExpandUtil = CanvasExpandUtil.getInstance();
@@ -82,7 +83,7 @@ public class CanvasImageJPanel extends javax.swing.JPanel
                     }
 
                 } catch (Exception e) {
-                    this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                    logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
                 }
             }
         }.start();

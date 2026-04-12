@@ -124,7 +124,7 @@ public class InputRobotFactory
     throws Exception
     {
         final LogUtil logUtil = LogUtil.getInstance();
-        this.logUtil.putF("Loading Libraries", "InputRobotFactory", "loadLibraries");
+        logUtil.putF("Loading Libraries", "InputRobotFactory", "loadLibraries");
         final Iterator iterator = collection.iterator();
         while(iterator.hasNext())
         {
@@ -138,8 +138,7 @@ public class InputRobotFactory
         final LogUtil logUtil = LogUtil.getInstance();
         if(InterfaceUtil.isImplemented(SecuredNativeLibraryInterface.class, inputRobotInterface))
         {
-            this.logUtil.putF("Loading Library: " + 
-                inputRobotInterface.getName(), "InputRobotFactory", "loadLibraries");
+            logUtil.putF("Loading Library: " + inputRobotInterface.getName(), "InputRobotFactory", "loadLibraries");
             
             final SecuredNativeLibraryInterface securedNativeLibraryInterface =
                 (SecuredNativeLibraryInterface) inputRobotInterface;

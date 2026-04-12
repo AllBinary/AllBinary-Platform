@@ -721,7 +721,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         } catch (Exception e)
         {
             final LogUtil logUtil = LogUtil.getInstance();
-            this.logUtil.put(CommonStrings.getInstance().EXCEPTION, null, "main", e);
+            logUtil.put(CommonStrings.getInstance().EXCEPTION, null, "main", e);
         }
     }
 

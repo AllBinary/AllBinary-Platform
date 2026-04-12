@@ -64,10 +64,7 @@ public class StoreCustomizerComponentUtil
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                this.logUtil.put(
-                    "View or component that was modified by a Customizer: "
-                    + nextTransformInfoInterface.getName(),
-                    this, "generateModifiedViews()");
+                this.logUtil.putF("View or component that was modified by a Customizer: " + nextTransformInfoInterface.getName(),this, "generateModifiedViews()");
             }
 
             generate(abeClientInformation, transformInfoInterface, allViewsToBeModified);

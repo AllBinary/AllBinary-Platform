@@ -56,13 +56,14 @@ public class RotationImageJPanel extends javax.swing.JPanel
         new Thread() {
 
             public void run() {
+                final LogUtil logUtil = LogUtil.getInstance();
                 try {
 
                     final String angleAsString = (String) RotationImageJPanel.this.totalAngleJComboBox.getSelectedItem();
                     ImageArrayRotationUtil.getInstance().process(RotationImageJPanel.this.getImageProcessorInput(), angleAsString, RotationImageJPanel.this);                        
 
                 } catch (Exception e) {
-                    this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                    logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
                 }
             }
         }.start();

@@ -34,7 +34,7 @@ public class BufferedImagePoolSingleton
         
         try
         {
-            this.logUtil.putF(commonStrings.START, instance, STATIC_BLOCK);
+            logUtil.putF(commonStrings.START, instance, STATIC_BLOCK);
             
             poolInterface =
                 PoolInterfaceFactory.getInstance(
@@ -42,11 +42,11 @@ public class BufferedImagePoolSingleton
                 PoolTypeFactory.getInstance().VECTOR_POOL, 
                 CachePolicyFactory.getInstance().MAX_TIME_THOUSAND_MAX);
             
-            this.logUtil.putF(commonStrings.END, instance, STATIC_BLOCK);
+            logUtil.putF(commonStrings.END, instance, STATIC_BLOCK);
         }
         catch(Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, instance, STATIC_BLOCK, e);
+            logUtil.put(commonStrings.EXCEPTION, instance, STATIC_BLOCK, e);
         }
     }
     

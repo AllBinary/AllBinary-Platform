@@ -58,13 +58,14 @@ public class MirrorImageJPanel extends javax.swing.JPanel
 
          public void run()
          {
+             final LogUtil logUtil = LogUtil.getInstance();
             try
             {
                //BufferedImage generatedBufferedImageArray[];
 
-               ImageProcessorInput imageProcessorInput =
+               final ImageProcessorInput imageProcessorInput =
                   MirrorImageJPanel.this.getImageProcessorInput();
-               BufferedImage[] bufferedImageArray =
+               final BufferedImage[] bufferedImageArray =
                   imageProcessorInput.getBufferedImageArray();
 
                for (int index = 0; index < bufferedImageArray.length; index++)
@@ -90,7 +91,7 @@ public class MirrorImageJPanel extends javax.swing.JPanel
                      
                      filePath = filePath.substring(0, extensionIndex) + "_mirror" + imageStrings.PNG_EXTENSION;
                      
-                     this.logUtil.putF("Renamed File: " + filePath, this, commonStrings.RUN);
+                     logUtil.putF("Renamed File: " + filePath, this, commonStrings.RUN);
                      
                      file = new File(filePath);
                   }
@@ -99,14 +100,14 @@ public class MirrorImageJPanel extends javax.swing.JPanel
                         (RenderedImage) MirrorImageJPanel.this.result,
                         imageStrings.PNG, file);
                   
-                  this.logUtil.putF("File: " + file + " Wrote: " + isWritten, this, commonStrings.RUN);
+                  logUtil.putF("File: " + file + " Wrote: " + isWritten, this, commonStrings.RUN);
                   MirrorImageJPanel.this.getParent().repaint();
                }
 
             }
             catch (Exception e)
             {
-               this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+               logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
             }
          }
       }.start();

@@ -32,7 +32,7 @@ public class KeyboardInputAutomationProcessor
    {
        final LogUtil logUtil = LogUtil.getInstance();
        final CommonStrings commonStrings = CommonStrings.getInstance();
-      this.logUtil.putF(CommonLabels.getInstance().START + keyActionScriptInputInterface.toString(), "KeyInputAutomationProcessor", commonStrings.PROCESS);
+      logUtil.putF(CommonLabels.getInstance().START + keyActionScriptInputInterface.toString(), "KeyInputAutomationProcessor", commonStrings.PROCESS);
       
       InputRobotInterface inputRobotInterface = 
             keyActionScriptInputInterface.getInputRobotInterface();

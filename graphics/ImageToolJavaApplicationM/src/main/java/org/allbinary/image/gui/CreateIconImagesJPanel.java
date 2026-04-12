@@ -70,6 +70,7 @@ public class CreateIconImagesJPanel extends javax.swing.JPanel
 
             @Override
             public void run() {
+                final LogUtil logUtil = LogUtil.getInstance();
                 try {
                     final ImageUtil imageUtil = ImageUtil.getInstance();
 
@@ -165,7 +166,7 @@ public class CreateIconImagesJPanel extends javax.swing.JPanel
                     CreateIconImagesJPanel.this.getParent().repaint();
 
                 } catch (Exception e) {
-                    this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                    logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
                 }
             }
         }.start();

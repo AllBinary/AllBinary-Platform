@@ -37,12 +37,12 @@ public class ImageTool
              final CommonStrings commonStrings = CommonStrings.getInstance();
             try
             {
-               this.logUtil.putF(commonStrings.START, this, commonStrings.RUN);
+               logUtil.putF(commonStrings.START, this, commonStrings.RUN);
                new ImageToolJFrame().setVisible(true);
             }
             catch(Exception e)
             {
-               this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+               logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
             }
          }
       });

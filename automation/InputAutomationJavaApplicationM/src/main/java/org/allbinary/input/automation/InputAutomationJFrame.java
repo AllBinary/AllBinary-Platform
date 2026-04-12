@@ -601,7 +601,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
 
             try
             {
-               this.logUtil.putF("Running", this, commonStrings.RUN);
+               logUtil.putF("Running", this, commonStrings.RUN);
                INPUTAUTOMATION_JFRAME = new InputAutomationJFrame();
                InputRobotFactory.getInstance().addListener(InputAutomationJFrame.getInstance());
 
@@ -613,7 +613,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
                INPUTAUTOMATION_JFRAME.setVisible(true);
             } catch (Exception e)
             {
-               this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+               logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
             }
          }
       });

@@ -30,9 +30,10 @@ public class ToastUtil {
                 @Override
 	        public void run()
 	        {
+                    final LogUtil logUtil = LogUtil.getInstance();
 	            try
 	            {
-	            	//this.logUtil.putF("Trying to Toast: "+ string, this, commonStrings.RUN);
+	            	//logUtil.putF("Trying to Toast: "+ string, this, commonStrings.RUN);
 	            	//PreLogUtil.put("Trying to Toast: "+ string, this, commonStrings.RUN);
 	                
 	                Toast.makeText(context, string, time).show();
@@ -40,7 +41,7 @@ public class ToastUtil {
 	            catch(Exception e)
 	            {
                         final CommonStrings commonStrings = CommonStrings.getInstance();
-	                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+	                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
 	            }
 	        }
 	    }

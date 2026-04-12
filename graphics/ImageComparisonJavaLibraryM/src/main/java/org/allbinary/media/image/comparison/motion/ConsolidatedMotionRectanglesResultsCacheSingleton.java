@@ -36,15 +36,15 @@ public class ConsolidatedMotionRectanglesResultsCacheSingleton
         try
         {
             
-            this.logUtil.putF(commonStrings.START, instance, STATIC_BLOCK);
+            logUtil.putF(commonStrings.START, instance, STATIC_BLOCK);
             
             cacheInterface = CacheInterfaceFactory.getInstance(CacheTypeFactory.getInstance().CACHE, CachePolicyFactory.getInstance().ONE_MINUTE_FIVE_MAX);
             
-            this.logUtil.putF(commonStrings.END, instance, STATIC_BLOCK);
+            logUtil.putF(commonStrings.END, instance, STATIC_BLOCK);
         }
         catch(Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, instance, STATIC_BLOCK, e);
+            logUtil.put(commonStrings.EXCEPTION, instance, STATIC_BLOCK, e);
         }
     }
     

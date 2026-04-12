@@ -25,6 +25,8 @@ import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
 import org.allbinary.business.user.commerce.inventory.item.special.SpecialItemData;
 import org.allbinary.data.tables.user.commerce.inventory.item.special.SpecialItemsEntityFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonSeps;
 
 public class SpecialItemsRequestHelper extends ModifyTable
 {

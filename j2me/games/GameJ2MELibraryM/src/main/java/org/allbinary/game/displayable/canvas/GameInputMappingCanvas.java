@@ -281,9 +281,7 @@ implements InputMappingInterface
         }
         else
         {
-            this.logUtil.put(
-                    "Unable to add Mapping since one already exists or is MENU, HOME, or BACK key and setting selected action to what it is already mapped to", this,
-                    METHOD_NAME);
+            this.logUtil.putF("Unable to add Mapping since one already exists or is MENU, HOME, or BACK key and setting selected action to what it is already mapped to", this, METHOD_NAME);
             this.setSelectedAction(gameKey);
         }
     }
