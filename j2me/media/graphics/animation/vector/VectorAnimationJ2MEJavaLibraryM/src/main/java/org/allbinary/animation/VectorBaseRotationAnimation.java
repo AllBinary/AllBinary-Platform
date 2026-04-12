@@ -134,12 +134,10 @@ public class VectorBaseRotationAnimation
                 
                 if (nextPointX != 1000)
                 {
-                    // this.logUtil.put("Next Line: x1: " +
+                    // this.logUtil.putF("Next Line: x1: " +
                     // this.currentPoints[this.currentFrame][index][0] + x +
                     // " y1: "
-                    // + this.currentPoints[this.currentFrame][index][1] + y,
-                    // this,
-                    // canvasStrings.PAINT);
+                    // + this.currentPoints[this.currentFrame][index][1] + y, // this, // canvasStrings.PAINT);
 
                     graphics.drawLine(point[0] + x, point[1] + y, nextPointX + x, nextPointY + y);
                 }

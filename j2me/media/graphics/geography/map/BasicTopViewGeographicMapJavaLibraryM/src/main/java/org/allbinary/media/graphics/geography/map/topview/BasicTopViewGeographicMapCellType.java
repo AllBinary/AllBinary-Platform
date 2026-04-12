@@ -67,7 +67,7 @@ public class BasicTopViewGeographicMapCellType //extends GeographicMapCellType
             new RaceTrackGeographicMapCellType(name, type, cost);
         } else {
             //final BasicTopViewGeographicMapStrings basicTopViewGeographicMapStrings = BasicTopViewGeographicMapStrings.getInstance();
-            //this.logUtil.put(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, commonStrings.CONSTRUCTOR);
+            //this.logUtil.putF(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, commonStrings.CONSTRUCTOR);
         }
 
         this.name = name;
@@ -88,7 +88,7 @@ public class BasicTopViewGeographicMapCellType //extends GeographicMapCellType
                 new RaceTrackGeographicMapCellType(name, type, cost);
             } else {
                 //final BasicTopViewGeographicMapStrings basicTopViewGeographicMapStrings = BasicTopViewGeographicMapStrings.getInstance();
-                //this.logUtil.put(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, commonStrings.CONSTRUCTOR);
+                //this.logUtil.putF(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, commonStrings.CONSTRUCTOR);
             }
             
         }
@@ -112,7 +112,7 @@ public class BasicTopViewGeographicMapCellType //extends GeographicMapCellType
                 new RaceTrackGeographicMapCellType(name, type, cost);
             } else {
                 //final BasicTopViewGeographicMapStrings basicTopViewGeographicMapStrings = BasicTopViewGeographicMapStrings.getInstance();
-                //this.logUtil.put(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, commonStrings.CONSTRUCTOR);
+                //this.logUtil.putF(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, commonStrings.CONSTRUCTOR);
             }
             
             typeArray[index] = type;

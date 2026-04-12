@@ -64,7 +64,7 @@ public class TransformInfoPropertiesDocument
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            this.logUtil.put("Size: " + transformInfoNodeVector.size(), this, "toTransformInfoPropertiesHashMap()");
+            this.logUtil.putF("Size: " + transformInfoNodeVector.size(), this, "toTransformInfoPropertiesHashMap()");
          }
 
          final int size = transformInfoNodeVector.size();

@@ -47,14 +47,14 @@ public class LayerInterfaceFactory
            throws Exception
    {
        final CommonStrings commonStrings = CommonStrings.getInstance();
-      this.logUtil.put(new StringMaker().append(HASHTABLE_LABEL).append(StringUtil.getInstance().toString(hashtable)).toString(), this, commonStrings.GET_INSTANCE);
+      this.logUtil.putF(new StringMaker().append(HASHTABLE_LABEL).append(StringUtil.getInstance().toString(hashtable)).toString(), this, commonStrings.GET_INSTANCE);
 
       final Integer typeInteger = (Integer) hashtable.get((Object) Layer.ID);
 
       /*
       if(list.objectArray.length <= typeInteger.intValue() - 1)
       {
-    	  PreLogUtil.put("Layer ID: ").append(typeInteger.toString(), this, commonStrings.GET_INSTANCE);
+    	  PrelogUtil.putF("Layer ID: ").append(typeInteger.toString(), this, commonStrings.GET_INSTANCE);
       }
       */
 
@@ -64,7 +64,7 @@ public class LayerInterfaceFactory
       /*
       if(layerInterfaceFactoryInterface == null)
       {
-    	  PreLogUtil.put("Layer ID: ").append(typeInteger.toString(), this, commonStrings.GET_INSTANCE);
+    	  PrelogUtil.putF("Layer ID: ").append(typeInteger.toString(), this, commonStrings.GET_INSTANCE);
       }
       */
 

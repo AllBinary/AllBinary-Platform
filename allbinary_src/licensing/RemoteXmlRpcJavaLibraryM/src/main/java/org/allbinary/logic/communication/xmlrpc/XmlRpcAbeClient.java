@@ -98,7 +98,7 @@ public class XmlRpcAbeClient
         stringBuffer.append(SEP);
         stringBuffer.append(clientInfo.getLicenseServer(this.getServer()));
         
-        this.logUtil.put(stringBuffer.toString(), this, commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(stringBuffer.toString(), this, commonStrings.CONSTRUCTOR);
         // }
     }
 

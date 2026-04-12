@@ -92,7 +92,7 @@ public class GeographicMapCellHistory
          this.list.add(geographicMapCellPosition);
          this.visitedList.add(booleanFactory.FALSE);
       }
-   //this.logUtil.put("Position: " + geographicMapCellPosition, this, "track");
+   //this.logUtil.putF("Position: " + geographicMapCellPosition, this, "track");
    }
 
    public BasicArrayList getTracked()
@@ -194,7 +194,7 @@ public class GeographicMapCellHistory
       }
       else
       {
-         //this.logUtil.put(geographicMapCellPosition.toString() + " not being tracked", this, "visit");
+         //this.logUtil.putF(geographicMapCellPosition.toString() + " not being tracked", this, "visit");
       }
       return false;
    }
@@ -217,7 +217,7 @@ public class GeographicMapCellHistory
       }
       else
       {
-         //this.logUtil.put(geographicMapCellPosition.toString() + " not being tracked", this, "visit");
+         //this.logUtil.putF(geographicMapCellPosition.toString() + " not being tracked", this, "visit");
       }
       return false;
    }
@@ -276,10 +276,9 @@ public class GeographicMapCellHistory
       final int numberNotVisited = this.getSize() - 1 - this.totalVisited;
 
       /*
-      this.logUtil.put(
+      this.logUtil.putF(
          "Total Visited: " + (size - numberNotVisited) +
-         " out of " + size + " Number Required: " + numberRequired,
-         this, "isMostlyVisited");
+         " out of " + size + " Number Required: " + numberRequired, this, "isMostlyVisited");
       */
 
       if (size - numberNotVisited > numberRequired)
@@ -326,8 +325,8 @@ public class GeographicMapCellHistory
    /*
    if(currentTime - lastTime > 2000)
    {
-   //this.logUtil.put("x: " + x, this, "paintNotVisited");
-   //this.logUtil.put("y: " + y, this, "paintNotVisited");
+   //this.logUtil.putF("x: " + x, this, "paintNotVisited");
+   //this.logUtil.putF("y: " + y, this, "paintNotVisited");
    lastTime = currentTime;
    }
     */

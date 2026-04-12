@@ -107,7 +107,7 @@ public class ValidationTransformTag extends TransformTag
              stringBuffer.append("\nRequest URI: ");
              stringBuffer.append(request.getRequestURI());
 
-            this.logUtil.put(stringBuffer.toString(), this, "doStartTag");
+            this.logUtil.putF(stringBuffer.toString(), this, tagStrings.DO_START_TAG);
          }
          
          this.setHelper();
@@ -125,7 +125,7 @@ public class ValidationTransformTag extends TransformTag
              stringBuffer.append("\nLogic includes body if true=");
              stringBuffer.appendboolean(this.logic);
 
-             this.logUtil.put(stringBuffer.toString(), this, "doStartTag");
+             this.logUtil.putF(stringBuffer.toString(), this, tagStrings.DO_START_TAG);
             }
             
             if(this.logic)
@@ -153,7 +153,7 @@ public class ValidationTransformTag extends TransformTag
                 stringBuffer.append("\nLogic skips body if true=");
                 stringBuffer.appendboolean(this.logic);
                 
-                this.logUtil.put(stringBuffer.toString(), this, "doStartTag");
+                this.logUtil.putF(stringBuffer.toString(), this, tagStrings.DO_START_TAG);
             }
             
             if(this.logic)
@@ -182,7 +182,7 @@ public class ValidationTransformTag extends TransformTag
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
       {
-         this.logUtil.put("Tag Ended",this,"doEndTag");
+         this.logUtil.putF("Tag Ended",this,"doEndTag");
       }
       this.logic = true;
       return super.doEndTag();

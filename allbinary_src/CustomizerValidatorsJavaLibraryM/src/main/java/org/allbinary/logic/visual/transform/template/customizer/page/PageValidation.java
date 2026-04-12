@@ -65,7 +65,7 @@ public class PageValidation extends Validation implements DomNodeInterface
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            this.logUtil.put("PageValidation", this, commonStrings.IS_VALID);
+            this.logUtil.putF("PageValidation", this, commonStrings.IS_VALID);
          }
          
          if(!this.title.isValid().booleanValue())
@@ -75,7 +75,7 @@ public class PageValidation extends Validation implements DomNodeInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            this.logUtil.put("PageValidation: " + valid, this, commonStrings.IS_VALID);
+            this.logUtil.putF("PageValidation: " + valid, this, commonStrings.IS_VALID);
          }
          
          return valid;

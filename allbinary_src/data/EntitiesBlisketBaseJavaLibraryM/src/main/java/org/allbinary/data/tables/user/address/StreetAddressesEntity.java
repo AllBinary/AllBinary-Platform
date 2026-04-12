@@ -57,7 +57,7 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.put(this.commonStrings.SUCCESS, this, "remove");
+                this.logUtil.putF(this.commonStrings.SUCCESS, this, "remove");
             }
         }catch(Exception e)
         {
@@ -99,7 +99,7 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.put(this.commonStrings.SUCCESS, this, "add");
+                this.logUtil.putF(this.commonStrings.SUCCESS, this, "add");
             }
         }catch(Exception e)
         {
@@ -128,7 +128,7 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.put(this.commonStrings.SUCCESS, this, "update");
+                this.logUtil.putF(this.commonStrings.SUCCESS, this, "update");
             }
         }catch(Exception e)
         {
@@ -220,14 +220,14 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
                 StreetAddress streetAddress = new StreetAddress(addressHashMap);
                 if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
                 {
-                    this.logUtil.put(this.commonStrings.SUCCESS, this, "getDefault");
+                    this.logUtil.putF(this.commonStrings.SUCCESS, this, "getDefault");
                 }
                 return streetAddress;
             }else
             {
                 if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
                 {
-                    this.logUtil.put("No Default Address Found", this, "getDefault");
+                    this.logUtil.putF("No Default Address Found", this, "getDefault");
                 }
                 return null;
             }
@@ -267,7 +267,7 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.put(this.commonStrings.SUCCESS, this, "setDefault");
+                this.logUtil.putF(this.commonStrings.SUCCESS, this, "setDefault");
             }
         }catch(Exception e)
         {

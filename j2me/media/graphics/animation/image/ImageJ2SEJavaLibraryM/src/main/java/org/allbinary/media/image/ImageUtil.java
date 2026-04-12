@@ -57,7 +57,7 @@ public class ImageUtil
    {
 //      try
 //      {
-//         this.logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+//         this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 //
 //         /*
 //         poolInterface =
@@ -172,38 +172,38 @@ public class ImageUtil
       
       final AffineTransform affineTransform = AffineTransform.getScaleInstance(ratioX, ratioY);
       
-//      this.logUtil.put(new StringMaker().append((float) width).append(this.commonSeps.FORWARD_SLASH).append((float) height)
+//      this.logUtil.putF(new StringMaker().append((float) width).append(this.commonSeps.FORWARD_SLASH).append((float) height)
 //              .append(this.commonSeps.COLON).append(newWidth).append(this.commonSeps.FORWARD_SLASH).append(newHeight).append(this.commonSeps.COLON)
 //              .append((float) widthRatio).append(this.commonSeps.FORWARD_SLASH).append((float) heightRatio).toString(), this, CREATE_BUFFERED_IMAGE);
 
       if(!scale && allowTranslate) {
           final double dx = (newWidth - width) / 2;
           final double dy = (newHeight - height) / 2;
-          //this.logUtil.put(new StringMaker().append(TRANSLATE).append(PositionStrings.getInstance().DX_LABEL).append((float) dx).append(PositionStrings.getInstance().DY_LABEL).append((float) dy).toString(), this, CREATE_BUFFERED_IMAGE);
+          //this.logUtil.putF(new StringMaker().append(TRANSLATE).append(PositionStrings.getInstance().DX_LABEL).append((float) dx).append(PositionStrings.getInstance().DY_LABEL).append((float) dy).toString(), this, CREATE_BUFFERED_IMAGE);
           affineTransform.translate(dx, dy);
           
 //          if (newWidth < width) {
 //              final double translate = -(width - newWidth);
-//              this.logUtil.put("Translating to keep image centered x3: " + translate, this, CREATE_BUFFERED_IMAGE);
+//              this.logUtil.putF("Translating to keep image centered x3: " + translate, this, CREATE_BUFFERED_IMAGE);
 //              affineTransform.translate(translate, 0);
 //          }
 //          if (newHeight < height) {
 //              //final double translate = -(height - newHeight) / 2;
 //              final double translate = -(height - newHeight);
-//              this.logUtil.put("Translating to keep image centered y0: " + translate, this, CREATE_BUFFERED_IMAGE);
+//              this.logUtil.putF("Translating to keep image centered y0: " + translate, this, CREATE_BUFFERED_IMAGE);
 //              affineTransform.translate(0, translate);
 //          }
 //
 //          //if(newHeight > height && widthRatio <= 1) {
 //          if (newHeight > height) {
 //              final double translate = (newHeight - height) / 2;
-//              this.logUtil.put("Translating to keep image centered y1: " + translate, this, CREATE_BUFFERED_IMAGE);
+//              this.logUtil.putF("Translating to keep image centered y1: " + translate, this, CREATE_BUFFERED_IMAGE);
 //              affineTransform.translate(0, translate);
 //          }
 //          //if(newWidth > width && heightRatio <= 1) {
 //          if (newWidth > width) {
 //              final double translate = (newWidth - width) / 2;
-//              this.logUtil.put("Translating to keep image centered x2: " + translate, this, CREATE_BUFFERED_IMAGE);
+//              this.logUtil.putF("Translating to keep image centered x2: " + translate, this, CREATE_BUFFERED_IMAGE);
 //              affineTransform.translate(translate, 0);
 //          }
       }
@@ -267,7 +267,7 @@ public class ImageUtil
       final double widthRatio = d_newWidth / width;
       final double heightRatio = d_newHeight / height;
       
-//      this.logUtil.put(new StringMaker().append((float) width).append(this.commonSeps.FORWARD_SLASH).append((float) height)
+//      this.logUtil.putF(new StringMaker().append((float) width).append(this.commonSeps.FORWARD_SLASH).append((float) height)
 //              .append(this.commonSeps.COLON).append(newWidth).append(this.commonSeps.FORWARD_SLASH).append(newHeight).append(this.commonSeps.COLON)
 //              .append((float) widthRatio).append(this.commonSeps.FORWARD_SLASH).append((float) heightRatio).toString(), this, CREATE_BUFFERED_IMAGE);
 
@@ -277,7 +277,7 @@ public class ImageUtil
       final int dy = (int) dy2 / 2;
       final int dx4 = (int) dx2 / 4;
       final int dy4 = (int) dy2 / 4;
-      //this.logUtil.put(new StringMaker().append(TRANSLATE).append(PositionStrings.getInstance().DX_LABEL).append((float) dx).append(PositionStrings.getInstance().DY_LABEL).append((float) dy).toString(), this, CREATE_BUFFERED_IMAGE);
+      //this.logUtil.putF(new StringMaker().append(TRANSLATE).append(PositionStrings.getInstance().DX_LABEL).append((float) dx).append(PositionStrings.getInstance().DY_LABEL).append((float) dy).toString(), this, CREATE_BUFFERED_IMAGE);
 
       final BufferedImage newBufferedImage = new BufferedImage(
          newWidth, newHeight, BufferedImage.TYPE_INT_ARGB_PRE);

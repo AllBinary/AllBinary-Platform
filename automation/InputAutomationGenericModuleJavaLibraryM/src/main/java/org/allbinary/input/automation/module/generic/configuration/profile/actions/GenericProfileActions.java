@@ -109,7 +109,7 @@ public class GenericProfileActions
         }
         else
         {
-            this.logUtil.put("No Profile: " + file.getAbsolutePath(), this, "Contructor");
+            this.logUtil.putF("No Profile: " + file.getAbsolutePath(), this, "Contructor");
         }
     }
     
@@ -128,7 +128,7 @@ public class GenericProfileActions
         NodeList nameNodeList = document.getElementsByTagName(
             GenericProfileActionsData.NAME);
         
-        this.logUtil.put("Number Of Profiles Specified: " + nameNodeList.getLength(), this, "Contructor");
+        this.logUtil.putF("Number Of Profiles Specified: " + nameNodeList.getLength(), this, "Contructor");
         
         for(int index = 0; index < nameNodeList.getLength(); index++)
         {
@@ -145,7 +145,7 @@ public class GenericProfileActions
             }
             
         }
-        this.logUtil.put("Loaded: " + this.getHashMap().size() + " Configuration Profile Action(s)", this,"Contructor");
+        this.logUtil.putF("Loaded: " + this.getHashMap().size() + " Configuration Profile Action(s)", this, "Contructor");
         
         this.getDefaultListModelHelper().initDefaultModelList();
     }
@@ -217,7 +217,7 @@ public class GenericProfileActions
     {
         HashMap hashMap = new HashMap();
         
-        this.logUtil.put("HashMap: " + hashMap.toString(), this, "toHashMap()");
+        this.logUtil.putF("HashMap: " + hashMap.toString(), this, "toHashMap()");
         
         return hashMap;
     }

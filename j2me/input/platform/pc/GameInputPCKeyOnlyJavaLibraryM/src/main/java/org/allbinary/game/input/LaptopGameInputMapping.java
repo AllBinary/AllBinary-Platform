@@ -21,7 +21,7 @@ public class LaptopGameInputMapping  extends PCGameInputMapping
     @Override
     protected InputToGameKeyMapping getDefault()
     {
-        //this.logUtil.put("Use Default GameKey Mappings", this, "addDefault");
+        //this.logUtil.putF("Use Default GameKey Mappings", this, "addDefault");
 
         return new LaptopDefaultGameInputMapping().getInputMapping();
     }

@@ -47,7 +47,7 @@ public class CloudStreamUtil {
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                this.logUtil.put("Cloud File Bytes: " + available, this, "processRequest()");
+                this.logUtil.putF("Cloud File Bytes: " + available, this, "processRequest()");
             }
         }
 
@@ -65,7 +65,7 @@ public class CloudStreamUtil {
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                this.logUtil.put("Local File Bytes: " + available, this, "processRequest()");
+                this.logUtil.putF("Local File Bytes: " + available, this, "processRequest()");
             }
         } else
         {
@@ -77,7 +77,7 @@ public class CloudStreamUtil {
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
                 {
-                    this.logUtil.put("Cloud File Bytes: " + available, this, "processRequest()");
+                    this.logUtil.putF("Cloud File Bytes: " + available, this, "processRequest()");
                 }
             }
         }
@@ -96,7 +96,7 @@ public class CloudStreamUtil {
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                this.logUtil.put("Local File Bytes: " + available, this, "processRequest()");
+                this.logUtil.putF("Local File Bytes: " + available, this, "processRequest()");
             }
         }
 

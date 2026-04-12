@@ -59,7 +59,7 @@ public class GeographicMapCellPositionArea extends GeographicMapCellPositionArea
     {
         //final GeographicMapCellPosition topLeftGeographicMapCellPosition =
             //geographicMapInterface.getCellPositionAt(layerInterface.getX(), layerInterface.getY());
-        //this.logUtil.put(new StringMaker().append(layerInterface.getName()).append(" c: ").append(((PathFindingLayerInterface) layerInterface).getCurrentGeographicMapCellPosition()).append(CommonSeps.getInstance().SPACE).append(((PathFindingLayerInterface) layerInterface).getTopLeftGeographicMapCellPosition()).append(" topLeftGeographicMapCellPosition: ").append(topLeftGeographicMapCellPosition).toString(), this, "visit");
+        //this.logUtil.putF(new StringMaker().append(layerInterface.getName()).append(" c: ").append(((PathFindingLayerInterface) layerInterface).getCurrentGeographicMapCellPosition()).append(CommonSeps.getInstance().SPACE).append(((PathFindingLayerInterface) layerInterface).getTopLeftGeographicMapCellPosition()).append(" topLeftGeographicMapCellPosition: ").append(topLeftGeographicMapCellPosition).toString(), this, "visit");
         
         this.occupyingGeographicMapCellPositionList =
             layerCoveringCellPositionsUtil.getAll(

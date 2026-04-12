@@ -53,13 +53,13 @@ public class OperatingSystemFactory
                 hasDetected = true;
                 if(osName.indexOf(OperatingSystems.getInstance().ANDROID) >= 0)
                 {
-                    this.logUtil.put("Found a Linux OS", this, commonStrings.GET_INSTANCE);
+                    this.logUtil.putF("Found a Linux OS", this, commonStrings.GET_INSTANCE);
 
                     genericOperatingSystem = 
                         AndroidOperatingSystemFactory.getInstance().getOperatingSystemInstance();
                     
                     //PreLogUtil.put(log.toString());
-                    this.logUtil.put(new StringMaker().append("Operating System Info: ").append(genericOperatingSystem.toString()).toString(), this, commonStrings.GET_INSTANCE);
+                    this.logUtil.putF(new StringMaker().append("Operating System Info: ").append(genericOperatingSystem.toString()).toString(), this, commonStrings.GET_INSTANCE);
                 }
                 else
                 {

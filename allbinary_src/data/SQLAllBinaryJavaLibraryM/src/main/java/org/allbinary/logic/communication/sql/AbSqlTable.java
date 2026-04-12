@@ -51,7 +51,7 @@ public class AbSqlTable extends AbSqlBasic
             this.executeSQLStatement(data);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.put(TABLE_CREATION_SUCCESS + this.tableName + " with statement: " + data, this, this.METHOD_CREATED_TABLE);
+                this.logUtil.putF(TABLE_CREATION_SUCCESS + this.tableName + " with statement: " + data, this, this.METHOD_CREATED_TABLE);
             }
             return tableName + sqlStrings.CREATE_RETURN;
         } catch (Exception e)
@@ -72,7 +72,7 @@ public class AbSqlTable extends AbSqlBasic
             this.executeSQLStatement(sqlStatement);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.put(this.SUCCESS_SQL_STATEMENT + sqlStatement, this, this.METHOD_DROP_TABLE);
+                this.logUtil.putF(this.SUCCESS_SQL_STATEMENT + sqlStatement, this, this.METHOD_DROP_TABLE);
             }
             return tableName + DROPPED_SUCCESS;
         } catch (Exception e)

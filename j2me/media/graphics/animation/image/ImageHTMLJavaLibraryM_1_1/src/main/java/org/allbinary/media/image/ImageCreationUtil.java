@@ -42,7 +42,7 @@ public class ImageCreationUtil
     public Image createImage(final int width, final int height, final float maxScaleX, final float maxScaleY) 
     throws Exception
     {
-        //this.logUtil.put(CommonLabels.getInstance().COLON_SEP + scaleNominatorX + " / " + scaleDenominatorX + " = " + scaleX, this, "createImage");
+        //this.logUtil.putF(CommonLabels.getInstance().COLON_SEP + scaleNominatorX + " / " + scaleDenominatorX + " = " + scaleX, this, "createImage");
         final Image image = GameFeatureImageCacheFactory.getInstance().get(this.getClass().getName(), (int) (width * maxScaleX) + 1, (int) (height * maxScaleY) + 1);
         return image;
     }

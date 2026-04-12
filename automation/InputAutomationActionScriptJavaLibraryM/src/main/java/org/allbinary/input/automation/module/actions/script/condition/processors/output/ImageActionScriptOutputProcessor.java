@@ -36,9 +36,8 @@ public class ImageActionScriptOutputProcessor
     {
         final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        this.logUtil.put(
-            "Start - Processing at: " + imageActionScriptOutputInterface.toString(),
-            "ImageActionScriptOutputProcessor", commonStrings.PROCESS);
+        this.logUtil.putF(
+            "Start - Processing at: " + imageActionScriptOutputInterface.toString(), "ImageActionScriptOutputProcessor", commonStrings.PROCESS);
 
         final ImageTypes imageTypes = imageActionScriptOutputInterface.getImageTypes();
         final Vector vector = imageTypes.getVector();

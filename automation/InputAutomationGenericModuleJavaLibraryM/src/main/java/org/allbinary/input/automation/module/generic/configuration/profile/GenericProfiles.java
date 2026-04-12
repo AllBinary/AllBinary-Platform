@@ -74,7 +74,7 @@ public class GenericProfiles
             NodeList nodeList = document.getElementsByTagName(
                 GenericProfilesData.NAME);
             
-            this.logUtil.put("Number Of Profiles Specified: " + nodeList.getLength(), this,"Contructor");
+            this.logUtil.putF("Number Of Profiles Specified: " + nodeList.getLength(), this, "Contructor");
             
             if(nodeList != null)
             {
@@ -85,11 +85,11 @@ public class GenericProfiles
                 throw new Exception(GenericProfileActionData.NAME + " Name Node Node Children");
             }
             
-            this.logUtil.put("Loaded: " + this.hashMap.size() + " Configuration Profile Actions", this,"Contructor");
+            this.logUtil.putF("Loaded: " + this.hashMap.size() + " Configuration Profile Actions", this, "Contructor");
         }
         else
         {
-            this.logUtil.put("No Generic Profile: " + fileName, this,"Contructor");
+            this.logUtil.putF("No Generic Profile: " + fileName, this, "Contructor");
         }
         this.getDefaultListModelHelper().initDefaultModelList();
     }
@@ -125,7 +125,7 @@ public class GenericProfiles
         if(genericProfile == null)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put("No Generic Profile Named: " + name + 
+            this.logUtil.putF("No Generic Profile Named: " + name + 
                 " availability was: " + this.hashMap, this, commonStrings.GET);
         }
         return genericProfile;
@@ -183,7 +183,7 @@ public class GenericProfiles
         FileOutputStream idFile = new FileOutputStream(this.fileName);
         DataOutputStream idOutData = new DataOutputStream(idFile);
         String documentString = DomDocumentHelper.toString(this.toXmlDoc());
-        //this.logUtil.put("Do: " + nodeList.getLength(), this,"Contructor");
+        //this.logUtil.putF("Do: " + nodeList.getLength(), this, "Contructor");
         idOutData.writeBytes(documentString);
     }
 }

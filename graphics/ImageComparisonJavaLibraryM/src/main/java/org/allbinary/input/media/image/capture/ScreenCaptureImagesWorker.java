@@ -52,7 +52,7 @@ public class ScreenCaptureImagesWorker extends BasicEventHandler
 
     public void run() {
         try {
-            this.logUtil.put(this.commonStrings.START, this, this.commonStrings.RUN);
+            this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.RUN);
             setRunning(true);
             TimeDelayHelper timeHelper = new TimeDelayHelper(1000);
             while (isRunning()) {
@@ -67,11 +67,10 @@ public class ScreenCaptureImagesWorker extends BasicEventHandler
                         = new CapturedImageWorkerResultsEvent(this, frame,
                                 bufferedImage);
                 fireEvent(capturedImageEvent);
-                this.logUtil.put(CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(),
-                        this, this.commonStrings.RUN);
+                this.logUtil.putF(CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN);
                 setRunning(false);
             }
-            this.logUtil.put(this.commonStrings.END, this, this.commonStrings.RUN);
+            this.logUtil.putF(this.commonStrings.END, this, this.commonStrings.RUN);
         } catch (Exception e) {
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
         }

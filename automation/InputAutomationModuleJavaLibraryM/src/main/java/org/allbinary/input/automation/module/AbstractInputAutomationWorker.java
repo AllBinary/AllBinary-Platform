@@ -53,7 +53,7 @@ public class AbstractInputAutomationWorker
     {
         try
         {
-            this.logUtil.put("Recieved Event", this, "onCaptureEvent");
+            this.logUtil.putF("Recieved Event", this, "onCaptureEvent");
         }
         catch (Exception e)
         {
@@ -101,9 +101,8 @@ public class AbstractInputAutomationWorker
         {
             captureThread = new Thread(this.getCaptureWorker());
 
-            this.logUtil.put("Starting CaptureWorkers - Need more images - Thread State: " + 
-                captureThread.getState().toString(), 
-                this, "startCaptureWorkers");
+            this.logUtil.putF("Starting CaptureWorkers - Need more images - Thread State: " + 
+                captureThread.getState().toString(), this, "startCaptureWorkers");
 
             captureThread.start();
             //this.getCaptureWorker().run();
@@ -114,7 +113,7 @@ public class AbstractInputAutomationWorker
     {
         while(isAnyDataWorkerRunning())
         {
-            this.logUtil.put("Waiting", this, this.commonStrings.RUN);
+            this.logUtil.putF("Waiting", this, this.commonStrings.RUN);
             Thread.sleep(250);
         }
     }
@@ -132,7 +131,7 @@ public class AbstractInputAutomationWorker
     {
         try
         {
-            this.logUtil.put(this.commonStrings.START, this, this.commonStrings.RUN);
+            this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.RUN);
             
             this.setRunning(true);
             
@@ -155,14 +154,14 @@ public class AbstractInputAutomationWorker
                 
                 this.index++;
 
-                this.logUtil.put(
+                this.logUtil.putF(
                     CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed() + " Index: " + this.index, this, this.commonStrings.RUN);
             }
             
             this.stopDataWorkers();
             this.waitForDataWorkers();
             
-            this.logUtil.put(this.commonStrings.END, this, this.commonStrings.RUN);
+            this.logUtil.putF(this.commonStrings.END, this, this.commonStrings.RUN);
         }
         catch (Exception e)
         {

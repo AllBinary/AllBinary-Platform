@@ -111,7 +111,7 @@ public class MiniMapLayer
     @Override
     public synchronized void onGeographicMapCellPositionEvent(final GeographicMapCellPositionEvent geographicMapCellPositionEvent)
         throws Exception {
-        //this.logUtil.put(commonStrings.START, this, "onEvent");
+        //this.logUtil.putF(commonStrings.START, this, "onEvent");
 
         final ColorCompositeInterface colorCompositeInterface =
             (ColorCompositeInterface) geographicMapCellPositionEvent.getSource();
@@ -174,7 +174,7 @@ public class MiniMapLayer
                 //localY 
                 point.getY() + this.y);
 
-            //this.logUtil.put("X: " + x + " Y: " + y + " Color: " + color, this, "updateBufferedImage");
+            //this.logUtil.putF("X: " + x + " Y: " + y + " Color: " + color, this, "updateBufferedImage");
         }
 
     }

@@ -36,7 +36,7 @@ public class DeleteValidationView extends WorkFlowView implements ValidationComp
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         this.logUtil.put("Name: " + this.workFlowName,this,this.commonStrings.CONSTRUCTOR);
+         this.logUtil.putF("Name: " + this.workFlowName, this, this.commonStrings.CONSTRUCTOR);
       }
    }
 
@@ -55,7 +55,7 @@ public class DeleteValidationView extends WorkFlowView implements ValidationComp
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               this.logUtil.put("WorkFlow does not exist.",this,commonStrings.IS_VALID);
+               this.logUtil.putF("WorkFlow does not exist.", this, commonStrings.IS_VALID);
             }
             return Boolean.FALSE;
          }
@@ -87,7 +87,7 @@ public class DeleteValidationView extends WorkFlowView implements ValidationComp
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               this.logUtil.put("WorkFlow does not exist.",this,"validationInfo()");
+               this.logUtil.putF("WorkFlow does not exist.",this,"validationInfo()");
             }
             stringBuffer.append("WorkFlow does not exist<br />");
          }

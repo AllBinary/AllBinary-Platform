@@ -48,7 +48,7 @@ public class CellPositionsUtil
         final int lastColumn = topRightGeographicMapCellPosition.getColumn() + columns;
         final int lastRow = topRightGeographicMapCellPosition.getRow() + rows;
 
-//        this.logUtil.put("Columns: " + columns + " Rows: " + rows + " LastColumn: " + lastColumn + " lastRow: " + lastRow, this, "addAll");
+//        this.logUtil.putF("Columns: " + columns + " Rows: " + rows + " LastColumn: " + lastColumn + " lastRow: " + lastRow, this, "addAll");
 
         if ((columns > 1 && lastColumn > geographicMapInterface.getAllBinaryTiledLayer().getColumns()) ||
             (rows > 1 && lastRow > geographicMapInterface.getAllBinaryTiledLayer().getRows()))
@@ -56,7 +56,7 @@ public class CellPositionsUtil
             return reusableList;
         }
 
-//        this.logUtil.put("layerInterface.getWidth(): " + layerInterface.getWidth() + " geographicMapInterface.getAllBinaryTiledLayer().getCellWidth(): " + geographicMapInterface.getAllBinaryTiledLayer().getCellWidth(), this, "addAll");
+//        this.logUtil.putF("layerInterface.getWidth(): " + layerInterface.getWidth() + " geographicMapInterface.getAllBinaryTiledLayer().getCellWidth(): " + geographicMapInterface.getAllBinaryTiledLayer().getCellWidth(), this, "addAll");
 
 
         for (int rowIndex = 0; rowIndex < rows; rowIndex++)
@@ -68,13 +68,13 @@ public class CellPositionsUtil
                     topRightGeographicMapCellPosition.getColumn() + columnIndex,
                     topRightGeographicMapCellPosition.getRow() + rowIndex);
 
-//                this.logUtil.put("GeographicMapCellPosition: " + geographicMapCellPosition, this, "addAll");
-//                this.logUtil.put("columnIndex: " + columnIndex + " rowIndex: " + rowIndex, this, "addAll");
+//                this.logUtil.putF("GeographicMapCellPosition: " + geographicMapCellPosition, this, "addAll");
+//                this.logUtil.putF("columnIndex: " + columnIndex + " rowIndex: " + rowIndex, this, "addAll");
                 reusableList.add(geographicMapCellPosition);
             }
         }
         
-//        this.logUtil.put(new StringMaker().append("reusableList: ").append(reusableList).append(" topRightGeographicMapCellPosition: ").append(topRightGeographicMapCellPosition).toString(), this, "visit");
+//        this.logUtil.putF(new StringMaker().append("reusableList: ").append(reusableList).append(" topRightGeographicMapCellPosition: ").append(topRightGeographicMapCellPosition).toString(), this, "visit");
         return reusableList;
     }
 
@@ -113,7 +113,7 @@ public class CellPositionsUtil
             }
         }
 
-        //this.logUtil.put("list: " + list.size(), this, "getAllSurrounding");
+        //this.logUtil.putF("list: " + list.size(), this, "getAllSurrounding");
 
         return reusableList;
     }

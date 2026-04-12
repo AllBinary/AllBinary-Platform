@@ -47,7 +47,7 @@ public class InputToGameKeyMapping extends InputMapping
 
     public InputToGameKeyMapping()
     {
-        this.logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
         this.clear();
     }
@@ -101,7 +101,7 @@ public class InputToGameKeyMapping extends InputMapping
     public void add(Input input, Input mappedToInput)
     {
         //PreLogUtil.put(commonStrings.START_LABEL + input + " == " + mappedToInput, this, "InputToGameKeyMapping::add");
-        //this.logUtil.put(commonStrings.START_LABEL + input + " == " + mappedToInput, this, "InputToGameKeyMapping::add");
+        //this.logUtil.putF(commonStrings.START_LABEL + input + " == " + mappedToInput, this, "InputToGameKeyMapping::add");
         super.add(input, mappedToInput);
         this.set(input, mappedToInput);
     }
@@ -109,7 +109,7 @@ public class InputToGameKeyMapping extends InputMapping
     @Override
     public void remove(Input input, Input mappedToInput)
     {
-        this.logUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(input)).append(" == ").append(StringUtil.getInstance().toString(mappedToInput)).toString(), this, "InputToGameKeyMapping::remove");
+        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(input)).append(" == ").append(StringUtil.getInstance().toString(mappedToInput)).toString(), this, "InputToGameKeyMapping::remove");
         super.remove(input, mappedToInput);
         this.set(input, gameKeyFactory.NONE);
     }

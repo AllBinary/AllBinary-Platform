@@ -67,7 +67,7 @@ public class AuthenticationHelper
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATION))
         {
-            this.logUtil.put(this.outputSessionInfo(), this, this.commonStrings.CONSTRUCTOR);
+            this.logUtil.putF(this.outputSessionInfo(), this, this.commonStrings.CONSTRUCTOR);
         }
     }
 
@@ -121,7 +121,7 @@ public class AuthenticationHelper
                     stringBuffer.append(" > ");
                     stringBuffer.appendlong(timeCreated);
 
-                    this.logUtil.put(stringBuffer.toString(), this, "isSessionOld()");
+                    this.logUtil.putF(stringBuffer.toString(), this, "isSessionOld()");
                 }
 
                 return Boolean.TRUE;
@@ -130,7 +130,7 @@ public class AuthenticationHelper
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATION))
             {
-                this.logUtil.put("Role Is Not In Session", this, "isSessionOld()");
+                this.logUtil.putF("Role Is Not In Session", this, "isSessionOld()");
             }
         }
 
@@ -162,7 +162,7 @@ public class AuthenticationHelper
                 stringBuffer.append(" > ");
                 stringBuffer.appendlong(inactivityAllowed);
 
-                this.logUtil.put(stringBuffer.toString(), this, "isRarelyUsedSession()");
+                this.logUtil.putF(stringBuffer.toString(), this, "isRarelyUsedSession()");
             }
             
             /*
@@ -179,7 +179,7 @@ public class AuthenticationHelper
                     stringBuffer.append(" > ");
                     stringBuffer.append(inactivityAllowed);
 
-                    this.logUtil.put(stringBuffer.toString(), this, "isRarelyUsedSession()");
+                    this.logUtil.putF(stringBuffer.toString(), this, "isRarelyUsedSession()");
                 }
 
                 return Boolean.TRUE;
@@ -189,7 +189,7 @@ public class AuthenticationHelper
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATION))
             {
-                this.logUtil.put("Role Is Not In Session", this, "isRarelyUsedSession()");
+                this.logUtil.putF("Role Is Not In Session", this, "isRarelyUsedSession()");
             }
         }
 
@@ -291,7 +291,7 @@ public class AuthenticationHelper
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATION))
                 {
-                    this.logUtil.put("Role Is Not In Session", this, "isAuthenticationSessionValid()");
+                    this.logUtil.putF("Role Is Not In Session", this, "isAuthenticationSessionValid()");
                 }
             }
 
@@ -323,7 +323,7 @@ public class AuthenticationHelper
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATIONERROR))
             {
-                this.logUtil.put("Starting: " + userName, this, "processIfNewLogin()");
+                this.logUtil.putF("Starting: " + userName, this, "processIfNewLogin()");
             }
 
             if (userName != null && userName.compareTo(StringUtil.getInstance().EMPTY_STRING) != 0

@@ -36,7 +36,7 @@ public class ValidationViewHelper extends ViewHelper implements ValidationCompon
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
       {
-         this.logUtil.put(this.commonStrings.START, this,this.commonStrings.CONSTRUCTOR);
+         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
       }      
    }
          
@@ -46,7 +46,7 @@ public class ValidationViewHelper extends ViewHelper implements ValidationCompon
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
          {
-            this.logUtil.put("Started",this,commonStrings.IS_VALID);
+            this.logUtil.putF("Started", this, commonStrings.IS_VALID);
          }      
          
          return viewInterface.isValid();

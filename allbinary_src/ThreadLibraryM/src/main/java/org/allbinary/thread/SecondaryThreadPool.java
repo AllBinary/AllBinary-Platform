@@ -35,7 +35,7 @@ public class SecondaryThreadPool extends ThreadPool
     @Override
     public void runTask(Runnable task)
     {
-        this.logUtil.put(new StringMaker().append(StringUtil.getInstance().toString(task)).appendlong(System.currentTimeMillis()).toString(), this, this.threadPoolStrings.ADD_TASK);
+        this.logUtil.putF(new StringMaker().append(StringUtil.getInstance().toString(task)).appendlong(System.currentTimeMillis()).toString(), this, this.threadPoolStrings.ADD_TASK);
 
         super.runTask(task);
     }
@@ -43,13 +43,13 @@ public class SecondaryThreadPool extends ThreadPool
     @Override
     protected void startTask(Runnable task)
     {
-        this.logUtil.put(new StringMaker().append(this.threadPoolStrings.START_TASK).append(StringUtil.getInstance().toString(task)).appendlong(System.currentTimeMillis()).toString(), this, this.commonStrings.RUN);
+        this.logUtil.putF(new StringMaker().append(this.threadPoolStrings.START_TASK).append(StringUtil.getInstance().toString(task)).appendlong(System.currentTimeMillis()).toString(), this, this.commonStrings.RUN);
     }
 
     @Override
     protected void completedTask(Runnable task)
     {
-        this.logUtil.put(new StringMaker().append(this.threadPoolStrings.COMPLETE_TASK).append(StringUtil.getInstance().toString(task)).appendlong(System.currentTimeMillis()).toString(), this, this.commonStrings.RUN);
+        this.logUtil.putF(new StringMaker().append(this.threadPoolStrings.COMPLETE_TASK).append(StringUtil.getInstance().toString(task)).appendlong(System.currentTimeMillis()).toString(), this, this.commonStrings.RUN);
     }
 
 }

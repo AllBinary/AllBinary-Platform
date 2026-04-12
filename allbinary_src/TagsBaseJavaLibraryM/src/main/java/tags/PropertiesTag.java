@@ -27,7 +27,7 @@ public class PropertiesTag extends CommandTag
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
       {
-         this.logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
+         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
       }
       this.propertiesHashMap = new HashMap();
    }
@@ -41,7 +41,7 @@ public class PropertiesTag extends CommandTag
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
       {
-         this.logUtil.put("Tag Ended", this, "doEndTag");
+         this.logUtil.putF("Tag Ended", this, "doEndTag");
       }
       this.propertiesHashMap = new HashMap();
       return EVAL_PAGE;

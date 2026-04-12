@@ -62,7 +62,7 @@ public class SaveImageComparisonWorker
     {
         try
         {
-            this.logUtil.put(this.commonStrings.START, this, this.commonStrings.RUN);
+            this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.RUN);
             
             this.setRunning(true);
             
@@ -76,15 +76,15 @@ public class SaveImageComparisonWorker
             final ImageComparisonResult imageComparisonInfo =
                 imageComparisonResultsEvent.getImageComparisonResult();
             
-            this.logUtil.put(imageComparisonInfo.toString(), this, this.commonStrings.RUN);
+            this.logUtil.putF(imageComparisonInfo.toString(), this, this.commonStrings.RUN);
 
             new ComparisonImageInputOutput().save(imageComparisonInfo, imageComparisonInfo.getFrameTwo());
 
             this.imageComparisonInfoVector.remove(imageComparisonInfo);
 
-            this.logUtil.put(CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN);
+            this.logUtil.putF(CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN);
             
-            this.logUtil.put(this.commonStrings.END, this, this.commonStrings.RUN);
+            this.logUtil.putF(this.commonStrings.END, this, this.commonStrings.RUN);
         }
         catch (Exception e)
         {

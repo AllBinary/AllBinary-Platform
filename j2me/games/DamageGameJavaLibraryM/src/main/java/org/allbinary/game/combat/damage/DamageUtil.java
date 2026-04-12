@@ -73,7 +73,7 @@ public class DamageUtil
                stringBuffer.append(" damage: ");
                stringBuffer.appendint(damage);
                
-               this.logUtil.put(stringBuffer.toString(), collidableInterfaceCompositeInterface1, COLLIDE);
+               this.logUtil.putF(stringBuffer.toString(), collidableInterfaceCompositeInterface1, COLLIDE);
            }
    }
 }

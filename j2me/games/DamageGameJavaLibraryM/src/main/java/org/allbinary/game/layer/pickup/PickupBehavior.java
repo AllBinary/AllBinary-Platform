@@ -99,7 +99,7 @@ public class PickupBehavior implements PickupBehaviorInterface
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            //this.logUtil.put(commonStrings.EXCEPTION, this, "doPickup");
+            //this.logUtil.putF(commonStrings.EXCEPTION, this, "doPickup");
             PreLogUtil.putOE(commonStrings.EXCEPTION, this, "doPickup", e);
         }
     }

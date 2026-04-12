@@ -126,18 +126,18 @@ public class ScoreComparator
    {
       if (scoreOne > scoreTwo)
       {
-          //this.logUtil.put(scoreOne + " Follows2 " + scoreTwo, this, "compare");
+          //this.logUtil.putF(scoreOne + " Follows2 " + scoreTwo, this, "compare");
           return RecordComparator.PRECEDES;
       }
       else
          if (scoreOne < scoreTwo)
          {
-            //this.logUtil.put(scoreOne + " Precedes2 " + scoreTwo, this, "compare");
+            //this.logUtil.putF(scoreOne + " Precedes2 " + scoreTwo, this, "compare");
             return RecordComparator.FOLLOWS;
          }
          else
          {
-            //this.logUtil.put(scoreOne + " ==2 " + scoreTwo, this, "compare");
+            //this.logUtil.putF(scoreOne + " ==2 " + scoreTwo, this, "compare");
             return RecordComparator.EQUIVALENT;
          }
    }
@@ -147,18 +147,18 @@ public class ScoreComparator
    {
       if (scoreOne < scoreTwo)
       {
-         //this.logUtil.put(scoreOne + " Precedes2 " + scoreTwo, this, "compare");
+         //this.logUtil.putF(scoreOne + " Precedes2 " + scoreTwo, this, "compare");
          return RecordComparator.PRECEDES;
       }
       else
          if (scoreOne > scoreTwo)
          {
-         //this.logUtil.put(scoreOne + " Follows2 " + scoreTwo, this, "compare");
+         //this.logUtil.putF(scoreOne + " Follows2 " + scoreTwo, this, "compare");
          return RecordComparator.FOLLOWS;
          }
          else
          {
-         //this.logUtil.put(scoreOne + " ==2 " + scoreTwo, this, "compare");
+         //this.logUtil.putF(scoreOne + " ==2 " + scoreTwo, this, "compare");
          return RecordComparator.EQUIVALENT;
          }
    }

@@ -72,7 +72,7 @@ public class MotionRectanglesWorker
     {
         try
         {            
-            this.logUtil.put(this.commonStrings.START, this, this.commonStrings.RUN);
+            this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.RUN);
             
             this.setRunning(true);
             
@@ -87,7 +87,7 @@ public class MotionRectanglesWorker
             final ImageComparisonResult imageComparisonInfo = (ImageComparisonResult) 
                imageComparisonResultsEvent.getImageComparisonResult();
 
-            this.logUtil.put(imageComparisonInfo.toString(), this, this.commonStrings.RUN);
+            this.logUtil.putF(imageComparisonInfo.toString(), this, this.commonStrings.RUN);
             
             //final BufferedImage latestBufferedImage = imageComparisonInfo.getBufferedImages()[1];
             
@@ -127,11 +127,11 @@ public class MotionRectanglesWorker
             
             this.index++;
             
-            this.logUtil.put(CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN);
+            this.logUtil.putF(CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN);
             
             this.setRunning(false);
             
-            this.logUtil.put(this.commonStrings.END, this, this.commonStrings.RUN);
+            this.logUtil.putF(this.commonStrings.END, this, this.commonStrings.RUN);
         }
         catch (Exception e)
         {

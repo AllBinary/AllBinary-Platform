@@ -66,7 +66,7 @@ public class AbPathUtilOld
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         this.logUtil.put("FileExtension: " + extension, this, "getExtension()");
+         this.logUtil.putF("FileExtension: " + extension, this, "getExtension()");
       }
 
       return extension;
@@ -98,7 +98,7 @@ public class AbPathUtilOld
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         this.logUtil.put("FileWithoutExtension: " + pathWithoutExtension, this, "getWithoutExtension()");
+         this.logUtil.putF("FileWithoutExtension: " + pathWithoutExtension, this, "getWithoutExtension()");
       }
       return pathWithoutExtension;
    }
@@ -178,7 +178,7 @@ public class AbPathUtilOld
       /*
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FILE))
       {
-         this.logUtil.put("Path: " + path, this, "adjust");
+         this.logUtil.putF("Path: " + path, this, "adjust");
       }
        */
       return path;

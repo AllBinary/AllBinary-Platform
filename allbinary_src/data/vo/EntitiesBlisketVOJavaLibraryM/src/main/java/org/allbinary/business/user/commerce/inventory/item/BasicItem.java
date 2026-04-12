@@ -68,7 +68,7 @@ public class BasicItem implements ItemInterface
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
         {
-            this.logUtil.put(this.commonStrings.START, this,"Constructor(HashMap)");
+            this.logUtil.putF(this.commonStrings.START, this,"Constructor(HashMap)");
         }
 
         this.itemId = (String) itemHashMap.get(BasicItemData.ID);
@@ -116,7 +116,7 @@ public class BasicItem implements ItemInterface
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
         {
-            this.logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
+            this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         }
 
         String EMPTY = StringUtil.getInstance().EMPTY_STRING;
@@ -473,7 +473,7 @@ public class BasicItem implements ItemInterface
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
         {
-            this.logUtil.put(this.commonStrings.START, this, "toHashMap");
+            this.logUtil.putF(this.commonStrings.START, this, "toHashMap");
         }
 
         HashMap hashMap = new HashMap();
@@ -527,7 +527,7 @@ public class BasicItem implements ItemInterface
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
         {
-            this.logUtil.put(this.commonStrings.START, this, "toVector");
+            this.logUtil.putF(this.commonStrings.START, this, "toVector");
         }
 
         Vector values = new Vector();

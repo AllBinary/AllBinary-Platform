@@ -70,7 +70,7 @@ public class InitDbCrypted extends AbDatabaseManagement
     {
         try
         {
-            this.logUtil.put(this.commonStrings.START, this, this.METHOD_ADD_USERS);
+            this.logUtil.putF(this.commonStrings.START, this, this.METHOD_ADD_USERS);
 
             userDbInitInfo = new UserDbInitInfo();
             inventoryDbInitInfo = new InventoryDbInitInfo();
@@ -84,7 +84,7 @@ public class InitDbCrypted extends AbDatabaseManagement
 
             if(!this.addDbUser(CUSTOMERDB, CUSTOMERDBUSER, CUSTOMERDBPASSWORD))
             {
-                this.logUtil.put(this.UNABLE_TO_CREATE_USER + CUSTOMERDBUSER, this, this.METHOD_ADD_USERS);
+                this.logUtil.putF(this.UNABLE_TO_CREATE_USER + CUSTOMERDBUSER, this, this.METHOD_ADD_USERS);
                 return Boolean.FALSE;
             }
 
@@ -94,7 +94,7 @@ public class InitDbCrypted extends AbDatabaseManagement
 
             if(!this.addDbUser(INVENTORYDB, INVENTORYDBUSER, INVENTORYDBPASSWORD))
             {
-                this.logUtil.put(this.UNABLE_TO_CREATE_USER + INVENTORYDBUSER, this, this.METHOD_ADD_USERS);
+                this.logUtil.putF(this.UNABLE_TO_CREATE_USER + INVENTORYDBUSER, this, this.METHOD_ADD_USERS);
                 return Boolean.FALSE;
             }
 
@@ -104,7 +104,7 @@ public class InitDbCrypted extends AbDatabaseManagement
 
             if(!this.addDbUser(HISTORYDB, HISTORYDBUSER, HISTORYDBPASSWORD))
             {
-                this.logUtil.put(this.UNABLE_TO_CREATE_USER + HISTORYDBUSER, this, this.METHOD_ADD_USERS);
+                this.logUtil.putF(this.UNABLE_TO_CREATE_USER + HISTORYDBUSER, this, this.METHOD_ADD_USERS);
                 return Boolean.FALSE;
             }
 
@@ -114,7 +114,7 @@ public class InitDbCrypted extends AbDatabaseManagement
 
             if(!this.addDbUser(STATICPAGESDB, STATICPAGESDBUSER, STATICPAGESDBPASSWORD))
             {
-                this.logUtil.put(this.UNABLE_TO_CREATE_USER + STATICPAGESDBUSER, this, this.METHOD_ADD_USERS);
+                this.logUtil.putF(this.UNABLE_TO_CREATE_USER + STATICPAGESDBUSER, this, this.METHOD_ADD_USERS);
                 return Boolean.FALSE;
             }
 
@@ -124,11 +124,11 @@ public class InitDbCrypted extends AbDatabaseManagement
 
             if(!this.addDbUser(LOGDB, LOGDBUSER, LOGDBPASSWORD))
             {
-                this.logUtil.put(this.UNABLE_TO_CREATE_USER + LOGDBUSER, this, this.METHOD_ADD_USERS);
+                this.logUtil.putF(this.UNABLE_TO_CREATE_USER + LOGDBUSER, this, this.METHOD_ADD_USERS);
                 return Boolean.FALSE;
             }
 
-            this.logUtil.put(this.commonStrings.END, this, this.METHOD_ADD_USERS);
+            this.logUtil.putF(this.commonStrings.END, this, this.METHOD_ADD_USERS);
 
             return Boolean.TRUE;
         }catch(Exception e)
@@ -143,7 +143,7 @@ public class InitDbCrypted extends AbDatabaseManagement
     {
         try
         {
-            this.logUtil.put(this.commonStrings.START, this, this.METHOD_ADD_DATABASES);
+            this.logUtil.putF(this.commonStrings.START, this, this.METHOD_ADD_DATABASES);
 
             userDbInitInfo = new UserDbInitInfo();
             inventoryDbInitInfo = new InventoryDbInitInfo();
@@ -154,35 +154,35 @@ public class InitDbCrypted extends AbDatabaseManagement
             String CUSTOMERDB = userDbInitInfo.getName();
             if(!this.addDb(CUSTOMERDB))
             {
-                this.logUtil.put(this.UNABLE_TO_CREATE_DATABASE + CUSTOMERDB, this, this.METHOD_ADD_DATABASES);
+                this.logUtil.putF(this.UNABLE_TO_CREATE_DATABASE + CUSTOMERDB, this, this.METHOD_ADD_DATABASES);
                 return Boolean.FALSE;
             }
 
             String INVENTORYDB = inventoryDbInitInfo.getName();
             if(!this.addDb(INVENTORYDB))
             {
-                this.logUtil.put(this.UNABLE_TO_CREATE_DATABASE + INVENTORYDB, this, this.METHOD_ADD_DATABASES);
+                this.logUtil.putF(this.UNABLE_TO_CREATE_DATABASE + INVENTORYDB, this, this.METHOD_ADD_DATABASES);
                 return Boolean.FALSE;
             }
 
             String HISTORYDB = historyDbInitInfo.getName();
             if(!this.addDb(HISTORYDB))
             {
-                this.logUtil.put(this.UNABLE_TO_CREATE_DATABASE + HISTORYDB, this, this.METHOD_ADD_DATABASES);
+                this.logUtil.putF(this.UNABLE_TO_CREATE_DATABASE + HISTORYDB, this, this.METHOD_ADD_DATABASES);
                 return Boolean.FALSE;
             }
 
             String STATICPAGESDB = staticpagesDbInitInfo.getName();
             if(!this.addDb(STATICPAGESDB))
             {
-                this.logUtil.put(this.UNABLE_TO_CREATE_DATABASE + STATICPAGESDB, this, this.METHOD_ADD_DATABASES);
+                this.logUtil.putF(this.UNABLE_TO_CREATE_DATABASE + STATICPAGESDB, this, this.METHOD_ADD_DATABASES);
                 return Boolean.FALSE;
             }
 
             String LOGDB = logDbInitInfo.getName();
             if(!this.addDb(LOGDB))
             {
-                this.logUtil.put(this.UNABLE_TO_CREATE_DATABASE + LOGDB, this, this.METHOD_ADD_DATABASES);
+                this.logUtil.putF(this.UNABLE_TO_CREATE_DATABASE + LOGDB, this, this.METHOD_ADD_DATABASES);
                 return Boolean.FALSE;
             }
 
@@ -209,7 +209,7 @@ public class InitDbCrypted extends AbDatabaseManagement
         {
             StringMaker stringBuffer = new StringMaker();
 
-            this.logUtil.put(commonStrings.START, this, this.METHOD_ADD_TABLES);
+            this.logUtil.putF(commonStrings.START, this, this.METHOD_ADD_TABLES);
 
             stringBuffer.append(UserEntityFactory.getInstance().createTable());
 
@@ -245,7 +245,7 @@ public class InitDbCrypted extends AbDatabaseManagement
             stringBuffer.append(TransformInfoEntityBuilder.getInstance().createTable());
             //ViewTemplateEntityFactory.getInstance().createTable());
 
-            this.logUtil.put(ADD_TABLES_RESULTS_LABEL + stringBuffer.toString(), this, this.METHOD_ADD_TABLES);
+            this.logUtil.putF(ADD_TABLES_RESULTS_LABEL + stringBuffer.toString(), this, this.METHOD_ADD_TABLES);
 
             return Boolean.TRUE;
         }catch(Exception e)
@@ -260,7 +260,7 @@ public class InitDbCrypted extends AbDatabaseManagement
      {
      try
      {
-     this.logUtil.put("Set Temp Main Path",this,"setTemporaryMainPath()");
+     this.logUtil.putF("Set Temp Main Path",this,"setTemporaryMainPath()");
      URLGLOBALS.useTemporaryMainPath();
      return Boolean.TRUE;
      }
@@ -275,7 +275,7 @@ public class InitDbCrypted extends AbDatabaseManagement
      {
      try
      {
-     this.logUtil.put("Set Temp Main Path",this,"setTemporaryMainPath()");
+     this.logUtil.putF("Set Temp Main Path",this,"setTemporaryMainPath()");
      URLGLOBALS.useNormalMainPath();
      return Boolean.TRUE;
      }

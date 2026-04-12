@@ -188,9 +188,8 @@ extends UnitWaypointBehavior
         /*
         if(this.getOwnerAdvancedRTSGameLayer().isSelected())
         {
-            this.logUtil.put(
-                    "Enemy Possible Target: " + layerInterface.getName(), this, 
-                    "selected: onEnemyMovement");                    
+            this.logUtil.putF(
+                    "Enemy Possible Target: " + layerInterface.getName(), this, "selected: onEnemyMovement");                    
         }
         */
 
@@ -205,11 +204,10 @@ extends UnitWaypointBehavior
         // Boolean.toString(this.currentTargetLayerInterface.isDestroyed());
         // }
 
-        // this.logUtil.put(
+        // this.logUtil.putF(
         // "Weapons Range: " + this.hackRange +
         // " anotherTargetDistance: " + anotherTargetDistance +
-        // getCurrentTargetingStateString(),
-        // this, "onMovementFound");
+        // getCurrentTargetingStateString(), // this, "onMovementFound");
 
         // Update Distance Of Current Target
         if (layerInterface == this.currentTargetLayerInterfaceP)
@@ -335,10 +333,9 @@ extends UnitWaypointBehavior
                 this.setTargetPath();
             }
         }
-        // this.logUtil.put("Weapons Range: " +
+        // this.logUtil.putF("Weapons Range: " +
         // this.longWeaponRange + 
-        //getCurrentTargetingStateString(), 
-        //this, "onMovementFound");
+        //getCurrentTargetingStateString(), //this, "onMovementFound");
     }
 
     private void setTargetPath()
@@ -474,7 +471,7 @@ extends UnitWaypointBehavior
                 if (this.currentTargetLayerInterface == null &&
                 this.getWaypointList().size() == 0)
                 {
-                this.logUtil.put(
+                this.logUtil.putF(
                 "No Waypoints or Target", this, "processWaypoint");
                 }
                  */
@@ -572,7 +569,7 @@ extends UnitWaypointBehavior
      * (GeographicMapCellPosition)
      * surroundingGeographicMapCellPositionList.get(0);
      * 
-     * this.logUtil.put( "Inserting Waypoint: " +
+     * this.logUtil.putF( "Inserting Waypoint: " +
      * emptyGeographicMapCellPosition, this, "processMidWaypoint");
      * 
      * GPoint point = emptyGeographicMapCellPosition.getPoint();
@@ -639,7 +636,7 @@ extends UnitWaypointBehavior
             /*
             if(this.getOwnerAdvancedRTSGameLayer().isSelected())
             {
-                this.logUtil.put(commonStrings.START, this, "selected: processTargeting");
+                this.logUtil.putF(commonStrings.START, this, "selected: processTargeting");
             }
             */
             
@@ -807,7 +804,7 @@ extends UnitWaypointBehavior
         final BasicArrayList list = this.targetList;
         if (list.size() == 0)
         {
-            //this.logUtil.put("No Waypoints", this, "isWaypointListEmptyOrOnlyTargets");
+            //this.logUtil.putF("No Waypoints", this, "isWaypointListEmptyOrOnlyTargets");
 
             return true;
         }
@@ -822,7 +819,7 @@ extends UnitWaypointBehavior
                 return false;
             }
         }
-        //this.logUtil.put("All Waypoints Targets/Units", this, "isWaypointListEmptyOrOnlyTargets");
+        //this.logUtil.putF("All Waypoints Targets/Units", this, "isWaypointListEmptyOrOnlyTargets");
         return true;
     }
         
@@ -890,7 +887,7 @@ extends UnitWaypointBehavior
             try
             {
                 if (this.getList().size() > 0) {
-                    //this.logUtil.put("steering", this, "visit");
+                    //this.logUtil.putF("steering", this, "visit");
 
                     final AllBinaryLayer allbinaryLayer = (AllBinaryLayer) this.getList().get(0);
 

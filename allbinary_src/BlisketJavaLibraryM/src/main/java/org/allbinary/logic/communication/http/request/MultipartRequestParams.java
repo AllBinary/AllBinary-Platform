@@ -61,7 +61,7 @@ public class MultipartRequestParams extends RequestParams
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
             {
-               this.logUtil.put("FileItem List Size: " + multipartRequestList.size(), this, "processMultipartRequest()");
+               this.logUtil.putF("FileItem List Size: " + multipartRequestList.size(), this, "processMultipartRequest()");
             }
 
              final Object[] fileItemArray = multipartRequestList.toArray();
@@ -84,7 +84,7 @@ public class MultipartRequestParams extends RequestParams
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
             {
-                this.logUtil.put("Special Request Data: " + specialRequest.toString(), this, "processMultipartRequest()");
+                this.logUtil.putF("Special Request Data: " + specialRequest.toString(), this, "processMultipartRequest()");
             }
 
             this.setSpecial();
@@ -95,7 +95,7 @@ public class MultipartRequestParams extends RequestParams
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
          {
-            this.logUtil.put("Using Normal RequestParams", this, "processMultipartRequest()");
+            this.logUtil.putF("Using Normal RequestParams", this, "processMultipartRequest()");
          }
 
          super.setMap(request.getParameterMap());
@@ -104,7 +104,7 @@ public class MultipartRequestParams extends RequestParams
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUESTERROR))
          {
-            this.logUtil.put("Should Not Occur", this, "processMultipartRequest()");
+            this.logUtil.putF("Should Not Occur", this, "processMultipartRequest()");
          }
 
          super.setMap(request.getParameterMap());

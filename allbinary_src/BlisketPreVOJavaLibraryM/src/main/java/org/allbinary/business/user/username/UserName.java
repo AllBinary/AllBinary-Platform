@@ -84,14 +84,14 @@ public class UserName
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VALIDATION))
          {
-            this.logUtil.put("UserName: " + aUserName, this, commonStrings.IS_VALID);
+            this.logUtil.putF("UserName: " + aUserName, this, commonStrings.IS_VALID);
          }
 
          if(!StringValidationUtil.getInstance().isValidRequired(aUserName, 5, UserData.MAXLEN))
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VALIDATION))
             {
-               this.logUtil.put("UserName is invalid", this, commonStrings.IS_VALID);
+               this.logUtil.putF("UserName is invalid", this, commonStrings.IS_VALID);
             }
 
             valid = booleanFactory.FALSE;

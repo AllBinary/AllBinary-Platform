@@ -61,7 +61,7 @@ public class WaypointSelectedLogHelper extends WaypointLogHelper {
             stringBuffer.append(advancedRTSGameLayer.getParentLayer().getName());
         }
 
-        this.logUtil.put(stringBuffer.toString(), this, "onWaypointEvent");
+        this.logUtil.putF(stringBuffer.toString(), this, "onWaypointEvent");
         
     }
     
@@ -81,7 +81,7 @@ public class WaypointSelectedLogHelper extends WaypointLogHelper {
             stringBuffer.append(advancedRTSGameLayer.getParentLayer().getName());
         }
 
-        this.logUtil.put(stringBuffer.toString(), this, "selected: onWaypointEvent");
+        this.logUtil.putF(stringBuffer.toString(), this, "selected: onWaypointEvent");
         
     }
 
@@ -94,7 +94,7 @@ public class WaypointSelectedLogHelper extends WaypointLogHelper {
         stringBuffer.append(" Waypoints: ");
         stringBuffer.append(stringUtil.toString(list));
 
-        this.logUtil.put(stringBuffer.toString(), this, "selected: onWaypointEvent");
+        this.logUtil.putF(stringBuffer.toString(), this, "selected: onWaypointEvent");
         
     }
  
@@ -110,7 +110,7 @@ public class WaypointSelectedLogHelper extends WaypointLogHelper {
         stringBuffer.append(rtsLayer.getName());
         stringBuffer.append(" for Waypoint: ");
 
-        this.logUtil.put(stringBuffer.toString(), this, "selected: insertWaypoint");
+        this.logUtil.putF(stringBuffer.toString(), this, "selected: insertWaypoint");
 
     }
     
@@ -126,7 +126,7 @@ public class WaypointSelectedLogHelper extends WaypointLogHelper {
         stringBuffer.append(" Waypoints: ");
         stringBuffer.append(stringUtil.toString(list));
 
-        this.logUtil.put(stringBuffer.toString(), this, "selected: insertWaypoint");
+        this.logUtil.putF(stringBuffer.toString(), this, "selected: insertWaypoint");
     }
     
     @Override
@@ -142,33 +142,33 @@ public class WaypointSelectedLogHelper extends WaypointLogHelper {
         stringBuffer.append(" -> ");
         stringBuffer.append(stringUtil.toString(pathsList));
 
-        this.logUtil.put(stringBuffer.toString(), this, "selected: setRandomGeographicMapCellHistory");
+        this.logUtil.putF(stringBuffer.toString(), this, "selected: setRandomGeographicMapCellHistory");
 
     }
 
     @Override
     public void moveAwayFromBuilding(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
-        this.logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" Trying to move away from building").toString(), this, "selected: moveAwayFromBuilding");
+        this.logUtil.putF(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" Trying to move away from building").toString(), this, "selected: moveAwayFromBuilding");
     }    
     
     @Override
     public void needToMove(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final WaypointBehaviorBase unitWaypointBehavior) {
-        this.logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(unitWaypointBehavior.getMovementLogicAsString()).toString(), this, "needToMove");
+        this.logUtil.putF(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(unitWaypointBehavior.getMovementLogicAsString()).toString(), this, "needToMove");
     }
 
     @Override
     public void setRandomGeographicMapCellHistory(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
-        this.logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" pathsList is null").toString(), this, "setRandomGeographicMapCellHistory");
+        this.logUtil.putF(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" pathsList is null").toString(), this, "setRandomGeographicMapCellHistory");
     }
 
     @Override
     public void setCurrentPathGeographicMapCellPosition(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final GeographicMapCellPosition existingCurrentPathGeographicMapCellPosition, final GeographicMapCellPosition currentPathGeographicMapCellPosition) {
-        if(existingCurrentPathGeographicMapCellPosition == null) this.logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" currentPathGeographicMapCellPosition: ").append(stringUtil.toString(currentPathGeographicMapCellPosition)).toString(), this, "setCurrentPathGeographicMapCellPosition");
+        if(existingCurrentPathGeographicMapCellPosition == null) this.logUtil.putF(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" currentPathGeographicMapCellPosition: ").append(stringUtil.toString(currentPathGeographicMapCellPosition)).toString(), this, "setCurrentPathGeographicMapCellPosition");
     }
 
     @Override
     public void setNextUnvisitedPathGeographicMapCellPosition(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final GeographicMapCellPosition existingNextUnvisitedPathGeographicMapCellPosition, final GeographicMapCellPosition nextUnvisitedPathGeographicMapCellPosition) {
-        if(existingNextUnvisitedPathGeographicMapCellPosition != nextUnvisitedPathGeographicMapCellPosition) this.logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" nextUnvisitedPathGeographicMapCellPosition: ").append(stringUtil.toString(nextUnvisitedPathGeographicMapCellPosition)).toString(), this, "setNextUnvisitedPathGeographicMapCellPosition");
+        if(existingNextUnvisitedPathGeographicMapCellPosition != nextUnvisitedPathGeographicMapCellPosition) this.logUtil.putF(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" nextUnvisitedPathGeographicMapCellPosition: ").append(stringUtil.toString(nextUnvisitedPathGeographicMapCellPosition)).toString(), this, "setNextUnvisitedPathGeographicMapCellPosition");
     }        
 
 }

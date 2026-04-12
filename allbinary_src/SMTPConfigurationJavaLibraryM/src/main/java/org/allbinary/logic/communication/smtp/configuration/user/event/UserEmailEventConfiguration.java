@@ -35,7 +35,7 @@ public class UserEmailEventConfiguration implements UserEmailEventConfigurationI
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
-         this.logUtil.put("New", this," Constructor");
+         this.logUtil.putF("New", this," Constructor");
       }
    }
    
@@ -46,7 +46,7 @@ public class UserEmailEventConfiguration implements UserEmailEventConfigurationI
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
-         this.logUtil.put("Log: " + this.log(), this," Constructor");
+         this.logUtil.putF("Log: " + this.log(), this," Constructor");
       }
    }
    

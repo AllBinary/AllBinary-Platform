@@ -62,14 +62,14 @@ public class AndroidServicesUtil {
             runningServiceInfo = runningServicesList.get(index);
             serviceComponent = runningServiceInfo.service;
             serviceName = serviceComponent.toString();
-            //this.logUtil.put(serviceName, this, IS_SERVICE_RUNNING);
+            //this.logUtil.putF(serviceName, this, IS_SERVICE_RUNNING);
             if(serviceName.indexOf(name) >= 0) {
-                //this.logUtil.put(SERVICE_FOUND_RUNNING + serviceName, this, IS_SERVICE_RUNNING);
+                //this.logUtil.putF(SERVICE_FOUND_RUNNING + serviceName, this, IS_SERVICE_RUNNING);
                 return true;
             }
         }
 
-        this.logUtil.put(SERVICE_NOT_FOUND_RUNNING + name, this, IS_SERVICE_RUNNING);
+        this.logUtil.putF(SERVICE_NOT_FOUND_RUNNING + name, this, IS_SERVICE_RUNNING);
         return false;
     }
     

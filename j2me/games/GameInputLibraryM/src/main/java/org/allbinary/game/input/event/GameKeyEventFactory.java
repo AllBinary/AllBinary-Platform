@@ -46,7 +46,7 @@ public class GameKeyEventFactory
 
     public void init()
     {
-        //this.logUtil.put(commonStrings.START, "GameKeyEventFactory", commonStrings.INIT);
+        //this.logUtil.putF(commonStrings.START, "GameKeyEventFactory", commonStrings.INIT);
         
         final NullUtil nullUtil = NullUtil.getInstance();
         
@@ -71,7 +71,7 @@ public class GameKeyEventFactory
             GameKeyEventSourceInterface object, int key)
     throws Exception
     {
-        //this.logUtil.put(commonStrings.START, this, SOURCE_ID + object.getSourceId());
+        //this.logUtil.putF(commonStrings.START, this, SOURCE_ID + object.getSourceId());
 
         GameKeyEvent gameKeyEvent = ARRAY[object.getSourceId()][key];
         //GameKeyEvent gameKeyEvent = ARRAY[key];
@@ -83,7 +83,7 @@ public class GameKeyEventFactory
             GameKeyEventSourceInterface object, Input input)
     throws Exception
     {
-        //this.logUtil.put(commonStrings.START_LABEL, this, SOURCE_ID + object.getSourceId());
+        //this.logUtil.putF(commonStrings.START_LABEL, this, SOURCE_ID + object.getSourceId());
 
         GameKeyEvent gameKeyEvent = ARRAY[object.getSourceId()][input.getId()];
         //GameKeyEvent gameKeyEvent = ARRAY[gameKey.getKey().intValue()];

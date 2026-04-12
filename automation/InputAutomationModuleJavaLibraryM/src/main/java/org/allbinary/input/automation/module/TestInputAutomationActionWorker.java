@@ -39,7 +39,7 @@ public class TestInputAutomationActionWorker
     {
         super(inputAutomationActionInterface);
 
-        this.logUtil.put("BasicTestAttackWorder", this, this.commonStrings.CONSTRUCTOR);
+        this.logUtil.putF("BasicTestAttackWorder", this, this.commonStrings.CONSTRUCTOR);
         
         this.sleep = sleep;
     }
@@ -51,7 +51,7 @@ public class TestInputAutomationActionWorker
     
     public void process() throws Exception
     {
-        this.logUtil.put(this.commonStrings.START, this, commonStrings.PROCESS);
+        this.logUtil.putF(this.commonStrings.START, this, commonStrings.PROCESS);
 
         //this.startCaptureWorkers();
 

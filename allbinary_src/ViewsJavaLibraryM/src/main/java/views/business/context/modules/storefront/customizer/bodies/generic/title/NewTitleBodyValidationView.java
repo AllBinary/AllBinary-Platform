@@ -33,7 +33,7 @@ public class NewTitleBodyValidationView extends TitleBodyCustomizerView implemen
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         this.logUtil.put("View Name: " + transformInfoInterface.getName(), this, "NewTitleBodyValidationView()");
+         this.logUtil.putF("View Name: " + transformInfoInterface.getName(), this, "NewTitleBodyValidationView()");
       }
 
       this.titleBody = new TitleBodyValidation();
@@ -50,7 +50,7 @@ public class NewTitleBodyValidationView extends TitleBodyCustomizerView implemen
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            this.logUtil.put("View Name: " + this.getTransformInfoInterface().getName(), this, commonStrings.IS_VALID);
+            this.logUtil.putF("View Name: " + this.getTransformInfoInterface().getName(), this, commonStrings.IS_VALID);
          }
          //Boolean isValid = this.heading.isValid();
                   

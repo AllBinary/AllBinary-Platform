@@ -65,10 +65,10 @@ public class PacePatrolAI extends BasePatrolAI
         DirectionFactory directionFactory = 
             DirectionFactory.getInstance();
 
-        // this.logUtil.put("Key: " + this.keyDirection, this, commonStrings.PROCESS);
+        // this.logUtil.putF("Key: " + this.keyDirection, this, commonStrings.PROCESS);
         if (direction == directionFactory.LEFT)
         {
-            // this.logUtil.put("Fire", this, commonStrings.PROCESS);
+            // this.logUtil.putF("Fire", this, commonStrings.PROCESS);
 
             //Turn around before firing or if in follow mode
             if(this.lastKeyDirection != keyDirection 
@@ -88,7 +88,7 @@ public class PacePatrolAI extends BasePatrolAI
         }
         else if (direction == directionFactory.RIGHT)
         {
-            // this.logUtil.put("Fire", this, commonStrings.PROCESS);
+            // this.logUtil.putF("Fire", this, commonStrings.PROCESS);
 
             //Turn around before firing
             if(this.lastKeyDirection != keyDirection
@@ -138,7 +138,7 @@ public class PacePatrolAI extends BasePatrolAI
             int yDistance = ownerLayerInterface.getYP() - y - ownerLayerInterface.getHeight();
             int xDistance = ownerLayerInterface.getXP() - x - ownerLayerInterface.getWidth();
 
-            // this.logUtil.put("x: " + x + " y: " + y + " xDistance: " + xDistance + " yDistance: " + yDistance, this, commonStrings.PROCESS);
+            // this.logUtil.putF("x: " + x + " y: " + y + " xDistance: " + xDistance + " yDistance: " + yDistance, this, commonStrings.PROCESS);
 
             int absXDistance = Math.abs(xDistance);
             int absYDistance = Math.abs(yDistance);
@@ -152,7 +152,7 @@ public class PacePatrolAI extends BasePatrolAI
                 {
                     directionCompositeInterface = (DirectionCompositeInterface) this.getOwnerLayerInterface();
 
-                    // this.logUtil.put(" xDistance: " + xDistance + " Direction: " + directionCompositeInterface.getDirection(), this, commonStrings.PROCESS);
+                    // this.logUtil.putF(" xDistance: " + xDistance + " Direction: " + directionCompositeInterface.getDirection(), this, commonStrings.PROCESS);
                     // is direction the same as enemy
                     // if on the left side and pointing left
                     if (xDistance < 0 && directionCompositeInterface.getDirection() == directionFactory.RIGHT)

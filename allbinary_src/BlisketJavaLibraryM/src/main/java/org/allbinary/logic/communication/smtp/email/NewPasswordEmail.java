@@ -55,7 +55,7 @@ public class NewPasswordEmail
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
          {
-            this.logUtil.put("notifyStoreAdmin", this, "notifyStoreAdmin");
+            this.logUtil.putF("notifyStoreAdmin", this, "notifyStoreAdmin");
          }
 
          String emailSubject = 
@@ -108,7 +108,7 @@ public class NewPasswordEmail
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
          {
-            this.logUtil.put("Email User", this, "notifyUser()");
+            this.logUtil.putF("Email User", this, "notifyUser()");
          }
 
          String subject = "New Password";

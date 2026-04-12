@@ -99,7 +99,7 @@ public class InventorySearchUtil {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
         {
-            this.logUtil.put("Number Of Items Found: " + column.size(), this, "search");
+            this.logUtil.putF("Number Of Items Found: " + column.size(), this, "search");
         }
 
         BasicArrayList subStoreVector = storeFrontInterface.getSubStores();
@@ -118,7 +118,7 @@ public class InventorySearchUtil {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
         {
-            this.logUtil.put("Number Of Items Found Including SubStores: "
+            this.logUtil.putF("Number Of Items Found Including SubStores: "
                 + column.size(), this, "search");
         }
 
@@ -140,7 +140,7 @@ public class InventorySearchUtil {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
         {
-            this.logUtil.put(
+            this.logUtil.putF(
                 "No Results Xml: " + success, this, "search");
         }
 
@@ -186,7 +186,7 @@ public class InventorySearchUtil {
                 stringBuffer.append(PAGE_LENGTH);
                 stringBuffer.append(pageLength);
 
-                this.logUtil.put(stringBuffer.toString(), this, "search");
+                this.logUtil.putF(stringBuffer.toString(), this, "search");
             }
             */
 
@@ -236,7 +236,7 @@ public class InventorySearchUtil {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                     org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
                 {
-                    this.logUtil.put("Initial Document Created", this, "search");
+                    this.logUtil.putF("Initial Document Created", this, "search");
                 }
                 */
 
@@ -262,7 +262,7 @@ public class InventorySearchUtil {
                         stringBuffer.append(WITH);
                         stringBuffer.append(keywords);
 
-                        this.logUtil.put(stringBuffer.toString(), this, "search");
+                        this.logUtil.putF(stringBuffer.toString(), this, "search");
                     }
                     */
 
@@ -297,7 +297,7 @@ public class InventorySearchUtil {
                             stringBuffer.append(" last: ");
                             stringBuffer.append(lastPage);
 
-                            this.logUtil.put(stringBuffer.toString(), this, "search");
+                            this.logUtil.putF(stringBuffer.toString(), this, "search");
                         }
                         */
 
@@ -320,7 +320,7 @@ public class InventorySearchUtil {
                                     //stringBuffer.append(XML_COLON);
                                     //stringBuffer.append(DomDocumentHelper.toString(viewDocumentInterface.getDoc()));
 
-                                    this.logUtil.put(stringBuffer.toString(), this, "search");
+                                    this.logUtil.putF(stringBuffer.toString(), this, "search");
                                 }
                                 */
 
@@ -394,7 +394,7 @@ public class InventorySearchUtil {
                         //stringBuffer.append(XML_COLON);
                         //stringBuffer.append(DomDocumentHelper.toString(viewDocumentInterface.getDoc()));
 
-                        this.logUtil.put(stringBuffer.toString(), this, "search");
+                        this.logUtil.putF(stringBuffer.toString(), this, "search");
                     }
                     */
 
@@ -440,7 +440,7 @@ public class InventorySearchUtil {
                             stringBuffer.append(XML_COLON);
                             stringBuffer.append(DomDocumentHelper.toString(tempDocument));
 
-                            this.logUtil.put(stringBuffer.toString(), this, "search");
+                            this.logUtil.putF(stringBuffer.toString(), this, "search");
                         }
                         */
 
@@ -494,7 +494,7 @@ public class InventorySearchUtil {
                             stringBuffer.append(XML_COLON);
                             stringBuffer.append(success);
 
-                            this.logUtil.put(stringBuffer.toString(), this, "search");
+                            this.logUtil.putF(stringBuffer.toString(), this, "search");
                         }
                         */
 

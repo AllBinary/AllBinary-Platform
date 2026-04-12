@@ -38,7 +38,7 @@ public class LoadGameForm extends CommandForm
     {
         super(commandListener, title, backgrounBasicColor, foregroundBasicColor);
 
-        this.logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
         this.update();
 
@@ -100,7 +100,7 @@ public class LoadGameForm extends CommandForm
         for (int index = 0; index < size; index++)
         {
             Object object = list.objectArray[index];
-            this.logUtil.put(new StringMaker().append("Adding Choice: ").append(object.toString()).toString(), this, METHOD_NAME);
+            this.logUtil.putF(new StringMaker().append("Adding Choice: ").append(object.toString()).toString(), this, METHOD_NAME);
 
             choiceGroup.append(object.toString(), NullCanvas.NULL_IMAGE);
         }

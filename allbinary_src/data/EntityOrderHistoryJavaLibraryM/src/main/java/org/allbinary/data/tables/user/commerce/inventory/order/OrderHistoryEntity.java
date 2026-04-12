@@ -189,7 +189,7 @@ public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityI
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.put(this.commonStrings.SUCCESS, this, INSERT);
+                this.logUtil.putF(this.commonStrings.SUCCESS, this, INSERT);
             }
         } catch (Exception e)
         {
@@ -208,7 +208,7 @@ public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityI
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.put(this.commonStrings.SUCCESS, this, INSERT);
+                this.logUtil.putF(this.commonStrings.SUCCESS, this, INSERT);
             }
         } catch (Exception e)
         {

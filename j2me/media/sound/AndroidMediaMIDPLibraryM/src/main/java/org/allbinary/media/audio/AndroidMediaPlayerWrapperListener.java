@@ -20,7 +20,7 @@ public class AndroidMediaPlayerWrapperListener {
     public AndroidMediaPlayerWrapperListener(
         final AndroidMediaPlayerWrapper androidMediaPlayerWrapper, final int listeningLevel) {
         try {
-            this.logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+            this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
             this.androidMediaPlayerWrapper = androidMediaPlayerWrapper;
 
@@ -42,7 +42,7 @@ public class AndroidMediaPlayerWrapperListener {
 
     public AndroidMediaPlayerWrapperListener(final AndroidMediaPlayerWrapper androidMediaPlayerWrapper) {
         try {
-            this.logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+            this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
             this.androidMediaPlayerWrapper = androidMediaPlayerWrapper;
 
@@ -100,7 +100,7 @@ public class AndroidMediaPlayerWrapperListener {
     private MediaPlayer.OnBufferingUpdateListener mOnBufferingUpdateListener = new MediaPlayerOnBufferingUpdateListener() {
         @Override
         public void onBufferingUpdate(final MediaPlayer mediaPlayer, final int i) {
-            this.logUtil.put(new StringMaker().append("Update buffer: ").appendint(i).append("%").toString(), this, AndroidMediaPlayerWrapperListener.ON_BUFFERING_UPDATE);
+            this.logUtil.putF(new StringMaker().append("Update buffer: ").appendint(i).append("%").toString(), this, AndroidMediaPlayerWrapperListener.ON_BUFFERING_UPDATE);
             AndroidMediaPlayerWrapperListener.this.androidMediaPlayerWrapper.update(PlayerListener.DEVICE_UNAVAILABLE);
         }
     };
@@ -108,14 +108,14 @@ public class AndroidMediaPlayerWrapperListener {
     private MediaPlayer.OnPreparedListener mOnPreparedListener = new MediaPlayerOnPreparedListener() {
         @Override
         public void onPrepared(final MediaPlayer mp) {
-            this.logUtil.put(commonStrings.START, this, AndroidMediaPlayerWrapperListener.ON_PREPARE);
+            this.logUtil.putF(commonStrings.START, this, AndroidMediaPlayerWrapperListener.ON_PREPARE);
             AndroidMediaPlayerWrapperListener.this.androidMediaPlayerWrapper.update(PlayerListener.DEVICE_AVAILABLE);
         }
     };
 
     private MediaPlayer.OnErrorListener mOnErrorListener = new MediaPlayerOnErrorListener() {
         public boolean onError(final MediaPlayer mp, final int what, final int extra) {
-            this.logUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append("What: ").appendint(what).append(" Extra: ").appendint(extra).toString(), this, AndroidMediaPlayerWrapperListener.ON_ERROR);
+            this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append("What: ").appendint(what).append(" Extra: ").appendint(extra).toString(), this, AndroidMediaPlayerWrapperListener.ON_ERROR);
             AndroidMediaPlayerWrapperListener.this.androidMediaPlayerWrapper.update(PlayerListener.ERROR);
             return true;
         }
@@ -123,7 +123,7 @@ public class AndroidMediaPlayerWrapperListener {
 
     private MediaPlayer.OnCompletionListener mOnCompletionListener = new MediaPlayerOnCompletionListener() {
         public void onCompletion(final MediaPlayer mp) {
-            this.logUtil.put(commonStrings.START, this, AndroidMediaPlayerWrapperListener.ON_COMPLETE);
+            this.logUtil.putF(commonStrings.START, this, AndroidMediaPlayerWrapperListener.ON_COMPLETE);
             AndroidMediaPlayerWrapperListener.this.androidMediaPlayerWrapper.update(PlayerListener.END_OF_MEDIA);
         }
     };

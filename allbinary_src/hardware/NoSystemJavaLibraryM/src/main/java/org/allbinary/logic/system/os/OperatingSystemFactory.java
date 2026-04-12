@@ -48,7 +48,7 @@ public class OperatingSystemFactory
 
             final String osString = new StringMaker().append("OperatingSystem Info: ").append(genericOperatingSystem.toString()).toString();
             System.out.println(osString);
-            this.logUtil.put(osString, this, commonStrings.GET_INSTANCE);
+            this.logUtil.putF(osString, this, commonStrings.GET_INSTANCE);
 
             //throw new Exception("OS Not Supported: ").append(osName);
         }

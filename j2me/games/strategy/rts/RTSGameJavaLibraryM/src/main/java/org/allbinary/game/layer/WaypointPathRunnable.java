@@ -36,7 +36,7 @@ public class WaypointPathRunnable extends WaypointPathRunnableBase
     {
         try
         {
-            //this.logUtil.put("", this, "run");
+            //this.logUtil.putF("", this, "run");
                 
             pathFindingLayer.getWaypointRunnableLogHelper().start(pathFindingLayer);
 

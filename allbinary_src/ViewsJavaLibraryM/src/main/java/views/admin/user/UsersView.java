@@ -54,7 +54,7 @@ public class UsersView extends HttpContextView implements DomNodeInterface
             }
             else
             {
-               this.logUtil.put("UserHelper",this,"toXmlNode");
+               this.logUtil.putF("UserHelper",this,"toXmlNode");
             }
          }
          

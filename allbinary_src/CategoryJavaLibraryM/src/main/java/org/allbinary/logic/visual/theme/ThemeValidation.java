@@ -103,7 +103,7 @@ public class ThemeValidation
     	  stringBuffer.append(" & ThemeName: ");
     	  stringBuffer.append(this.themeName);
 
-    	  this.logUtil.put("Http Request Constructor", this, stringBuffer.toString());
+    	  this.logUtil.putF("Http Request Constructor", this, stringBuffer.toString());
       }
 
       //Load the theme properties from the category file associated with the theme
@@ -229,7 +229,7 @@ public class ThemeValidation
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            this.logUtil.put(this.commonStrings.START,this,commonStrings.IS_VALID);
+            this.logUtil.putF(this.commonStrings.START,this,commonStrings.IS_VALID);
          }
 
          if(!StringValidationUtil.getInstance().isValidRequired(
@@ -251,7 +251,7 @@ public class ThemeValidation
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            this.logUtil.put("End: " + isValid, this, commonStrings.IS_VALID);
+            this.logUtil.putF("End: " + isValid, this, commonStrings.IS_VALID);
          }
          
          return isValid;

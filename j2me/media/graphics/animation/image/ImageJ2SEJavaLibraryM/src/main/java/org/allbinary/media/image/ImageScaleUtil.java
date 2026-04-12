@@ -85,12 +85,12 @@ public class ImageScaleUtil
         //Set the max image size needed.
         if (maxScaleX * originalImage.getWidth() > originalImageArray[0].getWidth()
             || maxScaleY * originalImage.getHeight() > originalImageArray[0].getHeight()) {
-            //this.logUtil.put(new StringMaker().append("scale canvas: ").append(maxScaleX).toString(), this, this.commonStrings.UPDATE);
+            //this.logUtil.putF(new StringMaker().append("scale canvas: ").append(maxScaleX).toString(), this, this.commonStrings.UPDATE);
             originalImageArray[0] = this.imageCreationUtil.createImage(originalImage.getWidth(), originalImage.getHeight(), maxScaleX, maxScaleY);
         }
 
         //Set the new original image to the current scale
-        //this.logUtil.put(new StringMaker().append("scaleX: ").append(scaleX).append("scaleY: ").append(scaleY).toString(), this, this.commonStrings.UPDATE);
+        //this.logUtil.putF(new StringMaker().append("scaleX: ").append(scaleX).append("scaleY: ").append(scaleY).toString(), this, this.commonStrings.UPDATE);
         this.scale(originalImage, originalImageArray[0], scaleX, scaleY, false);
     }    
  

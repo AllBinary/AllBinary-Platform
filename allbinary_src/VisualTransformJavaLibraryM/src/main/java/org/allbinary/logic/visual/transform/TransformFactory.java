@@ -53,7 +53,7 @@ public class TransformFactory {
         try {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
-                this.logUtil.put("Creating Transform: " + viewName,this, commonStrings.GET_INSTANCE);
+                this.logUtil.putF("Creating Transform: " + viewName,this, commonStrings.GET_INSTANCE);
             }
 
             TransformInfoHttpInterface ownerTransformInfoHttpInterface =
@@ -84,7 +84,7 @@ public class TransformFactory {
              */
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
-                this.logUtil.put("Created Transform: " + viewName, this,
+                this.logUtil.putF("Created Transform: " + viewName, this,
                     commonStrings.GET_INSTANCE);
             }
 
@@ -110,7 +110,7 @@ public class TransformFactory {
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
-                this.logUtil.put("Creating Transform: " + propertiesHashMap.get(transformInfoData.NAME),this, commonStrings.GET_INSTANCE);
+                this.logUtil.putF("Creating Transform: " + propertiesHashMap.get(transformInfoData.NAME),this, commonStrings.GET_INSTANCE);
             }
 
             final TransformInfoEntity transformInfoEntity =
@@ -139,7 +139,7 @@ public class TransformFactory {
              */
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
-                this.logUtil.put("Created Transform: "
+                this.logUtil.putF("Created Transform: "
                     + propertiesHashMap.get(transformInfoData.NAME), this, commonStrings.GET_INSTANCE);
             }
             return (TransformInterface) object;
@@ -166,7 +166,7 @@ public class TransformFactory {
         try {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
-                this.logUtil.put("Creating Transform: " + transformInfoInterface.getName(),this, "getInstance(TransformInfoInterface)");
+                this.logUtil.putF("Creating Transform: " + transformInfoInterface.getName(),this, "getInstance(TransformInfoInterface)");
             }
 
             final Object object = TransformInfoObjectFactory.getInstance().getInstance(
@@ -181,7 +181,7 @@ public class TransformFactory {
              */
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY)) {
-                this.logUtil.put("Created Transform: " + transformInfoInterface.getName(),this, "getInstance(TransformInfoInterface)");
+                this.logUtil.putF("Created Transform: " + transformInfoInterface.getName(),this, "getInstance(TransformInfoInterface)");
             }
             return (TransformInterface) object;
         } catch (Exception e) {

@@ -97,7 +97,7 @@ public class CategoryAbstractFactory implements CategoryFactoryInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
          {
-            this.logUtil.put(this.commonStrings.START, this, "getInstance(String)");
+            this.logUtil.putF(this.commonStrings.START, this, "getInstance(String)");
          }
          
          CategoryPropertiesFactoryInterface categoryPropertiesFactoryInterface = 
@@ -152,7 +152,7 @@ public class CategoryAbstractFactory implements CategoryFactoryInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
          {
-            this.logUtil.put(this.commonStrings.START, this, "getInstance(CategoryInterface, CategoryInterface, String)");
+            this.logUtil.putF(this.commonStrings.START, this, "getInstance(CategoryInterface, CategoryInterface, String)");
          }
 
          CategoryPropertiesFactoryInterface categoryPropertiesFactoryInterface = 
@@ -178,7 +178,7 @@ public class CategoryAbstractFactory implements CategoryFactoryInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
          {
-            this.logUtil.put(this.commonStrings.START, this, "getInstance(Node)");
+            this.logUtil.putF(this.commonStrings.START, this, "getInstance(Node)");
          }
          
          CategoryPropertiesFactoryInterface categoryPropertiesFactoryInterface = 
@@ -228,7 +228,7 @@ public class CategoryAbstractFactory implements CategoryFactoryInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
          {
-            this.logUtil.put(this.commonStrings.START, this, "getInstance(CategoryInterface, CategoryInterface, Node)");
+            this.logUtil.putF(this.commonStrings.START, this, "getInstance(CategoryInterface, CategoryInterface, Node)");
          }
          
          CategoryPropertiesFactoryInterface categoryPropertiesFactoryInterface = 
@@ -282,7 +282,7 @@ public class CategoryAbstractFactory implements CategoryFactoryInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
          {
-            this.logUtil.put(this.commonStrings.START, this, "getInstance(CategoryInterface, CategoryInterface, HashMap)");
+            this.logUtil.putF(this.commonStrings.START, this, "getInstance(CategoryInterface, CategoryInterface, HashMap)");
          }
          
          CategoryPropertiesFactoryInterface categoryPropertiesFactoryInterface = 

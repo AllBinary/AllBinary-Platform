@@ -96,7 +96,7 @@ public class MapSelectionGameInputProcessor extends Processor
     @Override
     public void process() throws Exception
     {
-        // this.logUtil.put(commonStrings.START, this, commonStrings.PROCESS);
+        // this.logUtil.putF(commonStrings.START, this, commonStrings.PROCESS);
         this.getPlayerGameInput().update();
     }
 

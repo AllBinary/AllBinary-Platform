@@ -300,7 +300,7 @@ public class GenericModuleConfigurationJPanel
         {
             if(this.savedCaptureJRadioButton.isSelected())
             {
-                this.logUtil.put("Selected", this, "savedCaptureJRadioButtonActionPerformed");
+                this.logUtil.putF("Selected", this, "savedCaptureJRadioButtonActionPerformed");
                 
                 this.getSelectedGenericProfile().add(
                     GenericProfileDataWorkerType.SAVED_CAPTURE);
@@ -322,7 +322,7 @@ public class GenericModuleConfigurationJPanel
         {
             if(this.screenCaptureJRadioButton.isSelected())
             {
-                this.logUtil.put("Selected", this, "screenCaptureJRadioButtonActionPerformed");
+                this.logUtil.putF("Selected", this, "screenCaptureJRadioButtonActionPerformed");
                 
                 this.getSelectedGenericProfile().add(
                     GenericProfileDataWorkerType.SCREEN_CAPTURE);
@@ -433,12 +433,11 @@ public class GenericModuleConfigurationJPanel
             //Set selected profile options
             this.updateProfileOptions();
             
-            this.logUtil.put("Setting Configuration Profile JPanel", this,
-                "updateProfileUI");
+            this.logUtil.putF("Setting Configuration Profile JPanel", this, "updateProfileUI");
         }
         else
         {
-            this.logUtil.put("Null Configuration Profile", this, "updateProfileUI");
+            this.logUtil.putF("Null Configuration Profile", this, "updateProfileUI");
         }
     }
     
@@ -460,7 +459,7 @@ public class GenericModuleConfigurationJPanel
     private void updateProfileOptions()
     throws Exception
     {
-        this.logUtil.put(this.commonStrings.START, this, "updateProfileOptions");
+        this.logUtil.putF(this.commonStrings.START, this, "updateProfileOptions");
         
         GenericProfile genericProfile = this.getSelectedGenericProfile();
         Vector vector = genericProfile.getGenericProfileDataWorkerTypeVector();
@@ -476,30 +475,29 @@ public class GenericModuleConfigurationJPanel
             GenericProfileDataWorkerType genericProfileDataWorkerType =
                 (GenericProfileDataWorkerType) vector.get(index);
             
-            this.logUtil.put(genericProfile.getName() + " has GenericProfileDataWorkerType: " + genericProfileDataWorkerType.toString(), 
-                this, "updateProfileOptions");
+            this.logUtil.putF(genericProfile.getName() + " has GenericProfileDataWorkerType: " + genericProfileDataWorkerType.toString(), this, "updateProfileOptions");
             
             if(genericProfileDataWorkerType == GenericProfileDataWorkerType.SCREEN_CAPTURE)
             {
-                this.logUtil.put("Screen Capture Selected", this, "updateProfileOptions");
+                this.logUtil.putF("Screen Capture Selected", this, "updateProfileOptions");
                 this.screenCaptureJRadioButton.setSelected(true);
             }
             else
             if(genericProfileDataWorkerType == GenericProfileDataWorkerType.SAVED_CAPTURE)
             {
-                this.logUtil.put("Saved Capture Selected", this, "updateProfileOptions");
+                this.logUtil.putF("Saved Capture Selected", this, "updateProfileOptions");
                 this.savedCaptureJRadioButton.setSelected(true);
             }
             else
                 if(genericProfileDataWorkerType == GenericProfileDataWorkerType.COMPARISON)
                 {
-                this.logUtil.put("Checking Comparison Box", this, "updateProfileOptions");
+                this.logUtil.putF("Checking Comparison Box", this, "updateProfileOptions");
                 this.captureComparisonJCheckBox.setSelected(true);
                 }
                 else
                     if(genericProfileDataWorkerType == GenericProfileDataWorkerType.MOTION)
                     {
-                this.logUtil.put("Checking Motion Box", this, "updateProfileOptions");
+                this.logUtil.putF("Checking Motion Box", this, "updateProfileOptions");
                 this.captureMotionAnalysisJCheckBox.setSelected(true);
                     }
         }
@@ -512,7 +510,7 @@ public class GenericModuleConfigurationJPanel
                 GenericProfileDataWorkerType.SCREEN_CAPTURE);
         }
 
-        this.logUtil.put(this.commonStrings.END, this, "updateProfileOptions");
+        this.logUtil.putF(this.commonStrings.END, this, "updateProfileOptions");
     }
     
     public javax.swing.JPanel getBlankGenericProfileActionsJPanel()

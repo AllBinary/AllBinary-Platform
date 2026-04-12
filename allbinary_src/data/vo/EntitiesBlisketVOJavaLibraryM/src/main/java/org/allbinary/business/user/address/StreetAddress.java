@@ -139,7 +139,7 @@ public class StreetAddress
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
       {
-         this.logUtil.put("Created Address: \n" + this.toHashMap(), this, "log");
+         this.logUtil.putF("Created Address: \n" + this.toHashMap(), this, "log");
       }
    }
    

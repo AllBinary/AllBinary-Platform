@@ -110,7 +110,7 @@ public class LicenseClientAndServerTest
 
                 stringBuffer.append(END);
 
-                this.logUtil.put(RESULT + stringBuffer.toString(), this, "test");
+                this.logUtil.putF(RESULT + stringBuffer.toString(), this, "test");
                 
                 stringBuffer.delete(0, stringBuffer.length());
 
@@ -122,7 +122,7 @@ public class LicenseClientAndServerTest
 
             }
 
-            this.logUtil.put("Total Servers Failed: " + list.size() + " Failed Servers: " + list.toString(), this, "test");
+            this.logUtil.putF("Total Servers Failed: " + list.size() + " Failed Servers: " + list.toString(), this, "test");
         } catch (Exception e)
         {
             this.logUtil.put("Test Error: " + stringBuffer.toString(), this, "test", e);

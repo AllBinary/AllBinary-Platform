@@ -194,7 +194,7 @@ public class RaceTrackAdjacentDropCellPositionGenerator
             //stringBuffer.append(direction);
 
             //PreLogUtil.put(stringBuffer.toString(), this, commonStrings.DROP);
-            //this.logUtil.put(stringBuffer.toString(), this, commonStrings.DROP);
+            //this.logUtil.putF(stringBuffer.toString(), this, commonStrings.DROP);
 
             final Object objectCanBeNull = this.hashtable.get(Group.ID);
             if(objectCanBeNull != null) {
@@ -209,7 +209,7 @@ public class RaceTrackAdjacentDropCellPositionGenerator
             final int y = point.getY();
             final int z = point.getZ();
 
-            //this.logUtil.put("Dropping: " + randomGeographicMapCellPosition.toString() + " = " + randomGeographicMapCellPosition.getPoint(), this, commonStrings.DROP);
+            //this.logUtil.putF("Dropping: " + randomGeographicMapCellPosition.toString() + " = " + randomGeographicMapCellPosition.getPoint(), this, commonStrings.DROP);
 
             final AllBinaryLayer layerInterface =
                 RaceTrackAdjacentDropLayerFactory.getInstance().getRandomInstance().getInstance(

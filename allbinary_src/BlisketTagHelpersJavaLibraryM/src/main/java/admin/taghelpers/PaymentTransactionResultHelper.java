@@ -40,7 +40,7 @@ public class PaymentTransactionResultHelper extends BasicTable
          String success = new TransactionResultEntity().dropTable();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put(success,this,commonStrings.DROP);
+            this.logUtil.putF(success, this, commonStrings.DROP);
          }
          return success;
       }
@@ -64,7 +64,7 @@ public class PaymentTransactionResultHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put(success,this,"create()");
+            this.logUtil.putF(success,this,"create()");
          }
          return success;
       }
@@ -88,7 +88,7 @@ public class PaymentTransactionResultHelper extends BasicTable
          final String result = AbSqlTableUtil.getInstance().restoreTable(new TransactionResultEntity(), this.portion);
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put(success,this,"restore()");
+            this.logUtil.putF(success,this,"restore()");
          }
          return result;
       }
@@ -112,7 +112,7 @@ public class PaymentTransactionResultHelper extends BasicTable
          final String result = AbSqlTableUtil.getInstance().backupTable(new TransactionResultEntity());
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put(success,this,"backup()");
+            this.logUtil.putF(success,this,"backup()");
          }
          return result;
       }

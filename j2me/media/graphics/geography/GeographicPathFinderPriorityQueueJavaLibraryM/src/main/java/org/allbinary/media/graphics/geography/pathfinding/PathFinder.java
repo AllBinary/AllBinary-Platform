@@ -95,11 +95,11 @@ public class PathFinder extends GeographicPathFinderBase {
         if(multipassState.step == 0) {
             multipassState.step++;
         } else if(multipassState.step == 1) {
-            //this.logUtil.put(new StringMaker().append("step 1: ").append(multipassState.iteration).toString(), this, "search");
+            //this.logUtil.putF(new StringMaker().append("step 1: ").append(multipassState.iteration).toString(), this, "search");
             this.searchStart((PathFindingNode) startPathFindingNodeList.get(0), (PathFindingNode) endPathFindingNodeList.get(0), multipassState);
         } else if(multipassState.step == 2) {
-            //this.logUtil.put(new StringMaker().append("step 2: ").append(multipassState.iteration).toString(), this, "search");
-            //this.logUtil.put("step 2", this, "search");
+            //this.logUtil.putF(new StringMaker().append("step 2: ").append(multipassState.iteration).toString(), this, "search");
+            //this.logUtil.putF("step 2", this, "search");
             return this.searchN((PathFindingNode) startPathFindingNodeList.get(0), (PathFindingNode) endPathFindingNodeList.get(0), multipassState);
         }
         return basicArrayListUtil.getImmutableInstance();
@@ -119,7 +119,7 @@ public class PathFinder extends GeographicPathFinderBase {
         final BasicArrayList pathList = new BasicArrayList();
         pathList.add(list);
 
-        //this.logUtil.put(new StringMaker().append("finish A* ").append(list.size()).append(CommonSeps.getInstance().SPACE).append(pathList.size()).append(CommonSeps.getInstance().SPACE).append(list.toString()).toString(), this, "search");
+        //this.logUtil.putF(new StringMaker().append("finish A* ").append(list.size()).append(CommonSeps.getInstance().SPACE).append(pathList.size()).append(CommonSeps.getInstance().SPACE).append(list.toString()).toString(), this, "search");
         
         return pathList;
 
@@ -150,7 +150,7 @@ public class PathFinder extends GeographicPathFinderBase {
         final BasicArrayList pathList = new BasicArrayList();
         pathList.add(list);
 
-        //this.logUtil.put(new StringMaker().append("finish A* ").append(list.size()).append(CommonSeps.getInstance().SPACE).append(pathList.size()).append(CommonSeps.getInstance().SPACE).append(list.toString()).toString(), this, "search");
+        //this.logUtil.putF(new StringMaker().append("finish A* ").append(list.size()).append(CommonSeps.getInstance().SPACE).append(pathList.size()).append(CommonSeps.getInstance().SPACE).append(list.toString()).toString(), this, "search");
         
         multipassState.iteration = 0;
         multipassState.step = 0;

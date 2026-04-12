@@ -69,13 +69,13 @@ public class CommandForm extends Form
     @Override
     public void open()
     {
-        this.logUtil.put(this.commonStrings.START, this, "open");
+        this.logUtil.putF(this.commonStrings.START, this, "open");
     }
 
     @Override
     public void close() throws Exception
     {
-        this.logUtil.put(this.commonStrings.START, this, commonStrings.CLOSE);
+        this.logUtil.putF(this.commonStrings.START, this, commonStrings.CLOSE);
     }
 
     public void update() throws Exception {

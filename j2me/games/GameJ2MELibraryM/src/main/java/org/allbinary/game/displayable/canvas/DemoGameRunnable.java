@@ -36,7 +36,7 @@ public class DemoGameRunnable extends GameRunnable
     {
         try
         {
-            //this.logUtil.put(commonStrings.START, this, commonStrings.RUN);
+            //this.logUtil.putF(commonStrings.START, this, commonStrings.RUN);
 
             //final AllBinaryGameCanvas allBinaryGameCanvas = this.allBinaryGameCanvas;
             

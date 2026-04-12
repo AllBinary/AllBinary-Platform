@@ -118,7 +118,7 @@ PickupCompositeInterface, SpecialGameInputInterface
     @Override
     public void paint(final Graphics graphics)
     {
-        //this.logUtil.put(commonStrings.NOT_IMPLEMENTED, this, canvasStrings.PAINT);
+        //this.logUtil.putF(commonStrings.NOT_IMPLEMENTED, this, canvasStrings.PAINT);
         super.paint(graphics);
     }
 
@@ -161,7 +161,7 @@ PickupCompositeInterface, SpecialGameInputInterface
 
     public void setAllBinaryGameLayerManager(final AllBinaryGameLayerManager allBinaryGameLayerManager) throws Exception {
         this.allBinaryGameLayerManagerP = allBinaryGameLayerManager;
-        //this.logUtil.put(new StringMaker().append(commonStrings.START).append(this.getName()).append(CommonSeps.getInstance().SPACE).append(allBinaryGameLayerManager).toString(), this, commonStrings.PROCESS);
+        //this.logUtil.putF(new StringMaker().append(commonStrings.START).append(this.getName()).append(CommonSeps.getInstance().SPACE).append(allBinaryGameLayerManager).toString(), this, commonStrings.PROCESS);
         if (this.allBinaryGameLayerManagerP == null) {
             throw new RuntimeException();
         }

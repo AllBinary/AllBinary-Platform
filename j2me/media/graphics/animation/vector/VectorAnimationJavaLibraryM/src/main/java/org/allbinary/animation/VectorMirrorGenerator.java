@@ -75,7 +75,7 @@ public class VectorMirrorGenerator
             int[][][] newPoints = vectorAnimationUtil.toAnimationArrayFromBasicArrayListOfPointBasicArrayList(
                     pointsBasicArrayList);
 
-            // this.logUtil.put(IntArrayUtil.toString(newPoints), this, commonStrings.GET_INSTANCE);
+            // this.logUtil.putF(IntArrayUtil.toString(newPoints), this, commonStrings.GET_INSTANCE);
             return newPoints;
 
         } catch (Exception e)

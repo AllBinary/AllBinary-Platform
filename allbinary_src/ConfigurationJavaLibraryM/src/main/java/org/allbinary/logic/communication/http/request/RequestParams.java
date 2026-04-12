@@ -39,21 +39,21 @@ public class RequestParams
 
     public RequestParams()
     {
-        this.logUtil.put("New RequestParams Size: 0", this, this.commonStrings.CONSTRUCTOR);
+        this.logUtil.putF("New RequestParams Size: 0", this, this.commonStrings.CONSTRUCTOR);
     }
 
     public RequestParams(HttpServletRequest request)
     {
         map = request.getParameterMap();
 
-        this.logUtil.put("RequestParams Size: " + this.getMap().keySet().size(), this, this.commonStrings.CONSTRUCTOR);
+        this.logUtil.putF("RequestParams Size: " + this.getMap().keySet().size(), this, this.commonStrings.CONSTRUCTOR);
     }
 
     public RequestParams(PageContext pageContext)
     {
         map = pageContext.getRequest().getParameterMap();
 
-        this.logUtil.put("Request Params Size: " + this.getMap().keySet().size(), this, this.commonStrings.CONSTRUCTOR);
+        this.logUtil.putF("Request Params Size: " + this.getMap().keySet().size(), this, this.commonStrings.CONSTRUCTOR);
     }
 
     protected void setMap(Map map)
@@ -93,7 +93,7 @@ public class RequestParams
                 stringBuffer.append(VALUE);
                 stringBuffer.append(values[0]);
 
-                this.logUtil.put(stringBuffer.toString(), this, "toXmlNode(document)");
+                this.logUtil.putF(stringBuffer.toString(), this, "toXmlNode(document)");
 
                 node.appendChild(ModDomHelper.createNameValueNodes(
                         document, RequestData.PARAMETER, new String(key), new String(values[0])));
@@ -133,7 +133,7 @@ public class RequestParams
             //stringBuffer.append(VALUE);
             //stringBuffer.append(value[0]);
 
-            //this.logUtil.put(stringBuffer.toString(), this, "toHashMap()");
+            //this.logUtil.putF(stringBuffer.toString(), this, "toHashMap()");
 
             //At some point they made them all String[] but you never know if they will go back or what
             String[] values = (String[]) map.get(key);
@@ -160,7 +160,7 @@ public class RequestParams
         stringBuffer.append("\ntoHashMap: ");
         stringBuffer.append(hashMap.toString());
 
-        this.logUtil.put(stringBuffer.toString(), this, "toHashMap()");
+        this.logUtil.putF(stringBuffer.toString(), this, "toHashMap()");
 
         return hashMap;
     }

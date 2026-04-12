@@ -72,7 +72,7 @@ public class LayerCoveringCellPositionsUtil {
         int rows = layerInterface.getHeight() /
             geographicMapInterface.getAllBinaryTiledLayer().getCellHeight();
 
-        //this.logUtil.put(new StringMaker().append("c/r: ").append(columns).append('/').append(rows).toString(), this, "visit");
+        //this.logUtil.putF(new StringMaker().append("c/r: ").append(columns).append('/').append(rows).toString(), this, "visit");
         
         if(columns == 0)
             columns = 1;

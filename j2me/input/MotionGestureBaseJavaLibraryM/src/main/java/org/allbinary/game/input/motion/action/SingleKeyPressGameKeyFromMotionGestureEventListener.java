@@ -39,12 +39,12 @@ extends CompleteMotionGestureInputEventListener
     {
         try
         {
-            //this.logUtil.put("Start GameKey: " + ((GameKeyCompleteMotionGestureInputEvent) completeMotionGestureInputEvent).getGameKey(), this, "onCompleteMotionGestureInputEvent");
+            //this.logUtil.putF("Start GameKey: " + ((GameKeyCompleteMotionGestureInputEvent) completeMotionGestureInputEvent).getGameKey(), this, "onCompleteMotionGestureInputEvent");
             
             final GameKeyCompleteMotionGestureInputEvent gameKeyCompleteMotionGestureInputEvent = (GameKeyCompleteMotionGestureInputEvent) completeMotionGestureInputEvent;
             final GameKeyEvent gameKeyEvent = gameKeyCompleteMotionGestureInputEvent.getGameKeyEvent();
 
-            //this.logUtil.put("gameKeyEvent: " + gameKeyEvent, this, "onCompleteMotionGestureInputEvent");
+            //this.logUtil.putF("gameKeyEvent: " + gameKeyEvent, this, "onCompleteMotionGestureInputEvent");
 
             PressGameKeyEventHandler.getInstance().fireEvent(gameKeyEvent);
         }

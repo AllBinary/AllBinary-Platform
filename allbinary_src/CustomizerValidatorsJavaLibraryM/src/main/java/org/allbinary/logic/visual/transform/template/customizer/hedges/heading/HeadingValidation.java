@@ -77,7 +77,7 @@ public class HeadingValidation extends Validation implements DomNodeInterface
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            this.logUtil.put(this.commonStrings.START, this,commonStrings.IS_VALID);
+            this.logUtil.putF(this.commonStrings.START, this,commonStrings.IS_VALID);
          }
          
          if(!this.title.isValid().booleanValue())
@@ -101,7 +101,7 @@ public class HeadingValidation extends Validation implements DomNodeInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            this.logUtil.put("HeadingValidation: " + valid, this, commonStrings.IS_VALID);
+            this.logUtil.putF("HeadingValidation: " + valid, this, commonStrings.IS_VALID);
          }
          
          return valid;

@@ -58,7 +58,7 @@ extends CollidableDestroyableDamageableBehavior
        {
           if (this.ownerLayer.getGroupInterface()[0] != collisionLayer.getGroupInterface()[0])
           {
-              //this.logUtil.put("isCollision: " + this.getGroupInterface().getGroupName() + "==" + collisionLayer.getGroupInterface().getGroupName(), this, damageUtil.IS_COLLISION);
+              //this.logUtil.putF("isCollision: " + this.getGroupInterface().getGroupName() + "==" + collisionLayer.getGroupInterface().getGroupName(), this, damageUtil.IS_COLLISION);
               return super.isCollision(collisionLayer);
           }
        }
@@ -70,7 +70,7 @@ extends CollidableDestroyableDamageableBehavior
     public void collide(CollidableCompositeLayer collisionLayer)
             throws Exception
     {
-       //this.logUtil.put(this.getName() + " collided with " + collisionLayer.getName(), this, damageUtil.COLLIDE);
+       //this.logUtil.putF(this.getName() + " collided with " + collisionLayer.getName(), this, damageUtil.COLLIDE);
        super.collide(collisionLayer);
        this.collided = true;
     }
@@ -84,7 +84,7 @@ extends CollidableDestroyableDamageableBehavior
        {
           final AllBinaryLayer layerInterface = (AllBinaryLayer) collidableInterfaceCompositeInterface;
 
-          //this.logUtil.put("isCollision: " + this.getGroupInterface().getGroupName() + "==" + layerInterface.getGroupInterface().getGroupName(), this, damageUtil.IS_COLLISION);
+          //this.logUtil.putF("isCollision: " + this.getGroupInterface().getGroupName() + "==" + layerInterface.getGroupInterface().getGroupName(), this, damageUtil.IS_COLLISION);
           if (this.ownerLayer.getGroupInterface()[0] != layerInterface.getGroupInterface()[0])
           {
              if (layerCollisionUtil.isCollision(this.ownerLayer, layerInterface))
@@ -100,7 +100,7 @@ extends CollidableDestroyableDamageableBehavior
     public void collide(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
             throws Exception
     {
-       //this.logUtil.put(commonStrings.START, this, damageUtil.COLLIDE);
+       //this.logUtil.putF(commonStrings.START, this, damageUtil.COLLIDE);
        // if (collidableInterfaceCompositeInterface was instance of DamageableInterface) {
        damageUtil.process((DamageableInterface) this.ownerLayer, (DamageableInterface) collidableInterfaceCompositeInterface);
        this.collided = true;

@@ -82,7 +82,7 @@ public class GenericProfileAction
         
         hashMap.put(GenericProfileActionData.NAME, this.name);
         
-        this.logUtil.put("HashMap: " + hashMap.toString(), this, "toHashMap()");
+        this.logUtil.putF("HashMap: " + hashMap.toString(), this, "toHashMap()");
         
         return hashMap;
     }

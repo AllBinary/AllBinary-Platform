@@ -39,7 +39,7 @@ public class StaticPathGenerator {
     private final BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();
     
     protected StaticPathGenerator() {
-        PreLogUtil.put("Using Static Path Finding", this, CommonStrings.getInstance().CONSTRUCTOR);
+        PrelogUtil.putF("Using Static Path Finding", this, CommonStrings.getInstance().CONSTRUCTOR);
     }
 
     public void init(final Object geographicMapInterface, final int totalPaths)
@@ -112,12 +112,12 @@ public class StaticPathGenerator {
                 pathCacheFactory.remove(smallIntegerSingletonFactory.getInstance(id));
             }
 
-            this.logUtil.put(new StringMaker().append("Using Cached Path(s): ").append(StringUtil.getInstance().toString(list)).toString(), this, commonStrings.GET_INSTANCE);
+            this.logUtil.putF(new StringMaker().append("Using Cached Path(s): ").append(StringUtil.getInstance().toString(list)).toString(), this, commonStrings.GET_INSTANCE);
 
             return list;
 
         } catch (Exception e) {
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
+            this.logUtil.putF(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
             return new BasicArrayList();
         }
     }

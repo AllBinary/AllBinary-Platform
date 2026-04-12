@@ -41,7 +41,7 @@ public class BasicStoreFrontsEntity extends InitSql
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FACTORYERROR))
       {
-         this.logUtil.put("StoreFront: " + storeHashMap.toString(), this, "getStore()");
+         this.logUtil.putF("StoreFront: " + storeHashMap.toString(), this, "getStore()");
       }
       
       return (BasicStoreFrontInterface) new BasicStoreFront(storeHashMap);

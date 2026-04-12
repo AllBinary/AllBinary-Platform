@@ -179,7 +179,7 @@ public class GameConfigurationCentral
                 this.SCALE.setValue(smallIntegerSingletonFactory.getInstance(Integer.valueOf(value).intValue()));
             } else
             {
-                this.logUtil.put("No Game Configuration To Load", this, commonStrings.LOAD);
+                this.logUtil.putF("No Game Configuration To Load", this, commonStrings.LOAD);
             }
         } catch (Exception e)
         {

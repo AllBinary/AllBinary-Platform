@@ -122,7 +122,7 @@ public class ApplicationConfiguration
         }
 
         //PreLogUtil.put("Read Configuration: " + this.toString(), this, "read");
-        this.logUtil.put(
+        this.logUtil.putF(
                 "Read Configuration: " + this.toString(), this, "read");
     }
 
@@ -132,7 +132,7 @@ public class ApplicationConfiguration
         try
         {
         //PreLogUtil.put("Write Configuration: " + this.toString(), this, "write");
-        this.logUtil.put("Write Configuration: " + this.toString(), this, "write");
+        this.logUtil.putF("Write Configuration: " + this.toString(), this, "write");
         
         final FileStreamFactory fileInputStreamFactory = 
             FileStreamFactory.getInstance();

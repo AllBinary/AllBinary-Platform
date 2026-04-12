@@ -50,15 +50,15 @@ public class ImageCache extends ImageCacheBase
             volume += width * height;
             if (volume > 32000)
             {
-                //this.logUtil.put(new StringMaker().append("Image for: ").append(caller).toString(), this, commonStrings.GET);
+                //this.logUtil.putF(new StringMaker().append("Image for: ").append(caller).toString(), this, commonStrings.GET);
                 System.gc();
                 //System.gc();
                 volume = 0;
-                //this.logUtil.put(Memory.getInfo(), this, commonStrings.GET);
+                //this.logUtil.putF(Memory.getInfo(), this, commonStrings.GET);
             }
 
             image = this.createImage(caller, width, height);
-            //this.logUtil.put(new StringMaker().append("Image: ").append(image).toString(), this, commonStrings.GET);
+            //this.logUtil.putF(new StringMaker().append("Image: ").append(image).toString(), this, commonStrings.GET);
 
             if(foundIndex == -1)
             {
@@ -89,17 +89,17 @@ public class ImageCache extends ImageCacheBase
             final InputStream inputStream = null;
             try
             {
-                this.logUtil.put(Memory.getInfo(), this, commonStrings.GET);
+                this.logUtil.putF(Memory.getInfo(), this, commonStrings.GET);
                 image = this.createImage(key, inputStream);
             }
             catch(Exception e)
             {
                 this.logUtil.put("Exception: Trying Again After GC", this, commonStrings.GET, e);
                 
-                this.logUtil.put(new StringMaker().append("InputStream: ").append(inputStream.toString()).toString(), this, commonStrings.GET);
+                this.logUtil.putF(new StringMaker().append("InputStream: ").append(inputStream.toString()).toString(), this, commonStrings.GET);
                 System.gc();
                 System.gc();
-                this.logUtil.put(Memory.getInfo(), this, commonStrings.GET);
+                this.logUtil.putF(Memory.getInfo(), this, commonStrings.GET);
                 Thread.sleep(100);
                 image = this.createImage(key, inputStream);
             }
@@ -124,7 +124,7 @@ public class ImageCache extends ImageCacheBase
                 return index;
             }
         }
-        this.logUtil.put(new StringMaker().append("unable to find key: ").append(StringUtil.getInstance().toString(key)).toString(), this, commonStrings.RUN);
+        this.logUtil.putF(new StringMaker().append("unable to find key: ").append(StringUtil.getInstance().toString(key)).toString(), this, commonStrings.RUN);
         throw new RuntimeException();
     }
     

@@ -100,7 +100,7 @@ public class WorkAreaJTreeJPanel extends javax.swing.JPanel
    public void deselectAll() throws Exception
    {
       int size = highlightedBasicArrayList.size();
-      this.logUtil.put("size: " + size, this, "deselectAll");
+      this.logUtil.putF("size: " + size, this, "deselectAll");
 
       for (int index = 0; index < size; index++)
       {

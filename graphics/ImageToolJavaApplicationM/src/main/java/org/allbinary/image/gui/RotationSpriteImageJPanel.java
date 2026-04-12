@@ -85,7 +85,7 @@ public class RotationSpriteImageJPanel extends javax.swing.JPanel
                             String filePath = file.getAbsolutePath();
                             final int extensionIndex = filePath.indexOf(imageStrings.PNG_EXTENSION);
                             filePath = new StringMaker().append(filePath.substring(0, extensionIndex)).append(CommonSeps.getInstance().UNDERSCORE).append("sprite").append(imageStrings.PNG_EXTENSION).toString();
-                            this.logUtil.put("New File Path: " + filePath, this, commonStrings.RUN);
+                            this.logUtil.putF("New File Path: " + filePath, this, commonStrings.RUN);
                             
                             file = new File(filePath);
                         }
@@ -93,7 +93,7 @@ public class RotationSpriteImageJPanel extends javax.swing.JPanel
                         boolean isWritten =
                                 ImageIO.write((RenderedImage) RotationSpriteImageJPanel.this.result, imageStrings.PNG, file);
 
-                        this.logUtil.put("File: " + file + " Wrote: " + isWritten, this, commonStrings.RUN);
+                        this.logUtil.putF("File: " + file + " Wrote: " + isWritten, this, commonStrings.RUN);
 
                     }
 
@@ -105,7 +105,7 @@ public class RotationSpriteImageJPanel extends javax.swing.JPanel
     }
     /*
     public void paint(Graphics graphics) {
-    this.logUtil.put(commonStrings.START, this, canvasStrings.PAINT);
+    this.logUtil.putF(commonStrings.START, this, canvasStrings.PAINT);
      */
     //graphics.setColor(BasicColors.BLUE.toColor());
     //graphics.fillRect(0, 0, getWidth(),getHeight());

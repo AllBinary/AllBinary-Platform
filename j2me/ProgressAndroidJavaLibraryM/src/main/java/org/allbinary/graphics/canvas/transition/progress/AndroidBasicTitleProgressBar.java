@@ -195,7 +195,7 @@ implements DisplayChangeEventListener
         }
         catch(Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION_LABEL + ExceptionUtil.getInstance().getStackTrace(e), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
+            this.logUtil.putF(commonStrings.EXCEPTION_LABEL + ExceptionUtil.getInstance().getStackTrace(e), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
             this.animation = NullAnimationFactory.getFactoryInstance().getInstance(0);
         }
     }
@@ -222,12 +222,12 @@ implements DisplayChangeEventListener
         }
         catch (IllegalArgumentException e)
         {
-            this.logUtil.put("IllegalArgumentException " + ExceptionUtil.getInstance().getStackTrace(e), this,"loadProgressImages");
+            this.logUtil.putF("IllegalArgumentException " + ExceptionUtil.getInstance().getStackTrace(e), this, "loadProgressImages");
             this.animation = NullAnimationFactory.getFactoryInstance().getInstance(0);
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION_LABEL + ExceptionUtil.getInstance().getStackTrace(e), this,"loadProgressImages");
+            this.logUtil.putF(commonStrings.EXCEPTION_LABEL + ExceptionUtil.getInstance().getStackTrace(e), this, "loadProgressImages");
             this.animation = NullAnimationFactory.getFactoryInstance().getInstance(0);
         }
     }
@@ -249,7 +249,7 @@ implements DisplayChangeEventListener
     {
         try
         {
-            this.logUtil.put(commonStrings.START, this, commonStrings.START_METHOD_NAME);
+            this.logUtil.putF(commonStrings.START, this, commonStrings.START_METHOD_NAME);
 
             super.start();
             this.midletActivity.runOnUiThread(showTitleProgressBarRunnable);
@@ -265,7 +265,7 @@ implements DisplayChangeEventListener
     {
         try
         {
-            this.logUtil.put(commonStrings.START, this, commonStrings.END_METHOD_NAME);
+            this.logUtil.putF(commonStrings.START, this, commonStrings.END_METHOD_NAME);
             this.midletActivity.runOnUiThread(dismissTitleProgressBarRunnable);
             super.end();
         }
@@ -281,7 +281,7 @@ implements DisplayChangeEventListener
     {
         try
         {
-            // this.logUtil.put(commonStrings.START, this, ADD_PORTION);
+            // this.logUtil.putF(commonStrings.START, this, ADD_PORTION);
             this.portion = value;
             super.addEarlyPortion(value, text, index);
 
@@ -302,7 +302,7 @@ implements DisplayChangeEventListener
     {
         try
         {
-            // this.logUtil.put(commonStrings.START, this, ADD_PORTION);
+            // this.logUtil.putF(commonStrings.START, this, ADD_PORTION);
             this.portion = value;
             super.addPortion(value, text, index);
 
@@ -320,7 +320,7 @@ implements DisplayChangeEventListener
     {
         try
         {
-            // this.logUtil.put(commonStrings.START, this, ADD_PORTION);
+            // this.logUtil.putF(commonStrings.START, this, ADD_PORTION);
             this.portion = value;
             super.addPortion(value, text);
 
@@ -389,7 +389,7 @@ implements DisplayChangeEventListener
 
     public void initOpenGL(Graphics graphics) throws Exception
     {
-        this.logUtil.put(commonStrings.START, this, commonStrings.INIT);
+        this.logUtil.putF(commonStrings.START, this, commonStrings.INIT);
         
         this.image = GameFeatureImageCacheFactory.getInstance().get(RESOURCE);
         
@@ -410,7 +410,7 @@ implements DisplayChangeEventListener
     @Override
     public void update(Graphics graphics) throws Exception
     {
-        this.logUtil.put(commonStrings.START, this, commonStrings.UPDATE);
+        this.logUtil.putF(commonStrings.START, this, commonStrings.UPDATE);
         
         this.initOpenGL(graphics);
         
@@ -449,7 +449,7 @@ implements DisplayChangeEventListener
     {
         try
         {
-            //this.logUtil.put(StringUtil.getInstance().EMPTY_STRING, this, canvasStrings.PAINT);
+            //this.logUtil.putF(StringUtil.getInstance().EMPTY_STRING, this, canvasStrings.PAINT);
             
             // Only show background when not loading in the background
             animation.paint(graphics, 0, 20);

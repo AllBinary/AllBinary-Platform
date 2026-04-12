@@ -66,10 +66,9 @@ public class AllMotionRecognizer extends MotionRecognizer
             point.setX(x);
             point.setY(y);
 
-//            this.logUtil.put(
+//            this.logUtil.putF(
 //                    new StringBuilder().append(commonStrings.START_LABEL)
-//                            .append("point: ").append(point.toString()).toString(),
-//                    this, "processStartMotionEvent");
+//                            .append("point: ").append(point.toString()).toString(), //                    this, "processStartMotionEvent");
             
             this.motionGestureRecognizer.processPressedMotionEvent(point, deviceId, modifiers);
         }
@@ -92,10 +91,9 @@ public class AllMotionRecognizer extends MotionRecognizer
             point.setX(x);
             point.setY(y);
 
-//            this.logUtil.put(
+//            this.logUtil.putF(
 //                    new StringBuilder().append(commonStrings.START_LABEL)
-//                            .append("point: ").append(point.toString()).toString(),
-//                    this, "processEndMotionEvent");
+//                            .append("point: ").append(point.toString()).toString(), //                    this, "processEndMotionEvent");
             
             this.motionGestureRecognizer.processReleasedMotionEvent(point, deviceId, modifiers);
         }

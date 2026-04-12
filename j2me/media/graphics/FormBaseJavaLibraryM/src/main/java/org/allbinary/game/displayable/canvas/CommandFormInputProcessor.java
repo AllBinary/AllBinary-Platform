@@ -67,7 +67,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
 
    public int processInput(final int key) throws Exception
    {
-      //this.logUtil.put(new StringMaker().append(commonStrings.START).append("Canvas.").append(CanvasUtil.getKeyName(key)).toString(), this, GameInputStrings.getInstance().PROCESS_INPUT);
+      //this.logUtil.putF(new StringMaker().append(commonStrings.START).append("Canvas.").append(CanvasUtil.getKeyName(key)).toString(), this, GameInputStrings.getInstance().PROCESS_INPUT);
 
       if (key == Canvas.LEFT || key == Canvas.RIGHT || key == Canvas.UP || key == Canvas.DOWN)
       {
@@ -88,7 +88,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
          PrimaryPlayerQueueFactory.getInstance().add(
                  SelectSound.getInstance());
 
-         // this.logUtil.put("Key: ").append(key, this, GameInputStrings.getInstance());
+         // this.logUtil.putF("Key: ").append(key, this, GameInputStrings.getInstance());
          return this.processCommand();
       }
       return 0;
@@ -102,7 +102,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
       final Command command = commandCurrentSelectionForm.getSelectedCommand();
 
       //"Command: "
-      this.logUtil.put(command.toString(), this, PROCESS_COMMAND);
+      this.logUtil.putF(command.toString(), this, PROCESS_COMMAND);
 
       final Features features = Features.getInstance();
       final OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
@@ -149,7 +149,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
              * this.addForRemoval(gameKeyEvent); }
              */
 
-            //this.logUtil.put(commonStrings.START, this, "processInput - GameKeyEvent source: ").append(gameKeyEvent.getSourceId());
+            //this.logUtil.putF(commonStrings.START, this, "processInput - GameKeyEvent source: ").append(gameKeyEvent.getSourceId());
             // this.logUtil.put("commonStrings.START_LABEL).append("Canvas." +
             // CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance());
             if(gameKeyEvent.getSourceId() != MOTION_GESTURE_SOURCE_ID)
@@ -205,8 +205,8 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
    protected void processMotionInput(final MotionGestureEvent motionGestureEvent)
            throws Exception
    {
-       //this.logUtil.put(new StringMaker().append(Thread.currentThread().getName()).append(commonStrings.START).append(motionGestureEvent).toString(), this, gameInputStrings.PROCESS_MOTION_INPUT);
-       //this.logUtil.put(new StringMaker().append(commonStrings.START).append(motionGestureEvent).toString(), this, gameInputStrings.PROCESS_MOTION_INPUT);
+       //this.logUtil.putF(new StringMaker().append(Thread.currentThread().getName()).append(commonStrings.START).append(motionGestureEvent).toString(), this, gameInputStrings.PROCESS_MOTION_INPUT);
+       //this.logUtil.putF(new StringMaker().append(commonStrings.START).append(motionGestureEvent).toString(), this, gameInputStrings.PROCESS_MOTION_INPUT);
        //PreLogUtil.put(commonStrings.START, this, gameInputStrings.PROCESS_MOTION_INPUT);
        
       final TouchMotionGestureFactory touchMotionGestureFactory = TouchMotionGestureFactory.getInstance();
@@ -221,7 +221,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
 
             if (index != -1)
             {
-               //this.logUtil.put("Form Selected Index: ").append(index, this, gameInputStrings.PROCESS_MOTION_INPUT);
+               //this.logUtil.putF("Form Selected Index: ").append(index, this, gameInputStrings.PROCESS_MOTION_INPUT);
 
                PrimaryPlayerQueueFactory.getInstance().add(
                        SelectSound.getInstance());
@@ -237,15 +237,15 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
                   this.form.setSelectedIndex(index);
                }
             } else {
-                //this.logUtil.put("No Form Selected Index: ").append(index, this, gameInputStrings.PROCESS_MOTION_INPUT);
+                //this.logUtil.putF("No Form Selected Index: ").append(index, this, gameInputStrings.PROCESS_MOTION_INPUT);
             }
          }
 
-         // this.logUtil.put("No Double Press Time: ").append(this.doubleClickTimeHelper.getElapsed(), this, gameInputStrings.PROCESS_MOTION_INPUT);
+         // this.logUtil.putF("No Double Press Time: ").append(this.doubleClickTimeHelper.getElapsed(), this, gameInputStrings.PROCESS_MOTION_INPUT);
 
          if(this.hasPressed) {
              if (!this.doubleClickTimeHelper.isTime()) {
-                 this.logUtil.put("Double Press", this, gameInputStrings.PROCESS_MOTION_INPUT);
+                 this.logUtil.putF("Double Press", this, gameInputStrings.PROCESS_MOTION_INPUT);
                  this.processCommand();
              }
 

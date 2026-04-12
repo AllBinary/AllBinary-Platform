@@ -102,7 +102,7 @@ public class PersistentInputMapping
     public void init(final AbeClientInformationInterface abeClientInformation) 
     throws Exception
     {
-        this.logUtil.put(commonStrings.START, this, commonStrings.INIT);
+        this.logUtil.putF(commonStrings.START, this, commonStrings.INIT);
         //Write out the default mappings and reload if something went wrong
         //This could happen if file is not deleted between versions and something changed
         try
@@ -154,7 +154,7 @@ public class PersistentInputMapping
         stringBuffer.append(" to: ");
         stringBuffer.appendint(totalMappedTo);
         
-        this.logUtil.put(stringBuffer.toString(), this, commonStrings.INIT);
+        this.logUtil.putF(stringBuffer.toString(), this, commonStrings.INIT);
     }
 
     public void setInputMappingEventListenerInterface(

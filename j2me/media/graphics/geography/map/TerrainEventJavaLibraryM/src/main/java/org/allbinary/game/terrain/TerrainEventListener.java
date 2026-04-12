@@ -21,7 +21,7 @@ implements TerrainEventListenerInterface
     @Override
     public void onTerrainEvent(TerrainEvent terrainEvent)
     {
-        // this.logUtil.put("TerrainEvent: " +
+        // this.logUtil.putF("TerrainEvent: " +
         // terrainEvent.getBasicTerrainInfo().getAngle().getValue(), this, "onTerrainEvent");
         this.list.clear();
         this.list.add(terrainEvent);

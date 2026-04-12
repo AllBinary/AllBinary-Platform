@@ -41,7 +41,7 @@ public class InputAutomationRobotOSGIServiceVisitor
     {
         try
         {
-            this.logUtil.put(this.commonStrings.START, this, "visit");
+            this.logUtil.putF(this.commonStrings.START, this, "visit");
             
             final InputAutomationRobotServiceInterface
                 inputAutomationRobotServiceInterface =
@@ -52,7 +52,7 @@ public class InputAutomationRobotOSGIServiceVisitor
             
             for(int index = 0; index < inputRobotInterfaceArray.length; index++)
             {
-                this.logUtil.put("Adding: " + 
+                this.logUtil.putF("Adding: " + 
                     inputRobotInterfaceArray[index].getName(), this, "visit");
                 InputRobotFactory.getInstance().add(inputRobotInterfaceArray[index]);
             }

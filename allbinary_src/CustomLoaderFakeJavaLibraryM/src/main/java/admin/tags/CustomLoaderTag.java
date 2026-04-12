@@ -73,7 +73,7 @@ public class CustomLoaderTag extends CustomTagSupport
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
          {
-            this.logUtil.put(this.commonStrings.START, this, "doStartTag()");
+            this.logUtil.putF(this.commonStrings.START, this, tagStrings.DO_START_TAG);
          }
          
          if(command!=null)

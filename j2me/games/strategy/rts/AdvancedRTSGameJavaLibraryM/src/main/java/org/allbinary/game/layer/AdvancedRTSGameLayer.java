@@ -453,10 +453,9 @@ public class AdvancedRTSGameLayer extends RTSLayer
         
         if(this.isSelected())
         {
-        this.logUtil.put(
+        this.logUtil.putF(
                 geographicMapCellPosition.toString() + " and " +  
-                " path: " + this.getCurrentGeographicMapCellHistory().getTracked().toString(), 
-                this, "buildingChase");
+                " path: " + this.getCurrentGeographicMapCellHistory().getTracked().toString(), this, "buildingChase");
         }
         
         if (geographicMapCellPosition != SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION)
@@ -487,7 +486,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
                     //this.getCurrentGeographicMapCellHistory().getFirstUnvisited();
                     if(this.isSelected())
                     {
-                        this.logUtil.put("Not handled", this, "buildingChase");
+                        this.logUtil.putF("Not handled", this, "buildingChase");
                     }
                     
                     return;
@@ -518,9 +517,8 @@ public class AdvancedRTSGameLayer extends RTSLayer
 
             if(this.isSelected())
             {
-            this.logUtil.put(
-                    "Direction Around Building path: " + pathDirection.toString(), 
-                    this, "buildingChase");
+            this.logUtil.putF(
+                    "Direction Around Building path: " + pathDirection.toString(), this, "buildingChase");
             }
             
             if (pathDirection == DirectionFactory.getInstance().DOWN_LEFT
@@ -528,7 +526,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
             {
                 if(this.isSelected())
                 {
-                this.logUtil.put(
+                this.logUtil.putF(
                         "Moving Around Building to the Right", this, "buildingChase");
                 }
                 this
@@ -541,7 +539,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
             {
                 if(this.isSelected())
                 {                
-                this.logUtil.put(
+                this.logUtil.putF(
                         "Moving Around Building to the Left", this, "buildingChase");
                 }
 

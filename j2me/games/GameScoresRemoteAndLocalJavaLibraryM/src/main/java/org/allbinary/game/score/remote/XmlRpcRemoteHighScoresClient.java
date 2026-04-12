@@ -63,7 +63,7 @@ public class XmlRpcRemoteHighScoresClient extends XmlRpcAbeClient
             //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
             //System.out.println(stringBuffer.toString());
-            this.logUtil.put(stringBuffer.toString(), this, commonStrings.GET);
+            this.logUtil.putF(stringBuffer.toString(), this, commonStrings.GET);
             // }
 
             //System.out.println("Renamed Server: " + serverUrl);
@@ -76,13 +76,13 @@ public class XmlRpcRemoteHighScoresClient extends XmlRpcAbeClient
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
             //System.out.println("Client Info: \n" + hashtable.toString());
-            this.logUtil.put(CLIENT_INFO + hashtable.toString(), this, commonStrings.GET);
+            this.logUtil.putF(CLIENT_INFO + hashtable.toString(), this, commonStrings.GET);
             // }
 
             /*
              * if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING)) {
-             * this.logUtil.put("Xml-Rpc Client Liscense Request: \n" +
-             * client.toString(), this,commonStrings.GET); }
+             * this.logUtil.putF("Xml-Rpc Client Liscense Request: \n" +
+             * client.toString(), this, commonStrings.GET); }
              */
 
             param.addElement(hashtable);
@@ -93,20 +93,20 @@ public class XmlRpcRemoteHighScoresClient extends XmlRpcAbeClient
             /*
              * this could return without trying all servers if(result==null) {
              * //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
-             * //{ this.logUtil.put("Empty Result\n", this,commonStrings.GET); //}
+             * //{ this.logUtil.putF("Empty Result\n", this, commonStrings.GET); //}
              * return null; }
              */
 
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
             //System.out.println("Result: \n" + result.toString());
-            this.logUtil.put(RESULT + result.toString(), this, commonStrings.GET);
+            this.logUtil.putF(RESULT + result.toString(), this, commonStrings.GET);
             // }
 
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
             //System.out.println("End Trying Server #" + this.getServer() + CommonLabels.getInstance().COLON_SEP + getClientInfo().getLicenseServer(this.getServer()));
-            //this.logUtil.put("End Trying Server #" + this.getServer() + CommonLabels.getInstance().COLON_SEP + getClientInfo().getLicenseServer(this.getServer()), this, commonStrings.GET);
+            //this.logUtil.putF("End Trying Server #" + this.getServer() + CommonLabels.getInstance().COLON_SEP + getClientInfo().getLicenseServer(this.getServer()), this, commonStrings.GET);
             // }
 
             //Hashtable resultHashtable = (Hashtable) result;

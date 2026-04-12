@@ -50,21 +50,21 @@ public class BasicGameDemoPaintable
     {
         if (state == 0)
         {
-            //this.logUtil.put("Setting Main Demo State Paintable", this, "setState");
+            //this.logUtil.putF("Setting Main Demo State Paintable", this, "setState");
             this.setCurrentStatePaintable(this.getMainDemoStatePaintable());
         }
         else if (state == 1)
         {
-            //this.logUtil.put("Setting Help Paintable", this, "setState");
+            //this.logUtil.putF("Setting Help Paintable", this, "setState");
             this.setCurrentStatePaintable(this.helpPaintableInterface);
         }
         else
         {
-            //this.logUtil.put("Setting Null Paintable", this, "setState");
+            //this.logUtil.putF("Setting Null Paintable", this, "setState");
             //this.currentStatePaintable = NullPaintable.getInstance();
             this.setCurrentStatePaintable(this.ownershipPaintable);
         }
-        //this.logUtil.put("Paintable is now: ").append(this.currentStatePaintable, this, "setState");
+        //this.logUtil.putF("Paintable is now: ").append(this.currentStatePaintable, this, "setState");
     }
 
     @Override

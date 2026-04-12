@@ -36,7 +36,7 @@ public class TransformTag extends TransformInfoTag
         //this.helperObject = null;
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
         {
-            this.logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
+            this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         }
     }
 
@@ -45,7 +45,7 @@ public class TransformTag extends TransformInfoTag
         super(tagHelperFactoryInterface);
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
         {
-            this.logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
+            this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         }
     }
 
@@ -73,8 +73,8 @@ public class TransformTag extends TransformInfoTag
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
             {
-                this.logUtil.put(
-                    "Creating with: \n" + this.getPropertiesHashMap().toString(), this, "doStartTag");
+                this.logUtil.putF(
+                    "Creating with: \n" + this.getPropertiesHashMap().toString(), this, tagStrings.DO_START_TAG);
             }
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
@@ -86,7 +86,7 @@ public class TransformTag extends TransformInfoTag
                 stringBuffer.append("\nViewFile: ");
                 stringBuffer.append(this.getObjectFile());
 
-                this.logUtil.put(stringBuffer.toString(), this, "doStartTag");
+                this.logUtil.putF(stringBuffer.toString(), this, tagStrings.DO_START_TAG);
             }
 
             this.setHelper();
@@ -95,7 +95,7 @@ public class TransformTag extends TransformInfoTag
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
             {
-                this.logUtil.put("Tag End", this, "doStartTag");
+                this.logUtil.putF("Tag End", this, tagStrings.DO_START_TAG);
             }
 
             return SKIP_BODY;

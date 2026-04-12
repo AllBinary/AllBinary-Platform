@@ -46,7 +46,7 @@ implements ColorChangeListener
     @Override    
     public void onEvent(AllBinaryEventObject eventObject)
     {
-        //this.logUtil.put("Color Change Event: " + basicColor.getName(), this, "onEvent");
+        //this.logUtil.putF("Color Change Event: " + basicColor.getName(), this, "onEvent");
         final ColorChangeEvent colorChangeEvent = (ColorChangeEvent) eventObject;
         this.basicColor = colorChangeEvent.getBasicColorP();
     }    

@@ -62,7 +62,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
-            this.logUtil.put(this.commonStrings.SUCCESS,this,INSERT);
+            this.logUtil.putF(this.commonStrings.SUCCESS,this,INSERT);
          }
       }
       catch(Exception e)
@@ -168,7 +168,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
          super.deleteWhere(key,value);
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
-            this.logUtil.put(this.commonStrings.SUCCESS, this, "deleteWhere");
+            this.logUtil.putF(this.commonStrings.SUCCESS, this, "deleteWhere");
          }
       }
       catch(Exception e)
@@ -193,7 +193,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
             
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-               this.logUtil.put("Command Successful",this,"getUserRole");
+               this.logUtil.putF("Command Successful", this, "getUserRole");
             }
             return role;
          }
@@ -201,7 +201,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-               this.logUtil.put("Command Failed Incorrect Login",this,"getUserRole");
+               this.logUtil.putF("Command Failed Incorrect Login", this, "getUserRole");
             }
             return "Incorrect Login";
          }
@@ -238,7 +238,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-               this.logUtil.put("Command Success but login failed for user: " +
+               this.logUtil.putF("Command Success but login failed for user: " +
                  userName + " because user did not exist",this,"login");
             }
             return GLOBALS2.LOGINFAILED;
@@ -257,7 +257,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
                 stringBuffer.append(EQUALS);
                 stringBuffer.append(result);
 
-               this.logUtil.put(stringBuffer.toString(), this, "login");
+               this.logUtil.putF(stringBuffer.toString(), this, "login");
             }
             return GLOBALS2.LOGINSUCCESS;
          }
@@ -275,7 +275,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
                 stringBuffer.append(result);
                 stringBuffer.append(END_QUOTES);
 
-               this.logUtil.put(stringBuffer.toString(), this, "login");
+               this.logUtil.putF(stringBuffer.toString(), this, "login");
             }
             return GLOBALS2.LOGINFAILED;
          }

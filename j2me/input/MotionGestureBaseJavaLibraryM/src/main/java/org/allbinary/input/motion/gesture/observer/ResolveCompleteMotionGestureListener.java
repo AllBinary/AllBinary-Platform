@@ -30,7 +30,7 @@ public class ResolveCompleteMotionGestureListener implements CompleteMotionGestu
     public ResolveCompleteMotionGestureListener() {
         
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        this.logUtil.put("MotionGesture to CompleteMotionGesture Reciever", this, commonStrings.CONSTRUCTOR);
+        this.logUtil.putF("MotionGesture to CompleteMotionGesture Reciever", this, commonStrings.CONSTRUCTOR);
 
         CompleteMotionGestureInputEventHandler.getInstance().addListener(
                 //SingleKeyPress
@@ -41,7 +41,7 @@ public class ResolveCompleteMotionGestureListener implements CompleteMotionGestu
     public void onMotionGestureCompleted(BasicArrayList list)
     throws Exception{
         
-        //this.logUtil.put("Gesture Completed: " + list.toString(), this, "mouseGestureCompleted");
+        //this.logUtil.putF("Gesture Completed: " + list.toString(), this, "mouseGestureCompleted");
        //PreLogUtil.put("Gesture Completed: " + list.toString(), this, "mouseGestureCompleted");
         
         MotionGestureConfiguration configuration = 
@@ -50,7 +50,7 @@ public class ResolveCompleteMotionGestureListener implements CompleteMotionGestu
         BasicArrayList commandActionsList = configuration.getAssociateCommandActionsList();
         
         int size = commandActionsList.size();
-        //this.logUtil.put("commandActionsList.size(): " + size, this, "mouseGestureCompleted");
+        //this.logUtil.putF("commandActionsList.size(): " + size, this, "mouseGestureCompleted");
         
         for(int index = size - 1; index >= 0; index--) 
         {
@@ -63,8 +63,7 @@ public class ResolveCompleteMotionGestureListener implements CompleteMotionGestu
                 GameKeyCompleteMotionGestureInputEvent completeMotionGestureInputEvent = 
                     (GameKeyCompleteMotionGestureInputEvent) association.getCommandAction();
                 
-                //this.logUtil.put("Gesture Completed: " +  completeMotionGestureInputEvent.getMotionGestureInput().getName(),
-                  //      this, "mouseGestureCompleted");
+                //this.logUtil.putF("Gesture Completed: " +  completeMotionGestureInputEvent.getMotionGestureInput().getName(), //      this, "mouseGestureCompleted");
                 CompleteMotionGestureInputEventHandler.getInstance().fireEvent(
                         completeMotionGestureInputEvent);
 

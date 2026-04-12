@@ -82,7 +82,7 @@ public class ResourceUtil {
 
         if (inputStream != null) {
 //            stringMaker.delete(0, stringMaker.length());
-//            this.logUtil.put(stringMaker.append(RESOURCE_FOUND).append(resource).toString(), this, METHOD_NAME);
+//            this.logUtil.putF(stringMaker.append(RESOURCE_FOUND).append(resource).toString(), this, METHOD_NAME);
             final byte[] byteArray = new byte[inputStream.available()];
             StreamUtil.getInstance().getByteArray(inputStream, new ByteArrayOutputStream(), byteArray);
             return new ByteArrayInputStream(byteArray);

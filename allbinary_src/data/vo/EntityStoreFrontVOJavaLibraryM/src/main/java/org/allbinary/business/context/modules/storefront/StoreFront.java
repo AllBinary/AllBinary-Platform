@@ -106,7 +106,7 @@ public class StoreFront implements StoreFrontInterface
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
         {
-            this.logUtil.put("TWB- needs update for adding and updating context configuration - currently defaults to admin context config", this, "StoreFront");
+            this.logUtil.putF("TWB- needs update for adding and updating context configuration - currently defaults to admin context config", this, "StoreFront");
         }
 
         //TWB - Define Context From request HashMap - new Imp

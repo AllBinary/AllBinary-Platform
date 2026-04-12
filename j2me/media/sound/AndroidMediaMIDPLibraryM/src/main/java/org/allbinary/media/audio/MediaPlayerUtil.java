@@ -34,7 +34,7 @@ public class MediaPlayerUtil
         int index = 0;
         while (mediaPlayer.isPlaying() && index < 50)
         {
-            this.logUtil.put(MESSAGE, this, METHOD_NAME);
+            this.logUtil.putF(MESSAGE, this, METHOD_NAME);
             Thread.sleep(100);
             index++;
         }

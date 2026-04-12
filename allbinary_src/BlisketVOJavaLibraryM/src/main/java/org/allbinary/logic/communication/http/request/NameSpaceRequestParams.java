@@ -43,7 +43,7 @@ public class NameSpaceRequestParams extends RequestParams
       super();
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
-         this.logUtil.put("Constructing empty", this, this.commonStrings.CONSTRUCTOR);
+         this.logUtil.putF("Constructing empty", this, this.commonStrings.CONSTRUCTOR);
       }
    }
    
@@ -52,7 +52,7 @@ public class NameSpaceRequestParams extends RequestParams
       super(httpServletRequest);
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
-         this.logUtil.put("Constructing from HttpServletRequest", this, this.commonStrings.CONSTRUCTOR);
+         this.logUtil.putF("Constructing from HttpServletRequest", this, this.commonStrings.CONSTRUCTOR);
       }
    }
    
@@ -61,7 +61,7 @@ public class NameSpaceRequestParams extends RequestParams
       super(pageContext);
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
-         this.logUtil.put("Constructing from PageContext", this, this.commonStrings.CONSTRUCTOR);
+         this.logUtil.putF("Constructing from PageContext", this, this.commonStrings.CONSTRUCTOR);
       }
    }
    
@@ -118,7 +118,7 @@ public class NameSpaceRequestParams extends RequestParams
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
-         this.logUtil.put("\nAppending Multinode Element: " +
+         this.logUtil.putF("\nAppending Multinode Element: " +
          multiElementPackage + "[" + indexValue + "] " +
          selectedValue, this, "createPackageMultiNode");
       }
@@ -150,7 +150,7 @@ public class NameSpaceRequestParams extends RequestParams
          //getName()
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
          {
-            this.logUtil.put("\nAppending Document Root: " +
+            this.logUtil.putF("\nAppending Document Root: " +
             "\nElementName: " + rootElementPackage +
             "\nProperties: " + packagePropertiesHashMap.toString(),
             this, "getRootNode");
@@ -164,7 +164,7 @@ public class NameSpaceRequestParams extends RequestParams
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
          {
-            this.logUtil.put("\nAppended Document Created: " +
+            this.logUtil.putF("\nAppended Document Created: " +
             DomDocumentHelper.toString(document),
             this, "getRootNode");
          }
@@ -175,7 +175,7 @@ public class NameSpaceRequestParams extends RequestParams
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
          {
-            this.logUtil.put("\nUsing Existing Root Node", this, "getRootNode");
+            this.logUtil.putF("\nUsing Existing Root Node", this, "getRootNode");
          }
          return rootNode;
       }
@@ -189,7 +189,7 @@ public class NameSpaceRequestParams extends RequestParams
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
-         this.logUtil.put(new StringMaker().append("\nAdding Any New Properties: ")
+         this.logUtil.putF(new StringMaker().append("\nAdding Any New Properties: ")
              .append(nextPackagePropertiesHashMap.toString()).append("\nto node: ").append(node.getNodeName()).toString(),
              this, "addNewProperties");
       }
@@ -216,7 +216,7 @@ public class NameSpaceRequestParams extends RequestParams
 
             if( org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
             {
-               this.logUtil.put(
+               this.logUtil.putF(
                        "\nIf property: \"" + nextPropertyName + " is the same as:\n" +
                "Node: " + node.getNodeName() + " then: " + propertyValue + "==" + 
                existingElementNodeTextNodeValue, this, "addNewProperties");
@@ -227,7 +227,7 @@ public class NameSpaceRequestParams extends RequestParams
             {
                if(  org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
                {
-                  this.logUtil.put("At least one Property from NameSpaceRequest Package was different from Node", this, "addNewProperties");
+                  this.logUtil.putF("At least one Property from NameSpaceRequest Package was different from Node", this, "addNewProperties");
                }
                //found a property that does not match
                throw new Exception("Property Modifications Should Not Occur");
@@ -238,7 +238,7 @@ public class NameSpaceRequestParams extends RequestParams
             //found a new property and now add it
             if( org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
             {
-               this.logUtil.put(
+               this.logUtil.putF(
                        "Adding a new Property: " + nextPropertyName + "=" + propertyValue,
                        this, "addNewProperties");
             }
@@ -260,7 +260,7 @@ public class NameSpaceRequestParams extends RequestParams
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
-         this.logUtil.put(
+         this.logUtil.putF(
                  "\nComparing the value property in: " +
          nextPackagePropertiesHashMap.toString() +
          "\nto node child leaves of node: " + node.getNodeName(),
@@ -283,7 +283,7 @@ public class NameSpaceRequestParams extends RequestParams
          {
             if( org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
             {
-               this.logUtil.put("Value Node is the same", this, "isElementValueTextNodeEqual");
+               this.logUtil.putF("Value Node is the same", this, "isElementValueTextNodeEqual");
             }
             return true;
          }
@@ -302,7 +302,7 @@ public class NameSpaceRequestParams extends RequestParams
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
-         this.logUtil.put("\nComparing Properties of: " + elementNodeVector.size() + " Nodes", this, "isElementValueTextNodeUnique");
+         this.logUtil.putF("\nComparing Properties of: " + elementNodeVector.size() + " Nodes", this, "isElementValueTextNodeUnique");
       }
       
       //see if a value node contains unique values
@@ -339,7 +339,7 @@ public class NameSpaceRequestParams extends RequestParams
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
          {
-            this.logUtil.put(new StringMaker().append("\nTrying to Add Child to Node: ").append(node.getNodeName()).append(
+            this.logUtil.putF(new StringMaker().append("\nTrying to Add Child to Node: ").append(node.getNodeName()).append(
             "\nwith new PackageName: ").append(nextPackageName).toString(), this, "addChildren");
          }
          
@@ -353,7 +353,7 @@ public class NameSpaceRequestParams extends RequestParams
          //Document already has atleast 1 node with the same package name
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
          {
-            this.logUtil.put("\nDocument Contains " + elementNodeVector.size() +
+            this.logUtil.putF("\nDocument Contains " + elementNodeVector.size() +
             " Node(s) With Same Name", this, "addChildren");
          }
          
@@ -371,7 +371,7 @@ public class NameSpaceRequestParams extends RequestParams
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
             {
-               this.logUtil.put("Adding Package with different value node", this, "add()");
+               this.logUtil.putF("Adding Package with different value node", this, "add()");
             }
          }
          */
@@ -391,9 +391,9 @@ public class NameSpaceRequestParams extends RequestParams
             
             if( org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
             {
-               this.logUtil.put("\nAppended Package: " + node.getNodeName(),
+               this.logUtil.putF("\nAppended Package: " + node.getNodeName(),
                this, "addChildren");
-               this.logUtil.put("\nAppended Document Created: " + DomDocumentHelper.toString(document),
+               this.logUtil.putF("\nAppended Document Created: " + DomDocumentHelper.toString(document),
                this, "addChildren");
             }
          }
@@ -402,7 +402,7 @@ public class NameSpaceRequestParams extends RequestParams
             {
                if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
                {
-                  this.logUtil.put("Package is MultiNode: just append", this, "addChildren");
+                  this.logUtil.putF("Package is MultiNode: just append", this, "addChildren");
                }
                
                Node nextNode = this.createPackageMultiNode(
@@ -413,7 +413,7 @@ public class NameSpaceRequestParams extends RequestParams
                
                if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
                {
-                  this.logUtil.put("\nAppended Multinode Element: " +
+                  this.logUtil.putF("\nAppended Multinode Element: " +
                   DomDocumentHelper.toString(document),
                   this, "addChildren");
                }
@@ -422,7 +422,7 @@ public class NameSpaceRequestParams extends RequestParams
             {
                if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
                {
-                  this.logUtil.put("Value Node already exists: Now compare (properties to leaf nodes)", this, "addChildren");
+                  this.logUtil.putF("Value Node already exists: Now compare (properties to leaf nodes)", this, "addChildren");
                }
 
                Node nodeNameDuplicateNode = (Node)
@@ -434,7 +434,7 @@ public class NameSpaceRequestParams extends RequestParams
                //Not Unique so move on to duplicate
                if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
                {
-                  this.logUtil.put("\nDuplicate Node Found: Moving to next child ^", this, "addChildre");
+                  this.logUtil.putF("\nDuplicate Node Found: Moving to next child ^", this, "addChildre");
                }
                //elementNodeVector.get(0);
                //node = nodeNameDuplicateNode;
@@ -447,7 +447,7 @@ public class NameSpaceRequestParams extends RequestParams
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
-         this.logUtil.put(new StringMaker().append("NameSpace key: ").append(key).append(" Value: ").append(value).toString(), this, "addNameSpace");
+         this.logUtil.putF(new StringMaker().append("NameSpace key: ").append(key).append(" Value: ").append(value).toString(), this, "addNameSpace");
       }
       
       final NameSpaceRequestParam nameSpaceRequestParam = new NameSpaceRequestParam(key, value);
@@ -485,7 +485,7 @@ public class NameSpaceRequestParams extends RequestParams
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
       org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
-         this.logUtil.put("NameSpace Request Size: " + keys.size(), this, "toHashMap");
+         this.logUtil.putF("NameSpace Request Size: " + keys.size(), this, "toHashMap");
       }
       
       for (int i = 0; i < keySize; i++)
@@ -498,7 +498,7 @@ public class NameSpaceRequestParams extends RequestParams
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
          {
-            this.logUtil.put("Request Param Class: " + className, this,"toHashMap");
+            this.logUtil.putF("Request Param Class: " + className, this,"toHashMap");
          }
          
          if(this.getMap().get(key) instanceof String)
@@ -509,7 +509,7 @@ public class NameSpaceRequestParams extends RequestParams
             {
                if(  org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
                {
-                  this.logUtil.put("Not NameSpace key: " + key + " Value: " + value,this,"toHashMap()");
+                  this.logUtil.putF("Not NameSpace key: " + key + " Value: " + value,this,"toHashMap()");
                }
                
                hashMap.put(new String(key), new String(value));
@@ -529,7 +529,7 @@ public class NameSpaceRequestParams extends RequestParams
                {
                   if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
                   {
-                     this.logUtil.put("Not NameSpace key: " + key + " Value: " + values[0],this,"toHashMap()");
+                     this.logUtil.putF("Not NameSpace key: " + key + " Value: " + values[0],this,"toHashMap()");
                   }
                   
                   hashMap.put(new String(key), new String(values[0]));
@@ -544,7 +544,7 @@ public class NameSpaceRequestParams extends RequestParams
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
-         this.logUtil.put("NameSpaceRequestParams: " + this.getMap().toString() +
+         this.logUtil.putF("NameSpaceRequestParams: " + this.getMap().toString() +
          "\ntoHashMap(): " + hashMap.toString() +
          "\nDocument Created: " + DomDocumentHelper.toString(document),
          this, "toHashMap()");
@@ -590,7 +590,7 @@ public class NameSpaceRequestParams extends RequestParams
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
-         this.logUtil.put("\nComparing the properties in: " +
+         this.logUtil.putF("\nComparing the properties in: " +
          nextPackagePropertiesHashMap.toString() +
          "\nto node child leaves of node: " + node.getNodeName(),
          this, "isPropertiesSame()");
@@ -616,7 +616,7 @@ public class NameSpaceRequestParams extends RequestParams
             
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
             {
-               this.logUtil.put("\nIf property: \"" + nextPropertyName + " is the same as:\n" +
+               this.logUtil.putF("\nIf property: \"" + nextPropertyName + " is the same as:\n" +
                "Node: " + node.getNodeName() + " then: " + propertyValue + "==" + existingElementNodeTextNodeValue, this, "isPropertiesSame()");
             }
             
@@ -625,7 +625,7 @@ public class NameSpaceRequestParams extends RequestParams
             {
                if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
                {
-                  this.logUtil.put("At least one Property from NameSpaceRequest Package was different from Node", this, "isPropertiesSame()");
+                  this.logUtil.putF("At least one Property from NameSpaceRequest Package was different from Node", this, "isPropertiesSame()");
                }
                //found a property that does not match
                return false;
@@ -635,7 +635,7 @@ public class NameSpaceRequestParams extends RequestParams
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
             {
-               this.logUtil.put("A new property from NameSpaceRequest Package existed so it is not the same.", this, "isPropertiesSame()");
+               this.logUtil.putF("A new property from NameSpaceRequest Package existed so it is not the same.", this, "isPropertiesSame()");
             }
             return false;
          }
@@ -652,7 +652,7 @@ public class NameSpaceRequestParams extends RequestParams
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
-         this.logUtil.put("\nComparing the properties in: " +
+         this.logUtil.putF("\nComparing the properties in: " +
          nextPackagePropertiesHashMap.toString() +
          "\nto node child leaves of node: " + node.getNodeName(),
          this, "isPropertiesSame()");
@@ -678,7 +678,7 @@ public class NameSpaceRequestParams extends RequestParams
             
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
             {
-               this.logUtil.put("\nIf property: \"" + nextPropertyName + " is the same as:\n" +
+               this.logUtil.putF("\nIf property: \"" + nextPropertyName + " is the same as:\n" +
                "Node: " + node.getNodeName() + " then: " + propertyValue + "==" + existingElementNodeTextNodeValue, this, "isPropertiesSame()");
             }
             
@@ -687,7 +687,7 @@ public class NameSpaceRequestParams extends RequestParams
             {
                if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
                {
-                  this.logUtil.put("At least one Property from NameSpaceRequest Package was different from Node", this, "isPropertiesSame()");
+                  this.logUtil.putF("At least one Property from NameSpaceRequest Package was different from Node", this, "isPropertiesSame()");
                }
                //found a property that does not match
                return false;
@@ -712,7 +712,7 @@ public class NameSpaceRequestParams extends RequestParams
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
-         this.logUtil.put("\nComparing Properties of: " + elementNodeVector.size() + " Nodes", this, "getNodeWithDuplicatePropertiesFromVector()");
+         this.logUtil.putF("\nComparing Properties of: " + elementNodeVector.size() + " Nodes", this, "getNodeWithDuplicatePropertiesFromVector()");
       }
       
       int index = 0;

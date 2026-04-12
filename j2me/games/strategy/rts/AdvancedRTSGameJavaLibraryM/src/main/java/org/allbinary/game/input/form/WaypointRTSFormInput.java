@@ -249,7 +249,7 @@ public class WaypointRTSFormInput extends RTSFormInput
         final AllBinaryLayerManager layerManager, CustomItem item, int index)
         throws Exception
     {
-        this.logUtil.put("Set Sticking Item: " + item, this, "processSticky");
+        this.logUtil.putF("Set Sticking Item: " + item, this, "processSticky");
 
         this.setSelectedStickyItem(item);
         this.setSelectedStickyItemIndex(index);
@@ -263,7 +263,7 @@ public class WaypointRTSFormInput extends RTSFormInput
         final AllBinaryLayerManager layerManager, final RTSLayer layerInterface, final int itemIndex) 
     throws Exception
     {
-        this.logUtil.put("Layer: " + layerInterface, this, "attemptBuild");
+        this.logUtil.putF("Layer: " + layerInterface, this, "attemptBuild");
 
         if(layerInterface == null) {
             this.logUtil.put("Layer was null", this, "attemptBuild", new Exception());
@@ -276,7 +276,7 @@ public class WaypointRTSFormInput extends RTSFormInput
         BasicArrayList list =
             geographicMapCellPositionArea.getOccupyingGeographicMapCellPositionList();
 
-        //this.logUtil.put("List: " + list, this, "attemptBuild");
+        //this.logUtil.putF("List: " + list, this, "attemptBuild");
 
         if (DropCellPositionHistory.getInstance().anyCellPositionWithDrop(list) ||
             WaypointCellPositionHistory.getInstance().anyCellPositionWithDrop(list))
@@ -359,7 +359,7 @@ public class WaypointRTSFormInput extends RTSFormInput
         stringBuffer.append(" with ");
         stringBuffer.appendint(capital.getTotalMoney());
 
-        this.logUtil.put(
+        this.logUtil.putF(
                 stringBuffer.toString(), this, "attemptBuild");
 
         if (cost <= capital.getTotalMoney())
@@ -443,11 +443,10 @@ public class WaypointRTSFormInput extends RTSFormInput
         int occupySize = occupyList.size();
         int surroundSize = surroundList.size();
 
-        this.logUtil.put(
+        this.logUtil.putF(
             "occupySize: " + occupySize +
             " surroundSize: " + surroundSize +
-            " surroundList: " + surroundList,
-            this, "isSurroundingCellsOffMap");
+            " surroundList: " + surroundList, this, "isSurroundingCellsOffMap");
 
         boolean isSurroundOffMap = false;
         if (occupySize == 1 && surroundSize != 8)

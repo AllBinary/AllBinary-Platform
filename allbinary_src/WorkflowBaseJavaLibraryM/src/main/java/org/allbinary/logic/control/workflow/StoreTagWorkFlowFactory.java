@@ -57,7 +57,7 @@ public class StoreTagWorkFlowFactory
                 stringBuffer.append(instance.getClass().getName());
 
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                this.logUtil.put(stringBuffer.toString(), this, commonStrings.GET_INSTANCE);
+                this.logUtil.putF(stringBuffer.toString(), this, commonStrings.GET_INSTANCE);
             }
 
             Object params[] = new Object[2];

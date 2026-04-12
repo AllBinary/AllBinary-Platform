@@ -47,7 +47,7 @@ public class InputAutomationConfigurationFactory
         final File file = InputAutomationConfiguration.getFile();
         if(file.isFile())
         {
-            this.logUtil.put("LoadingConfiguration", INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT);
+            this.logUtil.putF("LoadingConfiguration", INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT);
             final JAXBContext jaxbContext = JAXBContext.newInstance(InputAutomationConfiguration.class);
             final Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
             final JAXBElement<InputAutomationConfiguration> root = unmarshaller.unmarshal(new StreamSource(new FileInputStream(file)), InputAutomationConfiguration.class);
@@ -58,7 +58,7 @@ public class InputAutomationConfigurationFactory
             final List<InputAutomationModuleConfiguration> inputAutomationModuleConfigurationList = 
                     inputAutomationConfiguration.getInputAutomationModuleConfigurationList();
             
-            this.logUtil.put("isInstalled: " + inputAutomationConfiguration.isInstalled(), INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT);
+            this.logUtil.putF("isInstalled: " + inputAutomationConfiguration.isInstalled(), INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT);
 
             final int size = inputAutomationModuleConfigurationList.size();
             InputAutomationModuleConfiguration inputAutomationModuleConfiguration;
@@ -67,11 +67,11 @@ public class InputAutomationConfigurationFactory
                 inputAutomationModuleConfiguration.init(abeClientInformation);
             }
             
-            this.logUtil.put("LoadedConfiguration", INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT);
+            this.logUtil.putF("LoadedConfiguration", INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT);
         }
         else
         {
-            this.logUtil.put("New Configuration", INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT);
+            this.logUtil.putF("New Configuration", INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT);
             inputAutomationConfiguration = new InputAutomationConfiguration();
         }
     }

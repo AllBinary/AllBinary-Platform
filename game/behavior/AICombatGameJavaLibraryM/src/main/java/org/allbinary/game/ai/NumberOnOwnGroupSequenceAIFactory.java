@@ -56,7 +56,7 @@ public class NumberOnOwnGroupSequenceAIFactory
       stringBuffer.append(" + 1");
       
       final CommonStrings commonStrings = CommonStrings.getInstance();
-      this.logUtil.put(stringBuffer.toString(), this, commonStrings.GET_INSTANCE);
+      this.logUtil.putF(stringBuffer.toString(), this, commonStrings.GET_INSTANCE);
       
       if(artificialIntelligenceInterface.length - 1 > list.size())
       {

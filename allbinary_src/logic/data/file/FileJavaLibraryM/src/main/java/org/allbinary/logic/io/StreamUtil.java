@@ -68,7 +68,7 @@ public class StreamUtil {
         /*
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FILE))
         {
-        this.logUtil.put("Total Bytes Written: " + total, this, commonStrings.GET);
+        this.logUtil.putF("Total Bytes Written: " + total, this, commonStrings.GET);
         }
          */
         return outputStream;
@@ -100,7 +100,7 @@ public class StreamUtil {
     public boolean close(Closeable closeable) {
         try {
             if (closeable != null) {
-                //this.logUtil.put("Closing: " + closeable, this, CLOSE);
+                //this.logUtil.putF("Closing: " + closeable, this, CLOSE);
                 closeable.close();
             }
             return true;

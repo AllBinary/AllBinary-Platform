@@ -49,16 +49,16 @@ public class AllBinaryTiledLayer extends Layer
         
         this.setLayerWidth(width);
         this.setLayerHeight(height);
-        //this.logUtil.put("TiledLayer: w: " + width + " h: " + height, this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.putF("TiledLayer: w: " + width + " h: " + height, this, commonStrings.CONSTRUCTOR);
         super.setPosition(0, 0, 0);
-        //this.logUtil.put("TiledLayer: x: " + this.x + " y: " + this.y, this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.putF("TiledLayer: x: " + this.x + " y: " + this.y, this, commonStrings.CONSTRUCTOR);
 
         this.cellWidth = cellWidth;
         this.cellHeight = cellHeight;
         
         this.halfWidth = (this.getWidth() >> 1);
         this.halfHeight = (this.getHeight() >> 1);
-        //this.logUtil.put("TiledLayer: hw: " + this.halfWidth + " hh: " + this.halfHeight, this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.putF("TiledLayer: hw: " + this.halfWidth + " hh: " + this.halfHeight, this, commonStrings.CONSTRUCTOR);
         
         this.halfCellWidth = (cellWidth >> 1);
         this.halfCellHeight = (cellHeight >> 1);
@@ -78,7 +78,7 @@ public class AllBinaryTiledLayer extends Layer
         stringBuffer.append(" columns: ");
         stringBuffer.appendint(this.getColumns());
 
-        this.logUtil.put(stringBuffer.toString(), this, "setCells");
+        this.logUtil.putF(stringBuffer.toString(), this, "setCells");
 
         final int rows = this.getRows();
         final int columns = this.getColumns();
@@ -99,7 +99,7 @@ public class AllBinaryTiledLayer extends Layer
 //        final String UPDATE_CELLS = "updateCells";
 //        final String TO = " -> ";
 //        final String AT = " at:";
-//        this.logUtil.put(stringBuffer.append(fromTileId).append(TO).append(toTileId).toString(), this, UPDATE_CELLS);
+//        this.logUtil.putF(stringBuffer.append(fromTileId).append(TO).append(toTileId).toString(), this, UPDATE_CELLS);
 
         final int rows = this.getRows();
         final int columns = this.getColumns();

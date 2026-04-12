@@ -119,7 +119,7 @@ public class OrderHistoryHelper extends TagHelper
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put(success,this,"setOrderStatus()");
+            this.logUtil.putF(success,this,"setOrderStatus()");
          }
          return "Error Setting Order Status";
       }

@@ -42,7 +42,7 @@ public class EmailsNotUsed implements DomNodeInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
          {
-            this.logUtil.put(this.commonStrings.START, this, "toXmlNode");
+            this.logUtil.putF(this.commonStrings.START, this, "toXmlNode");
          }
 
          Node node = document.createElement(EmailData.NAME);
@@ -62,7 +62,7 @@ public class EmailsNotUsed implements DomNodeInterface
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
          {
-            this.logUtil.put(commonStrings.END, this, "toXmlNode()");
+            this.logUtil.putF(commonStrings.END, this, "toXmlNode()");
          }
          return node;
       }

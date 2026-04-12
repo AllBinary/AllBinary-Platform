@@ -38,7 +38,7 @@ public class AdminConfiguration implements AdminConfigurationInterface
 
     public AdminConfiguration() throws Exception
     {
-        this.logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
         this.contextConfigurationInterface
                 = ContextConfigurationInterfaceFactory.getInstance().getInstance(AdminConfigurationData.CONTEXTNAME);
@@ -46,21 +46,21 @@ public class AdminConfiguration implements AdminConfigurationInterface
 
     public AdminConfiguration(HttpServletRequest request) throws Exception
     {
-        this.logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
         this.getFormData(new RequestParams(request).toHashMap());
     }
 
     public AdminConfiguration(HashMap storeHashMap) throws Exception
     {
-        this.logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
         this.getFormData(storeHashMap);
     }
 
     private void getFormData(HashMap storeHashMap) throws Exception
     {
-        this.logUtil.put(commonStrings.START, this, "getFormData");
+        this.logUtil.putF(commonStrings.START, this, "getFormData");
 
         this.setContextConfigurationInterface(
                 (ContextConfigurationInterface) new ContextConfiguration(storeHashMap));

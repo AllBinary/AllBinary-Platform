@@ -59,7 +59,7 @@ public class OrderItemsRequestHelper
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put(success,this,"setOrderStatus(newStatus)");
+            this.logUtil.putF(success,this,"setOrderStatus(newStatus)");
          }
          return success;
       }
@@ -83,7 +83,7 @@ public class OrderItemsRequestHelper
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put(success,this,"setOrderStatus(newStatus)");
+            this.logUtil.putF(success,this,"setOrderStatus(newStatus)");
          }
          return success;
       }

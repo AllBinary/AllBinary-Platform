@@ -1172,7 +1172,7 @@ public class NoDecimalTrigTable
             	ratio = mathUtil.abs(ratio);
             }
 
-            //this.logUtil.put("ratioUnscaled: " + ratioUnscaled, this, ANTITAN);
+            //this.logUtil.putF("ratioUnscaled: " + ratioUnscaled, this, ANTITAN);
         }
 
         if ((dx >= 0 && dy < 0))
@@ -1183,7 +1183,7 @@ public class NoDecimalTrigTable
                 {
                     if(ratio > noDecimalTan[index - 1])
                     {
-                        //this.logUtil.put(Integer.toString(result), this, ANTITAN))
+                        //this.logUtil.putF(Integer.toString(result), this, ANTITAN));
                         return ((short) index);
                     }
                     else
@@ -1201,7 +1201,7 @@ public class NoDecimalTrigTable
             {
                 if (ratio < noDecimalTan[index] && ratio >= noDecimalTan[index - 1])
                 {
-                    //this.logUtil.put(Integer.toString(result), this, ANTITAN))
+                    //this.logUtil.putF(Integer.toString(result), this, ANTITAN));
                     return ((short) index);
                 }
             }
@@ -1215,7 +1215,7 @@ public class NoDecimalTrigTable
                 {
                     if(ratio >= noDecimalTan[index - 1])
                     {
-                        //this.logUtil.put(Integer.toString(result), this, ANTITAN))
+                        //this.logUtil.putF(Integer.toString(result), this, ANTITAN));
                         return ((short) index);
                     }
                     else
@@ -1233,7 +1233,7 @@ public class NoDecimalTrigTable
             {
                 if (ratio < noDecimalTan[index] && ratio >= noDecimalTan[index - 1])
                 {
-                    //this.logUtil.put(Integer.toString(result), this, ANTITAN);
+                    //this.logUtil.putF(Integer.toString(result), this, ANTITAN);
                     return ((short) index);
                 }
             }

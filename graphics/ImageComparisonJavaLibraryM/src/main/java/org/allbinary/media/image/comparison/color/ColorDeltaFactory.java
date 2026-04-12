@@ -36,12 +36,12 @@ public class ColorDeltaFactory
         try
         {
             
-            this.logUtil.put(commonStrings.START, instance, STATIC_BLOCK);
+            this.logUtil.putF(commonStrings.START, instance, STATIC_BLOCK);
             
             cacheInterface = (AutomaticCacheInterface) CacheInterfaceFactory.getInstance(CacheTypeFactory.getInstance().CACHE,
                 CachePolicyFactory.getInstance().THIRTY_MINUTES_TEN_THOUSAND_MAX);
             
-            this.logUtil.put(commonStrings.END, instance, STATIC_BLOCK);
+            this.logUtil.putF(commonStrings.END, instance, STATIC_BLOCK);
         }
         catch(Exception e)
         {

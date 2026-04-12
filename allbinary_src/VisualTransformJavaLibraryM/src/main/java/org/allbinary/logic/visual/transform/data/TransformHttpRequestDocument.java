@@ -65,7 +65,7 @@ public class TransformHttpRequestDocument
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(this.log(), this, this.commonStrings.CONSTRUCTOR);
+            this.logUtil.putF(this.log(), this, this.commonStrings.CONSTRUCTOR);
          }
       }
       catch(Exception e)

@@ -32,7 +32,7 @@ public class TableTag extends PropertiesTag
 //extends Table
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
-        
+    
     private String enabled;
     private TagHelperFactoryInterface tagHelperFactoryInterface;
     private TagHelperFactoryInterface tagRequestHelperFactoryInterface;
@@ -45,7 +45,7 @@ public class TableTag extends PropertiesTag
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
         {
-            this.logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
+            this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         }
     }
 
@@ -345,26 +345,26 @@ public class TableTag extends PropertiesTag
                 stringBuffer.append(" Request URI: ");
                 stringBuffer.append(request.getRequestURI());
 
-                this.logUtil.put(stringBuffer.toString(), this, "doStartTag()");
+                this.logUtil.putF(stringBuffer.toString(), this, tagStrings.DO_START_TAG);
             }
 
             if (this.getTagRequestHelperFactoryInterface() != null)
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
                 {
-                    this.logUtil.put("TableTag RequestHelper: " + this.getTagRequestHelperFactoryInterface().getClass().getName(), this, "doStartTag()");
+                    this.logUtil.putF("TableTag RequestHelper: " + this.getTagRequestHelperFactoryInterface().getClass().getName(), this, tagStrings.DO_START_TAG);
                 }
             } else
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
                 {
-                this.logUtil.put("TableTag RequestHelper: null", this, "doStartTag()");
+                this.logUtil.putF("TableTag RequestHelper: null", this, tagStrings.DO_START_TAG);
                 }
             }
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
             {
-                this.logUtil.put("TableTag this.getCommand(): " + this.getCommand(), this, "doStartTag()");
+                this.logUtil.putF("TableTag this.getCommand(): " + this.getCommand(), this, tagStrings.DO_START_TAG);
             }
 
             if (this.isEnabled())

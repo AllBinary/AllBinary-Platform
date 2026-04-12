@@ -168,7 +168,7 @@ public class BasicHud_1 //implements DisplayChangeEventListener
    {
        try
        {
-           //this.logUtil.put(commonStrings.START_LABEL).append(DisplayInfoSingleton.getInstance().toString(), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
+           //this.logUtil.putF(commonStrings.START_LABEL).append(DisplayInfoSingleton.getInstance().toString(), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
            
            final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
 

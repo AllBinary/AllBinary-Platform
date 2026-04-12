@@ -47,7 +47,7 @@ public class UpdateValidationUserView extends HttpStoreComponentView
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               this.logUtil.put("User does not exist",this,commonStrings.IS_VALID);
+               this.logUtil.putF("User does not exist",this,commonStrings.IS_VALID);
             }
             return Boolean.FALSE;
          }
@@ -79,7 +79,7 @@ public class UpdateValidationUserView extends HttpStoreComponentView
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               this.logUtil.put("User does not exist",this,"validationInfo()");
+               this.logUtil.putF("User does not exist",this,"validationInfo()");
             }
             stringBuffer.append("Unable to update user that does not exist.<br />");
          }

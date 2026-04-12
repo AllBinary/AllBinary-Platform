@@ -150,7 +150,7 @@ public class GameMidlet extends ProgressMidlet
     public GameMidlet(final ClientInformationFactory clientInformationFactory)
     {
         super(clientInformationFactory);
-        //this.logUtil.put("GameMidlet::GameMidlet", this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.putF("GameMidlet::GameMidlet", this, commonStrings.CONSTRUCTOR);
         
         //For BB can be used for J2ME as well
         SmallIntegerSingletonFactory.getInstance().init(0x291, 6);
@@ -207,7 +207,7 @@ public class GameMidlet extends ProgressMidlet
 
     protected void pauseAppBackground(final boolean background)
     {
-        this.logUtil.put(commonStrings.START, this, PAUSE_APP_BACKGROUND);
+        this.logUtil.putF(commonStrings.START, this, PAUSE_APP_BACKGROUND);
         //PreLogUtil.put(commonStrings.START, this, PAUSE_APP_BACKGROUND);
         
         if (allbinaryGameCanvasRunnableInterface != NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE)
@@ -222,7 +222,7 @@ public class GameMidlet extends ProgressMidlet
         }
         else
         {
-            this.logUtil.put("<<<<<< Null", this, PAUSE_APP_BACKGROUND);
+            this.logUtil.putF("<<<<<< Null", this, PAUSE_APP_BACKGROUND);
         }
         
         AllBinarySensorManager.getInstance().shutdown();
@@ -239,7 +239,7 @@ public class GameMidlet extends ProgressMidlet
     
     protected void unPauseAppBackground(boolean background)
     {
-        this.logUtil.put(commonStrings.START, this, UN_PAUSE_APP_BACKGROUND);
+        this.logUtil.putF(commonStrings.START, this, UN_PAUSE_APP_BACKGROUND);
         //PreLogUtil.put(commonStrings.START, this, UN_PAUSE_APP_BACKGROUND);
 
         AllBinarySensorManager.getInstance().init();
@@ -259,7 +259,7 @@ public class GameMidlet extends ProgressMidlet
         }
         else
         {
-            this.logUtil.put("<<<<<< Null", this, UN_PAUSE_APP_BACKGROUND);
+            this.logUtil.putF("<<<<<< Null", this, UN_PAUSE_APP_BACKGROUND);
         }
     }
     
@@ -292,7 +292,7 @@ public class GameMidlet extends ProgressMidlet
         try
         {
             PreLogUtil.put(GameStatisticsFactory.getInstance().toString(), this, METHOD_NAME);
-            //this.logUtil.put(commonStrings.START, this, METHOD_NAME);
+            //this.logUtil.putF(commonStrings.START, this, METHOD_NAME);
 
             final GameAdState gameAdState = gameAdStateFactory.getCurrentInstance();
             
@@ -309,20 +309,20 @@ public class GameMidlet extends ProgressMidlet
             }
             else
             {
-                this.logUtil.put(
+                this.logUtil.putF(
                     "Midlet Managment Error: Midlet Should Only Be Destroyed Once", this, METHOD_NAME);
             }
 
             super.destroyApp(true);
 
-            //this.logUtil.put(commonStrings.END, this, METHOD_NAME);
+            //this.logUtil.putF(commonStrings.END, this, METHOD_NAME);
             PreLogUtil.put(commonStrings.END, this, METHOD_NAME);
         }
         catch (Exception e)
         {
             this.logUtil.put(commonStrings.EXCEPTION, this, METHOD_NAME, e);
         }
-        this.logUtil.put(commonStrings.END, this, METHOD_NAME);
+        this.logUtil.putF(commonStrings.END, this, METHOD_NAME);
     }
  
     @Override
@@ -336,7 +336,7 @@ public class GameMidlet extends ProgressMidlet
             
             final String START_APP = "startApp";
             
-            this.logUtil.put(commonStrings.START, this, START_APP);
+            this.logUtil.putF(commonStrings.START, this, START_APP);
             //PreLogUtil.put(commonStrings.START, this, START_APP);
 
             final GameCanvasRunnableInterface gameCanvasRunnableInterface =
@@ -351,7 +351,7 @@ public class GameMidlet extends ProgressMidlet
             }
             else
             {
-                this.logUtil.put("GameCanvasRunnableInterface is available", this, START_APP);
+                this.logUtil.putF("GameCanvasRunnableInterface is available", this, START_APP);
 
                 //Starting midlet after a previous start means that we only unpause the
                 //GameCanvasRunnableInterface if it is currently displayed
@@ -361,7 +361,7 @@ public class GameMidlet extends ProgressMidlet
                 }
                 else
                 {
-                    this.logUtil.put("GameCanvasRunnableInterface is not current displayable", this, START_APP);
+                    this.logUtil.putF("GameCanvasRunnableInterface is not current displayable", this, START_APP);
                 }
             }
         }
@@ -440,7 +440,7 @@ public class GameMidlet extends ProgressMidlet
                     if (this.gameStartTimeHelper.isTime())
                     {
                         if(command == gameCommandsFactory.START_COMMAND && this.isDemoLoading()) {
-                            this.logUtil.put("Trying to Start Game Before Loading Complete", this, midletStrings.COMMAND_ACTION);
+                            this.logUtil.putF("Trying to Start Game Before Loading Complete", this, midletStrings.COMMAND_ACTION);
                         } else {
                             this.startedBefore = true;
                             this.createGame();
@@ -449,12 +449,12 @@ public class GameMidlet extends ProgressMidlet
                     }
                     else
                     {
-                        this.logUtil.put("Starting Game Too Often", this, midletStrings.COMMAND_ACTION);
+                        this.logUtil.putF("Starting Game Too Often", this, midletStrings.COMMAND_ACTION);
                     }
                 }
                 else
                 {
-                    this.logUtil.put("Already in playing state", this, COMMAND_ACTION);
+                    this.logUtil.putF("Already in playing state", this, COMMAND_ACTION);
                 }
 
             }
@@ -771,7 +771,7 @@ public class GameMidlet extends ProgressMidlet
             }
             else if (command == HighScoreUtil.SUBMIT_TEXTBOX_COMMAND)
             {
-                this.logUtil.put("Submitted Score", this, COMMAND_ACTION);
+                this.logUtil.putF("Submitted Score", this, COMMAND_ACTION);
 
                 if (displayable instanceof HighScoreTextBox) {
                     final HighScoreTextBox menuListener = (HighScoreTextBox) displayable;
@@ -912,14 +912,14 @@ public class GameMidlet extends ProgressMidlet
 
     public void startGameCanvasRunnableInterface() throws Exception
     {
-        //this.logUtil.put(commonStrings.START, this, "startGameCanvasRunnableInterface");
+        //this.logUtil.putF(commonStrings.START, this, "startGameCanvasRunnableInterface");
         
         final ThreadFactoryUtil threadFactoryUtil = ThreadFactoryUtil.getInstance();
 
         //thread = 
             thread = threadFactoryUtil.getInstance(this.allbinaryGameCanvasRunnableInterface);
 
-        this.logUtil.put(new StringMaker().append("Thread Priority: ").appendint(thread.getPriority()).toString(), this, "startGameCanvasRunnableInterface");
+        this.logUtil.putF(new StringMaker().append("Thread Priority: ").appendint(thread.getPriority()).toString(), this, "startGameCanvasRunnableInterface");
 
         // canvasThread.setPriority(Thread.NORM_PRIORITY).append(2);
         //thread.setPriority(Thread.MAX_PRIORITY);
@@ -931,7 +931,7 @@ public class GameMidlet extends ProgressMidlet
 
     protected void stopGameCanvasRunnableInterface() throws Exception
     {
-        this.logUtil.put(commonStrings.START, this, gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
+        this.logUtil.putF(commonStrings.START, this, gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
 
         GameNotificationEventHandler.getInstance().removeAllListeners();
         ColorChangeEventHandler.getInstance().removeAllListeners();
@@ -945,12 +945,12 @@ public class GameMidlet extends ProgressMidlet
             this.allbinaryGameCanvasRunnableInterface;
         if (gameCanvasRunnableInterface != NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE)
         {
-            this.logUtil.put("Set Running False", this,gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
+            this.logUtil.putF("Set Running False", this, gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
             gameCanvasRunnableInterface.setRunning(false);
         }
         else
         {
-            this.logUtil.put("StopGame - Could Not Stop", this,gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
+            this.logUtil.putF("StopGame - Could Not Stop", this, gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
         }
 
         // Wait for the thread to end then continue
@@ -967,7 +967,7 @@ public class GameMidlet extends ProgressMidlet
         }
         
 
-        this.logUtil.put(commonStrings.END, this, gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
+        this.logUtil.putF(commonStrings.END, this, gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
     }
 
     public GameCanvasRunnableInterface getGameCanvasRunnableInterface()
@@ -1016,7 +1016,7 @@ public class GameMidlet extends ProgressMidlet
 
     public void save() throws Exception
     {
-        this.logUtil.put(commonStrings.START, this, commonStrings.SAVE);
+        this.logUtil.putF(commonStrings.START, this, commonStrings.SAVE);
 
         final Hashtable hashtable = this.getCurrentStateHashtable();
         GamePersistanceSingleton.getInstance().save(abeClientInformation, hashtable);
@@ -1025,7 +1025,7 @@ public class GameMidlet extends ProgressMidlet
     @Override
     public Hashtable getCurrentStateHashtable() throws Exception
     {
-        this.logUtil.put(commonStrings.START, this, "getCurrentStateHashtable");
+        this.logUtil.putF(commonStrings.START, this, "getCurrentStateHashtable");
         final Hashtable hashtable = new Hashtable();
 
         if (allbinaryGameCanvasRunnableInterface != NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE)

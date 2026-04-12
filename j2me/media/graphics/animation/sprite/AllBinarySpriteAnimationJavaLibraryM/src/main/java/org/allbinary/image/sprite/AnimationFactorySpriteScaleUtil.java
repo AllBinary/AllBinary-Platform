@@ -53,7 +53,7 @@ public class AnimationFactorySpriteScaleUtil {
 //       final CommonStrings commonStrings = CommonStrings.getInstance();
 //       final CommonLabels commonLabels = CommonLabels.getInstance();
 //       final StringMaker stringMaker = new StringMaker();
-//       this.logUtil.put(stringMaker.append(image.getName()).append(" width: ").append(width).append(" height: ").append(height).append("scaleWidth: ").append(scaleWidth).append(" scaleHeight: ").append(scaleHeight).toString(), this, commonStrings.PROCESS);
+//       this.logUtil.putF(stringMaker.append(image.getName()).append(" width: ").append(width).append(" height: ").append(height).append("scaleWidth: ").append(scaleWidth).append(" scaleHeight: ").append(scaleHeight).toString(), this, commonStrings.PROCESS);
 
       final SpriteFactory spriteFactory = SpriteFactory.getInstance();
 
@@ -64,18 +64,18 @@ public class AnimationFactorySpriteScaleUtil {
            float scaleY = ((float) scaleHeight) / ((float) height);
            
 //           stringMaker.delete(0, stringMaker.length());
-//           this.logUtil.put(stringMaker.append(commonLabels.WIDTH_LABEL).append(width).append(commonLabels.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS);
+//           this.logUtil.putF(stringMaker.append(commonLabels.WIDTH_LABEL).append(width).append(commonLabels.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS);
 //           stringMaker.delete(0, stringMaker.length());
-//           this.logUtil.put(stringMaker.append("0scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS);
+//           this.logUtil.putF(stringMaker.append("0scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS);
 
            if ((scaleX == 1.0f && scaleY == 1.0f) || (scaleX == 0.0f || scaleY == 0.0f)) {
 //               stringMaker.delete(0, stringMaker.length());
-//               this.logUtil.put(stringMaker.append("noscale ").append(commonLabels.WIDTH_LABEL).append(width).append(commonLabels.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS);
+//               this.logUtil.putF(stringMaker.append("noscale ").append(commonLabels.WIDTH_LABEL).append(width).append(commonLabels.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS);
                scaledImage = openGLUtil.add(image);
                sprite = spriteFactory.create(scaledImage, width, height);
            } else {
 //               stringMaker.delete(0, stringMaker.length());
-//               this.logUtil.put(stringMaker.append("scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS);
+//               this.logUtil.putF(stringMaker.append("scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS);
                if(openGLESImageExclusionUtil.isCustomScaling(image)) {
                    //This does not work for J2ME.
                    final int width2 =  j2seMath.round((scaleWidth) - 0.5f);
@@ -95,7 +95,7 @@ public class AnimationFactorySpriteScaleUtil {
                     if(scaleWidth < width) {
                         //information_blue.png
 //                        stringMaker.delete(0, stringMaker.length());
-//                        this.logUtil.put(stringMaker
+//                        this.logUtil.putF(stringMaker
 //                            .append(image.getName())
 //                            .append(" 2.35f").toString(), this, commonStrings.PROCESS);
                         
@@ -104,7 +104,7 @@ public class AnimationFactorySpriteScaleUtil {
                     if(scaleHeight < height) {
                         //information_blue.png
 //                        stringMaker.delete(0, stringMaker.length());
-//                        this.logUtil.put(stringMaker
+//                        this.logUtil.putF(stringMaker
 //                            .append(image.getName())
 //                            .append(" 2.35f").toString(), this, commonStrings.PROCESS);
 
@@ -112,20 +112,20 @@ public class AnimationFactorySpriteScaleUtil {
                     }
 
 //                   stringMaker.delete(0, stringMaker.length());
-//                   this.logUtil.put(stringMaker
+//                   this.logUtil.putF(stringMaker
 //                       //.append(image.getName())
 //                       .append(" scale set to 1 - scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS);
                }
 
                scaledImage = imageScaleUtil.createImage(imageCache, image, scaleX, 1.0f, scaleY, 1.0f, true);
 //               stringMaker.delete(0, stringMaker.length());
-//               this.logUtil.put(stringMaker.append("scaledImage.getHeight(): ").append(scaledImage.getHeight()).append(" height * scaleY: ").append(height * scaleY).toString(), this, commonStrings.PROCESS);
+//               this.logUtil.putF(stringMaker.append("scaledImage.getHeight(): ").append(scaledImage.getHeight()).append(" height * scaleY: ").append(height * scaleY).toString(), this, commonStrings.PROCESS);
                sprite = spriteFactory.create(scaledImage, (int) (width * scaleX), (int) (height * scaleY));
            }
            
        } else {
 //           stringMaker.delete(0, stringMaker.length());
-//           this.logUtil.put(stringMaker.append("noscale2").append(commonLabels.WIDTH_LABEL).append(width).append(commonLabels.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS);
+//           this.logUtil.putF(stringMaker.append("noscale2").append(commonLabels.WIDTH_LABEL).append(width).append(commonLabels.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS);
            scaledImage = openGLUtil.add(image);
            sprite = spriteFactory.create(scaledImage, width, height);
        }

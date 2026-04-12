@@ -70,7 +70,7 @@ public class NonPlayerTopViewCharacterBehavior extends TopViewCharacterBehavior 
             final boolean hasSolidBlock = this.hasSolidBlock(geographicMapInterfaceArray, geographicMapCellTypeArray);
 
             if (!hasSolidBlock) {
-                // this.logUtil.put("Cliff Found: " +
+                // this.logUtil.putF("Cliff Found: " +
                 // nextTerrainGeographicMapCellPosition, this, "terrainEvent");
                 final TerrainEvent terrainEvent = TerrainEventCircularStaticPool.getInstance().getInstance(this.CLIFF);
                 TerrainEventHandler.getInstance(layer).fireEvent(terrainEvent);

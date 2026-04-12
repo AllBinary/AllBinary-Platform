@@ -55,9 +55,8 @@ public class WeaponLayerArrayLayerCircularStaticPool
         // Object[] objectArray = (Object[]) ALL_WEAPONLAYER_ARRAY[size];
         // WeaponLayer[] weaponLayerArray = (WeaponLayer[]) objectArray[index];
 
-        // this.logUtil.put("WeaponLayer[] Length: " +
-        // weaponLayerArray.length, this,
-        // commonStrings.GET_INSTANCE);
+        // this.logUtil.putF("WeaponLayer[] Length: " +
+        // weaponLayerArray.length, this, // commonStrings.GET_INSTANCE);
 
         circularIndexUtil.next();
 

@@ -98,7 +98,7 @@ public class TimeIntervalActionScriptCondition
         hashMap.put(TimeIntervalActionScriptConditionData.TIME, 
             Integer.toString(this.timeHelper.delay));
 
-        this.logUtil.put("HashMap: " + hashMap.toString(), this, "toHashMap()");
+        this.logUtil.putF("HashMap: " + hashMap.toString(), this, "toHashMap()");
 
         return hashMap;
     }
@@ -115,7 +115,7 @@ public class TimeIntervalActionScriptCondition
     
     public void log()
     {
-        this.logUtil.put("Time Interval: " + this.timeHelper.delay, this, "log");
+        this.logUtil.putF("Time Interval: " + this.timeHelper.delay, this, "log");
     }
 
     public TimeDelayHelper getTimeDelayHelper()

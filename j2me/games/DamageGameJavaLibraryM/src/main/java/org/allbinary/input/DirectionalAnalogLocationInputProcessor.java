@@ -87,8 +87,8 @@ public class DirectionalAnalogLocationInputProcessor
                 inputProcessorArray[this.upGameKeyEvent.getKey()].process(allbinaryLayerManager, this.upGameKeyEvent, y);
             }
             
-            //this.logUtil.put(RIGHT_TRIGGER_VALUE + rightTrigger, this, commonStrings.PROCESS);
-            //this.logUtil.put(LEFT_TRIGGER_VALUE + leftTrigger, this, commonStrings.PROCESS);
+            //this.logUtil.putF(RIGHT_TRIGGER_VALUE + rightTrigger, this, commonStrings.PROCESS);
+            //this.logUtil.putF(LEFT_TRIGGER_VALUE + leftTrigger, this, commonStrings.PROCESS);
             
             if (leftTrigger > 0) {
                 inputProcessorArray[this.leftTriggerGameKeyEvent.getKey()].process(allbinaryLayerManager, this.leftTriggerGameKeyEvent, leftTrigger);

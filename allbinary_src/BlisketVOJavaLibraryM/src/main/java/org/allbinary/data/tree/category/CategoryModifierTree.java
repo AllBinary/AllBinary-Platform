@@ -33,7 +33,7 @@ public class CategoryModifierTree extends CategoryPrivateTree implements Categor
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
       {
-         this.logUtil.put(commonStrings.START, this, "CategoryModifierTree(CategoryFactoryInterface categoryFactoryInterface)");
+         this.logUtil.putF(commonStrings.START, this, "CategoryModifierTree(CategoryFactoryInterface categoryFactoryInterface)");
       }
    }
 
@@ -46,7 +46,7 @@ public class CategoryModifierTree extends CategoryPrivateTree implements Categor
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
          {
-            this.logUtil.put("Inserting", this, "insert()");
+            this.logUtil.putF("Inserting", this, "insert()");
          }
       
          if(parentCategoryInterface.isValid().booleanValue())
@@ -62,7 +62,7 @@ public class CategoryModifierTree extends CategoryPrivateTree implements Categor
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
             {
-               this.logUtil.put("Saving", this, "insert()");
+               this.logUtil.putF("Saving", this, "insert()");
             }
 
             this.save(parentCategoryInterface);

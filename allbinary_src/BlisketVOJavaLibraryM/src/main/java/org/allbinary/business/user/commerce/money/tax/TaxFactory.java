@@ -101,7 +101,7 @@ public class TaxFactory
             {
                if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAX))
                {
-                  this.logUtil.put("Class Node Null", this, commonStrings.GET_INSTANCE);
+                  this.logUtil.putF("Class Node Null", this, commonStrings.GET_INSTANCE);
                }
             }
          }
@@ -109,7 +109,7 @@ public class TaxFactory
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAX))
             {
-               this.logUtil.put("Tax Name Node Node Children", this, commonStrings.GET_INSTANCE);
+               this.logUtil.putF("Tax Name Node Node Children", this, commonStrings.GET_INSTANCE);
             }
          }
          

@@ -48,11 +48,11 @@ public class MobileClientInformation
         final CommonStrings commonStrings = CommonStrings.getInstance();
         if (this.isHardSale())
         {
-            this.logUtil.put("Use Hard Coded Selling", this, commonStrings.CONSTRUCTOR);
+            this.logUtil.putF("Use Hard Coded Selling", this, commonStrings.CONSTRUCTOR);
         }
         else
         {
-            this.logUtil.put("Don't Use Hard Coded Selling", this, commonStrings.CONSTRUCTOR);
+            this.logUtil.putF("Don't Use Hard Coded Selling", this, commonStrings.CONSTRUCTOR);
         }
         
     }

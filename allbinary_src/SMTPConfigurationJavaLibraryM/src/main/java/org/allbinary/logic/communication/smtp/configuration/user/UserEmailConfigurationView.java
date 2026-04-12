@@ -39,7 +39,7 @@ public class UserEmailConfigurationView implements DomNodeInterface
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
-         this.logUtil.put(this.commonStrings.CONSTRUCTOR, this, this.commonStrings.CONSTRUCTOR);
+         this.logUtil.putF(this.commonStrings.CONSTRUCTOR, this, this.commonStrings.CONSTRUCTOR);
       }
 
       this.userEmailConfigurationInterface = (UserEmailConfigurationInterface) new UserEmailConfiguration();

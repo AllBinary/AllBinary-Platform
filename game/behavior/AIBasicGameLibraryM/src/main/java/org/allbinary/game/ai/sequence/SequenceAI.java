@@ -51,7 +51,7 @@ public class SequenceAI extends ArrayAI
           artificialIntelligenceTransitionInterface.transition();
       }
 
-      //this.logUtil.put("Current AI: " + this.getSelectedArtificialIntelligenceInterface(), this, commonStrings.GET_INSTANCE);
+      //this.logUtil.putF("Current AI: " + this.getSelectedArtificialIntelligenceInterface(), this, commonStrings.GET_INSTANCE);
 
    }
 

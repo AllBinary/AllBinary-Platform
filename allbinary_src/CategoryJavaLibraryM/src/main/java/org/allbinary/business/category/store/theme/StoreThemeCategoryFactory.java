@@ -39,7 +39,7 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
       {
-         this.logUtil.put(commonStrings.START, this, "StoreCategoryFactory(TransformInfoInterface transformInfoInterface)");
+         this.logUtil.putF(commonStrings.START, this, "StoreCategoryFactory(TransformInfoInterface transformInfoInterface)");
       }
 
       this.transformInfoInterface = transformInfoInterface;

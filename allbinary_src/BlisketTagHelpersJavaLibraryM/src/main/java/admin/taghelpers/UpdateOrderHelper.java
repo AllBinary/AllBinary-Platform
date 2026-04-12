@@ -191,7 +191,7 @@ public class UpdateOrderHelper
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put(success,this,"update()");
+            this.logUtil.putF(success,this,"update()");
          }
          return success;
       }

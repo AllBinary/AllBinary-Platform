@@ -62,7 +62,7 @@ public class ToolFactory
         {
             this.selectedTool = GraphicItemFactory.getInstance().getInstance(tool);
 
-            this.logUtil.put("New Tool: " + this.selectedTool, this, "getSelectedToolFactory");
+            this.logUtil.putF("New Tool: " + this.selectedTool, this, "getSelectedToolFactory");
 
             return this.selectedTool;
         }

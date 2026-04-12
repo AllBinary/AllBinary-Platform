@@ -55,7 +55,7 @@ public class NoTemplateTransformInfoObjectConfig extends TransformInfoObjectConf
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         this.logUtil.put("Initial ObjectConfig: " + docString, this, "generate()");
+         this.logUtil.putF("Initial ObjectConfig: " + docString, this, "generate()");
       }
 
       String storeName = this.getTransformInfoInterface().getStoreName();
@@ -86,7 +86,7 @@ public class NoTemplateTransformInfoObjectConfig extends TransformInfoObjectConf
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         this.logUtil.put("Final ObjectConfig: " +
+         this.logUtil.putF("Final ObjectConfig: " +
             DomDocumentHelper.toString(newObjectConfigDocument), this, "generate()");
       }
 

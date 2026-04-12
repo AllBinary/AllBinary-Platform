@@ -53,9 +53,9 @@ public class TiledLayerUtil {
         int newX = x;
         int newY = y;
 
-        // this.logUtil.put("pre scrollTerrain X: " +
+        // this.logUtil.putF("pre scrollTerrain X: " +
         // terrainTiledLayer.getXP(), this, "keepOnMap");
-        // this.logUtil.put("pre scrollTerrain Y: " +
+        // this.logUtil.putF("pre scrollTerrain Y: " +
         // terrainTiledLayer.getYP(), this, "keepOnMap");
 
         // StringMaker stringBuffer = new StringMaker();
@@ -65,8 +65,7 @@ public class TiledLayerUtil {
         {
             // Reached the right border so don't go beyond the map
             newX = maxRight;
-            // this.logUtil.put("Right: < " + maxRight, this,
-            // "keepOnMap");
+            // this.logUtil.putF("Right: < " + maxRight, this, // "keepOnMap");
             // stringBuffer.append("Right: < ");
             // stringBuffer.append(maxRight);
         }
@@ -75,9 +74,8 @@ public class TiledLayerUtil {
         {
             // Reached the left boundry so don't go beyond the map
             newX = mapBorderBufferWidth;
-            // this.logUtil.put("Left: > " +
-            // mapBorderBufferWidth, this,
-            // "keepOnMap");
+            // this.logUtil.putF("Left: > " +
+            // mapBorderBufferWidth, this, // "keepOnMap");
             // stringBuffer.append(" Left: > ");
             // stringBuffer.append(mapBorderBufferWidth);
         }
@@ -87,9 +85,7 @@ public class TiledLayerUtil {
         {
             // Reached the bottom so don't go beyond the map
             newY = maxBottom;
-            // this.logUtil.put("Bottom: < " + maxBottom,
-            // this,
-            // "keepOnMap");
+            // this.logUtil.putF("Bottom: < " + maxBottom, // this, // "keepOnMap");
             // stringBuffer.append(" Bottom: < ");
             // stringBuffer.append(maxBottom);
         }
@@ -98,26 +94,23 @@ public class TiledLayerUtil {
         {
             // Reached the top so don't go beyond the map
             newY = mapBorderBufferHeight;
-            // this.logUtil.put("Top: > " +
-            // mapBorderBufferHeight, this,
-            // "keepOnMap");
+            // this.logUtil.putF("Top: > " +
+            // mapBorderBufferHeight, this, // "keepOnMap");
             // stringBuffer.append(" Top: > ");
             // stringBuffer.append(mapBorderBufferHeight);
         }
 
         //if (x != newX || y != newY)
         //{
-            // this.logUtil.put(stringBuffer.toString() +
+            // this.logUtil.putF(stringBuffer.toString() +
             // " X: " + this.x + " Y: " + this.y, this, "keepOnMap");
             layer.setPosition(newX, newY);
         //}
 
-        // this.logUtil.put("scrollTerrain X: " +
-        // terrainTiledLayer.getXP(),
-        // this, "keepOnMap");
-        // this.logUtil.put("scrollTerrain Y: " +
-        // terrainTiledLayer.getYP(),
-        // this, "keepOnMap");
+        // this.logUtil.putF("scrollTerrain X: " +
+        // terrainTiledLayer.getXP(), // this, "keepOnMap");
+        // this.logUtil.putF("scrollTerrain Y: " +
+        // terrainTiledLayer.getYP(), // this, "keepOnMap");
     }
     */
 
@@ -127,7 +120,7 @@ public class TiledLayerUtil {
     {
         int newX = x;
 
-        // this.logUtil.put("pre scrollTerrain X: " +
+        // this.logUtil.putF("pre scrollTerrain X: " +
         // terrainTiledLayer.getXP(), this, "keepOnMap");
 
         // StringMaker stringBuffer = new StringMaker();
@@ -137,8 +130,7 @@ public class TiledLayerUtil {
         {
             // Reached the right border so don't go beyond the map
             newX = maxRight;
-            // this.logUtil.put("Right: < " + maxRight, this,
-            // "keepOnMap");
+            // this.logUtil.putF("Right: < " + maxRight, this, // "keepOnMap");
             // stringBuffer.append("Right: < ");
             // stringBuffer.append(maxRight);
         }
@@ -147,9 +139,8 @@ public class TiledLayerUtil {
         {
             // Reached the left boundry so don't go beyond the map
             newX = mapBorderBufferWidth;
-            // this.logUtil.put("Left: > " +
-            // mapBorderBufferWidth, this,
-            // "keepOnMap");
+            // this.logUtil.putF("Left: > " +
+            // mapBorderBufferWidth, this, // "keepOnMap");
             // stringBuffer.append(" Left: > ");
             // stringBuffer.append(mapBorderBufferWidth);
         }
@@ -157,14 +148,13 @@ public class TiledLayerUtil {
         return newX;
     }
 
-    public int keepOnMapY(AllBinaryTiledLayer terrainTiledLayer,
-            int y, int height, int mapBorderBufferHeight)
+    public int keepOnMapY(AllBinaryTiledLayer terrainTiledLayer, int y, int height, int mapBorderBufferHeight)
     {
         int newY = y;
 
-        // this.logUtil.put("pre scrollTerrain X: " +
+        // this.logUtil.putF("pre scrollTerrain X: " +
         // terrainTiledLayer.getXP(), this, "keepOnMap");
-        // this.logUtil.put("pre scrollTerrain Y: " +
+        // this.logUtil.putF("pre scrollTerrain Y: " +
         // terrainTiledLayer.getYP(), this, "keepOnMap");
 
         // StringMaker stringBuffer = new StringMaker();
@@ -174,9 +164,7 @@ public class TiledLayerUtil {
         {
             // Reached the bottom so don't go beyond the map
             newY = maxBottom;
-            // this.logUtil.put("Bottom: < " + maxBottom,
-            // this,
-            // "keepOnMap");
+            // this.logUtil.putF("Bottom: < " + maxBottom, // this, // "keepOnMap");
             // stringBuffer.append(" Bottom: < ");
             // stringBuffer.append(maxBottom);
         }
@@ -185,9 +173,8 @@ public class TiledLayerUtil {
         {
             // Reached the top so don't go beyond the map
             newY = mapBorderBufferHeight;
-            // this.logUtil.put("Top: > " +
-            // mapBorderBufferHeight, this,
-            // "keepOnMap");
+            // this.logUtil.putF("Top: > " +
+            // mapBorderBufferHeight, this, // "keepOnMap");
             // stringBuffer.append(" Top: > ");
             // stringBuffer.append(mapBorderBufferHeight);
         }
@@ -201,7 +188,7 @@ public class TiledLayerUtil {
     {
         int newX = x;
 
-        // this.logUtil.put("pre scrollTerrain X: " +
+        // this.logUtil.putF("pre scrollTerrain X: " +
         // terrainTiledLayer.getXP(), this, "keepOnMap");
 
         // StringMaker stringBuffer = new StringMaker();
@@ -211,8 +198,7 @@ public class TiledLayerUtil {
         {
             // Reached the right border so don't go beyond the map
             newX = maxRight;
-            // this.logUtil.put("Right: < " + maxRight, this,
-            // "keepOnMap");
+            // this.logUtil.putF("Right: < " + maxRight, this, // "keepOnMap");
             // stringBuffer.append("Right: < ");
             // stringBuffer.append(maxRight);
         }
@@ -221,9 +207,8 @@ public class TiledLayerUtil {
         {
             // Reached the left boundry so don't go beyond the map
             newX = 0;
-            // this.logUtil.put("Left: > " +
-            // mapBorderBufferWidth, this,
-            // "keepOnMap");
+            // this.logUtil.putF("Left: > " +
+            // mapBorderBufferWidth, this, // "keepOnMap");
             // stringBuffer.append(" Left: > ");
             // stringBuffer.append(mapBorderBufferWidth);
         }
@@ -231,14 +216,13 @@ public class TiledLayerUtil {
         return newX;
     }
 
-    public int keepOnMapY(AllBinaryTiledLayer terrainTiledLayer,
-            int y, int height)
+    public int keepOnMapY(AllBinaryTiledLayer terrainTiledLayer, int y, int height)
     {
         int newY = y;
 
-        // this.logUtil.put("pre scrollTerrain X: " +
+        // this.logUtil.putF("pre scrollTerrain X: " +
         // terrainTiledLayer.getXP(), this, "keepOnMap");
-        // this.logUtil.put("pre scrollTerrain Y: " +
+        // this.logUtil.putF("pre scrollTerrain Y: " +
         // terrainTiledLayer.getYP(), this, "keepOnMap");
 
         // StringMaker stringBuffer = new StringMaker();
@@ -248,9 +232,7 @@ public class TiledLayerUtil {
         {
             // Reached the bottom so don't go beyond the map
             newY = maxBottom;
-            // this.logUtil.put("Bottom: < " + maxBottom,
-            // this,
-            // "keepOnMap");
+            // this.logUtil.putF("Bottom: < " + maxBottom, // this, // "keepOnMap");
             // stringBuffer.append(" Bottom: < ");
             // stringBuffer.append(maxBottom);
         }
@@ -259,9 +241,8 @@ public class TiledLayerUtil {
         {
             // Reached the top so don't go beyond the map
             newY = 0;
-            // this.logUtil.put("Top: > " +
-            // mapBorderBufferHeight, this,
-            // "keepOnMap");
+            // this.logUtil.putF("Top: > " +
+            // mapBorderBufferHeight, this, // "keepOnMap");
             // stringBuffer.append(" Top: > ");
             // stringBuffer.append(mapBorderBufferHeight);
         }

@@ -83,15 +83,15 @@ public class ImageCopyUtil
             throws Exception
     {
         if(!features.isFeature(gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
-            this.logUtil.put(NO_COPY, this, commonStrings.CONSTRUCTOR);
+            this.logUtil.putF(NO_COPY, this, commonStrings.CONSTRUCTOR);
             return originalImage;
         }
 
         Image originalImage2 = originalImage;
         if(features.isFeature(openGLFeatureFactory.OPENGL)) {
-            //this.logUtil.put(NO_COPY2, this, commonStrings.CONSTRUCTOR);
+            //this.logUtil.putF(NO_COPY2, this, commonStrings.CONSTRUCTOR);
             //final CommonSeps commonSeps = CommonSeps.getInstance();
-            //this.logUtil.put(new StringMaker().append(NO_COPY2).append(" from: ").append(originalImage.getWidth()).append(commonSeps.SPACE).append(originalImage.getHeight()).append(" to: ").append(width).append(commonSeps.SPACE).append(height).toString(), this, commonStrings.CONSTRUCTOR);
+            //this.logUtil.putF(new StringMaker().append(NO_COPY2).append(" from: ").append(originalImage.getWidth()).append(commonSeps.SPACE).append(originalImage.getHeight()).append(" to: ").append(width).append(commonSeps.SPACE).append(height).toString(), this, commonStrings.CONSTRUCTOR);
             
             if (originalImage.getType() >= OpenGLESImage.TYPE) {
                 final OpenGLESImage openGLESImage = ((OpenGLESImage) originalImage);
@@ -134,10 +134,10 @@ public class ImageCopyUtil
 //                    final int pixel = originalMutableImage.img.getImageData().getPixel(x, y);
 //                    final byte alpha = (byte) (pixel >> 24);
 //                    BasicColor basicColor = new BasicColor(alpha, pixel);
-//                    //this.logUtil.put(basicColor.toString(), this, commonStrings.PROCESS);
+//                    //this.logUtil.putF(basicColor.toString(), this, commonStrings.PROCESS);
 //                    if (basicColor.intValue() == -1)  {
 //                        originalMutableImage.img.getImageData().setPixel(x, y, 0x00FFFFFF);
-//                        //this.logUtil.put(new StringMaker().append("x: ").append(x).append(" y: ").append(y).toString(), this, commonStrings.PROCESS);
+//                        //this.logUtil.putF(new StringMaker().append("x: ").append(x).append(" y: ").append(y).toString(), this, commonStrings.PROCESS);
 //                    } else {
 //                        //imageData0.alphaData[(y * width) + x] = alpha;
 //                        //imageData0.setAlpha(x, y, alpha);
@@ -159,9 +159,9 @@ public class ImageCopyUtil
 //                    final int pixel = originalMutableImage.img.getImageData().getPixel(x, y);
 //                    final byte alpha = (byte) (pixel >> 24);
 //                    BasicColor basicColor = new BasicColor(alpha, pixel);
-//                    //this.logUtil.put(basicColor.toString(), this, commonStrings.PROCESS);
+//                    //this.logUtil.putF(basicColor.toString(), this, commonStrings.PROCESS);
 //                    if (basicColor.intValue() == -1)  {
-//                        //this.logUtil.put(new StringMaker().append("x: ").append(x).append(" y: ").append(y).toString(), this, commonStrings.PROCESS);
+//                        //this.logUtil.putF(new StringMaker().append("x: ").append(x).append(" y: ").append(y).toString(), this, commonStrings.PROCESS);
 //                    } else {
 //                        imageData0.alphaData[(y * width) + x] = alpha;
 //                        //imageData0.setAlpha(x, y, alpha);
@@ -188,7 +188,7 @@ public class ImageCopyUtil
 //            final int[] pixelArray = new int[originalMutableImage.img.getImageData().width * originalMutableImage.img.getImageData().height];
 //            originalMutableImage.img.getImageData().getPixels(0, 0, originalMutableImage.img.getBounds().width, pixelArray, 0);
 //            //mutableImage.img.getImageData().depth = originalMutableImage.img.getImageData().depth;
-//            //this.logUtil.put("depth: " + mutableImage.img.getImageData().depth, this, commonStrings.PROCESS);
+//            //this.logUtil.putF("depth: " + mutableImage.img.getImageData().depth, this, commonStrings.PROCESS);
 //            mutableImage.img.getImageData().setPixels(0, 0, originalMutableImage.img.getBounds().width, pixelArray, 0);
 //            //mutableImage.img.getImageData().(0, 0, mutableImage.img.getBounds().width, mutableImage.img.getImageData().maskData, 0);
             
@@ -200,10 +200,10 @@ public class ImageCopyUtil
 //                    final int pixel = originalImmutableImage.img.getImageData().getPixel(x, y);
 //                    final byte alpha = (byte) (pixel >> 24);
 //                    BasicColor basicColor = new BasicColor(alpha, pixel);
-//                    //this.logUtil.put(basicColor.toString(), this, commonStrings.PROCESS);
+//                    //this.logUtil.putF(basicColor.toString(), this, commonStrings.PROCESS);
 //                    if (basicColor.intValue() == -1)  {
 //                        originalImmutableImage.img.getImageData().setPixel(x, y, 0x00FFFFFF);
-//                        //this.logUtil.put(new StringMaker().append("x: ").append(x).append(" y: ").append(y).toString(), this, commonStrings.PROCESS);
+//                        //this.logUtil.putF(new StringMaker().append("x: ").append(x).append(" y: ").append(y).toString(), this, commonStrings.PROCESS);
 //                    } else {
 //                        //imageData0.alphaData[(y * width) + x] = alpha;
 //                        //imageData0.setAlpha(x, y, alpha);
@@ -230,9 +230,9 @@ public class ImageCopyUtil
 //                    final int pixel = originalImmutableImage.img.getImageData().getPixel(x, y);
 //                    final byte alpha = (byte) (pixel >> 24);
 //                    BasicColor basicColor = new BasicColor(alpha, pixel);
-//                    //this.logUtil.put(basicColor.toString(), this, commonStrings.PROCESS);
+//                    //this.logUtil.putF(basicColor.toString(), this, commonStrings.PROCESS);
 //                    if (basicColor.intValue() == -1)  {
-//                        //this.logUtil.put(new StringMaker().append("x: ").append(x).append(" y: ").append(y).toString(), this, commonStrings.PROCESS);
+//                        //this.logUtil.putF(new StringMaker().append("x: ").append(x).append(" y: ").append(y).toString(), this, commonStrings.PROCESS);
 //                    } else {
 //                        imageData0.alphaData[(y * width) + x] = alpha;
 //                        //imageData0.setAlpha(x, y, alpha);
@@ -260,7 +260,7 @@ public class ImageCopyUtil
 //            final int[] pixelArray = new int[originalImmutableImage.img.getImageData().width * originalImmutableImage.img.getImageData().height];
 //            originalImmutableImage.img.getImageData().getPixels(0, 0, originalImmutableImage.img.getBounds().width, pixelArray, 0);
 //            //mutableImage.img.getImageData().depth = originalMutableImage.img.getImageData().depth;
-//            //this.logUtil.put("depth: " + mutableImage.img.getImageData().depth, this, commonStrings.PROCESS);
+//            //this.logUtil.putF("depth: " + mutableImage.img.getImageData().depth, this, commonStrings.PROCESS);
 //            mutableImage.img.getImageData().setPixels(0, 0, originalImmutableImage.img.getBounds().width, pixelArray, 0);
             
         }        
@@ -291,7 +291,7 @@ public class ImageCopyUtil
     {
         Image originalImage2 = originalImage;
         if(!features.isFeature(gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
-            this.logUtil.put(NO_COPY, this, commonStrings.CONSTRUCTOR);
+            this.logUtil.putF(NO_COPY, this, commonStrings.CONSTRUCTOR);
             return originalImage;
         }
         
@@ -302,10 +302,10 @@ public class ImageCopyUtil
                 return this.createImage2(originalImage, width, height, mutable);
             }
 
-            //this.logUtil.put("name: " + originalImage.getName(), this, commonStrings.CONSTRUCTOR);
-            //this.logUtil.put(NO_COPY2, this, commonStrings.CONSTRUCTOR);
+            //this.logUtil.putF("name: " + originalImage.getName(), this, commonStrings.CONSTRUCTOR);
+            //this.logUtil.putF(NO_COPY2, this, commonStrings.CONSTRUCTOR);
             //final CommonSeps commonSeps = CommonSeps.getInstance();
-            //this.logUtil.put(new StringMaker().append(NO_COPY2).append(" from: ").append(originalImage.getWidth()).append(commonSeps.SPACE).append(originalImage.getHeight()).append(" to: ").append(width).append(commonSeps.SPACE).append(height).toString(), this, commonStrings.CONSTRUCTOR);
+            //this.logUtil.putF(new StringMaker().append(NO_COPY2).append(" from: ").append(originalImage.getWidth()).append(commonSeps.SPACE).append(originalImage.getHeight()).append(" to: ").append(width).append(commonSeps.SPACE).append(height).toString(), this, commonStrings.CONSTRUCTOR);
             
             if (originalImage.getType() >= OpenGLESImage.TYPE) {
                 final OpenGLESImage openGLESImage = ((OpenGLESImage) originalImage);
@@ -335,7 +335,7 @@ public class ImageCopyUtil
 
             if(originalImmutableImage.getImage() != null) {
                 final ImageData imageData2 = originalImmutableImage.image.getImageData();
-                //this.logUtil.put(new StringMaker().append("witdh: ").append(width).append(" height: ").append(height).toString(), this, commonStrings.CONSTRUCTOR);
+                //this.logUtil.putF(new StringMaker().append("witdh: ").append(width).append(" height: ").append(height).toString(), this, commonStrings.CONSTRUCTOR);
 //                if(imageData2.data.length != 120000) {
                     final ImageData imageData = imageData2.scaledTo(width, height);
                     image = new SwtImmutableImage(originalImage.getName(), SwtDeviceComponent.createImage(imageData));
@@ -363,7 +363,7 @@ public class ImageCopyUtil
     {
         Image originalImage2 = originalImage;
         if(!features.isFeature(gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
-            this.logUtil.put(NO_COPY, this, commonStrings.CONSTRUCTOR);
+            this.logUtil.putF(NO_COPY, this, commonStrings.CONSTRUCTOR);
             return originalImage;
         }
 
@@ -375,17 +375,17 @@ public class ImageCopyUtil
             //final float width2 = originalImage.getWidth();
             //final float height2 = originalImage.getHeight();
             
-            //this.logUtil.put(NO_COPY2, this, commonStrings.CONSTRUCTOR);
+            //this.logUtil.putF(NO_COPY2, this, commonStrings.CONSTRUCTOR);
             //final CommonSeps commonSeps = CommonSeps.getInstance();
-            //this.logUtil.put(new StringMaker().append(NO_COPY2).append(" from: ").append(width2).append(commonSeps.SPACE).append(height2).append(" to: ").append(width).append(commonSeps.SPACE).append(height).toString(), this, commonStrings.CONSTRUCTOR);
+            //this.logUtil.putF(new StringMaker().append(NO_COPY2).append(" from: ").append(width2).append(commonSeps.SPACE).append(height2).append(" to: ").append(width).append(commonSeps.SPACE).append(height).toString(), this, commonStrings.CONSTRUCTOR);
             
             final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
             
             if (originalImage.getType() >= OpenGLESImage.TYPE) {
-                //this.logUtil.put("TWB0: " + originalImage.getWidth() + " h: " + originalImage.getHeight(), this, commonStrings.CONSTRUCTOR);
+                //this.logUtil.putF("TWB0: " + originalImage.getWidth() + " h: " + originalImage.getHeight(), this, commonStrings.CONSTRUCTOR);
                 final OpenGLESImage openGLESImage = ((OpenGLESImage) originalImage);
                 final OpenGLESImageProperties openGLESImageProperties = openGLESImage.openGLESImageProperties;
-                //this.logUtil.put(new StringMaker().append("0sx: ").append(openGLESImageProperties.scaleX2).append(" sy: ").append(openGLESImageProperties.scaleY2).toString(), this, commonStrings.CONSTRUCTOR);
+                //this.logUtil.putF(new StringMaker().append("0sx: ").append(openGLESImageProperties.scaleX2).append(" sy: ").append(openGLESImageProperties.scaleY2).toString(), this, commonStrings.CONSTRUCTOR);
                 final int openGLWidth = openGLESImage.openGLBitmap.getWidth();
                 final int openGLHeight = openGLESImage.openGLBitmap.getHeight();
                 openGLESImageProperties.scaleX = openGLESImageProperties.scaleX2 = (((float) width) / openGLWidth);
@@ -394,21 +394,21 @@ public class ImageCopyUtil
                 openGLESImageProperties.scaleY = openGLESImageProperties.scaleY * 0.75f;
                 
                 if(originalImage.getHeight() % 2 != 0) {
-                    //this.logUtil.put(new StringMaker().append("sx: ").append(openGLESImageProperties.scaleX2).append(" sy: ").append(openGLESImageProperties.scaleY2).toString(), this, commonStrings.CONSTRUCTOR);
+                    //this.logUtil.putF(new StringMaker().append("sx: ").append(openGLESImageProperties.scaleX2).append(" sy: ").append(openGLESImageProperties.scaleY2).toString(), this, commonStrings.CONSTRUCTOR);
                     openGLESImageProperties.scaleX2+= 1.0f / openGLWidth;
                     openGLESImageProperties.scaleY2+= 1.0f / openGLHeight;
-                    //this.logUtil.put(new StringMaker().append("sx: ").append(openGLESImageProperties.scaleX2).append(" sy: ").append(openGLESImageProperties.scaleY2).toString(), this, commonStrings.CONSTRUCTOR);
+                    //this.logUtil.putF(new StringMaker().append("sx: ").append(openGLESImageProperties.scaleX2).append(" sy: ").append(openGLESImageProperties.scaleY2).toString(), this, commonStrings.CONSTRUCTOR);
                 }
                 
                 //openGLESImageProperties.translateY = -displayInfoSingleton.getLastHeight() / 40 / openGLESImage.scaleY;
                 image = openGLESImage;
-                //this.logUtil.put(new StringMaker().append("copy").append(openGLESImage.openGLBitmap.getWidth()).append(commonSeps.COLON).append(openGLESImage.openGLBitmap.getWidth()).append(commonSeps.COLON).append(image.getWidth()).append(commonSeps.COLON).append(image.getHeight()).toString(), this, commonStrings.PROCESS);
-                //this.logUtil.put(new StringMaker().append("sx: ").append(openGLESImageProperties.scaleX2).append(" sy: ").append(openGLESImageProperties.scaleY2).toString(), this, commonStrings.CONSTRUCTOR);
-                //this.logUtil.put("TWB: " + originalImage.getWidth() + " h: " + originalImage.getHeight(), this, commonStrings.CONSTRUCTOR);
+                //this.logUtil.putF(new StringMaker().append("copy").append(openGLESImage.openGLBitmap.getWidth()).append(commonSeps.COLON).append(openGLESImage.openGLBitmap.getWidth()).append(commonSeps.COLON).append(image.getWidth()).append(commonSeps.COLON).append(image.getHeight()).toString(), this, commonStrings.PROCESS);
+                //this.logUtil.putF(new StringMaker().append("sx: ").append(openGLESImageProperties.scaleX2).append(" sy: ").append(openGLESImageProperties.scaleY2).toString(), this, commonStrings.CONSTRUCTOR);
+                //this.logUtil.putF("TWB: " + originalImage.getWidth() + " h: " + originalImage.getHeight(), this, commonStrings.CONSTRUCTOR);
                 //originalImage2 = openGLESImage.openGLBitmap.getImage();
-                //this.logUtil.put(new StringMaker().append("OpenGLESImage sx: ").append(openGLESImageProperties.scaleX).append(" sy: ").append(openGLESImage.scaleY).append("tx: ").append(openGLESImageProperties.translateX).append(" ty: ").append(openGLESImageProperties.translateY).toString(), this, commonStrings.CONSTRUCTOR);
+                //this.logUtil.putF(new StringMaker().append("OpenGLESImage sx: ").append(openGLESImageProperties.scaleX).append(" sy: ").append(openGLESImage.scaleY).append("tx: ").append(openGLESImageProperties.translateX).append(" ty: ").append(openGLESImageProperties.translateY).toString(), this, commonStrings.CONSTRUCTOR);
             } else {
-                //this.logUtil.put("type: " + originalImage.getType(), this, commonStrings.CONSTRUCTOR);
+                //this.logUtil.putF("type: " + originalImage.getType(), this, commonStrings.CONSTRUCTOR);
                 image = originalImage;
 
                 final OpenGLESImage openGLESImage = (OpenGLESImage) openGLUtil.add(image);
@@ -426,7 +426,7 @@ public class ImageCopyUtil
                 } else {
                     
 //                    if (image.getName().startsWith(this.GREEN_BUTTON)) {
-//                        this.logUtil.put(new StringMaker().append("sx: ").append(openGLESImageProperties.scaleX).append(" sy: ").append(openGLESImage.scaleY).append("tx: ").append(openGLESImageProperties.translateX).append(" ty: ").append(openGLESImageProperties.translateY).toString(), this, commonStrings.CONSTRUCTOR);
+//                        this.logUtil.putF(new StringMaker().append("sx: ").append(openGLESImageProperties.scaleX).append(" sy: ").append(openGLESImage.scaleY).append("tx: ").append(openGLESImageProperties.translateX).append(" ty: ").append(openGLESImageProperties.translateY).toString(), this, commonStrings.CONSTRUCTOR);
 //                        if(openGLESImageProperties.scaleX == 2.0f) {
 //                            openGLESImageProperties.scaleX = openGLESImageProperties.scaleX * 0.50f;
 //                            openGLESImage.scaleY = openGLESImage.scaleY * 0.40f;
@@ -445,7 +445,7 @@ public class ImageCopyUtil
 //                            openGLESImageProperties.translateX = -displayInfoSingleton.getLastWidth() / 3f / openGLESImageProperties.scaleX;
 //                            openGLESImageProperties.translateY = displayInfoSingleton.getLastHeight() / 11 / openGLESImage.scaleY;
 //                        }
-//                        this.logUtil.put(new StringMaker().append("2 sx: ").append(openGLESImageProperties.scaleX).append(" sy: ").append(openGLESImage.scaleY).append("tx: ").append(openGLESImageProperties.translateX).append(" ty: ").append(openGLESImageProperties.translateY).toString(), this, commonStrings.CONSTRUCTOR);
+//                        this.logUtil.putF(new StringMaker().append("2 sx: ").append(openGLESImageProperties.scaleX).append(" sy: ").append(openGLESImage.scaleY).append("tx: ").append(openGLESImageProperties.translateX).append(" ty: ").append(openGLESImageProperties.translateY).toString(), this, commonStrings.CONSTRUCTOR);
 //                    } else {
                         openGLESImageProperties.scaleX = openGLESImageProperties.scaleX * 0.75f;
                         openGLESImageProperties.scaleY = openGLESImageProperties.scaleY * 0.75f;
@@ -467,9 +467,9 @@ public class ImageCopyUtil
                     
                 }
 
-                //this.logUtil.put(new StringMaker().append("sx: ").append(openGLESImageProperties.scaleX).append(" sy: ").append(openGLESImage.scaleY).append(" tx: ").append(openGLESImageProperties.translateX).append(" ty: ").append(openGLESImageProperties.translateY).toString(), this, commonStrings.CONSTRUCTOR);
+                //this.logUtil.putF(new StringMaker().append("sx: ").append(openGLESImageProperties.scaleX).append(" sy: ").append(openGLESImage.scaleY).append(" tx: ").append(openGLESImageProperties.translateX).append(" ty: ").append(openGLESImageProperties.translateY).toString(), this, commonStrings.CONSTRUCTOR);
                 image = openGLESImage;
-                //this.logUtil.put("TWB: " + originalImage.getWidth() + " h: " + originalImage.getHeight(), this, commonStrings.CONSTRUCTOR);
+                //this.logUtil.putF("TWB: " + originalImage.getWidth() + " h: " + originalImage.getHeight(), this, commonStrings.CONSTRUCTOR);
                 //throw new RuntimeException();
             }
 
@@ -521,12 +521,12 @@ public class ImageCopyUtil
             throws Exception
     {
         if(!features.isFeature(gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
-            this.logUtil.put(NO_COPY, this, commonStrings.CONSTRUCTOR);
+            this.logUtil.putF(NO_COPY, this, commonStrings.CONSTRUCTOR);
             return originalImage;
         }
 
 //        final SpacialStrings spacialStrings = SpacialStrings.getInstance();
-//        this.logUtil.put(new StringBuilder().append(spacialStrings.WIDTH_LABEL).append(originalImage.getWidth()).append(spacialStrings.HEIGHT_LABEL).append(originalImage.getHeight()).toString(), this, commonStrings.CONSTRUCTOR);
+//        this.logUtil.putF(new StringBuilder().append(spacialStrings.WIDTH_LABEL).append(originalImage.getWidth()).append(spacialStrings.HEIGHT_LABEL).append(originalImage.getHeight()).toString(), this, commonStrings.CONSTRUCTOR);
 
         int newWidth = (int) (originalImage.getWidth() * canvasScale);
         int newHeight = (int) (originalImage.getHeight() * canvasScale);
@@ -541,7 +541,7 @@ public class ImageCopyUtil
             }
         }
         
-        //this.logUtil.put("newWidth: " + newWidth + " newHeight: " + newHeight, this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.putF("newWidth: " + newWidth + " newHeight: " + newHeight, this, commonStrings.CONSTRUCTOR);
         
         //final Image image = imageCreationUtil.getInstance(newWidth, newHeight);
         final Image image = this.createImage(originalImage, newWidth, newHeight);
@@ -570,7 +570,7 @@ public class ImageCopyUtil
             }
             ((org.eclipse.swt.graphics.Image) mutableImage2.getImage()).getImageData().setPixels(0, 0, image.getWidth(), newPixelArray, 0);
 
-//            this.logUtil.put(new StringMaker().append("deltas").append(spacialStrings.WIDTH_LABEL).append(halfWidthDelta).append(spacialStrings.HEIGHT_LABEL).append(halfHeightDelta).toString(), this, commonStrings.CONSTRUCTOR);
+//            this.logUtil.putF(new StringMaker().append("deltas").append(spacialStrings.WIDTH_LABEL).append(halfWidthDelta).append(spacialStrings.HEIGHT_LABEL).append(halfHeightDelta).toString(), this, commonStrings.CONSTRUCTOR);
 //            final Graphics graphics = image.getGraphics();
 //            graphics.drawImage(originalImage, halfWidthDelta, halfHeightDelta, anchor);
             //this.basicSetColorUtil.setBasicColorP(graphics, BasicColorFactory.getInstance().YELLOW);

@@ -88,7 +88,7 @@ public class InventoryHelper extends TagHelper
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put("Successfull Inventory View Summary",this,"viewSummary()");
+            this.logUtil.putF("Successfull Inventory View Summary",this,"viewSummary()");
          }
          return result;
       }
@@ -124,7 +124,7 @@ public class InventoryHelper extends TagHelper
             
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put("Successful Inventory Dynamic Search",this,"searchSingleDynamicPage()");
+            this.logUtil.putF("Successful Inventory Dynamic Search",this,"searchSingleDynamicPage()");
          }
          return result;
 

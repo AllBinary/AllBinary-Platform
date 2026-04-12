@@ -128,7 +128,7 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
         clip.addLineListener(this);
         clip.open(audioInputStream);
 
-        //PreLogUtil.put(clip.getFormat().toString(), this, commonStrings.PROCESS);
+        //PrelogUtil.putF(clip.getFormat().toString(), this, commonStrings.PROCESS);
         
         return clip;
     }
@@ -196,7 +196,7 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
     @Override
     public void update(LineEvent event)
     {
-        //this.logUtil.put("LineEvent: " + event.getType(),  this, "update");
+        //this.logUtil.putF("LineEvent: " + event.getType(), this, "update");
         if (event.getType().equals(LineEvent.Type.STOP))
         {
             //this.close();

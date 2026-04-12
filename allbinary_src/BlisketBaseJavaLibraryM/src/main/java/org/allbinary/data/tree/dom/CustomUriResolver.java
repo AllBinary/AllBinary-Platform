@@ -48,7 +48,7 @@ public class CustomUriResolver implements URIResolver
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XMLLOGGING))
          {
-            this.logUtil.put(
+            this.logUtil.putF(
                     "attempt to use xsl:import: href=" + href +
                "\nBase= " + base +
                "\nNew path= " + fileAbPath.toString() +

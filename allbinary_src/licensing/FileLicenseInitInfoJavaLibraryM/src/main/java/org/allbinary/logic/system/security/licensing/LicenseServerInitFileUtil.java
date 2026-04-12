@@ -59,7 +59,7 @@ public class LicenseServerInitFileUtil
             // File file = this.getFilesDir();
             // String path = file.getAbsolutePath() + FilePathData.SEPARATOR;
 
-            // this.logUtil.put("Path: " + path, this, AndroidStrings.getInstance().START);
+            // this.logUtil.putF("Path: " + path, this, AndroidStrings.getInstance().START);
 
             final String filePath = LicenseInitInfoUtil.getInstance().INITFILENAME;
             LicenseInitInfoUtil.getInstance().setFilePath(StringUtil.getInstance().EMPTY_STRING);
@@ -68,7 +68,7 @@ public class LicenseServerInitFileUtil
 
             if (FileFactory.getInstance().isFile(filePath))
             {
-                this.logUtil.put("Using Existing License File", this, commonStrings.INIT);
+                this.logUtil.putF("Using Existing License File", this, commonStrings.INIT);
             } else
             {
                 write();
@@ -90,7 +90,7 @@ public class LicenseServerInitFileUtil
 
             final InputStream inputStream = resourceUtil.getResourceAsStream(filePath);
 
-            this.logUtil.put("Writing Default License File", this, commonStrings.INIT);
+            this.logUtil.putF("Writing Default License File", this, commonStrings.INIT);
 
             final FileStreamFactory fileStreamFactory = FileStreamFactory.getInstance();
 
@@ -110,7 +110,7 @@ public class LicenseServerInitFileUtil
                 index++;
             }
 
-            this.logUtil.put("Wrote Bytes: " + index, this, commonStrings.INIT);
+            this.logUtil.putF("Wrote Bytes: " + index, this, commonStrings.INIT);
 
             fileOutputStream.flush();
         } catch (Exception e)

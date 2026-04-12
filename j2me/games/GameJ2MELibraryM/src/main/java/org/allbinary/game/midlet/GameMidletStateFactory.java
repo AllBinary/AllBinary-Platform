@@ -28,7 +28,7 @@ public class GameMidletStateFactory {
 	}
 
 	public void setCurrentGameState(GameState currentGameState) {
-		this.logUtil.put(new StringMaker().append("Current GameState: ").append(StringUtil.getInstance().toString(currentGameState)).toString(), this, "setCurrentGameState");
+		this.logUtil.putF(new StringMaker().append("Current GameState: ").append(StringUtil.getInstance().toString(currentGameState)).toString(), this, "setCurrentGameState");
 		this.currentGameState = currentGameState;
 	}
 	

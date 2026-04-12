@@ -94,7 +94,7 @@ public class BasketRequestHelper
          }
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put("Successfully added item to Basket",this,"addItemToBasket()");
+            this.logUtil.putF("Successfully added item to Basket",this,"addItemToBasket()");
          }
          return Boolean.TRUE;
       }
@@ -119,7 +119,7 @@ public class BasketRequestHelper
          }
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put("Successfully removed item from Basket",this,"removeItemFromBasket()");
+            this.logUtil.putF("Successfully removed item from Basket",this,"removeItemFromBasket()");
          }
          return Boolean.TRUE;
       }
@@ -155,7 +155,7 @@ public class BasketRequestHelper
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put("Successfull Adjusted Basket",this,"adjustBasket()");
+            this.logUtil.putF("Successfull Adjusted Basket",this,"adjustBasket()");
          }
          return Boolean.TRUE;
       }

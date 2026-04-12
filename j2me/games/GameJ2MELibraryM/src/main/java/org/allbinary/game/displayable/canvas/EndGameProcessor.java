@@ -37,7 +37,7 @@ public class EndGameProcessor extends Processor
         // Only Show End of game for people
         if (this.gameCanvas.isHighScoreSubmitted())
         {
-            // this.logUtil.put("Score Submitted: Time In State: " + this.getGameStateTimeHelper().getElapsed(), this, "showEndOfGame");
+            // this.logUtil.putF("Score Submitted: Time In State: " + this.getGameStateTimeHelper().getElapsed(), this, "showEndOfGame");
             if (this.gameCanvas.getGameStateTimeHelper().isElapsed(WAIT))
             {
                 if (this.gameCanvas.getGameState() == AllBinaryGameCanvas.SHOW_END_RESULT_GAME_STATE)

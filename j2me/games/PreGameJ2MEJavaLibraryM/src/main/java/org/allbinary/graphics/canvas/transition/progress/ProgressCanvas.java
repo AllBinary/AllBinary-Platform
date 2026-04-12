@@ -133,7 +133,7 @@ public class ProgressCanvas extends RunnableCanvas
 
     public void start()
     {
-        this.logUtil.put(commonStrings.START, this, commonStrings.START_METHOD_NAME);
+        this.logUtil.putF(commonStrings.START, this, commonStrings.START_METHOD_NAME);
         this.setBackground(true);
         this.gauge.setHeight(30);
         this.gauge.setLabel(commonStrings.PLEASE_WAIT);
@@ -150,7 +150,7 @@ public class ProgressCanvas extends RunnableCanvas
     
     public void startBackground(boolean background)
     {
-        this.logUtil.put(commonStrings.START, this, START_BACKGROUND);
+        this.logUtil.putF(commonStrings.START, this, START_BACKGROUND);
         final MyFont myFont = MyFont.getInstance();
         this.setBackground(background);
         this.gauge.setHeight(myFont.DEFAULT_CHAR_HEIGHT + 2);
@@ -174,7 +174,7 @@ public class ProgressCanvas extends RunnableCanvas
 
     public void end()
     {
-        this.logUtil.put(commonStrings.START, this, commonStrings.END_METHOD_NAME);
+        this.logUtil.putF(commonStrings.START, this, commonStrings.END_METHOD_NAME);
         this.gauge.setValue(this.getMaxValue());
         this.endActual();
         this.paintable = NullPaintable.getInstance();
@@ -182,7 +182,7 @@ public class ProgressCanvas extends RunnableCanvas
 
     public void endFromInitialLazyLoadingComplete()
     {
-        //this.logUtil.put(commonStrings.START, this, END_FROM_INITIAL_LAZY_LOADING_COMPLETE);
+        //this.logUtil.putF(commonStrings.START, this, END_FROM_INITIAL_LAZY_LOADING_COMPLETE);
         this.gauge.setValue(this.getMaxValue());
         this.inGameProcessor = IN_GAME_PROCESSOR;
     }
@@ -196,7 +196,7 @@ public class ProgressCanvas extends RunnableCanvas
     
     public void addEarlyPortion(int value, String text, int index)
     {
-        //this.logUtil.put(this.text, this, ADD_EARLY_PORTION);
+        //this.logUtil.putF(this.text, this, ADD_EARLY_PORTION);
         //PreLogUtil.put(this.text, this, ADD_PORTION);
         
         this.setText(new StringMaker().append(text).append(SmallIntegerSingletonFactory.getInstance().getInstance(index).toString()).toString());
@@ -209,7 +209,7 @@ public class ProgressCanvas extends RunnableCanvas
         this.setText(new StringMaker().append(text).append(SmallIntegerSingletonFactory.getInstance().getInstance(index).toString()).toString());
         
         //commonStrings.START_LABEL).append(
-        //this.logUtil.put(this.text, this, ADD_PORTION);
+        //this.logUtil.putF(this.text, this, ADD_PORTION);
         PreLogUtil.put(this.text, this, ADD_PORTION);
 
         this.gauge.setValue(this.gauge.getValue() + this.getMaxValue() / value);
@@ -221,7 +221,7 @@ public class ProgressCanvas extends RunnableCanvas
     public void addPortion(int value, String text)
     {   
         //commonStrings.START_LABEL).append(
-        //this.logUtil.put(text, this, ADD_PORTION);
+        //this.logUtil.putF(text, this, ADD_PORTION);
         
         if(this.text != text) {
             PreLogUtil.put(text, this, ADD_PORTION);
@@ -270,14 +270,12 @@ public class ProgressCanvas extends RunnableCanvas
             int index = 0;
             while ((!this.isDisplayed()) && index < 50)
             {
-                this.logUtil.put(
-                        "Waiting for it to be displayed", this,
-                        "waitUntilDisplayed");
+                this.logUtil.putF(
+                        "Waiting for it to be displayed", this, "waitUntilDisplayed");
                 Thread.sleep(200);
                 index++;
             }
-            this.logUtil.put("Displayed", this,
-                    "waitUntilDisplayed");
+            this.logUtil.putF("Displayed", this, "waitUntilDisplayed");
 
         }
         catch (Exception e)

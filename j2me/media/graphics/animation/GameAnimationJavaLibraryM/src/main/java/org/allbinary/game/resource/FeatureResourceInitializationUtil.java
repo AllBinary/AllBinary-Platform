@@ -32,7 +32,7 @@ public class FeatureResourceInitializationUtil
     public void init(int level) throws Exception
     {
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        this.logUtil.put(commonStrings.START, this, commonStrings.INIT);
+        this.logUtil.putF(commonStrings.START, this, commonStrings.INIT);
 
         FeaturedResourceFactory featuredResourceFactory = 
             FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance();

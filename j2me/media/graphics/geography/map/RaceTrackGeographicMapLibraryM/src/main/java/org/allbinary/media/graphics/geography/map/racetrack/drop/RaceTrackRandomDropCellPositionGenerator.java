@@ -78,9 +78,8 @@ public class RaceTrackRandomDropCellPositionGenerator
         GeographicMapCellPosition geographicMapCellPosition = 
             (GeographicMapCellPosition) this.list.get(index);
 
-        //this.logUtil.put("Dropping: " + geographicMapCellPosition.toString()
-          //      + " Point: " + geographicMapCellPosition.getPoint(), this,
-            //    commonStrings.DROP);
+        //this.logUtil.putF("Dropping: " + geographicMapCellPosition.toString()
+          //      + " Point: " + geographicMapCellPosition.getPoint(), this, //    commonStrings.DROP);
 
         // RaceTrackGeographicMapCellType raceTrackGeographicMapCellType =
         // (RaceTrackGeographicMapCellType) this.typeList.get(index);

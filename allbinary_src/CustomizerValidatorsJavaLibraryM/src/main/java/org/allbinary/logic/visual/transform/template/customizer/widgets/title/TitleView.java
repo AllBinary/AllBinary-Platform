@@ -62,7 +62,7 @@ public class TitleView implements DomNodeInterface
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         this.logUtil.put("Title: " + this.getTitle(), this, "Consructor()");
+         this.logUtil.putF("Title: " + this.getTitle(), this, "Consructor()");
       }
    }
 
@@ -70,7 +70,7 @@ public class TitleView implements DomNodeInterface
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         this.logUtil.put("HashMap: " + hashMap.toString(), this, this.commonStrings.CONSTRUCTOR);
+         this.logUtil.putF("HashMap: " + hashMap.toString(), this, this.commonStrings.CONSTRUCTOR);
       }
       
       this.getFormData(hashMap);      
@@ -104,7 +104,7 @@ public class TitleView implements DomNodeInterface
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         this.logUtil.put("TitleView HashMap: " + hashMap.toString(), this, "toXmlNode()");
+         this.logUtil.putF("TitleView HashMap: " + hashMap.toString(), this, "toXmlNode()");
       }
 
       return ModDomHelper.createNameValueNodes(document, TitleData.getInstance().NAME, hashMap);

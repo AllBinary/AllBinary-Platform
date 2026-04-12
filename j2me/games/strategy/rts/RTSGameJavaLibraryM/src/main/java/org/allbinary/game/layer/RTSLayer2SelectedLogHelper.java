@@ -39,50 +39,50 @@ public class RTSLayer2SelectedLogHelper extends RTSLayer2LogHelper {
     
     @Override
     public void steeringUp(final PathFindingLayerInterface pathFindingLayerInterface) {
-        this.logUtil.put(new StringMaker().append(pathFindingLayerInterface.getName()).append(" steering - Up").toString(), this, TRACK_TO_FIRE_OR_MOVE);
+        this.logUtil.putF(new StringMaker().append(pathFindingLayerInterface.getName()).append(" steering - Up").toString(), this, TRACK_TO_FIRE_OR_MOVE);
     }
 
     @Override
     public void steeringFireOrStop(final PathFindingLayerInterface pathFindingLayerInterface) {
-        this.logUtil.put(new StringMaker().append(pathFindingLayerInterface.getName()).append(" steering - Fire/All Stop").toString(), this, TRACK_TO_FIRE_OR_MOVE);
+        this.logUtil.putF(new StringMaker().append(pathFindingLayerInterface.getName()).append(" steering - Fire/All Stop").toString(), this, TRACK_TO_FIRE_OR_MOVE);
     }
     
     @Override
     public void buildingAbove(final PathFindingLayerInterface pathFindingLayerInterface) {
-        this.logUtil.put(new StringMaker().append(pathFindingLayerInterface.getName()).append(" Building Above").toString(), this, BUILDING_CHASE);
+        this.logUtil.putF(new StringMaker().append(pathFindingLayerInterface.getName()).append(" Building Above").toString(), this, BUILDING_CHASE);
     }
     
     @Override
     public void buildingChaseLeft(final PathFindingLayerInterface pathFindingLayerInterface, final int angle) {
-        this.logUtil.put(new StringMaker().append(pathFindingLayerInterface.getName()).append(" steering - Going Left: ").appendint(angle).toString(), this, BUILDING_CHASE);
+        this.logUtil.putF(new StringMaker().append(pathFindingLayerInterface.getName()).append(" steering - Going Left: ").appendint(angle).toString(), this, BUILDING_CHASE);
     }
     
     @Override
     public void buildingChaseRight(final PathFindingLayerInterface pathFindingLayerInterface, final int angle) {
-        this.logUtil.put(new StringMaker().append(pathFindingLayerInterface.getName()).append(" steering - Going Right: ").appendint(angle).toString(), this, BUILDING_CHASE);
+        this.logUtil.putF(new StringMaker().append(pathFindingLayerInterface.getName()).append(" steering - Going Right: ").appendint(angle).toString(), this, BUILDING_CHASE);
     }
     
     @Override
     public void buildingDown(final PathFindingLayerInterface pathFindingLayerInterface) {
-        this.logUtil.put(new StringMaker().append(pathFindingLayerInterface.getName()).append(" Building Below").toString(), this, BUILDING_CHASE);
+        this.logUtil.putF(new StringMaker().append(pathFindingLayerInterface.getName()).append(" Building Below").toString(), this, BUILDING_CHASE);
     }
     
     @Override
     public void buildingChaseDown(final PathFindingLayerInterface pathFindingLayerInterface, final int angle) {
-        this.logUtil.put(new StringMaker().append(pathFindingLayerInterface.getName()).append(" steering - Going Down: ").appendint(angle).toString(), this, BUILDING_CHASE);
+        this.logUtil.putF(new StringMaker().append(pathFindingLayerInterface.getName()).append(" steering - Going Down: ").appendint(angle).toString(), this, BUILDING_CHASE);
     }
 
     @Override
     public void buildingChaseUp(final PathFindingLayerInterface pathFindingLayerInterface, final int angle) {
-        this.logUtil.put(new StringMaker().append(pathFindingLayerInterface.getName()).append(" steering - Going Up: ").appendint(angle).toString(), this, BUILDING_CHASE);
+        this.logUtil.putF(new StringMaker().append(pathFindingLayerInterface.getName()).append(" steering - Going Up: ").appendint(angle).toString(), this, BUILDING_CHASE);
     }
 
     public void buildingLeft(final PathFindingLayerInterface pathFindingLayerInterface) {
-        this.logUtil.put(new StringMaker().append(pathFindingLayerInterface.getName()).append(" Building Left").toString(), this, BUILDING_CHASE);
+        this.logUtil.putF(new StringMaker().append(pathFindingLayerInterface.getName()).append(" Building Left").toString(), this, BUILDING_CHASE);
     }
     
     public void buildingRight(final PathFindingLayerInterface pathFindingLayerInterface) {
-        this.logUtil.put(new StringMaker().append(pathFindingLayerInterface.getName()).append(" Building Right").toString(), this, BUILDING_CHASE);
+        this.logUtil.putF(new StringMaker().append(pathFindingLayerInterface.getName()).append(" Building Right").toString(), this, BUILDING_CHASE);
     }
     
 }

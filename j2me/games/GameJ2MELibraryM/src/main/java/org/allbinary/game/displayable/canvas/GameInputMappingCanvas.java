@@ -74,7 +74,7 @@ implements InputMappingInterface
                 allBinaryGameLayerManager.getBackgroundBasicColor(),
                 allBinaryGameLayerManager.getForegroundBasicColor());
 
-        this.logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
         if(helpPaintable == null)
         {
@@ -152,7 +152,7 @@ implements InputMappingInterface
     @Override
     public void keyPressed(int keyCode, int deviceId)
     {
-        // this.logUtil.put(commonStrings.START, this, gameInputStrings.KEY_PRESSED);        
+        // this.logUtil.putF(commonStrings.START, this, gameInputStrings.KEY_PRESSED);        
         this.addGameKeyEvent(keyCode, false);
 
         super.keyPressed(keyCode, 0);
@@ -164,7 +164,7 @@ implements InputMappingInterface
     {
         try
         {
-            this.logUtil.put(new StringMaker().append("Raw Device Key Code: ").append(Integer.toHexString(keyCode)).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
+            this.logUtil.putF(new StringMaker().append("Raw Device Key Code: ").append(Integer.toHexString(keyCode)).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
 
             GameKey gameKey = this.inputToGameKeyMapping.getInstance(this, keyCode);
 
@@ -189,7 +189,7 @@ implements InputMappingInterface
         stringBuffer.append(" Input: ");
         stringBuffer.append(this.stringUtil.toString(input));
         
-        this.logUtil.put(stringBuffer.toString(), this, commonStrings.PROCESS);
+        this.logUtil.putF(stringBuffer.toString(), this, commonStrings.PROCESS);
         
         if (this.selectedGameKey != NONE)
         {
@@ -203,7 +203,7 @@ implements InputMappingInterface
 
     private void setSelectedAction(GameKey gameKey)
     {
-        this.logUtil.put(new StringMaker().append("Selected GameKey: ").append(this.stringUtil.toString(gameKey)).toString(), this, "setSelectedAction");
+        this.logUtil.putF(new StringMaker().append("Selected GameKey: ").append(this.stringUtil.toString(gameKey)).toString(), this, "setSelectedAction");
         
         this.selectedGameKey = gameKey;
         this.selectedInput = NONE;
@@ -220,7 +220,7 @@ implements InputMappingInterface
         stringBuffer.append(" Input: ");
         stringBuffer.append(this.stringUtil.toString(this.selectedInput));
         
-        this.logUtil.put(stringBuffer.toString(), this, "gameActionCrud");
+        this.logUtil.putF(stringBuffer.toString(), this, "gameActionCrud");
 
         // If action is selected and input is not then select the input
         // if it is mapped for the selected action
@@ -231,7 +231,7 @@ implements InputMappingInterface
             
             if (isInputAlreadyMappedToSelectedAction)
             {
-                this.logUtil.put(new StringMaker().append("Already Mapped Input: ").append(this.stringUtil.toString(input)).toString(), this, "gameActionCrud");
+                this.logUtil.putF(new StringMaker().append("Already Mapped Input: ").append(this.stringUtil.toString(input)).toString(), this, "gameActionCrud");
 
                 this.selectedInput = input;
                 this.helpPaintable.update(this.selectedGameKey, this.selectedInput);
@@ -259,8 +259,8 @@ implements InputMappingInterface
     {
         final String METHOD_NAME = "addNewMapping";
             
-        //this.logUtil.put(commonStrings.START_LABEL).append("Dissallow if ").append(input).append(" is in { ").append(AndroidKeyFactory.getInstance().MENU).append(" }", this, "addNewMapping");
-        this.logUtil.put(commonStrings.START, this, METHOD_NAME);
+        //this.logUtil.putF(commonStrings.START_LABEL).append("Dissallow if ").append(input).append(" is in { ").append(AndroidKeyFactory.getInstance().MENU).append(" }", this, "addNewMapping");
+        this.logUtil.putF(commonStrings.START, this, METHOD_NAME);
 
         boolean isInputAlreadyMapped = inputMapping.getInputMapping().isMapped(input);
 
@@ -273,7 +273,7 @@ implements InputMappingInterface
             stringBuffer.append(" Input: ");
             stringBuffer.append(this.stringUtil.toString(this.selectedInput));
             
-            this.logUtil.put(stringBuffer.toString(), this, METHOD_NAME);
+            this.logUtil.putF(stringBuffer.toString(), this, METHOD_NAME);
             
             inputMapping.getInputMapping().add(this.selectedGameKey, input);
             this.selectedInput = input;
@@ -304,7 +304,7 @@ implements InputMappingInterface
             stringBuffer.append(" Input: ");
             stringBuffer.append(stringUtil.toString(this.selectedInput));
             
-            this.logUtil.put(stringBuffer.toString(), this, METHOD_NAME);
+            this.logUtil.putF(stringBuffer.toString(), this, METHOD_NAME);
 
             inputMapping.getInputMapping().remove(this.selectedGameKey, this.selectedInput);
             this.selectedInput = NONE;
@@ -312,7 +312,7 @@ implements InputMappingInterface
         }
         else
         {
-            this.logUtil.put("Can't Remove Last Key Mapping", this, METHOD_NAME);
+            this.logUtil.putF("Can't Remove Last Key Mapping", this, METHOD_NAME);
         }
     }
     

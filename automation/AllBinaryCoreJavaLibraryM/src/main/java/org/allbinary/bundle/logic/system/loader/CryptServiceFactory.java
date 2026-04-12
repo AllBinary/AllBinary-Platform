@@ -35,7 +35,7 @@ public class CryptServiceFactory
         
     public Object getService(final Bundle bundle, final ServiceRegistration registration)
     {
-        this.logUtil.put(this.commonStrings.START, this, "getService");
+        this.logUtil.putF(this.commonStrings.START, this, "getService");
 
         return this.cryptService;
     }

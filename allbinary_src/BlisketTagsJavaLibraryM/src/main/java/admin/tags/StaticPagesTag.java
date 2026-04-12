@@ -46,7 +46,7 @@ public class StaticPagesTag extends TableTag
    {
       try
       {
-         //this.logUtil.put(this.commonStrings.START, this, "generateStaticPages()");
+         //this.logUtil.putF(this.commonStrings.START, this, "generateStaticPages()");
 
          Object object = new StaticPagesRequestHelperFactory().getInstance(
          this.getPropertiesHashMap(), this.pageContext);
@@ -112,7 +112,7 @@ public class StaticPagesTag extends TableTag
          {
             if(this.getCommand()!=null)
             {
-               //this.logUtil.put(CommonLabels.getInstance().START + this.getCommand(), this, "doStartTag");
+               //this.logUtil.putF(CommonLabels.getInstance().START + this.getCommand(), this, tagStrings.DO_START_TAG);
 
                if (this.getCommand().compareTo(SearchData.GENERATESTATICPAGES)==0)
                {

@@ -56,7 +56,7 @@ public class WorkFlowRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put(success,this,"delete()");
+            this.logUtil.putF(success,this,"delete()");
          }
          return success;
       }
@@ -100,7 +100,7 @@ public class WorkFlowRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put(success,this,"add()");
+            this.logUtil.putF(success,this,"add()");
          }
          return success;
       }
@@ -127,7 +127,7 @@ public class WorkFlowRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put(success,this,"update()");
+            this.logUtil.putF(success,this,"update()");
          }
          return success;
       }

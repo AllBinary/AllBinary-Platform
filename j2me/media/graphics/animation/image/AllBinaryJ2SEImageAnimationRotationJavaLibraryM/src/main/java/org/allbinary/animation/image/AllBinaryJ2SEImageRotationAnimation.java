@@ -85,7 +85,7 @@ public class AllBinaryJ2SEImageRotationAnimation
         this.twoImages[0] = image;
         this.twoImages[1] = ImageCopyUtil.getInstance().createImageForRotation(image);
         
-        //this.logUtil.put(this.toString(), this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.putF(this.toString(), this, commonStrings.CONSTRUCTOR);
     }
 
     @Override
@@ -139,7 +139,7 @@ public class AllBinaryJ2SEImageRotationAnimation
 
     @Override
     public void setScale(final float scaleX, final float scaleY) {
-        //this.logUtil.put(new StringMaker().append("scaleX: ").append(scaleX).append("scaleY: ").append(scaleY).toString(), this, "setScale");
+        //this.logUtil.putF(new StringMaker().append("scaleX: ").append(scaleX).append("scaleY: ").append(scaleY).toString(), this, "setScale");
         this.scaleX = scaleX;
         this.scaleY = scaleY;
         if(this.scaleX != this.lastScaleX || this.scaleY != this.lastScaleY) {
@@ -152,7 +152,7 @@ public class AllBinaryJ2SEImageRotationAnimation
 
     @Override
     public void setMaxScale(final float maxScaleX, final float maxScaleY) {
-        //this.logUtil.put("maxScaleX: " + maxScaleX, this, "setMaxScale");
+        //this.logUtil.putF("maxScaleX: " + maxScaleX, this, "setMaxScale");
         this.maxScaleX = maxScaleX;
         this.maxScaleY = maxScaleY;
         this.scaleProcessor.update(this.realOriginalImage, this.originalImageArray, this.twoImages, this.bufferedImageIndex, this.scaleX, this.scaleY, this.maxScaleX, this.maxScaleY);
@@ -185,10 +185,10 @@ public class AllBinaryJ2SEImageRotationAnimation
     @Override
     public void setFrame(final int index)
     {
-        //this.logUtil.put(commonLabels.INDEX_LABEL + index, this, "setRotation");
+        //this.logUtil.putF(commonLabels.INDEX_LABEL + index, this, "setRotation");
 
         //final int currentFrame = this.circularIndexUtil.getIndex();
-        //this.logUtil.put("currentFrame: " + currentFrame, this, "setRotation");
+        //this.logUtil.putF("currentFrame: " + currentFrame, this, "setRotation");
         
         super.setFrame(index);
 

@@ -53,7 +53,7 @@ public class InsertTitleBodyValidationView extends TitleBodyCustomizerView imple
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            this.logUtil.put("Started Validation",this,commonStrings.IS_VALID);
+            this.logUtil.putF("Started Validation", this, commonStrings.IS_VALID);
          }
          
          Boolean isValid = this.titleBody.isValid();

@@ -101,7 +101,7 @@ public class RotationAnimation
         this.circularIndexUtil.setIndex(index);
 
         final int newFrame = this.circularIndexUtil.getIndex();
-        //this.logUtil.put("newFrame: " + newFrame, this, "setRotation");
+        //this.logUtil.putF("newFrame: " + newFrame, this, "setRotation");
         
         this.angleInfo.adjustAngle(newFrame);
     }
@@ -109,7 +109,7 @@ public class RotationAnimation
     @Override
     public void setFrame(final Direction direction)
     {
-        //this.logUtil.put(commonStrings.START, this, "setFrame");
+        //this.logUtil.putF(commonStrings.START, this, "setFrame");
 
         /*
         DirectionFactory directionFactory = DirectionFactory.getInstance();

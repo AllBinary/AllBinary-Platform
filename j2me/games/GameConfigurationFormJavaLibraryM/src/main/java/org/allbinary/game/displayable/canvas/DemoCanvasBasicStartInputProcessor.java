@@ -53,7 +53,7 @@ public class DemoCanvasBasicStartInputProcessor
         {
             gameKeyEvent = (GameKeyEvent) list.objectArray[index];
 
-            this.logUtil.put(new StringMaker().append("Start GameKey: ").append(StringUtil.getInstance().toString(gameKeyEvent)).toString(), this, GameInputStrings.getInstance().PROCESS_INPUT);
+            this.logUtil.putF(new StringMaker().append("Start GameKey: ").append(StringUtil.getInstance().toString(gameKeyEvent)).toString(), this, GameInputStrings.getInstance().PROCESS_INPUT);
         }
         this.getCanvas().getCustomCommandListener().commandAction(
                 GameCommandsFactory.getInstance().START_COMMAND, NullCanvas.NULL_CANVAS);

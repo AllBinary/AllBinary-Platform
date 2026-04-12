@@ -48,17 +48,17 @@ public class FileLockUtil
             FileLock fileLock = getLock(file);
             if(fileLock != null)
             {
-                this.logUtil.put("File Lock Obtained: " + file.getAbsolutePath(), this, "getAll");
+                this.logUtil.putF("File Lock Obtained: " + file.getAbsolutePath(), this, "getAll");
                 fileLockVector.add(fileLock);
             }
             else
             if(isReturnOnFailure)
             {
-                this.logUtil.put("Total Locks Obtained: " + fileLockVector.size(), this, "getAll");
+                this.logUtil.putF("Total Locks Obtained: " + fileLockVector.size(), this, "getAll");
                 return fileLockVector;
             }
         }
-        this.logUtil.put("Total Locks Obtained: " + fileLockVector.size(), this, "getAll");
+        this.logUtil.putF("Total Locks Obtained: " + fileLockVector.size(), this, "getAll");
         return fileLockVector;
     }
 
@@ -114,7 +114,7 @@ public class FileLockUtil
         }
         finally
         {
-            this.logUtil.put("Finally - Closing FileOutputStream", this, "getLock");
+            this.logUtil.putF("Finally - Closing FileOutputStream", this, "getLock");
             StreamUtil.getInstance().close(fileOutputStream);
         }
     }
@@ -135,7 +135,7 @@ public class FileLockUtil
         }
         finally
         {
-            this.logUtil.put("Finally - Closing FileChannel", this, "getLock");
+            this.logUtil.putF("Finally - Closing FileChannel", this, "getLock");
             fileChannel.close();
         }
     }

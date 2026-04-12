@@ -42,7 +42,7 @@ public class LurchRotationAI extends LurchAI {
     
     private void update()
     {
-       //this.logUtil.put("Angle: " + currentAngle, this, "reverse");
+       //this.logUtil.putF("Angle: " + currentAngle, this, "reverse");
         if (currentRelativeAngle == 0) {
             
             final RotationAnimationInterface rotationAnimationInterface = (RotationAnimationInterface) this.rotationAnimationInterface;

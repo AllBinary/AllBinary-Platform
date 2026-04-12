@@ -79,7 +79,7 @@ public class SavedCaptureImagesWorker
     {
         try
         {
-            this.logUtil.put(this.commonStrings.START, this, this.commonStrings.RUN);
+            this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.RUN);
             
             this.setRunning(true);
             
@@ -100,7 +100,7 @@ public class SavedCaptureImagesWorker
                 
                 String filePath = filePathStringBuffer.toString();
                 
-                this.logUtil.put("Loading Image File Path: " + filePath, this, this.commonStrings.RUN);
+                this.logUtil.putF("Loading Image File Path: " + filePath, this, this.commonStrings.RUN);
                 
                 File file = new File(filePath);
                 if(file.isFile())
@@ -120,17 +120,17 @@ public class SavedCaptureImagesWorker
                 }
                 else
                 {
-                    this.logUtil.put(
+                    this.logUtil.putF(
                         "Could Not Load File: " + filePath, this, this.commonStrings.RUN);
                 }
                 
-                this.logUtil.put(
+                this.logUtil.putF(
                     CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN);
                 
                 this.setRunning(false);
             }
             
-            this.logUtil.put(this.commonStrings.END, this, this.commonStrings.RUN);
+            this.logUtil.putF(this.commonStrings.END, this, this.commonStrings.RUN);
             
         }
         catch (Exception e)

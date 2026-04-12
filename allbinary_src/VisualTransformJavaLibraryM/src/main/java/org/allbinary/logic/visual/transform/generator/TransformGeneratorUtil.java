@@ -42,7 +42,7 @@ public class TransformGeneratorUtil {
         final TransformInfoInterface ownerTransformInfoInterface) throws Exception {
         try {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
-                this.logUtil.put("Generating View: " + transformInfoInterface.getName(),
+                this.logUtil.putF("Generating View: " + transformInfoInterface.getName(),
                     this, "generate()");
             }
 

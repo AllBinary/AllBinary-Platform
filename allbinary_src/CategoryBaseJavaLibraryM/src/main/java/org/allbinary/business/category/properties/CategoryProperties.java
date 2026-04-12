@@ -140,7 +140,7 @@ public class CategoryProperties implements CategoryPropertiesInterface
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
       {
-         this.logUtil.put("path = " + pathStringBuffer.toString(), this, "getPath");
+         this.logUtil.putF("path = " + pathStringBuffer.toString(), this, "getPath");
       }
       return new AbPath(pathStringBuffer.toString());
    }

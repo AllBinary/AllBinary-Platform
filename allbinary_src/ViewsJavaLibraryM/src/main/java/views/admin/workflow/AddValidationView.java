@@ -50,7 +50,7 @@ public class AddValidationView extends WorkFlowView implements ValidationCompone
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               this.logUtil.put("WorkFlow already in existance.",this,commonStrings.IS_VALID);
+               this.logUtil.putF("WorkFlow already in existance.", this, commonStrings.IS_VALID);
             }
             return Boolean.FALSE;
          }
@@ -79,7 +79,7 @@ public class AddValidationView extends WorkFlowView implements ValidationCompone
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               this.logUtil.put("Workflow already exist",this,"validationInfo()");
+               this.logUtil.putF("Workflow already exist",this,"validationInfo()");
             }
             stringBuffer.append("The WorkFlow name you selected is already in use.<br/>  Please select another Name.<br />");            
          }

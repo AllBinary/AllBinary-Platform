@@ -36,7 +36,7 @@ public class GameMotionGestureListener implements MotionGestureEventListener
     public GameMotionGestureListener(
             CompleteMotionGestureListenerInterface signed)
     {
-        this.logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
         this.signed = signed;
     }
 

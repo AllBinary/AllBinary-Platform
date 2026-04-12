@@ -51,7 +51,7 @@ extends CompleteMotionGestureInputEventListener
             GameKeyCompleteMotionGestureInputEvent gameKeyCompleteMotionGestureInputEvent = 
                 (GameKeyCompleteMotionGestureInputEvent) completeMotionGestureInputEvent;
 
-            //this.logUtil.put(commonStrings.START_LABEL + gameKeyCompleteMotionGestureInputEvent.getGameKey(), this, "onCompleteMotionGestureInputEvent");
+            //this.logUtil.putF(commonStrings.START_LABEL + gameKeyCompleteMotionGestureInputEvent.getGameKey(), this, "onCompleteMotionGestureInputEvent");
             //PreLogUtil.put(commonStrings.START_LABEL + gameKeyCompleteMotionGestureInputEvent.getGameKey(), this, "onCompleteMotionGestureInputEvent");
             
             GameKeyEvent gameKeyEvent = gameKeyCompleteMotionGestureInputEvent.getGameKeyEvent();
@@ -61,7 +61,7 @@ extends CompleteMotionGestureInputEventListener
                 if (previousGameKeyEvent != GameKeyEvent.NONE)
                 //if (GameKeyCancelUtil.isGameKeyEventCancelledByAnother(previousGameKeyEvent, gameKeyEvent))
                 {
-                    //this.logUtil.put("Up: " + previousGameKeyEvent.toString(), this, "onCompleteMotionGestureInputEvent");
+                    //this.logUtil.putF("Up: " + previousGameKeyEvent.toString(), this, "onCompleteMotionGestureInputEvent");
 
                     UpGameKeyEventHandler.getInstance().fireEvent(
                             previousGameKeyEvent);
@@ -69,7 +69,7 @@ extends CompleteMotionGestureInputEventListener
                 /*
                 else
                 {
-                    this.logUtil.put("No Key", this, "onCompleteMotionGestureInputEvent");
+                    this.logUtil.putF("No Key", this, "onCompleteMotionGestureInputEvent");
                 }
                 */
 
@@ -78,7 +78,7 @@ extends CompleteMotionGestureInputEventListener
                 //if(gameKeyEvent != releaseGameKeyEvent)
                 if(gameKeyEvent != null && gameKeyEvent != GameKeyEvent.NONE)
                 {
-                    //this.logUtil.put("Down: " + gameKeyCompleteMotionGestureInputEvent.getGameKey(), this, "onCompleteMotionGestureInputEvent");
+                    //this.logUtil.putF("Down: " + gameKeyCompleteMotionGestureInputEvent.getGameKey(), this, "onCompleteMotionGestureInputEvent");
                     
                     DownGameKeyEventHandler.getInstance().fireEvent(gameKeyEvent);
                 }

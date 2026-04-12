@@ -55,7 +55,7 @@ public class GameOptionsForm extends CommandForm
     {
         super(commandListener, title, backgrounBasicColor, foregroundBasicColor);
 
-        this.logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
         this.addConfiguration();
 
@@ -141,7 +141,7 @@ public class GameOptionsForm extends CommandForm
             gameConfiguration = (GameConfiguration) list.objectArray[index];
 
             stringMaker.delete(0, stringMaker.length());
-            this.logUtil.put(stringMaker.append(NAME).append(gameConfiguration.toString()).toString(), this, METHOD_NAME);
+            this.logUtil.putF(stringMaker.append(NAME).append(gameConfiguration.toString()).toString(), this, METHOD_NAME);
 
             gauge = new GameConfigurationGauge(gameConfiguration);
 

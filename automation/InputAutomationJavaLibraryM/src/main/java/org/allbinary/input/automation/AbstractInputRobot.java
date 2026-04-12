@@ -39,9 +39,8 @@ public class AbstractInputRobot
     {
         this.mouseMove(point.x, point.y);
         
-        this.logUtil.put(
-            "Moved Mouse To: x: " + point.x + " y: " + point.y,
-            this, "moveMouse");
+        this.logUtil.putF(
+            "Moved Mouse To: x: " + point.x + " y: " + point.y, this, "moveMouse");
     }
     
     public void mouseMoveToTarget(Rectangle rectangle, Integer x, Integer y) throws Exception
@@ -50,9 +49,8 @@ public class AbstractInputRobot
         
         this.mouseMove(point.x + x, point.y + y);
         
-        this.logUtil.put(
-            "Moved Mouse To: x: " + point.x + " y: " + point.y + " in the middle of: " + rectangle,
-            this, "moveMouseToTarget");
+        this.logUtil.putF(
+            "Moved Mouse To: x: " + point.x + " y: " + point.y + " in the middle of: " + rectangle, this, "moveMouseToTarget");
     }
     
     public void mouseMoveToTarget(Rectangle rectangle) throws Exception

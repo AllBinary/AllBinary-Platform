@@ -76,7 +76,7 @@ public class AbSqlColumn extends AbSqlTable
                 stringBuffer.append(LARGEST_INT_VALUE_IN_COLUMN);
                 stringBuffer.append(largestAsString);
 
-                this.logUtil.put(stringBuffer.toString(), this, METHOD_GET_LARGETS_INTEGER_IN_COLUMN);
+                this.logUtil.putF(stringBuffer.toString(), this, METHOD_GET_LARGETS_INTEGER_IN_COLUMN);
             }
 
             return largestAsString;
@@ -121,7 +121,7 @@ public class AbSqlColumn extends AbSqlTable
                 stringBuffer.append(sqlStrings.COLUMN_VALUE);
                 stringBuffer.append(column.toString());
 
-                this.logUtil.put(stringBuffer.toString(), this, METHOD_GET_COLUMN);
+                this.logUtil.putF(stringBuffer.toString(), this, METHOD_GET_COLUMN);
             }
 
             return column;
@@ -171,7 +171,7 @@ public class AbSqlColumn extends AbSqlTable
                 stringBuffer.append(sqlStrings.COLUMN_VALUE);
                 stringBuffer.append(column.toString());
 
-                this.logUtil.put(stringBuffer.toString(), this, METHOD_GET_COLUMN_WHERE);
+                this.logUtil.putF(stringBuffer.toString(), this, METHOD_GET_COLUMN_WHERE);
             }
 
             return column;
@@ -222,7 +222,7 @@ public class AbSqlColumn extends AbSqlTable
                 stringBuffer.append(sqlStrings.COLUMN_VALUE);
                 stringBuffer.append(column.toString());
 
-                this.logUtil.put(stringBuffer.toString(), this, "getColumnWhereLike");
+                this.logUtil.putF(stringBuffer.toString(), this, "getColumnWhereLike");
             }
 
             return column;

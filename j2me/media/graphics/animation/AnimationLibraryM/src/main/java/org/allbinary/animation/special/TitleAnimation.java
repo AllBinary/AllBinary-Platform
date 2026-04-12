@@ -217,7 +217,7 @@ public class TitleAnimation extends SpecialAnimation
             {
                 this.basicSetColorUtil.setBasicColorP(graphics, this.basicColorArray[index]);
             }
-            //this.logUtil.put("deltaX: " + deltaX + " " + x, this, canvasStrings.PAINT);
+            //this.logUtil.putF("deltaX: " + deltaX + " " + x, this, canvasStrings.PAINT);
             this.animationInterfaceArray[index].paint(graphics, deltaX, deltaY);
         }
     }
@@ -248,7 +248,7 @@ public class TitleAnimation extends SpecialAnimation
             //{
               //  this.basicSetColorUtil.setBasicColorP(graphics, this.basicColorArray[index]);
             //}
-            //this.logUtil.put("deltaX: " + deltaX + " " + x, this, canvasStrings.PAINT);
+            //this.logUtil.putF("deltaX: " + deltaX + " " + x, this, canvasStrings.PAINT);
 
             //this.animationInterfaceArray[index].paintThreed(graphics, deltaX, deltaY, 30);
             this.animationInterfaceArray[index].paintThreed(graphics, viewPosition.getX() + deltaX, viewPosition.getY() + deltaY, 30);

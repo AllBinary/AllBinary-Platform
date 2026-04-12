@@ -54,7 +54,7 @@ public class XmlRpcAbeLicenseRetrievalClient extends XmlRpcAbeClient
             stringBuffer.append(SEP);
             stringBuffer.append(server);
             
-            this.logUtil.put(CommonLabels.getInstance().START_LABEL + stringBuffer.toString(), this, commonStrings.GET);
+            this.logUtil.putF(CommonLabels.getInstance().START_LABEL + stringBuffer.toString(), this, commonStrings.GET);
             // }
 
             final Vector param = new Vector();
@@ -66,12 +66,12 @@ public class XmlRpcAbeLicenseRetrievalClient extends XmlRpcAbeClient
             final Hashtable hashtable = this.getClientInfo().toHashtable();
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
-            this.logUtil.put(CLIENT_INFO + hashtable.toString(), this, commonStrings.GET);
+            this.logUtil.putF(CLIENT_INFO + hashtable.toString(), this, commonStrings.GET);
             // }
 
             /*
              * if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING)) {
-             * this.logUtil.put("Xml-Rpc Client Liscense Request: \n" +
+             * this.logUtil.putF("Xml-Rpc Client Liscense Request: \n" +
              * client.toString(), this,GET); }
              */
 
@@ -82,13 +82,13 @@ public class XmlRpcAbeLicenseRetrievalClient extends XmlRpcAbeClient
             /*
              * this could return without trying all servers if(result==null) {
              * //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
-             * //{ this.logUtil.put("Empty Result\n", this,GET); //}
+             * //{ this.logUtil.putF("Empty Result\n", this,GET); //}
              * return null; }
              */
 
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
-            this.logUtil.put(RESULT + result.toString(), this, commonStrings.GET);
+            this.logUtil.putF(RESULT + result.toString(), this, commonStrings.GET);
             // }
 
             final Hashtable resultHashtable = (Hashtable) result;
@@ -97,7 +97,7 @@ public class XmlRpcAbeLicenseRetrievalClient extends XmlRpcAbeClient
             {
                 // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
                 // {
-                this.logUtil.put(INVALID, this, commonStrings.GET);
+                this.logUtil.putF(INVALID, this, commonStrings.GET);
                 // }
 
                 return this.tryAnother(object);
@@ -109,7 +109,7 @@ public class XmlRpcAbeLicenseRetrievalClient extends XmlRpcAbeClient
 
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
-            this.logUtil.put(commonStrings.END + stringBuffer.toString(), this, commonStrings.GET);
+            this.logUtil.putF(commonStrings.END + stringBuffer.toString(), this, commonStrings.GET);
             // }
 
             isOnline = true;
@@ -123,7 +123,7 @@ public class XmlRpcAbeLicenseRetrievalClient extends XmlRpcAbeClient
 
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
-            this.logUtil.put(TRYING_OTHER_SERVERS + ExceptionUtil.getInstance().getStackTrace(e), this, commonStrings.GET);
+            this.logUtil.putF(TRYING_OTHER_SERVERS + ExceptionUtil.getInstance().getStackTrace(e), this, commonStrings.GET);
             // }
 
             if(!e.getMessage().startsWith(HOST_NOT_RESOLVED))

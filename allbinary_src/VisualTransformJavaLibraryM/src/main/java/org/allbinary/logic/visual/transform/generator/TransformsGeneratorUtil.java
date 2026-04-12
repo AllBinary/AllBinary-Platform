@@ -43,7 +43,7 @@ public class TransformsGeneratorUtil
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            this.logUtil.put("Started Group: " + group, this, "generateComponentsFromObjectConfig(2)");
+            this.logUtil.putF("Started Group: " + group, this, "generateComponentsFromObjectConfig(2)");
         }
 
         TransformInfoObjectConfigInterface transformInfoObjectConfigInterface =
@@ -54,7 +54,7 @@ public class TransformsGeneratorUtil
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            this.logUtil.put("End Group: " + group,
+            this.logUtil.putF("End Group: " + group,
                 this, "generateComponentsFromObjectConfig(2)");
         }
         return result;
@@ -70,7 +70,7 @@ public class TransformsGeneratorUtil
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            this.logUtil.put("Started Group: " + group,this, "generateComponentsFromObjectConfig()");
+            this.logUtil.putF("Started Group: " + group,this, "generateComponentsFromObjectConfig()");
         }
 
         Vector transformInfoObjectConfigComponentVector =
@@ -85,7 +85,7 @@ public class TransformsGeneratorUtil
             stringBuffer.append(" Components Group: ");
             stringBuffer.append(group);
 
-            this.logUtil.put(stringBuffer.toString(), this, "generateComponentsFromObjectConfig()");
+            this.logUtil.putF(stringBuffer.toString(), this, "generateComponentsFromObjectConfig()");
         }
 
         if (transformInfoObjectConfigComponentVector.size() < 1)
@@ -103,7 +103,7 @@ public class TransformsGeneratorUtil
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            this.logUtil.put("Done Group: " + group, this, "generateComponentsFromObjectConfig()");
+            this.logUtil.putF("Done Group: " + group, this, "generateComponentsFromObjectConfig()");
         }
 
         StringMaker stringBuffer = new StringMaker();

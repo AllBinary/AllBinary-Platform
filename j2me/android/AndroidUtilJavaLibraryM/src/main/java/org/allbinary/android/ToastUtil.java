@@ -32,7 +32,7 @@ public class ToastUtil {
 	        {
 	            try
 	            {
-	            	//this.logUtil.put("Trying to Toast: "+ string, this, commonStrings.RUN);
+	            	//this.logUtil.putF("Trying to Toast: "+ string, this, commonStrings.RUN);
 	            	//PreLogUtil.put("Trying to Toast: "+ string, this, commonStrings.RUN);
 	                
 	                Toast.makeText(context, string, time).show();

@@ -83,7 +83,7 @@ public class ImageComparisonWorker
     {
         try
         {
-            this.logUtil.put(this.commonStrings.START, this, this.commonStrings.RUN);
+            this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.RUN);
             
             this.setRunning(true);
             
@@ -124,11 +124,11 @@ public class ImageComparisonWorker
                     this.fireEvent(new ImageComparisonResultsEvent(
                         this, imageComparisonResult));
                     
-                    this.logUtil.put(new StringMaker().append("Image Comparison Result: ").append(imageComparisonResult.toString()).append(" for frame: ").appendlong(frame).toString(), this, this.commonStrings.RUN);
+                    this.logUtil.putF(new StringMaker().append("Image Comparison Result: ").append(imageComparisonResult.toString()).append(" for frame: ").appendlong(frame).toString(), this, this.commonStrings.RUN);
                 }
                 else
                 {
-                    this.logUtil.put(
+                    this.logUtil.putF(
                         "An Image Was Not Valid: Image Worker Event Processing terminated", this, this.commonStrings.RUN);
                 }
             }
@@ -138,11 +138,11 @@ public class ImageComparisonWorker
             index2++;
             
             final String message = new StringMaker().append("Frame: ").appendint(index2).append(CommonLabels.getInstance().ELAPSED).appendlong(timeHelper.getElapsed()).toString();
-            this.logUtil.put(message, this, this.commonStrings.RUN);
+            this.logUtil.putF(message, this, this.commonStrings.RUN);
             
             this.setRunning(false);
             
-            this.logUtil.put(this.commonStrings.END, this, this.commonStrings.RUN);
+            this.logUtil.putF(this.commonStrings.END, this, this.commonStrings.RUN);
         }
         catch (Exception e)
         {

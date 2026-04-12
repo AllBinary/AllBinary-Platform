@@ -77,7 +77,7 @@ public class TransformInfoHelper extends BasicTable
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put(success,this,"restore()");
+            this.logUtil.putF(success,this,"restore()");
          }
          return result;
       }
@@ -101,7 +101,7 @@ public class TransformInfoHelper extends BasicTable
          final String result = AbSqlTableUtil.getInstance().backupTable(TransformInfoEntityBuilder.getInstance());
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put(success,this,"backup()");
+            this.logUtil.putF(success,this,"backup()");
          }
          return result;
       }

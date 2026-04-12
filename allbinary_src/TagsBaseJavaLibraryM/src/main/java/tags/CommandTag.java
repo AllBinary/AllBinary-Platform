@@ -15,6 +15,7 @@ package tags;
 
 public class CommandTag extends CustomTagSupport
 {
+    protected final TagStrings tagStrings = TagStrings.getInstance();
 
    private String command;
    

@@ -82,7 +82,7 @@ public class TestInputForMotionRectanglesResultsWorker
    {
       try
       {
-         this.logUtil.put(this.commonStrings.START, this, this.commonStrings.RUN);
+         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.RUN);
          
          this.setRunning(true);
          
@@ -153,10 +153,10 @@ public class TestInputForMotionRectanglesResultsWorker
          
          this.getMotionRectanglesVector().remove(motionRectangles);
 
-         this.logUtil.put(
+         this.logUtil.putF(
             CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN);
          
-         this.logUtil.put(this.commonStrings.END, this, this.commonStrings.RUN);
+         this.logUtil.putF(this.commonStrings.END, this, this.commonStrings.RUN);
       }
       catch (Exception e)
       {

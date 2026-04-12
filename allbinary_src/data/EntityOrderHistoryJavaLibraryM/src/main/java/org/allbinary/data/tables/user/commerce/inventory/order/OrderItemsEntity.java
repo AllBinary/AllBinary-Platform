@@ -142,7 +142,7 @@ public class OrderItemsEntity extends AbSqlBean implements OrderItemsEntityInter
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.put("Command Success Added: " + items.size(), this, INSERT);
+                this.logUtil.putF("Command Success Added: " + items.size(), this, INSERT);
             }
         }catch(Exception e)
         {

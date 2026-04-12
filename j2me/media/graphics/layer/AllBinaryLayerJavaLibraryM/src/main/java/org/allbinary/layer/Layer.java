@@ -66,7 +66,7 @@ public class Layer
     {
         //final PositionStrings positionStrings = PositionStrings.getInstance();
         //final StringMaker stringMaker = new StringMaker();
-        //this.logUtil.put(stringMaker.append(
+        //this.logUtil.putF(stringMaker.append(
                 //positionStrings.DX_LABEL).append(dx)
                 //.append(positionStrings.DY_LABEL).append(dy)
                 ////.append(positionStrings.DZ_LABEL).append(dz)
@@ -77,14 +77,14 @@ public class Layer
         
         //stringMaker.delete(0, stringMaker.length());
         //this.toString(stringMaker);
-        //this.logUtil.put(stringMaker.toString(), this, MOVE);
+        //this.logUtil.putF(stringMaker.toString(), this, MOVE);
     }
     
     public void move(int dx, int dy, int dz)
     {
         //final PositionStrings positionStrings = PositionStrings.getInstance();
         //final StringMaker stringMaker = new StringMaker();
-        //this.logUtil.put(stringMaker.append(positionStrings.DX_LABEL).append(dx).append(positionStrings.DY_LABEL).append(dy).append(positionStrings.DZ_LABEL).append(dz).toString(), this, "move");
+        //this.logUtil.putF(stringMaker.append(positionStrings.DX_LABEL).append(dx).append(positionStrings.DY_LABEL).append(dy).append(positionStrings.DZ_LABEL).append(dz).toString(), this, "move");
         this.x += dx;
         this.y += dy;
         this.z += dz;
@@ -137,7 +137,7 @@ public class Layer
         final CommonStrings commonStrings = CommonStrings.getInstance();
         final CanvasStrings canvasStrings = CanvasStrings.getInstance();
         
-        this.logUtil.put(commonStrings.NOT_IMPLEMENTED, this, canvasStrings.PAINT);
+        this.logUtil.putF(commonStrings.NOT_IMPLEMENTED, this, canvasStrings.PAINT);
         
         //graphics.setColor(BasicColor.RED.intValue());
         //graphics.drawRect(x, y, width, height);

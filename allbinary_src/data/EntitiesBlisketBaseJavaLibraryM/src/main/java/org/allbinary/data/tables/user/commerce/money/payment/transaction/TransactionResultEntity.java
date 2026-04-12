@@ -53,7 +53,7 @@ public class TransactionResultEntity extends AbSqlBean
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.put(this.commonStrings.SUCCESS, this, "remove");
+                this.logUtil.putF(this.commonStrings.SUCCESS, this, "remove");
             }
         }catch(Exception e)
         {
@@ -83,7 +83,7 @@ public class TransactionResultEntity extends AbSqlBean
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.put(this.commonStrings.SUCCESS, this, "add");
+                this.logUtil.putF(this.commonStrings.SUCCESS, this, "add");
             }
         }catch(Exception e)
         {
@@ -108,7 +108,7 @@ public class TransactionResultEntity extends AbSqlBean
                 TransactionResult transactionResult = new TransactionResult(resultHashMap);
                 if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
                 {
-                    this.logUtil.put(this.commonStrings.SUCCESS, this, "getTransactionResultInterface");
+                    this.logUtil.putF(this.commonStrings.SUCCESS, this, "getTransactionResultInterface");
                 }
                 return (TransactionResultInterface) transactionResult;
             }else

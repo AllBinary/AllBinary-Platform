@@ -64,7 +64,7 @@ public class AllBinaryMediaManager
     {
         final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonString = CommonStrings.getInstance();
-        this.logUtil.put(commonString.START, THIS, commonString.INIT);
+        this.logUtil.putF(commonString.START, THIS, commonString.INIT);
 
         AllBinaryMediaManager.shutdown(soundsFactoryInterface);
 
@@ -74,7 +74,7 @@ public class AllBinaryMediaManager
 
         new Sounds(soundsFactoryInterface).init();
 
-        this.logUtil.put(commonString.END, THIS, commonString.INIT);
+        this.logUtil.putF(commonString.END, THIS, commonString.INIT);
     }
 
     static void shutdown(final SoundsFactoryInterface soundsFactoryInterface)
@@ -82,7 +82,7 @@ public class AllBinaryMediaManager
     {
         final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonString = CommonStrings.getInstance();
-        this.logUtil.put(commonString.START, THIS, "shutdown");
+        this.logUtil.putF(commonString.START, THIS, "shutdown");
 
         if (soundsFactoryInterface.isInitialized())
         {
@@ -131,7 +131,7 @@ public class AllBinaryMediaManager
             soundsFactoryInterface.setInitialized(false);
             mostUsedTotal = 0;
         }
-        this.logUtil.put(commonString.START, THIS, "shutdown");
+        this.logUtil.putF(commonString.START, THIS, "shutdown");
     }
 
     public static Player createPlayer(String resource) throws Exception
@@ -149,8 +149,7 @@ public class AllBinaryMediaManager
                 this.logUtil.put(
                         "Could not create AndroidMediaPlayerWrapper using NoPlayer at " + 
                         CommonLabels.getInstance().TOTAL_LABEL
-                                + mostUsedTotal, THIS,
-                        "createPlayer", e);
+                                + mostUsedTotal, THIS, "createPlayer", e);
                 return NoPlayer.NO_PLAYER;
             }
         }

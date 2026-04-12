@@ -59,7 +59,7 @@ public class ImagePersistanceUtil {
     	  StreamUtil.getInstance().close(fileOutputStream);
       }
       
-      this.logUtil.put("Wrote Image: " + file.getAbsolutePath(), this, commonStrings.SAVE);
+      this.logUtil.putF("Wrote Image: " + file.getAbsolutePath(), this, commonStrings.SAVE);
    }
 
                         /*
@@ -96,7 +96,7 @@ public class ImagePersistanceUtil {
                     generatedBufferedImageArray[index],
                     "PNG",
                     files[index]);
-                    this.logUtil.put("Wrote: " + isWritten, this, stringUtil.EMPTY_STRING);
+                    this.logUtil.putF("Wrote: " + isWritten, this, stringUtil.EMPTY_STRING);
                      */
 
         /*
@@ -178,7 +178,7 @@ public class ImagePersistanceUtil {
          */
     /*
     public void paint(Graphics graphics) {
-    this.logUtil.put(commonStrings.START, this, canvasStrings.PAINT);
+    this.logUtil.putF(commonStrings.START, this, canvasStrings.PAINT);
      */
     //graphics.setColor(BasicColors.BLUE.toColor());
     //graphics.fillRect(0, 0, getWidth(),getHeight());
@@ -250,7 +250,7 @@ public class ImagePersistanceUtil {
          // Validate existence of writer.
          if (!iter.hasNext())
          {
-            this.logUtil.put("Unable to save image to jpeg file type.", this, commonStrings.SAVE);
+            this.logUtil.putF("Unable to save image to jpeg file type.", this, commonStrings.SAVE);
             return;
          }
 
@@ -280,7 +280,7 @@ public class ImagePersistanceUtil {
 
          //poolInterface.add(iioImageCacheable);
 
-         this.logUtil.put("Wrote Image: " + file.getAbsolutePath(), this, commonStrings.SAVE);
+         this.logUtil.putF("Wrote Image: " + file.getAbsolutePath(), this, commonStrings.SAVE);
       }
       catch (Exception e)
       {
@@ -301,7 +301,7 @@ public class ImagePersistanceUtil {
         {
             if (ios != null)
             {
-                this.logUtil.put(ios.toString(), ios, commonStrings.CLOSE);
+                this.logUtil.putF(ios.toString(), ios, commonStrings.CLOSE);
                 ios.close();
             }
         } catch (Exception e)

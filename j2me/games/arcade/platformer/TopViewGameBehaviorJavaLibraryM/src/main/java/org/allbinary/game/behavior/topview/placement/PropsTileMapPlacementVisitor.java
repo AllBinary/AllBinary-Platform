@@ -128,18 +128,18 @@ public class PropsTileMapPlacementVisitor extends TileMapPlacementVisitor {
                     for (int index5 = index3 + 1; index5 < index - 1; index5++) {
                         for (int index6 = index4 + 1; index6 < index2 - 1; index6++) {
                             if (mapArray[index5][index6] != 14 || mapData[index5][index6] != 0) {
-                                //this.logUtil.put("Room is already cluttered", this, commonStrings.PROCESS);
+                                //this.logUtil.putF("Room is already cluttered", this, commonStrings.PROCESS);
                                 return;
                             }
                         }
                     }
                     
-                    //this.logUtil.put("Found Clearing", this, commonStrings.PROCESS);
+                    //this.logUtil.putF("Found Clearing", this, commonStrings.PROCESS);
                     final int x = index - (countX / 2);
                     final int y = index2 - (countY / 2);
-                    //this.logUtil.put("x: " + x + " y: " + y, this, commonStrings.PROCESS);
+                    //this.logUtil.putF("x: " + x + " y: " + y, this, commonStrings.PROCESS);
                     if (x >= 0 && y >= 0 && x < mapData.length && y < mapData[0].length) {
-                        //this.logUtil.put("Placing Middle of Room Prop", this, commonStrings.PROCESS);
+                        //this.logUtil.putF("Placing Middle of Room Prop", this, commonStrings.PROCESS);
                         //mapData[x][y] = 49;
                     }
                 }

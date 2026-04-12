@@ -230,7 +230,7 @@ implements TickableInterface
     {
         //final GameStrings gameStrings = GameStrings.getInstance();
         
-        //this.logUtil.put(commonStrings.START, this, gameStrings.PROCESS_TICK);
+        //this.logUtil.putF(commonStrings.START, this, gameStrings.PROCESS_TICK);
 
         if (this.isExhausted() && !this.isDestroyed())
         {
@@ -255,7 +255,7 @@ implements TickableInterface
                     indexedAnimationInterface.nextFrame();
                 } else
                 {
-                    //this.logUtil.put("Explosion - End", this, tickableStrings.PROCESS_TICK);
+                    //this.logUtil.putF("Explosion - End", this, tickableStrings.PROCESS_TICK);
                     //PreLogUtil.put("Explosion - End", this, gameStrings.PROCESS_TICK);
 
                     this.setDestroyed(true);
@@ -265,7 +265,7 @@ implements TickableInterface
                 final CollidableWeaponBehavior collidableWeaponBehavior = (CollidableWeaponBehavior) this.getCollidableInferface();
                 if (collidableWeaponBehavior.isCollided())
                 {
-                    // this.logUtil.put("Explosion - Begin", this, tickableStrings.PROCESS_TICK);
+                    // this.logUtil.putF("Explosion - Begin", this, tickableStrings.PROCESS_TICK);
                     //PreLogUtil.put("Explosion - Begin", this, gameStrings.PROCESS_TICK);
                     
                     this.setAnimationInterface(this.destroyedAnimationInterface);
@@ -273,7 +273,7 @@ implements TickableInterface
                     this.setReadyForExplosion(true);
                 } else
                 {
-                    // this.logUtil.put("Explosion - Begin and End", this, tickableStrings.PROCESS_TICK);
+                    // this.logUtil.putF("Explosion - Begin and End", this, tickableStrings.PROCESS_TICK);
                     //PreLogUtil.put("Explosion - Begin and End", this, gameStrings.PROCESS_TICK);
                     
                     this.setDestroyed(true);
@@ -316,9 +316,8 @@ implements TickableInterface
     public void damage(int damage, int damageType)
     {
         this.totalDamage += damage * damage;
-        // this.logUtil.put("Damage: " + damage +
-        // " Points Left: " + (this.getInitDamage() - this.totalDamage), this,
-        // "damage");
+        // this.logUtil.putF("Damage: " + damage +
+        // " Points Left: " + (this.getInitDamage() - this.totalDamage), this, // "damage");
     }
 
     protected void givePoints(int total)
@@ -348,9 +347,8 @@ implements TickableInterface
             int total = this.getInitDamage() - this.totalDamage;
 
             // if(total > MAX)
-            // this.logUtil.put("Damage: " + total + " init: "
-            // + this.getInitDamage() + " totalDamage: " + totalDamage, this,
-            // "damage");
+            // this.logUtil.putF("Damage: " + total + " init: "
+            // + this.getInitDamage() + " totalDamage: " + totalDamage, this, // "damage");
 
             this.givePoints(total);
             return total;
@@ -434,13 +432,13 @@ implements TickableInterface
     @Override
     public void paint(Graphics graphics)
     {
-        // this.logUtil.put(commonStrings.START, this, canvasStrings.PAINT);
+        // this.logUtil.putF(commonStrings.START, this, canvasStrings.PAINT);
 
         ViewPosition viewPosition = this.getViewPosition();
         // int viewX = viewPosition.getX();
         // int viewY = viewPosition.getY();
 
-        // this.logUtil.put("viewX: " + viewX + " viewY: " + viewY, this, canvasStrings.PAINT);
+        // this.logUtil.putF("viewX: " + viewX + " viewY: " + viewY, this, canvasStrings.PAINT);
 
         //TWB - the offset does not make sense? is collision offset? 
         this.animationInterface.paint(graphics, 

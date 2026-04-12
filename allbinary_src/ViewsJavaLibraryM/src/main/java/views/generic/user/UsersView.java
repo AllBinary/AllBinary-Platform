@@ -55,7 +55,7 @@ public class UsersView extends HttpStoreComponentView implements DomNodeInterfac
             }
             else
             {
-               this.logUtil.put("UserHelper",this,"toXmlNode");
+               this.logUtil.putF("UserHelper",this,"toXmlNode");
             }
          }
          

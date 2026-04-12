@@ -61,7 +61,7 @@ public class XmlRpcRemoteLicenseRegistrationClient extends XmlRpcAbeClient
             stringBuffer.append(SEP);
             stringBuffer.append(server);
             
-            this.logUtil.put(CommonLabels.getInstance().START_LABEL + stringBuffer.toString(), this, commonStrings.GET);
+            this.logUtil.putF(CommonLabels.getInstance().START_LABEL + stringBuffer.toString(), this, commonStrings.GET);
             
             // }
 
@@ -82,13 +82,13 @@ public class XmlRpcRemoteLicenseRegistrationClient extends XmlRpcAbeClient
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
             //System.out.println("Client Info: \n" + hashtable.toString());
-            this.logUtil.put(CLIENT_INFO + hashtable.toString(), this, commonStrings.GET);
+            this.logUtil.putF(CLIENT_INFO + hashtable.toString(), this, commonStrings.GET);
             // }
 
             /*
              * if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING)) {
-             * this.logUtil.put("Xml-Rpc Client Liscense Request: \n" +
-             * client.toString(), this,GET); }
+             * this.logUtil.putF("Xml-Rpc Client Liscense Request: \n" +
+             * client.toString(), this, GET); }
              */
 
             param.add(hashtable);
@@ -98,20 +98,20 @@ public class XmlRpcRemoteLicenseRegistrationClient extends XmlRpcAbeClient
             /*
              * this could return without trying all servers if(result==null) {
              * //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
-             * //{ this.logUtil.put("Empty Result\n", this,GET); //}
+             * //{ this.logUtil.putF("Empty Result\n", this, GET); //}
              * return null; }
              */
 
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
             //System.out.println("Result: \n" + result.toString());
-            this.logUtil.put(RESULT + result.toString(), this, commonStrings.GET);
+            this.logUtil.putF(RESULT + result.toString(), this, commonStrings.GET);
             // }
 
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
             //System.out.println("End Trying Server #" + this.getServer() + CommonLabels.getInstance().COLON_SEP + getClientInfo().getLicenseServer(this.getServer()));
-            //this.logUtil.put("End Trying Server #" + this.getServer() + CommonLabels.getInstance().COLON_SEP + getClientInfo().getLicenseServer(this.getServer()), this, GET);
+            //this.logUtil.putF("End Trying Server #" + this.getServer() + CommonLabels.getInstance().COLON_SEP + getClientInfo().getLicenseServer(this.getServer()), this, GET);
             // }
 
             isOnline = true;
@@ -129,7 +129,7 @@ public class XmlRpcRemoteLicenseRegistrationClient extends XmlRpcAbeClient
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
             //System.out.println("IOException Trying Other Servers");
-            this.logUtil.put(TRYING_OTHER_SERVERS + ExceptionUtil.getInstance().getStackTrace(e), this, commonStrings.GET);
+            this.logUtil.putF(TRYING_OTHER_SERVERS + ExceptionUtil.getInstance().getStackTrace(e), this, commonStrings.GET);
             // }
 
             if(!e.getMessage().startsWith(HOST_NOT_RESOLVED))

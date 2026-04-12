@@ -543,7 +543,7 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
 
           filePath = new StringMaker().append(filePath.substring(0, extensionIndex)).append(CommonSeps.getInstance().UNDERSCORE).appendint(this.imageUnifierProperties.getColumns()).append("_By_").appendint(this.imageUnifierProperties.getRows()).append("_Unified").append(imageStrings.PNG_EXTENSION).toString();
 
-          this.logUtil.put("New File Path: " + filePath, this, StringUtil.getInstance().EMPTY_STRING);
+          this.logUtil.putF("New File Path: " + filePath, this, StringUtil.getInstance().EMPTY_STRING);
           
           final File outputFile = new File(filePath);
           ImagePersistanceUtil.getInstance().saveWithBatik(FileWrapperUtil.wrapFile(outputFile), this.result);

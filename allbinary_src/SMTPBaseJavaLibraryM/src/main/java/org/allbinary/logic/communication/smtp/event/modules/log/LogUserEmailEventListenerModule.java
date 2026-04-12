@@ -32,7 +32,7 @@ public class LogUserEmailEventListenerModule
       {
          String message = "Logging EmailEvent - Temporary Listener for debugging.\n\n" + userEmailInfoEvent.toString();
 
-         this.logUtil.put(message, this, "onEmailSendRequest");
+         this.logUtil.putF(message, this, "onEmailSendRequest");
       }
    }
 }

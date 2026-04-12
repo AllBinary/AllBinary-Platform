@@ -49,7 +49,7 @@ public class AdvertisementAreasEntity extends AbSqlBean implements Advertisement
          
      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
      {
-     this.logUtil.put(this.commonStrings.SUCCESS,this,INSERT);
+     this.logUtil.putF(this.commonStrings.SUCCESS, this, INSERT);
      }
      }
      catch(Exception e)
@@ -68,7 +68,7 @@ public class AdvertisementAreasEntity extends AbSqlBean implements Advertisement
             super.deleteWhere(EntryData.getInstance().ID, value);
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.put(this.commonStrings.SUCCESS, this, commonStrings.delete);
+                this.logUtil.putF(this.commonStrings.SUCCESS, this, commonStrings.delete);
             }
         }catch(Exception e)
         {

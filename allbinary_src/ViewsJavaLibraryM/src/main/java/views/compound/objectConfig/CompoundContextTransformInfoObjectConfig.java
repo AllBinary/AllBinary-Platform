@@ -96,7 +96,7 @@ public class CompoundContextTransformInfoObjectConfig
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         this.logUtil.put(
+         this.logUtil.putF(
              "Root View Called with: " + viewVector.size(),
              this, "get(transformInfoInterface)");
       }
@@ -140,7 +140,7 @@ public class CompoundContextTransformInfoObjectConfig
              stringBuffer.append(" with ");
              stringBuffer.append(templateValue);
         	 
-            this.logUtil.put(stringBuffer.toString(), this,"get()");
+            this.logUtil.putF(stringBuffer.toString(), this,"get()");
          }
          
          Replace replace = new Replace(templateKey, templateValue);
@@ -150,7 +150,7 @@ public class CompoundContextTransformInfoObjectConfig
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         this.logUtil.put("End: Result of a compound view: " + rootView, this,"get()");
+         this.logUtil.putF("End: Result of a compound view: " + rootView, this,"get()");
       }
 
       return rootView;
@@ -165,7 +165,7 @@ public class CompoundContextTransformInfoObjectConfig
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         this.logUtil.put("Template: " + new String(completeTemplateViewBytes).toString(),this,"createInputStream()");
+         this.logUtil.putF("Template: " + new String(completeTemplateViewBytes).toString(),this,"createInputStream()");
       }
       
       return bais;

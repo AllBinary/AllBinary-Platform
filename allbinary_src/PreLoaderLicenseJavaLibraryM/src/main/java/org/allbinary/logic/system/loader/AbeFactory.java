@@ -284,7 +284,7 @@ public class AbeFactory
          /*
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))
             {
-               this.logUtil.put("Getting Instance", this,commonStrings.GET_INSTANCE);
+               this.logUtil.putF("Getting Instance", this, commonStrings.GET_INSTANCE);
             }
           */
    //    ClassLoader loader = new AbeClassLoader(AbKeys.key);
@@ -293,11 +293,11 @@ public class AbeFactory
             {
                if(loader==null)
                {
-                  this.logUtil.put("Loader Null", this,commonStrings.GET_INSTANCE);
+                  this.logUtil.putF("Loader Null", this, commonStrings.GET_INSTANCE);
                }
                else
                {
-                  this.logUtil.put("Loader Not Null", this,commonStrings.GET_INSTANCE);
+                  this.logUtil.putF("Loader Not Null", this, commonStrings.GET_INSTANCE);
                }
             }
  */
@@ -310,12 +310,12 @@ public class AbeFactory
             {
                if(c==null)
                {
-                  this.logUtil.put("Class Null", this,commonStrings.GET_INSTANCE);
+                  this.logUtil.putF("Class Null", this, commonStrings.GET_INSTANCE);
                }
                else
                {
-                  //this.logUtil.put("isInstance: " + myClass.isInstance(), this,commonStrings.GET_INSTANCE);
-                  this.logUtil.put("Class Not Null", this,commonStrings.GET_INSTANCE);
+                  //this.logUtil.putF("isInstance: " + myClass.isInstance(), this, commonStrings.GET_INSTANCE);
+                  this.logUtil.putF("Class Not Null", this, commonStrings.GET_INSTANCE);
                }
             }
    */

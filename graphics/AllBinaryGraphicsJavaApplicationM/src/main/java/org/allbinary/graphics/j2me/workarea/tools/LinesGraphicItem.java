@@ -198,7 +198,7 @@ public class LinesGraphicItem implements GraphicItemInterface
    {
       this.points.getPoints().add(point);
       
-      this.logUtil.put(point.toString(), this, "addPoint");
+      this.logUtil.putF(point.toString(), this, "addPoint");
       
       this.pointTreeNodeVector.add(new DefaultMutableTreeNode(point.toString()));
       this.treeNode.add((DefaultMutableTreeNode) this.pointTreeNodeVector.get(this.pointTreeNodeVector.size()-1));

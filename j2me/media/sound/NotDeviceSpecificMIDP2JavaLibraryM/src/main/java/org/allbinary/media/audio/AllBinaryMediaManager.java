@@ -65,7 +65,7 @@ public class AllBinaryMediaManager
     {
         final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonString = CommonStrings.getInstance();
-        this.logUtil.put(commonString.START, THIS, commonString.INIT);
+        this.logUtil.putF(commonString.START, THIS, commonString.INIT);
         ProgressCanvasFactory.getInstance().addPortion(50, "Media Manager");
 
         new Sounds(soundsFactoryInterface).init();

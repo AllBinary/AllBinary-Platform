@@ -74,39 +74,36 @@ public class OpenGLConfiguration
             {
                 if (!features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL))
                 {
-                    this.logUtil.put("Turning on OpenGL",
-                            this, commonStrings.INIT);
+                    this.logUtil.putF("Turning on OpenGL", this, commonStrings.INIT);
                     
                     features.addDefault(OpenGLFeatureFactory.getInstance().OPENGL);
                     
-                    this.logUtil.put("Using OpenGL Type Feature: "
+                    this.logUtil.putF("Using OpenGL Type Feature: "
                             + this.getType(), this, commonStrings.INIT);
                     
                     features.addDefault(this.getType());
                     
-                    this.logUtil.put("Using OpenGL ImageColor Feature: "
+                    this.logUtil.putF("Using OpenGL ImageColor Feature: "
                             + this.getImageColor(), this, commonStrings.INIT);
                     features.addDefault(this.getImageColor());
 
-                    this.logUtil.put("Using OpenGL Color Feature: "
+                    this.logUtil.putF("Using OpenGL Color Feature: "
                             + this.getColor(), this, commonStrings.INIT);
                     features.addDefault(this.getColor());
 
-                    this.logUtil.put("Using OpenGL Version Selector Feature: "
+                    this.logUtil.putF("Using OpenGL Version Selector Feature: "
                             + this.getVersionSelector(), this, commonStrings.INIT);
                     features.addDefault(this.getVersionSelector());
                 }
             }
             else
             {
-                this.logUtil.put("OpenGL is Off", this,
-                        commonStrings.INIT);
+                this.logUtil.putF("OpenGL is Off", this, commonStrings.INIT);
 
                 // Turning off OpenGL
                 // if(features.isDefault(OpenGLFeature.OPENGL))
                 // {
-                // this.logUtil.put("Turning off OpenGL",
-                // this, commonStrings.INIT);
+                // this.logUtil.putF("Turning off OpenGL", // this, commonStrings.INIT);
                 // features.removeDefault(OpenGLFeature.OPENGL);
                 // }
             }

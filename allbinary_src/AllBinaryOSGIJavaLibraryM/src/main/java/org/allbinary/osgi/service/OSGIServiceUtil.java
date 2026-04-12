@@ -47,13 +47,13 @@ public class OSGIServiceUtil
         if(serviceReferences != null)
         {
             final int size = serviceReferences.length;
-            this.logUtil.put("Service References: " + size, this, "getServicesObjectVector");
+            this.logUtil.putF("Service References: " + size, this, "getServicesObjectVector");
             
             for(int index = 0; index < size; index++)
             {
                 ServiceReference serviceReference = serviceReferences[index];
 
-                //this.logUtil.put("Service Reference Properties: " + stringBuffer.toString(), this, "getInputAutomationModuleServices");
+                //this.logUtil.putF("Service Reference Properties: " + stringBuffer.toString(), this, "getInputAutomationModuleServices");
                 
                 if(serviceReference != null)
                 {
@@ -73,3 +73,4 @@ public class OSGIServiceUtil
         return vector;
     }
 }
+

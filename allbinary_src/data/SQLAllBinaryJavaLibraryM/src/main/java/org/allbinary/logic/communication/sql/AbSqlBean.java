@@ -66,7 +66,7 @@ public class AbSqlBean extends AbSqlRow
                     stringBuffer.append(sqlStrings.FIELD_VALUE);
                     stringBuffer.append(field);
 
-                    this.logUtil.put(stringBuffer.toString(), this, METHOD_GET_FIELD);
+                    this.logUtil.putF(stringBuffer.toString(), this, METHOD_GET_FIELD);
                 }
 
                 return field;
@@ -133,7 +133,7 @@ public class AbSqlBean extends AbSqlRow
                     stringBuffer.append(sqlStrings.FIELD_VALUE);
                     stringBuffer.append(field);
 
-                    this.logUtil.put(stringBuffer.toString(), this, METHOD_GET_FIELD);
+                    this.logUtil.putF(stringBuffer.toString(), this, METHOD_GET_FIELD);
                 }
                 return field;
             }

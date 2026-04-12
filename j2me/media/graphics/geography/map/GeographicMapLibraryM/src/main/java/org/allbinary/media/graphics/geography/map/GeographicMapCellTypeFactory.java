@@ -32,10 +32,10 @@ public class GeographicMapCellTypeFactory
     public GeographicMapCellType getInstance(int type)
     {
         //final CommonStrings commonStrings = CommonStrings.getInstance();
-        //this.logUtil.put("type: " + Integer.toString(type), this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.putF("type: " + Integer.toString(type), this, commonStrings.CONSTRUCTOR);
 //        final GeographicMapCellType geographicMapCellType = geographicMapCellTypeArray[type];
 //        if(geographicMapCellType == null) {
-//            this.logUtil.put("missing type: " + type, this, commonStrings.PROCESS);
+//            this.logUtil.putF("missing type: " + type, this, commonStrings.PROCESS);
 //            throw new RuntimeException();
 //        }
 //        return geographicMapCellType;

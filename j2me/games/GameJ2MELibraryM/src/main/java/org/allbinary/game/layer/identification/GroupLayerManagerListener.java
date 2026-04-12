@@ -91,7 +91,7 @@ extends LayerManagerEventListener
     {
         final BasicArrayList groupList = (BasicArrayList) this.list.objectArray[groupId];
         //if(groupList == null) {
-            //this.logUtil.put("groupId: ").append(groupId, this, "getGroupSize");
+            //this.logUtil.putF("groupId: ").append(groupId, this, "getGroupSize");
         //}
         final int size = groupList.size();
         return size;
@@ -110,7 +110,7 @@ extends LayerManagerEventListener
 
                 if (groupSize != 0)
                 {
-                    this.logUtil.put(new StringMaker().append("Group Size: ").appendint(groupSize).toString(), this, "areAllOtherGroupsEmpty");
+                    this.logUtil.putF(new StringMaker().append("Group Size: ").appendint(groupSize).toString(), this, "areAllOtherGroupsEmpty");
                     return false;
                 }
             }
@@ -168,7 +168,7 @@ extends LayerManagerEventListener
                     //stringBuffer.append(" -> ");
                     //stringBuffer.append(groupList);
 
-                    //this.logUtil.put(
+                    //this.logUtil.putF(
                       //      stringBuffer.toString(), this, "areAllOtherGroupsLessThan");
 
                     return false;
@@ -185,7 +185,7 @@ extends LayerManagerEventListener
             this.list.add(new BasicArrayList());
         }
         
-        //this.logUtil.put("size: ").append(total, this, this.commonStrings.INIT);
+        //this.logUtil.putF("size: ").append(total, this, this.commonStrings.INIT);
         
     }
 
@@ -202,7 +202,7 @@ extends LayerManagerEventListener
 
         final AllBinaryLayer layerInterface = layerManagerEvent.getLayerInterface();
 
-        //this.logUtil.put(new StringMaker().append("onCreateLayerManagerEvent: ").append(layerInterface.toString()).toString(), this, commonStrings.CREATE);
+        //this.logUtil.putF(new StringMaker().append("onCreateLayerManagerEvent: ").append(layerInterface.toString()).toString(), this, commonStrings.CREATE);
         
         //Ignore weapons
         /*
@@ -223,7 +223,7 @@ extends LayerManagerEventListener
             groupList = (BasicArrayList) this.list.objectArray[id];
 
             if(groupList == null) {
-                this.logUtil.put(new StringMaker().append("id: ").appendint(id).toString(), this, "onCreateLayerManagerEvent");
+                this.logUtil.putF(new StringMaker().append("id: ").appendint(id).toString(), this, "onCreateLayerManagerEvent");
             }
             
             //if(Group.ENEMY.getGroupId() == id)
@@ -248,7 +248,7 @@ extends LayerManagerEventListener
                     stringBuffer.append(" --> ");
                     stringBuffer.append(groupList);
 
-                    this.logUtil.put(stringBuffer.toString(), this, "onCreateLayerManagerEvent");
+                    this.logUtil.putF(stringBuffer.toString(), this, "onCreateLayerManagerEvent");
                 }
                 */
             }
@@ -263,7 +263,7 @@ extends LayerManagerEventListener
     public void onDeleteLayerManagerEvent(final LayerManagerEvent layerManagerEvent)
             throws Exception
     {
-        //this.logUtil.put(commonStrings.START, this, "onDeleteLayerManagerEvent");
+        //this.logUtil.putF(commonStrings.START, this, "onDeleteLayerManagerEvent");
 
         final AllBinaryLayer layerInterface = layerManagerEvent.getLayerInterface();
 
@@ -305,7 +305,7 @@ extends LayerManagerEventListener
             stringBuffer.append(" --> ");
             stringBuffer.append(groupList);
 
-            this.logUtil.put(stringBuffer.toString(), this, "onDeleteLayerManagerEvent");
+            this.logUtil.putF(stringBuffer.toString(), this, "onDeleteLayerManagerEvent");
         }
         */        
             
@@ -335,8 +335,8 @@ extends LayerManagerEventListener
             stringBuffer.appendint(groupList.size());
             stringBuffer.append(SPACE);
             
-            //this.logUtil.put(stringBuffer.toString(), this, "log");
+            //this.logUtil.putF(stringBuffer.toString(), this, "log");
         }
-        this.logUtil.put(stringBuffer.toString(), this, "log");
+        this.logUtil.putF(stringBuffer.toString(), this, "log");
     }
 }

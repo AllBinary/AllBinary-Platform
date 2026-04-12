@@ -136,7 +136,7 @@ public class StoreFileGenerator
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            this.logUtil.put("File: " + this.fileAbPath.toString(), this, this.commonStrings.CONSTRUCTOR);
+            this.logUtil.putF("File: " + this.fileAbPath.toString(), this, this.commonStrings.CONSTRUCTOR);
         }
     }
 
@@ -145,7 +145,7 @@ public class StoreFileGenerator
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            this.logUtil.put("Processing", this, commonStrings.PROCESS);
+            this.logUtil.putF("Processing", this, commonStrings.PROCESS);
         }
 
         if (!this.file.exists())
@@ -165,7 +165,7 @@ public class StoreFileGenerator
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            this.logUtil.put("Processed", this, commonStrings.PROCESS);
+            this.logUtil.putF("Processed", this, commonStrings.PROCESS);
         }
 
         return StringUtil.getInstance().EMPTY_STRING;

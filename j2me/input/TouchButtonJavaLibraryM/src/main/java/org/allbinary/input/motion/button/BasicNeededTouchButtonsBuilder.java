@@ -29,7 +29,7 @@ public class BasicNeededTouchButtonsBuilder
     {
         try
         {
-            this.logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+            this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
             
             final BasicArrayList list = new BasicArrayList();
             

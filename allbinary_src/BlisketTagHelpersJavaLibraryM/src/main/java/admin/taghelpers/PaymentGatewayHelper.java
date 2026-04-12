@@ -76,7 +76,7 @@ public class PaymentGatewayHelper extends BasicTable
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put(success,this,"insert()");
+            this.logUtil.putF(success,this,"insert()");
          }
          
          return success + "<br/>";
@@ -111,7 +111,7 @@ public class PaymentGatewayHelper extends BasicTable
         	 stringBuffer.append(" HashMap=");
         	 stringBuffer.append(paymentGatewayInterface.toHashMap(true).toString());
 
-            this.logUtil.put(stringBuffer.toString(), this, "update()");
+            this.logUtil.putF(stringBuffer.toString(), this, "update()");
          }
          
          PaymentGatewayEntityFactory.getInstance().update(
@@ -121,7 +121,7 @@ public class PaymentGatewayHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put(success, this, "update()");
+            this.logUtil.putF(success, this, "update()");
          }
          return success + "<br/>";
       }
@@ -163,7 +163,7 @@ public class PaymentGatewayHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put(success,this,"delete()");
+            this.logUtil.putF(success,this,"delete()");
          }
          return success + "<br/>";
       }
@@ -186,7 +186,7 @@ public class PaymentGatewayHelper extends BasicTable
          String success = PaymentGatewayEntityFactory.getInstance().dropTable();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put(success,this,commonStrings.DROP);
+            this.logUtil.putF(success,this,commonStrings.DROP);
          }
          return success;
       }
@@ -210,7 +210,7 @@ public class PaymentGatewayHelper extends BasicTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put(success,this,"create()");
+            this.logUtil.putF(success,this,"create()");
          }
          return success;
       }
@@ -234,7 +234,7 @@ public class PaymentGatewayHelper extends BasicTable
          final String result = AbSqlTableUtil.getInstance().restoreTable(PaymentGatewayEntityFactory.getInstance(), this.portion);
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put(success,this,"restore()");
+            this.logUtil.putF(success,this,"restore()");
          }
          return result;
       }
@@ -258,7 +258,7 @@ public class PaymentGatewayHelper extends BasicTable
          final String result = AbSqlTableUtil.getInstance().backupTable(PaymentGatewayEntityFactory.getInstance());
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put(success,this,"backup()");
+            this.logUtil.putF(success,this,"backup()");
          }
          return result;
       }

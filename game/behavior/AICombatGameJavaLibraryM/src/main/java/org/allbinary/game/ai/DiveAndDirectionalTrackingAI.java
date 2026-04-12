@@ -143,7 +143,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
 
         this.lastTrackingLayerInterface = lastTrackingEvent.getLayerInterface();
 
-        // this.logUtil.put("AI Owner: " +
+        // this.logUtil.putF("AI Owner: " +
         // this.getOwnerLayerInterface() + " Tracking: " +
         // this.lastTrackingLayerInterface, this, "target");
 

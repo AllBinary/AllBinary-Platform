@@ -61,7 +61,7 @@ public class StaticPagesRequestHelper extends AbContext
    {
       super(propertiesHashMap, pageContext);
 
-      //this.logUtil.put(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
+      //this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
 
       this.request = (HttpServletRequest) pageContext.getRequest();
       this.xslFile = (String) propertiesHashMap.get(
@@ -81,7 +81,7 @@ public class StaticPagesRequestHelper extends AbContext
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
          {
-            this.logUtil.put("Generated Static Pages Notification Email", this, "email");
+            this.logUtil.putF("Generated Static Pages Notification Email", this, "email");
          }
 
          StoreFrontInterface storeFrontInterface = 
@@ -128,7 +128,7 @@ public class StaticPagesRequestHelper extends AbContext
    {
       try
       {
-         //this.logUtil.put(this.commonStrings.START, this, "generateStaticPages()");
+         //this.logUtil.putF(this.commonStrings.START, this, "generateStaticPages()");
 
          String contentType = AcceptableResponseGenerator.getInstance().get(this.request); 
          
@@ -143,7 +143,7 @@ public class StaticPagesRequestHelper extends AbContext
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put(success, this, "generateStaticPages()");
+            this.logUtil.putF(success, this, "generateStaticPages()");
          }
 
          return success;
@@ -178,7 +178,7 @@ public class StaticPagesRequestHelper extends AbContext
          String success = "Made Public";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put(success, this,"makePublic()");
+            this.logUtil.putF(success, this,"makePublic()");
          }
 
          return success;

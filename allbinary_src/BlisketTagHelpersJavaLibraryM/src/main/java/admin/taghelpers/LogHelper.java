@@ -79,7 +79,7 @@ public class LogHelper extends BasicTable
          final String result = AbSqlTableUtil.getInstance().restoreTable(logTableEntity, this.portion);
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put(success,this,"restore()");
+            this.logUtil.putF(success,this,"restore()");
          }
          return result;
       }
@@ -103,7 +103,7 @@ public class LogHelper extends BasicTable
          final String result = AbSqlTableUtil.getInstance().backupTable(LogTableEntityFactory.getInstance().getLogTableEntityInstance());
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put(success,this,"backup()");
+            this.logUtil.putF(success,this,"backup()");
          }
          return result;
       }

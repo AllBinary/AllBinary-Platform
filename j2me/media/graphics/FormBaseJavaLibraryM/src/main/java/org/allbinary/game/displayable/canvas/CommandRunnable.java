@@ -42,7 +42,7 @@ public class CommandRunnable implements Runnable
    {
       try
       {
-         this.logUtil.put(commonStrings.START_RUNNABLE, this, commonStrings.RUN);
+         this.logUtil.putF(commonStrings.START_RUNNABLE, this, commonStrings.RUN);
 
          final MyCanvas canvas = this.commandFormInputProcessor.getCanvas();
 
@@ -50,7 +50,7 @@ public class CommandRunnable implements Runnable
 
          commandListener.commandAction(command, canvas);
 
-         this.logUtil.put(commonStrings.END_RUNNABLE, this, commonStrings.RUN);
+         this.logUtil.putF(commonStrings.END_RUNNABLE, this, commonStrings.RUN);
          
       } catch (Exception e)
       {

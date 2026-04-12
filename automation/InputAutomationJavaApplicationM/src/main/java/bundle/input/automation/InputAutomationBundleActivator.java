@@ -47,7 +47,7 @@ public class InputAutomationBundleActivator
     {
         try
         {
-            this.logUtil.put(this.commonStrings.START, this, this.commonStrings.START);
+            this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.START);
             
             this.bundleContext = bundleContext;
         /*
@@ -56,13 +56,13 @@ public class InputAutomationBundleActivator
         {
             public Object addingService(ServiceReference serviceReference)
             {
-                this.logUtil.put("Start Name: " + serviceReference.getBundle().getSymbolicName(), this, "addingService");
+                this.logUtil.putF("Start Name: " + serviceReference.getBundle().getSymbolicName(), this, "addingService");
                 Object obj = super.addingService(serviceReference);
                 return obj;
             }
             public void removedService(ServiceReference serviceReference, Object service)
             {
-                this.logUtil.put("Start Name: " + serviceReference.getBundle().getSymbolicName(), this, "removedService");
+                this.logUtil.putF("Start Name: " + serviceReference.getBundle().getSymbolicName(), this, "removedService");
                 super.removedService(serviceReference, service);
             }
         };
@@ -113,14 +113,14 @@ public class InputAutomationBundleActivator
     public void stop(final BundleContext context)
     throws Exception
     {
-        this.logUtil.put(this.commonStrings.START, this, "stop");
+        this.logUtil.putF(this.commonStrings.START, this, "stop");
         if(InputAutomationJFrame.getInstance() != null)
         {
             InputAutomationJFrame.destroy();
         }
         else
         {
-            this.logUtil.put("Nothing to stop", this, "stop");
+            this.logUtil.putF("Nothing to stop", this, "stop");
         }
     }
 }

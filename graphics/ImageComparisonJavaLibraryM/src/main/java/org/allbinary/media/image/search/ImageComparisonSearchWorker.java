@@ -80,7 +80,7 @@ public class ImageComparisonSearchWorker
     {
         try
         {
-            this.logUtil.put(this.commonStrings.START, this, this.commonStrings.RUN);
+            this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.RUN);
             
             this.setRunning(true);
             
@@ -91,7 +91,7 @@ public class ImageComparisonSearchWorker
             ImageComparisonResult imageComparisonInfo =
                 (ImageComparisonResult) this.imageComparisonInfoVector.get(0);
             
-            this.logUtil.put(imageComparisonInfo.toString(), this, this.commonStrings.RUN);
+            this.logUtil.putF(imageComparisonInfo.toString(), this, this.commonStrings.RUN);
             
             BufferedImage latestBufferedImage =
                 imageComparisonInfo.getBufferedImages()[1];
@@ -109,12 +109,12 @@ public class ImageComparisonSearchWorker
             
             this.index++;
             
-            this.logUtil.put(
+            this.logUtil.putF(
                 CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN);
             
             this.setRunning(false);
             
-            this.logUtil.put(this.commonStrings.END, this, this.commonStrings.RUN);
+            this.logUtil.putF(this.commonStrings.END, this, this.commonStrings.RUN);
         }
         catch (Exception e)
         {

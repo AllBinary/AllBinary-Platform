@@ -83,7 +83,7 @@ public class VectorRotationGenerator
             int[][][] newPoints = vectorAnimationUtil
                     .toAnimationArrayFromBasicArrayListOfPointBasicArrayList(pointsBasicArrayList,
                             pointBasicArrayList.size());
-            // this.logUtil.put(IntArrayUtil.toString(newPoints), this, commonStrings.GET_INSTANCE);
+            // this.logUtil.putF(IntArrayUtil.toString(newPoints), this, commonStrings.GET_INSTANCE);
             return newPoints;
         } catch (Exception e)
         {

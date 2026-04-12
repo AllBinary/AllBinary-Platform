@@ -112,7 +112,7 @@ public class AdvancedPlayerOwnedRTSLayers
         //stringBuffer.append("removeHouse: ");
         //stringBuffer.append(layerInterface.getName());
         
-        //this.logUtil.put(stringBuffer.toString(), this, "removeHouse");
+        //this.logUtil.putF(stringBuffer.toString(), this, "removeHouse");
         
         this.houseList.remove(layerInterface);
         this.rtsLayerList.remove(layerInterface);
@@ -204,7 +204,7 @@ public class AdvancedPlayerOwnedRTSLayers
         stringBuffer.append("removeBuilding: ");
         stringBuffer.append(layerInterface.getName());
         
-        this.logUtil.put(stringBuffer.toString(), this, "removeBuilding");
+        this.logUtil.putF(stringBuffer.toString(), this, "removeBuilding");
         */
         
         if(this.getBaseList().remove(layerInterface))

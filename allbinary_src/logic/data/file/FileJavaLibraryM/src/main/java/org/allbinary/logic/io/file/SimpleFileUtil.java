@@ -161,12 +161,12 @@ public class SimpleFileUtil {
         //final CommonSeps commonSeps = CommonSeps.getInstance();
         
         final int size = byteArray.length;
-        //this.logUtil.put("size: " + size, this, commonStrings.PROCESS);
+        //this.logUtil.putF("size: " + size, this, commonStrings.PROCESS);
         int index = 0;
         int startIndex;
         int returnLine = 0;
         while(index < size) {
-            //this.logUtil.put("index" + index, this, commonStrings.PROCESS);
+            //this.logUtil.putF("index" + index, this, commonStrings.PROCESS);
             startIndex = index;
             while(index < size - 1 && byteArray[index] != (byte) '\n') {
                 index++;
@@ -186,7 +186,7 @@ public class SimpleFileUtil {
             index++;
         }
         
-        //this.logUtil.put("s: " + stringMaker.toString(), this, commonStrings.PROCESS);
+        //this.logUtil.putF("s: " + stringMaker.toString(), this, commonStrings.PROCESS);
         
         return stringList;
     }

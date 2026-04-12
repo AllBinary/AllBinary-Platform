@@ -548,7 +548,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     {
         try
         {
-            this.logUtil.put("Reading: " + files, this, "onFiles");
+            this.logUtil.putF("Reading: " + files, this, "onFiles");
 
             for (int index = 0; index < files.length; index++)
             {
@@ -593,7 +593,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     {
         try
         {
-            this.logUtil.put("Starting", this, "openImageJMenuItemActionPerformed");
+            this.logUtil.putF("Starting", this, "openImageJMenuItemActionPerformed");
             fileJDialog.setVisible(true);
         } catch (Exception e)
         {
@@ -612,7 +612,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
             File file = new File(this.SAVE_PATH + "/" + workAreaJPanel.getName() + JAVAEXTENSION);
             Document document = workAreaJPanel.toDocument();
 
-            this.logUtil.put("Export: " + DomHelper.getInstance().toString(document), this, "exportJMenuItem1ActionPerformed");
+            this.logUtil.putF("Export: " + DomHelper.getInstance().toString(document), this, "exportJMenuItem1ActionPerformed");
 
             xslHelper.export(file, this.TEMPLATE_EXPORT_PATH + "/" + this.JAVA_TEMPLATE, document);
         } catch (Exception e)

@@ -59,7 +59,7 @@ public class StoreUriResolver implements URIResolver
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XMLLOGGING))
          {
             
-            this.logUtil.put(
+            this.logUtil.putF(
                     "attempt to use xsl:import: href=" + href +
                "\nBase= " + base +
                "\nNew path= " + fileAbPath.toString() +

@@ -69,7 +69,7 @@ public class LazyImageRotationAnimation extends RotationAnimation {
 //            }
 //        };
 
-        //this.logUtil.put(this.NULL_INDEX_ANIMATION.toString(), this, this.commonStrings.PROCESS);
+        //this.logUtil.putF(this.NULL_INDEX_ANIMATION.toString(), this, this.commonStrings.PROCESS);
 
         this.animation = new RotationAnimation(animationBehavior) {
             
@@ -106,7 +106,7 @@ public class LazyImageRotationAnimation extends RotationAnimation {
             }
             
         };
-        //this.logUtil.put(this.animation.toString(), this, this.commonStrings.PROCESS);
+        //this.logUtil.putF(this.animation.toString(), this, this.commonStrings.PROCESS);
 
     }
 
@@ -119,7 +119,7 @@ public class LazyImageRotationAnimation extends RotationAnimation {
             this.animation = (IndexedAnimation) this.animationInterfaceFactoryInterface.getInstance(this.instanceId);
             this.animation.setState(animation);
             //this.animation.setScale(this.scaleX, this.scaleY);
-            //this.logUtil.put(new StringMaker().append(this.toString()).append(this.animation.getClass().getName()).toString(), this, SET_REAL_ANIMATION);
+            //this.logUtil.putF(new StringMaker().append(this.toString()).append(this.animation.getClass().getName()).toString(), this, SET_REAL_ANIMATION);
         } catch (Exception e) {
             this.logUtil.put(commonStrings.EXCEPTION, this, SET_REAL_ANIMATION, e);
         }

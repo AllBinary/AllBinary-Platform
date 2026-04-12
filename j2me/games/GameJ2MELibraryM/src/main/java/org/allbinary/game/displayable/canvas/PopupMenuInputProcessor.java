@@ -61,7 +61,7 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
         //4,8,KEY_STAR
         if (key == Canvas.KEY_STAR)
         {
-            //this.logUtil.put("Key: ").append(key, this, GameInputStrings.getInstance());
+            //this.logUtil.putF("Key: ").append(key, this, GameInputStrings.getInstance());
             //PreLogUtil.put("Key: ").append(key, this, GameInputStrings.getInstance());
 
             final AllBinaryGameCanvas gameCanvas = (AllBinaryGameCanvas) this.getCanvas();
@@ -142,11 +142,11 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
     protected void processMotionInput(final MotionGestureEvent motionGestureEvent)
         throws Exception
     {
-        //this.logUtil.put(commonStrings.START, this, gameInputStrings.PROCESS_MOTION_INPUT);
+        //this.logUtil.putF(commonStrings.START, this, gameInputStrings.PROCESS_MOTION_INPUT);
 
         if(motionGestureEvent == null)
         {
-            this.logUtil.put("Exception: Bug", this, gameInputStrings.PROCESS_MOTION_INPUT);
+            this.logUtil.putF("Exception: Bug", this, gameInputStrings.PROCESS_MOTION_INPUT);
             return;
         }
         

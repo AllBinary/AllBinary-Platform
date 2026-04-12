@@ -63,7 +63,7 @@ public class BaseGameBehavior extends DemoGameBehavior {
 //                    }
 //                }
 //            };
-//            this.logUtil.put("Set SWT Thread and assign runnable: " + runnable, this, "pause");
+//            this.logUtil.putF("Set SWT Thread and assign runnable: " + runnable, this, "pause");
 //
 //            final SWTProcessorUtil swtProcessorUtil = SWTProcessorUtil.getInstance();
 //            final SWTRunnableProcessor swtRunnableProcessor = SWTRunnableProcessor.getInstance();
@@ -79,7 +79,7 @@ public class BaseGameBehavior extends DemoGameBehavior {
                 //|| J2MEUtil.isHTML())
                 ) {
             
-            //this.logUtil.put("pause", this, METHOD_NAME);
+            //this.logUtil.putF("pause", this, METHOD_NAME);
 
             final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
 
@@ -103,7 +103,7 @@ public class BaseGameBehavior extends DemoGameBehavior {
 //                    }
 //                }
 //            };
-//            this.logUtil.put("Set SWT Thread and assign runnable: " + runnable, this, gameStrings.UNPAUSE);
+//            this.logUtil.putF("Set SWT Thread and assign runnable: " + runnable, this, gameStrings.UNPAUSE);
 //
 //            final SWTProcessorUtil swtProcessorUtil = SWTProcessorUtil.getInstance();
 //            final SWTRunnableProcessor swtRunnableProcessor = SWTRunnableProcessor.getInstance();
@@ -116,7 +116,7 @@ public class BaseGameBehavior extends DemoGameBehavior {
 //            
 //        } else 
             if (Features.getInstance().isDefault(OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD)) {
-            //this.logUtil.put(gameStrings.UNPAUSE, this, gameStrings.UNPAUSE);
+            //this.logUtil.putF(gameStrings.UNPAUSE, this, gameStrings.UNPAUSE);
             final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
 
             currentDisplayableFactory.setRunnable(allBinaryGameCanvas.gameRunnable);

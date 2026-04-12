@@ -56,10 +56,10 @@ public class DefaultGameInitializationListener
         final CommonStrings commonStrings = CommonStrings.getInstance();
         try
         {
-            this.logUtil.put(commonStrings.START, this, ON_GAME_INITIALIZED);
+            this.logUtil.putF(commonStrings.START, this, ON_GAME_INITIALIZED);
 
             while(!swtJOGLProcessor.isHolderCreated()) {
-                this.logUtil.put(commonStrings.UPDATE, this, ON_GAME_INITIALIZED);
+                this.logUtil.putF(commonStrings.UPDATE, this, ON_GAME_INITIALIZED);
                 Thread.sleep(20);
             }
             

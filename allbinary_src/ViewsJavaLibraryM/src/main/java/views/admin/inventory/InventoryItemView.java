@@ -106,7 +106,7 @@ public class InventoryItemView extends HttpStoreComponentView
                     stringBuffer.append(" Extension: ");
                     stringBuffer.append(this.mediaData.getName());
 
-                    this.logUtil.put(stringBuffer.toString(), this, "getFormData()");
+                    this.logUtil.putF(stringBuffer.toString(), this, "getFormData()");
                 }
             }
         }

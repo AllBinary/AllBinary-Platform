@@ -102,7 +102,7 @@ public class ModDomHelper
          String name = (String) objectKey;
          Object object = (Object) hashMap.get(objectKey);
          
-         //this.logUtil.put("Adding: " + name + "=" + value ,this,"toXmlNode(document)");
+         //this.logUtil.putF("Adding: " + name + "=" + value ,this,"toXmlNode(document)");
          
          if(object == null)
          {
@@ -149,7 +149,7 @@ public class ModDomHelper
       for (int i = 0; i < size; i++)
       {
          String value = stringUtil.getInstance((String) valueVector.get(i));
-         //this.logUtil.put("Adding: " + name + "=" + value ,this,stringUtil.EMPTY_STRING);
+         //this.logUtil.putF("Adding: " + name + "=" + value , this, stringUtil.EMPTY_STRING);
          
          node.appendChild(
          ModDomHelper.createNameValueNodes(
@@ -170,7 +170,7 @@ public class ModDomHelper
       for (int index = 0; index < size; index++)
       {
          String value = stringUtil.getInstance((String) valueVector.get(index));
-         //this.logUtil.put("Adding: " + name + "=" + value ,this,stringUtil.EMPTY_STRING);
+         //this.logUtil.putF("Adding: " + name + "=" + value , this, stringUtil.EMPTY_STRING);
 
          node.appendChild(
          ModDomHelper.createNameValueIndexNodes(
@@ -197,7 +197,7 @@ public class ModDomHelper
          String name = (String) keyArray[i];
          Object object = (Object) hashMap.get(name);
          
-         //this.logUtil.put("Adding: " + name + "=" + value ,this,"toXmlNode(document)");
+         //this.logUtil.putF("Adding: " + name + "=" + value ,this,"toXmlNode(document)");
 
          String value = stringUtil.getInstance((String) object);
          node.appendChild(ModDomHelper.createTextNode(document, name, value));

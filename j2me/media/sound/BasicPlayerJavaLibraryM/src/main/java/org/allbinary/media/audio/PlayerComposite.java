@@ -156,7 +156,7 @@ public class PlayerComposite implements Controllable, Player
     {
         try
         {
-            // this.logUtil.put(commonStrings.START, this, commonStrings);
+            // this.logUtil.putF(commonStrings.START, this, commonStrings);
             return this.player.setMediaTime(now);
         }
         catch (Exception e)

@@ -43,14 +43,14 @@ public class TransformStoreDocument extends TransformHttpRequestDocument
             storeName = pageContext.getRequest().getParameter(StoreFrontData.NAME);
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               this.logUtil.put("Using Request StoreName: " + storeName, this, this.commonStrings.CONSTRUCTOR);
+               this.logUtil.putF("Using Request StoreName: " + storeName, this, this.commonStrings.CONSTRUCTOR);
             }
          }
          else
          {*/
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               this.logUtil.put("Using Session StoreName: " + storeName, this, this.commonStrings.CONSTRUCTOR);
+               this.logUtil.putF("Using Session StoreName: " + storeName, this, this.commonStrings.CONSTRUCTOR);
             }
          //}
 

@@ -339,7 +339,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
     {//GEN-HEADEREND:event_okJButtonActionPerformed
        try
        {
-          this.logUtil.put("Starting", this, "okJButtonActionPerformed");
+          this.logUtil.putF("Starting", this, "okJButtonActionPerformed");
 
           final ImageAnalysisResults[] imageAnalysisResultsArray = ImageAnalysis.getInstance().process(
              imageProcessorInput.getBufferedImageArray(), this.getColorRangeInterface());
@@ -368,7 +368,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
     {//GEN-HEADEREND:event_openImageJMenuItemActionPerformed
        try
        {
-          this.logUtil.put("Starting", this, "openImageJMenuItemActionPerformed");
+          this.logUtil.putF("Starting", this, "openImageJMenuItemActionPerformed");
           fileJDialog.setVisible(true);
        }
        catch (Exception e)
@@ -381,7 +381,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
    {
       try
       {
-         this.logUtil.put("Reading " + files.length + " files.", this, "onFiles");
+         this.logUtil.putF("Reading " + files.length + " files.", this, "onFiles");
 
           Arrays.sort(files, new Comparator<File>() {
 
@@ -445,7 +445,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
    {//GEN-HEADEREND:event_analyzeJMenuItemActionPerformed
       try
       {
-         this.logUtil.put("Starting", this, "analyzeJMenuItemActionPerformed");
+         this.logUtil.putF("Starting", this, "analyzeJMenuItemActionPerformed");
          this.analysisActionJDialog.setVisible(true);
       }
       catch (Exception e)
@@ -458,7 +458,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
    {//GEN-HEADEREND:event_generateRotationSpriteJMenuItemActionPerformed
       try
       {
-         this.logUtil.put("Starting", this, "generateRotationSpriteJMenuItemActionPerformed");
+         this.logUtil.putF("Starting", this, "generateRotationSpriteJMenuItemActionPerformed");
 
          RotationSpriteImageJPanel spriteImageJPanel =
             new RotationSpriteImageJPanel(
@@ -480,7 +480,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
    {//GEN-HEADEREND:event_generateRotationMenuItemActionPerformed
       try
       {
-         this.logUtil.put("Starting", this, "generateRotationSpriteJMenuItemActionPerformed");
+         this.logUtil.putF("Starting", this, "generateRotationSpriteJMenuItemActionPerformed");
 
          SpriteSplitterImageJPanel imageJPanel =
             new SpriteSplitterImageJPanel(
@@ -502,7 +502,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
    {//GEN-HEADEREND:event_generateRotationMenuItemActionPerformed
       try
       {
-         this.logUtil.put("Starting", this, "generateRotationSpriteJMenuItemActionPerformed");
+         this.logUtil.putF("Starting", this, "generateRotationSpriteJMenuItemActionPerformed");
 
          RotationImageJPanel rotationImageJPanel =
             new RotationImageJPanel(
@@ -523,7 +523,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
    private void scaleImagesJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scaleImagesJMenuItemActionPerformed
       try
       {
-         this.logUtil.put(this.commonStrings.START, this, "scaleImagesJMenuItemActionPerformed");
+         this.logUtil.putF(this.commonStrings.START, this, "scaleImagesJMenuItemActionPerformed");
 
          final ResizeImageJPanel resizeImageJPanel = new ResizeImageJPanel(this.imageProcessorInput);
 
@@ -542,7 +542,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
    private void createIconsJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createIconsJMenuItemActionPerformed
       try
       {
-         this.logUtil.put(this.commonStrings.START, this, "createIconsJMenuItemActionPerformed");
+         this.logUtil.putF(this.commonStrings.START, this, "createIconsJMenuItemActionPerformed");
 
          final CreateIconImagesJPanel createIconImagesJPanel = new CreateIconImagesJPanel(this.imageProcessorInput);
 
@@ -561,7 +561,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
    private void canvasImagesJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scaleImagesJMenuItemActionPerformed
       try
       {
-         this.logUtil.put(this.commonStrings.START, this, "canvasImagesJMenuItemActionPerformed");
+         this.logUtil.putF(this.commonStrings.START, this, "canvasImagesJMenuItemActionPerformed");
 
          final CanvasImageJPanel resizeImageJPanel = new CanvasImageJPanel(this.imageProcessorInput);
 
@@ -580,7 +580,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
 private void generateMirrorSpriteMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateMirrorSpriteMenuItemActionPerformed
    try
    {
-      this.logUtil.put("Starting", this, "generateMirrorSpriteJMenuItemActionPerformed");
+      this.logUtil.putF("Starting", this, "generateMirrorSpriteJMenuItemActionPerformed");
 
       MirrorSpriteImageJPanel spriteImageJPanel =
          new MirrorSpriteImageJPanel(
@@ -601,7 +601,7 @@ private void generateMirrorSpriteMenuItemActionPerformed(java.awt.event.ActionEv
 private void mirrorJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mirrorJMenuItemActionPerformed
    try
    {
-      this.logUtil.put("Starting", this, "generateMirrorJMenuItemActionPerformed");
+      this.logUtil.putF("Starting", this, "generateMirrorJMenuItemActionPerformed");
 
       MirrorImageJPanel mirrorImageJPanel =
          new MirrorImageJPanel(
@@ -705,7 +705,7 @@ private void mirrorJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//G
    /*
    public void paint(Graphics graphics)
    {
-      this.logUtil.put(commonStrings.START, this, canvasStrings.PAINT);
+      this.logUtil.putF(commonStrings.START, this, canvasStrings.PAINT);
    }
     */
    

@@ -53,13 +53,13 @@ public class LayerManagerLogging extends LayerManagerLoggingBase {
     public void append(final AllBinaryLayer layerInterface) throws Exception
     {
         stringBuilder.delete(0, stringBuilder.length());
-        this.logUtil.put(stringBuilder.appendint(this.hashCode()).append(APPEND_).append(layerInterface.getName()).toString(), this, APPEND);
+        this.logUtil.putF(stringBuilder.appendint(this.hashCode()).append(APPEND_).append(layerInterface.getName()).toString(), this, APPEND);
     }
     
     @Override
     public void append(final AllBinaryLayer layerInterface, final int index) {
         stringBuilder.delete(0, stringBuilder.length());
-        this.logUtil.put(stringBuilder.appendint(this.hashCode()).append(APPEND_).append(layerInterface.getName()).append(_AT_).appendint(index).toString(), this, APPEND);
+        this.logUtil.putF(stringBuilder.appendint(this.hashCode()).append(APPEND_).append(layerInterface.getName()).append(_AT_).appendint(index).toString(), this, APPEND);
     }
     
     @Override
@@ -67,10 +67,10 @@ public class LayerManagerLogging extends LayerManagerLoggingBase {
         
         if(layerInterface == null) {
             stringBuilder.delete(0, stringBuilder.length());
-            this.logUtil.put(stringBuilder.appendint(this.hashCode()).append(ATTEMPT_REMOVE_).append(StringUtil.getInstance().toString(layerInterface)).toString(), this, REMOVE);
+            this.logUtil.putF(stringBuilder.appendint(this.hashCode()).append(ATTEMPT_REMOVE_).append(StringUtil.getInstance().toString(layerInterface)).toString(), this, REMOVE);
         } else {
             stringBuilder.delete(0, stringBuilder.length());
-            this.logUtil.put(stringBuilder.appendint(this.hashCode()).append(ATTEMPT_REMOVE_).append(layerInterface.getName()).toString(), this, REMOVE);
+            this.logUtil.putF(stringBuilder.appendint(this.hashCode()).append(ATTEMPT_REMOVE_).append(layerInterface.getName()).toString(), this, REMOVE);
         }
     }
 
@@ -79,11 +79,11 @@ public class LayerManagerLogging extends LayerManagerLoggingBase {
         
         if(layerInterface == null) {
             stringBuilder.delete(0, stringBuilder.length());
-            this.logUtil.put(stringBuilder.appendint(this.hashCode()).append(REMOVE_).append(StringUtil.getInstance().toString(layerInterface)).toString(), this, REMOVE);
+            this.logUtil.putF(stringBuilder.appendint(this.hashCode()).append(REMOVE_).append(StringUtil.getInstance().toString(layerInterface)).toString(), this, REMOVE);
         } else if(result) {
             if (LayerManagerLogging.removeFailed) {
                 stringBuilder.delete(0, stringBuilder.length());
-                this.logUtil.put(stringBuilder.appendint(this.hashCode()).append(REMOVE_).append(layerInterface.getName()).toString(), this, REMOVE);
+                this.logUtil.putF(stringBuilder.appendint(this.hashCode()).append(REMOVE_).append(layerInterface.getName()).toString(), this, REMOVE);
             }
             
             //if (this.removeFailed) {
@@ -93,7 +93,7 @@ public class LayerManagerLogging extends LayerManagerLoggingBase {
         } else {
             stringBuilder.delete(0, stringBuilder.length());
             //this.logUtil.put(stringBuilder.append(DID_NOT_REMOVE).append(layerInterface.toString()).toString(), this, REMOVE, new Exception());
-            this.logUtil.put(stringBuilder.appendint(this.hashCode()).append(DID_NOT_REMOVE).append(layerInterface.getName()).toString(), this, REMOVE);
+            this.logUtil.putF(stringBuilder.appendint(this.hashCode()).append(DID_NOT_REMOVE).append(layerInterface.getName()).toString(), this, REMOVE);
             
             //this.log(layerManager);
             LayerManagerLogging.removeFailed = true;
@@ -113,12 +113,12 @@ public class LayerManagerLogging extends LayerManagerLoggingBase {
             allBinaryLayer = ((AllBinaryLayer) layerManager.getLayerAt(index));
             stringBuilder.append(allBinaryLayer.getName()).append(commonSeps.COMMA);
         }
-        this.logUtil.put(stringBuilder.toString(), this, REMOVE);
+        this.logUtil.putF(stringBuilder.toString(), this, REMOVE);
     }
 
     @Override
     public void clear() {
         stringBuilder.delete(0, stringBuilder.length());
-        this.logUtil.put(stringBuilder.appendint(this.hashCode()).append(CLEAR).toString(), this, CLEAR);
+        this.logUtil.putF(stringBuilder.appendint(this.hashCode()).append(CLEAR).toString(), this, CLEAR);
     }
 }

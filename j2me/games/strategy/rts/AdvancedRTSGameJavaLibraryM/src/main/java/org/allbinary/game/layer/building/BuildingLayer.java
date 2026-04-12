@@ -212,11 +212,11 @@ public class BuildingLayer
         {
             final AdvancedRTSGameLayer layerInterface = (AdvancedRTSGameLayer) trackingEvent.getLayerInterface();
 
-            //this.logUtil.put("Possible Target: " + layerInterface.getName(), this, "onMovement");
+            //this.logUtil.putF("Possible Target: " + layerInterface.getName(), this, "onMovement");
 
             if (layerInterface.getGroupInterface()[0] != this.getGroupInterface()[0])
             {
-                //this.logUtil.put("Enemy Possible Target: " + layerInterface.getName(), this, "onMovement");
+                //this.logUtil.putF("Enemy Possible Target: " + layerInterface.getName(), this, "onMovement");
 
                 layerInterface.onMovementFound(this.trackingEvent);
             }
@@ -250,11 +250,11 @@ public class BuildingLayer
                 final int currentFrame = this.destroyAnimationInterface.getFrame();
                 final int size = this.destroyAnimationInterface.getSize() - 1;
 
-                //this.logUtil.put("Explosion - Processing: " + currentFrame + "==" + size, this, "processTick");
+                //this.logUtil.putF("Explosion - Processing: " + currentFrame + "==" + size, this, "processTick");
 
                 if (currentFrame == size && !this.timeDelayHelper.isTime())
                 {
-                    //this.logUtil.put("Explosion - End", this, "processTick");
+                    //this.logUtil.putF("Explosion - End", this, "processTick");
 
                     if (!this.getHealthInterface().isAlive())
                     {
@@ -270,8 +270,7 @@ public class BuildingLayer
             }
             else
             {
-                // this.logUtil.put("Explosion - Begin",
-                // this, "processTick");
+                // this.logUtil.putF("Explosion - Begin", // this, "processTick");
 
                 this.setAnimationInterface(this.destroyAnimationInterface);
 
@@ -313,7 +312,7 @@ public class BuildingLayer
     {
         final long downgradeCost = RTSLayerUtil.getInstance().getCostExponential((long) ((this.getLevel() - 1) * getBuildingLevelCost()));
 
-        this.logUtil.put("Cost: " + downgradeCost, this, "getDowngradeCost");
+        this.logUtil.putF("Cost: " + downgradeCost, this, "getDowngradeCost");
 
         return (int) downgradeCost * 9 / 10;
     }
@@ -323,7 +322,7 @@ public class BuildingLayer
     {
         final long upgradeCost = RTSLayerUtil.getInstance().getCostExponential((long) ((this.getLevel() + 1) * getBuildingLevelCost()));
 
-        //this.logUtil.put("Cost: " + upgradeCost, this, "getUpgradeCost");
+        //this.logUtil.putF("Cost: " + upgradeCost, this, "getUpgradeCost");
 
         return (int) upgradeCost;
     }
@@ -488,7 +487,7 @@ public class BuildingLayer
 
         this.damageFloaters.add(damage);
 
-        //this.logUtil.put("Recieving Damage: " + damage, this, "damage");
+        //this.logUtil.putF("Recieving Damage: " + damage, this, "damage");
         if (damage > 0)
         this.getHealthInterface().damage(damage);
     }
@@ -590,14 +589,14 @@ public class BuildingLayer
     /*
     protected void collideUnit(UnitLayer collidableInterface) throws Exception
     {
-    this.logUtil.put("Move Away From Building", this, "collideUnit");
+    this.logUtil.putF("Move Away From Building", this, "collideUnit");
     collidableInterface.moveAwayFromBuilding(this);
 
     //1. Unit started path before building built or was pushed into building
     //if(collidableInterface.isTrackingWaypoint())
     //{
     //Try to get unit to get new path to waypoint
-    //this.logUtil.put("Building force Clearing Target", this, "collideUnit");
+    //this.logUtil.putF("Building force Clearing Target", this, "collideUnit");
     //  collidableInterface.moveAwayFromBuilding(this);
     //}
     //else

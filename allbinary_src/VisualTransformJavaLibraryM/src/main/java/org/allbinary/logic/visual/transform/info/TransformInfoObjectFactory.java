@@ -46,7 +46,7 @@ public class TransformInfoObjectFactory
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY))
             {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                this.logUtil.put("Creating View: " + transformInfoInterface.getName(), this, commonStrings.GET_INSTANCE);
+                this.logUtil.putF("Creating View: " + transformInfoInterface.getName(), this, commonStrings.GET_INSTANCE);
             }
 
             //validate view data before creating view object

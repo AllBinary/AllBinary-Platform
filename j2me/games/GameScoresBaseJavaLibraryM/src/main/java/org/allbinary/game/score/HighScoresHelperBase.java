@@ -32,10 +32,10 @@ public class HighScoresHelperBase implements HighScoresResultsListener {
     {
         if (highScoresArrayP != null) {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(new StringMaker().append(commonStrings.START).appendint(highScoresArrayP.length).toString(), this, "setHighScoresArray");
+            this.logUtil.putF(new StringMaker().append(commonStrings.START).appendint(highScoresArrayP.length).toString(), this, "setHighScoresArray");
         } else {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.START, this, "setHighScoresArray");
+            this.logUtil.putF(commonStrings.START, this, "setHighScoresArray");
         }
 
         this.highScoresArrayP = highScoresArrayP;

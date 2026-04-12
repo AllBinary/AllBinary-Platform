@@ -33,7 +33,7 @@ extends AllBinaryJ2SEImageRotationAnimation
     {
         super(originalImage, image, angleInfo, totalAngle, animationBehavior);
 
-        // this.logUtil.put(, this,);
+        // this.logUtil.putF(, this, );
 
         this.init(dx, dy);
         //-(imageArray[0].getWidth() >> 2), -(imageArray[0].getHeight() >> 2)

@@ -52,7 +52,7 @@ public class FileItemUtil {
 
         if (fileItem.isFormField())
         {
-            this.logUtil.put("FileItemStream FieldName: " + fileItem.getFieldName(), this, "write()");
+            this.logUtil.putF("FileItemStream FieldName: " + fileItem.getFieldName(), this, "write()");
         } else
         {
             StringMaker stringBuffer = new StringMaker();
@@ -62,7 +62,7 @@ public class FileItemUtil {
             stringBuffer.append(" name = ");
             stringBuffer.append(fileItem.getName());
 
-            this.logUtil.put(stringBuffer.toString(), this, "write()");
+            this.logUtil.putF(stringBuffer.toString(), this, "write()");
         }
 
         outputStream = (ByteArrayOutputStream) 

@@ -97,7 +97,7 @@ public class Initializer
             stringBuffer.append(" Value: ");
             stringBuffer.append(values[0]);
             
-            this.logUtil.put(stringBuffer.toString(), this, "getFormData()");
+            this.logUtil.putF(stringBuffer.toString(), this, "getFormData()");
         }
         this.getFormData(hashMap);
     }
@@ -455,7 +455,7 @@ public class Initializer
      */
     public void set() throws Exception
     {
-        this.logUtil.put("Creating DB connection files", this, "set()");
+        this.logUtil.putF("Creating DB connection files", this, "set()");
 
         UserDbInitInfo userDbInitInfo = new UserDbInitInfo(false);
         userDbInitInfo.setJdbcDriver(this.userJdbcDriver);
@@ -516,6 +516,6 @@ public class Initializer
         inventoryDbInitInfo.setHasRead(true);
         inventoryDbInitInfo.write();
 
-        this.logUtil.put("Created DB connection files", this, "set()");
+        this.logUtil.putF("Created DB connection files", this, "set()");
     }
 }

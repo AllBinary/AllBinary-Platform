@@ -43,9 +43,9 @@ implements ColorChangeListener
     @Override
     public void setState(int state)
     {
-        //this.logUtil.put("Setting Main Demo State Paintable", this, "setState");
+        //this.logUtil.putF("Setting Main Demo State Paintable", this, "setState");
         this.setCurrentStatePaintable(this.getMainDemoStatePaintable());
-        //this.logUtil.put("Paintable is now: ").append(this.currentStatePaintable, this, "setState");
+        //this.logUtil.putF("Paintable is now: ").append(this.currentStatePaintable, this, "setState");
     }
     
     @Override

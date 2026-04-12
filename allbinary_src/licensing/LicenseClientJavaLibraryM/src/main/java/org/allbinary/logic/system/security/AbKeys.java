@@ -39,7 +39,7 @@ public class AbKeys
       {
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))
          //{
-            this.logUtil.put("Getting Key: " + keyName, this, "getKey");
+            this.logUtil.putF("Getting Key: " + keyName, this, "getKey");
          //}
 
          //TWB - Replace with key from server

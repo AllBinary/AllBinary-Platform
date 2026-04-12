@@ -67,14 +67,14 @@ public class GeographicMapTopViewGameLayerBehavior2 extends GeographicMapTopView
             final boolean hasSolidBlock = this.hasSolidBlock(geographicMapInterfaceArray, geographicMapCellTypeArray);
 
             if (!hasSolidBlock) {
-                //this.logUtil.put(new StringMaker().append("Not on Block: ").append(geographicMapCellPosition).append(" cellType: ").append(cellType).toString(), this, "gravity");
+                //this.logUtil.putF(new StringMaker().append("Not on Block: ").append(geographicMapCellPosition).append(" cellType: ").append(cellType).toString(), this, "gravity");
 
                 gravityUtil.process(velocityProperties);
 
                 velocityProperties.limitXYToForwardAndReverseMaxVelocity();
                 this.gravity();
             } else {
-                //this.logUtil.put(new StringMaker().append("On Block: ").append(geographicMapCellPosition).append(" cellType: ").append(cellType).toString(), this, "gravity");
+                //this.logUtil.putF(new StringMaker().append("On Block: ").append(geographicMapCellPosition).append(" cellType: ").append(cellType).toString(), this, "gravity");
             }
         }
 
@@ -89,7 +89,7 @@ public class GeographicMapTopViewGameLayerBehavior2 extends GeographicMapTopView
     private GeographicMapCellPosition getPositionTopLeft(final BasicGeographicMap[] geographicMapInterfaceArray, final AllBinaryLayer layer, final int x, final int y) throws Exception {
         
 //        final CommonSeps commonSeps = CommonSeps.getInstance();
-//        this.logUtil.put(new StringMaker()
+//        this.logUtil.putF(new StringMaker()
 //                .append(layer.getXP()).append(commonSeps.COLON).append(-x).append(commonSeps.COLON).append(layer.getHalfWidth())
 //                .append(layer.getYP()).append(commonSeps.COLON).append(-y).append(commonSeps.COLON).append(layer.getHalfHeight())
 //                .toString(), this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
@@ -102,7 +102,7 @@ public class GeographicMapTopViewGameLayerBehavior2 extends GeographicMapTopView
     private GeographicMapCellPosition getPositionTopRight(final BasicGeographicMap[] geographicMapInterfaceArray, final AllBinaryLayer layer, final int x, final int y) throws Exception {
         
 //        final CommonSeps commonSeps = CommonSeps.getInstance();
-//        this.logUtil.put(new StringMaker()
+//        this.logUtil.putF(new StringMaker()
 //                .append(layer.getXP()).append(commonSeps.COLON).append(-x).append(commonSeps.COLON).append(layer.getHalfWidth())
 //                .append(layer.getYP()).append(commonSeps.COLON).append(-y).append(commonSeps.COLON).append(layer.getHalfHeight())
 //                .toString(), this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
@@ -115,7 +115,7 @@ public class GeographicMapTopViewGameLayerBehavior2 extends GeographicMapTopView
     private GeographicMapCellPosition getPositionBottomLeft(final BasicGeographicMap[] geographicMapInterfaceArray, final AllBinaryLayer layer, final int x, final int y) throws Exception {
         
 //        final CommonSeps commonSeps = CommonSeps.getInstance();
-//        this.logUtil.put(new StringMaker()
+//        this.logUtil.putF(new StringMaker()
 //                .append(layer.getXP()).append(commonSeps.COLON).append(-x).append(commonSeps.COLON).append(layer.getHalfWidth())
 //                .append(layer.getYP()).append(commonSeps.COLON).append(-y).append(commonSeps.COLON).append(layer.getHalfHeight())
 //                .toString(), this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
@@ -128,7 +128,7 @@ public class GeographicMapTopViewGameLayerBehavior2 extends GeographicMapTopView
     private GeographicMapCellPosition getPositionBottomRight(final BasicGeographicMap[] geographicMapInterfaceArray, final AllBinaryLayer layer, final int x, final int y) throws Exception {
         
 //        final CommonSeps commonSeps = CommonSeps.getInstance();
-//        this.logUtil.put(new StringMaker()
+//        this.logUtil.putF(new StringMaker()
 //                .append(layer.getXP()).append(commonSeps.COLON).append(-x).append(commonSeps.COLON).append(layer.getHalfWidth())
 //                .append(layer.getYP()).append(commonSeps.COLON).append(-y).append(commonSeps.COLON).append(layer.getHalfHeight())
 //                .toString(), this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
@@ -163,7 +163,7 @@ public class GeographicMapTopViewGameLayerBehavior2 extends GeographicMapTopView
 
         if (geographicMapCellPosition == null) {
 //            if(layer.getName().startsWith("BatEnemy")) {
-//                this.logUtil.put("Found impassable block: top left", this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
+//                this.logUtil.putF("Found impassable block: top left", this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
 //            }
             return null;
         }
@@ -173,7 +173,7 @@ public class GeographicMapTopViewGameLayerBehavior2 extends GeographicMapTopView
 
         if (geographicMapCellPosition == null) {
 //            if(layer.getName().startsWith("BatEnemy")) {
-//                this.logUtil.put("Found impassable block: top right ", this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
+//                this.logUtil.putF("Found impassable block: top right ", this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
 //            }
             return null;
         }
@@ -183,7 +183,7 @@ public class GeographicMapTopViewGameLayerBehavior2 extends GeographicMapTopView
 
         if (geographicMapCellPosition == null) {
 //            if(layer.getName().startsWith("BatEnemy")) {
-//                this.logUtil.put("Found impassable block: bottom left ", this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
+//                this.logUtil.putF("Found impassable block: bottom left ", this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
 //            }
             return null;
         }
@@ -193,11 +193,11 @@ public class GeographicMapTopViewGameLayerBehavior2 extends GeographicMapTopView
 
         if (geographicMapCellPosition == null) {
 //            if(layer.getName().startsWith("BatEnemy")) {
-//                this.logUtil.put("Found impassable block: bottom right ", this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
+//                this.logUtil.putF("Found impassable block: bottom right ", this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
 //            }
         } else {
 //            if(layer.getName().startsWith("BatEnemy")) {
-//                this.logUtil.put("Did not find impassable block ", this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
+//                this.logUtil.putF("Did not find impassable block ", this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
 //            }
         }
         
@@ -207,7 +207,7 @@ public class GeographicMapTopViewGameLayerBehavior2 extends GeographicMapTopView
     @Override
     public GeographicMapCellPosition getGeographicMapCellPositionIfNotSolidBlockOrOffMap(final BasicGeographicMap[] geographicMapInterfaceArray, final GeographicMapCellType[] geographicMapCellTypeArray, final GeographicMapCellPosition geographicMapCellPosition, final VelocityProperties velocityProperties, final AllBinaryLayer layer) throws Exception {
         
-        //this.logUtil.put(geographicMapCellPosition.toString(), this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
+        //this.logUtil.putF(geographicMapCellPosition.toString(), this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
         
         // If walking into a solid block
         //this.isJumpAction && 
@@ -221,11 +221,11 @@ public class GeographicMapTopViewGameLayerBehavior2 extends GeographicMapTopView
 //                            geographicMapCellPosition.getColumn(),
 //                            geographicMapCellPosition.getRow());
 //
-            //this.logUtil.put(possibleStepGeographicMapCellPosition.toString(), this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
+            //this.logUtil.putF(possibleStepGeographicMapCellPosition.toString(), this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
 
             final AllBinaryTiledLayer tiledLayer = geographicMapInterfaceArray[0].getAllBinaryTiledLayer();
-            //this.logUtil.put(new StringMaker().append("tileLayer: ").append(tiledLayer.getXP()).append(CommonSeps.getInstance().COLON).append(tiledLayer.getYP()).toString(), this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
-            //this.logUtil.put(new StringMaker().append("tileLayer: ").append(tiledLayer.getColumns()).append(CommonSeps.getInstance().COLON).append(tiledLayer.getRows()).toString(), this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
+            //this.logUtil.putF(new StringMaker().append("tileLayer: ").append(tiledLayer.getXP()).append(CommonSeps.getInstance().COLON).append(tiledLayer.getYP()).toString(), this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
+            //this.logUtil.putF(new StringMaker().append("tileLayer: ").append(tiledLayer.getColumns()).append(CommonSeps.getInstance().COLON).append(tiledLayer.getRows()).toString(), this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
 
             if(possibleStepGeographicMapCellPosition.getColumn() > 0 && possibleStepGeographicMapCellPosition.getRow() > 0 &&
                     possibleStepGeographicMapCellPosition.getColumn() < tiledLayer.getColumns() && 
@@ -235,31 +235,31 @@ public class GeographicMapTopViewGameLayerBehavior2 extends GeographicMapTopView
             final boolean hasSolidBlock = this.hasSolidBlock(geographicMapInterfaceArray, geographicMapCellTypeArray);
             final boolean hasOffMap = this.isOffMap(geographicMapInterfaceArray, geographicMapCellTypeArray);
 
-            //this.logUtil.put("cellType: " + cellType, this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
+            //this.logUtil.putF("cellType: " + cellType, this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
 
              //|| basicPlatormGeographicMapCellTypeFactory.JUMP_THRU_CELL_TYPE.isType(cellType)
                 if (hasSolidBlock || hasOffMap) {
                     
-                    //this.logUtil.put("found cellType: " + cellType, this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
+                    //this.logUtil.putF("found cellType: " + cellType, this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
                     
 //                    if (this.autoStepBlocks) {
 //                        // int newY = this.getHeight() -
 //                        // possibleStepGeographicMapCellPosition.getPoint().getYP().intValue();
 //                        final int newY = possibleStepGeographicMapCellPosition.getPoint().getYP() - layer.getHeight();
-//                        //this.logUtil.put("Stepping at: y: " + newY, this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
+//                        //this.logUtil.putF("Stepping at: y: " + newY, this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
 //                        // -possibleStepGeographicMapCellPosition.getPoint().getXP().intValue()
 //                        layer.setPosition(layer.getXP(), newY, layer.getZP());
 //                        this.previousGeographicMapCellPosition = possibleStepGeographicMapCellPosition;
 //                        return possibleStepGeographicMapCellPosition;
 //                    } else {
-                        //this.logUtil.put("do not move", this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
+                        //this.logUtil.putF("do not move", this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
                         //this.blockGeographicMapCellPosition = possibleStepGeographicMapCellPosition;
                         //velocityProperties.getVelocityXBasicDecimalP().set(0);
                         this.previousGeographicMapCellPosition = null;
                         return null;
 //                    }
                 } else {
-                    //this.logUtil.put("cellType: " + cellType, this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
+                    //this.logUtil.putF("cellType: " + cellType, this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
                     this.previousGeographicMapCellPosition = possibleStepGeographicMapCellPosition;
                     return possibleStepGeographicMapCellPosition;
                 }
@@ -270,7 +270,7 @@ public class GeographicMapTopViewGameLayerBehavior2 extends GeographicMapTopView
             //this.logUtil.put("GeographicMapCellPosition was null: Probably off Map: " + layer.toString(), this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap", new Exception());
         }
         
-        //this.logUtil.put("not moving", this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
+        //this.logUtil.putF("not moving", this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
         this.previousGeographicMapCellPosition = null;
         return null;
         //this.previousGeographicMapCellPosition = geographicMapCellPosition;
@@ -283,26 +283,26 @@ public class GeographicMapTopViewGameLayerBehavior2 extends GeographicMapTopView
         //final int x = velocityProperties.getVelocityXBasicDecimalP().getScaled();
         //final int y = velocityProperties.getVelocityYBasicDecimalP().getScaled();
 
-        //this.logUtil.put(new StringMaker().append("x: ").append(x).append(" y: ").append(y).append(CommonSeps.getInstance().SPACE).append(layer.getViewPosition().getXP()).toString(), this, "moveAndLand");
+        //this.logUtil.putF(new StringMaker().append("x: ").append(x).append(" y: ").append(y).append(CommonSeps.getInstance().SPACE).append(layer.getViewPosition().getXP()).toString(), this, "moveAndLand");
         
         if (geographicMapCellPosition != null) {
 
             ((TopViewCharacterInterface) layer).terrainMove(geographicMapInterfaceArray, geographicMapCellTypeArray, x, y);
 
             //final String MOVE_AND_LAND = "moveAndLand";
-            //this.logUtil.put(new StringMaker().append("Should Land at: ").append(this.gravityActionIndex).append(" y: ").append(y).toString(), this, MOVE_AND_LAND);
+            //this.logUtil.putF(new StringMaker().append("Should Land at: ").append(this.gravityActionIndex).append(" y: ").append(y).toString(), this, MOVE_AND_LAND);
 //            if (this.gravityActionIndex != 0 && y > 0 && geographicMapCellPosition != null) {
 //
 //                final GeographicMapCellType cellType = geographicMapBehavior.getCellTypeAt(geographicMapInterfaceArray, geographicMapCellPosition);
 //
-//                //this.logUtil.put(new StringMaker().append("Should Land at cellType: ").append(cellType).toString(), this, MOVE_AND_LAND);
+//                //this.logUtil.putF(new StringMaker().append("Should Land at cellType: ").append(cellType).toString(), this, MOVE_AND_LAND);
 //                if (geographicMapCellTypeFactory.BLOCK_CELL_TYPE.isType(cellType)) // ||
 //                // this.getViewPositionY() > DisplayInfoSingleton.getInstance().getLastHeight() - 55)
 //                {
 //                    final int landY = geographicMapCellPosition.getPoint().getYP() - layer.getHeight() + offsetY;
 //
-//                    // this.logUtil.put("Cell Position: y: " + geographicMapCellPosition.getPoint().getXP().intValue(), this, "moveAndLand");
-//                    // this.logUtil.put("Landing at: y: " + landY, this, "moveAndLand");
+//                    // this.logUtil.putF("Cell Position: y: " + geographicMapCellPosition.getPoint().getXP().intValue(), this, "moveAndLand");
+//                    // this.logUtil.putF("Landing at: y: " + landY, this, "moveAndLand");
 //                    layer.setPosition(layer.getXP(), landY, layer.getZP());
 //                    //this.land(velocityProperties);
 //                    //((TopViewCharacterInterface) layer).terrainLand();
@@ -312,7 +312,7 @@ public class GeographicMapTopViewGameLayerBehavior2 extends GeographicMapTopView
 //
 //            ((TopViewCharacterInterface) layer).terrainEvent(x, y, geographicMapInterfaceArray, geographicMapCellPosition);
         } else {
-            //this.logUtil.put("do not move", this, "moveAndLand");
+            //this.logUtil.putF("do not move", this, "moveAndLand");
         }
         
     }

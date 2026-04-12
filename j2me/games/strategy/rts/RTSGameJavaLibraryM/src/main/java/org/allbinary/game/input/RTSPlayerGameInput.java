@@ -131,7 +131,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
     {
         try
         {
-            this.logUtil.put(commonStrings.START, this, "onDisplayChangeEvent");
+            this.logUtil.putF(commonStrings.START, this, "onDisplayChangeEvent");
 
             this.getRTSLayerInfoPaintable().update();
         }
@@ -244,7 +244,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
         final int y = point.getY() + allBinaryTiledLayer.getYP();
 
         //final SpacialStrings commonLabels = SpacialStrings.getInstance();
-        //this.logUtil.put(
+        //this.logUtil.putF(
         //      "CellPosition Selection: point x: ").append(point.getX() +
           //    " y: ").append(point.getY()).append(" x: ").append(x).append(" y: ").append(y).append(
         //commonLabels).append(allBinaryTiledLayer.getWidth() +
@@ -279,7 +279,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
         else
         {
             final CommonLabels commonLabels = CommonLabels.getInstance();
-            this.logUtil.put(new StringMaker().append("Off Of Map -").append(commonLabels.WIDTH_LABEL).appendint(allBinaryTiledLayer.getWidth()).append(commonLabels.HEIGHT_LABEL).appendint(allBinaryTiledLayer.getHeight()).toString(), this, "select");
+            this.logUtil.putF(new StringMaker().append("Off Of Map -").append(commonLabels.WIDTH_LABEL).appendint(allBinaryTiledLayer.getWidth()).append(commonLabels.HEIGHT_LABEL).appendint(allBinaryTiledLayer.getHeight()).toString(), this, "select");
         }
     }
 
@@ -359,7 +359,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
      */
     public void setSelectedRtsFormInput(RTSFormInput selectedRtsFormInput)
     {
-        this.logUtil.put(new StringMaker().append("RTSFormInput: ").append(StringUtil.getInstance().toString(selectedRtsFormInput)).toString(), this, "setSelectedRtsFormInput");
+        this.logUtil.putF(new StringMaker().append("RTSFormInput: ").append(StringUtil.getInstance().toString(selectedRtsFormInput)).toString(), this, "setSelectedRtsFormInput");
         this.selectedRtsFormInput = selectedRtsFormInput;
     }
 

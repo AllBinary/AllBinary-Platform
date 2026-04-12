@@ -81,7 +81,7 @@ public class IdGeneratorEntity extends AbSqlBean
 
             super.insert(values);
 
-            this.logUtil.put(this.commonStrings.SUCCESS, this, INSERT);
+            this.logUtil.putF(this.commonStrings.SUCCESS, this, INSERT);
         } catch (Exception e) {
             this.logUtil.put(this.commonStrings.FAILURE, this, INSERT, e);
         }
@@ -92,7 +92,7 @@ public class IdGeneratorEntity extends AbSqlBean
 
             super.deleteWhere(NAME, value);
 
-            this.logUtil.put(this.commonStrings.SUCCESS, this, commonStrings.delete);
+            this.logUtil.putF(this.commonStrings.SUCCESS, this, commonStrings.delete);
 
         } catch (Exception e) {
 

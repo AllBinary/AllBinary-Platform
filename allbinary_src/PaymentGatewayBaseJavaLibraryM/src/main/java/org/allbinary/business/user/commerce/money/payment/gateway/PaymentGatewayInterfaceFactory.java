@@ -40,7 +40,7 @@ public class PaymentGatewayInterfaceFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
          {
-            this.logUtil.put("Getting", this, commonStrings.GET_INSTANCE);
+            this.logUtil.putF("Getting", this, commonStrings.GET_INSTANCE);
          }
          
          return this.getInstance(
@@ -77,7 +77,7 @@ public class PaymentGatewayInterfaceFactory
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
          {
-            this.logUtil.put("Getting PaymentGatewayInterface for PaymentType: " +
+            this.logUtil.putF("Getting PaymentGatewayInterface for PaymentType: " +
                paymentType.getName() + " with: " + hashMap, this, commonStrings.GET_INSTANCE);
          }
 

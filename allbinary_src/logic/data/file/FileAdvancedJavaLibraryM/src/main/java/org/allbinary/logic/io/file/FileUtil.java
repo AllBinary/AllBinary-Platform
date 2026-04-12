@@ -81,7 +81,7 @@ public class FileUtil
     /*
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
     {
-    this.logUtil.put(
+    this.logUtil.putF(
     "Copied File from: " + from.toString() + " to: " + to.toString(),
     instance,"copyFile");
     }
@@ -211,7 +211,7 @@ public class FileUtil
         final String string = fixedPath.toFileSystemString();
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
         {
-            this.logUtil.put(string, getInstance(), "fixPath");
+            this.logUtil.putF(string, this, "fixPath");
         }
 
         AbPath outPath = new AbPath(string, file.getName());
@@ -253,7 +253,7 @@ public class FileUtil
                     stringBuffer.append(file.getPath());
                     stringBuffer.append(" to cloud.");
 
-                    this.logUtil.put(stringBuffer.toString(), getInstance(), "copyToCloud");
+                    this.logUtil.putF(stringBuffer.toString(), getInstance(), "copyToCloud");
                 }
             }
 
@@ -279,7 +279,7 @@ public class FileUtil
             stringBuffer.append(outFile.getPath());
             stringBuffer.append(" already in cloud.");
 
-            this.logUtil.put(stringBuffer.toString(), this, "copyToCloud");
+            this.logUtil.putF(stringBuffer.toString(), this, "copyToCloud");
             }
             }
              *
@@ -332,7 +332,7 @@ public class FileUtil
                     stringBuffer.append(file.getPath());
                     stringBuffer.append(" to cloud.");
 
-                    this.logUtil.put(
+                    this.logUtil.putF(
                         stringBuffer.toString(), getInstance(), "copyToCloud");
                 }
             }
@@ -359,7 +359,7 @@ public class FileUtil
             stringBuffer.append(outFile.getPath());
             stringBuffer.append(" already in cloud.");
 
-            this.logUtil.put(stringBuffer.toString(), this, "copyToCloud");
+            this.logUtil.putF(stringBuffer.toString(), this, "copyToCloud");
             }
             }
              *
@@ -400,7 +400,7 @@ public class FileUtil
                     stringBuffer.append("Overwriting File: ");
                     stringBuffer.append(toFile.getPath());
 
-                    this.logUtil.put(stringBuffer.toString(), getInstance(), "copyFile");
+                    this.logUtil.putF(stringBuffer.toString(), getInstance(), "copyFile");
                 }
 
                 toFile.delete();
@@ -418,7 +418,7 @@ public class FileUtil
                     stringBuffer.append("Copying File: ");
                     stringBuffer.append(toFile.getPath());
 
-                    this.logUtil.put(stringBuffer.toString(), getInstance(), "copyFile");
+                    this.logUtil.putF(stringBuffer.toString(), getInstance(), "copyFile");
                 }
                 toFile.delete();
                 toFile.createNewFile();
@@ -442,7 +442,7 @@ public class FileUtil
                     stringBuffer.append(CommonLabels.getInstance().COLON_SEP);
                     stringBuffer.append(toFile.getPath());
 
-                    this.logUtil.put(stringBuffer.toString(), getInstance(), "copyFile");
+                    this.logUtil.putF(stringBuffer.toString(), getInstance(), "copyFile");
                 }
                 return false;
             }
@@ -474,7 +474,7 @@ public class FileUtil
                 stringBuffer.append(" to: ");
                 stringBuffer.append(toFile.getPath());
 
-                this.logUtil.put(stringBuffer.toString(), getInstance(), "copyFile");
+                this.logUtil.putF(stringBuffer.toString(), getInstance(), "copyFile");
             }
 
             if (!this.copyPrepare(fromFile, toFile, overwriteNewer, overwriteAll))
@@ -573,7 +573,7 @@ public class FileUtil
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
         {
-            this.logUtil.put(
+            this.logUtil.putF(
                 stringBuffer.toString(), getInstance(), "copySomeFilesToDirectory()");
         }
 
@@ -610,7 +610,7 @@ public class FileUtil
                 //stringBuffer.append(" new path: ");
                 //stringBuffer.append(newPath);
 
-                //this.logUtil.put(stringBuffer.toString(), this, "copyDirectoryPortion");
+                //this.logUtil.putF(stringBuffer.toString(), this, "copyDirectoryPortion");
 
                 AbFile toFile = new AbFile(new AbPath(newPath));
 
@@ -633,7 +633,7 @@ public class FileUtil
                 stringBuffer.append(" to: ");
                 stringBuffer.append(to.getPath());
 
-                this.logUtil.put(stringBuffer.toString(), getInstance(), "copyDirectory");
+                this.logUtil.putF(stringBuffer.toString(), getInstance(), "copyDirectory");
             }
 
             //create new directory            
@@ -663,7 +663,7 @@ public class FileUtil
                 stringBuffer.append(" to: ");
                 stringBuffer.append(to.getPath());
 
-                this.logUtil.put(stringBuffer.toString(), getInstance(), "copyDirectory");
+                this.logUtil.putF(stringBuffer.toString(), getInstance(), "copyDirectory");
             }
 
             for (int index = 0; index < size; index++)
@@ -683,7 +683,7 @@ public class FileUtil
             /*
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
             {
-            this.logUtil.put("Copied Directory fromFile: " + fromFile.toString() + " to: " + to.toString(), instance,"copyDirectory");
+            this.logUtil.putF("Copied Directory fromFile: " + fromFile.toString() + " to: " + to.toString(), instance,"copyDirectory");
             }
              */
         } catch (Exception e)
@@ -714,6 +714,7 @@ public class FileUtil
     //Example: fromFile = /home/dir/ to = /home/dest/ then the result will be /home/dest/(all subdirectories of /home/dir/)
     public synchronized boolean copy(AbPath fromAbPath, AbPath to) throws Exception
     {
+        final String COPY = "copy";
         try
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
@@ -725,7 +726,7 @@ public class FileUtil
                 stringBuffer.append(" to: ");
                 stringBuffer.append(to.toString());
 
-                this.logUtil.put(stringBuffer.toString(), getInstance(), "copy");
+                this.logUtil.putF(stringBuffer.toString(), getInstance(), COPY);
             }
 
             if (fromAbPath == null)
@@ -762,7 +763,7 @@ public class FileUtil
                         stringBuffer.append(" to: ");
                         stringBuffer.append(toLocationFile.getPath());
 
-                        this.logUtil.put(stringBuffer.toString(), getInstance(), "copy");
+                        this.logUtil.putF(stringBuffer.toString(), getInstance(), COPY);
                     }
                 } else
                 {
@@ -779,7 +780,7 @@ public class FileUtil
                         stringBuffer.append(" to: ");
                         stringBuffer.append(toLocationFile.getPath());
 
-                        this.logUtil.put(stringBuffer.toString(), getInstance(), "copy");
+                        this.logUtil.putF(stringBuffer.toString(), getInstance(), COPY);
                     }
                 }
             } else //copy directories
@@ -790,7 +791,7 @@ public class FileUtil
                 {
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
                     {
-                        this.logUtil.put("Copying subdirectories", getInstance(), "copy");
+                        this.logUtil.putF("Copying subdirectories", getInstance(), COPY);
                     }
 
                     AbFile[] fileArray = FileWrapperUtil.wrapFiles(fromLocationFile.listFiles());
@@ -814,20 +815,20 @@ public class FileUtil
 
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
                     {
-                        this.logUtil.put("Copied subdirectories", getInstance(), "copy");
+                        this.logUtil.putF("Copied subdirectories", getInstance(), COPY);
                     }
                 } else
                 {
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
                     {
-                        this.logUtil.put("Copyinhg directory", getInstance(), "copy");
+                        this.logUtil.putF("Copyinhg directory", getInstance(), COPY);
                     }
 
                     copyDirectory(fromLocationFile, toLocationFile);
 
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
                     {
-                        this.logUtil.put("Copied directory", getInstance(), "copy");
+                        this.logUtil.putF("Copied directory", getInstance(), COPY);
                     }
                 }
             }
@@ -843,7 +844,7 @@ public class FileUtil
                 stringBuffer.append(" to: ");
                 stringBuffer.append(to.toString());
 
-                this.logUtil.put(stringBuffer.toString(), getInstance(), "copy", e);
+                this.logUtil.put(stringBuffer.toString(), getInstance(), COPY, e);
             }
             throw e;
         }
@@ -901,7 +902,7 @@ public class FileUtil
         AbDataOutputStream dataOutputStream = null;
         try
         {
-            //this.logUtil.put("Write Configuration: " + this.toString(), this, "write");
+            //this.logUtil.putF("Write Configuration: " + this.toString(), this, "write");
             PreLogUtil.put(new StringBuilder().append(this.WRITE_LABEL).append(filePath).append(DATA_LABEL).append(string).toString(), this, this.WRITE_METHOD);
 
             final FileStreamFactory fileInputStreamFactory = FileStreamFactory.getInstance();

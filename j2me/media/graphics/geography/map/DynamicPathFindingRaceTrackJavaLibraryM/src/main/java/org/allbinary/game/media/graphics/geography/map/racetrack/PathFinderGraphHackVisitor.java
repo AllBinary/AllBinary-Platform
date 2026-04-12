@@ -87,7 +87,7 @@ public class PathFinderGraphHackVisitor<V, E> extends BasePathFinderGraphVisitor
                    geographicMapCellPositionFactory.getInstance(
                    column, nextRow);
 
-                //this.logUtil.put("geographicMapCellPositionNeighbor: " + geographicMapCellPositionNeighbor.toString() , this, "fixStart");
+                //this.logUtil.putF("geographicMapCellPositionNeighbor: " + geographicMapCellPositionNeighbor.toString() , this, "fixStart");
 
                 graph.removeEdge(
                    geographicMapCellPosition,
@@ -192,7 +192,7 @@ public class PathFinderGraphHackVisitor<V, E> extends BasePathFinderGraphVisitor
        BasicArrayList endPathFindingNodeList, BasicArrayList pathList)
        throws Exception
     {
-        //this.logUtil.put("Path: " + pathList, this, "fixPath");
+        //this.logUtil.putF("Path: " + pathList, this, "fixPath");
 
         for (int index = startPathFindingNodeList.size() - 1; index >= 0; index--)
         {

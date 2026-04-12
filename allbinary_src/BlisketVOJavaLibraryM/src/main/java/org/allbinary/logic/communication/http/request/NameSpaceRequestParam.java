@@ -54,7 +54,7 @@ public class NameSpaceRequestParam
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
-         this.logUtil.put(
+         this.logUtil.putF(
                  "\nSep Tokens: " + nameSpaceWithPropertiesVector.toString(), this, "NameSpaceRequestParam()");
       }
       
@@ -81,7 +81,7 @@ public class NameSpaceRequestParam
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
          {
-            this.logUtil.put("\nPackageName and PackageName Properties Tokens: " +
+            this.logUtil.putF("\nPackageName and PackageName Properties Tokens: " +
                nameSpaceAndPropertiesVector.toString(),
                this, "NameSpaceRequestParam()");
          }
@@ -116,7 +116,7 @@ public class NameSpaceRequestParam
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
       org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
-         this.logUtil.put("NameSpace: " + this.nameSpaceVector.toString(),
+         this.logUtil.putF("NameSpace: " + this.nameSpaceVector.toString(),
          this, "NameSpaceRequestParam()");
       }
    }
@@ -126,7 +126,7 @@ public class NameSpaceRequestParam
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
       org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
-         this.logUtil.put("NameSpace: " + this.nameSpaceVector.toString(),
+         this.logUtil.putF("NameSpace: " + this.nameSpaceVector.toString(),
          this, "getPackages()");
       }
       return this.nameSpaceVector;
@@ -146,7 +146,7 @@ public class NameSpaceRequestParam
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
       org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
-         this.logUtil.put("Package Properties: " + packagePropertiesHashMap.toString(),
+         this.logUtil.putF("Package Properties: " + packagePropertiesHashMap.toString(),
             this, "getPackagesProperties()");
       }
 
@@ -158,7 +158,7 @@ public class NameSpaceRequestParam
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
-         this.logUtil.put("\nValue: " + this.value, this, "getValue()");
+         this.logUtil.putF("\nValue: " + this.value, this, "getValue()");
       }
       
       return this.value;
@@ -199,7 +199,7 @@ public class NameSpaceRequestParam
                if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                   org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
                {
-                  this.logUtil.put("\nProperty Name: " + propertyName + "\nProperty Value: " + propertyValue,this, "generatePackagePropertiesHashMap()");
+                  this.logUtil.putF("\nProperty Name: " + propertyName + "\nProperty Value: " + propertyValue,this, "generatePackagePropertiesHashMap()");
                }
                packagePropertiesHashMap.put(propertyName, propertyValue);
             }
@@ -229,7 +229,7 @@ public class NameSpaceRequestParam
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         this.logUtil.put("\nNameSpace Param: " + stringBuffer.toString(), this, commonStrings.TOSTRING);
+         this.logUtil.putF("\nNameSpace Param: " + stringBuffer.toString(), this, commonStrings.TOSTRING);
       }
       
       return stringBuffer.toString();

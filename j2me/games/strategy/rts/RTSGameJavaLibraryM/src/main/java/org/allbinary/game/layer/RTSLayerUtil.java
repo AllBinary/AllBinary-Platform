@@ -64,9 +64,8 @@ public class RTSLayerUtil
                 weaponProperties.getDissipation()
                 );
 
-        //this.logUtil.put(
-          //      "WeaponProperties: ").append(newWeaponProperties, 
-            //    this, "createWeaponProperties");
+        //this.logUtil.putF(
+          //      "WeaponProperties: ").append(newWeaponProperties, //    this, "createWeaponProperties");
 
         return newWeaponProperties;
     }
@@ -116,19 +115,18 @@ public class RTSLayerUtil
 
     private int getWeaponPropertiesCost(final WeaponProperties weaponProperties)
     {
-        //this.logUtil.put(
+        //this.logUtil.putF(
           //      "Damage: ").append(weaponProperties.getDamage() +
             //    "+Range: ").append(weaponProperties.getRange() +
-              //  "+Reload: ").append((MAX_RELOAD_TIME / weaponProperties.getReloadTime()), 
-                //this, "getWeaponPropertiesCost");
+              //  "+Reload: ").append((MAX_RELOAD_TIME / weaponProperties.getReloadTime()), //this, "getWeaponPropertiesCost");
 
         //I artificially reduce the cost of reload time since they miss a bunch
         long cost = (weaponProperties.getDamage() + weaponProperties.getRange() + 
                 ((MAX_RELOAD_TIME / weaponProperties.getReloadTime()) >> 1));
 
-        //this.logUtil.put("Pre Cost: ").append(cost, this, "getWeaponPropertiesCost");
+        //this.logUtil.putF("Pre Cost: ").append(cost, this, "getWeaponPropertiesCost");
         cost = this.getCostExponential(cost);
-        //this.logUtil.put("Cost: ").append(cost, this, "getWeaponPropertiesCost");
+        //this.logUtil.putF("Cost: ").append(cost, this, "getWeaponPropertiesCost");
         return (int) cost;
     }
     
@@ -177,7 +175,7 @@ public class RTSLayerUtil
                     
             downgradeCost += (currentWeaponCost - downgradeWeaponCost);
              
-            //this.logUtil.put(
+            //this.logUtil.putF(
               //      "DowngradedWeapon Cost: ").append(downgradeWeaponCost +
                 //    " CurrentWeapon Cost: ").append(currentWeaponCost +
                   //  " Part Cost: ").append(downgradeCost, this, "getDowngradeCost");
@@ -185,7 +183,7 @@ public class RTSLayerUtil
 
         downgradeCost = downgradeCost * 9 / 10;
         
-        this.logUtil.put(new StringMaker().append("Total Cost: ").appendint(downgradeCost).toString(), this, "getDowngradeCost");
+        this.logUtil.putF(new StringMaker().append("Total Cost: ").appendint(downgradeCost).toString(), this, "getDowngradeCost");
 
         return downgradeCost;
     }
@@ -217,12 +215,12 @@ public class RTSLayerUtil
             
             upgradeCost += (upgradedWeaponCost - currentWeaponCost);
             
-            //this.logUtil.put(
+            //this.logUtil.putF(
               //      "UpgradedWeapon Cost: ").append(upgradedWeaponCost +
                 //    " CurrentWeapon Cost: ").append(currentWeaponCost +
                   //  " Part Cost: " + upgradeCost, this, "getUpgradeCost");
         }
-        this.logUtil.put(new StringMaker().append("Total Cost: ").appendint(upgradeCost).toString(), this, "getUpgradeCost");
+        this.logUtil.putF(new StringMaker().append("Total Cost: ").appendint(upgradeCost).toString(), this, "getUpgradeCost");
 
         return upgradeCost;
     }

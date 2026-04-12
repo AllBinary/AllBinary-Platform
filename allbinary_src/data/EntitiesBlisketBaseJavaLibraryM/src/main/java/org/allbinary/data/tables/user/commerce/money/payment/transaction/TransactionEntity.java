@@ -51,7 +51,7 @@ public class TransactionEntity extends AbSqlBean implements TransactionEntityInt
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.put(this.commonStrings.SUCCESS, this, "remove");
+                this.logUtil.putF(this.commonStrings.SUCCESS, this, "remove");
             }
         }catch(Exception e)
         {
@@ -81,7 +81,7 @@ public class TransactionEntity extends AbSqlBean implements TransactionEntityInt
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.put(this.commonStrings.SUCCESS, this, "add");
+                this.logUtil.putF(this.commonStrings.SUCCESS, this, "add");
             }
         }catch(Exception e)
         {
@@ -110,7 +110,7 @@ public class TransactionEntity extends AbSqlBean implements TransactionEntityInt
             
      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
      {
-     this.logUtil.put(this.commonStrings.SUCCESS,this,"getTransactionInterface()");
+     this.logUtil.putF(this.commonStrings.SUCCESS,this,"getTransactionInterface()");
      }
      return (PaymentTransactionInterface) paymentTransactionInterface;
      }

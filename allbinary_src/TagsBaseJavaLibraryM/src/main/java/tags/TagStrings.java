@@ -13,17 +13,20 @@
  */
 package tags;
 
-import javax.servlet.jsp.tagext.TagSupport;
-
-import org.allbinary.string.CommonStrings;
-
 /**
  *
  * @author User
  */
-public class CustomTagSupport extends TagSupport {
+public class TagStrings {
     
-    protected final CommonStrings commonStrings = CommonStrings.getInstance();
-    protected final TagStrings tagStrings = TagStrings.getInstance();
-    
+    private static final TagStrings instance = new TagStrings();
+
+    /**
+     * @return the instance
+     */
+    public static TagStrings getInstance() {
+        return instance;
+    }
+
+    public final String DO_START_TAG = "doStartTag";
 }

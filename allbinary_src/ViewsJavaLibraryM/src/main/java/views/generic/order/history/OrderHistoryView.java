@@ -81,7 +81,7 @@ implements DomNodeInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            this.logUtil.put("Attempt to View a users order history",this,"view");
+            this.logUtil.putF("Attempt to View a users order history",this,"view");
          }
          
          node.appendChild(ModDomHelper.createNameValueNodes(document,

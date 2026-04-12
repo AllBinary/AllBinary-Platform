@@ -69,7 +69,7 @@ public class InputMapping
         stringBuffer.append(" == ");
         stringBuffer.append(stringUtil.toString(mappedToInput));
         
-        this.logUtil.put(stringBuffer.toString(), this, "InputMapping::remove");
+        this.logUtil.putF(stringBuffer.toString(), this, "InputMapping::remove");
         
         final BasicArrayList list = this.getMappedInput(input);
         if(list.contains(mappedToInput))
@@ -83,7 +83,7 @@ public class InputMapping
             stringBuffer.append(" == ");
             stringBuffer.append(stringUtil.toString(mappedToInput));
             
-            this.logUtil.put(stringBuffer.toString(), this, "InputMapping::remove");
+            this.logUtil.putF(stringBuffer.toString(), this, "InputMapping::remove");
         }
         else
         {
@@ -93,7 +93,7 @@ public class InputMapping
             stringBuffer.append(" == ");
             stringBuffer.append(stringUtil.toString(mappedToInput));
             
-            this.logUtil.put(stringBuffer.toString(), this, "InputMapping::remove");
+            this.logUtil.putF(stringBuffer.toString(), this, "InputMapping::remove");
         }
     }
     
@@ -105,7 +105,7 @@ public class InputMapping
     
     public void add(final Input input, final Input mappedToInput)
     {
-        //this.logUtil.put(commonStrings.START_LABEL + input + " == " + mappedToInput, this, "InputMapping::add");
+        //this.logUtil.putF(commonStrings.START_LABEL + input + " == " + mappedToInput, this, "InputMapping::add");
         BasicArrayList list = this.getMappedInput(input);
         if(!list.contains(mappedToInput))
         {

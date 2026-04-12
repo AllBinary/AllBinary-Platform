@@ -43,7 +43,7 @@ public class MirrorImageUtil
    public BufferedImage getImage(
       BufferedImage bufferedImage, boolean verticle, boolean horizontal)
    {
-      this.logUtil.put("Starting", this, "getImage");
+      this.logUtil.putF("Starting", this, "getImage");
 
       BufferedImage newBufferedImage = 
          this.imageUtil.create(
@@ -94,7 +94,7 @@ public class MirrorImageUtil
       if(horizontal)
          numberOfFrames *= 2;
 
-      this.logUtil.put("numberOfFramesPerOrientation: " + numberOfFramesPerOrientation + 
+      this.logUtil.putF("numberOfFramesPerOrientation: " + numberOfFramesPerOrientation + 
          " numberOfFrames: " + numberOfFrames, this, "getImages");
       
       final BufferedImage[] bufferedImageArray = new BufferedImage[numberOfFrames];

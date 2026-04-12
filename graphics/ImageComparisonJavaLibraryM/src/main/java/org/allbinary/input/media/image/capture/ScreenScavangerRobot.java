@@ -32,7 +32,7 @@ public class ScreenScavangerRobot
     }
     
     public BufferedImage[] getScreenAsBufferedImages() throws Exception {
-	this.logUtil.put(this.commonStrings.START, this, "getScreenAsBufferedImages");
+	this.logUtil.putF(this.commonStrings.START, this, "getScreenAsBufferedImages");
 	Dimension dimScreenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	Rectangle rectScreenSize = new Rectangle(dimScreenSize);
 	Hashtable robotHashtable = InputRobotFactory.getInstance().get();
@@ -42,7 +42,7 @@ public class ScreenScavangerRobot
 	    = (InputRobotInterface) robotHashtable.get("Java Robot");
 	bufferedImageArray[index]
 	    = inputRobotInterface.createScreenCapture(rectScreenSize);
-	this.logUtil.put("Finish", this, "getScreenAsBufferedImages");
+	this.logUtil.putF("Finish", this, "getScreenAsBufferedImages");
 	return bufferedImageArray;
     }
 }

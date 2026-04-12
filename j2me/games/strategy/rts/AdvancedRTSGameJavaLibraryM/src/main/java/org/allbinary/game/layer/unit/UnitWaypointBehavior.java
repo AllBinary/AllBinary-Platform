@@ -232,13 +232,13 @@ public class UnitWaypointBehavior
     {
         if (this.targetList.size() > 4)
         {
-            //this.logUtil.put(
+            //this.logUtil.putF(
             //  this.getName() + " has Too Many Waypoints of: " +
             //rtsLayer.getName(), this, "insertWaypoint");
         }
         else if (this.targetList.contains(rtsLayer))
         {
-            //this.logUtil.put(
+            //this.logUtil.putF(
             //  this.getName() + " Already Contains Same Waypoint: " +
             //rtsLayer.getName(), this, "insertWaypoint");
         }

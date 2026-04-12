@@ -45,7 +45,7 @@ public class MotionRectangleConstraints
     public boolean isTooSmall(Rectangle rectangle)
     {
         /*
-        this.logUtil.put(
+        this.logUtil.putF(
             rectangle.width + " < " + this.getMinDimension().width + " || " + 
             rectangle.height + " < " + this.getMinDimension().height, this, "isTooSmall");
         */
@@ -76,7 +76,7 @@ public class MotionRectangleConstraints
     public boolean isTooBig(Rectangle rectangle)
     {
         /*
-        this.logUtil.put(
+        this.logUtil.putF(
             rectangle.width + " > " + this.getMaxDimension().width + " || " + 
             rectangle.height + " > " + this.getMaxDimension().height, this, "isTooBig");
          */

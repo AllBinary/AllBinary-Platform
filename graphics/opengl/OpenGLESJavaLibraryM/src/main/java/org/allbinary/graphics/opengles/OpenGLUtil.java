@@ -113,13 +113,13 @@ public class OpenGLUtil {
         if (encapsulateImage != image) {
 
 //            final Thread thread = Thread.currentThread();
-//            this.logUtil.put(new StringMaker().append("add image ").append(thread.getName()).toString(), this, this.renderStrings.ON_SURFACE_CHANGED);
+//            this.logUtil.putF(new StringMaker().append("add image ").append(thread.getName()).toString(), this, this.renderStrings.ON_SURFACE_CHANGED);
 
             synchronized(object) {
                 list.add(encapsulateImage);
             }
 
-            //this.logUtil.put(new StringMaker().append("add image: ").append(encapsulateImage).append(CommonSeps.getInstance().SPACE).append(thread.getName()).toString(), this, this.renderStrings.ON_SURFACE_CHANGED);
+            //this.logUtil.putF(new StringMaker().append("add image: ").append(encapsulateImage).append(CommonSeps.getInstance().SPACE).append(thread.getName()).toString(), this, this.renderStrings.ON_SURFACE_CHANGED);
             return encapsulateImage;
         }
 
@@ -129,7 +129,7 @@ public class OpenGLUtil {
     public void clear() {
 
 //        final Thread thread = Thread.currentThread();
-//        this.logUtil.put(new StringMaker().append("clear: ").append(thread.getName()).toString(), this, RendererStrings.getInstance().ON_SURFACE_CHANGED);
+//        this.logUtil.putF(new StringMaker().append("clear: ").append(thread.getName()).toString(), this, RendererStrings.getInstance().ON_SURFACE_CHANGED);
         synchronized(object) {
             list.clear();
         }
@@ -139,9 +139,9 @@ public class OpenGLUtil {
         
         synchronized (lockObject) {
             
-            //this.logUtil.put("try to add", this, RendererStrings.getInstance().ON_SURFACE_CHANGED);
+            //this.logUtil.putF("try to add", this, RendererStrings.getInstance().ON_SURFACE_CHANGED);
             if(!this.runnableList.contains(runnable)) {
-                //this.logUtil.put("add", this, RendererStrings.getInstance().ON_SURFACE_CHANGED);
+                //this.logUtil.putF("add", this, RendererStrings.getInstance().ON_SURFACE_CHANGED);
                 this.runnableList.add(runnable);
                 displayInfoSingleton.add(this.canvasStrings.SCALED_IMAGES);
             }
@@ -155,7 +155,7 @@ public class OpenGLUtil {
             
             Runnable runnable;
             final int size = this.runnableList.size();
-            //this.logUtil.put(new StringMaker().append("size: ").append(size).toString(), this, RendererStrings.getInstance().ON_SURFACE_CHANGED);
+            //this.logUtil.putF(new StringMaker().append("size: ").append(size).toString(), this, RendererStrings.getInstance().ON_SURFACE_CHANGED);
             for (int index = 0; index < size; index++) {
                 runnable = (Runnable) this.runnableList.get(index);
                 runnable.run();
@@ -175,7 +175,7 @@ public class OpenGLUtil {
 //        final StringMaker stringMaker = new StringMaker();
 //        final String THREAD = "thread: ";
 //        stringMaker.delete(0, stringMaker.length());
-//        this.logUtil.put(stringMaker.append("size: ").append(THREAD).append(size).append(thread.getName()).toString(), this, this.renderStrings.ON_SURFACE_CHANGED);
+//        this.logUtil.putF(stringMaker.append("size: ").append(THREAD).append(size).append(thread.getName()).toString(), this, this.renderStrings.ON_SURFACE_CHANGED);
 
 //        final String IMAGE = "image: ";
 
@@ -183,7 +183,7 @@ public class OpenGLUtil {
         for (int index2 = 0; index2 < size; index2++) {
             image = this.list.get(index2);
 //            stringMaker.delete(0, stringMaker.length());
-//            this.logUtil.put(stringMaker.append(index2).append(IMAGE).append(image).append(CommonSeps.getInstance().SPACE).append(thread.getName()).toString(), this, this.renderStrings.ON_SURFACE_CHANGED);
+//            this.logUtil.putF(stringMaker.append(index2).append(IMAGE).append(image).append(CommonSeps.getInstance().SPACE).append(thread.getName()).toString(), this, this.renderStrings.ON_SURFACE_CHANGED);
             ((OpenGLESImage) image).set(gl);
         }
 

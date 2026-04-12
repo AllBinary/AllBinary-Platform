@@ -90,7 +90,7 @@ public class GenericStoreTransformInfoObjectConfig extends TransformInfoObjectCo
         	  //stringBuffer.append("Initial ObjectConfig: ");
         	  //stringBuffer.append(docString);
 
-              this.logUtil.put(stringBuffer.toString(), this, "generate()");
+              this.logUtil.putF(stringBuffer.toString(), this, "generate()");
         }
 
         /*
@@ -168,7 +168,7 @@ public class GenericStoreTransformInfoObjectConfig extends TransformInfoObjectCo
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            this.logUtil.put("TemplateNameOverride: " + templateNameOverride, this, "generate()");
+            this.logUtil.putF("TemplateNameOverride: " + templateNameOverride, this, "generate()");
         }
 
         StringMaker templateNameStringBuffer = new StringMaker();
@@ -207,7 +207,7 @@ public class GenericStoreTransformInfoObjectConfig extends TransformInfoObjectCo
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            this.logUtil.put("Final ObjectConfig: "
+            this.logUtil.putF("Final ObjectConfig: "
                 + DomDocumentHelper.toString(newObjectConfigDocument), this, "generate()");
         }
 

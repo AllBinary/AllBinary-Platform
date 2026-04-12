@@ -91,7 +91,7 @@ public class DateRangeOrderHistoryTag extends StoreValidationTransformTag
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
          {
-            this.logUtil.put("Tag Start",this,"doStartTag");
+            this.logUtil.putF("Tag Start",this,tagStrings.DO_START_TAG);
          }
          
          this.setName("Range Order History View");

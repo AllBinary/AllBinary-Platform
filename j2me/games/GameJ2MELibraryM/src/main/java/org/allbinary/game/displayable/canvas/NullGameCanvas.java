@@ -118,11 +118,11 @@ public class NullGameCanvas extends AllBinaryGameCanvas
     {
         try
         {
-            this.logUtil.put(commonStrings.START_RUNNABLE, this, commonStrings.RUN);
+            this.logUtil.putF(commonStrings.START_RUNNABLE, this, commonStrings.RUN);
 
             //this.setRunning(false);
 
-            this.logUtil.put(commonStrings.END_RUNNABLE, this, commonStrings.RUN);
+            this.logUtil.putF(commonStrings.END_RUNNABLE, this, commonStrings.RUN);
         }
         catch (Exception e)
         {

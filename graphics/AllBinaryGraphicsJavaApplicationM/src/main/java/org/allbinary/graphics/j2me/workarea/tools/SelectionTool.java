@@ -179,7 +179,7 @@ public class SelectionTool implements GraphicItemInterface
 
     public void paint(Graphics g, Double canvasAngle, IntegerDimension dimension, int x, int y)
     {
-        //this.logUtil.put(commonStrings.START, this, canvasStrings.PAINT);
+        //this.logUtil.putF(commonStrings.START, this, canvasStrings.PAINT);
 
         g.setColor(this.rectColor);
 
@@ -223,14 +223,14 @@ public class SelectionTool implements GraphicItemInterface
     //is used and not by the tool itself
     public void mouseClicked(java.awt.event.MouseEvent mouseEvent, int xPixelsPerCell, int yPixelsPerCell)
     {
-        //this.logUtil.put(commonStrings.START, this, MOUSE_CLICKED);
+        //this.logUtil.putF(commonStrings.START, this, MOUSE_CLICKED);
         //this.startPoint  = PointFactory.getInstance(mouseEvent.getX(), mouseEvent.getY());
         //this.endPoint = this.startPoint;
     }
 
     public void mouseMoved(java.awt.event.MouseEvent mouseEvent, int xPixelsPerCell, int yPixelsPerCell)
     {
-        //this.logUtil.put(commonStrings.START, this, MOUSE_MOVED);
+        //this.logUtil.putF(commonStrings.START, this, MOUSE_MOVED);
         //this.endPoint = PointFactory.getInstance(mouseEvent.getX(), mouseEvent.getY());
     }
 
@@ -244,7 +244,7 @@ public class SelectionTool implements GraphicItemInterface
 
     public void mousePressed(java.awt.event.MouseEvent mouseEvent, int xPixelsPerCell, int yPixelsPerCell)
     {
-        this.logUtil.put(commonStrings.START, this, MouseStrings.getInstance().MOUSE_PRESSED);
+        this.logUtil.putF(commonStrings.START, this, MouseStrings.getInstance().MOUSE_PRESSED);
 
         this.startPoint = PointFactory.getInstance().getInstance(mouseEvent.getX(), mouseEvent.getY());
         this.endPoint = this.startPoint;
@@ -252,7 +252,7 @@ public class SelectionTool implements GraphicItemInterface
 
     public void mouseReleased(java.awt.event.MouseEvent mouseEvent, int xPixelsPerCell, int yPixelsPerCell)
     {
-        this.logUtil.put(commonStrings.START, this, MouseStrings.getInstance().MOUSE_RELEASED);
+        this.logUtil.putF(commonStrings.START, this, MouseStrings.getInstance().MOUSE_RELEASED);
 
         this.endPoint = PointFactory.getInstance().getInstance(mouseEvent.getX(), mouseEvent.getY());
         this.active = false;
@@ -261,7 +261,7 @@ public class SelectionTool implements GraphicItemInterface
 
     public void mouseDragged(java.awt.event.MouseEvent mouseEvent, int xPixelsPerCell, int yPixelsPerCell)
     {
-        //this.logUtil.put(commonStrings.START, this, MouseStrings.getInstance().MOUSE_DRAGGED);
+        //this.logUtil.putF(commonStrings.START, this, MouseStrings.getInstance().MOUSE_DRAGGED);
 
         this.endPoint = PointFactory.getInstance().getInstance(mouseEvent.getX(), mouseEvent.getY());
     }

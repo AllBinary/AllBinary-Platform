@@ -75,7 +75,7 @@ public class DeleteCloud
                 stringBuffer.append(" - ");
                 stringBuffer.appendint(end);
 
-                this.logUtil.put(
+                this.logUtil.putF(
                     stringBuffer.toString(), this, "initialize()");
 
                 for (int index = start; index < end; index++)
@@ -96,7 +96,7 @@ public class DeleteCloud
                     }
                 }
 
-                this.logUtil.put("Deleted Files From Cloud", this, "initialize()");
+                this.logUtil.putF("Deleted Files From Cloud", this, "initialize()");
             }
 
             return true;

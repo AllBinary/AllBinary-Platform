@@ -79,7 +79,7 @@ public class WaypointPathRunnableBase implements RunnableInterface, PriorityRunn
             final int distanceCategory = distance / 70;
             this.priorityP = distanceCategory;
 
-            //this.logUtil.put(new StringMaker().append(SET_PRIORITY).append(this.priority).toString(), this, SET_TARGET);
+            //this.logUtil.putF(new StringMaker().append(SET_PRIORITY).append(this.priority).toString(), this, SET_TARGET);
         }
     }
     

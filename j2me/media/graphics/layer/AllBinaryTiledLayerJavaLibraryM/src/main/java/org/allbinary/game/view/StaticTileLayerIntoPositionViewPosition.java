@@ -33,9 +33,9 @@ public class StaticTileLayerIntoPositionViewPosition extends ViewPosition
    
    public StaticTileLayerIntoPositionViewPosition()
    {
-      //this.logUtil.put("getRelativePositionX: " + this.getRelativePositionX(), this, "getViewPositionX");
-      //this.logUtil.put("tiledLayer.getXP(): " + tiledLayer.getXP(), this, "getViewPositionX");
-      //this.logUtil.put("X: " + x, this, "getViewPositionX");
+      //this.logUtil.putF("getRelativePositionX: " + this.getRelativePositionX(), this, "getViewPositionX");
+      //this.logUtil.putF("tiledLayer.getXP(): " + tiledLayer.getXP(), this, "getViewPositionX");
+      //this.logUtil.putF("X: " + x, this, "getViewPositionX");
    }
 
    @Override

@@ -101,7 +101,7 @@ public class OrderHistoryRequestHelper
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put("Success",this,"setOrderStatus()");
+            this.logUtil.putF("Success",this,"setOrderStatus()");
          }
          return success;
       }
@@ -132,7 +132,7 @@ public class OrderHistoryRequestHelper
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put("Success",this,"setOrderStatus()");
+            this.logUtil.putF("Success",this,"setOrderStatus()");
          }
          return success;
       }
@@ -158,7 +158,7 @@ public class OrderHistoryRequestHelper
     
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put("Success",this,"setPaymentMethod()");
+            this.logUtil.putF("Success",this,"setPaymentMethod()");
          }
          return success;
       }

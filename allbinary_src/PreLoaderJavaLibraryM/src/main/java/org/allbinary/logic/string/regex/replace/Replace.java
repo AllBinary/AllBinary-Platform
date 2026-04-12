@@ -40,11 +40,11 @@ public class Replace
       hashMap = new HashMap();
       this.hashMap.put(new String[] {key}, new String[] {value});
       
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
-      {
-         this.logUtil.put(REPLACERS_ + this.hashMap.toString(), this, commonStrings.CONSTRUCTOR);
-         //this.logUtil.put("Replacers: key=" + key + " value=" + value, this, commonStrings.CONSTRUCTOR);
-      }
+//      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
+//      {
+//         this.logUtil.putF(REPLACERS_ + this.hashMap.toString(), this, commonStrings.CONSTRUCTOR);
+//         //this.logUtil.putF("Replacers: key=" + key + " value=" + value, this, commonStrings.CONSTRUCTOR);
+//      }
    }
 
    public Replace(final String[] keys, final String[] values)
@@ -52,21 +52,21 @@ public class Replace
       hashMap = new HashMap();
       this.hashMap.put(keys, values);
       
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
-      {
-         this.logUtil.put(REPLACERS_ + this.hashMap.toString(), this, commonStrings.CONSTRUCTOR);
-         //this.logUtil.put("Replacers: key=" + key + " value=" + value, this, commonStrings.CONSTRUCTOR);
-      }
+//      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
+//      {
+//         this.logUtil.putF(REPLACERS_ + this.hashMap.toString(), this, commonStrings.CONSTRUCTOR);
+//         //this.logUtil.putF("Replacers: key=" + key + " value=" + value, this, commonStrings.CONSTRUCTOR);
+//      }
    }
        
    public Replace(HashMap hashMap)
    {      
       this.hashMap = hashMap;
       
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE_INFO))
-      {
-         this.logUtil.put(REPLACERS_ + this.hashMap.toString(), this, commonStrings.CONSTRUCTOR);
-      }
+//      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE_INFO))
+//      {
+//         this.logUtil.putF(REPLACERS_ + this.hashMap.toString(), this, commonStrings.CONSTRUCTOR);
+//      }
    }
    
    public String all(String replace) {
@@ -75,10 +75,10 @@ public class Replace
    
    public String upTo(String replace, int total)
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
-      {
-         this.logUtil.put(REPLACERS_ + this.hashMap.toString(), this, ALL);
-      }
+//      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
+//      {
+//         this.logUtil.putF(REPLACERS_ + this.hashMap.toString(), this, ALL);
+//      }
 
       final StringMaker newStringBuffer = new StringMaker();
 
@@ -151,12 +151,14 @@ public class Replace
       
       //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
       //{
-         //this.logUtil.put("Replace Result: " + replace, this, ALL);
+         //this.logUtil.putF("Replace Result: " + replace, this, ALL);
       //}
       
+      if(totalNumberOfReplaces > 0) {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
       {
-         this.logUtil.put("Total Number Of Replaces: " + totalNumberOfReplaces, this, ALL);
+         this.logUtil.putF("Total Number Of Replaces: " + totalNumberOfReplaces, this, ALL);
+      }
       }
       
       return replace;
@@ -164,10 +166,10 @@ public class Replace
 
    public String line(String replace)
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
-      {
-         this.logUtil.put(REPLACERS_ + this.hashMap.toString(), this, ALL);
-      }
+//      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
+//      {
+//         this.logUtil.putF(REPLACERS_ + this.hashMap.toString(), this, ALL);
+//      }
 
       final StringMaker newStringBuffer = new StringMaker();
 
@@ -218,12 +220,12 @@ public class Replace
       
       //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
       //{
-         //this.logUtil.put("Replace Result: " + replace, this, ALL);
+         //this.logUtil.putF("Replace Result: " + replace, this, ALL);
       //}
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
       {
-         this.logUtil.put("Total Number Of Replaces: " + totalNumberOfReplaces, this, ALL);
+         this.logUtil.putF("Total Number Of Replaces: " + totalNumberOfReplaces, this, ALL);
       }
       
       return replace;

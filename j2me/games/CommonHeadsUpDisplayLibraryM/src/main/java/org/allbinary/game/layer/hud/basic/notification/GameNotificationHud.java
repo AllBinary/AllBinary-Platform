@@ -56,10 +56,9 @@ implements GameNotificationListenerInterface
    {
        if(lastGameNotificationEvent != gameNotificationEvent) {
            lastGameNotificationEvent = gameNotificationEvent;
-           this.logUtil.put(
+           this.logUtil.putF(
                //commonStrings.START_LABEL + 
-               gameNotificationEvent.getString(),
-               this, METHOD_NAME);
+               gameNotificationEvent.getString(), this, METHOD_NAME);
        }
 
        this.add(

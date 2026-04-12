@@ -49,11 +49,11 @@ public class DisplayPointScalar {
     public GPoint process(final GPoint point) {
         return point;
         //final CommonStrings commonStrings = CommonStrings.getInstance();
-        //this.logUtil.put("point: " + point, this, commonStrings.PROCESS);
+        //this.logUtil.putF("point: " + point, this, commonStrings.PROCESS);
         //800 by 480 is the default window.  I assume it is being scaled from that initial window.
         //final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
         //final float ratio = 480f / (float) (displayInfoSingleton.getLastHeight());
-        //this.logUtil.put("ratio: " + ratio, this, commonStrings.PROCESS);
+        //this.logUtil.putF("ratio: " + ratio, this, commonStrings.PROCESS);
 //        return PointFactory.getInstance().getInstance(
 //                //(int) (point.getX() * ratio), 
 //                point.getX(),

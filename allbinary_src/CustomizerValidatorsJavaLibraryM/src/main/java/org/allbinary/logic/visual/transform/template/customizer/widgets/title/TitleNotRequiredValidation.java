@@ -47,7 +47,7 @@ public class TitleNotRequiredValidation extends TitleView implements ValidationI
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            this.logUtil.put(this.commonStrings.START, this, commonStrings.IS_VALID);
+            this.logUtil.putF(this.commonStrings.START, this, commonStrings.IS_VALID);
          }
          
          Boolean valid = Boolean.TRUE;
@@ -66,7 +66,7 @@ public class TitleNotRequiredValidation extends TitleView implements ValidationI
              stringBuffer.append("End: ");
              stringBuffer.appendboolean(valid);
 
-            this.logUtil.put(stringBuffer.toString(), this, commonStrings.IS_VALID);
+            this.logUtil.putF(stringBuffer.toString(), this, commonStrings.IS_VALID);
          }
          
          return valid;

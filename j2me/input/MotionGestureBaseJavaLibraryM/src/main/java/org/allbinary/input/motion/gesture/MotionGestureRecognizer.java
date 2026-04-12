@@ -76,7 +76,7 @@ public class MotionGestureRecognizer
     public boolean processPressedMotionEvent(final GPoint current, final int deviceId, final int button)
             throws Exception
     {
-        //this.logUtil.put(commonStrings.START_LABEL + current.toString(), this, "processPressedMotionEvent");
+        //this.logUtil.putF(commonStrings.START_LABEL + current.toString(), this, "processPressedMotionEvent");
         //PreLogUtil.put(commonStrings.START, this, "processPressedMotionEvent");
 
         intermediate = origin;
@@ -89,7 +89,7 @@ public class MotionGestureRecognizer
         event.setPreviousPoint(previous);
         event.setCurrentPoint(current);
 
-        //this.logUtil.put("Firing Event: " + event, this, "processReleasedMotionEvent");
+        //this.logUtil.putF("Firing Event: " + event, this, "processReleasedMotionEvent");
         
         motionGesturesHandler.fireEvent(event);
 
@@ -99,7 +99,7 @@ public class MotionGestureRecognizer
     public boolean processReleasedMotionEvent(final GPoint current, final int deviceId, final int button)
             throws Exception
     {
-        //this.logUtil.put(commonStrings.START_LABEL + current.toString(), this, "processReleasedMotionEvent");
+        //this.logUtil.putF(commonStrings.START_LABEL + current.toString(), this, "processReleasedMotionEvent");
 
         /*
          * if(this.touchButtonRecognizer.processTouchButtonInput(UpGameKeyEventHandler
@@ -114,7 +114,7 @@ public class MotionGestureRecognizer
         event.setPreviousPoint(previous);
         event.setCurrentPoint(current);
 
-        //this.logUtil.put("Firing Event: " + event, this, "processReleasedMotionEvent");
+        //this.logUtil.putF("Firing Event: " + event, this, "processReleasedMotionEvent");
         
         motionGesturesHandler.fireEvent(event);
 
@@ -193,7 +193,7 @@ public class MotionGestureRecognizer
             if (absGradient < Math.tan(Math.toRadians(diagonalToleranceLower)))
             {
 
-                // this.logUtil.put("Left Or Right: " +
+                // this.logUtil.putF("Left Or Right: " +
                 // line.getDeltaX(), this, "processDraggedMotionEvent");
 
                 if (line.getDeltaX() > 0)
@@ -209,19 +209,19 @@ public class MotionGestureRecognizer
             else
             {
 
-                //this.logUtil.put("Diagonal: " + gradient + CommonStrings + PositionStrings + line.getDeltaX() + PositionStrings + line.getDeltaY(), this, "processDraggedMotionEvent");
+                //this.logUtil.putF("Diagonal: " + gradient + CommonStrings + PositionStrings + line.getDeltaX() + PositionStrings + line.getDeltaY(), this, "processDraggedMotionEvent");
                 
                 if (gradient > 0)
                 {
                     if (line.getDeltaX() > 0)
                     {
-                        //this.logUtil.put("Diagonal Up Left", this, "processDraggedMotionEvent");
+                        //this.logUtil.putF("Diagonal Up Left", this, "processDraggedMotionEvent");
                         
                         newMotionGesture = touchMotionGestureFactory.DIAGONAL_UP_LEFT;
                     }
                     else
                     {
-                        //this.logUtil.put("Diagonal Down Right", this, "processDraggedMotionEvent");
+                        //this.logUtil.putF("Diagonal Down Right", this, "processDraggedMotionEvent");
                         
                         newMotionGesture = touchMotionGestureFactory.DIAGONAL_DOWN_RIGHT;
                     }
@@ -230,13 +230,13 @@ public class MotionGestureRecognizer
                 {
                     if (line.getDeltaX() > 0)
                     {
-                        //this.logUtil.put("Diagonal Down Left", this, "processDraggedMotionEvent");
+                        //this.logUtil.putF("Diagonal Down Left", this, "processDraggedMotionEvent");
                         
                         newMotionGesture = touchMotionGestureFactory.DIAGONAL_DOWN_LEFT;
                     }
                     else
                     {
-                        //this.logUtil.put("Diagonal Up Right", this, "processDraggedMotionEvent");
+                        //this.logUtil.putF("Diagonal Up Right", this, "processDraggedMotionEvent");
                         
                         newMotionGesture = touchMotionGestureFactory.DIAGONAL_UP_RIGHT;
                     }
@@ -265,7 +265,7 @@ public class MotionGestureRecognizer
     public boolean processMovedMotionEvent(final GPoint current, final int deviceId, final int button)
             throws Exception
     {
-        //this.logUtil.put(commonStrings.START_LABEL + current.toString(), this, "processReleasedMotionEvent");
+        //this.logUtil.putF(commonStrings.START_LABEL + current.toString(), this, "processReleasedMotionEvent");
 
         final MotionGestureEvent event =
             this.motionEventCircularPool.getInstance(
@@ -274,7 +274,7 @@ public class MotionGestureRecognizer
         event.setPreviousPoint(previous);
         event.setCurrentPoint(current);
 
-        //this.logUtil.put("Firing Event: " + event, this, "processReleasedMotionEvent");
+        //this.logUtil.putF("Firing Event: " + event, this, "processReleasedMotionEvent");
         
         movedMotionGesturesHandler.fireEvent(event);
 

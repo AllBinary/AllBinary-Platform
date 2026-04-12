@@ -164,7 +164,7 @@ public class UploadFileServlet extends HttpServlet
                     stringBuffer.append(" New File: ");
                     stringBuffer.append(file.getPath());
 
-                    this.logUtil.put(stringBuffer.toString(), this, "saveFile()");
+                    this.logUtil.putF(stringBuffer.toString(), this, "saveFile()");
                 }
                 HttpFileUploadUtil.log(fileItem);
 

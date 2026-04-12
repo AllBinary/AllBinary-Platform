@@ -14,6 +14,7 @@
 package admin.taghelpers;
 
 import org.allbinary.string.CommonStrings;
+import tags.TagStrings;
 
 /**
  *
@@ -22,6 +23,7 @@ import org.allbinary.string.CommonStrings;
 public class ModifyTable implements ModifyTableInterface {
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    protected final TagStrings tagStrings = TagStrings.getInstance();
 
     public String insert() throws Exception {
         throw new RuntimeException();

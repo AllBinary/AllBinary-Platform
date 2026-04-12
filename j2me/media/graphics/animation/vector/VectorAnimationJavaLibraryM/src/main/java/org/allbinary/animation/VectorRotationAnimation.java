@@ -33,7 +33,7 @@ public class VectorRotationAnimation
 
       this.angleInfo.adjustAngle(this.getFrame());
       
-      //this.logUtil.put(this.angleInfo.toString(), this, commonStrings.CONSTRUCTOR);
+      //this.logUtil.putF(this.angleInfo.toString(), this, commonStrings.CONSTRUCTOR);
    }
    
    @Override

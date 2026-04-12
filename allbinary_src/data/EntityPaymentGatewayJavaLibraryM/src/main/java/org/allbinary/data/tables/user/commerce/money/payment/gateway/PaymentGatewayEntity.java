@@ -49,7 +49,7 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
         {
-            this.logUtil.put(this.commonStrings.CONSTRUCTOR, this, this.commonStrings.CONSTRUCTOR);
+            this.logUtil.putF(this.commonStrings.CONSTRUCTOR, this, this.commonStrings.CONSTRUCTOR);
         }
     }
 
@@ -59,7 +59,7 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.put(this.commonStrings.START, this, "add");
+                this.logUtil.putF(this.commonStrings.START, this, "add");
             }
 
             Vector vector = new Vector();
@@ -77,7 +77,7 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.put(commonStrings.END, this, "add");
+                this.logUtil.putF(commonStrings.END, this, "add");
             }
         } catch (Exception e)
         {
@@ -117,7 +117,7 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.put(this.commonStrings.SUCCESS, this, "update");
+                this.logUtil.putF(this.commonStrings.SUCCESS, this, "update");
             }
         } catch (Exception e)
         {
@@ -225,7 +225,7 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
                 {
-                    this.logUtil.put(this.commonStrings.SUCCESS, this, "getPaymentGatewayInterface()");
+                    this.logUtil.putF(this.commonStrings.SUCCESS, this, "getPaymentGatewayInterface()");
                 }
                 return paymentGatewayInterface;
             } else
@@ -269,7 +269,7 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
                 {
-                    this.logUtil.put(this.commonStrings.SUCCESS, this, "findPaymentTypeVectorByStore()");
+                    this.logUtil.putF(this.commonStrings.SUCCESS, this, "findPaymentTypeVectorByStore()");
                 }
                 return paymentGatewayVector;
             } else
@@ -299,7 +299,7 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.put(this.commonStrings.SUCCESS, this, "remove");
+                this.logUtil.putF(this.commonStrings.SUCCESS, this, "remove");
             }
         } catch (Exception e)
         {

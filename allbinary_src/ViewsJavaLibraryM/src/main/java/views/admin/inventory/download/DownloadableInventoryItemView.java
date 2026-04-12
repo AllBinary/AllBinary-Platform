@@ -124,10 +124,10 @@ public class DownloadableInventoryItemView
     {
     int size = this.processFile(fileKeyArray[index]);
 
-    this.logUtil.put("Size: " + size, this, "processFiles()");
+    this.logUtil.putF("Size: " + size, this, "processFiles()");
     if(index == 1)
     {
-    this.logUtil.put("set", this, "processFiles()");
+    this.logUtil.putF("set", this, "processFiles()");
     this.getRequestHashMap().put(DownloadItemData.SIZE, Integer.valueOf(size));
     }
     }
@@ -173,11 +173,11 @@ public class DownloadableInventoryItemView
         stringBuffer.append(fullPath);
         stringBuffer.append(fileName);
 
-        this.logUtil.put("FileName: " + fileName, this, "processFile()");
+        this.logUtil.putF("FileName: " + fileName, this, "processFile()");
 
         final AbFile file = new AbFile(stringBuffer.toString());
 
-        this.logUtil.put(file.getPath(), this, "processFiles()");
+        this.logUtil.putF(file.getPath(), this, "processFiles()");
 
         file.createNewFile();
 
@@ -200,11 +200,11 @@ public class DownloadableInventoryItemView
         stringBuffer.append(fullPath);
         stringBuffer.append(fileName);
 
-        this.logUtil.put("FileName: " + fileName, this, "unzip()");
+        this.logUtil.putF("FileName: " + fileName, this, "unzip()");
 
         final AbFile file = new AbFile(stringBuffer.toString());
 
-        this.logUtil.put(file.getPath(), this, "unzip()");
+        this.logUtil.putF(file.getPath(), this, "unzip()");
 
         ZipFileUtil.getInstance().unzip(fullPath, file, fileName);
     }

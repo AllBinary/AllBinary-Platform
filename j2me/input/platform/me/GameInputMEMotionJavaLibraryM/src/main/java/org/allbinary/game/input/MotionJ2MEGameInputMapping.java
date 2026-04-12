@@ -21,7 +21,7 @@ public class MotionJ2MEGameInputMapping extends J2MEGameInputMapping
     @Override
     protected InputToGameKeyMapping getDefault()
     {
-        //this.logUtil.put("Use Default GameKey Mappings", this, "addDefault");
+        //this.logUtil.putF("Use Default GameKey Mappings", this, "addDefault");
 
         return new MotionJ2MEDefaultGameInputMapping().getInputMapping();
     }

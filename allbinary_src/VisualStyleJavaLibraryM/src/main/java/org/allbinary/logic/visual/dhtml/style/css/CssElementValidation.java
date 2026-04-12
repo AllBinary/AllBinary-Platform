@@ -48,7 +48,7 @@ public class CssElementValidation extends CssElementView implements ValidationIn
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            this.logUtil.put("CssElementValidation",this,commonStrings.IS_VALID);
+            this.logUtil.putF("CssElementValidation",this,commonStrings.IS_VALID);
          }
 
          /*
@@ -72,7 +72,7 @@ public class CssElementValidation extends CssElementView implements ValidationIn
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            this.logUtil.put("CssElementValidation: " + valid,this,commonStrings.IS_VALID);
+            this.logUtil.putF("CssElementValidation: " + valid,this,commonStrings.IS_VALID);
          }
          
          return valid;

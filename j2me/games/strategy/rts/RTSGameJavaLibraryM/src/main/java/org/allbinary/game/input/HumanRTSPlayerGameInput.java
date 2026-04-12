@@ -248,7 +248,7 @@ implements BaseMotionGestureEventListener
         stringBuffer.append(SPACE);
         stringBuffer.appendint(rectY2);
 
-        this.logUtil.put(stringBuffer.toString(), this, METHOD);
+        this.logUtil.putF(stringBuffer.toString(), this, METHOD);
         
         RTSLayer rtsLayer;
         
@@ -266,14 +266,14 @@ implements BaseMotionGestureEventListener
             stringBuffer.append(SPACE);
             stringBuffer.appendint((rtsLayer.getViewPosition().getY() + rtsLayer.getHalfHeight()));
 
-            this.logUtil.put(stringBuffer.toString(), this, METHOD);
+            this.logUtil.putF(stringBuffer.toString(), this, METHOD);
 
             if(rectangleCollisionUtil.isInside(
                     rectX1, rectY1, rectX2, rectY2, 
                     rtsLayer.getViewPosition().getX() + rtsLayer.getHalfWidth(), 
                     rtsLayer.getViewPosition().getY() + rtsLayer.getHalfHeight()))
             {
-                this.logUtil.put(new StringMaker().append(ADDING).append(rtsLayer.getName()).toString(), this, METHOD);
+                this.logUtil.putF(new StringMaker().append(ADDING).append(rtsLayer.getName()).toString(), this, METHOD);
                 
                 rtsLayer.select();
                 this.getSelectedBuildingPlayerGameInput().addSelectedRTSLayer(rtsLayer);                
@@ -345,7 +345,7 @@ implements BaseMotionGestureEventListener
     @Override
     public void processMotionInput(final AllBinaryLayerManager layerManager) throws Exception
     {
-        //this.logUtil.put(commonStrings.START, this, gameInputStrings.PROCESS_MOTION_INPUT);
+        //this.logUtil.putF(commonStrings.START, this, gameInputStrings.PROCESS_MOTION_INPUT);
 
         if (this.getMotionGestureInputList().size() > 0)
         {
@@ -373,7 +373,7 @@ implements BaseMotionGestureEventListener
     public void setSelectedRtsFormInput(final RTSFormInput selectedRtsFormInput)
     {
         final LogUtil logUtil = LogUtil.getInstance();
-        this.logUtil.put(new StringMaker().append(CommonLabels.getInstance().START).append(StringUtil.getInstance().toString(selectedRtsFormInput)).toString(), this, "setSelectedRtsFormInput");
+        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START).append(StringUtil.getInstance().toString(selectedRtsFormInput)).toString(), this, "setSelectedRtsFormInput");
         
         super.setSelectedRtsFormInput(selectedRtsFormInput);
         this.setSelectedRtsLayer(CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER);
@@ -383,7 +383,7 @@ implements BaseMotionGestureEventListener
     {
         final ScrollSelectionForm scrollSelectionForm = rtsLayer.getScrollSelectionForm();
 
-        //this.logUtil.put(
+        //this.logUtil.putF(
           //      CommonLabels.getInstance().START).append(rtsLayer.getName()).append(" form: ").append(scrollSelectionForm, this, "updateForm");
         
         // Waypoints are the only games objects still without menus currently
@@ -472,7 +472,7 @@ implements BaseMotionGestureEventListener
         }
         else
         {
-            this.logUtil.put("Set Player Default Form", this, "setSelectedRTSLayer");
+            this.logUtil.putF("Set Player Default Form", this, "setSelectedRTSLayer");
 
             this.getRtsPlayerLayerInterface().setCurrentScrollSelectionForm(
                 this.getRtsPlayerLayerInterface().getBuildingScrollSelectionForm());
@@ -582,7 +582,7 @@ implements BaseMotionGestureEventListener
     @Override
     public void onMotionGestureEvent(final MotionGestureEvent motionGestureEvent)
     {
-        //this.logUtil.put("motionGestureEvent: ").append(motionGestureEvent, this, "onMotionGestureEvent");
+        //this.logUtil.putF("motionGestureEvent: ").append(motionGestureEvent, this, "onMotionGestureEvent");
 
         getMotionGestureInputList().add(motionGestureEvent);
     }

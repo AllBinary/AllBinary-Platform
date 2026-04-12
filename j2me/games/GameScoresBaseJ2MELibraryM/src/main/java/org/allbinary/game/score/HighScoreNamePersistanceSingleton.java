@@ -84,7 +84,7 @@ public class HighScoreNamePersistanceSingleton
         RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;
         try {
 
-        this.logUtil.put(new StringMaker().append("Deleting: ").appendint(deleteId).toString(), this, commonStrings.delete);
+        this.logUtil.putF(new StringMaker().append("Deleting: ").appendint(deleteId).toString(), this, commonStrings.delete);
 
         recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
@@ -130,7 +130,7 @@ public class HighScoreNamePersistanceSingleton
                 {
                     final int id = recordEnum.nextRecordId();
 
-                    this.logUtil.put(new StringMaker().append(LOADING_ID).appendint(id).toString(), this, commonStrings.LOAD);
+                    this.logUtil.putF(new StringMaker().append(LOADING_ID).appendint(id).toString(), this, commonStrings.LOAD);
 
                     recordAsBytes = recordStore.getRecord(id);
                     byteArrayInputStream = new ByteArrayInputStream(recordAsBytes);
@@ -149,7 +149,7 @@ public class HighScoreNamePersistanceSingleton
         } catch (Exception e)
         {
             this.save(abeClientInformation, gameInfo, this.name);
-            this.logUtil.put(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(ExceptionUtil.getInstance().getStackTrace(e)).toString(), this, commonStrings.LOAD);
+            this.logUtil.putF(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(ExceptionUtil.getInstance().getStackTrace(e)).toString(), this, commonStrings.LOAD);
         } finally {
             try {
                 if (recordStore != null) {
@@ -169,7 +169,7 @@ public class HighScoreNamePersistanceSingleton
         RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;
         try
         {
-            this.logUtil.put(new StringMaker().append("Saving: ").append(name).toString(), this, commonStrings.SAVE);
+            this.logUtil.putF(new StringMaker().append("Saving: ").append(name).toString(), this, commonStrings.SAVE);
 
             recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 

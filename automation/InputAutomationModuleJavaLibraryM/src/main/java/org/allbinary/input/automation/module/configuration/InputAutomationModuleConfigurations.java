@@ -51,7 +51,7 @@ public class InputAutomationModuleConfigurations
         {
             final NodeList nameNodeList = document.getElementsByTagName(InputAutomationModuleData.NAME);
             
-            this.logUtil.put("Number Of Module(s) Specified: " + nameNodeList.getLength(), this,"Contructor");
+            this.logUtil.putF("Number Of Module(s) Specified: " + nameNodeList.getLength(), this, "Contructor");
             
             for(int index = 0; index < nameNodeList.getLength(); index++)
             {
@@ -67,7 +67,7 @@ public class InputAutomationModuleConfigurations
         this.setHashMap(new HashMap());
         
         final NodeList nameNodeList = document.getElementsByTagName(InputAutomationModuleData.NAME);
-        this.logUtil.put("Number Of Module(s) Specified: " + nameNodeList.getLength(), this,"Contructor");
+        this.logUtil.putF("Number Of Module(s) Specified: " + nameNodeList.getLength(), this, "Contructor");
         
         for(int index = 0; index < nameNodeList.getLength(); index++)
         {

@@ -55,14 +55,14 @@ public class CellPositionFactory
       stringBuffer.append(" rows: ");
       stringBuffer.appendint(rows);
       
-      this.logUtil.put(stringBuffer.toString(), this, commonStrings.INIT);
+      this.logUtil.putF(stringBuffer.toString(), this, commonStrings.INIT);
       
       for (int column = 0; column < columns; column++)
       {
-         // this.logUtil.put("Initializing Column: ").append(col, this, commonStrings.INIT);
+         // this.logUtil.putF("Initializing Column: ").append(col, this, commonStrings.INIT);
          for (int row = 0; row < rows; row++)
          {
-            // this.logUtil.put("Initializing Row: ").append(row, this, commonStrings.INIT);
+            // this.logUtil.putF("Initializing Row: ").append(row, this, commonStrings.INIT);
             //CellPosition cellPosition =
                this.createInstance(column, row);
          }

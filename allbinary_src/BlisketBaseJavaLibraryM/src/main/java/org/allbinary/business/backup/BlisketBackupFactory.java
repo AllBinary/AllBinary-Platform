@@ -58,7 +58,7 @@ public class BlisketBackupFactory
     {
         try
         {
-            this.logUtil.put(this.commonStrings.START, this, "backup()");
+            this.logUtil.putF(this.commonStrings.START, this, "backup()");
 
             StringMaker stringBuffer = new StringMaker();
 
@@ -83,7 +83,7 @@ public class BlisketBackupFactory
     {
         try
         {
-            this.logUtil.put(this.commonStrings.START, this, "backupViews()");
+            this.logUtil.putF(this.commonStrings.START, this, "backupViews()");
 
             StringMaker stringBuffer = new StringMaker();
 
@@ -138,7 +138,7 @@ public class BlisketBackupFactory
     {
         try
         {
-            this.logUtil.put(this.commonStrings.START, this, "backupResources()");
+            this.logUtil.putF(this.commonStrings.START, this, "backupResources()");
 
             StringMaker stringBuffer = new StringMaker();
 
@@ -198,7 +198,7 @@ public class BlisketBackupFactory
     {
         try
         {
-            this.logUtil.put(this.commonStrings.START, this, "backupJsps()");
+            this.logUtil.putF(this.commonStrings.START, this, "backupJsps()");
 
             StringMaker stringBuffer = new StringMaker();
 
@@ -253,13 +253,13 @@ public class BlisketBackupFactory
             stringBuffer.append(" BasicArrayList: ");
             stringBuffer.appendint(fileBasicArrayList.size());
 
-            //this.logUtil.put(
+            //this.logUtil.putF(
               //  "Creating Backup Zip File: " + stringBuffer.toString(), this, "backup()");
             PreLogUtil.put("Creating Backup Zip File: " + stringBuffer.toString(), this, "backup()");
 
             ZipFileUtil.getInstance().create(zipFile, fileBasicArrayList);
 
-            this.logUtil.put(
+            this.logUtil.putF(
                 "Created Backup Zip File", this, "backup()");
 
         } catch (Exception e)

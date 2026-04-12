@@ -109,7 +109,7 @@ public class OrderHelper
                 stringBuffer.append(" to: ");
                 stringBuffer.append(orderInterface.getPaymentMethod());
 
-                this.logUtil.put(stringBuffer.toString(), this, "setPaymentGateway()");
+                this.logUtil.putF(stringBuffer.toString(), this, "setPaymentGateway()");
             }
             return paymentGatewayBoolean;
         } catch (Exception e)
@@ -153,7 +153,7 @@ public class OrderHelper
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
             {
-                this.logUtil.put("Successfully Processed Order: " + result, this, "processOrder()");
+                this.logUtil.putF("Successfully Processed Order: " + result, this, "processOrder()");
             }
             return result;
 
@@ -193,7 +193,7 @@ public class OrderHelper
 
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
     {
-    this.logUtil.put("Successfully Authorized Order: " + result,this,"authorizeOrder()");
+    this.logUtil.putF("Successfully Authorized Order: " + result,this,"authorizeOrder()");
     }
     return result;
     }

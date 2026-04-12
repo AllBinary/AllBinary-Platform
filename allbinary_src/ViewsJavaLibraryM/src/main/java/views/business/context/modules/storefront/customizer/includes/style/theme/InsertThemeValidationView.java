@@ -39,7 +39,7 @@ public class InsertThemeValidationView extends ThemeCustomizerView implements Va
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         this.logUtil.put(this.commonStrings.CONSTRUCTOR,this,"started");
+         this.logUtil.putF(this.commonStrings.CONSTRUCTOR,this,"started");
       }
       
       this.requestHashMap =
@@ -47,7 +47,7 @@ public class InsertThemeValidationView extends ThemeCustomizerView implements Va
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         this.logUtil.put(this.commonStrings.CONSTRUCTOR,this,"begin loading theme");
+         this.logUtil.putF(this.commonStrings.CONSTRUCTOR,this,"begin loading theme");
       }
    }
 
@@ -64,7 +64,7 @@ public class InsertThemeValidationView extends ThemeCustomizerView implements Va
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            this.logUtil.put("Started Validation",this,commonStrings.IS_VALID);
+            this.logUtil.putF("Started Validation",this,commonStrings.IS_VALID);
          }
 
          ThemeValidation themeValidation = 

@@ -68,7 +68,7 @@ public class InitializerDatabase
             stringBuffer.append(" Value: ");
             stringBuffer.append(values[0]);
             
-            this.logUtil.put(stringBuffer.toString(), this, "getFormData()");
+            this.logUtil.putF(stringBuffer.toString(), this, "getFormData()");
         }
         this.getFormData(abeClientInformation, hashMap);
     }

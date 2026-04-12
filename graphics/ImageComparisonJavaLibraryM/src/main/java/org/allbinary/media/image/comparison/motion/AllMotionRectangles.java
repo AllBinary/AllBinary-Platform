@@ -37,12 +37,12 @@ public class AllMotionRectangles extends MotionRectangles
         while(iterator.hasNext())
         {
             MotionRectangle motionRectangle = (MotionRectangle) iterator.next();
-            this.logUtil.put(
+            this.logUtil.putF(
                 "Rectangles: " + motionRectangle.getRectangle().toString(), this, this.commonStrings.CONSTRUCTOR);
         }
          */
         
-        //this.logUtil.put(
+        //this.logUtil.putF(
         //  "After - Number Of Rectangles: " + this.getVector().size(), this, this.commonStrings.CONSTRUCTOR);
     }
     
@@ -91,7 +91,7 @@ public class AllMotionRectangles extends MotionRectangles
                 /*
                 if(pixelDelta.getPoint().x > 560 && pixelDelta.getPoint().y > 330 &&
                     pixelDelta.getPoint().x < 600 && pixelDelta.getPoint().y < 365)
-                    this.logUtil.put(new StringMaker().append("Adjusting existing motionRectangle: \n" +
+                    this.logUtil.putF(new StringMaker().append("Adjusting existing motionRectangle: \n" +
                         motionRectangle.getRectangle() + " for: " + pixelDelta.getPoint(), this, "addPixelDeltaToExistingMotionRectangle");                
                 */
                 
@@ -114,7 +114,7 @@ public class AllMotionRectangles extends MotionRectangles
                 /*
                 if(pixelDelta.getPoint().x > 560 && pixelDelta.getPoint().y > 330 &&
                     pixelDelta.getPoint().x < 600 && pixelDelta.getPoint().y < 365)
-                    this.logUtil.put(new StringMaker().append("Adjusted existing motionRectangle: \n" +
+                    this.logUtil.putF(new StringMaker().append("Adjusted existing motionRectangle: \n" +
                         motionRectangle.getRectangle() + " for: " + pixelDelta.getPoint(), this, "addPixelDeltaToExistingMotionRectangle");                
                  */
 
@@ -154,7 +154,7 @@ public class AllMotionRectangles extends MotionRectangles
                         stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
                     }
                 }
-                this.logUtil.put(new StringMaker().append("Adding motionRectangle: " +
+                this.logUtil.putF(new StringMaker().append("Adding motionRectangle: " +
                     motionRectangle.getRectangle() + " since it could not be added to: " +
                     stringBuffer.toString(), this, "addPixelDeltaToAMotionRectangle");
             }
@@ -203,7 +203,7 @@ public class AllMotionRectangles extends MotionRectangles
              
             if(maxX > pixelDelta.getPoint().x && maxY > pixelDelta.getPoint().y)
             {
-//                this.logUtil.put("Target is to big: " +
+//                this.logUtil.putF("Target is to big: " +
                 //                  rectangle, this, "getTargetableRectangles");
                 throw new Exception("Does This Ever Happen");
              
@@ -266,11 +266,10 @@ public class AllMotionRectangles extends MotionRectangles
                      */
         
         /*
-        this.logUtil.put(
+        this.logUtil.putF(
             "MaxX: " + maxX +
             " horizontalDistance: " + horizontalDistance +
-            " pixelDeltasInTheSameRow.size(): " + pixelDeltasInTheSameRow.size(),
-            this, "isPixelDeltaLikelyPartOfMotionRectangle");
+            " pixelDeltasInTheSameRow.size(): " + pixelDeltasInTheSameRow.size(), this, "isPixelDeltaLikelyPartOfMotionRectangle");
          */
         
         if(horizontalDistance < MAX_PIXEL_DISTANCE_THRESHOLD &&

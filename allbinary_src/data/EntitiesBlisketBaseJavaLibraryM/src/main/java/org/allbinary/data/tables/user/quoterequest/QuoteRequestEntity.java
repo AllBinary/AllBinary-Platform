@@ -46,7 +46,7 @@ public class QuoteRequestEntity extends AbSqlBean
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
-            this.logUtil.put(this.commonStrings.SUCCESS,this,INSERT);
+            this.logUtil.putF(this.commonStrings.SUCCESS,this,INSERT);
          }
       }
       catch(Exception e)
@@ -88,7 +88,7 @@ public class QuoteRequestEntity extends AbSqlBean
          super.deleteWhere(key,value);
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
-            this.logUtil.put(this.commonStrings.SUCCESS,this,"deleteWhere");
+            this.logUtil.putF(this.commonStrings.SUCCESS,this,"deleteWhere");
          }
       }
       catch(Exception e)

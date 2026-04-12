@@ -62,7 +62,7 @@ public class AbeLicenseInterfaceFactory
         {
             //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             //{
-                this.logUtil.put("Getting Keys", this, commonStrings.GET);
+                this.logUtil.putF("Getting Keys", this, commonStrings.GET);
             //}
             
             abeLicenseInterface = AbeNoLicense.getInstance();
@@ -73,7 +73,7 @@ public class AbeLicenseInterfaceFactory
          //{
             if(abeLicenseInterface!=null)
             {
-                this.logUtil.put("Default Key: " + abeLicenseInterface.getKey(AbeClientInformationData.getInstance().KEY), this, commonStrings.GET);
+                this.logUtil.putF("Default Key: " + abeLicenseInterface.getKey(AbeClientInformationData.getInstance().KEY), this, commonStrings.GET);
             }
          //}
  

@@ -54,7 +54,7 @@ public class DestroyedLayerProcessor extends BasicLayerProcessor
             DestroyEventCircularStaticPool.getInstance();
         
         //final StringBuilder stringBuilder = new StringBuilder();
-        //this.logUtil.put(stringBuilder.append("Removing: ").append(size).append(" left: ").append(allBinaryLayerManager.getSize()).toString(), this, commonStrings.PROCESS);
+        //this.logUtil.putF(stringBuilder.append("Removing: ").append(size).append(" left: ").append(allBinaryLayerManager.getSize()).toString(), this, commonStrings.PROCESS);
 
         //GroupLayerManagerListener.getInstance().log();
         DestroyedEvent destroyedEvent;
@@ -68,14 +68,14 @@ public class DestroyedLayerProcessor extends BasicLayerProcessor
                 
                 layerInterface = (AllBinaryLayer) layerInterfaceCanBeNull;
                 //stringBuilder.delete(0, stringBuilder.length());
-                //this.logUtil.put(stringBuilder.append(LAYER_LABEL).append(layerInterface).toString(), this, commonStrings.PROCESS);
+                //this.logUtil.putF(stringBuilder.append(LAYER_LABEL).append(layerInterface).toString(), this, commonStrings.PROCESS);
 
                 //stringBuilder.delete(0, stringBuilder.length());
-                //this.logUtil.put(stringBuilder.append("Processing: ").append(allBinaryLayerManager.getSize()).toString(), this, commonStrings.PROCESS);
+                //this.logUtil.putF(stringBuilder.append("Processing: ").append(allBinaryLayerManager.getSize()).toString(), this, commonStrings.PROCESS);
                 allBinaryLayerManager.remove(layerInterface);
 
                 //stringBuilder.delete(0, stringBuilder.length());
-                //this.logUtil.put(stringBuilder.append("After: ").append(allBinaryLayerManager.getSize()).toString(), this, commonStrings.PROCESS);
+                //this.logUtil.putF(stringBuilder.append("After: ").append(allBinaryLayerManager.getSize()).toString(), this, commonStrings.PROCESS);
                 destroyedEvent = destroyEventCircularStaticPool.getInstance(layerInterface);
 
                 // Notify Listeners of Destroyed Layer

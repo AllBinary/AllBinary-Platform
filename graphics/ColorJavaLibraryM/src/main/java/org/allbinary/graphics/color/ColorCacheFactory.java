@@ -35,14 +35,14 @@ public class ColorCacheFactory
 
         try
         {            
-            this.logUtil.put(commonStrings.START, ColorCacheFactory.class, STATIC_BLOCK);
+            this.logUtil.putF(commonStrings.START, ColorCacheFactory.class, STATIC_BLOCK);
             
             cacheInterface = AutomaticCacheInterfaceFactory.getInstance(
                 new ColorCacheableFactory(),
                 CacheTypeFactory.getInstance().CACHE, 
                 CachePolicyFactory.getInstance().THIRTY_MINUTES_TEN_THOUSAND_MAX);
             
-            this.logUtil.put(commonStrings.END, ColorCacheFactory.class, STATIC_BLOCK);
+            this.logUtil.putF(commonStrings.END, ColorCacheFactory.class, STATIC_BLOCK);
         }
         catch(Exception e)
         {

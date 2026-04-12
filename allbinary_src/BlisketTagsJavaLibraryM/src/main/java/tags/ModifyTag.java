@@ -35,7 +35,7 @@ public class ModifyTag extends HelperTag
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
       {
-         this.logUtil.put(this.commonStrings.START,this, this.commonStrings.CONSTRUCTOR);
+         this.logUtil.putF(this.commonStrings.START,this, this.commonStrings.CONSTRUCTOR);
       }
    }
       
@@ -121,7 +121,7 @@ public class ModifyTag extends HelperTag
               stringBuffer.append(" Request URI: ");
               stringBuffer.append(request.getRequestURI());
 
-              this.logUtil.put(stringBuffer.toString(), this, "doStartTag()");
+              this.logUtil.putF(stringBuffer.toString(), this, tagStrings.DO_START_TAG);
           }
     	  
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))

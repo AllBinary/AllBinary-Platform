@@ -93,7 +93,7 @@ public class NoCacheWaypoint extends WaypointBase
     {
         final BasicArrayList endList = this.ownerLayer.getEndGeographicMapCellPositionList();
         
-        //this.logUtil.put(new StringMaker().append(this.ownerLayer.getName()).append(" c: ").append(this.ownerLayer.getCurrentGeographicMapCellPosition()).append(CommonSeps.getInstance().SPACE).append(this.ownerLayer.getTopLeftGeographicMapCellPosition()).append(" endList: ").append(endList).toString(), this, "visit");
+        //this.logUtil.putF(new StringMaker().append(this.ownerLayer.getName()).append(" c: ").append(this.ownerLayer.getCurrentGeographicMapCellPosition()).append(CommonSeps.getInstance().SPACE).append(this.ownerLayer.getTopLeftGeographicMapCellPosition()).append(" endList: ").append(endList).toString(), this, "visit");
         
         GeographicMapCellPosition endGeographicMapCellPosition =
             (GeographicMapCellPosition) BasicArrayListUtil.getInstance().getRandom(endList);
@@ -117,7 +117,7 @@ public class NoCacheWaypoint extends WaypointBase
     private BasicArrayList createPaths(final GeographicMapCellPosition startGeographicMapCellPosition)
         throws Exception
     {
-        //this.logUtil.put("", this, "createPaths");
+        //this.logUtil.putF("", this, "createPaths");
         final GeographicMapCellPosition endGeographicMapCellPosition =
             this.getEndGeographicMapCellPosition(startGeographicMapCellPosition);
 
@@ -126,12 +126,12 @@ public class NoCacheWaypoint extends WaypointBase
             return BasicArrayListUtil.getInstance().getImmutableInstance();
         }
         
-        //this.logUtil.put("", this, "createPaths");
+        //this.logUtil.putF("", this, "createPaths");
         
         //Most likely not a building
         if (startGeographicMapCellPosition == endGeographicMapCellPosition)
         {
-            //this.logUtil.put("", this, "createPaths");
+            //this.logUtil.putF("", this, "createPaths");
             if (this.ownerLayer.shouldHandleStartSameAsEnd())
             //if (this.endList.size() < 2)
             {
@@ -144,7 +144,7 @@ public class NoCacheWaypoint extends WaypointBase
             }
         }
 
-        //this.logUtil.put("", this, "createPaths");
+        //this.logUtil.putF("", this, "createPaths");
 
         final GeographicMapCompositeInterface geographicMapCompositeInterface
             = (GeographicMapCompositeInterface) this.allBinaryGameLayerManagerP;
@@ -162,7 +162,7 @@ public class NoCacheWaypoint extends WaypointBase
         customMapGenerator.copyMapIntoCustomMap();
         final int[][] customMapArray = customMapGenerator.getCustomMapArray();
 
-        //this.logUtil.put("Start GeographicMapCellPosition: " + startGeographicMapCellPosition.toString(), this, "createPaths");
+        //this.logUtil.putF("Start GeographicMapCellPosition: " + startGeographicMapCellPosition.toString(), this, "createPaths");
         //int originalStartData = 
           //  customMapArray[startGeographicMapCellPosition.getRow()][startGeographicMapCellPosition.getColumn()];
         
@@ -180,7 +180,7 @@ public class NoCacheWaypoint extends WaypointBase
             raceTrackGeographicMap,
             customMapArray);
         
-        //this.logUtil.put("geographicMapInterface.getGeographicMapCellTypeFactory().toString(): " + geographicMapInterface.getGeographicMapCellTypeFactory().toString(), this, "createPaths");
+        //this.logUtil.putF("geographicMapInterface.getGeographicMapCellTypeFactory().toString(): " + geographicMapInterface.getGeographicMapCellTypeFactory().toString(), this, "createPaths");
 
         final BasicArrayList list = 
             PathGenerator.getInstance().getInstanceNoCache(
@@ -188,7 +188,7 @@ public class NoCacheWaypoint extends WaypointBase
             //RaceTrackRoadsGeographicMapCellHistoryFactory.getInstance(),
             pathFindingInfo, 2);
 
-        //this.logUtil.put("" + list.size(), this, "createPaths");
+        //this.logUtil.putF("" + list.size(), this, "createPaths");
         
         //Put map back
         //customMapArray[startGeographicMapCellPosition.getRow()][startGeographicMapCellPosition.getColumn()] = originalStartData;
@@ -251,7 +251,7 @@ public class NoCacheWaypoint extends WaypointBase
                     //if (this.getOwnerLayer() != rtsLayer)
                     //{
                     unitLayer.handleCost(this.ownerLayer);
-                    //this.logUtil.put("Sending: " + unitLayer.getName(), this, "visit");
+                    //this.logUtil.putF("Sending: " + unitLayer.getName(), this, "visit");
                     
                     unitWaypointBehavior.insertWaypoint(0, rtsLayer);
                     break;

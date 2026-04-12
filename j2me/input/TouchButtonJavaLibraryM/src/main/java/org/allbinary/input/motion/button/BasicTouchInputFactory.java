@@ -118,9 +118,8 @@ public class BasicTouchInputFactory
     public void updateAll(BasicArrayList list,
             InputToGameKeyMapping inputToGameKeyMapping)
     {
-        this.logUtil.put(
-                new StringMaker().append(CommonLabels.getInstance().START_LABEL).appendint(list.size()).toString(), this,
-                "updateAll");
+        this.logUtil.putF(
+                new StringMaker().append(CommonLabels.getInstance().START_LABEL).appendint(list.size()).toString(), this, "updateAll");
 
         TouchButtonInput touchButtonInput;
 

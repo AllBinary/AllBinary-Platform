@@ -19,7 +19,7 @@ public class LayerManager
 
     public LayerManager(final LayerManagerLogging layerManagerLogging)
     {
-        this.logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
         
         this.layerManagerLogging = layerManagerLogging;
     }
@@ -87,7 +87,7 @@ public class LayerManager
 
     public void cleanup() throws Exception
     {
-        //this.logUtil.put(this.commonStrings.CLEANUP, this, this.commonStrings.CLEANUP);
+        //this.logUtil.putF(this.commonStrings.CLEANUP, this, this.commonStrings.CLEANUP);
         
     	synchronized(object)
     	{
@@ -108,7 +108,7 @@ public class LayerManager
     	{
             //if(this.isFirst) {
                 //this.isFirst = false;
-                //this.logUtil.put(commonStrings.START, this, PAINT);
+                //this.logUtil.putF(commonStrings.START, this, PAINT);
             //}
             
         Layer comp;
@@ -117,7 +117,7 @@ public class LayerManager
                 //if(this.list.size() > 0) {
                     //this.isFirst = false;
                 //}
-                //this.logUtil.put(commonStrings.START, this, "size: " + this.list.size());
+                //this.logUtil.putF(commonStrings.START, this, "size: " + this.list.size());
             //}
         
         for (int index = this.list.size(); --index >= 0;)

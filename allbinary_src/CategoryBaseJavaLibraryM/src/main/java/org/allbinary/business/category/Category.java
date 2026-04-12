@@ -50,7 +50,7 @@ public class Category
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
         {
-            this.logUtil.put(this.commonStrings.CONSTRUCTOR, this, "Category(CategoryPropertiesFactoryInterface)");
+            this.logUtil.putF(this.commonStrings.CONSTRUCTOR, this, "Category(CategoryPropertiesFactoryInterface)");
         }
 
         this.categoryPropertiesInterface =
@@ -142,7 +142,7 @@ public class Category
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
         {
-            this.logUtil.put("adding", this, "addChild");
+            this.logUtil.putF("adding", this, "addChild");
         }
 
         //update relationship
@@ -366,7 +366,7 @@ public class Category
             stringBuffer.append("\nFile Path: ");
             stringBuffer.append(this.getFilePath().toString());
 
-            this.logUtil.put(stringBuffer.toString(), this, "log()");
+            this.logUtil.putF(stringBuffer.toString(), this, "log()");
         }
     }
 }

@@ -66,7 +66,7 @@ public class InventoryRequestHelper extends ModifyTable
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
             {
-                this.logUtil.put(success, this, "insert()");
+                this.logUtil.putF(success, this, "insert()");
             }
             return success;
         } catch (Exception e)
@@ -103,7 +103,7 @@ public class InventoryRequestHelper extends ModifyTable
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
             {
-                this.logUtil.put(success, this, "doStartTag()");
+                this.logUtil.putF(success, this, tagStrings.DO_START_TAG);
             }
             return success;
         } catch (Exception e)
@@ -112,7 +112,7 @@ public class InventoryRequestHelper extends ModifyTable
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, "doStartTag()", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, tagStrings.DO_START_TAG, e);
             }
             return error;
         }
@@ -153,7 +153,7 @@ public class InventoryRequestHelper extends ModifyTable
             String success = "Item Successfully Updated";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
             {
-                this.logUtil.put(success, this, "update()");
+                this.logUtil.putF(success, this, "update()");
             }
             return success;
         } catch (Exception e)

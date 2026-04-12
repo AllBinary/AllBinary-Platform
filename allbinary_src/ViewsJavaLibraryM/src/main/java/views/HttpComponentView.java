@@ -49,7 +49,7 @@ public class HttpComponentView extends TransformInfoHttpComposite
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            this.logUtil.put("View Name: " + transformInfoInterface.getName(), this, "ComponentView()");
+            this.logUtil.putF("View Name: " + transformInfoInterface.getName(), this, commonStrings.CONSTRUCTOR);
         }
 
         this.domNodeInterfaceVector = new Vector();

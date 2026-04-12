@@ -96,7 +96,7 @@ public class BasketView extends HttpStoreComponentView implements DomNodeInterfa
             }
             else
             {
-               this.logUtil.put("Product Failed: " + product,this,"toXmlNode");
+               this.logUtil.putF("Product Failed: " + product,this,"toXmlNode");
             }
             numberOfResults++;
          }

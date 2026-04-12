@@ -34,7 +34,7 @@ public class HttpStoreComponentView extends HttpComponentView
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         this.logUtil.put("View Name: " + transformInfoInterface.getName(), this, this.commonStrings.CONSTRUCTOR);
+         this.logUtil.putF("View Name: " + transformInfoInterface.getName(), this, this.commonStrings.CONSTRUCTOR);
       }
       
       this.setTransformDocumentInterface(
@@ -48,7 +48,7 @@ public class HttpStoreComponentView extends HttpComponentView
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            this.logUtil.put(this.commonStrings.START, this, "view");
+            this.logUtil.putF(this.commonStrings.START, this, "view");
          }
 
          this.toXmlDoc();

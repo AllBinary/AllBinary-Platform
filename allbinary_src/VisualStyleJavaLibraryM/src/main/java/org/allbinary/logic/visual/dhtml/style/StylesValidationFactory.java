@@ -51,12 +51,12 @@ public class StylesValidationFactory {
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
-            this.logUtil.put("Style Present: " + DomDocumentHelper.toString(document), this, commonStrings.GET_INSTANCE);
+            this.logUtil.putF("Style Present: " + DomDocumentHelper.toString(document), this, commonStrings.GET_INSTANCE);
         }
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
-            this.logUtil.put("Styles Present: " + nodeList.getLength(),
+            this.logUtil.putF("Styles Present: " + nodeList.getLength(),
                 this, commonStrings.GET_INSTANCE);
         }
 
@@ -69,7 +69,7 @@ public class StylesValidationFactory {
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
-                this.logUtil.put("Number Of Style Nodes Present: " + styleNodeList.size(), this, commonStrings.GET_INSTANCE);
+                this.logUtil.putF("Number Of Style Nodes Present: " + styleNodeList.size(), this, commonStrings.GET_INSTANCE);
             }
 
             for (int styleNodesIndex = 0; styleNodesIndex < styleNodeList.size(); styleNodesIndex++) {
@@ -83,7 +83,7 @@ public class StylesValidationFactory {
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                     org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
-                    this.logUtil.put("Number Of Element Nodes Present: " + cssElementStyleNodeList.size(),this, commonStrings.GET_INSTANCE);
+                    this.logUtil.putF("Number Of Element Nodes Present: " + cssElementStyleNodeList.size(),this, commonStrings.GET_INSTANCE);
                 }
 
                 return CssElementsValidationFactory.getInstance(cssElementStyleNodeList);
@@ -92,7 +92,7 @@ public class StylesValidationFactory {
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
-            this.logUtil.put("No Style Present", this, commonStrings.GET_INSTANCE);
+            this.logUtil.putF("No Style Present", this, commonStrings.GET_INSTANCE);
         }
 
         return new Vector();

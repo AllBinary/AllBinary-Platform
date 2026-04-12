@@ -58,7 +58,7 @@ public class GameKeyMappingFactory
     
     public GameKey getInstance(int key)
     {
-        // this.logUtil.put("Getting GameKey: " + key, "GameKey", commonStrings.GET_INSTANCE);
+        // this.logUtil.putF("Getting GameKey: " + key, "GameKey", commonStrings.GET_INSTANCE);
         return intKeyToGameKey[key];
     }
 

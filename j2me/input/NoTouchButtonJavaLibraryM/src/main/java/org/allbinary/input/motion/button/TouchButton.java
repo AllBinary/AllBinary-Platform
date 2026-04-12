@@ -61,7 +61,7 @@ public class TouchButton extends Paintable
         
         this.updateRectangle();
         
-        this.logUtil.put(new StringMaker().append("Created: ").append(this.toString()).toString(), this, this.commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(new StringMaker().append("Created: ").append(this.toString()).toString(), this, this.commonStrings.CONSTRUCTOR);
     }
 
     @Override

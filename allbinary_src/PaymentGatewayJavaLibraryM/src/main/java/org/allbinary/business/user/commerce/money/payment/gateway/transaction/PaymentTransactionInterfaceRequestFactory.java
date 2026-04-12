@@ -104,7 +104,7 @@ public class PaymentTransactionInterfaceRequestFactory
 
                 if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
                 {
-                    this.logUtil.put(orderReview.getId(), this, "getPaymentTransactionInterface()");
+                    this.logUtil.putF(orderReview.getId(), this, "getPaymentTransactionInterface()");
                 }
             //HashMap hashMap = new HashMap(httpServletRequest.getParameterMap());
                 //this.paymentGatewayInterface = new PaymentGateway(hashMap);

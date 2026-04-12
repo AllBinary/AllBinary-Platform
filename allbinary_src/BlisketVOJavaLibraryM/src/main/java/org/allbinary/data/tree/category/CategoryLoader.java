@@ -40,7 +40,7 @@ public class CategoryLoader
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
         {
-            this.logUtil.put(commonStrings.START, this, "CategoryLoader(CategoryFactoryInterface categoryFactoryInterface)");
+            this.logUtil.putF(commonStrings.START, this, "CategoryLoader(CategoryFactoryInterface categoryFactoryInterface)");
         }
     }
 
@@ -52,7 +52,7 @@ public class CategoryLoader
             if (categoryInterface.getProperties().getPath(
                 categoryInterface.getHierarchy()) != null)
             {
-                //this.logUtil.put("Level: " + categoryInterface.getHierarchy().getLevel(), this, "getDoc");
+                //this.logUtil.putF("Level: " + categoryInterface.getHierarchy().getLevel(), this, "getDoc");
                 if (categoryInterface.getHierarchy().getLevel() == 1)
                 {
                     AbFile rootAbFile = new AbFile(categoryInterface.getRootFilePath());

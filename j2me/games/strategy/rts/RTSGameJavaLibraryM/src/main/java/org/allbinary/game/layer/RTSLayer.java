@@ -289,7 +289,7 @@ public class RTSLayer
     
     public void select()
     {
-        //this.logUtil.put("selected: ", this, "selected: select");
+        //this.logUtil.putF("selected: ", this, "selected: select");
         
         this.rangeAnimation = this.initRangeAnimation;
         this.sensorRangeAnimation = this.initSensorRangeAnimation;
@@ -621,7 +621,7 @@ public class RTSLayer
             stringBuffer.append("setDestroyed: ");
             stringBuffer.append(this.getName());
             
-            this.logUtil.put(stringBuffer.toString(), this, "setDestroyed");
+            this.logUtil.putF(stringBuffer.toString(), this, "setDestroyed");
             */
             
             DestroyedLayerProcessor.getInstance().add(this);

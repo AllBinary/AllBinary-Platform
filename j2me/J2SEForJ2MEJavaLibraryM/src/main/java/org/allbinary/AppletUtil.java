@@ -36,7 +36,7 @@ public class AppletUtil
    {
        //String className = object.getClass().getClassLoader().getClass().getName().toLowerCase();
 
-      //this.logUtil.put("Applet ClassLoader? " + className, "AppletUtil", "isAppletLoader");
+      //this.logUtil.putF("Applet ClassLoader? " + className, "AppletUtil", "isAppletLoader");
        //PreLogUtil.put("Applet ClassLoader? " + className
            //+
            //" " + className.indexOf(APPLET1) +
@@ -46,7 +46,7 @@ public class AppletUtil
        
       //if (className.indexOf(APPLET1) >= 0 || className.indexOf(APPLET) >= 0)
       //{
-         //this.logUtil.put("Applet: " + className, "AppletUtil", "isAppletLoader");
+         //this.logUtil.putF("Applet: " + className, "AppletUtil", "isAppletLoader");
         // return true;
       //}
       //else

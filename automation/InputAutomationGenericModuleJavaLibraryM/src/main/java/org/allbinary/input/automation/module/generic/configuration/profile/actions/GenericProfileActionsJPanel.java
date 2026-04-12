@@ -258,8 +258,7 @@ public class GenericProfileActionsJPanel extends javax.swing.JPanel
                 javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 );
             
-            this.logUtil.put("Setting Configuration Profile Actions JPanel", this,
-                "genericProfileActionsJListValueChanged");
+            this.logUtil.putF("Setting Configuration Profile Actions JPanel", this, "genericProfileActionsJListValueChanged");
         }
     }
     

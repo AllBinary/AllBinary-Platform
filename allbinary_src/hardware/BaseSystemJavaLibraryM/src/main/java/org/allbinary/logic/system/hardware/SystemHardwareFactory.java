@@ -53,8 +53,8 @@ public class SystemHardwareFactory {
 
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OS))
          //{
-            //this.logUtil.put(static_toString(), this, commonStrings.CONSTRUCTOR);
-    	    this.logUtil.put("Found Hardware", this, commonStrings.CONSTRUCTOR);
+            //this.logUtil.putF(static_toString(), this, commonStrings.CONSTRUCTOR);
+    	    this.logUtil.putF("Found Hardware", this, commonStrings.CONSTRUCTOR);
          //}
       }
       catch(Exception e)

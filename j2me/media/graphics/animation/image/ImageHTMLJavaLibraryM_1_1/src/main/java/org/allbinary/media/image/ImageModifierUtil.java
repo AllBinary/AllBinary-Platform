@@ -74,7 +74,7 @@ public class ImageModifierUtil {
 
     public void setAlpha2(final Image originalImage, final Image image, final int imageIndex, final float alpha) {
         
-            //this.logUtil.put("image: " + image, this, "setAlpha");
+            //this.logUtil.putF("image: " + image, this, "setAlpha");
 
 //            if(originalImage != null) {
                 final PlaynImage htmlImage = (PlaynImage) image;
@@ -82,9 +82,9 @@ public class ImageModifierUtil {
 //                if (htmlImage != null) {
                     final CanvasImage canvasImage = (CanvasImage) htmlImage.getImage();
 
-                    //this.logUtil.put("htmlImage: " + htmlImage, this, "setAlpha");
+                    //this.logUtil.putF("htmlImage: " + htmlImage, this, "setAlpha");
 //                    if (canvasImage != null) {
-                        //this.logUtil.put("alpha: " + alpha, this, "setAlpha");
+                        //this.logUtil.putF("alpha: " + alpha, this, "setAlpha");
                         final playn.core.Image originalPlaynImage = (playn.core.Image) ((PlaynImage) originalImage).getImage();
 //                        if(originalPlaynImage != null) {
                             final Canvas canvas = canvasImage.canvas();
@@ -92,16 +92,16 @@ public class ImageModifierUtil {
                             canvas.setAlpha(alpha);
                             canvas.drawImage(originalPlaynImage, 0, 0);
 //                        } else {
-//                            this.logUtil.put("originalPlaynImage: null", this, "setAlpha");
+//                            this.logUtil.putF("originalPlaynImage: null", this, "setAlpha");
 //                        }
 //                    } else {
-//                        this.logUtil.put("canvasImage: null", this, "setAlpha");
+//                        this.logUtil.putF("canvasImage: null", this, "setAlpha");
 //                    }
 //                } else {
-//                    this.logUtil.put("htmlImage: null", this, "setAlpha");
+//                    this.logUtil.putF("htmlImage: null", this, "setAlpha");
 //                }
 //            } else {
-//                this.logUtil.put("originalImage: null", this, "setAlpha");
+//                this.logUtil.putF("originalImage: null", this, "setAlpha");
 //            }
 
 
@@ -145,13 +145,13 @@ public class ImageModifierUtil {
                 final ResourceCallback callback = new ResourceCallback() {
                     @Override
                     public void done(Object resource) {
-                        this.logUtil.put(resourceCallbackStrings.DONE + image.getName(), this, resourceCallbackStrings.HANDLE_IMAGE);
+                        this.logUtil.putF(resourceCallbackStrings.DONE + image.getName(), this, resourceCallbackStrings.HANDLE_IMAGE);
                         copy(imageArray, index, image, image3);
                     }
 
                     @Override
                     public void error(Throwable e) {
-                        this.logUtil.put(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(resourceCallbackStrings.ERROR).append(image.getName()).toString(), this, resourceCallbackStrings.HANDLE_IMAGE);
+                        this.logUtil.putF(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(resourceCallbackStrings.ERROR).append(image.getName()).toString(), this, resourceCallbackStrings.HANDLE_IMAGE);
                     }
                 };
                 
@@ -160,7 +160,7 @@ public class ImageModifierUtil {
             }
 
         } else {
-            this.logUtil.put(resourceCallbackStrings.NULL + image.isMutable(), this, resourceCallbackStrings.HANDLE_IMAGE);
+            this.logUtil.putF(resourceCallbackStrings.NULL + image.isMutable(), this, resourceCallbackStrings.HANDLE_IMAGE);
         }
         
     }
@@ -175,7 +175,7 @@ public class ImageModifierUtil {
             imageArray[index] = image2;
 
         } catch (Exception e) {
-            this.logUtil.put(commonStrings.EXCEPTION_LABEL + resourceCallbackStrings.DONE, this, resourceCallbackStrings.HANDLE_IMAGE);
+            this.logUtil.putF(commonStrings.EXCEPTION_LABEL + resourceCallbackStrings.DONE, this, resourceCallbackStrings.HANDLE_IMAGE);
         }
     }
     

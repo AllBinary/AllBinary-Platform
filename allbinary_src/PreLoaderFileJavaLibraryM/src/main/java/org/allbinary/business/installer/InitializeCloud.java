@@ -87,7 +87,7 @@ public class InitializeCloud
                 stringBuffer.append(" - ");
                 stringBuffer.appendint(end);
 
-                this.logUtil.put(
+                this.logUtil.putF(
                     stringBuffer.toString(), this, "initialize()");
 
                 for (int index = start; index < end; index++)
@@ -103,7 +103,7 @@ public class InitializeCloud
                     }
                 }
 
-                this.logUtil.put("Copied Files To Cloud", this, "initialize()");
+                this.logUtil.putF("Copied Files To Cloud", this, "initialize()");
             }
 
             return true;

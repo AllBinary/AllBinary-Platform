@@ -74,7 +74,7 @@ public class ImageCacheBase
             availableListOfList[index].clear();
             availableListOfList[index].addAll(listOfList[index]);            
         }
-        this.logUtil.put(new StringMaker().append("ImageCache: ").append(this.toString()).toString(), this, "releaseAll");
+        this.logUtil.putF(new StringMaker().append("ImageCache: ").append(this.toString()).toString(), this, "releaseAll");
     }
 
     protected int getIndex(final int width, final int height)
@@ -137,7 +137,7 @@ public class ImageCacheBase
     {
         final Image image = Image.createImage(inputStream);
         //image.setName((String) key + image.getName());
-        //this.logUtil.put(image.getName(), this, "createImage");
+        //this.logUtil.putF(image.getName(), this, "createImage");
         //image.init(image.getImage());
         return image;
     }

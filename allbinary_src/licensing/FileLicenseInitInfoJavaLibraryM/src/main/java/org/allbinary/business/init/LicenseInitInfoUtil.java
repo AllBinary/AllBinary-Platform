@@ -126,7 +126,7 @@ public class LicenseInitInfoUtil
             // {
             // this.logUtil.put("LicenseInitInfo File: " +
             // FILEABPATH.toString(),
-            this.logUtil.put("LicenseInitInfo File: " + INITFILENAME, this, METHOD_NAME);
+            this.logUtil.putF("LicenseInitInfo File: " + INITFILENAME, this, METHOD_NAME);
             // }
 
             final FileStreamFactory fileStreamFactory = FileStreamFactory.getInstance();
@@ -159,7 +159,7 @@ public class LicenseInitInfoUtil
                     // if
                     // (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
                     // {
-                    this.logUtil.put(NEXT_FILE + initInfo.getServer(index), this, METHOD_NAME);
+                    this.logUtil.putF(NEXT_FILE + initInfo.getServer(index), this, METHOD_NAME);
                     // }
                 }
                 return initInfo;

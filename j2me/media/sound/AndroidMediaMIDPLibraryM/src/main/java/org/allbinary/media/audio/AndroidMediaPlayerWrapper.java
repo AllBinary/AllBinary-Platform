@@ -138,7 +138,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
     {
         try
         {
-            // this.logUtil.put(commonStrings.START, this, CommonStrings.getInstance());
+            // this.logUtil.putF(commonStrings.START, this, CommonStrings.getInstance());
 
             if(this.mediaPlayer.isPlaying()) {
                 this.mediaPlayer.pause();
@@ -152,7 +152,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
                     new MediaPlayer.OnCompletionListener(){
                         public void onCompletion(MediaPlayer mp)
                         {
-                            this.logUtil.put(commonStrings.START, this, "onComplete())");
+                            this.logUtil.putF(commonStrings.START, this, "onComplete())");
                             AndroidMediaPlayerWrapper.this.update(PlayerListener.END_OF_MEDIA);
                         }
                     });
@@ -183,7 +183,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
 
     public void update(String event)
     {
-        this.logUtil.put("LineEvent: " + event, this, commonStrings.UPDATE);
+        this.logUtil.putF("LineEvent: " + event, this, commonStrings.UPDATE);
 
         int size = this.listenersList.size();
         for (int index = 0; index < size; index++)

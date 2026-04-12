@@ -64,7 +64,7 @@ extends InputProcessor
     {
         try
         {
-            //this.logUtil.put(new StringMaker().append("Key Code: ").append(Integer.toHexString(keyCode)).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
+            //this.logUtil.putF(new StringMaker().append("Key Code: ").append(Integer.toHexString(keyCode)).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
             //PreLogUtil.put(new StringMaker().append(new StringMaker().append("Key Code: ").append(Integer.toHexString(keyCode)).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
             
             final GameKey gameKey = this.inputToGameKeyMapping.getInstance(
@@ -90,7 +90,7 @@ extends InputProcessor
             }
             else
             {
-                this.logUtil.put(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
+                this.logUtil.putF(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
             }
 
             final Integer keyCodeAsInteger = smallIntegerSingletonFactory.getInstanceNoThrow(keyCode);
@@ -113,7 +113,7 @@ extends InputProcessor
     {
         try
         {
-            //this.logUtil.put(new StringMaker().append("Key Code: " + Integer.toHexString(keyCode), this, REMOVE_KEY_EVENT);
+            //this.logUtil.putF(new StringMaker().append("Key Code: " + Integer.toHexString(keyCode), this, REMOVE_KEY_EVENT);
 
             final GameKey gameKey = this.inputToGameKeyMapping.getInstance(canvas, keyCode);
 
@@ -125,7 +125,7 @@ extends InputProcessor
                  * //This is for key input debugging only GameKeyEvent
                  * gameKeyEvent = GameKeyEventFactory.getInstance(this, keyCode, gameActionKeyCode, gameKey.getKey(), repeated);
                  */
-                //this.logUtil.put(gameKeyEvent.toString(), this, REMOVE_KEY_EVENT);
+                //this.logUtil.putF(gameKeyEvent.toString(), this, REMOVE_KEY_EVENT);
 
                 // TODO TWB - Remove or improve key input event handling
                 upGameKeyEventHandler.fireEvent(gameKeyEvent);
@@ -135,7 +135,7 @@ extends InputProcessor
             }
             else
             {
-                this.logUtil.put(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.REMOVE_KEY_EVENT);
+                this.logUtil.putF(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.REMOVE_KEY_EVENT);
             }
 
             //This is for key released events if needed

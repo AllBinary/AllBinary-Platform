@@ -44,9 +44,8 @@ public class DemoRunnable implements Runnable
     {
         try
         {
-            this.logUtil.put(
-                    new StringMaker().append(CommonLabels.getInstance().START_LABEL).append("GameCanvasRunnableInterface").toString(),
-                    this, commonStrings.RUN);
+            this.logUtil.putF(
+                    new StringMaker().append(CommonLabels.getInstance().START_LABEL).append("GameCanvasRunnableInterface").toString(), this, commonStrings.RUN);
 
             this.demoGameMidlet.commandAction(
                     MyCommandsFactory.getInstance().SET_DISPLAYABLE,
@@ -71,7 +70,7 @@ public class DemoRunnable implements Runnable
             
             this.demoGameMidlet.postDemoSetup();
 
-            this.logUtil.put(commonStrings.END_RUNNABLE, this, commonStrings.RUN);
+            this.logUtil.putF(commonStrings.END_RUNNABLE, this, commonStrings.RUN);
         }
         catch (Exception e)
         {

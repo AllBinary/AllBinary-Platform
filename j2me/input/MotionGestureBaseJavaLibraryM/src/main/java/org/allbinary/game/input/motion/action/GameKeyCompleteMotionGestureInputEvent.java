@@ -45,7 +45,7 @@ public class GameKeyCompleteMotionGestureInputEvent extends
         GameKeyCompleteMotionGestureInputEventFactory.getInstance().add(this);
         
         this.update();
-        //this.logUtil.put(name + " mapped to gameKey: " + this.getGameKey(), this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.putF(name + " mapped to gameKey: " + this.getGameKey(), this, commonStrings.CONSTRUCTOR);
     }
 
     @Override

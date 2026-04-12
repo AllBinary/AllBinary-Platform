@@ -72,6 +72,6 @@ public class BasicGeographicMapExtractedPathsCacheFactory
         list.clear();
         this.list.add(list);
 
-        //this.logUtil.put("List: " + this.log(), this, "clear");
+        //this.logUtil.putF("List: " + this.log(), this, "clear");
     }
 }

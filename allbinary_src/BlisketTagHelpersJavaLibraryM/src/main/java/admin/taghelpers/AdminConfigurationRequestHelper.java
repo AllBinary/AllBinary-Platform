@@ -33,7 +33,7 @@ public class AdminConfigurationRequestHelper extends ModifyTable
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
       {
-         this.logUtil.put(this.commonStrings.CONSTRUCTOR,this,this.commonStrings.CONSTRUCTOR);
+         this.logUtil.putF(this.commonStrings.CONSTRUCTOR,this,this.commonStrings.CONSTRUCTOR);
       }
       
       this.request = (HttpServletRequest) pageContext.getRequest();
@@ -45,7 +45,7 @@ public class AdminConfigurationRequestHelper extends ModifyTable
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put(this.commonStrings.START,this,"insert()");
+            this.logUtil.putF(this.commonStrings.START,this,"insert()");
          }
          
          String success = "Successfully inserted AdminConfiguration";
@@ -57,7 +57,7 @@ public class AdminConfigurationRequestHelper extends ModifyTable
             
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put(success,this,"insert()");
+            this.logUtil.putF(success,this,"insert()");
          }
          
          return success;
@@ -82,7 +82,7 @@ public class AdminConfigurationRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put(success,this,"delete()");
+            this.logUtil.putF(success,this,"delete()");
          }
          
          return success;
@@ -110,7 +110,7 @@ public class AdminConfigurationRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put(success,this,"update()");
+            this.logUtil.putF(success,this,"update()");
          }
          return success;
       }

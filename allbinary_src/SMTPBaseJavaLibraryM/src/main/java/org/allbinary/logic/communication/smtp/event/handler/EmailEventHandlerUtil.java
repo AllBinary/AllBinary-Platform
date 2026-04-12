@@ -73,7 +73,7 @@ public class EmailEventHandlerUtil
     	  stringBuffer.appendint(userVector.size());
     	  stringBuffer.append(" users.");
     	  
-    	  this.logUtil.put(stringBuffer.toString(), this, "getEventHandler");
+    	  this.logUtil.putF(stringBuffer.toString(), this, "getEventHandler");
       }
       
       final UserEmailEventHandler userEmailEventHandler = new UserEmailEventHandler();

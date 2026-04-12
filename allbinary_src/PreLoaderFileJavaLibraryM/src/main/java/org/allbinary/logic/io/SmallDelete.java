@@ -45,7 +45,7 @@ public class SmallDelete
             beginIndex = this.string.indexOf(start);
             endIndex = this.string.indexOf(end);
 
-            //this.logUtil.put("StartIndex: " + beginIndex + " EndIndex: " + endIndex, this, "deleteAtStart");
+            //this.logUtil.putF("StartIndex: " + beginIndex + " EndIndex: " + endIndex, this, "deleteAtStart");
             
             if (endIndex > beginIndex && beginIndex >= 0 && endIndex >= 0 && beginIndex < 10 && endIndex < 525)
             {
@@ -78,7 +78,7 @@ public class SmallDelete
             beginIndex = this.string.indexOf(start);
             endIndex = this.string.indexOf(end);
 
-            //this.logUtil.put("StartIndex: " + beginIndex + " EndIndex: " + endIndex, this, "deleteAtStart");
+            //this.logUtil.putF("StartIndex: " + beginIndex + " EndIndex: " + endIndex, this, "deleteAtStart");
             
             if (endIndex > beginIndex && beginIndex >= 0 && endIndex >= 0 && beginIndex < 50 && endIndex < 425)
             {

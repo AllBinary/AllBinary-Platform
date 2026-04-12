@@ -63,7 +63,7 @@ public class StoreTagWorkFlowHelper
      
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
       {
-         this.logUtil.put("Properties: " + hashMap.toString(), this, "StoreTagWorkFlowHelper()");
+         this.logUtil.putF("Properties: " + hashMap.toString(), this, "StoreTagWorkFlowHelper()");
       }
       
       this.storeWorkFlowInterface = StoreTagWorkFlowFactory.getInstance().getInstance(this.abeClientInformation, hashMap, pageContext);
@@ -76,7 +76,7 @@ public class StoreTagWorkFlowHelper
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
          {
-            this.logUtil.put("Process",this,commonStrings.PROCESS);
+            this.logUtil.putF("Process", this, commonStrings.PROCESS);
          }
 
          return this.storeWorkFlowInterface.process();

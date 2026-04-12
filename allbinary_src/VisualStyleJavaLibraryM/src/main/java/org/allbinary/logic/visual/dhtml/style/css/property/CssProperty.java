@@ -58,7 +58,7 @@ public class CssProperty implements DomNodeInterface
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().STYLE))
       {
-         this.logUtil.put("Name: " + this.getName(),this,"CssProperty()");
+         this.logUtil.putF("Name: " + this.getName(),this,"CssProperty()");
       }
 
       Node propertyValuesNode =
@@ -76,7 +76,7 @@ public class CssProperty implements DomNodeInterface
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().STYLE))
       {
-         this.logUtil.put("Name: " + this.getName(),this,"CssProperty()");
+         this.logUtil.putF("Name: " + this.getName(),this,"CssProperty()");
       }
 
       HashMap propertyValuesHashMap = 
@@ -104,7 +104,7 @@ public class CssProperty implements DomNodeInterface
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         this.logUtil.put("CssView HashMap: " + hashMap.toString(),this,"toXmlNode()");
+         this.logUtil.putF("CssView HashMap: " + hashMap.toString(),this,"toXmlNode()");
       }
 
       Node node = ModDomHelper.createNameValueNodes(

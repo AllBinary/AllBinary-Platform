@@ -53,7 +53,7 @@ public class GameFeatureUtil
         stringBuffer.append("Multiple Total Choices: ");
         stringBuffer.appendint(total);
         
-        this.logUtil.put(stringBuffer.toString(), this, METHOD_NAME);
+        this.logUtil.putF(stringBuffer.toString(), this, METHOD_NAME);
 
         Features features = Features.getInstance();
 
@@ -68,7 +68,7 @@ public class GameFeatureUtil
             stringBuffer.append(SELECTED_SEP);
             stringBuffer.appendboolean(isSelected);
             
-            this.logUtil.put(stringBuffer.toString(), this, METHOD_NAME);
+            this.logUtil.putF(stringBuffer.toString(), this, METHOD_NAME);
             
             String selectedChoiceLabel = choiceGroup.getString(index);
             Feature gameFeature = Feature.getInstance(selectedChoiceLabel);
@@ -100,7 +100,7 @@ public class GameFeatureUtil
         stringBuffer.append("Multiple Total Choices: ");
         stringBuffer.appendint(total);
         
-        this.logUtil.put(stringBuffer.toString(), this, METHOD_NAME);
+        this.logUtil.putF(stringBuffer.toString(), this, METHOD_NAME);
 
         Features features = Features.getInstance();
 
@@ -115,7 +115,7 @@ public class GameFeatureUtil
             stringBuffer.append(SELECTED_SEP);
             stringBuffer.appendboolean(isSelected);
             
-            this.logUtil.put(stringBuffer.toString(), this, METHOD_NAME);
+            this.logUtil.putF(stringBuffer.toString(), this, METHOD_NAME);
 
             String selectedChoiceLabel = choiceGroup.getString(index);
             Feature gameFeature = Feature.getInstance(selectedChoiceLabel);
@@ -146,7 +146,7 @@ public class GameFeatureUtil
         stringBuffer.append("Exclusive Total Choices: 1==");
         stringBuffer.appendint(total);
         
-        this.logUtil.put(stringBuffer.toString(), this, METHOD_NAME);
+        this.logUtil.putF(stringBuffer.toString(), this, METHOD_NAME);
 
         for (int index = 0; index < selectedArray_return.length; index++)
         {
@@ -159,7 +159,7 @@ public class GameFeatureUtil
             stringBuffer.append(SELECTED_SEP);
             stringBuffer.appendboolean(isSelected);
 
-            this.logUtil.put(stringBuffer.toString(), this, METHOD_NAME);
+            this.logUtil.putF(stringBuffer.toString(), this, METHOD_NAME);
 
             if (isSelected)
             {
@@ -190,7 +190,7 @@ public class GameFeatureUtil
     private void updateExclusive(final String selectedChoiceLabel)
             throws Exception
     {
-        this.logUtil.put(new StringMaker().append(CommonLabels.getInstance().ITEM_LABEL).append(selectedChoiceLabel).toString(), this, "updateExclusive");
+        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().ITEM_LABEL).append(selectedChoiceLabel).toString(), this, "updateExclusive");
 
         final Feature gameFeature = Feature.getInstance(selectedChoiceLabel);
         final Hashtable hashtable = GameFeatureChoiceGroups.getExclusiveInstance().get();

@@ -58,14 +58,14 @@ public class Password
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VALIDATION))
          {
-            this.logUtil.put("Password: " + this.password, this, commonStrings.IS_VALID);
+            this.logUtil.putF("Password: " + this.password, this, commonStrings.IS_VALID);
          }
 
          if(!StringValidationUtil.getInstance().isValidRequired(this.password, 6, UserData.MAXLEN))
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VALIDATION))
             {
-               this.logUtil.put("Password is invalid", this, commonStrings.IS_VALID);
+               this.logUtil.putF("Password is invalid", this, commonStrings.IS_VALID);
             }
             valid = Boolean.FALSE;
          }

@@ -45,7 +45,7 @@ public class PlayerTopViewCharacterBehavior extends TopViewCharacterBehavior {
     }
     
     public void terrainMove(final AllBinaryLayer layer, final BasicGeographicMap[] geographicMapInterfaceArray, final int x, final int y) {
-        //this.logUtil.put(new StringMaker().append("GDGameLevelLevelBuilder Moving: x: ").append(x).append(" y: ").append(y).toString(), this, "move");
+        //this.logUtil.putF(new StringMaker().append("GDGameLevelLevelBuilder Moving: x: ").append(x).append(" y: ").append(y).toString(), this, "move");
 
         // Don't move to far forward in screen if not close to edge of tilelayer
         //final ViewPosition viewPosition = layer.getViewPosition();
@@ -59,29 +59,29 @@ public class PlayerTopViewCharacterBehavior extends TopViewCharacterBehavior {
         /*
         if (viewX < (displayInfo.getLastHalfWidth() >> 1) || viewX > displayInfo.getLastHalfWidth() + displayInfo.getLastHalfWidth() / 2) {
             
-            // this.logUtil.put("View Position X: " +
+            // this.logUtil.putF("View Position X: " +
             // this.getViewPosition().getXP()).append(" 1/4 View" + spacialStrings +
             // DisplayInfoSingleton.getInstance()getLastHalfWidth() / 2, this, "move");
             if (this.isTiledLayerMoveable(terrainTiledLayer, x, y)) {
-                this.logUtil.put(new StringMaker().append("Player and TileLayer move: x: ").append(x).append(" y: ").append(y).toString(), this, "move");
+                this.logUtil.putF(new StringMaker().append("Player and TileLayer move: x: ").append(x).append(" y: ").append(y).toString(), this, "move");
                 basicGeographicMapUtil.move(geographicMapInterfaceArray, -x / 2, 0);
                 this.moveIfOnScreen(layer, x, y);
             } else {
-                this.logUtil.put("Player move", this, "move");
+                this.logUtil.putF("Player move", this, "move");
                 this.moveIfOnScreen(layer, x, y);
             }
         } else {
             // if not at tilelayer edge then move tilelayer at currenct
             // x velocity
             if (this.isTiledLayerMoveable(terrainTiledLayer, x, y)) {
-                this.logUtil.put("TileLayer moving", this, "move");
+                this.logUtil.putF("TileLayer moving", this, "move");
                 basicGeographicMapUtil.move(geographicMapInterfaceArray, -x, 0);
                 this.moveIfOnScreen(layer, x, y);
             } else {
                 // at tilelayer edge move player not tile layer
                 // when player gets back to the center then start moving
                 // tilelayer again and not on tile layer edge
-                this.logUtil.put("Player move towards TileLayer edge", this, "move");
+                this.logUtil.putF("Player move towards TileLayer edge", this, "move");
                 this.moveIfOnScreen(layer, x, y);
             }
         }
@@ -96,12 +96,12 @@ public class PlayerTopViewCharacterBehavior extends TopViewCharacterBehavior {
 //        final int viewX = viewPosition.getXP();
 //        if ((viewX > 0 || ax > 0) && (viewX < MAX_RIGHT || ax < 0))
 //        {
-//            this.logUtil.put(new StringMaker().append("ax: ").append(ax).append(CommonSeps.getInstance().SPACE).append(layer.getViewPosition().getXP()).append(" < ").append(MAX_RIGHT).toString(), this, "moveIfOnScreen");
+//            this.logUtil.putF(new StringMaker().append("ax: ").append(ax).append(CommonSeps.getInstance().SPACE).append(layer.getViewPosition().getXP()).append(" < ").append(MAX_RIGHT).toString(), this, "moveIfOnScreen");
 //            layer.move(ax, ay);
 //        }
 //        else
 //        {
-//            this.logUtil.put(new StringMaker().append("ax: ").append(ax).append(CommonSeps.getInstance().SPACE).append(layer.getViewPosition().getXP()).append(" < ").append(MAX_RIGHT).toString(), this, "moveIfOnScreen");
+//            this.logUtil.putF(new StringMaker().append("ax: ").append(ax).append(CommonSeps.getInstance().SPACE).append(layer.getViewPosition().getXP()).append(" < ").append(MAX_RIGHT).toString(), this, "moveIfOnScreen");
 //            layer.move(0, ay);
 //        }
     }

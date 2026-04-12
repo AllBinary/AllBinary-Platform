@@ -48,7 +48,7 @@ public class TransformInfoObjectConfigGeneratorFactory implements
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put("Generating Instance for type: " + type,this, commonStrings.GET_INSTANCE);
+            this.logUtil.putF("Generating Instance for type: " + type,this, commonStrings.GET_INSTANCE);
         }
 
         if (type == null || type.compareTo(InputOutputTypeData.getInstance().RESPONSE) == 0

@@ -36,7 +36,7 @@ public class EmulatorCustomRenderer //extends CustomRenderer
     //Wait until emulator is initialized
     public void onSurfaceCreated(final GL10 gl, final EGLConfig eglConfig)
     {        
-    	this.logUtil.put(commonStrings.START, this, this.renderStrings.ON_SURFACE_CREATED);
+    	this.logUtil.putF(commonStrings.START, this, this.renderStrings.ON_SURFACE_CREATED);
 
         final InitEmulatorFactory initEmulatorFactory = InitEmulatorFactory.getInstance();
         
@@ -48,7 +48,7 @@ public class EmulatorCustomRenderer //extends CustomRenderer
 
                 while(!initEmulatorFactory.isInitEmulator())
                 {
-                    //this.logUtil.put(WAIT_FOR_EMULATOR, this, METHOD_NAME);
+                    //this.logUtil.putF(WAIT_FOR_EMULATOR, this, METHOD_NAME);
                     PreLogUtil.put(WAIT_FOR_EMULATOR, this, this.renderStrings.ON_SURFACE_CREATED);
                     Thread.sleep(180);
                 }

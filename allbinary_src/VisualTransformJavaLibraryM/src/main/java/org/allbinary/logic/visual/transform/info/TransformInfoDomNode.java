@@ -33,7 +33,7 @@ public class TransformInfoDomNode
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            this.logUtil.put(
+            this.logUtil.putF(
                 "Constructing TransformInfo From TransformInfoDomNode: "
                 + node.getNodeName(), this, "TransformInfoDomNode(Node node)");
         }
@@ -59,7 +59,7 @@ public class TransformInfoDomNode
                 stringBuffer.appendint(nodeList.getLength());
                 stringBuffer.append(" children");
 
-                this.logUtil.put(stringBuffer.toString(),
+                this.logUtil.putF(stringBuffer.toString(),
                     this, "TransformInfoObjectConfigComponent(Node node)");
             }
 
@@ -99,7 +99,7 @@ public class TransformInfoDomNode
                 stringBuffer.appendint(nodeList.getLength());
                 stringBuffer.append(" children");
 
-                this.logUtil.put(stringBuffer.toString(),
+                this.logUtil.putF(stringBuffer.toString(),
                     this, "TransformInfoObjectConfigComponent(Node node)");
             }
 
@@ -165,7 +165,7 @@ public class TransformInfoDomNode
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            this.logUtil.put("Component Key: " + key, this, "getReplaceKey()");
+            this.logUtil.putF("Component Key: " + key, this, "getReplaceKey()");
         }
         return key;
     }

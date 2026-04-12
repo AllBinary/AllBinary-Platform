@@ -361,7 +361,7 @@ public class UnitLayer extends AdvancedRTSGameLayer implements
             this.healthBar = NullPaintable.getInstance();
         }
 
-        //this.logUtil.put("Direction: " + direction, this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.putF("Direction: " + direction, this, commonStrings.CONSTRUCTOR);
 
         this.decalAnimation = (RotationAnimation)
             decalAnimationInterfaceFactoryInterface.getInstance(0);
@@ -542,7 +542,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
             stringBuffer.append(firstRow);
             */
 
-            //this.logUtil.put(stringBuffer.toString(), this, "updateSensorGeographicMapCellPositionList");
+            //this.logUtil.putF(stringBuffer.toString(), this, "updateSensorGeographicMapCellPositionList");
             //PreLogUtil.put(stringBuffer.toString(), this, "updateSensorGeographicMapCellPositionList");
             
             for(int index = lastColumn - 1; index >= firstColumn; index--)
@@ -648,11 +648,11 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         final BasicArrayList geographicMapCellPositionBasicArrayList) throws Exception
     {
 
-        // this.logUtil.put("Adding " + size + " path nodes for Tracking", this, commonStrings.INIT);
+        // this.logUtil.putF("Adding " + size + " path nodes for Tracking", this, commonStrings.INIT);
 
         geographicMapCellHistory.track(geographicMapCellPositionBasicArrayList);
 
-        //this.logUtil.put("geographicMapCellHistory: " + geographicMapCellHistory.getTracked().toString(), this, commonStrings.INIT);
+        //this.logUtil.putF("geographicMapCellHistory: " + geographicMapCellHistory.getTracked().toString(), this, commonStrings.INIT);
     }
 
     @Override
@@ -666,7 +666,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
                 /*
                 if(this.isSelected())
                 {
-                    this.logUtil.put("Possible Target: " + layerInterface.getName(), this, "selected: onMovement");
+                    this.logUtil.putF("Possible Target: " + layerInterface.getName(), this, "selected: onMovement");
                 }
                 */
 
@@ -693,7 +693,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         /*
         if(this.isSelected())
         {
-            this.logUtil.put("Possible Target: " + layerInterface.getName(), this, "selected: onMovementFound");
+            this.logUtil.putF("Possible Target: " + layerInterface.getName(), this, "selected: onMovementFound");
         }
         */
         
@@ -744,12 +744,12 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
                 final int currentFrame = this.destroyAnimationInterface.getFrame();
                 final int size = this.destroyAnimationInterface.getSize() - 1;
 
-                // this.logUtil.put("Explosion - Processing: " + currentFrame + "==" + size, this, "processTick");
+                // this.logUtil.putF("Explosion - Processing: " + currentFrame + "==" + size, this, "processTick");
 
                 if (currentFrame == size)
                 // if (!this.delayMovementTimeHelper.isTime())
                 {
-                    // this.logUtil.put("Explosion - End", this, "processTick");
+                    // this.logUtil.putF("Explosion - End", this, "processTick");
                     if (!this.getHealthInterface().isAlive())
                     {
                         this.setDestroyed(true);
@@ -766,7 +766,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
             }
             else
             {
-                // this.logUtil.put("Explosion - Begin", this, "processTick");
+                // this.logUtil.putF("Explosion - Begin", this, "processTick");
 
                 this.setAnimationInterface(this.destroyAnimationInterface);
 
@@ -832,11 +832,11 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
     public void fire(final AllBinaryLayerManager layerManager, final GameKeyEvent gameKeyEvent)
     throws Exception
     {
-        //this.logUtil.put("fireAll", this, "fire");
+        //this.logUtil.putF("fireAll", this, "fire");
 
         if (this.fireTimeHelper.isTime())
         {
-            //this.logUtil.put("fire", this, gameInputStrings.PROCESS_INPUT);
+            //this.logUtil.putF("fire", this, gameInputStrings.PROCESS_INPUT);
 
             this.fireAll(layerManager);
         }
@@ -862,7 +862,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         /*
         if(this.isChase())
         {
-            this.logUtil.put("Turning while chasing", this, "right");
+            this.logUtil.putF("Turning while chasing", this, "right");
         }
         */
         
@@ -1136,7 +1136,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         if (this.slightAngle > ANGLE_INCREMENT)
         {
             if(this.isSelected()) {
-                this.logUtil.put(new StringBuilder().append("steering - slightAngle: ").append(this.slightAngle).toString(), this, "trackTo:trackTo");
+                this.logUtil.putF(new StringBuilder().append("steering - slightAngle: ").append(this.slightAngle).toString(), this, "trackTo:trackTo");
             }
 
             if (angleOfTarget - angle < 0)
@@ -1154,7 +1154,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         else if (this.slightAngle < -ANGLE_INCREMENT)
         {
             if(this.isSelected()) {
-                this.logUtil.put(new StringBuilder().append("steering - slightAngle: ").append(this.slightAngle).toString(), this, "trackTo:trackTo");
+                this.logUtil.putF(new StringBuilder().append("steering - slightAngle: ").append(this.slightAngle).toString(), this, "trackTo:trackTo");
             }
 
             if (angle - angleOfTarget < 0)
@@ -1181,7 +1181,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
 //            int angle2 = angleInfo2.getAngle();
 //            int delta = angleOfTarget2 - angle2;
 //            
-//            this.logUtil.put("steering - angleOfTarget: " + angleOfTarget2, this, TRACKTO_TURNTO);
+//            this.logUtil.putF("steering - angleOfTarget: " + angleOfTarget2, this, TRACKTO_TURNTO);
 //            
 //            while(delta != 0) {
 //                if(delta > 0) this.rotationAnimationInterface.nextRotation();
@@ -1190,7 +1190,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
 //                angleInfo2 = this.rotationAnimationInterface.getAngleInfoP();
 //                angle2 = angleInfo2.getAngle();
 //                delta = angleOfTarget2 - angle2;
-//                this.logUtil.put("steering - angle2: " + angle2, this, TRACKTO_TURNTO);
+//                this.logUtil.putF("steering - angle2: " + angle2, this, TRACKTO_TURNTO);
 //            }
 
             //return false;
@@ -1272,7 +1272,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
 
         if(list.size() > 0)
         {
-            //this.logUtil.put("Chasing", this, "trackTo");
+            //this.logUtil.putF("Chasing", this, "trackTo");
 
             for(int index = list.size() - 1; index >= 0; index--)
             {
@@ -1299,7 +1299,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
     protected void fireOrMove()
         throws Exception
     {
-        //this.logUtil.put("Move/Attack: " +  " trackingWaypoint: " + this.trackingWaypoint + " sensorAction: " + this.sensorAction + " currentTargetDistance >= longWeaponRange " + this.currentTargetDistance + ">=" + this.longWeaponRange , this, "trackTo");
+        //this.logUtil.putF("Move/Attack: " +  " trackingWaypoint: " + this.trackingWaypoint + " sensorAction: " + this.sensorAction + " currentTargetDistance >= longWeaponRange " + this.currentTargetDistance + ">=" + this.longWeaponRange , this, "trackTo");
 
         final GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
         
@@ -1323,22 +1323,21 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
 
             this.rtsLayer2LogHelper.steeringFireOrStop(this);
             
-            //this.logUtil.put(
+            //this.logUtil.putF(
             //  "Attacking: " + this.currentTargetLayerInterface.getName() +
             //" anotherTargetDistance: " + anotherTargetDistance +
             //" Range: " + this.currentTargetDistance, this, "trackTo");
 
-            // this.logUtil.put(TrackingEventHandler.getInstance().toString(), this, "processTargeting");
+            // this.logUtil.putF(TrackingEventHandler.getInstance().toString(), this, "processTargeting");
 
-            // this.logUtil.put("Attacking: " +
+            // this.logUtil.putF("Attacking: " +
             // this.currentTargetLayerInterface.getName() + " X: " +
             // this.currentTargetLayerInterface.getXP() + " ? " + this.x +
             // " Y: " + this.currentTargetLayerInterface.getYP() + " ? " +
             // this.y, this, "processTargeting");
-            // this.logUtil.put("Attacking: " +
+            // this.logUtil.putF("Attacking: " +
             // this.currentTargetLayerInterface.getName() + " at Range: " +
-            // this.currentTargetDistance + ">=" + this.longWeaponRange,
-            // this, "processTargeting");
+            // this.currentTargetDistance + ">=" + this.longWeaponRange, // this, "processTargeting");
             this.allStop();
             this.getGameKeyEventList().add(gameKeyEventFactory.getInstance(this, Canvas.KEY_NUM0));
             TrackingEventHandler.getInstance().fireEvent(this.getTrackingEvent());
@@ -1394,7 +1393,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
             }
 
             if (this.getUnitWaypointBehavior().isMoving()) {
-                // this.logUtil.put("moving", this, "move");
+                // this.logUtil.putF("moving", this, "move");
                 TrackingEventHandler.getInstance().fireEvent(this.getTrackingEvent());
                 // this.onViewPositionChangeEvent();
                 // TiledLayerUtil.keepOnMap(this.geographicMapInterface.getAllBinaryTiledLayer(),
@@ -1477,8 +1476,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         this.damageFloaters.add(damage);
 
         if (damage > 0)
-        // this.logUtil.put("Recieving Damage: " + damage,
-        // this, "damage");
+        // this.logUtil.putF("Recieving Damage: " + damage, // this, "damage");
         {
             this.getHealthInterface().damage(damage);
         }
@@ -1494,7 +1492,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
     public void setDestroyed(final boolean destroyed)
         throws Exception
     {
-        this.logUtil.put(commonStrings.START, this, "setDestroyed");
+        this.logUtil.putF(commonStrings.START, this, "setDestroyed");
         super.setDestroyed(destroyed);
 
         if (this.isDestroyed())

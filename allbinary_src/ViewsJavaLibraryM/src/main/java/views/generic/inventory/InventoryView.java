@@ -48,7 +48,7 @@ public class InventoryView extends HttpStoreComponentView
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            this.logUtil.put("Starting",this,"toXmlNode");
+            this.logUtil.putF("Starting",this,"toXmlNode");
          }
          
          InventoryEntity inventoryEntityInterface = 
@@ -77,7 +77,7 @@ public class InventoryView extends HttpStoreComponentView
             }
             else
             {
-               this.logUtil.put("Inventory",this,"toXmlNode");
+               this.logUtil.putF("Inventory",this,"toXmlNode");
             }
          }
          

@@ -60,7 +60,7 @@ public class ImageComparatorConstraints
             Rectangle avoidRectangle = (Rectangle) avoidVector.get(index);
             if(RectangleCollisionUtil.isCollision(avoidRectangle, rectangle))
             {
-                //this.logUtil.put(
+                //this.logUtil.putF(
                 // rectangle + " collided with " + avoidRectangle, this, "isCollisionWithAvoidRectangles");
                 isCollsionWithAvoidRectangles = true;
             }
@@ -79,7 +79,7 @@ public class ImageComparatorConstraints
             Rectangle avoidRectangle = (Rectangle) avoidVector.get(index);
             if(RectangleCollisionUtil.isCollision(avoidRectangle, point))
             {
-                //this.logUtil.put(
+                //this.logUtil.putF(
                 // rectangle + " collided with " + avoidRectangle, this, "isCollisionWithAvoidRectangles");
                 isCollsionWithAvoidRectangles = true;
                 break;
@@ -106,7 +106,7 @@ public class ImageComparatorConstraints
     public boolean isFrameAllowed(int frame)
     {
         int remainder = ((frame + 1) % this.doImageComparisonEveryNthFrame);
-        this.logUtil.put(" Frame: " + frame + " remainder: " + remainder + " this.doImageComparisonEveryNthFrame: " + this.doImageComparisonEveryNthFrame, this, "isCollisionWithAvoidRectangles");
+        this.logUtil.putF(" Frame: " + frame + " remainder: " + remainder + " this.doImageComparisonEveryNthFrame: " + this.doImageComparisonEveryNthFrame, this, "isCollisionWithAvoidRectangles");
         
         if(remainder == 0)
         {
@@ -129,7 +129,7 @@ public class ImageComparatorConstraints
         for (int index = 0; index < size; index++)
         {
             Rectangle avoidRectangle = (Rectangle) avoidVector.get(index);
-            this.logUtil.put(
+            this.logUtil.putF(
                 "Avoid Rectangle: " + avoidRectangle, this, "log");
         }
     }

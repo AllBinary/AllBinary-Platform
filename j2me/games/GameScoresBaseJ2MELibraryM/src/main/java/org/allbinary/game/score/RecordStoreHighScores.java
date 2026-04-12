@@ -63,7 +63,7 @@ public class RecordStoreHighScores extends HighScores
     {
         super(name, heading, columnTwoHeading);
 
-        //this.logUtil.put(commonStrings.CONSTRUCTOR, this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.putF(commonStrings.CONSTRUCTOR, this, commonStrings.CONSTRUCTOR);
         
         this.abeClientInformation = abeClientInformation;
         this.gameInfo = gameInfo;
@@ -99,12 +99,12 @@ public class RecordStoreHighScores extends HighScores
         RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;
         try
         {
-            this.logUtil.put(new StringMaker().append("Adding HighScore: ").appendlong(newHighScore.getScore()).toString(),this, commonStrings.ADD);
+            this.logUtil.putF(new StringMaker().append("Adding HighScore: ").appendlong(newHighScore.getScore()).toString(), this, commonStrings.ADD);
 
             // remove score replacing
             if (this.isTooManyHighScores())
             {
-                this.logUtil.put("Removing Lowest Score", this, commonStrings.ADD);
+                this.logUtil.putF("Removing Lowest Score", this, commonStrings.ADD);
 
                 this.removeLowestHighScore();
             }
@@ -115,9 +115,9 @@ public class RecordStoreHighScores extends HighScores
 
             final int recordId = recordStore.addRecord(highScoreBytes, 0, highScoreBytes.length);
             
-            //this.logUtil.put(new StringMaker().append("New recordId: ").append(recordId).toString(),this, commonStrings.ADD);
+            //this.logUtil.putF(new StringMaker().append("New recordId: ").append(recordId).toString(), this, commonStrings.ADD);
 
-            //this.logUtil.put("closeRecordStore",this, commonStrings.ADD);
+            //this.logUtil.putF("closeRecordStore", this, commonStrings.ADD);
             
             this.load();
             
@@ -186,7 +186,7 @@ public class RecordStoreHighScores extends HighScores
 
             if (bestHighScore.getId() != -1)
             {
-                this.logUtil.put(new StringMaker().append("Removing Lowest HighScore: ").appendlong(bestHighScore.getScore()).toString(), this, commonStrings.LOAD);
+                this.logUtil.putF(new StringMaker().append("Removing Lowest HighScore: ").appendlong(bestHighScore.getScore()).toString(), this, commonStrings.LOAD);
                 recordStore.deleteRecord(bestHighScore.getId());
             }
 
@@ -221,12 +221,12 @@ public class RecordStoreHighScores extends HighScores
         try
         {
             recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
-            //this.logUtil.put(recordStore.getName(), this, commonStrings.LOAD);
+            //this.logUtil.putF(recordStore.getName(), this, commonStrings.LOAD);
 
             this.setList(new BasicArrayList());
 
             final RecordEnumeration recordEnum = recordStore.enumerateRecords(NullRecordFilter.NULL_RECORD_FILTER, NullRecordComparator.NULL_RECORD_COMPARATOR, true);
-            //this.logUtil.put("first hasNextElement: " + recordEnum.hasNextElement(), this, commonStrings.LOAD);
+            //this.logUtil.putF("first hasNextElement: " + recordEnum.hasNextElement(), this, commonStrings.LOAD);
 
             byte[] recordAsBytes;
             ByteArrayInputStream byteArrayInputStream;
@@ -234,11 +234,11 @@ public class RecordStoreHighScores extends HighScores
             while (recordEnum.hasNextElement())
             {
                 final int id = recordEnum.nextRecordId();
-                //this.logUtil.put("id: " + id, this, commonStrings.LOAD);
+                //this.logUtil.putF("id: " + id, this, commonStrings.LOAD);
 
                 recordAsBytes = recordStore.getRecord(id);
                 
-                //this.logUtil.put("recordAsBytes: " + recordAsBytes, this, commonStrings.LOAD);
+                //this.logUtil.putF("recordAsBytes: " + recordAsBytes, this, commonStrings.LOAD);
                 
                 if(recordAsBytes != null) {
                     byteArrayInputStream = new ByteArrayInputStream(recordAsBytes);
@@ -264,10 +264,10 @@ public class RecordStoreHighScores extends HighScores
                             }
                         }
 
-                        //this.logUtil.put(new StringMaker().append("Loading HighScore: ").append(newHighScore.getScore()).append(" for: ").append(this.getName()).toString(), this, commonStrings.LOAD);
+                        //this.logUtil.putF(new StringMaker().append("Loading HighScore: ").append(newHighScore.getScore()).append(" for: ").append(this.getName()).toString(), this, commonStrings.LOAD);
                         list.add(lastIndex, newHighScore);
 
-                        //this.logUtil.put(new StringMaker().append("Loaded HighScores Ordered: ").append(this.toString()).toString(), this, commonStrings.LOAD);
+                        //this.logUtil.putF(new StringMaker().append("Loaded HighScores Ordered: ").append(this.toString()).toString(), this, commonStrings.LOAD);
                     } catch (EOFException e) {
                         this.logUtil.put("EOF", this, commonStrings.LOAD, e);
                         throw e;
@@ -275,7 +275,7 @@ public class RecordStoreHighScores extends HighScores
                 }
             }
 
-            // this.logUtil.put("Loaded HighScores Ordered: " +
+            // this.logUtil.putF("Loaded HighScores Ordered: " +
             // this.toString(), this, commonStrings.LOAD);
 
         }
@@ -318,7 +318,7 @@ public class RecordStoreHighScores extends HighScores
         }
         else
         {
-            this.logUtil.put(new StringMaker().append("HighScores RecordStore Max Reached: ").appendint(this.MAXHIGHSCORES).toString(), this, "isTooManyHighScores");
+            this.logUtil.putF(new StringMaker().append("HighScores RecordStore Max Reached: ").appendint(this.MAXHIGHSCORES).toString(), this, "isTooManyHighScores");
             return true;
         }
     }
@@ -333,7 +333,7 @@ public class RecordStoreHighScores extends HighScores
 
             if (!this.isTooManyHighScores())
             {
-                this.logUtil.put("Slot Available for a High Score", this,"isBestScore");
+                this.logUtil.putF("Slot Available for a High Score", this, "isBestScore");
                 return true;
             }
             else
@@ -349,12 +349,12 @@ public class RecordStoreHighScores extends HighScores
                     if (recordComparatorInterface.compare(newHighScore.getAsBytes(), highScore.getAsBytes()) == RecordComparator.FOLLOWS)
                     // if(newHighScore.getScore() > highScore.getScore())
                     {
-                        this.logUtil.put("Obtained a High Score", this,"isBestScore");
+                        this.logUtil.putF("Obtained a High Score", this, "isBestScore");
                         return true;
                     }
                 }
             }
-            this.logUtil.put("Not a High Score", this, "isBestScore");
+            this.logUtil.putF("Not a High Score", this, "isBestScore");
             return false;
         }
         catch (Exception e)

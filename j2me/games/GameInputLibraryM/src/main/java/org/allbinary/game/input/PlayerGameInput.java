@@ -45,7 +45,7 @@ public class PlayerGameInput extends GameInput
    /*
    public synchronized void add(GameKeyEvent gameKeyEvent)
    {
-       this.logUtil.put(commonStrings.START_LABEL).append(gameKeyEvent.getSource()).append(" ").append(((GameKeyEventSourceInterface)gameKeyEvent.getSource()).getId(), this, commonStrings.ADD);
+       this.logUtil.putF(commonStrings.START_LABEL).append(gameKeyEvent.getSource()).append(" ").append(((GameKeyEventSourceInterface)gameKeyEvent.getSource()).getId(), this, commonStrings.ADD);
        super.add(gameKeyEvent);
    }
    */

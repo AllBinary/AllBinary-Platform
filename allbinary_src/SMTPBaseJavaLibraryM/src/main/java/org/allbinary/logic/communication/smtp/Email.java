@@ -142,7 +142,7 @@ public class Email
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGINGERROR))
             {
-               this.logUtil.put("Unable to get HostName so using fake", this, "init()");
+               this.logUtil.putF("Unable to get HostName so using fake", this, "init()");
             }
             this.properties.put(SMTP_LOCAL_HOST, "FakeHostName");
          }

@@ -25,6 +25,8 @@ import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
 import org.allbinary.business.user.commerce.inventory.item.option.XmlOptionItemData;
 import org.allbinary.data.tables.user.commerce.inventory.item.options.XmlOptionItemsEntityFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonSeps;
 
 public class XmlOptionItemsRequestHelper extends ModifyTable
 {
@@ -94,7 +96,7 @@ public class XmlOptionItemsRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put(success,this,"insert()");
+            this.logUtil.putF(success,this,"insert()");
          }
          return success;
       }
@@ -120,7 +122,7 @@ public class XmlOptionItemsRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put(success,this,"delete()");
+            this.logUtil.putF(success,this,"delete()");
          }
          return success;
       }
@@ -147,7 +149,7 @@ public class XmlOptionItemsRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.put(id + " " + success,this,"update()");
+            this.logUtil.putF(new StringMaker().append(id).append(CommonSeps.getInstance().SPACE).append(success).toString(),this,"update()");
          }
          return success;
       }

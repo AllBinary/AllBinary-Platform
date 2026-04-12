@@ -71,7 +71,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
     {
         if (!this.eventListenerInterfaceList.contains(eventListenerInterface))
         {
-            //this.logUtil.put(CommonLabels.getInstance().START + eventListenerInterface, this, commonStrings.ADD_LISTENER);
+            //this.logUtil.putF(CommonLabels.getInstance().START + eventListenerInterface, this, commonStrings.ADD_LISTENER);
             this.eventListenerInterfaceList.add(eventListenerInterface);
         }
     }
@@ -86,12 +86,12 @@ public class BasicEventHandler implements BasicEventHandlerInterface
          * while(this.reentrantLock.getHoldCount() > 1) {
          * this.condition.await(); }
          */
-        // this.logUtil.put("Start: Locks Held: " +
+        // this.logUtil.putF("Start: Locks Held: " +
         // reentrantLock.getHoldCount() + " Held By Current Thread: " +
         // reentrantLock.isHeldByCurrentThread(), this, commonStrings.ADD_LISTENER);
         if (!this.eventListenerInterfaceList.contains(eventListenerInterface))
         {
-            //this.logUtil.put(CommonLabels.getInstance().START + eventListenerInterface, this, commonStrings.ADD_LISTENER);
+            //this.logUtil.putF(CommonLabels.getInstance().START + eventListenerInterface, this, commonStrings.ADD_LISTENER);
             this.eventListenerInterfaceList.add(eventListenerInterface);
         }
         /*
@@ -104,7 +104,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
     public void removeListenerSingleThreaded(final EventListenerInterface eventListenerInterface)
      {
 
-            //this.logUtil.put(
+            //this.logUtil.putF(
               //      CommonLabels.getInstance().START + eventListenerInterface, this, commonStrings.ADD_LISTENER);
 
          this.eventListenerInterfaceList.remove(eventListenerInterface);
@@ -119,11 +119,11 @@ public class BasicEventHandler implements BasicEventHandlerInterface
          * while(this.reentrantLock.getHoldCount() > 1) {
          * this.condition.await(); }
          */
-        // this.logUtil.put("Start: Locks Held: " +
+        // this.logUtil.putF("Start: Locks Held: " +
         // reentrantLock.getHoldCount() + " Held By Current Thread: " +
         // reentrantLock.isHeldByCurrentThread(), this, commonStrings.REMOVE_LISTENER);
 
-        //this.logUtil.put(
+        //this.logUtil.putF(
           //      CommonLabels.getInstance().START + eventListenerInterface, this, commonStrings.ADD_LISTENER);
 
         this.eventListenerInterfaceList.remove(eventListenerInterface);
@@ -147,7 +147,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
          * //if(this instance of DestroyedEventHandler) //LogUtil.put(new
          * Log("Start: Locks Held: " + reentrantLock.getHoldCount() + " Held By
          * Current Thread: " + reentrantLock.isHeldByCurrentThread(), this,
-         * EventStrings.getInstance().FIRE_EVENT)); //this.logUtil.put(this.commonStrings.START, this, EventStrings.getInstance().FIRE_EVENT);
+         * EventStrings.getInstance().FIRE_EVENT)); //this.logUtil.putF(this.commonStrings.START, this, EventStrings.getInstance().FIRE_EVENT);
          *
          * iter = this.eventListenerInterfaceVector; while
          * (iter.hasNext()) { EventListenerInterface eventListenerInterface =

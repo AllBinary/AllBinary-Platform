@@ -98,7 +98,7 @@ public class CompositeRTSFormInput extends RTSFormInput
 
         if (this.isStickyItemSelected() && associatedRtsLayer == null)
         {
-            //this.logUtil.put(index +"<="+ this.itemIndex[0], this, commonStrings.CONSTRUCTOR);
+            //this.logUtil.putF(index +"<="+ this.itemIndex[0], this, commonStrings.CONSTRUCTOR);
 
             //Make sure your not drag and dropping units yet
             if(this.getSelectedStickyItemIndex() <= this.itemIndex[0])
@@ -126,10 +126,9 @@ public class CompositeRTSFormInput extends RTSFormInput
         throws Exception
     {
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        this.logUtil.put(
+        this.logUtil.putF(
              //commonLabels.ITEM_LABEL + item.getLabel() +
-             CommonLabels.getInstance().INDEX_LABEL + index + " > " + this.itemIndex[0],
-             this, commonStrings.PROCESS);
+             CommonLabels.getInstance().INDEX_LABEL + index + " > " + this.itemIndex[0], this, commonStrings.PROCESS);
 
         if (this.isStickyItemSelected() &&
             associatedRtsLayer == null)

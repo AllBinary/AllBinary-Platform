@@ -41,7 +41,7 @@ public class CryptService
    {
       Globals.getInstance().init(this.getClass().getClassLoader(), "./");
 
-      this.logUtil.put("Set Globals: " + URLGLOBALS.getWebappPath(), this, this.commonStrings.CONSTRUCTOR);
+      this.logUtil.putF("Set Globals: " + URLGLOBALS.getWebappPath(), this, this.commonStrings.CONSTRUCTOR);
    }
 
    public InputStream getDecryptedInputStream(final AbeClientInformationInterface abeClientInformation, final String name, final InputStream inputStream)

@@ -46,7 +46,7 @@ public class ThreadUtil
         if (ThreadUtil.getInstance().isRunning(thread))
         {
             //PreLogUtil.put("Waiting for Thread To Join/End", this, JOIN);
-            this.logUtil.put("Waiting for Thread To Join/End", this, JOIN);
+            this.logUtil.putF("Waiting for Thread To Join/End", this, JOIN);
 
             //If loading in background then go ahead and show progress while if
             //it is still initializing

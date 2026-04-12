@@ -57,7 +57,7 @@ public class SmallIntegerSingletonFactory
             lastNegativeMin = negativeValue;
             //MIN = negativeValue;
         }
-        //this.logUtil.put("? " + NEGATIVE_INTEGER_ARRAY[5], stringUtil.EMPTY_STRING, "?????????");
+        //this.logUtil.putF("? " + NEGATIVE_INTEGER_ARRAY[5], stringUtil.EMPTY_STRING, "?????????");
     }
 
     public void init()
@@ -74,7 +74,7 @@ public class SmallIntegerSingletonFactory
                 INTEGER_ARRAY[index] = new Integer(-index);
             }
 
-            //this.logUtil.put("? " + NEGATIVE_INTEGER_ARRAY[5], CommonPhoneStrings.getInstance().TWO, "?????????");
+            //this.logUtil.putF("? " + NEGATIVE_INTEGER_ARRAY[5], CommonPhoneStrings.getInstance().TWO, "?????????");
 
             lastMin = POSITIVE_MAX;
             lastNegativeMin = NEGATIVE_MAX;

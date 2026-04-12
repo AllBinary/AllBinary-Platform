@@ -29,9 +29,8 @@ public class Input
         this.setId(id);
         this.setName(name);
 
-        //this.logUtil.put(
-          //      "Name: " + this.getName() + " = " + this.getId(), this,
-            //    commonStrings.CONSTRUCTOR);
+        //this.logUtil.putF(
+          //      "Name: " + this.getName() + " = " + this.getId(), this, //    commonStrings.CONSTRUCTOR);
     }
     
     public int getId()

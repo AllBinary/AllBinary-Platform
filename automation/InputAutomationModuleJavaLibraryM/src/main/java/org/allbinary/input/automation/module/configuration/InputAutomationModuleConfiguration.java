@@ -102,20 +102,20 @@ public class InputAutomationModuleConfiguration
             }
             else
             {
-                this.logUtil.put("Class Node Null", this,this.commonStrings.INIT);
+                this.logUtil.putF("Class Node Null", this, this.commonStrings.INIT);
             }
         }
         else
         {
-            this.logUtil.put(InputAutomationData.NAME + " Node Has No Children", this,"Contructor");
+            this.logUtil.putF(InputAutomationData.NAME + " Node Has No Children", this, "Contructor");
         }
     }
     
     public void init(final AbeClientInformationInterface abeClientInformation)
     {
         try {
-            this.logUtil.put("Name: " + getName(), this, this.commonStrings.INIT);
-            this.logUtil.put("ClassName: " + className, this, this.commonStrings.INIT);
+            this.logUtil.putF("Name: " + getName(), this, this.commonStrings.INIT);
+            this.logUtil.putF("ClassName: " + className, this, this.commonStrings.INIT);
 
             this.setInputAutomationModuleInterface(
                     (InputAutomationModuleFactoryInterface) AbeFactory.getInstance().getInstance().getInstance(abeClientInformation, getClassName()));
@@ -144,7 +144,7 @@ public class InputAutomationModuleConfiguration
     
     public void setName(String name)
     {
-        this.logUtil.put("Name: " + name, this, "setName");
+        this.logUtil.putF("Name: " + name, this, "setName");
         this.name = name;
     }
     
@@ -155,7 +155,7 @@ public class InputAutomationModuleConfiguration
 
     public void setClassName(final String className)
     {
-        this.logUtil.put("ClassName : " + className, this, "setClassName");
+        this.logUtil.putF("ClassName : " + className, this, "setClassName");
         this.className = className;
     }
     
@@ -166,7 +166,7 @@ public class InputAutomationModuleConfiguration
     
     public void setInputAutomationModuleInterface(InputAutomationModuleFactoryInterface inputAutomationModuleInterface)
     {
-        this.logUtil.put("InputAutomationModuleFactoryInterface : " + inputAutomationModuleInterface, this, "setInputAutomationModuleInterface");
+        this.logUtil.putF("InputAutomationModuleFactoryInterface : " + inputAutomationModuleInterface, this, "setInputAutomationModuleInterface");
         this.inputAutomationModuleInterface = inputAutomationModuleInterface;
         this.setName(this.inputAutomationModuleInterface.getName());
     }

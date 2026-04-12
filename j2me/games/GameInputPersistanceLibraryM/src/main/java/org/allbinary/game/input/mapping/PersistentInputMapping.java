@@ -102,7 +102,7 @@ public class PersistentInputMapping
     public void init(final AbeClientInformationInterface abeClientInformation) 
     throws Exception
     {
-        this.logUtil.put(commonStrings.START, this, commonStrings.INIT);
+        this.logUtil.putF(commonStrings.START, this, commonStrings.INIT);
         //Write out the default mappings and reload if something went wrong
         //This could happen if file is not deleted between versions and something changed
         try
@@ -123,14 +123,14 @@ public class PersistentInputMapping
         final BasicArrayList list = inputPersistance.getList();
 
         final int size = list.size();
-        //this.logUtil.put("size: " + size, this, commonStrings.INIT);
+        //this.logUtil.putF("size: " + size, this, commonStrings.INIT);
         
         int totalMappedTo = 0;
         //TWB - Use selected profile/id for future imp
         for(int index = 0; index < size; index++)
         {
             final Hashtable hashtable = (Hashtable) list.objectArray[index];
-            //this.logUtil.put("hashtable.keySet().size(): " + hashtable.keySet().size(), this, commonStrings.INIT);
+            //this.logUtil.putF("hashtable.keySet().size(): " + hashtable.keySet().size(), this, commonStrings.INIT);
             final Enumeration enumeration = hashtable.keys();
             
             while(enumeration.hasMoreElements())
@@ -153,7 +153,7 @@ public class PersistentInputMapping
         stringBuffer.append(" to: ");
         stringBuffer.appendint(totalMappedTo);
         
-        this.logUtil.put(stringBuffer.toString(), this, commonStrings.INIT);
+        this.logUtil.putF(stringBuffer.toString(), this, commonStrings.INIT);
     }
 
     public void setInputMappingEventListenerInterface(

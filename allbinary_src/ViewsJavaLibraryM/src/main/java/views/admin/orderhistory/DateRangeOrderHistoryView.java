@@ -156,7 +156,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
         	 stringBuffer.append(this.toDate);
         	 stringBuffer.append(") and status");
         	 
-        	 this.logUtil.put(stringBuffer.toString(), this, "view");
+        	 this.logUtil.putF(stringBuffer.toString(), this, "view");
          }
          
          Node node = document.createElement(OrderData.ORDERS);
@@ -253,7 +253,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               this.logUtil.put("Adding Preprocessing Orders", this, "toXmlNode");
+               this.logUtil.putF("Adding Preprocessing Orders", this, "toXmlNode");
             }
             
             Vector orderHistoryVector = OrderHistoryEntityFactory.getInstance().getOrders(OrderHistoryData.PREPROCESSING ,fromDate, toDate);
@@ -270,7 +270,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               this.logUtil.put("Adding Shipped Orders",this, "toXmlNode");
+               this.logUtil.putF("Adding Shipped Orders",this, "toXmlNode");
             }
 
             Vector orderHistoryVector = OrderHistoryEntityFactory.getInstance().getOrders(OrderHistoryData.SHIPPED ,fromDate, toDate);
@@ -287,7 +287,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               this.logUtil.put("Adding Partially Shipped Orders", this, "toDomNode");
+               this.logUtil.putF("Adding Partially Shipped Orders", this, "toDomNode");
             }
             
             Vector orderHistoryVector = OrderHistoryEntityFactory.getInstance().getOrders(OrderHistoryData.PARTIALLYSHIPPED ,fromDate, toDate);
@@ -304,7 +304,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               this.logUtil.put("Adding Processing Orders", this, "toXmlNode");
+               this.logUtil.putF("Adding Processing Orders", this, "toXmlNode");
             }
             
             Vector orderHistoryVector = OrderHistoryEntityFactory.getInstance().getOrders(OrderHistoryData.PROCESSING ,fromDate, toDate);
@@ -321,7 +321,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               this.logUtil.put("Adding Cancelled Orders", this, "view");
+               this.logUtil.putF("Adding Cancelled Orders", this, "view");
             }
             
             Vector orderHistoryVector = OrderHistoryEntityFactory.getInstance().getOrders(OrderHistoryData.CANCELLED ,fromDate, toDate);
@@ -469,7 +469,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
         	 stringBuffer.append(this.toDate);
         	 stringBuffer.append(")");
 
-        	 this.logUtil.put(stringBuffer.toString(), this, commonStrings.IS_VALID);
+        	 this.logUtil.putF(stringBuffer.toString(), this, commonStrings.IS_VALID);
          }
          
          return isValid;

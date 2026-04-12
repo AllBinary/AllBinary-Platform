@@ -45,7 +45,7 @@ public class AcceptableResponseGenerator
 
          if(  org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTP))
          {
-            this.logUtil.put("Request Type: " + acceptable, this, commonStrings.GET);
+            this.logUtil.putF("Request Type: " + acceptable, this, commonStrings.GET);
          }
          
          if(acceptable!=null)
@@ -64,7 +64,7 @@ public class AcceptableResponseGenerator
          
          if(  org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTP))
          {
-            this.logUtil.put("Response Type: " + result, this, commonStrings.GET);
+            this.logUtil.putF("Response Type: " + result, this, commonStrings.GET);
          }
          
          return result;

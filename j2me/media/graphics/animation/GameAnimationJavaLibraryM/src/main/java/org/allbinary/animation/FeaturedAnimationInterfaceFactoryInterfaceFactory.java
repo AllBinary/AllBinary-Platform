@@ -72,9 +72,8 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
         }
 
         /*
-         * this.logUtil.put( "No animation available for current feature
-         * selection or Resource: ").append(resource, "FeaturedAnimationInterfaceFactoryInterfaceFactory",
-         * "getAnimationInterfaceInstance");
+         * this.logUtil.putF( "No animation available for current feature
+         * selection or Resource: ").append(resource, "FeaturedAnimationInterfaceFactoryInterfaceFactory", * "getAnimationInterfaceInstance");
          */
         throw new Exception(
                 new StringMaker().append("No rectangle available for current feature selection or Resource: ").append(resource).toString());
@@ -120,9 +119,8 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
         }
 
         /*
-         * this.logUtil.put( "No animation available for current feature
-         * selection or Resource: ").append(resource, "FeaturedAnimationInterfaceFactoryInterfaceFactory",
-         * "getAnimationInterfaceInstance");
+         * this.logUtil.putF( "No animation available for current feature
+         * selection or Resource: ").append(resource, "FeaturedAnimationInterfaceFactoryInterfaceFactory", * "getAnimationInterfaceInstance");
          */
         if (resourceTypeAvailableList.size() > 0)
         {

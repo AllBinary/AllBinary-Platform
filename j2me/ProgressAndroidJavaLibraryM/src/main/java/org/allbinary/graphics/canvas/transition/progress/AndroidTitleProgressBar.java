@@ -66,7 +66,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
     {
         try
         {
-            this.logUtil.put(commonStrings.START, this, commonStrings.START_METHOD_NAME);
+            this.logUtil.putF(commonStrings.START, this, commonStrings.START_METHOD_NAME);
             super.start();
             // this.midletActivity.startProgressActivity();
             this.progressActivity.runOnUiThread(showTitleProgressBarRunnable);
@@ -83,7 +83,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
     {
         try
         {
-            this.logUtil.put(commonStrings.START, this, commonStrings.END_METHOD_NAME);
+            this.logUtil.putF(commonStrings.START, this, commonStrings.END_METHOD_NAME);
             this.progressActivity.runOnUiThread(dismissTitleProgressBarRunnable);
             // this.progressActivity = null;
             super.end();
@@ -100,7 +100,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
     {
         try
         {
-            //this.logUtil.put(commonStrings.START, this, ADD_PORTION);
+            //this.logUtil.putF(commonStrings.START, this, ADD_PORTION);
 
             super.addPortion(value, text, index);
             this.portion = value;
@@ -117,7 +117,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
     {
         try
         {
-            //this.logUtil.put(commonStrings.START, this, ADD_PORTION);
+            //this.logUtil.putF(commonStrings.START, this, ADD_PORTION);
 
             super.addPortion(value, text);
             this.portion = value;

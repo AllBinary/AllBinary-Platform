@@ -38,7 +38,7 @@ public class InputAutomationModuleServiceFactory
     public Object getService(
         Bundle bundle, ServiceRegistration registration)
     {
-        this.logUtil.put(this.commonStrings.START, this, "getService");
+        this.logUtil.putF(this.commonStrings.START, this, "getService");
 
         return new InputAutomationModuleService(
             this.getInputAutomationModuleInterfaceArray());

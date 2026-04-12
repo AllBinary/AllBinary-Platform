@@ -123,7 +123,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
 
         //int width = allBinaryTiledLayer.getWidth();
 
-        //this.logUtil.put(CommonLabels + allBinaryTiledLayer.getHeight() + commonStrings.SPACE + CommonLabels + width, this, commonStrings.INIT);
+        //this.logUtil.putF(CommonLabels + allBinaryTiledLayer.getHeight() + commonStrings.SPACE + CommonLabels + width, this, commonStrings.INIT);
 
         this.buildPathFindingNodes(
             geographicMapInterface,
@@ -132,7 +132,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
 
         // String keys =
         // this.getPathFinder().getPathFindingNodeCostInfoFactoryInterface().getHashTable().toString();
-        // this.logUtil.put("All PathFindingNodeCostInfos in Hashtable: " +
+        // this.logUtil.putF("All PathFindingNodeCostInfos in Hashtable: " +
         // keys, this, commonStrings.INIT);
     }
 
@@ -232,7 +232,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
         final int[][] mapArray)
         throws Exception
     {
-        //this.logUtil.put(CommonSeps.getInstance().START, this, "buildPathFindingNode");
+        //this.logUtil.putF(CommonSeps.getInstance().START, this, "buildPathFindingNode");
 
         final BasicGeographicMapCellPositionFactory geographicMapCellPositionFactory =
             geographicMapInterface.getGeographicMapCellPositionFactory();

@@ -34,7 +34,7 @@ public class CollidableRTSBehavior
         final CollisionType collisionType =
             collidableInterfaceCompositeInterface.getCollidableInferface().getCollisionTypeWith(this.ownerLayer);
 
-        // this.logUtil.put("collisionType: ").append(
+        // this.logUtil.putF("collisionType: ").append(
         // collisionType.toString(), this, damageUtil.COLLIDE);
         if (collisionType == collisionTypeFactory.PICKUP) {
         } else if (collisionType == collisionTypeFactory.COLLISION) {
@@ -47,20 +47,19 @@ public class CollidableRTSBehavior
                 return false;
             } else {
                 /*
-                     * this.logUtil.put( "y: ").append(this.y).append(" ").append(
+                     * this.logUtil.putF( "y: ").append(this.y).append(" ").append(
                      * this.getY2()).append(" other y: ").append(collisionLayer.getYP()).append(" ").append(
                      * collisionLayer.getY2(), this, damageUtil.IS_COLLISION);
-                     * this.logUtil.put( "x: ").append(this.x).append(" ").append(
+                     * this.logUtil.putF( "x: ").append(this.x).append(" ").append(
                      * this.getX2()).append(" other x: ").append(collisionLayer.getXP()).append(" ").append(
                      * collisionLayer.getX2(), this, damageUtil.IS_COLLISION);
                  */
-                // this.logUtil.put("viewy: ").append(
+                // this.logUtil.putF("viewy: ").append(
                 // this.getViewPosition().getY()).append(" ").append(
                 // this.getViewPosition().getY2()).append(" other viewy: ").append(
                 // ((AllBinaryLayer) collisionLayer).getViewPosition().getY()).append(
                 // " ").append(((AllBinaryLayer)
-                // collisionLayer).getViewPosition().getY2(), this,
-                // damageUtil.IS_COLLISION);
+                // collisionLayer).getViewPosition().getY2(), this, // damageUtil.IS_COLLISION);
                 return true;
             }
         }
@@ -74,12 +73,12 @@ public class CollidableRTSBehavior
         final CollisionType collisionType =
             collidableInterfaceCompositeInterface.getCollidableInferface().getCollisionTypeWith(this.ownerLayer);
 
-        //this.logUtil.put("collisionType: ").append(collisionType.toString(), this, damageUtil.COLLIDE);
+        //this.logUtil.putF("collisionType: ").append(collisionType.toString(), this, damageUtil.COLLIDE);
         if (collisionType == collisionTypeFactory.PICKUP) {
         } else if (collisionType == collisionTypeFactory.COLLISION) {
             //Enemy weapons cause damage on collision
-            //this.logUtil.put(this.getName()).append(" collided with ").append(((CollidableDestroyableDamageableLayer) collidableInterface).getName(), this, damageUtil.IS_COLLISION);
-            //this.logUtil.put("isCollision: ").append(this.getGroupInterface().getGroupName()).append("==").append(((CollidableDestroyableDamageableLayer) collidableInterface).getGroupInterface().getGroupName(), this, damageUtil.IS_COLLISION);
+            //this.logUtil.putF(this.getName()).append(" collided with ").append(((CollidableDestroyableDamageableLayer) collidableInterface).getName(), this, damageUtil.IS_COLLISION);
+            //this.logUtil.putF("isCollision: ").append(this.getGroupInterface().getGroupName()).append("==").append(((CollidableDestroyableDamageableLayer) collidableInterface).getGroupInterface().getGroupName(), this, damageUtil.IS_COLLISION);
             super.collide(collidableInterfaceCompositeInterface);
         } else {
             this.collideNone(collidableInterfaceCompositeInterface);

@@ -88,7 +88,7 @@ public class RegistrationConfiguration
         try
         {
             
-        this.logUtil.put(
+        this.logUtil.putF(
                 new StringMaker().append("Write Configuration: ").append(this.toString()).toString(), this, "write");
         //PreLogUtil.put("Write Configuration: ").append(this.toString(), this, "write");
         

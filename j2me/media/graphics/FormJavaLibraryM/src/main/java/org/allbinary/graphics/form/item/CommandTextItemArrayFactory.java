@@ -69,7 +69,7 @@ public class CommandTextItemArrayFactory
             //isNotPriority || command.getPriority() == 3
             if (command.getPriority() < priorityLimit)
             {
-                //this.logUtil.put("Label: "
+                //this.logUtil.putF("Label: "
                   //      + command.getLabel(), this, commonStrings.GET_INSTANCE);
 
                 //PreLogUtil.put("Label: "

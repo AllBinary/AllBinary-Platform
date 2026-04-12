@@ -78,7 +78,7 @@ public class InputPersistance extends BasicPersitance
             final int id = recordEnum.nextRecordId();
 
             stringBuffer.delete(0, stringBuffer.length());
-            this.logUtil.put(stringBuffer.append(this.persistanceStrings.LOADING_ID).appendint(id).toString(), this, this.persistanceStrings.LOAD_ALL);
+            this.logUtil.putF(stringBuffer.append(this.persistanceStrings.LOADING_ID).appendint(id).toString(), this, this.persistanceStrings.LOAD_ALL);
 
             recordAsBytes = recordStore.getRecord(id);
             if(recordAsBytes != null) {
@@ -115,7 +115,7 @@ public class InputPersistance extends BasicPersitance
                             stringBuffer.append(this.persistanceStrings.GAME_ACTION_INPUT);
                             stringBuffer.appendlong(gameActionInputId);
 
-                            //this.logUtil.put(stringBuffer.toString(), this, persistanceStrings.LOAD_ALL);
+                            //this.logUtil.putF(stringBuffer.toString(), this, persistanceStrings.LOAD_ALL);
                             PreLogUtil.put(stringBuffer.toString(), this, this.persistanceStrings.LOAD_ALL);
                         }
                         if (gameActionInput == null) {
@@ -126,11 +126,11 @@ public class InputPersistance extends BasicPersitance
                             stringBuffer.append(this.persistanceStrings.ID);
                             stringBuffer.appendlong(inputId);
 
-                            //this.logUtil.put(stringBuffer.toString(), this, persistanceStrings.LOAD_ALL);
+                            //this.logUtil.putF(stringBuffer.toString(), this, persistanceStrings.LOAD_ALL);
                             PreLogUtil.put(stringBuffer.toString(), this, this.persistanceStrings.LOAD_ALL);
                         }
                     } else {
-                        //this.logUtil.put("Load Mapping from: "
+                        //this.logUtil.putF("Load Mapping from: "
                         //     ).append(input.toString()).append(" to: "
                         //   ).append(gameActionInput.toString(), this, persistanceStrings.LOAD_ALL);
                     }
@@ -138,11 +138,11 @@ public class InputPersistance extends BasicPersitance
                     hashtable.put(input, gameActionInput);
                 }
 
-                //this.logUtil.put("Add mapping for id", this, METHOD_NAME);
+                //this.logUtil.putF("Add mapping for id", this, METHOD_NAME);
                 this.valueList.add(hashtable);
                 this.idList.add(smallIntegerSingletonFactory.getInstance(id));
             } else {
-                //this.logUtil.put("No bytes for id", this, METHOD_NAME);
+                //this.logUtil.putF("No bytes for id", this, METHOD_NAME);
             }
         }
         
@@ -164,7 +164,7 @@ public class InputPersistance extends BasicPersitance
 
         final StringMaker stringBuffer = new StringMaker();
         PreLogUtil.put(stringBuffer.append(this.persistanceStrings.SAVING).append(StringUtil.getInstance().toString(hashtable)).toString(), this, this.commonStrings.SAVE);
-        //this.logUtil.put("Saving: ").append(hashtable, this, commonStrings.SAVE);
+        //this.logUtil.putF("Saving: ").append(hashtable, this, commonStrings.SAVE);
 
         recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
@@ -210,7 +210,7 @@ public class InputPersistance extends BasicPersitance
                 //stringBuffer.append(" to: ");
                 //stringBuffer.append(gameActionInput.toString());
                 
-                //this.logUtil.put("Save Mapping from: "
+                //this.logUtil.putF("Save Mapping from: "
                 //     ).append(input.toString()).append(" to: "
                   //   ).append(gameActionInput.toString(), this, commonStrings.SAVE);
             }

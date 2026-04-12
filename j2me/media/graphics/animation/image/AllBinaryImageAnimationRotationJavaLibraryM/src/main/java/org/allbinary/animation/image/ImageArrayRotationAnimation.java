@@ -35,8 +35,7 @@ public class ImageArrayRotationAnimation extends
                 ((ImageArrayRotationAnimationInfo) object).getAngleInfoP(),
                 animationBehavior);
 
-        // this.logUtil.put(commonStrings.CONSTRUCTOR,
-        // this, "AllBinaryImageRotationAnimation");
+        // this.logUtil.putF(commonStrings.CONSTRUCTOR, // this, "AllBinaryImageRotationAnimation");
         ImageArrayRotationAnimationInfo allBinaryImageRotationAnimationInfo = (ImageArrayRotationAnimationInfo) object;
 
         this.init(allBinaryImageRotationAnimationInfo.getImageArray(),
@@ -49,7 +48,7 @@ public class ImageArrayRotationAnimation extends
     {
         super(imageArray, angleInfo, animationBehavior);
 
-        // this.logUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        // this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
         this.init(imageArray, angleInfo, totalAngle);
     }
@@ -70,8 +69,7 @@ public class ImageArrayRotationAnimation extends
             throws Exception
     {
 
-        // this.logUtil.put(commonStrings.START,
-        // this, "AllBinaryImageRotationAnimation");
+        // this.logUtil.putF(commonStrings.START, // this, "AllBinaryImageRotationAnimation");
 
         this.expectedTotalFrames = totalAngle
                 / this.angleInfo.getAngleIncrementInfo().getAngleIncrement();

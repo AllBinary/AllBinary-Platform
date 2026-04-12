@@ -24,7 +24,7 @@ public class AcceptableResponse
     
     protected AcceptableResponse(String candidate, String tagName, int index)
     {
-        this.logUtil.put(tagName, this, this.commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(tagName, this, this.commonStrings.CONSTRUCTOR);
 
         AcceptableResponseUtil acceptableResponseUtil =
             AcceptableResponseUtil.getInstance();

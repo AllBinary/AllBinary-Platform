@@ -71,7 +71,7 @@ extends ImageBaseRotationAnimation
         this.twoImages[0] = image;
         this.twoImages[1] = ImageCopyUtil.getInstance().createImage(image);
 
-        //this.logUtil.put(this.toString(), this, commonStrings.CONSTRUCTOR);
+        //this.logUtil.putF(this.toString(), this, commonStrings.CONSTRUCTOR);
     }
 
     @Override
@@ -119,7 +119,7 @@ extends ImageBaseRotationAnimation
     public void nextRotation()
     {
         super.nextRotation();
-        //this.logUtil.put("Frame: " + this.getFrame(), this, "nextRotation");
+        //this.logUtil.putF("Frame: " + this.getFrame(), this, "nextRotation");
 
         matrix.setRotate((float) this.increment, (float) this.halfWidth, (float) this.halfHeight);
         //matrix.setRotate((float) this.angleInfo.getAngle(), (float) this.halfWidth, (float) this.halfHeight);
@@ -131,7 +131,7 @@ extends ImageBaseRotationAnimation
     public void previousRotation()
     {
         super.previousRotation();
-        //this.logUtil.put("Frame: " + this.getFrame(), this, "previousRotation");
+        //this.logUtil.putF("Frame: " + this.getFrame(), this, "previousRotation");
 
         matrix.setRotate((float) -this.increment, (float) this.halfWidth, (float) this.halfHeight);
         //matrix.setRotate((float) this.angleInfo.getAngle(), (float) this.halfWidth, (float) this.halfHeight);
@@ -148,21 +148,21 @@ extends ImageBaseRotationAnimation
     @Override
     public void setFrame(final int index)
     {
-        //this.logUtil.put(commonLabels.INDEX_LABEL + index, this, "setRotation");
+        //this.logUtil.putF(commonLabels.INDEX_LABEL + index, this, "setRotation");
 
         final int currentFrame = this.circularIndexUtil.getIndex();
-        //this.logUtil.put("currentFrame: " + currentFrame, this, "setRotation");
+        //this.logUtil.putF("currentFrame: " + currentFrame, this, "setRotation");
 
         this.circularIndexUtil.setIndex(index);
 
         final int newFrame = this.circularIndexUtil.getIndex();
-        //this.logUtil.put("newFrame: " + newFrame, this, "setRotation");
+        //this.logUtil.putF("newFrame: " + newFrame, this, "setRotation");
 
         this.angleInfo.adjustAngle(newFrame);
         
         matrix.setRotate((float) (newFrame - currentFrame) * increment, (float) this.halfWidth, (float) this.halfHeight);
         //final float result = (newFrame - currentFrame) * this.increment;
-        //this.logUtil.put("result: " + result, this, "setRotation");
+        //this.logUtil.putF("result: " + result, this, "setRotation");
         //matrix.setRotate((float) result, (float) this.halfWidth, (float) this.halfHeight);
         this.updateImage();
 

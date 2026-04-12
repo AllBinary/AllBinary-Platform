@@ -46,7 +46,7 @@ public class DownloadItemsEntity extends AbSqlBean implements DownloadItemsEntit
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.put(this.commonStrings.SUCCESS, this, INSERT);
+                this.logUtil.putF(this.commonStrings.SUCCESS, this, INSERT);
             }
         }catch(Exception e)
         {
@@ -64,7 +64,7 @@ public class DownloadItemsEntity extends AbSqlBean implements DownloadItemsEntit
             super.deleteWhere(DownloadItemData.ID, value);
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.put(this.commonStrings.SUCCESS, this, commonStrings.delete);
+                this.logUtil.putF(this.commonStrings.SUCCESS, this, commonStrings.delete);
             }
         }catch(Exception e)
         {
@@ -97,7 +97,7 @@ public class DownloadItemsEntity extends AbSqlBean implements DownloadItemsEntit
 
         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
         {
-            this.logUtil.put("Found: " + size, this, "getForItem");
+            this.logUtil.putF("Found: " + size, this, "getForItem");
         }
 
         return returnVector;
@@ -123,7 +123,7 @@ public class DownloadItemsEntity extends AbSqlBean implements DownloadItemsEntit
 
         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
         {
-            this.logUtil.put("Found: " + size, this, "getForItem");
+            this.logUtil.putF("Found: " + size, this, "getForItem");
         }
 
         return returnVector;

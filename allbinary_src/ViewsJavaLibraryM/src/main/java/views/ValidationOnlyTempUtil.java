@@ -41,7 +41,7 @@ public class ValidationOnlyTempUtil
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            this.logUtil.put("View Name: " + validationComponentInterface.getTransformInfoInterface().getName(), this, "view()");
+            this.logUtil.putF("View Name: " + validationComponentInterface.getTransformInfoInterface().getName(), this, "view()");
          }
 
 /*

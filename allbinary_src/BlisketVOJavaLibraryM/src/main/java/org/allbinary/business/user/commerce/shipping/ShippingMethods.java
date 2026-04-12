@@ -59,7 +59,7 @@ public class ShippingMethods implements ShippingMethodsInterface
       String error = "Error Finding Shipping: " + name;
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SHIPPINGERROR))
       {
-         this.logUtil.put(commonStrings.EXCEPTION,this,"getShippingInterface(String name)");
+         this.logUtil.putF(commonStrings.EXCEPTION,this,"getShippingInterface(String name)");
       }
 
       throw new Exception(error);

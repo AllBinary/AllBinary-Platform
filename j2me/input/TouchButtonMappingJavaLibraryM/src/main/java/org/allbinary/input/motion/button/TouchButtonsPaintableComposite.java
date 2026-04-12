@@ -75,7 +75,7 @@ implements CompleteMotionGestureInputEventListenerInterface
     {
         try
         {
-            this.logUtil.put(commonStrings.START, this, "onCompleteMotionGestureInputEvent");
+            this.logUtil.putF(commonStrings.START, this, "onCompleteMotionGestureInputEvent");
          
             final TouchMotionGestureFactory touchMotionGestureFactory = TouchMotionGestureFactory.getInstance();
 
@@ -90,7 +90,7 @@ implements CompleteMotionGestureInputEventListenerInterface
             //Ignore Release only motionGesture
             if(motionGestureInput == touchMotionGestureFactory.RELEASED)
             {
-                this.logUtil.put(RELEASE, this, METHOD_NAME);
+                this.logUtil.putF(RELEASE, this, METHOD_NAME);
                 released = true;
                 return;
             }
@@ -99,20 +99,20 @@ implements CompleteMotionGestureInputEventListenerInterface
             //if(previousMotionGestureInput == motionGestureInput && !this.timeHelper.isTime())
             if(motionGestureInput == TouchMotionGestureFactory.getInstance().NO_MOTION && !this.timeHelper.isTime())
             {
-                this.logUtil.put(FAST_REPEAT, this, METHOD_NAME);
+                this.logUtil.putF(FAST_REPEAT, this, METHOD_NAME);
                 return;
             }
 
             //if(motionGestureInput != TouchMotionGestureFactory.getInstance().TOUCH && !released)
             if(!released)
             {
-                this.logUtil.put(IGNORE, this, METHOD_NAME);
+                this.logUtil.putF(IGNORE, this, METHOD_NAME);
                 return;
             }
             
             released = false;
             
-            this.logUtil.put(new StringMaker().append("GameKey: ").append(StringUtil.getInstance().toString(gameKey)).append(" MotionGestureInput: ").append(StringUtil.getInstance().toString(motionGestureInput)).toString(), this, METHOD_NAME);
+            this.logUtil.putF(new StringMaker().append("GameKey: ").append(StringUtil.getInstance().toString(gameKey)).append(" MotionGestureInput: ").append(StringUtil.getInstance().toString(motionGestureInput)).toString(), this, METHOD_NAME);
             
             this.inputMappingInterface.process(gameKey, motionGestureInput);
         }

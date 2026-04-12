@@ -144,7 +144,7 @@ public class RaceTrackDropCellPositionGenerator
 
         int size = this.list.size();
         //PreLogUtil.put("Initial Dropping: " + size, this, commonStrings.UPDATE);
-        //this.logUtil.put("Initial Dropping: " + size, this, commonStrings.UPDATE);
+        //this.logUtil.putF("Initial Dropping: " + size, this, commonStrings.UPDATE);
 
         //this.drop(allBinaryLayerManager, (size >> 1));
 

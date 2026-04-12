@@ -61,7 +61,7 @@ public class QuoteRequest
 
       if(  org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
       {
-         this.logUtil.put("Created with: " + this.toHashMap(), this, this.commonStrings.CONSTRUCTOR);
+         this.logUtil.putF("Created with: " + this.toHashMap(), this, this.commonStrings.CONSTRUCTOR);
       }
    }   
    
@@ -79,7 +79,7 @@ public class QuoteRequest
 
       if(  org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
       {
-         this.logUtil.put("Created with: " + this.toHashMap(), this, this.commonStrings.CONSTRUCTOR);
+         this.logUtil.putF("Created with: " + this.toHashMap(), this, this.commonStrings.CONSTRUCTOR);
       }
    }   
   

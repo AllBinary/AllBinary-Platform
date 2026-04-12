@@ -52,7 +52,7 @@ public class TransactionResult implements TransactionResultInterface
 
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
          //{
-            this.logUtil.put(exceptionMessage, this, this.commonStrings.CONSTRUCTOR);
+            this.logUtil.putF(exceptionMessage, this, this.commonStrings.CONSTRUCTOR);
          //}
          //throw new PaymentException("TransactionResult Constructor Failed");
       }

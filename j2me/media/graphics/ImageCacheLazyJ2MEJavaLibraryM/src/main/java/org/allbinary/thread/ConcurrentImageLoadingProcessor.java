@@ -37,11 +37,11 @@ public class ConcurrentImageLoadingProcessor extends BaseImageLoadingProcessor {
         public void run() {
             try {
                 this.setRunning(true);
-                //this.logUtil.put(commonStrings.START, this, commonStrings.RUN);
+                //this.logUtil.putF(commonStrings.START, this, commonStrings.RUN);
 
                 imageCache.waitForLoadNow();
                 
-                //this.logUtil.put("found animation that has attempted to paint so load animations and images", this, commonStrings.RUN);
+                //this.logUtil.putF("found animation that has attempted to paint so load animations and images", this, commonStrings.RUN);
                 
                 imageCache.loadImages();
                 imageCache.loadRemainingAnimations();
@@ -53,7 +53,7 @@ public class ConcurrentImageLoadingProcessor extends BaseImageLoadingProcessor {
                     progressCanvas.endFromInitialLazyLoadingComplete();
                 }
 
-//            this.logUtil.put(commonStrings.END, this, commonStrings.RUN);
+//            this.logUtil.putF(commonStrings.END, this, commonStrings.RUN);
             } catch (Exception e) {
                 this.setRunning(false);
                 this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);

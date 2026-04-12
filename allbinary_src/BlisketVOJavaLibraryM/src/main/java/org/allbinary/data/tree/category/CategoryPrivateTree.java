@@ -34,7 +34,7 @@ public class CategoryPrivateTree
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
       {
          final CommonStrings commonStrings = CommonStrings.getInstance();
-         this.logUtil.put(commonStrings.START, this, "CategoryPrivateTree(CategoryFactoryInterface categoryFactoryInterface)");
+         this.logUtil.putF(commonStrings.START, this, "CategoryPrivateTree(CategoryFactoryInterface categoryFactoryInterface)");
       }
 
       this.categoryFactoryInterface = categoryFactoryInterface;
@@ -45,7 +45,7 @@ public class CategoryPrivateTree
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
       {
-         this.logUtil.put("Saving Category File: " + categoryInterface.getFilePath(), this, "save()");
+         this.logUtil.putF("Saving Category File: " + categoryInterface.getFilePath(), this, "save()");
       }
 
       Document document = 
@@ -60,7 +60,7 @@ public class CategoryPrivateTree
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
       {
-         this.logUtil.put("end", this, "save()");
+         this.logUtil.putF("end", this, "save()");
       }
    }
 
@@ -75,7 +75,7 @@ public class CategoryPrivateTree
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-               this.logUtil.put(
+               this.logUtil.putF(
                    "Removed: " + categoryInterface.getFilePath(),
                    this, "delete(CategoryInterface)");
             }
@@ -85,7 +85,7 @@ public class CategoryPrivateTree
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
-            this.logUtil.put("Not a leaf unable to remove", this, "delete(CategoryInterface)");
+            this.logUtil.putF("Not a leaf unable to remove", this, "delete(CategoryInterface)");
          }
       }
    }
@@ -108,7 +108,7 @@ public class CategoryPrivateTree
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-               this.logUtil.put("Removed: " + categoryInterface.getFilePath(), 
+               this.logUtil.putF("Removed: " + categoryInterface.getFilePath(), 
                   this, "remove(CategoryInterface)");
             }
          }
@@ -232,7 +232,7 @@ public class CategoryPrivateTree
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
       {
-         this.logUtil.put("end", this, "remove()");
+         this.logUtil.putF("end", this, "remove()");
       }      
    }
 */   
@@ -288,7 +288,7 @@ public class CategoryPrivateTree
                {
                   if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
                   {
-                     this.logUtil.put("Already Exists" + newCategory,this,"modifyFile");
+                     this.logUtil.putF("Already Exists" + newCategory,this,"modifyFile");
                   }
                   return;
                }
@@ -317,7 +317,7 @@ public class CategoryPrivateTree
                {
                   if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
                   {
-                     this.logUtil.put("Inserting: " + newCategory,this,"modifyFile");
+                     this.logUtil.putF("Inserting: " + newCategory,this,"modifyFile");
                   }
 
                   categoryNode.insertBefore(newCategoryNode,categoriesNode);

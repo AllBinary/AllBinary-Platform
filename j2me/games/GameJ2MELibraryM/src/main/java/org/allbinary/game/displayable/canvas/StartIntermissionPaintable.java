@@ -71,7 +71,7 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
     @Override
     public void paint(Graphics graphics)
     {
-        //this.logUtil.put("Intermission Processing: ", this, "draw");
+        //this.logUtil.putF("Intermission Processing: ", this, "draw");
         
         final Font existingFont = graphics.getFont();
         

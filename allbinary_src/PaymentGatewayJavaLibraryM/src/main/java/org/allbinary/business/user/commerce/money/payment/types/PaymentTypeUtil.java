@@ -115,7 +115,7 @@ public class PaymentTypeUtil {
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
       {
-         this.logUtil.put("initDefault Payment: " + this.defaultName, this, "initDefault");
+         this.logUtil.putF("initDefault Payment: " + this.defaultName, this, "initDefault");
       }
 
       if(StringValidationUtil.getInstance().isEmpty(this.defaultName))
@@ -165,7 +165,7 @@ public class PaymentTypeUtil {
 
             if( org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
             {
-               this.logUtil.put("DefaultPaymentGatewayNodeValue: " + defaultPaymentGatewayNodeValue, this, "initDefault");
+               this.logUtil.putF("DefaultPaymentGatewayNodeValue: " + defaultPaymentGatewayNodeValue, this, "initDefault");
             }
 
             if(!StringValidationUtil.getInstance().isEmpty(defaultPaymentGatewayNodeValue))
@@ -181,7 +181,7 @@ public class PaymentTypeUtil {
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
       {
-         this.logUtil.put(this.commonStrings.START, this, "getDefault");
+         this.logUtil.putF(this.commonStrings.START, this, "getDefault");
       }
 
       this.initDefault(storeName);

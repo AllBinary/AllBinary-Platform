@@ -78,7 +78,7 @@ import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
          {
-            this.logUtil.put("Order Email", this, "emailStoreAdmin");
+            this.logUtil.putF("Order Email", this, "emailStoreAdmin");
          }
 
          String adminEmailSubject = "Order " + this.orderHistory.getStatus() + " Attempt";
@@ -127,7 +127,7 @@ import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
          {
-            this.logUtil.put("Email User", this, "notifyUser()");
+            this.logUtil.putF("Email User", this, "notifyUser()");
          }
 
          String subject = "Order " + this.orderHistory.getStatus() + " Attempt";

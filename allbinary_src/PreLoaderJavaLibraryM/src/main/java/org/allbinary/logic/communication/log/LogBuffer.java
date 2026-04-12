@@ -59,7 +59,7 @@ public class LogBuffer
       for(int index = 0; index < size; index++)
       {
           Log log = (Log) this.logEntryVector.get(index);
-          this.logUtil.put(log);
+          this.logUtil.putL(log);
       }
    }
 }

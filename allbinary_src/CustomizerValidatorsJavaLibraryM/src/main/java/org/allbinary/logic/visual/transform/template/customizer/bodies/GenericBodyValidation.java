@@ -76,7 +76,7 @@ public class GenericBodyValidation extends Validation implements DomNodeInterfac
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            this.logUtil.put(this.commonStrings.START, this, commonStrings.IS_VALID);
+            this.logUtil.putF(this.commonStrings.START, this, commonStrings.IS_VALID);
          }
 
          if(!StringValidationUtil.getInstance().isValidNotRequired(this.body, BodyData.getInstance().MIN, AbSqlData.MAXBLOB))
@@ -86,7 +86,7 @@ public class GenericBodyValidation extends Validation implements DomNodeInterfac
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            this.logUtil.put("BodyValidation: " + isValid, this, commonStrings.IS_VALID);
+            this.logUtil.putF("BodyValidation: " + isValid, this, commonStrings.IS_VALID);
          }
          
          return isValid;

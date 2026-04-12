@@ -60,7 +60,7 @@ public class InventoryUploadMediaUtil
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
         {
-            this.logUtil.put("Start FileName: " + fileName, this, "saveFiles()");
+            this.logUtil.putF("Start FileName: " + fileName, this, "saveFiles()");
         }
 
         if (StringValidationUtil.getInstance().isEmpty(fileName))
@@ -96,7 +96,7 @@ public class InventoryUploadMediaUtil
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
         {
-            this.logUtil.put("Saving Original Image: " + originalImageFile, this, "saveFiles()");
+            this.logUtil.putF("Saving Original Image: " + originalImageFile, this, "saveFiles()");
         }
 
         originalImageFile.createNewFile();
@@ -119,7 +119,7 @@ public class InventoryUploadMediaUtil
             stringBuffer.append(" supported: ");
             stringBuffer.appendboolean(isMediaSupported);
 
-            this.logUtil.put(stringBuffer.toString(), this, "saveFiles()");
+            this.logUtil.putF(stringBuffer.toString(), this, "saveFiles()");
         }
 
         MediaData defaultMediaData = MediaData.getDefault();
@@ -142,7 +142,7 @@ public class InventoryUploadMediaUtil
                 stringBuffer.append(" WriterMedia: ");
                 stringBuffer.appendboolean(isMediaResizable);
 
-                this.logUtil.put(stringBuffer.toString(), this, "saveFiles()");
+                this.logUtil.putF(stringBuffer.toString(), this, "saveFiles()");
             }
 
             //Is the uploaded File an image that ImageIO can resize
@@ -150,7 +150,7 @@ public class InventoryUploadMediaUtil
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
                 {
-                    this.logUtil.put("Saving Small Image: " + this.itemInterface.getSmallImage(), this, "saveFiles()");
+                    this.logUtil.putF("Saving Small Image: " + this.itemInterface.getSmallImage(), this, "saveFiles()");
                 }
 
                 mediaUtil.saveImageFile(
@@ -187,14 +187,14 @@ public class InventoryUploadMediaUtil
                     stringBuffer.append(" if Convertable is it: ");
                     stringBuffer.appendboolean(isConvertable);
 
-                    this.logUtil.put(stringBuffer.toString(), this, "saveFiles()");
+                    this.logUtil.putF(stringBuffer.toString(), this, "saveFiles()");
                 }
 
                 if (isConvertable)
                 {
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
                     {
-                        this.logUtil.put("Saving Small Image: " + this.itemInterface.getSmallImage(), this, "saveFiles()");
+                        this.logUtil.putF("Saving Small Image: " + this.itemInterface.getSmallImage(), this, "saveFiles()");
                     }
 
                     mediaUtil.saveImageFile(
@@ -239,7 +239,7 @@ public class InventoryUploadMediaUtil
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.END, this, "saveFiles()");
+            this.logUtil.putF(commonStrings.END, this, "saveFiles()");
         }
         return this.itemInterface;
     }
@@ -288,7 +288,7 @@ public class InventoryUploadMediaUtil
     {
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
     {
-    this.logUtil.put("Start FileName: " + fileName, this, "saveFiles()");
+    this.logUtil.putF("Start FileName: " + fileName, this, "saveFiles()");
     }
 
     if(StringValidationUtil.isEmpty(fileName))
@@ -312,7 +312,7 @@ public class InventoryUploadMediaUtil
 
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
     {
-    this.logUtil.put("Saving Original Image: " + originalImageFile, this, "saveFiles()");
+    this.logUtil.putF("Saving Original Image: " + originalImageFile, this, "saveFiles()");
     }
 
     originalImageFile.createNewFile();
@@ -326,7 +326,7 @@ public class InventoryUploadMediaUtil
 
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
     {
-    this.logUtil.put("Is Image Type: " + mediaData.getName() + " supported: " + isMediaSupported, this, "saveFiles()");
+    this.logUtil.putF("Is Image Type: " + mediaData.getName() + " supported: " + isMediaSupported, this, "saveFiles()");
     }
 
     if(isMediaSupported)
@@ -391,7 +391,7 @@ public class InventoryUploadMediaUtil
 
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
     {
-    this.logUtil.put("Converting: " + defaultMediaData.getName() +
+    this.logUtil.putF("Converting: " + defaultMediaData.getName() +
     " into " + mediaData.getName() +
     " if Convertable is it: " + isConvertable, this, "saveFiles()");
     }

@@ -57,7 +57,7 @@ public class RaceTrackData
     
     protected void setMapArray(int[][] mapArray)
     {
-        //this.logUtil.put("Set Map Array: Rows: " + mapArray.length + "Cols:  " + mapArray[0].length, this, "setMapArray");
+        //this.logUtil.putF("Set Map Array: Rows: " + mapArray.length + "Cols:  " + mapArray[0].length, this, "setMapArray");
         this.mapArray = mapArray;
     }
 

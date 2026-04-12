@@ -58,7 +58,7 @@ public class PointsUtil
             }
         }
 
-        // this.logUtil.put("New Points: " + stringBuffer, this, commonStrings.GET_INSTANCE);
+        // this.logUtil.putF("New Points: " + stringBuffer, this, commonStrings.GET_INSTANCE);
         return newPoints;
     }
 

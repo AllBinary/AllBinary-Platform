@@ -25,7 +25,7 @@ implements CompleteMotionGestureListenerInterface
     public NullCompleteMotionGestureReceiver()
     {
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        this.logUtil.put("Null Gesture Reciever", this, commonStrings.CONSTRUCTOR);
+        this.logUtil.putF("Null Gesture Reciever", this, commonStrings.CONSTRUCTOR);
     }
 
     @Override

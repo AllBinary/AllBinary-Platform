@@ -60,14 +60,14 @@ public class OperatingSystemFactory
             
             if(!this.hasDetected)
             {
-                this.logUtil.put("osName: " + osName, this, commonStrings.GET_INSTANCE);
+                this.logUtil.putF("osName: " + osName, this, commonStrings.GET_INSTANCE);
                 
                 this.hasDetected = true;
                 if(osName.indexOf(operatingSystems.LINUX) >= 0)
                 {
                     if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
                     {
-                        this.logUtil.put("Found a Linux OS", this, commonStrings.GET_INSTANCE);
+                        this.logUtil.putF("Found a Linux OS", this, commonStrings.GET_INSTANCE);
                     }
                     
                     this.genericOperatingSystem =
@@ -77,7 +77,7 @@ public class OperatingSystemFactory
                 {
                     if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
                     {
-                        this.logUtil.put("Found a Windows OS", this, commonStrings.GET_INSTANCE);
+                        this.logUtil.putF("Found a Windows OS", this, commonStrings.GET_INSTANCE);
                     }
                     this.genericOperatingSystem =
                         WindowsOperatingSystemFactory.getInstance().getOperatingSystemInstance();
@@ -86,7 +86,7 @@ public class OperatingSystemFactory
                 {
                     if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
                     {
-                        this.logUtil.put("Found a Solaris OS", this, commonStrings.GET_INSTANCE);
+                        this.logUtil.putF("Found a Solaris OS", this, commonStrings.GET_INSTANCE);
                     }
                     
                     this.genericOperatingSystem =
@@ -99,7 +99,7 @@ public class OperatingSystemFactory
                 
                 Log log = LogFactory.getInstanceF(new StringMaker().append("OperatingSystem Info: ").append(StringUtil.getInstance().toString(this.genericOperatingSystem)).toString(), this, commonStrings.GET_INSTANCE);
                 System.out.println(log.toString());
-                this.logUtil.put(log);
+                this.logUtil.putL(log);
 
             }
                         

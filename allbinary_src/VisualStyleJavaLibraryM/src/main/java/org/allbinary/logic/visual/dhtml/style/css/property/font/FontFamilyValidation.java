@@ -48,7 +48,7 @@ public class FontFamilyValidation extends FontFamilyView implements ValidationIn
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            this.logUtil.put("FontFamilyValidation",this,commonStrings.IS_VALID);
+            this.logUtil.putF("FontFamilyValidation",this,commonStrings.IS_VALID);
          }
 
          /*
@@ -60,7 +60,7 @@ public class FontFamilyValidation extends FontFamilyView implements ValidationIn
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            this.logUtil.put("CssValidation: " + valid,this,commonStrings.IS_VALID);
+            this.logUtil.putF("CssValidation: " + valid,this,commonStrings.IS_VALID);
          }
          
          return valid;
