@@ -69,7 +69,7 @@ public class TransformGeneratorUtil {
                 componentInterface.getTransformInfoInterface()).process(result);
         } catch (Exception e) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR)) {
-                this.logUtil.putF("Failed to generate a view",
+                this.logUtil.put("Failed to generate a view",
                     this, "generate()", e);
             }
             throw e;

@@ -56,7 +56,7 @@ public class AbeFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
-            this.logUtil.putF("Failure for: " + className, this,"getInstance(classname)", e);
+            this.logUtil.put("Failure for: " + className, this,"getInstance(classname)", e);
          }
          throw e;         
       }
@@ -64,7 +64,7 @@ public class AbeFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
-            this.logUtil.putF("Failure for: " + className, this,"getInstance(classname)", e);
+            this.logUtil.put("Failure for: " + className, this,"getInstance(classname)", e);
          }
          return null;         
       }
@@ -148,7 +148,7 @@ public class AbeFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
-            this.logUtil.putF("Failure for: " + className, this,"getInstance(classname)", e);
+            this.logUtil.put("Failure for: " + className, this,"getInstance(classname)", e);
          }
          return null;         
       }
@@ -211,7 +211,7 @@ public class AbeFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
-            this.logUtil.putF("Failure for: " + className, this,"getClass(className)", e);
+            this.logUtil.put("Failure for: " + className, this,"getClass(className)", e);
          }
          throw e;
       }
@@ -219,7 +219,7 @@ public class AbeFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
-            this.logUtil.putF("Failure for: " + className, this,"getClass(className)", e);
+            this.logUtil.put("Failure for: " + className, this,"getClass(className)", e);
          }
          return null;
       }
@@ -250,7 +250,7 @@ public class AbeFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
-            this.logUtil.putF("Failure for: " + className, this,"getClass(className)", e);
+            this.logUtil.put("Failure for: " + className, this,"getClass(className)", e);
          }
          throw e;
       }
@@ -258,7 +258,7 @@ public class AbeFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
-            this.logUtil.putF("Failure for: " + className, this,"getClass(className)", e);
+            this.logUtil.put("Failure for: " + className, this,"getClass(className)", e);
          }
          return null;
       }
@@ -330,7 +330,7 @@ public class AbeFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
-            this.logUtil.putF("Failure for: " + className, this,"getInstance(classname)", e);
+            this.logUtil.put("Failure for: " + className, this,"getInstance(classname)", e);
          }
          return null;
       }
@@ -348,7 +348,7 @@ public class AbeFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
-            this.logUtil.putF("Failure for: " + className, this,"getInstance(classname)", e);
+            this.logUtil.put("Failure for: " + className, this,"getInstance(classname)", e);
          }
          return null;
       }

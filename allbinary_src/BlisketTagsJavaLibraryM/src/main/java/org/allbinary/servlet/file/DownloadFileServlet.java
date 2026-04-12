@@ -145,7 +145,7 @@ public class DownloadFileServlet extends HttpServlet
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
             {
-                this.logUtil.putF(this.commonStrings.EXCEPTION, this, "processRequest()", e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, "processRequest()", e);
             }
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         } finally

@@ -110,7 +110,7 @@ public class OrderHistoryRequestHelper
          String error = "Failed to set order status";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.putF(commonStrings.EXCEPTION,this,"setOrderStatus()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"setOrderStatus()",e);
          }
          return error;
       }
@@ -141,7 +141,7 @@ public class OrderHistoryRequestHelper
          String error = "Failed to view order table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.putF(commonStrings.EXCEPTION,this,"setOrderStatus(newStatus)",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"setOrderStatus(newStatus)",e);
          }
          return error;
       }
@@ -167,7 +167,7 @@ public class OrderHistoryRequestHelper
          String error = "Failed to set Payment Method";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.putF(commonStrings.EXCEPTION,this,"setPaymentMethod()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"setPaymentMethod()",e);
          }
          return error;
       }

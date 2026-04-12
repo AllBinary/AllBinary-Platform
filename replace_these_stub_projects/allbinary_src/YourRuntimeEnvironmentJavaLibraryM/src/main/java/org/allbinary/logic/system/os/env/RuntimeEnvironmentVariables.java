@@ -93,7 +93,7 @@ public class RuntimeEnvironmentVariables
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
          {
-            this.logUtil.putF(commonStrings.EXCEPTION, this, "get()", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "get()", e);
          }
          return null;
       }
@@ -109,7 +109,7 @@ public class RuntimeEnvironmentVariables
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
          {
-            this.logUtil.putF(commonStrings.EXCEPTION,this,"getTempDir()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"getTempDir()",e);
          }
          return null;         
       }
@@ -125,7 +125,7 @@ public class RuntimeEnvironmentVariables
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
          {
-            this.logUtil.putF(commonStrings.EXCEPTION,this,"getLibraryPath()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"getLibraryPath()",e);
          }         
          return null;
       }
@@ -141,7 +141,7 @@ public class RuntimeEnvironmentVariables
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
          {
-            this.logUtil.putF(commonStrings.EXCEPTION,this,"getClassPath()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"getClassPath()",e);
          }
          return null;
       }
@@ -158,7 +158,7 @@ public class RuntimeEnvironmentVariables
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
          {
-            this.logUtil.putF(commonStrings.EXCEPTION,this,"updateLibraryPath()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"updateLibraryPath()",e);
          }      
       }
    }   
@@ -173,7 +173,7 @@ public class RuntimeEnvironmentVariables
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
          {
-            this.logUtil.putF(commonStrings.EXCEPTION,this,"getUserHome()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"getUserHome()",e);
          }
          return null;
       }
@@ -189,7 +189,7 @@ public class RuntimeEnvironmentVariables
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
          {
-            this.logUtil.putF(commonStrings.EXCEPTION,this,"getUserDir()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"getUserDir()",e);
          }
          return null;
       }
@@ -204,7 +204,7 @@ public class RuntimeEnvironmentVariables
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
          {
-            this.logUtil.putF(commonStrings.EXCEPTION,this,"get()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"get()",e);
          }       
       }
    }
@@ -249,7 +249,7 @@ public class RuntimeEnvironmentVariables
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
          {
-            this.logUtil.putF(commonStrings.EXCEPTION,this,"setVariable()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"setVariable()",e);
          }      
          
       }

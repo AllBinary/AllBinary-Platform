@@ -61,7 +61,7 @@ public class AbKeys
       {
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSINGERROR))
          //{
-            this.logUtil.putF("Licensing Failure", this, "getKey()", e);
+            this.logUtil.put("Licensing Failure", this, "getKey()", e);
          //}
          throw new LicensingException("Unknown License Failure");
       }

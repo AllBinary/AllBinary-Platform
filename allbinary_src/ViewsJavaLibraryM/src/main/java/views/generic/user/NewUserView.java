@@ -66,7 +66,7 @@ public class NewUserView extends UserView
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            this.logUtil.putF("Failed to generate validation error info",this,"validationInfo()",e);
+            this.logUtil.put("Failed to generate validation error info",this,"validationInfo()",e);
          }
          return "Error Getting Validation Info";
       }

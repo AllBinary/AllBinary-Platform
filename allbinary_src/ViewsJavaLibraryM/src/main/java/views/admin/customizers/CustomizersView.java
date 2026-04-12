@@ -106,7 +106,7 @@ public class CustomizersView extends HttpStoreComponentView implements DomNodeIn
             return super.view();
         } catch (Exception e) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR)) {
-                this.logUtil.putF(commonStrings.EXCEPTION, this, "view()", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "view()", e);
             }
             throw e;
         }

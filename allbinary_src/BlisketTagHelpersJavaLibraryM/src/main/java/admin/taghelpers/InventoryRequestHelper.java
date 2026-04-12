@@ -75,7 +75,7 @@ public class InventoryRequestHelper extends ModifyTable
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                this.logUtil.putF(commonStrings.EXCEPTION, this, "insert()", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "insert()", e);
             }
             return error;
         }
@@ -161,7 +161,7 @@ public class InventoryRequestHelper extends ModifyTable
             String error = "Failed To Update Item";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-                this.logUtil.putF(commonStrings.EXCEPTION, this, "update()", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "update()", e);
             }
             return error;
         }

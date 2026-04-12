@@ -50,7 +50,7 @@ public class PaymentGatewayInterfaceFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENTERROR))
          {
-            this.logUtil.putF(commonStrings.EXCEPTION, this, "getInstance(HttpServletRequest)", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "getInstance(HttpServletRequest)", e);
          }
          throw e;
       }

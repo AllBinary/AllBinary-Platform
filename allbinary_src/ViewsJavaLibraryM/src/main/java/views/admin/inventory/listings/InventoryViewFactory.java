@@ -58,7 +58,7 @@ public class InventoryViewFactory
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
-            this.logUtil.putF(commonStrings.EXCEPTION, this, "getInstance(SearchRequest)", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "getInstance(SearchRequest)", e);
          }
          throw e;
       } 
@@ -69,7 +69,7 @@ public class InventoryViewFactory
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
              final CommonStrings commonStrings = CommonStrings.getInstance();
-             logUtil.putF(commonStrings.EXCEPTION, "InventoryViewFactory", "getInstance(SearchRequest)",e);
+             logUtil.put(commonStrings.EXCEPTION, "InventoryViewFactory", "getInstance(SearchRequest)",e);
          }
          return null;
       }         

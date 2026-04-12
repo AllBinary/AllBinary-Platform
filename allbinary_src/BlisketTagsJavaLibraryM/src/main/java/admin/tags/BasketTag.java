@@ -70,7 +70,7 @@ public class BasketTag extends CustomTagSupport
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.putF(commonStrings.EXCEPTION,this,"isBasketEmpty()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"isBasketEmpty()",e);
          }
          return true;
       }
@@ -97,7 +97,7 @@ public class BasketTag extends CustomTagSupport
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.putF(commonStrings.EXCEPTION,this,"addItemToBasket()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"addItemToBasket()",e);
          }
          return false;
       }
@@ -124,7 +124,7 @@ public class BasketTag extends CustomTagSupport
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.putF(commonStrings.EXCEPTION,this,"removeItemFromBasket()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"removeItemFromBasket()",e);
          }
          return false;
       }
@@ -151,7 +151,7 @@ public class BasketTag extends CustomTagSupport
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.putF(commonStrings.EXCEPTION,this,"adjustBasket()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"adjustBasket()",e);
          }
          return false;
       }

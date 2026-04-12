@@ -98,7 +98,7 @@ public class InventoryHelper extends TagHelper
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.putF(commonStrings.EXCEPTION,this,"viewSummary()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"viewSummary()",e);
          }
          return error + "<br>" + "Exception: " + e + "<br>";
       }
@@ -159,7 +159,7 @@ public class InventoryHelper extends TagHelper
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.putF(commonStrings.EXCEPTION,this,"searchSingleDynamicPage()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"searchSingleDynamicPage()",e);
          }
          return error + "<br>" + "Exception: " + e + "<br>";
       }

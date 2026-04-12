@@ -115,7 +115,7 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
         }
         catch (Exception e)
         {
-            this.logUtil.putF(commonStrings.EXCEPTION, this, GameInputStrings.getInstance().PROCESS_INPUT, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, GameInputStrings.getInstance().PROCESS_INPUT, e);
             return -1;
         }
     }

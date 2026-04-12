@@ -102,7 +102,7 @@ public class DeleteCloud
             return true;
         } catch (Exception e)
         {
-            this.logUtil.putF("Unable to copy installer files into cloud", this, "initialize()", e);
+            this.logUtil.put("Unable to copy installer files into cloud", this, "initialize()", e);
             return false;
         }
     }

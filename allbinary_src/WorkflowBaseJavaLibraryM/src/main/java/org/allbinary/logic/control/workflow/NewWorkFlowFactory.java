@@ -74,7 +74,7 @@ public class NewWorkFlowFactory
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
              final CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.putF(commonStrings.EXCEPTION, this, "getInstance(HashMap)",e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "getInstance(HashMap)",e);
          }
          throw e;
       }
@@ -84,7 +84,7 @@ public class NewWorkFlowFactory
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
              final CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.putF(commonStrings.EXCEPTION, this, "getInstance(HashMap)", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "getInstance(HashMap)", e);
          }
          throw e;
       }

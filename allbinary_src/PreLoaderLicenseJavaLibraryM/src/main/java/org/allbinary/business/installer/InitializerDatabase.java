@@ -108,7 +108,7 @@ public class InitializerDatabase
 
         } catch (Exception e)
         {
-            this.logUtil.putF("Unable to get form data", this, "getFormData()", e);
+            this.logUtil.put("Unable to get form data", this, "getFormData()", e);
         }
     }
 
@@ -204,7 +204,7 @@ public class InitializerDatabase
             return true;
         } catch (Exception e)
         {
-            this.logUtil.putF("Unable to Create Users", this, "createUsers()", e);
+            this.logUtil.put("Unable to Create Users", this, "createUsers()", e);
             return false;
         }
     }
@@ -217,7 +217,7 @@ public class InitializerDatabase
             return true;
         } catch (Exception e)
         {
-            this.logUtil.putF("Unable to Create Databases", this, "createDatabases()", e);
+            this.logUtil.put("Unable to Create Databases", this, "createDatabases()", e);
             return false;
         }
     }
@@ -230,7 +230,7 @@ public class InitializerDatabase
             return true;
         } catch (Exception e)
         {
-            this.logUtil.putF("Unable to Create Tables", this, "createTables()", e);
+            this.logUtil.put("Unable to Create Tables", this, "createTables()", e);
             return false;
         }
     }

@@ -75,7 +75,7 @@ public class BlisketBackupFactory
 
         } catch (Exception e)
         {
-            this.logUtil.putF(this.commonStrings.EXCEPTION, this, "backup()", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "backup()", e);
         }
     }
 
@@ -130,7 +130,7 @@ public class BlisketBackupFactory
 
         } catch (Exception e)
         {
-            this.logUtil.putF(this.commonStrings.EXCEPTION, this, "backupViews()", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "backupViews()", e);
         }
     }
 
@@ -190,7 +190,7 @@ public class BlisketBackupFactory
 
         } catch (Exception e)
         {
-            this.logUtil.putF(this.commonStrings.EXCEPTION, this, "backupResources()", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "backupResources()", e);
         }
     }
 
@@ -237,7 +237,7 @@ public class BlisketBackupFactory
 
         } catch (Exception e)
         {
-            this.logUtil.putF(this.commonStrings.EXCEPTION, this, "backupJsps()", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "backupJsps()", e);
         }
     }
 
@@ -264,7 +264,7 @@ public class BlisketBackupFactory
 
         } catch (Exception e)
         {
-            this.logUtil.putF(this.commonStrings.EXCEPTION, this, "backup()", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "backup()", e);
         }
     }
 }

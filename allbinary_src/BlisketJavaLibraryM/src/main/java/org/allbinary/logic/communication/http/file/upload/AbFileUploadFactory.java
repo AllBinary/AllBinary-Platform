@@ -65,7 +65,7 @@ public class AbFileUploadFactory
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPERROR))
             {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                this.logUtil.putF(commonStrings.EXCEPTION, this, "get()", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "get()", e);
             }
             throw e;
         }
@@ -83,7 +83,7 @@ public class AbFileUploadFactory
             final CommonStrings commonStrings = CommonStrings.getInstance();
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPERROR))
             {
-                this.logUtil.putF(commonStrings.EXCEPTION, this, "get()", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "get()", e);
             }
             throw e;
         }

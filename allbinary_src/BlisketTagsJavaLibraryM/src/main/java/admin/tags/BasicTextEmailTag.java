@@ -67,7 +67,7 @@ public class BasicTextEmailTag extends CustomTagSupport
          String error = "Failed to Send Email.";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.putF(commonStrings.EXCEPTION,this,"send()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"send()",e);
          }
          return error;
       }

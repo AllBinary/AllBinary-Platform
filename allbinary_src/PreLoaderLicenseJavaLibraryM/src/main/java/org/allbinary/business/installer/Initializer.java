@@ -160,7 +160,7 @@ public class Initializer
 
         } catch (Exception e)
         {
-            this.logUtil.putF("Unable to get form data", this, "getFormData()", e);
+            this.logUtil.put("Unable to get form data", this, "getFormData()", e);
         }
     }
 

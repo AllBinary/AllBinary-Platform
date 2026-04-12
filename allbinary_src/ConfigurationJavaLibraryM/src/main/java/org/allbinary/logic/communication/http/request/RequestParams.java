@@ -101,7 +101,7 @@ public class RequestParams
             return node;
         }catch(Exception e)
         {
-            this.logUtil.putF(commonStrings.EXCEPTION, this, "toXmlNode(document)", e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, "toXmlNode(document)", e);
 
             //throw e;
             return null;

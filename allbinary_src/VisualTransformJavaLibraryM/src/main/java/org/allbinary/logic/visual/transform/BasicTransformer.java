@@ -83,7 +83,7 @@ public class BasicTransformer extends AbTransformer {
                 stringBuffer.append(" \nName:");
                 stringBuffer.append(file.getName());
 
-                this.logUtil.putF(stringBuffer.toString(), this, "setEncryptedTemplateFileAsInputStream()", e);
+                this.logUtil.put(stringBuffer.toString(), this, "setEncryptedTemplateFileAsInputStream()", e);
             }
             throw e;
         } finally {
@@ -243,7 +243,7 @@ public class BasicTransformer extends AbTransformer {
         } catch (Exception e) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR)) {
-                this.logUtil.putF(
+                this.logUtil.put(
                     "Failed to get Template Data", this, "setTemplateAsInputStream()", e);
             }
             throw e;

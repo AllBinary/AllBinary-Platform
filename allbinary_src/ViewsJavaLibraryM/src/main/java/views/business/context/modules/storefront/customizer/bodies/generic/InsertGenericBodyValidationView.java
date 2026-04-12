@@ -91,7 +91,7 @@ public class InsertGenericBodyValidationView extends GenericBodyCustomizerView i
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            this.logUtil.putF("Failed to generate validation error info",this,"validationInfo()",e);
+            this.logUtil.put("Failed to generate validation error info",this,"validationInfo()",e);
          }
          return "Error Getting Validation Info";
       }
@@ -117,7 +117,7 @@ public class InsertGenericBodyValidationView extends GenericBodyCustomizerView i
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            this.logUtil.putF(commonStrings.EXCEPTION,this,"view()",e);
+            this.logUtil.put(commonStrings.EXCEPTION,this,"view()",e);
          }
          throw e;
       }

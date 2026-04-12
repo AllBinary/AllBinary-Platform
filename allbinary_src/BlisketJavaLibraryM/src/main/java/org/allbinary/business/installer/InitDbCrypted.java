@@ -266,7 +266,7 @@ public class InitDbCrypted extends AbDatabaseManagement
      }
      catch(Exception e)
      {
-     this.logUtil.putF("Unable to set temp main path",this,"setTemporaryMainPath()",e);
+     this.logUtil.put("Unable to set temp main path",this,"setTemporaryMainPath()",e);
      return Boolean.FALSE;
      }
      }
@@ -281,7 +281,7 @@ public class InitDbCrypted extends AbDatabaseManagement
      }
      catch(Exception e)
      {
-     this.logUtil.putF("Unable to set temp main path",this,"setTemporaryMainPath()",e);
+     this.logUtil.put("Unable to set temp main path",this,"setTemporaryMainPath()",e);
      return Boolean.FALSE;
      }
      }

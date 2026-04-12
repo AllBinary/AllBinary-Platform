@@ -64,7 +64,7 @@ public class RequestHandler extends HttpServlet
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SERVLETERROR))
          {
-            this.logUtil.putF("Servlet LicensingException",this,"processRequest()",e);
+            this.logUtil.put("Servlet LicensingException",this,"processRequest()",e);
          }
          response.sendRedirect(abcs.globals.URLGLOBALS.LICENSEERRORPAGE);
       }
@@ -72,7 +72,7 @@ public class RequestHandler extends HttpServlet
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SERVLETERROR))
          {
-            this.logUtil.putF("Servlet Exception",this,"processRequest()",e);
+            this.logUtil.put("Servlet Exception",this,"processRequest()",e);
          }
          response.sendRedirect(abcs.globals.URLGLOBALS.ERRORPAGE);
       }

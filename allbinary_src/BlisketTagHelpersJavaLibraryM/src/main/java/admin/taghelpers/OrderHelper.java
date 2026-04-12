@@ -134,7 +134,7 @@ public class OrderHelper
                     stringBuffer.append(" Exception Getting");
                 }
 
-                this.logUtil.putF(stringBuffer.toString(), this, "setPaymentGateway()", e);
+                this.logUtil.put(stringBuffer.toString(), this, "setPaymentGateway()", e);
             }
             return Boolean.FALSE;
         }
@@ -201,7 +201,7 @@ public class OrderHelper
     {
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
     {
-    this.logUtil.putF(commonStrings.EXCEPTION,this,"authorizeOrder()",e);
+    this.logUtil.put(commonStrings.EXCEPTION,this,"authorizeOrder()",e);
     }
     return Boolean.FALSE;
     }

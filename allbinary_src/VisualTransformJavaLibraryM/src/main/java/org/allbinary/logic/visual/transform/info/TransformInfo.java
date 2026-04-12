@@ -458,7 +458,7 @@ public class TransformInfo implements TransformInfoInterface
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
                 {
-                    this.logUtil.putF("Could Not Load Data from: " + this.getDataFile(), this, "getData()", e);
+                    this.logUtil.put("Could Not Load Data from: " + this.getDataFile(), this, "getData()", e);
                 }
             }
         }
@@ -498,7 +498,7 @@ public class TransformInfo implements TransformInfoInterface
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
             {
-                this.logUtil.putF(
+                this.logUtil.put(
                     "Could Not Preview Data: " + this.data, this, "getData()", e);
             }
         }

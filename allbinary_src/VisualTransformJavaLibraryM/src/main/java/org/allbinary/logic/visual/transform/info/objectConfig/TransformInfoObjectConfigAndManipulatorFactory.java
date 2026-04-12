@@ -148,7 +148,7 @@ public class TransformInfoObjectConfigAndManipulatorFactory
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
-            this.logUtil.putF(commonStrings.EXCEPTION, getInstance(), "getInstance(document)", e);
+            this.logUtil.put(commonStrings.EXCEPTION, getInstance(), "getInstance(document)", e);
          }
          throw e;
       }

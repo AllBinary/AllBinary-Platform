@@ -117,7 +117,7 @@ public class PaymentTransactionInterfaceRequestFactory
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENTERROR))
             {
-                this.logUtil.putF(commonStrings.EXCEPTION, this, "getPaymentTransactionInterface()", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "getPaymentTransactionInterface()", e);
             }
             throw e;
         }
@@ -226,7 +226,7 @@ public class PaymentTransactionInterfaceRequestFactory
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENTERROR))
             {
-                this.logUtil.putF(commonStrings.EXCEPTION, this, "generatePaymentTransactionInterfaceFromTestData()", e);
+                this.logUtil.put(commonStrings.EXCEPTION, this, "generatePaymentTransactionInterfaceFromTestData()", e);
             }
             throw e;
         }
