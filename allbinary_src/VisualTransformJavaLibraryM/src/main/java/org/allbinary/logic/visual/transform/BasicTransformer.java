@@ -116,10 +116,7 @@ public class BasicTransformer extends AbTransformer {
         } catch (Exception e) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR)) {
-                this.logUtil.putF(
-                    "Failed to set with template: "
-                    + this.getTransformInfoInterface().getTemplateFilePath(),
-                    this, "setEncryptedTemplateFileAsInputStream()", e);
+                this.logUtil.put("Failed to set with template: " + this.getTransformInfoInterface().getTemplateFilePath(),this, "setEncryptedTemplateFileAsInputStream()", e);
             }
             throw e;
         } finally {

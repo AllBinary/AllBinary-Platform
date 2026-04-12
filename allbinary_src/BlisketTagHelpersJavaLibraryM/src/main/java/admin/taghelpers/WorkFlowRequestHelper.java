@@ -75,13 +75,13 @@ public class WorkFlowRequestHelper extends ModifyTable
             }
             throw new Exception(e);
          }
-         catch(Exception ex)
+         catch(Exception e2)
          {
             String error = "Failed to get data from workflowinterface to set error string";
             
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-               this.logUtil.putF(commonStrings.EXCEPTION,this,"delete()",ex);
+               this.logUtil.put(commonStrings.EXCEPTION, this, "delete()", e2);
             }
             return error;
          }         

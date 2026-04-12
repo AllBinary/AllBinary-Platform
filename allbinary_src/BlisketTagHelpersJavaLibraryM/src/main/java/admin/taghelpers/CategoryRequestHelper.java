@@ -325,7 +325,7 @@ public class CategoryRequestHelper extends ModifyTable
          
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
-               this.logUtil.putF(commonStrings.EXCEPTION, this, "delete()", e2);
+               this.logUtil.put(commonStrings.EXCEPTION, this, "delete()", e2);
             }
             return error;
          }

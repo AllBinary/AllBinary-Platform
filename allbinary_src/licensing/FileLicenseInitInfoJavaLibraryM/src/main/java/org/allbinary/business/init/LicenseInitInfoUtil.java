@@ -189,12 +189,12 @@ public class LicenseInitInfoUtil
 //                    return readAgain(initializeCounter++);
 //                }
             }
-            catch (Exception se)
+            catch (Exception e2)
             {
                 // if
                 // (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADERERROR))
                 // {
-                this.logUtil.put("LicenseInitInfo Read Retry: " + INITFILENAME, this, "readAgain()", se);
+                this.logUtil.put("LicenseInitInfo Read Retry: " + INITFILENAME, this, "readAgain()", e2);
                 // }
             }
             throw new Exception("LicenseInitInfo Read Error: " + INITFILENAME);
