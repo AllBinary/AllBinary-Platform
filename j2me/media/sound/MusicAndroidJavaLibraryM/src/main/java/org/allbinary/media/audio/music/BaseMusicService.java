@@ -143,14 +143,15 @@ public class BaseMusicService extends Service
 
                     @Override
                     public void run() {
+                        final LogUtil logUtil = LogUtil.getInstance();
                         try {
                             while(player.isPlaying()) {
-                                this.logUtil.putF(WAITING_FOR_MUSIC_TO_END, this, commonStateStrings.ON_START_COMMAND);
+                                logUtil.putF(WAITING_FOR_MUSIC_TO_END, this, commonStateStrings.ON_START_COMMAND);
                                 Thread.sleep(1200);
                             }
                             onStartCommand(intent);
                         } catch(Exception e) {
-                            this.logUtil.put(commonStrings.EXCEPTION, this, commonStateStrings.ON_START_COMMAND, e);
+                            logUtil.put(commonStrings.EXCEPTION, this, commonStateStrings.ON_START_COMMAND, e);
                         }
                     }
                 };
