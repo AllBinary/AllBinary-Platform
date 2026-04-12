@@ -13,6 +13,8 @@
  */
 package org.allbinary.string;
 
+import org.allbinary.logic.string.StringMaker;
+
 public class CommonSeps
 {
 
@@ -32,8 +34,8 @@ public class CommonSeps
     public final String COLON = ":";
     public final String PERIOD = ".";
     public final String UNDERSCORE = "_";
-    public final String COLON_SEP = this.COLON + this.SPACE;
-    public final String COMMA_SEP = this.COMMA + this.SPACE;
+    public final String COLON_SEP = new StringMaker().append(this.COLON).append(this.SPACE).toString();
+    public final String COMMA_SEP = new StringMaker().append(this.COMMA).append(this.SPACE).toString();
     public final String PARENTHESIS_OPEN = "(";
     public final String PARENTHESIS_CLOSE = ")";
     public final String BRACE_OPEN = "{";
