@@ -19,6 +19,7 @@ import org.allbinary.android.activity.NullProgressActivity;
 import org.allbinary.android.activity.ProgressActivityInterface;
 import org.allbinary.android.activity.SimpleProgressActivityInterface;
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class AndroidTitleProgressBar extends ProgressCanvas
 {
@@ -162,6 +163,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
         @Override
         public void run()
         {
+            final LogUtil logUtil = LogUtil.getInstance();
             try
             {
                 final int value = (int) AndroidTitleProgressBar.this.getValue();
@@ -169,7 +171,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
             }
             catch (Exception e)
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
             }
         }
     }
@@ -179,6 +181,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
         @Override
         public void run()
         {
+            final LogUtil logUtil = LogUtil.getInstance();
             try
             {
                 final int value = (int) (AndroidTitleProgressBar.this.getValue() + AndroidTitleProgressBar.this.getMaxValue() / portion);
@@ -186,7 +189,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
             }
             catch (Exception e)
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
             }
         }
     }
@@ -196,6 +199,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
         @Override
         public void run()
         {
+            final LogUtil logUtil = LogUtil.getInstance();
             try
             {
                 final int maxValue = (int) AndroidTitleProgressBar.this.getMaxValue();
@@ -203,7 +207,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
             }
             catch (Exception e)
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
             }
         }
     }
@@ -213,13 +217,14 @@ public class AndroidTitleProgressBar extends ProgressCanvas
         @Override
         public void run()
         {
+            final LogUtil logUtil = LogUtil.getInstance();
             try
             {
                 AndroidTitleProgressBar.this.progressActivity.onDismissTitleProgressBar();
             }
             catch (Exception e)
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
             }
         }
     }
