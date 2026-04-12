@@ -42,6 +42,7 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
 
         @Override
         public void run() {
+            final LogUtil logUtil = LogUtil.getInstance();
             try {
                 pathFindingLayer.getWaypointRunnableLogHelper().start(pathFindingLayer);
 
@@ -57,7 +58,7 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
                 pathFindingInfo = targetPathFindingLayer.getWaypointBehavior().getWaypoint().getPathFindingInfo(geographicMapCellPosition);
                 final PathFindingInfo localPathFindingInfo = (PathFindingInfo) pathFindingInfo;
                 
-//                this.logUtil.putF("first set: " + pathFindingInfo, this, "getPathsList");
+//                logUtil.putF("first set: " + pathFindingInfo, this, "getPathsList");
                                 
                 list = targetPathFindingLayer.getWaypointBehavior().getWaypoint().getPathsList(geographicMapCellPosition, localPathFindingInfo, multipassState);
                 
@@ -68,8 +69,8 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
                 }
             } catch (Exception e) {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
-                //this.logUtil.put(commonStrings.EXCEPTION, this, "run", e);
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                //logUtil.put(commonStrings.EXCEPTION, this, "run", e);
                 setRunning(false);
                 finish();
             }
@@ -83,11 +84,12 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
         
         @Override
         public void run() {
+            final LogUtil logUtil = LogUtil.getInstance();
             try {
 
 //                if(first) {
 //                    first = false;
-//                    this.logUtil.putF("second set: " + pathFindingInfo, this, "getPathsList");
+//                    logUtil.putF("second set: " + pathFindingInfo, this, "getPathsList");
 //                }
                 
                 final GeographicMapCellPosition geographicMapCellPosition = 
@@ -102,8 +104,8 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
                 
             } catch (Exception e) {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
-                //this.logUtil.put(commonStrings.EXCEPTION, this, "run", e);
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                //logUtil.put(commonStrings.EXCEPTION, this, "run", e);
                 setRunning(false);
                 finish();
             }
@@ -115,10 +117,11 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
             
         @Override
         public void run() {
+            final LogUtil logUtil = LogUtil.getInstance();
             try {
                 final WaypointBehaviorBase waypointBehavior = pathFindingLayer.getWaypointBehavior();
                 
-//                this.logUtil.putF("end: " + pathFindingInfo, this, "getPathsList");
+//                logUtil.putF("end: " + pathFindingInfo, this, "getPathsList");
 
                 waypointBehavior.setWaypointPathsList(list);
 
@@ -126,8 +129,8 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
                 
             } catch (Exception e) {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
-                //this.logUtil.put(commonStrings.EXCEPTION, this, "run", e);
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                //logUtil.put(commonStrings.EXCEPTION, this, "run", e);
                 setRunning(false);
             }
 
@@ -166,6 +169,7 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
     @Override
     public void run()
     {
+        final LogUtil logUtil = LogUtil.getInstance();
         try
         {
             this.currentPassRunnable.run();
@@ -173,8 +177,8 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
-            //this.logUtil.put(commonStrings.EXCEPTION, this, "run", e);
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+            //logUtil.put(commonStrings.EXCEPTION, this, "run", e);
             this.setRunning(false);
         }
     }

@@ -145,13 +145,15 @@ public class ImageModifierUtil {
                 final ResourceCallback callback = new ResourceCallback() {
                     @Override
                     public void done(Object resource) {
-                        this.logUtil.putF(resourceCallbackStrings.DONE + image.getName(), this, resourceCallbackStrings.HANDLE_IMAGE);
+                        final LogUtil logUtil = LogUtil.getInstance();
+                        logUtil.putF(resourceCallbackStrings.DONE + image.getName(), this, resourceCallbackStrings.HANDLE_IMAGE);
                         copy(imageArray, index, image, image3);
                     }
 
                     @Override
                     public void error(Throwable e) {
-                        this.logUtil.putF(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(resourceCallbackStrings.ERROR).append(image.getName()).toString(), this, resourceCallbackStrings.HANDLE_IMAGE);
+                        final LogUtil logUtil = LogUtil.getInstance();
+                        logUtil.putF(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(resourceCallbackStrings.ERROR).append(image.getName()).toString(), this, resourceCallbackStrings.HANDLE_IMAGE);
                     }
                 };
                 

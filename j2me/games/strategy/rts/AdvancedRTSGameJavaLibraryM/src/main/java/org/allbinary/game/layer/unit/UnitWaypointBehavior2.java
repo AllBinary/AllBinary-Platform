@@ -884,10 +884,11 @@ extends UnitWaypointBehavior
         @Override
         public Object visit(Object object)
         {
+            final LogUtil logUtil = LogUtil.getInstance();
             try
             {
                 if (this.getList().size() > 0) {
-                    //this.logUtil.putF("steering", this, "visit");
+                    //logUtil.putF("steering", this, "visit");
 
                     final AllBinaryLayer allbinaryLayer = (AllBinaryLayer) this.getList().get(0);
 
@@ -909,7 +910,7 @@ extends UnitWaypointBehavior
             catch(Exception e)
             {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                this.logUtil.put(commonStrings.EXCEPTION, this, "visit", e);
+                logUtil.put(commonStrings.EXCEPTION, this, "visit", e);
                 return NullUtil.getInstance().NULL_OBJECT;
             }
         }

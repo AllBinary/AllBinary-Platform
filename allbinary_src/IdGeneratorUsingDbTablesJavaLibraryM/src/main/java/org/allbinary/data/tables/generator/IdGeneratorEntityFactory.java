@@ -35,7 +35,7 @@ public class IdGeneratorEntityFactory
       {
           final LogUtil logUtil = LogUtil.getInstance();
          final CommonStrings commonStrings = CommonStrings.getInstance();
-         this.logUtil.put(commonStrings.EXCEPTION, "ServerLicenseRequestEntityFactory",commonStrings.GET_INSTANCE,e);
+         logUtil.put(commonStrings.EXCEPTION, "ServerLicenseRequestEntityFactory",commonStrings.GET_INSTANCE,e);
          return null;
       }
    }

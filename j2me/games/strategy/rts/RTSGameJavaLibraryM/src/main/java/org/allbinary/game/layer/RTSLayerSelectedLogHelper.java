@@ -119,7 +119,7 @@ public class RTSLayerSelectedLogHelper extends RTSLayerLogHelper {
 
     @Override
     public void doneMoving(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
-        this.logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - done moving 0,0").toString(), this, TRACKTO_TURNTO);
+        this.logUtil.putF(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - done moving 0,0").toString(), this, TRACKTO_TURNTO);
     }
 
     @Override
@@ -149,7 +149,7 @@ public class RTSLayerSelectedLogHelper extends RTSLayerLogHelper {
 
     @Override
     public void currentMoveEnded(final PathFindingLayerInterface associatedAdvancedRTSGameLayer) {
-        this.logUtil.put(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - correct angle, but movement not needed for current deltas so reseting movement angle").toString(), this, TRACKTO_TURNTO);
+        this.logUtil.putF(new StringMaker().append(associatedAdvancedRTSGameLayer.getName()).append(" steering - correct angle, but movement not needed for current deltas so reseting movement angle").toString(), this, TRACKTO_TURNTO);
     }
 
     @Override

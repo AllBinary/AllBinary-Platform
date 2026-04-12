@@ -113,19 +113,20 @@ public class ImageCache extends ImageCacheBase {
     private class FirstProcessor extends Processor {
         
         public void process() {
+            final LogUtil logUtil = LogUtil.getInstance();
             final boolean isHTML = J2MEUtil.isHTML();
-            //this.logUtil.putF(new StringMaker().append("isHTML: ").append(isHTML).toString(), this, commonStrings.RUN);
+            //logUtil.putF(new StringMaker().append("isHTML: ").append(isHTML).toString(), this, commonStrings.RUN);
             if (isHTML) {
                 processor = Processor.getInstance();
                 endProcessor = new HTMLEndProcessor();
             } else {
-                //this.logUtil.putF("Setting processor", this, commonStrings.RUN);
+                //logUtil.putF("Setting processor", this, commonStrings.RUN);
                 processor = new NotHTMLProcessor();
                 endProcessor = new NotHTMLEndProcessor();
                 try {
                     runTask();
                 } catch (Exception e) {
-                    this.logUtil.putF(commonStrings.EXCEPTION, this, commonStrings.END_METHOD_NAME);
+                    logUtil.putF(commonStrings.EXCEPTION, this, commonStrings.END_METHOD_NAME);
                 }
             }
         }

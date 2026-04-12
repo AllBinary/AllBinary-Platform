@@ -25,6 +25,7 @@ import org.allbinary.game.layer.AllBinaryTiledLayer;
 import org.allbinary.game.layer.TiledLayerUtil;
 import org.allbinary.game.layer.geographic.map.LayerPartialCellPositionsUtil;
 import org.allbinary.logic.NullUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.math.AngleInfo;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
@@ -63,11 +64,12 @@ extends CollidableRTSBehavior
         @Override
         public Object visit(final Object object)
         {
+            final LogUtil logUtil = LogUtil.getInstance();
             try
             {
                 if (this.getList().size() > 0)
                 {
-                    ///this.logUtil.putF("steering", this, "visit");
+                    ///logUtil.putF("steering", this, "visit");
                     
                     final CollidableCompositeLayer allbinaryLayer = 
                         (CollidableCompositeLayer) this.getList().get(0);
@@ -87,7 +89,7 @@ extends CollidableRTSBehavior
             }
             catch(Exception e)
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, "visit", e);
+                logUtil.put(commonStrings.EXCEPTION, this, "visit", e);
                 return NullUtil.getInstance().NULL_OBJECT;
             }
         }

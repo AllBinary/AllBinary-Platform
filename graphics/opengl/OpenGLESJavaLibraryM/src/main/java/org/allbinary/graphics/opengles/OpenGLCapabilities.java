@@ -433,7 +433,7 @@ public class OpenGLCapabilities
         catch(Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            PreLogUtil.put(commonStrings.EXCEPTION, this, commonStrings.TOSTRING, e);
+            PreLogUtil.putOE(commonStrings.EXCEPTION, this, commonStrings.TOSTRING, e);
         }
         
         return stringBuffer.toString();

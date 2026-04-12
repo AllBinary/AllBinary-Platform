@@ -110,7 +110,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
             }
         } catch(Exception e) {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            PreLogUtil.put(commonStrings.EXCEPTION, this, commonStrings.EXCEPTION, e);
+            PreLogUtil.putOE(commonStrings.EXCEPTION, this, commonStrings.EXCEPTION, e);
             throw new RuntimeException();
         }
     }

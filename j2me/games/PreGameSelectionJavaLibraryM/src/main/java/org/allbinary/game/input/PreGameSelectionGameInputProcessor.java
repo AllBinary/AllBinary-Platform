@@ -72,8 +72,9 @@ public class PreGameSelectionGameInputProcessor extends Processor implements
 
             } catch (Exception e) {
                 this.setRunning(false);
+                final LogUtil logUtil = LogUtil.getInstance();
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+                logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
             }
         }
     };
