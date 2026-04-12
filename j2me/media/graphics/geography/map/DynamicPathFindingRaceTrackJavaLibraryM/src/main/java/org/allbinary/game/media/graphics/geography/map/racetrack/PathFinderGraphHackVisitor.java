@@ -155,7 +155,7 @@ public class PathFinderGraphHackVisitor<V, E> extends BasePathFinderGraphVisitor
             CellPosition overPassGeographicMapCellPosition =
                CellPositionArray[index];
 
-            this.logUtil.put("Fixing Over Pass: " + overPassGeographicMapCellPosition.getColumn() + ", " + overPassGeographicMapCellPosition.getRow(), this, "fixOverPassEdges");
+            this.logUtil.putF("Fixing Over Pass: " + overPassGeographicMapCellPosition.getColumn() + ", " + overPassGeographicMapCellPosition.getRow(), this, "fixOverPassEdges");
 
             GeographicMapCellPosition underPassGeographicMapCellPosition =
                geographicMapCellPositionFactory.getInstance(

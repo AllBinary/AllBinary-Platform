@@ -101,7 +101,7 @@ public class RequestParams
             return node;
         }catch(Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "toXmlNode(document)", e);
+            this.logUtil.putF(commonStrings.EXCEPTION, this, "toXmlNode(document)", e);
 
             //throw e;
             return null;
@@ -125,7 +125,7 @@ public class RequestParams
 
             //Object[] value = (Object[]) map.get(key);
 
-            //this.logUtil.put("Class: " + value.getClass().getName(), this, "toHashMap()");
+            //this.logUtil.putF("Class: " + value.getClass().getName(), this, "toHashMap()");
             //stringBuffer.delete(0, stringBuffer.length());
 
             //stringBuffer.append(KEY);

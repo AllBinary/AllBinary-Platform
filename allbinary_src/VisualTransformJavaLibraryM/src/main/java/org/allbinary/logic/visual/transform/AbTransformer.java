@@ -106,7 +106,7 @@ public class AbTransformer implements BasicTransformerInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            this.logUtil.put(this.transformInfoInterface.log(), this, "translate(document)", e);
+            this.logUtil.putF(this.transformInfoInterface.log(), this, "translate(document)", e);
          }
          throw e;
       }

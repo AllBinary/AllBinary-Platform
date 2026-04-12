@@ -181,7 +181,7 @@ public class BasicWorkFlow
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "toXmlNode()", e);
+            this.logUtil.putF(commonStrings.EXCEPTION, this, "toXmlNode()", e);
          }
          return null;
       }
@@ -197,7 +197,7 @@ public class BasicWorkFlow
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"toXmlDoc()",e);
+            this.logUtil.putF(commonStrings.EXCEPTION,this,"toXmlDoc()",e);
          }
          return null;
       }
@@ -259,7 +259,7 @@ public class BasicWorkFlow
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            this.logUtil.put("Failed to generate validation error info",this,"validationInfo()",e);
+            this.logUtil.putF("Failed to generate validation error info",this,"validationInfo()",e);
          }
          return "Error Getting Validation Info";
       }

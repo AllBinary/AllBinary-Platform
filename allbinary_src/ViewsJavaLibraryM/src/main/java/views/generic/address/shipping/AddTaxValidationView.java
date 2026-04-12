@@ -141,7 +141,7 @@ public class AddTaxValidationView extends ShippingAddressView implements Validat
       {
 	 if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
 	 {
-	    this.logUtil.put("Failed to create validateInfo",this,"validationInfo()",e);
+	    this.logUtil.putF("Failed to create validateInfo",this,"validationInfo()",e);
 	 }
 	 return "Error Creating ValidationInfo";
       }

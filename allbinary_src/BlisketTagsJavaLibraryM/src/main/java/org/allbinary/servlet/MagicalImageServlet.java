@@ -66,7 +66,7 @@ public class MagicalImageServlet extends HttpServlet
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
             {
-                this.logUtil.put(this.commonStrings.EXCEPTION, this, "processRequest()", e);
+                this.logUtil.putF(this.commonStrings.EXCEPTION, this, "processRequest()", e);
             }
         }
         finally

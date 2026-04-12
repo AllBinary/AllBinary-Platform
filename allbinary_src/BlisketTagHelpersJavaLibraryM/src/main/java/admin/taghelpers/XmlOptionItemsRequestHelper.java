@@ -106,7 +106,7 @@ public class XmlOptionItemsRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"inserts()",e);
+            this.logUtil.putF(commonStrings.EXCEPTION,this,"inserts()",e);
          }
          return error;
       }
@@ -132,7 +132,7 @@ public class XmlOptionItemsRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"delete()",e);
+            this.logUtil.putF(commonStrings.EXCEPTION,this,"delete()",e);
          }
          return error;
       }
@@ -159,7 +159,7 @@ public class XmlOptionItemsRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"update()",e);
+            this.logUtil.putF(commonStrings.EXCEPTION,this,"update()",e);
          }
          return error;
       }

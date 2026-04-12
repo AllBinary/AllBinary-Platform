@@ -189,7 +189,7 @@ public class TransformFactory {
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR)) {
-                this.logUtil.put(commonStrings.EXCEPTION, this, "getInstance(TransformInfoInterface)", e);
+                this.logUtil.putF(commonStrings.EXCEPTION, this, "getInstance(TransformInfoInterface)", e);
             }
             throw e;
         }

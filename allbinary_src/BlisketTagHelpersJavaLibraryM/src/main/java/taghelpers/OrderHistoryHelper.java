@@ -128,7 +128,7 @@ public class OrderHistoryHelper extends TagHelper
          String error = "Failed to set order status";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"setOrderStatus()",e);
+            this.logUtil.putF(commonStrings.EXCEPTION,this,"setOrderStatus()",e);
          }
          return error + "<br/>" + "Exception: " + e + "<br/>";
       }

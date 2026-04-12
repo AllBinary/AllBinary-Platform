@@ -194,7 +194,7 @@ public class LicenseInitInfoUtil
                 // if
                 // (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADERERROR))
                 // {
-                this.logUtil.put("LicenseInitInfo Read Retry: " + INITFILENAME, this, "readAgain()", se);
+                this.logUtil.putF("LicenseInitInfo Read Retry: " + INITFILENAME, this, "readAgain()", se);
                 // }
             }
             throw new Exception("LicenseInitInfo Read Error: " + INITFILENAME);

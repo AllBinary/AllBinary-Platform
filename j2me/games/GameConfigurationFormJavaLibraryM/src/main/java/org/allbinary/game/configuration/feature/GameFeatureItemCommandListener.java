@@ -63,7 +63,7 @@ public class GameFeatureItemCommandListener implements ItemCommandListener
         catch (Exception e)
         {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, MidletStrings.getInstance().COMMAND_ACTION, e);
+            this.logUtil.putF(commonStrings.EXCEPTION, this, MidletStrings.getInstance().COMMAND_ACTION, e);
         }
     }
 }

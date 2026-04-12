@@ -58,7 +58,7 @@ public class InventoryTag extends StoreValidationTransformTag
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"search()",e);
+            this.logUtil.putF(commonStrings.EXCEPTION,this,"search()",e);
          }
          try
          {
@@ -69,7 +69,7 @@ public class InventoryTag extends StoreValidationTransformTag
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSINGERROR))
             {
-               this.logUtil.put("Exception in Exception Handling",this,"search()",e);
+               this.logUtil.putF("Exception in Exception Handling",this,"search()",e);
             }
          }
       }
@@ -98,7 +98,7 @@ public class InventoryTag extends StoreValidationTransformTag
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"viewSummary()",e);
+            this.logUtil.putF(commonStrings.EXCEPTION,this,"viewSummary()",e);
          }
          try
          {
@@ -110,7 +110,7 @@ public class InventoryTag extends StoreValidationTransformTag
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSINGERROR))
             {
-               this.logUtil.put("Exception in Exception Handling",this,"viewSummary())",e);
+               this.logUtil.putF("Exception in Exception Handling",this,"viewSummary())",e);
             }
          }
       }

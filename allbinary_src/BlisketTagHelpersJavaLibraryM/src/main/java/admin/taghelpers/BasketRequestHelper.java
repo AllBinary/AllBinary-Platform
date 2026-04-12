@@ -102,7 +102,7 @@ public class BasketRequestHelper
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"addItemToBasket()",e);
+            this.logUtil.putF(commonStrings.EXCEPTION,this,"addItemToBasket()",e);
          }
          return Boolean.FALSE;
       }
@@ -127,7 +127,7 @@ public class BasketRequestHelper
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"removeItemFromBasket()",e);
+            this.logUtil.putF(commonStrings.EXCEPTION,this,"removeItemFromBasket()",e);
          }
          return Boolean.FALSE;
       }
@@ -163,7 +163,7 @@ public class BasketRequestHelper
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"adjustBasket()",e);
+            this.logUtil.putF(commonStrings.EXCEPTION,this,"adjustBasket()",e);
          }
          return Boolean.FALSE;
       }

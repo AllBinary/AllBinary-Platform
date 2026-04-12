@@ -192,7 +192,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
             catch (Exception e)
             {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                this.logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
+                this.logUtil.putF(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
             index++;
         }

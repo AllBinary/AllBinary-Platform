@@ -139,7 +139,7 @@ public class LicenseClientAndServerTest
     System.out.println(licenseInfo);
     } catch (Exception e)
     {
-    this.logUtil.put(this.commonStrings.EXCEPTION, this, "test()", e);
+    this.logUtil.putF(this.commonStrings.EXCEPTION, this, "test()", e);
     }
     }
      */
@@ -152,7 +152,7 @@ public class LicenseClientAndServerTest
         } catch (Exception e)
         {
             final LogUtil logUtil = LogUtil.getInstance();
-            this.logUtil.put(this.commonStrings.EXCEPTION, "main()", "main()", e);
+            this.logUtil.putF(this.commonStrings.EXCEPTION, "main()", "main()", e);
         }
     }
 }

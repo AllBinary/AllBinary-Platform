@@ -62,7 +62,7 @@ public class UserName
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put("Failed to validate form", this, "isUserNameValid()", e);
+            this.logUtil.putF("Failed to validate form", this, "isUserNameValid()", e);
          }
          return Boolean.FALSE;
       }

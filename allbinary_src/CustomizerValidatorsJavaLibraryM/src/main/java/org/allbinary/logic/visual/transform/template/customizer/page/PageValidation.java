@@ -107,7 +107,7 @@ public class PageValidation extends Validation implements DomNodeInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put("Failed to generate validation error info", this, "validationInfo()", e);
+            this.logUtil.putF("Failed to generate validation error info", this, "validationInfo()", e);
          }
          return "Error Validating Form";
       }

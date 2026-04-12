@@ -39,7 +39,7 @@ public class StaticPathGenerator {
     private final BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();
     
     protected StaticPathGenerator() {
-        PrelogUtil.putF("Using Static Path Finding", this, CommonStrings.getInstance().CONSTRUCTOR);
+        PreLogUtil.put("Using Static Path Finding", this, CommonStrings.getInstance().CONSTRUCTOR);
     }
 
     public void init(final Object geographicMapInterface, final int totalPaths)
@@ -117,7 +117,7 @@ public class StaticPathGenerator {
             return list;
 
         } catch (Exception e) {
-            this.logUtil.putF(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
             return new BasicArrayList();
         }
     }

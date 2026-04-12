@@ -149,7 +149,7 @@ public class StoreCustomizerComponentUtil
 
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
     {
-    this.logUtil.put("Retrieved: " +
+    this.logUtil.putF("Retrieved: " +
     specifiedTransformInfoInterface.getName(),this,"generateModifiedViews()");
     }
 
@@ -204,7 +204,7 @@ public class StoreCustomizerComponentUtil
 
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
     {
-    this.logUtil.put("Retrieved: " +
+    this.logUtil.putF("Retrieved: " +
     specifiedTransformInfoInterface.getName(),
     this, "generateModifiedViews()");
     }
@@ -261,7 +261,7 @@ public class StoreCustomizerComponentUtil
 
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
     {
-    this.logUtil.put("Retrieved: " +
+    this.logUtil.putF("Retrieved: " +
     specifiedTransformInfoInterface.getName(),this,"generateModifiedViews()");
     }
 

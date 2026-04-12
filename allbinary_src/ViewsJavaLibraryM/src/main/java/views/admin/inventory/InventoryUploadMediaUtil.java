@@ -362,7 +362,7 @@ public class InventoryUploadMediaUtil
 
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
     {
-    this.logUtil.put("Saving Small Image: " + this.itemInterface.getSmallImage(), this, "saveFiles()");
+    this.logUtil.putF("Saving Small Image: " + this.itemInterface.getSmallImage(), this, "saveFiles()");
     }
 
     mediaUtil.saveBufferedImageFile(
@@ -413,7 +413,7 @@ public class InventoryUploadMediaUtil
 
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
     {
-    this.logUtil.put("Saving Small Image: " + this.itemInterface.getSmallImage(), this, "saveFiles()");
+    this.logUtil.putF("Saving Small Image: " + this.itemInterface.getSmallImage(), this, "saveFiles()");
     }
 
     mediaUtil.saveBufferedImageFile(
@@ -470,7 +470,7 @@ public class InventoryUploadMediaUtil
 
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
     {
-    this.logUtil.put(commonStrings.END, this, "saveFiles()");
+    this.logUtil.putF(commonStrings.END, this, "saveFiles()");
     }
     return this.itemInterface;
     }

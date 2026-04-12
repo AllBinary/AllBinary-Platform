@@ -160,7 +160,7 @@ public class FileAuthenticationTag extends CustomTagSupport
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, "invalidateSession()", e);
+                this.logUtil.putF(commonStrings.EXCEPTION, this, "invalidateSession()", e);
             }
             return false;
         }
@@ -176,7 +176,7 @@ public class FileAuthenticationTag extends CustomTagSupport
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, "invalidateSession()", e);
+                this.logUtil.putF(commonStrings.EXCEPTION, this, "invalidateSession()", e);
             }
             return TagSupport.SKIP_BODY;
         }
@@ -226,7 +226,7 @@ public class FileAuthenticationTag extends CustomTagSupport
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, "isSessionOld()", e);
+                this.logUtil.putF(commonStrings.EXCEPTION, this, "isSessionOld()", e);
             }
             return false;
         }
@@ -301,7 +301,7 @@ public class FileAuthenticationTag extends CustomTagSupport
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, "isRoleValid()", e);
+                this.logUtil.putF(commonStrings.EXCEPTION, this, "isRoleValid()", e);
             }
             return false;
         }
@@ -324,7 +324,7 @@ public class FileAuthenticationTag extends CustomTagSupport
             String error = "Failed to set valid role";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, "validRole()", e);
+                this.logUtil.putF(commonStrings.EXCEPTION, this, "validRole()", e);
             }
             return error;
         }
@@ -345,7 +345,7 @@ public class FileAuthenticationTag extends CustomTagSupport
             String error = "Failed to set role invalid";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, "invalidRole()", e);
+                this.logUtil.putF(commonStrings.EXCEPTION, this, "invalidRole()", e);
             }
             return error;
         }
@@ -376,7 +376,7 @@ public class FileAuthenticationTag extends CustomTagSupport
             //String error = "Failed to validate previously authenticated Session";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, "isAuthenticationSessionValid()", e);
+                this.logUtil.putF(commonStrings.EXCEPTION, this, "isAuthenticationSessionValid()", e);
             }
             return false;
         }
@@ -423,7 +423,7 @@ public class FileAuthenticationTag extends CustomTagSupport
             //String error = "Failed to validate new login";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, "processIfNewLogin()", e);
+                this.logUtil.putF(commonStrings.EXCEPTION, this, "processIfNewLogin()", e);
             }
             return false;
         }
@@ -447,7 +447,7 @@ public class FileAuthenticationTag extends CustomTagSupport
             //String error = "Failed check if already set to invalidate";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, "isSetToInvalidate()", e);
+                this.logUtil.putF(commonStrings.EXCEPTION, this, "isSetToInvalidate()", e);
             }
             return false;
         }

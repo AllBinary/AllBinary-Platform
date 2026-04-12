@@ -63,7 +63,7 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "getRootInstance()", e);
+            this.logUtil.putF(commonStrings.EXCEPTION, this, "getRootInstance()", e);
          }
          return null;
       }
@@ -89,7 +89,7 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "getRootInstance(String)", e);
+            this.logUtil.putF(commonStrings.EXCEPTION, this, "getRootInstance(String)", e);
          }
          return null;
       }
@@ -117,7 +117,7 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "getRootInstance(node)", e);
+            this.logUtil.putF(commonStrings.EXCEPTION, this, "getRootInstance(node)", e);
          }
          return null;
       }
@@ -243,7 +243,7 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "getInstance(HashMap)", e);
+            this.logUtil.putF(commonStrings.EXCEPTION, this, "getInstance(HashMap)", e);
          }
          return null;
       }

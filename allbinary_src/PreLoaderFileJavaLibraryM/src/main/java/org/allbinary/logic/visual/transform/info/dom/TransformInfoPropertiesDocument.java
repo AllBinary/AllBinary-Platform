@@ -88,7 +88,7 @@ public class TransformInfoPropertiesDocument
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             final CommonStrings commonStrings = CommonStrings.getInstance();
-            this.logUtil.put(commonStrings.EXCEPTION, this, "toTransformInfoPropertiesHashMap()", e);
+            this.logUtil.putF(commonStrings.EXCEPTION, this, "toTransformInfoPropertiesHashMap()", e);
          }
          return null;
       }

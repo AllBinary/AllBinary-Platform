@@ -60,7 +60,7 @@ public class InventoryEntityFactory
          final CommonStrings commonStrings = CommonStrings.getInstance();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION, this,"getInventoryEntityInstance()", e);
+            this.logUtil.putF(commonStrings.EXCEPTION, this,"getInventoryEntityInstance()", e);
          }
          return null;
       }

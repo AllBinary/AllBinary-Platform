@@ -65,7 +65,7 @@ public class PaymentGatewayComponent extends HttpStoreComponentView
          String error = "Failed to view payment gateway";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "view()", e);
+            this.logUtil.putF(commonStrings.EXCEPTION, this, "view()", e);
          }
          return error;
       }

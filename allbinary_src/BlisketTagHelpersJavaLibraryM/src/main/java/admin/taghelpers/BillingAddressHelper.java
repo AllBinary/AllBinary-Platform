@@ -109,7 +109,7 @@ public class BillingAddressHelper extends Table
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"create()",e);
+            this.logUtil.putF(commonStrings.EXCEPTION,this,"create()",e);
          }
          return error;
       }
@@ -138,7 +138,7 @@ public class BillingAddressHelper extends Table
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "restore()", e);
+            this.logUtil.putF(commonStrings.EXCEPTION, this, "restore()", e);
          }
          return error;
       }
@@ -163,7 +163,7 @@ public class BillingAddressHelper extends Table
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"backup()",e);
+            this.logUtil.putF(commonStrings.EXCEPTION,this,"backup()",e);
          }
          return error;
       }
@@ -189,7 +189,7 @@ public class BillingAddressHelper extends Table
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"add()",e);
+            this.logUtil.putF(commonStrings.EXCEPTION,this,"add()",e);
          }
          return error;
       }
@@ -215,7 +215,7 @@ public class BillingAddressHelper extends Table
          String error = "Failed update of a User Billing Address Table";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"update()",e);
+            this.logUtil.putF(commonStrings.EXCEPTION,this,"update()",e);
          }
          return error;
       }
@@ -250,7 +250,7 @@ public class BillingAddressHelper extends Table
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"setToShippingAddress()",e);
+            this.logUtil.putF(commonStrings.EXCEPTION,this,"setToShippingAddress()",e);
          }
          return error;
       }
@@ -279,7 +279,7 @@ public class BillingAddressHelper extends Table
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-        	 this.logUtil.put(commonStrings.EXCEPTION,this,"delete()",e);
+        	 this.logUtil.putF(commonStrings.EXCEPTION,this,"delete()",e);
          }
          return error;
       }
@@ -306,7 +306,7 @@ public class BillingAddressHelper extends Table
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"set()",e);
+            this.logUtil.putF(commonStrings.EXCEPTION,this,"set()",e);
          }
          return error;
       }

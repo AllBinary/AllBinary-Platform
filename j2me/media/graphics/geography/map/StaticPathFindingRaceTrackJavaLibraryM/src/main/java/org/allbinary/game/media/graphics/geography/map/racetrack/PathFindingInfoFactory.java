@@ -51,7 +51,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
         throws Exception
     {
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        PrelogUtil.putF(commonStrings.START, this, commonStrings.GET_INSTANCE);
+        PreLogUtil.put(commonStrings.START, this, commonStrings.GET_INSTANCE);
 
         final PathFindingInfo pathFindingInfo = new PathFindingInfo(new PathFindingNodeCostInfoFactoryBase());
 

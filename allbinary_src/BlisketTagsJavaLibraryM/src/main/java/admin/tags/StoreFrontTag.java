@@ -69,7 +69,7 @@ public class StoreFrontTag extends CustomTagSupport
          String error = "Failed to retrieve current location";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"getCurrentLocation()",e);
+            this.logUtil.putF(commonStrings.EXCEPTION,this,"getCurrentLocation()",e);
          }
          return error;
       }
@@ -96,7 +96,7 @@ public class StoreFrontTag extends CustomTagSupport
          String error = "Failed to retrieve current home location";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"getCurrentHomeLocation()",e);
+            this.logUtil.putF(commonStrings.EXCEPTION,this,"getCurrentHomeLocation()",e);
          }
          return error;
       }

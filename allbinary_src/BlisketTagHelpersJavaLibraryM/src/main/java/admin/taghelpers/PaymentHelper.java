@@ -86,7 +86,7 @@ public class PaymentHelper extends Table
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"addPayment()",e);
+            this.logUtil.putF(commonStrings.EXCEPTION,this,"addPayment()",e);
          }
          return error;
       }
@@ -117,7 +117,7 @@ public class PaymentHelper extends Table
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"selectPayment()",e);
+            this.logUtil.putF(commonStrings.EXCEPTION,this,"selectPayment()",e);
          }
          return error;
       }
@@ -158,7 +158,7 @@ public class PaymentHelper extends Table
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"removePayment()",e);
+            this.logUtil.putF(commonStrings.EXCEPTION,this,"removePayment()",e);
          }         
          return error;
       }
@@ -211,7 +211,7 @@ public class PaymentHelper extends Table
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"create()",e);
+            this.logUtil.putF(commonStrings.EXCEPTION,this,"create()",e);
          }
          return error;         
       }
@@ -235,7 +235,7 @@ public class PaymentHelper extends Table
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"restore()",e);
+            this.logUtil.putF(commonStrings.EXCEPTION,this,"restore()",e);
          }
          return error;
       }
@@ -259,7 +259,7 @@ public class PaymentHelper extends Table
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"backup()",e);
+            this.logUtil.putF(commonStrings.EXCEPTION,this,"backup()",e);
          }
          return error;
       }
