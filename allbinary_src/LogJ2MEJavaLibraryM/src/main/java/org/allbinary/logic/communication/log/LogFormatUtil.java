@@ -93,7 +93,7 @@ public class LogFormatUtil
             functionName = this.NONE;
         }
 
-        //int hashCode = LogUtil.class.getClassLoader().getClass().hashCode();
+        //int hashCode = TsUtil.getInstance().hashCode(LogUtil.class.getClassLoader().getClass());
         final StringMaker stringBuffer = new StringMaker();
         stringBuffer.append(this.TIME);
         stringBuffer.append(this.timeStampUtil.getAsString());

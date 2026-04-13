@@ -31,11 +31,11 @@ public class SWTRunnableProcessor extends SWTProcessor {
     }
     
     private SWTRunnableProcessor() {
-        //System.out.println("SWTRunnableProcessor" + this.hashCode());
+        //System.out.println("SWTRunnableProcessor" + TsUtil.getInstance().hashCode(this));
     }
     
     public void process(final Display display) {
-        //System.out.println("SWTRunnableProcessor:process - Processing on SWT Thread" + this.hashCode());
+        //System.out.println("SWTRunnableProcessor:process - Processing on SWT Thread" + TsUtil.getInstance().hashCode(this));
         this.runnable.run();
         //super.process(display);
     }

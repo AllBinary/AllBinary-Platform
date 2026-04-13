@@ -15,6 +15,7 @@ package org.allbinary.logic.communication.log;
 
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.string.StringUtil;
+import org.allbinary.logic.communication.log.Log;
 
 //ActualPlatform
 public class LogFactory

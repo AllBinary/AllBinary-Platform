@@ -14,6 +14,7 @@
 package org.allbinary.logic.communication.http;
 
 import java.util.Vector;
+import org.allbinary.logic.TsUtil;
 
 public class AcceptableResponseUtil
 {
@@ -26,7 +27,7 @@ public class AcceptableResponseUtil
 
     static
     {
-        AcceptableResponseFactory.getInstance().HTML.hashCode();
+        TsUtil.getInstance().hashCode(AcceptableResponseFactory.getInstance().HTML);
     }
     public final Vector candidateVector = new Vector();
     public final Vector tagNameVector = new Vector();

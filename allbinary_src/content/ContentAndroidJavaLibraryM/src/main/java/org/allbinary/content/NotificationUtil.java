@@ -86,7 +86,7 @@ public class NotificationUtil
             notificationBuilder.build(context, command, message, integer, pendingIntent);
         
         //Android 13 requires a permission for this
-        //notificationManager.notify(command.hashCode(), notification);
+        //notificationManager.notify(TsUtil.getInstance().hashCode(command), notification);
 
         //context.startActivity(intent);
     }

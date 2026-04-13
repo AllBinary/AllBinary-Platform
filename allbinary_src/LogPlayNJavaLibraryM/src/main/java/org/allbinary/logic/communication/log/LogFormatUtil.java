@@ -87,7 +87,7 @@ public class LogFormatUtil
     
     private StringMaker getF(final String className, final String functionName)
     {
-        //int hashCode = LogUtil.class.getClassLoader().getClass().hashCode();
+        //int hashCode = TsUtil.getInstance().hashCode(LogUtil.class.getClassLoader().getClass());
         final StringMaker stringBuffer = new StringMaker();
         stringBuffer.append(TIME);
         stringBuffer.append(timeStampUtil.getAsString());

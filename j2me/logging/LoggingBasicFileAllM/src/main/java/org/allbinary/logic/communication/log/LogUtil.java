@@ -55,7 +55,7 @@ public class LogUtil
 //
 //        if (object.getClass().getName() != null)
 //        {
-//            className = new String(new StringMaker().append(object.getClass().getName()).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(object.hashCode())).toString());
+//            className = new String(new StringMaker().append(object.getClass().getName()).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(TsUtil.getInstance().hashCode(object))).toString());
 //        }
 
         FileLog.put(specialMessage, object, functionName);
@@ -72,7 +72,7 @@ public class LogUtil
 //
 //        if (object.getClass().getName() != null)
 //        {
-//            className = new String(new StringMaker().append(object.getClass().getName()).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(object.hashCode())).toString());
+//            className = new String(new StringMaker().append(object.getClass().getName()).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(TsUtil.getInstance().hashCode(object))).toString());
 //        }
 
         FileLog.put(specialMessage, object, functionName, (Throwable) exception);

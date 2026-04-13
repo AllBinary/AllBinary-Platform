@@ -122,7 +122,7 @@ public class LogUtil {
           
           stringBuffer.append(URLGLOBALS.getMainPath());
           stringBuffer.append(PATH_GLOBALS.getInstance().LOG_PATH);
-          //stringBuffer.append(LogUtil.class.getClassLoader().getClass().hashCode());
+          //stringBuffer.append(TsUtil.getInstance().hashCode(LogUtil.class.getClassLoader().getClass()));
           stringBuffer.append(LogData.ALLBINARY);
           stringBuffer.append(AbPathData.getInstance().EXTENSION_SEP);
           stringBuffer.append(LogData.extension);

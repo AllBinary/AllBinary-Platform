@@ -13,6 +13,7 @@
  */
 package org.allbinary.logic.communication.log;
 
+import org.allbinary.logic.TsUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
@@ -50,7 +51,7 @@ public class LogUtil {
         String className = CommonStrings.getInstance().EMPTY;
 
         if (object.getClass().getName() != null) {
-            className = new String(new StringMaker().append(object.getClass().getName()).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(object.hashCode())).toString());
+            className = new String(new StringMaker().append(object.getClass().getName()).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(TsUtil.getInstance().hashCode(object))).toString());
         }
 
         final String message = logFormatUtil.getS(
@@ -71,7 +72,7 @@ public class LogUtil {
         String className = CommonStrings.getInstance().EMPTY;
 
         if (object.getClass().getName() != null) {
-            className = new String(new StringMaker().append(object.getClass().getName()).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(object.hashCode())).toString());
+            className = new String(new StringMaker().append(object.getClass().getName()).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(TsUtil.getInstance().hashCode(object))).toString());
         }
 
         final String message = logFormatUtil.get(

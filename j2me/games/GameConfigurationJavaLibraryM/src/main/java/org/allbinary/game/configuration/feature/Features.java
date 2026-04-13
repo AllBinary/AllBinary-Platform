@@ -68,7 +68,7 @@ public class Features
         {
 //            if(gameFeature == SensorFeatureFactory.getInstance().ORIENTATION_SENSORS)
 //            {
-//                ForcedLogUtil.log("here it is: ").append(this.getClass().getClassLoader().getClass().getName()).append(this.getClass().getClassLoader().hashCode() , this);
+//                ForcedLogUtil.log("here it is: ").append(this.getClass().getClassLoader().getClass().getName()).append(TsUtil.getInstance().hashCode(this.getClass().getClassLoader()) , this);
 //            }
             this.logUtil.putF(
                     new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameFeature.toString()).toString(), this, commonStrings.ADD);

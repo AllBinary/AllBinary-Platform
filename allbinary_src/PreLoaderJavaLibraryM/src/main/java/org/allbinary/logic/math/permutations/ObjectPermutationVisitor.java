@@ -1,5 +1,6 @@
 package org.allbinary.logic.math.permutations;
 
+import org.allbinary.logic.TsUtil;
 import org.allbinary.logic.util.visitor.Visitor;
 import org.allbinary.string.CommonSeps;
 
@@ -27,9 +28,10 @@ public class ObjectPermutationVisitor extends Visitor {
     }
     
     public void print(Object[] data, StringBuilder stringBuilder) {
+        final TsUtil tsUtil = TsUtil.getInstance();
         int size = data.length;
         for (int i = 0; i < size; i++) {
-            stringBuilder.append(data[i].hashCode());
+            stringBuilder.append(tsUtil.hashCode(data[i]));
             stringBuilder.append(CommonSeps.getInstance().SPACE);
         }
         //stringBuilder.append(CommonSeps.getInstance().NEW_LINE);

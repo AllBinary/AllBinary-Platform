@@ -18,6 +18,7 @@ import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.input.motion.gesture.MotionGestureInput;
 import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
+import org.allbinary.logic.TsUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
@@ -94,7 +95,7 @@ public class MotionGestureEvent extends AllBinaryEventObject {
         stringBuffer.append(PREVIOUS);
         stringBuffer.append(stringUtil.toString(this.previousPoint));
         stringBuffer.append(HASHCODE);
-        stringBuffer.appendint(this.hashCode());
+        stringBuffer.appendint(TsUtil.getInstance().hashCode(this));
         return stringBuffer.toString();
     }
 

@@ -21,6 +21,7 @@ import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.RectangleFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
+import org.allbinary.logic.TsUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.math.PositionStrings;
@@ -56,7 +57,7 @@ implements LayerInterface
         if(name == null) {
             localName = this.getClass().getName();
         } else {
-            localName = new StringMaker().append(name).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(this.hashCode())).toString();
+            localName = new StringMaker().append(name).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(TsUtil.getInstance().hashCode(this))).toString();
         }
         this.name = localName;
 

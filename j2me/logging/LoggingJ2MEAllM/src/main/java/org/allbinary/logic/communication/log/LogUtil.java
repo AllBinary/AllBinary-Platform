@@ -13,9 +13,12 @@
  */
 package org.allbinary.logic.communication.log;
 
+import org.allbinary.logic.TsUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.LogFormatUtil;
+import org.allbinary.logic.communication.log.Log;
 
 //ActualPlatform
 public class LogUtil {
@@ -24,7 +27,7 @@ public class LogUtil {
 
     //ActualPlatform
     public static final LogUtil getInstance() {
-        return instance;
+        return LogUtil.instance;
     }
 
     private LogUtil() {
@@ -50,17 +53,17 @@ public class LogUtil {
         String className = CommonStrings.getInstance().EMPTY;
 
         if (object.getClass().getName() != null) {
-            className = new String(new StringMaker().append(object.getClass().getName()).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(object.hashCode())).toString());
+            className = new String(new StringMaker().append(object.getClass().getName()).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(TsUtil.getInstance().hashCode(object))).toString());
         }
 
-        final String message = logFormatUtil.getS(
+        final String message = this.logFormatUtil.getS(
             className, functionName, specialMessage);
 
-        System.out.print(LOG_SUCCESS);
+        System.out.print(this.LOG_SUCCESS);
         System.out.println(message);
     }
 
-    private final static String LOG_SUCCESS = "org.allbinary: ";
+    private final String LOG_SUCCESS = "org.allbinary: ";
 
     //ActualPlatform
     public void put(
@@ -71,13 +74,13 @@ public class LogUtil {
         String className = CommonStrings.getInstance().EMPTY;
 
         if (object.getClass().getName() != null) {
-            className = new String(new StringMaker().append(object.getClass().getName()).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(object.hashCode())).toString());
+            className = new String(new StringMaker().append(object.getClass().getName()).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(TsUtil.getInstance().hashCode(object))).toString());
         }
 
-        final String message = logFormatUtil.get(
+        final String message = this.logFormatUtil.get(
             className, functionName, specialMessage, exception);
 
-        System.out.print(LOG_SUCCESS);
+        System.out.print(this.LOG_SUCCESS);
         System.out.println(message);
     }
 }

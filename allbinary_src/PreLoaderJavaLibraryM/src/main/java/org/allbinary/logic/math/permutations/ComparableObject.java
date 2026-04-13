@@ -13,6 +13,8 @@
  */
 package org.allbinary.logic.math.permutations;
 
+import org.allbinary.logic.TsUtil;
+
 /**
  *
  * @author user
@@ -21,12 +23,12 @@ public class ComparableObject implements Comparable
 {
     public int compareTo(Object object)
     {
-        if(this.hashCode() < object.hashCode())
+        if(TsUtil.getInstance().hashCode(this) < TsUtil.getInstance().hashCode(object))
         {
             return -1;
         }
         else
-        if(this.hashCode() > object.hashCode())
+        if(TsUtil.getInstance().hashCode(this) > TsUtil.getInstance().hashCode(object))
         {
             return 1;
         }

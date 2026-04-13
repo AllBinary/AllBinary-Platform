@@ -32,13 +32,13 @@ public class SWTProcessor {
     }
     
     protected SWTProcessor() {
-        //System.out.println("SWTProcessor" + this.hashCode());
+        //System.out.println("SWTProcessor" + TsUtil.getInstance().hashCode(this));
     }
     
     public Runnable runnable = NullRunnable.getInstance();
     
     public void process(final Display display) {
-        //System.out.println("SWTProcessor:process" + this.hashCode());
+        //System.out.println("SWTProcessor:process" + TsUtil.getInstance().hashCode(this));
         display.sleep();
     }
     

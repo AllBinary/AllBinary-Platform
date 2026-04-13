@@ -16,6 +16,7 @@ package org.allbinary.content;
 import javax.microedition.lcdui.Command;
 
 import org.allbinary.data.resource.ResourceUtil;
+import org.allbinary.logic.TsUtil;
 
 public class NotificationUtil
 {
@@ -53,7 +54,7 @@ public class NotificationUtil
         notification.setLatestEventInfo(
                 context, command.getLabel(), message, pendingIntent);
         
-        notificationManager.notify(command.hashCode(), notification);
+        notificationManager.notify(TsUtil.getInstance().hashCode(command), notification);
 
         //context.startActivity(intent);
     }

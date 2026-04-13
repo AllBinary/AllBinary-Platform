@@ -14,6 +14,7 @@
 package org.allbinary.logic.math.permutations;
 
 import java.util.Arrays;
+import org.allbinary.logic.TsUtil;
 
 import org.allbinary.logic.util.visitor.Visitor;
 
@@ -39,13 +40,14 @@ public class OrderedObjectArrayPermutationUtil {
         int length = data.length;
         int i = length - 1;
 
-        while (data[i - 1].hashCode() >= data[i].hashCode()) {
+       final TsUtil tsUtil = TsUtil.getInstance();
+        while (tsUtil.hashCode(data[i - 1]) >= tsUtil.hashCode(data[i])) {
             i = i - 1;
         }
 
         int j = length;
 
-        while (data[j - 1].hashCode() <= data[i - 1].hashCode()) {
+        while (tsUtil.hashCode(data[j - 1]) <= tsUtil.hashCode(data[i - 1])) {
             j = j - 1;
         }
 
