@@ -14,6 +14,7 @@
 package org.allbinary.logic.communication.log;
 
 import org.allbinary.logic.NullUtil;
+import org.allbinary.logic.communication.log.LogFormatUtil;
 
 //ActualPlatform
 public class PreLogUtil
@@ -35,16 +36,16 @@ public class PreLogUtil
         
         if(className != null)
         {
-            put(specialMessage, className, functionName, exception);
+            PreLogUtil.putOE(specialMessage, className, functionName, exception);
         }
         else
             if(object != null)
             {
-            put(specialMessage, object, functionName, exception);
+            PreLogUtil.putOE(specialMessage, object, functionName, exception);
             }
             else
             {
-            put(specialMessage, "This Should Never Happed", functionName, exception);
+            PreLogUtil.putOE(specialMessage, "This Should Never Happed", functionName, exception);
             }
     }
     */
@@ -54,7 +55,7 @@ public class PreLogUtil
         final Object object,
         final String functionName)
     {
-        putOE(specialMessage, object, functionName, NullUtil.getInstance().NULL_OBJECT);
+        PreLogUtil.putOE(specialMessage, object, functionName, NullUtil.getInstance().NULL_OBJECT);
     }
     
     private static final String LABEL = "org.allbinary";
@@ -67,7 +68,7 @@ public class PreLogUtil
         final String functionName,
         final Object exception)
     {
-        String className = LABEL;
+        String className = PreLogUtil.LABEL;
         
         String actualClassName = object.getClass().getName();
         if(actualClassName != null)
@@ -79,7 +80,7 @@ public class PreLogUtil
             className, functionName, specialMessage, exception);
         
         //android.util.Log.i(className, LOG_SUCCESS + message);
-        android.util.Log.i(LABEL, message);
+        android.util.Log.i(PreLogUtil.LABEL, message);
         //android.util.Log.i(className, message);
         //System.out.print(LOG_SUCCESS);
         //System.out.println(message);
@@ -91,7 +92,7 @@ public class PreLogUtil
         final String className,
         final String functionName)
     {
-        putSE(specialMessage, className, functionName, NullUtil.getInstance().NULL_OBJECT);
+        PreLogUtil.putSE(specialMessage, className, functionName, NullUtil.getInstance().NULL_OBJECT);
     }
     
     //ActualPlatform

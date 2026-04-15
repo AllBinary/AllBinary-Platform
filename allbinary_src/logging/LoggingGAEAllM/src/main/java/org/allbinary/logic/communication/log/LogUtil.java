@@ -26,7 +26,7 @@ public class LogUtil {
 
     //ActualPlatform
     public static final LogUtil getInstance() {
-        return instance;
+        return LogUtil.instance;
     }
 
     private final Logger logger = Logger.getLogger(LogUtil.class.getName());
@@ -95,17 +95,17 @@ public class LogUtil {
                 className = clazz.getName();
             }
 
-            final String message = logFormatUtil.getS(
+            final String message = this.logFormatUtil.getS(
                 className, functionName, specialMessage);
             //className, functionName, specialMessage, exception);
 
             if (exception != null) {
                 //logger.warning(message);
                 //logger.severe(message);
-                logger.log(Level.SEVERE, message, exception);
+                this.logger.log(Level.SEVERE, message, exception);
             } else {
                 //Change this back to warning when I get a stable version of gaefv without massive warnings
-                logger.log(Level.INFO, message);
+                this.logger.log(Level.INFO, message);
                 //logger.log(Level.WARNING, message);
                 //logger.info(message);
             }

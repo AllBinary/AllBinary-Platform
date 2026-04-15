@@ -36,16 +36,16 @@ public class PreLogUtil
         
         if(className != null)
         {
-            put(specialMessage, className, functionName, exception);
+            PreLogUtil.putOE(specialMessage, className, functionName, exception);
         }
         else
             if(object != null)
             {
-            put(specialMessage, object, functionName, exception);
+            PreLogUtil.putOE(specialMessage, object, functionName, exception);
             }
             else
             {
-            put(specialMessage, "This Should Never Happed", functionName, exception);
+            PreLogUtil.putOE(specialMessage, "This Should Never Happed", functionName, exception);
             }
     }
     */
@@ -55,7 +55,7 @@ public class PreLogUtil
         final Object object,
         final String functionName)
     {
-        putOE(specialMessage, object, functionName, NullUtil.getInstance().NULL_OBJECT);
+        PreLogUtil.putOE(specialMessage, object, functionName, NullUtil.getInstance().NULL_OBJECT);
     }    
     
     private final static String LOG_SUCCESS = "org.allbinary: ";

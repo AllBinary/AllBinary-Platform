@@ -33,10 +33,12 @@ public class LogUtil {
 
     //ActualPlatform
     public static final LogUtil getInstance() {
-        return instance;
+        return LogUtil.instance;
     }
 
-    private final LogFormatUtil logFormatUtil = LogFormatUtil.getInstance();
+    //private final LogFormatUtil logFormatUtil = LogFormatUtil.getInstance();
+    
+    private final String MESSAGE = "message";
     
     private boolean isFirstException = true;
     private TimeDelayHelper timeDelayHelper = new TimeDelayHelper(200000);
@@ -97,21 +99,21 @@ public class LogUtil {
 
                     //android.util.Log.i("allbinary","Eeeek");
                     //System.out.println("message: " + message);
-                    if (abeClientInformation == null) {
+                    if (this.abeClientInformation == null) {
                         throw new RuntimeException();
                     }
 
-                    Hashtable hashtable = abeClientInformation.toHashtable();
+                    Hashtable hashtable = this.abeClientInformation.toHashtable();
 
-                    stringBuffer.delete(0, stringBuffer.length());
-                    stringBuffer.append(message);
-                    stringBuffer.append(CommonSeps.getInstance().SPACE);
-                    stringBuffer.append(SpecialMessageUtil.getInstance().get());
+                    this.stringBuffer.delete(0, this.stringBuffer.length());
+                    this.stringBuffer.append(message);
+                    this.stringBuffer.append(CommonSeps.getInstance().SPACE);
+                    this.stringBuffer.append(SpecialMessageUtil.getInstance().get());
 
-                    hashtable.put("message", stringBuffer.toString());
+                    hashtable.put(MESSAGE, this.stringBuffer.toString());
 
                     //System.out.println("Sending");
-                    new XmlRpcRemoteLogClient(abeClientInformation).get(hashtable);
+                    new XmlRpcRemoteLogClient(this.abeClientInformation).get(hashtable);
                 } catch (Throwable e) {
                     //Hmmmm well you will never know
                     System.out.println("Exception");

@@ -41,6 +41,8 @@
         <module>../../media/graphics/GameResourceNoneJavaLibraryM</module>
         <module>../../media/graphics/LazyGameResourceNoneJavaLibraryM</module>
 
+        <module>../../../graphics/opengl/OpenGLNoneJavaLibraryM</module>
+
         <!--
                 <module>../../../graphics/opengl/OpenGLESJavaLibraryM</module>
         -->

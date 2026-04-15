@@ -29,13 +29,13 @@ public class NullUtil {
      * @return the instance
      */
     public static NullUtil getInstance() {
-        return instance;
+        return NullUtil.instance;
     }
     
     //ActualPlatform
     public final Object NULL_OBJECT = new Object();
     //ActualPlatform
-    public final Class NULL_CLASS = NULL_OBJECT.getClass();
+    public final Class NULL_CLASS = this.NULL_OBJECT.getClass();
     //ActualPlatform
     public final Object[] NULL_OBJECT_ARRAY = new Object[0];
     //ActualPlatform

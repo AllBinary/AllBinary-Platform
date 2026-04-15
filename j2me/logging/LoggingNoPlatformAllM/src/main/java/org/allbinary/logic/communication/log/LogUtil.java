@@ -17,7 +17,7 @@ public class LogUtil {
     private static final LogUtil instance = new LogUtil();
 
     public static final LogUtil getInstance() {
-        return instance;
+        return LogUtil.instance;
     }
 
     private LogUtil() {

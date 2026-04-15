@@ -35,7 +35,7 @@ public class PreLogUtil
         final Object object,
         final String functionName)
     {
-        putOE(specialMessage, object, functionName, NullUtil.getInstance().NULL_OBJECT);
+        PreLogUtil.putOE(specialMessage, object, functionName, NullUtil.getInstance().NULL_OBJECT);
     }    
     
     public static void putOE(

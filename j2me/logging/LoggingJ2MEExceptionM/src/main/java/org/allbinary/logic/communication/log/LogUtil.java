@@ -22,7 +22,7 @@ public class LogUtil {
 
     //ActualPlatform
     public static final LogUtil getInstance() {
-        return instance;
+        return LogUtil.instance;
     }
 
     private final LogFormatUtil logFormatUtil = LogFormatUtil.getInstance();
@@ -70,10 +70,10 @@ public class LogUtil {
             className = new String(object.getClass().getName());
         }
 
-        final String message = logFormatUtil.get(
+        final String message = this.logFormatUtil.get(
             className, functionName, specialMessage, exception);
 
-        System.out.print(LOG_SUCCESS);
+        System.out.print(this.LOG_SUCCESS);
         System.out.println(message);
     }
 }

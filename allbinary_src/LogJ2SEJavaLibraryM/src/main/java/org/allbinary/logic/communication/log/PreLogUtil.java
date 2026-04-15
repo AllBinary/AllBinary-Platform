@@ -55,7 +55,7 @@ public class PreLogUtil
         Object object,
         String functionName)
     {
-        putOE(specialMessage, object, functionName, NullUtil.getInstance().NULL_OBJECT);
+        PreLogUtil.putOE(specialMessage, object, functionName, NullUtil.getInstance().NULL_OBJECT);
     }
     
     
@@ -88,7 +88,7 @@ public class PreLogUtil
         String className,
         String functionName)
     {
-        putSE(specialMessage, className, functionName, NullUtil.getInstance().NULL_OBJECT);
+        PreLogUtil.putSE(specialMessage, className, functionName, NullUtil.getInstance().NULL_OBJECT);
     }
     
     //ActualPlatform

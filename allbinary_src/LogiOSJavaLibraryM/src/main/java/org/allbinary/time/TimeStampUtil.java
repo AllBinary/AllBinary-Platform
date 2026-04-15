@@ -24,7 +24,7 @@ public class TimeStampUtil
     //ActualPlatform
     public static TimeStampUtil getInstance()
     {
-        return instance;
+        return TimeStampUtil.instance;
     }
     
     private TimeStampUtil()
@@ -34,8 +34,8 @@ public class TimeStampUtil
     //ActualPlatform
     public String getAsString()
     {
-        Calendar calendar = Calendar.getInstance();
-        Date date = calendar.getTime();
+        final Calendar calendar = Calendar.getInstance();
+        final Date date = calendar.getTime();
         return date.toString();
     }
 

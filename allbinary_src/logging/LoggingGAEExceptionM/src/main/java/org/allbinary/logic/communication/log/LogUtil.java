@@ -27,7 +27,7 @@ public class LogUtil {
 
     //ActualPlatform
     public static final LogUtil getInstance() {
-        return instance;
+        return LogUtil.instance;
     }
 
     private final Logger logger = Logger.getLogger(LogUtil.class.getName());
@@ -58,11 +58,11 @@ public class LogUtil {
     public void init() {
         //String message = "The Logging path is: " + LogUtil.getFilePatternPath();
         //PreLogUtil.put(message, "LogUtil", "init()");
-        PreLogUtil.put("Loggin Initialized", "LogUtil", "init()");
+        PreLogUtil.put("Loggin Initialized", this, "init()");
     }
 
     //ActualPlatform
-    public void putL(Log log) {
+    public void putL(final Log log) {
         Object exception = log.getThrowable();
 
         try {
@@ -78,12 +78,12 @@ public class LogUtil {
                     className = clazz.getName();
                 }
 
-                String message = logFormatUtil.get(
+                String message = this.logFormatUtil.get(
                     className, functionName, specialMessage, exception);
 
                 //logger.warning(message);
                 //logger.severe(message);
-                logger.log(Level.INFO, message);
+                this.logger.log(Level.INFO, message);
             }
         } catch (Exception e) {
         }
@@ -104,17 +104,17 @@ public class LogUtil {
                 className = clazz.getName();
             }
 
-            String message = logFormatUtil.getS(
+            String message = this.logFormatUtil.getS(
                 className, functionName, specialMessage);
             //className, functionName, specialMessage, exception);
 
             if (exception != null) {
                 //logger.warning(message);
                 //logger.severe(message);
-                logger.log(Level.SEVERE, message, exception);
+                this.logger.log(Level.SEVERE, message, exception);
             } else {
                 //Change this back to warning when I get a stable version of gaefv without massive warnings
-                logger.log(Level.INFO, message);
+                this.logger.log(Level.INFO, message);
                 //logger.log(Level.WARNING, message);
                 //logger.info(message);
             }

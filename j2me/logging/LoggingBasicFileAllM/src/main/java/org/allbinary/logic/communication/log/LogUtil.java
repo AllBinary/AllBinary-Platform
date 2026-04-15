@@ -25,7 +25,7 @@ public class LogUtil
     
     //ActualPlatform
     public static final LogUtil getInstance() {
-        return instance;
+        return LogUtil.instance;
     }
 
     //private final String LOG_SUCCESS = "org.allbinary: ";

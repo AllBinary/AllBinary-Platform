@@ -25,7 +25,7 @@ public class TimeStampUtil
     //ActualPlatform
     public static TimeStampUtil getInstance()
     {
-        return instance;
+        return TimeStampUtil.instance;
     }
     
     private final SimpleDateFormat simpleDataFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
@@ -39,7 +39,7 @@ public class TimeStampUtil
     {
         final Calendar calendar = Calendar.getInstance();
         final Date date = calendar.getTime();
-        return simpleDataFormat.format(date);
+        return this.simpleDataFormat.format(date);
     }
 
 }

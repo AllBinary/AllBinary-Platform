@@ -20,7 +20,7 @@ public class LogUtil {
 
     //ActualPlatform
     public static final LogUtil getInstance() {
-        return instance;
+        return LogUtil.instance;
     }
 
     private final LogFormatUtil logFormatUtil = LogFormatUtil.getInstance();
@@ -57,7 +57,7 @@ public class LogUtil {
         final Object object,
         final String functionName,
         final Object exception) {
-        String className = LABEL;
+        String className = this.LABEL;
         /*
       if(object != null && object.getClass().getName() != null)
       {
@@ -67,10 +67,10 @@ public class LogUtil {
 
         className = object.getClass().getName();
 
-        final String message = logFormatUtil.get(
+        final String message = this.logFormatUtil.get(
             className, functionName, specialMessage, exception);
 
-        android.util.Log.i(LABEL, LOG_SUCCESS + message);
+        android.util.Log.i(this.LABEL, this.LOG_SUCCESS + message);
         //android.util.Log.i(LABEL, message);
     }
 }

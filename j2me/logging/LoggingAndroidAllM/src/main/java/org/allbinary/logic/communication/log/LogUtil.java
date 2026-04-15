@@ -17,6 +17,8 @@ import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.TsUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
+import org.allbinary.logic.communication.log.Log;
+import org.allbinary.logic.communication.log.LogFormatUtil;
 
 //ActualPlatform
 public class LogUtil {
@@ -25,7 +27,7 @@ public class LogUtil {
 
     //ActualPlatform
     public static final LogUtil getInstance() {
-        return instance;
+        return LogUtil.instance;
     }
 
     private final CommonSeps commonSeps = CommonSeps.getInstance();
@@ -55,7 +57,7 @@ public class LogUtil {
     //ActualPlatform
     public void put(final String specialMessage, final Object object, String functionName, Object exception) {
 
-        String className = LABEL;
+        String className = this.LABEL;
         /*
       if(object != null && object.getClass().getName() != null)
       {
@@ -69,12 +71,12 @@ public class LogUtil {
           return;
       }
          */
-        className = new String(new StringMaker().append(object.getClass().getName()).append(commonSeps.COLON).append(Integer.toHexString(TsUtil.getInstance().hashCode(object))).toString());
+        className = new String(new StringMaker().append(object.getClass().getName()).append(this.commonSeps.COLON).append(Integer.toHexString(TsUtil.getInstance().hashCode(object))).toString());
 
-        final String message = logFormatUtil.get(
+        final String message = this.logFormatUtil.get(
             className, functionName, specialMessage, exception);
 
-        android.util.Log.i(LABEL, message);
+        android.util.Log.i(this.LABEL, message);
         //android.util.Log.i(className, message);
         //android.util.Log.i(className, LOGGING_LABEL + message);
     }

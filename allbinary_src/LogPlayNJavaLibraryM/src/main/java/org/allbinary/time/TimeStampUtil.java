@@ -21,7 +21,7 @@ public class TimeStampUtil
     //ActualPlatform
     public static TimeStampUtil getInstance()
     {
-        return instance;
+        return TimeStampUtil.instance;
     }
     
     private TimeStampUtil()

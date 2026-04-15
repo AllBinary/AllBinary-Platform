@@ -23,7 +23,7 @@ public class LogUtil {
 
     //ActualPlatform
     public static final LogUtil getInstance() {
-        return instance;
+        return LogUtil.instance;
     }
 
     private final LogFormatUtil logFormatUtil = LogFormatUtil.getInstance();
@@ -63,10 +63,10 @@ public class LogUtil {
 //        {
 //            className = new String(object.getClass().getName());
 //        }
-        final String message = logFormatUtil.getS(
+        final String message = this.logFormatUtil.getS(
             className, functionName, specialMessage);
 
-        PlayN.log().debug(LOG_SUCCESS + message);
+        PlayN.log().debug(this.LOG_SUCCESS + message);
         //System.out.print(LOG_SUCCESS);
         //System.out.println(message);
     }
@@ -88,13 +88,13 @@ public class LogUtil {
 //        {
 //            className = new String(object.getClass().getName());
 //        }
-        final String message = logFormatUtil.get(
+        final String message = this.logFormatUtil.get(
             className, functionName, specialMessage, exception);
 
         if (exception != null) {
-            PlayN.log().error(LOG_SUCCESS + message, (Throwable) exception);
+            PlayN.log().error(this.LOG_SUCCESS + message, (Throwable) exception);
         } else {
-            PlayN.log().debug(LOG_SUCCESS + message);
+            PlayN.log().debug(this.LOG_SUCCESS + message);
         }
 
     }
