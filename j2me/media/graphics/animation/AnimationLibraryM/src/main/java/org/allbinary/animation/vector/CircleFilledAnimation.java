@@ -18,7 +18,6 @@ import javax.microedition.lcdui.Graphics;
 import org.allbinary.animation.Animation;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.ColorCompositeInterface;
-import org.allbinary.math.AngleFactory;
 
 public class CircleFilledAnimation 
 extends Animation 
@@ -41,7 +40,7 @@ implements ColorCompositeInterface
    
    @Override
    public void paint(final Graphics graphics, final int x, final int y) {
-       this.basicSetColorUtil.setBasicColorP(
+       this.basicSetColorUtil.setBasicColorP3(
                graphics, this.getBasicColorP(), this.getColor());
       //graphics.fillArc(x, y, width, height, 0, TOTAL_ANGLE);
       graphics.fillRect(x, y, width, height);

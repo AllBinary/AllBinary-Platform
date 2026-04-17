@@ -17,7 +17,6 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.AndroidUtil;
 import org.allbinary.graphics.color.BasicColor;
-import org.allbinary.math.AngleFactory;
 
 /**
  *
@@ -66,7 +65,7 @@ public class AdjustedCircleAnimation
     @Override
    public void paint(Graphics graphics, int x, int y) {
       
-       this.basicSetColorUtil.setBasicColorP(
+       this.basicSetColorUtil.setBasicColorP3(
                graphics, this.getBasicColorP(), this.getColor());
       
       graphics.drawArc(x + this.xAdjustment, y + this.yAdjustment,

@@ -34,7 +34,7 @@ public class BasicColorSetUtil
         graphics.setColor(basicColor.intValue());
     }
 
-    public void setBasicColorP(Graphics graphics, BasicColor basicColor, int value)
+    public void setBasicColorP3(Graphics graphics, BasicColor basicColor, int value)
     {
         graphics.setColor(value);
     }

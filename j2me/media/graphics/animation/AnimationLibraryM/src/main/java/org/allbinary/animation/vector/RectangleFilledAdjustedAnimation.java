@@ -45,7 +45,7 @@ implements ColorCompositeInterface
 
    @Override
    public void paint(Graphics graphics, int x, int y) {
-       this.basicSetColorUtil.setBasicColorP(
+       this.basicSetColorUtil.setBasicColorP3(
                graphics, this.getBasicColorP(), this.getColor());
 
       graphics.fillRect(x + this.offsetX, y + this.offsetY, width, height);

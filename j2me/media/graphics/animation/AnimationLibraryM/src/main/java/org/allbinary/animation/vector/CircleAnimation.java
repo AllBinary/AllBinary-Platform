@@ -51,7 +51,7 @@ public class CircleAnimation extends Animation implements ColorCompositeInterfac
     @Override
     public void paint(Graphics graphics, int x, int y)
     {
-        this.basicSetColorUtil.setBasicColorP(
+        this.basicSetColorUtil.setBasicColorP3(
                 graphics, this.getBasicColorP(), this.getColor());
 
         graphics.drawArc(x, y, width, height, 0, TOTAL_ANGLE);

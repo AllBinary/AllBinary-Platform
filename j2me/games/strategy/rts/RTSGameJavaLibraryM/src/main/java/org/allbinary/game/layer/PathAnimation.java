@@ -92,7 +92,7 @@ public class PathAnimation extends Animation
                     for (int index = 0; index < size - 1; index++) {
                         if (index == start) {
                             this.setBasicColorP(this.startColor);
-                            this.basicSetColorUtil.setBasicColorP(
+                            this.basicSetColorUtil.setBasicColorP3(
                                 graphics, this.getBasicColorP(), this.getColor());
                         } /*
                     else if (index == 0)
@@ -109,11 +109,11 @@ public class PathAnimation extends Animation
                     }
                          */ else if (geographicMapCellHistory.isVisited(geographicMapCellPosition)) {
                             this.setBasicColorP(this.endColor);
-                            this.basicSetColorUtil.setBasicColorP(
+                            this.basicSetColorUtil.setBasicColorP3(
                                 graphics, this.getBasicColorP(), this.getColor());
                         } else {
                             this.setBasicColorP(this.middleColor);
-                            this.basicSetColorUtil.setBasicColorP(
+                            this.basicSetColorUtil.setBasicColorP3(
                                 graphics, this.getBasicColorP(), this.getColor());
                         }
 
