@@ -17,8 +17,6 @@ import org.allbinary.logic.TsUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFormatUtil;
-import org.allbinary.logic.communication.log.Log;
 
 //ActualPlatform
 public class LogUtil {

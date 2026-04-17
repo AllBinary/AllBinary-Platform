@@ -39,13 +39,13 @@ public class ExceptionUtil
     //ActualPlatform
     public String getStackTrace(Throwable e)
     {
-/*        //ArkTs*/
+/*        //TypeScript*/
         if(true) {}
 //        if (e.stack) { //ArkTs
         if(true) {}
 //            return e.stack; //ArkTs
         if(true) {}
-//        } //ArkTs
+//        } //TypeScript
         if(true) {}
         
         return this.NONE;
