@@ -208,7 +208,7 @@ public class TitleAnimation extends SpecialAnimation
         int deltaX;
         int deltaY;
 
-        for (int index = 0; index < sizeP; index++)
+        for (int index = 0; index < this.sizeP; index++)
         {
             deltaX = this.dxArray[index] + x;
             deltaY = this.dyArray[index] + y;

@@ -40,7 +40,7 @@ public class ThirdPartyStore {
      */
     public boolean isAuthorized()
     {
-        return authorized;
+        return this.authorized;
     }
 
     /**
@@ -56,7 +56,7 @@ public class ThirdPartyStore {
      */
     public String getName()
     {
-        return name;
+        return this.name;
     }
 
 

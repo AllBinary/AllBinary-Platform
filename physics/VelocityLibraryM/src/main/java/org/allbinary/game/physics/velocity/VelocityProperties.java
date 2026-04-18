@@ -57,7 +57,7 @@ implements VelocityInterface
    @Override
    public int getMaxForwardVelocity()
    {
-      return maxForwardVelocity;
+      return this.maxForwardVelocity;
    }
 
    @Override
@@ -69,7 +69,7 @@ implements VelocityInterface
    @Override
    public int getMaxReverseVelocity()
    {
-      return maxReverseVelocity;
+      return this.maxReverseVelocity;
    }
 
    @Override

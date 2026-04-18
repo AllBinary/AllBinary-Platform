@@ -122,7 +122,7 @@ public class TimeDelayHelper
 
     public long getStartTime() 
     {
-        return startTime;
+        return this.startTime;
     }
 
     public void setStartTime()

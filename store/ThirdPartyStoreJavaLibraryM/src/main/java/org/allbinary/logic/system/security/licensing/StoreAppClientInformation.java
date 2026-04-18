@@ -39,6 +39,6 @@ implements LongArrayIdentifierInterface
     @Override
     public long[] getLongArrayIdentifier()
     {
-        return longArrayIdentifier;
+        return this.longArrayIdentifier;
     }
 }

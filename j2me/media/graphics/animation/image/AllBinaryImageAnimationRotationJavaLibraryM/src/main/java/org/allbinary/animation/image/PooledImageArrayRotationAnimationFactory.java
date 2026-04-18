@@ -108,7 +108,7 @@ public class PooledImageArrayRotationAnimationFactory implements
         // return new AllBinaryImageRotationAnimation(this.imageArray,
         // AngleInfo.getInstance(angleIncrement), totalAngle, dx, dy);
 
-        return new AdjustedImageArrayRotationAnimation(allBinaryImageRotationAnimationInfo, this.animationBehaviorFactory.getOrCreateInstance());
+        return new AdjustedImageArrayRotationAnimation(this.allBinaryImageRotationAnimationInfo, this.animationBehaviorFactory.getOrCreateInstance());
         //return (AnimationInterface) AllBinaryImageArrayRotationAnimationPool
           //      .getInstance().remove(allBinaryImageRotationAnimationInfo);
     }

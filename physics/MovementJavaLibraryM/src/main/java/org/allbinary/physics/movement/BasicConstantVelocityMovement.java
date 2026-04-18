@@ -93,7 +93,7 @@ implements VelocityInterfaceCompositeInterface
     @Override
     public BasicVelocityProperties getVelocityProperties()
     {
-        return velocityProperties;
+        return this.velocityProperties;
     }
 
     public void setVelocityProperties(BasicVelocityProperties velocityProperties)
@@ -108,7 +108,7 @@ implements VelocityInterfaceCompositeInterface
 
     protected BasicDecimal getSpeedBasicDecimal()
     {
-        return speedBasicDecimal;
+        return this.speedBasicDecimal;
     }
 
 }

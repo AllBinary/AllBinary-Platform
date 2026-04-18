@@ -140,7 +140,7 @@ public class AllBinaryArrayImageRotationAnimationFactory
 
         } else {
             return new ImageArrayRotationAnimation(scaledImageArray,
-                AngleInfo.getInstance((short) this.angleIncrement), (int) AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehaviorFactory.getOrCreateInstance());
+                AngleInfo.getInstance((short) this.getAngleIncrement()), (int) AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehaviorFactory.getOrCreateInstance());
         }
     }
 

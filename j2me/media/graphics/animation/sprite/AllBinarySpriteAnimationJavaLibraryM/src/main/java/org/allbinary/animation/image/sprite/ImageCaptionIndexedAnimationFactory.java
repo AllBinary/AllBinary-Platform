@@ -104,7 +104,7 @@ public class ImageCaptionIndexedAnimationFactory
         }
 
         return new CaptionIndexedAnimation(animationInterface, movieIndexedAnimationInterface,
-            player, this.captionDx, this.captionDy, dx, dy, time, this.animationBehaviorFactory.getOrCreateInstance());
+            player, this.captionDx, this.captionDy, this.dx, this.dy, this.time, this.animationBehaviorFactory.getOrCreateInstance());
     }
 
     @Override

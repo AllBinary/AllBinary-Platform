@@ -185,7 +185,7 @@ public class CompoundRotationAnimation extends RotationAnimation
      */
     public RotationAnimation[] getAnimationInterfaceArray()
     {
-        return animationInterfaceArray;
+        return this.animationInterfaceArray;
     }
 
     /**

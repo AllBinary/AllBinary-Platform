@@ -135,14 +135,14 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
      * @return the animationFactoryInitializationVisitor
      */
     public AnimationFactoryInitializationVisitor getAnimationFactoryInitializationVisitorP() {
-        return animationFactoryInitializationVisitor;
+        return this.animationFactoryInitializationVisitor;
     }
     
     /**
      * @return the scaleProperties
      */
     public ScaleProperties getScalePropertiesP() {
-        return scaleProperties;
+        return this.scaleProperties;
     }
     
 }

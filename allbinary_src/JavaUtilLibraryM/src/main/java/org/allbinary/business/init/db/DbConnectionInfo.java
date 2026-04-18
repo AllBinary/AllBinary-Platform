@@ -83,7 +83,7 @@ public class DbConnectionInfo implements DatabaseConnectionInfoInterface
 
     public String getUrl()
     {
-        return url;
+        return this.url;
     }
 
     public String getJdbcDriver()

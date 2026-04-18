@@ -29,7 +29,7 @@ public class RotationAnimationFactory implements
     {
         this.totalAngle = AngleFactory.getInstance().TOTAL_ANGLE;
 
-        this.angleIncrement = (short) (totalAngle / GameConfigurationCentral.getInstance().getGameControlFidelity());
+        this.angleIncrement = (short) (this.totalAngle / GameConfigurationCentral.getInstance().getGameControlFidelity());
     }
 
     public RotationAnimationFactory(short totalAngle, short angleIncrement)

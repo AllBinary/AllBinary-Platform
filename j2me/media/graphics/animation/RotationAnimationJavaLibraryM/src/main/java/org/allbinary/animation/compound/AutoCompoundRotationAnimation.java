@@ -186,7 +186,7 @@ public class AutoCompoundRotationAnimation extends RotationAnimation
      */
     public RotationAnimation[] getAnimationInterfaceArray()
     {
-        return animationInterfaceArray;
+        return this.animationInterfaceArray;
     }
 
     /**

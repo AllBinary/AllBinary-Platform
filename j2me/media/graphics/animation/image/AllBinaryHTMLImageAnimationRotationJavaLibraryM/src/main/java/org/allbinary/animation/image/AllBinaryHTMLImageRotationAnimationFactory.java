@@ -156,7 +156,7 @@ public class AllBinaryHTMLImageRotationAnimationFactory
             
             return new AllBinaryAdjustedHTMLImageRotationAnimation(
                 scaledImage, copyOfScaledImage,
-                AngleInfo.getInstance(this.angleIncrement),
+                AngleInfo.getInstance(this.getAngleIncrement()),
                 AngleFactory.getInstance().TOTAL_ANGLE, 
                 this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
         } else {

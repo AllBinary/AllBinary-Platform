@@ -29,13 +29,13 @@ public class BasicAccelerationProperties {
 		this.reverse = reverse;
 	}
 	public int getReverse() {
-		return reverse;
+		return this.reverse;
 	}
 	
 	public void setForward(int forward) {
 		this.forward = forward;
 	}
 	public int getForward() {
-		return forward;
+		return this.forward;
 	}
 }

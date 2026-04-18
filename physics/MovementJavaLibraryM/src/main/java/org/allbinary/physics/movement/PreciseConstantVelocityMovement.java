@@ -32,29 +32,29 @@ extends BasicConstantVelocityMovement
         
     	final BasicVelocityProperties velocityProperties = this.getVelocityProperties();
 
-    	accumulatedX = (int) (accumulatedX + velocityProperties.getVelocityXBasicDecimalP().getUnscaled());
-    	accumulatedY = (int) (accumulatedY + velocityProperties.getVelocityYBasicDecimalP().getUnscaled());
-    	accumulatedZ = (int) (accumulatedZ + velocityProperties.getVelocityZBasicDecimalP().getUnscaled());
+    	this.accumulatedX = (int) (this.accumulatedX + velocityProperties.getVelocityXBasicDecimalP().getUnscaled());
+    	this.accumulatedY = (int) (this.accumulatedY + velocityProperties.getVelocityYBasicDecimalP().getUnscaled());
+    	this.accumulatedZ = (int) (this.accumulatedZ + velocityProperties.getVelocityZBasicDecimalP().getUnscaled());
     	
         layer.move(
-        		accumulatedX / factorValue,
-        		accumulatedY / factorValue,
-        		accumulatedZ / factorValue
+        		this.accumulatedX / this.factorValue,
+        		this.accumulatedY / this.factorValue,
+        		this.accumulatedZ / this.factorValue
                 );
         
-        if(mathUtil.abs(accumulatedX) > factorValue)
+        if(mathUtil.abs(this.accumulatedX) > this.factorValue)
         {
-        	accumulatedX = 0;
+        	this.accumulatedX = 0;
         }
 
-        if(mathUtil.abs(accumulatedY) > factorValue)
+        if(mathUtil.abs(this.accumulatedY) > this.factorValue)
         {
-        	accumulatedY = 0;
+        	this.accumulatedY = 0;
         }
         
-        if(mathUtil.abs(accumulatedZ) > factorValue)
+        if(mathUtil.abs(this.accumulatedZ) > this.factorValue)
         {
-        	accumulatedZ = 0;
+        	this.accumulatedZ = 0;
         }
     }
 }
