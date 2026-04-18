@@ -53,7 +53,7 @@ public class CompoundAnimationInterfaceFactory
     }
     
     public AnimationInterfaceFactoryInterface[] getBasicAnimationInterfaceFactoryInterfaceArray() {
-        return basicAnimationInterfaceFactoryInterfaceArrayP;
+        return this.basicAnimationInterfaceFactoryInterfaceArrayP;
     }
     
     @Override

@@ -41,7 +41,7 @@ public class IndexedAnimation extends Animation
      * @return the animationBehavior
      */
     public AnimationBehavior getAnimationBehavior() {
-        return animationBehaviorP;
+        return this.animationBehaviorP;
     }
    
     @Override

@@ -36,7 +36,7 @@ public class BaseAnimationInterfaceFactoryInterfaceComposite
      * @return the basicAnimationInterfaceFactoryInterfaceArray
      */
     public BasicAnimationInterfaceFactoryInterface[] getBasicAnimationInterfaceFactoryInterfaceArray() {
-        return basicAnimationInterfaceFactoryInterfaceArray;
+        return this.basicAnimationInterfaceFactoryInterfaceArray;
     }
 
     /**

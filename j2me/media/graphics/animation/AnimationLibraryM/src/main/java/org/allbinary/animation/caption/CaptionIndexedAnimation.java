@@ -149,7 +149,7 @@ public class CaptionIndexedAnimation extends IndexedAnimation
         this.animationInterface.paint(graphics, 
                 x + this.captionDx, y + this.captionDy);
         this.movieIndexedAnimationInterface.paint(graphics, 
-                x + this.captionDx + dx, y + this.captionDy + dy);
+                x + this.captionDx + this.dx, y + this.captionDy + this.dy);
     }
 
     @Override
@@ -158,6 +158,6 @@ public class CaptionIndexedAnimation extends IndexedAnimation
         this.animationInterface.paintThreed(graphics, 
                 x + this.captionDx, y + this.captionDy, z);
         this.movieIndexedAnimationInterface.paintThreed(graphics, 
-                x + this.captionDx + dx, y + this.captionDy + dy, z);
+                x + this.captionDx + this.dx, y + this.captionDy + this.dy, z);
     }    
 }

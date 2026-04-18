@@ -155,12 +155,12 @@ public class BasicColor
     
     public int intValue()
     {
-        return value;
+        return this.value;
     }
 
     public int toInt()
     {
-        return value;
+        return this.value;
     }
     
     public String toString()
@@ -187,27 +187,27 @@ public class BasicColor
      */
     public String getName()
     {
-        return name;
+        return this.name;
     }
 
     public float getRedComponent()
     {
-        return redComponent;
+        return this.redComponent;
     }
 
     public float getGreenComponent()
     {
-        return greenComponent;
+        return this.greenComponent;
     }
 
     public float getBlueComponent()
     {
-        return blueComponent;
+        return this.blueComponent;
     }
 
     public float getAlphaComponent()
     {
-        return alphaComponent;
+        return this.alphaComponent;
     }
 
     //public int getId() { return id; }

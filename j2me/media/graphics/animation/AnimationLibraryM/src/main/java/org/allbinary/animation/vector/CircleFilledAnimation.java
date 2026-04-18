@@ -43,6 +43,6 @@ implements ColorCompositeInterface
        this.basicSetColorUtil.setBasicColorP3(
                graphics, this.getBasicColorP(), this.getColor());
       //graphics.fillArc(x, y, width, height, 0, TOTAL_ANGLE);
-      graphics.fillRect(x, y, width, height);
+      graphics.fillRect(x, y, this.width, this.height);
    }
 }

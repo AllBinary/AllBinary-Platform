@@ -137,7 +137,7 @@ public class RotationAnimation
         this.angleInfo.adjustAngle(this.circularIndexUtil.getIndex());
         */
 
-        final Angle angle = directionUtil.getFrameAngle(direction);
+        final Angle angle = this.directionUtil.getFrameAngle(direction);
         this.adjustFrame(angle);
     }
 

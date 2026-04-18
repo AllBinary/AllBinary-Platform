@@ -138,7 +138,7 @@ public class CompoundIndexedAnimation extends IndexedAnimation
      */
     public Animation[] getAnimationInterfaceArray()
     {
-        return animationInterfaceArray;
+        return this.animationInterfaceArray;
     }
 
     /**

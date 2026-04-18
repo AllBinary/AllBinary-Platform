@@ -48,7 +48,7 @@ implements ColorCompositeInterface
        this.basicSetColorUtil.setBasicColorP3(
                graphics, this.getBasicColorP(), this.getColor());
 
-      graphics.drawRect(x + this.offsetX, y + this.offsetY, width, height);
+      graphics.drawRect(x + this.offsetX, y + this.offsetY, this.width, this.height);
    }
 
     /**

@@ -82,10 +82,10 @@ public class CustomTextAnimationFactory
     public Animation getInstance(final int instanceId) throws Exception {
         
         CustomTextAnimation customTextAnimation;
-        if (dx != 0 || dy != 0) {
-            customTextAnimation = new AdjustCustomTextAnimation(text, this.scaleProperties.scaleHeight, dx, dy, this.animationBehaviorFactory.getOrCreateInstance());
+        if (this.dx != 0 || this.dy != 0) {
+            customTextAnimation = new AdjustCustomTextAnimation(this.text, this.scaleProperties.scaleHeight, this.dx, this.dy, this.animationBehaviorFactory.getOrCreateInstance());
         } else {
-            customTextAnimation = new CustomTextAnimation(text, this.scaleProperties.scaleHeight, this.animationBehaviorFactory.getOrCreateInstance());
+            customTextAnimation = new CustomTextAnimation(this.text, this.scaleProperties.scaleHeight, this.animationBehaviorFactory.getOrCreateInstance());
         }
 
         customTextAnimation.setBasicColorP(basicColor);
@@ -104,12 +104,12 @@ public class CustomTextAnimationFactory
     public int getWidth() {
 //        final CommonLabels commonLabels = CommonLabels.getInstance();
 //        this.logUtil.putF(new StringMaker().append("getWidth - font: ").append(font.getSize()).append(commonLabels.WIDTH_LABEL).append(font.stringWidth(this.text)).append(" text: ").append(text).toString(), this, commonStrings.PROCESS);
-        return font.stringWidth(this.text);
+        return this.font.stringWidth(this.text);
     }
 
     public int getHeight() {
         
-        return font.getHeight();
+        return this.font.getHeight();
     }
 
 }

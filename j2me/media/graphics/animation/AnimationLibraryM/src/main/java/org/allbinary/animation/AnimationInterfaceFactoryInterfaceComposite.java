@@ -36,7 +36,7 @@ public class AnimationInterfaceFactoryInterfaceComposite
      * @return the basicAnimationInterfaceFactoryInterfaceArray
      */
     public AnimationInterfaceFactoryInterface[] getAnimationInterfaceFactoryInterfaceArray() {
-        return animationInterfaceFactoryInterfaceArray;
+        return this.animationInterfaceFactoryInterfaceArray;
     }
 
     @Override

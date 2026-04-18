@@ -59,10 +59,10 @@ public class TextAnimation extends IndexedAnimation
                 graphics, this.getBasicColorP(), this.getColor());
 
         final int height = this.getHeight();
-        final int size = textArrayP.length;
+        final int size = this.textArrayP.length;
         for(int index = 0; index < size; index++) {
             //this.logUtil.putF(new StringMaker().append(textArray[index]).append(CommonSeps.getInstance().SPACE).append(x).append(CommonSeps.getInstance().SPACE).append(y).toString(), this, commonStrings.PROCESS);
-            graphics.drawString(textArrayP[index], x, y + (index * height), anchor);
+            graphics.drawString(this.textArrayP[index], x, y + (index * height), anchor);
             //graphics.drawString(textArray[index], x + WIDTH, y + (index * height) + HEIGHT, anchor);
         }
 
@@ -107,7 +107,7 @@ public class TextAnimation extends IndexedAnimation
 
     public String[] getTextArray()
     {
-        return textArrayP;
+        return this.textArrayP;
     }
     
     public int getHeight() {

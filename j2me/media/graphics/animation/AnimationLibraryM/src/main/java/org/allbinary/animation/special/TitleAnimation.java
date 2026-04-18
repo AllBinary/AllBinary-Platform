@@ -87,7 +87,7 @@ public class TitleAnimation extends SpecialAnimation
     public void nextFrame()
     {
         final long currentTime = System.currentTimeMillis();
-        final long totalTimeElapsed = currentTime - lastFrameStartTime;
+        final long totalTimeElapsed = currentTime - this.lastFrameStartTime;
 
         final IndexedAnimationBehavior indexedAnimationBehavior = (IndexedAnimationBehavior) this.getAnimationBehavior();
 
@@ -154,7 +154,7 @@ public class TitleAnimation extends SpecialAnimation
     @Override
     public void setFrame(final int frame)
     {
-        for (int index = 0; index < sizeP; index++)
+        for (int index = 0; index < this.sizeP; index++)
         {
             this.animationInterfaceArray[index].setFrame(frame);
         }
@@ -180,7 +180,7 @@ public class TitleAnimation extends SpecialAnimation
     public void previousFrame()
     {
         //ForcedLogUtil.log(commonStrings.NOT_IMPLEMENTED, this);
-        for (int index = 0; index < sizeP; index++)
+        for (int index = 0; index < this.sizeP; index++)
         {
             this.animationInterfaceArray[index].previousFrame();
         }

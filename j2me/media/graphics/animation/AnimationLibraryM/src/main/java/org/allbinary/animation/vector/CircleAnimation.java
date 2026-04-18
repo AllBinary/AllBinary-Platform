@@ -54,6 +54,6 @@ public class CircleAnimation extends Animation implements ColorCompositeInterfac
         this.basicSetColorUtil.setBasicColorP3(
                 graphics, this.getBasicColorP(), this.getColor());
 
-        graphics.drawArc(x, y, width, height, 0, TOTAL_ANGLE);
+        graphics.drawArc(x, y, this.width, this.height, 0, TOTAL_ANGLE);
     }
 }
