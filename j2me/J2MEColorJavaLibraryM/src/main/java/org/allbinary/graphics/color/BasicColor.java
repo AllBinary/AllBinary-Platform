@@ -14,13 +14,13 @@
 package org.allbinary.graphics.color;
 
 import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.string.StringUtil;
 
 public class BasicColor
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
     // private int id;
+    // this.id = index++;
     private final String name;
     private final int value;
 
@@ -33,8 +33,7 @@ public class BasicColor
     public final short green;
     public final short blue;
     public final short alpha;
-    
-    private final BasicColorUtil basicColorUtil = BasicColorUtil.getInstance();
+
     /*
      * BasicColor.init(true, true);
      * 
@@ -44,22 +43,6 @@ public class BasicColor
      * BasicColor.setAlpha(alpha); BasicColor.ffOpaque = ffOpaque; }
      */
 
-    public BasicColor(final int value)
-    {
-        this(value, StringUtil.getInstance().EMPTY_STRING);
-        // this.id = index++;
-
-    }
-
-    public BasicColor(final int alphaValue, final int value) {
-        this(alphaValue, value, StringUtil.getInstance().EMPTY_STRING);
-    }
-    
-    BasicColor(final int value, final String name)
-    {
-        this(BasicColorUtil.getInstance().ALPHA, value, name);
-    }
-    
     BasicColor(final int alphaValue, final int value, final String name)
     {
 
@@ -67,9 +50,10 @@ public class BasicColor
 
         int tempValue;
 
-        if (this.basicColorUtil.isAlpha)
+        final BasicColorUtil basicColorUtil = BasicColorUtil.getInstance();
+        if (basicColorUtil.isAlpha)
         {
-            if (this.basicColorUtil.ffOpaque)
+            if (basicColorUtil.ffOpaque)
             {
                 tempValue = alphaValue | value;
             }
@@ -123,51 +107,51 @@ public class BasicColor
         */
     }
 
-    public BasicColor(final int alphaValue, final int r, final int g, final int b, final String name)
-    {
-
-        this.name = name;
-
-        this.alpha = (short) alphaValue;
-        this.alphaComponent = ((float) alphaValue) / 255;
-
-        final int redInt = r;
-        this.red = (short) redInt;
-        this.redComponent = ((float) redInt) / 255;
-
-        final int greenInt = g;
-        this.green = (short) greenInt;
-        this.greenComponent = ((float) greenInt) / 255;
-
-        final int blueInt = b;
-        this.blue = (short) blueInt;
-        this.blueComponent = ((float) blueInt) / 255;
-
-        final int ALPHA_MASK = (int) 0xFF000000;
-        
-        this.value = ((alphaValue << 24) & ALPHA_MASK) + ((redInt << 16) & 0x00FF0000) + ((greenInt << 8) & 0x0000FF00) + (blueInt & 0x000000FF);
-
-        /*
-        StringMaker stringBuffer = new StringMaker();
-        
-        stringBuffer.append("Alpha: ");
-        stringBuffer.append(alpha);
-        stringBuffer.append(" ffOpaque: ");
-        stringBuffer.append(ffOpaque);
-        stringBuffer.append(" Value: ");
-        stringBuffer.append(Integer.toHexString(this.intValue()));
-        stringBuffer.append(" a: ");
-        stringBuffer.append(this.alphaComponent);
-        stringBuffer.append(" r: ");
-        stringBuffer.append(this.redComponent);
-        stringBuffer.append(" g: ");
-        stringBuffer.append(this.greenComponent);
-        stringBuffer.append(" b: ");
-        stringBuffer.append(this.blueComponent);
-        
-        this.logUtil.putF(stringBuffer.toString(), this, commonStrings.CONSTRUCTOR);
-        */
-    }
+//    public BasicColor(final int alphaValue, final int r, final int g, final int b, final String name)
+//    {
+//
+//        this.name = name;
+//
+//        this.alpha = (short) alphaValue;
+//        this.alphaComponent = ((float) alphaValue) / 255;
+//
+//        final int redInt = r;
+//        this.red = (short) redInt;
+//        this.redComponent = ((float) redInt) / 255;
+//
+//        final int greenInt = g;
+//        this.green = (short) greenInt;
+//        this.greenComponent = ((float) greenInt) / 255;
+//
+//        final int blueInt = b;
+//        this.blue = (short) blueInt;
+//        this.blueComponent = ((float) blueInt) / 255;
+//
+//        final int ALPHA_MASK = (int) 0xFF000000;
+//
+//        this.value = ((alphaValue << 24) & ALPHA_MASK) + ((redInt << 16) & 0x00FF0000) + ((greenInt << 8) & 0x0000FF00) + (blueInt & 0x000000FF);
+//
+//        /*
+//        StringMaker stringBuffer = new StringMaker();
+//
+//        stringBuffer.append("Alpha: ");
+//        stringBuffer.append(alpha);
+//        stringBuffer.append(" ffOpaque: ");
+//        stringBuffer.append(ffOpaque);
+//        stringBuffer.append(" Value: ");
+//        stringBuffer.append(Integer.toHexString(this.intValue()));
+//        stringBuffer.append(" a: ");
+//        stringBuffer.append(this.alphaComponent);
+//        stringBuffer.append(" r: ");
+//        stringBuffer.append(this.redComponent);
+//        stringBuffer.append(" g: ");
+//        stringBuffer.append(this.greenComponent);
+//        stringBuffer.append(" b: ");
+//        stringBuffer.append(this.blueComponent);
+//
+//        this.logUtil.putF(stringBuffer.toString(), this, commonStrings.CONSTRUCTOR);
+//        */
+//    }
     
     public int intValue()
     {

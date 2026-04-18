@@ -42,7 +42,7 @@ public class BasicColorCacheFactory
 
         if (basicColor == null)
         {
-            basicColor = new BasicColor(integer.intValue());
+            basicColor = BasicColorFactory.getInstance().createInstance(integer.intValue());
             hashtable.put(integer, basicColor);
         }
 

@@ -133,7 +133,7 @@ public class ImageCopyUtil
 //                for(int y = 0; y < height; y++) {
 //                    final int pixel = originalMutableImage.img.getImageData().getPixel(x, y);
 //                    final byte alpha = (byte) (pixel >> 24);
-//                    BasicColor basicColor = new BasicColor(alpha, pixel);
+//                    BasicColor basicColor = BasicColorFactory.getInstance().createInstanceA(alpha, pixel);
 //                    //this.logUtil.putF(basicColor.toString(), this, commonStrings.PROCESS);
 //                    if (basicColor.intValue() == -1)  {
 //                        originalMutableImage.img.getImageData().setPixel(x, y, 0x00FFFFFF);
@@ -158,7 +158,7 @@ public class ImageCopyUtil
 //                for(int y = 0; y < height; y++) {
 //                    final int pixel = originalMutableImage.img.getImageData().getPixel(x, y);
 //                    final byte alpha = (byte) (pixel >> 24);
-//                    BasicColor basicColor = new BasicColor(alpha, pixel);
+//                    BasicColor basicColor = BasicColorFactory.getInstance().createInstanceA(alpha, pixel);
 //                    //this.logUtil.putF(basicColor.toString(), this, commonStrings.PROCESS);
 //                    if (basicColor.intValue() == -1)  {
 //                        //this.logUtil.putF(new StringMaker().append("x: ").append(x).append(" y: ").append(y).toString(), this, commonStrings.PROCESS);
@@ -199,7 +199,7 @@ public class ImageCopyUtil
 //                for(int y = 0; y < height; y++) {
 //                    final int pixel = originalImmutableImage.img.getImageData().getPixel(x, y);
 //                    final byte alpha = (byte) (pixel >> 24);
-//                    BasicColor basicColor = new BasicColor(alpha, pixel);
+//                    BasicColor basicColor = BasicColorFactory.getInstance().createInstanceA(alpha, pixel);
 //                    //this.logUtil.putF(basicColor.toString(), this, commonStrings.PROCESS);
 //                    if (basicColor.intValue() == -1)  {
 //                        originalImmutableImage.img.getImageData().setPixel(x, y, 0x00FFFFFF);
@@ -229,7 +229,7 @@ public class ImageCopyUtil
 //                for(int y = 0; y < height; y++) {
 //                    final int pixel = originalImmutableImage.img.getImageData().getPixel(x, y);
 //                    final byte alpha = (byte) (pixel >> 24);
-//                    BasicColor basicColor = new BasicColor(alpha, pixel);
+//                    BasicColor basicColor = BasicColorFactory.getInstance().createInstanceA(alpha, pixel);
 //                    //this.logUtil.putF(basicColor.toString(), this, commonStrings.PROCESS);
 //                    if (basicColor.intValue() == -1)  {
 //                        //this.logUtil.putF(new StringMaker().append("x: ").append(x).append(" y: ").append(y).toString(), this, commonStrings.PROCESS);
