@@ -82,7 +82,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
             final LayerPositionFinderInterface layerPositionFinderInterface,
             final SelectRTSLayerVisitorFactoryInterface selectRTSLayerVisitorFactoryInterface)
     {
-        super(this.inputList, playerInputId);
+        super(inputList, playerInputId);
         
         this.initInputProcessors();
         

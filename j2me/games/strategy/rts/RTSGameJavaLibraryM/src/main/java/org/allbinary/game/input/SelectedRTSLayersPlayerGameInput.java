@@ -75,7 +75,7 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
             BasicArrayList list, int playerInputId, 
             SelectRTSLayerVisitorFactoryInterface selectRTSLayerVisitorFactoryInterface)
     {
-        super(this.list, playerInputId);
+        super(list, playerInputId);
 
         this.initInputProcessors();
 
