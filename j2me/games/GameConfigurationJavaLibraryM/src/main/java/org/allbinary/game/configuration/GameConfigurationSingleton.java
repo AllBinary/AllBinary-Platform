@@ -31,13 +31,13 @@ public class GameConfigurationSingleton
         
     private GameConfigurationSingleton()
     {
-        list = new BasicArrayList();
-        hashtable = new Hashtable();
+        this.list = new BasicArrayList();
+        this.hashtable = new Hashtable();
     }
     
     public GameConfiguration getInstance(String name)
     {
-        return (GameConfiguration) hashtable.get(name);
+        return (GameConfiguration) this.hashtable.get(name);
     }
 
     public BasicArrayList getOptionsBasicArrayList()
@@ -47,7 +47,7 @@ public class GameConfigurationSingleton
 
     public void add(GameConfiguration gameConfiguration)
     {
-        list.add(gameConfiguration);
+        this.list.add(gameConfiguration);
     }
     
     public Hashtable getHashtable()

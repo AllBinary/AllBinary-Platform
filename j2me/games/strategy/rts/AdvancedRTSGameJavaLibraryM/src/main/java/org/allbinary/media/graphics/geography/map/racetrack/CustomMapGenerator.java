@@ -54,7 +54,7 @@ public class CustomMapGenerator extends CustomMapGeneratorBase
         // (RaceTrackGeographicMap)
         // this.getOwnerLayer().geographicMapInterface;
 
-        int[][] mapArray = raceTrackGeographicMap.getRaceTrackData().getMapArray();
+        int[][] mapArray = this.raceTrackGeographicMap.getRaceTrackData().getMapArray();
 
         int startIndex2 = mapArray[0].length - 1;
         for (int index = mapArray.length - 1; index >= 0; index--)
@@ -74,7 +74,7 @@ public class CustomMapGenerator extends CustomMapGeneratorBase
     public int getCustomType(final int column, final int row, final int currentType)
         throws Exception
     {
-        final int emptyType = geographicMapCellTypeFactory.getEmptyType();
+        final int emptyType = this.geographicMapCellTypeFactory.getEmptyType();
 
         final BasicGeographicMapCellPositionFactory geographicMapCellPositionFactory =
             this.raceTrackGeographicMap.getGeographicMapCellPositionFactory();

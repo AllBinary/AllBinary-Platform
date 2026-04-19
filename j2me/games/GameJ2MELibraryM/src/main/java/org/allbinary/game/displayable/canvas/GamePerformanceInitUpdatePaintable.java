@@ -30,14 +30,14 @@ public class GamePerformanceInitUpdatePaintable extends InitUpdatePaintable
     private final int halfHeight = DisplayInfoSingleton.getInstance().getLastHalfHeight();
 
     private final int[] yArray = {
-            halfHeight + 30, 
-            halfHeight + 30, 
-            halfHeight + 30 + 15,
-            halfHeight + 30 + 15,
-            halfHeight + 30 + 30,
-            halfHeight + 30 + 30,
-            halfHeight + 30 + 45,
-            halfHeight + 30 + 45
+            this.halfHeight + 30, 
+            this.halfHeight + 30, 
+            this.halfHeight + 30 + 15,
+            this.halfHeight + 30 + 15,
+            this.halfHeight + 30 + 30,
+            this.halfHeight + 30 + 30,
+            this.halfHeight + 30 + 45,
+            this.halfHeight + 30 + 45
             };
     
     //private String[] baseRefreshHelperStringArray = StringUtil.getArrayInstance();
@@ -54,7 +54,7 @@ public class GamePerformanceInitUpdatePaintable extends InitUpdatePaintable
     public void update()
     {
         //baseRefreshHelperStringArray = GameStatisticsFactory.getInstance().toStringArray();
-        baseRefreshHelperCharArray = GameStatisticsFactory.getInstance().toCharArray();
+        this.baseRefreshHelperCharArray = GameStatisticsFactory.getInstance().toCharArray();
     }
 
     private final int RED = BasicColorFactory.getInstance().RED.intValue();
@@ -64,13 +64,13 @@ public class GamePerformanceInitUpdatePaintable extends InitUpdatePaintable
     {
         final MyFont myFont = MyFont.getInstance();
         
-        graphics.setColor(RED);
+        graphics.setColor(this.RED);
         
         char[] charArray;
         char[] charArray2;
         int size2;
         int size3;
-        final int size = baseRefreshHelperCharArray.length - 2;
+        final int size = this.baseRefreshHelperCharArray.length - 2;
         for(int index = size; index >= 0; index-=2)
         {
             charArray = this.baseRefreshHelperCharArray[index];

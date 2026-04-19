@@ -44,7 +44,7 @@ public class CustomGravityConstantVelocityMovement
    throws Exception
    {
       super.process(layer);
-      gravityUtil.process(this.getVelocityProperties(), this.customGravity);
+      this.gravityUtil.process(this.getVelocityProperties(), this.customGravity);
       final VelocityProperties velocityProperties = (VelocityProperties) this.getVelocityProperties();
       velocityProperties.limitMaxYForwardVelocity();
    }

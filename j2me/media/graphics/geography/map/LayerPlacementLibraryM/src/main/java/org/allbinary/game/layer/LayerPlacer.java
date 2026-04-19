@@ -83,7 +83,7 @@ public class LayerPlacer
 
          layerInterface = layerInterfaceFactory.getInstance(layerHashtable, x, y, z);
 
-         layerInterfaceVisitor.visit(layerInterface);
+         this.layerInterfaceVisitor.visit(layerInterface);
       }
    }
 
@@ -97,15 +97,15 @@ public class LayerPlacer
       {
          final int width = layerPlacementInterface.getWidth();
          final int height = layerPlacementInterface.getHeight();
-         final int x = ((dimension.getX() - width) / 2);
-         final int y = ((dimension.getY() - height) / 2);
+         final int x = ((this.dimension.getX() - width) / 2);
+         final int y = ((this.dimension.getY() - height) / 2);
 
          return PointFactory.getInstance().getInstance(x, y);
       } else if (layerPlacementType == LayerPlacementTypeFactory.getInstance().UP)
       {
          final int width = layerPlacementInterface.getWidth();
          final int height = layerPlacementInterface.getHeight();
-         final int x = ((dimension.getX() - width) / 2);
+         final int x = ((this.dimension.getX() - width) / 2);
          final int y = -height;
 
          return PointFactory.getInstance().getInstance(x, y);

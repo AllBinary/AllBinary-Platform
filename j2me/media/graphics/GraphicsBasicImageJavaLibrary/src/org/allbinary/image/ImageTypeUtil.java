@@ -36,9 +36,9 @@ public class ImageTypeUtil
     public boolean isSupported(String mediaFileType)
     {
         mediaFileType = mediaFileType.toLowerCase();
-        for(int index = list.size() - 1; index >= 0; index--)
+        for(int index = this.list.size() - 1; index >= 0; index--)
         {
-            String name = (String) list.objectArray[index];
+            String name = (String) this.list.objectArray[index];
             if(mediaFileType.compareTo(name) == 0)
             {
                 return true;

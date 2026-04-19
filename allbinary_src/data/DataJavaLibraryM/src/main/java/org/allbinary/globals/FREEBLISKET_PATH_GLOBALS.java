@@ -64,7 +64,7 @@ public class FREEBLISKET_PATH_GLOBALS
 
        stringBuffer.delete(0, stringBuffer.length());
 
-       stringBuffer.append(XSLPATH);
+       stringBuffer.append(this.XSLPATH);
        stringBuffer.append("configuration");
        stringBuffer.append(AbPathData.getInstance().SEPARATOR);
 
@@ -72,7 +72,7 @@ public class FREEBLISKET_PATH_GLOBALS
 
        stringBuffer.delete(0, stringBuffer.length());
 
-       stringBuffer.append(CONFIGURATIONPATH);
+       stringBuffer.append(this.CONFIGURATIONPATH);
        stringBuffer.append("user");
        stringBuffer.append(AbPathData.getInstance().SEPARATOR);
 
@@ -80,7 +80,7 @@ public class FREEBLISKET_PATH_GLOBALS
 
        stringBuffer.delete(0, stringBuffer.length());
 
-       stringBuffer.append(CONFIGURATIONPATH);
+       stringBuffer.append(this.CONFIGURATIONPATH);
        stringBuffer.append("context");
        stringBuffer.append(AbPathData.getInstance().SEPARATOR);
 

@@ -66,6 +66,6 @@ public class PixelDelta implements CacheableInterface
     
     public String toString()
     {
-        return new StringMaker().append("PixelDelta: Point: ").append(point.toString()).append(CommonSeps.getInstance().SPACE).append(colorDelta.toString()).toString();
+        return new StringMaker().append("PixelDelta: Point: ").append(this.point.toString()).append(CommonSeps.getInstance().SPACE).append(this.colorDelta.toString()).toString();
     }
 }

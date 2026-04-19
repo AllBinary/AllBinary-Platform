@@ -73,7 +73,7 @@ public class OrderHelper
             OrderInterface orderInterface = this.weblisketSession.getOrder();
 
             //Set Payment Method to Request Param
-            String requestPaymentGateway = (String) request.getParameter(PaymentGatewayData.NAME.toString());
+            String requestPaymentGateway = (String) this.request.getParameter(PaymentGatewayData.NAME.toString());
             if (!StringValidationUtil.getInstance().isEmpty(requestPaymentGateway))
             {
                 this.weblisketSession.setPaymentMethod(requestPaymentGateway);

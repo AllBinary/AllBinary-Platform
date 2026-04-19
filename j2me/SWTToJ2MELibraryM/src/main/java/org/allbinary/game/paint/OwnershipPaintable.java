@@ -56,7 +56,7 @@ public class OwnershipPaintable extends Paintable
     {
         //this.logUtil.putF(commonStrings.START, this, "paint");
         
-        graphics.setColor(color);
+        graphics.setColor(this.color);
 
         final MyFont myFont = MyFont.getInstance();        
         final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
@@ -66,12 +66,12 @@ public class OwnershipPaintable extends Paintable
 
         final Font font = graphics.getFont();
 
-        final int beginWidth = (font.stringWidth(COPYRIGHT) >> 1);
+        final int beginWidth = (font.stringWidth(this.COPYRIGHT) >> 1);
 
         //final int COPYRIGHT_Y = 3 * myFont.DEFAULT_CHAR_HEIGHT;
         final int COPYRIGHT_Y = 2 * myFont.DEFAULT_CHAR_HEIGHT;
         
-        graphics.drawString(COPYRIGHT, halfWidth - beginWidth, height - COPYRIGHT_Y, anchor);
+        graphics.drawString(this.COPYRIGHT, halfWidth - beginWidth, height - COPYRIGHT_Y, anchor);
 
         /*
         beginWidth = (font.stringWidth(COMPANY) >> 1);
@@ -84,7 +84,7 @@ public class OwnershipPaintable extends Paintable
     public void setBasicColorP(BasicColor basicColor)
     {
         this.basicColor = basicColor;
-        color = basicColor.intValue();
+        this.color = basicColor.intValue();
     }
 
     public BasicColor getBasicColorP()

@@ -43,8 +43,8 @@ extends Animation
     {
         super.paint(graphics, x, y);
 
-        final int adjustedCostY = image.getHeight() - this.myFont.DEFAULT_CHAR_HEIGHT;
-        graphics.drawString(text, x, y + adjustedCostY, 0);
+        final int adjustedCostY = this.image.getHeight() - this.myFont.DEFAULT_CHAR_HEIGHT;
+        graphics.drawString(this.text, x, y + adjustedCostY, 0);
         // + this.adjustedCostX
     }
 }

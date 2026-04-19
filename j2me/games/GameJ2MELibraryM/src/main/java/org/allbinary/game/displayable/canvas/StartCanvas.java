@@ -428,7 +428,7 @@ public class StartCanvas extends RunnableCanvas
         this.removeGameKeyEvent(keyCode, false);
     }
     private boolean isSingleKeyRepeatableProcessing =
-        features.isFeature(InputFeatureFactory.getInstance().SINGLE_KEY_REPEAT_PRESS);
+        this.features.isFeature(InputFeatureFactory.getInstance().SINGLE_KEY_REPEAT_PRESS);
 
     @Override
     public void keyRepeated(int keyCode, int deviceId)
@@ -454,9 +454,9 @@ public class StartCanvas extends RunnableCanvas
 
             //this.logUtil.putF(new StringMaker().append("GameKey: ").append(gameKey).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
 
-            if (gameKey != NONE)
+            if (gameKey != this.NONE)
             {
-                GameKeyEvent gameKeyEvent = gameKeyEventFactory.getInstance(this, gameKey);
+                GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstance(this, gameKey);
                 /*
                  * //This is for key input debugging only GameKeyEvent
                  * gameKeyEvent = GameKeyEventFactory.getInstance(this, keyCode,
@@ -487,9 +487,9 @@ public class StartCanvas extends RunnableCanvas
 
             //this.logUtil.putF("GameKey: ").append(gameKey, this, this.gameInputStrings.REMOVE_KEY_EVENT);
 
-            if (gameKey != NONE)
+            if (gameKey != this.NONE)
             {
-                GameKeyEvent gameKeyEvent = gameKeyEventFactory.getInstance(this, gameKey);
+                GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstance(this, gameKey);
 
                 /*
                  * //This is for key input debugging only GameKeyEvent
@@ -685,7 +685,7 @@ public class StartCanvas extends RunnableCanvas
             this.highScoresPaintable = this.getRealHighScoresPaintable();
         }
         
-        GameAdState gameAdState = gameAdStateFactory.getCurrentInstance();
+        GameAdState gameAdState = this.gameAdStateFactory.getCurrentInstance();
         gameAdState.processPageAdState();
     }
 
@@ -782,7 +782,7 @@ public class StartCanvas extends RunnableCanvas
             final IndexedAnimationBehavior indexedAnimationBehavior = (IndexedAnimationBehavior) this.getSpecialAnimationInterface().getAnimationBehavior();
             if (indexedAnimationBehavior.loopIndex < 1)
             {
-                timeDelayHelper.setStartTime();
+                this.timeDelayHelper.setStartTime();
             }
 
             DemoGameMidlet demoGameMidlet =
@@ -933,7 +933,7 @@ public class StartCanvas extends RunnableCanvas
 
             //this.process();
             
-            if (features.isFeature(MainFeatureFactory.getInstance().LOAD_ONDEMAND))
+            if (this.features.isFeature(MainFeatureFactory.getInstance().LOAD_ONDEMAND))
             {
                 progressCanvas.end();
             }
@@ -942,7 +942,7 @@ public class StartCanvas extends RunnableCanvas
                 progressCanvas.addPortion(50, "Demo Thread Running");
             }
 
-            fullScreenUtil.init(this, this.getCustomCommandListener());
+            this.fullScreenUtil.init(this, this.getCustomCommandListener());
 
             this.initMenu();
             this.initPostPaint();
@@ -950,7 +950,7 @@ public class StartCanvas extends RunnableCanvas
 
             //final TimeDelayHelper runningTimeDelayHelper = new TimeDelayHelper(12000);
             
-            if (features.isDefault(openGLFeatureFactory.OPENGL_AS_GAME_THREAD))
+            if (this.features.isDefault(this.openGLFeatureFactory.OPENGL_AS_GAME_THREAD))
             {
                 //PreLogUtil.put(commonStrings.START, this, "OPENGL_AS_GAME_THREAD");
                 
@@ -973,7 +973,7 @@ public class StartCanvas extends RunnableCanvas
                 OpenGLThreadUtil.getInstance().onResume();
             }
 
-            if (features.isDefault(openGLFeatureFactory.OPENGL_AS_GAME_THREAD) || J2MEUtil.isHTML())
+            if (this.features.isDefault(this.openGLFeatureFactory.OPENGL_AS_GAME_THREAD) || J2MEUtil.isHTML())
             {
                 //PreLogUtil.put(commonStrings.START, this, "OPENGL_AS_GAME_THREAD 2");
 
@@ -1016,7 +1016,7 @@ public class StartCanvas extends RunnableCanvas
         try
         {
             //If game thread is not actually running
-            if ((features.isDefault(openGLFeatureFactory.OPENGL) || J2MEUtil.isHTML())
+            if ((this.features.isDefault(this.openGLFeatureFactory.OPENGL) || J2MEUtil.isHTML())
                     && !running)
             {
                 final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
@@ -1040,7 +1040,7 @@ public class StartCanvas extends RunnableCanvas
         baseGameStatistics.add(new StringMaker().append(BOT_GAME_STATS).append(baseGameStatistics.toString()).append(CommonSeps.getInstance().NEW_LINE).toString());    
         baseGameStatistics.init();
         
-        if (features.isFeature(MainFeatureFactory.getInstance().LOAD_ONDEMAND))
+        if (this.features.isFeature(MainFeatureFactory.getInstance().LOAD_ONDEMAND))
         {
             progressCanvas.start();
         }

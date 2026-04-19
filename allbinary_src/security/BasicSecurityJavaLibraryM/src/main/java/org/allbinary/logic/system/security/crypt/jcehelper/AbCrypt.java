@@ -60,10 +60,10 @@ public class AbCrypt implements CryptInterface
           
          final byte[] key = keyAsString.getBytes();
          final KeySpec keySpec = KeySpecFactory.getInstance().getInstance(this.algorithm, key);
-         final SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(algorithm);
+         final SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(this.algorithm);
          
          final SecretKey secretKey = keyFactory.generateSecret(keySpec);
-         final Cipher cipher = Cipher.getInstance(algorithm);         
+         final Cipher cipher = Cipher.getInstance(this.algorithm);         
          this.secretComposite = new SecretComposite(secretKey, cipher, key);
       }
       catch(Exception e)

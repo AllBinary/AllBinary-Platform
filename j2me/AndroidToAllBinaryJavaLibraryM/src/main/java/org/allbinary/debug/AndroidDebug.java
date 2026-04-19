@@ -35,7 +35,7 @@ public class AndroidDebug implements DebugInterface
     @Override
     public void stop()
     {
-        startTime = Long.MAX_VALUE;
+        this.startTime = Long.MAX_VALUE;
         Debug.stopMethodTracing();
         setRunning(false);
     }

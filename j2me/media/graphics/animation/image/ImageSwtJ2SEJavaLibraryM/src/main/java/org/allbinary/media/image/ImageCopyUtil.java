@@ -69,9 +69,9 @@ public class ImageCopyUtil
     public Image createImageForRotation(final Image originalImage)
             throws Exception
     {
-        if(features.isFeature(openGLFeatureFactory.OPENGL)) {
+        if(this.features.isFeature(this.openGLFeatureFactory.OPENGL)) {
             Image image = originalImage;
-            image = openGLUtil.add(image);
+            image = this.openGLUtil.add(image);
             return image;
         } else {
             return this.createImage(originalImage);
@@ -82,13 +82,13 @@ public class ImageCopyUtil
     public Image createImage(final Image originalImage)
             throws Exception
     {
-        if(!features.isFeature(gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
-            this.logUtil.putF(NO_COPY, this, commonStrings.CONSTRUCTOR);
+        if(!this.features.isFeature(this.gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
+            this.logUtil.putF(this.NO_COPY, this, commonStrings.CONSTRUCTOR);
             return originalImage;
         }
 
         Image originalImage2 = originalImage;
-        if(features.isFeature(openGLFeatureFactory.OPENGL)) {
+        if(this.features.isFeature(this.openGLFeatureFactory.OPENGL)) {
             //this.logUtil.putF(NO_COPY2, this, commonStrings.CONSTRUCTOR);
             //final CommonSeps commonSeps = CommonSeps.getInstance();
             //this.logUtil.putF(new StringMaker().append(NO_COPY2).append(" from: ").append(originalImage.getWidth()).append(commonSeps.SPACE).append(originalImage.getHeight()).append(" to: ").append(width).append(commonSeps.SPACE).append(height).toString(), this, commonStrings.CONSTRUCTOR);
@@ -270,7 +270,7 @@ public class ImageCopyUtil
 //        {
 //            image.getGraphics().drawImage(originalImage, 0, 0, anchor);
 //            
-            image = openGLUtil.add(image);
+            image = this.openGLUtil.add(image);
             return image;
 //        }
 //        else
@@ -290,14 +290,14 @@ public class ImageCopyUtil
             throws Exception
     {
         Image originalImage2 = originalImage;
-        if(!features.isFeature(gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
-            this.logUtil.putF(NO_COPY, this, commonStrings.CONSTRUCTOR);
+        if(!this.features.isFeature(this.gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
+            this.logUtil.putF(this.NO_COPY, this, commonStrings.CONSTRUCTOR);
             return originalImage;
         }
         
         //if(originalImage instanceof OpenGLESImage) {
-        if(features.isFeature(openGLFeatureFactory.OPENGL)) {
-            if(openGLESImageExclusionUtil.isCustomScaling(originalImage)) {
+        if(this.features.isFeature(this.openGLFeatureFactory.OPENGL)) {
+            if(this.openGLESImageExclusionUtil.isCustomScaling(originalImage)) {
                 
                 return this.createImage2(originalImage, width, height, mutable);
             }
@@ -349,7 +349,7 @@ public class ImageCopyUtil
             
         }
         
-        image = openGLUtil.add(image);
+        image = this.openGLUtil.add(image);
 
         return image;
         
@@ -362,15 +362,15 @@ public class ImageCopyUtil
             throws Exception
     {
         Image originalImage2 = originalImage;
-        if(!features.isFeature(gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
-            this.logUtil.putF(NO_COPY, this, commonStrings.CONSTRUCTOR);
+        if(!this.features.isFeature(this.gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
+            this.logUtil.putF(this.NO_COPY, this, commonStrings.CONSTRUCTOR);
             return originalImage;
         }
 
         Image image = null;
 
         //if(originalImage instanceof OpenGLESImage) {
-        if(features.isFeature(openGLFeatureFactory.OPENGL)) {
+        if(this.features.isFeature(this.openGLFeatureFactory.OPENGL)) {
             
             //final float width2 = originalImage.getWidth();
             //final float height2 = originalImage.getHeight();
@@ -411,12 +411,12 @@ public class ImageCopyUtil
                 //this.logUtil.putF("type: " + originalImage.getType(), this, commonStrings.CONSTRUCTOR);
                 image = originalImage;
 
-                final OpenGLESImage openGLESImage = (OpenGLESImage) openGLUtil.add(image);
+                final OpenGLESImage openGLESImage = (OpenGLESImage) this.openGLUtil.add(image);
                 final OpenGLESImageProperties openGLESImageProperties = openGLESImage.openGLESImageProperties;
                 openGLESImageProperties.scaleX = openGLESImageProperties.scaleX2 = (float) (((float) width) / openGLESImage.getWidth());
                 openGLESImageProperties.scaleY = openGLESImageProperties.scaleY2 = (float) (((float) height) / openGLESImage.getHeight());
                 
-                if(image.getName().startsWith(INFORMATION)) {
+                if(image.getName().startsWith(this.INFORMATION)) {
                     openGLESImage.openGLESImageTranslate = new OpenGLESDeviceImageTranslate();
                     final OpenGLESDeviceImageTranslate openGLESDeviceImageTranslate = (OpenGLESDeviceImageTranslate) openGLESImage.openGLESImageTranslate;
                     openGLESDeviceImageTranslate.translateX = displayInfoSingleton.getLastWidth() / 1.4f / openGLESImageProperties.scaleX;
@@ -451,7 +451,7 @@ public class ImageCopyUtil
                         openGLESImageProperties.scaleY = openGLESImageProperties.scaleY * 0.75f;
 //                    }
                                         
-                    if(image.getName().startsWith(LEADERBOARD)) {
+                    if(image.getName().startsWith(this.LEADERBOARD)) {
                         openGLESImage.openGLESImageTranslate = new OpenGLESDeviceImageTranslate();
                         final OpenGLESDeviceImageTranslate openGLESDeviceImageTranslate = (OpenGLESDeviceImageTranslate) openGLESImage.openGLESImageTranslate;
                         openGLESDeviceImageTranslate.translateX = -displayInfoSingleton.getLastWidth() / 40 / openGLESImageProperties.scaleX;
@@ -509,7 +509,7 @@ public class ImageCopyUtil
                 }
             }
 
-            image = openGLUtil.add(image);
+            image = this.openGLUtil.add(image);
 
         }
         
@@ -520,8 +520,8 @@ public class ImageCopyUtil
     public Image createImage(final Image originalImage, final float canvasScale, final boolean resize)
             throws Exception
     {
-        if(!features.isFeature(gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
-            this.logUtil.putF(NO_COPY, this, commonStrings.CONSTRUCTOR);
+        if(!this.features.isFeature(this.gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
+            this.logUtil.putF(this.NO_COPY, this, commonStrings.CONSTRUCTOR);
             return originalImage;
         }
 

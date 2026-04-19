@@ -52,7 +52,7 @@ public class TestInputAutomationCaptureWorker
     {
         super(inputAutomationActionInterface);
         
-        this.logUtil.putF(MESSAGE, this, commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(this.MESSAGE, this, commonStrings.CONSTRUCTOR);
         
         this.setGenericProfileActions(genericProfileActions);
     }
@@ -65,7 +65,7 @@ public class TestInputAutomationCaptureWorker
 
         if(cacheInterface.keySet().size() > 0)
         {
-            this.logUtil.putF(IMAGE_AVAILABLE_SO_PROCESSING, this, PROCESS_DATA_WORKER_RESULTS);
+            this.logUtil.putF(this.IMAGE_AVAILABLE_SO_PROCESSING, this, PROCESS_DATA_WORKER_RESULTS);
             
             Object object = cacheInterface.keySet().toArray()[0];
             //BufferedImageFrameCacheable capturedBufferedImageCacheable = 
@@ -93,7 +93,7 @@ public class TestInputAutomationCaptureWorker
         }
         else
         {
-            this.logUtil.putF(IMAGE_NOT_AVAILABLE, this, PROCESS_DATA_WORKER_RESULTS);
+            this.logUtil.putF(this.IMAGE_NOT_AVAILABLE, this, PROCESS_DATA_WORKER_RESULTS);
         }
     }
     

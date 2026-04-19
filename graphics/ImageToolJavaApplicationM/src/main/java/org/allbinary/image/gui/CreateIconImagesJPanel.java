@@ -189,9 +189,9 @@ public class CreateIconImagesJPanel extends javax.swing.JPanel
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        aboveJButton = new javax.swing.JButton();
+        this.aboveJButton = new javax.swing.JButton();
 
-        aboveJButton.setText("Process");
+        this.aboveJButton.setText("Process");
         aboveJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aboveJButtonActionPerformed(evt);

@@ -64,7 +64,7 @@ public class LineAnimation
     /*
     public void setPosition(int x, int y)
     {
-        if (tempLine == null)
+        if (this.tempLine == null)
         {
             this.newLine[0][0] = x;
             this.newLine[0][1] = y;            

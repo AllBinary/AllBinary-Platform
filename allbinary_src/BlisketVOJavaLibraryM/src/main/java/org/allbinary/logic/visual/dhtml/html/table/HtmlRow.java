@@ -55,9 +55,9 @@ public class HtmlRow extends HtmlTag
       String result = stringUtil.EMPTY_STRING;
       Object[] attributeKeys = otherAttributes.keySet().toArray();
       int attributeSize = attributeKeys.length;
-      int cellSize = htmlCellsVector.size();
-      result = before;
-      result += START;
+      int cellSize = this.htmlCellsVector.size();
+      result = this.before;
+      result += this.START;
       result += " ";      
       
       for (int i = 0; i < attributeSize; i++)
@@ -76,12 +76,12 @@ public class HtmlRow extends HtmlTag
       
       for (int i = 0; i < cellSize; i++)
       {
-         result += htmlCellsVector.get(i).toString();
+         result += this.htmlCellsVector.get(i).toString();
          result += " ";
       }
 
-      result += ENDTAG;
-      result += after;
+      result += this.ENDTAG;
+      result += this.after;
       return result;
    }
 }

@@ -75,7 +75,7 @@ public class ImageComparisonResult
         
         if(bufferedImage.getHeight() != bufferedImage2.getHeight())
         {
-            isSameHeight = false;
+            this.isSameHeight = false;
             
             if(imageHeight > bufferedImage2.getHeight())
             {
@@ -84,12 +84,12 @@ public class ImageComparisonResult
         }
         else
         {
-            isSameHeight = true;
+            this.isSameHeight = true;
         }
         
         if(bufferedImage.getWidth() != bufferedImage2.getWidth())
         {
-            isSameWidth = false;
+            this.isSameWidth = false;
             
             if(imageWidth > bufferedImage2.getWidth())
             {
@@ -98,13 +98,13 @@ public class ImageComparisonResult
         }
         else
         {
-            isSameWidth = true;
+            this.isSameWidth = true;
         }
         
         this.imageWidth = imageWidth;
         this.imageHeight = imageHeight;
 
-        if(!isSameWidth || !isSameHeight)
+        if(!this.isSameWidth || !this.isSameHeight)
         {
             final ImageUtil imageUtil = ImageUtil.getInstance();
             this.logUtil.putF("Images were not the same size? Most likely a resolution change.", this, this.commonStrings.CONSTRUCTOR);
@@ -117,7 +117,7 @@ public class ImageComparisonResult
     {
         if(this.matchingPercent == -1)
         {
-            this.matchingPercent = (float) pixelsThatMatch / (this.imageWidth * this.imageHeight);
+            this.matchingPercent = (float) this.pixelsThatMatch / (this.imageWidth * this.imageHeight);
         }
         
         return this.matchingPercent;

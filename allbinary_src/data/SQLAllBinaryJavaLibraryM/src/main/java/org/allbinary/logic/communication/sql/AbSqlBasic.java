@@ -107,7 +107,7 @@ public class AbSqlBasic
             initialize();
             //}
 
-            Statement stmt = conn.createStatement();
+            Statement stmt = this.conn.createStatement();
             //ResultSet rset = stmt.executeQuery(statement);
             //TWB- Changes For GAE JIQL
             stmt.execute(statement);
@@ -117,14 +117,14 @@ public class AbSqlBasic
 
             Connection tempConnection = this.conn;
             this.conn = null;
-            sqlConnectionPool.add(this.getDatabaseConnectionInfoInterface().getUrl(), tempConnection);
+            this.sqlConnectionPool.add(this.getDatabaseConnectionInfoInterface().getUrl(), tempConnection);
 
             return rset;
         } catch (SQLException e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
-                this.logUtil.put(FAILED_SQL_STATEMENT + statement, this, METHOD_EXECUTED_SQL_STATEMENT, e);
+                this.logUtil.put(this.FAILED_SQL_STATEMENT + statement, this, METHOD_EXECUTED_SQL_STATEMENT, e);
             }
 
             this.conn.close();
@@ -151,19 +151,19 @@ public class AbSqlBasic
     {
         try
         {
-            this.executeSQLStatement(sqlStrings.CREATE_DATABASE + databaseName);
+            this.executeSQLStatement(this.sqlStrings.CREATE_DATABASE + databaseName);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
                 this.logUtil.putF(this.DATABASE_CREATED_LABEL + databaseName, this, METHOD_CREATE);
             }
-            return databaseName + sqlStrings.CREATE_RETURN;
+            return databaseName + this.sqlStrings.CREATE_RETURN;
         } catch (Exception e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
-                this.logUtil.put(DATABASE_CREATION_FAILED_LABEL + databaseName, this, this.METHOD_CREATE, e);
+                this.logUtil.put(this.DATABASE_CREATION_FAILED_LABEL + databaseName, this, this.METHOD_CREATE, e);
             }
-            return DATABASE_CREATION_FAILED_LABEL + databaseName;
+            return this.DATABASE_CREATION_FAILED_LABEL + databaseName;
         }
     }
 
@@ -178,14 +178,14 @@ public class AbSqlBasic
             }
             else
             {*/
-            this.conn = sqlConnectionPool.get(this.getDatabaseConnectionInfoInterface().getUrl());
+            this.conn = this.sqlConnectionPool.get(this.getDatabaseConnectionInfoInterface().getUrl());
             //}
 
         } catch (SQLException se)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
-                this.logUtil.put(SQL_CONNECTION_RETRYING, this, METHOD_CREATE_CONNECTION, se);
+                this.logUtil.put(this.SQL_CONNECTION_RETRYING, this, METHOD_CREATE_CONNECTION, se);
             }
             try
             {
@@ -193,7 +193,7 @@ public class AbSqlBasic
                 //wait and hope mysql catches up
                 Thread.currentThread().sleep(2000);
                 //give up after 20tries
-                if (connectAttemptCounter < 10)
+                if (this.connectAttemptCounter < 10)
                 {
                     connectAttemptCounter++;
                     this.initialize();
@@ -202,7 +202,7 @@ public class AbSqlBasic
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
                 {
-                    this.logUtil.put(SQL_CONNECTION_RETRY + se.getMessage(), this, this.METHOD_CREATE_CONNECTION, e);
+                    this.logUtil.put(this.SQL_CONNECTION_RETRY + se.getMessage(), this, this.METHOD_CREATE_CONNECTION, e);
                 }
 
             }
@@ -234,7 +234,7 @@ public class AbSqlBasic
                 {
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
                     {
-                        this.logUtil.put(LOAD_JDBC_DRIVER_FAILED_LABEL + this.getDatabaseConnectionInfoInterface().getJdbcDriver(), this, METHOD_INITIALIZE, e);
+                        this.logUtil.put(this.LOAD_JDBC_DRIVER_FAILED_LABEL + this.getDatabaseConnectionInfoInterface().getJdbcDriver(), this, METHOD_INITIALIZE, e);
                         //this.logUtil.put("Load mySQL Driver Failed: com.mysql.jdbc.Driver",this,"initialize",e);
                     }
                 }
@@ -253,7 +253,7 @@ public class AbSqlBasic
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
-                this.logUtil.put(SQL_CONNECTION_FAILED, this, this.METHOD_INITIALIZE, se);
+                this.logUtil.put(this.SQL_CONNECTION_FAILED, this, this.METHOD_INITIALIZE, se);
             }
         }
     }

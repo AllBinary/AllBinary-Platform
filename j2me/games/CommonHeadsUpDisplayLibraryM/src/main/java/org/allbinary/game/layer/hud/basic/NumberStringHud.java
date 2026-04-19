@@ -134,7 +134,7 @@ public class NumberStringHud extends BasicHud
    {
        char[] charArray = this.PREPEND_STRING;
        //int offset = 0;
-       int len = PREPEND_STRING.length;
+       int len = this.PREPEND_STRING.length;
        char[] charArray2 = this.valueString;
        //int offset2 = 0;
        int len2 = this.valueTotalDigits;

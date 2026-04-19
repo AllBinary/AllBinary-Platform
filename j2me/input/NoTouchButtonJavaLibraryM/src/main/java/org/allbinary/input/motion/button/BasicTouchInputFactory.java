@@ -61,21 +61,21 @@ public class BasicTouchInputFactory
     private final BasicArrayList list = new BasicArrayList();
     public synchronized void init(InputToGameKeyMapping inputToGameKeyMapping)
     {
-        if (!initialized)
+        if (!this.initialized)
         {
-            initialized = true;
+            this.initialized = true;
             
-            list.add(UP);
-            list.add(LEFT);
-            list.add(RIGHT);
-            list.add(DOWN);
-            list.add(SPECIAL_BUTTON_TWO);
-            list.add(SPECIAL_BUTTON_FOUR);
-            list.add(SPECIAL_BUTTON_THREE);
-            list.add(SPECIAL_BUTTON_ONE);
-            list.add(SPECIAL_BUTTON_FIVE);
-            list.add(SPECIAL_BUTTON_SIX);
-            this.updateAll(list, inputToGameKeyMapping);
+            this.list.add(this.UP);
+            this.list.add(this.LEFT);
+            this.list.add(this.RIGHT);
+            this.list.add(this.DOWN);
+            this.list.add(SPECIAL_BUTTON_TWO);
+            this.list.add(SPECIAL_BUTTON_FOUR);
+            this.list.add(SPECIAL_BUTTON_THREE);
+            this.list.add(SPECIAL_BUTTON_ONE);
+            this.list.add(SPECIAL_BUTTON_FIVE);
+            this.list.add(SPECIAL_BUTTON_SIX);
+            this.updateAll(this.list, inputToGameKeyMapping);
             
             CancelTouchButtonInputFactory.getInstance();
         }

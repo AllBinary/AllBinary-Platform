@@ -46,8 +46,8 @@ public class Order implements OrderInterface, Serializable
    public Order(BasketInterface basket)
    {
        this.basket = basket;
-       id = null;
-       shippingType = StringUtil.getInstance().EMPTY_STRING;
+       this.id = null;
+       this.shippingType = StringUtil.getInstance().EMPTY_STRING;
    }
 
    public Order(String storeName, BasketInterface basket, String id, String shippingType, String special, String paymentMethod)

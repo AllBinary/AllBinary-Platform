@@ -68,7 +68,7 @@ public class AbeLicenseClient
              isNewLicenseId = true;
          }
          
-         if(servers.size() >= MINSERVERS && abeClientInformation.isLargerOrDifferentServerList(servers))
+         if(servers.size() >= this.MINSERVERS && abeClientInformation.isLargerOrDifferentServerList(servers))
          {
              isBetterServerList = true;
          }

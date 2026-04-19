@@ -56,7 +56,7 @@ public class ShippingAddressView
       try
       {
          Node formNode = document.createElement(StreetAddressData.FORM);
-         formNode.appendChild(streetAddress.toXmlNode(document));
+         formNode.appendChild(this.streetAddress.toXmlNode(document));
          return formNode;
       }
       catch(Exception e)

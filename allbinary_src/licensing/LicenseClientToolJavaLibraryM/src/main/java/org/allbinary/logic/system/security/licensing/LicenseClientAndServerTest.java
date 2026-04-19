@@ -41,7 +41,7 @@ public class LicenseClientAndServerTest
 
         for (int index = 1; index < options.length; index++)
         {
-            vector.add(options[index]);
+            this.vector.add(options[index]);
         }
 
         if(options.length < 2)
@@ -57,7 +57,7 @@ public class LicenseClientAndServerTest
 
                 if(line != null)
                 {
-                    vector.add(line);
+                    this.vector.add(line);
                 }
                 else
                 {
@@ -79,12 +79,12 @@ public class LicenseClientAndServerTest
             final String END = "<br/>End<br/>";
             final String RESULT = "Test Result: ";
 
-            final int size = vector.size();
+            final int size = this.vector.size();
             for (int index = 0; index < size; index++)
             {
                 stringBuffer.append(TESTING);
 
-                String serverName = (String) vector.get(index);
+                String serverName = (String) this.vector.get(index);
         try
         {
 

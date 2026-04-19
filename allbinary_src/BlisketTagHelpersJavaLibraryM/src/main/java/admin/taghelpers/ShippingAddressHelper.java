@@ -57,20 +57,20 @@ public class ShippingAddressHelper extends BasicTable
    
    private void getAddressForm()
    {
-      this.userName = request.getParameter(UserData.USERNAME);
+      this.userName = this.request.getParameter(UserData.USERNAME);
       
       if(this.userName==null)
       {
-         this.userName = request.getParameter(WeblisketSessionData.REMOVABLEUSERNAME);
+         this.userName = this.request.getParameter(WeblisketSessionData.REMOVABLEUSERNAME);
       }
-      this.streetAddress = new StreetAddress(request);
+      this.streetAddress = new StreetAddress(this.request);
    }
    
    public String drop()
    {
       try
       {
-         String success = new ShippingAddressesEntity(stringUtil.EMPTY_STRING).drop();
+         String success = new ShippingAddressesEntity(this.stringUtil.EMPTY_STRING).drop();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
             this.logUtil.putF(success,this,commonStrings.DROP);
@@ -93,7 +93,7 @@ public class ShippingAddressHelper extends BasicTable
    {
       try
       {
-         String success = new ShippingAddressesEntity(stringUtil.EMPTY_STRING).createTable();
+         String success = new ShippingAddressesEntity(this.stringUtil.EMPTY_STRING).createTable();
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {

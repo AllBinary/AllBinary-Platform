@@ -66,7 +66,7 @@ public class LayerManager
     public void remove(final AllBinaryLayer layerInterface)
             throws Exception
     {
-    	synchronized(object)
+    	synchronized(this.object)
     	{
             this.layerManagerLogging.remove(layerInterface);
     	    final boolean result = 
@@ -89,7 +89,7 @@ public class LayerManager
     {
         //this.logUtil.putF(this.commonStrings.CLEANUP, this, this.commonStrings.CLEANUP);
         
-    	synchronized(object)
+    	synchronized(this.object)
     	{
     		this.list.clear();
                 this.layerManagerLogging.clear();
@@ -104,7 +104,7 @@ public class LayerManager
     
     public void paint(Graphics g, int x, int y)
     {
-    	synchronized(object)
+    	synchronized(this.object)
     	{
             //if(this.isFirst) {
                 //this.isFirst = false;
@@ -122,7 +122,7 @@ public class LayerManager
         
         for (int index = this.list.size(); --index >= 0;)
         {
-            comp = (Layer) list.objectArray[index];
+            comp = (Layer) this.list.objectArray[index];
             if (comp != null && comp.isVisible())
             {
                 comp.paint(g);

@@ -94,9 +94,9 @@ extends CollidableDestroyableDamageableBehavior
         {
             // this.logUtil.putF("Transfering X Velocity: " +
             // impactVelocityX, this, damageUtil.COLLIDE);
-            halfImpactVelocityX = (impactVelocityX >> 1);
-            ownerVehicleProperties.getVelocityProperties().getVelocityXBasicDecimalP().add(halfImpactVelocityX);
-            vehicleProperties.getVelocityProperties().getVelocityXBasicDecimalP().add(halfImpactVelocityX);
+            this.halfImpactVelocityX = (impactVelocityX >> 1);
+            ownerVehicleProperties.getVelocityProperties().getVelocityXBasicDecimalP().add(this.halfImpactVelocityX);
+            vehicleProperties.getVelocityProperties().getVelocityXBasicDecimalP().add(this.halfImpactVelocityX);
 
             // vehicleLayer.move((int)
             // this.getVehicleProperties().getVelocityProperties().getVelocityXBasicDecimalP().getScaled(),
@@ -115,9 +115,9 @@ extends CollidableDestroyableDamageableBehavior
         {
             // this.logUtil.putF("Transfering Y Velocity: " +
             // impactVelocityY, this, damageUtil.COLLIDE);
-            halfImpactVelocityY = (impactVelocityY >> 1);
-            ownerVehicleProperties.getVelocityProperties().getVelocityYBasicDecimalP().add(halfImpactVelocityY);
-            vehicleProperties.getVelocityProperties().getVelocityXBasicDecimalP().add(halfImpactVelocityY);
+            this.halfImpactVelocityY = (impactVelocityY >> 1);
+            ownerVehicleProperties.getVelocityProperties().getVelocityYBasicDecimalP().add(this.halfImpactVelocityY);
+            vehicleProperties.getVelocityProperties().getVelocityXBasicDecimalP().add(this.halfImpactVelocityY);
 
             // vehicleLayer.move((int)
             // this.getVehicleProperties().getVelocityProperties().getVelocityYBasicDecimalP().getScaled(),
@@ -135,7 +135,7 @@ extends CollidableDestroyableDamageableBehavior
         this.collideFriction(ownerVehicleLayerInterface);
         this.collideFriction(vehiclePropertiesCompositeInterface);
 
-        totalImpactVelocity = impactVelocityX + impactVelocityY;
+        this.totalImpactVelocity = impactVelocityX + impactVelocityY;
     }
 
     private void collideFriction(final VehiclePropertiesCompositeInterface vehiclePropertiesCompositeInterface)

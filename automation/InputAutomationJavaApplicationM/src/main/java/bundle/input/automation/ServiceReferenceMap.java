@@ -78,7 +78,7 @@ public class ServiceReferenceMap implements Map
     public Set keySet()
     {
         //Set set
-        String[] keyStringArray = serviceReference.getPropertyKeys();
+        String[] keyStringArray = this.serviceReference.getPropertyKeys();
         return null;
     }
 

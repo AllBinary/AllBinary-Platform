@@ -75,7 +75,7 @@ public class Waypoint extends WaypointBase
         
         final AllBinaryTiledLayer tiledLayer = geographicMapInterface.getAllBinaryTiledLayer();
 
-        if(paths != basicArrayListUtil.NULL_ARRAY_OF_ARRAY) {
+        if(this.paths != this.basicArrayListUtil.NULL_ARRAY_OF_ARRAY) {
             throw new RuntimeException();
         }
 
@@ -87,12 +87,12 @@ public class Waypoint extends WaypointBase
     
     public void releaseCachedPaths()
     {
-        for(int columnIndex = paths.length; --columnIndex >= 0;)
+        for(int columnIndex = this.paths.length; --columnIndex >= 0;)
         {
-            for(int rowIndex = paths.length; --rowIndex >= 0;)
+            for(int rowIndex = this.paths.length; --rowIndex >= 0;)
             {
                 final BasicArrayList pathsList = this.paths[columnIndex][rowIndex];
-                if(pathsList != basicArrayListUtil.getImmutableInstance())
+                if(pathsList != this.basicArrayListUtil.getImmutableInstance())
                 {
                     BasicGeographicMapExtractedPathsCacheFactory.getInstance().release(pathsList);
                 }
@@ -113,7 +113,7 @@ public class Waypoint extends WaypointBase
     {
         BasicArrayList pathsList = this.paths[geographicMapCellPosition.getColumn()][geographicMapCellPosition.getRow()];
 
-        if (pathsList == basicArrayListUtil.getImmutableInstance())
+        if (pathsList == this.basicArrayListUtil.getImmutableInstance())
         {
             pathsList = this.createPaths(geographicMapCellPosition);
           
@@ -149,7 +149,7 @@ public class Waypoint extends WaypointBase
         final GeographicMapCellPosition startGeographicMapCellPosition)
     {
         GeographicMapCellPosition endGeographicMapCellPosition =
-            (GeographicMapCellPosition) basicArrayListUtil.getRandom(this.endList);
+            (GeographicMapCellPosition) this.basicArrayListUtil.getRandom(this.endList);
 
         if (startGeographicMapCellPosition == endGeographicMapCellPosition)
         {
@@ -276,11 +276,11 @@ public class Waypoint extends WaypointBase
 
         //Remove offending paths from cache
 
-        for(int columnIndex = paths.length; --columnIndex >= 0;)
+        for(int columnIndex = this.paths.length; --columnIndex >= 0;)
         {
-            for(int rowIndex = paths.length; --rowIndex >= 0;)
+            for(int rowIndex = this.paths.length; --rowIndex >= 0;)
             {
-                this.paths[columnIndex][rowIndex] = basicArrayListUtil.getImmutableInstance();
+                this.paths[columnIndex][rowIndex] = this.basicArrayListUtil.getImmutableInstance();
             }
         }
     }

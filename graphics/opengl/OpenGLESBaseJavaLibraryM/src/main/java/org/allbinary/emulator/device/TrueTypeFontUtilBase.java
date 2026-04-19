@@ -74,10 +74,10 @@ public class TrueTypeFontUtilBase {
         
         this.CELLS_PER_ROW = 16; //13;
         this.fontSize = (20 + 6) * this.scale; //currentFont.getSize() + 6;
-        this.baseCharWidth = fontSize + (6 * this.scale);
-        this.cellSize = fontSize + (6 * this.scale);// * 3 >> 1;
-        this.textureSize = this.getAsTextureSize(CELLS_PER_ROW * cellSize);
-        this.actualCellsPerRow = textureSize / cellSize;
+        this.baseCharWidth = this.fontSize + (6 * this.scale);
+        this.cellSize = this.fontSize + (6 * this.scale);// * 3 >> 1;
+        this.textureSize = this.getAsTextureSize(this.CELLS_PER_ROW * this.cellSize);
+        this.actualCellsPerRow = this.textureSize / this.cellSize;
         
 //        this.logUtil.putF(new StringMaker()
 //            .append(" fontSize: ").append(fontSize)

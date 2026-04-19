@@ -71,15 +71,15 @@ public class AnimationFactorySpriteScaleUtil {
            if ((scaleX == 1.0f && scaleY == 1.0f) || (scaleX == 0.0f || scaleY == 0.0f)) {
 //               stringMaker.delete(0, stringMaker.length());
 //               this.logUtil.putF(stringMaker.append("noscale ").append(commonLabels.WIDTH_LABEL).append(width).append(commonLabels.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS);
-               scaledImage = openGLUtil.add(image);
+               scaledImage = this.openGLUtil.add(image);
                sprite = spriteFactory.create(scaledImage, width, height);
            } else {
 //               stringMaker.delete(0, stringMaker.length());
 //               this.logUtil.putF(stringMaker.append("scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS);
-               if(openGLESImageExclusionUtil.isCustomScaling(image)) {
+               if(this.openGLESImageExclusionUtil.isCustomScaling(image)) {
                    //This does not work for J2ME.
-                   final int width2 =  j2seMath.round((scaleWidth) - 0.5f);
-                   final int height2 =  j2seMath.round((scaleHeight) - 0.5f);
+                   final int width2 =  this.j2seMath.round((scaleWidth) - 0.5f);
+                   final int height2 =  this.j2seMath.round((scaleHeight) - 0.5f);
 
                    final int multiplesOf16Width = width2 / 16;
                    final int by16Width = multiplesOf16Width * 16;
@@ -117,7 +117,7 @@ public class AnimationFactorySpriteScaleUtil {
 //                       .append(" scale set to 1 - scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS);
                }
 
-               scaledImage = imageScaleUtil.createImage(imageCache, image, scaleX, 1.0f, scaleY, 1.0f, true);
+               scaledImage = this.imageScaleUtil.createImage(this.imageCache, image, scaleX, 1.0f, scaleY, 1.0f, true);
 //               stringMaker.delete(0, stringMaker.length());
 //               this.logUtil.putF(stringMaker.append("scaledImage.getHeight(): ").append(scaledImage.getHeight()).append(" height * scaleY: ").append(height * scaleY).toString(), this, commonStrings.PROCESS);
                sprite = spriteFactory.create(scaledImage, (int) (width * scaleX), (int) (height * scaleY));
@@ -126,7 +126,7 @@ public class AnimationFactorySpriteScaleUtil {
        } else {
 //           stringMaker.delete(0, stringMaker.length());
 //           this.logUtil.putF(stringMaker.append("noscale2").append(commonLabels.WIDTH_LABEL).append(width).append(commonLabels.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS);
-           scaledImage = openGLUtil.add(image);
+           scaledImage = this.openGLUtil.add(image);
            sprite = spriteFactory.create(scaledImage, width, height);
        }
         

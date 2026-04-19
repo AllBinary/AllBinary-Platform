@@ -171,17 +171,17 @@ public class OrderTag extends CustomTagSupport
    {
       try
       {
-         if(command!=null)
+         if(this.command!=null)
          {
             this.propertiesHashMap = new HashMap();
             this.propertiesHashMap.put(StoreFrontData.getInstance().NAME,this.storeName);            
             
-            if (command.compareTo(org.allbinary.globals.GLOBALS2.PROCESS)==0)
+            if (this.command.compareTo(org.allbinary.globals.GLOBALS2.PROCESS)==0)
             {
                this.process();
             }
             else
-               if (command.compareTo(PaymentGatewayData.NAME.toString())==0)
+               if (this.command.compareTo(PaymentGatewayData.NAME.toString())==0)
                {
                   if(this.setPaymentGateway() == Boolean.TRUE)
                   {

@@ -476,9 +476,9 @@ public class DemoCanvas extends RunnableCanvas
 
             //this.logUtil.putF(new StringMaker().append("GameKey: ").append(gameKey).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
 
-            if (gameKey != NONE)
+            if (gameKey != this.NONE)
             {
-                GameKeyEvent gameKeyEvent = gameKeyEventFactory.getInstance(this, gameKey);
+                GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstance(this, gameKey);
                 /*
                  * //This is for key input debugging only GameKeyEvent
                  * gameKeyEvent = GameKeyEventFactory.getInstance(this, keyCode,
@@ -490,8 +490,8 @@ public class DemoCanvas extends RunnableCanvas
             }
             else
             {
-                if(lastKeyNotMapped != keyCode) {
-                    lastKeyNotMapped = keyCode;
+                if(this.lastKeyNotMapped != keyCode) {
+                    this.lastKeyNotMapped = keyCode;
                     this.logUtil.putF(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
                 }
                 
@@ -513,9 +513,9 @@ public class DemoCanvas extends RunnableCanvas
 
             //this.logUtil.putF("GameKey: ").append(gameKey, this, this.gameInputStrings.REMOVE_KEY_EVENT);
 
-            if (gameKey != NONE)
+            if (gameKey != this.NONE)
             {
-                GameKeyEvent gameKeyEvent = gameKeyEventFactory.getInstance(this, gameKey);
+                GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstance(this, gameKey);
 
                 /*
                  * //This is for key input debugging only GameKeyEvent
@@ -698,7 +698,7 @@ public class DemoCanvas extends RunnableCanvas
 
             this.paintedSpecialAnimationInterface = this.getSpecialAnimationInterface();
 
-            if (!this.demoGameRunnable.isRunning() && gameCanvas.isInitialized())
+            if (!this.demoGameRunnable.isRunning() && this.gameCanvas.isInitialized())
             {
                 //PreLogUtil.put("Reset", this, commonStrings.RUN);
                 this.getSpecialAnimationInterface().reset();
@@ -716,7 +716,7 @@ public class DemoCanvas extends RunnableCanvas
             this.highScoresPaintable = this.getRealHighScoresPaintable();
         }
         
-        GameAdState gameAdState = gameAdStateFactory.getCurrentInstance();
+        GameAdState gameAdState = this.gameAdStateFactory.getCurrentInstance();
         gameAdState.processPageAdState();
     }
 
@@ -777,8 +777,8 @@ public class DemoCanvas extends RunnableCanvas
 //        }
         
         
-        this.canvasThread = threadFactoryUtil.getInstance(gameCanvas);
-        this.gameCanvas.setThread(canvasThread);
+        this.canvasThread = this.threadFactoryUtil.getInstance(gameCanvas);
+        this.gameCanvas.setThread(this.canvasThread);
 
         //PreLogUtil.put("Game Thread Priority: ").append(
         //      canvasThread.getPriority(), this, commonStrings);
@@ -797,7 +797,7 @@ public class DemoCanvas extends RunnableCanvas
 
     public void preDemoProcess()
     {
-        if (!gameCanvas.isInitialized() ||
+        if (!this.gameCanvas.isInitialized() ||
                 gameCanvas.getTitle() == NullGameCanvas.NO_GAME)
         {
             if (AllBinaryMediaManager.update())
@@ -830,7 +830,7 @@ public class DemoCanvas extends RunnableCanvas
             final IndexedAnimationBehavior indexedAnimationBehavior = ((IndexedAnimationBehavior) this.getSpecialAnimationInterface().getAnimationBehavior());
             if (indexedAnimationBehavior.loopIndex < 1)
             {
-                timeDelayHelper.setStartTime();
+                this.timeDelayHelper.setStartTime();
             }
 
             DemoGameMidlet demoGameMidlet =
@@ -859,20 +859,20 @@ public class DemoCanvas extends RunnableCanvas
             else if (this.gameCanvas == NullGameCanvas.getInstance()
                 && demoGameMidlet.isReady())
             {
-                if (!demoGameRunnable.isRunning())
+                if (!this.demoGameRunnable.isRunning())
                 {
                     //this.logUtil.putF("Starting Game Demo", this, commonStrings.PROCESS);
                     //PreLogUtil.put("Starting Game Demo", this, commonStrings.PROCESS);
 
                     this.startDemoGame();
                     
-                    demoGameRunnable.setRunning(true);
-                    final Thread thread = threadFactoryUtil.getInstance(demoGameRunnable);
-                    demoGameRunnable.setThread(thread);
+                    this.demoGameRunnable.setRunning(true);
+                    final Thread thread = this.threadFactoryUtil.getInstance(this.demoGameRunnable);
+                    this.demoGameRunnable.setThread(thread);
                     //I guess that setting a thread priority sets threads created by a thread to the same priority
                     //Don't un-remark thread.setPriority(Thread.MIN_PRIORITY);
                     
-                    threadFactoryUtil.start(thread);
+                    this.threadFactoryUtil.start(thread);
                 }
             }
         }
@@ -924,7 +924,7 @@ public class DemoCanvas extends RunnableCanvas
 
     protected boolean isReadyForStateChange()
     {
-        return !this.demoGameRunnable.isRunning() && gameCanvas.isInitialized();
+        return !this.demoGameRunnable.isRunning() && this.gameCanvas.isInitialized();
     }
     
     protected void processGame() throws Exception
@@ -949,7 +949,7 @@ public class DemoCanvas extends RunnableCanvas
 
         // || this.circularIndexUtil.getSize() > 0
         
-        if (timeDelayHelper.isTime() && this.isReadyForStateChange())
+        if (this.timeDelayHelper.isTime() && this.isReadyForStateChange())
         {
             this.demoStateChange();
         }
@@ -988,7 +988,7 @@ public class DemoCanvas extends RunnableCanvas
                 progressCanvas.addPortion(50, "Demo Thread Running");
             }
 
-            fullScreenUtil.init(this, this.getCustomCommandListener());
+            this.fullScreenUtil.init(this, this.getCustomCommandListener());
 
             this.initMenu();
             this.initPostPaint();
@@ -1026,7 +1026,7 @@ public class DemoCanvas extends RunnableCanvas
                 //PreLogUtil.put(commonStrings.START, this, "OPENGL_AS_GAME_THREAD");
                 
                 //Process as 2 threads until initialized - allows progress to update
-                while (gameCanvas == NullGameCanvas.getInstance() || !gameCanvas.isInitialized())
+                while (this.gameCanvas == NullGameCanvas.getInstance() || !this.gameCanvas.isInitialized())
                 {
                     //PreLogUtil.put(commonStrings.START, this, "OPENGL_AS_GAME_THREAD2");
                     

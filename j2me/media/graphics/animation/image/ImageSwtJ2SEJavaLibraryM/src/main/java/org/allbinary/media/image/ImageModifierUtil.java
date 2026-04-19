@@ -109,7 +109,7 @@ public class ImageModifierUtil {
 
     public void changeColor(final Image unusedOriginalImage, final Image image, final int imageIndex, final BasicColor basicColor) {
 
-        if(features.isFeature(OpenGLFeatureFactory.getInstance().OPENGL)) {
+        if(this.features.isFeature(OpenGLFeatureFactory.getInstance().OPENGL)) {
             //this.logUtil.putF(NO_COPY2, this, commonStrings.CONSTRUCTOR);
             //final CommonSeps commonSeps = CommonSeps.getInstance();
             //this.logUtil.putF(new StringMaker().append(NO_COPY2).append(" from: ").append(originalImage.getWidth()).append(commonSeps.SPACE).append(originalImage.getHeight()).append(" to: ").append(width).append(commonSeps.SPACE).append(height).toString(), this, commonStrings.CONSTRUCTOR);
@@ -209,7 +209,7 @@ public class ImageModifierUtil {
 
     public void setAlpha(final Image unusedOriginalImage, final Image image, final int imageIndex, final int alphaInt) {
 
-        if(features.isFeature(OpenGLFeatureFactory.getInstance().OPENGL)) {
+        if(this.features.isFeature(OpenGLFeatureFactory.getInstance().OPENGL)) {
             //this.logUtil.putF(NO_COPY2, this, commonStrings.CONSTRUCTOR);
             //final CommonSeps commonSeps = CommonSeps.getInstance();
             //this.logUtil.putF(new StringMaker().append(NO_COPY2).append(" from: ").append(originalImage.getWidth()).append(commonSeps.SPACE).append(originalImage.getHeight()).append(" to: ").append(width).append(commonSeps.SPACE).append(height).toString(), this, commonStrings.CONSTRUCTOR);

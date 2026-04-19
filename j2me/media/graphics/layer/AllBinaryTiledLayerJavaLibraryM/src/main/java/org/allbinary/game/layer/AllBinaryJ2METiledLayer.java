@@ -97,8 +97,8 @@ public class AllBinaryJ2METiledLayer extends AllBinaryTiledLayer
         //this.logUtil.putF(commonStrings.START, this, "paint");
         final Font font = graphics.getFont();
 
-        graphics.setFont(font2);
-        graphics.setColor(debugColor);
+        graphics.setFont(this.font2);
+        graphics.setColor(this.debugColor);
         //graphics.drawString("TiledLayer: (" + this.getX() + ", " + this.getY() + ")", this.getX(), this.getY(), 0);
         
         int x = this.tiledLayerP.getX();

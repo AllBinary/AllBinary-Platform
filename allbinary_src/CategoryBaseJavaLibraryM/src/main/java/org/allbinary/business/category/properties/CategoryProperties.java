@@ -188,7 +188,7 @@ public class CategoryProperties implements CategoryPropertiesInterface
    public Vector toVector()
    {
       Vector categoryVector = new Vector();
-      categoryVector.add(category);
+      categoryVector.add(this.category);
       //categoryVector.add(new Integer(this.level).toString());
       return categoryVector;
    }

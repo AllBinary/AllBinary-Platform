@@ -61,8 +61,8 @@ public class ImageScaleUtil {
         final float scaleNominatorY, final float scaleDenominatorY, final boolean cached, final boolean mutable)
         throws Exception {
         
-        if(!features.isFeature(gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
-            this.logUtil.putF(NO_COPY, this, commonStrings.CONSTRUCTOR);
+        if(!this.features.isFeature(this.gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
+            this.logUtil.putF(this.NO_COPY, this, commonStrings.CONSTRUCTOR);
             return originalImage;
         }
         

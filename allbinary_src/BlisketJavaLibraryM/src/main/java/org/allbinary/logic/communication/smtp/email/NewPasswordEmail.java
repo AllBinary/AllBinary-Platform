@@ -112,7 +112,7 @@ public class NewPasswordEmail
          }
 
          String subject = "New Password";
-         String body = "New Password: " + newPassword;
+         String body = "New Password: " + this.newPassword;
 
          /*
          BasicEmailInfo basicEmailInfo = (BasicEmailInfo)

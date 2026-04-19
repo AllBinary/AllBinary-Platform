@@ -65,7 +65,7 @@ public class ViewHelper implements TransformInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"view()",e);
+            this.logUtil.put(this.commonStrings.EXCEPTION,this,"view()",e);
          }
          throw e;
       }
@@ -75,7 +75,7 @@ public class ViewHelper implements TransformInterface
    {
       try
       {
-          throw new Exception("Hmm: " + componentInterface.getTransformDocumentInterface().getDoc());
+          throw new Exception("Hmm: " + this.componentInterface.getTransformDocumentInterface().getDoc());
          //return componentInterface.toXmlDoc();
       }
       catch(Exception e)
@@ -86,7 +86,7 @@ public class ViewHelper implements TransformInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"view()",e);
+            this.logUtil.put(this.commonStrings.EXCEPTION,this,"view()",e);
          }
          throw e;
       }

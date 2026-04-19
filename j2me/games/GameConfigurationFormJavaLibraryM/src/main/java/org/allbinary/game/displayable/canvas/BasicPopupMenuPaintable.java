@@ -65,14 +65,14 @@ public class BasicPopupMenuPaintable extends Paintable
         /*
         if(AppletUtil.isAppletLoader(this))
         {
-            label = NAME + " Esc";
+            this.label = NAME + " Esc";
         }
         else
         {
-            label = NAME + " *";
+            this.label = NAME + " *";
         }
  */
-        label = NAME;
+        this.label = NAME;
 
         this.rectangle = rectangle;
         
@@ -162,7 +162,7 @@ public class BasicPopupMenuPaintable extends Paintable
 
        this.basicSetColorUtil.setBasicColorP(graphics, this.foregroundBasicColor);
        
-       drawStringUtil.paintVerticle(graphics, label, x + BORDER, y + offset, 0);
+       this.drawStringUtil.paintVerticle(graphics, label, x + this.BORDER, y + this.offset, 0);
        graphics.drawRect(x, y, width, height);
    }
    

@@ -47,7 +47,7 @@ public class CustomLoaderHelper
          /*
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(commonStrings.EXCEPTION,this,"getWebappPath()",e);
+            LogUtil.put(this.commonStrings.EXCEPTION,this,"getWebappPath()",e);
          }*/
          return null;
       }
@@ -65,7 +65,7 @@ public class CustomLoaderHelper
       {         
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"setWebappPath()",e);
+            this.logUtil.put(this.commonStrings.EXCEPTION,this,"setWebappPath()",e);
          }
       }
    }

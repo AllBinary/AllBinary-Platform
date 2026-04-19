@@ -70,9 +70,9 @@ extends InputProcessor
             final GameKey gameKey = this.inputToGameKeyMapping.getInstance(
                     this.allBinaryGameCanvas, keyCode);
 
-            if (gameKey != NONE)
+            if (gameKey != this.NONE)
             {
-                final GameKeyEvent gameKeyEvent = gameKeyEventFactory.getInstance(
+                final GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstance(
                             this.allBinaryGameCanvas, gameKey);
 
                 /*
@@ -117,9 +117,9 @@ extends InputProcessor
 
             final GameKey gameKey = this.inputToGameKeyMapping.getInstance(canvas, keyCode);
 
-            if (gameKey != NONE)
+            if (gameKey != this.NONE)
             {
-                final GameKeyEvent gameKeyEvent = gameKeyEventFactory.getInstance((GameKeyEventSourceInterface) canvas, gameKey);
+                final GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstance((GameKeyEventSourceInterface) canvas, gameKey);
 
                 /*
                  * //This is for key input debugging only GameKeyEvent
@@ -128,8 +128,8 @@ extends InputProcessor
                 //this.logUtil.putF(gameKeyEvent.toString(), this, REMOVE_KEY_EVENT);
 
                 // TODO TWB - Remove or improve key input event handling
-                upGameKeyEventHandler.fireEvent(gameKeyEvent);
-                upGameKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
+                this.upGameKeyEventHandler.fireEvent(gameKeyEvent);
+                this.upGameKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
                 // UpGameKeyEventHandler.getInstance().fireEvent(gameKey);
                 // getPlayerGameInput().onUpGameKeyEvent(gameKeyEvent);
             }

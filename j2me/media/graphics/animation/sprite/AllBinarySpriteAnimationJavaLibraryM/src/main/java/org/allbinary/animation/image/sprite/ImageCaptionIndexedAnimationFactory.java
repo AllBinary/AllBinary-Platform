@@ -93,7 +93,7 @@ public class ImageCaptionIndexedAnimationFactory
         final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.captionImage, this.captionImage.getWidth(), this.captionImage.getHeight(), this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
         final Animation animationInterface = new ImageAnimation(scaledImage, this.animationBehaviorFactory.getOrCreateInstance());
 
-        final Sprite sprite = animationFactorySpriteScaleUtil.createImage(this.spriteMovieImage, this.frameWidth, this.frameHeight, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
+        final Sprite sprite = this.animationFactorySpriteScaleUtil.createImage(this.spriteMovieImage, this.frameWidth, this.frameHeight, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
 
         final IndexedAnimation movieIndexedAnimationInterface = new SpriteIndexedAnimation(sprite, this.spriteMovieImage, this.animationBehaviorFactory.getOrCreateInstance());
 

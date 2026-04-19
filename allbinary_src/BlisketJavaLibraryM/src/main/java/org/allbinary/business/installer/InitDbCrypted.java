@@ -72,15 +72,15 @@ public class InitDbCrypted extends AbDatabaseManagement
         {
             this.logUtil.putF(this.commonStrings.START, this, this.METHOD_ADD_USERS);
 
-            userDbInitInfo = new UserDbInitInfo();
-            inventoryDbInitInfo = new InventoryDbInitInfo();
-            historyDbInitInfo = new HistoryDbInitInfo();
-            staticpagesDbInitInfo = new StaticPagesDbInitInfo();
-            logDbInitInfo = new LogDbInitInfo();
+            this.userDbInitInfo = new UserDbInitInfo();
+            this.inventoryDbInitInfo = new InventoryDbInitInfo();
+            this.historyDbInitInfo = new HistoryDbInitInfo();
+            this.staticpagesDbInitInfo = new StaticPagesDbInitInfo();
+            this.logDbInitInfo = new LogDbInitInfo();
 
-            String CUSTOMERDB = userDbInitInfo.getName();
-            String CUSTOMERDBUSER = userDbInitInfo.getUserName();
-            String CUSTOMERDBPASSWORD = userDbInitInfo.getPassword();
+            String CUSTOMERDB = this.userDbInitInfo.getName();
+            String CUSTOMERDBUSER = this.userDbInitInfo.getUserName();
+            String CUSTOMERDBPASSWORD = this.userDbInitInfo.getPassword();
 
             if(!this.addDbUser(CUSTOMERDB, CUSTOMERDBUSER, CUSTOMERDBPASSWORD))
             {
@@ -88,9 +88,9 @@ public class InitDbCrypted extends AbDatabaseManagement
                 return Boolean.FALSE;
             }
 
-            String INVENTORYDB = inventoryDbInitInfo.getName();
-            String INVENTORYDBUSER = inventoryDbInitInfo.getUserName();
-            String INVENTORYDBPASSWORD = inventoryDbInitInfo.getPassword();
+            String INVENTORYDB = this.inventoryDbInitInfo.getName();
+            String INVENTORYDBUSER = this.inventoryDbInitInfo.getUserName();
+            String INVENTORYDBPASSWORD = this.inventoryDbInitInfo.getPassword();
 
             if(!this.addDbUser(INVENTORYDB, INVENTORYDBUSER, INVENTORYDBPASSWORD))
             {
@@ -98,9 +98,9 @@ public class InitDbCrypted extends AbDatabaseManagement
                 return Boolean.FALSE;
             }
 
-            String HISTORYDB = historyDbInitInfo.getName();
-            String HISTORYDBUSER = historyDbInitInfo.getUserName();
-            String HISTORYDBPASSWORD = historyDbInitInfo.getPassword();
+            String HISTORYDB = this.historyDbInitInfo.getName();
+            String HISTORYDBUSER = this.historyDbInitInfo.getUserName();
+            String HISTORYDBPASSWORD = this.historyDbInitInfo.getPassword();
 
             if(!this.addDbUser(HISTORYDB, HISTORYDBUSER, HISTORYDBPASSWORD))
             {
@@ -108,9 +108,9 @@ public class InitDbCrypted extends AbDatabaseManagement
                 return Boolean.FALSE;
             }
 
-            String STATICPAGESDB = staticpagesDbInitInfo.getName();
-            String STATICPAGESDBUSER = staticpagesDbInitInfo.getUserName();
-            String STATICPAGESDBPASSWORD = staticpagesDbInitInfo.getPassword();
+            String STATICPAGESDB = this.staticpagesDbInitInfo.getName();
+            String STATICPAGESDBUSER = this.staticpagesDbInitInfo.getUserName();
+            String STATICPAGESDBPASSWORD = this.staticpagesDbInitInfo.getPassword();
 
             if(!this.addDbUser(STATICPAGESDB, STATICPAGESDBUSER, STATICPAGESDBPASSWORD))
             {
@@ -118,9 +118,9 @@ public class InitDbCrypted extends AbDatabaseManagement
                 return Boolean.FALSE;
             }
 
-            String LOGDB = logDbInitInfo.getName();
-            String LOGDBUSER = logDbInitInfo.getUserName();
-            String LOGDBPASSWORD = logDbInitInfo.getPassword();
+            String LOGDB = this.logDbInitInfo.getName();
+            String LOGDBUSER = this.logDbInitInfo.getUserName();
+            String LOGDBPASSWORD = this.logDbInitInfo.getPassword();
 
             if(!this.addDbUser(LOGDB, LOGDBUSER, LOGDBPASSWORD))
             {
@@ -145,48 +145,48 @@ public class InitDbCrypted extends AbDatabaseManagement
         {
             this.logUtil.putF(this.commonStrings.START, this, this.METHOD_ADD_DATABASES);
 
-            userDbInitInfo = new UserDbInitInfo();
-            inventoryDbInitInfo = new InventoryDbInitInfo();
-            historyDbInitInfo = new HistoryDbInitInfo();
-            staticpagesDbInitInfo = new StaticPagesDbInitInfo();
-            logDbInitInfo = new LogDbInitInfo();
+            this.userDbInitInfo = new UserDbInitInfo();
+            this.inventoryDbInitInfo = new InventoryDbInitInfo();
+            this.historyDbInitInfo = new HistoryDbInitInfo();
+            this.staticpagesDbInitInfo = new StaticPagesDbInitInfo();
+            this.logDbInitInfo = new LogDbInitInfo();
 
-            String CUSTOMERDB = userDbInitInfo.getName();
+            String CUSTOMERDB = this.userDbInitInfo.getName();
             if(!this.addDb(CUSTOMERDB))
             {
                 this.logUtil.putF(this.UNABLE_TO_CREATE_DATABASE + CUSTOMERDB, this, this.METHOD_ADD_DATABASES);
                 return Boolean.FALSE;
             }
 
-            String INVENTORYDB = inventoryDbInitInfo.getName();
+            String INVENTORYDB = this.inventoryDbInitInfo.getName();
             if(!this.addDb(INVENTORYDB))
             {
                 this.logUtil.putF(this.UNABLE_TO_CREATE_DATABASE + INVENTORYDB, this, this.METHOD_ADD_DATABASES);
                 return Boolean.FALSE;
             }
 
-            String HISTORYDB = historyDbInitInfo.getName();
+            String HISTORYDB = this.historyDbInitInfo.getName();
             if(!this.addDb(HISTORYDB))
             {
                 this.logUtil.putF(this.UNABLE_TO_CREATE_DATABASE + HISTORYDB, this, this.METHOD_ADD_DATABASES);
                 return Boolean.FALSE;
             }
 
-            String STATICPAGESDB = staticpagesDbInitInfo.getName();
+            String STATICPAGESDB = this.staticpagesDbInitInfo.getName();
             if(!this.addDb(STATICPAGESDB))
             {
                 this.logUtil.putF(this.UNABLE_TO_CREATE_DATABASE + STATICPAGESDB, this, this.METHOD_ADD_DATABASES);
                 return Boolean.FALSE;
             }
 
-            String LOGDB = logDbInitInfo.getName();
+            String LOGDB = this.logDbInitInfo.getName();
             if(!this.addDb(LOGDB))
             {
                 this.logUtil.putF(this.UNABLE_TO_CREATE_DATABASE + LOGDB, this, this.METHOD_ADD_DATABASES);
                 return Boolean.FALSE;
             }
 
-            AbFile file = FileFactory.getInstance().getInstance(SQL_FILE);
+            AbFile file = FileFactory.getInstance().getInstance(this.SQL_FILE);
             file.createNewFile();
 
             AbDataOutputStream idOutData

@@ -296,11 +296,11 @@ public class UnitWaypointBehavior
                 this.getCurrentTargetDistance() >= this.longWeaponRange +
                 this.currentTargetLayerInterfaceP.getHalfHeight()))
         {
-            repeatedToLong.setStartTime();
+            this.repeatedToLong.setStartTime();
             return true;
         }
         
-        if(repeatedToLong.isTime())
+        if(this.repeatedToLong.isTime())
         {
             final String message = "Repeating too long: " + this.getMovementLogicAsString();
             ForcedLogUtil.log(message, this.associatedAdvancedRTSGameLayer);

@@ -201,7 +201,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
     @Override
     public long getDuration()
     {
-        return (long) mediaPlayer.getDuration();
+        return (long) this.mediaPlayer.getDuration();
     }
 
     public void setMediaPlayer(MediaPlayer mediaPlayer)

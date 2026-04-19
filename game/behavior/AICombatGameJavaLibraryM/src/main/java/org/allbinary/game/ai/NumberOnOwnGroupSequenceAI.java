@@ -39,11 +39,11 @@ public class NumberOnOwnGroupSequenceAI extends SequenceAI
       final AllBinaryLayer layerInterface = this.getOwnerLayerInterface();
 
       int index = this.getIndex();
-      if (numberOnSameTeam.length > index)
+      if (this.numberOnSameTeam.length > index)
       {
          final int size = GroupLayerManagerListener.getInstance().getGroupSize(layerInterface);
          
-         if (numberOnSameTeam[index].intValue() > size)
+         if (this.numberOnSameTeam[index].intValue() > size)
          {
             this.next();
          }

@@ -59,10 +59,10 @@ public class VectorCenterGenerator {
             }
         }
 
-        this.logUtil.putF("minX: " + minX + " minY: " + minY + " maxX: " + maxX + " maxY: " + maxY, this, commonStrings.GET_INSTANCE);
+        this.logUtil.putF("minX: " + this.minX + " minY: " + this.minY + " maxX: " + this.maxX + " maxY: " + this.maxY, this, commonStrings.GET_INSTANCE);
 
-        setWidth(maxX - minX);
-        setHeight(maxY - minY);
+        setWidth(this.maxX - this.minX);
+        setHeight(this.maxY - this.minY);
 
         int max = getWidth();
         if (getHeight() > max) {
@@ -77,18 +77,18 @@ public class VectorCenterGenerator {
         final String s = new StringMaker().append(commonLabels.WIDTH_LABEL).appendint(getWidth()).append(commonLabels.HEIGHT_LABEL).appendint(getHeight()).append(" max: ").appendint(max).append(" middle: ").appendint(middle).toString();
         this.logUtil.putF(s, this, commonStrings.GET_INSTANCE);
 
-        int currentMiddleX = minX + getWidth() / 2;
-        int currentMiddleY = minY + getHeight() / 2;
+        int currentMiddleX = this.minX + getWidth() / 2;
+        int currentMiddleY = this.minY + getHeight() / 2;
 
-        dx = middle - currentMiddleX;
-        dy = middle - currentMiddleY;
+        this.dx = middle - currentMiddleX;
+        this.dy = middle - currentMiddleY;
 
     }
     
     public void transform(HashMap hashMap) throws Exception {
 
         this.calculate(hashMap);
-        this.logUtil.putF(new StringMaker().append(" dx: ").appendint(dx).append(" dy: ").appendint(dy).toString(), this, commonStrings.GET_INSTANCE);
+        this.logUtil.putF(new StringMaker().append(" dx: ").appendint(this.dx).append(" dy: ").appendint(this.dy).toString(), this, commonStrings.GET_INSTANCE);
 
         final Object[] graphicItemArray = hashMap.keySet().toArray();
         final int size = graphicItemArray.length;
@@ -115,17 +115,17 @@ public class VectorCenterGenerator {
             {
                 GPoint point = (GPoint) pointVector.get(index);
 
-                if (point.getX() < minX) {
-                    minX = point.getX();
+                if (point.getX() < this.minX) {
+                    this.minX = point.getX();
                 }
-                if (point.getX() > maxX) {
-                    maxX = point.getX();
+                if (point.getX() > this.maxX) {
+                    this.maxX = point.getX();
                 }
-                if (point.getY() < minY) {
-                    minY = point.getY();
+                if (point.getY() < this.minY) {
+                    this.minY = point.getY();
                 }
-                if (point.getY() > maxY) {
-                    maxY = point.getY();
+                if (point.getY() > this.maxY) {
+                    this.maxY = point.getY();
                 }
             }
 

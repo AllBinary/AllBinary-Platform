@@ -26,29 +26,29 @@ public class ColorTemperatureUtil
     
     public BasicColor getBasicColor(int thirdTemp)
     {
-        BasicColor basicColor = basicColorFactory.RED;
+        BasicColor basicColor = this.basicColorFactory.RED;
 
         if (thirdTemp > 3700)
         {
-            basicColor = basicColorFactory.PURPLE;
+            basicColor = this.basicColorFactory.PURPLE;
         } else if (thirdTemp > 3200)
         {
-            basicColor = basicColorFactory.BLUE;
+            basicColor = this.basicColorFactory.BLUE;
         } else if (thirdTemp > 2700)
         {
-            basicColor = basicColorFactory.PUCE;
+            basicColor = this.basicColorFactory.PUCE;
         } else if (thirdTemp > 2200)
         {
-            basicColor = basicColorFactory.WHITE;
+            basicColor = this.basicColorFactory.WHITE;
         } else if (thirdTemp > 1700)
         {
-            basicColor = basicColorFactory.GREEN;
+            basicColor = this.basicColorFactory.GREEN;
         } else if (thirdTemp > 1200)
         {
-            basicColor = basicColorFactory.YELLOW;
+            basicColor = this.basicColorFactory.YELLOW;
         } else if (thirdTemp > 700)
         {
-            basicColor = basicColorFactory.ORANGE;
+            basicColor = this.basicColorFactory.ORANGE;
         }
 
         return basicColor;

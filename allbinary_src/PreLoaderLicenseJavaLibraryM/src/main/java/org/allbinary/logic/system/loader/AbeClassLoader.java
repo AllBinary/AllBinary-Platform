@@ -211,7 +211,7 @@ public class AbeClassLoader extends ClassLoader
         String cname = StringUtil.getInstance().EMPTY_STRING;
         try
         {
-            cname = PATH + name.replace('.', AbPathData.getInstance().SEPARATORCHAR) + ENCRYPTED_EXTENSION;
+            cname = PATH + name.replace('.', AbPathData.getInstance().SEPARATORCHAR) + this.ENCRYPTED_EXTENSION;
             
          /*
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))

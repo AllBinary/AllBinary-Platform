@@ -100,7 +100,7 @@ public class SimpleStateTaxModule implements TaxModuleInterface
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAX))
       {
-         this.logUtil.putF("Tax Doc: " + DomDocumentHelper.toString(document), this,"getTaxRate");
+         this.logUtil.putF("Tax Doc: " + DomDocumentHelper.toString(this.document), this,"getTaxRate");
       }
       
       String state = this.streetAddress.getState();
@@ -108,7 +108,7 @@ public class SimpleStateTaxModule implements TaxModuleInterface
       
       state = state.toUpperCase();
       
-      NodeList nodeList = document.getElementsByTagName(TaxData.NAME);
+      NodeList nodeList = this.document.getElementsByTagName(TaxData.NAME);
       
       for(int index = 0; index < nodeList.getLength(); index++)
       {
@@ -165,7 +165,7 @@ public class SimpleStateTaxModule implements TaxModuleInterface
 
       if(   org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAX))
       {
-         this.logUtil.putF("Tax Doc: " + DomDocumentHelper.toString(document), this, commonStrings.IS_VALID);
+         this.logUtil.putF("Tax Doc: " + DomDocumentHelper.toString(this.document), this, commonStrings.IS_VALID);
       }
 
       String country = this.streetAddress.getCountry();
@@ -174,7 +174,7 @@ public class SimpleStateTaxModule implements TaxModuleInterface
     		  TransformInfoObjectConfigData.getInstance().NAME).item(0);
       
       //rootNode.getChildNodes();
-      NodeList nodeList = document.getElementsByTagName(TaxData.NAME);
+      NodeList nodeList = this.document.getElementsByTagName(TaxData.NAME);
 
       /*
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAX))

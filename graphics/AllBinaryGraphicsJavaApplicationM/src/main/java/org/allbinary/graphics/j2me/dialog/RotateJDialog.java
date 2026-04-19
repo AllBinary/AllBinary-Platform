@@ -46,31 +46,31 @@ public class RotateJDialog extends javax.swing.JDialog
     private void initComponents() {
 
         angleIncrementJTextField = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        totalRotationJTextField = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        this.jLabel1 = new javax.swing.JLabel();
+        this.totalRotationJTextField = new javax.swing.JTextField();
+        this.jLabel2 = new javax.swing.JLabel();
+        this.jPanel1 = new javax.swing.JPanel();
+        this.jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        angleIncrementJTextField.setText("36");
+        this.angleIncrementJTextField.setText("36");
 
-        jLabel1.setText("Angle Increment:");
+        this.jLabel1.setText("Angle Increment:");
 
-        totalRotationJTextField.setText("360");
+        this.totalRotationJTextField.setText("360");
 
-        jLabel2.setText("Total Angular Rotation:");
+        this.jLabel2.setText("Total Angular Rotation:");
 
-        jButton1.setText("OK");
+        this.jButton1.setText("OK");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(this.jPanel1);
+        this.jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -122,10 +122,10 @@ public class RotateJDialog extends javax.swing.JDialog
         
        try
        {
-        hashMap.put(Integer.valueOf(0), Integer.valueOf(this.angleIncrementJTextField.getText()));
-        hashMap.put(Integer.valueOf(1), Integer.valueOf(this.totalRotationJTextField.getText()));
+        this.hashMap.put(Integer.valueOf(0), Integer.valueOf(this.angleIncrementJTextField.getText()));
+        this.hashMap.put(Integer.valueOf(1), Integer.valueOf(this.totalRotationJTextField.getText()));
         
-        ((HashMapJDialogListenerInterface) this.getParent()).onHashMap(hashMap);
+        ((HashMapJDialogListenerInterface) this.getParent()).onHashMap(this.hashMap);
         
         this.setVisible(false);
        }

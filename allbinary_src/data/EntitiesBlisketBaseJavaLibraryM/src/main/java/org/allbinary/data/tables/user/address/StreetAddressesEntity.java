@@ -80,7 +80,7 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
             Vector values = new Vector();
 
             values.add(index);
-            values.add(userName);
+            values.add(this.userName);
             values.add(StringUtil.getInstance().EMPTY_STRING);
             values.add(address.getName());
             values.add(address.getStreet());

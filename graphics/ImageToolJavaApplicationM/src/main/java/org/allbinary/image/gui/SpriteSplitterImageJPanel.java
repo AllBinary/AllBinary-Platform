@@ -123,49 +123,49 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        writeOverOriginalJCheckBox = new javax.swing.JCheckBox();
-        widthReductionTextField = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        this.writeOverOriginalJCheckBox = new javax.swing.JCheckBox();
+        this.widthReductionTextField = new javax.swing.JTextField();
+        this.jLabel5 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel() {             public void paint(Graphics graphics) {                 if (SpriteSplitterImageJPanel.this.result != null) {                     graphics.drawImage(SpriteSplitterImageJPanel.this.result, 0, 0, SpriteSplitterImageJPanel.this.result.getWidth(null), SpriteSplitterImageJPanel.this.result.getHeight(null), null);                 }             }         };
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        heightReductionTextField = new javax.swing.JTextField();
-        generateJButton = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        totalFramesJComboBox = new javax.swing.JComboBox<>();
-        final int size = 70;       final String[] animationStringArray2 = new String[size - 1];       for(int index = 1; index < size; index++) {           animationStringArray2[index - 1] = Integer.toString(index);       }       totalFramesJComboBox.setModel(new javax.swing.DefaultComboBoxModel(animationStringArray2));
-        jLabel2 = new javax.swing.JLabel();
-        totalAnimationsJComboBox = new javax.swing.JComboBox<>();
-        final String[] animationStringArray = new String[size - 1];       for(int index = 1; index < size; index++) {           animationStringArray[index - 1] = Integer.toString(index);       }       totalAnimationsJComboBox.setModel(new javax.swing.DefaultComboBoxModel(animationStringArray));
-        jLabel3 = new javax.swing.JLabel();
-        spriteTypeJComboBox = new javax.swing.JComboBox<>();
+        this.jLabel4 = new javax.swing.JLabel();
+        this.jLabel6 = new javax.swing.JLabel();
+        this.heightReductionTextField = new javax.swing.JTextField();
+        this.generateJButton = new javax.swing.JButton();
+        this.jPanel2 = new javax.swing.JPanel();
+        this.jLabel1 = new javax.swing.JLabel();
+        this.totalFramesJComboBox = new javax.swing.JComboBox<>();
+        final int size = 70;       final String[] animationStringArray2 = new String[size - 1];       for(int index = 1; index < size; index++) {           animationStringArray2[index - 1] = Integer.toString(index);       }       this.totalFramesJComboBox.setModel(new javax.swing.DefaultComboBoxModel(animationStringArray2));
+        this.jLabel2 = new javax.swing.JLabel();
+        this.totalAnimationsJComboBox = new javax.swing.JComboBox<>();
+        final String[] animationStringArray = new String[size - 1];       for(int index = 1; index < size; index++) {           animationStringArray[index - 1] = Integer.toString(index);       }       this.totalAnimationsJComboBox.setModel(new javax.swing.DefaultComboBoxModel(animationStringArray));
+        this.jLabel3 = new javax.swing.JLabel();
+        this.spriteTypeJComboBox = new javax.swing.JComboBox<>();
         spriteTypeJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { org.allbinary.media.image.SpriteSplitterUtil.getInstance().DIRECTIONAL_ANIMATIONS, org.allbinary.media.image.SpriteSplitterUtil.getInstance().HORIZONTAL_ANIMATIONS, org.allbinary.media.image.SpriteSplitterUtil.getInstance().HORIZONTAL_SPRITE                   }));  //, org.allbinary.media.image.SpriteSplitterUtil.getInstance().VERTICLE_ANIMATIONS
         jLabel7 = new javax.swing.JLabel();
-        increaseWidthTextField = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        increaseHeightTextField = new javax.swing.JTextField();
+        this.increaseWidthTextField = new javax.swing.JTextField();
+        this.jLabel8 = new javax.swing.JLabel();
+        this.increaseHeightTextField = new javax.swing.JTextField();
 
-        writeOverOriginalJCheckBox.setText("Write Over Original");
+        this.writeOverOriginalJCheckBox.setText("Write Over Original");
         writeOverOriginalJCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 writeOverOriginalJCheckBoxActionPerformed(evt);
             }
         });
 
-        widthReductionTextField.setText(CommonPhoneStrings.getInstance().ZERO);
+        this.widthReductionTextField.setText(CommonPhoneStrings.getInstance().ZERO);
         widthReductionTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 widthReductionTextFieldActionPerformed(evt);
             }
         });
 
-        jLabel5.setText("Less Width:");
+        this.jLabel5.setText("Less Width:");
 
-        jLabel4.setText("Results:");
+        this.jLabel4.setText("Results:");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(this.jPanel1);
+        this.jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -179,36 +179,36 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
                 .addGap(0, 184, Short.MAX_VALUE))
         );
 
-        jLabel6.setText("Less Height:");
+        this.jLabel6.setText("Less Height:");
 
-        heightReductionTextField.setText(CommonPhoneStrings.getInstance().ZERO);
+        this.heightReductionTextField.setText(CommonPhoneStrings.getInstance().ZERO);
 
-        generateJButton.setText("Generate");
+        this.generateJButton.setText("Generate");
         generateJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 generateJButtonActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Row Total:");
+        this.jLabel1.setText("Row Total:");
 
-        totalFramesJComboBox.setSelectedIndex(1);
+        this.totalFramesJComboBox.setSelectedIndex(1);
         totalFramesJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 totalFramesJComboBoxActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("Column Total :");
+        this.jLabel2.setText("Column Total :");
 
-        totalAnimationsJComboBox.setSelectedIndex(3);
+        this.totalAnimationsJComboBox.setSelectedIndex(3);
         totalAnimationsJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 totalAnimationsJComboBoxActionPerformed(evt);
             }
         });
 
-        jLabel3.setText("Type:");
+        this.jLabel3.setText("Type:");
 
         spriteTypeJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -216,8 +216,8 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(this.jPanel2);
+        this.jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -248,18 +248,18 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
                     .addComponent(spriteTypeJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        jLabel7.setText("More Width:");
+        this.jLabel7.setText("More Width:");
 
-        increaseWidthTextField.setText(CommonPhoneStrings.getInstance().ZERO);
+        this.increaseWidthTextField.setText(CommonPhoneStrings.getInstance().ZERO);
         increaseWidthTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 increaseWidthTextFieldActionPerformed(evt);
             }
         });
 
-        jLabel8.setText("More Height:");
+        this.jLabel8.setText("More Height:");
 
-        increaseHeightTextField.setText(CommonPhoneStrings.getInstance().ZERO);
+        this.increaseHeightTextField.setText(CommonPhoneStrings.getInstance().ZERO);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -397,12 +397,12 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
 
        this.getParent().repaint();
 
-       File file = imageProcessorInput.getFiles()[index];
+       File file = this.imageProcessorInput.getFiles()[index];
 
        if (!this.writeOverOriginalJCheckBox.isSelected()) {
            String filePath = file.getAbsolutePath();
-           final int extensionIndex = filePath.indexOf(imageStrings.PNG_EXTENSION);
-           filePath = new StringBuilder().append(filePath.substring(0, extensionIndex)).append(commonSeps.UNDERSCORE).append(name).append(imageStrings.PNG_EXTENSION).toString();
+           final int extensionIndex = filePath.indexOf(this.imageStrings.PNG_EXTENSION);
+           filePath = new StringBuilder().append(filePath.substring(0, extensionIndex)).append(this.commonSeps.UNDERSCORE).append(name).append(this.imageStrings.PNG_EXTENSION).toString();
            file = new File(filePath);
        }
 

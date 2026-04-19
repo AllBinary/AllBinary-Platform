@@ -91,17 +91,17 @@ public class CommandForm extends Form
     @Override
     public void addCommand(Command command)
     {
-       commandStack.push(command);
+       this.commandStack.push(command);
        super.addCommand(command);
     }
    
     @Override
    public void removeAllCommands()
    {
-       final int size = commandStack.size();
+       final int size = this.commandStack.size();
       for(int index = 0; index < size; index++)
       {
-         super.removeCommand((Command) commandStack.pop());
+         super.removeCommand((Command) this.commandStack.pop());
       }
    }
 }

@@ -32,16 +32,16 @@ public class CancelTouchButtonInputFactory
         BasicTouchInputFactory basicTouchInputFactory = 
             BasicTouchInputFactory.getInstance();
         
-        for(int index = cancelInputArray.length - 1; index >= 0; index--)
+        for(int index = this.cancelInputArray.length - 1; index >= 0; index--)
         {
-            cancelInputArray[index] = basicTouchInputFactory.NONE; 
+            this.cancelInputArray[index] = basicTouchInputFactory.NONE; 
         }
         
-        cancelInputArray[basicTouchInputFactory.UP.getId()] = basicTouchInputFactory.DOWN;
-        cancelInputArray[basicTouchInputFactory.DOWN.getId()] = basicTouchInputFactory.UP;
+        this.cancelInputArray[basicTouchInputFactory.UP.getId()] = basicTouchInputFactory.DOWN;
+        this.cancelInputArray[basicTouchInputFactory.DOWN.getId()] = basicTouchInputFactory.UP;
         
-        cancelInputArray[basicTouchInputFactory.LEFT.getId()] = basicTouchInputFactory.RIGHT;
-        cancelInputArray[basicTouchInputFactory.RIGHT.getId()] = basicTouchInputFactory.LEFT;
+        this.cancelInputArray[basicTouchInputFactory.LEFT.getId()] = basicTouchInputFactory.RIGHT;
+        this.cancelInputArray[basicTouchInputFactory.RIGHT.getId()] = basicTouchInputFactory.LEFT;
     }
     
     public TouchButtonInput getCancel(TouchButtonInput touchButtonInput)

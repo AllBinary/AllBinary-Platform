@@ -73,9 +73,9 @@ public class InventoryUploadMediaUtil
         StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append(URLGLOBALS.getWebappPath());
-        stringBuffer.append(storeFrontInterface.getCurrentHostNamePath());
+        stringBuffer.append(this.storeFrontInterface.getCurrentHostNamePath());
         //storeFrontInterface.getCategoryPath()
-        stringBuffer.append(itemInterface.getCategory());
+        stringBuffer.append(this.itemInterface.getCategory());
         
         String fullPath = stringBuffer.toString();
 
@@ -215,19 +215,19 @@ public class InventoryUploadMediaUtil
                 {
                     //Create Multiple files without resizing
 
-                    AbFile smallImageFile = new AbFile(itemInterface.getSmallImage());
+                    AbFile smallImageFile = new AbFile(this.itemInterface.getSmallImage());
                     smallImageFile.createNewFile();
 
                     fileUtil.write(new ByteArrayInputStream(byteArray), smallImageFile);
                     //fileItemUtil.write(fileItem, smallImageFile);
 
-                    AbFile mediumImageFile = new AbFile(itemInterface.getMediumImage());
+                    AbFile mediumImageFile = new AbFile(this.itemInterface.getMediumImage());
                     smallImageFile.createNewFile();
 
                     fileUtil.write(new ByteArrayInputStream(byteArray), mediumImageFile);
                     //fileItemUtil.write(fileItem, mediumImageFile);
 
-                    AbFile largeImageFile = new AbFile(itemInterface.getSmallImage());
+                    AbFile largeImageFile = new AbFile(this.itemInterface.getSmallImage());
                     largeImageFile.createNewFile();
 
                     fileUtil.write(new ByteArrayInputStream(byteArray), largeImageFile);
@@ -257,7 +257,7 @@ public class InventoryUploadMediaUtil
         stringBuffer.delete(0, stringBuffer.length());
 
         stringBuffer.append(fileName);
-        stringBuffer.append(SMALL);
+        stringBuffer.append(this.SMALL);
         stringBuffer.append(END);
 
         String newImageFileName = stringBuffer.toString();
@@ -267,7 +267,7 @@ public class InventoryUploadMediaUtil
         stringBuffer.delete(0, stringBuffer.length());
 
         stringBuffer.append(fileName);
-        stringBuffer.append(MEDIUM);
+        stringBuffer.append(this.MEDIUM);
         stringBuffer.append(END);
 
         newImageFileName = stringBuffer.toString();
@@ -276,7 +276,7 @@ public class InventoryUploadMediaUtil
         stringBuffer.delete(0, stringBuffer.length());
 
         stringBuffer.append(fileName);
-        stringBuffer.append(LARGE);
+        stringBuffer.append(this.LARGE);
         stringBuffer.append(END);
 
         newImageFileName = stringBuffer.toString();
@@ -351,11 +351,11 @@ public class InventoryUploadMediaUtil
     this.itemInterface.getId() + AbPathData.getInstance().EXTENSION_SEP +
     mediaData.getName();
     this.itemInterface.setSmallImage(newImageFileName);
-    newImageFileName = fileName + MEDIUM +
+    newImageFileName = fileName + this.MEDIUM +
     this.itemInterface.getId() + AbPathData.getInstance().EXTENSION_SEP +
     mediaData.getName();
     this.itemInterface.setMediumImage(newImageFileName);
-    newImageFileName = fileName + LARGE +
+    newImageFileName = fileName + this.LARGE +
     this.itemInterface.getId() + AbPathData.getInstance().EXTENSION_SEP +
     mediaData.getName();
     this.itemInterface.setLargeImage(newImageFileName);
@@ -402,11 +402,11 @@ public class InventoryUploadMediaUtil
     this.itemInterface.getId() + AbPathData.getInstance().EXTENSION_SEP +
     defaultMediaData.getName();
     this.itemInterface.setSmallImage(newImageFileName);
-    newImageFileName = fileName + MEDIUM +
+    newImageFileName = fileName + this.MEDIUM +
     this.itemInterface.getId() + AbPathData.getInstance().EXTENSION_SEP +
     defaultMediaData.getName();
     this.itemInterface.setMediumImage(newImageFileName);
-    newImageFileName = fileName + LARGE +
+    newImageFileName = fileName + this.LARGE +
     this.itemInterface.getId() + AbPathData.getInstance().EXTENSION_SEP +
     defaultMediaData.getName();
     this.itemInterface.setLargeImage(newImageFileName);
@@ -438,29 +438,29 @@ public class InventoryUploadMediaUtil
     this.itemInterface.getId() + AbPathData.getInstance().EXTENSION_SEP +
     mediaData.getName();
     this.itemInterface.setSmallImage(newImageFileName);
-    newImageFileName = fileName + MEDIUM +
+    newImageFileName = fileName + this.MEDIUM +
     this.itemInterface.getId() + AbPathData.getInstance().EXTENSION_SEP +
     mediaData.getName();
     this.itemInterface.setMediumImage(newImageFileName);
-    newImageFileName = fileName + LARGE +
+    newImageFileName = fileName + this.LARGE +
     this.itemInterface.getId() + AbPathData.getInstance().EXTENSION_SEP +
     mediaData.getName();
     this.itemInterface.setLargeImage(newImageFileName);
 
     AbFile smallImageFile =
-    new AbFile(itemInterface.getSmallImage());
+    new AbFile(this.itemInterface.getSmallImage());
     smallImageFile.createNewFile();
 
     fileItemUtil.write(fileItem, smallImageFile);
 
     AbFile mediumImageFile =
-    new AbFile(itemInterface.getMediumImage());
+    new AbFile(this.itemInterface.getMediumImage());
     smallImageFile.createNewFile();
 
     fileItemUtil.write(fileItem, mediumImageFile);
 
     AbFile largeImageFile =
-    new AbFile(itemInterface.getSmallImage());
+    new AbFile(this.itemInterface.getSmallImage());
     largeImageFile.createNewFile();
 
     fileItemUtil.write(fileItem, largeImageFile);

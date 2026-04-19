@@ -80,7 +80,7 @@ public class VectorRotationGenerator
                 index += angleIncrement;
             }
 
-            int[][][] newPoints = vectorAnimationUtil
+            int[][][] newPoints = this.vectorAnimationUtil
                     .toAnimationArrayFromBasicArrayListOfPointBasicArrayList(pointsBasicArrayList,
                             pointBasicArrayList.size());
             // this.logUtil.putF(IntArrayUtil.toString(newPoints), this, commonStrings.GET_INSTANCE);

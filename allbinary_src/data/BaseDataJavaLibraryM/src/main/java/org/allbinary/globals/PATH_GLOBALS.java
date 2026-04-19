@@ -38,7 +38,7 @@ public class PATH_GLOBALS
 
        stringBuffer.delete(0, stringBuffer.length());
 
-       stringBuffer.append(DATA_PATH);
+       stringBuffer.append(this.DATA_PATH);
        stringBuffer.append(CommonStrings.getInstance().INIT);
        stringBuffer.append(abPathData.SEPARATOR);
 
@@ -46,7 +46,7 @@ public class PATH_GLOBALS
 
        stringBuffer.delete(0, stringBuffer.length());
 
-       stringBuffer.append(DATA_PATH);
+       stringBuffer.append(this.DATA_PATH);
        stringBuffer.append("log");
        stringBuffer.append(abPathData.SEPARATOR);
 
@@ -54,7 +54,7 @@ public class PATH_GLOBALS
 
        stringBuffer.delete(0, stringBuffer.length());
 
-       stringBuffer.append(DATA_PATH);
+       stringBuffer.append(this.DATA_PATH);
        stringBuffer.append("backup");
        stringBuffer.append(abPathData.SEPARATOR);
 
@@ -62,7 +62,7 @@ public class PATH_GLOBALS
 
        stringBuffer.delete(0, stringBuffer.length());
 
-       stringBuffer.append(INIT_PATH);
+       stringBuffer.append(this.INIT_PATH);
        stringBuffer.append("views");
        stringBuffer.append(abPathData.SEPARATOR);
 

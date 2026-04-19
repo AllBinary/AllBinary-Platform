@@ -65,10 +65,10 @@ public class LevelHudWidget extends BasicHud
 
     private void update()
     {
-        levelNumberCharArray = 
+        this.levelNumberCharArray = 
             this.primitiveLongUtil.getCharArray(this.level);        
 
-        levelNumberTotalDigits = 
+        this.levelNumberTotalDigits = 
             this.primitiveLongUtil.getCurrentTotalDigits();
         
         //this.levelString = LEVEL + this.primitiveLongUtil.getString(this.level);
@@ -98,7 +98,7 @@ public class LevelHudWidget extends BasicHud
 
     public boolean isComplete()
     {
-        if (this.level <= maxlevel)
+        if (this.level <= this.maxlevel)
         {
             return false;
         }

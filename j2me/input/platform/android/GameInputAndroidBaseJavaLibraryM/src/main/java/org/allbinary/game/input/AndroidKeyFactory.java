@@ -523,7 +523,7 @@ public class AndroidKeyFactory extends ActivityFractureUtil
 
     public boolean isSubmission(Input input)
     {
-        if (input == ENTER)
+        if (input == this.ENTER)
         {
             return true;
         } else if (input == DPAD_CENTER)
@@ -541,7 +541,7 @@ public class AndroidKeyFactory extends ActivityFractureUtil
     //In android delete is backspace
     public boolean isBackSpace(Input input)
     {
-        if (input == DEL)
+        if (input == this.DEL)
         {
             return true;
         }
@@ -550,7 +550,7 @@ public class AndroidKeyFactory extends ActivityFractureUtil
 
     public boolean isLeft(Input input)
     {
-        if (input == DPAD_LEFT)
+        if (input == this.DPAD_LEFT)
         {
             return true;
         }
@@ -560,7 +560,7 @@ public class AndroidKeyFactory extends ActivityFractureUtil
 
     public boolean isRight(Input input)
     {
-        if (input == DPAD_RIGHT)
+        if (input == this.DPAD_RIGHT)
         {
             return true;
         }
@@ -570,7 +570,7 @@ public class AndroidKeyFactory extends ActivityFractureUtil
 
     public boolean isUp(Input input)
     {
-        if (input == DPAD_UP)
+        if (input == this.DPAD_UP)
         {
             return true;
         }
@@ -579,7 +579,7 @@ public class AndroidKeyFactory extends ActivityFractureUtil
 
     public boolean isDown(Input input)
     {
-        if (input == DPAD_DOWN)
+        if (input == this.DPAD_DOWN)
         {
             return true;
         }
@@ -589,17 +589,17 @@ public class AndroidKeyFactory extends ActivityFractureUtil
     
     public boolean isEnter(Input input)
     {
-        if (input == DPAD_CENTER)
+        if (input == this.DPAD_CENTER)
         {
             return true;
         }
         else
-            if (input == ENTER)
+            if (input == this.ENTER)
             {
                 return true;
             }
             else
-                if (input == CALL)
+                if (input == this.CALL)
                 {
                     return true;
                 }

@@ -130,7 +130,7 @@ public class OpenGLCapabilities
             //GL_NV_vertex_program3: SM 3.0 or better.
             //GL_ARB_fragment_program: SM 2.0 or better.            
             if(this.glShaderVersionString == null) {
-                this.glShaderVersionString = stringUtil.EMPTY_STRING;
+                this.glShaderVersionString = this.stringUtil.EMPTY_STRING;
             }
             try {
                 if(this.glShaderVersionString != null && this.glShaderVersionString.indexOf('.') >= 0) {
@@ -165,7 +165,7 @@ public class OpenGLCapabilities
             
 
             if(this.glRenderer == null) {
-                this.glRenderer = stringUtil.EMPTY_STRING;
+                this.glRenderer = this.stringUtil.EMPTY_STRING;
             }
 
             if (this.glRenderer.toLowerCase().indexOf("pixelflinger") >= 0)
@@ -211,7 +211,7 @@ public class OpenGLCapabilities
             this.glExtensionDrawTexture = false;
 
             if(this.glVersionString == null) {
-                this.glVersionString = stringUtil.EMPTY_STRING;
+                this.glVersionString = this.stringUtil.EMPTY_STRING;
                 this.glVersion = this.VERSION_UNK;
             } else if (this.glVersionString.indexOf(" 1.0") >= 0)
             {
@@ -231,11 +231,11 @@ public class OpenGLCapabilities
             }
 
             if(this.glVendor == null) {
-                this.glVendor = stringUtil.EMPTY_STRING;
+                this.glVendor = this.stringUtil.EMPTY_STRING;
             }
                         
             if(this.glExtensions == null) {
-                this.glExtensions = stringUtil.EMPTY_STRING;
+                this.glExtensions = this.stringUtil.EMPTY_STRING;
             }
 
             if (this.possiblyAccelerated)
@@ -427,7 +427,7 @@ public class OpenGLCapabilities
             for(int index = 0; index < size; index++)
             {
                 stringBuffer.append(commonSeps.NEW_LINE);
-                stringBuffer.append(stringUtil.toString(list.objectArray[index]));
+                stringBuffer.append(this.stringUtil.toString(list.objectArray[index]));
             }
         }
         catch(Exception e)

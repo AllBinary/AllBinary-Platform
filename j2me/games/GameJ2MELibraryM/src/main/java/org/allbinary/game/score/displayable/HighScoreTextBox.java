@@ -62,7 +62,7 @@ public class HighScoreTextBox extends CustomTextBox
 
         //this.highScoresResultsListener = highScoresHelper;
 
-        highScoreUtil = new HighScoreUtil(highScoresFactoryInterface, highScoresHelper, abeClientInformation, gameInfo, cmdListener, name, highScore);
+        this.highScoreUtil = new HighScoreUtil(highScoresFactoryInterface, highScoresHelper, abeClientInformation, gameInfo, cmdListener, name, highScore);
         
         //this.logUtil.putF("Score: ").append(score, this, "compare");
 

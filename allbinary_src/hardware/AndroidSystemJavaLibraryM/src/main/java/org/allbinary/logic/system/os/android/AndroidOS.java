@@ -44,66 +44,66 @@ public class AndroidOS extends GenericOperatingSystem
 
        final CommonSeps commonStrings = CommonSeps.getInstance();
        
-       stringBuffer.append(DEVICE_ID);
-       stringBuffer.append(commonStrings.EQUALS);
-       stringBuffer.append(properties.getDeviceId());
-       stringBuffer.append(commonStrings.SPACE);
-       stringBuffer.append(DEVICE_SOFTWARE_VERSION);
-       stringBuffer.append(commonStrings.EQUALS);
-       stringBuffer.append(properties.getDeviceSoftwareVersion());
-       stringBuffer.append(commonStrings.SPACE);
-       stringBuffer.append(LINE_1_NUMBER);
-       stringBuffer.append(commonStrings.EQUALS);
-       stringBuffer.append(properties.getLine1Number());
-       stringBuffer.append(commonStrings.SPACE);
-       stringBuffer.append("NetworkCountryIso");
-       stringBuffer.append(commonStrings.EQUALS);
-       stringBuffer.append(properties.getNetworkCountryIso());
-       stringBuffer.append(commonStrings.SPACE);
-       stringBuffer.append("NetworkOperator");
-       stringBuffer.append(commonStrings.EQUALS);
-       stringBuffer.append(properties.getNetworkOperator());
-       stringBuffer.append(commonStrings.SPACE);
-       stringBuffer.append("NetworkOperatorName");
-       stringBuffer.append(commonStrings.EQUALS);
-       stringBuffer.append(properties.getNetworkOperatorName());
-       stringBuffer.append(commonStrings.SPACE);
-       stringBuffer.append("NetworkType");
-       stringBuffer.append(commonStrings.EQUALS);
-       stringBuffer.append(properties.getNetworkType());
-       stringBuffer.append(commonStrings.SPACE);
-       stringBuffer.append("PhoneType");
-       stringBuffer.append(commonStrings.EQUALS);
-       stringBuffer.append(properties.getPhoneType());
-       stringBuffer.append(commonStrings.SPACE);
-       stringBuffer.append("SimCountryIso");
-       stringBuffer.append(commonStrings.EQUALS);
-       stringBuffer.append(properties.getSimCountryIso());
-       stringBuffer.append(commonStrings.SPACE);
-       stringBuffer.append("SimOperator");
-       stringBuffer.append(commonStrings.EQUALS);
-       stringBuffer.append(properties.getSimOperator());
-       stringBuffer.append(commonStrings.SPACE);
-       stringBuffer.append("SimOperatorName");
-       stringBuffer.append(commonStrings.EQUALS);
-       stringBuffer.append(properties.getSimOperatorName());
-       stringBuffer.append(commonStrings.SPACE);
-       stringBuffer.append("SimSerialNumber");
-       stringBuffer.append(commonStrings.EQUALS);
-       stringBuffer.append(properties.getSimSerialNumber());
-       stringBuffer.append(commonStrings.SPACE);
-       stringBuffer.append("SubscriberId");
-       stringBuffer.append(commonStrings.EQUALS);
-       stringBuffer.append(properties.getSubscriberId());
-       stringBuffer.append(commonStrings.SPACE);
-       stringBuffer.append("VoiceMailAlphaTag");
-       stringBuffer.append(commonStrings.EQUALS);
-       stringBuffer.append(properties.getVoiceMailAlphaTag());
-       stringBuffer.append(commonStrings.SPACE);
-       stringBuffer.append("VoiceMailNumber");
-       stringBuffer.append(commonStrings.EQUALS);
-       stringBuffer.append(properties.getVoiceMailNumber());
-       stringBuffer.append(commonStrings.SPACE);
+       this.stringBuffer.append(this.DEVICE_ID);
+       this.stringBuffer.append(commonStrings.EQUALS);
+       this.stringBuffer.append(properties.getDeviceId());
+       this.stringBuffer.append(commonStrings.SPACE);
+       this.stringBuffer.append(this.DEVICE_SOFTWARE_VERSION);
+       this.stringBuffer.append(commonStrings.EQUALS);
+       this.stringBuffer.append(properties.getDeviceSoftwareVersion());
+       this.stringBuffer.append(commonStrings.SPACE);
+       this.stringBuffer.append(this.LINE_1_NUMBER);
+       this.stringBuffer.append(commonStrings.EQUALS);
+       this.stringBuffer.append(properties.getLine1Number());
+       this.stringBuffer.append(commonStrings.SPACE);
+       this.stringBuffer.append("NetworkCountryIso");
+       this.stringBuffer.append(commonStrings.EQUALS);
+       this.stringBuffer.append(properties.getNetworkCountryIso());
+       this.stringBuffer.append(commonStrings.SPACE);
+       this.stringBuffer.append("NetworkOperator");
+       this.stringBuffer.append(commonStrings.EQUALS);
+       this.stringBuffer.append(properties.getNetworkOperator());
+       this.stringBuffer.append(commonStrings.SPACE);
+       this.stringBuffer.append("NetworkOperatorName");
+       this.stringBuffer.append(commonStrings.EQUALS);
+       this.stringBuffer.append(properties.getNetworkOperatorName());
+       this.stringBuffer.append(commonStrings.SPACE);
+       this.stringBuffer.append("NetworkType");
+       this.stringBuffer.append(commonStrings.EQUALS);
+       this.stringBuffer.append(properties.getNetworkType());
+       this.stringBuffer.append(commonStrings.SPACE);
+       this.stringBuffer.append("PhoneType");
+       this.stringBuffer.append(commonStrings.EQUALS);
+       this.stringBuffer.append(properties.getPhoneType());
+       this.stringBuffer.append(commonStrings.SPACE);
+       this.stringBuffer.append("SimCountryIso");
+       this.stringBuffer.append(commonStrings.EQUALS);
+       this.stringBuffer.append(properties.getSimCountryIso());
+       this.stringBuffer.append(commonStrings.SPACE);
+       this.stringBuffer.append("SimOperator");
+       this.stringBuffer.append(commonStrings.EQUALS);
+       this.stringBuffer.append(properties.getSimOperator());
+       this.stringBuffer.append(commonStrings.SPACE);
+       this.stringBuffer.append("SimOperatorName");
+       this.stringBuffer.append(commonStrings.EQUALS);
+       this.stringBuffer.append(properties.getSimOperatorName());
+       this.stringBuffer.append(commonStrings.SPACE);
+       this.stringBuffer.append("SimSerialNumber");
+       this.stringBuffer.append(commonStrings.EQUALS);
+       this.stringBuffer.append(properties.getSimSerialNumber());
+       this.stringBuffer.append(commonStrings.SPACE);
+       this.stringBuffer.append("SubscriberId");
+       this.stringBuffer.append(commonStrings.EQUALS);
+       this.stringBuffer.append(properties.getSubscriberId());
+       this.stringBuffer.append(commonStrings.SPACE);
+       this.stringBuffer.append("VoiceMailAlphaTag");
+       this.stringBuffer.append(commonStrings.EQUALS);
+       this.stringBuffer.append(properties.getVoiceMailAlphaTag());
+       this.stringBuffer.append(commonStrings.SPACE);
+       this.stringBuffer.append("VoiceMailNumber");
+       this.stringBuffer.append(commonStrings.EQUALS);
+       this.stringBuffer.append(properties.getVoiceMailNumber());
+       this.stringBuffer.append(commonStrings.SPACE);
        
    }
    
@@ -115,7 +115,7 @@ public class AndroidOS extends GenericOperatingSystem
        AndroidSystemProperties properties = 
                AndroidSystemProperties.getInstance();
        
-       if(properties.getDevice().toLowerCase().indexOf(OUYA) >= 0)
+       if(properties.getDevice().toLowerCase().indexOf(this.OUYA) >= 0)
        {
     	   return true;
        }

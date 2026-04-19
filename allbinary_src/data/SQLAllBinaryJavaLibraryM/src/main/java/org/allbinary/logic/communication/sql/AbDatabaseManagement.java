@@ -131,7 +131,7 @@ public class AbDatabaseManagement extends AbSqlBean
             return Boolean.TRUE;
         }catch(Exception e)
         {
-            this.logUtil.put(UNABLE_TO_CREATE_DATABASE + db, this, this.METHOD_ADD_DB, e);
+            this.logUtil.put(this.UNABLE_TO_CREATE_DATABASE + db, this, this.METHOD_ADD_DB, e);
             return Boolean.FALSE;
         }
     }

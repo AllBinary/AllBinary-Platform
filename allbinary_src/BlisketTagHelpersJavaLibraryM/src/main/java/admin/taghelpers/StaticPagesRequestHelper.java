@@ -71,7 +71,7 @@ public class StaticPagesRequestHelper extends AbContext
       
    private void getFormData()
    {      
-      this.storeName = request.getParameter(StoreFrontData.getInstance().NAME);
+      this.storeName = this.request.getParameter(StoreFrontData.getInstance().NAME);
       this.searchParams = new SearchParams(this.request);
    }
 
@@ -137,7 +137,7 @@ public class StaticPagesRequestHelper extends AbContext
             null, this.searchParams, xslFile, contentType, 
             this.getPropertiesHashMap(), this.getPageContext());
          
-         String success = ProductListingFactory.getInstance(searchRequest).generateAll(storeName);
+         String success = ProductListingFactory.getInstance(searchRequest).generateAll(this.storeName);
 
          this.email();
          

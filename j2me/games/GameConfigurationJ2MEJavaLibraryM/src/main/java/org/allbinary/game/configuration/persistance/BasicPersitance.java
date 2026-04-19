@@ -49,7 +49,7 @@ public class BasicPersitance
     //Load all needs to be called already
     public void deleteAll(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
-        int size = idList.size();
+        int size = this.idList.size();
         for(int index = 0; index < size; index++)
         {
             Integer integer = (Integer) this.idList.objectArray[index];

@@ -126,10 +126,10 @@ public class Money
    {
       final StringMaker stringBuffer = new StringMaker();
 	   
-      if(currency.compareTo(DEFAULT_CURRENCY)==0)
+      if(currency.compareTo(this.DEFAULT_CURRENCY)==0)
       {
-         long dollar = units.longValue()/100;
-         long cents = units.longValue() - (dollar*100);
+         long dollar = this.units.longValue()/100;
+         long cents = this.units.longValue() - (dollar*100);
          //if(mark==true) value += "$";
          
          stringBuffer.append(new Long(dollar).toString());
@@ -189,6 +189,6 @@ public class Money
    
    public String toString()
    {            
-      return new String(convertUnitsTo(DEFAULT_CURRENCY));
+      return new String(convertUnitsTo(this.DEFAULT_CURRENCY));
    }
 }

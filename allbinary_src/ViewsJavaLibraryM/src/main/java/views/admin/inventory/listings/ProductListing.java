@@ -283,7 +283,7 @@ public class ProductListing implements ProductListingInterface
 
             final InventorySearchUtil inventorySearchUtil = InventorySearchUtil.getInstance();
 
-            final Vector vector = inventorySearchUtil.getBasicItemIdColumn(searchRequest);
+            final Vector vector = inventorySearchUtil.getBasicItemIdColumn(this.searchRequest);
 
             for(int index = 0; index < size; index++)
             {
@@ -304,7 +304,7 @@ public class ProductListing implements ProductListingInterface
             stringBuffer.append(storeFront.getName());
             stringBuffer.append(" it used packages ");
             stringBuffer.append(storeFront.getPackageLocation());
-            stringBuffer.append(INVENTORY);
+            stringBuffer.append(this.INVENTORY);
 
             return stringBuffer.toString();
 

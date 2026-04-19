@@ -27,10 +27,10 @@ public class VehicleFrictionProperties extends FrictionProperties
       int tireFriction, int brakeFriction, 
       int airFriction, int crashFriction)
    {
-      TIRE_FRICTION_NOMINATOR = FrictionData.getFrictionDenominator() - tireFriction;
-      BRAKE_FRICTION_NOMINATOR = FrictionData.getFrictionDenominator() - brakeFriction;
-      AIR_FRICTION_NOMINATOR = FrictionData.getFrictionDenominator() - airFriction;
-      CRASH_FRICTION_NOMINATOR = FrictionData.getFrictionDenominator() - crashFriction;
+      this.TIRE_FRICTION_NOMINATOR = FrictionData.getFrictionDenominator() - tireFriction;
+      this.BRAKE_FRICTION_NOMINATOR = FrictionData.getFrictionDenominator() - brakeFriction;
+      this.AIR_FRICTION_NOMINATOR = FrictionData.getFrictionDenominator() - airFriction;
+      this.CRASH_FRICTION_NOMINATOR = FrictionData.getFrictionDenominator() - crashFriction;
    }
 
    public int getTireFrictionNominator()

@@ -61,7 +61,7 @@ public class PointsDomUtil {
 
       org.w3c.dom.Document document = WorkAreaJPanel.getDocument();
 
-      Node linesNode = (Node) document.createElement(LINES);
+      Node linesNode = (Node) document.createElement(this.LINES);
 
       int size2 = tempPointVector.size();
       int size = pointVector.size();
@@ -79,7 +79,7 @@ public class PointsDomUtil {
 
       while (index < size && index < size2)
       {
-         Node lineNode = (Node) document.createElement(LINE);
+         Node lineNode = (Node) document.createElement(this.LINE);
 
          GPoint rotatedSecondPoint = (GPoint) tempPointVector.get(index);
          GPoint secondPoint = (GPoint) pointVector.get(index);

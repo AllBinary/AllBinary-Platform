@@ -44,19 +44,19 @@ public class BaseChangedGameFeatureListener implements GameFeatureListenerInterf
     {
         this.logUtil.putF(new StringMaker().append(gameFeatureUtil.GAME_FEATURE_CHANGED).append(gameFeatureEvent.getWhatChanged()).toString(), this, gameFeatureUtil.ON_GAME_FEATURE_CHANGE);
 
-       list.add(gameFeatureEvent.getGameOption());
+       this.list.add(gameFeatureEvent.getGameOption());
 
        setChanged(true);
     }
 
     public void add(Feature gameFeature)
     {
-        list.add(gameFeature);
+        this.list.add(gameFeature);
     }
 
     public void remove(Feature gameFeature)
     {
-        list.remove(gameFeature);
+        this.list.remove(gameFeature);
     }
     
     public void setChanged(boolean initialized)
@@ -65,13 +65,13 @@ public class BaseChangedGameFeatureListener implements GameFeatureListenerInterf
         
         if(!this.isChanged())
         {
-            list.clear();
+            this.list.clear();
         }
     }
 
     public boolean isChanged(Feature gameFeature)
     {
-        boolean isChanged = list.contains(gameFeature);
+        boolean isChanged = this.list.contains(gameFeature);
         
         StringMaker stringBuffer = new StringMaker();
         

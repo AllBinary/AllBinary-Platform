@@ -38,9 +38,9 @@ public class AnalogControllerConfigurationEventHandler extends BasicEventHandler
 
     public void addListener(AnalogControllerConfigurationEventListenerInterface analogControllerConfigurationEventListenerInterface)
     {
-        if(!list.contains(analogControllerConfigurationEventListenerInterface))
+        if(!this.list.contains(analogControllerConfigurationEventListenerInterface))
         {
-            list.add(analogControllerConfigurationEventListenerInterface);
+            this.list.add(analogControllerConfigurationEventListenerInterface);
         }
     }
 

@@ -80,9 +80,9 @@ implements DisplayChangeEventListener
         
         DisplayChangeEventHandler.getInstance().addListener(this);
         
-        final int size = IMAGE.length;
+        final int size = this.IMAGE.length;
         for(int index = 0; index < size; index++) {
-            IMAGE[index] = NullCanvas.NULL_IMAGE;
+            this.IMAGE[index] = NullCanvas.NULL_IMAGE;
         }
     }
 
@@ -252,7 +252,7 @@ implements DisplayChangeEventListener
             this.logUtil.putF(commonStrings.START, this, commonStrings.START_METHOD_NAME);
 
             super.start();
-            this.midletActivity.runOnUiThread(showTitleProgressBarRunnable);
+            this.midletActivity.runOnUiThread(this.showTitleProgressBarRunnable);
         }
         catch (Exception e)
         {
@@ -266,7 +266,7 @@ implements DisplayChangeEventListener
         try
         {
             this.logUtil.putF(commonStrings.START, this, commonStrings.END_METHOD_NAME);
-            this.midletActivity.runOnUiThread(dismissTitleProgressBarRunnable);
+            this.midletActivity.runOnUiThread(this.dismissTitleProgressBarRunnable);
             super.end();
         }
         catch (Exception e)
@@ -287,7 +287,7 @@ implements DisplayChangeEventListener
 
             if(this.midletActivity != AndroidUtil.NULL_ACTIVITY)
             {
-                this.midletActivity.runOnUiThread(titleProgressDialogPortionSetProgressRunnable);
+                this.midletActivity.runOnUiThread(this.titleProgressDialogPortionSetProgressRunnable);
             }
         }
         catch (Exception e)
@@ -306,7 +306,7 @@ implements DisplayChangeEventListener
             this.portion = value;
             super.addPortion(value, text, index);
 
-            this.midletActivity.runOnUiThread(titleProgressDialogPortionSetProgressRunnable);
+            this.midletActivity.runOnUiThread(this.titleProgressDialogPortionSetProgressRunnable);
         }
         catch (Exception e)
         {
@@ -324,7 +324,7 @@ implements DisplayChangeEventListener
             this.portion = value;
             super.addPortion(value, text);
 
-            this.midletActivity.runOnUiThread(titleProgressDialogPortionSetProgressRunnable);
+            this.midletActivity.runOnUiThread(this.titleProgressDialogPortionSetProgressRunnable);
         }
         catch (Exception e)
         {
@@ -340,7 +340,7 @@ implements DisplayChangeEventListener
         {
             super.setValue(value);
 
-            this.midletActivity.runOnUiThread(titleProgressDialogSetProgressRunnable);
+            this.midletActivity.runOnUiThread(this.titleProgressDialogSetProgressRunnable);
         }
         catch (Exception e)
         {
@@ -452,7 +452,7 @@ implements DisplayChangeEventListener
             //this.logUtil.putF(StringUtil.getInstance().EMPTY_STRING, this, canvasStrings.PAINT);
             
             // Only show background when not loading in the background
-            animation.paint(graphics, 0, 20);
+            this.animation.paint(graphics, 0, 20);
 
             super.paint2(graphics);
         }

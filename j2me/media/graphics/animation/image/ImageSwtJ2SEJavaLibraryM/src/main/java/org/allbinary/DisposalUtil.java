@@ -54,7 +54,7 @@ public class DisposalUtil {
     
     public void dispose(final Resource resource) {
         if(!resource.isDisposed()) {
-            System.out.println(commonStrings.CLOSE);
+            System.out.println(this.commonStrings.CLOSE);
             resource.dispose();
         }
     }

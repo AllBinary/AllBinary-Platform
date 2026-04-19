@@ -53,16 +53,16 @@ public class GameKeyEventFactory
         /*
         for (int index2 = 0; index2 < MAX; index2++)
         {
-            ARRAY[index2] = new GameKeyEvent(null, index2);
+            this.ARRAY[index2] = new GameKeyEvent(null, index2);
         }
         */
         
         int size = InputFactory.getInstance().MAX;
-        for (int index = MAX_SOURCES; --index >= 0;)
+        for (int index = this.MAX_SOURCES; --index >= 0;)
         {
             for (int index2 = size; --index2 >= 0;)
             {
-                ARRAY[index][index2] = new GameKeyEvent(nullUtil.NULL_OBJECT, index, index2);
+                this.ARRAY[index][index2] = new GameKeyEvent(nullUtil.NULL_OBJECT, index, index2);
             }
         }
     }
@@ -73,7 +73,7 @@ public class GameKeyEventFactory
     {
         //this.logUtil.putF(commonStrings.START, this, SOURCE_ID + object.getSourceId());
 
-        GameKeyEvent gameKeyEvent = ARRAY[object.getSourceId()][key];
+        GameKeyEvent gameKeyEvent = this.ARRAY[object.getSourceId()][key];
         //GameKeyEvent gameKeyEvent = ARRAY[key];
         //gameKeyEvent.init(object);
         return gameKeyEvent;
@@ -85,7 +85,7 @@ public class GameKeyEventFactory
     {
         //this.logUtil.putF(commonStrings.START_LABEL, this, SOURCE_ID + object.getSourceId());
 
-        GameKeyEvent gameKeyEvent = ARRAY[object.getSourceId()][input.getId()];
+        GameKeyEvent gameKeyEvent = this.ARRAY[object.getSourceId()][input.getId()];
         //GameKeyEvent gameKeyEvent = ARRAY[gameKey.getKey().intValue()];
         //gameKeyEvent.init(object);
         return gameKeyEvent;

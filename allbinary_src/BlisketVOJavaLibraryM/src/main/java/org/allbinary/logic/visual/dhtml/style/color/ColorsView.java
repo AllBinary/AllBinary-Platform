@@ -38,9 +38,9 @@ public class ColorsView implements DomNodeInterface
    {
                      StringMaker hexColorStringBuffer = new StringMaker();
 
-               if(redIndex < HEXRADIX)
+               if(redIndex < this.HEXRADIX)
                {
-                  hexColorStringBuffer.append(commonPhoneStrings.ZERO);
+                  hexColorStringBuffer.append(this.commonPhoneStrings.ZERO);
                }
                
                hexColorStringBuffer.append(
@@ -48,7 +48,7 @@ public class ColorsView implements DomNodeInterface
                
                if(greenIndex < HEXRADIX)
                {
-                  hexColorStringBuffer.append(commonPhoneStrings.ZERO);
+                  hexColorStringBuffer.append(this.commonPhoneStrings.ZERO);
                }
                
                hexColorStringBuffer.append(
@@ -56,7 +56,7 @@ public class ColorsView implements DomNodeInterface
                
                if(blueIndex < HEXRADIX)
                {
-                  hexColorStringBuffer.append(commonPhoneStrings.ZERO);
+                  hexColorStringBuffer.append(this.commonPhoneStrings.ZERO);
                }
                
                hexColorStringBuffer.append(
@@ -78,13 +78,13 @@ public class ColorsView implements DomNodeInterface
       node.appendChild(blackNode);
       
       //Gray Scale
-      for(int index = 0; index < MAX; index+=delta)
+      for(int index = 0; index < this.MAX; index+=this.delta)
       {
          StringMaker hexColorStringBuffer = new StringMaker();
          
-         if(index < HEXRADIX)
+         if(index < this.HEXRADIX)
          {
-            hexColorStringBuffer.append(commonPhoneStrings.ZERO);
+            hexColorStringBuffer.append(this.commonPhoneStrings.ZERO);
          }
          
          hexColorStringBuffer.append(
@@ -92,7 +92,7 @@ public class ColorsView implements DomNodeInterface
          
          if(index < HEXRADIX)
          {
-            hexColorStringBuffer.append(commonPhoneStrings.ZERO);
+            hexColorStringBuffer.append(this.commonPhoneStrings.ZERO);
          }
          
          hexColorStringBuffer.append(
@@ -100,7 +100,7 @@ public class ColorsView implements DomNodeInterface
          
          if(index < HEXRADIX)
          {
-            hexColorStringBuffer.append(commonPhoneStrings.ZERO);
+            hexColorStringBuffer.append(this.commonPhoneStrings.ZERO);
          }
          
          hexColorStringBuffer.append(
@@ -117,11 +117,11 @@ public class ColorsView implements DomNodeInterface
       node.appendChild(whiteNode);
 
       //Blue
-      for(int blueIndex = MAX/2; blueIndex < MAX; blueIndex+=delta)
+      for(int blueIndex = this.MAX/2; blueIndex < this.MAX; blueIndex+=this.delta)
       {
-         for(int greenIndex = 0; greenIndex < MAX/2; greenIndex+=delta)
+         for(int greenIndex = 0; greenIndex < this.MAX/2; greenIndex+=this.delta)
          {
-            for(int redIndex = 0; redIndex < MAX/2; redIndex+=delta)
+            for(int redIndex = 0; redIndex < this.MAX/2; redIndex+=this.delta)
             {
                node.appendChild(this.getColorNode(document, 
                   redIndex, greenIndex, blueIndex));
@@ -130,11 +130,11 @@ public class ColorsView implements DomNodeInterface
       }
       
       //Red
-      for(int redIndex = MAX/2; redIndex < MAX; redIndex+=delta)
+      for(int redIndex = this.MAX/2; redIndex < this.MAX; redIndex+=this.delta)
       {
-         for(int greenIndex = 0; greenIndex < MAX/2; greenIndex+=delta)
+         for(int greenIndex = 0; greenIndex < this.MAX/2; greenIndex+=this.delta)
          {
-            for(int blueIndex = 0; blueIndex < MAX/2; blueIndex+=delta)
+            for(int blueIndex = 0; blueIndex < this.MAX/2; blueIndex+=this.delta)
             {
                node.appendChild(this.getColorNode(document, 
                   redIndex, greenIndex, blueIndex));
@@ -143,11 +143,11 @@ public class ColorsView implements DomNodeInterface
       }
       
       //Green
-      for(int greenIndex = MAX/2; greenIndex < MAX; greenIndex+=delta)
+      for(int greenIndex = this.MAX/2; greenIndex < this.MAX; greenIndex+=this.delta)
       {
-         for(int redIndex = 0; redIndex < MAX/2; redIndex+=delta)
+         for(int redIndex = 0; redIndex < this.MAX/2; redIndex+=this.delta)
          {
-            for(int blueIndex = 0; blueIndex < MAX/2; blueIndex+=delta)
+            for(int blueIndex = 0; blueIndex < this.MAX/2; blueIndex+=this.delta)
             {
                node.appendChild(this.getColorNode(document, 
                   redIndex, greenIndex, blueIndex));
@@ -156,11 +156,11 @@ public class ColorsView implements DomNodeInterface
       }
       
       //All
-      for(int greenIndex = 0; greenIndex < MAX; greenIndex+=2*delta)
+      for(int greenIndex = 0; greenIndex < this.MAX; greenIndex+=2*this.delta)
       {
-         for(int redIndex = 0; redIndex < MAX; redIndex+=2*delta)
+         for(int redIndex = 0; redIndex < this.MAX; redIndex+=2*this.delta)
          {
-            for(int blueIndex = 0; blueIndex < MAX; blueIndex+=2*delta)
+            for(int blueIndex = 0; blueIndex < this.MAX; blueIndex+=2*this.delta)
             {
                node.appendChild(this.getColorNode(document, 
                   redIndex, greenIndex, blueIndex));

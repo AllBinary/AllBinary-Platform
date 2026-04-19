@@ -87,7 +87,7 @@ extends CollidableDestroyableDamageableBehavior
           //this.logUtil.putF("isCollision: " + this.getGroupInterface().getGroupName() + "==" + layerInterface.getGroupInterface().getGroupName(), this, damageUtil.IS_COLLISION);
           if (this.ownerLayer.getGroupInterface()[0] != layerInterface.getGroupInterface()[0])
           {
-             if (layerCollisionUtil.isCollision(this.ownerLayer, layerInterface))
+             if (this.layerCollisionUtil.isCollision(this.ownerLayer, layerInterface))
              {
                 return true;
              }

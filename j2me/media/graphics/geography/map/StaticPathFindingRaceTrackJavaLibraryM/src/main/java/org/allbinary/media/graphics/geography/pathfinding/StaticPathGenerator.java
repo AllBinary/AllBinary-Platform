@@ -84,7 +84,7 @@ public class StaticPathGenerator {
 
             BasicArrayList list = pathCacheFactory.getInstance(mapIdInteger);
 
-            if (list == basicArrayListUtil.getImmutableInstance()) {
+            if (list == this.basicArrayListUtil.getImmutableInstance()) {
                 list = new BasicArrayList();
 
                 final SmallIntegerSingletonFactory smallIntegerSingletonFactory =

@@ -37,7 +37,7 @@ public class KeyValueDrawCharArray {
     public KeyValueDrawCharArray(String label, int x)
     {
         this.LABEL = label;
-        this.labelWidth = MyFont.getInstance().stringWidth(LABEL) - LABEL.length();
+        this.labelWidth = MyFont.getInstance().stringWidth(this.LABEL) - this.LABEL.length();
         this.labelX = x;
         this.valueX = this.labelWidth + x;
     }

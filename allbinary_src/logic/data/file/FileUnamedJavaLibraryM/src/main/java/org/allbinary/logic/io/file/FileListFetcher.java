@@ -43,7 +43,7 @@ public class FileListFetcher
         {
             
 
-            final BasicArrayList files = subDirectory.search(new AbFile(path));
+            final BasicArrayList files = this.subDirectory.search(new AbFile(path));
             return files;
 
         } catch (Exception e)
@@ -67,7 +67,7 @@ public class FileListFetcher
                     new DirectoryOrIncludeFileExtensionBooleanFileVisitor(
                             includeExtensionBasicArrayList));
 
-            final BasicArrayList files = subDirectory.search(visitorFileFilter, new AbFile(path));
+            final BasicArrayList files = this.subDirectory.search(visitorFileFilter, new AbFile(path));
             return files;
 
         } catch (Exception e)
@@ -88,7 +88,7 @@ public class FileListFetcher
                     new DirectoryOrIncludeFileExtensionBooleanFileVisitor(
                             includeExtensionBasicArrayList));
 
-            final BasicArrayList files = subDirectory.search(visitorFileFilter, new AbFile(path));
+            final BasicArrayList files = this.subDirectory.search(visitorFileFilter, new AbFile(path));
             return files;
 
         } catch (Exception e)
@@ -109,7 +109,7 @@ public class FileListFetcher
                     new DirectoryOrIncludeFileExtensionBooleanFileVisitor(
                             includeExtensionBasicArrayList, pathIncludes));
 
-            final BasicArrayList files = subDirectory.search(visitorFileFilter, new AbFile(path));
+            final BasicArrayList files = this.subDirectory.search(visitorFileFilter, new AbFile(path));
             return files;
 
         } catch (Exception e)
@@ -127,7 +127,7 @@ public class FileListFetcher
             final VisitorFileFilter visitorFileFilter = new VisitorFileFilter(
                     new DirectoryBooleanFileVisitor());
 
-            final BasicArrayList files = subDirectory.search(visitorFileFilter, new AbFile(path));
+            final BasicArrayList files = this.subDirectory.search(visitorFileFilter, new AbFile(path));
             return files;
 
         } catch (Exception e)

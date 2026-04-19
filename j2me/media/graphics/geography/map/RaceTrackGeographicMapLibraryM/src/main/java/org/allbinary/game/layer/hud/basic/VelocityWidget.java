@@ -80,16 +80,16 @@ public class VelocityWidget extends BasicHud
         if (lastVelocity != this.velocity)
         {
             //this.string = primitiveLongUtil.getString(this.velocity * 18);
-            this.string = primitiveLongUtil.getCharArray(this.velocity * 18);
+            this.string = this.primitiveLongUtil.getCharArray(this.velocity * 18);
             
             //I add one extra for open gl font issue
             if(OpenGLFeatureUtil.getInstance().isAnyThreed())
             {
-                this.totalDigits = primitiveLongUtil.getCurrentTotalDigits() + 1;
+                this.totalDigits = this.primitiveLongUtil.getCurrentTotalDigits() + 1;
             }
             else
             {
-                this.totalDigits = primitiveLongUtil.getCurrentTotalDigits();
+                this.totalDigits = this.primitiveLongUtil.getCurrentTotalDigits();
             }
 
             final MyFont myFont = MyFont.getInstance();

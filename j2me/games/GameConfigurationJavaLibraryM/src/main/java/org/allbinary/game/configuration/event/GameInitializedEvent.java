@@ -41,7 +41,7 @@ public class GameInitializedEvent extends AllBinaryEventObject
     public void setResourceLoadingLevel(ResourceLoadingLevel resourceLoadingLevel)
     {
         this.resourceLoadingLevel = resourceLoadingLevel;
-        level = this.resourceLoadingLevel.getLevel();
+        this.level = this.resourceLoadingLevel.getLevel();
     }
 
     public ResourceLoadingLevel getResourceLoadingLevel()

@@ -67,31 +67,31 @@ public class Tracking
       {
       tracking[this.trackingIndex] =
       }
-      if(tracking[this.trackingIndex] == UP)
+      if(tracking[this.trackingIndex] == this.UP)
       {
-      arrowX = (clipWidth >> 1) - (ARROWWIDTH >> 1);
+      arrowX = (clipWidth >> 1) - (this.ARROWWIDTH >> 1);
       arrowY = 4;
       direction = 0;
       }
       else
-      if(tracking[this.trackingIndex] == DOWN)
+      if(tracking[this.trackingIndex] == this.DOWN)
       {
-      arrowX =( clipWidth >> 1) - (ARROWWIDTH >> 1);
-      arrowY = clipHeight - 4 - ARROWWIDTH;
+      arrowX =( clipWidth >> 1) - (this.ARROWWIDTH >> 1);
+      arrowY = clipHeight - 4 - this.ARROWWIDTH;
       direction = 2;
       }
       else
-      if(tracking[this.trackingIndex] == LEFT)
+      if(tracking[this.trackingIndex] == this.LEFT)
       {
       arrowX = 4;
-      arrowY = (clipHeight >> 1) - (ARROWWIDTH >> 1);
+      arrowY = (clipHeight >> 1) - (this.ARROWWIDTH >> 1);
       direction = 3;
       }
       else
-      if(tracking[this.trackingIndex] == RIGHT)
+      if(tracking[this.trackingIndex] == this.RIGHT)
       {
       arrowX = clipWidth - 4 - this.ARROWWIDTH;
-      arrowY = (clipHeight >> 1) - (ARROWWIDTH >> 1);
+      arrowY = (clipHeight >> 1) - (this.ARROWWIDTH >> 1);
       direction = 1;
       }
       else
@@ -117,7 +117,7 @@ public class Tracking
    /*
    public void track(MyLayer myLayer)
    {
-   if(this.trackingIndex < MAXTRACKING)
+   if(this.trackingIndex < this.MAXTRACKING)
    {
    //calculate distance first
    this.trackingX[this.trackingIndex] = myLayer.x;

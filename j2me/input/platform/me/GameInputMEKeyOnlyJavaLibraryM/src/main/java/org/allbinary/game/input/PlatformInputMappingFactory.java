@@ -34,9 +34,9 @@ public class PlatformInputMappingFactory
     {
         try
         {
-            if (SINGLETON == PersistentInputMapping.NULL_PERSISTENT_INPUT_MAPPING)
+            if (this.SINGLETON == PersistentInputMapping.NULL_PERSISTENT_INPUT_MAPPING)
             {
-                SINGLETON = new NormalJ2MEGameInputMapping();
+                this.SINGLETON = new NormalJ2MEGameInputMapping();
             }
         } catch (Exception e)
         {

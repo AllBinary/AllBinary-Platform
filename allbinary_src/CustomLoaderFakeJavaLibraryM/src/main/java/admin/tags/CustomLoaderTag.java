@@ -76,10 +76,10 @@ public class CustomLoaderTag extends CustomTagSupport
             this.logUtil.putF(this.commonStrings.START, this, tagStrings.DO_START_TAG);
          }
          
-         if(command!=null)
+         if(this.command!=null)
          {
             
-            if(command.compareTo(GLOBALS2.SET)==0)
+            if(this.command.compareTo(GLOBALS2.SET)==0)
             {
                this.setCustomLoaderWebappPath();
             }

@@ -96,7 +96,7 @@ public class PooledImageArrayRotationAnimationFactory implements
 
         final Image[] imageArray = ImageToRotationImageArrayUtil.getInstance().generate(image, angleIncrement, totalAngle);
 
-        allBinaryImageRotationAnimationInfo = new ImageArrayRotationAnimationInfo(
+        this.allBinaryImageRotationAnimationInfo = new ImageArrayRotationAnimationInfo(
                 imageArray, angleIncrement, totalAngle, dx, dy);
     }
 

@@ -135,7 +135,7 @@ public class PCKeyFactory
 
     public boolean isSubmission(Input input)
     {
-        if (input == ENTER)
+        if (input == this.ENTER)
         {
             return true;
         }
@@ -144,7 +144,7 @@ public class PCKeyFactory
 
     public boolean isDelete(Input input)
     {
-        if (input == DEL)
+        if (input == this.DEL)
         {
             return true;
         }
@@ -153,7 +153,7 @@ public class PCKeyFactory
 
     public boolean isBackSpace(Input input)
     {
-        if (input == BACK_SPACE) {
+        if (input == this.BACK_SPACE) {
             return true;
         }
         return false;
@@ -161,7 +161,7 @@ public class PCKeyFactory
 
     public boolean isUp(Input input)
     {
-        if (input == DPAD_UP || input == DPAD_UP2)
+        if (input == this.DPAD_UP || input == this.DPAD_UP2)
         {
             return true;
         }
@@ -170,7 +170,7 @@ public class PCKeyFactory
 
     public boolean isDown(Input input)
     {
-        if (input == DPAD_DOWN || input == DPAD_DOWN2)
+        if (input == this.DPAD_DOWN || input == this.DPAD_DOWN2)
         {
             return true;
         }
@@ -180,7 +180,7 @@ public class PCKeyFactory
 
     public boolean isLeft(Input input)
     {
-        if (input == DPAD_LEFT || input == DPAD_LEFT2)
+        if (input == this.DPAD_LEFT || input == this.DPAD_LEFT2)
         {
             return true;
         }
@@ -189,7 +189,7 @@ public class PCKeyFactory
 
     public boolean isRight(Input input)
     {
-        if (input == DPAD_RIGHT || input == DPAD_RIGHT2)
+        if (input == this.DPAD_RIGHT || input == this.DPAD_RIGHT2)
         {
             return true;
         }
@@ -199,7 +199,7 @@ public class PCKeyFactory
 
     public boolean isEnter(Input input)
     {
-        if (input == ENTER)
+        if (input == this.ENTER)
         {
             return true;
         }

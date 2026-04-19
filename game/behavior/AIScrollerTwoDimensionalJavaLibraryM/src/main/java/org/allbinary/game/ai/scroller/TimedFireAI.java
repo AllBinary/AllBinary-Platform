@@ -54,7 +54,7 @@ public class TimedFireAI extends BasicAI
         {
             super.processAI(Canvas.KEY_NUM1);
 
-            this.maxFireDelayTimeHelper.delay = delay;
+            this.maxFireDelayTimeHelper.delay = this.delay;
         }
     }
 }

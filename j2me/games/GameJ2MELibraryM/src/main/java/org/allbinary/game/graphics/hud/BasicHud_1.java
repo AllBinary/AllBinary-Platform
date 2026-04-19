@@ -109,50 +109,50 @@ public class BasicHud_1 //implements DisplayChangeEventListener
       
       if(basicHudFactory.BOTTOMLEFT == this.getLocation())
       {
-         x = bufferZone + 2;
-         y = height - maxHeight - bufferZone;
+         x = this.bufferZone + 2;
+         y = height - this.maxHeight - this.bufferZone;
          anchor = Graphics.BOTTOM & Graphics.LEFT;
       }
       else
       if(basicHudFactory.BOTTOMRIGHT == this.getLocation())
       {
-         x = width - maxWidth;
-         y = height - maxHeight - bufferZone;
+         x = width - this.maxWidth;
+         y = height - this.maxHeight - this.bufferZone;
          anchor = Graphics.BOTTOM & Graphics.RIGHT;
       }
       else
       if(basicHudFactory.TOPLEFT == this.getLocation())
       {
-         x = bufferZone + 2;
-         y = bufferZone + 5;
+         x = this.bufferZone + 2;
+         y = this.bufferZone + 5;
          anchor = Anchor.TOP_LEFT;
       }
       else
           if(basicHudFactory.TOPRIGHT == this.getLocation())
           {
-             x = width - maxWidth;
-             y = bufferZone + 5;
+             x = width - this.maxWidth;
+             y = this.bufferZone + 5;
              anchor = Graphics.TOP & Graphics.RIGHT;
           }
           else
               if(basicHudFactory.TOPCENTER == this.getLocation())
               {
-                  x = ((width - maxWidth) / 2);
-                 y = bufferZone + 5;
+                  x = ((width - this.maxWidth) / 2);
+                 y = this.bufferZone + 5;
                  anchor = Graphics.TOP & Graphics.HCENTER;
               }
               else
                   if(basicHudFactory.BOTTOMCENTER == this.getLocation())
                   {
-                      x = ((width - maxWidth) / 2);
-                     y = height - maxHeight - bufferZone;
+                      x = ((width - this.maxWidth) / 2);
+                     y = height - this.maxHeight - this.bufferZone;
                      anchor = Graphics.BOTTOM & Graphics.HCENTER;
                   }
                   else
                       if(basicHudFactory.ABSOLUTE == this.getLocation())
                   {
-                     x = maxHeight;
-                     y = maxWidth;
+                     x = this.maxHeight;
+                     y = this.maxWidth;
                      anchor = 0;
                   }
       
@@ -175,7 +175,7 @@ public class BasicHud_1 //implements DisplayChangeEventListener
            this.hudGraphicsPosition = this.getHudGraphicsPosition(
                    displayInfo.getLastWidth(), displayInfo.getLastHeight());
            
-           x = this.hudGraphicsPosition.getPoint().getX();
+           this.x = this.hudGraphicsPosition.getPoint().getX();
            this.setY(this.hudGraphicsPosition.getPoint().getY());
        }
        catch(Exception e)
@@ -320,7 +320,7 @@ public class BasicHud_1 //implements DisplayChangeEventListener
    {
        this.basicSetColorUtil.setBasicColorP(graphics, getBasicColorP());
 
-       int y = getY() + offsetY;
+       int y = getY() + this.offsetY;
        
       graphics.drawString(string,
          x, //getHudGraphicsPosition().getPoint().getX().intValue(),

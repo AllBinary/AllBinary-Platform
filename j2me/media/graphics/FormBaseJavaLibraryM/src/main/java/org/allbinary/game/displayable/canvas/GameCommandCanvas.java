@@ -119,8 +119,8 @@ public class GameCommandCanvas
 
         this.foregroundBasicColor = foregroundBasicColor;
         this.backgroundBasicColor = backgroundBasicColor;
-        this.foregroundColor = foregroundBasicColor.intValue();
-        this.backgroundColor = backgroundBasicColor.intValue();
+        this.foregroundColor = this.foregroundBasicColor.intValue();
+        this.backgroundColor = this.backgroundBasicColor.intValue();
 
         this.initCommands(cmdListener);
 
@@ -325,7 +325,7 @@ public class GameCommandCanvas
 
             if (gameKey != this.gameKeyFactory.NONE)
             {
-                final GameKeyEvent gameKeyEvent = gameKeyEventFactory.getInstance(this, gameKey);
+                final GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstance(this, gameKey);
 
                 /*
                  * //This is for key input debugging only GameKeyEvent
@@ -333,8 +333,8 @@ public class GameCommandCanvas
                  * this.logUtil.putF(gameKeyEvent.toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
                  */
 
-                downGameKeyEventHandler.fireEvent(gameKeyEvent);
-                downGameKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
+                this.downGameKeyEventHandler.fireEvent(gameKeyEvent);
+                this.downGameKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
 
                 //getPlayerGameInput().onDownGameKeyEvent(gameKeyEvent);
 
@@ -363,7 +363,7 @@ public class GameCommandCanvas
 
             if (gameKey != this.gameKeyFactory.NONE)
             {
-                final GameKeyEvent gameKeyEvent = gameKeyEventFactory.getInstance(this, gameKey);
+                final GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstance(this, gameKey);
 
                 /*
                  * //This is for key input debugging only GameKeyEvent
@@ -372,8 +372,8 @@ public class GameCommandCanvas
                  */
 
                 // TODO TWB - Remove or improve key input event handling
-                upGameKeyEventHandler.fireEvent(gameKeyEvent);
-                upGameKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
+                this.upGameKeyEventHandler.fireEvent(gameKeyEvent);
+                this.upGameKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
 
                 //getPlayerGameInput().onUpGameKeyEvent(gameKeyEvent);
             }

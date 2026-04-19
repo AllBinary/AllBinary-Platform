@@ -152,7 +152,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
             //this.logUtil.putF(commonStrings.START, this, "processInput - GameKeyEvent source: ").append(gameKeyEvent.getSourceId());
             // this.logUtil.put("commonStrings.START_LABEL).append("Canvas." +
             // CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance());
-            if(gameKeyEvent.getSourceId() != MOTION_GESTURE_SOURCE_ID)
+            if(gameKeyEvent.getSourceId() != this.MOTION_GESTURE_SOURCE_ID)
             {
                 if (this.processInput(key) == 1) {
                     break;
@@ -249,7 +249,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
                  this.processCommand();
              }
 
-             this.doubleClickTimeHelper.delay = DOUBLE_CLICK_DELAY;
+             this.doubleClickTimeHelper.delay = this.DOUBLE_CLICK_DELAY;
              this.doubleClickTimeHelper.setStartTime();
          }
          this.hasPressed = false;

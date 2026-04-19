@@ -69,7 +69,7 @@ public class BasicCryptUtil
         ////LogUtil.put(decryptedString, this, "decRespXMLRPC");
         //PreLogUtil.put(decryptedString, this, "decRespXMLRPC");
 
-        int index = decryptedString.indexOf(XML_START);
+        int index = decryptedString.indexOf(this.XML_START);
         if (index > 0)
         {
             //this.logUtil.putF("Removing Pre Decrypted XML data", this, "encRespXMLRPC");

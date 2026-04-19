@@ -43,10 +43,10 @@ public class AnimationFactoryInitializationVisitor {
         stringBuffer.append(PositionStrings.getInstance().DX_LABEL).appendfloat((float) this.dx);
         stringBuffer.append(PositionStrings.getInstance().DY_LABEL).appendfloat((float) this.dy);
         stringBuffer.append(commonLabels.WIDTH_LABEL);
-        stringBuffer.appendint(width);
+        stringBuffer.appendint(this.width);
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(commonLabels.HEIGHT_LABEL);
-        stringBuffer.appendint(height);
+        stringBuffer.appendint(this.height);
 
         return stringBuffer.toString();
     }

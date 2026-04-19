@@ -35,7 +35,7 @@ public class StaticPagesEntity extends AbSqlBean implements StaticPagesEntityInt
     public StaticPagesEntity()
     {
         super(new StaticPagesDbInitInfo());
-        this.setTableName(TABLENAME);
+        this.setTableName(this.TABLENAME);
     }
 
     public void insert(Vector values)

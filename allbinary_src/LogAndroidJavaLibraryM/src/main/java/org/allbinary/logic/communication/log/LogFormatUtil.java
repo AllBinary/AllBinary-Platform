@@ -140,7 +140,7 @@ public class LogFormatUtil
 
             if(exceptionMessage == null)
             {
-            exceptionMessage = EMPTY;
+            exceptionMessage = this.EMPTY;
             }
              */
 

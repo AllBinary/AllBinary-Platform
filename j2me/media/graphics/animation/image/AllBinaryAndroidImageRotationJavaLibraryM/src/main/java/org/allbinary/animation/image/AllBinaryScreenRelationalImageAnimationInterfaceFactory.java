@@ -43,7 +43,7 @@ extends BaseImageAnimationFactory
         
     	//Image image = this.getImage();
 
-    	if(lastImage != NullCanvas.NULL_IMAGE)
+    	if(this.lastImage != NullCanvas.NULL_IMAGE)
     	{
             final AndroidImageInterface androidImageInterface = (AndroidImageInterface) lastImage;
             androidImageInterface.getBitmap().recycle();
@@ -51,7 +51,7 @@ extends BaseImageAnimationFactory
 
     	float scale = ScreenRelationalUtil.getInstance().getScale(image);
 
-    	lastImage = 
+    	this.lastImage = 
         		//Image.createImage(displayInfoSingleton.getLastWidth(), displayInfoSingleton.getLastHeight());
         		ImageScaleUtil.getInstance().createImage(GameFeatureImageCacheFactory.getInstance(), 
     			this.getImage(), scale, scale, false);
@@ -61,6 +61,6 @@ extends BaseImageAnimationFactory
     @Override
     public Animation getInstance(final int instanceId) throws Exception
     {    	
-        return new ImageAnimation(lastImage, this.animationBehaviorFactory.getOrCreateInstance());
+        return new ImageAnimation(this.lastImage, this.animationBehaviorFactory.getOrCreateInstance());
     }    
 }

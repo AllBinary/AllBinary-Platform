@@ -62,7 +62,7 @@ public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityI
     public OrderHistoryEntity()
     {
         super(new HistoryDbInitInfo());
-        this.setTableName(tableName);
+        this.setTableName(this.tableName);
     }
 
     public void insert(String userName, Order order)
@@ -399,7 +399,7 @@ public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityI
 
         stringBuffer.append("CREATE TABLE ");
 
-        stringBuffer.append(tableName);
+        stringBuffer.append(this.tableName);
         stringBuffer.append(" (");
 
         stringBuffer.append(entryData.ID);

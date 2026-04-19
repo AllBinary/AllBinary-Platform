@@ -38,7 +38,7 @@ public class MyFont
 
    public void update() {
        this.DEFAULT_CHAR_HEIGHT = defaultFont.getHeight();
-       this.DEFAULT_CHAR_WIDTH = defaultFont.charWidth('C');
+       this.DEFAULT_CHAR_WIDTH = this.defaultFont.charWidth('C');
    }
    
    public int charWidth() {
@@ -46,11 +46,11 @@ public class MyFont
    }
    
    public int stringWidth(final int size) {
-       return DEFAULT_CHAR_WIDTH * size;
+       return this.DEFAULT_CHAR_WIDTH * size;
    }
 
    public int stringWidth(final String string) {
-       return DEFAULT_CHAR_WIDTH * string.length();
+       return this.DEFAULT_CHAR_WIDTH * string.length();
        //return defaultFont.stringWidth(string);
    }
    

@@ -49,11 +49,11 @@ public class RemoveActionScriptItemJPanel extends java.awt.Panel
     // <editor-fold defaultstate="collapsed" desc=" Generated Code ">//GEN-BEGIN:initComponents
     private void initComponents()
     {
-        removeJButton = new javax.swing.JButton();
+        this.removeJButton = new javax.swing.JButton();
 
         setLayout(new java.awt.GridLayout());
 
-        removeJButton.setText("Remove");
+        this.removeJButton.setText("Remove");
         removeJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -62,7 +62,7 @@ public class RemoveActionScriptItemJPanel extends java.awt.Panel
             }
         });
 
-        add(removeJButton);
+        add(this.removeJButton);
 
     }// </editor-fold>//GEN-END:initComponents
 

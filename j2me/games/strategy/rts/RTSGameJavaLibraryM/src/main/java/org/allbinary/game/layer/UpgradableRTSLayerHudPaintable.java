@@ -111,7 +111,7 @@ public class UpgradableRTSLayerHudPaintable
         final RTSLayer rtsLayer = (RTSLayer) this.getRtsLayer();
         this.percentComplete = rtsLayer.getPercentComplete();
 
-        if (percentComplete < 10)
+        if (this.percentComplete < 10)
         {
             this.percentCompleteX = 32;
         } else if (percentComplete < 100)
@@ -123,7 +123,7 @@ public class UpgradableRTSLayerHudPaintable
         }
         
         this.percentCompleteArray =
-            this.getPrimitiveLongUtil().getCharArray(percentComplete);
+            this.getPrimitiveLongUtil().getCharArray(this.percentComplete);
             //this.primitiveLongUtil.getString(pc);
 
         this.currentTotalDigits = 

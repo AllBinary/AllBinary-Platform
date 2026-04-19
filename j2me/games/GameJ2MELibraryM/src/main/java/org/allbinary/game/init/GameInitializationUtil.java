@@ -91,7 +91,7 @@ public class GameInitializationUtil
                 
             this.EVENT.setResourceLoadingLevel(resourceLoadingLevelFactory.LOAD_ALL);
             
-            GameInitializedEventHandler.getInstance().fireEvent(EVENT);
+            GameInitializedEventHandler.getInstance().fireEvent(this.EVENT);
             
             ChangedGameFeatureListener.getInstance().remove(MainFeatureFactory.getInstance().STATIC);
         }

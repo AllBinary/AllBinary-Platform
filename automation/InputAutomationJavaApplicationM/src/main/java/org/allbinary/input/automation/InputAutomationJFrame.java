@@ -70,7 +70,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
       //fileJDialog.addFinishedListener(this);
       URL url = this.getClass().getResource("/help/Help.hs");
       this.logUtil.putF("URL: " + url, this, this.commonStrings.CONSTRUCTOR);
-      helpSet = JavaHelpUtil.getInstance().getHelpSet(url);
+      this.helpSet = JavaHelpUtil.getInstance().getHelpSet(url);
 
       url = this.getClass().getResource("/resources/allbinaryicon8bit.jpg");
       final ImageIcon imageIcon = new ImageIcon(url);
@@ -152,31 +152,31 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
     // <editor-fold defaultstate="collapsed" desc=" Generated Code ">//GEN-BEGIN:initComponents
     private void initComponents()
     {
-        noModuleSelectedJDialog = new javax.swing.JDialog();
-        noModuleSelectedJLabel = new javax.swing.JLabel();
-        gameRobotJTabbedPane = new javax.swing.JTabbedPane();
-        inputAutomationModuleJPanel = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        inputAutomationModuleJList = new javax.swing.JList();
-        automationModuleConfigurationJPanel = new javax.swing.JPanel();
-        mainJMenuBar = new javax.swing.JMenuBar();
-        processingJMenu = new javax.swing.JMenu();
-        startJMenuItem = new javax.swing.JMenuItem();
-        stopJMenuItem = new javax.swing.JMenuItem();
-        optionsJMenu = new javax.swing.JMenu();
-        stopOnFocusJCheckBoxMenuItem = new javax.swing.JCheckBoxMenuItem();
-        toolsJMenu = new javax.swing.JMenu();
-        helpJMenuItem = new javax.swing.JMenuItem();
-        updatesJMenuItem = new javax.swing.JMenuItem();
-        subscriptionJMenuItem = new javax.swing.JMenuItem();
-        modulesJMenuItem = new javax.swing.JMenuItem();
-        aboutJMenuItem = new javax.swing.JMenuItem();
+        this.noModuleSelectedJDialog = new javax.swing.JDialog();
+        this.noModuleSelectedJLabel = new javax.swing.JLabel();
+        this.gameRobotJTabbedPane = new javax.swing.JTabbedPane();
+        this.inputAutomationModuleJPanel = new javax.swing.JPanel();
+        this.jScrollPane1 = new javax.swing.JScrollPane();
+        this.inputAutomationModuleJList = new javax.swing.JList();
+        this.automationModuleConfigurationJPanel = new javax.swing.JPanel();
+        this.mainJMenuBar = new javax.swing.JMenuBar();
+        this.processingJMenu = new javax.swing.JMenu();
+        this.startJMenuItem = new javax.swing.JMenuItem();
+        this.stopJMenuItem = new javax.swing.JMenuItem();
+        this.optionsJMenu = new javax.swing.JMenu();
+        this.stopOnFocusJCheckBoxMenuItem = new javax.swing.JCheckBoxMenuItem();
+        this.toolsJMenu = new javax.swing.JMenu();
+        this.helpJMenuItem = new javax.swing.JMenuItem();
+        this.updatesJMenuItem = new javax.swing.JMenuItem();
+        this.subscriptionJMenuItem = new javax.swing.JMenuItem();
+        this.modulesJMenuItem = new javax.swing.JMenuItem();
+        this.aboutJMenuItem = new javax.swing.JMenuItem();
 
-        noModuleSelectedJDialog.setMinimumSize(new java.awt.Dimension(200, 100));
-        noModuleSelectedJLabel.setText("Please Select A Module");
+        this.noModuleSelectedJDialog.setMinimumSize(new java.awt.Dimension(200, 100));
+        this.noModuleSelectedJLabel.setText("Please Select A Module");
 
-        javax.swing.GroupLayout noModuleSelectedJDialogLayout = new javax.swing.GroupLayout(noModuleSelectedJDialog.getContentPane());
-        noModuleSelectedJDialog.getContentPane().setLayout(noModuleSelectedJDialogLayout);
+        javax.swing.GroupLayout noModuleSelectedJDialogLayout = new javax.swing.GroupLayout(this.noModuleSelectedJDialog.getContentPane());
+        this.noModuleSelectedJDialog.getContentPane().setLayout(noModuleSelectedJDialogLayout);
         noModuleSelectedJDialogLayout.setHorizontalGroup(
             noModuleSelectedJDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(noModuleSelectedJDialogLayout.createSequentialGroup()
@@ -215,8 +215,8 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
             }
         });
 
-        gameRobotJTabbedPane.setMinimumSize(new java.awt.Dimension(320, 200));
-        inputAutomationModuleJList.setMinimumSize(new java.awt.Dimension(200, 0));
+        this.gameRobotJTabbedPane.setMinimumSize(new java.awt.Dimension(320, 200));
+        this.inputAutomationModuleJList.setMinimumSize(new java.awt.Dimension(200, 0));
         inputAutomationModuleJList.addListSelectionListener(new javax.swing.event.ListSelectionListener()
         {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt)
@@ -225,10 +225,10 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
             }
         });
 
-        jScrollPane1.setViewportView(inputAutomationModuleJList);
+        this.jScrollPane1.setViewportView(this.inputAutomationModuleJList);
 
-        javax.swing.GroupLayout inputAutomationModuleJPanelLayout = new javax.swing.GroupLayout(inputAutomationModuleJPanel);
-        inputAutomationModuleJPanel.setLayout(inputAutomationModuleJPanelLayout);
+        javax.swing.GroupLayout inputAutomationModuleJPanelLayout = new javax.swing.GroupLayout(this.inputAutomationModuleJPanel);
+        this.inputAutomationModuleJPanel.setLayout(inputAutomationModuleJPanelLayout);
         inputAutomationModuleJPanelLayout.setHorizontalGroup(
             inputAutomationModuleJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(inputAutomationModuleJPanelLayout.createSequentialGroup()
@@ -241,10 +241,10 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        gameRobotJTabbedPane.addTab("Modules", inputAutomationModuleJPanel);
+        this.gameRobotJTabbedPane.addTab("Modules", inputAutomationModuleJPanel);
 
-        javax.swing.GroupLayout automationModuleConfigurationJPanelLayout = new javax.swing.GroupLayout(automationModuleConfigurationJPanel);
-        automationModuleConfigurationJPanel.setLayout(automationModuleConfigurationJPanelLayout);
+        javax.swing.GroupLayout automationModuleConfigurationJPanelLayout = new javax.swing.GroupLayout(this.automationModuleConfigurationJPanel);
+        this.automationModuleConfigurationJPanel.setLayout(automationModuleConfigurationJPanelLayout);
         automationModuleConfigurationJPanelLayout.setHorizontalGroup(
             automationModuleConfigurationJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 566, Short.MAX_VALUE)
@@ -253,11 +253,11 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
             automationModuleConfigurationJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 334, Short.MAX_VALUE)
         );
-        gameRobotJTabbedPane.addTab("Configuration", automationModuleConfigurationJPanel);
+        this.gameRobotJTabbedPane.addTab("Configuration", automationModuleConfigurationJPanel);
 
-        processingJMenu.setText("Processing");
-        processingJMenu.setToolTipText("Set module processing state");
-        startJMenuItem.setText(this.commonStrings.START);
+        this.processingJMenu.setText("Processing");
+        this.processingJMenu.setToolTipText("Set module processing state");
+        this.startJMenuItem.setText(this.commonStrings.START);
         startJMenuItem.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -266,9 +266,9 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
             }
         });
 
-        processingJMenu.add(startJMenuItem);
+        this.processingJMenu.add(this.startJMenuItem);
 
-        stopJMenuItem.setText("Stop");
+        this.stopJMenuItem.setText("Stop");
         stopJMenuItem.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -277,11 +277,11 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
             }
         });
 
-        processingJMenu.add(stopJMenuItem);
+        this.processingJMenu.add(this.stopJMenuItem);
 
-        mainJMenuBar.add(processingJMenu);
+        this.mainJMenuBar.add(this.processingJMenu);
 
-        optionsJMenu.setText("Options");
+        this.optionsJMenu.setText("Options");
         optionsJMenu.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -290,9 +290,9 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
             }
         });
 
-        stopOnFocusJCheckBoxMenuItem.setSelected(true);
-        stopOnFocusJCheckBoxMenuItem.setEnabled(false);
-        stopOnFocusJCheckBoxMenuItem.setLabel("Stop Module On Focus");
+        this.stopOnFocusJCheckBoxMenuItem.setSelected(true);
+        this.stopOnFocusJCheckBoxMenuItem.setEnabled(false);
+        this.stopOnFocusJCheckBoxMenuItem.setLabel("Stop Module On Focus");
         stopOnFocusJCheckBoxMenuItem.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -301,12 +301,12 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
             }
         });
 
-        optionsJMenu.add(stopOnFocusJCheckBoxMenuItem);
+        this.optionsJMenu.add(this.stopOnFocusJCheckBoxMenuItem);
 
-        mainJMenuBar.add(optionsJMenu);
+        this.mainJMenuBar.add(this.optionsJMenu);
 
-        toolsJMenu.setText("Help");
-        helpJMenuItem.setText("Help");
+        this.toolsJMenu.setText("Help");
+        this.helpJMenuItem.setText("Help");
         helpJMenuItem.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -315,9 +315,9 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
             }
         });
 
-        toolsJMenu.add(helpJMenuItem);
+        this.toolsJMenu.add(this.helpJMenuItem);
 
-        updatesJMenuItem.setText("Updates");
+        this.updatesJMenuItem.setText("Updates");
         updatesJMenuItem.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -326,9 +326,9 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
             }
         });
 
-        toolsJMenu.add(updatesJMenuItem);
+        this.toolsJMenu.add(this.updatesJMenuItem);
 
-        subscriptionJMenuItem.setText("Subscription");
+        this.subscriptionJMenuItem.setText("Subscription");
         subscriptionJMenuItem.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -337,9 +337,9 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
             }
         });
 
-        toolsJMenu.add(subscriptionJMenuItem);
+        this.toolsJMenu.add(this.subscriptionJMenuItem);
 
-        modulesJMenuItem.setText("Module Manager");
+        this.modulesJMenuItem.setText("Module Manager");
         modulesJMenuItem.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -348,9 +348,9 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
             }
         });
 
-        toolsJMenu.add(modulesJMenuItem);
+        this.toolsJMenu.add(this.modulesJMenuItem);
 
-        aboutJMenuItem.setText("About");
+        this.aboutJMenuItem.setText("About");
         aboutJMenuItem.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -359,11 +359,11 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
             }
         });
 
-        toolsJMenu.add(aboutJMenuItem);
+        this.toolsJMenu.add(this.aboutJMenuItem);
 
-        mainJMenuBar.add(toolsJMenu);
+        this.mainJMenuBar.add(this.toolsJMenu);
 
-        setJMenuBar(mainJMenuBar);
+        setJMenuBar(this.mainJMenuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -382,7 +382,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
     {//GEN-HEADEREND:event_subscriptionJMenuItemActionPerformed
        try
        {
-          Desktop.getDesktop().browse(uri);
+          Desktop.getDesktop().browse(this.uri);
        } catch (Exception e)
        {
           this.logUtil.put(this.commonStrings.EXCEPTION, this, "subscriptionJMenuItemActionPerformed", e);
@@ -393,7 +393,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
     {//GEN-HEADEREND:event_updatesJMenuItemActionPerformed
        try
        {
-          Desktop.getDesktop().browse(uri);
+          Desktop.getDesktop().browse(this.uri);
        } catch (Exception e)
        {
           this.logUtil.put(this.commonStrings.EXCEPTION, this, "updatesJMenuItemActionPerformed", e);
@@ -450,7 +450,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
     */
     private void helpJMenuItemActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_helpJMenuItemActionPerformed
     {//GEN-HEADEREND:event_helpJMenuItemActionPerformed
-       JavaHelpUtil.getInstance().show(helpSet);
+       JavaHelpUtil.getInstance().show(this.helpSet);
     }//GEN-LAST:event_helpJMenuItemActionPerformed
 
     private void stopOnFocusJCheckBoxMenuItemActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_stopOnFocusJCheckBoxMenuItemActionPerformed
@@ -507,8 +507,8 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
 
              javax.swing.GroupLayout layout = (javax.swing.GroupLayout) this.getAutomationModuleConfigurationJPanel().getLayout();
 
-             layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 395, Short.MAX_VALUE).addComponent(inputAutomationModuleInterface.getConfigurationJPanel(), javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE));
-             layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 256, Short.MAX_VALUE).addComponent(inputAutomationModuleInterface.getConfigurationJPanel(), javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE));
+             layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 395, Short.MAX_VALUE).addComponent(this.inputAutomationModuleInterface.getConfigurationJPanel(), javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE));
+             layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 256, Short.MAX_VALUE).addComponent(this.inputAutomationModuleInterface.getConfigurationJPanel(), javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE));
 
              this.gameRobotJTabbedPane.setEnabledAt(1, true);
 
@@ -543,15 +543,15 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
       {
          this.logUtil.putF("Starting", this, "startJMenuItemActionPerformed");
 
-         if (inputAutomationModuleInterface != null)
+         if (this.inputAutomationModuleInterface != null)
          {
-            this.runnableInterface = inputAutomationModuleInterface.getInstance();
+            this.runnableInterface = this.inputAutomationModuleInterface.getInstance();
 
             if (this.runnableInterface != null)
             {
                this.thread = new Thread(this.runnableInterface);
-               thread.setPriority(Thread.MIN_PRIORITY + 1);
-               thread.start();
+               this.thread.setPriority(Thread.MIN_PRIORITY + 1);
+               this.thread.start();
             } else
             {
                 this.logUtil.putF("Runnnable was null", this, "startJMenuItemActionPerformed");

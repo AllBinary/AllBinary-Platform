@@ -61,10 +61,10 @@ public class ShippingAddressesView
       {
          Node billingAddressesNode = document.createElement(ShippingAddressData.MULTIPLE);
          
-         int size = streetAddressList.size();
+         int size = this.streetAddressList.size();
          for (int index = 0; index < size; index++)
          {
-            StreetAddress streetAddress = (StreetAddress) streetAddressList.get(index);
+            StreetAddress streetAddress = (StreetAddress) this.streetAddressList.get(index);
             billingAddressesNode.appendChild(streetAddress.toXmlNode(document));
          }
          

@@ -32,7 +32,7 @@ public class SmallDelete
     public SmallDelete(String fileName)
     {
         this.fileName = fileName;
-        string = FileUtil.getInstance().readAsString(fileName);
+        this.string = FileUtil.getInstance().readAsString(fileName);
     }
 
     //Include end
@@ -63,7 +63,7 @@ public class SmallDelete
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().IDLOGGING))
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, "deleteAtStart", e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, "deleteAtStart", e);
             }
             return false;
         }
@@ -98,7 +98,7 @@ public class SmallDelete
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().IDLOGGING))
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, "deleteAtStart", e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, "deleteAtStart", e);
             }
             return false;
         }

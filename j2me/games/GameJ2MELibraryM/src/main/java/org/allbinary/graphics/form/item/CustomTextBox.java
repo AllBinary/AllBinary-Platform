@@ -103,7 +103,7 @@ public class CustomTextBox extends GameCommandCanvas
 
             final PlatformKeyFactory platformKeyFactory = PlatformKeyFactory.getInstance();
 
-            final Input input = inputFactory.getInstance(keyCode);
+            final Input input = this.inputFactory.getInstance(keyCode);
 
             if (platformKeyFactory.isSubmission(input)) {
                 this.submit();
@@ -155,7 +155,7 @@ public class CustomTextBox extends GameCommandCanvas
     
     public void paint(final Graphics graphics, final int x, final int y)
     {   
-        textFieldItem.paint(graphics, x, y);
+        this.textFieldItem.paint(graphics, x, y);
     }
     
     public TextFieldItem getTextFieldItem()

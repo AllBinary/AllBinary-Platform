@@ -60,7 +60,7 @@ public class VisibleCellPositionsSingleton
     
     public void init(SimpleTiledLayer simpleTiledLayer)
     {
-        this.paintSimpleTiledLayer = ALL_VISIBLE_TILEDLAYER;
+        this.paintSimpleTiledLayer = this.ALL_VISIBLE_TILEDLAYER;
         
         this.currentIndex = 0;
         

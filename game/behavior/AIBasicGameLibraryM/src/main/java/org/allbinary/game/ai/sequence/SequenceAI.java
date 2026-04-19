@@ -36,7 +36,7 @@ public class SequenceAI extends ArrayAI
    @Override
    public void processAI(AllBinaryLayerManager allBinaryLayerManager) throws Exception
    {
-      this.getArtificialIntelligenceInterface()[index].processAI(allBinaryLayerManager);
+      this.getArtificialIntelligenceInterface()[this.index].processAI(allBinaryLayerManager);
    }
 
    public void next()

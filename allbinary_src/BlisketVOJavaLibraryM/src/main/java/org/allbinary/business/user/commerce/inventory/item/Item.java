@@ -44,11 +44,11 @@ public class Item extends BasicItem implements OrderItemInterface
    {
        final String EMPTY = StringUtil.getInstance().EMPTY_STRING;
 
-      group = EMPTY;
-      tax = EMPTY;
-      shippingType = EMPTY;
-      shippingCost = EMPTY;
-      shippingAddress = new StreetAddress();   
+      this.group = EMPTY;
+      this.tax = EMPTY;
+      this.shippingType = EMPTY;
+      this.shippingCost = EMPTY;
+      this.shippingAddress = new StreetAddress();   
    }
 
    private void setData(HashMap itemHashMap)

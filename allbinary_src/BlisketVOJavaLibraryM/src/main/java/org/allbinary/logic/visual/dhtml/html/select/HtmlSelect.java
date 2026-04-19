@@ -93,7 +93,7 @@ public class HtmlSelect extends HtmlTag
    {
       final StringUtil stringUtil = StringUtil.getInstance();
       String result = stringUtil.EMPTY_STRING;
-      Object[] optionsArray = options.toArray();
+      Object[] optionsArray = this.options.toArray();
       int optionsSize = optionsArray.length;
       
       for (int i = 0; i < optionsSize; i++)
@@ -116,13 +116,13 @@ public class HtmlSelect extends HtmlTag
       String result = stringUtil.EMPTY_STRING;
       Object[] attributeKeys = otherAttributes.keySet().toArray();
       int attributeSize = attributeKeys.length;
-      result = before;
-      result += STARTSELECT;
-      result += NAME;
-      result += name;
+      result = this.before;
+      result += this.STARTSELECT;
+      result += this.NAME;
+      result += this.name;
       result += "\" ";
-      result += SIZE;
-      result += size;
+      result += this.SIZE;
+      result += this.size;
       result += "\" ";
       
       for (int i = 0; i < attributeSize; i++)
@@ -139,12 +139,12 @@ public class HtmlSelect extends HtmlTag
       }
       
       if(this.isMultiple())
-         result += " " + multiple + " ";
+         result += " " + this.multiple + " ";
       
-      result += END;
+      result += this.END;
       result += getOptions();
-      result += ENDSELECT;
-      result += after;
+      result += this.ENDSELECT;
+      result += this.after;
       return result;
    }
 }

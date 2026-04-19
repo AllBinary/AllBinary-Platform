@@ -28,18 +28,18 @@ public class AxisMathVectorUtil
     
     public long calculateX(long magnitude, int angle)
     {
-        return magnitude * noDecimalTrigTable.cos(angle) / 10;
+        return magnitude * this.noDecimalTrigTable.cos(angle) / 10;
     }
     
     public long calculateY(long magnitude, int angle)
     {
-       return magnitude * noDecimalTrigTable.sin(angle) / 10;
+       return magnitude * this.noDecimalTrigTable.sin(angle) / 10;
     }    
 
     //Since I use z as altitude going up and down then otherAngle is swayAngle and not tiltAngle
     //as such it is hard to say what the otherAngle is since I do not have normal orientation of the axi.
     public long calculateZ(long magnitude, int otherAngle)
     {
-       return magnitude * noDecimalTrigTable.sin(otherAngle) / 10;
+       return magnitude * this.noDecimalTrigTable.sin(otherAngle) / 10;
     }    
 }

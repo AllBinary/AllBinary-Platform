@@ -37,14 +37,14 @@ public class GraphicItemFactory
 
    private GraphicItemFactory()
    {
-      graphicItems = new HashMap();
-      graphicItems.put(LinesGraphicItem.getStaticName(), new LinesGraphicItemFactory());
+      this.graphicItems = new HashMap();
+      this.graphicItems.put(LinesGraphicItem.getStaticName(), new LinesGraphicItemFactory());
    }
       
    public GraphicsItemInterfaceFactoryInterface getInstance(String itemName)
    {
        GraphicsItemInterfaceFactoryInterface graphicsItemInterfaceFactoryInterface =
-               (GraphicsItemInterfaceFactoryInterface) graphicItems.get(itemName);
+               (GraphicsItemInterfaceFactoryInterface) this.graphicItems.get(itemName);
 
        if(graphicsItemInterfaceFactoryInterface == null)
        {

@@ -54,9 +54,9 @@ public class InputToGameKeyMapping extends InputMapping
         
     private void clear()
     {
-        for (int index = platformToGameKeyMapping.length - 1; index >= 0; index--)
+        for (int index = this.platformToGameKeyMapping.length - 1; index >= 0; index--)
         {
-            platformToGameKeyMapping[index] = gameKeyFactory.NONE;
+            this.platformToGameKeyMapping[index] = this.gameKeyFactory.NONE;
         }
     }
 
@@ -76,7 +76,7 @@ public class InputToGameKeyMapping extends InputMapping
         {
             final Input input = inputToGameKeyMapping.getInstance(index);
 
-            if(input != gameKeyFactory.NONE)
+            if(input != this.gameKeyFactory.NONE)
             {
                 //PreLogUtil.put("Input: " + input, this, "InputToGameKeyMapping::add(InputToGameKeyMapping)");
                 this.addAll(input, inputToGameKeyMapping.getMappedInput(input));
@@ -117,7 +117,7 @@ public class InputToGameKeyMapping extends InputMapping
     private void set(Input input, Input mappedToInput)
     {
         int id = mappedToInput.getId();
-        if(id >= 0 && id < platformToGameKeyMapping.length)
+        if(id >= 0 && id < this.platformToGameKeyMapping.length)
         {
             this.platformToGameKeyMapping[id] = (GameKey) input;
         }
@@ -137,9 +137,9 @@ public class InputToGameKeyMapping extends InputMapping
 
         final InputFactory inputFactory = InputFactory.getInstance();
         
-        for(int index = 0; index < platformToGameKeyMapping.length; index++)
+        for(int index = 0; index < this.platformToGameKeyMapping.length; index++)
         {
-            if(platformToGameKeyMapping[index].getId() == id)
+            if(this.platformToGameKeyMapping[index].getId() == id)
             {
                 Input input = inputFactory.getInstance(index);
                 if(input != null)
@@ -175,15 +175,15 @@ public class InputToGameKeyMapping extends InputMapping
     {
         int key = canvas.getKeyCode(gameKey.getId());
 
-        if(key < 0 && -key < negativePlatformToGameKeyMapping.length)
+        if(key < 0 && -key < this.negativePlatformToGameKeyMapping.length)
         {
-            negativePlatformToGameKeyMapping[-key] = gameKey;
+            this.negativePlatformToGameKeyMapping[-key] = gameKey;
         }
         else if(key > 0)
         {
-            if(platformToGameKeyMapping[key] == gameKeyFactory.NONE)
+            if(this.platformToGameKeyMapping[key] == this.gameKeyFactory.NONE)
             {
-                platformToGameKeyMapping[key] = gameKey;
+                this.platformToGameKeyMapping[key] = gameKey;
             }
         } else {
             PreLogUtil.putOE(new StringMaker().append(gameKey.toString()).append(CommonSeps.getInstance().COLON_SEP).appendint(key).toString(), this, commonStrings.INIT, new Exception());
@@ -231,7 +231,7 @@ public class InputToGameKeyMapping extends InputMapping
 
                 for (int index = negativePlatformToGameKeyMapping.length; --index >= 0;)
                 {
-                    negativePlatformToGameKeyMapping[index] = gameKeyFactory.NONE;
+                    negativePlatformToGameKeyMapping[index] = this.gameKeyFactory.NONE;
                 }
 
                 this.negativePlatformToGameKeyMapping = negativePlatformToGameKeyMapping;
@@ -255,12 +255,12 @@ public class InputToGameKeyMapping extends InputMapping
         //Reduce method call by one for often used method
         //return this.getInstance(id);
 
-        if(id >= 0 && id < platformToGameKeyMapping.length)
+        if(id >= 0 && id < this.platformToGameKeyMapping.length)
         {
             return platformToGameKeyMapping[id];
         }
         else
-        if (id < 0 && -id < negativePlatformToGameKeyMapping.length)
+        if (id < 0 && -id < this.negativePlatformToGameKeyMapping.length)
         {
             return this.negativePlatformToGameKeyMapping[-id];
         }
@@ -272,12 +272,12 @@ public class InputToGameKeyMapping extends InputMapping
     
     public GameKey getInstance(int id)
     {
-        if(id >= 0 && id < platformToGameKeyMapping.length)
+        if(id >= 0 && id < this.platformToGameKeyMapping.length)
         {
             return platformToGameKeyMapping[id];
         }
         else
-        if (id < 0 && -id < negativePlatformToGameKeyMapping.length)
+        if (id < 0 && -id < this.negativePlatformToGameKeyMapping.length)
         {
             return this.negativePlatformToGameKeyMapping[-id];
         }

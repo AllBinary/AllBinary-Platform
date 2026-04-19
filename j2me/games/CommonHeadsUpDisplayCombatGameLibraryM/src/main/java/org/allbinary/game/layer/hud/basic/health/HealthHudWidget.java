@@ -93,24 +93,24 @@ public class HealthHudWidget extends BasicHud
     @Override
     public void onHealthChange()
     {
-        max = (this.healthInterface.getHealth() / this.healthScale);
+        this.max = (this.healthInterface.getHealth() / this.healthScale);
 
-        timeDelayHelper = NoTimeDelayHelper.SINGLETON;
+        this.timeDelayHelper = NoTimeDelayHelper.SINGLETON;
 
-        if (max <= 1 && this.healthInterface.isAlive())
+        if (this.max <= 1 && this.healthInterface.isAlive())
         {
-            max = 1;
+            this.max = 1;
             if (this.healthScale - this.healthInterface.getHealth() > (this.healthScale * 2) / 3)
             {
-                timeDelayHelper = this.slowBeatTimeDelayHelper;
+                this.timeDelayHelper = this.slowBeatTimeDelayHelper;
             }
             else if (this.healthScale - this.healthInterface.getHealth() > this.healthScale / 3)
             {
-                timeDelayHelper = this.mediumBeatTimeDelayHelper;
+                this.timeDelayHelper = this.mediumBeatTimeDelayHelper;
             }
             else
             {
-                timeDelayHelper = this.fastBeatTimeDelayHelper;
+                this.timeDelayHelper = this.fastBeatTimeDelayHelper;
             }
 
         }
@@ -119,7 +119,7 @@ public class HealthHudWidget extends BasicHud
     @Override
     public void paint(Graphics graphics)
     {
-        for (int index = 0; index < max; index++)
+        for (int index = 0; index < this.max; index++)
         {
             if (this.timeDelayHelper.isTime(this.gameTickTimeDelayHelper.startTime))
             {

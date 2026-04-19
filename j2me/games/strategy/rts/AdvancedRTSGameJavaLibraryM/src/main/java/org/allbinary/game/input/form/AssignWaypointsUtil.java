@@ -54,16 +54,16 @@ public class AssignWaypointsUtil
         {
             RTSLayer waypointLayer = (RTSLayer) list.get(index);
             
-            WAYPOINT_EVENT.setRtsLayer(waypointLayer);
-            unitWaypointBehavior.onWaypointEvent(WAYPOINT_EVENT);
+            this.WAYPOINT_EVENT.setRtsLayer(waypointLayer);
+            unitWaypointBehavior.onWaypointEvent(this.WAYPOINT_EVENT);
         }
 
         final PathFindingLayerInterface waypointLayer = PrimaryWaypointHelper.getInstance().getWaypointLayer();
 
         if (waypointLayer != NullPathFindingLayer.NULL_PATH_FINDING_LAYER)
         {
-            WAYPOINT_EVENT.setRtsLayer(waypointLayer);
-            unitWaypointBehavior.onWaypointEvent(WAYPOINT_EVENT);
+            this.WAYPOINT_EVENT.setRtsLayer(waypointLayer);
+            unitWaypointBehavior.onWaypointEvent(this.WAYPOINT_EVENT);
         }
         
         }

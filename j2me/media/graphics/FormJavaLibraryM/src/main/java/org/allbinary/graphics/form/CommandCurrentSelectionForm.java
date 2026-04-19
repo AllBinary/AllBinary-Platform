@@ -50,12 +50,12 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
     {        
         final Animation nullAnimation = NullAnimationFactory.getFactoryInstance().getInstance(0);
 
-        for(int index = selectedAnimationArray.length; --index >= 0;)
+        for(int index = this.selectedAnimationArray.length; --index >= 0;)
         {
             this.selectedAnimationArray[index] = nullAnimation;
         }
 
-        for(int index = unSelectedAnimationArray.length; --index >= 0;)
+        for(int index = this.unSelectedAnimationArray.length; --index >= 0;)
         {
             this.unSelectedAnimationArray[index] = nullAnimation;
         }

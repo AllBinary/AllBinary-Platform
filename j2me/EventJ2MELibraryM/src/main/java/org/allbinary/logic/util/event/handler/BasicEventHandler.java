@@ -174,7 +174,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
             }
             catch (Exception e)
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, eventStrings.FIRE_EVENT, e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, eventStrings.FIRE_EVENT, e);
             }
             index++;
         }
@@ -202,7 +202,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
     {
         final StringMaker stringBuffer = new StringMaker();
 
-        stringBuffer.append(eventStrings.TOTAL_LISTENERS);
+        stringBuffer.append(this.eventStrings.TOTAL_LISTENERS);
         stringBuffer.appendint(this.eventListenerInterfaceList.size());
 
         EventListenerInterface eventListenerInterface;
@@ -213,7 +213,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
             {
                 eventListenerInterface = (EventListenerInterface) this.eventListenerInterfaceList.get(index);
 
-                stringBuffer.append(eventStrings.LISTENER_LABEL);
+                stringBuffer.append(this.eventStrings.LISTENER_LABEL);
                 stringBuffer.append(eventListenerInterface.toString());
             }
             catch (Exception e)

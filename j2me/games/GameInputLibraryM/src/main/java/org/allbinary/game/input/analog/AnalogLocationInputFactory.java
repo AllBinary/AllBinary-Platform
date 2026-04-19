@@ -21,22 +21,22 @@ public class AnalogLocationInputFactory {
 	{
 		AnalogLocationInput analogLocationInput = AnalogLocationInput.NULL_ANALOG_LOCATION_INPUT;
 		
-		if(playerInputId < list.size())
+		if(playerInputId < this.list.size())
 		{
-			analogLocationInput = (AnalogLocationInput) list.get(playerInputId);
+			analogLocationInput = (AnalogLocationInput) this.list.get(playerInputId);
 		}
 		
 		if(analogLocationInput == AnalogLocationInput.NULL_ANALOG_LOCATION_INPUT)
 		{
 			analogLocationInput = new AnalogLocationInput(playerInputId);
-			list.add(analogLocationInput);
+			this.list.add(analogLocationInput);
 		}
 
 	}
 	
 	public AnalogLocationInput getInstance(int playerInputId)
 	{
-		return (AnalogLocationInput) list.get(playerInputId);
+		return (AnalogLocationInput) this.list.get(playerInputId);
     }
 
 	public BasicArrayList getList() {

@@ -75,7 +75,7 @@ public class AllBinaryGameLayer extends AllBinaryLayer
     public void set(final GL gl) throws Exception
     {
         //OpenGLSurfaceChangedInterface
-    	throw new Exception(commonStrings.NOT_IMPLEMENTED);
+    	throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
     
     public void move() {
@@ -89,12 +89,12 @@ public class AllBinaryGameLayer extends AllBinaryLayer
 
     public void processInput(final AllBinaryLayerManager allBinaryLayerManager) throws Exception
     {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
+        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     public void processTick(final AllBinaryLayerManager allBinaryLayerManager) throws Exception
     {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
+        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     @Override

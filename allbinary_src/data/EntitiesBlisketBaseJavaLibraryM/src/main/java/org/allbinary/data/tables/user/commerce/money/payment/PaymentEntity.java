@@ -41,7 +41,7 @@ public class PaymentEntity extends AbSqlBean implements PaymentEntityInterface
     public PaymentEntity()
     {
         super(new UserDbInitInfo());
-        this.setTableName(tableName);
+        this.setTableName(this.tableName);
     }
 
     public String getLastId(String userName)

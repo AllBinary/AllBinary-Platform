@@ -182,7 +182,7 @@ public class InputPersistance extends BasicPersitance
         
         final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
         
-        final Object[] inputObjectArray = hashtableUtil.getKeysAsArray(hashtable);
+        final Object[] inputObjectArray = this.hashtableUtil.getKeysAsArray(hashtable);
         final int size = inputObjectArray.length;
         for (int index = 0; index < size; index++)
         {

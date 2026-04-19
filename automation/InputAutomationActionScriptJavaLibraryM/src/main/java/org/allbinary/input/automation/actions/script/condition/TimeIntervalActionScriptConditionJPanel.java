@@ -85,18 +85,18 @@ public class TimeIntervalActionScriptConditionJPanel
     // <editor-fold defaultstate="collapsed" desc=" Generated Code ">//GEN-BEGIN:initComponents
     private void initComponents()
     {
-        timeIntervalActionJDialog = new javax.swing.JDialog();
-        titleJLabel = new javax.swing.JLabel();
-        okJButton = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        timeIntervalJTextField = new javax.swing.JTextField();
-        timeIntervalActionJButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        this.timeIntervalActionJDialog = new javax.swing.JDialog();
+        this.titleJLabel = new javax.swing.JLabel();
+        this.okJButton = new javax.swing.JButton();
+        this.jLabel2 = new javax.swing.JLabel();
+        this.timeIntervalJTextField = new javax.swing.JTextField();
+        this.timeIntervalActionJButton = new javax.swing.JButton();
+        this.jLabel1 = new javax.swing.JLabel();
 
-        timeIntervalActionJDialog.setMinimumSize(new java.awt.Dimension(250, 150));
-        titleJLabel.setText("Time Interval Condition Options");
+        this.timeIntervalActionJDialog.setMinimumSize(new java.awt.Dimension(250, 150));
+        this.titleJLabel.setText("Time Interval Condition Options");
 
-        okJButton.setText("OK");
+        this.okJButton.setText("OK");
         okJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -105,10 +105,10 @@ public class TimeIntervalActionScriptConditionJPanel
             }
         });
 
-        jLabel2.setText("Time (ms):");
+        this.jLabel2.setText("Time (ms):");
 
-        javax.swing.GroupLayout timeIntervalActionJDialogLayout = new javax.swing.GroupLayout(timeIntervalActionJDialog.getContentPane());
-        timeIntervalActionJDialog.getContentPane().setLayout(timeIntervalActionJDialogLayout);
+        javax.swing.GroupLayout timeIntervalActionJDialogLayout = new javax.swing.GroupLayout(this.timeIntervalActionJDialog.getContentPane());
+        this.timeIntervalActionJDialog.getContentPane().setLayout(timeIntervalActionJDialogLayout);
         timeIntervalActionJDialogLayout.setHorizontalGroup(
             timeIntervalActionJDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(timeIntervalActionJDialogLayout.createSequentialGroup()
@@ -141,7 +141,7 @@ public class TimeIntervalActionScriptConditionJPanel
         );
 
         setMinimumSize(new java.awt.Dimension(100, 0));
-        timeIntervalActionJButton.setText("Edit");
+        this.timeIntervalActionJButton.setText("Edit");
         timeIntervalActionJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -150,7 +150,7 @@ public class TimeIntervalActionScriptConditionJPanel
             }
         });
 
-        jLabel1.setText("Time Interval:");
+        this.jLabel1.setText("Time Interval:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

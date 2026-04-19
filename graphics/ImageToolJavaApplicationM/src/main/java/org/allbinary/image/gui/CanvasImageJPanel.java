@@ -126,30 +126,30 @@ public class CanvasImageJPanel extends javax.swing.JPanel
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        writeOverOriginalJCheckBox = new javax.swing.JCheckBox();
+        this.writeOverOriginalJCheckBox = new javax.swing.JCheckBox();
         jPanel1 = new javax.swing.JPanel() {             public void paint(Graphics graphics) {                 if (CanvasImageJPanel.this.result != null) {                     graphics.drawImage(CanvasImageJPanel.this.result, 0, 0, CanvasImageJPanel.this.result.getWidth(null), CanvasImageJPanel.this.result.getHeight(null), null);                 }             }         };
-        generateJButton = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        widthReductionTextField = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        heightReductionTextField = new javax.swing.JTextField();
-        widthReductionTextField1 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        heightReductionTextField1 = new javax.swing.JTextField();
+        this.generateJButton = new javax.swing.JButton();
+        this.jLabel4 = new javax.swing.JLabel();
+        this.jPanel2 = new javax.swing.JPanel();
+        this.jLabel5 = new javax.swing.JLabel();
+        this.widthReductionTextField = new javax.swing.JTextField();
+        this.jLabel6 = new javax.swing.JLabel();
+        this.heightReductionTextField = new javax.swing.JTextField();
+        this.widthReductionTextField1 = new javax.swing.JTextField();
+        this.jLabel7 = new javax.swing.JLabel();
+        this.jLabel8 = new javax.swing.JLabel();
+        this.heightReductionTextField1 = new javax.swing.JTextField();
 
-        writeOverOriginalJCheckBox.setSelected(true);
-        writeOverOriginalJCheckBox.setText("Write Over Original");
+        this.writeOverOriginalJCheckBox.setSelected(true);
+        this.writeOverOriginalJCheckBox.setText("Write Over Original");
         writeOverOriginalJCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 writeOverOriginalJCheckBoxActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(this.jPanel1);
+        this.jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
@@ -159,43 +159,43 @@ public class CanvasImageJPanel extends javax.swing.JPanel
             .addGap(0, 196, Short.MAX_VALUE)
         );
 
-        generateJButton.setText("Generate");
+        this.generateJButton.setText("Generate");
         generateJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 generateJButtonActionPerformed(evt);
             }
         });
 
-        jLabel4.setText("Results:");
+        this.jLabel4.setText("Results:");
 
-        jLabel5.setText("Right:");
+        this.jLabel5.setText("Right:");
 
-        widthReductionTextField.setText(CommonPhoneStrings.getInstance().ZERO);
+        this.widthReductionTextField.setText(CommonPhoneStrings.getInstance().ZERO);
         widthReductionTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 widthReductionTextFieldActionPerformed(evt);
             }
         });
 
-        jLabel6.setText("Bottom");
+        this.jLabel6.setText("Bottom");
 
-        heightReductionTextField.setText(CommonPhoneStrings.getInstance().ZERO);
+        this.heightReductionTextField.setText(CommonPhoneStrings.getInstance().ZERO);
 
-        widthReductionTextField1.setText(CommonPhoneStrings.getInstance().ZERO);
+        this.widthReductionTextField1.setText(CommonPhoneStrings.getInstance().ZERO);
         widthReductionTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 widthReductionTextField1ActionPerformed(evt);
             }
         });
 
-        jLabel7.setText("Top");
+        this.jLabel7.setText("Top");
 
-        jLabel8.setText("Left:");
+        this.jLabel8.setText("Left:");
 
-        heightReductionTextField1.setText(CommonPhoneStrings.getInstance().ZERO);
+        this.heightReductionTextField1.setText(CommonPhoneStrings.getInstance().ZERO);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(this.jPanel2);
+        this.jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -326,12 +326,12 @@ public class CanvasImageJPanel extends javax.swing.JPanel
 
        this.getParent().repaint();
 
-       File file = imageProcessorInput.getFiles()[index];
+       File file = this.imageProcessorInput.getFiles()[index];
 
        if (!this.writeOverOriginalJCheckBox.isSelected()) {
            String filePath = file.getAbsolutePath();
-           final int extensionIndex = filePath.indexOf(imageStrings.PNG_EXTENSION);
-           filePath = new StringBuilder().append(filePath.substring(0, extensionIndex)).append(commonSeps.UNDERSCORE).append(name).append(imageStrings.PNG_EXTENSION).toString();
+           final int extensionIndex = filePath.indexOf(this.imageStrings.PNG_EXTENSION);
+           filePath = new StringBuilder().append(filePath.substring(0, extensionIndex)).append(this.commonSeps.UNDERSCORE).append(name).append(this.imageStrings.PNG_EXTENSION).toString();
            file = new File(filePath);
        }
 

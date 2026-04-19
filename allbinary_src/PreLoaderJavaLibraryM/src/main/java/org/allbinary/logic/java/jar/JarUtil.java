@@ -38,7 +38,7 @@ public class JarUtil
       byte[] cache = new byte[1024];
       try
       {
-         URLConnection conn = jarURL.openConnection();
+         URLConnection conn = this.jarURL.openConnection();
          JarInputStream jis = new JarInputStream(conn.getInputStream());
          while (true)
          {

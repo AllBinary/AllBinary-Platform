@@ -45,7 +45,7 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
     public PaymentGatewayEntity()
     {
         super(new UserDbInitInfo());
-        this.setTableName(tableName);
+        this.setTableName(this.tableName);
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
         {
@@ -316,7 +316,7 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
 
         stringBuffer.append(this.sqlStrings.CREATE_TABLE);
 
-        stringBuffer.append(tableName);
+        stringBuffer.append(this.tableName);
         stringBuffer.append(this.sqlStrings.START);
 
         stringBuffer.append(PaymentGatewayData.ID.toString());

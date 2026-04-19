@@ -45,7 +45,7 @@ public class AbContext
 
    public WeblisketSessionInterface getWeblisketSession()
    {
-      return new WeblisketSession(propertiesHashMap, pageContext);
+      return new WeblisketSession(this.propertiesHashMap, pageContext);
    }
 
    public PageContext getPageContext()

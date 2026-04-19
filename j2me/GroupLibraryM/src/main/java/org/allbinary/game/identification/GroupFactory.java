@@ -35,7 +35,7 @@ public class GroupFactory {
       
    public Group getNextGroup()
    {
-      Group group = (Group) list.objectArray[index];
+      Group group = (Group) this.list.objectArray[this.index];
       //this.logUtil.putF(new StringMaker().append("group: ").append(group).append(" index: ").append(index).toString(), this, "getNextGroup");
       index++;
       return group;
@@ -56,9 +56,9 @@ public class GroupFactory {
        
       final String TEAM = "Team ";
     
-      list.clear();
-      index = 0;
-      int size = list.size();
+      this.list.clear();
+      this.index = 0;
+      int size = this.list.size();
       while(size < groups)
       {
           String name = stringUtil.EMPTY_STRING;
@@ -72,7 +72,7 @@ public class GroupFactory {
               name = stringMaker.append(TEAM).appendint(size).toString();
           }
 
-         list.add(new Group(name, (short) (size + 3)));
+         this.list.add(new Group(name, (short) (size + 3)));
          size++;
       }
       

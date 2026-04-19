@@ -63,7 +63,7 @@ public class ImageRotationUtil
                 //PreLogUtil.put("4b", this, "createRotatedImage");
             }
             
-            imageJ2SERotationUtil.rotateImage(originalAwtImage, newBufferedImage, totalAngle);
+            this.imageJ2SERotationUtil.rotateImage(originalAwtImage, newBufferedImage, totalAngle);
         } else {
             PreLogUtil.putOE("Not Mutable", this, "getRotatedImage", new Exception());
         }
@@ -97,7 +97,7 @@ public class ImageRotationUtil
             J2SEMutableImage j2seImage = (J2SEMutableImage) image;            
             BufferedImage newBufferedImage = (BufferedImage) j2seImage.getImage();
 
-            BufferedImage bufferedImage = imageJ2SERotationUtil.getRotatedImage(
+            BufferedImage bufferedImage = this.imageJ2SERotationUtil.getRotatedImage(
                 originalAwtImage, newBufferedImage, rotationInDegrees);
 
             return image;

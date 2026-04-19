@@ -47,7 +47,7 @@ public class ImageMiniMapLayer extends MiniMapLayer
     @Override
     public void paint(Graphics graphics)
     {
-        graphics.drawImage(image, x, y, anchor);
+        graphics.drawImage(this.image, x, y, anchor);
         this.paintDots(graphics);
     }
 }

@@ -27,7 +27,7 @@ public class GraphicsException extends java.lang.Exception
       super(msg);
       try
       {
-         guiLog.showDialog(msg);
+         this.guiLog.showDialog(msg);
          this.logUtil.put(msg, obj, method, this);
       }
       catch(Exception e)
@@ -40,7 +40,7 @@ public class GraphicsException extends java.lang.Exception
       super(msg);
       try
       {
-         guiLog.showDialog(msg);
+         this.guiLog.showDialog(msg);
          this.logUtil.put(msg, className, method, this);
       }
       catch(Exception e)

@@ -49,9 +49,9 @@ public class DownloadableItemView implements DomNodeInterface
       try
       {
        */
-         HashMap hashMap = downloadableItem.toHashMap();
+         HashMap hashMap = this.downloadableItem.toHashMap();
 
-         long totalTime = downloadableItem.getValidTime().longValue();
+         long totalTime = this.downloadableItem.getValidTime().longValue();
 
          Calendar calendar = Calendar.getInstance();
 

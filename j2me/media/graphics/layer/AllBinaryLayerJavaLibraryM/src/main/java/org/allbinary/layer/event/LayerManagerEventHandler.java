@@ -38,9 +38,9 @@ public class LayerManagerEventHandler extends BasicEventHandler
 
     public void addListener(final LayerManagerEventListener layerManagerEventListener)
     {
-        if(!list.contains(layerManagerEventListener))
+        if(!this.list.contains(layerManagerEventListener))
         {
-            list.add(layerManagerEventListener);
+            this.list.add(layerManagerEventListener);
         }
     }
 

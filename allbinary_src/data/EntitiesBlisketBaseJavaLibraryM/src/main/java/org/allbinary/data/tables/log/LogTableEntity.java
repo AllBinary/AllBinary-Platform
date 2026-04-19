@@ -27,7 +27,7 @@ public class LogTableEntity extends AbSqlBean implements LogTableEntityInterface
     public LogTableEntity()
     {
         super(new LogDbInitInfo());
-        this.setTableName(tableName);
+        this.setTableName(this.tableName);
     }
 
     public final String createTableStatement()

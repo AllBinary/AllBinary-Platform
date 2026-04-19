@@ -44,9 +44,9 @@ public class OrderItemsRequestHelper
    
    private void getFormData()
    {
-      this.id = request.getParameter(OrderData.ID);
-      this.groupId = request.getParameter(ShippingMethodData.GROUP);
-      this.status = request.getParameter(OrderHistoryData.STATUS);
+      this.id = this.request.getParameter(OrderData.ID);
+      this.groupId = this.request.getParameter(ShippingMethodData.GROUP);
+      this.status = this.request.getParameter(OrderHistoryData.STATUS);
    }      
       
    public String setOrderStatus(String newStatus)
@@ -55,7 +55,7 @@ public class OrderItemsRequestHelper
       {
          if(newStatus==null) newStatus= this.status;
          String success = "Status successfully set to: " + newStatus;
-         OrderItemsEntityFactory.getInstance().setStatus(id,groupId,newStatus);                  
+         OrderItemsEntityFactory.getInstance().setStatus(this.id,groupId,newStatus);                  
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
@@ -79,7 +79,7 @@ public class OrderItemsRequestHelper
       try
       {         
          String success = "Status successfully set to: " + this.status;
-         OrderItemsEntityFactory.getInstance().setStatus(id, groupId, this.status);
+         OrderItemsEntityFactory.getInstance().setStatus(this.id, groupId, this.status);
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {

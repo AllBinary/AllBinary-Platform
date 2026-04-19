@@ -375,7 +375,7 @@ public class AuthenticationTag extends CustomTagSupport
                 this.logUtil.putF(stringBuffer.toString(), this, tagStrings.DO_START_TAG);
             }
 
-            if (command != null)
+            if (this.command != null)
             {
                 //Test Error Pages
                 //if(command!=null) throw new JspTagException(e2);
@@ -383,7 +383,7 @@ public class AuthenticationTag extends CustomTagSupport
 
                 this.propertiesHashMap = new HashMap();
 
-                if (command.compareTo(org.allbinary.globals.GLOBALS2.NEWPASSWORD) == 0)
+                if (this.command.compareTo(org.allbinary.globals.GLOBALS2.NEWPASSWORD) == 0)
                 {
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
                     {
@@ -425,8 +425,8 @@ public class AuthenticationTag extends CustomTagSupport
                 } else
                 {
                     /*
-                    pageContext.getOut().print("UserName: " + userName + "<br>");
-                    pageContext.getOut().print("Password: " + password + "<br>");
+                    pageContext.getOut().print("UserName: " + this.userName + "<br>");
+                    pageContext.getOut().print("Password: " + this.password + "<br>");
                     pageContext.getOut().print("UserName: " + sessionUserName + "<br>");
                     pageContext.getOut().print("Role: " + role + "<br>");
                     pageContext.getOut().print("Auth: " + authenticated + "<p>");
@@ -449,7 +449,7 @@ public class AuthenticationTag extends CustomTagSupport
 
                             //invalidates session based on a timeout
                             pageContext.getOut().print("Please login again.<p>");
-                            if (command.compareTo(org.allbinary.globals.GLOBALS2.PROCESSBODYIFAUTHENTICATED) == 0)
+                            if (this.command.compareTo(org.allbinary.globals.GLOBALS2.PROCESSBODYIFAUTHENTICATED) == 0)
                             {
                                 return TagSupport.SKIP_BODY;
                             } else
@@ -464,7 +464,7 @@ public class AuthenticationTag extends CustomTagSupport
                             }
 
                             //prepares session for timeout
-                            if (command.compareTo(org.allbinary.globals.GLOBALS2.PROCESSBODYIFAUTHENTICATED) == 0)
+                            if (this.command.compareTo(org.allbinary.globals.GLOBALS2.PROCESSBODYIFAUTHENTICATED) == 0)
                             {
                                 return TagSupport.SKIP_BODY;
                             } else
@@ -475,9 +475,9 @@ public class AuthenticationTag extends CustomTagSupport
                     }
 
                     /*
-                    if(userName==null || userName.compareTo(stringUtil.EMPTY_STRING)==0)
+                    if(this.userName==null || this.userName.compareTo(stringUtil.EMPTY_STRING)==0)
                     pageContext.getOut().print("UserName Empty<br>");
-                    if(password==null  || password.compareTo(stringUtil.EMPTY_STRING)==0)
+                    if(this.password==null  || this.password.compareTo(stringUtil.EMPTY_STRING)==0)
                     pageContext.getOut().print("Password Empty<br>");
                     if(sessionUserName==null || sessionUserName.compareTo(stringUtil.EMPTY_STRING)==0)
                     pageContext.getOut().print("Session UserName Null or Empty<br>");
@@ -489,7 +489,7 @@ public class AuthenticationTag extends CustomTagSupport
                     }
                      */
 
-                    if ((userName == null || userName.compareTo(stringUtil.EMPTY_STRING) == 0)
+                    if ((this.userName == null || this.userName.compareTo(stringUtil.EMPTY_STRING) == 0)
                         && (password == null || password.compareTo(stringUtil.EMPTY_STRING) == 0)
                         && this.roles != null && this.isAuthenticationSessionValid())
                     {
@@ -498,7 +498,7 @@ public class AuthenticationTag extends CustomTagSupport
                             this.logUtil.putF("Authenticated session is valid", this, tagStrings.DO_START_TAG);
                         }
 
-                        if (command.compareTo(org.allbinary.globals.GLOBALS2.PROCESSBODYIFAUTHENTICATED) == 0)
+                        if (this.command.compareTo(org.allbinary.globals.GLOBALS2.PROCESSBODYIFAUTHENTICATED) == 0)
                         {
                             return TagSupport.EVAL_BODY_INCLUDE;
                         } else
@@ -522,7 +522,7 @@ public class AuthenticationTag extends CustomTagSupport
                             }
 
                             pageContext.getOut().print(validRole());
-                            if (command.compareTo(org.allbinary.globals.GLOBALS2.PROCESSBODYIFAUTHENTICATED) == 0)
+                            if (this.command.compareTo(org.allbinary.globals.GLOBALS2.PROCESSBODYIFAUTHENTICATED) == 0)
                             {
                                 return EVAL_BODY_INCLUDE;
                             } else
@@ -537,7 +537,7 @@ public class AuthenticationTag extends CustomTagSupport
                             }
 
                             pageContext.getOut().print(invalidRole());
-                            if (command.compareTo(org.allbinary.globals.GLOBALS2.PROCESSBODYIFAUTHENTICATED) == 0)
+                            if (this.command.compareTo(org.allbinary.globals.GLOBALS2.PROCESSBODYIFAUTHENTICATED) == 0)
                             {
                                 return SKIP_BODY;
                             } else
@@ -552,7 +552,7 @@ public class AuthenticationTag extends CustomTagSupport
                             this.logUtil.putF("Invalid Login", this, tagStrings.DO_START_TAG);
                         }
 
-                        if (userName != null && userName.compareTo(stringUtil.EMPTY_STRING) != 0 && password != null && password.compareTo(stringUtil.EMPTY_STRING) != 0)
+                        if (this.userName != null && this.userName.compareTo(stringUtil.EMPTY_STRING) != 0 && this.password != null && this.password.compareTo(stringUtil.EMPTY_STRING) != 0)
                         {
                             pageContext.getOut().print("Sorry your username and/or password is invalid.<p/>");
                         }
@@ -567,7 +567,7 @@ public class AuthenticationTag extends CustomTagSupport
 
                     //pageContext.getOut().print("Not a new attempt or previously authorized<p>");
                     //I hope this never occurs - I may add an exception for this case in the future
-                    if (command.compareTo(org.allbinary.globals.GLOBALS2.PROCESSBODYIFAUTHENTICATED) == 0)
+                    if (this.command.compareTo(org.allbinary.globals.GLOBALS2.PROCESSBODYIFAUTHENTICATED) == 0)
                     {
                         return TagSupport.SKIP_BODY;
                     } else

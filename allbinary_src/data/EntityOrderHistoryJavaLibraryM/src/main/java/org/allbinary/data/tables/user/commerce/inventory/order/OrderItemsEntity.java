@@ -51,7 +51,7 @@ public class OrderItemsEntity extends AbSqlBean implements OrderItemsEntityInter
     public OrderItemsEntity()
     {
         super(new HistoryDbInitInfo());
-        this.setTableName(tableName);
+        this.setTableName(this.tableName);
     }
 
     public void insert(String userName, OrderInterface order)
@@ -266,7 +266,7 @@ public class OrderItemsEntity extends AbSqlBean implements OrderItemsEntityInter
 
         stringBuffer.append("CREATE TABLE ");
 
-        stringBuffer.append(tableName);
+        stringBuffer.append(this.tableName);
         stringBuffer.append(" (");
 
         stringBuffer.append(entryData.ID);

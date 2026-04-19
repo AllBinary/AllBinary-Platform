@@ -64,25 +64,25 @@ public class HighScoreUtil implements HighScoresResultsListener
     @Override
     public void setHighScoresArray(final HighScores[] highScoresArray) {
         this.highScoresArray = highScoresArray;
-        firstTime = false;
+        this.firstTime = false;
         this.saveHighScore();
     }
     
     public void update(final String name)
     {
-        HighScoreNamePersistanceSingleton.getInstance().save(abeClientInformation, gameInfo, name);
+        HighScoreNamePersistanceSingleton.getInstance().save(this.abeClientInformation, gameInfo, name);
         this.highScore.setName(name);
     }
 
     public void saveHighScore()
     {
-        this.logUtil.putF(new StringMaker().append(commonStrings.START).append(StringUtil.getInstance().toString(this.highScore)).toString(), this, "saveHighScore");
+        this.logUtil.putF(new StringMaker().append(this.commonStrings.START).append(StringUtil.getInstance().toString(this.highScore)).toString(), this, "saveHighScore");
         
         final int size = this.highScoresArray.length;
         
-        if(firstTime && size == 0) {
+        if(this.firstTime && size == 0) {
             this.logUtil.putF("Games canvas did not give us any HighScores", this, "saveHighScore");
-            highScoresFactoryInterface.fetchHighScores(gameInfo, this);
+            this.highScoresFactoryInterface.fetchHighScores(this.gameInfo, this);
             return;
         }
         
@@ -90,13 +90,13 @@ public class HighScoreUtil implements HighScoresResultsListener
         String highScoresAsString;        
         for (int index = 0; index < size; index++)
         {
-            highScores = highScoresArray[index];
+            highScores = this.highScoresArray[index];
             highScores.addHighScore(this.highScore);
             highScoresAsString = highScores.toString();
             this.logUtil.putF(new StringMaker().append("Added/Adding Score: ").append(highScoresAsString).toString(), this, "saveHighScore");
         }
         
-        this.highScoresHelper.setHighScoresArray(highScoresArray);
+        this.highScoresHelper.setHighScoresArray(this.highScoresArray);
     }
     
     public void submit(final MyCanvas myCanvas)

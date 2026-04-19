@@ -52,12 +52,12 @@ public class RTSLayerHudPaintable extends SelectionHudPaintable {
 
         this.weaponProperties = partInterface.getWeaponProperties().toStringArray();
 
-        this.costY1 = (y + ((weaponProperties.length + 1) * charHeight));
+        this.costY1 = (y + ((this.weaponProperties.length + 1) * charHeight));
 
         if (!AndroidUtil.isAndroid()) {
             this.costY = this.costY1;
         } else {
-            this.costY = (y + ((weaponProperties.length + 2) * charHeight));
+            this.costY = (y + ((this.weaponProperties.length + 2) * charHeight));
         }
     }
 
@@ -67,7 +67,7 @@ public class RTSLayerHudPaintable extends SelectionHudPaintable {
 
         final int charHeight = this.myFont.DEFAULT_CHAR_HEIGHT;
 
-        int size = weaponProperties.length;
+        int size = this.weaponProperties.length;
         for (int index = 0; index < size; index++) {
             graphics.drawString(weaponProperties[index], this.textX, y
                 + ((index + 1) * charHeight), 0);

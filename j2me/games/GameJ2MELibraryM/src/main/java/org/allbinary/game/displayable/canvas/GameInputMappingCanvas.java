@@ -113,8 +113,8 @@ implements InputMappingInterface
          //               DemoGameMidletStateFactory
            //                     .getInstance().START_DEMO));
         
-        this.selectedGameKey = NONE;
-        this.selectedInput = NONE;
+        this.selectedGameKey = this.NONE;
+        this.selectedInput = this.NONE;
         
         this.update();
     }
@@ -169,7 +169,7 @@ implements InputMappingInterface
             GameKey gameKey = this.inputToGameKeyMapping.getInstance(this, keyCode);
 
             //TWB - Hack for MicroEmulator negative values on directional controls
-            Input input = inputFactory.getInstance(keyCode);
+            Input input = this.inputFactory.getInstance(keyCode);
 
             this.process(gameKey, input);
         }
@@ -191,7 +191,7 @@ implements InputMappingInterface
         
         this.logUtil.putF(stringBuffer.toString(), this, commonStrings.PROCESS);
         
-        if (this.selectedGameKey != NONE)
+        if (this.selectedGameKey != this.NONE)
         {
             this.gameActionCrud(gameKey, input);
         }
@@ -206,7 +206,7 @@ implements InputMappingInterface
         this.logUtil.putF(new StringMaker().append("Selected GameKey: ").append(this.stringUtil.toString(gameKey)).toString(), this, "setSelectedAction");
         
         this.selectedGameKey = gameKey;
-        this.selectedInput = NONE;
+        this.selectedInput = this.NONE;
         this.helpPaintable.update(this.selectedGameKey, this.selectedInput);
         this.repaintBehavior.onChangeRepaint(this);
     }
@@ -224,9 +224,9 @@ implements InputMappingInterface
 
         // If action is selected and input is not then select the input
         // if it is mapped for the selected action
-        if (this.selectedInput == NONE)
+        if (this.selectedInput == this.NONE)
         {
-            BasicArrayList list = inputMapping.getInputMapping().getMappedInput(this.selectedGameKey);
+            BasicArrayList list = this.inputMapping.getInputMapping().getMappedInput(this.selectedGameKey);
             boolean isInputAlreadyMappedToSelectedAction = list.contains(input);
             
             if (isInputAlreadyMappedToSelectedAction)
@@ -262,7 +262,7 @@ implements InputMappingInterface
         //this.logUtil.putF(commonStrings.START_LABEL).append("Dissallow if ").append(input).append(" is in { ").append(AndroidKeyFactory.getInstance().MENU).append(" }", this, "addNewMapping");
         this.logUtil.putF(commonStrings.START, this, METHOD_NAME);
 
-        boolean isInputAlreadyMapped = inputMapping.getInputMapping().isMapped(input);
+        boolean isInputAlreadyMapped = this.inputMapping.getInputMapping().isMapped(input);
 
         if (!isInputAlreadyMapped && !this.inputMapping.isSystemInput(input))
         {
@@ -275,7 +275,7 @@ implements InputMappingInterface
             
             this.logUtil.putF(stringBuffer.toString(), this, METHOD_NAME);
             
-            inputMapping.getInputMapping().add(this.selectedGameKey, input);
+            this.inputMapping.getInputMapping().add(this.selectedGameKey, input);
             this.selectedInput = input;
             this.update();
         }
@@ -290,7 +290,7 @@ implements InputMappingInterface
     {
         final String METHOD_NAME = "deleteCurrentMapping";
 
-        BasicArrayList list = inputMapping.getInputMapping().getMappedInput(this.selectedGameKey);
+        BasicArrayList list = this.inputMapping.getInputMapping().getMappedInput(this.selectedGameKey);
 
         if (list.size() > 1)
         {
@@ -304,8 +304,8 @@ implements InputMappingInterface
             
             this.logUtil.putF(stringBuffer.toString(), this, METHOD_NAME);
 
-            inputMapping.getInputMapping().remove(this.selectedGameKey, this.selectedInput);
-            this.selectedInput = NONE;
+            this.inputMapping.getInputMapping().remove(this.selectedGameKey, this.selectedInput);
+            this.selectedInput = this.NONE;
             this.update();
         }
         else
@@ -316,7 +316,7 @@ implements InputMappingInterface
     
     public void setDefault() throws Exception
     {
-        inputMapping.setDefault(abeClientInformation);
+        this.inputMapping.setDefault(this.abeClientInformation);
                 //(InputToGameKeyMapping) PlatformInputMappingFactory.getInstance());
         this.helpPaintable.update(NONE, NONE);
         this.repaintBehavior.onChangeRepaint(this);
@@ -325,7 +325,7 @@ implements InputMappingInterface
     @Override
     public void update() throws Exception
     {
-        inputMapping.update(abeClientInformation);
+        this.inputMapping.update(this.abeClientInformation);
                 //(InputToGameKeyMapping) PlatformInputMappingFactory.getInstance());
         this.helpPaintable.update(this.selectedGameKey, this.selectedInput);
         this.repaintBehavior.onChangeRepaint(this);

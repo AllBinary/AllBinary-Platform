@@ -202,7 +202,7 @@ public class HighScoresCanvas extends GameCommandCanvas
 
         super.paint(graphics);
         
-        hasPainted = true;
+        this.hasPainted = true;
     }
 
     public void executeUpdate()

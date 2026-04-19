@@ -73,24 +73,24 @@ public class BasketRequestHelper
    
    private void getFormData()
    {
-      this.id = request.getParameter(BasicItemData.ID);
-      this.num = request.getParameter(BasketData.ITEMTOTALINBASKET);
+      this.id = this.request.getParameter(BasicItemData.ID);
+      this.num = this.request.getParameter(BasketData.ITEMTOTALINBASKET);
    }
    
    public Boolean addItemToBasket()
    {
       try
       {                  
-         if(id!=null && num!=null)
+         if(this.id!=null && this.num!=null)
          {
             BasketInterface basket = this.weblisketSession.getOrder().getBasket();
 
-            if(InventoryEntityFactory.getInstance().getInventoryEntityInstance().getItem(id)==null)
+            if(InventoryEntityFactory.getInstance().getInventoryEntityInstance().getItem(this.id)==null)
             {
                return Boolean.FALSE;
             }
 
-            basket.addItem(id,num);
+            basket.addItem(this.id,num);
          }
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
@@ -112,10 +112,10 @@ public class BasketRequestHelper
    {
       try
       {         
-         if(id!=null)
+         if(this.id!=null)
          {
             BasketInterface basket = this.weblisketSession.getOrder().getBasket();
-            basket.removeItem(id);
+            basket.removeItem(this.id);
          }
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
@@ -140,15 +140,15 @@ public class BasketRequestHelper
          //int index = 2;
          BasketInterface basket = this.weblisketSession.getOrder().getBasket();
          
-         if(id!=null && num!=null) basket.adjustItem(id,num);
+         if(this.id!=null && num!=null) basket.adjustItem(this.id,num);
          /*
          while(index < this.MAX)
          {
             
             String nextId = BasicItemData.ID + new Integer(index).toString();
             String nextNum = BasicItemData.ITEMTOTALINBASKET + new Integer(index).toString();
-            id = request.getParameter(nextId);
-            num = request.getParameter(nextNum);
+            this.id = this.request.getParameter(nextId);
+            num = this.request.getParameter(nextNum);
             index++;
          }
          */

@@ -45,7 +45,7 @@ public class ImageRotationUtil {
     public void rotateImage(final Image originalImage, final Image image, final int totalAngle) {
 
         Image originalImage2 = originalImage;
-        if(features.isFeature(OpenGLFeatureFactory.getInstance().OPENGL)) {
+        if(this.features.isFeature(OpenGLFeatureFactory.getInstance().OPENGL)) {
             
             if (originalImage.getType() >= OpenGLESImage.TYPE) {
                 final OpenGLESImage openGLESImage = ((OpenGLESImage) originalImage);
@@ -71,7 +71,7 @@ public class ImageRotationUtil {
             gc = swtImage.getGc();
             //final org.eclipse.swt.graphics.Image newBufferedImage = (org.eclipse.swt.graphics.Image) swtImage.getImage();
             //PreLogUtil.put(CommonPhoneStrings.getInstance().FOUR, this, "createRotatedImage");
-            imageSwtRotationUtil.rotateImage(originalSwtImage, copySwtImage, gc, totalAngle);
+            this.imageSwtRotationUtil.rotateImage(originalSwtImage, copySwtImage, gc, totalAngle);
         } else {
             //final SwtImmutableImage swtImage = (SwtImmutableImage) image;
             PreLogUtil.put("No rotation for: " + image.toString(), this, "rotateImage");

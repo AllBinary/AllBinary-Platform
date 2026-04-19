@@ -81,7 +81,7 @@ public class GuiLog
    {
       try
       {
-         String data = logFormatUtil.get(specialMessage, 
+         String data = this.logFormatUtil.get(specialMessage, 
                object.getClass().getName(), functionName, exception);
          this.showDialog(data);
          System.out.println(data);
@@ -89,7 +89,7 @@ public class GuiLog
       }
       catch (Exception e)
       {
-          PreLogUtil.putOE(commonStrings.EXCEPTION, this, "put", e);
+          PreLogUtil.putOE(this.commonStrings.EXCEPTION, this, "put", e);
          return "Logging Error";
       }
    }
@@ -110,7 +110,7 @@ public class GuiLog
    {      
       try
       {
-         String data = logFormatUtil.get(specialMessage, 
+         String data = this.logFormatUtil.get(specialMessage, 
                className, functionName, exception);
          this.showDialog(data);
          System.out.println(data);
@@ -118,7 +118,7 @@ public class GuiLog
       }
       catch (Exception e)
       {
-          PreLogUtil.putOE(commonStrings.EXCEPTION, this, "put", e);
+          PreLogUtil.putOE(this.commonStrings.EXCEPTION, this, "put", e);
          return "Logging Error";
       }
    }

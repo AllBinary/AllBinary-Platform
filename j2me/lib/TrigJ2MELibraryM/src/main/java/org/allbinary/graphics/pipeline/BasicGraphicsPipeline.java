@@ -27,12 +27,12 @@ public class BasicGraphicsPipeline
 
    public BasicGraphicsPipeline(BasicArrayList points)
    {
-      pointBasicArrayList = points;
+      this.pointBasicArrayList = points;
    }
 
    public void setInitMatrix(BasicArrayList points)
    {
-      pointBasicArrayList = points;
+      this.pointBasicArrayList = points;
    }
 
    public void createMatrix()
@@ -42,7 +42,7 @@ public class BasicGraphicsPipeline
    public void translate(int x, int y) throws Exception
    {
       BasicArrayList newBasicArrayList = new BasicArrayList();
-      int size = pointBasicArrayList.size();
+      int size = this.pointBasicArrayList.size();
 
       PointFactory pointFactory = PointFactory.getInstance();
       
@@ -50,7 +50,7 @@ public class BasicGraphicsPipeline
       
       for(int index = 0; index < size; index++)
       {
-          secondPoint = (GPoint) pointBasicArrayList.objectArray[index];
+          secondPoint = (GPoint) this.pointBasicArrayList.objectArray[index];
          //Ignore end of lines
          if (secondPoint.getX() != 1000)
          {
@@ -88,13 +88,13 @@ public class BasicGraphicsPipeline
       long cos;
       for(int index = 0; index < size; index++)
       {
-          secondPoint = (GPoint) pointBasicArrayList.objectArray[index];
+          secondPoint = (GPoint) this.pointBasicArrayList.objectArray[index];
          //LogUtil.put("Old: " + secondPoint.toString(), this, "rotate");
          //Ignore end of lines
          if (secondPoint.getX() != 1000)
          {
-             sin = noDecimalTrigTable.sin(angle);
-             cos = noDecimalTrigTable.cos(angle);
+             sin = this.noDecimalTrigTable.sin(angle);
+             cos = this.noDecimalTrigTable.cos(angle);
              y = secondPoint.getY() * sin;
              secondX = (secondPoint.getX() * cos) - y;
              secondY = (secondPoint.getX() * sin) + (secondPoint.getY() * cos);
@@ -127,7 +127,7 @@ public class BasicGraphicsPipeline
       final int size = this.pointBasicArrayList.size();
       for(int index = 0; index < size; index++)
       {
-          secondPoint = (GPoint) pointBasicArrayList.objectArray[index];
+          secondPoint = (GPoint) this.pointBasicArrayList.objectArray[index];
          //LogUtil.put("Old: " + secondPoint.toString(), this, "rotate");
          //Ignore end of lines
          if (secondPoint.getX() != 1000)

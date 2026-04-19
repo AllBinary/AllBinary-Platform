@@ -54,13 +54,13 @@ public class InterfaceCastProxy implements java.lang.reflect.InvocationHandler
       String interfaceNames = "Interface Names: ";
       for(int index =0; index< interfaceArray.length; index++)
       {         
-         interfaceNames += interfaceArray[index].getName();
-         interfaceNames += " ";
+         this.interfaceNames += this.interfaceArray[this.index].getName();
+         this.interfaceNames += " ";
       }
       
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))
          {
-            LogUtil.put(interfaceNames, "InterfaceCastProxy","newInst");
+            LogUtil.put(this.interfaceNames, "InterfaceCastProxy","newInst");
          }      
 */
 

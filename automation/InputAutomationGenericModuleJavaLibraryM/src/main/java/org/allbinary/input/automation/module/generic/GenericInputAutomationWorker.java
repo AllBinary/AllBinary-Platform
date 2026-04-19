@@ -110,7 +110,7 @@ public class GenericInputAutomationWorker
             this.logUtil.putF("Image Available", this, this.PROCESS_DATA_WORKER_RESULTS);
             setFrame((Long) keyArray[keyArray.length - 1]);
 
-            if(getFrame() > lastFrame)
+            if(getFrame() > this.lastFrame)
             {
                 this.logUtil.putF("Processing new frame: " + getFrame(), this, this.PROCESS_DATA_WORKER_RESULTS);
                 
@@ -132,7 +132,7 @@ public class GenericInputAutomationWorker
                     final Vector vector = genericProfileActionScript.getProfileActionConditionInterfaceVector();
                     CaptureWorkerUtil.processProfileActionConditions(vector, getFrame());
                 }
-                lastFrame = getFrame();
+                this.lastFrame = getFrame();
             }
         }
         else

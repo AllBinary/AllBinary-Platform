@@ -48,8 +48,8 @@ public class OpenGLUtil {
     
     public void onSurfaceCreated(final GL10 gl) {
         try {
-            if(!created) {
-                created = true;
+            if(!this.created) {
+                this.created = true;
                 PreLogUtil.put(CommonLabels.getInstance().START_LABEL + OpenGLCapabilities.getInstance().toString(), this, this.renderStrings.ON_SURFACE_CREATED);    
             }
 
@@ -85,9 +85,9 @@ public class OpenGLUtil {
     private boolean surfaceCreatedAndInitialized = false;
 
     public void onSurfaceChanged(final GL10 gl, final OpenGLESGraphics graphics) throws Exception {
-        if (!surfaceCreatedAndInitialized) {
+        if (!this.surfaceCreatedAndInitialized) {
             graphics.init();
-            surfaceCreatedAndInitialized = true;
+            this.surfaceCreatedAndInitialized = true;
         }
 
         //Seems that mutable images must be reloaded on graphics change?
@@ -115,8 +115,8 @@ public class OpenGLUtil {
 //            final Thread thread = Thread.currentThread();
 //            this.logUtil.putF(new StringMaker().append("add image ").append(thread.getName()).toString(), this, this.renderStrings.ON_SURFACE_CHANGED);
 
-            synchronized(object) {
-                list.add(encapsulateImage);
+            synchronized(this.object) {
+                this.list.add(encapsulateImage);
             }
 
             //this.logUtil.putF(new StringMaker().append("add image: ").append(encapsulateImage).append(CommonSeps.getInstance().SPACE).append(thread.getName()).toString(), this, this.renderStrings.ON_SURFACE_CHANGED);
@@ -130,20 +130,20 @@ public class OpenGLUtil {
 
 //        final Thread thread = Thread.currentThread();
 //        this.logUtil.putF(new StringMaker().append("clear: ").append(thread.getName()).toString(), this, RendererStrings.getInstance().ON_SURFACE_CHANGED);
-        synchronized(object) {
-            list.clear();
+        synchronized(this.object) {
+            this.list.clear();
         }
     }
 
     public void add(final Runnable runnable) {
         
-        synchronized (lockObject) {
+        synchronized (this.lockObject) {
             
             //this.logUtil.putF("try to add", this, RendererStrings.getInstance().ON_SURFACE_CHANGED);
             if(!this.runnableList.contains(runnable)) {
                 //this.logUtil.putF("add", this, RendererStrings.getInstance().ON_SURFACE_CHANGED);
                 this.runnableList.add(runnable);
-                displayInfoSingleton.add(this.canvasStrings.SCALED_IMAGES);
+                this.displayInfoSingleton.add(this.canvasStrings.SCALED_IMAGES);
             }
         }
         
@@ -151,7 +151,7 @@ public class OpenGLUtil {
 
     private void processRunnables() {
         
-        synchronized (lockObject) {
+        synchronized (this.lockObject) {
             
             Runnable runnable;
             final int size = this.runnableList.size();

@@ -47,9 +47,9 @@ public class AndroidHardware implements HardwareInterface
 
     public AndroidHardware() throws Exception
     {
-        this.init(DEVICES);
+        this.init(this.DEVICES);
 
-        if (componentInterfaceVector.size() < MINHARDWARE)
+        if (this.componentInterfaceVector.size() < this.MINHARDWARE)
         {
             throw new Exception("Not Enough Data For A Valid License On Linux");
         }
@@ -81,7 +81,7 @@ public class AndroidHardware implements HardwareInterface
 
     private LineNumberReader get(final String filePath) throws Exception
     {
-        componentInterfaceVector = new BasicArrayList();
+        this.componentInterfaceVector = new BasicArrayList();
 
         final FileReader pciFile = new FileReader(filePath);
         final LineNumberReader lineNumberReader = new LineNumberReader(pciFile);
@@ -98,7 +98,7 @@ public class AndroidHardware implements HardwareInterface
             //this.logUtil.putF("Found Hardware Device: " + componentInterfaceVector.size(), this, commonStrings.INIT);
 
             nextLine = lineNumberReader.readLine();
-            componentInterfaceVector.add(new UnknownHardware(nextLine));
+            this.componentInterfaceVector.add(new UnknownHardware(nextLine));
         }
         //}
         /*
@@ -114,7 +114,7 @@ public class AndroidHardware implements HardwareInterface
     @Override
     public HardwareComponentInterface getComponent(int index)
     {
-        return (HardwareComponentInterface) componentInterfaceVector.get(index);
+        return (HardwareComponentInterface) this.componentInterfaceVector.get(index);
     }
 
     public String toString()

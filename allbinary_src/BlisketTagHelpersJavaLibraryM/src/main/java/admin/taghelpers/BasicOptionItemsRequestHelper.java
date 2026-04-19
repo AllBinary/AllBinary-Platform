@@ -58,33 +58,33 @@ public class BasicOptionItemsRequestHelper extends ModifyTable
       this.optionItem = new Vector();
       this.optionValue = new Vector();
    
-      this.id = request.getParameter(BasicItemData.ID);
+      this.id = this.request.getParameter(BasicItemData.ID);
             
-      this.optionOneTitle = request.getParameter(BasicOptionItemData.OPTION_ONE_TITLE);
-      this.defaultOptionItem = request.getParameter(BasicOptionItemData.DEFAULT_OPTION_ITEM);
-      this.defaultOptionValue = request.getParameter(BasicOptionItemData.DEFAULT_OPTION_VALUE);
+      this.optionOneTitle = this.request.getParameter(BasicOptionItemData.OPTION_ONE_TITLE);
+      this.defaultOptionItem = this.request.getParameter(BasicOptionItemData.DEFAULT_OPTION_ITEM);
+      this.defaultOptionValue = this.request.getParameter(BasicOptionItemData.DEFAULT_OPTION_VALUE);
            
-      this.optionItem.add(request.getParameter(BasicOptionItemData.OPTION_ONE_ONE_ITEM));
-      this.optionValue.add(request.getParameter(BasicOptionItemData.OPTION_ONE_ONE_VALUE));
-      this.optionItem.add(request.getParameter(BasicOptionItemData.OPTION_ONE_TWO_ITEM));
-      this.optionValue.add(request.getParameter(BasicOptionItemData.OPTION_ONE_TWO_VALUE));
-      this.optionItem.add(request.getParameter(BasicOptionItemData.OPTION_ONE_THREE_ITEM));
-      this.optionValue.add(request.getParameter(BasicOptionItemData.OPTION_ONE_THREE_VALUE));
-      this.optionItem.add(request.getParameter(BasicOptionItemData.OPTION_ONE_FOUR_ITEM));
-      this.optionValue.add(request.getParameter(BasicOptionItemData.OPTION_ONE_FOUR_VALUE));
-      this.optionItem.add(request.getParameter(BasicOptionItemData.OPTION_ONE_FIVE_ITEM));
-      this.optionValue.add(request.getParameter(BasicOptionItemData.OPTION_ONE_FIVE_VALUE));
-      this.optionItem.add(request.getParameter(BasicOptionItemData.OPTION_ONE_SIX_ITEM));
-      this.optionValue.add(request.getParameter(BasicOptionItemData.OPTION_ONE_SIX_VALUE));
-      this.optionItem.add(request.getParameter(BasicOptionItemData.OPTION_ONE_SEVEN_ITEM));
-      this.optionValue.add(request.getParameter(BasicOptionItemData.OPTION_ONE_SEVEN_VALUE));
-      this.optionItem.add(request.getParameter(BasicOptionItemData.OPTION_ONE_EIGHT_ITEM));
-      this.optionValue.add(request.getParameter(BasicOptionItemData.OPTION_ONE_EIGHT_VALUE));
-      this.optionItem.add(request.getParameter(BasicOptionItemData.OPTION_ONE_NINE_ITEM));
-      this.optionValue.add(request.getParameter(BasicOptionItemData.OPTION_ONE_NINE_VALUE));
+      this.optionItem.add(this.request.getParameter(BasicOptionItemData.OPTION_ONE_ONE_ITEM));
+      this.optionValue.add(this.request.getParameter(BasicOptionItemData.OPTION_ONE_ONE_VALUE));
+      this.optionItem.add(this.request.getParameter(BasicOptionItemData.OPTION_ONE_TWO_ITEM));
+      this.optionValue.add(this.request.getParameter(BasicOptionItemData.OPTION_ONE_TWO_VALUE));
+      this.optionItem.add(this.request.getParameter(BasicOptionItemData.OPTION_ONE_THREE_ITEM));
+      this.optionValue.add(this.request.getParameter(BasicOptionItemData.OPTION_ONE_THREE_VALUE));
+      this.optionItem.add(this.request.getParameter(BasicOptionItemData.OPTION_ONE_FOUR_ITEM));
+      this.optionValue.add(this.request.getParameter(BasicOptionItemData.OPTION_ONE_FOUR_VALUE));
+      this.optionItem.add(this.request.getParameter(BasicOptionItemData.OPTION_ONE_FIVE_ITEM));
+      this.optionValue.add(this.request.getParameter(BasicOptionItemData.OPTION_ONE_FIVE_VALUE));
+      this.optionItem.add(this.request.getParameter(BasicOptionItemData.OPTION_ONE_SIX_ITEM));
+      this.optionValue.add(this.request.getParameter(BasicOptionItemData.OPTION_ONE_SIX_VALUE));
+      this.optionItem.add(this.request.getParameter(BasicOptionItemData.OPTION_ONE_SEVEN_ITEM));
+      this.optionValue.add(this.request.getParameter(BasicOptionItemData.OPTION_ONE_SEVEN_VALUE));
+      this.optionItem.add(this.request.getParameter(BasicOptionItemData.OPTION_ONE_EIGHT_ITEM));
+      this.optionValue.add(this.request.getParameter(BasicOptionItemData.OPTION_ONE_EIGHT_VALUE));
+      this.optionItem.add(this.request.getParameter(BasicOptionItemData.OPTION_ONE_NINE_ITEM));
+      this.optionValue.add(this.request.getParameter(BasicOptionItemData.OPTION_ONE_NINE_VALUE));
       
-      this.timeEntered = request.getParameter(EntryData.getInstance().TIMECREATED);
-      this.lastModified = request.getParameter(EntryData.getInstance().LASTMODIFIED);
+      this.timeEntered = this.request.getParameter(EntryData.getInstance().TIMECREATED);
+      this.lastModified = this.request.getParameter(EntryData.getInstance().LASTMODIFIED);
    }
 
    private HashMap getHashMap()
@@ -128,7 +128,7 @@ public class BasicOptionItemsRequestHelper extends ModifyTable
          final String time = new String(new Long(calendar.getTimeInMillis()).toString());
          final Vector values = new Vector();
                   
-         values.add(id);
+         values.add(this.id);
       
          final int size = this.optionValue.size();
          for(int index = 0; index < size; index++)
@@ -166,7 +166,7 @@ public class BasicOptionItemsRequestHelper extends ModifyTable
    {
       try
       {
-         BasicOptionItemsEntityFactory.getInstance().getBasicOptionItemsEntityInstance().delete(id);
+         BasicOptionItemsEntityFactory.getInstance().getBasicOptionItemsEntityInstance().delete(this.id);
          
          String success = "Successfully deleted";
          
@@ -199,7 +199,7 @@ public class BasicOptionItemsRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.putF(new StringMaker().append(id).append(CommonSeps.getInstance().SPACE).append(success).toString(),this,"update()");
+            this.logUtil.putF(new StringMaker().append(this.id).append(CommonSeps.getInstance().SPACE).append(success).toString(),this,"update()");
          }
          return success;
       }

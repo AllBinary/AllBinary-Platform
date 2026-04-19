@@ -42,7 +42,7 @@ public class HighScoresHelper extends HighScoresHelperBase
         //just in case infinite loop
         int index = 0;
 
-        while ((highScores.getTotal() < 1 || lastIndex == this.circularIndexUtil.getIndex()) && 
+        while ((highScores.getTotal() < 1 || this.lastIndex == this.circularIndexUtil.getIndex()) && 
                 index < this.highScoresArrayP.length)
         {
             this.circularIndexUtil.next();
@@ -53,7 +53,7 @@ public class HighScoresHelper extends HighScoresHelperBase
             index++;
         }
 
-        lastIndex = this.circularIndexUtil.getIndex();
+        this.lastIndex = this.circularIndexUtil.getIndex();
         
         //PreLogUtil.put(highScores.toString(), this, "getSelectHighScores");
         

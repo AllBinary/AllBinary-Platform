@@ -35,7 +35,7 @@ public class QuoteRequestEntity extends AbSqlBean
    public QuoteRequestEntity()
    {
       super(new UserDbInitInfo());
-      this.setTableName(tableName);
+      this.setTableName(this.tableName);
    }
    
    public void insert(Vector values)

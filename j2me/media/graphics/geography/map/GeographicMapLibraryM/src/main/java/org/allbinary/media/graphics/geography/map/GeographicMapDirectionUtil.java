@@ -78,7 +78,7 @@ public class GeographicMapDirectionUtil
         {
             //PreLogUtil.put(MESSAGE, this, "getDirectionFromCellPositionToAdjacentCellPosition");
             //return directionFactory.NO_DIRECTION;
-            throw new Exception(MESSAGE);
+            throw new Exception(this.MESSAGE);
         }
 
         return directionFactory.NOT_BORDERED_WITH;
@@ -147,7 +147,7 @@ public class GeographicMapDirectionUtil
         {
             //PreLogUtil.put(MESSAGE, this, "getEightDirectionFromCellPositionToAdjacentCellPosition");
             //return directionFactory.NO_DRECTION;
-            throw new Exception(MESSAGE);
+            throw new Exception(this.MESSAGE);
         }
 
         return directionFactory.NOT_BORDERED_WITH;
@@ -255,9 +255,9 @@ public class GeographicMapDirectionUtil
 
         StringMaker stringBuffer = new StringMaker();
         
-        stringBuffer.append(ERROR);
+        stringBuffer.append(this.ERROR);
         stringBuffer.append(CellPosition.toString(fromGeographicMapCellPosition));
-        stringBuffer.append(EQUAL);
+        stringBuffer.append(this.EQUAL);
         stringBuffer.append(CellPosition.toString(toGeographicMapCellPosition));
 
         throw new Exception(stringBuffer.toString());

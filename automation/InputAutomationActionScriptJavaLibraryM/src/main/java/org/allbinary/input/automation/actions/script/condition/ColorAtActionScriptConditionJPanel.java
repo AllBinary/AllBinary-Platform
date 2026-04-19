@@ -218,51 +218,51 @@ public class ColorAtActionScriptConditionJPanel
     // <editor-fold defaultstate="collapsed" desc=" Generated Code ">//GEN-BEGIN:initComponents
     private void initComponents()
     {
-        colorAtActionJDialog = new javax.swing.JDialog();
-        titleJLabel = new javax.swing.JLabel();
-        locationJLabel = new javax.swing.JLabel();
-        colorAtXJTextField = new javax.swing.JTextField();
-        xJLabel = new javax.swing.JLabel();
-        yJLabel = new javax.swing.JLabel();
-        colorAtYJTextField = new javax.swing.JTextField();
-        colorRangeJLabel = new javax.swing.JLabel();
-        redJLabel = new javax.swing.JLabel();
-        minJLabel = new javax.swing.JLabel();
-        maxJLabel = new javax.swing.JLabel();
-        greenJLabel = new javax.swing.JLabel();
-        blueJLabel = new javax.swing.JLabel();
-        minRedJTextField = new javax.swing.JTextField();
-        maxRedJTextField = new javax.swing.JTextField();
-        maxGreenJTextField = new javax.swing.JTextField();
-        minBlueJTextField = new javax.swing.JTextField();
-        maxBlueJTextField = new javax.swing.JTextField();
-        okJButton = new javax.swing.JButton();
-        minGreenJTextField = new javax.swing.JTextField();
-        colorAtActionJButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        this.colorAtActionJDialog = new javax.swing.JDialog();
+        this.titleJLabel = new javax.swing.JLabel();
+        this.locationJLabel = new javax.swing.JLabel();
+        this.colorAtXJTextField = new javax.swing.JTextField();
+        this.xJLabel = new javax.swing.JLabel();
+        this.yJLabel = new javax.swing.JLabel();
+        this.colorAtYJTextField = new javax.swing.JTextField();
+        this.colorRangeJLabel = new javax.swing.JLabel();
+        this.redJLabel = new javax.swing.JLabel();
+        this.minJLabel = new javax.swing.JLabel();
+        this.maxJLabel = new javax.swing.JLabel();
+        this.greenJLabel = new javax.swing.JLabel();
+        this.blueJLabel = new javax.swing.JLabel();
+        this.minRedJTextField = new javax.swing.JTextField();
+        this.maxRedJTextField = new javax.swing.JTextField();
+        this.maxGreenJTextField = new javax.swing.JTextField();
+        this.minBlueJTextField = new javax.swing.JTextField();
+        this.maxBlueJTextField = new javax.swing.JTextField();
+        this.okJButton = new javax.swing.JButton();
+        this.minGreenJTextField = new javax.swing.JTextField();
+        this.colorAtActionJButton = new javax.swing.JButton();
+        this.jLabel1 = new javax.swing.JLabel();
 
-        colorAtActionJDialog.setMinimumSize(new java.awt.Dimension(350, 250));
-        titleJLabel.setText("              Color At Action Options            ");
+        this.colorAtActionJDialog.setMinimumSize(new java.awt.Dimension(350, 250));
+        this.titleJLabel.setText("              Color At Action Options            ");
 
-        locationJLabel.setText("Location:");
+        this.locationJLabel.setText("Location:");
 
-        xJLabel.setText("X:");
+        this.xJLabel.setText("X:");
 
-        yJLabel.setText("Y:");
+        this.yJLabel.setText("Y:");
 
-        colorRangeJLabel.setText("Color Range");
+        this.colorRangeJLabel.setText("Color Range");
 
-        redJLabel.setText("Red:");
+        this.redJLabel.setText("Red:");
 
-        minJLabel.setText("Minimum");
+        this.minJLabel.setText("Minimum");
 
-        maxJLabel.setText("Maximum");
+        this.maxJLabel.setText("Maximum");
 
-        greenJLabel.setText("Green:");
+        this.greenJLabel.setText("Green:");
 
-        blueJLabel.setText("Blue:");
+        this.blueJLabel.setText("Blue:");
 
-        okJButton.setText("OK");
+        this.okJButton.setText("OK");
         okJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -271,8 +271,8 @@ public class ColorAtActionScriptConditionJPanel
             }
         });
 
-        javax.swing.GroupLayout colorAtActionJDialogLayout = new javax.swing.GroupLayout(colorAtActionJDialog.getContentPane());
-        colorAtActionJDialog.getContentPane().setLayout(colorAtActionJDialogLayout);
+        javax.swing.GroupLayout colorAtActionJDialogLayout = new javax.swing.GroupLayout(this.colorAtActionJDialog.getContentPane());
+        this.colorAtActionJDialog.getContentPane().setLayout(colorAtActionJDialogLayout);
         colorAtActionJDialogLayout.setHorizontalGroup(
             colorAtActionJDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(colorAtActionJDialogLayout.createSequentialGroup()
@@ -366,7 +366,7 @@ public class ColorAtActionScriptConditionJPanel
         );
 
         setPreferredSize(new java.awt.Dimension(100, 0));
-        colorAtActionJButton.setText("Edit");
+        this.colorAtActionJButton.setText("Edit");
         colorAtActionJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -375,7 +375,7 @@ public class ColorAtActionScriptConditionJPanel
             }
         });
 
-        jLabel1.setText("Color At:");
+        this.jLabel1.setText("Color At:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

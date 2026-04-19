@@ -88,7 +88,7 @@ public class CustomTextAnimationFactory
             customTextAnimation = new CustomTextAnimation(this.text, this.scaleProperties.scaleHeight, this.animationBehaviorFactory.getOrCreateInstance());
         }
 
-        customTextAnimation.setBasicColorP(basicColor);
+        customTextAnimation.setBasicColorP(this.basicColor);
         return customTextAnimation;
     }
     

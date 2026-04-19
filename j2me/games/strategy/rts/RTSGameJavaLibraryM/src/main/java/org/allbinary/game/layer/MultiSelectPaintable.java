@@ -89,13 +89,13 @@ extends SelectionHudPaintable
     @Override
     public void paint(Graphics graphics)
     {
-        graphics.setColor(backgroundColor);
+        graphics.setColor(this.backgroundColor);
         //graphics.fillRect(this.getX(), y, this.getWidth(), this.getHeight());
         graphics.drawRect(this.getX(), y, this.getWidth(), this.getHeight());
         
         graphics.setColor(this.getColor());
         
-        graphics.drawString(TOTAL, this.textX, y, 0);
+        graphics.drawString(this.TOTAL, this.textX, y, 0);
 
         graphics.drawChars(this.totalCharArray, 0, 
                 this.getPrimitiveLongUtil().getCurrentTotalDigits(), 

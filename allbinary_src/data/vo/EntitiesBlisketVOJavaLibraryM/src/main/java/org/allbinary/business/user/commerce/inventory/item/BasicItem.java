@@ -531,22 +531,22 @@ public class BasicItem implements ItemInterface
         }
 
         Vector values = new Vector();
-        values.add(itemId);
-        values.add(number);
-        values.add(inBaskets);
-        values.add(weight);
-        values.add(enabled);
-        values.add(newOrUsed);
-        values.add(summary);
-        values.add(distributor);
-        values.add(idUsedByDistributor);
-        values.add(producedBy);
-        values.add(productionDate);
-        values.add(startProductionDate);
-        values.add(description);
-        values.add(keywords);
-        values.add(category);
-        values.add(type);
+        values.add(this.itemId);
+        values.add(this.number);
+        values.add(this.inBaskets);
+        values.add(this.weight);
+        values.add(this.enabled);
+        values.add(this.newOrUsed);
+        values.add(this.summary);
+        values.add(this.distributor);
+        values.add(this.idUsedByDistributor);
+        values.add(this.producedBy);
+        values.add(this.productionDate);
+        values.add(this.startProductionDate);
+        values.add(this.description);
+        values.add(this.keywords);
+        values.add(this.category);
+        values.add(this.type);
 
         values.add(this.getSmallImage());
         values.add(this.getMediumImage());

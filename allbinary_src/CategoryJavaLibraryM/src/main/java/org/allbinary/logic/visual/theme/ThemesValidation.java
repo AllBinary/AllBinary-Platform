@@ -62,10 +62,10 @@ public class ThemesValidation extends Validation implements DomNodeInterface
    {
       Node node = document.createElement(ThemesData.getInstance().NAME);
       
-      int size = themeVector.size();
+      int size = this.themeVector.size();
       for (int i = 0; i < size; i++)
       {
-         DomNodeInterface themeDomNodeInterface = (DomNodeInterface) themeVector.get(i);
+         DomNodeInterface themeDomNodeInterface = (DomNodeInterface) this.themeVector.get(i);
          node.appendChild(themeDomNodeInterface.toXmlNode(document));
       }
       return node;

@@ -144,7 +144,7 @@ public class AuthenticationHelper
             long timeCreated = this.weblisketSession.getCreationTime();
             long lastAccess = this.weblisketSession.getLastAccessedTime();
 
-            long inactivityAllowed = role.getSessionInactivityTimeout();
+            long inactivityAllowed = this.role.getSessionInactivityTimeout();
 
             Calendar calendar = Calendar.getInstance();
 
@@ -242,7 +242,7 @@ public class AuthenticationHelper
 
     public boolean isAuthenticated() throws Exception
     {
-        if (BooleanUtil.getInstance().getFromString(authenticated))
+        if (BooleanUtil.getInstance().getFromString(this.authenticated))
         {
             return true;
         } else
@@ -260,9 +260,9 @@ public class AuthenticationHelper
                 if (this.isAuthenticated())
                 {
                     //Returning with existing authenticated session
-                	if(sessionUserName != null)
+                	if(this.sessionUserName != null)
                 	{
-                    BasicUserRole basicUserRole = role.getBasicUserRole();
+                    BasicUserRole basicUserRole = this.role.getBasicUserRole();
 
                     final Object[] basicUserRoleArray = roles.toArray();
                     final int size = basicUserRoleArray.length;
@@ -274,7 +274,7 @@ public class AuthenticationHelper
                             if (basicUserRole.equals(UserRoleFactory.getInstance().CUSTOMER))
                             {
                                 UserEntityInterface userEntityInterface = UserEntityFactory.getInstance();
-                                UserInterface userInterface = userEntityInterface.getUser(sessionUserName);
+                                UserInterface userInterface = userEntityInterface.getUser(this.sessionUserName);
                                 if (!userInterface.isSessionValid().booleanValue())
                                 {
                                     return Boolean.FALSE;
@@ -308,9 +308,9 @@ public class AuthenticationHelper
 
     public void nextAttempt()
     {
-        if (attemptsInteger != null && attemptsInteger.intValue() > 0)
+        if (this.attemptsInteger != null && this.attemptsInteger.intValue() > 0)
         {
-            this.weblisketSession.setAttempts(new Integer(attemptsInteger.intValue() + 1));
+            this.weblisketSession.setAttempts(new Integer(this.attemptsInteger.intValue() + 1));
         } else
         {
             this.weblisketSession.setAttempts(new Integer(1));
@@ -385,7 +385,7 @@ public class AuthenticationHelper
     {
         try
         {
-            if (BooleanUtil.getInstance().getFromString(timeout))
+            if (BooleanUtil.getInstance().getFromString(this.timeout))
             {
                 this.invalidateSession();
                 return Boolean.TRUE;
@@ -428,13 +428,13 @@ public class AuthenticationHelper
                 //Remarked code shows user time left in session and last use
                 stringBuffer.append("<br/>\n");
                 stringBuffer.append("Time Left: ");
-                stringBuffer.appendlong((role.getSessionTimeout() - (calendar.getTimeInMillis() - timeCreated)));
+                stringBuffer.appendlong((this.role.getSessionTimeout() - (calendar.getTimeInMillis() - timeCreated)));
                 stringBuffer.append("<br/>\n");
                 stringBuffer.append("Inactivity Time Allowed: ");
-                stringBuffer.appendlong(role.getSessionTimeout());
+                stringBuffer.appendlong(this.role.getSessionTimeout());
                 stringBuffer.append("<br/>\n");
                 stringBuffer.append("Inactivity Time Allowed: ");
-                stringBuffer.appendlong(role.getSessionInactivityTimeout());
+                stringBuffer.appendlong(this.role.getSessionInactivityTimeout());
                 stringBuffer.append("<br/>\n");
             } else
             {

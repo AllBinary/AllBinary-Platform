@@ -59,21 +59,21 @@ public class BasicGroupItemsRequestHelper extends ModifyTable
    
    public void getFormData()
    {                  
-      this.id = request.getParameter(BasicItemData.ID);
+      this.id = this.request.getParameter(BasicItemData.ID);
       
-      this.itemOne = request.getParameter(BasicGroupItemData.ITEM_ONE);
-      this.itemTwo = request.getParameter(BasicGroupItemData.ITEM_TWO);
-      this.itemThree = request.getParameter(BasicGroupItemData.ITEM_THREE);
-      this.itemFour = request.getParameter(BasicGroupItemData.ITEM_FOUR);
-      this.itemFive = request.getParameter(BasicGroupItemData.ITEM_FIVE);
-      this.itemSix = request.getParameter(BasicGroupItemData.ITEM_SIX);
-      this.itemSeven = request.getParameter(BasicGroupItemData.ITEM_SEVEN);
-      this.itemEight = request.getParameter(BasicGroupItemData.ITEM_EIGHT);
-      this.itemNine = request.getParameter(BasicGroupItemData.ITEM_NINE);
-      this.itemTen = request.getParameter(BasicGroupItemData.ITEM_TEN);
+      this.itemOne = this.request.getParameter(BasicGroupItemData.ITEM_ONE);
+      this.itemTwo = this.request.getParameter(BasicGroupItemData.ITEM_TWO);
+      this.itemThree = this.request.getParameter(BasicGroupItemData.ITEM_THREE);
+      this.itemFour = this.request.getParameter(BasicGroupItemData.ITEM_FOUR);
+      this.itemFive = this.request.getParameter(BasicGroupItemData.ITEM_FIVE);
+      this.itemSix = this.request.getParameter(BasicGroupItemData.ITEM_SIX);
+      this.itemSeven = this.request.getParameter(BasicGroupItemData.ITEM_SEVEN);
+      this.itemEight = this.request.getParameter(BasicGroupItemData.ITEM_EIGHT);
+      this.itemNine = this.request.getParameter(BasicGroupItemData.ITEM_NINE);
+      this.itemTen = this.request.getParameter(BasicGroupItemData.ITEM_TEN);
             
-      this.timeEntered = request.getParameter(EntryData.getInstance().TIMECREATED);
-      this.lastModified = request.getParameter(EntryData.getInstance().LASTMODIFIED);
+      this.timeEntered = this.request.getParameter(EntryData.getInstance().TIMECREATED);
+      this.lastModified = this.request.getParameter(EntryData.getInstance().LASTMODIFIED);
    }
 
    private HashMap getHashMap()
@@ -127,7 +127,7 @@ public class BasicGroupItemsRequestHelper extends ModifyTable
          
          BasicGroupItemsEntityFactory.getInstance().getBasicGroupItemsEntityInstance().insert(values);
          
-         String success = "Successfully inserted " + id + " into items table";
+         String success = "Successfully inserted " + this.id + " into items table";
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
@@ -151,7 +151,7 @@ public class BasicGroupItemsRequestHelper extends ModifyTable
    {
       try
       {
-         BasicGroupItemsEntityFactory.getInstance().getBasicGroupItemsEntityInstance().delete(id);
+         BasicGroupItemsEntityFactory.getInstance().getBasicGroupItemsEntityInstance().delete(this.id);
          
          String success = "Successfully deleted";
          
@@ -184,7 +184,7 @@ public class BasicGroupItemsRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.putF(new StringMaker().append(id).append(CommonSeps.getInstance().SPACE).append(success).toString(),this,"update()");
+            this.logUtil.putF(new StringMaker().append(this.id).append(CommonSeps.getInstance().SPACE).append(success).toString(),this,"update()");
          }
          return success;
       }

@@ -47,18 +47,18 @@ extends HealthBarAnimation
         this.basicColor = this.basicColorFactory.GREEN;
         this.colorP = this.basicColor.intValue();
         
-        rectangle = new Rectangle(
+        this.rectangle = new Rectangle(
         		0, 0, 
         		1, 1, this.basicColor);
-        rectangle.setDoubleSidedEnabled(true);
-        rectangle.setNormalsEnabled(false);
-        rectangle.setTexturesEnabled(false);
+        this.rectangle.setDoubleSidedEnabled(true);
+        this.rectangle.setNormalsEnabled(false);
+        this.rectangle.setTexturesEnabled(false);
     }
 
     private void updateColor()
     {
     	ColorBufferList colorBufferList =
-    			rectangle.getVertices().getColor4BufferList();
+    			this.rectangle.getVertices().getColor4BufferList();
     	
     	int size = colorBufferList.size();
     	
@@ -70,7 +70,7 @@ extends HealthBarAnimation
 
     private void updateSize()
     {
-    	Number3dBufferList number3dBufferList = rectangle.getVertices().getPointsOnFacesNumber3dBufferList();
+    	Number3dBufferList number3dBufferList = this.rectangle.getVertices().getPointsOnFacesNumber3dBufferList();
 
         int width = x2;
         int height = this.thickness * 2;
@@ -126,7 +126,7 @@ extends HealthBarAnimation
         positionNumber3d.z = -((float) viewPosition.getY());
         positionNumber3d.y = viewPosition.getZ() + this.allbinaryLayer.getHeight();
         
-        object3dProcessor.drawObject(gl, this.rectangle);
+        this.object3dProcessor.drawObject(gl, this.rectangle);
     }
 
     /*
@@ -159,7 +159,7 @@ extends HealthBarAnimation
     /*
     for (int index = 0; index < this.thickness; index++)
     {
-        graphics.drawLine(x, y - index, x + x2, y - index);
+        graphics.drawLine(x, y - this.index, x + x2, y - this.index);
     }
     */
     
@@ -179,9 +179,9 @@ extends HealthBarAnimation
     this.fillRectangleFloatArray[0] = x;
     //this.fillRectangleFloatArray[7] = DisplayInfoSingleton.getInstance().getLastHeight() - y;
     this.fillRectangleFloatArray[7] = y;
-    this.fillRectangleFloatArray[1] = this.fillRectangleFloatArray[7] - height;
+    this.fillRectangleFloatArray[1] = this.fillRectangleFloatArray[7] - this.height;
     
-    this.fillRectangleFloatArray[3] = x + width;
+    this.fillRectangleFloatArray[3] = x + this.width;
     this.fillRectangleFloatArray[4] = this.fillRectangleFloatArray[1];
      
     this.fillRectangleFloatArray[6] = x;

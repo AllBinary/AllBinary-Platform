@@ -49,7 +49,7 @@ public class ImmediateCommandFormInputProcessor
 
             super.onPressGameKeyEvent(gameKeyEvent);
 
-            if (timeHelper.isTime())
+            if (this.timeHelper.isTime())
             {
                 this.processInput();
                 this.gameCommandCanvas.repaintBehavior.onChangeRepaint(this.getCanvas());
@@ -93,7 +93,7 @@ public class ImmediateCommandFormInputProcessor
             
             super.onUpGameKeyEvent(gameKeyEvent);
 
-            if (timeHelper.isTime())
+            if (this.timeHelper.isTime())
             {
                 this.processInput();
                 this.gameCommandCanvas.repaintBehavior.onChangeRepaint(this.getCanvas());
@@ -114,7 +114,7 @@ public class ImmediateCommandFormInputProcessor
             //PreLogUtil.put(commonStrings.START, this, "onMotionGestureEvent");
             
             super.onMotionGestureEvent(motionGestureEvent);
-            if (timeHelper.isTime())
+            if (this.timeHelper.isTime())
             {
                 this.processInput();
                 this.gameCommandCanvas.repaintBehavior.onChangeRepaint(this.getCanvas());

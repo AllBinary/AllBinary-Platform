@@ -55,6 +55,6 @@ public class GameSkillType
 
     public String toString()
     {
-        return SPELL_GAME_SKILL_TYPE + this.getName();
+        return this.SPELL_GAME_SKILL_TYPE + this.getName();
     }
 }

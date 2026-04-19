@@ -39,24 +39,24 @@ public class SecretComposite extends BaseSecretComposite {
    @Override
    public byte[] encrypt(byte[] array) throws Exception {
        array = this.mutilate(array);
-       cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+       this.cipher.init(Cipher.ENCRYPT_MODE, secretKey);
        return cipher.doFinal(array);
    }
 
    @Override
    public byte[] decrypt(byte[] array) throws Exception {
        cipher.init(Cipher.DECRYPT_MODE, secretKey);         
-       return this.mutilate(cipher.doFinal(array));
+       return this.mutilate(this.cipher.doFinal(array));
    }
    
    private byte[] mutilate(byte[] array)
    {
-      for(int index = 0; index < key.length; index++)
+      for(int index = 0; index < this.key.length; index++)
       {
-         byte value = key[index];
+         byte value = this.key[index];
          if(value < 8 && value > 0)
          {
-            array = byteUtil.xorByte(array, (int) value);
+            array = this.byteUtil.xorByte(array, (int) value);
          }
       }
       return array;

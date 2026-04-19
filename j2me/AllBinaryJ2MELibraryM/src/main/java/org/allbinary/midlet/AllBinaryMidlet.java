@@ -76,11 +76,11 @@ implements CommandListener
             
             if (title != null)
             {
-                this.logUtil.putF(new StringMaker().append(SETTING_).append(title).append(_DISPLAY_).append(StringUtil.getInstance().toString(newDisplay)).toString(), this, SET_DISPLAY);
+                this.logUtil.putF(new StringMaker().append(this.SETTING_).append(title).append(this._DISPLAY_).append(StringUtil.getInstance().toString(newDisplay)).toString(), this, SET_DISPLAY);
             }
             else
             {
-                this.logUtil.putF(new StringMaker().append(SETTING_NO_TITLE).append(StringUtil.getInstance().toString(newDisplay)).toString(), this, SET_DISPLAY);
+                this.logUtil.putF(new StringMaker().append(this.SETTING_NO_TITLE).append(StringUtil.getInstance().toString(newDisplay)).toString(), this, SET_DISPLAY);
             }            
         }
         final Display display = getDisplay();
@@ -130,7 +130,7 @@ implements CommandListener
         final String METHOD_NAME = "AllBinaryMidlet::destroyApp";
         try
         {   
-            this.logUtil.putF(commonStrings.START, this, METHOD_NAME);
+            this.logUtil.putF(this.commonStrings.START, this, METHOD_NAME);
             
             PreLogUtil.put(Memory.getInfo(), this, METHOD_NAME);
             
@@ -138,7 +138,7 @@ implements CommandListener
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, METHOD_NAME, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, METHOD_NAME, e);
         }
     }
     
@@ -150,13 +150,13 @@ implements CommandListener
 
     public Hashtable getStartStateHashtable() throws Exception
     {
-        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(hashtable)).toString(), this, "getStartStateHashtable");
+        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(this.hashtable)).toString(), this, "getStartStateHashtable");
         return this.hashtable;
     }
 
     public Hashtable getCurrentStateHashtable() throws Exception
     {
-        this.logUtil.putF(commonStrings.START, this, "getStateHashtable");
+        this.logUtil.putF(this.commonStrings.START, this, "getStateHashtable");
         return NullUtil.getInstance().NULL_TABLE;
     }
 

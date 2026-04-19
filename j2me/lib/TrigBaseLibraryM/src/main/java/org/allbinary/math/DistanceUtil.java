@@ -32,6 +32,6 @@ public class DistanceUtil
     {
         final int dx = x1 - x2;
         final int dy = y1 - y2;
-        return (int) mathUtil.sqrt((dx * dx) + (dy * dy));
+        return (int) this.mathUtil.sqrt((dx * dx) + (dy * dy));
     }
 }

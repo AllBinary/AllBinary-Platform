@@ -117,7 +117,7 @@ public class LazyImageRotationAnimation extends RotationAnimation {
     public void setRealAnimation() {
         try {
             final IndexedAnimation animation = this.animation;
-            this.animationInterfaceFactoryInterface.setInitialScale(scaleProperties);
+            this.animationInterfaceFactoryInterface.setInitialScale(this.scaleProperties);
             this.animation = (IndexedAnimation) this.animationInterfaceFactoryInterface.getInstance(this.instanceId);
             this.animation.setState(animation);
             //this.animation.setScale(this.scaleX, this.scaleY);

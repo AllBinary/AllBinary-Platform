@@ -65,7 +65,7 @@ public class HighScoreNamePersistanceSingleton
 
     public void deleteAll(final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo) throws Exception
     {
-        int size = nameBasicArrayList.size();
+        int size = this.nameBasicArrayList.size();
         for (int index = 0; index < size; index++)
         {
             final Integer integer = (Integer) this.nameBasicArrayList.objectArray[index];
@@ -142,7 +142,7 @@ public class HighScoreNamePersistanceSingleton
                         this.name = inputStream.readUTF();
                     }
 
-                    nameBasicArrayList.add(smallIntegerSingletonFactory.getInstance(id));
+                    this.nameBasicArrayList.add(smallIntegerSingletonFactory.getInstance(id));
                 }
 
             }

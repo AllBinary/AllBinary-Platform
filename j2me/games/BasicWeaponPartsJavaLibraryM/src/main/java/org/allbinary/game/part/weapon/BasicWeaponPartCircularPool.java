@@ -51,7 +51,7 @@ public class BasicWeaponPartCircularPool
 
       //BasicWeaponPart basicWeaponPart = (BasicWeaponPart) VECTOR_GRAPHIC_ARRAY[this.circularIndexUtil.getIndex()];
 
-      basicWeaponPart.init(sourceLayerInterface, weaponProperties, scoreableInterface, relativeRelationship);
+      this.basicWeaponPart.init(sourceLayerInterface, weaponProperties, scoreableInterface, relativeRelationship);
 
       //this.circularIndexUtil.next();
 

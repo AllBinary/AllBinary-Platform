@@ -54,8 +54,8 @@ implements GameNotificationListenerInterface
            final GameNotificationEvent gameNotificationEvent) 
    throws Exception
    {
-       if(lastGameNotificationEvent != gameNotificationEvent) {
-           lastGameNotificationEvent = gameNotificationEvent;
+       if(this.lastGameNotificationEvent != gameNotificationEvent) {
+           this.lastGameNotificationEvent = gameNotificationEvent;
            this.logUtil.putF(
                //commonStrings.START_LABEL + 
                gameNotificationEvent.getString(), this, METHOD_NAME);

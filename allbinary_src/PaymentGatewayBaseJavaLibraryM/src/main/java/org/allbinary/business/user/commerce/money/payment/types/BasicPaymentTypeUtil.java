@@ -52,10 +52,10 @@ public class BasicPaymentTypeUtil {
    public BasicPaymentType get(String paymentTypeString)
    throws Exception
    {
-      int size = paymentTypeVector.size();
+      int size = this.paymentTypeVector.size();
       for (int i = 0; i < size; i++)
       {
-         BasicPaymentType paymentType = (BasicPaymentType) paymentTypeVector.get(i);
+         BasicPaymentType paymentType = (BasicPaymentType) this.paymentTypeVector.get(i);
          if(paymentType.getName().compareTo(paymentTypeString) == 0)
          {
             return paymentType;
@@ -73,10 +73,10 @@ public class BasicPaymentTypeUtil {
    public Vector difference(Vector a_PaymentTypeVector)
    {
       Vector diff = new Vector();
-      int size = paymentTypeVector.size();
+      int size = this.paymentTypeVector.size();
       for (int i = 0; i < size; i++)
       {
-         BasicPaymentType paymentType = (BasicPaymentType) paymentTypeVector.get(i);
+         BasicPaymentType paymentType = (BasicPaymentType) this.paymentTypeVector.get(i);
          if(!a_PaymentTypeVector.contains(paymentType))
             diff.add(paymentType);
       }

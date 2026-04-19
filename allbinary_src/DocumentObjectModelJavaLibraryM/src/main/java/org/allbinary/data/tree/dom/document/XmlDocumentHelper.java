@@ -60,11 +60,11 @@ public class XmlDocumentHelper {
         try {
             final BooleanFactory booleanFactory = BooleanFactory.getInstance();
             final TransformerFactory transformerFactory = TransformerFactory.newInstance();
-            transformerFactory.setAttribute(INDENT_NUMBER, indent);
-            transformer = transformerFactory.newTransformer();
-            transformer.setOutputProperty(OutputKeys.ENCODING, CharacterSetData.getInstance().UTF_8);
-            transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, ignoreDeclaration ? booleanFactory.YES : booleanFactory.NO);
-            transformer.setOutputProperty(OutputKeys.INDENT, booleanFactory.YES);
+            transformerFactory.setAttribute(this.INDENT_NUMBER, indent);
+            this.transformer = transformerFactory.newTransformer();
+            this.transformer.setOutputProperty(OutputKeys.ENCODING, CharacterSetData.getInstance().UTF_8);
+            this.transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, ignoreDeclaration ? booleanFactory.YES : booleanFactory.NO);
+            this.transformer.setOutputProperty(OutputKeys.INDENT, booleanFactory.YES);
         } catch(Exception e) {
             final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
@@ -77,7 +77,7 @@ public class XmlDocumentHelper {
         final Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(src);
 
         final Writer out = new StringWriter();
-        transformer.transform(new DOMSource(document), new StreamResult(out));
+        this.transformer.transform(new DOMSource(document), new StreamResult(out));
         return out.toString();
     }
     

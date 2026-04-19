@@ -152,18 +152,18 @@ public class RotationSpriteImageJPanel extends javax.swing.JPanel
          }
       }
       ;
-      jPanel2 = new javax.swing.JPanel();
-      totalFramesJComboBox = new javax.swing.JComboBox();
-      jLabel1 = new javax.swing.JLabel();
-      generateJButton = new javax.swing.JButton();
-      totalAngleJComboBox = new javax.swing.JComboBox();
-      jLabel3 = new javax.swing.JLabel();
-      writeOverOriginalJCheckBox = new javax.swing.JCheckBox();
-      jPanel3 = new javax.swing.JPanel();
-      jLabel2 = new javax.swing.JLabel();
+      this.jPanel2 = new javax.swing.JPanel();
+      this.totalFramesJComboBox = new javax.swing.JComboBox();
+      this.jLabel1 = new javax.swing.JLabel();
+      this.generateJButton = new javax.swing.JButton();
+      this.totalAngleJComboBox = new javax.swing.JComboBox();
+      this.jLabel3 = new javax.swing.JLabel();
+      this.writeOverOriginalJCheckBox = new javax.swing.JCheckBox();
+      this.jPanel3 = new javax.swing.JPanel();
+      this.jLabel2 = new javax.swing.JLabel();
 
-      org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
-      jPanel1.setLayout(jPanel1Layout);
+      org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(this.jPanel1);
+      this.jPanel1.setLayout(jPanel1Layout);
       jPanel1Layout.setHorizontalGroup(
          jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
          .add(0, 436, Short.MAX_VALUE)
@@ -173,31 +173,31 @@ public class RotationSpriteImageJPanel extends javax.swing.JPanel
          .add(0, 227, Short.MAX_VALUE)
       );
 
-      totalFramesJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { CommonPhoneStrings.getInstance().FOUR, CommonPhoneStrings.getInstance().NINE, "18", "20", "36" }));
+      this.totalFramesJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { CommonPhoneStrings.getInstance().FOUR, CommonPhoneStrings.getInstance().NINE, "18", "20", "36" }));
 
-      jLabel1.setText("Total Frames:");
+      this.jLabel1.setText("Total Frames:");
 
-      generateJButton.setText("Generate");
+      this.generateJButton.setText("Generate");
       generateJButton.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
             generateJButtonActionPerformed(evt);
          }
       });
 
-      totalAngleJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "360", "90" }));
+      this.totalAngleJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "360", "90" }));
       totalAngleJComboBox.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
             totalAngleJComboBoxActionPerformed(evt);
          }
       });
 
-      jLabel3.setText("Total Angle:");
+      this.jLabel3.setText("Total Angle:");
 
       //writeOverOriginalJCheckBox.setSelected(true);
-      writeOverOriginalJCheckBox.setText("Write Over Original");
+      this.writeOverOriginalJCheckBox.setText("Write Over Original");
 
-      org.jdesktop.layout.GroupLayout jPanel2Layout = new org.jdesktop.layout.GroupLayout(jPanel2);
-      jPanel2.setLayout(jPanel2Layout);
+      org.jdesktop.layout.GroupLayout jPanel2Layout = new org.jdesktop.layout.GroupLayout(this.jPanel2);
+      this.jPanel2.setLayout(jPanel2Layout);
       jPanel2Layout.setHorizontalGroup(
          jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
          .add(jPanel2Layout.createSequentialGroup()
@@ -226,10 +226,10 @@ public class RotationSpriteImageJPanel extends javax.swing.JPanel
             .add(writeOverOriginalJCheckBox))
       );
 
-      jLabel2.setText("Results:");
+      this.jLabel2.setText("Results:");
 
-      org.jdesktop.layout.GroupLayout jPanel3Layout = new org.jdesktop.layout.GroupLayout(jPanel3);
-      jPanel3.setLayout(jPanel3Layout);
+      org.jdesktop.layout.GroupLayout jPanel3Layout = new org.jdesktop.layout.GroupLayout(this.jPanel3);
+      this.jPanel3.setLayout(jPanel3Layout);
       jPanel3Layout.setHorizontalGroup(
          jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
          .add(jPanel3Layout.createSequentialGroup()

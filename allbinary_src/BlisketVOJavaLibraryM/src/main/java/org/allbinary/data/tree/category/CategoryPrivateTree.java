@@ -320,15 +320,15 @@ public class CategoryPrivateTree
                      this.logUtil.putF("Inserting: " + newCategory,this,"modifyFile");
                   }
 
-                  categoryNode.insertBefore(newCategoryNode,categoriesNode);
+                  categoryNode.insertBefore(this.newCategoryNode,categoriesNode);
 
-                  hasInserted = true;
+                  this.hasInserted = true;
                }
                
                //add to end
-               if(index == categoryNodeList.getLength() - 1 && !hasInserted)
+               if(index == categoryNodeList.getLength() - 1 && !this.hasInserted)
                {
-                  categoryNode.appendChild(newCategoryNode);
+                  categoryNode.appendChild(this.newCategoryNode);
                }
             }
          }         

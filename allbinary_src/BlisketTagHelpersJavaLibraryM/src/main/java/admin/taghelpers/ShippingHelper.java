@@ -64,7 +64,7 @@ public class ShippingHelper
    private void getFormData()
    {      
       this.shippingType
-         = request.getParameter(ShippingMethodData.NAME);
+         = this.request.getParameter(ShippingMethodData.NAME);
    }      
          
    public String setShippingType()
@@ -73,7 +73,7 @@ public class ShippingHelper
       {
          String success = "Successfully Set Shipping Type";
          OrderInterface order = this.weblisketSession.getOrder();
-         order.setShippingMethod(shippingType);
+         order.setShippingMethod(this.shippingType);
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {            

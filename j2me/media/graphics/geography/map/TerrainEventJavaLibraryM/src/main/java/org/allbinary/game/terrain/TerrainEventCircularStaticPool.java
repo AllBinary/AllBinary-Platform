@@ -28,13 +28,13 @@ public class TerrainEventCircularStaticPool
     
     public void init()
     {
-        EVENT_POOL.init(new TerrainEventFactory());
+        this.EVENT_POOL.init(new TerrainEventFactory());
     }
     
     public synchronized TerrainEvent getInstance(BasicTerrainInfo basicTerrainInfo)
           throws Exception
     {
-    	TerrainEvent trackingEvent = (TerrainEvent) EVENT_POOL.getNextInstance();
+    	TerrainEvent trackingEvent = (TerrainEvent) this.EVENT_POOL.getNextInstance();
     	trackingEvent.setBasicTerrainInfoForCircularStaticPool(basicTerrainInfo);
 
         return trackingEvent;

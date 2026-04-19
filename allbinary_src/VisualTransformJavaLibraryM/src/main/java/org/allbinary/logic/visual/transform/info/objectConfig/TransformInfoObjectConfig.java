@@ -174,7 +174,7 @@ public class TransformInfoObjectConfig
    {
       this.document = DomDocumentHelper.create();
 
-      Node objectConfigNode = document.createElement(
+      Node objectConfigNode = this.document.createElement(
     		  TransformInfoObjectConfigData.getInstance().NAME);
 
       this.document.appendChild(objectConfigNode);

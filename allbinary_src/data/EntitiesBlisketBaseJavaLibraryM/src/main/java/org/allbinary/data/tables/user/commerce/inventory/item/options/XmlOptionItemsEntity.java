@@ -34,7 +34,7 @@ public class XmlOptionItemsEntity extends AbSqlBean implements XmlOptionItemsEnt
     public XmlOptionItemsEntity()
     {
         super(new InventoryDbInitInfo());
-        this.setTableName(tableName);
+        this.setTableName(this.tableName);
     }
 
     public void insert(Vector values)

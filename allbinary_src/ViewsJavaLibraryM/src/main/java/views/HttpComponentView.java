@@ -85,10 +85,10 @@ public class HttpComponentView extends TransformInfoHttpComposite
     {
         try
         {
-            final int size = domNodeInterfaceVector.size();
+            final int size = this.domNodeInterfaceVector.size();
             for(int index = 0; index < size; index++)
             {
-                DomNodeInterface domNodeInterface = (DomNodeInterface) domNodeInterfaceVector.get(index);
+                DomNodeInterface domNodeInterface = (DomNodeInterface) this.domNodeInterfaceVector.get(index);
                 this.transformDocumentInterface.getBaseNode().appendChild(
                     domNodeInterface.toXmlNode(this.transformDocumentInterface.getDoc()));
             }

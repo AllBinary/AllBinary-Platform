@@ -43,7 +43,7 @@ public class OpenGLESGL11ExtImage extends OpenGLESImage
         super(image, bitmapFactory, textureFactory);
 
         this.onDisplayChangeEvent(null);
-        rectangle = new int[]
+        this.rectangle = new int[]
         { 0, this.getHeight(), this.getWidth(), -this.getHeight() };
 
     }
@@ -55,7 +55,7 @@ public class OpenGLESGL11ExtImage extends OpenGLESImage
 
         this.onDisplayChangeEvent(null);
 
-        rectangle = new int[]
+        this.rectangle = new int[]
         { 0, this.getHeight(), this.getWidth(), -this.getHeight() };
         
         this.update(gl);

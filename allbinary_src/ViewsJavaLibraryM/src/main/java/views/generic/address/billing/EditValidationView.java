@@ -42,7 +42,7 @@ public class EditValidationView extends BillingAddressView implements Validation
       BillingAddressesEntity billingAddressesEntity =
       new BillingAddressesEntity(this.getWeblisketSession().getUserName());
       
-      this.streetAddress = billingAddressesEntity.get(new Integer(value));
+      this.streetAddress = billingAddressesEntity.get(new Integer(this.value));
       
       if(this.streetAddress==null)
       {

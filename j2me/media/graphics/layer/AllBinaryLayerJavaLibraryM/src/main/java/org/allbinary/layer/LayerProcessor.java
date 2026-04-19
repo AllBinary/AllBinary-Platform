@@ -39,14 +39,14 @@ public class LayerProcessor implements LayerProcessorInterface
     public void process(AllBinaryLayerManager allBinaryLayerManager,
             AllBinaryLayer layerInterface, int index) throws Exception
     {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
+        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     @Override
     public boolean isProcessorLayer(AllBinaryLayer layerInterface)
             throws Exception
     {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
+        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     @Override

@@ -58,7 +58,7 @@ public class DefaultGameInitializationListener
         {
             this.logUtil.putF(commonStrings.START, this, ON_GAME_INITIALIZED);
 
-            while(!swtJOGLProcessor.isHolderCreated()) {
+            while(!this.swtJOGLProcessor.isHolderCreated()) {
                 this.logUtil.putF(commonStrings.UPDATE, this, ON_GAME_INITIALIZED);
                 Thread.sleep(20);
             }
@@ -67,10 +67,10 @@ public class DefaultGameInitializationListener
             
             //swtJOGLProcessor.onSurfaceChanged();
             
-            if(firstTime) {
-                firstTime = false;
+            if(this.firstTime) {
+                this.firstTime = false;
             } else {
-                swtJOGLProcessor.onSurfaceChanged();
+                this.swtJOGLProcessor.onSurfaceChanged();
             }
             
         }

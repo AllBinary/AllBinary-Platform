@@ -32,6 +32,6 @@ public class HtmlInputData {
 	   
 	   public final String TYPES[]
 	   =
-	   {TEXT,RADIO,CHECKBOX,HIDDEN,IMAGE,
-	    PASSWORD,RADIO,RESET,SUBMIT};	
+	   {this.TEXT,RADIO,CHECKBOX,HIDDEN,IMAGE,
+	    this.PASSWORD,RADIO,RESET,this.SUBMIT};	
 }

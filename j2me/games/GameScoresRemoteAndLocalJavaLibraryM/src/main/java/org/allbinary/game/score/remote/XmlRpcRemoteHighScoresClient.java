@@ -52,7 +52,7 @@ public class XmlRpcRemoteHighScoresClient extends XmlRpcAbeClient
             
             int index = serverUrl.lastIndexOf('/');
 
-            serverUrl = serverUrl.substring(0, index + 1) + page;
+            serverUrl = serverUrl.substring(0, index + 1) + this.page;
             
             StringMaker stringBuffer = new StringMaker();
             stringBuffer.append(TRYING);

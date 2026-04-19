@@ -89,12 +89,12 @@ public class GenericProfileActionScriptJPanel
     // <editor-fold defaultstate="collapsed" desc=" Generated Code ">//GEN-BEGIN:initComponents
     private void initComponents()
     {
-        jScrollPane1 = new javax.swing.JScrollPane();
-        actionScriptJTree = new javax.swing.JTree();
+        this.jScrollPane1 = new javax.swing.JScrollPane();
+        this.actionScriptJTree = new javax.swing.JTree();
 
         setLayout(new java.awt.GridLayout(1, 0));
 
-        actionScriptJTree.setPreferredSize(new java.awt.Dimension(500, 500));
+        this.actionScriptJTree.setPreferredSize(new java.awt.Dimension(500, 500));
         actionScriptJTree.addMouseListener(new java.awt.event.MouseAdapter()
         {
             public void mouseClicked(java.awt.event.MouseEvent evt)
@@ -107,9 +107,9 @@ public class GenericProfileActionScriptJPanel
             }
         });
 
-        jScrollPane1.setViewportView(actionScriptJTree);
+        this.jScrollPane1.setViewportView(this.actionScriptJTree);
 
-        add(jScrollPane1);
+        add(this.jScrollPane1);
 
     }// </editor-fold>//GEN-END:initComponents
     

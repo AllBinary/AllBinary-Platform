@@ -87,8 +87,8 @@ public class AuthenticationRequestHelper
    {
       try
       {
-         String userName = request.getParameter(WeblisketSessionData.REMOVABLEUSERNAME);
-         String email = request.getParameter(UserData.MAINEMAIL);
+         String userName = this.request.getParameter(WeblisketSessionData.REMOVABLEUSERNAME);
+         String email = this.request.getParameter(UserData.MAINEMAIL);
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
          {
@@ -104,7 +104,7 @@ public class AuthenticationRequestHelper
             {
                this.logUtil.putF("Trying role from request for: " + userName, this, "newPassword()");
             }
-            String roleString = request.getParameter(UserRoleData.NAME);
+            String roleString = this.request.getParameter(UserRoleData.NAME);
             if(role != null)
             {
                role = UserRole.getRole(roleString);
@@ -160,10 +160,10 @@ public class AuthenticationRequestHelper
    {
       try
       {
-         String userName = request.getParameter(WeblisketSessionData.REMOVABLEUSERNAME);
-         String passwordString = request.getParameter(WeblisketSessionData.REMOVABLEPASSWORD);
-         String newPassword = request.getParameter(WeblisketSessionData.REMOVABLENEWPASSWORD);
-         String newReenteredPassword = request.getParameter(WeblisketSessionData.REMOVABLEREENTERNEWPASSWORD);
+         String userName = this.request.getParameter(WeblisketSessionData.REMOVABLEUSERNAME);
+         String passwordString = this.request.getParameter(WeblisketSessionData.REMOVABLEPASSWORD);
+         String newPassword = this.request.getParameter(WeblisketSessionData.REMOVABLENEWPASSWORD);
+         String newReenteredPassword = this.request.getParameter(WeblisketSessionData.REMOVABLEREENTERNEWPASSWORD);
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
          {
@@ -179,7 +179,7 @@ public class AuthenticationRequestHelper
             {
                this.logUtil.putF("Trying role from request for: " + userName, this, "newPassword()");
             }
-            String roleString = request.getParameter(UserRoleData.NAME);
+            String roleString = this.request.getParameter(UserRoleData.NAME);
             if(role != null)
             {
                role = UserRole.getRole(roleString);
@@ -279,7 +279,7 @@ public class AuthenticationRequestHelper
                
                /*if(userInterface.hasPermission(new RequestParams(this.request)))
                {
-                  userInterface.validateSession(weblisketSession,new RequestParams(this.request));
+                  userInterface.validateSession(this.weblisketSession,new RequestParams(this.request));
                }
                else
                {
@@ -294,7 +294,7 @@ public class AuthenticationRequestHelper
                }
                 */
                
-               userInterface.validateSession((WeblisketSessionInterface) weblisketSession);
+               userInterface.validateSession((WeblisketSessionInterface) this.weblisketSession);
                
                this.request.removeAttribute(WeblisketSessionData.REMOVABLEUSERNAME);
                this.request.removeAttribute(WeblisketSessionData.REMOVABLEPASSWORD);

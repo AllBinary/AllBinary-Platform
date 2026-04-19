@@ -62,8 +62,8 @@ implements VelocityInterfaceCompositeInterface
     {
         int scaleFactorValue = this.speedBasicDecimal.getScaledFactorValue();
         
-        int xVector = (int) (axisMathVectorUtil.calculateX(radius, angle) / scaleFactorValue);
-        int yVector = (int) (axisMathVectorUtil.calculateY(radius, angle) / scaleFactorValue);
+        int xVector = (int) (this.axisMathVectorUtil.calculateX(radius, angle) / scaleFactorValue);
+        int yVector = (int) (this.axisMathVectorUtil.calculateY(radius, angle) / scaleFactorValue);
         //int zVector = (int) (axisMathVectorUtil.calculateZ(radius, otherAngle) / scaleFactorValue);
 
         //layer.move(xVector, yVector, zVector);

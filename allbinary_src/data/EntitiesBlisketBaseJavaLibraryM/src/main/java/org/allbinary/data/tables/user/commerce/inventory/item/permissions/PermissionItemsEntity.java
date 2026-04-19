@@ -34,7 +34,7 @@ public class PermissionItemsEntity extends AbSqlBean implements PermissionItemsE
     public PermissionItemsEntity()
     {
         super(new InventoryDbInitInfo());
-        this.setTableName(tableName);
+        this.setTableName(this.tableName);
     }
 
     public void insert(Vector values)

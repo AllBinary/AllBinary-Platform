@@ -60,33 +60,33 @@ public class ImageComparisonSearch
       
       if(bufferedImage.getHeight() != bufferedImage2.getHeight())
       {
-          isSameHeight = false;
+          this.isSameHeight = false;
           
-          if(imageHeight > bufferedImage2.getHeight())
+          if(this.imageHeight > bufferedImage2.getHeight())
           {
               this.imageHeight = bufferedImage2.getHeight();
           }
       }
       else
       {
-          isSameHeight = true;
+          this.isSameHeight = true;
       }
 
       if(bufferedImage.getWidth() != bufferedImage2.getWidth())
       {
-          isSameWidth = false;
+          this.isSameWidth = false;
 
-          if(imageWidth > bufferedImage2.getWidth())
+          if(this.imageWidth > bufferedImage2.getWidth())
           {
               this.imageWidth = bufferedImage2.getWidth();
           }
       }
       else
       {
-          isSameWidth = true;
+          this.isSameWidth = true;
       }
       
-      if(!isSameWidth || !isSameHeight)
+      if(!this.isSameWidth || !this.isSameHeight)
       {
           final ImageUtil imageUtil = ImageUtil.getInstance();
           this.logUtil.putF("Images were not the same size? Most likely a resolution change.", this, this.commonStrings.CONSTRUCTOR);
@@ -99,7 +99,7 @@ public class ImageComparisonSearch
    {
       if(this.matchingPercent == -1)
       {
-         this.matchingPercent = (float)pixelsThatMatch / (this.imageWidth * this.imageHeight);
+         this.matchingPercent = (float)this.pixelsThatMatch / (this.imageWidth * this.imageHeight);
       }
 
       return this.matchingPercent;

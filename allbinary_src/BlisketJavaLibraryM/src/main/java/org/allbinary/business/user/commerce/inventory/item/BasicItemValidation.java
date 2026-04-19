@@ -302,7 +302,7 @@ public class BasicItemValidation extends Validation
             this.itemInterface.getWeight().length()<1 || 
             this.itemInterface.getWeight().length()>MAXWEIGHT)
          {
-            stringBuffer.append("Weight value is invalid. Must be < " + MAXWEIGHT + " and > 0 digits.<br />");
+            stringBuffer.append("Weight value is invalid. Must be < " + this.MAXWEIGHT + " and > 0 digits.<br />");
          }
          
          if(this.itemInterface.getWeight()!=null && 
@@ -414,7 +414,7 @@ public class BasicItemValidation extends Validation
          
          if(this.itemInterface.getPrice()==null || !this.itemInterface.getPrice().isValid())
          {
-            stringBuffer.append("Price value is invalid. Must be < " + MAXPRICE + " and > 0 in length.<br />");
+            stringBuffer.append("Price value is invalid. Must be < " + this.MAXPRICE + " and > 0 in length.<br />");
          }
          
          /*

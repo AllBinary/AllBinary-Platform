@@ -34,7 +34,7 @@ public class TouchJ2ME
     public TouchJ2ME()
     {
         BasicMotionGesturesHandler motionGesturesHandler =
-            motionRecognizer.getMotionGestureRecognizer().getMotionGesturesHandler();
+            this.motionRecognizer.getMotionGestureRecognizer().getMotionGesturesHandler();
 
         motionGesturesHandler.addListener(
             new GameMotionGestureListener(
@@ -45,7 +45,7 @@ public class TouchJ2ME
     {
         try
         {
-            motionRecognizer.processDraggedMotionEvent(x, y, DEVICE_ID, 0);
+            this.motionRecognizer.processDraggedMotionEvent(x, y, DEVICE_ID, 0);
         }
         catch(Exception e)
         {
@@ -58,7 +58,7 @@ public class TouchJ2ME
     {
         try
         {
-            motionRecognizer.processStartMotionEvent(x, y, DEVICE_ID, 0);
+            this.motionRecognizer.processStartMotionEvent(x, y, DEVICE_ID, 0);
         }
         catch(Exception e)
         {
@@ -71,7 +71,7 @@ public class TouchJ2ME
     {
         try
         {
-            motionRecognizer.processEndMotionEvent(x, y, DEVICE_ID, 0);
+            this.motionRecognizer.processEndMotionEvent(x, y, DEVICE_ID, 0);
         }
         catch(Exception e)
         {

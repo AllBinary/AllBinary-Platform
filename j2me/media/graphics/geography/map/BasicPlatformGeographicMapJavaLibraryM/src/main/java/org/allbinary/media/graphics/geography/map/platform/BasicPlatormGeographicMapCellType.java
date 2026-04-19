@@ -61,7 +61,7 @@ public class BasicPlatormGeographicMapCellType //extends GeographicMapCellType
     public boolean isType(final int type) {
         final int size = types.length;
         for(int index = 0; index < size; index++) {
-            if(types[index] == type) {
+            if(this.types[index] == type) {
                 return true;
             }
         }

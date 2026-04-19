@@ -38,7 +38,7 @@ public class CommandUriAction
 
     public void add(Command command, String url)
     {
-        hashtable.put(command, url);
+        this.hashtable.put(command, url);
     }
 
     public void process(Command command)
@@ -70,7 +70,7 @@ public class CommandUriAction
     
     public Intent getIntent(Command command)
     {
-        String url = (String) hashtable.get(command);
+        String url = (String) this.hashtable.get(command);
         
         Uri uri = Uri.parse(url);
 

@@ -58,7 +58,7 @@ public class CategoryAbstractFactory implements CategoryFactoryInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(commonStrings.EXCEPTION, this, "getInstance(String, int)", e);
+            LogUtil.put(this.commonStrings.EXCEPTION, this, "getInstance(String, int)", e);
          }
          return null;
       }
@@ -82,7 +82,7 @@ public class CategoryAbstractFactory implements CategoryFactoryInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(commonStrings.EXCEPTION, this, "getInstance(String, int)", e);
+            LogUtil.put(this.commonStrings.EXCEPTION, this, "getInstance(String, int)", e);
          }
          return null;
       }
@@ -111,7 +111,7 @@ public class CategoryAbstractFactory implements CategoryFactoryInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "getInstance(String, int)", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "getInstance(String, int)", e);
          }
          return null;
       }
@@ -135,7 +135,7 @@ public class CategoryAbstractFactory implements CategoryFactoryInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(commonStrings.EXCEPTION, this, "getInstance(String, int)", e);
+            LogUtil.put(this.commonStrings.EXCEPTION, this, "getInstance(String, int)", e);
          }
          return null;
       }
@@ -166,7 +166,7 @@ public class CategoryAbstractFactory implements CategoryFactoryInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "getInstance(CategoryInterface, CategoryInterface , String, int)", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "getInstance(CategoryInterface, CategoryInterface , String, int)", e);
          }
          return null;
       }
@@ -191,7 +191,7 @@ public class CategoryAbstractFactory implements CategoryFactoryInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "getInstance(Node, int)", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "getInstance(Node, int)", e);
          }
          return null;
       }
@@ -212,7 +212,7 @@ public class CategoryAbstractFactory implements CategoryFactoryInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(commonStrings.EXCEPTION, this, "getInstance(Node, int)", e);
+            LogUtil.put(this.commonStrings.EXCEPTION, this, "getInstance(Node, int)", e);
          }
          return null;
       }
@@ -265,7 +265,7 @@ public class CategoryAbstractFactory implements CategoryFactoryInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(commonStrings.EXCEPTION, this, "getInstance(HashMap)", e);
+            LogUtil.put(this.commonStrings.EXCEPTION, this, "getInstance(HashMap)", e);
          }
          return null;
       }

@@ -31,7 +31,7 @@ public class LimitCommandsVisitor
         DisplayInfoSingleton displayInfo =
                 DisplayInfoSingleton.getInstance();
 
-        isNotSmallDisplay = 
+        this.isNotSmallDisplay = 
                 (displayInfo.isPortrait() && displayInfo.getLastHeight() > ScreenInfo.getInstance().SMALL_WIDTH) ||
                 (!displayInfo.isPortrait() && displayInfo.getLastHeight() > ScreenInfo.getInstance().SMALL_HEIGHT);
     }
@@ -43,7 +43,7 @@ public class LimitCommandsVisitor
 
         BooleanFactory booleanFactory = BooleanFactory.getInstance();
         
-        if (isNotSmallDisplay || command.getPriority() == 1
+        if (this.isNotSmallDisplay || command.getPriority() == 1
                 || command == GameCommandsFactory.getInstance().EXIT_COMMAND
                 || command == GameCommandsFactory.getInstance().EXIT_WITHOUT_PROGRESS_COMMAND)
         {

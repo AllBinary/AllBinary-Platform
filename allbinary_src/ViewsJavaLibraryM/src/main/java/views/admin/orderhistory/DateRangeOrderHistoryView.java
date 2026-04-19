@@ -99,24 +99,24 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
    
    private void getFormData()
    {
-      this.dateType = request.getParameter(OrderHistoryData.DATETYPE);
-      this.preprocessing = request.getParameter(OrderHistoryData.PREPROCESSINGNAME);
-      this.shipped = request.getParameter(OrderHistoryData.SHIPPEDNAME);
-      this.partiallyShipped = request.getParameter(OrderHistoryData.PARTIALLYSHIPPEDNAME);
-      this.processing = request.getParameter(OrderHistoryData.PROCESSINGNAME);
-      this.cancelled = request.getParameter(OrderHistoryData.CANCELLEDNAME);
+      this.dateType = this.request.getParameter(OrderHistoryData.DATETYPE);
+      this.preprocessing = this.request.getParameter(OrderHistoryData.PREPROCESSINGNAME);
+      this.shipped = this.request.getParameter(OrderHistoryData.SHIPPEDNAME);
+      this.partiallyShipped = this.request.getParameter(OrderHistoryData.PARTIALLYSHIPPEDNAME);
+      this.processing = this.request.getParameter(OrderHistoryData.PROCESSINGNAME);
+      this.cancelled = this.request.getParameter(OrderHistoryData.CANCELLEDNAME);
       
-      this.fromYear = request.getParameter(OrderHistoryData.FROMYEAR);
-      this.fromMonth = request.getParameter(OrderHistoryData.FROMMONTH);
-      this.fromDay = request.getParameter(OrderHistoryData.FROMDAY);
-      this.fromHour = request.getParameter(OrderHistoryData.FROMHOUR);
+      this.fromYear = this.request.getParameter(OrderHistoryData.FROMYEAR);
+      this.fromMonth = this.request.getParameter(OrderHistoryData.FROMMONTH);
+      this.fromDay = this.request.getParameter(OrderHistoryData.FROMDAY);
+      this.fromHour = this.request.getParameter(OrderHistoryData.FROMHOUR);
       
-      this.toYear = request.getParameter(OrderHistoryData.TOYEAR);
-      this.toMonth = request.getParameter(OrderHistoryData.TOMONTH);
-      this.toDay = request.getParameter(OrderHistoryData.TODAY);
-      this.toHour = request.getParameter(OrderHistoryData.TOHOUR);
+      this.toYear = this.request.getParameter(OrderHistoryData.TOYEAR);
+      this.toMonth = this.request.getParameter(OrderHistoryData.TOMONTH);
+      this.toDay = this.request.getParameter(OrderHistoryData.TODAY);
+      this.toHour = this.request.getParameter(OrderHistoryData.TOHOUR);
       
-      this.command = request.getParameter(GLOBALS2.ADMINCOMMAND);
+      this.command = this.request.getParameter(GLOBALS2.ADMINCOMMAND);
    }
    
    public void addDomNodeInterfaces()
@@ -162,7 +162,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
          Node node = document.createElement(OrderData.ORDERS);
          
             /*
-            if(preprocessing!=null && preprocessing.compareTo(OrderHistoryData.PREPROCESSING)==0)
+            if(this.preprocessing!=null && this.preprocessing.compareTo(OrderHistoryData.PREPROCESSING)==0)
             {
                Node preprocessingNode = document.createElement(OrderHistoryData.PREPROCESSING);
              
@@ -177,7 +177,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
                node.appendChild(preprocessingNode);
             }
              
-            if(shipped!=null && shipped.compareTo(OrderHistoryData.SHIPPED)==0)
+            if(this.shipped!=null && this.shipped.compareTo(OrderHistoryData.SHIPPED)==0)
             {
                Node shippedNode = document.createElement(OrderHistoryData.SHIPPED);
              
@@ -192,7 +192,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
                node.appendChild(shippedNode);
             }
              
-            if(partiallyShipped!=null && partiallyShipped.compareTo(OrderHistoryData.PARTIALLYSHIPPED)==0)
+            if(this.partiallyShipped!=null && this.partiallyShipped.compareTo(OrderHistoryData.PARTIALLYSHIPPED)==0)
             {
                Node partiallyShippedNode = document.createElement(OrderHistoryData.PARTIALLYSHIPPED);
              
@@ -207,7 +207,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
                node.appendChild(partiallyShippedNode);
             }
              
-            if(processing!=null && processing.compareTo(OrderHistoryData.PROCESSING)==0)
+            if(this.processing!=null && this.processing.compareTo(OrderHistoryData.PROCESSING)==0)
             {
                Node processingNode = document.createElement(OrderHistoryData.PROCESSING);
              
@@ -222,7 +222,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
                node.appendChild(processingNode);
             }
              
-            if(cancelled!=null && cancelled.compareTo(OrderHistoryData.CANCELLED)==0)
+            if(this.cancelled!=null && this.cancelled.compareTo(OrderHistoryData.CANCELLED)==0)
             {
                Node cancelledNode = document.createElement(OrderHistoryData.CANCELLED);
              
@@ -249,7 +249,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
             }
              */
          
-         if(preprocessing!=null && preprocessing.compareTo(ON)==0)
+         if(this.preprocessing!=null && this.preprocessing.compareTo(this.ON)==0)
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
@@ -266,7 +266,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
             }
          }
          
-         if(shipped!=null && shipped.compareTo(ON)==0)
+         if(this.shipped!=null && this.shipped.compareTo(this.ON)==0)
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
@@ -283,7 +283,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
             }
          }
          
-         if(partiallyShipped!=null && partiallyShipped.compareTo(ON)==0)
+         if(this.partiallyShipped!=null && this.partiallyShipped.compareTo(this.ON)==0)
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
@@ -300,7 +300,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
             }
          }
          
-         if(processing!=null && processing.compareTo(ON)==0)
+         if(this.processing!=null && this.processing.compareTo(this.ON)==0)
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
@@ -317,7 +317,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
             }
          }
          
-         if(cancelled!=null && cancelled.compareTo(ON)==0)
+         if(this.cancelled!=null && this.cancelled.compareTo(this.ON)==0)
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
@@ -379,17 +379,17 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
          
          Boolean isValid = Boolean.TRUE;
          
-         if(dateType==null ||
+         if(this.dateType==null ||
          (dateType.compareTo(OrderHistoryData.TYPELONG)!=0 &&
          dateType.compareTo(OrderHistoryData.TYPECAESAR)!=0))
          {
             isValid = Boolean.FALSE;
          }
          
-         if(dateType!=null)
+         if(this.dateType!=null)
          {
             
-            if(dateType.compareTo(OrderHistoryData.TYPELONG)==0)
+            if(this.dateType.compareTo(OrderHistoryData.TYPELONG)==0)
             {
                Calendar calendar = Calendar.getInstance();
                long currentTime = calendar.getTimeInMillis();
@@ -397,31 +397,31 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
                //set date delta OrderHistoryData.DATEDELTA
                String rangeDate = StringUtil.getInstance().EMPTY_STRING;
                
-               if(command.compareTo(VIEWORDERSINLASTHOUR)==0)
+               if(this.command.compareTo(this.VIEWORDERSINLASTHOUR)==0)
                {
                   long oneHour = (long) 60*60*1000;
                   rangeDate = new Long(oneHour).toString();
                }
                else
-                  if(command.compareTo(VIEWORDERSINLASTDAY)==0)
+                  if(this.command.compareTo(this.VIEWORDERSINLASTDAY)==0)
                   {
                      long oneDay = (long) 24*60*60*1000;
                      rangeDate = new Long(oneDay).toString();
                   }
                   else
-                     if(command.compareTo(VIEWORDERSINLASTWEEK)==0)
+                     if(this.command.compareTo(this.VIEWORDERSINLASTWEEK)==0)
                      {
                         long oneWeek = (long) 7*24*60*60*1000;
                         rangeDate = new Long(oneWeek).toString();
                      }
                      else
-                        if(command.compareTo(VIEWORDERSINLAST30DAYS)==0)
+                        if(this.command.compareTo(this.VIEWORDERSINLAST30DAYS)==0)
                         {
                            long thirtyDays = (long) 30*24*60*60*1000;
                            rangeDate = new Long(thirtyDays).toString();
                         }
                         else
-                           if(command.compareTo(VIEWALLORDERS)==0)
+                           if(this.command.compareTo(this.VIEWALLORDERS)==0)
                            {
                               rangeDate = new Long(currentTime).toString();
                            }
@@ -432,7 +432,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
                this.toDate = time;
             }
             else
-               if(dateType.compareTo(OrderHistoryData.TYPECAESAR)==0)
+               if(this.dateType.compareTo(OrderHistoryData.TYPECAESAR)==0)
                {
                    Calendar calendar = Calendar.getInstance();
 
@@ -447,12 +447,12 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
                   this.toDate = new Long(calendar.getTimeInMillis()).toString();
                }
             
-            if(StringValidationUtil.getInstance().isEmpty(toDate) || toDate.length()>MAXLEN)
+            if(StringValidationUtil.getInstance().isEmpty(this.toDate) || this.toDate.length()>this.MAXLEN)
             {
                isValid = Boolean.FALSE;
             }
             
-            if(StringValidationUtil.getInstance().isEmpty(fromDate) || fromDate.length()>MAXLEN)
+            if(StringValidationUtil.getInstance().isEmpty(this.fromDate) || this.fromDate.length()>this.MAXLEN)
             {
                isValid = Boolean.FALSE;
             }
@@ -502,19 +502,19 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
          
          StringMaker result = new StringMaker();
          
-         if(dateType==null ||
+         if(this.dateType==null ||
          (dateType.compareTo(OrderHistoryData.TYPELONG)!=0 &&
          dateType.compareTo(OrderHistoryData.TYPECAESAR)!=0))
          {
             result.append("DATETYPE not recognized");
          }
          
-         if(StringValidationUtil.getInstance().isEmpty(toDate) || toDate.length()>MAXLEN)
+         if(StringValidationUtil.getInstance().isEmpty(this.toDate) || this.toDate.length()>this.MAXLEN)
          {
             result.append("Invalid To Date");
          }
          
-         if(StringValidationUtil.getInstance().isEmpty(fromDate) || fromDate.length()>MAXLEN)
+         if(StringValidationUtil.getInstance().isEmpty(this.fromDate) || this.fromDate.length()>this.MAXLEN)
          {
             result.append("Invalid From Date");
          }

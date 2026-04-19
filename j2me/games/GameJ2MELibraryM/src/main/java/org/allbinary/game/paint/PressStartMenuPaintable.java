@@ -44,15 +44,15 @@ public class PressStartMenuPaintable extends Paintable
     {
         if (TouchScreenFactory.getInstance().isTouch())
         {
-            startString = this.PRESS_START;
+            this.startString = this.PRESS_START;
         }
         else if (AppletUtil.isAppletLoader(this))
         {
-            startString = this.KEY_START;
+            this.startString = this.KEY_START;
         }
         else
         {
-            startString = this.MENU_START;
+            this.startString = this.MENU_START;
         }
     }
 
@@ -61,7 +61,7 @@ public class PressStartMenuPaintable extends Paintable
     @Override
     public void paint(Graphics graphics)
     {
-        if (timeDelayHelper.isTime())
+        if (this.timeDelayHelper.isTime())
         {
             if (this.isFlash())
             {
@@ -78,7 +78,7 @@ public class PressStartMenuPaintable extends Paintable
             DisplayInfoSingleton displayInfo = DisplayInfoSingleton
                     .getInstance();
 
-            int beginWidth = (graphics.getFont().stringWidth(startString) >> 1);
+            int beginWidth = (graphics.getFont().stringWidth(this.startString) >> 1);
 
             final MyFont myFont = MyFont.getInstance();            
             final int line = (4 * myFont.DEFAULT_CHAR_HEIGHT) + (myFont.DEFAULT_CHAR_HEIGHT >> 1);

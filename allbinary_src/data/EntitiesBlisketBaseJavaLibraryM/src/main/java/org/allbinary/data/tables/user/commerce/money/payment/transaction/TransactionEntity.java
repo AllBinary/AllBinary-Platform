@@ -37,7 +37,7 @@ public class TransactionEntity extends AbSqlBean implements TransactionEntityInt
     public TransactionEntity()
     {
         super(new UserDbInitInfo());
-        this.setTableName(tableName);
+        this.setTableName(this.tableName);
     }
 
     public void remove(String userName, String orderNumber)
@@ -137,7 +137,7 @@ public class TransactionEntity extends AbSqlBean implements TransactionEntityInt
         StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.sqlStrings.CREATE_TABLE);
-        stringBuffer.append(tableName);
+        stringBuffer.append(this.tableName);
         stringBuffer.append(this.sqlStrings.START);
 
         stringBuffer.append(OrderData.ID)

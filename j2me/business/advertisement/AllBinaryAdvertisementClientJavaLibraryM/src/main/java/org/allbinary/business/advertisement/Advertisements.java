@@ -36,7 +36,7 @@ public class Advertisements
 
         if(size > 0)
         {
-            int random = myRandomFactory.getAbsoluteNextInt(size);
+            int random = this.myRandomFactory.getAbsoluteNextInt(size);
             
             AdvertisementProcessorInterface advertisementProcessorInterface = 
                 (AdvertisementProcessorInterface)
@@ -56,7 +56,7 @@ public class Advertisements
 
             if(size > 0)
             {
-                int random = myRandomFactory.getAbsoluteNextInt(size);
+                int random = this.myRandomFactory.getAbsoluteNextInt(size);
                 
                 AdvertisementProcessorInterface advertisementProcessorInterface = 
                     (AdvertisementProcessorInterface)

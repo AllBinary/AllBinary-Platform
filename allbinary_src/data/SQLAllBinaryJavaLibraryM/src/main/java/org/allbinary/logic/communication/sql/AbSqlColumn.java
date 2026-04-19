@@ -73,7 +73,7 @@ public class AbSqlColumn extends AbSqlTable
 
                 stringBuffer.append(sqlStrings.SQL_STATEMENT_LABEL);
                 stringBuffer.append(sqlStatement);
-                stringBuffer.append(LARGEST_INT_VALUE_IN_COLUMN);
+                stringBuffer.append(this.LARGEST_INT_VALUE_IN_COLUMN);
                 stringBuffer.append(largestAsString);
 
                 this.logUtil.putF(stringBuffer.toString(), this, METHOD_GET_LARGETS_INTEGER_IN_COLUMN);

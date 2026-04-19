@@ -52,10 +52,10 @@ public class InitDb
    {      
       try
       {
-         Class dynamicClass = object.getClass();
-         Method method = dynamicClass.getMethod(METHOD_CALL_GET_HOST_NAME, null);
+         Class dynamicClass = this.object.getClass();
+         Method method = dynamicClass.getMethod(this.METHOD_CALL_GET_HOST_NAME, null);
          
-         String result = (String) method.invoke(object,null);
+         String result = (String) method.invoke(this.object,null);
          return result;
       }
       catch(Exception e)
@@ -68,10 +68,10 @@ public class InitDb
    {
       try
       {
-         Class dynamicClass = object.getClass();
-         Method method = dynamicClass.getMethod(METHOD_CALL_ADD_USERS, null);
+         Class dynamicClass = this.object.getClass();
+         Method method = dynamicClass.getMethod(this.METHOD_CALL_ADD_USERS, null);
          
-         Boolean result = (Boolean) method.invoke(object,null);
+         Boolean result = (Boolean) method.invoke(this.object,null);
          return result.booleanValue();
       }
       catch(Exception e)
@@ -84,10 +84,10 @@ public class InitDb
    {
       try
       {
-         Class dynamicClass = object.getClass();
-         Method method = dynamicClass.getMethod(METHOD_CALL_ADD_DATABASES, null);
+         Class dynamicClass = this.object.getClass();
+         Method method = dynamicClass.getMethod(this.METHOD_CALL_ADD_DATABASES, null);
          
-         Boolean result = (Boolean) method.invoke(object,null);
+         Boolean result = (Boolean) method.invoke(this.object,null);
          return result.booleanValue();
       }
       catch(Exception e)
@@ -100,10 +100,10 @@ public class InitDb
    {
       try
       {
-         Class dynamicClass = object.getClass();
-         Method method = dynamicClass.getMethod(METHOD_CALL_ADD_TABLES, null);
+         Class dynamicClass = this.object.getClass();
+         Method method = dynamicClass.getMethod(this.METHOD_CALL_ADD_TABLES, null);
          
-         Boolean result = (Boolean) method.invoke(object, null);
+         Boolean result = (Boolean) method.invoke(this.object, null);
          return result.booleanValue();
       }
       catch(Exception e)
@@ -116,10 +116,10 @@ public class InitDb
    {
       try
       {
-         Class dynamicClass = object.getClass();
-         Method method = dynamicClass.getMethod(METHOD_CALL_TEMP_MAIN_PATH, null);
+         Class dynamicClass = this.object.getClass();
+         Method method = dynamicClass.getMethod(this.METHOD_CALL_TEMP_MAIN_PATH, null);
          
-         Boolean result = (Boolean) method.invoke(object,null);
+         Boolean result = (Boolean) method.invoke(this.object,null);
          return result.booleanValue();
       }
       catch(Exception e)
@@ -132,10 +132,10 @@ public class InitDb
    {
       try
       {
-         Class dynamicClass = object.getClass();
-         Method method = dynamicClass.getMethod(METHOD_CALL_MAIN_PATH, null);
+         Class dynamicClass = this.object.getClass();
+         Method method = dynamicClass.getMethod(this.METHOD_CALL_MAIN_PATH, null);
          
-         Boolean result = (Boolean) method.invoke(object,null);
+         Boolean result = (Boolean) method.invoke(this.object,null);
          return result.booleanValue();
       }
       catch(Exception e)

@@ -54,9 +54,9 @@ public class RTSFormInput
     public RTSFormInput(final Group[] groupInterfaceArray)
     {
         //this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
-        final int size = newUnconstructedRTSLayerInterfaceArray.length;
+        final int size = this.newUnconstructedRTSLayerInterfaceArray.length;
         for(int index = 0; index < size; index++) {
-            newUnconstructedRTSLayerInterfaceArray[index] = CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER;
+            this.newUnconstructedRTSLayerInterfaceArray[index] = CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER;
         }
 
         this.groupInterfaceArray = groupInterfaceArray;
@@ -205,7 +205,7 @@ public class RTSFormInput
 
         if (layerInterfaceFactoryInterface != null)
         {
-            hashtable.put(AllBinaryGameLayerManager.ID, layerManager);
+            this.hashtable.put(AllBinaryGameLayerManager.ID, layerManager);
             return (RTSLayer) layerInterfaceFactoryInterface.getInstance(
                 getHashtable(), cellPoint.getX(), cellPoint.getY(), cellPoint.getZ());
             //lastLayerInterfaceFactoryInterface = layerInterfaceFactoryInterface;

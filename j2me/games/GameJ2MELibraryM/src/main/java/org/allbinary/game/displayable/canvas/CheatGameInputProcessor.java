@@ -59,7 +59,7 @@ public class CheatGameInputProcessor extends PlayerGameInput
                 final Object object = list.objectArray[index];
                 final int key = GameKeyEventUtil.getKey(object);
 
-                if (key == gameKeyFactory.LEVEL_DOWN.getId())
+                if (key == this.gameKeyFactory.LEVEL_DOWN.getId())
                 {
                     inputProcessor.strafeLeft();
                     
@@ -68,7 +68,7 @@ public class CheatGameInputProcessor extends PlayerGameInput
                     //this.gameCanvas.buildGame(true);
                     break;
                 }
-                else if (key == gameKeyFactory.LEVEL_UP.getId())
+                else if (key == this.gameKeyFactory.LEVEL_UP.getId())
                 {
                     inputProcessor.strafeRight();
                     
@@ -78,28 +78,28 @@ public class CheatGameInputProcessor extends PlayerGameInput
                     break;
                 }
                 
-                if (key == gameKeyFactory.LEFT.getId())
+                if (key == this.gameKeyFactory.LEFT.getId())
                 {   
                     inputProcessor.left();
 //                    x+=1;
 //                    this.logUtil.putF(new StringMaker().append("x: ").append(x).toString(), this, PROCESS_GAME);
                     break;
                 }
-                else if (key == gameKeyFactory.RIGHT.getId())
+                else if (key == this.gameKeyFactory.RIGHT.getId())
                 {   
                     inputProcessor.right();
 //                    x-=1;
 //                    this.logUtil.putF(new StringMaker().append("x: ").append(x).toString(), this, PROCESS_GAME);
                     break;
                 }
-                else if (key == gameKeyFactory.UP.getId())
+                else if (key == this.gameKeyFactory.UP.getId())
                 {
                     inputProcessor.up();
 //                    y+=1;
 //                    this.logUtil.putF(new StringMaker().append("y: ").append(y).toString(), this, PROCESS_GAME);   
                     break;
                 }
-                else if (key == gameKeyFactory.DOWN.getId())
+                else if (key == this.gameKeyFactory.DOWN.getId())
                 {
                     inputProcessor.down();
 //                    y-=1;
@@ -107,7 +107,7 @@ public class CheatGameInputProcessor extends PlayerGameInput
                     break;
                 }
                 //3
-                else if (key == gameKeyFactory.KEY_NUM1.getId())
+                else if (key == this.gameKeyFactory.KEY_NUM1.getId())
                 {
                     inputProcessor.special1(gameLayerManager, GameKeyEvent.NONE);
 //                    z+=1;
@@ -115,7 +115,7 @@ public class CheatGameInputProcessor extends PlayerGameInput
                     break;
                 }
                 //4
-                else if (key == gameKeyFactory.KEY_NUM3.getId())
+                else if (key == this.gameKeyFactory.KEY_NUM3.getId())
                 {
                     inputProcessor.special2(gameLayerManager, GameKeyEvent.NONE);
 //                    z-=1;

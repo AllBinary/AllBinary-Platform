@@ -113,50 +113,50 @@ public class Initializer
         {
         	InitializerData initializerData = InitializerData.getInstance();
 
-            userJdbcDriver = (String) hashMap.get(initializerData.CUSTOMERJDBCDRIVER);
-            userName = (String) hashMap.get(initializerData.CUSTOMERNAME);
-            userUserName = (String) hashMap.get(initializerData.CUSTOMERUSERNAME);
-            userPassword = (String) hashMap.get(initializerData.CUSTOMERPASSWORD);
+            this.userJdbcDriver = (String) hashMap.get(initializerData.CUSTOMERJDBCDRIVER);
+            this.userName = (String) hashMap.get(initializerData.CUSTOMERNAME);
+            this.userUserName = (String) hashMap.get(initializerData.CUSTOMERUSERNAME);
+            this.userPassword = (String) hashMap.get(initializerData.CUSTOMERPASSWORD);
 
-            userSchema = (String) hashMap.get(initializerData.CUSTOMERSCHEMA);
-            userServer = (String) hashMap.get(initializerData.CUSTOMERSERVER);
-            userPort = (String) hashMap.get(initializerData.CUSTOMERPORT);
+            this.userSchema = (String) hashMap.get(initializerData.CUSTOMERSCHEMA);
+            this.userServer = (String) hashMap.get(initializerData.CUSTOMERSERVER);
+            this.userPort = (String) hashMap.get(initializerData.CUSTOMERPORT);
 
-            historyJdbcDriver = (String) hashMap.get(initializerData.HISTORYJDBCDRIVER);
-            historyName = (String) hashMap.get(initializerData.HISTORYNAME);
-            historyUserName = (String) hashMap.get(initializerData.HISTORYUSERNAME);
-            historyPassword = (String) hashMap.get(initializerData.HISTORYPASSWORD);
+            this.historyJdbcDriver = (String) hashMap.get(initializerData.HISTORYJDBCDRIVER);
+            this.historyName = (String) hashMap.get(initializerData.HISTORYNAME);
+            this.historyUserName = (String) hashMap.get(initializerData.HISTORYUSERNAME);
+            this.historyPassword = (String) hashMap.get(initializerData.HISTORYPASSWORD);
 
-            historySchema = (String) hashMap.get(initializerData.HISTORYSCHEMA);
-            historyServer = (String) hashMap.get(initializerData.HISTORYSERVER);
-            historyPort = (String) hashMap.get(initializerData.HISTORYPORT);
+            this.historySchema = (String) hashMap.get(initializerData.HISTORYSCHEMA);
+            this.historyServer = (String) hashMap.get(initializerData.HISTORYSERVER);
+            this.historyPort = (String) hashMap.get(initializerData.HISTORYPORT);
 
-            logJdbcDriver = (String) hashMap.get(initializerData.LOGJDBCDRIVER);
-            logName = (String) hashMap.get(initializerData.LOGNAME);
-            logUserName = (String) hashMap.get(initializerData.LOGUSERNAME);
-            logPassword = (String) hashMap.get(initializerData.LOGPASSWORD);
+            this.logJdbcDriver = (String) hashMap.get(initializerData.LOGJDBCDRIVER);
+            this.logName = (String) hashMap.get(initializerData.LOGNAME);
+            this.logUserName = (String) hashMap.get(initializerData.LOGUSERNAME);
+            this.logPassword = (String) hashMap.get(initializerData.LOGPASSWORD);
 
-            logSchema = (String) hashMap.get(initializerData.LOGSCHEMA);
-            logServer = (String) hashMap.get(initializerData.LOGSERVER);
-            logPort = (String) hashMap.get(initializerData.LOGPORT);
+            this.logSchema = (String) hashMap.get(initializerData.LOGSCHEMA);
+            this.logServer = (String) hashMap.get(initializerData.LOGSERVER);
+            this.logPort = (String) hashMap.get(initializerData.LOGPORT);
 
-            inventoryJdbcDriver = (String) hashMap.get(initializerData.INVENTORYJDBCDRIVER);
-            inventoryName = (String) hashMap.get(initializerData.INVENTORYNAME);
-            inventoryUserName = (String) hashMap.get(initializerData.INVENTORYUSERNAME);
-            inventoryPassword = (String) hashMap.get(initializerData.INVENTORYPASSWORD);
+            this.inventoryJdbcDriver = (String) hashMap.get(initializerData.INVENTORYJDBCDRIVER);
+            this.inventoryName = (String) hashMap.get(initializerData.INVENTORYNAME);
+            this.inventoryUserName = (String) hashMap.get(initializerData.INVENTORYUSERNAME);
+            this.inventoryPassword = (String) hashMap.get(initializerData.INVENTORYPASSWORD);
 
-            inventorySchema = (String) hashMap.get(initializerData.INVENTORYSCHEMA);
-            inventoryServer = (String) hashMap.get(initializerData.INVENTORYSERVER);
-            inventoryPort = (String) hashMap.get(initializerData.INVENTORYPORT);
+            this.inventorySchema = (String) hashMap.get(initializerData.INVENTORYSCHEMA);
+            this.inventoryServer = (String) hashMap.get(initializerData.INVENTORYSERVER);
+            this.inventoryPort = (String) hashMap.get(initializerData.INVENTORYPORT);
 
-            staticPagesJdbcDriver = (String) hashMap.get(initializerData.STATICPAGESJDBCDRIVER);
-            staticPagesName = (String) hashMap.get(initializerData.STATICPAGESNAME);
-            staticPagesUserName = (String) hashMap.get(initializerData.STATICPAGESUSERNAME);
-            staticPagesPassword = (String) hashMap.get(initializerData.STATICPAGESPASSWORD);
+            this.staticPagesJdbcDriver = (String) hashMap.get(initializerData.STATICPAGESJDBCDRIVER);
+            this.staticPagesName = (String) hashMap.get(initializerData.STATICPAGESNAME);
+            this.staticPagesUserName = (String) hashMap.get(initializerData.STATICPAGESUSERNAME);
+            this.staticPagesPassword = (String) hashMap.get(initializerData.STATICPAGESPASSWORD);
 
-            staticPagesSchema = (String) hashMap.get(initializerData.STATICPAGESSCHEMA);
-            staticPagesServer = (String) hashMap.get(initializerData.STATICPAGESSERVER);
-            staticPagesPort = (String) hashMap.get(initializerData.STATICPAGESPORT);
+            this.staticPagesSchema = (String) hashMap.get(initializerData.STATICPAGESSCHEMA);
+            this.staticPagesServer = (String) hashMap.get(initializerData.STATICPAGESSERVER);
+            this.staticPagesPort = (String) hashMap.get(initializerData.STATICPAGESPORT);
 
         } catch (Exception e)
         {
@@ -192,17 +192,17 @@ public class Initializer
 
         StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
         
-        if (!stringValidationUtil.isValidRequired(userName, MIN, MAXDB))
+        if (!stringValidationUtil.isValidRequired(this.userName, MIN, MAXDB))
         {
             isValid = false;
         }
 
-        if (!stringValidationUtil.isValidRequired(userUserName, MIN, MAX))
+        if (!stringValidationUtil.isValidRequired(this.userUserName, MIN, MAX))
         {
             isValid = false;
         }
 
-        if (!stringValidationUtil.isValidNotRequired(userPassword, MINPASSWORD, MAX))
+        if (!stringValidationUtil.isValidNotRequired(this.userPassword, MINPASSWORD, MAX))
         {
             isValid = false;
         }
@@ -212,17 +212,17 @@ public class Initializer
             isValid = false;
         }
 
-        if (!stringValidationUtil.isValidRequired(historyName, MIN, MAXDB))
+        if (!stringValidationUtil.isValidRequired(this.historyName, MIN, MAXDB))
         {
             isValid = false;
         }
 
-        if (!stringValidationUtil.isValidRequired(historyUserName, MIN, MAX))
+        if (!stringValidationUtil.isValidRequired(this.historyUserName, MIN, MAX))
         {
             isValid = false;
         }
 
-        if (!stringValidationUtil.isValidNotRequired(historyPassword, MINPASSWORD, MAX))
+        if (!stringValidationUtil.isValidNotRequired(this.historyPassword, MINPASSWORD, MAX))
         {
             isValid = false;
         }
@@ -252,17 +252,17 @@ public class Initializer
             isValid = false;
         }
 
-        if (!stringValidationUtil.isValidRequired(inventoryName, MIN, MAXDB))
+        if (!stringValidationUtil.isValidRequired(this.inventoryName, MIN, MAXDB))
         {
             isValid = false;
         }
 
-        if (!stringValidationUtil.isValidRequired(inventoryUserName, MIN, MAX))
+        if (!stringValidationUtil.isValidRequired(this.inventoryUserName, MIN, MAX))
         {
             isValid = false;
         }
 
-        if (!stringValidationUtil.isValidNotRequired(inventoryPassword, MINPASSWORD, MAX))
+        if (!stringValidationUtil.isValidNotRequired(this.inventoryPassword, MINPASSWORD, MAX))
         {
             isValid = false;
         }
@@ -272,17 +272,17 @@ public class Initializer
             isValid = false;
         }
 
-        if (!stringValidationUtil.isValidRequired(staticPagesName, MIN, MAXDB))
+        if (!stringValidationUtil.isValidRequired(this.staticPagesName, MIN, MAXDB))
         {
             isValid = false;
         }
 
-        if (!stringValidationUtil.isValidRequired(staticPagesUserName, MIN, MAX))
+        if (!stringValidationUtil.isValidRequired(this.staticPagesUserName, MIN, MAX))
         {
             isValid = false;
         }
 
-        if (!stringValidationUtil.isValidNotRequired(staticPagesPassword, MINPASSWORD, MAX))
+        if (!stringValidationUtil.isValidNotRequired(this.staticPagesPassword, MINPASSWORD, MAX))
         {
             isValid = false;
         }
@@ -336,17 +336,17 @@ public class Initializer
 
         StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
         
-        if (!stringValidationUtil.isValidRequired(userName, MIN, MAXDB))
+        if (!stringValidationUtil.isValidRequired(this.userName, MIN, MAXDB))
         {
             stringBuffer.append("User db name should be < " + MAXDB + " and > " + MIN + " characters in length.<br />");
         }
 
-        if (!stringValidationUtil.isValidRequired(userUserName, MIN, MAX))
+        if (!stringValidationUtil.isValidRequired(this.userUserName, MIN, MAX))
         {
             stringBuffer.append("User db username should be < " + MAX + " and > " + MIN + " characters in length.<br />");
         }
 
-        if (!stringValidationUtil.isValidNotRequired(userPassword, MINPASSWORD, MAX))
+        if (!stringValidationUtil.isValidNotRequired(this.userPassword, MINPASSWORD, MAX))
         {
             stringBuffer.append("User DB password should be < " + MAX + " and > " + MINPASSWORD + " characters in length.<br />");
         }
@@ -357,17 +357,17 @@ public class Initializer
             stringBuffer.append(this.getJdbcDriverValidationInfo(this.historyJdbcDriver));
         }
 
-        if (!stringValidationUtil.isValidRequired(historyName, MIN, MAXDB))
+        if (!stringValidationUtil.isValidRequired(this.historyName, MIN, MAXDB))
         {
             stringBuffer.append("History db should be < " + MAXDB + " and > " + MIN + " characters in length.<br />");
         }
 
-        if (!stringValidationUtil.isValidRequired(historyUserName, MIN, MAX))
+        if (!stringValidationUtil.isValidRequired(this.historyUserName, MIN, MAX))
         {
             stringBuffer.append("History db username should be < " + MAX + " and > " + MIN + " characters in length.<br />");
         }
 
-        if (!stringValidationUtil.isValidNotRequired(historyPassword, MINPASSWORD, MAX))
+        if (!stringValidationUtil.isValidNotRequired(this.historyPassword, MINPASSWORD, MAX))
         {
             stringBuffer.append("History db password should be < " + MAX + " and > " + MINPASSWORD + " characters in length.<br />");
         }
@@ -399,17 +399,17 @@ public class Initializer
             stringBuffer.append(this.getJdbcDriverValidationInfo(this.inventoryJdbcDriver));
         }
 
-        if (!stringValidationUtil.isValidRequired(inventoryName, MIN, MAXDB))
+        if (!stringValidationUtil.isValidRequired(this.inventoryName, MIN, MAXDB))
         {
             stringBuffer.append("Inventory db should be < " + MAXDB + " and > " + MIN + " characters in length.<br />");
         }
 
-        if (!stringValidationUtil.isValidRequired(inventoryUserName, MIN, MAX))
+        if (!stringValidationUtil.isValidRequired(this.inventoryUserName, MIN, MAX))
         {
             stringBuffer.append("Inventory db username should be < " + MAX + " and > " + MIN + " characters in length.<br />");
         }
 
-        if (!stringValidationUtil.isValidNotRequired(inventoryPassword, MINPASSWORD, MAX))
+        if (!stringValidationUtil.isValidNotRequired(this.inventoryPassword, MINPASSWORD, MAX))
         {
             stringBuffer.append("Inventory DB password should be < " + MAX + " and > " + MINPASSWORD + " characters in length.<br />");
         }
@@ -420,17 +420,17 @@ public class Initializer
             stringBuffer.append(this.getJdbcDriverValidationInfo(this.staticPagesJdbcDriver));
         }
 
-        if (!stringValidationUtil.isValidRequired(staticPagesName, MIN, MAXDB))
+        if (!stringValidationUtil.isValidRequired(this.staticPagesName, MIN, MAXDB))
         {
             stringBuffer.append("Static Pages db should be < " + MAXDB + " and > " + MIN + " characters in length.<br />");
         }
 
-        if (!stringValidationUtil.isValidRequired(staticPagesUserName, MIN, MAX))
+        if (!stringValidationUtil.isValidRequired(this.staticPagesUserName, MIN, MAX))
         {
             stringBuffer.append("Static Pages db username should be < " + MAX + " and > " + MIN + " characters in length.<br />");
         }
 
-        if (!stringValidationUtil.isValidNotRequired(staticPagesPassword, MINPASSWORD, MAX))
+        if (!stringValidationUtil.isValidNotRequired(this.staticPagesPassword, MINPASSWORD, MAX))
         {
             stringBuffer.append("Static Pages DB password should be < " + MAX + " and > " + MINPASSWORD + " characters in length.<br />");
         }
@@ -446,9 +446,9 @@ public class Initializer
     /*
     private void set(DbInitInfoInterface dbInitInfoInterface, DbConnectionInfo)
     {
-    dbInitInfoInterface.setName(userName);
-    dbInitInfoInterface.setUserName(userUserName);
-    dbInitInfoInterface.setPassword(userPassword);
+    dbInitInfoInterface.setName(this.userName);
+    dbInitInfoInterface.setUserName(this.userUserName);
+    dbInitInfoInterface.setPassword(this.userPassword);
     dbInitInfoInterface.setHasRead(true);
     dbInitInfoInterface.write();
     }
@@ -459,24 +459,24 @@ public class Initializer
 
         UserDbInitInfo userDbInitInfo = new UserDbInitInfo(false);
         userDbInitInfo.setJdbcDriver(this.userJdbcDriver);
-        userDbInitInfo.setName(userName);
-        userDbInitInfo.setUserName(userUserName);
-        userDbInitInfo.setPassword(userPassword);
-        userDbInitInfo.setSchema(userSchema);
-        userDbInitInfo.setServer(userServer);
-        userDbInitInfo.setPort(userPort);
+        userDbInitInfo.setName(this.userName);
+        userDbInitInfo.setUserName(this.userUserName);
+        userDbInitInfo.setPassword(this.userPassword);
+        userDbInitInfo.setSchema(this.userSchema);
+        userDbInitInfo.setServer(this.userServer);
+        userDbInitInfo.setPort(this.userPort);
         userDbInitInfo.setHasRead(true);
         userDbInitInfo.write();
 
         HistoryDbInitInfo historyDbInitInfo = new HistoryDbInitInfo(false);
         historyDbInitInfo.setJdbcDriver(this.historyJdbcDriver);
-        historyDbInitInfo.setName(historyName);
-        historyDbInitInfo.setUserName(historyUserName);
-        historyDbInitInfo.setPassword(historyPassword);
+        historyDbInitInfo.setName(this.historyName);
+        historyDbInitInfo.setUserName(this.historyUserName);
+        historyDbInitInfo.setPassword(this.historyPassword);
 
-        historyDbInitInfo.setSchema(historySchema);
-        historyDbInitInfo.setServer(historyServer);
-        historyDbInitInfo.setPort(historyPort);
+        historyDbInitInfo.setSchema(this.historySchema);
+        historyDbInitInfo.setServer(this.historyServer);
+        historyDbInitInfo.setPort(this.historyPort);
         historyDbInitInfo.setHasRead(true);
         historyDbInitInfo.write();
 
@@ -494,25 +494,25 @@ public class Initializer
 
         StaticPagesDbInitInfo staticPagesDbInitInfo = new StaticPagesDbInitInfo(false);
         staticPagesDbInitInfo.setJdbcDriver(this.staticPagesJdbcDriver);
-        staticPagesDbInitInfo.setName(staticPagesName);
-        staticPagesDbInitInfo.setUserName(staticPagesUserName);
-        staticPagesDbInitInfo.setPassword(staticPagesPassword);
+        staticPagesDbInitInfo.setName(this.staticPagesName);
+        staticPagesDbInitInfo.setUserName(this.staticPagesUserName);
+        staticPagesDbInitInfo.setPassword(this.staticPagesPassword);
 
-        staticPagesDbInitInfo.setSchema(staticPagesSchema);
-        staticPagesDbInitInfo.setServer(staticPagesServer);
-        staticPagesDbInitInfo.setPort(staticPagesPort);
+        staticPagesDbInitInfo.setSchema(this.staticPagesSchema);
+        staticPagesDbInitInfo.setServer(this.staticPagesServer);
+        staticPagesDbInitInfo.setPort(this.staticPagesPort);
         staticPagesDbInitInfo.setHasRead(true);
         staticPagesDbInitInfo.write();
 
         InventoryDbInitInfo inventoryDbInitInfo = new InventoryDbInitInfo(false);
         inventoryDbInitInfo.setJdbcDriver(this.inventoryJdbcDriver);
-        inventoryDbInitInfo.setName(inventoryName);
-        inventoryDbInitInfo.setUserName(inventoryUserName);
-        inventoryDbInitInfo.setPassword(inventoryPassword);
+        inventoryDbInitInfo.setName(this.inventoryName);
+        inventoryDbInitInfo.setUserName(this.inventoryUserName);
+        inventoryDbInitInfo.setPassword(this.inventoryPassword);
 
-        inventoryDbInitInfo.setSchema(inventorySchema);
-        inventoryDbInitInfo.setServer(inventoryServer);
-        inventoryDbInitInfo.setPort(inventoryPort);
+        inventoryDbInitInfo.setSchema(this.inventorySchema);
+        inventoryDbInitInfo.setServer(this.inventoryServer);
+        inventoryDbInitInfo.setPort(this.inventoryPort);
         inventoryDbInitInfo.setHasRead(true);
         inventoryDbInitInfo.write();
 

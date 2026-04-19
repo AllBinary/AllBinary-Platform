@@ -24,7 +24,7 @@ public class RendererStateFactory
     
     public void setSurfaceChanged(boolean initialized)
     {
-        surfaceChanged = initialized;
+        this.surfaceChanged = initialized;
     }
 
     public boolean isSurfaceChanged()

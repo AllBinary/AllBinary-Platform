@@ -40,7 +40,7 @@ public class WorkFlowWrapper implements WorkFlowInterface
    {
       try
       {
-         Class helperClass = object.getClass();
+         Class helperClass = this.object.getClass();
          Method method = helperClass.getMethod("getName",null);
          String result = (String) method.invoke(this.object,null);
          return result;
@@ -51,7 +51,7 @@ public class WorkFlowWrapper implements WorkFlowInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "getName()", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "getName()", e);
          }
          throw new Exception(error);
       }
@@ -61,7 +61,7 @@ public class WorkFlowWrapper implements WorkFlowInterface
    {
       try
       {
-         Class helperClass = object.getClass();
+         Class helperClass = this.object.getClass();
          Method method = helperClass.getMethod("getStoreName",null);
          String result = (String) method.invoke(this.object,null);
          return result;
@@ -72,7 +72,7 @@ public class WorkFlowWrapper implements WorkFlowInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "getStoreName()", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "getStoreName()", e);
          }
          throw new Exception(error);
       }
@@ -82,8 +82,8 @@ public class WorkFlowWrapper implements WorkFlowInterface
    {
       try
       {
-         Class helperClass = object.getClass();
-         Method method = helperClass.getMethod(commonStrings.PROCESS,null);
+         Class helperClass = this.object.getClass();
+         Method method = helperClass.getMethod(this.commonStrings.PROCESS,null);
          Integer result = (Integer) method.invoke(this.object,null);
          return result;
       }

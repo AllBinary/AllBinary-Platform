@@ -76,31 +76,31 @@ public class RaceTrackAdjacentDropCellPositionGenerator
         final BasicGeographicMapCellPositionFactory geographicMapCellPositionFactory =
             this.raceTrackGeographicMap.getGeographicMapCellPositionFactory();
 
-        surroundingCellPositions[0] =
+        this.surroundingCellPositions[0] =
             geographicMapCellPositionFactory.getInstance(column, row - 1);
-        surroundingCellPositions[1] =
+        this.surroundingCellPositions[1] =
             geographicMapCellPositionFactory.getInstance(column, row + 1);
-        surroundingCellPositions[2] =
+        this.surroundingCellPositions[2] =
             geographicMapCellPositionFactory.getInstance(column - 1, row);
-        surroundingCellPositions[3] =
+        this.surroundingCellPositions[3] =
             geographicMapCellPositionFactory.getInstance(column + 1, row);
 
         /*
-        surroundingCellPositions[0] =
+        this.surroundingCellPositions[0] =
         geographicMapCellPositionFactory.getInstance(column - 1, row - 1);
-        surroundingCellPositions[1] =
+        this.surroundingCellPositions[1] =
         geographicMapCellPositionFactory.getInstance(column, row - 1);
-        surroundingCellPositions[2] =
+        this.surroundingCellPositions[2] =
         geographicMapCellPositionFactory.getInstance(column + 1, row - 1);
-        surroundingCellPositions[3] =
+        this.surroundingCellPositions[3] =
         geographicMapCellPositionFactory.getInstance(column - 1, row);
-        surroundingCellPositions[4] =
+        this.surroundingCellPositions[4] =
         geographicMapCellPositionFactory.getInstance(column + 1, row);
-        surroundingCellPositions[5] =
+        this.surroundingCellPositions[5] =
         geographicMapCellPositionFactory.getInstance(column - 1, row + 1);
-        surroundingCellPositions[6] =
+        this.surroundingCellPositions[6] =
         geographicMapCellPositionFactory.getInstance(column, row + 1);
-        surroundingCellPositions[7] =
+        this.surroundingCellPositions[7] =
         geographicMapCellPositionFactory.getInstance(column + 1, row + 1);
          */
         
@@ -111,9 +111,9 @@ public class RaceTrackAdjacentDropCellPositionGenerator
         GeographicMapCellPosition geographicMapCellPosition;
         RaceTrackGeographicMapCellType raceTrackGeographicMapCellType;
         
-        for (int index = surroundingCellPositions.length; --index >= 0;)
+        for (int index = this.surroundingCellPositions.length; --index >= 0;)
         {
-            geographicMapCellPosition = surroundingCellPositions[index];
+            geographicMapCellPosition = this.surroundingCellPositions[index];
 
             raceTrackGeographicMapCellType = (RaceTrackGeographicMapCellType) 
                 raceTrackGeographicMap.getCellTypeAt(geographicMapCellPosition);
@@ -140,7 +140,7 @@ public class RaceTrackAdjacentDropCellPositionGenerator
     public void update(final AllBinaryGameLayerManager allBinaryGameLayerManager,
             final BasicGeographicMap geographicMapInterface) throws Exception
     {
-        hashtable.put(AllBinaryGameLayerManager.ID, allBinaryGameLayerManager);
+        this.hashtable.put(AllBinaryGameLayerManager.ID, allBinaryGameLayerManager);
         
         super.update(allBinaryGameLayerManager, geographicMapInterface);
     }
@@ -216,7 +216,7 @@ public class RaceTrackAdjacentDropCellPositionGenerator
                 hashtable, x, y, z);
 
             final BaseRaceTrackGeographicMap baseRaceTrackGeographicMap = (BaseRaceTrackGeographicMap) this.raceTrackGeographicMap;
-            final BasicArrayList list = layerCoveringCellPositionsUtil.getAll(
+            final BasicArrayList list = this.layerCoveringCellPositionsUtil.getAll(
                 baseRaceTrackGeographicMap,
                 randomGeographicMapCellPosition, layerInterface,
                 new BasicArrayList());

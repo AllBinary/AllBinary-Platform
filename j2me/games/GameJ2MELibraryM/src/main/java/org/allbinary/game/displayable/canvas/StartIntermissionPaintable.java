@@ -75,7 +75,7 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
         
         final Font existingFont = graphics.getFont();
         
-        fontDebugFactory.setFont(this.font, graphics);
+        this.fontDebugFactory.setFont(this.font, graphics);
         
         final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         
@@ -84,7 +84,7 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
         int beginWidth;
         for(int index = this.stringArray.length - 1; index >= 0; index--)
         {
-            if(hasChanged) {
+            if(this.hasChanged) {
                 this.lastWidth[index] = (graphics.getFont().stringWidth(this.stringArray[index]) >> 1);
             }
             beginWidth = this.lastWidth[index];
@@ -94,8 +94,8 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
                     displayInfo.getLastHalfHeight() - lineArray[index], anchor);
         }
         
-        hasChanged = false;
-        fontDebugFactory.setFont(existingFont, graphics);
+        this.hasChanged = false;
+        this.fontDebugFactory.setFont(existingFont, graphics);
     }
 
     private final String BEGIN_LEVEL = "Begin Level ";
@@ -105,8 +105,8 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
     @Override
     public void update()
     {
-        int level = gameCanvas.getLayerManager().getGameInfo().getCurrentLevel();
-        this.stringArray[0] = new StringMaker().append(BEGIN_LEVEL).appendint(level).toString();
+        int level = this.gameCanvas.getLayerManager().getGameInfo().getCurrentLevel();
+        this.stringArray[0] = new StringMaker().append(this.BEGIN_LEVEL).appendint(level).toString();
 
         for(int index = this.stringArray.length - 1; index >= 1; index--)
         {

@@ -45,7 +45,7 @@ public class HelperTag extends PropertiesTag
          }
          
          
-         this.object = tagHelperFactoryInterface.getInstance(
+         this.object = this.tagHelperFactoryInterface.getInstance(
              this.getPropertiesHashMap(), this.pageContext);
       }
    }

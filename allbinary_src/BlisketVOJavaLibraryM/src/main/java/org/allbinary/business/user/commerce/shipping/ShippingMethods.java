@@ -49,17 +49,17 @@ public class ShippingMethods implements ShippingMethodsInterface
    {
        ShippingInterface shipping;
        
-      final int size = shippingVector.size();
+      final int size = this.shippingVector.size();
       for (int index = 0; index < size; index++)
       {  
-         shipping = (ShippingInterface) shippingVector.get(index);
+         shipping = (ShippingInterface) this.shippingVector.get(index);
          if(name.compareTo(shipping.getName())==0) return shipping;
       }
 
       String error = "Error Finding Shipping: " + name;
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SHIPPINGERROR))
       {
-         this.logUtil.putF(commonStrings.EXCEPTION,this,"getShippingInterface(String name)");
+         this.logUtil.putF(this.commonStrings.EXCEPTION,this,"getShippingInterface(String name)");
       }
 
       throw new Exception(error);

@@ -47,7 +47,7 @@ public class ImageArrayBaseRotationAnimation extends RotationAnimation //impleme
         //this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
         this.originalImageArray = originalImageArray;
-        this.setImageArray(imageModifierUtil.getImageArray(originalImageArray));
+        this.setImageArray(this.imageModifierUtil.getImageArray(originalImageArray));
         //this.setImageArray(originalImageArray);
         
         this.currentImage = this.imageArray[this.circularIndexUtil.getIndex()]; 
@@ -65,9 +65,9 @@ public class ImageArrayBaseRotationAnimation extends RotationAnimation //impleme
         if(this.alphaP != alpha) {
 
             super.setAlpha(alpha);
-            imageModifierUtil.reset();
+            this.imageModifierUtil.reset();
             final int index = this.circularIndexUtil.getIndex();
-            imageModifierUtil.setAlpha(this.originalImageArray[index], this.imageArray[index], index, this.alphaP);
+            this.imageModifierUtil.setAlpha(this.originalImageArray[index], this.imageArray[index], index, this.alphaP);
         }
     }
     
@@ -77,7 +77,7 @@ public class ImageArrayBaseRotationAnimation extends RotationAnimation //impleme
         super.nextRotation();
         
         final int index = this.circularIndexUtil.getIndex();
-        imageModifierUtil.setAlpha(this.originalImageArray[index], this.imageArray[index], index, this.alphaP);
+        this.imageModifierUtil.setAlpha(this.originalImageArray[index], this.imageArray[index], index, this.alphaP);
         this.currentImage = this.imageArray[index];
     }
 
@@ -87,7 +87,7 @@ public class ImageArrayBaseRotationAnimation extends RotationAnimation //impleme
         super.previousRotation();
         
         final int index = this.circularIndexUtil.getIndex();
-        imageModifierUtil.setAlpha(this.originalImageArray[index], this.imageArray[index], index, this.alphaP);
+        this.imageModifierUtil.setAlpha(this.originalImageArray[index], this.imageArray[index], index, this.alphaP);
         this.currentImage = this.imageArray[index];
     }
 
@@ -97,7 +97,7 @@ public class ImageArrayBaseRotationAnimation extends RotationAnimation //impleme
         super.setFrame(index2);
         
         final int index = this.circularIndexUtil.getIndex();
-        imageModifierUtil.setAlpha(this.originalImageArray[index], this.imageArray[index], index, this.alphaP);
+        this.imageModifierUtil.setAlpha(this.originalImageArray[index], this.imageArray[index], index, this.alphaP);
         this.currentImage = this.imageArray[index];
     }
     

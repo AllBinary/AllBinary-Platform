@@ -51,7 +51,7 @@ public class BasicItemView implements DomNodeInterface
       try
       {
        */
-         HashMap hashMap = itemInterface.toHashMap();
+         HashMap hashMap = this.itemInterface.toHashMap();
          
          final String EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
          

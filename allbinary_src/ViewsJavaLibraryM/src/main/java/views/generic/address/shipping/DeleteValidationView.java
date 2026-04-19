@@ -46,7 +46,7 @@ public class DeleteValidationView extends ShippingAddressView implements Validat
       ShippingAddressesEntity billingAddressesEntity =
       new ShippingAddressesEntity(this.getWeblisketSession().getUserName());
       
-      this.streetAddress = billingAddressesEntity.get(new Integer(value));
+      this.streetAddress = billingAddressesEntity.get(new Integer(this.value));
       
       if(this.streetAddress==null)
       {

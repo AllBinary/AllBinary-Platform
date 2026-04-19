@@ -34,7 +34,7 @@ extends GameRunnable
     {
         try
         {
-            runnableCanvas.run();
+            this.runnableCanvas.run();
         }
         catch (Exception e)
         {
@@ -47,6 +47,6 @@ extends GameRunnable
     public void processLoopSleep()
     throws Exception
     {
-        runnableCanvas.processLoopSleep();
+        this.runnableCanvas.processLoopSleep();
     }
 }

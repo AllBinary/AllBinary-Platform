@@ -68,13 +68,13 @@ public class DownloadFileServlet extends HttpServlet
                 return;
             }
 
-            int beginIndex = requestPath.indexOf(DOWNLOAD);
+            int beginIndex = requestPath.indexOf(this.DOWNLOAD);
 
             String filePath = StringUtil.getInstance().EMPTY_STRING;
 
             if (beginIndex >= 0)
             {
-                filePath = requestPath.substring(beginIndex + DOWNLOAD.length());
+                filePath = requestPath.substring(beginIndex + this.DOWNLOAD.length());
             } else
             {
                 response.sendError(HttpServletResponse.SC_NOT_FOUND);
@@ -113,7 +113,7 @@ public class DownloadFileServlet extends HttpServlet
                     }
 
                     response.reset();
-                    response.setBufferSize(DEFAULT_BUFFER_SIZE);
+                    response.setBufferSize(this.DEFAULT_BUFFER_SIZE);
                     response.setContentType(contentType);
                     response.setHeader("Content-Length", String.valueOf(file.length()));
 

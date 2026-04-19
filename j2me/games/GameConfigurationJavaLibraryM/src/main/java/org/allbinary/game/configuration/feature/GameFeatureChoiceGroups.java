@@ -48,6 +48,6 @@ public class GameFeatureChoiceGroups {
 	
 	public void add(String name, BasicArrayList list)
 	{
-		hashtable.put(name, list);
+		this.hashtable.put(name, list);
 	}
 }

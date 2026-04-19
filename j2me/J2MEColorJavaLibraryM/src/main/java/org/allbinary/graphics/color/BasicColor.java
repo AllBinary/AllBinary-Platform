@@ -89,7 +89,7 @@ public class BasicColor
         StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append("Alpha: ");
-        stringBuffer.append(alpha);
+        stringBuffer.append(this.alpha);
         stringBuffer.append(" ffOpaque: ");
         stringBuffer.append(ffOpaque);
         stringBuffer.append(" Value: ");

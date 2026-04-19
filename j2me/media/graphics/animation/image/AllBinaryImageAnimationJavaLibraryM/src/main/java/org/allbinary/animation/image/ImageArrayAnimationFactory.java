@@ -63,7 +63,7 @@ implements AnimationInterfaceFactoryInterface
     @Override
     public Animation getInstance(final int instanceId) throws Exception
     {
-        if (dx != 0 || dy != 0) {
+        if (this.dx != 0 || this.dy != 0) {
             return new AdjustedImageArrayAnimation(this.imageArray, dx, dy, this.animationBehaviorFactory.getOrCreateInstance());
         } else {
             return new ImageArrayAnimation(this.imageArray, AnimationBehavior.getInstance());

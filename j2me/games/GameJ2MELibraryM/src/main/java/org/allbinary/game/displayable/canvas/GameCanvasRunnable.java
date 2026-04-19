@@ -41,11 +41,11 @@ public class GameCanvasRunnable extends GameRunnable
         {
             //final AllBinaryGameCanvas allBinaryGameCanvas = this.allBinaryGameCanvas;
             
-            allBinaryGameCanvas.getLoopTimeHelperP().setStartTime(gameTickTimeDelayHelper.setStartTime());
+            this.allBinaryGameCanvas.getLoopTimeHelperP().setStartTime(this.gameTickTimeDelayHelper.setStartTime());
 
-            gameTickDisplayInfoSingleton.update();
+            this.gameTickDisplayInfoSingleton.update();
             
-            allBinaryGameCanvas.processGame();
+            this.allBinaryGameCanvas.processGame();
         }
         catch (Exception e)
         {
@@ -58,7 +58,7 @@ public class GameCanvasRunnable extends GameRunnable
     public void processLoopSleep()
     throws Exception
     {
-        allBinaryGameCanvas.processLoopSleep();
+        this.allBinaryGameCanvas.processLoopSleep();
     }
 }
 

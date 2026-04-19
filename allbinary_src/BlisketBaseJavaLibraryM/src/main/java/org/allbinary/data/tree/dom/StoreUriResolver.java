@@ -48,7 +48,7 @@ public class StoreUriResolver implements URIResolver
       try
       {
          TransformInfoHttpStoreInterface transformInfoHttpStoreInterface =
-            (TransformInfoHttpStoreInterface) parentTransformInfoInterface;
+            (TransformInfoHttpStoreInterface) this.parentTransformInfoInterface;
          
          AbPath fileAbPath = (AbPath) new AbFilePath(
             URLGLOBALS.getMainPath() + FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH +

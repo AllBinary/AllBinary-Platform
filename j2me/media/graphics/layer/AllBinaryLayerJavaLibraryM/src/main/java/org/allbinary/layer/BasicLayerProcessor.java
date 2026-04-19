@@ -31,12 +31,12 @@ public class BasicLayerProcessor
 
     public void add(AllBinaryLayer layerInterface)
     {
-        if(!list.contains(layerInterface))
+        if(!this.list.contains(layerInterface))
         {
             //if(layerInterface.getName().indexOf("debrish") >= 0) {
                 //this.logUtil.put("Adding: " + layerInterface, this, "add", new Exception());
             //}
-            list.add(layerInterface);
+            this.list.add(layerInterface);
         }
     }
 

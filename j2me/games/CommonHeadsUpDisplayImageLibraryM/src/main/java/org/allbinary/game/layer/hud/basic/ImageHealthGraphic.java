@@ -31,18 +31,18 @@ public class ImageHealthGraphic extends HealthGraphic
 
 	   super(animationInterface, healthInterface, location, direction);
 	   
-	   image = new Image[this.healthInterface.getMaxHealth()];
+	   this.image = new Image[this.healthInterface.getMaxHealth()];
 
 	   ImageCacheFactory imageCacheFactory = ImageCacheFactory.getInstance();
 	   
 		for (int numOfHealth = 0; numOfHealth <= max; numOfHealth++) {
-			image[numOfHealth] = imageCacheFactory.get(this, numOfHealth + 1 * 10, 10);
+			this.image[numOfHealth] = imageCacheFactory.get(this, numOfHealth + 1 * 10, 10);
 		}
 
 		for (int numOfHealth = 0; numOfHealth <= max; numOfHealth++) {
 			for(int index = 0; index < numOfHealth; index++)
 			{
-			   this.animationInterface.paint(image[numOfHealth].getGraphics(), numOfHealth * 10, 0);
+			   this.animationInterface.paint(this.image[numOfHealth].getGraphics(), numOfHealth * 10, 0);
 			}
 		}
 	}

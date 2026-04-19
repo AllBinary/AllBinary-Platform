@@ -54,7 +54,7 @@ public class PathFinder extends GeographicPathFinderBase {
         
         PathFindingNodeCost node;
 
-        final int sizeX = costArray.length;
+        final int sizeX = this.costArray.length;
         final int sizeY = costArray[0].length;
         for(int column = 0; column < sizeX; column++) {
             for(int row = 0; row < sizeY; row++) {
@@ -66,7 +66,7 @@ public class PathFinder extends GeographicPathFinderBase {
                 
                 node = new PathFindingNodeCost(NullUtil.getInstance().NULL_OBJECT, basicGeographicMapCellPositionFactory.getInstance(column, row), new PathFindingNodeCostInfo((long) raceTrackGeographicMapCellType.getTravelCost(), (long) -1));
 
-                costArray[column][row] = node;
+                this.costArray[column][row] = node;
             }
         }
         
@@ -171,12 +171,12 @@ public class PathFinder extends GeographicPathFinderBase {
 
         final int targetColumn = target.getColumn();
         final int targetRow = target.getRow();
-        final int sizeX = costArray.length;
+        final int sizeX = this.costArray.length;
         final int sizeY = costArray[0].length;
         for(int column = 0; column < sizeX; column++) {
             for(int row = 0; row < sizeY; row++) {
-                discoveryCalculation = (long) mathUtil.abs(column - targetColumn) + mathUtil.abs(row - targetRow);
-                node = costArray[column][row];
+                discoveryCalculation = (long) this.mathUtil.abs(column - targetColumn) + this.mathUtil.abs(row - targetRow);
+                node = this.costArray[column][row];
                 node.pathFindingNodeCostInfoP.totalCostP = 0;
                 node.pathFindingNodeCostInfoP.costToEndP = discoveryCalculation;
                 
@@ -188,7 +188,7 @@ public class PathFinder extends GeographicPathFinderBase {
         }
 
         final PathFindingNodeCost startNode = costArray[start.getColumn()][start.getRow()];
-        openPriorityQueue.add(startNode);
+        this.openPriorityQueue.add(startNode);
 
         final BasicGeographicMap geographicMapInterface = (BasicGeographicMap) this.geographicMapInterface;
         final BasicGeographicMapCellPositionFactory basicGeographicMapCellPositionFactory = geographicMapInterface.getGeographicMapCellPositionFactory();
@@ -198,8 +198,8 @@ public class PathFinder extends GeographicPathFinderBase {
 
         PathFindingNodeCost current;
         do {
-            current = openPriorityQueue.poll();
-            closedSet.add(current);
+            current = this.openPriorityQueue.poll();
+            this.closedSet.add(current);
 
             if(current.equals(targetNode)) {
                 return this.extractPath(start, current);
@@ -216,20 +216,20 @@ public class PathFinder extends GeographicPathFinderBase {
                         geographicMapInterface.isOnMap(basicGeographicMapCellPositionFactory.getInstance(column, row))) {
                         neighbor = this.costArray[column][row];
 
-                        if(closedSet.contains(neighbor)) {
+                        if(this.closedSet.contains(neighbor)) {
                             continue;
                         }
 
                         neighborInfo = neighbor.pathFindingNodeCostInfoP;
                         calculatedCost = neighborInfo.costToEndP + neighborInfo.costFromStartP + current.pathFindingNodeCostInfoP.totalCostP;
 
-                        if(calculatedCost < neighborInfo.totalCostP || !openPriorityQueue.contains(neighbor)) {
+                        if(calculatedCost < neighborInfo.totalCostP || !this.openPriorityQueue.contains(neighbor)) {
                             neighborInfo.totalCostP = calculatedCost;
                             neighbor.parent = current;
 
-                            if(!openPriorityQueue.contains(neighbor)) {
+                            if(!this.openPriorityQueue.contains(neighbor)) {
                                 if(geographicMapInterface.isOfFourDirections(current.geographicMapCellPosition, neighbor.geographicMapCellPosition)) {
-                                    openPriorityQueue.add(neighbor);
+                                    this.openPriorityQueue.add(neighbor);
                                 }
                             }
                         }
@@ -237,7 +237,7 @@ public class PathFinder extends GeographicPathFinderBase {
                     
                 }
             }
-        } while(!openPriorityQueue.isEmpty());
+        } while(!this.openPriorityQueue.isEmpty());
 
         //return new BasicArrayList()add(start);
         throw new RuntimeException();
@@ -255,14 +255,14 @@ public class PathFinder extends GeographicPathFinderBase {
 
         final int targetColumn = target.getColumn();
         final int targetRow = target.getRow();
-        final int sizeX = costArray.length;
+        final int sizeX = this.costArray.length;
         final int sizeY = costArray[0].length;
         //int total = 0;
         //multipassState.iteration
         for(int column = 0; column < sizeX; column++) {
             for(int row = 0; row < sizeY; row++) {
-                discoveryCalculation = (long) mathUtil.abs(column - targetColumn) + mathUtil.abs(row - targetRow);
-                node = costArray[column][row];
+                discoveryCalculation = (long) this.mathUtil.abs(column - targetColumn) + this.mathUtil.abs(row - targetRow);
+                node = this.costArray[column][row];
                 node.pathFindingNodeCostInfoP.totalCostP = 0;
                 node.pathFindingNodeCostInfoP.costToEndP = discoveryCalculation;
                 
@@ -279,7 +279,7 @@ public class PathFinder extends GeographicPathFinderBase {
         }
 
         final PathFindingNodeCost startNode = costArray[start.getColumn()][start.getRow()];
-        openPriorityQueue.add(startNode);
+        this.openPriorityQueue.add(startNode);
         
         //multipassState.iteration = 0;
         multipassState.step++;
@@ -296,8 +296,8 @@ public class PathFinder extends GeographicPathFinderBase {
         PathFindingNodeCost current;
         int total = 0;
         do {
-            current = openPriorityQueue.poll();
-            closedSet.add(current);
+            current = this.openPriorityQueue.poll();
+            this.closedSet.add(current);
 
             if(current.equals(targetNode)) {
                 return this.extractPath(start, current);
@@ -314,20 +314,20 @@ public class PathFinder extends GeographicPathFinderBase {
                         geographicMapInterface.isOnMap(basicGeographicMapCellPositionFactory.getInstance(column, row))) {
                         neighbor = this.costArray[column][row];
 
-                        if(closedSet.contains(neighbor)) {
+                        if(this.closedSet.contains(neighbor)) {
                             continue;
                         }
 
                         neighborInfo = neighbor.pathFindingNodeCostInfoP;
                         calculatedCost = neighborInfo.costToEndP + neighborInfo.costFromStartP + current.pathFindingNodeCostInfoP.totalCostP;
 
-                        if(calculatedCost < neighborInfo.totalCostP || !openPriorityQueue.contains(neighbor)) {
+                        if(calculatedCost < neighborInfo.totalCostP || !this.openPriorityQueue.contains(neighbor)) {
                             neighborInfo.totalCostP = calculatedCost;
                             neighbor.parent = current;
 
-                            if(!openPriorityQueue.contains(neighbor)) {
+                            if(!this.openPriorityQueue.contains(neighbor)) {
                                 if(geographicMapInterface.isOfFourDirections(current.geographicMapCellPosition, neighbor.geographicMapCellPosition)) {
-                                    openPriorityQueue.add(neighbor);
+                                    this.openPriorityQueue.add(neighbor);
                                 }
                             }
                         }
@@ -341,7 +341,7 @@ public class PathFinder extends GeographicPathFinderBase {
                 return basicArrayListUtil.getImmutableInstance();
             }
             
-        } while(!openPriorityQueue.isEmpty());
+        } while(!this.openPriorityQueue.isEmpty());
 
         //return new BasicArrayList()add(start);
         throw new RuntimeException();
@@ -356,7 +356,7 @@ public class PathFinder extends GeographicPathFinderBase {
         }
         path.add(start);
 
-        basicArrayListUtil.reverse(path);
+        this.basicArrayListUtil.reverse(path);
         return path;
     }
 

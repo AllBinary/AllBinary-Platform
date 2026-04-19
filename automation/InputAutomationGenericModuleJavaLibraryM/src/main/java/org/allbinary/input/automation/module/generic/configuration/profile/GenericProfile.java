@@ -84,11 +84,11 @@ public class GenericProfile
         Node node = ModDomHelper.createTextNode(
             document, GenericProfileData.NAME, name);
         
-        final int size = vector.size();
+        final int size = this.vector.size();
         for(int index = 0; index < size; index++)
         {
             GenericProfileDataWorkerType genericProfileDataWorkerType =
-                (GenericProfileDataWorkerType) vector.get(index);
+                (GenericProfileDataWorkerType) this.vector.get(index);
             node.appendChild(genericProfileDataWorkerType.toXmlNode(document));
         }
         return node;

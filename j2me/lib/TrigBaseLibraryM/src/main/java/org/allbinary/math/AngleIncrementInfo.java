@@ -77,22 +77,22 @@ public class AngleIncrementInfo
    {
         Integer closestDirection = SmallIntegerSingletonFactory.getInstance().getInstance(360);
 
-        if (UP_FRAME.intValue() - angle < closestDirection.intValue() - angle)
+        if (this.UP_FRAME.intValue() - angle < closestDirection.intValue() - angle)
         {
             closestDirection = this.UP_FRAME;
         }
 
-        if (DOWN_FRAME.intValue() - angle < closestDirection.intValue() - angle)
+        if (this.DOWN_FRAME.intValue() - angle < closestDirection.intValue() - angle)
         {
             closestDirection = this.DOWN_FRAME;
         }
 
-        if (LEFT_FRAME.intValue() - angle < closestDirection.intValue() - angle)
+        if (this.LEFT_FRAME.intValue() - angle < closestDirection.intValue() - angle)
         {
             closestDirection = this.LEFT_FRAME;
         }
 
-        if (RIGHT_FRAME.intValue() - angle < closestDirection.intValue() - angle)
+        if (this.RIGHT_FRAME.intValue() - angle < closestDirection.intValue() - angle)
         {
             closestDirection = this.RIGHT_FRAME;
         }

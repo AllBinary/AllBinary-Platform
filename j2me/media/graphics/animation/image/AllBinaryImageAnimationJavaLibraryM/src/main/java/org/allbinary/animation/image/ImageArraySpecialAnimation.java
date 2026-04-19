@@ -53,7 +53,7 @@ implements SpecialAnimationInterface
     public void reset()
     {
         this.setFrame(this.getSize() - 1);
-        loopCount = 0;
+        this.loopCount = 0;
     }
 
     @Override
@@ -62,7 +62,7 @@ implements SpecialAnimationInterface
             if (this.getFrame() > 0)
             {
                 // If Frame is up long enough
-                if (timeDelayHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime))
+                if (this.timeDelayHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime))
                 {
                     this.previousFrame();
                     
@@ -79,7 +79,7 @@ implements SpecialAnimationInterface
     @Override
     public boolean isComplete()
     {
-        if (loopCount < loopCountTotal || this.getFrame() != 0)
+        if (this.loopCount < this.loopCountTotal || this.getFrame() != 0)
         {
             return false;
         }

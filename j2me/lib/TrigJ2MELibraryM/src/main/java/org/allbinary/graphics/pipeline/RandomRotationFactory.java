@@ -36,7 +36,7 @@ public class RandomRotationFactory
     {
         BasicGraphicsPipeline graphicsPipe = new BasicGraphicsPipeline(vector);
         graphicsPipe.createMatrix();
-        graphicsPipe.rotate(angleFactory.getInstance(getNextRandomAngle(howMuch)));
+        graphicsPipe.rotate(this.angleFactory.getInstance(getNextRandomAngle(howMuch)));
 
         return graphicsPipe.getMatrix();
     }

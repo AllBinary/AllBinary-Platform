@@ -40,30 +40,30 @@ public class ProfilingRefreshHelper extends AndroidGameStatistics
     public void init(View view)
     {
         super.init(view);
-        frameProcessingTimeElapsed = this.getTimeDelayHelper().getStartTime();
+        this.frameProcessingTimeElapsed = this.getTimeDelayHelper().getStartTime();
 
-        bestFrameProcessingTime = Integer.MAX_VALUE;
+        this.bestFrameProcessingTime = Integer.MAX_VALUE;
         // averageFrameProcessingTime = 0;
-        worstFrameProcessingTime = 0;
+        this.worstFrameProcessingTime = 0;
     }
 
     @Override
     public void nextFrame()
     {
-        frameProcessingTimeElapsed = System.currentTimeMillis()
-                - frameProcessingTimeElapsed;
+        this.frameProcessingTimeElapsed = System.currentTimeMillis()
+                - this.frameProcessingTimeElapsed;
 
-        if (firstTime != true)
+        if (this.firstTime != true)
         {
-            if (frameProcessingTimeElapsed > worstFrameProcessingTime)
-                worstFrameProcessingTime = (int) frameProcessingTimeElapsed;
+            if (this.frameProcessingTimeElapsed > this.worstFrameProcessingTime)
+                this.worstFrameProcessingTime = (int) this.frameProcessingTimeElapsed;
 
-            if (frameProcessingTimeElapsed < bestFrameProcessingTime)
-                bestFrameProcessingTime = (int) frameProcessingTimeElapsed;
+            if (this.frameProcessingTimeElapsed < this.bestFrameProcessingTime)
+                this.bestFrameProcessingTime = (int) this.frameProcessingTimeElapsed;
         }
         else
         {
-            firstTime = false;
+            this.firstTime = false;
         }
 
         // averageFrameProcessingTime += frameProcessingTimeElapsed

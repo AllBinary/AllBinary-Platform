@@ -59,7 +59,7 @@ public class NumberTextFieldItemValidator extends ValidatorBase
 
         int textLength = string.length();
 
-        if (textLength > 0 && textLength < maxChars)
+        if (textLength > 0 && textLength < this.maxChars)
         {
             // PreLogUtil.put(, this, "toVector");
             try
@@ -79,7 +79,7 @@ public class NumberTextFieldItemValidator extends ValidatorBase
                 result = BooleanFactory.getInstance().FALSE;
             }
             else
-                if(textLength > maxChars)
+                if(textLength > this.maxChars)
                 {
                     result = BooleanFactory.getInstance().FALSE;
                 }
@@ -101,7 +101,7 @@ public class NumberTextFieldItemValidator extends ValidatorBase
         final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
         final StringMaker stringMaker = new StringMaker();
         
-        if (textLength > 0 && textLength < maxChars)
+        if (textLength > 0 && textLength < this.maxChars)
         {
 
             try
@@ -110,13 +110,13 @@ public class NumberTextFieldItemValidator extends ValidatorBase
     
                 //vector.addAll(this.toNumberVector(number));
 
-                if(number.intValue() > min)
+                if(number.intValue() > this.min)
                 {
                     stringMaker.delete(0, stringMaker.length());
                     list.add(stringMaker.append(name).append(" is to small").toString());
                 }
                 else
-                    if(number.intValue() > max)
+                    if(number.intValue() > this.max)
                 {
                     stringMaker.delete(0, stringMaker.length());
                     list.add(stringMaker.append(name).append(" is to large").toString());
@@ -136,7 +136,7 @@ public class NumberTextFieldItemValidator extends ValidatorBase
                 list.add(stringMaker.append(name).append(" is to short").toString());
             }
             else
-                if(textLength > maxChars)
+                if(textLength > this.maxChars)
                 {
                     stringMaker.delete(0, stringMaker.length());
                     list.add(stringMaker.append(name).append(" is to long").toString());

@@ -54,6 +54,6 @@ public class FileStreamFactory
 
     private Context getContext()
     {
-        return (Context) context;
+        return (Context) this.context;
     }
 }

@@ -71,16 +71,16 @@ extends InputProcessor
                             .toString()
                     , this, this.gameInputStrings.KEY_PRESSED);
 
-            final Input input = inputFactory.getInstance(keyCode);
+            final Input input = this.inputFactory.getInstance(keyCode);
 
-            final GameKeyEvent gameKeyEvent = gameKeyEventFactory.getInstance(this.allBinaryGameCanvas, input);
-            downKeyEventHandler.fireEvent(gameKeyEvent);
+            final GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstance(this.allBinaryGameCanvas, input);
+            this.downKeyEventHandler.fireEvent(gameKeyEvent);
             //downKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
 
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, this.gameInputStrings.ADD_KEY_EVENT, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.gameInputStrings.ADD_KEY_EVENT, e);
         }
     }
     
@@ -100,7 +100,7 @@ extends InputProcessor
 //                     this, gameInputStrings.KEY_RELEASED);
 
             final Input input = this.inputFactory.getInstance(keyCode);
-            if (platformKeyFactory.isEnter(input)) {
+            if (this.platformKeyFactory.isEnter(input)) {
                 
                 PreLogUtil.put(
                     new StringMaker()
@@ -113,15 +113,15 @@ extends InputProcessor
                      this, gameInputStrings.KEY_RELEASED);
           
                 final GameKey gameKey = GameKeyFactory.getInstance().KEY_NUM0;
-                final GameKeyEvent gameKeyEvent = gameKeyEventFactory.getInstance((GameKeyEventSourceInterface) canvas, gameKey);
-                upGameKeyEventHandler.fireEvent(gameKeyEvent);
-                upGameKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
+                final GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstance((GameKeyEventSourceInterface) canvas, gameKey);
+                this.upGameKeyEventHandler.fireEvent(gameKeyEvent);
+                this.upGameKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
             }
 
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, this.gameInputStrings.ADD_KEY_EVENT, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.gameInputStrings.ADD_KEY_EVENT, e);
         }
         
     }

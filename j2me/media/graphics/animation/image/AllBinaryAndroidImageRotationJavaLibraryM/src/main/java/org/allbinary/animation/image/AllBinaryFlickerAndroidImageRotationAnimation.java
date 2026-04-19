@@ -69,14 +69,14 @@ extends ImageBaseRotationAnimation
         
         boolean changed = false;
         if(this.getBasicColorP() == null || this.getBasicColorP().intValue() != basicColor.intValue()) {
-            imageModifierUtil.setColor(this.originalImage, this.getImage(), 0, basicColor);
+            this.imageModifierUtil.setColor(this.originalImage, this.getImage(), 0, basicColor);
             changed = true;
         }
         
         super.setBasicColorP(basicColor);
 
         if(changed) {
-            matrix.setRotate(0.0f, (float) this.halfWidth, (float) this.halfHeight);
+            this.matrix.setRotate(0.0f, (float) this.halfWidth, (float) this.halfHeight);
             this.updateImage();
         }
     }
@@ -97,10 +97,10 @@ extends ImageBaseRotationAnimation
         
         super.setAlpha(alpha);
 
-        imageModifierUtil.setAlpha(this.originalImage, this.getImage(), 0, this.alphaP);
+        this.imageModifierUtil.setAlpha(this.originalImage, this.getImage(), 0, this.alphaP);
 
         if(changed) {
-            matrix.setRotate(0.0f, (float) this.halfWidth, (float) this.halfHeight);
+            this.matrix.setRotate(0.0f, (float) this.halfWidth, (float) this.halfHeight);
             this.updateImage();
         }
     }
@@ -111,7 +111,7 @@ extends ImageBaseRotationAnimation
         super.nextRotation();
         //this.logUtil.putF("Frame: " + this.getFrame(), this, "nextRotation");
 
-        matrix.setRotate((float) this.increment, (float) this.halfWidth, (float) this.halfHeight);
+        this.matrix.setRotate((float) this.increment, (float) this.halfWidth, (float) this.halfHeight);
         //matrix.setRotate(this.angleInfo.getAngle(), this.halfWidth, this.halfHeight);
 
         this.updateImage();
@@ -123,7 +123,7 @@ extends ImageBaseRotationAnimation
         super.previousRotation();
         //this.logUtil.putF("Frame: " + this.getFrame(), this, "previousRotation");
 
-        matrix.setRotate((float) -this.increment, (float) this.halfWidth, (float) this.halfHeight);        
+        this.matrix.setRotate((float) -this.increment, (float) this.halfWidth, (float) this.halfHeight);        
         //matrix.setRotate(this.angleInfo.getAngle(), this.halfWidth, this.halfHeight);
 
         this.updateImage();
@@ -149,7 +149,7 @@ extends ImageBaseRotationAnimation
 
         this.angleInfo.adjustAngle(newFrame);
 
-        matrix.setRotate((float) (newFrame - currentFrame) * increment, (float) this.halfWidth, (float) this.halfHeight);
+        this.matrix.setRotate((float) (newFrame - currentFrame) * this.increment, (float) this.halfWidth, (float) this.halfHeight);
 
         this.updateImage();
     }  

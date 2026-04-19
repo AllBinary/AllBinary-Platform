@@ -130,7 +130,7 @@ public class BasicTopViewGeographicMapCellType //extends GeographicMapCellType
     public boolean isType(final int type) {
         final int size = types.length;
         for(int index = 0; index < size; index++) {
-            if(types[index] == type) {
+            if(this.types[index] == type) {
                 return true;
             }
         }
@@ -144,9 +144,9 @@ public class BasicTopViewGeographicMapCellType //extends GeographicMapCellType
     public String toString() {
         final StringMaker stringMaker = new StringMaker();
 
-        final int size = types.length;
+        final int size = this.types.length;
         for(int index = 0; index < size; index++) {
-            stringMaker.appendint(types[index]).append(CommonSeps.getInstance().COMMA);
+            stringMaker.appendint(this.types[index]).append(CommonSeps.getInstance().COMMA);
         }        
 
         return stringMaker.toString();

@@ -61,7 +61,7 @@ public class VectorExplosionGenerator
 
         BasicArrayList tempBasicArrayList = (BasicArrayList) pointsBasicArrayList.objectArray[0];
 
-        int[][][] newPoints = vectorAnimationUtil
+        int[][][] newPoints = this.vectorAnimationUtil
                 .toAnimationArrayFromBasicArrayListOfPointBasicArrayList(
                         pointsBasicArrayList, tempBasicArrayList.size());
 
@@ -143,7 +143,7 @@ public class VectorExplosionGenerator
             sectionBasicArrayList = RandomTranslation.getInstance(
                     sectionBasicArrayList, howMuch);
 
-            if (type == ROTATION)
+            if (type == this.ROTATION)
             {
                 sectionBasicArrayList = randomRotationFactory.getInstance(
                         sectionBasicArrayList, howMuch);

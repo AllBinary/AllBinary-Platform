@@ -47,10 +47,10 @@ public class EmailsNotUsed implements DomNodeInterface
 
          Node node = document.createElement(EmailData.NAME);
 
-         final int size = emailInfoVector.size();
+         final int size = this.emailInfoVector.size();
          for(int index = 0; index < size; index++)
          {
-            Email email = (Email) emailInfoVector.get(index);
+            Email email = (Email) this.emailInfoVector.get(index);
 
             Node emailNode = email.toXmlNode(document);
 
@@ -62,7 +62,7 @@ public class EmailsNotUsed implements DomNodeInterface
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
          {
-            this.logUtil.putF(commonStrings.END, this, "toXmlNode()");
+            this.logUtil.putF(this.commonStrings.END, this, "toXmlNode()");
          }
          return node;
       }
@@ -70,7 +70,7 @@ public class EmailsNotUsed implements DomNodeInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGINGERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "toXmlNode()", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "toXmlNode()", e);
          }
 
          String error = "Error Processing Order.  Please contact us if error persists.<p/>";

@@ -144,20 +144,20 @@ public class ImageActionScriptOutputJPanel
     // <editor-fold defaultstate="collapsed" desc=" Generated Code ">//GEN-BEGIN:initComponents
     private void initComponents()
     {
-        capturedImageActionJDialog = new javax.swing.JDialog();
-        titleJLabel = new javax.swing.JLabel();
-        okJButton = new javax.swing.JButton();
-        saveJCheckBox = new javax.swing.JCheckBox();
-        displayJCheckBox = new javax.swing.JCheckBox();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        itemTypesJList = new javax.swing.JList();
-        capturedImageActionJButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        this.capturedImageActionJDialog = new javax.swing.JDialog();
+        this.titleJLabel = new javax.swing.JLabel();
+        this.okJButton = new javax.swing.JButton();
+        this.saveJCheckBox = new javax.swing.JCheckBox();
+        this.displayJCheckBox = new javax.swing.JCheckBox();
+        this.jScrollPane1 = new javax.swing.JScrollPane();
+        this.itemTypesJList = new javax.swing.JList();
+        this.capturedImageActionJButton = new javax.swing.JButton();
+        this.jLabel1 = new javax.swing.JLabel();
 
-        capturedImageActionJDialog.setMinimumSize(new java.awt.Dimension(250, 250));
-        titleJLabel.setText("Image Output Options");
+        this.capturedImageActionJDialog.setMinimumSize(new java.awt.Dimension(250, 250));
+        this.titleJLabel.setText("Image Output Options");
 
-        okJButton.setText("OK");
+        this.okJButton.setText("OK");
         okJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -166,13 +166,13 @@ public class ImageActionScriptOutputJPanel
             }
         });
 
-        saveJCheckBox.setText("Save To File");
-        saveJCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        saveJCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        this.saveJCheckBox.setText("Save To File");
+        this.saveJCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        this.saveJCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
 
-        displayJCheckBox.setText("Display");
-        displayJCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        displayJCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        this.displayJCheckBox.setText("Display");
+        this.displayJCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        this.displayJCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
         displayJCheckBox.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -187,10 +187,10 @@ public class ImageActionScriptOutputJPanel
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(itemTypesJList);
+        this.jScrollPane1.setViewportView(this.itemTypesJList);
 
-        javax.swing.GroupLayout capturedImageActionJDialogLayout = new javax.swing.GroupLayout(capturedImageActionJDialog.getContentPane());
-        capturedImageActionJDialog.getContentPane().setLayout(capturedImageActionJDialogLayout);
+        javax.swing.GroupLayout capturedImageActionJDialogLayout = new javax.swing.GroupLayout(this.capturedImageActionJDialog.getContentPane());
+        this.capturedImageActionJDialog.getContentPane().setLayout(capturedImageActionJDialogLayout);
         capturedImageActionJDialogLayout.setHorizontalGroup(
             capturedImageActionJDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(capturedImageActionJDialogLayout.createSequentialGroup()
@@ -228,7 +228,7 @@ public class ImageActionScriptOutputJPanel
         );
 
         setMinimumSize(new java.awt.Dimension(100, 0));
-        capturedImageActionJButton.setText("Edit");
+        this.capturedImageActionJButton.setText("Edit");
         capturedImageActionJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -237,7 +237,7 @@ public class ImageActionScriptOutputJPanel
             }
         });
 
-        jLabel1.setText("Capture Image:");
+        this.jLabel1.setText("Capture Image:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

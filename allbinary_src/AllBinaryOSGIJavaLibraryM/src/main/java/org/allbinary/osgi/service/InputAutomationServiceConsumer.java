@@ -49,7 +49,7 @@ public class InputAutomationServiceConsumer
     {
         this.logUtil.putF(this.commonStrings.START, this, commonStrings.PROCESS);
         
-        final Vector vector = osgiServiceUtil.getServicesObjectVector(
+        final Vector vector = this.osgiServiceUtil.getServicesObjectVector(
             this.getBundleContext(), this.getServiceReferences());
         
         this.logUtil.putF("Processing " + vector.size() + " Services", this, commonStrings.PROCESS);
@@ -79,7 +79,7 @@ public class InputAutomationServiceConsumer
 
     public void setBundleContext(BundleContext aBundleContext)
     {
-        bundleContext = aBundleContext;
+        this.bundleContext = aBundleContext;
     }
 
     public String getRegistryName()

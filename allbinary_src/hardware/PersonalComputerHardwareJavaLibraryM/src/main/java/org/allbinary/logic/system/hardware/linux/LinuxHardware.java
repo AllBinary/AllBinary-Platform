@@ -78,7 +78,7 @@ public class LinuxHardware implements HardwareInterface
    {
       this.init(PCIFILE);
       
-      if(componentInterfaceVector.size() < MINHARDWARE)
+      if(this.componentInterfaceVector.size() < this.MINHARDWARE)
       {
           throw new Exception("Not Enough Data For A Valid License On Linux"); 
       }
@@ -86,8 +86,8 @@ public class LinuxHardware implements HardwareInterface
       Cpu cpu = new Cpu();
       if(cpu!=null)
       {
-         cpuInterfaceVector.add(cpu);
-         componentInterfaceVector.add(cpu);
+         this.cpuInterfaceVector.add(cpu);
+         this.componentInterfaceVector.add(cpu);
       }
       
       if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OS))
@@ -117,18 +117,18 @@ public class LinuxHardware implements HardwareInterface
    {
       try
       {
-         componentInterfaceVector = new Vector();
-         videoInterfaceVector = new Vector();
-         hardDriveControllerInterfaceVector = new Vector();
-         cpuInterfaceVector = new Vector();
-         usbInterfaceVector = new Vector();
-         ethernetInterfaceVector = new Vector();
-         multimediaInterfaceVector = new Vector();
-         fireWireInterfaceVector = new Vector();
-         bridgeInterfaceVector = new Vector();
-         hardDriveInterfaceVector = new Vector();
-         macInterfaceVector = new Vector();
-         monitorInterfaceVector = new Vector();
+         this.componentInterfaceVector = new Vector();
+         this.videoInterfaceVector = new Vector();
+         this.hardDriveControllerInterfaceVector = new Vector();
+         this.cpuInterfaceVector = new Vector();
+         this.usbInterfaceVector = new Vector();
+         this.ethernetInterfaceVector = new Vector();
+         this.multimediaInterfaceVector = new Vector();
+         this.fireWireInterfaceVector = new Vector();
+         this.bridgeInterfaceVector = new Vector();
+         this.hardDriveInterfaceVector = new Vector();
+         this.macInterfaceVector = new Vector();
+         this.monitorInterfaceVector = new Vector();
          
          FileReader pciFile = new FileReader(filePath);
          lineNumberReader = new LineNumberReader(pciFile);
@@ -177,7 +177,7 @@ public class LinuxHardware implements HardwareInterface
 
                if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OS))
                {
-                  this.logUtil.putF("Found Hardware Device: " + componentInterfaceVector.size(), this, this.commonStrings.CONSTRUCTOR);
+                  this.logUtil.putF("Found Hardware Device: " + this.componentInterfaceVector.size(), this, this.commonStrings.CONSTRUCTOR);
                }
                
                componentData.append(nextLine);
@@ -202,7 +202,7 @@ public class LinuxHardware implements HardwareInterface
                           componentType,componentData.toString());
                if(componentInterface != null)
                {
-                  componentInterfaceVector.add(componentInterface);
+                  this.componentInterfaceVector.add(componentInterface);
                }
             }
          }
@@ -226,72 +226,72 @@ public class LinuxHardware implements HardwareInterface
       
    public MediaInterface getMultimedia(int index)
    {
-      return (MediaInterface) multimediaInterfaceVector.get(index);
+      return (MediaInterface) this.multimediaInterfaceVector.get(index);
    }
    
    public BridgeInterface getBridge(int index)
    {
-      return (BridgeInterface) bridgeInterfaceVector.get(index);
+      return (BridgeInterface) this.bridgeInterfaceVector.get(index);
    }
    
    public CpuInterface getCpu(int index)
    {
-      return (CpuInterface) cpuInterfaceVector.get(index);
+      return (CpuInterface) this.cpuInterfaceVector.get(index);
    }
    
    public EthernetInterface getEthernet(int index)
    {
-      return (EthernetInterface) ethernetInterfaceVector.get(index);
+      return (EthernetInterface) this.ethernetInterfaceVector.get(index);
    }
    
    public FireWireInterface getFireWire(int index)
    {
-      return (FireWireInterface) fireWireInterfaceVector.get(index);
+      return (FireWireInterface) this.fireWireInterfaceVector.get(index);
    }
    
    public HardDriveControllerInterface getHardDriveController(int index)
    {
-      return (HardDriveControllerInterface) hardDriveControllerInterfaceVector.get(index);
+      return (HardDriveControllerInterface) this.hardDriveControllerInterfaceVector.get(index);
    }
    
    public HardDriveInterface getHardDrive(int index)
    {
-      return (HardDriveInterface) hardDriveInterfaceVector.get(index);
+      return (HardDriveInterface) this.hardDriveInterfaceVector.get(index);
    }
    
    public MachineAccessControlAddressInterface getMachineAccessControlAddress(int index)
    {
-      return (MachineAccessControlAddressInterface) macInterfaceVector.get(index);
+      return (MachineAccessControlAddressInterface) this.macInterfaceVector.get(index);
    }
    
    public MonitorInterface getMonitor(int index)
    {
-      return (MonitorInterface) monitorInterfaceVector.get(index);
+      return (MonitorInterface) this.monitorInterfaceVector.get(index);
    }
    
    public UsbInterface getUsb(int index)
    {
-      return (UsbInterface) usbInterfaceVector.get(index);
+      return (UsbInterface) this.usbInterfaceVector.get(index);
    }
    
    public VideoInterface getVideo(int index)
    {
-      return (VideoInterface) videoInterfaceVector.get(index);
+      return (VideoInterface) this.videoInterfaceVector.get(index);
    }
    
    public HardwareComponentInterface getComponent(int index)
    {
-      return (HardwareComponentInterface) componentInterfaceVector.get(index);
+      return (HardwareComponentInterface) this.componentInterfaceVector.get(index);
    }
    
    public String toString()
    {
       final StringMaker hardwareBuffer = new StringMaker();
       
-       final int size = componentInterfaceVector.size();
+       final int size = this.componentInterfaceVector.size();
        for (int index = 0; index < size; index++)
        {
-         HardwareComponentInterface componentInterface = (HardwareComponentInterface) componentInterfaceVector.get(index);
+         HardwareComponentInterface componentInterface = (HardwareComponentInterface) this.componentInterfaceVector.get(index);
          hardwareBuffer.append("Component ");
          hardwareBuffer.appendint(index);
          hardwareBuffer.append(": \n");

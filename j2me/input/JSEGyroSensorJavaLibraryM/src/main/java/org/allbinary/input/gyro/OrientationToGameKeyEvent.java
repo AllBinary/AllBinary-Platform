@@ -29,7 +29,7 @@ public class OrientationToGameKeyEvent
             if(Features.getInstance().isFeature(
                 SensorFeatureFactory.getInstance().NO_ORIENTATION))
             {
-                allBinaryGyroSensor = new NoGyroSensor();
+                this.allBinaryGyroSensor = new NoGyroSensor();
             }
                 else
                 {

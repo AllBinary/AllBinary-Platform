@@ -161,8 +161,8 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
             
             //PreLogUtil.put(new StringMaker().append("Rect: ").append(rectangle.toString()).append(CommonSeps.getInstance().SPACE).append(point.toString()).toString(), this, gameInputStrings.PROCESS_MOTION_INPUT);
             
-            GPoint rectPoint = rectangle.getPoint();
-            if (rectangleCollisionUtil.isInside(
+            GPoint rectPoint = this.rectangle.getPoint();
+            if (this.rectangleCollisionUtil.isInside(
                 rectPoint.getX(),
                 rectPoint.getY(),
                 //fudge the edge of the button since touch screen calibration may suck

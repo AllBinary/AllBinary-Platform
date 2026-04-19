@@ -66,7 +66,7 @@ extends ScrollSelectionForm
             }
             else
             {
-                graphics.setColor(backgroundColor);
+                graphics.setColor(this.backgroundColor);
 
                 graphics.fillRect(x, y,
                     this.rectangle.getWidth(),
@@ -83,10 +83,10 @@ extends ScrollSelectionForm
 
                 if (dx >= this.rectangle.getMaxX())
                 {
-                    if(logged) {
+                    if(this.logged) {
                         
                     } else {
-                        logged = true;
+                        this.logged = true;
                         PreLogUtil.put(new StringMaker().append("painting beyond maxx: ").appendint(this.rectangle.getMaxX()).toString(), this, canvasStrings.PAINT);
                     }
                     //break;

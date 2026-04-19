@@ -39,9 +39,9 @@ public class DestroyedEventHandler extends BasicEventHandler
 
    public void addListener(CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer)
    {
-       if(!list.contains(collidableDestroyableDamageableLayer))
+       if(!this.list.contains(collidableDestroyableDamageableLayer))
        {
-           list.add(collidableDestroyableDamageableLayer);
+           this.list.add(collidableDestroyableDamageableLayer);
        }
    }
 

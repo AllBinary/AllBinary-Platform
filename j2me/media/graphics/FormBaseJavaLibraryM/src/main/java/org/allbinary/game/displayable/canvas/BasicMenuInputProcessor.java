@@ -43,7 +43,7 @@ public class BasicMenuInputProcessor extends PlayerGameInput
                 //new StringBuilder().append("onMotionGestureEvent - id: ").append(motionGestureEvent.getId())
                         //.append(" point: ").append(motionGestureEvent.getCurrentPoint()).toString());
        
-        motionGestureEventList.add(motionGestureEvent);
+        this.motionGestureEventList.add(motionGestureEvent);
     }
 
     private void setCanvas(MyCanvas canvas)
@@ -53,7 +53,7 @@ public class BasicMenuInputProcessor extends PlayerGameInput
 
     protected MyCanvas getCanvas()
     {
-        return (MyCanvas) canvas;
+        return (MyCanvas) this.canvas;
     }
 
     public int processInput()

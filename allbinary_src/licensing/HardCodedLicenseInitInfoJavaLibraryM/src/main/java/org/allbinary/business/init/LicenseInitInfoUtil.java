@@ -64,7 +64,7 @@ public class LicenseInitInfoUtil
         licenseInitInfo.clearServers();
 
         //Add your servers here
-        licenseInitInfo.addServer(OFFICIAL_ALLBINARY_SERVICES_SERVER);
+        licenseInitInfo.addServer(this.OFFICIAL_ALLBINARY_SERVICES_SERVER);
 
         return licenseInitInfo;
     }

@@ -38,7 +38,7 @@ public class LayerInterfaceFactory
    
    public void init()
    {
-       list = new BasicArrayList();
+       this.list = new BasicArrayList();
    }
    
    private final String HASHTABLE_LABEL = "Hashtable: ";
@@ -47,19 +47,19 @@ public class LayerInterfaceFactory
            throws Exception
    {
        final CommonStrings commonStrings = CommonStrings.getInstance();
-      this.logUtil.putF(new StringMaker().append(HASHTABLE_LABEL).append(StringUtil.getInstance().toString(hashtable)).toString(), this, commonStrings.GET_INSTANCE);
+      this.logUtil.putF(new StringMaker().append(this.HASHTABLE_LABEL).append(StringUtil.getInstance().toString(hashtable)).toString(), this, commonStrings.GET_INSTANCE);
 
       final Integer typeInteger = (Integer) hashtable.get((Object) Layer.ID);
 
       /*
-      if(list.objectArray.length <= typeInteger.intValue() - 1)
+      if(this.list.objectArray.length <= typeInteger.intValue() - 1)
       {
     	  PrelogUtil.putF("Layer ID: ").append(typeInteger.toString(), this, commonStrings.GET_INSTANCE);
       }
       */
 
       final LayerInterfaceFactoryInterface layerInterfaceFactoryInterface = 
-            (LayerInterfaceFactoryInterface) list.objectArray[typeInteger.intValue() - 1];
+            (LayerInterfaceFactoryInterface) this.list.objectArray[typeInteger.intValue() - 1];
 
       /*
       if(layerInterfaceFactoryInterface == null)
@@ -73,6 +73,6 @@ public class LayerInterfaceFactory
    
    public void add(final LayerInterfaceFactoryInterface layerInterfaceFactoryInterface)
    {
-       list.add(layerInterfaceFactoryInterface);
+       this.list.add(layerInterfaceFactoryInterface);
    }
 }

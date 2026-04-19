@@ -45,7 +45,7 @@ public class PaymentGatewayHelper extends BasicTable
       {
          this.weblisketSession = new WeblisketSession(hashMap, pageContext);
 
-         httpServletRequest =
+         this.httpServletRequest =
             (HttpServletRequest) pageContext.getRequest();
          
          this.portion = new Portion(hashMap);
@@ -65,7 +65,7 @@ public class PaymentGatewayHelper extends BasicTable
       try
       {
          PaymentGatewayInterface paymentGatewayInterface = 
-            new PaymentGatewayInterfaceFactory().getInstance(httpServletRequest);
+            new PaymentGatewayInterfaceFactory().getInstance(this.httpServletRequest);
          paymentGatewayInterface.setStoreName(
             this.weblisketSession.getStoreName());
          
@@ -98,7 +98,7 @@ public class PaymentGatewayHelper extends BasicTable
       try
       {
          PaymentGatewayInterface paymentGatewayInterface = 
-            new PaymentGatewayInterfaceFactory().getInstance(httpServletRequest);
+            new PaymentGatewayInterfaceFactory().getInstance(this.httpServletRequest);
          paymentGatewayInterface.setStoreName(
             this.weblisketSession.getStoreName());
          
@@ -142,7 +142,7 @@ public class PaymentGatewayHelper extends BasicTable
       try
       {
          PaymentGatewayInterface paymentGatewayInterface = 
-            new PaymentGatewayInterfaceFactory().getInstance(httpServletRequest);
+            new PaymentGatewayInterfaceFactory().getInstance(this.httpServletRequest);
          paymentGatewayInterface.setStoreName(
             this.weblisketSession.getStoreName());
          

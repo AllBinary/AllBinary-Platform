@@ -29,13 +29,13 @@ public class BasicColorUtil
     
     public int get(int red, int green, int blue)
     {
-        int value;
+        int value = 0;
 
-        if (isAlpha)
+        if (this.isAlpha)
         {
-            if (ffOpaque)
+            if (this.ffOpaque)
             {
-                value = ALPHA;
+                value = this.ALPHA;
             }
         }
         
@@ -48,16 +48,16 @@ public class BasicColorUtil
     
     public int get(final int alphaValue, final int r, final int g, final int b)
     {
-        return ((alphaValue << 24) & ALPHA) + ((r << 16) & 0x00FF0000) + ((g << 8) & 0x0000FF00) + (b & 0x000000FF);
+        return ((alphaValue << 24) & this.ALPHA) + ((r << 16) & 0x00FF0000) + ((g << 8) & 0x0000FF00) + (b & 0x000000FF);
     }
 
     public int get(final int alphaValue, final int color)
     {
-        return ((alphaValue << 24) & ALPHA) + color;
+        return ((alphaValue << 24) & this.ALPHA) + color;
     }
     
     public int invert(final int color) {
-        return (0xFFFFFF - color) | ALPHA;
+        return (0xFFFFFF - color) | this.ALPHA;
     }
     
 }

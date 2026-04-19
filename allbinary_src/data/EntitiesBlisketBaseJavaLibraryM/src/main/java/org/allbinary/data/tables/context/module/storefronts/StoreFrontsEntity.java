@@ -33,7 +33,7 @@ public class StoreFrontsEntity extends AbSqlBean implements StoreFrontsEntityInt
    public StoreFrontsEntity()
    {
       super(new UserDbInitInfo());
-      this.setTableName(tableName);
+      this.setTableName(this.tableName);
    }
    
    public void insert(Vector values)
@@ -111,7 +111,7 @@ public class StoreFrontsEntity extends AbSqlBean implements StoreFrontsEntityInt
         StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.sqlStrings.CREATE_TABLE);
-        stringBuffer.append(tableName);
+        stringBuffer.append(this.tableName);
         stringBuffer.append(this.sqlStrings.START);
 
         stringBuffer.append(storeFrontData.NAME);

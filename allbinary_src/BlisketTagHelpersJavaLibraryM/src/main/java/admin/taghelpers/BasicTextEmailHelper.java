@@ -44,8 +44,8 @@ public class BasicTextEmailHelper
    
    public void send() throws Exception
    {
-      String adminEmailSubject = (String) hashMap.get("Subject");
-      String adminEmailTextBody = (String) hashMap.get("Body");
+      String adminEmailSubject = (String) this.hashMap.get("Subject");
+      String adminEmailTextBody = (String) this.hashMap.get("Body");
 
       BasicEmailInfo adminBasicEmailInfo = (BasicEmailInfo)
       new AdminEmailInfo(adminEmailSubject, adminEmailTextBody);

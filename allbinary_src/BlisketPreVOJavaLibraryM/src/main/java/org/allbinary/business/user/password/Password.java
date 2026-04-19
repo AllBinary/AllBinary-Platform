@@ -101,7 +101,7 @@ public class Password
       Vector vector = new Vector();
       vector.add(new Integer(random).toString());
       vector.add(secret);
-      vector.add(new SuperCrypt(random).encrypt(password));
+      vector.add(new SuperCrypt(random).encrypt(this.password));
       return vector;
    }
 

@@ -39,13 +39,13 @@ public class PlayerQueue
         try
         {
 
-            if (!list.contains(sound))
+            if (!this.list.contains(sound))
             {
                 //final String message = "Adding: ").append(sound.getResource();
                 
                 //this.logUtil.putF(new StringMaker().append("Adding: ").append(sound.getResource()).toString(), this, commonStrings.ADD);
 
-                list.add(sound);
+                this.list.add(sound);
             }
         }
         catch (Exception e)
@@ -61,9 +61,9 @@ public class PlayerQueue
         {
             boolean played = false;
 
-            if (list.size() > 0)
+            if (this.list.size() > 0)
             {
-                sound = (Sound) list.remove(0);
+                sound = (Sound) this.list.remove(0);
 
                 //Should be possible, but it still happens?
                 if (sound != null)
@@ -76,9 +76,9 @@ public class PlayerQueue
                     sound.getPlayerP().start();
                 }
 
-                while (list.size() > max)
+                while (this.list.size() > this.max)
                 {
-                    list.remove(0);
+                    this.list.remove(0);
                 }
 
                 played = true;

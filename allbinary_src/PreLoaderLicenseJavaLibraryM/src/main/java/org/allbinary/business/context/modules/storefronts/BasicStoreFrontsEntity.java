@@ -29,7 +29,7 @@ public class BasicStoreFrontsEntity extends InitSql
    public BasicStoreFrontsEntity()
    {
       super(new UserDbInitInfo());
-      this.setTable(tableName);
+      this.setTable(this.tableName);
    }
 
    public BasicStoreFrontInterface getStoreFrontInterface(String name) throws Exception

@@ -71,7 +71,7 @@ public class XmlRpcRemoteLicenseRegistrationClient extends XmlRpcAbeClient
 
             int index = serverUrl.lastIndexOf("/");
             
-            serverUrl = serverUrl.substring(0, index + 1) + PAGE;
+            serverUrl = serverUrl.substring(0, index + 1) + this.PAGE;
             //System.out.println("Renamed Server: " + serverUrl);
 
             final XmlRpcClient xmlRpcClient = new XmlRpcClient(serverUrl);

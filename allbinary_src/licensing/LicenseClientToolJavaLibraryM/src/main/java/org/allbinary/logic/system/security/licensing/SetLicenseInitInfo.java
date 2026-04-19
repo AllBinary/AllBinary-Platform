@@ -43,7 +43,7 @@ public class SetLicenseInitInfo
 
         for (int index = 1; index < options.length; index++)
         {
-            vector.add(options[index]);
+            this.vector.add(options[index]);
         }
     }
 
@@ -86,10 +86,10 @@ public class SetLicenseInitInfo
              */
 
             /*
-            final int size = vector.size();
+            final int size = this.vector.size();
             for (int index = 0; index < size; index++)
             {
-                String serverName = (String) vector.get(index);
+                String serverName = (String) this.vector.get(index);
                 licenseInitInfo.addServer(serverName);
             }
             */

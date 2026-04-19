@@ -42,7 +42,7 @@ public class AbSqlTableUtil
     public synchronized String backupTable(AbSqlTable abSqlTable)
     {
         final String tableName = abSqlTable.getTableName();
-        return TABLE_LABEL + tableName + " Backup Failed";
+        return this.TABLE_LABEL + tableName + " Backup Failed";
     }
 
     public synchronized String restoreTable(AbSqlTable abSqlTable, Portion portion)
@@ -51,7 +51,7 @@ public class AbSqlTableUtil
 
         final StringMaker stringBuffer = new StringMaker();
 
-        stringBuffer.append(TABLE_LABEL);
+        stringBuffer.append(this.TABLE_LABEL);
         stringBuffer.append(tableName);
         stringBuffer.append(" Restoration Failed");
 

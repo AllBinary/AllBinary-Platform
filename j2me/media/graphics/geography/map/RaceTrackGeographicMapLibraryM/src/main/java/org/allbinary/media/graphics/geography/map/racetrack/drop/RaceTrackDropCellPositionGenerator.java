@@ -51,7 +51,7 @@ public class RaceTrackDropCellPositionGenerator
 
     protected RaceTrackDropCellPositionGenerator()
     {
-        timeDelayHelper = new TimeDelayHelper(10000);
+        this.timeDelayHelper = new TimeDelayHelper(10000);
     }
 
     private void init()
@@ -67,7 +67,7 @@ public class RaceTrackDropCellPositionGenerator
             throws Exception
         {            
             final RaceTrackGeographicMapCellType raceTrackGeographicMapCellType =
-                (RaceTrackGeographicMapCellType) raceTrackGeographicMap.getCellTypeAt(geographicMapCellPosition);
+                (RaceTrackGeographicMapCellType) this.raceTrackGeographicMap.getCellTypeAt(geographicMapCellPosition);
 
             final RaceTrackGeographicMapCellTypeFactory raceTrackGeographicMapCellTypeFactory = (RaceTrackGeographicMapCellTypeFactory) this.raceTrackGeographicMapCellTypeFactory;
             if (raceTrackGeographicMapCellType == raceTrackGeographicMapCellTypeFactory.HORIZONTAL_STRAIGHT_ROAD_CELL_TYPE ||
@@ -128,7 +128,7 @@ public class RaceTrackDropCellPositionGenerator
                  */
 
                 // Both a straight away and not close to turn
-                if (total > STRAIGHTAWAY)
+                if (total > this.STRAIGHTAWAY)
                 {
                     this.list.add(geographicMapCellPosition);
                     break;
@@ -163,9 +163,9 @@ public class RaceTrackDropCellPositionGenerator
     public void processTick(final AllBinaryLayerManager allBinaryLayerManager)
         throws Exception
     {
-        if (timeDelayHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime))
+        if (this.timeDelayHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime))
         {
-            int index = basicArrayListUtil.getRandomIndex(this.list);
+            int index = this.basicArrayListUtil.getRandomIndex(this.list);
             this.drop(allBinaryLayerManager, index);
         }
     }

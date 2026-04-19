@@ -93,7 +93,7 @@ public class WeakCrypt
         try
         {
             //change data from database friendly data for decryption
-            final byte[] decrypted = abCrypt.decrypt(DatabaseEncoder.decode(value));
+            final byte[] decrypted = this.abCrypt.decrypt(DatabaseEncoder.decode(value));
             return new String(decrypted);
         } catch (Exception e)
         {

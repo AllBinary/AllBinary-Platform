@@ -53,9 +53,9 @@ public class TerrainEventHandler extends BasicEventHandler
 
    public void addListener(final TerrainEventListener terrainEventListener)
    {
-       if(!list.contains(terrainEventListener))
+       if(!this.list.contains(terrainEventListener))
        {
-           list.add(terrainEventListener);
+           this.list.add(terrainEventListener);
        }
    }
 

@@ -34,7 +34,7 @@ public class AffiliateSalesEntity extends AbSqlBean implements AffiliateSalesEnt
     public AffiliateSalesEntity()
     {
         super(new UserDbInitInfo());
-        this.setTableName(tableName);
+        this.setTableName(this.tableName);
     }
 
     /*

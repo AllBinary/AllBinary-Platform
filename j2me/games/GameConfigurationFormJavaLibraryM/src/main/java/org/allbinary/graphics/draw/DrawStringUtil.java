@@ -111,7 +111,7 @@ public class DrawStringUtil
         {
             String string = stringArray[index];
 
-            if (string != EMPTY_STRING)
+            if (string != this.EMPTY_STRING)
             {
                 int width = graphics.getFont().stringWidth(string);
 

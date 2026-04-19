@@ -184,7 +184,7 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
         if (volume < 0f || volume > 1f) {
             throw new IllegalArgumentException("Volume: " + volume);
         }
-        final FloatControl masterGainFloatControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+        final FloatControl masterGainFloatControl = (FloatControl) this.clip.getControl(FloatControl.Type.MASTER_GAIN);
         masterGainFloatControl.setValue(20f * (float) Math.log10(volume));
     }
 

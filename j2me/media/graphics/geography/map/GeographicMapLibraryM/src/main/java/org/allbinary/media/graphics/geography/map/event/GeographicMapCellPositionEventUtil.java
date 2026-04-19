@@ -24,7 +24,7 @@ public class GeographicMapCellPositionEventUtil
 
     public GeographicMapCellPositionEventUtil(Object object)
     {
-        geographicMapCellPositionEvent = new GeographicMapCellPositionEvent(object, CellPositionFactory.getInstance().NONE);
+        this.geographicMapCellPositionEvent = new GeographicMapCellPositionEvent(object, CellPositionFactory.getInstance().NONE);
     }
 
     public void update(GeographicMapCellPositionTracking geographicMapCellPositionTracking)

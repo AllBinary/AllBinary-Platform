@@ -38,7 +38,7 @@ public class BasketReview
    
    public void addItem(Item item)
    {      
-      items.add(item);
+      this.items.add(item);
    }
    
    public Vector getItems()
@@ -48,21 +48,21 @@ public class BasketReview
    
    public void removeItem(String id)
    {
-      final Object[] itemArray = items.toArray();
+      final Object[] itemArray = this.items.toArray();
       final int size = itemArray.length;
       for (int index = 0; index < size; index++)       
       {
          Item item = (Item) itemArray[index];
          if(item.getId().compareTo(id) == 0)
          {
-            items.remove(item);
+            this.items.remove(item);
          }
       }
    }
    
    public void adjustItem(String id, String num)
    {
-      final Object[] itemArray = items.toArray();
+      final Object[] itemArray = this.items.toArray();
       final int size = itemArray.length;
       for (int index = 0; index < size; index++)       
       {
@@ -78,7 +78,7 @@ public class BasketReview
    {
       float weightFloat = 0;
        
-      final Object[] itemArray = items.toArray();
+      final Object[] itemArray = this.items.toArray();
       final int size = itemArray.length;
       for (int index = 0; index < size; index++)       
       {
@@ -90,13 +90,13 @@ public class BasketReview
    
    public Integer getNumberOfItems()
    {
-      return new Integer(items.size());
+      return new Integer(this.items.size());
    }
    
    public Set getIds()
    {
       HashSet idSet = new HashSet();
-      final Object[] itemArray = items.toArray();
+      final Object[] itemArray = this.items.toArray();
       final int size = itemArray.length;
       for (int index = 0; index < size; index++)       
       {
@@ -108,7 +108,7 @@ public class BasketReview
       
    public Integer getNumberOf(String id)
    {
-      final Object[] itemArray = items.toArray();
+      final Object[] itemArray = this.items.toArray();
       final int size = itemArray.length;
       for (int index = 0; index < size; index++)       
       {
@@ -125,7 +125,7 @@ public class BasketReview
    {
       Node node = document.createElement(BasketData.BASKET);
       
-      final Object[] itemArray = items.toArray();
+      final Object[] itemArray = this.items.toArray();
       final int size = itemArray.length;
       for (int index = 0; index < size; index++)       
       {

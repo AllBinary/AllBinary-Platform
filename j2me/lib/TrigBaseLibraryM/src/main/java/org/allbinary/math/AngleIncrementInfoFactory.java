@@ -30,7 +30,7 @@ public class AngleIncrementInfoFactory
         
         final int halfAngleIncrement = ((int) angleIncrement >> 1);
         
-       AngleIncrementInfo angleIncrementInfoCanBeNull = angleIncrementInfo[halfAngleIncrement];
+       AngleIncrementInfo angleIncrementInfoCanBeNull = this.angleIncrementInfo[halfAngleIncrement];
        //hashtable.get(integer);
        
        if(angleIncrementInfoCanBeNull == null)
@@ -40,7 +40,7 @@ public class AngleIncrementInfoFactory
                    //new AngleIncrementInfo(integer);
                    new AngleIncrementInfo(angleIncrement);
           //hashtable.put(integer, angleIncrementInfoCanBeNull);
-          angleIncrementInfo[halfAngleIncrement] = angleIncrementInfoCanBeNull;
+          this.angleIncrementInfo[halfAngleIncrement] = angleIncrementInfoCanBeNull;
        }
        
        return angleIncrementInfoCanBeNull;

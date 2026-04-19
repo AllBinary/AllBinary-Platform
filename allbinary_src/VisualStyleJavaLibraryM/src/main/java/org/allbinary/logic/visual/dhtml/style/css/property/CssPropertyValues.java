@@ -119,10 +119,10 @@ public class CssPropertyValues implements DomNodeInterface
       final HashMap hashMap = new HashMap();
       final StringMaker stringBuffer = new StringMaker();
       
-      final int size = propertyValueVector.size();
+      final int size = this.propertyValueVector.size();
       for (int index = 0; index < size; index++)      
       {
-         String value = (String) propertyValueVector.get(index);
+         String value = (String) this.propertyValueVector.get(index);
 
          stringBuffer.delete(0, stringBuffer.length());
 

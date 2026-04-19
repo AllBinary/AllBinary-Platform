@@ -47,7 +47,7 @@ public class WebCommandProcessor {
     public void process(final CommandListener midletCommandListener, final Command command, final Canvas canvas) {
         try {
             //J2ME
-            list.remove(0);
+            this.list.remove(0);
 
         } catch(Exception e) {
             final CommonStrings commonStrings = CommonStrings.getInstance();

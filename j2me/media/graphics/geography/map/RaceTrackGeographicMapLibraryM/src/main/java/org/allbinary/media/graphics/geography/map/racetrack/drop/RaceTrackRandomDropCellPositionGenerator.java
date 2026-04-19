@@ -86,7 +86,7 @@ public class RaceTrackRandomDropCellPositionGenerator
 
         GPoint point = geographicMapCellPosition.getPoint();
 
-        int randomCell = myRandomFactory.getAbsoluteNextInt(this.totalCells);
+        int randomCell = this.myRandomFactory.getAbsoluteNextInt(this.totalCells);
 
         int row = this.rowArray[randomCell];
         int column = this.columnArray[randomCell];

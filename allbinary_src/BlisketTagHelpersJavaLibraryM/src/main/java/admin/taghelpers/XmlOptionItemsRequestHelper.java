@@ -49,13 +49,13 @@ public class XmlOptionItemsRequestHelper extends ModifyTable
    
    public void getFormData()
    {
-      this.id = request.getParameter(BasicItemData.ID);
+      this.id = this.request.getParameter(BasicItemData.ID);
       
-      this.xmlFileStatus = request.getParameter(XmlOptionItemData.XML_FILE_STATUS);
-      this.optionXmlFile = request.getParameter(XmlOptionItemData.OPTION_XML_FILE);
+      this.xmlFileStatus = this.request.getParameter(XmlOptionItemData.XML_FILE_STATUS);
+      this.optionXmlFile = this.request.getParameter(XmlOptionItemData.OPTION_XML_FILE);
       
-      this.timeEntered = request.getParameter(EntryData.getInstance().TIMECREATED);
-      this.lastModified = request.getParameter(EntryData.getInstance().LASTMODIFIED);
+      this.timeEntered = this.request.getParameter(EntryData.getInstance().TIMECREATED);
+      this.lastModified = this.request.getParameter(EntryData.getInstance().LASTMODIFIED);
    }
 
    private HashMap getHashMap()
@@ -92,7 +92,7 @@ public class XmlOptionItemsRequestHelper extends ModifyTable
          
          XmlOptionItemsEntityFactory.getInstance().getXmlOptionItemsEntityInstance().insert(values);
          
-         String success = "Successfully inserted " + id + " into items table";
+         String success = "Successfully inserted " + this.id + " into items table";
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
@@ -116,7 +116,7 @@ public class XmlOptionItemsRequestHelper extends ModifyTable
    {
       try
       {
-         XmlOptionItemsEntityFactory.getInstance().getXmlOptionItemsEntityInstance().delete(id);
+         XmlOptionItemsEntityFactory.getInstance().getXmlOptionItemsEntityInstance().delete(this.id);
          
          String success = "Successfully deleted";
          
@@ -149,7 +149,7 @@ public class XmlOptionItemsRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.putF(new StringMaker().append(id).append(CommonSeps.getInstance().SPACE).append(success).toString(),this,"update()");
+            this.logUtil.putF(new StringMaker().append(this.id).append(CommonSeps.getInstance().SPACE).append(success).toString(),this,"update()");
          }
          return success;
       }

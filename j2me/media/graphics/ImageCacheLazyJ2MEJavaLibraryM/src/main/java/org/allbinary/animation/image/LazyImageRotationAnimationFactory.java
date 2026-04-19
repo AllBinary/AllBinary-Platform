@@ -39,7 +39,7 @@ public class LazyImageRotationAnimationFactory implements AnimationInterfaceFact
     
     public Animation getInstance(final int instanceId) throws Exception {
         if(this.animationInterfaceFactoryInterface.getImage().isReady()) {
-            this.animationInterfaceFactoryInterface.setInitialScale(scaleProperties);
+            this.animationInterfaceFactoryInterface.setInitialScale(this.scaleProperties);
             return this.animationInterfaceFactoryInterface.getInstance(instanceId);
         } else {
             return new LazyImageRotationAnimation(this.layoutIndex, instanceId, scaleProperties, this.animationInterfaceFactoryInterface, this.animationInterfaceFactoryInterface.animationBehaviorFactory.getOrCreateInstance());

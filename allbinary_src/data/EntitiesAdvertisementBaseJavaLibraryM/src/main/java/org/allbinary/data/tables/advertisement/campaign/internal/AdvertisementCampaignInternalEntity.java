@@ -40,7 +40,7 @@ public class AdvertisementCampaignInternalEntity extends AbSqlBean
     public AdvertisementCampaignInternalEntity()
     {
         super(new UserDbInitInfo());
-        this.setTableName(tableName);
+        this.setTableName(this.tableName);
     }
 
     /*

@@ -50,50 +50,50 @@ public class CurrentlyPressedTouchButtonSingletonDebug
         stringBuffer.append(append);
 
         this.append = stringBuffer.toString();
-        this.string = new StringMaker().append(listString).append(this.append).toString();
+        this.string = new StringMaker().append(this.listString).append(this.append).toString();
     }
 
     private void append(String append)
     {
         this.append = new StringMaker().append(this.append).append(append).toString();
-        this.string = new StringMaker().append(listString).append(this.append).toString();
+        this.string = new StringMaker().append(this.listString).append(this.append).toString();
     }
     
     public void clearLog(int x, int y)
     {
         this.append = new StringMaker().append(GPoint.toStringStatic(x, y, 0)).append(CommonSeps.getInstance().SPACE).toString();
-        this.string = new StringMaker().append(listString).append(this.append).toString();
+        this.string = new StringMaker().append(this.listString).append(this.append).toString();
         //this.append(StringUtil.getInstance());
     }
 
     public void releaseAndNotFired()
     {
-        this.append(RELEASED_AND_NOT_FIRED);
+        this.append(this.RELEASED_AND_NOT_FIRED);
     }
 
     public void releaseAndFired(TouchButtonInput touchButtonInput)
     {
-        this.append(RELEASED_AND_FIRED, touchButtonInput);
+        this.append(this.RELEASED_AND_FIRED, touchButtonInput);
     }
 
     public void releaseAndFired2(TouchButtonInput touchButtonInput)
     {
-        this.append(RELEASED_AND_FIRED_2, touchButtonInput);
+        this.append(this.RELEASED_AND_FIRED_2, touchButtonInput);
     }
     
     public void releaseAndFiredAssociated(TouchButtonInput touchButtonInput)
     {
-        this.append(ASSOCIATED_RELEASED_AND_FIRED, touchButtonInput);
+        this.append(this.ASSOCIATED_RELEASED_AND_FIRED, touchButtonInput);
     }
     
     public void pressedAndFired(TouchButtonInput touchButtonInput)
     {
-        this.append(PRESSED_AND_FIRED, touchButtonInput);
+        this.append(this.PRESSED_AND_FIRED, touchButtonInput);
     }
     
     public void pressedAndNotFired(TouchButtonInput touchButtonInput)
     {
-        this.append(PRESSED_AND_NOT_FIRED, touchButtonInput);
+        this.append(this.PRESSED_AND_NOT_FIRED, touchButtonInput);
     }
     
     @Override
@@ -102,7 +102,7 @@ public class CurrentlyPressedTouchButtonSingletonDebug
         TouchButtonInput touchButtonInput = super.remove(index);
 
         this.listString = list.toString();
-        this.string = new StringMaker().append(listString).append(this.append).toString();
+        this.string = new StringMaker().append(this.listString).append(this.append).toString();
         
         return touchButtonInput;
     }
@@ -113,7 +113,7 @@ public class CurrentlyPressedTouchButtonSingletonDebug
         boolean isRemoved = super.remove(touchButtonInput);
 
         this.listString = list.toString();
-        this.string = new StringMaker().append(listString).append(this.append).toString();
+        this.string = new StringMaker().append(this.listString).append(this.append).toString();
 
         return isRemoved;
     }
@@ -123,7 +123,7 @@ public class CurrentlyPressedTouchButtonSingletonDebug
     {
         super.add(touchButtonInput);
         this.listString = list.toString();
-        this.string = new StringMaker().append(listString).append(this.append).toString();
+        this.string = new StringMaker().append(this.listString).append(this.append).toString();
     }
     
     public String toString()

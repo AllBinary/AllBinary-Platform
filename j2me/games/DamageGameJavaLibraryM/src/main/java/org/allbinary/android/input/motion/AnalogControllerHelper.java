@@ -34,7 +34,7 @@ public class AnalogControllerHelper {
 
     public void right(CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer, int xAnalogValue)
             throws Exception {
-        this.rightTimeElapsedHelper.delay = ((SCALE_VALUE - xAnalogValue) >> this.reduceTimeFactor);        
+        this.rightTimeElapsedHelper.delay = ((this.SCALE_VALUE - xAnalogValue) >> this.reduceTimeFactor);        
 
         if (this.rightTimeElapsedHelper.isTime()) {
             collidableDestroyableDamageableLayer.right();
@@ -43,7 +43,7 @@ public class AnalogControllerHelper {
 
     public void left(CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer, int xAnalogValue)
             throws Exception {
-        this.leftTimeElapsedHelper.delay = ((SCALE_VALUE + xAnalogValue) >> this.reduceTimeFactor);
+        this.leftTimeElapsedHelper.delay = ((this.SCALE_VALUE + xAnalogValue) >> this.reduceTimeFactor);
 
         if (this.leftTimeElapsedHelper.isTime()) {
             collidableDestroyableDamageableLayer.left();
@@ -52,7 +52,7 @@ public class AnalogControllerHelper {
 
     public void up(CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer, int xAnalogValue)
             throws Exception {
-        this.upTimeElapsedHelper.delay = ((SCALE_VALUE - xAnalogValue) >> this.reduceTimeFactor);
+        this.upTimeElapsedHelper.delay = ((this.SCALE_VALUE - xAnalogValue) >> this.reduceTimeFactor);
 
         if (this.upTimeElapsedHelper.isTime()) {
             collidableDestroyableDamageableLayer.up();
@@ -61,7 +61,7 @@ public class AnalogControllerHelper {
 
     public void down(CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer, int xAnalogValue)
             throws Exception {
-        this.downTimeElapsedHelper.delay = ((SCALE_VALUE + xAnalogValue) >> this.reduceTimeFactor);
+        this.downTimeElapsedHelper.delay = ((this.SCALE_VALUE + xAnalogValue) >> this.reduceTimeFactor);
 
         if (this.downTimeElapsedHelper.isTime()) {
             collidableDestroyableDamageableLayer.down();

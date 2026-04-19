@@ -140,12 +140,12 @@ public class InitializerDatabase
 
         StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
         
-        if(!stringValidationUtil.isValidRequired(adminDbUserName, MIN, MAX))
+        if(!stringValidationUtil.isValidRequired(this.adminDbUserName, MIN, MAX))
         {
             isValid = false;
         }
 
-        if(!stringValidationUtil.isValidNotRequired(adminDbPassword, MINPASSWORD, MAX))
+        if(!stringValidationUtil.isValidNotRequired(this.adminDbPassword, MINPASSWORD, MAX))
         {
             isValid = false;
         }
@@ -177,12 +177,12 @@ public class InitializerDatabase
 
         StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
         
-        if (!stringValidationUtil.isValidRequired(adminDbUserName, MIN, MAX))
+        if (!stringValidationUtil.isValidRequired(this.adminDbUserName, MIN, MAX))
         {
             stringBuffer.append("Admin username should be < " + MAX + " and > " + MIN + " characters in length.<br />");
         }
 
-        if (!stringValidationUtil.isValidNotRequired(adminDbPassword, MINPASSWORD, MAX))
+        if (!stringValidationUtil.isValidNotRequired(this.adminDbPassword, MINPASSWORD, MAX))
         {
             stringBuffer.append("Admin password should be < " + MAX + " and > " + MINPASSWORD + " characters in length.<br />");
         }
@@ -199,7 +199,7 @@ public class InitializerDatabase
     {
         try
         {
-            initDb.addUsers();
+            this.initDb.addUsers();
             //initDb.addDatabases();
             return true;
         } catch (Exception e)
@@ -213,7 +213,7 @@ public class InitializerDatabase
     {
         try
         {
-            initDb.addDatabases();
+            this.initDb.addDatabases();
             return true;
         } catch (Exception e)
         {
@@ -226,7 +226,7 @@ public class InitializerDatabase
     {
         try
         {
-            initDb.addTables();
+            this.initDb.addTables();
             return true;
         } catch (Exception e)
         {

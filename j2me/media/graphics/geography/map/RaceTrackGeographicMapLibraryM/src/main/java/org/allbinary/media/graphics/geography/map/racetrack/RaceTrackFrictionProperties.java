@@ -22,8 +22,8 @@ public class RaceTrackFrictionProperties
 
    public RaceTrackFrictionProperties(int roadFriction, int groundFriction)
    {
-      ROAD_FRICTION_NOMINATOR = FrictionData.getFrictionDenominator() - roadFriction;
-      GROUND_FRICTION_NOMINATOR = FrictionData.getFrictionDenominator() - groundFriction;
+      this.ROAD_FRICTION_NOMINATOR = FrictionData.getFrictionDenominator() - roadFriction;
+      this.GROUND_FRICTION_NOMINATOR = FrictionData.getFrictionDenominator() - groundFriction;
    }
 
    public int getRoadFrictionNominator()

@@ -34,34 +34,34 @@ public class Basket implements BasketInterface, Serializable
    
    public void addItem(String id, String num)
    {
-      if(items.containsKey(id))
+      if(this.items.containsKey(id))
       {
-         String oldNumStr = new String((String) items.get(id));
+         String oldNumStr = new String((String) this.items.get(id));
          Integer oldNumInt = Integer.valueOf(oldNumStr);
          Integer numInt = Integer.valueOf(num);
          Integer newNumInt = new Integer(oldNumInt.intValue() + numInt.intValue());
-         items.put(id,newNumInt.toString());
+         this.items.put(id,newNumInt.toString());
       }
       else
       {
-         items.put(id,num);
+         this.items.put(id,num);
       }
    }
    
    public void removeItem(String id)
    {
-      items.remove(id);
+      this.items.remove(id);
    }
    
    public void adjustItem(String id, String num)
    {
       if(Integer.valueOf(num).intValue()>0)
       {
-         items.put(id,num);
+         this.items.put(id,num);
       }
       else
       {
-         items.remove(id);
+         this.items.remove(id);
       }
    }
    
@@ -89,12 +89,12 @@ public class Basket implements BasketInterface, Serializable
    
    public Integer getNumberOfItems()
    {
-      return new Integer(items.size());
+      return new Integer(this.items.size());
    }
    
    public Set getIds()
    {
-      Set set = items.keySet();
+      Set set = this.items.keySet();
       return set;
    }
    
@@ -105,7 +105,7 @@ public class Basket implements BasketInterface, Serializable
    
    public Integer getNumberOf(String product)
    {
-      String numStr =(String) items.get(product);
+      String numStr =(String) this.items.get(product);
       return Integer.valueOf(numStr);
    }
    

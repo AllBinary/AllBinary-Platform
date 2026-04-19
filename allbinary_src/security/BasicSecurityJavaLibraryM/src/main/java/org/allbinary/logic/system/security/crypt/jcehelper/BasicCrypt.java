@@ -87,13 +87,13 @@ public class BasicCrypt implements CryptInterface
     public byte[] mutilate(byte[] array)
     {
         byte value;
-        for (int index = 0; index < key.length; index++)
+        for (int index = 0; index < this.key.length; index++)
         {
-            value = key[index];
+            value = this.key[index];
             //val = (byte) (val & (byte) 0x0F);
             //if(val < 8 && val >0)
             //{
-            array = byteUtil.xor(array, value);
+            array = this.byteUtil.xor(array, value);
             //}
         }
         return array;

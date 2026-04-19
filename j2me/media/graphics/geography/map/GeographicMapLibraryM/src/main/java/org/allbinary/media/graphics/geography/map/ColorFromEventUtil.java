@@ -31,7 +31,7 @@ public class ColorFromEventUtil
      
     public BasicColor getForegroundColor(final AllBinaryGameCanvas gameCanvasInterface)
     {
-        BasicColor color = YELLOW;
+        BasicColor color = this.YELLOW;
 
         final GeographicMapCompositeInterface geographicMapCompositeInterface = 
             (GeographicMapCompositeInterface) gameCanvasInterface.getLayerManager();

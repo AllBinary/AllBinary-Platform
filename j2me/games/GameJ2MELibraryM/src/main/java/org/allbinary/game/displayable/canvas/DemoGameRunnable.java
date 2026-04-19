@@ -40,9 +40,9 @@ public class DemoGameRunnable extends GameRunnable
 
             //final AllBinaryGameCanvas allBinaryGameCanvas = this.allBinaryGameCanvas;
             
-            demoCanvas.getLoopTimeHelperP().setStartTime(gameTickTimeDelayHelper.setStartTime());
+            this.demoCanvas.getLoopTimeHelperP().setStartTime(this.gameTickTimeDelayHelper.setStartTime());
 
-            demoCanvas.processGame();
+            this.demoCanvas.processGame();
         }
         catch (Exception e)
         {
@@ -55,7 +55,7 @@ public class DemoGameRunnable extends GameRunnable
     public void processLoopSleep()
     throws Exception
     {
-        demoCanvas.processLoopSleep();
+        this.demoCanvas.processLoopSleep();
     }
 }
 

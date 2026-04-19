@@ -55,7 +55,7 @@ implements ArtificialIntelligenceTransitionInterface
         this.baseVelocityInterface =
             velocityInterfaceCompositeInterface.getVelocityProperties();
 
-        this.velocityInterface = (VelocityInterface) baseVelocityInterface; 
+        this.velocityInterface = (VelocityInterface) this.baseVelocityInterface; 
 
         //this.transition();
         final RotationAnimationInterface rotationAnimationInterface = (RotationAnimationInterface) this.rotationAnimationInterface;
@@ -114,7 +114,7 @@ implements ArtificialIntelligenceTransitionInterface
             this.drop();
         }
 
-        final int index = circularIndexUtil.getIndex();
+        final int index = this.circularIndexUtil.getIndex();
         if (index % this.currentSpeedDivisor == 0 && index % 2 == 0)
         {
             super.processAI(Canvas.UP);
@@ -159,7 +159,7 @@ implements ArtificialIntelligenceTransitionInterface
 
     private void accelerate()
     {
-        if (currentSpeedDivisor > 1)
+        if (this.currentSpeedDivisor > 1)
         {
             currentSpeedDivisor--;
         }

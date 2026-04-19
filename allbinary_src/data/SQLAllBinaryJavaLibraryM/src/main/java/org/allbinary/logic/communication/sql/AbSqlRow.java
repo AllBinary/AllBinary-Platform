@@ -84,7 +84,7 @@ public class AbSqlRow extends AbSqlColumn
                 final String columnName = keyArray[i].toString();
                 stringBuffer.append(this.commonSeps.SPACE);
                 stringBuffer.append(columnName);
-                stringBuffer.append(EQUAL_QUOTE);
+                stringBuffer.append(this.EQUAL_QUOTE);
                 String columnValue = (String) updatedKeyValuePairs.get(columnName);
 
                 if (columnValue == null)
@@ -148,7 +148,7 @@ public class AbSqlRow extends AbSqlColumn
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
                 {
-                    this.logUtil.putF(COLUMN_NAME_LABEL + columnName, this, METHOD_UPDATE_WHERE);
+                    this.logUtil.putF(this.COLUMN_NAME_LABEL + columnName, this, METHOD_UPDATE_WHERE);
                 }
 
                 String columnValue = (String) updatedKeyValuePairs.get(columnName);
@@ -311,7 +311,7 @@ public class AbSqlRow extends AbSqlColumn
             value = new Replace(this.sqlStrings.ESCAPE, this.sqlStrings.DOUBLE_ESCAPE).all(value);
 
             stringBuffer.append(value);
-            stringBuffer.append(INSERT_END);
+            stringBuffer.append(this.INSERT_END);
 
             String sqlStatement = stringBuffer.toString();
             this.executeSQLStatement(sqlStatement);
@@ -385,14 +385,14 @@ public class AbSqlRow extends AbSqlColumn
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
                 {
-                    this.logUtil.putF(ROW_VALUE_LABEL + result.toString(), this, this.METHOD_GET_ROW);
+                    this.logUtil.putF(this.ROW_VALUE_LABEL + result.toString(), this, this.METHOD_GET_ROW);
                 }
                 return result;
             }
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
-                this.logUtil.putF(NO_RESULTS_IN_RESULT_SET, this, this.METHOD_GET_ROW);
+                this.logUtil.putF(this.NO_RESULTS_IN_RESULT_SET, this, this.METHOD_GET_ROW);
             }
 
             return null;
@@ -518,7 +518,7 @@ public class AbSqlRow extends AbSqlColumn
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
                 {
-                    this.logUtil.putF(ROW_VALUES_LABEL + result.toString(), this, this.METHOD_GET_ALL_ROWS);
+                    this.logUtil.putF(this.ROW_VALUES_LABEL + result.toString(), this, this.METHOD_GET_ALL_ROWS);
                 }
                 rows.add(result);
             }
@@ -610,7 +610,7 @@ public class AbSqlRow extends AbSqlColumn
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
                 {
-                    this.logUtil.putF(ROW_VALUE_LABEL + result.toString(), this, "getRowsWhereLike");
+                    this.logUtil.putF(this.ROW_VALUE_LABEL + result.toString(), this, "getRowsWhereLike");
                 }
                 rows.add(result);
             }
@@ -697,7 +697,7 @@ public class AbSqlRow extends AbSqlColumn
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
                 {
-                    this.logUtil.putF(ROW_VALUE_LABEL + result.toString(), this, METHOD_GET_ROWS_WHERE_BETWEEN);
+                    this.logUtil.putF(this.ROW_VALUE_LABEL + result.toString(), this, METHOD_GET_ROWS_WHERE_BETWEEN);
                 }
                 rows.add(result);
             }
@@ -762,7 +762,7 @@ public class AbSqlRow extends AbSqlColumn
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
                 {
-                    this.logUtil.putF(ROW_VALUE_LABEL + result.toString(), this, METHOD_GET_ROWS_WHERE_BETWEEN);
+                    this.logUtil.putF(this.ROW_VALUE_LABEL + result.toString(), this, METHOD_GET_ROWS_WHERE_BETWEEN);
                 }
                 rows.add(result);
             }

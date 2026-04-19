@@ -49,8 +49,8 @@ public class AbPath
       if(!stringValidationUtil.isEmpty(aPath))
       {
          this.schema = this.getSchema(aPath);
-         this.nameP = EMPTY_STRING;
-         this.path = abPathUtil.adjustEnd(abPathUtil.adjust(this.getPath(aPath)));
+         this.nameP = this.EMPTY_STRING;
+         this.path = this.abPathUtil.adjustEnd(this.abPathUtil.adjust(this.getPath(aPath)));
          //this.port = AbPathUtil.getPort(aPath);
       }
       else
@@ -68,7 +68,7 @@ public class AbPath
          this.schema = this.getSchema(aPath);
          //this.name = AbPathUtil.getName(aPath);
          this.nameP = name;
-         this.path = abPathUtil.adjustEnd(abPathUtil.adjust(this.getPath(aPath)));
+         this.path = this.abPathUtil.adjustEnd(this.abPathUtil.adjust(this.getPath(aPath)));
          //this.port = AbPathUtil.getPort(aPath);
       }
       else
@@ -84,15 +84,15 @@ public class AbPath
    
    private void init()
    {
-      this.schema = EMPTY_STRING;
-      this.setPath(abPathData.SEPARATOR);
+      this.schema = this.EMPTY_STRING;
+      this.setPath(this.abPathData.SEPARATOR);
       //this.port = -1;  //use the schemas default port
-      this.nameP = EMPTY_STRING;
+      this.nameP = this.EMPTY_STRING;
    }
    
    protected String getSchema(String aPath)
    {
-      int beginIndex = aPath.indexOf(commonSeps.COLON);
+      int beginIndex = aPath.indexOf(this.commonSeps.COLON);
       if(beginIndex >= 0)
       {
          this.hasSchema = true;
@@ -121,21 +121,21 @@ public class AbPath
       
       if(!this.hasSchema())
       {
-         tempPath = abPathUtil.adjustStart(tempPath);
+         tempPath = this.abPathUtil.adjustStart(tempPath);
       }
       else
       {
-         int beginIndex = tempPath.indexOf(commonSeps.COLON);
+         int beginIndex = tempPath.indexOf(this.commonSeps.COLON);
          if(beginIndex >= 0)
          {
             beginIndex++;
             
-            while(tempPath.charAt(beginIndex) == abPathData.SEPARATORCHAR ||
+            while(tempPath.charAt(beginIndex) == this.abPathData.SEPARATORCHAR ||
             tempPath.charAt(beginIndex) == filePathData.SEPARATORCHAR)
             {
                beginIndex++;
                numberOfSeps++;
-               if(numberOfSeps > 2)
+               if(this.numberOfSeps > 2)
                {
                   throw new Exception("Should Not Have More Than Two Seps");
                }
@@ -194,7 +194,7 @@ public class AbPath
           final FilePathData filePathData = FilePathData.getInstance();
          final StringMaker stringBuffer = new StringMaker();
          stringBuffer.append(this.schema);
-         stringBuffer.append(commonSeps.COLON);
+         stringBuffer.append(this.commonSeps.COLON);
          stringBuffer.append(filePathData.SEPARATOR);
          stringBuffer.append(FilePathUtil.adjust(this.getPath()));
          stringBuffer.append(this.nameP);

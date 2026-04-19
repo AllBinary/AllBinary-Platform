@@ -63,7 +63,7 @@ public class CreateGameRunnable implements Runnable
             this.demoGameMidlet.setGameCanvasRunnableInterface(
                     this.demoGameMidlet.createGameCanvasRunnableInterface());
 
-            this.demoGameMidlet.getGameCanvasRunnableInterface().setLoadStateHashtable(hashtable);
+            this.demoGameMidlet.getGameCanvasRunnableInterface().setLoadStateHashtable(this.hashtable);
 
             // this.setDisplay((Displayable)
             // this.getGameCanvasRunnableInterface());

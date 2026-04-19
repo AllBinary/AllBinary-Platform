@@ -75,19 +75,19 @@ public class SystemProperties
      //ActualPlatform
      public String getName()
      {
-         return System.getProperty(OS_NAME);
+         return System.getProperty(this.OS_NAME);
      }
      
      //ActualPlatform
      public String getArch()
      {
-         return System.getProperty(OS_ARCH);
+         return System.getProperty(this.OS_ARCH);
      }
      
      //ActualPlatform
      public String getVersion()
      {
-         return System.getProperty(OS_VERSION);
+         return System.getProperty(this.OS_VERSION);
      }
 
 }

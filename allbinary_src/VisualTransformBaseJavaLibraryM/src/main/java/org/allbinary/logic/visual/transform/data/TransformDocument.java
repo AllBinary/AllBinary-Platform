@@ -37,11 +37,11 @@ public class TransformDocument
       {
          this.document = DomDocumentHelper.create();
          
-         Node allbinaryNode = document.createElement("allbinary");    
+         Node allbinaryNode = this.document.createElement("allbinary");    
          
          this.baseNode = allbinaryNode;
 
-         document.appendChild(this.baseNode);
+         this.document.appendChild(this.baseNode);
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
@@ -52,7 +52,7 @@ public class TransformDocument
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e);
          }
          throw e;
       }
@@ -81,7 +81,7 @@ public class TransformDocument
          stringBuffer.append("Log-Error: BaseNode is Null");
       }
       stringBuffer.append("\nDocument: ");
-      stringBuffer.append(DomDocumentHelper.toString(document));
+      stringBuffer.append(DomDocumentHelper.toString(this.document));
       return stringBuffer.toString();
    }
 }

@@ -78,7 +78,7 @@ public class SelectionHudPaintable extends InitUpdatePaintable
         // 3 for 2 extra lines for upgrade and downgrade
         // this.height = (weaponProperties.length + 2) *
         // MyFont.MYFONT.DEFAULT_CHAR_HEIGHT;
-        this.setHeight(CommonButtons.getInstance().STANDARD_BUTTON_SIZE + myFont.DEFAULT_CHAR_HEIGHT);
+        this.setHeight(CommonButtons.getInstance().STANDARD_BUTTON_SIZE + this.myFont.DEFAULT_CHAR_HEIGHT);
         
         //this.costY = y + TouchButtonInput.STANDARD_BUTTON_SIZE;
         //this.costY1 = this.costY;
@@ -99,7 +99,7 @@ public class SelectionHudPaintable extends InitUpdatePaintable
     @Override
     public void paint(Graphics graphics)
     {
-        graphics.setColor(backgroundColor);
+        graphics.setColor(this.backgroundColor);
         //graphics.fillRect(this.getX(), y, this.getWidth(), this.getHeight());
         graphics.drawRect(this.getX(), y, this.getWidth(), this.getHeight());
                 

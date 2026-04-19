@@ -116,7 +116,7 @@ public class BaseGameInitialization implements GameInitializationInterface
             progressCanvas.addPortion(localPortion, "Image Cache");
 
             //PreLogUtil.put("Early Resources", this, commonStrings.INIT);
-            this.resourceInitializationArray[EARLY_RESOURCES].init();
+            this.resourceInitializationArray[this.EARLY_RESOURCES].init();
         }
     }
 

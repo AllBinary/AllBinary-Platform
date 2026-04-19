@@ -45,7 +45,7 @@ public class PathFindingNode {
     }
 
     public PathFindingNode getParentP() {
-        return (PathFindingNode) parent;
+        return (PathFindingNode) this.parent;
     }
 
     public void setGeographicMapCellPositionP(final GeographicMapCellPosition geographicMapCellPosition) {

@@ -27,6 +27,6 @@ public class NativeLibraryHelper
     
     public void load()
     {
-        System.loadLibrary(library);
+        System.loadLibrary(this.library);
     }
 }

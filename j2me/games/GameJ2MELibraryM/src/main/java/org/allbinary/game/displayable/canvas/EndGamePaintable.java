@@ -29,6 +29,6 @@ public class EndGamePaintable extends Paintable
     @Override
     public void paint(Graphics graphics)
     {
-        gameCanvas.paintGameOver(graphics);
+        this.gameCanvas.paintGameOver(graphics);
     }
 }

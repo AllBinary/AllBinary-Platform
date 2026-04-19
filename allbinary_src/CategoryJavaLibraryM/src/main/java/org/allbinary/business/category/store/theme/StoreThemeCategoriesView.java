@@ -31,7 +31,7 @@ public class StoreThemeCategoriesView implements DomNodeInterface
 
    public Node toXmlNode(Document document) throws Exception
    {
-      Node node = new StoreThemeCategoryView(categoryInterface).toXmlNode(document);
+      Node node = new StoreThemeCategoryView(this.categoryInterface).toXmlNode(document);
       
       Object[] childArray = this.categoryInterface.getChildNodes().toArray();
       int size = childArray.length;

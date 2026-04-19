@@ -266,11 +266,11 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         this.highScoresHelper = highScoresFactoryInterface.createHighScoresHelper();
         this.gameInitializationInterfaceFactoryInterface = gameInitializationInterfaceFactoryInterface;
-        this.init(gameLayerManager, buffered);
+        this.init(this.gameLayerManager, buffered);
 
         this.highScoresFactoryInterface = highScoresFactoryInterface;
 
-        if (this.gameLayerManager.getGameInfo().getGameType() == gameTypeFactory.BOT) {
+        if (this.gameLayerManager.getGameInfo().getGameType() == this.gameTypeFactory.BOT) {
             this.gameBehavior = DemoGameBehavior.getInstance();
             this.menuBehavior = BaseMenuBehavior.getInstance();
         } else {
@@ -293,7 +293,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     {
         this.highScoresHelper = NoHighScoresFactory.getInstance().createHighScoresHelper();
 
-        if (this.gameLayerManager.getGameInfo().getGameType() == gameTypeFactory.BOT) {
+        if (this.gameLayerManager.getGameInfo().getGameType() == this.gameTypeFactory.BOT) {
             this.gameBehavior = DemoGameBehavior.getInstance();
             this.menuBehavior = BaseMenuBehavior.getInstance();
         } else {
@@ -381,7 +381,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         //PreLogUtil.put(this.currentTouchInputFactory.toString(), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
         // touchButtonFactory.toggle(this.isPaused(),
         if (this.currentTouchInputFactory != NoButtonsTouchInputFactory.getInstance()) {
-            touchButtonFactory.toggle(this.isPaused(), this.currentTouchInputFactory.getList());
+            this.touchButtonFactory.toggle(this.isPaused(), this.currentTouchInputFactory.getList());
         }
 
         // PreLogUtil.put(TouchButtonLocationHelper.getInstance().toString(), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
@@ -428,7 +428,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         // Popup Menu Tab Init
         final Rectangle popupMenuRectangle = FormUtil.getInstance().createPopupMenuRectangle();
 
-        if (features.isFeature(touchFeatureFactory.TOUCH_ENABLED))
+        if (features.isFeature(this.touchFeatureFactory.TOUCH_ENABLED))
         {
             //this.logUtil.putF("initPopupMenu - touch", this, commonStrings.PROCESS);
 
@@ -489,7 +489,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         final Features features = Features.getInstance();
 
-        if (features.isFeature(touchFeatureFactory.TOUCH_ENABLED)) {
+        if (features.isFeature(this.touchFeatureFactory.TOUCH_ENABLED)) {
             //this.logUtil.putF("initMenu - touch", this, commonStrings.PROCESS);
             this.mainMenuInputProcessor = new PopupCommandFormInputProcessor(
                     new BasicArrayList(), -1, this, scrollSelectionForm,
@@ -564,7 +564,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         super.pause();
 
-        touchButtonFactory.toggle(this.isPaused(), BasicArrayListUtil.getInstance().getImmutableInstance());
+        this.touchButtonFactory.toggle(this.isPaused(), BasicArrayListUtil.getInstance().getImmutableInstance());
 
         System.gc();
 
@@ -580,7 +580,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         this.closeMenu();
         System.gc();
         super.unPause();
-        touchButtonFactory.toggle(this.isPaused(), BasicArrayListUtil.getInstance().getImmutableInstance());
+        this.touchButtonFactory.toggle(this.isPaused(), BasicArrayListUtil.getInstance().getImmutableInstance());
 
         this.gameBehavior.unPause(this);
 
@@ -841,7 +841,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         GameInitializedEventHandler.getInstance().fireEvent(gameInitializedEvent);
 
-        touchButtonFactory.defaultList();
+        this.touchButtonFactory.defaultList();
 
         this.updateTouch();
 
@@ -871,7 +871,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     protected void updateTouch2() throws Exception
     {
         final Features features = Features.getInstance();
-        if (features.isFeature(touchFeatureFactory.AUTO_HIDE_SHOW_SCREEN_BUTTONS)) {
+        if (features.isFeature(this.touchFeatureFactory.AUTO_HIDE_SHOW_SCREEN_BUTTONS)) {
             if (this.gameLayerManager.getGameInfo().getCurrentLevel() - getStartLevel() == 1) {
                 this.setTouchPaintableP(NullPaintable.getInstance());
             }
@@ -985,21 +985,21 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         final Features features = Features.getInstance();
 
-        if (features.isFeature(touchFeatureFactory.AUTO_HIDE_SHOW_SCREEN_BUTTONS))
+        if (features.isFeature(this.touchFeatureFactory.AUTO_HIDE_SHOW_SCREEN_BUTTONS))
         {
             // If touch buttons are visible
             this.setTouchPaintableP(this.getTouchButtonsPaintable());
             this.setStartLevel(this.gameLayerManager.getGameInfo()
                     .getCurrentLevel());
         }
-        else if (features.isFeature(touchFeatureFactory.SHOW_SCREEN_BUTTONS))
+        else if (features.isFeature(this.touchFeatureFactory.SHOW_SCREEN_BUTTONS))
         {
             // PreLogUtil.put(touchFeatureFactory.SHOW_SCREEN_BUTTONS.getName(), this, "updateScreenButtonPaintable");
 
             // If touch buttons are visible
             this.setTouchPaintableP(this.getTouchButtonsPaintable());
         }
-        else if (features.isFeature(touchFeatureFactory.HIDE_SCREEN_BUTTONS))
+        else if (features.isFeature(this.touchFeatureFactory.HIDE_SCREEN_BUTTONS))
         {
             this.setTouchPaintableP(NullPaintable.getInstance());
         }
@@ -1206,8 +1206,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public void buildGame(final int portion) throws Exception
     {
-        screenCapture.endRecording();
-        screenCapture.startRecording();
+        this.screenCapture.endRecording();
+        this.screenCapture.startRecording();
 
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         final Features features = Features.getInstance();
@@ -1393,7 +1393,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         ////this.setDisplayed(true);
         //// End - This is what is called without buffering
 
-        menuPaintable.paint(graphics);
+        this.menuPaintable.paint(graphics);
         
         this.progressPaintable.paint(graphics);
         
@@ -1511,17 +1511,17 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
          * if(this.hasRepeatEvents()) { this.setRepeated(true); }
          */
 
-        cheatProcessor.update();
+        this.cheatProcessor.update();
 
-        sensorGameUpdateProcessor.getInputSensor().update();
+        this.sensorGameUpdateProcessor.getInputSensor().update();
 
-        gameInputProcessor.process();
+        this.gameInputProcessor.process();
 
         // layerProcessor.track(layer);
 
-        gameLayerManager.process();
+        this.gameLayerManager.process();
 
-        startIntermissionProcessor.process();
+        this.startIntermissionProcessor.process();
 
         /*
          * if (DebugFactory.getInstance() != NoDebug.getInstance()) {
@@ -1558,9 +1558,9 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             }
         }
 
-        mainStateProcessor.process();
+        this.mainStateProcessor.process();
         menuInputProcessor.processInput();
-        endGameProcessor.process();
+        this.endGameProcessor.process();
 
         baseGameStatistics.nextFrame();
 
@@ -1587,11 +1587,11 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         if(AndroidUtil.isAndroid()) {
         } else if(features.isFeature(openGLFeatureFactory.OPENGL_2D)) {
         } else {
-            if (features.isDefault(openGLFeatureFactory.OPENGL)) {
+            if (features.isDefault(this.openGLFeatureFactory.OPENGL)) {
                 final OpenGLImageSpecificFactory openGLImageSpecificFactory = OpenGLImageSpecificFactory.getInstance();
                 //this.logUtil.putF("waiting for OpenGL to update:" + openGLImageSpecificFactory.updating, this, commonStrings.RUN);
                 while (openGLImageSpecificFactory.updating) {
-                    Thread.sleep(YIELD_SLEEP);
+                    Thread.sleep(this.YIELD_SLEEP);
                     //this.logUtil.putF("waiting for OpenGL to update", this, commonStrings.RUN);
                 }
             }
@@ -1614,7 +1614,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
             if (this.getCustomCommandListener() == NullCommandListener.NULL_COMMAND_LISTENER)
             {
-                Thread.sleep(YIELD_SLEEP);
+                Thread.sleep(this.YIELD_SLEEP);
             }
             
             this.shouldWait();
@@ -1623,12 +1623,12 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
             if (this.getCustomCommandListener() == NullCommandListener.NULL_COMMAND_LISTENER)
             {
-                Thread.sleep(YIELD_SLEEP);
+                Thread.sleep(this.YIELD_SLEEP);
             }
 
             this.open();
 
-            final GameAdState gameAdState = gameAdStateFactory.getCurrentInstance();
+            final GameAdState gameAdState = this.gameAdStateFactory.getCurrentInstance();
 
             gameAdState.init();
             gameAdState.setGameIsReady(true);
@@ -1671,10 +1671,10 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 //            currentDisplayableFactory.setRunnable(gameRunnable);
 //
 //        } else 
-            if (features.isDefault(openGLFeatureFactory.OPENGL_AS_GAME_THREAD) || J2MEUtil.isHTML()) {
+            if (features.isDefault(this.openGLFeatureFactory.OPENGL_AS_GAME_THREAD) || J2MEUtil.isHTML()) {
             
-            if (features.isDefault(openGLFeatureFactory.OPENGL_AS_GAME_THREAD)) {
-                this.logUtil.putF(openGLFeatureFactory.OPENGL_AS_GAME_THREAD.getName(), this, commonStrings.RUN);
+            if (features.isDefault(this.openGLFeatureFactory.OPENGL_AS_GAME_THREAD)) {
+                this.logUtil.putF(this.openGLFeatureFactory.OPENGL_AS_GAME_THREAD.getName(), this, commonStrings.RUN);
             }
 
             if (J2MEUtil.isHTML()) {
@@ -1683,7 +1683,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
             final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
 
-            currentDisplayableFactory.setRunnable(gameRunnable);
+            currentDisplayableFactory.setRunnable(this.gameRunnable);
             currentDisplayableFactory.setDisplayable(this);
 
             OpenGLThreadUtil.getInstance().onResume();
@@ -1740,7 +1740,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         this.loopTimeHelper.setStartTime(gameTickTimeDelayHelper.setStartTime());
 
-        gameTickDisplayInfoSingleton.update();
+        this.gameTickDisplayInfoSingleton.update();
 
         this.processGame();
 
@@ -1760,11 +1760,11 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             if (running) {
             } else {
                 //If game thread is not actually running                
-                if (features.isDefault(openGLFeatureFactory.OPENGL) ||
+                if (features.isDefault(this.openGLFeatureFactory.OPENGL) ||
                     //J2MEUtil.isHTML()) ||
                     SWTUtil.isSWT) {
                     
-                    if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT) {
+                    if (this.gameLayerManager.getGameInfo().getGameType() != this.gameTypeFactory.BOT) {
                         
 //                        if (SWTUtil.isSWT) {
 //                            this.logUtil.putF("Set SWT Thread and assign runnable: " + NullRunnable.getInstance(), this, SET_RUNNING);
@@ -1787,7 +1787,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public void end() throws Exception
     {
-        screenCapture.endRecording();
+        this.screenCapture.endRecording();
 
         baseGameStatistics.add(new StringMaker().append(baseGameStatistics.toString()).append(CommonSeps.getInstance().NEW_LINE).toString());
         baseGameStatistics.init();
@@ -1804,7 +1804,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         GameLevelDisplayChangeEventListenersFactory.getInstance().clear();
 
         GameAdState gameAdState =
-            gameAdStateFactory.getCurrentInstance();
+            this.gameAdStateFactory.getCurrentInstance();
 
         gameAdState.notPlayingAdState();
 
@@ -1839,7 +1839,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         //{
         final HighScoreTextBox textBox = new HighScoreTextBox(
                 this.highScoresFactoryInterface,
-                highScoresHelper,
+                this.highScoresHelper,
                 abeClientInformation,
                 this.gameLayerManager.getGameInfo(),
                 this.getCustomCommandListener(), name, highScore,

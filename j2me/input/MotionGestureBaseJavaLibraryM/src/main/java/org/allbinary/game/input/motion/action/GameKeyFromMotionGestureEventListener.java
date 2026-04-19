@@ -56,9 +56,9 @@ extends CompleteMotionGestureInputEventListener
             
             GameKeyEvent gameKeyEvent = gameKeyCompleteMotionGestureInputEvent.getGameKeyEvent();
 
-            if (gameKeyEvent != previousGameKeyEvent)
+            if (gameKeyEvent != this.previousGameKeyEvent)
             {
-                if (previousGameKeyEvent != GameKeyEvent.NONE)
+                if (this.previousGameKeyEvent != GameKeyEvent.NONE)
                 //if (GameKeyCancelUtil.isGameKeyEventCancelledByAnother(previousGameKeyEvent, gameKeyEvent))
                 {
                     //this.logUtil.putF("Up: " + previousGameKeyEvent.toString(), this, "onCompleteMotionGestureInputEvent");
@@ -73,7 +73,7 @@ extends CompleteMotionGestureInputEventListener
                 }
                 */
 
-                previousGameKeyEvent = gameKeyEvent;
+                this.previousGameKeyEvent = gameKeyEvent;
                 
                 //if(gameKeyEvent != releaseGameKeyEvent)
                 if(gameKeyEvent != null && gameKeyEvent != GameKeyEvent.NONE)

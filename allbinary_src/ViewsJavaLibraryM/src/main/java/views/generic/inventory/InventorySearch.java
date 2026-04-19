@@ -125,7 +125,7 @@ public class InventorySearch implements InventoryViewSearchInterface
         final InventorySearchUtil inventorySearchUtil =
             InventorySearchUtil.getInstance();
 
-        final Vector vector = inventorySearchUtil.getBasicItemIdColumn(searchRequest);
+        final Vector vector = inventorySearchUtil.getBasicItemIdColumn(this.searchRequest);
 
         return inventorySearchUtil.search(abeClientInformation, searchRequest, vector);
     }

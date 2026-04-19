@@ -156,13 +156,13 @@ implements BaseMotionGestureEventListener
 
         final RTSFormInput rtsFormInput = this.getSelectedRtsFormInput();
         
-        if (motionGestureInput == PRESSED)
+        if (motionGestureInput == this.PRESSED)
         {
             final GPoint point = motionGestureEvent.getCurrentPoint();
 
             if (this.getRtsPlayerLayerInterface().getCurrentScrollSelectionForm().isInForm(point))
             {
-                isDragging = rtsFormInput.processSticky(
+                this.isDragging = rtsFormInput.processSticky(
                         this.getSelectedRtsLayer(), this.getRtsPlayerLayerInterface(),
                         layerManager, point);                
             }
@@ -239,13 +239,13 @@ implements BaseMotionGestureEventListener
 
         final StringMaker stringBuffer = new StringMaker();
         
-        stringBuffer.append(AT);
+        stringBuffer.append(this.AT);
         stringBuffer.appendint(rectX1);
-        stringBuffer.append(SPACE);
+        stringBuffer.append(this.SPACE);
         stringBuffer.appendint(rectY1);
-        stringBuffer.append(SPACE);
+        stringBuffer.append(this.SPACE);
         stringBuffer.appendint(rectX2);
-        stringBuffer.append(SPACE);
+        stringBuffer.append(this.SPACE);
         stringBuffer.appendint(rectY2);
 
         this.logUtil.putF(stringBuffer.toString(), this, METHOD);
@@ -258,22 +258,22 @@ implements BaseMotionGestureEventListener
 
             stringBuffer.delete(0, stringBuffer.length());
             
-            stringBuffer.append(POSSIBLE);
+            stringBuffer.append(this.POSSIBLE);
             stringBuffer.append(rtsLayer.getName());
-            stringBuffer.append(SPACE);
-            stringBuffer.append(AT);
+            stringBuffer.append(this.SPACE);
+            stringBuffer.append(this.AT);
             stringBuffer.appendint((rtsLayer.getViewPosition().getX() + rtsLayer.getHalfWidth()));
-            stringBuffer.append(SPACE);
+            stringBuffer.append(this.SPACE);
             stringBuffer.appendint((rtsLayer.getViewPosition().getY() + rtsLayer.getHalfHeight()));
 
             this.logUtil.putF(stringBuffer.toString(), this, METHOD);
 
-            if(rectangleCollisionUtil.isInside(
+            if(this.rectangleCollisionUtil.isInside(
                     rectX1, rectY1, rectX2, rectY2, 
                     rtsLayer.getViewPosition().getX() + rtsLayer.getHalfWidth(), 
                     rtsLayer.getViewPosition().getY() + rtsLayer.getHalfHeight()))
             {
-                this.logUtil.putF(new StringMaker().append(ADDING).append(rtsLayer.getName()).toString(), this, METHOD);
+                this.logUtil.putF(new StringMaker().append(this.ADDING).append(rtsLayer.getName()).toString(), this, METHOD);
                 
                 rtsLayer.select();
                 this.getSelectedBuildingPlayerGameInput().addSelectedRTSLayer(rtsLayer);                
@@ -317,14 +317,14 @@ implements BaseMotionGestureEventListener
             
             final GPoint point = motionGestureEvent.getCurrentPoint();
             
-            if (motionGestureInput == touchMotionGestureFactory.PRESSED)
+            if (motionGestureInput == this.touchMotionGestureFactory.PRESSED)
             {
                 //Start selection box
                 this.startPoint = point;
                 this.endPoint = point;
             } 
             else 
-                if (motionGestureInput == touchMotionGestureFactory.RELEASED)
+                if (motionGestureInput == this.touchMotionGestureFactory.RELEASED)
                 {
                     this.endPoint = point;
                     
@@ -352,14 +352,14 @@ implements BaseMotionGestureEventListener
             boolean endDrag = this.processDraggingMotionInput(layerManager);
 
             //If Not dragging item then go ahead and create selection box
-            if(!isDragging)
+            if(!this.isDragging)
             {
                 this.processSelectionBoxMotionInput(layerManager);
             }
 
             if (endDrag)
             {
-                isDragging = false;
+                this.isDragging = false;
             }
         }
 
@@ -527,7 +527,7 @@ implements BaseMotionGestureEventListener
             
             multiSelectPaintable.setBasicColorP(
                     geographicMapInterface.getForegroundBasicColor());
-            multiSelectPaintable.update(list);
+            this.multiSelectPaintable.update(list);
 
             this.getRTSLayerInfoPaintable().updateRTSLayerInfo(
                     multiSelectPaintable);

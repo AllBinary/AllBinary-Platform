@@ -34,7 +34,7 @@ public class SpecialItemsEntity extends AbSqlBean implements SpecialItemsEntityI
     public SpecialItemsEntity()
     {
         super(new InventoryDbInitInfo());
-        this.setTableName(tableName);
+        this.setTableName(this.tableName);
     }
 
     public void insert(Vector values)

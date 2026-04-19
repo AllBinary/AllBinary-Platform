@@ -40,9 +40,9 @@ public class PathUtil
     //throws Exception
     {
         int indexOfFileExtensionDelmiter = 
-            filePath.lastIndexOf(abPathData.EXTENSION_SEP);
+            filePath.lastIndexOf(this.abPathData.EXTENSION_SEP);
         
-        int indexOfLatDelimiter = filePath.lastIndexOf(abPathData.SEPARATORCHAR);
+        int indexOfLatDelimiter = filePath.lastIndexOf(this.abPathData.SEPARATORCHAR);
         
         if(indexOfFileExtensionDelmiter < 0)
         {
@@ -144,7 +144,7 @@ public class PathUtil
     
     private boolean isValidStart(String path)
     {
-        if(path.charAt(0) == abPathData.SEPARATORCHAR ||
+        if(path.charAt(0) == this.abPathData.SEPARATORCHAR ||
            path.charAt(0) == '.')
         {
             return true;
@@ -164,7 +164,7 @@ public class PathUtil
             return false;
         }
         
-        if(path.charAt(path.length()-1) == abPathData.SEPARATORCHAR)
+        if(path.charAt(path.length()-1) == this.abPathData.SEPARATORCHAR)
         {
             return true;
         }
@@ -178,7 +178,7 @@ public class PathUtil
     {
         if(!this.isValidStart(path))
         {
-            path = abPathData.SEPARATOR + path;
+            path = this.abPathData.SEPARATOR + path;
         }
         return path;
     }
@@ -187,7 +187,7 @@ public class PathUtil
     {
         if(!this.isValidEnd(path))
         {
-            path = path + abPathData.SEPARATOR;
+            path = path + this.abPathData.SEPARATOR;
         }
         return path;
     }
@@ -220,11 +220,11 @@ public class PathUtil
     
     public synchronized String getNameFromPath(String categoryPath)
     {
-        int endIndex = categoryPath.lastIndexOf(abPathData.SEPARATOR);
+        int endIndex = categoryPath.lastIndexOf(this.abPathData.SEPARATOR);
         
         if(endIndex < 0)
         {
-            endIndex = categoryPath.lastIndexOf(filePathData.SEPARATORCHAR);
+            endIndex = categoryPath.lastIndexOf(this.filePathData.SEPARATORCHAR);
         }
         
         if(endIndex < 0) return categoryPath;
@@ -244,11 +244,11 @@ public class PathUtil
     
     public synchronized AbPath removeNameFromPath(String path) throws Exception
     {
-        int endIndex = path.lastIndexOf(abPathData.SEPARATOR);
+        int endIndex = path.lastIndexOf(this.abPathData.SEPARATOR);
 
         if(endIndex < 0)
         {
-            endIndex = path.lastIndexOf(filePathData.SEPARATORCHAR);
+            endIndex = path.lastIndexOf(this.filePathData.SEPARATORCHAR);
         }
         
         if(endIndex < 0)

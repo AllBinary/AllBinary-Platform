@@ -36,7 +36,7 @@ public class UserDomNode implements DomNodeInterface
    {
 	  final String EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
 	   
-      HashMap hashMap = dataMappingInterface.toHashMap();
+      HashMap hashMap = this.dataMappingInterface.toHashMap();
       hashMap.put(EntryData.getInstance().LASTMODIFIED, EMPTY_STRING);
       hashMap.put(EntryData.getInstance().ENCRYPTION, EMPTY_STRING);
       hashMap.put(UserData.PASSWORD, EMPTY_STRING);

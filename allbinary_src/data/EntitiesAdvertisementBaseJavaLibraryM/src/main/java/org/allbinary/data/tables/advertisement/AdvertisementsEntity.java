@@ -38,7 +38,7 @@ public class AdvertisementsEntity extends AbSqlBean implements AdvertisementsEnt
     public AdvertisementsEntity()
     {
         super(new UserDbInitInfo());
-        this.setTableName(tableName);
+        this.setTableName(this.tableName);
     }
 
     /*

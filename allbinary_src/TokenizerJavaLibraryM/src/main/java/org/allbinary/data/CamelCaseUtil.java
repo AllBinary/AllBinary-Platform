@@ -50,7 +50,7 @@ public class CamelCaseUtil
         stringBuilder.delete(0, stringBuilder.length());
         
         final BasicArrayList list = new BasicArrayList();
-        final Tokenizer tokenizer = new Tokenizer(commonSeps.UNDERSCORE);
+        final Tokenizer tokenizer = new Tokenizer(this.commonSeps.UNDERSCORE);
         tokenizer.getTokens(string, list);
         //final String[] words = string.split(FORMAT);
         //final int size = words.length;

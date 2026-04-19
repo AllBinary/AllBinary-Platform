@@ -65,7 +65,7 @@ public class IndexedAnimation extends Animation
 
     public int getAnimationSize() throws Exception
     {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
+        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
         //return this.getSize();
     }
     

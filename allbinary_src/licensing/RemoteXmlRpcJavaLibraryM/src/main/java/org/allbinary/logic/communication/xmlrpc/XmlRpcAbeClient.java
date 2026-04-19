@@ -71,7 +71,7 @@ public class XmlRpcAbeClient
         {
             // Now the first server is a backup license server
             this.maxServers = clientInfo.getNumberOfLicenseServers() - 2;
-            this.start = myRandomFactory.getAbsoluteNextInt(maxServers) + 1;
+            this.start = this.myRandomFactory.getAbsoluteNextInt(this.maxServers) + 1;
 
             // Originally the first server in the list was a normal license
             // server
@@ -84,7 +84,7 @@ public class XmlRpcAbeClient
             this.start = 0;
         }
 
-        isDone = false;
+        this.isDone = false;
 
         this.server = this.start;
 
@@ -93,9 +93,9 @@ public class XmlRpcAbeClient
         
         final StringMaker stringBuffer = new StringMaker();
         
-        stringBuffer.append(START_SERVER);
+        stringBuffer.append(this.START_SERVER);
         stringBuffer.appendint(this.getServer());
-        stringBuffer.append(SEP);
+        stringBuffer.append(this.SEP);
         stringBuffer.append(clientInfo.getLicenseServer(this.getServer()));
         
         this.logUtil.putF(stringBuffer.toString(), this, commonStrings.CONSTRUCTOR);
@@ -104,7 +104,7 @@ public class XmlRpcAbeClient
 
     public Object get(Object object) throws Exception
     {
-        ForcedLogUtil.log(commonStrings.NOT_IMPLEMENTED, this);
+        ForcedLogUtil.log(this.commonStrings.NOT_IMPLEMENTED, this);
         return NullUtil.getInstance().NULL_OBJECT;
     }
 

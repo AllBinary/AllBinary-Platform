@@ -51,9 +51,9 @@ public class JavaHelpUtil
     /*
      *NavigatorView navigatorView = null;
     private String navigatorViewName = null;
-                if (helpBroker.getHelpSet().getNavigatorView(navigatorViewName) != null)
+                if (helpBroker.getHelpSet().getNavigatorView(this.navigatorViewName) != null)
                 {
-                    helpBroker.setCurrentView(navigatorViewName);
+                    helpBroker.setCurrentView(this.navigatorViewName);
                     this.logUtil.putF("SetCurrentView", this, "show");
                 }
      */
@@ -96,8 +96,8 @@ public class JavaHelpUtil
         {
             HelpBroker helpBroker = helpSet.createHelpBroker();
             
-            helpBroker.setLocation(point);
-            helpBroker.setSize(dimension);
+            helpBroker.setLocation(this.point);
+            helpBroker.setSize(this.dimension);
             
             new CSH.DisplayHelpFromSource(helpBroker).actionPerformed(contextSensitiveHelpActionEvent);
             this.logUtil.putF("CSH Action", getInstance(), "show");

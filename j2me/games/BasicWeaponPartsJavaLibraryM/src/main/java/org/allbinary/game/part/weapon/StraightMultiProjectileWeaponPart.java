@@ -74,12 +74,12 @@ public class StraightMultiProjectileWeaponPart extends BasicWeaponPart {
       
       final int increment = reducedWidth / (this.total - 1);
       int next = -halfWidth;
-      for (int index = 0; index < total; index++) {
+      for (int index = 0; index < this.total; index++) {
           
-         sine = (long) (next * noDecimalTrigTable.sin((int) angle));
-         beamX = (int) (sine / noDecimalTrigTable.SCALE);
-         cosine = (long) (next * noDecimalTrigTable.cos((int) angle));
-         beamY = -(int) (cosine / noDecimalTrigTable.SCALE);
+         sine = (long) (next * this.noDecimalTrigTable.sin((int) angle));
+         beamX = (int) (sine / this.noDecimalTrigTable.SCALE);
+         cosine = (long) (next * this.noDecimalTrigTable.cos((int) angle));
+         beamY = -(int) (cosine / this.noDecimalTrigTable.SCALE);
 
          weaponLayer =
                  weaponLayerCircularStaticPool.getInstance(

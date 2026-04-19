@@ -42,16 +42,16 @@ public class OrientationMotionGestureFactory
     {
         int MAX = InputFactory.getInstance().MAX;
 
-        LEFT = new MotionGestureInput(MAX - 20, "Left Orient");
+        this.LEFT = new MotionGestureInput(MAX - 20, "Left Orient");
 
-        RIGHT = new MotionGestureInput(MAX - 21, "Right Orient");
+        this.RIGHT = new MotionGestureInput(MAX - 21, "Right Orient");
 
-        UP = new MotionGestureInput(MAX - 22, "Up Orient");
+        this.UP = new MotionGestureInput(MAX - 22, "Up Orient");
 
-        DOWN = new MotionGestureInput(MAX - 23, "Down Orient");
+        this.DOWN = new MotionGestureInput(MAX - 23, "Down Orient");
 
-        ROLL_LEFT = new MotionGestureInput(MAX - 24, "Roll Left");
+        this.ROLL_LEFT = new MotionGestureInput(MAX - 24, "Roll Left");
 
-        ROLL_RIGHT = new MotionGestureInput(MAX - 25, "Roll Right");
+        this.ROLL_RIGHT = new MotionGestureInput(MAX - 25, "Roll Right");
     }
 }

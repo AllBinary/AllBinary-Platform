@@ -39,9 +39,9 @@ extends BasicEventHandler
 
     public void addListener(MiniMapLayer miniMapLayer)
     {
-        if(!list.contains(miniMapLayer))
+        if(!this.list.contains(miniMapLayer))
         {
-            list.add(miniMapLayer);
+            this.list.add(miniMapLayer);
         }
     }
 

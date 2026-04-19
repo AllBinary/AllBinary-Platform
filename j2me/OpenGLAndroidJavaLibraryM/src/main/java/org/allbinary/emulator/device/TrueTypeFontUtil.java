@@ -114,7 +114,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase {
             final Canvas canvas = new Canvas(bitmap);
             final Paint paint = new Paint();
             paint.setTypeface(typeface);
-            paint.setTextSize((float) realFontSize);
+            paint.setTextSize((float) this.realFontSize);
             //paint.setARGB((int) (basicColor.getAlphaComponent() * 255),
             //(int) (basicColor.getRedComponent() * 255),
             //(int) (basicColor.getGreenComponent() * 255),

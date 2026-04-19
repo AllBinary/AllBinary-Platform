@@ -34,7 +34,7 @@ public class UniqueIdGenerator implements IdGeneratorInterface
     
    public UniqueIdGenerator()
    {
-       idGeneratorEntity = (IdGeneratorEntity) IdGeneratorEntityFactory.getInstance();
+       this.idGeneratorEntity = (IdGeneratorEntity) IdGeneratorEntityFactory.getInstance();
    }
    
    public void initialize(int value)
@@ -42,9 +42,9 @@ public class UniqueIdGenerator implements IdGeneratorInterface
       try
       {
           Vector vector = new Vector();
-          vector.add(name);
+          vector.add(this.name);
           vector.add(Long.valueOf(value).toString());
-          idGeneratorEntity.insert(vector);
+          this.idGeneratorEntity.insert(vector);
       }catch(Exception e)
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().IDLOGGING))
@@ -64,11 +64,11 @@ public class UniqueIdGenerator implements IdGeneratorInterface
    {
        try
        {
-           Long idLong = this.idGeneratorEntity.get(name);
+           Long idLong = this.idGeneratorEntity.get(this.name);
            
            Long newValue = Long.valueOf(idLong.longValue() + 1);
            
-           this.idGeneratorEntity.update(name, newValue);
+           this.idGeneratorEntity.update(this.name, newValue);
 
          return idLong.toString();
       }catch(Exception e)

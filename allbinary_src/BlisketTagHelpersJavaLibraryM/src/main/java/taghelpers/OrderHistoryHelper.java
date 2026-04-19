@@ -73,11 +73,11 @@ public class OrderHistoryHelper extends TagHelper
    
    private void getFormData()
    {
-      this.id = request.getParameter(OrderData.ID);
-      this.groupId = request.getParameter(ShippingMethodData.GROUP);
+      this.id = this.request.getParameter(OrderData.ID);
+      this.groupId = this.request.getParameter(ShippingMethodData.GROUP);
       if(this.newStatus==null) 
       {
-         this.newStatus = request.getParameter(OrderHistoryData.STATUS);
+         this.newStatus = this.request.getParameter(OrderHistoryData.STATUS);
       }
    }
      
@@ -86,7 +86,7 @@ public class OrderHistoryHelper extends TagHelper
       try
       {
          String success = "Status successfully set to: " + this.status;
-         OrderHistoryInterface orderReviewInterface = OrderHistoryFactory.getInstance(id);
+         OrderHistoryInterface orderReviewInterface = OrderHistoryFactory.getInstance(this.id);
          String status = orderReviewInterface.getStatus();
          
          if(status.compareTo(OrderHistoryData.CANCELLED)==0)
@@ -113,8 +113,8 @@ public class OrderHistoryHelper extends TagHelper
                      {
                         OrderHistoryEntityInterface orderHistoryEntityInterface 
                            = OrderHistoryEntityFactory.getInstance();
-                        orderHistoryEntityInterface.setStatus(id,this.newStatus);
-                        return "Order " + id + " has been cancelled.<br/>";
+                        orderHistoryEntityInterface.setStatus(this.id,this.newStatus);
+                        return "Order " + this.id + " has been cancelled.<br/>";
                      }
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))

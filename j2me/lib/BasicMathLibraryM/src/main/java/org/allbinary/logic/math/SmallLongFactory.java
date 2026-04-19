@@ -36,25 +36,25 @@ public class SmallLongFactory
 
     public void init(int value, int negativeValue)
     {
-        for (int index = value - 1; index >= lastMin; index--)
+        for (int index = value - 1; index >= this.lastMin; index--)
         {
-            INTEGER_ARRAY[index + NEGATIVE_MAX] = new Long(index);
+            this.INTEGER_ARRAY[index + this.NEGATIVE_MAX] = new Long(index);
         }
 
-        for (int index = negativeValue - 1; index >= lastNegativeMin; index--)
+        for (int index = negativeValue - 1; index >= this.lastNegativeMin; index--)
         {
-            INTEGER_ARRAY[index] = new Long(-index);
+            this.INTEGER_ARRAY[index] = new Long(-index);
         }
 
-        if (lastMin < value)
+        if (this.lastMin < value)
         {
-            lastMin = value;
-            MIN = value;
+            this.lastMin = value;
+            this.MIN = value;
         }
 
-        if (lastNegativeMin < negativeValue)
+        if (this.lastNegativeMin < negativeValue)
         {
-            lastNegativeMin = negativeValue;
+            this.lastNegativeMin = negativeValue;
             //MIN = negativeValue;
         }
         //this.logUtil.putF("? " + NEGATIVE_INTEGER_ARRAY[5], stringUtil.EMPTY_STRING, "?????????");
@@ -62,19 +62,19 @@ public class SmallLongFactory
 
     public void init()
     {
-        if(INTEGER_ARRAY[0] == null) {
-            if (lastMin < POSITIVE_MAX || lastNegativeMin < NEGATIVE_MAX) {
-                for (int index = POSITIVE_MAX - 1; index >= lastMin; index--) {
-                    INTEGER_ARRAY[index + NEGATIVE_MAX] = new Long(index);
+        if(this.INTEGER_ARRAY[0] == null) {
+            if (this.lastMin < this.POSITIVE_MAX || this.lastNegativeMin < this.NEGATIVE_MAX) {
+                for (int index = this.POSITIVE_MAX - 1; index >= this.lastMin; index--) {
+                    this.INTEGER_ARRAY[index + this.NEGATIVE_MAX] = new Long(index);
                 }
 
-                for (int index = NEGATIVE_MAX - 1; index >= lastNegativeMin; index--) {
-                    INTEGER_ARRAY[index] = new Long(-index);
+                for (int index = this.NEGATIVE_MAX - 1; index >= this.lastNegativeMin; index--) {
+                    this.INTEGER_ARRAY[index] = new Long(-index);
                 }
 
                 //this.logUtil.putF("? " + NEGATIVE_INTEGER_ARRAY[5], CommonPhoneStrings.getInstance().TWO, "?????????");
-                lastMin = POSITIVE_MAX;
-                lastNegativeMin = NEGATIVE_MAX;
+                this.lastMin = this.POSITIVE_MAX;
+                this.lastNegativeMin = this.NEGATIVE_MAX;
             }
         }
     }
@@ -87,19 +87,19 @@ public class SmallLongFactory
     {
         //this.updateStats(index);
 
-        if(index + NEGATIVE_MAX > this.INTEGER_ARRAY.length - 1) {
-            return this.INTEGER_ARRAY[-1 + NEGATIVE_MAX];
+        if(index + this.NEGATIVE_MAX > this.INTEGER_ARRAY.length - 1) {
+            return this.INTEGER_ARRAY[-1 + this.NEGATIVE_MAX];
         }
         
-        return INTEGER_ARRAY[((int) index) + NEGATIVE_MAX];
+        return this.INTEGER_ARRAY[((int) index) + this.NEGATIVE_MAX];
     }
         
     public String getString(int index) {
         final int i = index + NEGATIVE_MAX;
-        if(STRING_ARRAY[i] == null) {
-            STRING_ARRAY[i] = this.INTEGER_ARRAY[i].toString();
+        if(this.STRING_ARRAY[i] == null) {
+            this.STRING_ARRAY[i] = this.INTEGER_ARRAY[i].toString();
         }
-        return STRING_ARRAY[i];
+        return this.STRING_ARRAY[i];
     }
     
 }

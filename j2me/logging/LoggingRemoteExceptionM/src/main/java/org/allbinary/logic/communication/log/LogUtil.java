@@ -110,7 +110,7 @@ public class LogUtil {
                     this.stringBuffer.append(CommonSeps.getInstance().SPACE);
                     this.stringBuffer.append(SpecialMessageUtil.getInstance().get());
 
-                    hashtable.put(MESSAGE, this.stringBuffer.toString());
+                    hashtable.put(this.MESSAGE, this.stringBuffer.toString());
 
                     //System.out.println("Sending");
                     new XmlRpcRemoteLogClient(this.abeClientInformation).get(hashtable);

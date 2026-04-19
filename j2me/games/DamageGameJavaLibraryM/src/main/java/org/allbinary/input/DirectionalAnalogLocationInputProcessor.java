@@ -76,13 +76,13 @@ public class DirectionalAnalogLocationInputProcessor
             int rightTrigger = analogLocationInput.getRightTrigger();
 
             if (x < 0) {
-                inputProcessorArray[this.leftGameKeyEvent.getKey()].process(allbinaryLayerManager, this.leftGameKeyEvent, x);
+                this.inputProcessorArray[this.leftGameKeyEvent.getKey()].process(allbinaryLayerManager, this.leftGameKeyEvent, x);
             } else if (x > 0) {
                 inputProcessorArray[this.rightGameKeyEvent.getKey()].process(allbinaryLayerManager, this.rightGameKeyEvent, x);
             }
 
             if (y < 0) {
-                inputProcessorArray[this.downGameKeyEvent.getKey()].process(allbinaryLayerManager, this.downGameKeyEvent, y);
+                this.inputProcessorArray[this.downGameKeyEvent.getKey()].process(allbinaryLayerManager, this.downGameKeyEvent, y);
             } else if (y > 0) {
                 inputProcessorArray[this.upGameKeyEvent.getKey()].process(allbinaryLayerManager, this.upGameKeyEvent, y);
             }
@@ -91,11 +91,11 @@ public class DirectionalAnalogLocationInputProcessor
             //this.logUtil.putF(LEFT_TRIGGER_VALUE + leftTrigger, this, commonStrings.PROCESS);
             
             if (leftTrigger > 0) {
-                inputProcessorArray[this.leftTriggerGameKeyEvent.getKey()].process(allbinaryLayerManager, this.leftTriggerGameKeyEvent, leftTrigger);
+                this.inputProcessorArray[this.leftTriggerGameKeyEvent.getKey()].process(allbinaryLayerManager, this.leftTriggerGameKeyEvent, leftTrigger);
             }            
 
             if (rightTrigger > 0) {
-                inputProcessorArray[this.rightTriggerGameKeyEvent.getKey()].process(allbinaryLayerManager, this.rightTriggerGameKeyEvent, rightTrigger);
+                this.inputProcessorArray[this.rightTriggerGameKeyEvent.getKey()].process(allbinaryLayerManager, this.rightTriggerGameKeyEvent, rightTrigger);
             }            
             
         } catch (Exception e) {

@@ -56,14 +56,14 @@ public class ExitRunnable implements Runnable
 
             this.logUtil.putF(commonStrings.END_RUNNABLE, this, commonStrings.RUN);
 
-            processor.process();
+            this.processor.process();
         } catch (Exception e)
         {
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
 
             try
             {
-                processor.process();
+                this.processor.process();
             } catch (Exception e2)
             {
                 this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);

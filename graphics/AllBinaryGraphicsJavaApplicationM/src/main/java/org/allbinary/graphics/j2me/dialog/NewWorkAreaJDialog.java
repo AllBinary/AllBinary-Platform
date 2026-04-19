@@ -66,11 +66,11 @@ public class NewWorkAreaJDialog extends javax.swing.JDialog
          this.getContentPane().add(new JLabel("Please enter"));
          this.getContentPane().add(new JLabel(" the size."));
          this.getContentPane().add(new JLabel("Name:"));
-         this.getContentPane().add(nameJTextField);
+         this.getContentPane().add(this.nameJTextField);
          this.getContentPane().add(new JLabel("X: "));
-         this.getContentPane().add(xSizeJTextField);
+         this.getContentPane().add(this.xSizeJTextField);
          this.getContentPane().add(new JLabel("Y: "));
-         this.getContentPane().add(ySizeJTextField);
+         this.getContentPane().add(this.ySizeJTextField);
          this.getContentPane().add(submitButton);
          this.show();
       }
@@ -84,8 +84,8 @@ public class NewWorkAreaJDialog extends javax.swing.JDialog
    {
       try
       {         
-         Integer canvasWidth = new Integer(xSizeJTextField.getText());
-         Integer canvasHeight = new Integer(ySizeJTextField.getText());
+         Integer canvasWidth = new Integer(this.xSizeJTextField.getText());
+         Integer canvasHeight = new Integer(this.ySizeJTextField.getText());
                   
          String newName = this.nameJTextField.getText();
          
@@ -96,7 +96,7 @@ public class NewWorkAreaJDialog extends javax.swing.JDialog
          
          workAreaJPanel.setLayout(new GridLayout(1,1));
                            
-         parent.add((WorkAreaJPanelInterface) workAreaJPanel);
+         this.parent.add((WorkAreaJPanelInterface) workAreaJPanel);
                   
          this.dispose();
       }

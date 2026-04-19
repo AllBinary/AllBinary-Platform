@@ -99,7 +99,7 @@ public class HighScoresCanvasLevelChangeInputProcessor extends
         int width = this.displayInfoSingleton.getLastWidth();
         
 
-        int topScoresWidth = (graphics.getFont().stringWidth(INSTRUCTIONS) >> 1);
+        int topScoresWidth = (graphics.getFont().stringWidth(this.INSTRUCTIONS) >> 1);
 
         graphics.drawString(INSTRUCTIONS, (width >> 1) - topScoresWidth,
                 myFont.DEFAULT_CHAR_HEIGHT * 2, anchor);

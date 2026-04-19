@@ -193,7 +193,7 @@ extends UnitWaypointBehavior
         }
         */
 
-        final int anotherTargetDistance = layerDistanceUtil.getDistance(
+        final int anotherTargetDistance = this.layerDistanceUtil.getDistance(
                 this.associatedAdvancedRTSGameLayer,
                 layerInterface);
 
@@ -488,11 +488,11 @@ extends UnitWaypointBehavior
             this.associatedAdvancedRTSGameLayer.getCaptionAnimationHelper().update(
                     this.unitWaypointStrings.WANDERING, this.basicColorFactory.RED);
 
-            wanderPathsList.clear();
+            this.wanderPathsList.clear();
 
-            wanderPathsList.add(this.associatedAdvancedRTSGameLayer.getSurroundingGeographicMapCellPositionList());
+            this.wanderPathsList.add(this.associatedAdvancedRTSGameLayer.getSurroundingGeographicMapCellPositionList());
 
-            this.setRandomGeographicMapCellHistory(wanderPathsList);
+            this.setRandomGeographicMapCellHistory(this.wanderPathsList);
         }
 
         this.visitIfAtMidPoint(this.getCurrentPathGeographicMapCellPosition());

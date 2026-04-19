@@ -81,7 +81,7 @@ public class LicenseServerInitFileUtil
 
     private void write()
     {
-        OutputStream fileOutputStream = NULL_OUTPUT_STREAM;
+        OutputStream fileOutputStream = this.NULL_OUTPUT_STREAM;
         try
         {
             final ResourceUtil resourceUtil = ResourceUtil.getInstance();

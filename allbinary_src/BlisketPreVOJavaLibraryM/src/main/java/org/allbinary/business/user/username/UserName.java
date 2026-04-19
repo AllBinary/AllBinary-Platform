@@ -56,7 +56,7 @@ public class UserName
    {
       try
       {
-         return this.isValid(userName);
+         return this.isValid(this.userName);
       }
       catch(Exception e)
       {

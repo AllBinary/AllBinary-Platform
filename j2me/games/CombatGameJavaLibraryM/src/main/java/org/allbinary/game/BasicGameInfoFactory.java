@@ -32,8 +32,8 @@ public class BasicGameInfoFactory
 
     public void init(int total)
     {
-        currentReleaseIndex = 0;
-        currentDestroyIndex = 0;
+        this.currentReleaseIndex = 0;
+        this.currentDestroyIndex = 0;
         this.total = total;
     }
 

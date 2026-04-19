@@ -46,21 +46,21 @@ public class ToolFactory
     {
         try
         {
-            StatusFactory.getInstance().setStatus(SELECTED_LABEL + tool);
+            StatusFactory.getInstance().setStatus(this.SELECTED_LABEL + tool);
             this.tool = tool;
         } catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "setSelectionTool", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "setSelectionTool", e);
         }
     }
 
     public GraphicsItemInterfaceFactoryInterface getSelectedToolFactory()
     {
-        StatusFactory.getInstance().setStatus("Tool In Use: " + tool);
+        StatusFactory.getInstance().setStatus("Tool In Use: " + this.tool);
 
-        if (tool != null)
+        if (this.tool != null)
         {
-            this.selectedTool = GraphicItemFactory.getInstance().getInstance(tool);
+            this.selectedTool = GraphicItemFactory.getInstance().getInstance(this.tool);
 
             this.logUtil.putF("New Tool: " + this.selectedTool, this, "getSelectedToolFactory");
 

@@ -86,7 +86,7 @@ public class AbeFactory
          ClassLoader parent = WebappClassLoaderInfo.getLoader();
          //ClassLoader parent = new Object().getClass().getClassLoader();
 
-         if(useCustomLoader)
+         if(this.useCustomLoader)
          {
             ClassLoader loader = new AbeClassLoader(parent, AbKeys.getInstance().getKey(abeClientInformation, className));
             Class myClass = loader.loadClass(className);
@@ -234,7 +234,7 @@ public class AbeFactory
          ClassLoader parent = WebappClassLoaderInfo.getLoader();
          //ClassLoader parent = new Object().getClass().getClassLoader();
          
-         if(useCustomLoader)
+         if(this.useCustomLoader)
          {
             ClassLoader loader = new AbeClassLoader(parent, AbKeys.getInstance().getKey(abeClientInformation, className));
             Class c = loader.loadClass(className);

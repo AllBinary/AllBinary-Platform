@@ -110,12 +110,12 @@ public class CanvasJPanel extends javax.swing.JPanel
             this.setCanvasSize(canvasDom.getDimension().getWidth(), canvasDom.getDimension().getHeight());
             this.graphicItemHashMap = canvasDom.getGraphicItemHashMap();
 
-            final Object[] graphicItemArray = graphicItemHashMap.keySet().toArray();
+            final Object[] graphicItemArray = this.graphicItemHashMap.keySet().toArray();
             final int size = graphicItemArray.length;
             for(int index = 0; index < size; index++)
             {
                 MutableTreeNode graphicItemTreeNode = (MutableTreeNode) graphicItemArray[index];
-                canvasTreeNode.add(graphicItemTreeNode);
+                this.canvasTreeNode.add(graphicItemTreeNode);
             }
 
             this.repaint();
@@ -128,7 +128,7 @@ public class CanvasJPanel extends javax.swing.JPanel
         {
             if (LOGGING.contains(LOGGING.GRAPHICSCREATION))
             {
-                guiLog.put("Constructor Error", this, "contructor", e);
+                this.guiLog.put("Constructor Error", this, "contructor", e);
             }
         }
     }
@@ -310,7 +310,7 @@ public class CanvasJPanel extends javax.swing.JPanel
         for (int index = 0; index < size2; index++)
         {
             GraphicItemInterface newGraphicItem = (GraphicItemInterface) newPoints.get(index);
-            canvasTreeNode.add(newGraphicItem.getTreeNode());
+            this.canvasTreeNode.add(newGraphicItem.getTreeNode());
             this.getGraphicItemHashMap().put(newGraphicItem.getTreeNode(), newGraphicItem);
         }
 
@@ -404,7 +404,7 @@ public class CanvasJPanel extends javax.swing.JPanel
     {
         GraphicItemInterface graphicItemClone = graphicItem.duplicate();
         this.getGraphicItemHashMap().put(graphicItemClone.getTreeNode(), graphicItemClone);
-        canvasTreeNode.add(graphicItemClone.getTreeNode());
+        this.canvasTreeNode.add(graphicItemClone.getTreeNode());
     }
 
     public void duplicateGraphicItemHashMap(HashMap hashMap)

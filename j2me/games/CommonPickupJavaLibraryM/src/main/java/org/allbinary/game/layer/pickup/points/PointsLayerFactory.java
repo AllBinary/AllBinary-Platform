@@ -34,6 +34,6 @@ implements AllBinaryLayerFactoryInterface
    public AllBinaryLayer getInstance() 
       throws Exception
    {
-      return new PointsLayer(points);
+      return new PointsLayer(this.points);
    }
 }

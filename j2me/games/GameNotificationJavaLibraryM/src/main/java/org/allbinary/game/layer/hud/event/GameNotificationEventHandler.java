@@ -113,7 +113,7 @@ public class GameNotificationEventHandler extends BasicEventHandler
            EventListenerInterface eventListenerInterface)
    throws Exception
    {
-       if(!enabled) {
+       if(!this.enabled) {
            return;
        }
 

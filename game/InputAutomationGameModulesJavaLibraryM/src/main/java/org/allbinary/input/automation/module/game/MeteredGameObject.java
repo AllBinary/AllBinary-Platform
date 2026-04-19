@@ -104,7 +104,7 @@ public class MeteredGameObject
       final CommonSeps commonSeps = CommonSeps.getInstance();
       
       stringBuffer.append(commonSeps.NEW_LINE);
-      stringBuffer.append(RATIOS_LABEL);
+      stringBuffer.append(this.RATIOS_LABEL);
       for (int index = 0; index < this.getRatios().length; index++)
       {
          stringBuffer.append(this.getRatios()[index].toString());
@@ -115,11 +115,11 @@ public class MeteredGameObject
       }
       
       stringBuffer.append(commonSeps.NEW_LINE);
-      stringBuffer.append(IS_GOOD_LABEL);
+      stringBuffer.append(this.IS_GOOD_LABEL);
       stringBuffer.appendboolean(this.isGood());
       
       stringBuffer.append(commonSeps.NEW_LINE);
-      stringBuffer.append(IS_DROPPPING_LABEL);
+      stringBuffer.append(this.IS_DROPPPING_LABEL);
       stringBuffer.appendboolean(this.isDropping());
 
       return stringBuffer.toString();

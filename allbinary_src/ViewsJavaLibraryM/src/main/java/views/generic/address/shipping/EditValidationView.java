@@ -47,7 +47,7 @@ public class EditValidationView extends ShippingAddressView implements Validatio
       ShippingAddressesEntity billingAddressesEntity =
       new ShippingAddressesEntity(this.getWeblisketSession().getUserName());
       
-      this.streetAddress = billingAddressesEntity.get(new Integer(value));
+      this.streetAddress = billingAddressesEntity.get(new Integer(this.value));
       
       if(this.streetAddress==null)
       {

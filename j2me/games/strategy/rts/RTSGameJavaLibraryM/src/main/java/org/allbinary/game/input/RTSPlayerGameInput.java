@@ -82,7 +82,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
             final LayerPositionFinderInterface layerPositionFinderInterface,
             final SelectRTSLayerVisitorFactoryInterface selectRTSLayerVisitorFactoryInterface)
     {
-        super(inputList, playerInputId);
+        super(this.inputList, playerInputId);
         
         this.initInputProcessors();
         
@@ -108,7 +108,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
         }
 
         final GeographicMapCompositeInterface geographicMapCompositeInterface = 
-            (GeographicMapCompositeInterface) gameCanvas.getLayerManager();
+            (GeographicMapCompositeInterface) this.gameCanvas.getLayerManager();
         final BasicGeographicMap geographicMapInterface = geographicMapCompositeInterface.getGeographicMapInterface()[0];
         
         this.scrollPlayerGameInput = new ScrollMapPlayerGameInput(geographicMapInterface, this.inputList, playerInputId);
@@ -192,13 +192,13 @@ public class RTSPlayerGameInput extends PlayerGameInput
         {
             this.processMotionInput(layerManager);
 
-            int size = inputList.size();
+            int size = this.inputList.size();
             int key = 0;
 
             for (int index = 0; index < size; index++)
             {
                 GameKeyEvent gameKeyEvent = 
-                    (GameKeyEvent) inputList.get(index);
+                    (GameKeyEvent) this.inputList.get(index);
                 key = gameKeyEvent.getKey();
 
                 this.getScrollPlayerGameInput().processInput(key);
@@ -234,7 +234,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
         final GPoint point = motionGestureEvent.getCurrentPoint();
 
         final GeographicMapCompositeInterface geographicMapCompositeInterface = 
-            (GeographicMapCompositeInterface) gameCanvas.getLayerManager();
+            (GeographicMapCompositeInterface) this.gameCanvas.getLayerManager();
         final BasicGeographicMap geographicMapInterface = geographicMapCompositeInterface.getGeographicMapInterface()[0];
         
         final AllBinaryTiledLayer allBinaryTiledLayer = 
@@ -295,7 +295,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
             this.getSelectedRtsFormInput().getSelectedGeographicCellPosition();
 
         final GeographicMapCompositeInterface geographicMapCompositeInterface = 
-            (GeographicMapCompositeInterface) gameCanvas.getLayerManager();
+            (GeographicMapCompositeInterface) this.gameCanvas.getLayerManager();
         final BasicGeographicMap geographicMapInterface = geographicMapCompositeInterface.getGeographicMapInterface()[0];
         
         final AllBinaryTiledLayer allBinaryTiledLayer = 

@@ -72,7 +72,7 @@ public class VectorMirrorGenerator
                         (BasicArrayList) pointsBasicArrayList.objectArray[index], width));
             }
 
-            int[][][] newPoints = vectorAnimationUtil.toAnimationArrayFromBasicArrayListOfPointBasicArrayList(
+            int[][][] newPoints = this.vectorAnimationUtil.toAnimationArrayFromBasicArrayListOfPointBasicArrayList(
                     pointsBasicArrayList);
 
             // this.logUtil.putF(IntArrayUtil.toString(newPoints), this, commonStrings.GET_INSTANCE);

@@ -63,14 +63,14 @@ implements GameKeyEventSourceInterface
     public void processAI(AllBinaryLayerManager allBinaryLayerManager)
             throws Exception
     {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
+        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     public void processAI(int key) throws Exception
     {
         if (key != -1)
         {
-            this.gameInput.add(gameKeyEventFactory.getInstance(this, key));
+            this.gameInput.add(this.gameKeyEventFactory.getInstance(this, key));
         }
     }
 

@@ -111,7 +111,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
             this.velocityInterface.zero();
         }
 
-        if (!dive)
+        if (!this.dive)
         {
             this.target(allBinaryLayerManager);
         }
@@ -139,7 +139,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
             return;
         }
 
-        TrackingEvent lastTrackingEvent = (TrackingEvent) list.remove(0);
+        TrackingEvent lastTrackingEvent = (TrackingEvent) this.list.remove(0);
 
         this.lastTrackingLayerInterface = lastTrackingEvent.getLayerInterface();
 
@@ -171,37 +171,37 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
 
         final DirectionFactory directionFactory = DirectionFactory.getInstance();
 
-        if (mathUtil.abs(yDistance) > mathUtil.abs(xDistance))
+        if (this.mathUtil.abs(yDistance) > this.mathUtil.abs(xDistance))
         {
-            if (yDistance > MIN_DISTANCE)
+            if (yDistance > this.MIN_DISTANCE)
             {
                 this.directionOfTarget = directionFactory.UP;
             }
-            else if (yDistance < -MIN_DISTANCE)
+            else if (yDistance < -this.MIN_DISTANCE)
             {
                 this.directionOfTarget = directionFactory.DOWN;
             }
         }
         else
         {
-            if (xDistance > MIN_DISTANCE)
+            if (xDistance > this.MIN_DISTANCE)
             {
                 this.directionOfTarget = directionFactory.LEFT;
             }
-            else if (xDistance < -MIN_DISTANCE)
+            else if (xDistance < -this.MIN_DISTANCE)
             {
                 this.directionOfTarget = directionFactory.RIGHT;
             }
         }
 
-        if (!initialDropped
+        if (!this.initialDropped
                 && this.directionOfTarget != directionFactory.NOT_BORDERED_WITH)
         {
             this.drop();
         }
 
         // Don't do anything until drop occurs
-        if (initialDropped)
+        if (this.initialDropped)
         {
             if (this.directionOfTarget == directionFactory.UP
                     || this.directionOfTarget == directionFactory.DOWN)
@@ -325,7 +325,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
         // Don't start dives so quickly
         if (this.timeDelayHelper.isTime(this.gameTickTimeDelayHelper.startTime))
         {
-            initialDropped = true;
+            this.initialDropped = true;
 
             this.aiVistor.visit(this);
             /*
@@ -340,7 +340,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
 
     private boolean isBeyondTarget()
     {
-        if (this.directionOfTarget == directionFactory.DOWN)
+        if (this.directionOfTarget == this.directionFactory.DOWN)
         {
             if (this.getOwnerLayerInterface().getYP() > this.lastTrackingLayerInterface
                     .getYP() + MIN_DISTANCE)
@@ -352,7 +352,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
                 return false;
             }
         }
-        else if (this.directionOfTarget == directionFactory.UP)
+        else if (this.directionOfTarget == this.directionFactory.UP)
         {
             if (this.getOwnerLayerInterface().getYP() < this.lastTrackingLayerInterface
                     .getYP() + MIN_DISTANCE)
@@ -364,7 +364,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
                 return false;
             }
         }
-        else if (this.directionOfTarget == directionFactory.RIGHT)
+        else if (this.directionOfTarget == this.directionFactory.RIGHT)
         {
             if (this.getOwnerLayerInterface().getXP() > this.lastTrackingLayerInterface
                     .getXP() + MIN_DISTANCE)
@@ -376,7 +376,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
                 return false;
             }
         }
-        else if (this.directionOfTarget == directionFactory.LEFT)
+        else if (this.directionOfTarget == this.directionFactory.LEFT)
         {
             if (this.getOwnerLayerInterface().getXP() < this.lastTrackingLayerInterface
                     .getXP() + MIN_DISTANCE)

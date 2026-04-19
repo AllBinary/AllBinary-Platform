@@ -59,30 +59,30 @@ public class GenericModuleConfigurationJPanel
     // <editor-fold defaultstate="collapsed" desc=" Generated Code ">//GEN-BEGIN:initComponents
     private void initComponents()
     {
-        newProfileJDialog = new javax.swing.JDialog();
-        okNewProfileJButton = new javax.swing.JButton();
-        newProfileNameJLabel = new javax.swing.JLabel();
-        newProfileNameJTextField = new javax.swing.JTextField();
-        buttonGroup2 = new javax.swing.ButtonGroup();
-        genericJTabbedPane = new javax.swing.JTabbedPane();
-        genericProfilesJPanel = new javax.swing.JPanel();
-        genericProfilesJScrollPane = new javax.swing.JScrollPane();
-        genericProfilesJList = new javax.swing.JList();
-        newProfileJButton = new javax.swing.JButton();
-        deleteProfileJButton = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        screenCaptureJRadioButton = new javax.swing.JRadioButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        savedCaptureJRadioButton = new javax.swing.JRadioButton();
-        captureMotionAnalysisJCheckBox = new javax.swing.JCheckBox();
-        captureComparisonJCheckBox = new javax.swing.JCheckBox();
-        jLabel3 = new javax.swing.JLabel();
-        blankGenericProfileActionsJPanel = new javax.swing.JPanel();
+        this.newProfileJDialog = new javax.swing.JDialog();
+        this.okNewProfileJButton = new javax.swing.JButton();
+        this.newProfileNameJLabel = new javax.swing.JLabel();
+        this.newProfileNameJTextField = new javax.swing.JTextField();
+        this.buttonGroup2 = new javax.swing.ButtonGroup();
+        this.genericJTabbedPane = new javax.swing.JTabbedPane();
+        this.genericProfilesJPanel = new javax.swing.JPanel();
+        this.genericProfilesJScrollPane = new javax.swing.JScrollPane();
+        this.genericProfilesJList = new javax.swing.JList();
+        this.newProfileJButton = new javax.swing.JButton();
+        this.deleteProfileJButton = new javax.swing.JButton();
+        this.jPanel1 = new javax.swing.JPanel();
+        this.screenCaptureJRadioButton = new javax.swing.JRadioButton();
+        this.jLabel1 = new javax.swing.JLabel();
+        this.jLabel2 = new javax.swing.JLabel();
+        this.savedCaptureJRadioButton = new javax.swing.JRadioButton();
+        this.captureMotionAnalysisJCheckBox = new javax.swing.JCheckBox();
+        this.captureComparisonJCheckBox = new javax.swing.JCheckBox();
+        this.jLabel3 = new javax.swing.JLabel();
+        this.blankGenericProfileActionsJPanel = new javax.swing.JPanel();
 
-        newProfileJDialog.setMinimumSize(new java.awt.Dimension(250, 150));
-        newProfileJDialog.setResizable(false);
-        okNewProfileJButton.setText("Ok");
+        this.newProfileJDialog.setMinimumSize(new java.awt.Dimension(250, 150));
+        this.newProfileJDialog.setResizable(false);
+        this.okNewProfileJButton.setText("Ok");
         okNewProfileJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -91,10 +91,10 @@ public class GenericModuleConfigurationJPanel
             }
         });
 
-        newProfileNameJLabel.setText("New Profile Name");
+        this.newProfileNameJLabel.setText("New Profile Name");
 
-        javax.swing.GroupLayout newProfileJDialogLayout = new javax.swing.GroupLayout(newProfileJDialog.getContentPane());
-        newProfileJDialog.getContentPane().setLayout(newProfileJDialogLayout);
+        javax.swing.GroupLayout newProfileJDialogLayout = new javax.swing.GroupLayout(this.newProfileJDialog.getContentPane());
+        this.newProfileJDialog.getContentPane().setLayout(newProfileJDialogLayout);
         newProfileJDialogLayout.setHorizontalGroup(
             newProfileJDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(newProfileJDialogLayout.createSequentialGroup()
@@ -125,10 +125,10 @@ public class GenericModuleConfigurationJPanel
 
         setMinimumSize(new java.awt.Dimension(400, 300));
         setPreferredSize(new java.awt.Dimension(700, 700));
-        genericJTabbedPane.setToolTipText(stringUtil.EMPTY_STRING);
-        genericJTabbedPane.setMinimumSize(new java.awt.Dimension(800, 600));
-        genericProfilesJPanel.setMinimumSize(new java.awt.Dimension(400, 300));
-        genericProfilesJPanel.setPreferredSize(new java.awt.Dimension(0, 0));
+        this.genericJTabbedPane.setToolTipText(this.stringUtil.EMPTY_STRING);
+        this.genericJTabbedPane.setMinimumSize(new java.awt.Dimension(800, 600));
+        this.genericProfilesJPanel.setMinimumSize(new java.awt.Dimension(400, 300));
+        this.genericProfilesJPanel.setPreferredSize(new java.awt.Dimension(0, 0));
         genericProfilesJList.addListSelectionListener(new javax.swing.event.ListSelectionListener()
         {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt)
@@ -137,10 +137,10 @@ public class GenericModuleConfigurationJPanel
             }
         });
 
-        genericProfilesJScrollPane.setViewportView(genericProfilesJList);
+        this.genericProfilesJScrollPane.setViewportView(this.genericProfilesJList);
 
-        newProfileJButton.setText("New");
-        newProfileJButton.setToolTipText("Creates a new profile");
+        this.newProfileJButton.setText("New");
+        this.newProfileJButton.setToolTipText("Creates a new profile");
         newProfileJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -149,8 +149,8 @@ public class GenericModuleConfigurationJPanel
             }
         });
 
-        deleteProfileJButton.setText("Delete");
-        deleteProfileJButton.setToolTipText("Deletes the selected profile");
+        this.deleteProfileJButton.setText("Delete");
+        this.deleteProfileJButton.setToolTipText("Deletes the selected profile");
         deleteProfileJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -159,11 +159,11 @@ public class GenericModuleConfigurationJPanel
             }
         });
 
-        jPanel1.setPreferredSize(new java.awt.Dimension(1000, 100));
-        screenCaptureJRadioButton.setText("Screen Captures");
-        screenCaptureJRadioButton.setToolTipText("Records the screen into memory for logical processing");
-        screenCaptureJRadioButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        screenCaptureJRadioButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        this.jPanel1.setPreferredSize(new java.awt.Dimension(1000, 100));
+        this.screenCaptureJRadioButton.setText("Screen Captures");
+        this.screenCaptureJRadioButton.setToolTipText("Records the screen into memory for logical processing");
+        this.screenCaptureJRadioButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        this.screenCaptureJRadioButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
         screenCaptureJRadioButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -172,14 +172,14 @@ public class GenericModuleConfigurationJPanel
             }
         });
 
-        jLabel1.setText("Profile Options");
+        this.jLabel1.setText("Profile Options");
 
-        jLabel2.setText("Process From:");
+        this.jLabel2.setText("Process From:");
 
-        savedCaptureJRadioButton.setText("Saved Images");
-        savedCaptureJRadioButton.setToolTipText("Loads images from files for logical processing.  Usually for debugging your profile actions");
-        savedCaptureJRadioButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        savedCaptureJRadioButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        this.savedCaptureJRadioButton.setText("Saved Images");
+        this.savedCaptureJRadioButton.setToolTipText("Loads images from files for logical processing.  Usually for debugging your profile actions");
+        this.savedCaptureJRadioButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        this.savedCaptureJRadioButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
         savedCaptureJRadioButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -188,10 +188,10 @@ public class GenericModuleConfigurationJPanel
             }
         });
 
-        captureMotionAnalysisJCheckBox.setText("Motion Analysis");
-        captureMotionAnalysisJCheckBox.setToolTipText("Uses image comparison and contraints to locate moving objects");
-        captureMotionAnalysisJCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        captureMotionAnalysisJCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        this.captureMotionAnalysisJCheckBox.setText("Motion Analysis");
+        this.captureMotionAnalysisJCheckBox.setToolTipText("Uses image comparison and contraints to locate moving objects");
+        this.captureMotionAnalysisJCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        this.captureMotionAnalysisJCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
         captureMotionAnalysisJCheckBox.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -200,10 +200,10 @@ public class GenericModuleConfigurationJPanel
             }
         });
 
-        captureComparisonJCheckBox.setText("Comparison");
-        captureComparisonJCheckBox.setToolTipText("Compares the last two input images for multi image logic");
-        captureComparisonJCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        captureComparisonJCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        this.captureComparisonJCheckBox.setText("Comparison");
+        this.captureComparisonJCheckBox.setToolTipText("Compares the last two input images for multi image logic");
+        this.captureComparisonJCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        this.captureComparisonJCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
         captureComparisonJCheckBox.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -212,11 +212,11 @@ public class GenericModuleConfigurationJPanel
             }
         });
 
-        jLabel3.setText("Image Processing:");
-        jLabel3.setToolTipText("Turns on/off various extended image processing");
+        this.jLabel3.setText("Image Processing:");
+        this.jLabel3.setToolTipText("Turns on/off various extended image processing");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(this.jPanel1);
+        this.jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -249,8 +249,8 @@ public class GenericModuleConfigurationJPanel
                 .addContainerGap(106, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout genericProfilesJPanelLayout = new javax.swing.GroupLayout(genericProfilesJPanel);
-        genericProfilesJPanel.setLayout(genericProfilesJPanelLayout);
+        javax.swing.GroupLayout genericProfilesJPanelLayout = new javax.swing.GroupLayout(this.genericProfilesJPanel);
+        this.genericProfilesJPanel.setLayout(genericProfilesJPanelLayout);
         genericProfilesJPanelLayout.setHorizontalGroup(
             genericProfilesJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(genericProfilesJPanelLayout.createSequentialGroup()
@@ -276,10 +276,10 @@ public class GenericModuleConfigurationJPanel
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
                     .addComponent(genericProfilesJScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)))
         );
-        genericJTabbedPane.addTab("Profiles", genericProfilesJPanel);
+        this.genericJTabbedPane.addTab("Profiles", genericProfilesJPanel);
 
-        javax.swing.GroupLayout blankGenericProfileActionsJPanelLayout = new javax.swing.GroupLayout(blankGenericProfileActionsJPanel);
-        blankGenericProfileActionsJPanel.setLayout(blankGenericProfileActionsJPanelLayout);
+        javax.swing.GroupLayout blankGenericProfileActionsJPanelLayout = new javax.swing.GroupLayout(this.blankGenericProfileActionsJPanel);
+        this.blankGenericProfileActionsJPanel.setLayout(blankGenericProfileActionsJPanelLayout);
         blankGenericProfileActionsJPanelLayout.setHorizontalGroup(
             blankGenericProfileActionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 395, Short.MAX_VALUE)
@@ -288,9 +288,9 @@ public class GenericModuleConfigurationJPanel
             blankGenericProfileActionsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 275, Short.MAX_VALUE)
         );
-        genericJTabbedPane.addTab("Actions", blankGenericProfileActionsJPanel);
+        this.genericJTabbedPane.addTab("Actions", blankGenericProfileActionsJPanel);
 
-        add(genericJTabbedPane);
+        add(this.genericJTabbedPane);
 
     }// </editor-fold>//GEN-END:initComponents
 

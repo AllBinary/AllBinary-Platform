@@ -59,18 +59,18 @@ public class PermissionItemsRequestHelper extends ModifyTable
    
    public void getFormData()
    {
-      this.id = request.getParameter(BasicItemData.ID);
-      this.number = request.getParameter(BasicItemData.NUMBER);
-      this.enabled = request.getParameter(EntryData.getInstance().ENABLE);
-      this.who = request.getParameter(PermissionItemData.WHO);
-      this.what = request.getParameter(PermissionItemData.WHAT);
-      this.type = request.getParameter(PermissionItemData.TYPE);
-      this.remoteAddr = request.getParameter(PermissionItemData.REMOTE_ADDR);
-      this.startTime = request.getParameter(PermissionItemData.START_TIME);
-      this.endTime = request.getParameter(PermissionItemData.END_TIME);
-      this.price = request.getParameter(BasicItemData.PRICE);         
-      this.timeEntered = request.getParameter(EntryData.getInstance().TIMECREATED);
-      this.lastModified = request.getParameter(EntryData.getInstance().LASTMODIFIED);
+      this.id = this.request.getParameter(BasicItemData.ID);
+      this.number = this.request.getParameter(BasicItemData.NUMBER);
+      this.enabled = this.request.getParameter(EntryData.getInstance().ENABLE);
+      this.who = this.request.getParameter(PermissionItemData.WHO);
+      this.what = this.request.getParameter(PermissionItemData.WHAT);
+      this.type = this.request.getParameter(PermissionItemData.TYPE);
+      this.remoteAddr = this.request.getParameter(PermissionItemData.REMOTE_ADDR);
+      this.startTime = this.request.getParameter(PermissionItemData.START_TIME);
+      this.endTime = this.request.getParameter(PermissionItemData.END_TIME);
+      this.price = this.request.getParameter(BasicItemData.PRICE);         
+      this.timeEntered = this.request.getParameter(EntryData.getInstance().TIMECREATED);
+      this.lastModified = this.request.getParameter(EntryData.getInstance().LASTMODIFIED);
    }
 
    private HashMap getHashMap()
@@ -120,7 +120,7 @@ public class PermissionItemsRequestHelper extends ModifyTable
          
          PermissionItemsEntityFactory.getInstance().getPermissionItemsEntityInstance().insert(values);
          
-         String success = "Successfully inserted " + id + " into items table";
+         String success = "Successfully inserted " + this.id + " into items table";
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
@@ -144,7 +144,7 @@ public class PermissionItemsRequestHelper extends ModifyTable
    {
       try
       {
-         PermissionItemsEntityFactory.getInstance().getPermissionItemsEntityInstance().delete(id);
+         PermissionItemsEntityFactory.getInstance().getPermissionItemsEntityInstance().delete(this.id);
          
          String success = "Successfully deleted";
          
@@ -177,7 +177,7 @@ public class PermissionItemsRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.putF(new StringMaker().append(id).append(CommonSeps.getInstance().SPACE).append(success).toString(),this,"update()");
+            this.logUtil.putF(new StringMaker().append(this.id).append(CommonSeps.getInstance().SPACE).append(success).toString(),this,"update()");
          }
          return success;
       }

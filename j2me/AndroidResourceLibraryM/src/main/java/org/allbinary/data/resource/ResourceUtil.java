@@ -52,7 +52,7 @@ public class ResourceUtil
     
     public Context getContext()
     {
-        return (Context) context;
+        return (Context) this.context;
     }
 
     /*
@@ -101,7 +101,7 @@ public class ResourceUtil
 
     private boolean containsDuplicate(String resource, Integer value)
     {
-        Object[] objectArray = HashtableUtil.getInstance().getKeysAsArray(hashMap);
+        Object[] objectArray = HashtableUtil.getInstance().getKeysAsArray(this.hashMap);
         
         for(int index = objectArray.length; --index >= 0;)
         {

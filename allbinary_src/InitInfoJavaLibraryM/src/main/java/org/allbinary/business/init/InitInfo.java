@@ -52,9 +52,9 @@ public class InitInfo
    {
       try
       {
-         testing = (String) hashMap.get(TESTING);
-         mainPath = (String) hashMap.get(MAINPATH);
-         testHtmlPath = (String) hashMap.get(TESTHTMLPATH);
+         this.testing = (String) hashMap.get(this.TESTING);
+         this.mainPath = (String) hashMap.get(this.MAINPATH);
+         this.testHtmlPath = (String) hashMap.get(this.TESTHTMLPATH);
          webappPath = (String) hashMap.get(WEBAPPPATH);
       }
       catch(Exception e)
@@ -68,9 +68,9 @@ public class InitInfo
    {
       try
       {
-         testing = "PathNotSet";
-         mainPath = "PathNotSet";
-         testHtmlPath = "PathNotSet";
+         this.testing = "PathNotSet";
+         this.mainPath = "PathNotSet";
+         this.testHtmlPath = "PathNotSet";
          webappPath = "PathNotSet";
       }
       catch(Exception e)
@@ -107,7 +107,7 @@ public class InitInfo
             }
             initInfoEntity.update();
          }
-         hasRead = false;
+         this.hasRead = false;
       }
       catch(Exception e)
       {
@@ -122,9 +122,9 @@ public class InitInfo
    {
       try
       {
-         testing = (String) hashMap.get(TESTING);
-         mainPath = new AbPath((String) hashMap.get(MAINPATH));
-         testHtmlPath = new AbPath((String) hashMap.get(TESTHTMLPATH));
+         this.testing = (String) hashMap.get(this.TESTING);
+         this.mainPath = new AbPath((String) hashMap.get(this.MAINPATH));
+         this.testHtmlPath = new AbPath((String) hashMap.get(this.TESTHTMLPATH));
       }
       catch(Exception e)
       {
@@ -139,9 +139,9 @@ public class InitInfo
    {
       try
       {
-         testing = null;
-         mainPath = null;
-         testHtmlPath = null;
+         this.testing = null;
+         this.mainPath = null;
+         this.testHtmlPath = null;
          
          InitInfoEntity initInfoEntity = new InitInfoEntity();
          initInfoEntity.get();
@@ -158,16 +158,16 @@ public class InitInfo
    
    public synchronized void setHasRead(boolean value)
    {
-      hasRead = value;
+      this.hasRead = value;
    }
    
    private synchronized void updateIfNeeded()
    {
       try
       {
-         if(!hasRead)
+         if(!this.hasRead)
          {
-            hasRead = true;
+            this.hasRead = true;
             this.get();
          }
       }
@@ -186,7 +186,7 @@ public class InitInfo
       try
       {
          this.updateIfNeeded();
-         return BooleanUtil.getInstance().getFromString(testing);
+         return BooleanUtil.getInstance().getFromString(this.testing);
       }
       catch(Exception e)
       {
@@ -207,7 +207,7 @@ public class InitInfo
    public String getTestHtmlPath()
    {
       this.updateIfNeeded();
-      if(testHtmlPath != null)
+      if(this.testHtmlPath != null)
       {
          return testHtmlPath.toString();
       }
@@ -220,7 +220,7 @@ public class InitInfo
    public String getMainPath()
    {
       this.updateIfNeeded();
-      if(mainPath != null)
+      if(this.mainPath != null)
       {
          return mainPath.toString();
       }
@@ -232,7 +232,7 @@ public class InitInfo
    
    public void setTesting(String value)
    {
-      testing = value;
+      this.testing = value;
    }
    
    public void setTestHtmlPath(AbPath value)
@@ -263,9 +263,9 @@ public class InitInfo
    public HashMap toHashMap()
    {
       HashMap hashMap = new HashMap();
-      hashMap.put(TESTING, this.getTesting());
-      hashMap.put(MAINPATH, this.getMainPath());
-      hashMap.put(TESTHTMLPATH, this.getTestHtmlPath());
+      hashMap.put(this.TESTING, this.getTesting());
+      hashMap.put(this.MAINPATH, this.getMainPath());
+      hashMap.put(this.TESTHTMLPATH, this.getTestHtmlPath());
       return hashMap;
    }
 }

@@ -77,9 +77,9 @@ public class OnDemandLoader
 
         OnDemandResources onDemandResources;
         
-        for (int onDemandIndex = onDemandResourcesFactory.size(); --onDemandIndex >= 0;)
+        for (int onDemandIndex = this.onDemandResourcesFactory.size(); --onDemandIndex >= 0;)
         {
-            onDemandResources = onDemandResourcesFactory.remove(onDemandIndex);
+            onDemandResources = this.onDemandResourcesFactory.remove(onDemandIndex);
 
             if (onDemandResources != OnDemandResources.NULL_ON_DEMAND_RESOURCES)
             {
@@ -108,7 +108,7 @@ public class OnDemandLoader
         
         for (int onDemandIndex = onDemandArray.length; --onDemandIndex >= 0;)
         {
-            onDemandResources = onDemandResourcesFactory.remove(onDemandArray[onDemandIndex]);
+            onDemandResources = this.onDemandResourcesFactory.remove(onDemandArray[onDemandIndex]);
 
             //if null then it is already loaded
             if (onDemandResources != OnDemandResources.NULL_ON_DEMAND_RESOURCES)

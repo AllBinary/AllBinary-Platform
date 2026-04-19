@@ -93,6 +93,6 @@ public class IndexedBasicArrayListCache
         //this.logUtil.putF("PathWrapper count: " + this.index, this, "clear");
         //PreLogUtil.put("abstractPathElementList: " + BasicArrayListUtil.log(this.abstractPathElementList), this, "clear");
 
-        index = 0;
+        this.index = 0;
     }
 }

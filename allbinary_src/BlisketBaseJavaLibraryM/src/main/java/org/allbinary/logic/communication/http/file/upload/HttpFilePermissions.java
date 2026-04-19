@@ -33,7 +33,7 @@ public class HttpFilePermissions
     public HttpFilePermissions(AbPath fullPath)
         throws Exception
     {
-        file = new AbFile(new AbPath(fullPath.toFileSystemString(),
+        this.file = new AbFile(new AbPath(fullPath.toFileSystemString(),
             FileUploadData.getInstance().FILE));
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
@@ -44,12 +44,12 @@ public class HttpFilePermissions
         if (this.isFile())
         {
             //load file and add user roles
-            userRoles.add(BasicUserRoleFactory.getInstance().ADMINISTRATOR);
+            this.userRoles.add(BasicUserRoleFactory.getInstance().ADMINISTRATOR);
         }
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
         {
-            this.logUtil.putF("User Roles: " + userRoles, this, this.commonStrings.CONSTRUCTOR);
+            this.logUtil.putF("User Roles: " + this.userRoles, this, this.commonStrings.CONSTRUCTOR);
         }
 
     }

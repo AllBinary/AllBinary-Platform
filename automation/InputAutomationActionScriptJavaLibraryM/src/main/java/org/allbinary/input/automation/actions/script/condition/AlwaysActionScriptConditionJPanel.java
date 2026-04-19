@@ -88,18 +88,18 @@ public class AlwaysActionScriptConditionJPanel
     // <editor-fold defaultstate="collapsed" desc=" Generated Code ">//GEN-BEGIN:initComponents
     private void initComponents()
     {
-        alwaysActionJDialog = new javax.swing.JDialog();
-        titleJLabel = new javax.swing.JLabel();
-        okJButton = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        alwaysJComboBox = new javax.swing.JComboBox();
-        alwaysActionJButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        this.alwaysActionJDialog = new javax.swing.JDialog();
+        this.titleJLabel = new javax.swing.JLabel();
+        this.okJButton = new javax.swing.JButton();
+        this.jLabel2 = new javax.swing.JLabel();
+        this.alwaysJComboBox = new javax.swing.JComboBox();
+        this.alwaysActionJButton = new javax.swing.JButton();
+        this.jLabel1 = new javax.swing.JLabel();
 
-        alwaysActionJDialog.setMinimumSize(new java.awt.Dimension(250, 150));
-        titleJLabel.setText("Always Condition Options");
+        this.alwaysActionJDialog.setMinimumSize(new java.awt.Dimension(250, 150));
+        this.titleJLabel.setText("Always Condition Options");
 
-        okJButton.setText("OK");
+        this.okJButton.setText("OK");
         okJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -108,12 +108,12 @@ public class AlwaysActionScriptConditionJPanel
             }
         });
 
-        jLabel2.setText("On:");
+        this.jLabel2.setText("On:");
 
-        alwaysJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "true", "false" }));
+        this.alwaysJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "true", "false" }));
 
-        javax.swing.GroupLayout alwaysActionJDialogLayout = new javax.swing.GroupLayout(alwaysActionJDialog.getContentPane());
-        alwaysActionJDialog.getContentPane().setLayout(alwaysActionJDialogLayout);
+        javax.swing.GroupLayout alwaysActionJDialogLayout = new javax.swing.GroupLayout(this.alwaysActionJDialog.getContentPane());
+        this.alwaysActionJDialog.getContentPane().setLayout(alwaysActionJDialogLayout);
         alwaysActionJDialogLayout.setHorizontalGroup(
             alwaysActionJDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(alwaysActionJDialogLayout.createSequentialGroup()
@@ -146,7 +146,7 @@ public class AlwaysActionScriptConditionJPanel
         );
 
         setMinimumSize(new java.awt.Dimension(100, 0));
-        alwaysActionJButton.setText("Edit");
+        this.alwaysActionJButton.setText("Edit");
         alwaysActionJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -155,7 +155,7 @@ public class AlwaysActionScriptConditionJPanel
             }
         });
 
-        jLabel1.setText("Always:");
+        this.jLabel1.setText("Always:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

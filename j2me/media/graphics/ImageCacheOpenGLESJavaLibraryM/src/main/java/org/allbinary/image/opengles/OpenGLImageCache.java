@@ -56,9 +56,9 @@ public class OpenGLImageCache extends ImageCache
      
         this.gl = gl;
         
-        synchronized(lock) {
-            for (int index = list.size() - 1; index >= 0; index--) {
-                OpenGLESImage openGLESImage = ((OpenGLESImage) list.objectArray[index]);
+        synchronized(this.lock) {
+            for (int index = this.list.size() - 1; index >= 0; index--) {
+                OpenGLESImage openGLESImage = ((OpenGLESImage) this.list.objectArray[index]);
                 if(openGLESImage != OpenGLESImage.NULL_OPENGL_IMAGE) {
                     openGLESImage.set(gl);
                 }
@@ -86,12 +86,12 @@ public class OpenGLImageCache extends ImageCache
         height = textureSize;
         
         final Image image2 = this.imageCache.get(caller, width, height);
-        final Image image = preResourceImageUtil.encapsulate(image2);
+        final Image image = this.preResourceImageUtil.encapsulate(image2);
         
         //this.logUtil.putF("opengl: createImageD: " + image.getName(), this, commonStrings.CREATE);
-        synchronized(lock) {
+        synchronized(this.lock) {
             if(image != NullCanvas.NULL_IMAGE) {
-                list.add(image);
+                this.list.add(image);
             }
         }
         
@@ -107,12 +107,12 @@ public class OpenGLImageCache extends ImageCache
         //...
         //Use fake images
         //return new OpenGLESImage(cachedImage);
-        final Image image = preResourceImageUtil.encapsulate(cachedImage);
+        final Image image = this.preResourceImageUtil.encapsulate(cachedImage);
 
         //this.logUtil.putF("opengl: createImage: " + image.getName(), this, commonStrings.CREATE);
-        synchronized(lock) {
+        synchronized(this.lock) {
             if(image != NullCanvas.NULL_IMAGE) {
-                list.add(image);
+                this.list.add(image);
             }
         }
 
@@ -132,12 +132,12 @@ public class OpenGLImageCache extends ImageCache
         try {
             //this.logUtil.putF(new StringMaker().append("opengl: init add ").append(image).append(image.getName()).toString(), this, commonStrings.INIT);
             
-            synchronized(lock) {
-                if (list.contains(image)) {
+            synchronized(this.lock) {
+                if (this.list.contains(image)) {
                     throw new RuntimeException();
                 }
 
-                list.add(image);
+                this.list.add(image);
             }
             
             this.renderer.add(image);

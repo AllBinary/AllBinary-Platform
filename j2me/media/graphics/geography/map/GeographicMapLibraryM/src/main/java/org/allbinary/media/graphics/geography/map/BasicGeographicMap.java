@@ -125,8 +125,8 @@ public class BasicGeographicMap
     @Override
     public GeographicMapCellPosition getCellPositionAt(final int x, final int y) throws Exception {
         final AllBinaryTiledLayer allBinaryTiledLayer = this.getAllBinaryTiledLayer();
-        final int i_column = mathUtil.abs(x / allBinaryTiledLayer.getCellHeight());
-        final int i_row = mathUtil.abs(y / allBinaryTiledLayer.getCellWidth());
+        final int i_column = this.mathUtil.abs(x / allBinaryTiledLayer.getCellHeight());
+        final int i_row = this.mathUtil.abs(y / allBinaryTiledLayer.getCellWidth());
 
         return geographicMapCellPositionFactory.getInstance(i_column, i_row);
     }
@@ -134,8 +134,8 @@ public class BasicGeographicMap
     @Override
     public GeographicMapCellPosition getCellPositionAtNoThrow(final int x, final int y) {
         final AllBinaryTiledLayer allBinaryTiledLayer = this.getAllBinaryTiledLayer();
-        final int i_column = mathUtil.abs(x / allBinaryTiledLayer.getCellHeight());
-        final int i_row = mathUtil.abs(y / allBinaryTiledLayer.getCellWidth());
+        final int i_column = this.mathUtil.abs(x / allBinaryTiledLayer.getCellHeight());
+        final int i_row = this.mathUtil.abs(y / allBinaryTiledLayer.getCellWidth());
 
         if (allBinaryTiledLayer.getColumns() > i_column && allBinaryTiledLayer.getRows() > i_row) {
             try {
@@ -167,10 +167,10 @@ public class BasicGeographicMap
         geographicMapCellPositionList.clear();
 
         final AllBinaryTiledLayer allBinaryTiledLayer = this.getAllBinaryTiledLayer();
-        final int i_columnMin = mathUtil.abs(x / allBinaryTiledLayer.getCellHeight());
-        final int i_rowMin = mathUtil.abs(y / allBinaryTiledLayer.getCellWidth());
-        final int i_columnMax = mathUtil.abs(x2 / allBinaryTiledLayer.getCellHeight()) + 1;
-        final int i_rowMax = mathUtil.abs(y2 / allBinaryTiledLayer.getCellWidth()) + 1;
+        final int i_columnMin = this.mathUtil.abs(x / allBinaryTiledLayer.getCellHeight());
+        final int i_rowMin = this.mathUtil.abs(y / allBinaryTiledLayer.getCellWidth());
+        final int i_columnMax = this.mathUtil.abs(x2 / allBinaryTiledLayer.getCellHeight()) + 1;
+        final int i_rowMax = this.mathUtil.abs(y2 / allBinaryTiledLayer.getCellWidth()) + 1;
 
         for (int columnIndex = i_columnMin; columnIndex < i_columnMax; columnIndex++) {
             for (int rowIndex = i_rowMin; rowIndex < i_rowMax; rowIndex++) {

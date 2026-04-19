@@ -56,9 +56,9 @@ public class CustomizersView extends HttpStoreComponentView implements DomNodeIn
 
             final Vector unsortedCustomizerViewVector = new Vector();
 
-            final int size = customizersVector.size();
+            final int size = this.customizersVector.size();
             for (int index = 0; index < size; index++) {
-                final String viewName = (String) customizersVector.get(index);
+                final String viewName = (String) this.customizersVector.get(index);
 
                 if (viewName.indexOf(CustomizerTransformInfoData.NAME) > 0
                         && viewName.indexOf(GLOBALS2.EDIT) > 0
@@ -106,7 +106,7 @@ public class CustomizersView extends HttpStoreComponentView implements DomNodeIn
             return super.view();
         } catch (Exception e) {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR)) {
-                this.logUtil.put(commonStrings.EXCEPTION, this, "view()", e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, "view()", e);
             }
             throw e;
         }

@@ -66,7 +66,7 @@ public class NonPlayerTopViewCharacterBehavior extends TopViewCharacterBehavior 
                                 geographicMapCellPosition.getRow());
             }
 
-            geographicMapBehavior.getCellTypeAt(geographicMapInterfaceArray, geographicMapCellTypeArray, nextTerrainGeographicMapCellPosition);
+            this.geographicMapBehavior.getCellTypeAt(geographicMapInterfaceArray, geographicMapCellTypeArray, nextTerrainGeographicMapCellPosition);
             final boolean hasSolidBlock = this.hasSolidBlock(geographicMapInterfaceArray, geographicMapCellTypeArray);
 
             if (!hasSolidBlock) {

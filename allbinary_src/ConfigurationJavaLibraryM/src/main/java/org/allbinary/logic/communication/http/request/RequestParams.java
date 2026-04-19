@@ -44,14 +44,14 @@ public class RequestParams
 
     public RequestParams(HttpServletRequest request)
     {
-        map = request.getParameterMap();
+        this.map = request.getParameterMap();
 
         this.logUtil.putF("RequestParams Size: " + this.getMap().keySet().size(), this, this.commonStrings.CONSTRUCTOR);
     }
 
     public RequestParams(PageContext pageContext)
     {
-        map = pageContext.getRequest().getParameterMap();
+        this.map = pageContext.getRequest().getParameterMap();
 
         this.logUtil.putF("Request Params Size: " + this.getMap().keySet().size(), this, this.commonStrings.CONSTRUCTOR);
     }
@@ -77,20 +77,20 @@ public class RequestParams
 
             final StringMaker stringBuffer = new StringMaker();
                         
-            final Set keys = map.keySet();
+            final Set keys = this.map.keySet();
             final Object[] keyArray = keys.toArray();
             final int size = keyArray.length;
 
             for (int i = 0; i < size; i++)
             {
                 String key = (String) keyArray[i];
-                String[] values = (String[]) map.get(key);
+                String[] values = (String[]) this.map.get(key);
 
                 stringBuffer.delete(0, stringBuffer.length());
 
-                stringBuffer.append(KEY);
+                stringBuffer.append(this.KEY);
                 stringBuffer.append(key);
-                stringBuffer.append(VALUE);
+                stringBuffer.append(this.VALUE);
                 stringBuffer.append(values[0]);
 
                 this.logUtil.putF(stringBuffer.toString(), this, "toXmlNode(document)");
@@ -101,7 +101,7 @@ public class RequestParams
             return node;
         }catch(Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "toXmlNode(document)", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "toXmlNode(document)", e);
 
             //throw e;
             return null;
@@ -114,7 +114,7 @@ public class RequestParams
     public HashMap toHashMap() throws Exception
     {
         HashMap hashMap = new HashMap();
-        Set keys = map.keySet();
+        Set keys = this.map.keySet();
         Object[] keyArray = keys.toArray();
         int size = keyArray.length;
         StringMaker stringBuffer = new StringMaker();
@@ -136,7 +136,7 @@ public class RequestParams
             //this.logUtil.putF(stringBuffer.toString(), this, "toHashMap()");
 
             //At some point they made them all String[] but you never know if they will go back or what
-            String[] values = (String[]) map.get(key);
+            String[] values = (String[]) this.map.get(key);
             hashMap.put(new String(key), new String(values[0]));
 
             /*
@@ -147,7 +147,7 @@ public class RequestParams
              else
              if(value instanceof String[])
              {
-             String[] values = (String[]) map.get(key);
+             String[] values = (String[]) this.map.get(key);
              hashMap.put(new String(key), new String(values[0]));
              }
              */

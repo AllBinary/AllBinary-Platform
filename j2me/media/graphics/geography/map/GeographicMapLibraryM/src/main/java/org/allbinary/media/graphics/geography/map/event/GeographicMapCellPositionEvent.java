@@ -50,7 +50,7 @@ public class GeographicMapCellPositionEvent extends AllBinaryEventObject
 
     public GeographicMapCellPosition getGeographicMapCellPosition()
     {
-        return (GeographicMapCellPosition) geographicMapCellPosition;
+        return (GeographicMapCellPosition) this.geographicMapCellPosition;
     }
 
     public String toString()

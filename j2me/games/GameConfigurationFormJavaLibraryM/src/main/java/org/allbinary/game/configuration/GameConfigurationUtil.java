@@ -68,11 +68,11 @@ public class GameConfigurationUtil
 
         StringMaker stringBuffer = new StringMaker();
         
-        stringBuffer.append(GAUGE_UPDATE);
+        stringBuffer.append(this.GAUGE_UPDATE);
         stringBuffer.append(gameConfiguration.getName());
-        stringBuffer.append(FROM);
+        stringBuffer.append(this.FROM);
         stringBuffer.appendint(gameConfiguration.getValue().intValue());
-        stringBuffer.append(TO);
+        stringBuffer.append(this.TO);
         stringBuffer.appendint(value.intValue());
         
         this.logUtil.putF(stringBuffer.toString(), this, commonStrings.UPDATE);
@@ -93,7 +93,7 @@ public class GameConfigurationUtil
         
         stringBuffer.append("Gauge Default: ");
         stringBuffer.append(gameConfiguration.getName());
-        stringBuffer.append(TO);
+        stringBuffer.append(this.TO);
         stringBuffer.appendint(gameConfiguration.getDefaultValue().intValue());
         
         this.logUtil.putF(stringBuffer.toString(), this, "setDefault");
@@ -116,7 +116,7 @@ public class GameConfigurationUtil
         
         if (gameConfiguration == gameConfigurationCentral.CHALLENGE_LEVEL)
         {
-            this.logUtil.putF(commonStrings.START, this, "updateChallange");
+            this.logUtil.putF(this.commonStrings.START, this, "updateChallange");
 
             gameConfigurationCentral.COLLIDE_DAMAGE.setValue(gameConfiguration
                     .getValue());
@@ -168,17 +168,17 @@ public class GameConfigurationUtil
 
     public void updateCompetitionValue()
     {
-        this.logUtil.putF(commonStrings.START, this, "updateCompetitionValue");
+        this.logUtil.putF(this.commonStrings.START, this, "updateCompetitionValue");
 
         GameConfigurationCentral gameConfigurationCentral = 
             GameConfigurationCentral.getInstance();
         
-        COMPETITION_VALUE = gameConfigurationCentral.COLLIDE_DAMAGE.getValue().intValue()
+        this.COMPETITION_VALUE = gameConfigurationCentral.COLLIDE_DAMAGE.getValue().intValue()
         + gameConfigurationCentral.ATTACK_CHALLENGE_LEVEL.getValue().intValue()
         + gameConfigurationCentral.DURABILITY_CHALLENGE_LEVEL.getValue().intValue() + 
         gameConfigurationCentral.SPEED_CHALLENGE_LEVEL.getValue().intValue();
         
-        COMPETITION_VALUE = (COMPETITION_VALUE >> 2);
+        this.COMPETITION_VALUE = (this.COMPETITION_VALUE >> 2);
 
     }
 

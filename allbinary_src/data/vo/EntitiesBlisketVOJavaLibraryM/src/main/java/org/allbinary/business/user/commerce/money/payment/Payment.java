@@ -54,7 +54,7 @@ public class Payment implements PaymentInterface, DomNodeInterface
       this.type = (String) payment.get(PaymentData.TYPE);
       this.expiration = (String) payment.get(PaymentData.EXPIRATION);
       this.encryption = (String) payment.get(EntryData.getInstance().ENCRYPTION);
-      this.number = (String) new SuperCrypt(new Integer(encryption).intValue()).decrypt((String) payment.get(PaymentData.NUMBER));
+      this.number = (String) new SuperCrypt(new Integer(this.encryption).intValue()).decrypt((String) payment.get(PaymentData.NUMBER));
       this.id = (String) payment.get(PaymentData.ID);
       String def = (String) payment.get(EntryData.getInstance().DEFAULT);
       if(def!=null && def.compareTo(EntryData.getInstance().DEFAULT)==0)

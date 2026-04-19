@@ -31,9 +31,9 @@ public class AllBinaryRendererBase3 {
     {
         //this.logUtil.putF(CommonLabels.getInstance().START_LABEL + list, this, commonStrings.UPDATE);
         
-        while(list.size() > 0)
+        while(this.list.size() > 0)
         {
-            final OpenGLESImage openGLESImage = (OpenGLESImage) list.remove(0);
+            final OpenGLESImage openGLESImage = (OpenGLESImage) this.list.remove(0);
             if(openGLESImage != null) {
                 openGLESImage.set(gl);
             }

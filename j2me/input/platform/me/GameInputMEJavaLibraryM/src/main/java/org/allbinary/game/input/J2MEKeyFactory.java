@@ -33,30 +33,30 @@ public class J2MEKeyFactory
     public void init()
     {
         GameKey[] gameKeyArray = {
-        gameKeyFactory.DOWN,
-        gameKeyFactory.FIRE,
-        gameKeyFactory.GAME_A,
-        gameKeyFactory.GAME_B,
-        gameKeyFactory.GAME_C,
-        gameKeyFactory.GAME_D,
-        gameKeyFactory.KEY_NUM0,
-        gameKeyFactory.KEY_NUM1,
-        gameKeyFactory.KEY_NUM2,
-        gameKeyFactory.KEY_NUM3,
-        gameKeyFactory.KEY_NUM4,
-        gameKeyFactory.KEY_NUM5,
-        gameKeyFactory.KEY_NUM6,
-        gameKeyFactory.KEY_NUM7,
-        gameKeyFactory.KEY_NUM8,
-        gameKeyFactory.KEY_NUM9,
-        gameKeyFactory.KEY_POUND,
-        gameKeyFactory.KEY_STAR,
-        gameKeyFactory.LEFT,
-        gameKeyFactory.LEVEL_DOWN,
-        gameKeyFactory.LEVEL_UP,
-        gameKeyFactory.NONE,
-        gameKeyFactory.RIGHT,
-        gameKeyFactory.UP
+        this.gameKeyFactory.DOWN,
+        this.gameKeyFactory.FIRE,
+        this.gameKeyFactory.GAME_A,
+        this.gameKeyFactory.GAME_B,
+        this.gameKeyFactory.GAME_C,
+        this.gameKeyFactory.GAME_D,
+        this.gameKeyFactory.KEY_NUM0,
+        this.gameKeyFactory.KEY_NUM1,
+        this.gameKeyFactory.KEY_NUM2,
+        this.gameKeyFactory.KEY_NUM3,
+        this.gameKeyFactory.KEY_NUM4,
+        this.gameKeyFactory.KEY_NUM5,
+        this.gameKeyFactory.KEY_NUM6,
+        this.gameKeyFactory.KEY_NUM7,
+        this.gameKeyFactory.KEY_NUM8,
+        this.gameKeyFactory.KEY_NUM9,
+        this.gameKeyFactory.KEY_POUND,
+        this.gameKeyFactory.KEY_STAR,
+        this.gameKeyFactory.LEFT,
+        this.gameKeyFactory.LEVEL_DOWN,
+        this.gameKeyFactory.LEVEL_UP,
+        this.gameKeyFactory.NONE,
+        this.gameKeyFactory.RIGHT,
+        this.gameKeyFactory.UP
         };
 
         InputFactory inputFactory = InputFactory.getInstance();
@@ -77,7 +77,7 @@ public class J2MEKeyFactory
 
     public boolean isSubmission(Input input)
     {
-        if (input == gameKeyFactory.FIRE)
+        if (input == this.gameKeyFactory.FIRE)
         {
             return true;
         }
@@ -86,7 +86,7 @@ public class J2MEKeyFactory
 
     public boolean isDelete(Input input)
     {
-        if (input == gameKeyFactory.GAME_D)
+        if (input == this.gameKeyFactory.GAME_D)
         {
             return true;
         }
@@ -100,7 +100,7 @@ public class J2MEKeyFactory
 
     public boolean isUp(Input input)
     {
-        if (input == gameKeyFactory.UP)
+        if (input == this.gameKeyFactory.UP)
         {
             return true;
         }
@@ -109,7 +109,7 @@ public class J2MEKeyFactory
 
     public boolean isDown(Input input)
     {
-        if (input == gameKeyFactory.DOWN)
+        if (input == this.gameKeyFactory.DOWN)
         {
             return true;
         }
@@ -119,7 +119,7 @@ public class J2MEKeyFactory
 
     public boolean isLeft(Input input)
     {
-        if (input == gameKeyFactory.LEFT)
+        if (input == this.gameKeyFactory.LEFT)
         {
             return true;
         }
@@ -128,7 +128,7 @@ public class J2MEKeyFactory
 
     public boolean isRight(Input input)
     {
-        if (input == gameKeyFactory.RIGHT)
+        if (input == this.gameKeyFactory.RIGHT)
         {
             return true;
         }
@@ -138,7 +138,7 @@ public class J2MEKeyFactory
 
     public boolean isEnter(Input input)
     {
-        if (input == gameKeyFactory.FIRE)
+        if (input == this.gameKeyFactory.FIRE)
         {
             return true;
         }

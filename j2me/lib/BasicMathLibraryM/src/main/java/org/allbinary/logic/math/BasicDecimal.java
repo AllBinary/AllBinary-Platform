@@ -192,7 +192,7 @@ public class BasicDecimal
    {
        //Using shift on negative values produces undesired result
        //this.scaled = (int) (this.units >> this.getScaledFactor());
-       this.scaled = (int) (this.units / factorValue);
+       this.scaled = (int) (this.units / this.factorValue);
    }
    
    public int getScaled()

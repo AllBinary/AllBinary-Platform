@@ -63,9 +63,9 @@ public class TopViewGameLayerBehavior extends GameLayerBehavior {
     }
 
     public void up(final VelocityProperties velocityProperties, final BasicAccelerationProperties acceleration, final InitialJumpBehavior jumpBehavior, final int accelerationMultiplier) {
-        if (!isJumpOver) {
+        if (!this.isJumpOver) {
 
-            if(gravityActionIndex < maxGravityActionIndex) {
+            if(this.gravityActionIndex < this.maxGravityActionIndex) {
                 final int acceleration2 = -acceleration.getForward() * accelerationMultiplier;
                 //this.logUtil.putF("Jump: " + velocityProperties.getVelocityYBasicDecimalP().getUnscaled(), this, commonStrings.UP);
                 //this.logUtil.putF("Acceleration: " + acceleration2, this, commonStrings.UP);
@@ -82,11 +82,11 @@ public class TopViewGameLayerBehavior extends GameLayerBehavior {
             //this.logUtil.putF("Jump over", this, commonStrings.UP);
         }
 
-        if (isJumpAction) {
+        if (this.isJumpAction) {
             jumpBehavior.process();
 
             // jumpPlayer.start();
-            isJumpAction = false;
+            this.isJumpAction = false;
             // TWB - Was this supposed to be remarked
             // this.specialAnimationInterfaceArray[LEGS_ANIMATION].setFrame(JUMP_LEGS_FRAME);
         }

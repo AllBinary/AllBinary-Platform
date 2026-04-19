@@ -61,12 +61,12 @@ implements AllBinarySensorListener
     
     public void shutdown()
     {
-        this.logUtil.putF(commonStrings.START, this, "shutdown");
+        this.logUtil.putF(this.commonStrings.START, this, "shutdown");
     }
 
     @Override    
     public void onSensorChange()
     {
-        ForcedLogUtil.log(commonStrings.NOT_IMPLEMENTED, this);
+        ForcedLogUtil.log(this.commonStrings.NOT_IMPLEMENTED, this);
     }
 }

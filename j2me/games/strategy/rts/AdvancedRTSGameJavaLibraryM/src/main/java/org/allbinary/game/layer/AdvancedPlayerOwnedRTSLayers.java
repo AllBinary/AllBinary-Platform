@@ -190,8 +190,8 @@ public class AdvancedPlayerOwnedRTSLayers
 
     public int getTotalBuildings()
     {
-        return baseList.size() + garrisonList.size() +
-            houseList.size() + labList.size() + factoryList.size();
+        return baseList.size() + this.garrisonList.size() +
+            this.houseList.size() + this.labList.size() + this.factoryList.size();
     }
     
     public void removeBuilding(AllBinaryGameLayer layerInterface)

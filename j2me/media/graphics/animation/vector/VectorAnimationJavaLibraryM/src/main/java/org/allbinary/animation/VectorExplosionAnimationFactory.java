@@ -43,7 +43,7 @@ public class VectorExplosionAnimationFactory
 
 		final int frame = vectorRotationAnimationInterface.getFrame();
 		final int[][] framePoints = vectorRotationAnimationInterface.getPoints(frame);
-		final int[][][] points = vectorExplosionGenerator.getInstance(
+		final int[][][] points = this.vectorExplosionGenerator.getInstance(
 		        framePoints, 6, vectorExplosionGenerator.ROTATION);
 		
 		return new VectorRotationAnimation(points, this.getBasicColorP(), this.animationBehaviorFactory.getOrCreateInstance());

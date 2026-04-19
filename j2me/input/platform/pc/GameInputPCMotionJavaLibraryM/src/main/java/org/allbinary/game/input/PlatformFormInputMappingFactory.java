@@ -34,7 +34,7 @@ public class PlatformFormInputMappingFactory
     {
         try
         {
-            if (SINGLETON == InputToGameKeyMapping.NULL_INPUT_TO_GAME_KEY_MAPPING)
+            if (this.SINGLETON == InputToGameKeyMapping.NULL_INPUT_TO_GAME_KEY_MAPPING)
             {
                 PCKeyFactory pcKeyFactory = PCKeyFactory.getInstance();
 
@@ -57,7 +57,7 @@ public class PlatformFormInputMappingFactory
                 inputToGameKeyMapping.add(gameKeyFactory.RIGHT, basicTouchInputFactory.RIGHT);
                 inputToGameKeyMapping.add(gameKeyFactory.DOWN, basicTouchInputFactory.DOWN);
                 
-                SINGLETON = inputToGameKeyMapping;
+                this.SINGLETON = inputToGameKeyMapping;
             }
         }
         catch (Exception e)

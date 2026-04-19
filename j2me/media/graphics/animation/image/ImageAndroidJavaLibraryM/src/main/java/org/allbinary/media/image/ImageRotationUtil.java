@@ -74,11 +74,11 @@ public class ImageRotationUtil
 
             //image.getGraphics().drawRect(0, 0, width, height);
             
-            matrix.setRotate((float) rotationInDegrees, (float) (width >> 1), (float) (height >> 1));
+            this.matrix.setRotate((float) rotationInDegrees, (float) (width >> 1), (float) (height >> 1));
             final Canvas canvas = ((AndroidImageInterface) image).getCanvas();
             //canvas.save();
             
-            canvas.concat(matrix);
+            canvas.concat(this.matrix);
 
             image.getGraphics().drawImage(originalImage, 0, 0, anchor);
 

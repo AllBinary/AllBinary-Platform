@@ -83,7 +83,7 @@ public class Timer
         {
             // this.hundrethsString = primitiveLongUtil.getString((int)
             // this.get());
-            this.hundrethsString = primitiveLongUtil.getCharArray((int) this.hundredthTime);
+            this.hundrethsString = this.primitiveLongUtil.getCharArray((int) this.hundredthTime);
             this.totalDigits = this.primitiveLongUtil.getCurrentTotalDigits();
         }
     }

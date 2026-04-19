@@ -36,11 +36,11 @@ public class MakeCountedPartsSingletonArrayFactory
 
     public PartInterface[] getInstance(final PartInterface[] partInterfaceArray) throws Exception
     {
-        list = new BasicArrayList();
+        this.list = new BasicArrayList();
 
         for (int index = 0; index < partInterfaceArray.length; index++)
         {
-            list.add(partInterfaceArray[index]);
+            this.list.add(partInterfaceArray[index]);
         }
 
         final BasicArrayList countedBasicArrayList = CountedPickedUpLayerInterfaceFactoryPool.getInstance().getList();
@@ -59,7 +59,7 @@ public class MakeCountedPartsSingletonArrayFactory
         final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("Total Parts: ");
-        stringBuffer.appendint(list.size());
+        stringBuffer.appendint(this.list.size());
         stringBuffer.append(" Counted: ");
         stringBuffer.appendint(countedBasicArrayList.size());
 
@@ -67,10 +67,10 @@ public class MakeCountedPartsSingletonArrayFactory
         this.logUtil.putF(stringBuffer.toString(), this, commonStrings.GET_INSTANCE);
 
         //final PartInterface[] newPartInterfaceArray = (PartInterface[]) list.toArray(new PartInterface[list.size()]);
-        final PartInterface[] newPartInterfaceArray = new PartInterface[list.size()];
+        final PartInterface[] newPartInterfaceArray = new PartInterface[this.list.size()];
         final int newSize = newPartInterfaceArray.length;
         for(int index = 0; index < newSize; index++) {
-            newPartInterfaceArray[index] = (PartInterface) list.get(index);
+            newPartInterfaceArray[index] = (PartInterface) this.list.get(index);
         }
 
         return newPartInterfaceArray;

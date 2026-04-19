@@ -52,37 +52,37 @@ public class BasicWeblisketSession
 
    public void setRole(BasicUserRole aRole)
    {
-      session.setAttribute(BasicUserRoleData.NAME.toString(), aRole);
+      this.session.setAttribute(BasicUserRoleData.NAME.toString(), aRole);
    }
    
    public BasicUserRole getRole()
    {
-      return (BasicUserRole) session.getAttribute(BasicUserRoleData.NAME.toString());
+      return (BasicUserRole) this.session.getAttribute(BasicUserRoleData.NAME.toString());
    }
    
    public void setPassword(String password)
    {
-      session.setAttribute(UserData.PASSWORD, password);
+      this.session.setAttribute(UserData.PASSWORD, password);
    }            
    
    public void setUserName(String userName)
    {
-      session.setAttribute(UserData.USERNAME,userName);
+      this.session.setAttribute(UserData.USERNAME,userName);
    }      
 
    public void setPaymentMethod(String value)
    {      
-      session.setAttribute(PaymentGatewayData.NAME.toString(), value);
+      this.session.setAttribute(PaymentGatewayData.NAME.toString(), value);
    }      
 
    public void setAuthenticated()
    {      
-      session.setAttribute(WeblisketSessionData.AUTHENTICATED, BooleanFactory.getInstance().TRUE_STRING);
+      this.session.setAttribute(WeblisketSessionData.AUTHENTICATED, BooleanFactory.getInstance().TRUE_STRING);
    }      
 
    public void setAttempts(Integer value)
    {
-      session.setAttribute(WeblisketSessionData.ATTEMPTS,value);
+      this.session.setAttribute(WeblisketSessionData.ATTEMPTS,value);
    }      
 
    public void setTimeout(String value)
@@ -102,42 +102,42 @@ public class BasicWeblisketSession
 
    public String getUserName()
    {      
-      return (String) session.getAttribute(UserData.USERNAME);
+      return (String) this.session.getAttribute(UserData.USERNAME);
    }      
 
    public String getPassword()
    {      
-      return (String) session.getAttribute(UserData.PASSWORD);
+      return (String) this.session.getAttribute(UserData.PASSWORD);
    }      
    
    public String getPaymentMethod()
    {      
-      return (String) session.getAttribute(PaymentGatewayData.NAME.toString());
+      return (String) this.session.getAttribute(PaymentGatewayData.NAME.toString());
    }      
 
    public String getAuthentication()
    {
-      return (String) session.getAttribute(WeblisketSessionData.AUTHENTICATED);
+      return (String) this.session.getAttribute(WeblisketSessionData.AUTHENTICATED);
    }
 
    public Integer getAttempts()
    {
-      return (Integer) session.getAttribute(WeblisketSessionData.ATTEMPTS);
+      return (Integer) this.session.getAttribute(WeblisketSessionData.ATTEMPTS);
    }      
 
    public String getTimeout()
    {
-      return (String) session.getAttribute(WeblisketSessionData.TIMEOUT);
+      return (String) this.session.getAttribute(WeblisketSessionData.TIMEOUT);
    }      
 
    public String getStoreName()
    {
-      return (String) session.getAttribute(StoreFrontData.getInstance().NAME);
+      return (String) this.session.getAttribute(StoreFrontData.getInstance().NAME);
    }      
 
    public void setAuthenticated(boolean value)
    {
-      session.setAttribute(WeblisketSessionData.AUTHENTICATED, BooleanFactory.getInstance().FALSE_STRING);
+      this.session.setAttribute(WeblisketSessionData.AUTHENTICATED, BooleanFactory.getInstance().FALSE_STRING);
    }
 
    public void clear()
@@ -163,7 +163,7 @@ public class BasicWeblisketSession
 
    public long getLastAccessedTime()
    {
-	   long lastAccessedTime = session.getLastAccessedTime();
+	   long lastAccessedTime = this.session.getLastAccessedTime();
 	   
 	  //if(AbFileSystem.getInstance().isType())
 	  //{

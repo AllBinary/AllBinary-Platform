@@ -70,7 +70,7 @@ public class OpenGLConfiguration
         
         try
         {
-            if (FileFactory.getInstance().isFile(FILE))
+            if (FileFactory.getInstance().isFile(this.FILE))
             {
                 this.read();
             }

@@ -38,8 +38,8 @@ public class HtmlCell extends HtmlTag
       this.after = new String(after);
       this.height=new String(height);
       this.width=new String(width);   
-      addAttribute(HEIGHT,this.height);
-      addAttribute(WIDTH,this.width);
+      addAttribute(this.HEIGHT,this.height);
+      addAttribute(this.WIDTH,this.width);
    }
       
    public void addText(String body)
@@ -53,8 +53,8 @@ public class HtmlCell extends HtmlTag
       String result = stringUtil.EMPTY_STRING;
       Object[] attributeKeys = otherAttributes.keySet().toArray();
       int attributeSize = attributeKeys.length;
-      result = before;
-      result += START;
+      result = this.before;
+      result += this.START;
       result += " ";      
       
       for (int i = 0; i < attributeSize; i++)
@@ -70,7 +70,7 @@ public class HtmlCell extends HtmlTag
          }
       }
       result += this.END;
-      result += body;
+      result += this.body;
       result += this.ENDTAG;
       result += this.after;
       return result;

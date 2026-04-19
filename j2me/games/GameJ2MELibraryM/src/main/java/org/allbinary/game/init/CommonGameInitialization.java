@@ -75,6 +75,6 @@ extends BaseGameInitialization
     public void initGame()
     throws Exception
     {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
+        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 }

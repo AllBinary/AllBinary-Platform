@@ -43,7 +43,7 @@ public class OperatingSystems
 
     public void setUnknownSpecificOSAllowed(boolean aUnknownSpecificOSAllowed)
     {
-        unknownSpecificOSAllowed = aUnknownSpecificOSAllowed;
+        this.unknownSpecificOSAllowed = aUnknownSpecificOSAllowed;
     }
 
     public static OperatingSystems getInstance()

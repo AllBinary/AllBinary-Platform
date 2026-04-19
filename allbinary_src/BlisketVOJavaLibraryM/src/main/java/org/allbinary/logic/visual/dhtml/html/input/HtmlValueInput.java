@@ -25,7 +25,7 @@ public class HtmlValueInput extends HtmlInput
       super(before,type,name,after);
       final StringUtil stringUtil = StringUtil.getInstance();
       this.value = stringUtil.EMPTY_STRING;
-      addAttribute(VALUE,value);
+      addAttribute(this.VALUE,value);
    }
    
 }

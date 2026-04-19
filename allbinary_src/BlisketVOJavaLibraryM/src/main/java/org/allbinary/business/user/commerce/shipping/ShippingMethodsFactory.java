@@ -88,7 +88,7 @@ public class ShippingMethodsFactory
       
       this.shippingVector = new Vector();
 
-      final NodeList nodeList = document.getElementsByTagName(ShippingMethodsData.NAME);
+      final NodeList nodeList = this.document.getElementsByTagName(ShippingMethodsData.NAME);
 
       for(int index = 0; index < nodeList.getLength(); index++)
       {
@@ -105,7 +105,7 @@ public class ShippingMethodsFactory
 
          final ShippingInterface shippingMethodInterface = (ShippingInterface)
             AbeFactory.getInstance().getInstance(abeClientInformation, shippingMethodClassName);
-         shippingVector.add(shippingMethodInterface);
+         this.shippingVector.add(shippingMethodInterface);
 
          final Node defaultShippingMethodNameNode =
             DomSearchHelper.getNode(ShippingMethodData.DEFAULT, shippingMethodNameNode.getChildNodes());
@@ -118,11 +118,11 @@ public class ShippingMethodsFactory
       }
 
       //Default Shipping Options
-      if(shippingVector.size()<1)
+      if(this.shippingVector.size()<1)
       {
          this.defaultShippingMethodInterface = new BasicWeightShippingModuleView();
-         shippingVector.add(this.defaultShippingMethodInterface);
-         shippingVector.add(new NoShippingModuleView());
+         this.shippingVector.add(this.defaultShippingMethodInterface);
+         this.shippingVector.add(new NoShippingModuleView());
       }
    }
    

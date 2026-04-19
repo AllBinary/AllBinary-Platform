@@ -51,9 +51,9 @@ public class InitInfoEntity extends InitSql
         final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.sqlStrings.CREATE_TABLE);
-        stringBuffer.append(tableName);
+        stringBuffer.append(this.tableName);
         stringBuffer.append(this.sqlStrings.START);
-        stringBuffer.append(NOTHING);
+        stringBuffer.append(this.NOTHING);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
         stringBuffer.append(InitInfo.getInstance().TESTING);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
@@ -62,7 +62,7 @@ public class InitInfoEntity extends InitSql
         stringBuffer.append(InitInfo.getInstance().MAINPATH);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
         stringBuffer.append(this.sqlStrings.PRIMARY_KEY);
-        stringBuffer.append(NOTHING);
+        stringBuffer.append(this.NOTHING);
         stringBuffer.append(this.sqlStrings.END);
 
         this.tableData = stringBuffer.toString();
@@ -137,7 +137,7 @@ public class InitInfoEntity extends InitSql
         try
         {
             Vector values = new Vector();
-            values.add(NOTHING);
+            values.add(this.NOTHING);
             values.add(InitInfo.getInstance().getTesting());
             values.add(InitInfo.getInstance().getTestHtmlPath());
             values.add(InitInfo.getInstance().getMainPath());
@@ -154,15 +154,15 @@ public class InitInfoEntity extends InitSql
 
     public String createTable()
     {
-        if (super.createTable(tableData))
+        if (super.createTable(this.tableData))
         {
             return this.tableName + this.CREATED_SUCCESS;
         } else
         {
             StringMaker stringBuffer = new StringMaker();
 
-            stringBuffer.append(FAILED_TO_CREATE);
-            stringBuffer.append(tableData);
+            stringBuffer.append(this.FAILED_TO_CREATE);
+            stringBuffer.append(this.tableData);
             stringBuffer.append(AbPathData.getInstance().EXTENSION_SEP);
 
             return stringBuffer.toString();

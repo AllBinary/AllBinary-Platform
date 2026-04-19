@@ -217,7 +217,7 @@ public class NameSpaceRequestParam
    {
       StringMaker stringBuffer = new StringMaker();
       
-      nameSpaceVector
+      this.nameSpaceVector
       while(iter.hasNext())
       {
          String packageName = (String) iter.next();

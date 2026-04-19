@@ -88,7 +88,7 @@ public class QuoteRequest
       try
       {
          Boolean valid = Boolean.TRUE;
-         if(userName==null || userName.length()<4 || userName.length()>250)
+         if(this.userName==null || this.userName.length()<4 || this.userName.length()>250)
          {
             valid = Boolean.FALSE;
          }
@@ -135,7 +135,7 @@ public class QuoteRequest
       try
       {
          StringMaker stringBuffer = new StringMaker();
-         if(userName==null || userName.length()<4 || userName.length()>250)
+         if(this.userName==null || this.userName.length()<4 || this.userName.length()>250)
          {
             stringBuffer.append("Please enter a User Name with more than 4 characters.<br>");
          }
@@ -181,8 +181,8 @@ public class QuoteRequest
    {
       Vector values = new Vector();
       //unique id is added in entity      
-      values.add(id);
-      values.add(userName);      
+      values.add(this.id);
+      values.add(this.userName);      
       values.add(this.projectInfo);
       values.add(this.userComments);
       values.add(this.budget);

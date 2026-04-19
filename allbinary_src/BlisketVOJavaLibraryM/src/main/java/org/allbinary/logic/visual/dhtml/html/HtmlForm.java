@@ -38,43 +38,43 @@ public class HtmlForm
    public HtmlForm(String action)
    {
       this.action = action;
-      inputs = new Vector();
+      this.inputs = new Vector();
    }
 
    public void setPost()
    {
-      method = this.POST;
+      this.method = this.POST;
    }
 
    public void setGet()
    {
-      method = this.GET;
+      this.method = this.GET;
    }
 
    public void addInput(HtmlInput htmlInput)
    {
-      inputs.add(htmlInput);
+      this.inputs.add(htmlInput);
    }
 
    public void addTable(HtmlTable htmlTable)
    {
-      inputs.add(htmlTable);
+      this.inputs.add(htmlTable);
    }
    
    public String toString()
    {
       final StringUtil stringUtil = StringUtil.getInstance();
       String result = stringUtil.EMPTY_STRING;
-      Object[] inputArray = inputs.toArray();
+      Object[] inputArray = this.inputs.toArray();
       int inputSize = inputArray.length;
-      result = FORMBEGIN;      
-      result += METHOD;
-      result += method;
+      result = this.FORMBEGIN;      
+      result += this.METHOD;
+      result += this.method;
       result += "\" ";
-      result += ACTION;
-      result += action;
+      result += this.ACTION;
+      result += this.action;
       result += "\" ";
-      result += END;
+      result += this.END;
       
       for (int i = 0; i < inputSize; i++)
       {
@@ -82,7 +82,7 @@ public class HtmlForm
          result += " ";
       }
             
-      result += FORMEND;      
+      result += this.FORMEND;      
       return result;
    }
    

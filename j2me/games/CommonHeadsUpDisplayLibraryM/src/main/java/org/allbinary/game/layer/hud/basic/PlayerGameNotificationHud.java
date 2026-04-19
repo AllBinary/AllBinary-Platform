@@ -71,7 +71,7 @@ extends GameNotificationHud
     @Override
     protected GPoint getPoint(int x, int y)
     {
-        point = new CustomGPoint(0, 0);
+        this.point = new CustomGPoint(0, 0);
         this.point.setX(x);
         this.point.setY(y);
         return point;
@@ -88,9 +88,9 @@ extends GameNotificationHud
     {
         if (permanent.booleanValue())
         {
-            if(lastString != string) {
+            if(this.lastString != string) {
                 this.lastString = string;
-                this.logUtil.putF(new StringMaker().append(PERMANENT_GAME_NOTIFICATION).append(string).toString(), this, commonStrings.ADD);
+                this.logUtil.putF(new StringMaker().append(this.PERMANENT_GAME_NOTIFICATION).append(string).toString(), this, commonStrings.ADD);
             }
             this.permanentGameNotification.add(string, seconds, basicColor);
             this.circularIndexUtil.setSize(this.permanentGameNotification.getSize());
@@ -109,7 +109,7 @@ extends GameNotificationHud
     @Override
     public void processTick() throws Exception
     {
-        if (this.timeDelayHelper.isTime(gameTickTimeDelayHelper.startTime))
+        if (this.timeDelayHelper.isTime(this.gameTickTimeDelayHelper.startTime))
         {
             final GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
             
@@ -145,7 +145,7 @@ extends GameNotificationHud
         this.string = (String) this.gameNotification.stringList.remove(0);
 
         final int width = MyFont.getInstance().stringWidth2(this.string);
-        this.setX((displayInfo.getLastWidth() - width) >> 1);
+        this.setX((this.displayInfo.getLastWidth() - width) >> 1);
         //
         this.point.setX(this.getX());
         this.point.setY(this.getY());
@@ -172,7 +172,7 @@ extends GameNotificationHud
         this.string = (String) this.permanentGameNotification.stringList.objectArray[index];
 
         final int width = MyFont.getInstance().stringWidth2(this.string);
-        this.setX((displayInfo.getLastWidth() - width) >> 1);
+        this.setX((this.displayInfo.getLastWidth() - width) >> 1);
         //
         this.point.setX(this.getX());
         this.point.setY(this.getY());

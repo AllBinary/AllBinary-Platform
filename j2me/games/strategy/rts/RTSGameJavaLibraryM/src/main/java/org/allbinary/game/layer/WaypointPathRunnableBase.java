@@ -74,7 +74,7 @@ public class WaypointPathRunnableBase implements RunnableInterface, PriorityRunn
         
         if(targetLayer != null) {
             
-            final int distance = layerDistanceUtil.getDistance(targetLayer, pathFindingLayer);
+            final int distance = this.layerDistanceUtil.getDistance(targetLayer, pathFindingLayer);
             
             final int distanceCategory = distance / 70;
             this.priorityP = distanceCategory;

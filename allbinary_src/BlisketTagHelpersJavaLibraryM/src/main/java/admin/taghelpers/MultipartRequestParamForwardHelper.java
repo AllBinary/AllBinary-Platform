@@ -66,7 +66,7 @@ public class MultipartRequestParamForwardHelper
 
                 StringMaker stringBuffer = new StringMaker();
 
-                stringBuffer.append(page);
+                stringBuffer.append(this.page);
                 stringBuffer.append(params);
 
                 this.pageContext.forward(stringBuffer.toString());
@@ -125,7 +125,7 @@ public class MultipartRequestParamForwardHelper
 
         String requestCommand = (String) hashMap.get(GLOBALS2.ADMINCOMMAND);
 
-        if (StringValidationUtil.getInstance().isEmpty(command)
+        if (StringValidationUtil.getInstance().isEmpty(this.command)
             || (!StringValidationUtil.getInstance().isEmpty(requestCommand) &&
             command.compareTo(requestCommand) == 0))
         {

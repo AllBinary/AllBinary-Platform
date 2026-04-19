@@ -175,7 +175,7 @@ public class ScrollSelectionForm extends PaintableForm
 
             //if (RectangleCollisionUtil.isInside(dx, dy, dx + width, this.rectangle.getMaxY(),
             
-            if (rectangleCollisionUtil.isInside(
+            if (this.rectangleCollisionUtil.isInside(
                 diffX, dy - this.halfBorder, diffX + width + this.border, dy + height + this.halfBorder + 1, 
                 point.getX(), point.getY()))
             {
@@ -195,7 +195,7 @@ public class ScrollSelectionForm extends PaintableForm
             
             if (this.formType == formTypeFactory.HORIZONTAL_FORM)
             {
-                dx = dx + width + border;
+                dx = dx + width + this.border;
                 // dx = dx + width;
                 if (dx > this.rectangle.getMaxX())
                 {
@@ -203,7 +203,7 @@ public class ScrollSelectionForm extends PaintableForm
                 }
             } else if (this.formType == formTypeFactory.VERTICAL_CENTER_FORM)
             {
-                dy = dy + height + border;
+                dy = dy + height + this.border;
                 if (dy > this.rectangle.getMaxY())
                 {
                     break;
@@ -289,7 +289,7 @@ public class ScrollSelectionForm extends PaintableForm
         //this.logUtil.putF(new StringMaker().append("Checking: Rectangle: ").append(this.rectangle).append(" to ").append(point).toString(), this, IS_IN_FORM);
 
         //- halfBorder
-        if (rectangleCollisionUtil.isInside(x, y - halfBorder, this.rectangle.getMaxX() + border, this.rectangle.getMaxY() + border,point.getX(), point.getY()))
+        if (this.rectangleCollisionUtil.isInside(x, y - this.halfBorder, this.rectangle.getMaxX() + this.border, this.rectangle.getMaxY() + this.border,point.getX(), point.getY()))
         {
             this.logUtil.putF(new StringMaker().append(StringUtil.getInstance().toString(point)).append(INSIDE_FORM).toString(), this, IS_IN_FORM);
             return true;
@@ -313,15 +313,15 @@ public class ScrollSelectionForm extends PaintableForm
         final int adjustedBorder = 3;
 
         //graphics.drawRect(x - border, y - border_y, width + border, height + border);
-        graphics.drawRect(x - halfBorder - adjustedBorder, y - halfBorder - adjustedBorder, width + border - adjustedBorder, height + border - adjustedBorder);
+        graphics.drawRect(x - this.halfBorder - adjustedBorder, y - this.halfBorder - adjustedBorder, width + this.border - adjustedBorder, height + this.border - adjustedBorder);
 
         if (this.formType == formTypeFactory.HORIZONTAL_FORM)
         {
-            return x + width + border;
+            return x + width + this.border;
         }
         else if (this.formType == formTypeFactory.VERTICAL_CENTER_FORM)
         {
-            return y + height + border;
+            return y + height + this.border;
         }
         else if (this.formType == formTypeFactory.TEMP_HORIZONTAL_FORM)
         {
@@ -348,11 +348,11 @@ public class ScrollSelectionForm extends PaintableForm
         
         if (this.formType == formTypeFactory.HORIZONTAL_FORM)
         {
-            return x + width + border;
+            return x + width + this.border;
         }
         else if (this.formType == formTypeFactory.VERTICAL_CENTER_FORM)
         {
-            return y + height + border;
+            return y + height + this.border;
         }
         else if (this.formType == formTypeFactory.TEMP_HORIZONTAL_FORM)
         {

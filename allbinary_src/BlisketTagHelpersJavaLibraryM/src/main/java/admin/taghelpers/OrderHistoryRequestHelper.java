@@ -71,9 +71,9 @@ public class OrderHistoryRequestHelper
    
    private void getFormData()
    {
-      this.id = request.getParameter(OrderData.ID);
-      this.groupId = request.getParameter(ShippingMethodData.GROUP);
-      this.status = request.getParameter(OrderHistoryData.STATUS);
+      this.id = this.request.getParameter(OrderData.ID);
+      this.groupId = this.request.getParameter(ShippingMethodData.GROUP);
+      this.status = this.request.getParameter(OrderHistoryData.STATUS);
       
    //   this.paymentMethod = this.weblisketSession.getPaymentMethod();
    }
@@ -85,7 +85,7 @@ public class OrderHistoryRequestHelper
          //order item status change may cause whole order status change
          if(this.groupId.compareTo(CommonPhoneStrings.getInstance().ZERO)!=0)
          {
-            if(OrderItemsEntityFactory.getInstance().isEverythingShipped(id))
+            if(OrderItemsEntityFactory.getInstance().isEverythingShipped(this.id))
             {
                this.status = OrderHistoryData.SHIPPED;
             }
@@ -97,7 +97,7 @@ public class OrderHistoryRequestHelper
          
          String success = "Status successfully set to: " + this.status;
          
-         OrderHistoryEntityFactory.getInstance().setStatus(id,this.status);
+         OrderHistoryEntityFactory.getInstance().setStatus(this.id,this.status);
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
@@ -123,10 +123,10 @@ public class OrderHistoryRequestHelper
          if(newStatus == null) newStatus = this.status;
          String success = "Status successfully set to: " + newStatus;
          
-         OrderHistoryEntityFactory.getInstance().setStatus(id,newStatus);
+         OrderHistoryEntityFactory.getInstance().setStatus(this.id,newStatus);
          
          final OrderHistory orderHistory = 
-            OrderHistoryEntityFactory.getInstance().getOrder(id);
+            OrderHistoryEntityFactory.getInstance().getOrder(this.id);
          
          new OrderStatusEmail(this.abeClientInformation, orderHistory).process();
 
@@ -154,7 +154,7 @@ public class OrderHistoryRequestHelper
       {
          String success = "Payment Method successfully set: " + this.paymentMethod;
     
-         OrderHistoryEntityFactory.getInstance().setPaymentMethod(id,this.paymentMethod);
+         OrderHistoryEntityFactory.getInstance().setPaymentMethod(this.id,this.paymentMethod);
     
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {

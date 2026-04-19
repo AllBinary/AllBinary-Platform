@@ -67,7 +67,7 @@ public class CssElementView implements DomNodeInterface
          this.value = DomNodeHelper.getTextNodeValue(valueNode);
          
          final Node titleValueNode =
-            DomSearchHelper.getNodeNoThrow(TITLE, node.getChildNodes());
+            DomSearchHelper.getNodeNoThrow(this.TITLE, node.getChildNodes());
          
          if(titleValueNode != null)
          {
@@ -80,7 +80,7 @@ public class CssElementView implements DomNodeInterface
          }
          
          final Node descriptionValueNode =
-            DomSearchHelper.getNodeNoThrow(DESCRIPTION, node.getChildNodes());
+            DomSearchHelper.getNodeNoThrow(this.DESCRIPTION, node.getChildNodes());
          
          if(descriptionValueNode != null)
          {
@@ -151,17 +151,17 @@ public class CssElementView implements DomNodeInterface
       Node node = ModDomHelper.createNodeWithValueNodes(
       document, CssElementData.getInstance().NAME, hashMap);
       
-      final int size = cssPropertyVector.size();
+      final int size = this.cssPropertyVector.size();
       for (int index = 0; index < size; index++)
       {
-         DomNodeInterface cssPropertyDomNodeInterface = (DomNodeInterface) cssPropertyVector.get(index);
+         DomNodeInterface cssPropertyDomNodeInterface = (DomNodeInterface) this.cssPropertyVector.get(index);
          node.appendChild(cssPropertyDomNodeInterface.toXmlNode(document));
       }
       
-      final int size2 = cssElementVector.size();
+      final int size2 = this.cssElementVector.size();
       for (int index = 0; index < size2; index++)
       {
-         DomNodeInterface cssElementDomNodeInterface = (DomNodeInterface) cssElementVector.get(index);
+         DomNodeInterface cssElementDomNodeInterface = (DomNodeInterface) this.cssElementVector.get(index);
          node.appendChild(cssElementDomNodeInterface.toXmlNode(document));
       }
       

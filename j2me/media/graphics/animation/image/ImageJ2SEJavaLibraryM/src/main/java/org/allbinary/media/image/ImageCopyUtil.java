@@ -52,7 +52,7 @@ public class ImageCopyUtil
     public Image createImage(final Image originalImage)
             throws Exception
     {
-        final Image image = imageCreationUtil.getInstance(
+        final Image image = this.imageCreationUtil.getInstance(
                 originalImage.getWidth() , originalImage.getHeight());
 
         if (image.isMutable())
@@ -88,10 +88,10 @@ public class ImageCopyUtil
         
         //this.logUtil.putF("newWidth: " + newWidth + " newHeight: " + newHeight, this, commonStrings.CONSTRUCTOR);
 
-        final BufferedImage originalBufferedImage = imageUtil.getBufferedImage(originalImage);
+        final BufferedImage originalBufferedImage = this.imageUtil.getBufferedImage(originalImage);
 
         final BufferedImage bufferedImage = 
-            imageUtil.createBufferedImageWithLargerCanvas(originalBufferedImage, newWidth, newHeight);
+            this.imageUtil.createBufferedImageWithLargerCanvas(originalBufferedImage, newWidth, newHeight);
             //imageUtil.createBufferedImage(originalBufferedImage, newWidth, newHeight, false, true);
         final J2SEImmutableImage image = new J2SEImmutableImage(bufferedImage);
         

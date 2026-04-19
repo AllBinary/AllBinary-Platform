@@ -78,7 +78,7 @@ public class ResourceUtil {
         final CommonSeps commonSeps = CommonSeps.getInstance();
 
         //Try getting resource with normal resource access
-        InputStream inputStream = new FileInputStream(new StringMaker().append(path).append(resource).append(ext).toString());
+        InputStream inputStream = new FileInputStream(new StringMaker().append(this.path).append(resource).append(this.ext).toString());
 
         if (inputStream != null) {
 //            stringMaker.delete(0, stringMaker.length());

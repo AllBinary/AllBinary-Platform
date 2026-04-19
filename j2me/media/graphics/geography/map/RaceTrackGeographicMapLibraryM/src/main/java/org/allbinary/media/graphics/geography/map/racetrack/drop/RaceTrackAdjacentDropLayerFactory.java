@@ -31,7 +31,7 @@ public class RaceTrackAdjacentDropLayerFactory
 
    public void clear()
    {
-       list.clear();
+       this.list.clear();
    }
    
    public static RaceTrackAdjacentDropLayerFactory getInstance()
@@ -47,7 +47,7 @@ public class RaceTrackAdjacentDropLayerFactory
    /*
    private LayerInterfaceFactoryInterface getInstance(int index)
    {
-      return (LayerInterfaceFactoryInterface) list.get(index);
+      return (LayerInterfaceFactoryInterface) this.list.get(index);
    }
    */
    
@@ -55,11 +55,11 @@ public class RaceTrackAdjacentDropLayerFactory
    
    public LayerInterfaceFactoryInterface getRandomInstance()
    {
-      return (LayerInterfaceFactoryInterface) basicArrayListUtil.getRandom(list);
+      return (LayerInterfaceFactoryInterface) this.basicArrayListUtil.getRandom(this.list);
    }
 
    public void add(LayerInterfaceFactoryInterface layerInterfaceFactoryInterface)
    {
-      list.add(layerInterfaceFactoryInterface);
+      this.list.add(layerInterfaceFactoryInterface);
    }
 }

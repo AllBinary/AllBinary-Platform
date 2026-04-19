@@ -48,7 +48,7 @@ public class CommandRunnable implements Runnable
 
          final CommandListener commandListener = canvas.getCustomCommandListener();
 
-         commandListener.commandAction(command, canvas);
+         commandListener.commandAction(this.command, canvas);
 
          this.logUtil.putF(commonStrings.END_RUNNABLE, this, commonStrings.RUN);
          

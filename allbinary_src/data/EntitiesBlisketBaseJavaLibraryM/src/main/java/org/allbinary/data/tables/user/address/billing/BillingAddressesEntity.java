@@ -22,6 +22,6 @@ public class BillingAddressesEntity extends StreetAddressesEntity
    public BillingAddressesEntity(String userName)
    {
       super(userName);      
-      setTableName(TABLENAME);
+      setTableName(this.TABLENAME);
    }   
 }

@@ -51,7 +51,7 @@ public class PersistentInputMapping
 
     protected PersistentInputMapping(String name)
     {
-        inputPersistance = new InputPersistance(name);
+        this.inputPersistance = new InputPersistance(name);
     }
     
     public int getTotalMapped()
@@ -90,12 +90,12 @@ public class PersistentInputMapping
     //InputToGameKeyMapping inputToGameKeyMapping
     throws Exception
     {
-        inputPersistance.save(abeClientInformation, this.getInputMapping().getHashtable());
+        this.inputPersistance.save(abeClientInformation, this.getInputMapping().getHashtable());
         //inputMappingEvent.setInputToGameKeyMapping(inputToGameKeyMapping);
-        inputMappingEvent.setInputToGameKeyMapping(this.getInputMapping());
+        this.inputMappingEvent.setInputToGameKeyMapping(this.getInputMapping());
         if(this.getInputMappingEventListenerInterface() != null)
         {
-            this.getInputMappingEventListenerInterface().onInputMappingEvent(inputMappingEvent);
+            this.getInputMappingEventListenerInterface().onInputMappingEvent(this.inputMappingEvent);
         }
     }
     
@@ -107,20 +107,20 @@ public class PersistentInputMapping
         //This could happen if file is not deleted between versions and something changed
         try
         {
-            inputPersistance.loadAll(abeClientInformation);
+            this.inputPersistance.loadAll(abeClientInformation);
         }
         catch(Exception e)
         {
             //this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
             PreLogUtil.putOE(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
             //inputPersistance.deleteAll(abeClientInformation);
-            inputPersistance.deleteRecoreStore(abeClientInformation);
+            this.inputPersistance.deleteRecoreStore(abeClientInformation);
             this.setDefault(abeClientInformation);
             //this.setDefault((InputToGameKeyMapping) this);
-            inputPersistance.loadAll(abeClientInformation);
+            this.inputPersistance.loadAll(abeClientInformation);
         }
 
-        BasicArrayList list = inputPersistance.getList();
+        BasicArrayList list = this.inputPersistance.getList();
 
         int totalMappedTo = 0;
         //TWB - Use selected profile/id for future imp
@@ -176,12 +176,12 @@ public class PersistentInputMapping
     //TWB - Hack Method for Plaform Independence - Maybe a better place for this
     public boolean isDelete(Input input) throws Exception
     {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
+        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     public boolean isSystemInput(Input input) throws Exception
     {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
+        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
     
 }

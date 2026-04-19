@@ -60,12 +60,12 @@ public class CommonButtons
             commonButtonSize = commonButtonSize >> 1;
         }
 
-        STANDARD_BUTTON_SIZE = commonButtonSize;
+        this.STANDARD_BUTTON_SIZE = commonButtonSize;
 
-        NORMAL_BUTTON = new Rectangle(PointFactory.getInstance().ZERO_ZERO, 
+        this.NORMAL_BUTTON = new Rectangle(PointFactory.getInstance().ZERO_ZERO, 
                 STANDARD_BUTTON_SIZE, STANDARD_BUTTON_SIZE);
 
-        LARGE_BUTTON = new Rectangle(PointFactory.getInstance().ZERO_ZERO, 
+        this.LARGE_BUTTON = new Rectangle(PointFactory.getInstance().ZERO_ZERO, 
                 STANDARD_BUTTON_SIZE << 1, STANDARD_BUTTON_SIZE << 1);
     }
         

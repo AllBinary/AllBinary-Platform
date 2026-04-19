@@ -60,7 +60,7 @@ public class LogFormatUtil
 
         stringBuffer.append(this.getO(exception));
 
-        stringBuffer.append(SPECIAL_MESSAGE);
+        stringBuffer.append(this.SPECIAL_MESSAGE);
         stringBuffer.append(specialMessage);
         stringBuffer.append(this.commonSeps.NEW_LINE);
 
@@ -74,7 +74,7 @@ public class LogFormatUtil
     {
         final StringMaker stringBuffer = getF(className, functionName);
 
-        stringBuffer.append(SPECIAL_MESSAGE);
+        stringBuffer.append(this.SPECIAL_MESSAGE);
         stringBuffer.append(specialMessage);
         stringBuffer.append(this.commonSeps.NEW_LINE);
 
@@ -90,16 +90,16 @@ public class LogFormatUtil
     {
         if (functionName == null)
         {
-            functionName = NONE;
+            functionName = this.NONE;
         }
 
         //int hashCode = TsUtil.getInstance().hashCode(LogUtil.class.getClassLoader().getClass());
         final StringMaker stringBuffer = new StringMaker();
-        stringBuffer.append(TIME);
-        stringBuffer.append(timeStampUtil.getAsString());
-        stringBuffer.append(CLASS_NAME);
+        stringBuffer.append(this.TIME);
+        stringBuffer.append(this.timeStampUtil.getAsString());
+        stringBuffer.append(this.CLASS_NAME);
         stringBuffer.append(className);
-        stringBuffer.append(FUNCTION_CALL);
+        stringBuffer.append(this.FUNCTION_CALL);
         stringBuffer.append(functionName);
 
         //"\nClassLoader: " +  hashCode +
@@ -114,10 +114,10 @@ public class LogFormatUtil
     //ActualPlatform
     public String getO(final Object exception)
     {
-        if (exception != nullUtil.NULL_OBJECT)
+        if (exception != this.nullUtil.NULL_OBJECT)
         {
             final StringMaker stringBuffer = new StringMaker();
-            stringBuffer.append(LOG_ERROR);
+            stringBuffer.append(this.LOG_ERROR);
 
             final String exceptionAsString = exception.toString();
             if (exceptionAsString != null)
@@ -125,14 +125,14 @@ public class LogFormatUtil
                 stringBuffer.append(exceptionAsString);
             } else
             {
-                stringBuffer.append(EMPTY);
+                stringBuffer.append(this.EMPTY);
             }
 
-            stringBuffer.append(STACK_TRACE);
-            if (exception != nullUtil.NULL_OBJECT) {
-                stringBuffer.append(exceptionUtil.getStackTrace((Throwable) exception));
+            stringBuffer.append(this.STACK_TRACE);
+            if (exception != this.nullUtil.NULL_OBJECT) {
+                stringBuffer.append(this.exceptionUtil.getStackTrace((Throwable) exception));
             } else {
-                stringBuffer.append(stringUtil.NULL_STRING);
+                stringBuffer.append(this.stringUtil.NULL_STRING);
             }
 
             /*
@@ -140,7 +140,7 @@ public class LogFormatUtil
 
             if(exceptionMessage == null)
             {
-            exceptionMessage = EMPTY;
+            exceptionMessage = this.EMPTY;
             }
              */
 

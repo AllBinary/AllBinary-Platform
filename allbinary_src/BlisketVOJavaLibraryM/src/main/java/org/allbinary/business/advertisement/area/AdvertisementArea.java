@@ -90,7 +90,7 @@ public class AdvertisementArea implements AdvertisementAreaInterface
       AdvertisementAreaConstraintsInterface advertisementConstraintsInterface)
    {
       this.advertisementAreaConstraintsInterface = 
-         advertisementAreaConstraintsInterface;
+         this.advertisementAreaConstraintsInterface;
    }
 
    public void setCampaign(String campaign)

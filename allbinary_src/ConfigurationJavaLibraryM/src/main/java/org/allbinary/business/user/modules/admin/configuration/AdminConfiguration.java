@@ -60,7 +60,7 @@ public class AdminConfiguration implements AdminConfigurationInterface
 
     private void getFormData(HashMap storeHashMap) throws Exception
     {
-        this.logUtil.putF(commonStrings.START, this, "getFormData");
+        this.logUtil.putF(this.commonStrings.START, this, "getFormData");
 
         this.setContextConfigurationInterface(
                 (ContextConfigurationInterface) new ContextConfiguration(storeHashMap));

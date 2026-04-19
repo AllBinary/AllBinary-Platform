@@ -82,7 +82,7 @@ public class InventoryHelper extends TagHelper
       try
       {         
          InventoryViewSearchInterface inventoryViewSearchInterface = 
-            InventoryViewFactory.getInstance(searchRequest);
+            InventoryViewFactory.getInstance(this.searchRequest);
 
          String result = inventoryViewSearchInterface.getProduct(this.id);
 
@@ -117,7 +117,7 @@ public class InventoryHelper extends TagHelper
          }
 
          InventoryViewSearchInterface inventoryViewSearchInterface = 
-            InventoryViewFactory.getInstance(searchRequest);
+            InventoryViewFactory.getInstance(this.searchRequest);
 
          //if(inventoryDomNodeInterface==null) 
          String result = inventoryViewSearchInterface.searchSingleDynamicPage();
@@ -144,7 +144,7 @@ public class InventoryHelper extends TagHelper
          }
          else
          {            
-            response.sendRedirect(fileName);            
+            this.response.sendRedirect(fileName);            
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
             {
                this.logUtil.put("Successful Inventory Static Search",this,"search(String,HttpServletResponse)");

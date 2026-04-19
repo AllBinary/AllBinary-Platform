@@ -26,6 +26,6 @@ public class HtmlRadioInput extends HtmlValueInput
 
    public void setSelected()
    {
-      super.addAttribute(CHECKED, BooleanFactory.getInstance().TRUE_STRING);
+      super.addAttribute(this.CHECKED, BooleanFactory.getInstance().TRUE_STRING);
    }
 }

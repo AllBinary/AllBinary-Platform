@@ -73,17 +73,17 @@ public class BasicUriResolver implements URIResolver
             {
                 stringBuffer.delete(0, stringBuffer.length());
 
-                stringBuffer.append(ATTEMPT);
+                stringBuffer.append(this.ATTEMPT);
                 stringBuffer.append(href);
-                stringBuffer.append(BASE);
+                stringBuffer.append(this.BASE);
                 stringBuffer.append(base);
-                stringBuffer.append(NEW_PATH);
+                stringBuffer.append(this.NEW_PATH);
                 stringBuffer.append(abPath.toString());
-                stringBuffer.append(NOTE);
+                stringBuffer.append(this.NOTE);
                 stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);
-                stringBuffer.append(URL_GLOBAL);
-                stringBuffer.append(REQUIRED_EXTENSION);
-                stringBuffer.append(extension);
+                stringBuffer.append(this.URL_GLOBAL);
+                stringBuffer.append(this.REQUIRED_EXTENSION);
+                stringBuffer.append(this.extension);
 
                 this.logUtil.putF(stringBuffer.toString(), this, RESOLVE);
             }
@@ -108,7 +108,7 @@ public class BasicUriResolver implements URIResolver
 
             stringBuffer.append(URLGLOBALS.getMainPath());
             stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);
-            stringBuffer.append(IMPORT_URL);
+            stringBuffer.append(this.IMPORT_URL);
 
             return stringBuffer.toString();
         } catch (Exception e)

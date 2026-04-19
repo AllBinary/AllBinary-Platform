@@ -122,7 +122,7 @@ public class PlayerComposite implements Controllable, Player
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "prefetch", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "prefetch", e);
         }
     }
 
@@ -135,7 +135,7 @@ public class PlayerComposite implements Controllable, Player
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "realize", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "realize", e);
         }
     }
 
@@ -161,7 +161,7 @@ public class PlayerComposite implements Controllable, Player
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "setMediaTime", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "setMediaTime", e);
             return -1;
         }
     }
@@ -174,7 +174,7 @@ public class PlayerComposite implements Controllable, Player
         try
         {
             // this.getMediaTime()
-            if (timeElapsedHelper.isTime(gameTickTimeDelayHelper.startTime))
+            if (this.timeElapsedHelper.isTime(this.gameTickTimeDelayHelper.startTime))
             {
                 this.player.start();
             }
@@ -194,7 +194,7 @@ public class PlayerComposite implements Controllable, Player
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "stop", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "stop", e);
         }
     }
 

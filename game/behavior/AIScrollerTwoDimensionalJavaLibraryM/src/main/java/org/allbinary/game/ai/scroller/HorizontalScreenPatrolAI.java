@@ -74,7 +74,7 @@ extends BasicAI
 
         super.processAI(this.keyDirection);
 
-		if (timeDelayHelper.isTime())
+		if (this.timeDelayHelper.isTime())
 		{
 			AllBinaryLayer layerInterface = this.getOwnerLayerInterface();
 
@@ -91,14 +91,14 @@ extends BasicAI
 
 				// PreLogUtil.put(PositionStrings.getInstance().Y_LABEL + y, this, commonStrings.PROCESS);
 
-				layerInterface.setPosition(displayInfoSingleton.getLastWidth() + layerInterface.getWidth() + 50, y, layerInterface.getZP());
+				layerInterface.setPosition(this.displayInfoSingleton.getLastWidth() + layerInterface.getWidth() + 50, y, layerInterface.getZP());
 
-				firedIndex = 0;
-				this.firingX = displayInfoSingleton.getLastHalfWidth()
+				this.firedIndex = 0;
+				this.firingX = this.displayInfoSingleton.getLastHalfWidth()
 						+ MyRandomFactory.getInstance().getNextInt(
 								displayInfoSingleton.getLastHalfWidth());
 				
-				secondaryPlayerQueue.add(this.sound);
+				this.secondaryPlayerQueue.add(this.sound);
 			}
 
 			if (currentOwnerLayerX < this.firingX
@@ -113,14 +113,14 @@ extends BasicAI
                                 final AllBinaryGameLayerManager gameLayerManager = (AllBinaryGameLayerManager) allBinaryLayerManager;
 				int FIRE = (gameLayerManager.getGameInfo().getCurrentLevel() + 12) >> 2;
 
-				if (FIRE > MAX_FIRE) 
+				if (FIRE > this.MAX_FIRE) 
 				{
 					FIRE = this.MAX_FIRE;
 				}
 
-				if (firedIndex > FIRE)
+				if (this.firedIndex > FIRE)
 				{
-					firedIndex = 0;
+					this.firedIndex = 0;
 					this.firingX = Integer.MIN_VALUE;
 				}
 				firedIndex++;

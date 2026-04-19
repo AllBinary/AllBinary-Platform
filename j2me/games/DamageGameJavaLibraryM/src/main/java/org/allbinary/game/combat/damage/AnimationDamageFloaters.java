@@ -69,7 +69,7 @@ public class AnimationDamageFloaters extends DamageFloaters
     {
         int i = this.circularIndexUtil.getIndex();
         //this.lastDamage[i] = damage;
-        animationInterfaceArray[i].setFrame(0);
+        this.animationInterfaceArray[i].setFrame(0);
 
         this.circularIndexUtil.next();
     }
@@ -85,11 +85,11 @@ public class AnimationDamageFloaters extends DamageFloaters
 
             for (int index = 0; index < this.animationInterfaceArray.length; index++)
             {
-                IndexedAnimation animationInterface = animationInterfaceArray[index];
+                IndexedAnimation animationInterface = this.animationInterfaceArray[index];
                 if (animationInterface.getFrame() < animationInterface.getAnimationSize() - 1)
                 {
                     int delta = animationInterface.getFrame() * 20;
-                    animationInterface.paint(graphics, x + dx, y - delta + dy);
+                    animationInterface.paint(graphics, x + this.dx, y - delta + this.dy);
                     /*
                     for(int index2 = 0; index2 < this.lastDamage[index2]; index2++)
                     {

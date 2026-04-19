@@ -39,9 +39,9 @@ public class LapWidget extends BasicHud
       StringMaker stringBuffer = new StringMaker();
       
 	   stringBuffer.delete(0, stringBuffer.length());
-	   stringBuffer.append(LAP_STR);
+	   stringBuffer.append(this.LAP_STR);
 	   stringBuffer.appendint(lapInfo.getCurrentLap());
-	   stringBuffer.append(OF_STR);
+	   stringBuffer.append(this.OF_STR);
 	   stringBuffer.appendint(lapInfo.getTotalLaps());
       this.string = stringBuffer.toString();
    }

@@ -34,17 +34,17 @@ public class KeyPressesAI extends BasicAI {
       int size = objectArray.length;
       
       for (int index = 0; index < size; index++) {
-         keys[index] = (Integer) hashtable.get((Object) objectArray[index]);
+         this.keys[index] = (Integer) hashtable.get((Object) objectArray[index]);
       }
    }
 
    @Override
    public void processAI(AllBinaryLayerManager allBinaryLayerManager)
         throws Exception {
-      if (on) {
+      if (this.on) {
          //this.logUtil.putF(commonStrings.START, this, commonStrings.PROCESS);
-         for (int index = 0; index < keys.length; index++) {
-            super.processAI(keys[index].intValue());
+         for (int index = 0; index < this.keys.length; index++) {
+            super.processAI(this.keys[index].intValue());
          }
       }
    }

@@ -70,7 +70,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
             this.logUtil.putF(commonStrings.START, this, commonStrings.START_METHOD_NAME);
             super.start();
             // this.midletActivity.startProgressActivity();
-            this.progressActivity.runOnUiThread(showTitleProgressBarRunnable);
+            this.progressActivity.runOnUiThread(this.showTitleProgressBarRunnable);
         }
         catch (Exception e)
         {
@@ -85,7 +85,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
         try
         {
             this.logUtil.putF(commonStrings.START, this, commonStrings.END_METHOD_NAME);
-            this.progressActivity.runOnUiThread(dismissTitleProgressBarRunnable);
+            this.progressActivity.runOnUiThread(this.dismissTitleProgressBarRunnable);
             // this.progressActivity = null;
             super.end();
         }
@@ -105,7 +105,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
 
             super.addPortion(value, text, index);
             this.portion = value;
-            this.progressActivity.runOnUiThread(progressDialogPortionSetProgressRunnable);
+            this.progressActivity.runOnUiThread(this.progressDialogPortionSetProgressRunnable);
         }
         catch (Exception e)
         {
@@ -122,7 +122,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
 
             super.addPortion(value, text);
             this.portion = value;
-            this.progressActivity.runOnUiThread(progressDialogPortionSetProgressRunnable);
+            this.progressActivity.runOnUiThread(this.progressDialogPortionSetProgressRunnable);
         }
         catch (Exception e)
         {
@@ -137,7 +137,7 @@ public class AndroidTitleProgressBar extends ProgressCanvas
         {
             super.setValue(value);
 
-            this.progressActivity.runOnUiThread(progressDialogSetProgressRunnable);
+            this.progressActivity.runOnUiThread(this.progressDialogSetProgressRunnable);
         }
         catch (Exception e)
         {

@@ -136,17 +136,17 @@ public class MirrorSpriteImageJPanel extends javax.swing.JPanel
          }
       }
       ;
-      jPanel2 = new javax.swing.JPanel();
-      imageHeightIsFrameSizeJCheckBox = new javax.swing.JCheckBox();
-      horizontalJCheckBox = new javax.swing.JCheckBox();
-      verticleJCheckBox = new javax.swing.JCheckBox();
-      writeOverOriginalJCheckBox = new javax.swing.JCheckBox();
-      generateJButton = new javax.swing.JButton();
-      jPanel3 = new javax.swing.JPanel();
-      jLabel2 = new javax.swing.JLabel();
+      this.jPanel2 = new javax.swing.JPanel();
+      this.imageHeightIsFrameSizeJCheckBox = new javax.swing.JCheckBox();
+      this.horizontalJCheckBox = new javax.swing.JCheckBox();
+      this.verticleJCheckBox = new javax.swing.JCheckBox();
+      this.writeOverOriginalJCheckBox = new javax.swing.JCheckBox();
+      this.generateJButton = new javax.swing.JButton();
+      this.jPanel3 = new javax.swing.JPanel();
+      this.jLabel2 = new javax.swing.JLabel();
 
-      org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
-      jPanel1.setLayout(jPanel1Layout);
+      org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(this.jPanel1);
+      this.jPanel1.setLayout(jPanel1Layout);
       jPanel1Layout.setHorizontalGroup(
          jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
          .add(0, 507, Short.MAX_VALUE)
@@ -156,34 +156,34 @@ public class MirrorSpriteImageJPanel extends javax.swing.JPanel
          .add(0, 230, Short.MAX_VALUE)
       );
 
-      imageHeightIsFrameSizeJCheckBox.setSelected(true);
-      imageHeightIsFrameSizeJCheckBox.setText("Image Height Is Frame Size");
-      imageHeightIsFrameSizeJCheckBox.setEnabled(false);
+      this.imageHeightIsFrameSizeJCheckBox.setSelected(true);
+      this.imageHeightIsFrameSizeJCheckBox.setText("Image Height Is Frame Size");
+      this.imageHeightIsFrameSizeJCheckBox.setEnabled(false);
       imageHeightIsFrameSizeJCheckBox.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
             imageHeightIsFrameSizeJCheckBoxActionPerformed(evt);
          }
       });
 
-      horizontalJCheckBox.setSelected(true);
-      horizontalJCheckBox.setText("Horizontal");
-      horizontalJCheckBox.setEnabled(false);
+      this.horizontalJCheckBox.setSelected(true);
+      this.horizontalJCheckBox.setText("Horizontal");
+      this.horizontalJCheckBox.setEnabled(false);
 
-      verticleJCheckBox.setText("Verticle");
-      verticleJCheckBox.setEnabled(false);
+      this.verticleJCheckBox.setText("Verticle");
+      this.verticleJCheckBox.setEnabled(false);
 
       //writeOverOriginalJCheckBox.setSelected(true);
-      writeOverOriginalJCheckBox.setText("Write Over Original");
+      this.writeOverOriginalJCheckBox.setText("Write Over Original");
 
-      generateJButton.setText("Generate");
+      this.generateJButton.setText("Generate");
       generateJButton.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
             generateJButtonActionPerformed(evt);
          }
       });
 
-      org.jdesktop.layout.GroupLayout jPanel2Layout = new org.jdesktop.layout.GroupLayout(jPanel2);
-      jPanel2.setLayout(jPanel2Layout);
+      org.jdesktop.layout.GroupLayout jPanel2Layout = new org.jdesktop.layout.GroupLayout(this.jPanel2);
+      this.jPanel2.setLayout(jPanel2Layout);
       jPanel2Layout.setHorizontalGroup(
          jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
          .add(jPanel2Layout.createSequentialGroup()
@@ -210,10 +210,10 @@ public class MirrorSpriteImageJPanel extends javax.swing.JPanel
             .addContainerGap())
       );
 
-      jLabel2.setText("Results:");
+      this.jLabel2.setText("Results:");
 
-      org.jdesktop.layout.GroupLayout jPanel3Layout = new org.jdesktop.layout.GroupLayout(jPanel3);
-      jPanel3.setLayout(jPanel3Layout);
+      org.jdesktop.layout.GroupLayout jPanel3Layout = new org.jdesktop.layout.GroupLayout(this.jPanel3);
+      this.jPanel3.setLayout(jPanel3Layout);
       jPanel3Layout.setHorizontalGroup(
          jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
          .add(jPanel3Layout.createSequentialGroup()

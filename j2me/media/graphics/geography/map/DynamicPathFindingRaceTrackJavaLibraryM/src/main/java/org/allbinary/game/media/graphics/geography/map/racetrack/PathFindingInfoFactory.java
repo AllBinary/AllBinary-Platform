@@ -103,7 +103,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
             pathFinderGraphVisitorFactoryInterface.getInstance(
                     geographicMapInterface));
 
-        pathFindingInfo.setPathFinder(basicGeographicMapPathFinder);
+        pathFindingInfo.setPathFinder(this.basicGeographicMapPathFinder);
 
         return pathFindingInfo;
     }
@@ -170,7 +170,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
         GeographicMapCellPosition goingToGeographicMapCellPosition;
         int costFromStart;
         int costToEnd;
-        for (int index = 0; index < MAX_DIRECTIONS; index++)
+        for (int index = 0; index < this.MAX_DIRECTIONS; index++)
         {
             row = basicGeographicMapUtil.getBorderingRow(index, cellPosition);
             column = basicGeographicMapUtil.getBorderingColumn(index, cellPosition);

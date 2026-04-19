@@ -122,7 +122,7 @@ public class RTSLayerUtil
 
         //I artificially reduce the cost of reload time since they miss a bunch
         long cost = (weaponProperties.getDamage() + weaponProperties.getRange() + 
-                ((MAX_RELOAD_TIME / weaponProperties.getReloadTime()) >> 1));
+                ((this.MAX_RELOAD_TIME / weaponProperties.getReloadTime()) >> 1));
 
         //this.logUtil.putF("Pre Cost: ").append(cost, this, "getWeaponPropertiesCost");
         cost = this.getCostExponential(cost);

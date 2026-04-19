@@ -619,7 +619,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
                 geographicMapCellPositionBasicArrayList.get(
                 geographicMapCellPositionBasicArrayList.size() - 1);
 
-            currentDistance = layerDistanceUtil.getDistance(this, geographicMapCellPosition.getMidPoint());
+            currentDistance = this.layerDistanceUtil.getDistance(this, geographicMapCellPosition.getMidPoint());
 
             if (currentDistance < shortestDistance)
             {
@@ -1372,7 +1372,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
                 //is building in path
                 final GeographicMapCellPosition cellPosition = (GeographicMapCellPosition) DropCellPositionHistory.getInstance().getCellPositionWithDrop(getPartialpositionlist());
 
-                if (cellPosition == cellPositionFactory.NONE) {
+                if (cellPosition == this.cellPositionFactory.NONE) {
                     final AllBinaryTiledLayer tiledLayer = geographicMapInterface.getAllBinaryTiledLayer();
                     final TiledLayerUtil tiledLayerUtil = TiledLayerUtil.getInstance();
 
@@ -1580,7 +1580,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
     public void handleCost(PathFindingLayerInterface ownerLayer) throws Exception {
         if (this.getLoad() > 0) {
             //Add Capital
-            CAPITAL_EVENT.setValue(this.getLoad());
+            this.CAPITAL_EVENT.setValue(this.getLoad());
             CapitalEventHandlerFactory.getInstance(
                 ownerLayer.getGroupInterface()[0]).fireEvent(CAPITAL_EVENT);
             this.setLoad(0);

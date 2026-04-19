@@ -134,13 +134,13 @@ public class BuildingAdvancedRTSFormInput
         throws Exception
     {
         //layerInterface
-        BUILD_BUILDING_RTS_LAYER_EVENT.setRtsLayer(layerInterface);
+        this.BUILD_BUILDING_RTS_LAYER_EVENT.setRtsLayer(layerInterface);
 
-        BuildingEventHandler.getInstance().fireEvent(BUILD_BUILDING_RTS_LAYER_EVENT);
+        BuildingEventHandler.getInstance().fireEvent(this.BUILD_BUILDING_RTS_LAYER_EVENT);
         
         if(((AdvancedRTSPlayerLayerInterface) rtsPlayerLayerInterface).isLocalPlayer())
         {
-            LocalPlayerBuildingEventHandler.getInstance().fireEvent(BUILD_BUILDING_RTS_LAYER_EVENT);
+            LocalPlayerBuildingEventHandler.getInstance().fireEvent(this.BUILD_BUILDING_RTS_LAYER_EVENT);
         }
 
         super.add(

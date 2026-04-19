@@ -66,13 +66,13 @@ public class GeographicMapTopViewGameLayerBehavior1 extends GeographicMapTopView
             final GeographicMapCellPosition geographicMapCellPosition)
             throws Exception {
         if (geographicMapCellPosition != null) {
-            geographicMapBehavior.getCellTypeAt(geographicMapInterfaceArray, geographicMapCellTypeArray, geographicMapCellPosition);
+            this.geographicMapBehavior.getCellTypeAt(geographicMapInterfaceArray, geographicMapCellTypeArray, geographicMapCellPosition);
             final boolean hasSolidBlock = this.hasSolidBlock(geographicMapInterfaceArray, geographicMapCellTypeArray);
 
             if (!hasSolidBlock) {
                 //this.logUtil.putF(new StringMaker().append("Not on Block: ").append(geographicMapCellPosition).append(" cellType: ").append(cellType).toString(), this, "gravity");
 
-                gravityUtil.process(velocityProperties);
+                this.gravityUtil.process(velocityProperties);
 
                 velocityProperties.limitXYToForwardAndReverseMaxVelocity();
                 this.gravity();
@@ -146,7 +146,7 @@ public class GeographicMapTopViewGameLayerBehavior1 extends GeographicMapTopView
                     possibleStepGeographicMapCellPosition.getColumn() < tiledLayer.getColumns() && 
                     possibleStepGeographicMapCellPosition.getRow() < tiledLayer.getRows()) {
 
-            geographicMapBehavior.getCellTypeAt(geographicMapInterfaceArray, geographicMapCellTypeArray, possibleStepGeographicMapCellPosition);
+            this.geographicMapBehavior.getCellTypeAt(geographicMapInterfaceArray, geographicMapCellTypeArray, possibleStepGeographicMapCellPosition);
 
             //this.logUtil.putF("cellType: " + cellType, this, "getGeographicMapCellPositionIfNotSolidBlockOrOffMap");
 
@@ -257,7 +257,7 @@ public class GeographicMapTopViewGameLayerBehavior1 extends GeographicMapTopView
                             geographicMapCellPosition.getColumn(),
                             geographicMapCellPosition.getRow() - 1);
 
-            geographicMapBehavior.getCellTypeAt(geographicMapInterfaceArray, geographicMapCellTypeArray, possibleStepGeographicMapCellPosition);
+            this.geographicMapBehavior.getCellTypeAt(geographicMapInterfaceArray, geographicMapCellTypeArray, possibleStepGeographicMapCellPosition);
             final boolean hasSolidBlock = this.hasSolidBlock(geographicMapInterfaceArray, geographicMapCellTypeArray);
 
             if (hasSolidBlock) {
@@ -285,7 +285,7 @@ public class GeographicMapTopViewGameLayerBehavior1 extends GeographicMapTopView
                             geographicMapCellPosition.getColumn(),
                             geographicMapCellPosition.getRow() - 1);
 
-            geographicMapBehavior.getCellTypeAt(geographicMapInterfaceArray, geographicMapCellTypeArray, possibleStepGeographicMapCellPosition);
+            this.geographicMapBehavior.getCellTypeAt(geographicMapInterfaceArray, geographicMapCellTypeArray, possibleStepGeographicMapCellPosition);
             final boolean hasSolidBlock = this.hasSolidBlock(geographicMapInterfaceArray, geographicMapCellTypeArray);
 
             if (hasSolidBlock) {

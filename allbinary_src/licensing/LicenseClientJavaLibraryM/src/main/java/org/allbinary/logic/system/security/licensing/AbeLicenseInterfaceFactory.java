@@ -65,15 +65,15 @@ public class AbeLicenseInterfaceFactory
                 this.logUtil.putF("Getting Keys", this, commonStrings.GET);
             //}
             
-            abeLicenseInterface = AbeNoLicense.getInstance();
+            this.abeLicenseInterface = AbeNoLicense.getInstance();
             AbeLicenseClient licenseClient = new AbeLicenseClient();
-            abeLicenseInterface = licenseClient.get(abeClientInformation);
+            this.abeLicenseInterface = licenseClient.get(abeClientInformation);
 
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
          //{
-            if(abeLicenseInterface!=null)
+            if(this.abeLicenseInterface!=null)
             {
-                this.logUtil.putF("Default Key: " + abeLicenseInterface.getKey(AbeClientInformationData.getInstance().KEY), this, commonStrings.GET);
+                this.logUtil.putF("Default Key: " + this.abeLicenseInterface.getKey(AbeClientInformationData.getInstance().KEY), this, commonStrings.GET);
             }
          //}
  
@@ -107,14 +107,14 @@ public class AbeLicenseInterfaceFactory
     {
         Calendar calendar = Calendar.getInstance();
         long currentTime = calendar.getTimeInMillis();
-        if(abeLicenseInterface == null || 
-           abeLicenseInterface == AbeNoLicense.getInstance() || 
+        if(this.abeLicenseInterface == null || 
+           this.abeLicenseInterface == AbeNoLicense.getInstance() || 
            !abeLicenseInterface.hasKey() || 
            isCheck() ||
            currentTime - checkPeriod > time)
         {
-            abeLicenseInterface = null;
-            time = currentTime;
+            this.abeLicenseInterface = null;
+            this.time = currentTime;
             return true;
         }
         else return false;

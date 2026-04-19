@@ -50,18 +50,18 @@ public class TransformHttpRequestDocument
          
          this.document = DomDocumentHelper.create();
          
-         Node contentTypeNode = document.createElement(contentType);         
+         Node contentTypeNode = this.document.createElement(contentType);         
          
-         Node languageTypeNode = document.createElement(language);
+         Node languageTypeNode = this.document.createElement(language);
          
-         Node localTypeNode = document.createElement(local);
+         Node localTypeNode = this.document.createElement(local);
          this.baseNode = localTypeNode;
          
          languageTypeNode.appendChild(localTypeNode);
          
          contentTypeNode.appendChild(languageTypeNode);
          
-         document.appendChild(contentTypeNode);
+         this.document.appendChild(contentTypeNode);
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
@@ -72,7 +72,7 @@ public class TransformHttpRequestDocument
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e);
          }
          throw e;
       }
@@ -86,24 +86,24 @@ public class TransformHttpRequestDocument
          
          this.document = DomDocumentHelper.create();
          
-         Node contentTypeNode = document.createElement(contentType);         
+         Node contentTypeNode = this.document.createElement(contentType);         
          
-         Node languageTypeNode = document.createElement(language);
+         Node languageTypeNode = this.document.createElement(language);
          
-         Node localTypeNode = document.createElement(local);
+         Node localTypeNode = this.document.createElement(local);
          this.baseNode = localTypeNode;
          
          languageTypeNode.appendChild(localTypeNode);
          
          contentTypeNode.appendChild(languageTypeNode);
          
-         document.appendChild(contentTypeNode);
+         this.document.appendChild(contentTypeNode);
       }
       catch(Exception e)
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e);
          }
          throw e;
       }
@@ -132,7 +132,7 @@ public class TransformHttpRequestDocument
          stringBuffer.append("Log-Error: BaseNode is Null");
       }
       stringBuffer.append("\nDocument: ");
-      stringBuffer.append(DomDocumentHelper.toString(document));
+      stringBuffer.append(DomDocumentHelper.toString(this.document));
       return stringBuffer.toString();
    }
 }

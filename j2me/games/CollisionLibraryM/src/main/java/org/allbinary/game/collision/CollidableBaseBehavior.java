@@ -66,7 +66,7 @@ implements CollidableInterface
     public void collide(CollidableCompositeLayer allbinaryCollidableLayer)
             throws Exception
     {
-        throw new Exception(new StringMaker().append(commonStrings.NOT_IMPLEMENTED).append(CommonLabels.getInstance().COLON_SEP).append(this.getClass().getName()).toString());
+        throw new Exception(new StringMaker().append(this.commonStrings.NOT_IMPLEMENTED).append(CommonLabels.getInstance().COLON_SEP).append(this.getClass().getName()).toString());
     }
 
     private final LayerCollisionUtil layerCollisionUtil = LayerCollisionUtil.getInstance();
@@ -93,7 +93,7 @@ implements CollidableInterface
 
     public boolean isCollision(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
     {
-        return layerCollisionUtil.isCollision(ownerLayer, (AllBinaryLayer) collidableInterfaceCompositeInterface);
+        return layerCollisionUtil.isCollision(this.ownerLayer, (AllBinaryLayer) collidableInterfaceCompositeInterface);
         /*
         if ()
         {
@@ -106,7 +106,7 @@ implements CollidableInterface
     public void collide(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
             throws Exception
     {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
+        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     public void paint(final Graphics graphics) {

@@ -45,8 +45,8 @@ public class BasicPlatormGeographicMapCellTypeFactory extends GeographicMapCellT
         new GeographicMapCellType(0);
         //new GeographicMapCellType(1);
         BasicPlatormGeographicMapCellType BLOCK_CELL_TYPE = new BasicPlatormGeographicMapCellType(1);
-        BasicPlatormGeographicMapCellType JUMP_THRU_CELL_TYPE = BLOCK_CELL_TYPE;
-        BasicPlatormGeographicMapCellType LADDER_CELL_TYPE = BLOCK_CELL_TYPE;
+        BasicPlatormGeographicMapCellType JUMP_THRU_CELL_TYPE = this.BLOCK_CELL_TYPE;
+        BasicPlatormGeographicMapCellType LADDER_CELL_TYPE = this.BLOCK_CELL_TYPE;
         
         //final String OTHER = "Other";
         final String PLATFORM = "Platform";
@@ -66,13 +66,13 @@ public class BasicPlatormGeographicMapCellTypeFactory extends GeographicMapCellT
 
             basicPlatormGeographicMapCellType = new BasicPlatormGeographicMapCellType(idsWithTypeList);
             if(key.equals(PLATFORM)) {
-                BLOCK_CELL_TYPE = basicPlatormGeographicMapCellType;
+                this.BLOCK_CELL_TYPE = basicPlatormGeographicMapCellType;
             }
             if(key.equals(JUMP_TRHU)) {
-                JUMP_THRU_CELL_TYPE = basicPlatormGeographicMapCellType;
+                this.JUMP_THRU_CELL_TYPE = basicPlatormGeographicMapCellType;
             }
             if(key.equals(LADDER)) {
-                LADDER_CELL_TYPE = basicPlatormGeographicMapCellType;
+                this.LADDER_CELL_TYPE = basicPlatormGeographicMapCellType;
             }
 
         }

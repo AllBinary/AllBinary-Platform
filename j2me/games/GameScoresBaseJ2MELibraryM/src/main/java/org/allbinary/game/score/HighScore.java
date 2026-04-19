@@ -85,7 +85,7 @@ public class HighScore
     
     public String toString() {
         final CommonSeps commonSeps = CommonSeps.getInstance();
-        return new StringMaker().append(name).append(commonSeps.COLON).appendlong(this.score).append(commonSeps.FORWARD_SLASH).append(this.scoreString).toString();
+        return new StringMaker().append(this.name).append(commonSeps.COLON).appendlong(this.score).append(commonSeps.FORWARD_SLASH).append(this.scoreString).toString();
     }
 
 }

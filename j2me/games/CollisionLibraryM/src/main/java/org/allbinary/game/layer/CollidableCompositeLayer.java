@@ -72,7 +72,7 @@ implements CollidableInterfaceCompositeInterface
     {
         super(layerInfo, viewPosition);
         
-        collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance();
+        this.collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance();
         
     }
 
@@ -81,14 +81,14 @@ implements CollidableInterfaceCompositeInterface
     {
         super(name, layerInfo, viewPosition);
         
-        collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance();
+        this.collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance();
     }
     
     public CollidableCompositeLayer(final Rectangle layerInfo)
     {
         super(layerInfo);
         
-        collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance();
+        this.collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance();
     }
 
     public ArtificialIntelligenceInterface getArtificialIntelligenceInterface()

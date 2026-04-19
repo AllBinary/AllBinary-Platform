@@ -42,7 +42,7 @@ public class AllMotionRecognizer extends MotionRecognizer
     {
         this.id = index++;
 
-        this.motionGestureRecognizer = new MotionGestureRecognizer(id);
+        this.motionGestureRecognizer = new MotionGestureRecognizer(this.id);
         this.touchButtonRecognizer = new TouchButtonRecognizer();
     }
 
@@ -55,11 +55,11 @@ public class AllMotionRecognizer extends MotionRecognizer
         // !touchButtonProcessing &&
         if (this.touchButtonRecognizer.pressTouchButtonInput(x, y, deviceId))
         {
-            touchButtonProcessing = true;
+            this.touchButtonProcessing = true;
         }
 
         // Only if touch buttons are not in processing can a gesture start
-        if (!touchButtonProcessing)
+        if (!this.touchButtonProcessing)
         {
             final CustomGPoint point = (CustomGPoint) pointCircularPool.getNextInstance();
 
@@ -84,7 +84,7 @@ public class AllMotionRecognizer extends MotionRecognizer
             //return;
         }
         
-        if (!touchButtonProcessing)
+        if (!this.touchButtonProcessing)
         {
             final CustomGPoint point = (CustomGPoint) pointCircularPool.getNextInstance();
 
@@ -98,9 +98,9 @@ public class AllMotionRecognizer extends MotionRecognizer
             this.motionGestureRecognizer.processReleasedMotionEvent(point, deviceId, modifiers);
         }
         
-        if (touchButtonProcessing)
+        if (this.touchButtonProcessing)
         {
-            touchButtonProcessing = false;
+            this.touchButtonProcessing = false;
 
             // else should never occur
         }
@@ -112,12 +112,12 @@ public class AllMotionRecognizer extends MotionRecognizer
     {
         // Allows sliding from one button to the next without releasing but only
         // if a button press was already processing
-        if (touchButtonProcessing)
+        if (this.touchButtonProcessing)
         {
             this.touchButtonRecognizer.pressTouchButtonInput(x, y, deviceId);
         }
 
-        if (!touchButtonProcessing)
+        if (!this.touchButtonProcessing)
         {
             final CustomGPoint point = (CustomGPoint) pointCircularPool.getNextInstance();
 
@@ -133,7 +133,7 @@ public class AllMotionRecognizer extends MotionRecognizer
     public void processMovedMotionEvent(final int x, final int y, final int deviceId, final int modifiers)
             throws Exception
     {
-        if(x != lastX || y != lastY) {
+        if(x != this.lastX || y != this.lastY) {
 
             this.lastX = x;
             this.lastY = y;

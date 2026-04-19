@@ -218,10 +218,10 @@ implements TickableInterface
     protected void setGroupInterface()
     {
         final BasicGroupFactory basicGroupFactory = BasicGroupFactory.getInstance();
-        if(sourceLayerInterface.getGroupInterface()[0] == basicGroupFactory.ENEMY) {
+        if(this.sourceLayerInterface.getGroupInterface()[0] == basicGroupFactory.ENEMY) {
             this.setGroupInterface(basicGroupFactory.ENEMY_ARRAY);
         } else {
-            this.setGroupInterface(sourceLayerInterface.getGroupInterface());
+            this.setGroupInterface(this.sourceLayerInterface.getGroupInterface());
         }
     }
 
@@ -322,7 +322,7 @@ implements TickableInterface
 
     protected void givePoints(int total)
     {
-        scoreableInterface.addPoints(GameConfigurationUtil.getInstance().getCompetitionValue() * total);
+        this.scoreableInterface.addPoints(GameConfigurationUtil.getInstance().getCompetitionValue() * total);
     }
 
     // Is damage value gone

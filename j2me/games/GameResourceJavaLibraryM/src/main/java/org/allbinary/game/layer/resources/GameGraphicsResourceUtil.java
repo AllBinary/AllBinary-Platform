@@ -112,12 +112,12 @@ public class GameGraphicsResourceUtil
             }
             else if (graphicsFeature == graphicsFeatureFactory.SPRITE_FULL_GRAPHICS)
             {
-                stringBuffer.append(SPRITE);
+                stringBuffer.append(this.SPRITE);
             }
             else if (graphicsFeature == graphicsFeatureFactory.SPRITE_QUARTER_ROTATION_GRAPHICS)
             {
-                stringBuffer.append(QUARTER);
-                stringBuffer.append(SPRITE);
+                stringBuffer.append(this.QUARTER);
+                stringBuffer.append(this.SPRITE);
             }
             else
             {

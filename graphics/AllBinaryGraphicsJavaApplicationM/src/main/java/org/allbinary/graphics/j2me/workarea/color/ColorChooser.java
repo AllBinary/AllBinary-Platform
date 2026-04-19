@@ -33,11 +33,11 @@ public class ColorChooser extends javax.swing.JPanel
     */
    private void initComponents()//GEN-BEGIN:initComponents
    {
-      jColorChooser1 = new javax.swing.JColorChooser();
+      this.jColorChooser1 = new javax.swing.JColorChooser();
 
       setLayout(new java.awt.BorderLayout());
 
-      add(jColorChooser1, java.awt.BorderLayout.CENTER);
+      add(this.jColorChooser1, java.awt.BorderLayout.CENTER);
 
    }//GEN-END:initComponents
    

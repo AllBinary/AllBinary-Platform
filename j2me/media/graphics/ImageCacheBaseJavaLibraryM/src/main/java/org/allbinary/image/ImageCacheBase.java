@@ -47,14 +47,14 @@ public class ImageCacheBase
     {
         // super(cacheableInterfaceFactoryInterface);
 
-        for (int index = listOfList.length - 1; index >= 0; index--)
+        for (int index = this.listOfList.length - 1; index >= 0; index--)
         {
-            listOfList[index] = new BasicArrayList();
+            this.listOfList[index] = new BasicArrayList();
         }
 
-        for (int index = availableListOfList.length - 1; index >= 0; index--)
+        for (int index = this.availableListOfList.length - 1; index >= 0; index--)
         {
-            availableListOfList[index] = new BasicArrayList();
+            this.availableListOfList[index] = new BasicArrayList();
         }
     }
     
@@ -69,10 +69,10 @@ public class ImageCacheBase
     
     public void releaseAll()
     {
-        for (int index = listOfList.length - 1; index >= 0; index--)
+        for (int index = this.listOfList.length - 1; index >= 0; index--)
         {
-            availableListOfList[index].clear();
-            availableListOfList[index].addAll(listOfList[index]);            
+            this.availableListOfList[index].clear();
+            this.availableListOfList[index].addAll(this.listOfList[index]);            
         }
         this.logUtil.putF(new StringMaker().append("ImageCache: ").append(this.toString()).toString(), this, "releaseAll");
     }
@@ -81,11 +81,11 @@ public class ImageCacheBase
     {
         int foundIndex = -1;
         
-        int size = widths.length;
+        int size = this.widths.length;
         
         for (int index = 0; index < size; index++)
         {
-            if (widths[index] == width && heights[index] == height)
+            if (this.widths[index] == width && this.heights[index] == height)
             {
                 foundIndex = index;
                 return foundIndex;
@@ -99,7 +99,7 @@ public class ImageCacheBase
     {
         if (foundIndex != -1)
         {
-            if (availableListOfList[foundIndex].size() > 0)
+            if (this.availableListOfList[foundIndex].size() > 0)
             {
                 //.log("Returning Image From Cache");
                 BasicArrayList list = this.availableListOfList[foundIndex];

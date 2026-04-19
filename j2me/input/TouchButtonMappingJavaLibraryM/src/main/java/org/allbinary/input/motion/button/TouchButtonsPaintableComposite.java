@@ -75,7 +75,7 @@ implements CompleteMotionGestureInputEventListenerInterface
     {
         try
         {
-            this.logUtil.putF(commonStrings.START, this, "onCompleteMotionGestureInputEvent");
+            this.logUtil.putF(this.commonStrings.START, this, "onCompleteMotionGestureInputEvent");
          
             final TouchMotionGestureFactory touchMotionGestureFactory = TouchMotionGestureFactory.getInstance();
 
@@ -90,8 +90,8 @@ implements CompleteMotionGestureInputEventListenerInterface
             //Ignore Release only motionGesture
             if(motionGestureInput == touchMotionGestureFactory.RELEASED)
             {
-                this.logUtil.putF(RELEASE, this, METHOD_NAME);
-                released = true;
+                this.logUtil.putF(this.RELEASE, this, METHOD_NAME);
+                this.released = true;
                 return;
             }
                 
@@ -99,18 +99,18 @@ implements CompleteMotionGestureInputEventListenerInterface
             //if(previousMotionGestureInput == motionGestureInput && !this.timeHelper.isTime())
             if(motionGestureInput == TouchMotionGestureFactory.getInstance().NO_MOTION && !this.timeHelper.isTime())
             {
-                this.logUtil.putF(FAST_REPEAT, this, METHOD_NAME);
+                this.logUtil.putF(this.FAST_REPEAT, this, METHOD_NAME);
                 return;
             }
 
             //if(motionGestureInput != TouchMotionGestureFactory.getInstance().TOUCH && !released)
-            if(!released)
+            if(!this.released)
             {
-                this.logUtil.putF(IGNORE, this, METHOD_NAME);
+                this.logUtil.putF(this.IGNORE, this, METHOD_NAME);
                 return;
             }
             
-            released = false;
+            this.released = false;
             
             this.logUtil.putF(new StringMaker().append("GameKey: ").append(StringUtil.getInstance().toString(gameKey)).append(" MotionGestureInput: ").append(StringUtil.getInstance().toString(motionGestureInput)).toString(), this, METHOD_NAME);
             
@@ -118,7 +118,7 @@ implements CompleteMotionGestureInputEventListenerInterface
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, METHOD_NAME, e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, METHOD_NAME, e);
         }
     }
 

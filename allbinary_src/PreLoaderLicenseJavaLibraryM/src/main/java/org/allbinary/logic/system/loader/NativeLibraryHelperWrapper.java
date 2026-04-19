@@ -40,13 +40,13 @@ public class NativeLibraryHelperWrapper
         
         this.loader = new 
             NativeLibraryClassLoader(this.getClass().getClassLoader());
-        Class myClass = loader.loadClass("dynamic.NativeLibraryHelper");
+        Class myClass = this.loader.loadClass("dynamic.NativeLibraryHelper");
         Constructor constructor = myClass.getConstructor(classes);
         this.object = constructor.newInstance(params);
         
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        Method method = object.getClass().getMethod(commonStrings.LOAD, null);
-        method.invoke(object, null);
+        Method method = this.object.getClass().getMethod(commonStrings.LOAD, null);
+        method.invoke(this.object, null);
     }
     
     public void unload()

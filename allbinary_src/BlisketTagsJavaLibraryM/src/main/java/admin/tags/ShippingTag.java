@@ -55,7 +55,7 @@ public class ShippingTag extends CustomTagSupport
       {
          
          Object object = new ShippingHelperFactory().getInstance(
-            propertiesHashMap, this.pageContext);
+            this.propertiesHashMap, this.pageContext);
          Class addressHelperClass = object.getClass();
          Method method = addressHelperClass.getMethod("setShippingType",null);
          
@@ -83,12 +83,12 @@ public class ShippingTag extends CustomTagSupport
    {
       try
       {
-         if(command!=null)
+         if(this.command!=null)
          {            
             this.propertiesHashMap = new HashMap();
-            propertiesHashMap.put(StoreFrontData.getInstance().NAME, this.storeName);
+            this.propertiesHashMap.put(StoreFrontData.getInstance().NAME, this.storeName);
             
-            if (command.compareTo(org.allbinary.globals.GLOBALS2.SETSHIPPINGTYPE)==0)
+            if (this.command.compareTo(org.allbinary.globals.GLOBALS2.SETSHIPPINGTYPE)==0)
             {
                this.setShippingType();
             }

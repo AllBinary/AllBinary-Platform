@@ -34,7 +34,7 @@ public class MagicGameObject extends MeteredGameObject
       StringMaker stringBuffer = new StringMaker();
       
       stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
-      stringBuffer.append(MP_LABEL);
+      stringBuffer.append(this.MP_LABEL);
       stringBuffer.append(super.toString());
       
       return stringBuffer.toString();

@@ -40,9 +40,9 @@ public class GeographicMapEventHandler extends BasicEventHandler {
 
     public void addListener(AllBinaryGameLayer gameLayer)
     {
-        if(!list.contains(gameLayer))
+        if(!this.list.contains(gameLayer))
         {
-            list.add(gameLayer);
+            this.list.add(gameLayer);
         }
     }
 

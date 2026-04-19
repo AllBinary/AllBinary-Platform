@@ -51,7 +51,7 @@ public class ResizeImageJPanel extends javax.swing.JPanel
             numberStringArray[index] = Integer.toString(index);
         }
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(numberStringArray));
+        this.jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(numberStringArray));
 
         final Raster araster = this.imageProcessorInput.getBufferedImageArray()[0].getAlphaRaster();
         if (araster == null) {
@@ -217,51 +217,51 @@ public class ResizeImageJPanel extends javax.swing.JPanel
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        aboveJButton = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        updateJButton = new javax.swing.JButton();
-        floatPercentJTextField = new javax.swing.JTextField();
-        adjustFor16AboveJButton = new javax.swing.JButton();
-        adjustFor16BelowJButton = new javax.swing.JButton();
+        this.jLabel1 = new javax.swing.JLabel();
+        this.jComboBox1 = new javax.swing.JComboBox<>();
+        this.aboveJButton = new javax.swing.JButton();
+        this.jTextField1 = new javax.swing.JTextField();
+        this.jLabel2 = new javax.swing.JLabel();
+        this.jLabel3 = new javax.swing.JLabel();
+        this.jTextField2 = new javax.swing.JTextField();
+        this.updateJButton = new javax.swing.JButton();
+        this.floatPercentJTextField = new javax.swing.JTextField();
+        this.adjustFor16AboveJButton = new javax.swing.JButton();
+        this.adjustFor16BelowJButton = new javax.swing.JButton();
 
-        jLabel1.setText("Percent:");
+        this.jLabel1.setText("Percent:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        this.jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        aboveJButton.setText("Process");
+        this.aboveJButton.setText("Process");
         aboveJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aboveJButtonActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("Width:");
+        this.jLabel2.setText("Width:");
 
-        jLabel3.setText("Height:");
+        this.jLabel3.setText("Height:");
 
-        updateJButton.setText("Update");
+        this.updateJButton.setText("Update");
         updateJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateJButtonActionPerformed(evt);
             }
         });
 
-        floatPercentJTextField.setText("-1.000000");
-        floatPercentJTextField.setMinimumSize(new java.awt.Dimension(120, 22));
+        this.floatPercentJTextField.setText("-1.000000");
+        this.floatPercentJTextField.setMinimumSize(new java.awt.Dimension(120, 22));
 
-        adjustFor16AboveJButton.setText("Adjust for 16 Above");
+        this.adjustFor16AboveJButton.setText("Adjust for 16 Above");
         adjustFor16AboveJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 adjustFor16AboveJButtonActionPerformed(evt);
             }
         });
 
-        adjustFor16BelowJButton.setText("Adjust for 16 Below");
+        this.adjustFor16BelowJButton.setText("Adjust for 16 Below");
         adjustFor16BelowJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 adjustFor16BelowJButtonActionPerformed(evt);

@@ -77,13 +77,13 @@ public class OrderedIntArrayPermutationUtil {
 
     public void generate(int[] data, Visitor visitor) {
         long iterations = this.factorial(data.length);
-        System.out.print(TOTAL_ITERATIONS_TABLE);
+        System.out.print(this.TOTAL_ITERATIONS_TABLE);
         System.out.println(iterations);
         for (long count = 0; count < iterations - 1; count++) {
             this.getNext(data);
             visitor.visit(this);
         }
-        System.out.println(FINISHED);
+        System.out.println(this.FINISHED);
     }
 
     public static void main(String args[]) {

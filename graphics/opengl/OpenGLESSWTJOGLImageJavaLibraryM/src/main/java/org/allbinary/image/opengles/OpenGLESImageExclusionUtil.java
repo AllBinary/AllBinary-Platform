@@ -40,15 +40,15 @@ public class OpenGLESImageExclusionUtil {
 
     public boolean isCustomScaling(final Image image) {
         final String imageName = image.getName();
-        boolean isNormalScaling = list.size() == 0 || imageName.startsWith(EXCLUSION);
+        boolean isNormalScaling = this.list.size() == 0 || imageName.startsWith(this.EXCLUSION);
         if(isNormalScaling) {
             return false; 
         } else {
 
-            final int size = list.size();
+            final int size = this.list.size();
             String name;
             for (int index = 0; index < size; index++) {
-                name = (String) list.get(index);
+                name = (String) this.list.get(index);
                 if (imageName.startsWith(name)) {
                     isNormalScaling = true;
                 }

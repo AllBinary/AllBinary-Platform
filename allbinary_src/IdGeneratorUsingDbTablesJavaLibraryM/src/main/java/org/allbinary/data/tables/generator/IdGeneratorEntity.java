@@ -51,22 +51,22 @@ public class IdGeneratorEntity extends AbSqlBean
                 .append(this.sqlStrings.END)
                 .toString();
 
-        super.setTableName(tableName);
+        super.setTableName(this.tableName);
     }
 
     public Long get(String name)
             throws Exception {
 
         HashMap keysAndValues = new HashMap();
-        keysAndValues.put(NAME, name);
+        keysAndValues.put(this.NAME, name);
         HashMap hashMap = super.getRow(keysAndValues);
         
-        if(((String) hashMap.get(NAME)).compareTo(name) != 0)
+        if(((String) hashMap.get(this.NAME)).compareTo(name) != 0)
         {
             throw new Exception("results do not match");
         }
 
-        String value = (String) hashMap.get(VALUE);
+        String value = (String) hashMap.get(this.VALUE);
         
         return Long.parseLong(value);
     }
@@ -90,7 +90,7 @@ public class IdGeneratorEntity extends AbSqlBean
     public void delete(String value) {
         try {
 
-            super.deleteWhere(NAME, value);
+            super.deleteWhere(this.NAME, value);
 
             this.logUtil.putF(this.commonStrings.SUCCESS, this, commonStrings.delete);
 
@@ -104,8 +104,8 @@ public class IdGeneratorEntity extends AbSqlBean
     {
         final HashMap map= new HashMap();
 
-        map.put(NAME, name);
-        map.put(VALUE, value.toString());
+        map.put(this.NAME, name);
+        map.put(this.VALUE, value.toString());
 
         this.update(map);
     }

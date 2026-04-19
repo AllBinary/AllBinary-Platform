@@ -105,19 +105,19 @@ public class SpriteIndexedAnimation extends IndexedAnimation
     {
         this.setFrame(frame);
         this.sprite.setPosition(x, y);
-        sprite.paint(graphics);
+        this.sprite.paint(graphics);
     }
 
     @Override
     public void paint(final Graphics graphics, final int x, final int y)
     {
         this.sprite.setPosition(x, y);
-        sprite.paint(graphics);
+        this.sprite.paint(graphics);
     }
 
     protected void paint(final Graphics graphics)
     {
-        sprite.paint(graphics);
+        this.sprite.paint(graphics);
     }
 
     @Override

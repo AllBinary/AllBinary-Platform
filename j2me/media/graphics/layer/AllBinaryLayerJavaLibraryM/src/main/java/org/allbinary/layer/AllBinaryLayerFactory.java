@@ -29,6 +29,6 @@ implements AllBinaryLayerFactoryInterface
     @Override
     public AllBinaryLayer getInstance()
     {
-        return new AllBinaryLayer(rectangle, new ViewPosition());
+        return new AllBinaryLayer(this.rectangle, new ViewPosition());
     }
 }

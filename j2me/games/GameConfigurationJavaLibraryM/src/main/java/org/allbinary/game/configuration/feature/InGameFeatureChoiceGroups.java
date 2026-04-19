@@ -46,6 +46,6 @@ public class InGameFeatureChoiceGroups
 
     public void add(String name, BasicArrayList list)
     {
-        hashtable.put(name, list);
+        this.hashtable.put(name, list);
     }
 }

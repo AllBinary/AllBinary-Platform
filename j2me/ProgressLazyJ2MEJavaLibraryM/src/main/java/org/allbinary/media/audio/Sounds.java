@@ -45,9 +45,9 @@ public class Sounds
         final CommonLabels commonLabels = CommonLabels.getInstance();        
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         
-        soundsFactoryInterface.init();
+        this.soundsFactoryInterface.init();
 
-        final Sound[] soundInterfaceArray = soundsFactoryInterface.getSoundInterfaceArray();
+        final Sound[] soundInterfaceArray = this.soundsFactoryInterface.getSoundInterfaceArray();
 
         final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
         
@@ -78,16 +78,16 @@ public class Sounds
             }
         }
 
-        soundsFactoryInterface.setInitialized(true);
+        this.soundsFactoryInterface.setInitialized(true);
         
         this.logUtil.putF(commonStrings.END, this, commonStrings.INIT);
     }
 
     public void stopAll() throws Exception
     {
-        this.logUtil.putF(commonStrings.START, this, this.soundStrings.STOP_ALL);
+        this.logUtil.putF(this.commonStrings.START, this, this.soundStrings.STOP_ALL);
 
-        final Sound[] soundInterfaceArray = soundsFactoryInterface.getSoundInterfaceArray();
+        final Sound[] soundInterfaceArray = this.soundsFactoryInterface.getSoundInterfaceArray();
 
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         
@@ -111,9 +111,9 @@ public class Sounds
 
     public void closeAll() throws Exception
     {
-        this.logUtil.putF(commonStrings.START, this, this.soundStrings.CLOSE_ALL);
+        this.logUtil.putF(this.commonStrings.START, this, this.soundStrings.CLOSE_ALL);
 
-        final Sound[] soundInterfaceArray = soundsFactoryInterface.getSoundInterfaceArray();
+        final Sound[] soundInterfaceArray = this.soundsFactoryInterface.getSoundInterfaceArray();
 
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
 

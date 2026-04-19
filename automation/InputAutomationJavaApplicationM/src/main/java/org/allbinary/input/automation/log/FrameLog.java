@@ -65,7 +65,7 @@ public class FrameLog
         StringMaker filePathStringBuffer = new StringMaker();
 
         filePathStringBuffer.append(ImageOutputData.SAVE_PATH);
-        filePathStringBuffer.append(LongUtil.fillIn(frame.toString()));
+        filePathStringBuffer.append(LongUtil.fillIn(this.frame.toString()));
         filePathStringBuffer.append(".txt");
         
         String filePath = filePathStringBuffer.toString();
@@ -77,10 +77,10 @@ public class FrameLog
         fileOutputStream.write(getFrame().toString().getBytes());
         fileOutputStream.write('\n');
         fileOutputStream.write(info);
-        fileOutputStream.write(infoStringBuffer.toString().getBytes());
+        fileOutputStream.write(this.infoStringBuffer.toString().getBytes());
         fileOutputStream.write('\n');
         fileOutputStream.write(actions);
-        fileOutputStream.write(actionsStringBuffer.toString().getBytes());
+        fileOutputStream.write(this.actionsStringBuffer.toString().getBytes());
         fileOutputStream.close();
     }   
 

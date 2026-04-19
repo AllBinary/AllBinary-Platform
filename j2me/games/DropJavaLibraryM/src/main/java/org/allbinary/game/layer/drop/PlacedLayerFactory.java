@@ -16,7 +16,7 @@ public class PlacedLayerFactory
 
     public void clear()
     {
-        list.clear();
+        this.list.clear();
     }
 
     public static PlacedLayerFactory getInstance()
@@ -33,11 +33,11 @@ public class PlacedLayerFactory
 
     public AllBinaryLayerFactoryInterface getRandomInstance()
     {
-        return (AllBinaryLayerFactoryInterface) basicArrayListUtil.getRandom(list);
+        return (AllBinaryLayerFactoryInterface) this.basicArrayListUtil.getRandom(this.list);
     }
 
     public void add(AllBinaryLayerFactoryInterface layerInterfaceFactoryInterface)
     {
-        list.add(layerInterfaceFactoryInterface);
+        this.list.add(layerInterfaceFactoryInterface);
     }
 }

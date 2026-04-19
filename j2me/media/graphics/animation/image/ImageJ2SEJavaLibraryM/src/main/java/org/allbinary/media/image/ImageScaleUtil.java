@@ -105,7 +105,7 @@ public class ImageScaleUtil
         final Graphics2D g = newBufferedImage.createGraphics();
 
         if(clear) {
-            g.setBackground(imageJ2SEUtil.TRANSPARENT_COLOR);
+            g.setBackground(this.imageJ2SEUtil.TRANSPARENT_COLOR);
             g.clearRect(0, 0, newBufferedImage.getWidth(), newBufferedImage.getHeight());
         }
 

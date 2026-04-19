@@ -35,6 +35,6 @@ public class GameRunnable implements Runnable
     public void processLoopSleep()
     throws Exception
     {
-        Thread.sleep(wait);
+        Thread.sleep(this.wait);
     }
 }

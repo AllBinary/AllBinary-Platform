@@ -157,35 +157,35 @@ public class Email
          this.properties.put(SMTP_LOCAL_HOST, "FakeHostName");
       }
       
-      if(isDebug)
+      if(this.isDebug)
       {
          this.properties.put(DEBUG, "true");
       }
       
-      Session session = Session.getInstance(properties, authenticator);
+      Session session = Session.getInstance(this.properties, authenticator);
       
-      if(isDebug)
+      if(this.isDebug)
       {
          session.setDebug(true);
-         bs = new ByteArrayOutputStream();
-         PrintStream printStream = new PrintStream(bs);
+         this.bs = new ByteArrayOutputStream();
+         PrintStream printStream = new PrintStream(this.bs);
          session.setDebugOut(printStream);
       }
       
-      msg = new MimeMessage(session);
+      this.msg = new MimeMessage(session);
       
-      msg.addFrom( addresses_from );
-      msg.setRecipients( Message.RecipientType.TO , addresses_to  );
-      msg.setRecipients( Message.RecipientType.CC , addresses_cc  );
-      msg.setRecipients( Message.RecipientType.BCC, addresses_bcc );
-      msg.setSubject( subject );
+      this.msg.addFrom( addresses_from );
+      this.msg.setRecipients( Message.RecipientType.TO , addresses_to  );
+      this.msg.setRecipients( Message.RecipientType.CC , addresses_cc  );
+      this.msg.setRecipients( Message.RecipientType.BCC, addresses_bcc );
+      this.msg.setSubject( subject );
       
       MimeMultipart  mimeMultipart = new MimeMultipart( );
       for ( int  i = 0; i < mimeBodyParts.length; i++ )
       {
          mimeMultipart.addBodyPart( mimeBodyParts [ i ] );
       }
-      msg.setContent( mimeMultipart );
+      this.msg.setContent( mimeMultipart );
    }
 
    public MimeMessage getMimeMessage()
@@ -195,10 +195,10 @@ public class Email
    
    public String getDebugInfo()
    {
-      if(isDebug)
+      if(this.isDebug)
       {
          //"Size: " + bs.size()
-         return "More Logging Before This To Standard Out: " + new String(bs.toString());
+         return "More Logging Before This To Standard Out: " + new String(this.bs.toString());
       }
       else
       {
@@ -217,9 +217,9 @@ public class Email
       {
          HashMap hashMap = new HashMap();
          
-         hashMap.put(EmailData.SERVER, (String) properties.get(SMTP_HOST));
+         hashMap.put(EmailData.SERVER, (String) this.properties.get(SMTP_HOST));
          
-         Address[] addresses = msg.getFrom();
+         Address[] addresses = this.msg.getFrom();
          if(addresses != null)
          {
             for(int index = 0; index < addresses.length; index++)
@@ -228,7 +228,7 @@ public class Email
             }
          }
          
-         addresses = msg.getRecipients(Message.RecipientType.TO);
+         addresses = this.msg.getRecipients(Message.RecipientType.TO);
          if(addresses != null)
          {
             for(int index = 0; index < addresses.length; index++)
@@ -237,7 +237,7 @@ public class Email
             }
          }
          
-         addresses = msg.getRecipients(Message.RecipientType.CC);
+         addresses = this.msg.getRecipients(Message.RecipientType.CC);
          if(addresses != null)
          {
             for(int index = 0; index < addresses.length; index++)
@@ -246,7 +246,7 @@ public class Email
             }
          }
          
-         addresses = msg.getRecipients(Message.RecipientType.BCC);
+         addresses = this.msg.getRecipients(Message.RecipientType.BCC);
          if(addresses != null)
          {
             for(int index = 0; index < addresses.length; index++)
@@ -274,7 +274,7 @@ public class Email
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGINGERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "toHashMap()", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "toHashMap()", e);
          }
          throw e;
       }

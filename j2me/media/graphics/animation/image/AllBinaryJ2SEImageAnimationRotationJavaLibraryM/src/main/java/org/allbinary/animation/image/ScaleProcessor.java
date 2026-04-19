@@ -44,7 +44,7 @@ public class ScaleProcessor extends ScaleBaseProcessor {
     public void update(final Image originalImage, final Image[] originalImageArray, final Image[] ximageToShowArray, final int unused, final float scaleX, final float scaleY, final float maxScaleX, final float maxScaleY) {
         try {
 
-            imageScaleUtil.scale(originalImage, originalImageArray, ximageToShowArray, unused, scaleX, scaleY, maxScaleX, maxScaleY);
+            this.imageScaleUtil.scale(originalImage, originalImageArray, ximageToShowArray, unused, scaleX, scaleY, maxScaleX, maxScaleY);
 
         } catch(Exception e) {
             this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.UPDATE, e);

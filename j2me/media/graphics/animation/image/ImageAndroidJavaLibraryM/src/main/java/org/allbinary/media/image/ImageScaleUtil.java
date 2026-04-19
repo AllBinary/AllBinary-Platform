@@ -89,7 +89,7 @@ public class ImageScaleUtil
         //if(width % 2 != 0 && 3d) throw new Exception because it is really a texture
         
 
-        final int index = imageBasicArrayList.indexOf(originalImage);
+        final int index = this.imageBasicArrayList.indexOf(originalImage);
         boolean alreadyAvailable = false;
         if (index >= 0) {
             final Float scaleX2Float = (Float) this.scaleXBasicArrayList.get(index);
@@ -106,8 +106,8 @@ public class ImageScaleUtil
             return (Image) this.scaledImageBasicArrayList.get(index);
         } else {
             final Image scaledImage = this.getScaledImage(imageCache, originalImage, scaleX, scaleY, width, height, cached);
-            imageBasicArrayList.add(originalImage);
-            scaledImageBasicArrayList.add(scaledImage);
+            this.imageBasicArrayList.add(originalImage);
+            this.scaledImageBasicArrayList.add(scaledImage);
             this.scaleXBasicArrayList.add(scaleX);
             this.scaleYBasicArrayList.add(scaleY);
             return scaledImage;
@@ -128,7 +128,7 @@ public class ImageScaleUtil
         {
           //TWB - Image Create
             //image = Image.createImage(width, height);
-            image = imageCache.get(commonStrings.CREATE_IMAGE, width, height);
+            image = imageCache.get(this.commonStrings.CREATE_IMAGE, width, height);
         }
 
         if (image.isMutable())

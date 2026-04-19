@@ -40,6 +40,6 @@ public class BasicGravityConstantVelocityMovement
    throws Exception
    {
       super.process(layer);
-      gravityUtil.process(this.getVelocityProperties());
+      this.gravityUtil.process(this.getVelocityProperties());
    }
 }

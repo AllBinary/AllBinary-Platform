@@ -134,9 +134,9 @@ extends ImageBaseRotationAnimation
     private void updateImage() {
         final CanvasSurface canvasSurface = this.canvasSurfaceArray[this.bufferedImageIndex];
         canvasSurface.save();
-        this.imageRotationUtil.rotateImageClear(originalImage, this.twoImages[this.bufferedImageIndex], canvasSurface, this.angleInfo.getAngle() + 90);
-        this.alphaProcessor.setAlpha(imageModifierUtil, this.originalImage, this.twoImages[this.bufferedImageIndex], this.alphaP);
-        this.imageRotationUtil.drawImage(originalImage, imageToShow, canvasSurface);
+        this.imageRotationUtil.rotateImageClear(this.originalImage, this.twoImages[this.bufferedImageIndex], canvasSurface, this.angleInfo.getAngle() + 90);
+        this.alphaProcessor.setAlpha(this.imageModifierUtil, this.originalImage, this.twoImages[this.bufferedImageIndex], this.alphaP);
+        this.imageRotationUtil.drawImage(this.originalImage, imageToShow, canvasSurface);
         canvasSurface.restore();
         this.swap();
     }

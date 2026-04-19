@@ -44,7 +44,7 @@ public class TransactionResult implements TransactionResultInterface
          
          Hashtable hashtable = tokenizer2.getTokens(tokens);
          //TWB - does this actually work?
-         keyValuePairs.putAll(hashtable);
+         this.keyValuePairs.putAll(hashtable);
       }
       catch(Exception e)
       {
@@ -113,9 +113,9 @@ public class TransactionResult implements TransactionResultInterface
       for (int i = 0; i < size; i++)
       {
          String key = (String) keyVector.get(i);
-         if(keyValuePairs.containsKey(key))
+         if(this.keyValuePairs.containsKey(key))
          {
-            valueVector.add(keyValuePairs.get(key));
+            valueVector.add(this.keyValuePairs.get(key));
          }
          else
          {
@@ -128,106 +128,106 @@ public class TransactionResult implements TransactionResultInterface
    
    public String getPnRef()
    {
-      return (String) keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().PNREF.toString());
+      return (String) this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().PNREF.toString());
    }     
          
    public String getRespMsg()
    {
-      return (String) keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().RESPMSG.toString());
+      return (String) this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().RESPMSG.toString());
    }
    
    public String getResult()
    {
-      return (String) keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().RESULT.toString());
+      return (String) this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().RESULT.toString());
    }
    
    public String getScore()
    {
-      return (String) keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().SCORE.toString());
+      return (String) this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().SCORE.toString());
    }
    
    public String getStatus()
    {
-      return (String) keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().STATUS.toString());
+      return (String) this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().STATUS.toString());
    }
 
    public String getFraudCode()
    {
-      return (String) keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().FRAUDCODE.toString());
+      return (String) this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().FRAUDCODE.toString());
    }
 
    public String getFraudMsg()
    {
-      return (String) keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().FRAUDMSG.toString());
+      return (String) this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().FRAUDMSG.toString());
    }
    
    public String getOrigResult()
    {
-      return (String) keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().ORIGRESULT.toString());
+      return (String) this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().ORIGRESULT.toString());
    }
    
    public String getAvsAddr()
    {
-      return (String) keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().AVSADDR.toString());
+      return (String) this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().AVSADDR.toString());
    }
    
    public String getAvsZip()
    {
-      return (String) keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().AVSZIP.toString());
+      return (String) this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().AVSZIP.toString());
    }
    
    public String getErrCode()
    {
-      return (String) keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().ERRCODE.toString());
+      return (String) this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().ERRCODE.toString());
    }
    
    public String getException1()
    {
-      return (String) keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().EXCEPTION1.toString());
+      return (String) this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().EXCEPTION1.toString());
    }
    
    public String getException2()
    {
-      return (String) keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().EXCEPTION2.toString());
+      return (String) this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().EXCEPTION2.toString());
    }
    
    public String getException3()
    {
-      return (String) keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().EXCEPTION3.toString());
+      return (String) this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().EXCEPTION3.toString());
    }
    
    public String getException4()
    {
-      return (String) keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().EXCEPTION4.toString());
+      return (String) this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().EXCEPTION4.toString());
    }
    
    public String getException5()
    {
-      return (String) keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().EXCEPTION5.toString());
+      return (String) this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().EXCEPTION5.toString());
    }
    
    public String getException6()
    {
-      return (String) keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().EXCEPTION6.toString());
+      return (String) this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().EXCEPTION6.toString());
    }
    
    public String getException7()
    {
-      return (String) keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().EXCEPTION7.toString());
+      return (String) this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().EXCEPTION7.toString());
    }
       
    public String getReason1()
    {
-      return (String) keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().REASON1.toString());
+      return (String) this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().REASON1.toString());
    }
    
    public String getReason2()
    {
-      return (String) keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().REASON2.toString());
+      return (String) this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().REASON2.toString());
    }
    
    public String getReason3()
    {
-      return (String) keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().REASON3.toString());
+      return (String) this.keyValuePairs.get(PaymentTransactionKeysFactory.getInstance().REASON3.toString());
    }         
 }

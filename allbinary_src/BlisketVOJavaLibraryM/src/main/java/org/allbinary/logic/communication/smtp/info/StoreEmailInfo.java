@@ -45,7 +45,7 @@ public class StoreEmailInfo extends BasicEmailInfo
    protected void init() throws Exception
    {
       ContextConfigurationInterface contextConfigurationInterface = 
-         storeFrontInterface.getContextConfigurationInterface();
+         this.storeFrontInterface.getContextConfigurationInterface();
 
       EmailServerConfigurationInterface emailServerConfigurationInterface =
          contextConfigurationInterface.getEmailServerConfigurationInterface();

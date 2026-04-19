@@ -34,14 +34,14 @@ public class GameKeyCompleteMotionGestureInputEventFactory
     
     public void add(GameKeyCompleteMotionGestureInputEvent gameKeyCompleteMotionGestureInputEvent)
     {
-        eventList.add(gameKeyCompleteMotionGestureInputEvent);
+        this.eventList.add(gameKeyCompleteMotionGestureInputEvent);
     }
     
     public void updateAll()
     {
-        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).appendint(eventList.size()).toString(), this, "updateAll");
+        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).appendint(this.eventList.size()).toString(), this, "updateAll");
         
-        for(int index = eventList.size() - 1; index >= 0; index--)
+        for(int index = this.eventList.size() - 1; index >= 0; index--)
         {
             GameKeyCompleteMotionGestureInputEvent gameKeyCompleteMotionGestureInputEvent =
                 (GameKeyCompleteMotionGestureInputEvent)

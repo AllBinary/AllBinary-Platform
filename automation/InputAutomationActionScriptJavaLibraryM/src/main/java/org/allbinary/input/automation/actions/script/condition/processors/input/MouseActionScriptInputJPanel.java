@@ -209,28 +209,28 @@ public class MouseActionScriptInputJPanel
     // <editor-fold defaultstate="collapsed" desc=" Generated Code ">//GEN-BEGIN:initComponents
     private void initComponents()
     {
-        mouseActionJDialog = new javax.swing.JDialog();
-        titleJLabel = new javax.swing.JLabel();
-        okJButton = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        button1JCheckBox = new javax.swing.JCheckBox();
-        button2JCheckBox = new javax.swing.JCheckBox();
-        jLabel4 = new javax.swing.JLabel();
-        mouseXJTextField = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        mouseYJTextField = new javax.swing.JTextField();
-        inputTypeJLabel = new javax.swing.JLabel();
-        inputAutomationTypeJComboBox = new javax.swing.JComboBox();
-        jLabel6 = new javax.swing.JLabel();
-        mouseDelayJTextField = new javax.swing.JTextField();
-        mouseActionJButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        this.mouseActionJDialog = new javax.swing.JDialog();
+        this.titleJLabel = new javax.swing.JLabel();
+        this.okJButton = new javax.swing.JButton();
+        this.jLabel2 = new javax.swing.JLabel();
+        this.jLabel3 = new javax.swing.JLabel();
+        this.button1JCheckBox = new javax.swing.JCheckBox();
+        this.button2JCheckBox = new javax.swing.JCheckBox();
+        this.jLabel4 = new javax.swing.JLabel();
+        this.mouseXJTextField = new javax.swing.JTextField();
+        this.jLabel5 = new javax.swing.JLabel();
+        this.mouseYJTextField = new javax.swing.JTextField();
+        this.inputTypeJLabel = new javax.swing.JLabel();
+        this.inputAutomationTypeJComboBox = new javax.swing.JComboBox();
+        this.jLabel6 = new javax.swing.JLabel();
+        this.mouseDelayJTextField = new javax.swing.JTextField();
+        this.mouseActionJButton = new javax.swing.JButton();
+        this.jLabel1 = new javax.swing.JLabel();
 
-        mouseActionJDialog.setMinimumSize(new java.awt.Dimension(275, 185));
-        titleJLabel.setText("Mouse Input Options");
+        this.mouseActionJDialog.setMinimumSize(new java.awt.Dimension(275, 185));
+        this.titleJLabel.setText("Mouse Input Options");
 
-        okJButton.setText("OK");
+        this.okJButton.setText("OK");
         okJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -239,17 +239,17 @@ public class MouseActionScriptInputJPanel
             }
         });
 
-        jLabel2.setText("Buttons:");
+        this.jLabel2.setText("Buttons:");
 
-        jLabel3.setText("Move To:");
+        this.jLabel3.setText("Move To:");
 
-        button1JCheckBox.setText(CommonPhoneStrings.getInstance().ONE);
-        button1JCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        button1JCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        this.button1JCheckBox.setText(CommonPhoneStrings.getInstance().ONE);
+        this.button1JCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        this.button1JCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
 
-        button2JCheckBox.setText(CommonPhoneStrings.getInstance().TWO);
-        button2JCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        button2JCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        this.button2JCheckBox.setText(CommonPhoneStrings.getInstance().TWO);
+        this.button2JCheckBox.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        this.button2JCheckBox.setMargin(new java.awt.Insets(0, 0, 0, 0));
         button2JCheckBox.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -258,22 +258,22 @@ public class MouseActionScriptInputJPanel
             }
         });
 
-        jLabel4.setText("x:");
+        this.jLabel4.setText("x:");
 
-        mouseXJTextField.setText(CommonPhoneStrings.getInstance().ZERO);
+        this.mouseXJTextField.setText(CommonPhoneStrings.getInstance().ZERO);
 
-        jLabel5.setText("y:");
+        this.jLabel5.setText("y:");
 
-        mouseYJTextField.setText(CommonPhoneStrings.getInstance().ZERO);
+        this.mouseYJTextField.setText(CommonPhoneStrings.getInstance().ZERO);
 
-        inputTypeJLabel.setText("Input Type:");
+        this.inputTypeJLabel.setText("Input Type:");
 
-        jLabel6.setText("Delay:");
+        this.jLabel6.setText("Delay:");
 
-        mouseDelayJTextField.setText("100");
+        this.mouseDelayJTextField.setText("100");
 
-        javax.swing.GroupLayout mouseActionJDialogLayout = new javax.swing.GroupLayout(mouseActionJDialog.getContentPane());
-        mouseActionJDialog.getContentPane().setLayout(mouseActionJDialogLayout);
+        javax.swing.GroupLayout mouseActionJDialogLayout = new javax.swing.GroupLayout(this.mouseActionJDialog.getContentPane());
+        this.mouseActionJDialog.getContentPane().setLayout(mouseActionJDialogLayout);
         mouseActionJDialogLayout.setHorizontalGroup(
             mouseActionJDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mouseActionJDialogLayout.createSequentialGroup()
@@ -348,7 +348,7 @@ public class MouseActionScriptInputJPanel
         );
 
         setMinimumSize(new java.awt.Dimension(100, 0));
-        mouseActionJButton.setText("Edit");
+        this.mouseActionJButton.setText("Edit");
         mouseActionJButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -357,7 +357,7 @@ public class MouseActionScriptInputJPanel
             }
         });
 
-        jLabel1.setText("Mouse:");
+        this.jLabel1.setText("Mouse:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -391,7 +391,7 @@ public class MouseActionScriptInputJPanel
        }
        catch(Exception e)
        {
-          this.logUtil.put(commonStrings.EXCEPTION, this, "okButtonActionPerformed", e);
+          this.logUtil.put(this.commonStrings.EXCEPTION, this, "okButtonActionPerformed", e);
        }
     }//GEN-LAST:event_okJButtonActionPerformed
     

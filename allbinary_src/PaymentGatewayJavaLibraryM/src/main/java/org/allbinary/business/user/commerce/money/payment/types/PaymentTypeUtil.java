@@ -87,7 +87,7 @@ public class PaymentTypeUtil {
 
        stringBuffer.append(sep);
 
-       PAYMENTGATEWAYFILEPATHSTRING = stringBuffer.toString();
+       this.PAYMENTGATEWAYFILEPATHSTRING = stringBuffer.toString();
     }
 
    public void add(PaymentType paymentType)
@@ -126,7 +126,7 @@ public class PaymentTypeUtil {
           stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);
           stringBuffer.append(storeName);
           stringBuffer.append(AbPathData.getInstance().SEPARATOR);
-          stringBuffer.append(PAYMENTGATEWAYFILEPATHSTRING);
+          stringBuffer.append(this.PAYMENTGATEWAYFILEPATHSTRING);
 
          AbPath abPath = (AbPath)
             new AbPath(stringBuffer.toString(),SHIPPINGMETHODSFILENAME);

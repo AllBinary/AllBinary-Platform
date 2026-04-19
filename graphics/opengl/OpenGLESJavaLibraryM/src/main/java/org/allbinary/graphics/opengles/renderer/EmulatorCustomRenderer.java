@@ -36,7 +36,7 @@ public class EmulatorCustomRenderer //extends CustomRenderer
     //Wait until emulator is initialized
     public void onSurfaceCreated(final GL10 gl, final EGLConfig eglConfig)
     {        
-    	this.logUtil.putF(commonStrings.START, this, this.renderStrings.ON_SURFACE_CREATED);
+    	this.logUtil.putF(this.commonStrings.START, this, this.renderStrings.ON_SURFACE_CREATED);
 
         final InitEmulatorFactory initEmulatorFactory = InitEmulatorFactory.getInstance();
         
@@ -54,7 +54,7 @@ public class EmulatorCustomRenderer //extends CustomRenderer
                 }
             } catch (Exception e)
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, this.renderStrings.ON_SURFACE_CREATED, e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, this.renderStrings.ON_SURFACE_CREATED, e);
             }
         }
         

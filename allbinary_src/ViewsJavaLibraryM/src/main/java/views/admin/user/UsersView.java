@@ -43,10 +43,10 @@ public class UsersView extends HttpContextView implements DomNodeInterface
       {
          Node usersNode = document.createElement(UsersData.NAME);                  
          
-         int size = userVector.size();
+         int size = this.userVector.size();
          for (int index = 0; index < size; index++)
          {
-            User userInterface = (User) userVector.get(index);
+            User userInterface = (User) this.userVector.get(index);
             if(userInterface!=null)
             {
                Node node = new UserDomNode(userInterface).toXmlNode(document);

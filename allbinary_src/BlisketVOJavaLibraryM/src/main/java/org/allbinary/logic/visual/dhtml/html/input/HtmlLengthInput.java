@@ -28,12 +28,12 @@ public class HtmlLengthInput extends HtmlValueInput
    public void setMaxLength(Integer length)
    {
       this.length=new String(length.toString());
-      addAttribute(MAXLENGTH,this.length);
+      addAttribute(this.MAXLENGTH,this.length);
    }
 
    public void setSize(Integer size)
    {
       this.size=new String(size.toString());
-      addAttribute(MAXLENGTH,this.size);
+      addAttribute(this.MAXLENGTH,this.size);
    }   
 }

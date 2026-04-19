@@ -107,7 +107,7 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
 
         stringBuffer.append(super.toString());
         stringBuffer.append(commonLabels.HEIGHT_LABEL);
-        stringBuffer.appendint(image.getHeight());
+        stringBuffer.appendint(this.image.getHeight());
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(this.animationFactoryInitializationVisitor.toString());
 

@@ -30,12 +30,12 @@ public class LicenseTypeFactory
 
     public LicenseType getInstance(String name)
     {
-        if(DEMO.getName().compareTo(name) == 0)
+        if(this.DEMO.getName().compareTo(name) == 0)
         {
             return DEMO;
         }
         else
-        if(NORMAL.getName().compareTo(name) == 0)
+        if(this.NORMAL.getName().compareTo(name) == 0)
         {
             return NORMAL;
         }

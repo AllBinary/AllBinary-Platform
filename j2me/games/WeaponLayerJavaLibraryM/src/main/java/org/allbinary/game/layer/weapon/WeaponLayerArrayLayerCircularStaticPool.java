@@ -34,31 +34,31 @@ public class WeaponLayerArrayLayerCircularStaticPool
 
     public void init()
     {
-        Object[][] WEAPONLAYER_ARRAY = new Object[MAX * 2][];
-        Object[][] TWO_WEAPONLAYER_ARRAY = new Object[MAX][];
-        Object[][] THREE_WEAPONLAYER_ARRAY = new Object[MAX][];
+        Object[][] WEAPONLAYER_ARRAY = new Object[this.MAX * 2][];
+        Object[][] TWO_WEAPONLAYER_ARRAY = new Object[this.MAX][];
+        Object[][] THREE_WEAPONLAYER_ARRAY = new Object[this.MAX][];
 
-        for (int index = 0; index < MAX; index++)
+        for (int index = 0; index < this.MAX; index++)
         {
             WEAPONLAYER_ARRAY[index] = new Object[1];
             TWO_WEAPONLAYER_ARRAY[index] = new Object[2];
             THREE_WEAPONLAYER_ARRAY[index] = new Object[3];
         }
-        ALL_WEAPONLAYER_ARRAY[1] = WEAPONLAYER_ARRAY;
-        ALL_WEAPONLAYER_ARRAY[2] = TWO_WEAPONLAYER_ARRAY;
-        ALL_WEAPONLAYER_ARRAY[3] = THREE_WEAPONLAYER_ARRAY;
+        this.ALL_WEAPONLAYER_ARRAY[1] = WEAPONLAYER_ARRAY;
+        this.ALL_WEAPONLAYER_ARRAY[2] = TWO_WEAPONLAYER_ARRAY;
+        this.ALL_WEAPONLAYER_ARRAY[3] = THREE_WEAPONLAYER_ARRAY;
     }
 
     public synchronized WeaponLayer[] getInstance(int size) throws Exception
     {
-        WeaponLayer[] weaponLayerArray = (WeaponLayer[]) ALL_WEAPONLAYER_ARRAY[size][circularIndexUtil.getIndex()];
+        WeaponLayer[] weaponLayerArray = (WeaponLayer[]) this.ALL_WEAPONLAYER_ARRAY[size][this.circularIndexUtil.getIndex()];
         // Object[] objectArray = (Object[]) ALL_WEAPONLAYER_ARRAY[size];
         // WeaponLayer[] weaponLayerArray = (WeaponLayer[]) objectArray[index];
 
         // this.logUtil.putF("WeaponLayer[] Length: " +
         // weaponLayerArray.length, this, // commonStrings.GET_INSTANCE);
 
-        circularIndexUtil.next();
+        this.circularIndexUtil.next();
 
         return weaponLayerArray;
     }

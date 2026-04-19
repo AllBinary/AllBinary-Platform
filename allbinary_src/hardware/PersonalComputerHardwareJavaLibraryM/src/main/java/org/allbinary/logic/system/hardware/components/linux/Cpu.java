@@ -47,7 +47,7 @@ public class Cpu implements CpuInterface, HardwareComponentInterface
    
    public Cpu() throws Exception
    {
-      this.init(CPUFILE);
+      this.init(this.CPUFILE);
    }
    
    private void init(String filePath) throws Exception
@@ -74,7 +74,7 @@ public class Cpu implements CpuInterface, HardwareComponentInterface
          FileReader fileReader = new FileReader(filePath);
          lineNumberReader = new LineNumberReader(fileReader);
          
-         cpuHashMap = new HashMap();
+         this.cpuHashMap = new HashMap();
          
          if(lineNumberReader == null)
          {
@@ -108,21 +108,21 @@ public class Cpu implements CpuInterface, HardwareComponentInterface
                   int valueIndex = index+1;
                   String value = nextLine.substring(valueIndex,nextLine.length());
                   if(key.indexOf(CpuInfo.PROCESSOR.toString())>=0)
-                     cpuHashMap.put(CpuInfo.PROCESSOR,value);
+                     this.cpuHashMap.put(CpuInfo.PROCESSOR,value);
                   if(key.indexOf(CpuInfo.VENDORID.toString())>=0)
-                     cpuHashMap.put(CpuInfo.VENDORID,value);
+                     this.cpuHashMap.put(CpuInfo.VENDORID,value);
                   if(key.indexOf(CpuInfo.CPUFAMILY.toString())>=0)
-                     cpuHashMap.put(CpuInfo.CPUFAMILY,value);
+                     this.cpuHashMap.put(CpuInfo.CPUFAMILY,value);
                   if(key.indexOf(CpuInfo.MODEL.toString())>=0)
-                     cpuHashMap.put(CpuInfo.MODEL,value);
+                     this.cpuHashMap.put(CpuInfo.MODEL,value);
                   if(key.indexOf(CpuInfo.MODELNAME.toString())>=0)
-                     cpuHashMap.put(CpuInfo.MODELNAME,value);
+                     this.cpuHashMap.put(CpuInfo.MODELNAME,value);
                   if(key.indexOf(CpuInfo.STEPPING.toString())>=0)
-                     cpuHashMap.put(CpuInfo.STEPPING,value);
+                     this.cpuHashMap.put(CpuInfo.STEPPING,value);
                   if(key.indexOf(CpuInfo.CPUMHZ.toString())>=0)
-                     cpuHashMap.put(CpuInfo.CPUMHZ,value);
+                     this.cpuHashMap.put(CpuInfo.CPUMHZ,value);
                   if(key.indexOf(CpuInfo.CACHESIZE.toString())>=0)
-                     cpuHashMap.put(CpuInfo.CACHESIZE,value);
+                     this.cpuHashMap.put(CpuInfo.CACHESIZE,value);
                }
                nextLine = lineNumberReader.readLine();
             }
@@ -138,42 +138,42 @@ public class Cpu implements CpuInterface, HardwareComponentInterface
    
    public String getProcessor()
    {
-      return (String) cpuHashMap.get(CpuInfo.PROCESSOR);
+      return (String) this.cpuHashMap.get(CpuInfo.PROCESSOR);
    }
    
    public String getVendorId()
    {
-      return (String) cpuHashMap.get(CpuInfo.VENDORID);
+      return (String) this.cpuHashMap.get(CpuInfo.VENDORID);
    }
    
    public String getCpuFamily()
    {
-      return (String) cpuHashMap.get(CpuInfo.CPUFAMILY);
+      return (String) this.cpuHashMap.get(CpuInfo.CPUFAMILY);
    }
    
    public String getModel()
    {
-      return (String) cpuHashMap.get(CpuInfo.MODEL);
+      return (String) this.cpuHashMap.get(CpuInfo.MODEL);
    }
    
    public String getModelName()
    {
-      return (String) cpuHashMap.get(CpuInfo.MODELNAME);
+      return (String) this.cpuHashMap.get(CpuInfo.MODELNAME);
    }
    
    public String getStepping()
    {
-      return (String) cpuHashMap.get(CpuInfo.STEPPING);
+      return (String) this.cpuHashMap.get(CpuInfo.STEPPING);
    }
    
    public String getCpuSpeed()
    {
-      return (String) cpuHashMap.get(CpuInfo.CPUMHZ);
+      return (String) this.cpuHashMap.get(CpuInfo.CPUMHZ);
    }
    
    public String getCacheSize()
    {
-      return (String) cpuHashMap.get(CpuInfo.CACHESIZE);
+      return (String) this.cpuHashMap.get(CpuInfo.CACHESIZE);
    }
    
    public boolean compareTo(CpuInterface cpuInterface)

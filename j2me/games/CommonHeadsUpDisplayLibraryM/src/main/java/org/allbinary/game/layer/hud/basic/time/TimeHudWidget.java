@@ -73,9 +73,9 @@ public class TimeHudWidget extends BasicHud
     private void set()
     {
         // this.string = trackTimer;
-        this.string = timer.getTimeChars();
+        this.string = this.timer.getTimeChars();
 
-        totalDigits = timer.getCurrentTotalDigits();
+        this.totalDigits = this.timer.getCurrentTotalDigits();
     }
 
     public void paint(Graphics graphics)

@@ -41,7 +41,7 @@ public class IndependentVectorExplosionRotationAnimationFactory implements
 
     protected void init() throws Exception
     {
-        framePoints = VectorRotationGenerator.getInstance().getInstance(this.vectorInfo);
+        this.framePoints = VectorRotationGenerator.getInstance().getInstance(this.vectorInfo);
     }
     
     private final VectorExplosionGenerator vectorExplosionGenerator = VectorExplosionGenerator.getInstance();
@@ -56,8 +56,8 @@ public class IndependentVectorExplosionRotationAnimationFactory implements
             IndexedAnimation rotationAnimationInterface = (IndexedAnimation) animationInterface;
             frame = rotationAnimationInterface.getFrame();
         }
-        int[][][] points = vectorExplosionGenerator.getInstance(
-                framePoints[frame], 6, vectorExplosionGenerator.ROTATION);
+        int[][][] points = this.vectorExplosionGenerator.getInstance(
+                this.framePoints[frame], 6, vectorExplosionGenerator.ROTATION);
 
         return this.vectorAnimationFactoryInterface.getInstance(points, this.basicColor);
     }

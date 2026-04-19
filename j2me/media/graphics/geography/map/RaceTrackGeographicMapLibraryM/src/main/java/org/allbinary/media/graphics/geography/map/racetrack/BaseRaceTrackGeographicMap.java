@@ -93,7 +93,7 @@ public class BaseRaceTrackGeographicMap extends BasicGeographicMap
     @Override
     public void setRaceTrackInfo(RaceTrackInfo aRaceTrackInfo)
     {
-        raceTrackInfo = aRaceTrackInfo;
+        this.raceTrackInfo = aRaceTrackInfo;
     }
 
     public void setMiniBasicGeographicMap(BasicGeographicMap miniBasicGeographicMap)

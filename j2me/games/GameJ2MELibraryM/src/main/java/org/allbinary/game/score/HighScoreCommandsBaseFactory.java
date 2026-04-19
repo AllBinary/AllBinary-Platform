@@ -46,9 +46,9 @@ public class HighScoreCommandsBaseFactory {
 
     public boolean isHighScoreCommand(Command command)
     {
-        for(int index = HIGH_SCORE_COMMANDS.length - 1; index >= 0; index--)
+        for(int index = this.HIGH_SCORE_COMMANDS.length - 1; index >= 0; index--)
         {
-            if(command == HIGH_SCORE_COMMANDS[index])
+            if(command == this.HIGH_SCORE_COMMANDS[index])
             {
                 return true;
             }
@@ -59,9 +59,9 @@ public class HighScoreCommandsBaseFactory {
     public int getIndex(Command command)
     throws Exception
     {
-        for(int index = HIGH_SCORE_COMMANDS.length - 1; index >= 0; index--)
+        for(int index = this.HIGH_SCORE_COMMANDS.length - 1; index >= 0; index--)
         {
-            if(command == HIGH_SCORE_COMMANDS[index])
+            if(command == this.HIGH_SCORE_COMMANDS[index])
             {
                 return index;
             }

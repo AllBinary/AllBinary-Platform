@@ -62,13 +62,13 @@ public class SaveCapturedImageWorker extends BasicEventHandler
 	    timeHelper.setStartTime();
 	    CapturedImageWorkerResultsEvent capturedImageWorkerResultsEvent
 		= ((CapturedImageWorkerResultsEvent)
-		   capturedImageWorkerResultsEventVector.get(0));
+		   this.capturedImageWorkerResultsEventVector.get(0));
 	    BufferedImage screenBufferedImage
 		= capturedImageWorkerResultsEvent.getBufferedImage();
 	    new CapturedImageInputOutput().save(screenBufferedImage,
 						capturedImageWorkerResultsEvent
 						    .getFrame());
-	    capturedImageWorkerResultsEventVector
+	    this.capturedImageWorkerResultsEventVector
 		.remove(capturedImageWorkerResultsEvent);
 	    this.logUtil.putF(CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN);
 	    setRunning(false);

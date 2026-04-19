@@ -21,17 +21,17 @@ public class HtmlTags
    
    public HtmlTags()
    {
-      htmlTagVector = new Vector();
+      this.htmlTagVector = new Vector();
    }
 
    public HtmlTag get(int index)
    {
-      return (HtmlTag) htmlTagVector.get(index);
+      return (HtmlTag) this.htmlTagVector.get(index);
    }
 
    public void add(HtmlTag htmlTag)
    {
-      htmlTagVector.add(htmlTag);
+      this.htmlTagVector.add(htmlTag);
    }
    
    public int size()

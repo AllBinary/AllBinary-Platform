@@ -157,34 +157,34 @@ public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
    // <editor-fold defaultstate="collapsed" desc=" Generated Code ">//GEN-BEGIN:initComponents
    private void initComponents()
    {
-      keyActionJDialog = new javax.swing.JDialog();
-      titleJLabel = new javax.swing.JLabel();
-      addKeyJLabel = new javax.swing.JLabel();
-      keyNameJComboBox = new javax.swing.JComboBox();
-      timeJTextField = new javax.swing.JTextField();
-      holdTimeJLabel = new javax.swing.JLabel();
-      inputAutomationTypeJComboBox = new javax.swing.JComboBox();
-      inputTypeJLabel = new javax.swing.JLabel();
-      delayJTextField = new javax.swing.JTextField();
-      delayBetweenJLabel = new javax.swing.JLabel();
-      testJLabel = new javax.swing.JLabel();
-      textJTextField = new javax.swing.JTextField();
-      pressJRadioButton = new javax.swing.JRadioButton();
-      releaseJRadioButton = new javax.swing.JRadioButton();
-      normalJRadioButton = new javax.swing.JRadioButton();
-      simultaneousJRadioButton = new javax.swing.JRadioButton();
-      sequenceJRadioButton = new javax.swing.JRadioButton();
-      jPanel1 = new javax.swing.JPanel();
-      okJButton = new javax.swing.JButton();
-      keyIntegerJComboBox = new javax.swing.JComboBox();
-      keyActionJButton = new javax.swing.JButton();
-      jLabel1 = new javax.swing.JLabel();
+      this.keyActionJDialog = new javax.swing.JDialog();
+      this.titleJLabel = new javax.swing.JLabel();
+      this.addKeyJLabel = new javax.swing.JLabel();
+      this.keyNameJComboBox = new javax.swing.JComboBox();
+      this.timeJTextField = new javax.swing.JTextField();
+      this.holdTimeJLabel = new javax.swing.JLabel();
+      this.inputAutomationTypeJComboBox = new javax.swing.JComboBox();
+      this.inputTypeJLabel = new javax.swing.JLabel();
+      this.delayJTextField = new javax.swing.JTextField();
+      this.delayBetweenJLabel = new javax.swing.JLabel();
+      this.testJLabel = new javax.swing.JLabel();
+      this.textJTextField = new javax.swing.JTextField();
+      this.pressJRadioButton = new javax.swing.JRadioButton();
+      this.releaseJRadioButton = new javax.swing.JRadioButton();
+      this.normalJRadioButton = new javax.swing.JRadioButton();
+      this.simultaneousJRadioButton = new javax.swing.JRadioButton();
+      this.sequenceJRadioButton = new javax.swing.JRadioButton();
+      this.jPanel1 = new javax.swing.JPanel();
+      this.okJButton = new javax.swing.JButton();
+      this.keyIntegerJComboBox = new javax.swing.JComboBox();
+      this.keyActionJButton = new javax.swing.JButton();
+      this.jLabel1 = new javax.swing.JLabel();
 
-      keyActionJDialog.setMinimumSize(new java.awt.Dimension(255, 280));
-      titleJLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-      titleJLabel.setText("Keyboard Input Options");
+      this.keyActionJDialog.setMinimumSize(new java.awt.Dimension(255, 280));
+      this.titleJLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+      this.titleJLabel.setText("Keyboard Input Options");
 
-      addKeyJLabel.setText("Add Key:");
+      this.addKeyJLabel.setText("Add Key:");
 
       keyNameJComboBox.addActionListener(new java.awt.event.ActionListener()
       {
@@ -194,23 +194,23 @@ public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
          }
       });
 
-      timeJTextField.setText(CommonPhoneStrings.getInstance().ZERO);
+      this.timeJTextField.setText(CommonPhoneStrings.getInstance().ZERO);
 
-      holdTimeJLabel.setText("Hold Time (ms):");
+      this.holdTimeJLabel.setText("Hold Time (ms):");
 
-      inputTypeJLabel.setText("Input Type:");
+      this.inputTypeJLabel.setText("Input Type:");
 
-      delayJTextField.setText(CommonPhoneStrings.getInstance().ZERO);
+      this.delayJTextField.setText(CommonPhoneStrings.getInstance().ZERO);
 
-      delayBetweenJLabel.setText("Delay Between Keys (ms):");
+      this.delayBetweenJLabel.setText("Delay Between Keys (ms):");
 
-      testJLabel.setText("Text:");
+      this.testJLabel.setText("Text:");
 
-      textJTextField.setText(CommonPhoneStrings.getInstance().ZERO);
+      this.textJTextField.setText(CommonPhoneStrings.getInstance().ZERO);
 
-      pressJRadioButton.setText("Press");
-      pressJRadioButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-      pressJRadioButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+      this.pressJRadioButton.setText("Press");
+      this.pressJRadioButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+      this.pressJRadioButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
       pressJRadioButton.addActionListener(new java.awt.event.ActionListener()
       {
          public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -219,9 +219,9 @@ public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
          }
       });
 
-      releaseJRadioButton.setText("Release");
-      releaseJRadioButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-      releaseJRadioButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+      this.releaseJRadioButton.setText("Release");
+      this.releaseJRadioButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+      this.releaseJRadioButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
       releaseJRadioButton.addActionListener(new java.awt.event.ActionListener()
       {
          public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -230,10 +230,10 @@ public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
          }
       });
 
-      normalJRadioButton.setSelected(true);
-      normalJRadioButton.setText("Normal");
-      normalJRadioButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-      normalJRadioButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+      this.normalJRadioButton.setSelected(true);
+      this.normalJRadioButton.setText("Normal");
+      this.normalJRadioButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+      this.normalJRadioButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
       normalJRadioButton.addActionListener(new java.awt.event.ActionListener()
       {
          public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -242,10 +242,10 @@ public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
          }
       });
 
-      simultaneousJRadioButton.setSelected(true);
-      simultaneousJRadioButton.setText("Simultaneous");
-      simultaneousJRadioButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-      simultaneousJRadioButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+      this.simultaneousJRadioButton.setSelected(true);
+      this.simultaneousJRadioButton.setText("Simultaneous");
+      this.simultaneousJRadioButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+      this.simultaneousJRadioButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
       simultaneousJRadioButton.addActionListener(new java.awt.event.ActionListener()
       {
          public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -254,9 +254,9 @@ public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
          }
       });
 
-      sequenceJRadioButton.setText("Sequence");
-      sequenceJRadioButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-      sequenceJRadioButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+      this.sequenceJRadioButton.setText("Sequence");
+      this.sequenceJRadioButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+      this.sequenceJRadioButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
       sequenceJRadioButton.addActionListener(new java.awt.event.ActionListener()
       {
          public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -265,8 +265,8 @@ public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
          }
       });
 
-      okJButton.setText("OK");
-      okJButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+      this.okJButton.setText("OK");
+      this.okJButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
       okJButton.addActionListener(new java.awt.event.ActionListener()
       {
          public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -275,7 +275,7 @@ public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
          }
       });
 
-      jPanel1.add(okJButton);
+      this.jPanel1.add(this.okJButton);
 
       keyIntegerJComboBox.addActionListener(new java.awt.event.ActionListener()
       {
@@ -285,8 +285,8 @@ public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
          }
       });
 
-      javax.swing.GroupLayout keyActionJDialogLayout = new javax.swing.GroupLayout(keyActionJDialog.getContentPane());
-      keyActionJDialog.getContentPane().setLayout(keyActionJDialogLayout);
+      javax.swing.GroupLayout keyActionJDialogLayout = new javax.swing.GroupLayout(this.keyActionJDialog.getContentPane());
+      this.keyActionJDialog.getContentPane().setLayout(keyActionJDialogLayout);
       keyActionJDialogLayout.setHorizontalGroup(
          keyActionJDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
          .addGroup(keyActionJDialogLayout.createSequentialGroup()
@@ -368,7 +368,7 @@ public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
       );
 
       setMinimumSize(new java.awt.Dimension(100, 0));
-      keyActionJButton.setText("Edit");
+      this.keyActionJButton.setText("Edit");
       keyActionJButton.addActionListener(new java.awt.event.ActionListener()
       {
          public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -377,7 +377,7 @@ public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
          }
       });
 
-      jLabel1.setText("Key:");
+      this.jLabel1.setText("Key:");
 
       javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
       this.setLayout(layout);

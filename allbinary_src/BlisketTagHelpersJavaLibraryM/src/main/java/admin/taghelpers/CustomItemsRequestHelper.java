@@ -52,13 +52,13 @@ public class CustomItemsRequestHelper extends ModifyTable
    
    public void getFormData()
    {
-      this.id = request.getParameter(BasicItemData.ID);
+      this.id = this.request.getParameter(BasicItemData.ID);
 
-      this.className = request.getParameter(DynamicObjectData.NAME);
-      this.packageName = request.getParameter(CustomItemData.PACKAGE);
+      this.className = this.request.getParameter(DynamicObjectData.NAME);
+      this.packageName = this.request.getParameter(CustomItemData.PACKAGE);
 
-      this.timeEntered = request.getParameter(EntryData.getInstance().TIMECREATED);
-      this.lastModified = request.getParameter(EntryData.getInstance().LASTMODIFIED);
+      this.timeEntered = this.request.getParameter(EntryData.getInstance().TIMECREATED);
+      this.lastModified = this.request.getParameter(EntryData.getInstance().LASTMODIFIED);
    }
 
    private HashMap getHashMap()
@@ -86,7 +86,7 @@ public class CustomItemsRequestHelper extends ModifyTable
          String time = new String(new Long(calendar.getTimeInMillis()).toString());
          Vector values = new Vector();
 
-         values.add(id);
+         values.add(this.id);
          
          values.add(this.className);
          values.add(this.packageName);
@@ -96,7 +96,7 @@ public class CustomItemsRequestHelper extends ModifyTable
          
          CustomItemsEntityFactory.getInstance().getCustomItemsEntityInstance().insert(values);
          
-         String success = "Successfully inserted " + id + " into items table";
+         String success = "Successfully inserted " + this.id + " into items table";
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
@@ -120,7 +120,7 @@ public class CustomItemsRequestHelper extends ModifyTable
    {
       try
       {
-         CustomItemsEntityFactory.getInstance().getCustomItemsEntityInstance().delete(id);
+         CustomItemsEntityFactory.getInstance().getCustomItemsEntityInstance().delete(this.id);
          
          String success = "Successfully deleted";
          
@@ -154,7 +154,7 @@ public class CustomItemsRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.putF(new StringMaker().append(id).append(CommonSeps.getInstance().SPACE).append(success).toString(),this,"update()");
+            this.logUtil.putF(new StringMaker().append(this.id).append(CommonSeps.getInstance().SPACE).append(success).toString(),this,"update()");
          }
          return success;
       }

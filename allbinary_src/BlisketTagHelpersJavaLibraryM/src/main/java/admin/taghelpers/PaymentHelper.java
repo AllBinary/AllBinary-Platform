@@ -54,7 +54,7 @@ public class PaymentHelper extends Table
    
    private void getFormData()
    {
-      this.value = request.getParameter("VALUE"); 
+      this.value = this.request.getParameter("VALUE"); 
    }      
       
    public String insert()
@@ -66,7 +66,7 @@ public class PaymentHelper extends Table
          PaymentEntity paymentEntity =
              PaymentEntityFactory.getInstance().getPaymentEntityInstance();
          
-         PaymentInterface paymentInterface = PaymentFactory.getInstance(request);
+         PaymentInterface paymentInterface = PaymentFactory.getInstance(this.request);
          paymentEntity.add(
             this.weblisketSession.getUserName(),paymentInterface);
          paymentEntity.setDefault(

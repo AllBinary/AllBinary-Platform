@@ -34,7 +34,7 @@ public class BasicOptionItemsEntity extends AbSqlBean implements BasicOptionItem
     public BasicOptionItemsEntity()
     {
         super(new InventoryDbInitInfo());
-        this.setTableName(tableName);
+        this.setTableName(this.tableName);
     }
 
     public void insert(Vector values)

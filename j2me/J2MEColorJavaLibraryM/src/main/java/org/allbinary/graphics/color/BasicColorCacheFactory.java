@@ -33,17 +33,17 @@ public class BasicColorCacheFactory
     public void add(final BasicColor basicDefaultColor)
     {
         // hashtable.put(Integer.valueOf(value), this);
-        hashtable.put(new Integer(basicDefaultColor.intValue()),basicDefaultColor);
+        this.hashtable.put(new Integer(basicDefaultColor.intValue()),basicDefaultColor);
     }
 
     public synchronized BasicColor getInstance(final Integer integer)
     {
-        BasicColor basicColor = (BasicColor) hashtable.get(integer);
+        BasicColor basicColor = (BasicColor) this.hashtable.get(integer);
 
         if (basicColor == null)
         {
             basicColor = BasicColorFactory.getInstance().createInstance(integer.intValue());
-            hashtable.put(integer, basicColor);
+            this.hashtable.put(integer, basicColor);
         }
 
         return basicColor;

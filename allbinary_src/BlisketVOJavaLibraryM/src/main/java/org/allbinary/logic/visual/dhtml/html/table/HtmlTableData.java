@@ -38,5 +38,5 @@ public class HtmlTableData {
 	   public final String ROWS = "rows";      
 	   
 	   public final String[] FRAMES =
-	   {NONE,TOP,BOTTOM,TOPBOT,SIDES,ALL,BORDERED};
+	   {this.NONE,TOP,BOTTOM,TOPBOT,SIDES,ALL,this.BORDERED};
 }

@@ -60,7 +60,7 @@ public class MyCanvas extends Canvas
 
         //This should update display info for J2ME Emulator. 
         //It could also be set with basically an event.
-        displayInfoSingleton.update(this, canvasStrings.CONSTRUCTOR);
+        this.displayInfoSingleton.update(this, canvasStrings.CONSTRUCTOR);
 
         this.name = name;
         this.childNameList = childNameList;
@@ -77,13 +77,13 @@ public class MyCanvas extends Canvas
 
         //PreLogUtil.put("New W: " + this.getWidth() + " H: " + this.getHeight() +  " m: " + mode + " fs: " + this.isFullScreenMode(), this, "setFullScreenMode");
 
-        displayInfoSingleton.update(this, canvasStrings.SET_FULL_SCREEN_MODE);
+        this.displayInfoSingleton.update(this, canvasStrings.SET_FULL_SCREEN_MODE);
     }
 
     @Override
     protected void sizeChanged(int w, int h)
     {
-        displayInfoSingleton.update(this, canvasStrings.SIZE_CHANGED);
+        this.displayInfoSingleton.update(this, canvasStrings.SIZE_CHANGED);
     }
     
     public Stack<Object> getCommandStack()
@@ -101,7 +101,7 @@ public class MyCanvas extends Canvas
     {
         if(!this.commandStack.contains(command))
         {
-            commandStack.push(command);
+            this.commandStack.push(command);
             super.addCommand(command);
         }
     }
@@ -110,17 +110,17 @@ public class MyCanvas extends Canvas
     public synchronized void removeCommand(Command command)
     {
         //commandStack.remove(command);
-        commandStack.removeElement(command);
+        this.commandStack.removeElement(command);
         super.removeCommand(command);
     }
 
     @Override
     public synchronized void removeAllCommands()
     {
-        int size = commandStack.size();
+        int size = this.commandStack.size();
         for (int index = 0; index < size; index++)
         {
-            super.removeCommand((Command) commandStack.pop());
+            super.removeCommand((Command) this.commandStack.pop());
         }
     }
     
@@ -130,7 +130,7 @@ public class MyCanvas extends Canvas
     public void setCommandListener(CommandListener l)
     {
         super.setCommandListener(l);
-        listener = l;
+        this.listener = l;
     }
 
     public CommandListener getCustomCommandListener()
@@ -150,7 +150,7 @@ public class MyCanvas extends Canvas
 
     public synchronized void pause()
     {
-        this.logUtil.putF(commonStrings.START, this, canvasStrings.PAUSE);
+        this.logUtil.putF(this.commonStrings.START, this, canvasStrings.PAUSE);
         this.removePauseCommand();
         this.addCommand(MyCommandsFactory.getInstance().RESUME_COMMAND);
         this.setPaused(true);
@@ -158,7 +158,7 @@ public class MyCanvas extends Canvas
 
     public synchronized void unPause()
     {
-        this.logUtil.putF(commonStrings.START, this, canvasStrings.UN_PAUSE);
+        this.logUtil.putF(this.commonStrings.START, this, canvasStrings.UN_PAUSE);
 
         this.removeCommand(MyCommandsFactory.getInstance().RESUME_COMMAND);
         this.addCommand(MyCommandsFactory.getInstance().PAUSE_COMMAND);
@@ -167,7 +167,7 @@ public class MyCanvas extends Canvas
 
     protected void process() throws Exception
     {
-        displayInfoSingleton.process();
+        this.displayInfoSingleton.process();
     }
     
     //public void draw(gl)
@@ -236,7 +236,7 @@ public class MyCanvas extends Canvas
         //this.logUtil.putF(commonStrings.START, this, "pointerDragged");
         //PreLogUtil.put(commonStrings.START, this, "pointerDragged");
 
-        touchME.pointerDragged(x, y);
+        this.touchME.pointerDragged(x, y);
     }
 
     @Override
@@ -245,7 +245,7 @@ public class MyCanvas extends Canvas
         //this.logUtil.putF(commonStrings.START, this, "pointerPressed");
         //PreLogUtil.put(commonStrings.START, this, "pointerPressed");
 
-        touchME.pointerPressed(x, y);
+        this.touchME.pointerPressed(x, y);
     }
 
     @Override
@@ -254,7 +254,7 @@ public class MyCanvas extends Canvas
         //this.logUtil.putF(commonStrings.START, this, "pointerReleased");
         //PreLogUtil.put(commonStrings.START, this, "pointerReleased");
 
-        touchME.pointerReleased(x, y);
+        this.touchME.pointerReleased(x, y);
     }
     
     public void nextSong(final Sound nextSongSound, final int leftVolume, final int rightVolume) {

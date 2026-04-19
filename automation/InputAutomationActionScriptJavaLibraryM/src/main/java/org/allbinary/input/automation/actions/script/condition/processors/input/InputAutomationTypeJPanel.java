@@ -44,12 +44,12 @@ public class InputAutomationTypeJPanel extends javax.swing.JPanel
     // <editor-fold defaultstate="collapsed" desc=" Generated Code ">//GEN-BEGIN:initComponents
     private void initComponents()
     {
-        inputAutomationTypeJComboBox = new javax.swing.JComboBox();
-        jLabel1 = new javax.swing.JLabel();
+        this.inputAutomationTypeJComboBox = new javax.swing.JComboBox();
+        this.jLabel1 = new javax.swing.JLabel();
 
-        inputAutomationTypeJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "DirectX", "DirectX 8", "Low Level", "Java Robot" }));
+        this.inputAutomationTypeJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "DirectX", "DirectX 8", "Low Level", "Java Robot" }));
 
-        jLabel1.setText("Input Type:");
+        this.jLabel1.setText("Input Type:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

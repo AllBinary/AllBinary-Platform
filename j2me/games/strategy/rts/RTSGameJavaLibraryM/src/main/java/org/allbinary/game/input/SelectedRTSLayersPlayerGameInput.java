@@ -75,7 +75,7 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
             BasicArrayList list, int playerInputId, 
             SelectRTSLayerVisitorFactoryInterface selectRTSLayerVisitorFactoryInterface)
     {
-        super(list, playerInputId);
+        super(this.list, playerInputId);
 
         this.initInputProcessors();
 
@@ -156,7 +156,7 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
                 {
                     anyChanged = true;
 
-                    rtsPlayerLayerInterface.add(UpgradeSound.getInstance());
+                    this.rtsPlayerLayerInterface.add(UpgradeSound.getInstance());
 
                     rtsLayer.upgrade();
 
@@ -164,7 +164,7 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
 
                     // this.towerInfoPaintable.updateRTSLayerInfo(this.selectedLayer);
 
-                    if(!rtsPlayerLayerInterface.implmentsArtificialIntelligenceCompositeInterface())
+                    if(!this.rtsPlayerLayerInterface.implmentsArtificialIntelligenceCompositeInterface())
                     {
                         GameNotificationEventHandler.getInstance().fireEvent(
                                 upgradeGameNotificationEvent);
@@ -172,9 +172,9 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
                     
                 } else
                 {
-                    rtsPlayerLayerInterface.add(ErrorSound.getInstance());
+                    this.rtsPlayerLayerInterface.add(ErrorSound.getInstance());
 
-                    if(!rtsPlayerLayerInterface.implmentsArtificialIntelligenceCompositeInterface())
+                    if(!this.rtsPlayerLayerInterface.implmentsArtificialIntelligenceCompositeInterface())
                     {
                         //Not enough money
                         GameNotificationEventHandler.getInstance().fireEvent(
@@ -205,7 +205,7 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
             {
                 anyChanged = true;
                 
-                rtsPlayerLayerInterface.add(DowngradeSound.getInstance());
+                this.rtsPlayerLayerInterface.add(DowngradeSound.getInstance());
 
                 int downgradeCost = rtsLayer.getDowngradeCost();
 
@@ -217,7 +217,7 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
 
                 // this.towerInfoPaintable.updateRTSLayerInfo(this.selectedLayer);
 
-                if(!rtsPlayerLayerInterface.implmentsArtificialIntelligenceCompositeInterface())
+                if(!this.rtsPlayerLayerInterface.implmentsArtificialIntelligenceCompositeInterface())
                 {
                     GameNotificationEventHandler.getInstance().fireEvent(
                             downgradeGameNotificationEvent);
@@ -257,12 +257,12 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
     {
         try
         {
-            int size = list.size();
+            int size = this.list.size();
             int key = 0;
 
             for (int index = 0; index < size; index++)
             {
-                GameKeyEvent gameKeyEvent = (GameKeyEvent) list.get(index);
+                GameKeyEvent gameKeyEvent = (GameKeyEvent) this.list.get(index);
                 key = gameKeyEvent.getKey();
 
                 this.processInput(key);

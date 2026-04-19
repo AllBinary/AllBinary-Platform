@@ -217,10 +217,10 @@ public class TableTag extends PropertiesTag
     {
         try
         {
-            Class helperClass = requestObject.getClass();
+            Class helperClass = this.requestObject.getClass();
             Method method = helperClass.getMethod("insert", null);
 
-            String result = (String) method.invoke(requestObject, null);
+            String result = (String) method.invoke(this.requestObject, null);
             return result;
         } catch (Exception e)
         {
@@ -238,10 +238,10 @@ public class TableTag extends PropertiesTag
     {
         try
         {
-            Class helperClass = requestObject.getClass();
+            Class helperClass = this.requestObject.getClass();
             Method method = helperClass.getMethod(commonStrings.delete, null);
 
-            String result = (String) method.invoke(requestObject, null);
+            String result = (String) method.invoke(this.requestObject, null);
             return result;
         } catch (Exception e)
         {
@@ -286,7 +286,7 @@ public class TableTag extends PropertiesTag
     {
     try
     {
-    Class helperClass = requestObject.getClass();
+    Class helperClass = this.requestObject.getClass();
     Method method = helperClass.getMethod("edit",null);
 
     String result = (String) method.invoke(object,null);
@@ -312,10 +312,10 @@ public class TableTag extends PropertiesTag
     {
         try
         {
-            Class helperClass = requestObject.getClass();
+            Class helperClass = this.requestObject.getClass();
             Method method = helperClass.getMethod("update", null);
 
-            String result = (String) method.invoke(requestObject, null);
+            String result = (String) method.invoke(this.requestObject, null);
             return result;
         } catch (Exception e)
         {

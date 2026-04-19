@@ -39,13 +39,13 @@ public class ImageJPanel extends javax.swing.JPanel {
     }
 
     public void paint(Graphics graphics) {
-        if (!isDrawn) {
-            this.logUtil.putF(commonStrings.START, this, canvasStrings.PAINT);
+        if (!this.isDrawn) {
+            this.logUtil.putF(this.commonStrings.START, this, canvasStrings.PAINT);
 
             graphics.drawImage(bufferedImage, 0, 0,
                     this.bufferedImage.getWidth(null),
                     this.bufferedImage.getHeight(null), null);
-            isDrawn = true;
+            this.isDrawn = true;
         }
     }
 

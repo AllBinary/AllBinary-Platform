@@ -87,7 +87,7 @@ public class GameDifficultyOptions extends CommandForm
     {
         this.deleteAll();
 
-        this.add(list, "Difficulty", Choice.EXCLUSIVE);
+        this.add(this.list, "Difficulty", Choice.EXCLUSIVE);
 
         super.update();
     }

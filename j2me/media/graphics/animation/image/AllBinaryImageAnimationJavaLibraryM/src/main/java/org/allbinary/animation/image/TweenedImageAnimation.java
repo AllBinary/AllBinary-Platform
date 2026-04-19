@@ -107,8 +107,8 @@ public class TweenedImageAnimation extends IndexedAnimation //implements AutoClo
     public void paint(Graphics graphics, int x, int y)
     {
         int frame = this.getFrame();
-        int currentX = dx * frame; 
-        int currentY = dy * frame;
+        int currentX = this.dx * frame; 
+        int currentY = this.dy * frame;
 
         graphics.drawImage(this.image, x + currentX, y + currentY, anchor);
     }

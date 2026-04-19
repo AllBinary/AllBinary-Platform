@@ -79,7 +79,7 @@ public class InventoryItemView extends HttpStoreComponentView
 
     private void getFormData() throws Exception
     {
-        this.setRequestHashMap(new MultipartRequestParams(request).toHashMap());
+        this.setRequestHashMap(new MultipartRequestParams(this.request).toHashMap());
 
         Object imageFileItemObject =
             this.getRequestHashMap().get(BasicItemData.IMAGE);
@@ -126,7 +126,7 @@ public class InventoryItemView extends HttpStoreComponentView
             vector.add(new DownloadableItemView(downloadableItem));
         }
 
-        this.addDomNodeInterface(new BasicItemView(itemInterface, vector));
+        this.addDomNodeInterface(new BasicItemView(this.itemInterface, vector));
     }
 
     public ItemInterface getItemInterface()

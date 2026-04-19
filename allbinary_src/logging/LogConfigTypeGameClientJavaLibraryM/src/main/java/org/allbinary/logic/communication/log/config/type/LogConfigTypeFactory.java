@@ -35,7 +35,7 @@ public class LogConfigTypeFactory {
    
    private LogConfigTypeFactory() {
        LogConfigTypes.LOGGING.add(OS);
-       LogConfigTypes.LOGGING.add(FACTORYERROR);
+       LogConfigTypes.LOGGING.add(this.FACTORYERROR);
    }
 
 }

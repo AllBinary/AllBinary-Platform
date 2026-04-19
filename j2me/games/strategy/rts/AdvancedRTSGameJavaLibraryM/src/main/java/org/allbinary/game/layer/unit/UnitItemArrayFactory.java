@@ -58,7 +58,7 @@ implements ItemArraySingletonFactoryInterface
         throws Exception
     {
         String name = flagResources.NAME;
-        int index = name.indexOf(commonSeps.SPACE);
+        int index = name.indexOf(this.commonSeps.SPACE);
         if (index >= 0)
         {
             name = name.substring(index);
@@ -89,7 +89,7 @@ implements ItemArraySingletonFactoryInterface
             ImageCache IMAGE_CACHE = GameFeatureImageCacheFactory.getInstance();
 
             String name = unitResources.NAME;
-            int index = name.indexOf(commonSeps.SPACE);
+            int index = name.indexOf(this.commonSeps.SPACE);
             if (index >= 0)
             {
                 name = name.substring(index);

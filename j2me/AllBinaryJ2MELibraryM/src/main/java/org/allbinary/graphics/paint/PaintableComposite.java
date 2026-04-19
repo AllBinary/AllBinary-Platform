@@ -31,7 +31,7 @@ public class PaintableComposite extends Paintable
    @Override
    public void paint(final Graphics graphics)
    {
-      for(int index = paintableArray.length - 1; index >= 0; index--)
+      for(int index = this.paintableArray.length - 1; index >= 0; index--)
       {
          this.paintableArray[index].paint(graphics);
       }
@@ -40,7 +40,7 @@ public class PaintableComposite extends Paintable
    @Override
    public void paintThreed(Graphics graphics)
    {
-      for(int index = paintableArray.length - 1; index >= 0; index--)
+      for(int index = this.paintableArray.length - 1; index >= 0; index--)
       {
          this.paintableArray[index].paintThreed(graphics);
       }

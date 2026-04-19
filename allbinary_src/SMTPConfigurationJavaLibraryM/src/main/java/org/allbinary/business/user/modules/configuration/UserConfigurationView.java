@@ -44,7 +44,7 @@ public class UserConfigurationView
 
       UserEmailConfigurationInterface userEmailConfigurationInterface = (UserEmailConfigurationInterface) 
          userEmailConfigurationView.getEmailConfigurationInterface();
-      userConfigurationInterface.setUserEmailConfigurationInterface(userEmailConfigurationInterface);
+      this.userConfigurationInterface.setUserEmailConfigurationInterface(userEmailConfigurationInterface);
   
       /*
       Node ftpConfigurationNode = DomSearchHelper.getNode(
@@ -95,15 +95,15 @@ public class UserConfigurationView
 
       /*
       FtpConfigurationView ftpConfigurationView = 
-         new FtpConfigurationView(userConfigurationInterface.getFtpConfigurationInterface());
+         new FtpConfigurationView(this.userConfigurationInterface.getFtpConfigurationInterface());
       node.appendChild(ftpConfigurationView.toXmlNode(document));
 */
       TimeCreatedView timeCreatedView = 
-         new TimeCreatedView(userConfigurationInterface.getTimeCreated());
+         new TimeCreatedView(this.userConfigurationInterface.getTimeCreated());
       node.appendChild(timeCreatedView.toXmlNode(document));
 
       TimeLastModifiedView timeLastModifiedView = 
-         new TimeLastModifiedView(userConfigurationInterface.getTimeLastModified());
+         new TimeLastModifiedView(this.userConfigurationInterface.getTimeLastModified());
       node.appendChild(timeLastModifiedView.toXmlNode(document));
 
       return node;

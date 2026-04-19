@@ -25,21 +25,21 @@ public class CachePolicyFactory
     public final String NAME = "lru";
     
     public CachePolicy MAX_TIME_THOUSAND_MAX = 
-        new CachePolicy(NAME, Long.MAX_VALUE, 1000);
+        new CachePolicy(this.NAME, Long.MAX_VALUE, 1000);
 
     public CachePolicy THIRTY_MINUTES_TEN_THOUSAND_MAX = 
-        new CachePolicy(NAME, 1000 * 60 * 30, 10000);
+        new CachePolicy(this.NAME, 1000 * 60 * 30, 10000);
 
     public CachePolicy THIRTY_MINUTES_FIFTY_THOUSAND_MAX = 
-        new CachePolicy(NAME, 1000 * 60 * 30, 100000);
+        new CachePolicy(this.NAME, 1000 * 60 * 30, 100000);
     
     public CachePolicy ONE_MINUTE_FIVE_MAX = 
-        new CachePolicy(NAME, 1000 * 60 * 1, 5);
+        new CachePolicy(this.NAME, 1000 * 60 * 1, 5);
 
     public CachePolicy ONE_MINUTE_TEN_MAX = 
-        new CachePolicy(NAME, 1000 * 60 * 1, 10);
+        new CachePolicy(this.NAME, 1000 * 60 * 1, 10);
 
     public CachePolicy ONE_MINUTE_ONE_HUNDRED_MAX = 
-        new CachePolicy(NAME, 1000 * 60 * 1, 100);
+        new CachePolicy(this.NAME, 1000 * 60 * 1, 100);
     
 }

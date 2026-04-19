@@ -76,7 +76,7 @@ public class ImageArrayRotationAnimation extends
 
         this.angleInfo.adjustAngle(0);
 
-        if (expectedTotalFrames != this.getSize())
+        if (this.expectedTotalFrames != this.getSize())
         {
             throw new Exception("Wrong Number of Frames");
         }

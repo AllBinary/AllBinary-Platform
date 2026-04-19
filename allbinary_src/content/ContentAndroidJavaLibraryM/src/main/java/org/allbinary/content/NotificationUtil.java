@@ -47,11 +47,11 @@ public class NotificationUtil
         
         if(SDK_VERSION > 22)
         {
-            notificationBuilder = new NotificationBuilderAPI23();
+            this.notificationBuilder = new NotificationBuilderAPI23();
         }
         else
         {
-            notificationBuilder = NotificationBuilder.NULL_NOTIFICATION_BUILDER;
+            this.notificationBuilder = NotificationBuilder.NULL_NOTIFICATION_BUILDER;
             //notificationBuilder = new NotificationBuilderThroughAPI22();
         }
     }
@@ -76,14 +76,14 @@ public class NotificationUtil
         final int SDK_VERSION = AndroidInfoFactory.getInstance().getVersion();
         final PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, SDK_VERSION > 22 ? FLAG_IMMUTABLE : 0);
 
-        if(notificationBuilder == null) {
+        if(this.notificationBuilder == null) {
             final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.putF(commonStrings.EXCEPTION, this, commonStrings.NOT_IMPLEMENTED);
             return;
         }
         
         //final Notification notification = (Notification) 
-            notificationBuilder.build(context, command, message, integer, pendingIntent);
+            this.notificationBuilder.build(context, command, message, integer, pendingIntent);
         
         //Android 13 requires a permission for this
         //notificationManager.notify(TsUtil.getInstance().hashCode(command), notification);

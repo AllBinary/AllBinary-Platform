@@ -85,7 +85,7 @@ public class AbstractInputAutomationWorker
 
     protected synchronized boolean isAnyDataWorkerRunning()
     {
-        if(captureThread != null && 
+        if(this.captureThread != null && 
             (captureThread.isAlive() || this.getCaptureWorker().isRunning() ||
             this.getMotionRectanglesWorker().isRunning() ||
             this.getImageComparisonWorker().isRunning()))
@@ -99,12 +99,12 @@ public class AbstractInputAutomationWorker
     {
         if(!isAnyDataWorkerRunning())
         {
-            captureThread = new Thread(this.getCaptureWorker());
+            this.captureThread = new Thread(this.getCaptureWorker());
 
             this.logUtil.putF("Starting CaptureWorkers - Need more images - Thread State: " + 
                 captureThread.getState().toString(), this, "startCaptureWorkers");
 
-            captureThread.start();
+            this.captureThread.start();
             //this.getCaptureWorker().run();
         }
     }

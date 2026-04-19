@@ -55,8 +55,8 @@ public class CountedLayersHudPaintable implements PaintableInterface
    @Override
    public void paint(Graphics graphics)
    {
-      int height = myFont.DEFAULT_CHAR_HEIGHT;
-      if(this.dropSize > myFont.DEFAULT_CHAR_HEIGHT)
+      int height = this.myFont.DEFAULT_CHAR_HEIGHT;
+      if(this.dropSize > this.myFont.DEFAULT_CHAR_HEIGHT)
       {
           height = this.dropSize;
       }
@@ -66,17 +66,17 @@ public class CountedLayersHudPaintable implements PaintableInterface
       int widthEdge = lastWidth - this.dropSize;
       int y;
 
-      int size = partInterfaceArray.length;
+      int size = this.partInterfaceArray.length;
       
       CountedLayerInterfaceFactoryPart countedLayerInterfaceFactory;
       PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface;
       AllBinaryLayer layerInterface;
       char[] charArray;
       
-      for (int index = startIndex; index < size; index++)
+      for (int index = this.startIndex; index < size; index++)
       {
           countedLayerInterfaceFactory =
-                 (CountedLayerInterfaceFactoryPart) partInterfaceArray[index];
+                 (CountedLayerInterfaceFactoryPart) this.partInterfaceArray[index];
 
          if (countedLayerInterfaceFactory.getTotal() > 0)
          {
@@ -91,7 +91,7 @@ public class CountedLayersHudPaintable implements PaintableInterface
             layerInterface.setPosition(widthEdge, y, layerInterface.getZP());
             layerInterface.paint(graphics);
 
-            graphics.setColor(countedTotalStringColor);
+            graphics.setColor(this.countedTotalStringColor);
 
             //graphics.drawString(countedLayerInterfaceFactory.getTotalString(),
             charArray = countedLayerInterfaceFactory.getTotalString();
@@ -105,7 +105,7 @@ public class CountedLayersHudPaintable implements PaintableInterface
 
       if (count > 0)
       {
-         graphics.setColor(countedPartsBorder);
+         graphics.setColor(this.countedPartsBorder);
 
          graphics.drawRect(lastWidth - (XXStringWidth + this.dropSize),
                  40, XXStringWidth + this.dropSize, (count * height) + 3);

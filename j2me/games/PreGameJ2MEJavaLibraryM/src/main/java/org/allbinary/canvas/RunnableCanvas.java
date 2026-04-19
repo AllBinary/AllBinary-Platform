@@ -114,11 +114,11 @@ public class RunnableCanvas extends MyCanvas
             this.thread = NullThread.NULL_THREAD;
             synchronized(this)
             {
-                threadObjectUtil.notifyObject(this);
+                this.threadObjectUtil.notifyObject(this);
             }
         }
 
-        this.logUtil.putF(new StringMaker().append(IS_RUNNING).appendboolean(this.running).toString(), this, SET_RUNNING);
+        this.logUtil.putF(new StringMaker().append(this.IS_RUNNING).appendboolean(this.running).toString(), this, SET_RUNNING);
     }
 
     protected final String SET_RUNNING = "setRunning";
@@ -144,12 +144,12 @@ public class RunnableCanvas extends MyCanvas
         {
             final StringMaker stringBuffer = new StringMaker();
             
-            stringBuffer.append(THREAD);
+            stringBuffer.append(this.THREAD);
             if(this.thread != null) {
                 stringBuffer.append(this.thread.toString());
             }
             
-            stringBuffer.append(NOT_EQUAL);
+            stringBuffer.append(this.NOT_EQUAL);
 
             if(this.currentThread != null) {
                 stringBuffer.append(StringUtil.getInstance().toString(this.currentThread));
@@ -170,7 +170,7 @@ public class RunnableCanvas extends MyCanvas
 
     protected void setWait(int wait)
     {
-        loopTimeHelper.delay = wait;
+        this.loopTimeHelper.delay = wait;
         // this.wait = wait;
         this.pauseWait = (long) wait * 3;
         
@@ -189,7 +189,7 @@ public class RunnableCanvas extends MyCanvas
 
     protected void setCurrentThreadFake()
     {
-        this.currentThread = thread;
+        this.currentThread = this.thread;
     }
 
     @Override
@@ -224,10 +224,10 @@ public class RunnableCanvas extends MyCanvas
         {
             if (wait > 0)
             {
-                threadObjectUtil.waitObject(this, (long) wait);
+                this.threadObjectUtil.waitObject(this, (long) wait);
             } else
             {
-                threadObjectUtil.waitObject(this);
+                this.threadObjectUtil.waitObject(this);
             }
         }
 
@@ -261,7 +261,7 @@ public class RunnableCanvas extends MyCanvas
     {
         //this.logUtil.putF(PAUSE_SLEEP + this.pauseWait, this, commonStrings.PROCESS);
         //this.logUtil.putF(PAUSE_SLEEP + System.currentTimeMillis(), this, commonStrings.PROCESS);
-        Thread.sleep(pauseWait);
+        Thread.sleep(this.pauseWait);
     }
 
     public boolean isPausable()
@@ -288,13 +288,13 @@ public class RunnableCanvas extends MyCanvas
         
         if(this.isPaused() && this.isRunning() && !this.isSingleThread()) {
             final StringMaker stringMaker = new StringMaker();
-            this.logUtil.putF(stringMaker.append(START_PAUSE).appendlong(System.currentTimeMillis()).append(PAUSE_SLEEP).appendlong(this.pauseWait).toString(), this, PROCESS_LOOP_SLEEP);
+            this.logUtil.putF(stringMaker.append(this.START_PAUSE).appendlong(System.currentTimeMillis()).append(this.PAUSE_SLEEP).appendlong(this.pauseWait).toString(), this, PROCESS_LOOP_SLEEP);
             while (this.isPaused() && this.isRunning() && !this.isSingleThread()) {
                 this.processSleep();
 
                 if (!this.isPausable()) {
                     stringMaker.delete(0, stringMaker.length());
-                    this.logUtil.putF(stringMaker.append(END_PAUSE).appendlong(System.currentTimeMillis()).toString(), this, PROCESS_LOOP_SLEEP);
+                    this.logUtil.putF(stringMaker.append(this.END_PAUSE).appendlong(System.currentTimeMillis()).toString(), this, PROCESS_LOOP_SLEEP);
                     return;
                 }
             }
@@ -306,33 +306,33 @@ public class RunnableCanvas extends MyCanvas
         /*
         long refreshRate = GameStatisticsFactory.getInstance().getRefreshRate();
 
-        if (refreshRate != attemptFrameRate)
+        if (refreshRate != this.attemptFrameRate)
         {
-            if (refreshRate > attemptFrameRate)
+            if (refreshRate > this.attemptFrameRate)
             {
                 attemptFrameTime++;
-                if(attemptFrameRate <= this.preferredFrameRate)
+                if(this.attemptFrameRate <= this.preferredFrameRate)
                 {
                     attemptFrameRate++;
                 }
             } else
-                if(attemptFrameTime > 10)
+                if(this.attemptFrameTime > 10)
             {
                 attemptFrameTime--;
             }
                 else
-                    if(attemptFrameRate > 4)
+                    if(this.attemptFrameRate > 4)
                 {
                         attemptFrameRate--;
                 }
         }
 
-        if (elapsedTime > attemptFrameTime)
+        if (elapsedTime > this.attemptFrameTime)
         {
-            elapsedTime = attemptFrameTime;
+            elapsedTime = this.attemptFrameTime;
         }
         
-        Thread.sleep(attemptFrameTime - elapsedTime);
+        Thread.sleep(this.attemptFrameTime - elapsedTime);
         */
         
         final long wait = (long) this.loopTimeHelper.delay;

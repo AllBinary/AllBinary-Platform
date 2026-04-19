@@ -66,11 +66,11 @@ public class ImagePersistanceUtil {
                         Iterator writers = ImageIO.getImageWritersByFormatName("PNG");
                         //ImageWriter writer = null;
                         PNGImageWriter writer = null;
-                        while(writers.hasNext())
+                        while(this.writers.hasNext())
                         {
                         //writer = (ImageWriter) writers.next();
-                        writer = (PNGImageWriter) writers.next();
-                        System.out.println("Found: " + writer);
+                        this.writer = (PNGImageWriter) this.writers.next();
+                        System.out.println("Found: " + this.writer);
                         }
                         ImageWriteParam param = writer.getDefaultWriteParam();
                         //param.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
@@ -78,11 +78,11 @@ public class ImagePersistanceUtil {
                         ImageTypeSpecifier imTy = param.getDestinationType();
                         ImageTypeSpecifier imTySp =
                         ImageTypeSpecifier.createFromRenderedImage(generatedBufferedImageArray[index]);
-                        param.setDestinationType(imTySp);
+                        this.param.setDestinationType(imTySp);
                         try {
                         ImageOutputStream ios = ImageIO.createImageOutputStream(files[index]);
-                        writer.setOutput(ios);
-                        writer.writeInsert(0, new IIOImage(generatedBufferedImageArray[index], null, null), param);
+                        this.writer.setOutput(ios);
+                        this.writer.writeInsert(0, new IIOImage(generatedBufferedImageArray[index], null, null), this.param);
                         } catch (Exception e) {
                         System.err.println("could not write "+"PNG"+" file with alpha channel !");
                         e.printStackTrace();

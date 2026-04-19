@@ -22,6 +22,6 @@ public class ShippingAddressesEntity extends StreetAddressesEntity
    public ShippingAddressesEntity(String userName)
    {
       super(userName);
-      setTableName(TABLENAME);
+      setTableName(this.TABLENAME);
    }   
 }

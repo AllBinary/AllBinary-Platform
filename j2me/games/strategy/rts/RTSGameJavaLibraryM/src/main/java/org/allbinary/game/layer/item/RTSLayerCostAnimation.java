@@ -99,10 +99,10 @@ implements TechEventListenerInterface
     {
         super.paint(graphics, x, y);
 
-        final int adjustedCostY = image.getHeight() - myFont.DEFAULT_CHAR_HEIGHT;
+        final int adjustedCostY = this.image.getHeight() - this.myFont.DEFAULT_CHAR_HEIGHT;
         
         int xa = x+2;
-        graphics.drawString(DOLLAR, xa, y + adjustedCostY, 0);
+        graphics.drawString(this.DOLLAR, xa, y + adjustedCostY, 0);
 
         graphics.drawChars(costString, 0, this.len, 
                 x + adjustedCostX, y + adjustedCostY, 0);

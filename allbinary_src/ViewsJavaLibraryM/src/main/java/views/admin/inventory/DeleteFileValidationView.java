@@ -52,7 +52,7 @@ public class DeleteFileValidationView extends InventoryItemView implements Valid
    {
       try
       {
-         if(id==null || !StringValidationUtil.getInstance().isNumber(this.id))
+         if(this.id==null || !StringValidationUtil.getInstance().isNumber(this.id))
          {
             return Boolean.FALSE;
          }
@@ -87,7 +87,7 @@ public class DeleteFileValidationView extends InventoryItemView implements Valid
       {
          StringMaker stringBuffer = new StringMaker();
          
-         if(id == null || !StringValidationUtil.getInstance().isNumber(this.id))
+         if(this.id == null || !StringValidationUtil.getInstance().isNumber(this.id))
          {
             stringBuffer.append("Id is not valid.<br />");
          }

@@ -112,7 +112,7 @@ public class MapSelectionGameInputProcessor extends Processor
 
             if (key == Canvas.LEFT || key == Canvas.RIGHT || key == Canvas.UP || key == Canvas.DOWN)
             {
-                if (inputTimeHelper.isTime())
+                if (this.inputTimeHelper.isTime())
                 {
 
                     SecondaryPlayerQueueFactory.getInstance().add(SelectSound.getInstance());

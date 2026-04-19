@@ -60,11 +60,11 @@ public class CssStyleValidation extends Validation implements DomNodeInterface
             this.logUtil.putF(this.commonStrings.START,this,commonStrings.IS_VALID);
          }
 
-         int size = cssStyleElementVector.size();
+         int size = this.cssStyleElementVector.size();
          for (int i = 0; i < size; i++)
          {
             ValidationInterface styleValidationInterface = 
-               (ValidationInterface) cssStyleElementVector.get(i);
+               (ValidationInterface) this.cssStyleElementVector.get(i);
 
             if(!styleValidationInterface.isValid().booleanValue())
             {
@@ -123,10 +123,10 @@ public class CssStyleValidation extends Validation implements DomNodeInterface
       Node styleNode = document.createElement(StyleData.getInstance().NAME);
       node.appendChild(styleNode);
 
-      int size = cssStyleElementVector.size();
+      int size = this.cssStyleElementVector.size();
       for (int i = 0; i < size; i++)
       {
-         DomNodeInterface styleDomNodeInterface = (DomNodeInterface) cssStyleElementVector.get(i);
+         DomNodeInterface styleDomNodeInterface = (DomNodeInterface) this.cssStyleElementVector.get(i);
          styleNode.appendChild(styleDomNodeInterface.toXmlNode(document));
       }
       return node;

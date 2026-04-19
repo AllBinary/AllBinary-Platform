@@ -68,12 +68,12 @@ public class ScrollMapPlayerGameInput
     
     private void move(int dx, int dy) throws Exception
     {
-        AllBinaryTiledLayer terrainTiledLayer = geographicMapInterface.getAllBinaryTiledLayer();
+        AllBinaryTiledLayer terrainTiledLayer = this.geographicMapInterface.getAllBinaryTiledLayer();
         
         terrainTiledLayer.move(-dx, -dy);
         
-        scrollMapEvent.setDxDy(-dx, -dy);
-        ScrollMapEventHandler.getInstance().fireEvent(scrollMapEvent);
+        this.scrollMapEvent.setDxDy(-dx, -dy);
+        ScrollMapEventHandler.getInstance().fireEvent(this.scrollMapEvent);
     }
 
     public void init()
@@ -84,7 +84,7 @@ public class ScrollMapPlayerGameInput
     
     public void scrollMiddleX() throws Exception
     {
-        AllBinaryTiledLayer terrainTiledLayer = geographicMapInterface.getAllBinaryTiledLayer();
+        AllBinaryTiledLayer terrainTiledLayer = this.geographicMapInterface.getAllBinaryTiledLayer();
         DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
 
       //PreLogUtil.put(diffX + CommonSeps.getInstance().SPACE + CommonSeps.getInstance().SPACE + terrainTiledLayer.getWidth() + CommonSeps.getInstance().SPACE + displayInfo.getLastWidth(), this, "scrollMiddleX");
@@ -107,7 +107,7 @@ public class ScrollMapPlayerGameInput
     public void scrollY(int anchor)
         throws Exception
     {
-        AllBinaryTiledLayer terrainTiledLayer = geographicMapInterface.getAllBinaryTiledLayer();
+        AllBinaryTiledLayer terrainTiledLayer = this.geographicMapInterface.getAllBinaryTiledLayer();
         DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
 
         if(anchor == Graphics.TOP)
@@ -137,7 +137,7 @@ public class ScrollMapPlayerGameInput
 
     protected void up() throws Exception
     {
-        int y = geographicMapInterface.getAllBinaryTiledLayer().getYP() - 10;
+        int y = this.geographicMapInterface.getAllBinaryTiledLayer().getYP() - 10;
         if(this.keepOnMapMinY(y))
         {
             this.move(0, -10);
@@ -146,7 +146,7 @@ public class ScrollMapPlayerGameInput
 
     protected void down() throws Exception
     {
-        int y = -geographicMapInterface.getAllBinaryTiledLayer().getYP() + 10;
+        int y = -this.geographicMapInterface.getAllBinaryTiledLayer().getYP() + 10;
         if(this.keepOnMapMaxY(y))
         {
             this.move(0, 10);
@@ -155,7 +155,7 @@ public class ScrollMapPlayerGameInput
     
     protected void right() throws Exception
     {
-        int x = geographicMapInterface.getAllBinaryTiledLayer().getYP() + 10;
+        int x = this.geographicMapInterface.getAllBinaryTiledLayer().getYP() + 10;
         if(this.keepOnMapMinX(x))
         {
             this.move(10, 0);
@@ -164,7 +164,7 @@ public class ScrollMapPlayerGameInput
 
     protected void left() throws Exception
     {
-        int x = -geographicMapInterface.getAllBinaryTiledLayer().getYP() - 10;
+        int x = -this.geographicMapInterface.getAllBinaryTiledLayer().getYP() - 10;
         if(this.keepOnMapMaxX(x))
         {
             this.move(-10, 0);
@@ -184,7 +184,7 @@ public class ScrollMapPlayerGameInput
     public void processInput(int key)
     throws Exception
     {
-        inputProcessorArray[key].process(AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER, GameKeyEvent.NONE);
+        this.inputProcessorArray[key].process(AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER, GameKeyEvent.NONE);
     }
     
     public void processInput(AllBinaryLayerManager layerManager)
@@ -192,12 +192,12 @@ public class ScrollMapPlayerGameInput
     {
         try
         {
-            int size = inputList.size();
+            int size = this.inputList.size();
             int key = 0;
 
             for (int index = 0; index < size; index++)
             {
-                GameKeyEvent gameKeyEvent = (GameKeyEvent) inputList.get(index);
+                GameKeyEvent gameKeyEvent = (GameKeyEvent) this.inputList.get(index);
                 key = gameKeyEvent.getKey();
 
                 this.processInput(key);
@@ -221,7 +221,7 @@ public class ScrollMapPlayerGameInput
 
     private int getSpecialHeight()
     {
-        AllBinaryTiledLayer terrainTiledLayer = geographicMapInterface.getAllBinaryTiledLayer();
+        AllBinaryTiledLayer terrainTiledLayer = this.geographicMapInterface.getAllBinaryTiledLayer();
         DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
 
         if(terrainTiledLayer.getHeight() > displayInfo.getLastHeight())
@@ -236,7 +236,7 @@ public class ScrollMapPlayerGameInput
 
     private int getSpecialWidth()
     {
-        AllBinaryTiledLayer terrainTiledLayer = geographicMapInterface.getAllBinaryTiledLayer();
+        AllBinaryTiledLayer terrainTiledLayer = this.geographicMapInterface.getAllBinaryTiledLayer();
         DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
 
         if(terrainTiledLayer.getWidth() > displayInfo.getLastWidth())
@@ -252,14 +252,14 @@ public class ScrollMapPlayerGameInput
     public boolean keepOnMapMaxY(int newY)
     {
         /*
-        AllBinaryTiledLayer tiledLayer = geographicMapInterface.getAllBinaryTiledLayer();
+        AllBinaryTiledLayer tiledLayer = this.geographicMapInterface.getAllBinaryTiledLayer();
         
         //int mapBorderBufferHeight = terrainTiledLayer.getCellHeight();
 
         StringBuilder stringBuffer = new StringBuilder();
         
         stringBuffer.append("Y Bottom: > ");
-        stringBuffer.append(maxBottom + border);
+        stringBuffer.append(this.maxBottom + this.border);
 
         stringBuffer.append(" X: ");
         stringBuffer.append(tiledLayer.getXP());
@@ -270,8 +270,8 @@ public class ScrollMapPlayerGameInput
         PreLogUtil.put(stringBuffer.toString(), this, "keepOnMapMaxY");
         */
 
-        int y = geographicMapInterface.getAllBinaryTiledLayer().getYP();
-        if (y > maxBottom + border)
+        int y = this.geographicMapInterface.getAllBinaryTiledLayer().getYP();
+        if (y > this.maxBottom + this.border)
         {
             return false;
         }
@@ -284,7 +284,7 @@ public class ScrollMapPlayerGameInput
     public boolean keepOnMapMinY(int newY)
     {
         /*
-        AllBinaryTiledLayer tiledLayer = geographicMapInterface.getAllBinaryTiledLayer();
+        AllBinaryTiledLayer tiledLayer = this.geographicMapInterface.getAllBinaryTiledLayer();
 
         //int mapBorderBufferHeight = tiledLayer.getCellHeight();
 
@@ -292,7 +292,7 @@ public class ScrollMapPlayerGameInput
 
         stringBuffer.append("Y Top: < ");
         
-        stringBuffer.append(-border);
+        stringBuffer.append(-this.border);
         //stringBuffer.append(mapBorderBufferHeight);
         
         stringBuffer.append(" X: ");
@@ -304,8 +304,8 @@ public class ScrollMapPlayerGameInput
         PreLogUtil.put(stringBuffer.toString(), this, "keepOnMapMinY");
         */
 
-        int y = geographicMapInterface.getAllBinaryTiledLayer().getYP();
-        if (y < -border)
+        int y = this.geographicMapInterface.getAllBinaryTiledLayer().getYP();
+        if (y < -this.border)
         {
             return false;
         }
@@ -320,12 +320,12 @@ public class ScrollMapPlayerGameInput
         /*
         //int mapBorderBufferWidth = terrainTiledLayer.getCellWidth();
 
-        AllBinaryTiledLayer tiledLayer = geographicMapInterface.getAllBinaryTiledLayer();
+        AllBinaryTiledLayer tiledLayer = this.geographicMapInterface.getAllBinaryTiledLayer();
 
         StringBuilder stringBuffer = new StringBuilder();
         stringBuffer.append("X Right: < ");
         
-        stringBuffer.append(-maxRight - border);
+        stringBuffer.append(-this.maxRight - this.border);
 
         stringBuffer.append(" X: ");
         stringBuffer.append(tiledLayer.getXP());
@@ -336,8 +336,8 @@ public class ScrollMapPlayerGameInput
         PreLogUtil.put(stringBuffer.toString(), this, "keepOnMapMaxX");
         */
         
-        int x = geographicMapInterface.getAllBinaryTiledLayer().getXP();
-        if (x < -maxRight - border)
+        int x = this.geographicMapInterface.getAllBinaryTiledLayer().getXP();
+        if (x < -this.maxRight - this.border)
         {
             return false;
         }
@@ -350,13 +350,13 @@ public class ScrollMapPlayerGameInput
     public boolean keepOnMapMinX(int newX)
     {
         /*
-        AllBinaryTiledLayer tiledLayer = geographicMapInterface.getAllBinaryTiledLayer();
+        AllBinaryTiledLayer tiledLayer = this.geographicMapInterface.getAllBinaryTiledLayer();
 
         //int mapBorderBufferWidth = terrainTiledLayer.getCellWidth();
 
         StringBuilder stringBuffer = new StringBuilder();
         stringBuffer.append("X Left: > ");
-        stringBuffer.append(border);
+        stringBuffer.append(this.border);
         //stringBuffer.append(mapBorderBufferWidth);
 
         stringBuffer.append(" X: ");
@@ -368,9 +368,9 @@ public class ScrollMapPlayerGameInput
         //PreLogUtil.put(stringBuffer.toString(), this, "keepOnMapMinX");
         */
 
-        int x = geographicMapInterface.getAllBinaryTiledLayer().getXP();
+        int x = this.geographicMapInterface.getAllBinaryTiledLayer().getXP();
         
-        if (x > border)
+        if (x > this.border)
         {
             return false;
         }

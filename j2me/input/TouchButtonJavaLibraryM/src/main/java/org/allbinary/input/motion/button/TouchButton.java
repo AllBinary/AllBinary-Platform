@@ -102,22 +102,22 @@ public class TouchButton extends Paintable
     {
         try
         {
-            int x = this.rawRectangle.getWidth() * cellPositionP.getColumn();
-            int y = this.rawRectangle.getHeight() * cellPositionP.getRow();
+            int x = this.rawRectangle.getWidth() * this.cellPositionP.getColumn();
+            int y = this.rawRectangle.getHeight() * this.cellPositionP.getRow();
 
             this.rectangleP = new Rectangle(
                     PointFactory.getInstance().getInstance(x + xBorder, y + yBorder),
                     this.rawRectangle.getWidth(), this.rawRectangle.getHeight());
             
-            GPoint point = rectangleP.getPoint();
+            GPoint point = this.rectangleP.getPoint();
             this.animationX = point.getX();
             this.animationY = point.getY();
-            this.hintAnimationY = animationY - 32;
+            this.hintAnimationY = this.animationY - 32;
             //CommonButtons.getInstance().STANDARD_BUTTON_SIZE >> 1
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "updateRectangle", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "updateRectangle", e);
         }
     }
 

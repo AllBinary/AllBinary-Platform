@@ -46,7 +46,7 @@ public class OperatingSystemFactory
             //String osArch = SystemProperties.getArch();
             //String osVersion = SystemProperties.getVersion();
 
-            final String osString = new StringMaker().append("OperatingSystem Info: ").append(genericOperatingSystem.toString()).toString();
+            final String osString = new StringMaker().append("OperatingSystem Info: ").append(this.genericOperatingSystem.toString()).toString();
             System.out.println(osString);
             this.logUtil.putF(osString, this, commonStrings.GET_INSTANCE);
 

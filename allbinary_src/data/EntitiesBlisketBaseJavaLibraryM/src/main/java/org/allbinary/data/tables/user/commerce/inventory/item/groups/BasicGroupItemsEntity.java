@@ -34,7 +34,7 @@ public class BasicGroupItemsEntity extends AbSqlBean implements BasicGroupItemsE
     public BasicGroupItemsEntity()
     {
         super(new InventoryDbInitInfo());
-        this.setTableName(tableName);
+        this.setTableName(this.tableName);
     }
 
     public void insert(Vector values)

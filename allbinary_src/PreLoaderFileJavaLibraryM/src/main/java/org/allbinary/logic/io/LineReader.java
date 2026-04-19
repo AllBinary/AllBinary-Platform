@@ -35,9 +35,9 @@ public class LineReader {
         try {
             byte bytes[] = new byte[100000];
             this.fileName = fileName;
-            idFile = new AbFileInputStream(fileName);
-            idFile.read(bytes);
-            string = new String(bytes);
+            this.idFile = new AbFileInputStream(fileName);
+            this.idFile.read(bytes);
+            this.string = new String(bytes);
         } catch (Exception e) {
             this.logUtil.put("File: " + fileName, this, "LineReader", e);
             //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().IDLOGGING))
@@ -49,7 +49,7 @@ public class LineReader {
 
     public boolean hasNext() {
         try {
-            final int nextIndex = string.indexOf(CommonSeps.getInstance().NEW_LINE, index);
+            final int nextIndex = this.string.indexOf(CommonSeps.getInstance().NEW_LINE, index);
             if (nextIndex == -1) {
                 return false;
             }
@@ -66,13 +66,13 @@ public class LineReader {
 
     public String next() throws Exception {
         try {
-            final int nextIndex = string.indexOf(CommonSeps.getInstance().NEW_LINE, index);
+            final int nextIndex = this.string.indexOf(CommonSeps.getInstance().NEW_LINE, index);
 
             if (nextIndex == -1) {
                 throw new Exception("next() should have been called first");
             }
 
-            final String temp = string.substring(index, nextIndex);
+            final String temp = this.string.substring(index, nextIndex);
             index = nextIndex + 1;
             return temp;
         } catch (Exception e) {

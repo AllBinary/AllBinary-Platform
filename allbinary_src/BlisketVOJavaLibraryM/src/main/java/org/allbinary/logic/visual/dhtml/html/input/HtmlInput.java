@@ -44,13 +44,13 @@ public class HtmlInput extends HtmlTag
        String result = stringUtil.EMPTY_STRING;
        Object[] attributeKeys = otherAttributes.keySet().toArray();
        int attributeSize = attributeKeys.length;
-       result = before;
-       result += STARTINPUT;
-       result += TYPE;
-       result += type;
+       result = this.before;
+       result += this.STARTINPUT;
+       result += this.TYPE;
+       result += this.type;
        result += "\" ";
-       result += NAME;
-       result += name;
+       result += this.NAME;
+       result += this.name;
        result += "\" ";       
        
        for (int i = 0; i < attributeSize; i++)

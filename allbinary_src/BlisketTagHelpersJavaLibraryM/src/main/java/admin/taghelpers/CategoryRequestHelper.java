@@ -45,14 +45,14 @@ public class CategoryRequestHelper extends ModifyTable
     protected final LogUtil logUtil = LogUtil.getInstance();
 
    /*
-    <request>
+    <this.request>
        <command></command>
        <PARENT>
           <CATEGORY_NAME></CATEGORY_NAME>
        </PARENT>
        <CATEGORY_NAME></CATEGORY_NAME>
        //any number of categories for insert or deletion
-    <request>
+    <this.request>
     */
 
      
@@ -227,7 +227,7 @@ public class CategoryRequestHelper extends ModifyTable
    /*
    public void getFormData()
    {
-      Map map = request.getParameterMap();
+      Map map = this.request.getParameterMap();
     
       Vector addVector = new Vector();
       Vector removeVector = new Vector();

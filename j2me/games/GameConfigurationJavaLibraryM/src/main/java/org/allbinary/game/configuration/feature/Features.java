@@ -56,15 +56,15 @@ public class Features
 
         this.add(gameFeature);
 
-        if (!defaultList.contains(gameFeature))
+        if (!this.defaultList.contains(gameFeature))
         {
-            defaultList.add(gameFeature);
+            this.defaultList.add(gameFeature);
         }
     }
 
     public void add(final Feature gameFeature) throws Exception
     {
-        if (!list.contains(gameFeature))
+        if (!this.list.contains(gameFeature))
         {
 //            if(gameFeature == SensorFeatureFactory.getInstance().ORIENTATION_SENSORS)
 //            {
@@ -73,7 +73,7 @@ public class Features
             this.logUtil.putF(
                     new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameFeature.toString()).toString(), this, commonStrings.ADD);
 
-            list.add(gameFeature);
+            this.list.add(gameFeature);
 
             GameFeatureEventHandler.getInstance().fireEvent(
                     new GameFeatureEvent(gameFeature, gameFeature.toString()));
@@ -87,15 +87,15 @@ public class Features
                 new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameFeature.toString()).toString(), this, "removeDefault");
 
         this.remove(gameFeature);
-        defaultList.remove(gameFeature);
+        this.defaultList.remove(gameFeature);
     }
 
     public void remove(final Feature gameFeature) throws Exception
     {
-        if (list.contains(gameFeature))
+        if (this.list.contains(gameFeature))
         {
             this.logUtil.putF(commonStrings.START, this, commonStrings.REMOVE);
-            list.remove(gameFeature);
+            this.list.remove(gameFeature);
             GameFeatureEventHandler.getInstance().fireEvent(
                     new GameFeatureEvent(gameFeature, gameFeature.toString()));
         }

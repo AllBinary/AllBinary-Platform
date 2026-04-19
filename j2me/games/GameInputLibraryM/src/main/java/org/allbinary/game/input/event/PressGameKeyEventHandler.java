@@ -40,9 +40,9 @@ public class PressGameKeyEventHandler extends BasicEventHandler
    
    public void addListener(PlayerGameInput playerGameInput)
    {
-       if(!list.contains(playerGameInput))
+       if(!this.list.contains(playerGameInput))
        {
-           list.add(playerGameInput);
+           this.list.add(playerGameInput);
        }
    }
 

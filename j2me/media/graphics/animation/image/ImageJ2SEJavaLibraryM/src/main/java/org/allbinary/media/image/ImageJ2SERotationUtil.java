@@ -68,7 +68,7 @@ public class ImageJ2SERotationUtil
    public BufferedImage rotateImage(final Image bufferedImage, final BufferedImage newBufferedImage, final int totalAngle)
    {
        final Graphics2D g = newBufferedImage.createGraphics();
-       g.setBackground(imageJ2SEUtil.TRANSPARENT_COLOR);
+       g.setBackground(this.imageJ2SEUtil.TRANSPARENT_COLOR);
        g.clearRect(0, 0, newBufferedImage.getWidth(), newBufferedImage.getHeight());
        return this.getRotatedImage(bufferedImage, newBufferedImage, g, TWO_PIE * totalAngle / 360);
    }
@@ -83,7 +83,7 @@ public class ImageJ2SERotationUtil
    {
       final BufferedImage bufferedImageArray[] = new BufferedImage[numberOfFrames];
       
-      final double arc = (TWO_PIE) * totalAngle / 360;
+      final double arc = (this.TWO_PIE) * totalAngle / 360;
       
       final int size = bufferedImageArray.length;
       for(int index = 0; index < size; index++)

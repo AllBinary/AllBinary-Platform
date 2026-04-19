@@ -55,7 +55,7 @@ public class ImageWaitCompleteUtil extends ImageCompleteUtil {
     }
 
     public void handleTimeout(final String name) throws Exception {
-        if (timeDelayHelper.isTime()) {
+        if (this.timeDelayHelper.isTime()) {
             throw new Exception("isReady: Timeout Waiting or GameHtmlHasLoadedResourcesProcessor does not have this Image: " + name);
         }
     }    

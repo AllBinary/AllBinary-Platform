@@ -108,7 +108,7 @@ public class AbeClientLicense implements AbeLicenseInterface
 
     public String getKey(String keyName)
     {
-        return (String) hashtable.get(keyName);
+        return (String) this.hashtable.get(keyName);
     }
 
     public String getLicenseId()

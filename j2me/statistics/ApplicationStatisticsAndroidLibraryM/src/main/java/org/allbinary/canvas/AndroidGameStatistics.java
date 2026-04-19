@@ -33,7 +33,7 @@ public class AndroidGameStatistics extends BaseGameStatistics
     {
         final StringUtil stringUtil = StringUtil.getInstance();
         
-        for(int index = 0; index < STRING_ARRAY.length; index++)
+        for(int index = 0; index < this.STRING_ARRAY.length; index++)
         {
             this.STRING_ARRAY[index] = stringUtil.EMPTY_STRING; 
         }
@@ -53,7 +53,7 @@ public class AndroidGameStatistics extends BaseGameStatistics
         // timeElapsed = currentTime - timeElapsed;
         // if (timeElapsed > 50)
         // {
-        view.postInvalidate();
+        this.view.postInvalidate();
         // }
     }
     
@@ -72,17 +72,17 @@ public class AndroidGameStatistics extends BaseGameStatistics
         
         for(int index = 0; index < stringArray.length; index++)
         {
-            STRING_ARRAY[index] = stringArray[index];
+            this.STRING_ARRAY[index] = stringArray[index];
         }
         
         long totalTime = getTimeDelayHelper().getElapsed(this.gameTickTimeDelayHelper.startTime);
         totalTime = (totalTime / 10000);
 
-        STRING_ARRAY[10] = TOTAL_ONDRAWS;
-        STRING_ARRAY[11] = Long.toString(this.totalOnDraws);
+        this.STRING_ARRAY[10] = this.TOTAL_ONDRAWS;
+        this.STRING_ARRAY[11] = Long.toString(this.totalOnDraws);
 
-        STRING_ARRAY[12] = ONDRAWS_RATE;
-        STRING_ARRAY[13] = Long.toString(this.totalOnDraws / totalTime);
+        this.STRING_ARRAY[12] = this.ONDRAWS_RATE;
+        this.STRING_ARRAY[13] = Long.toString(this.totalOnDraws / totalTime);
 
         return STRING_ARRAY;
     }
@@ -100,10 +100,10 @@ public class AndroidGameStatistics extends BaseGameStatistics
             
             if(this.totalOnDraws > 0)
             {
-                stringBuffer.append(TOTAL_ONDRAWS);
+                stringBuffer.append(this.TOTAL_ONDRAWS);
                 stringBuffer.append(Long.toString(this.totalOnDraws));
 
-                stringBuffer.append(ONDRAWS_RATE);
+                stringBuffer.append(this.ONDRAWS_RATE);
                 final String drawsOverTime = Long.toString(this.totalOnDraws / totalTime);
                 stringBuffer.append(drawsOverTime);
             }

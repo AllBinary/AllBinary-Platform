@@ -51,7 +51,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
    public UserEntity()
    {
       super(new UserDbInitInfo());
-      this.setTableName(tableName);
+      this.setTableName(this.tableName);
    }
    
    public void insert(Vector values)
@@ -250,11 +250,11 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
             {                
                 StringMaker stringBuffer = new StringMaker();
 
-                stringBuffer.append(COMMAND_SUCCESS_FOR_USER);
+                stringBuffer.append(this.COMMAND_SUCCESS_FOR_USER);
                 stringBuffer.append(userName);
-                stringBuffer.append(PASSWORD_LABEL);
+                stringBuffer.append(this.PASSWORD_LABEL);
                 stringBuffer.append(password);
-                stringBuffer.append(EQUALS);
+                stringBuffer.append(this.EQUALS);
                 stringBuffer.append(result);
 
                this.logUtil.putF(stringBuffer.toString(), this, "login");
@@ -267,13 +267,13 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
             {
                 StringMaker stringBuffer = new StringMaker();
 
-                stringBuffer.append(COMMAND_SUCCESS_BUT_LOGIN_FAILED);
+                stringBuffer.append(this.COMMAND_SUCCESS_BUT_LOGIN_FAILED);
                 stringBuffer.append(userName);
-                stringBuffer.append(INVALID_PASSWORD_LABEL);
+                stringBuffer.append(this.INVALID_PASSWORD_LABEL);
                 stringBuffer.append(new SuperCrypt(new Integer(encryption).intValue()).encrypt(password));
-                stringBuffer.append(NOT_EQUAL);
+                stringBuffer.append(this.NOT_EQUAL);
                 stringBuffer.append(result);
-                stringBuffer.append(END_QUOTES);
+                stringBuffer.append(this.END_QUOTES);
 
                this.logUtil.putF(stringBuffer.toString(), this, "login");
             }

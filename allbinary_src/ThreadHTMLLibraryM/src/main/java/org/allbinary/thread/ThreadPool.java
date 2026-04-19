@@ -55,22 +55,22 @@ public class ThreadPool
             throws Exception
     {
 
-        if(!currentPriorityRunnable.isDone()) {
+        if(!this.currentPriorityRunnable.isDone()) {
             //this.logUtil.putF(currentPriorityRunnable.toString(), this, "runAPriorityTask:Again");
-            currentPriorityRunnable.run();
+            this.currentPriorityRunnable.run();
         } else {
             final Runnable runnable = this.getTask();
-            if(runnable == NULL_RUNNABLE) {
+            if(runnable == this.NULL_RUNNABLE) {
                 return;
             }
 
-            currentPriorityRunnable = (PriorityRunnable) runnable;
+            this.currentPriorityRunnable = (PriorityRunnable) runnable;
 
-            if (!(currentPriorityRunnable == threadObjectUtil.NULL_PRIORITY_RUNNABLE))
+            if (!(this.currentPriorityRunnable == this.threadObjectUtil.NULL_PRIORITY_RUNNABLE))
             {
                 //this.logUtil.putF(currentPriorityRunnable.toString(), this, "runAPriorityTask:New");
-                currentPriorityRunnable.reset();
-                currentPriorityRunnable.run();
+                this.currentPriorityRunnable.reset();
+                this.currentPriorityRunnable.run();
             }
         }
 
@@ -91,9 +91,9 @@ public class ThreadPool
     {
         if (!this.isAlive)
         {
-            isAlive = true;
+            this.isAlive = true;
 
-            taskQueue = new BasicArrayList();
+            this.taskQueue = new BasicArrayList();
             //for (int i = 0; i < numThreads; i++)
             //{
                 //new PooledThread().start();
@@ -117,7 +117,7 @@ public class ThreadPool
             //PreLogUtil.put("Add: ").append(task, this, this.threadPoolStrings.ADD_TASK);
             final int size = this.taskQueue.size();
             PriorityRunnable runnable;
-            PriorityRunnable lowerPriorityRunnable = threadObjectUtil.NULL_PRIORITY_RUNNABLE;
+            PriorityRunnable lowerPriorityRunnable = this.threadObjectUtil.NULL_PRIORITY_RUNNABLE;
             for(int index = 0; index < size; index++) {
                 runnable = (PriorityRunnable) this.taskQueue.get(index);
                 //this.logUtil.putF(new StringMaker().append(COMPARE_PRIORITY).append(task.getPriority()).toString(), this, this.threadPoolStrings.ADD_TASK);
@@ -127,7 +127,7 @@ public class ThreadPool
                 }
             }
             
-            if(lowerPriorityRunnable == threadObjectUtil.NULL_PRIORITY_RUNNABLE || lowerPriorityRunnable == NULL_RUNNABLE) {
+            if(lowerPriorityRunnable == this.threadObjectUtil.NULL_PRIORITY_RUNNABLE || lowerPriorityRunnable == this.NULL_RUNNABLE) {
                 this.taskQueue.add(task);
             } else {
                 //this.logUtil.putF(new StringMaker().append(ADD_PRIORITY).append(task.getPriority()).toString(), this, this.threadPoolStrings.ADD_TASK);
@@ -143,7 +143,7 @@ public class ThreadPool
     
     public synchronized void runTask(final Runnable task)
     {
-        if (!isAlive)
+        if (!this.isAlive)
         {
             this.init();
             //throw new IllegalStateException();
@@ -153,7 +153,7 @@ public class ThreadPool
             //this.logUtil.putF("Add: ").append(task, this, "runTask");
             //PreLogUtil.put("Add: ").append(task, this, "runTask");
 
-            taskQueue.add(task);
+            this.taskQueue.add(task);
             //TWB - Playn Testing
             //notify();
         }
@@ -162,14 +162,14 @@ public class ThreadPool
     protected synchronized Runnable getTask()
             throws InterruptedException
     {
-        if(taskQueue.isEmpty())
+        if(this.taskQueue.isEmpty())
         {
             return NULL_RUNNABLE;
         }
         /*
-        while (taskQueue.size() == 0)
+        while (this.taskQueue.size() == 0)
         {
-            if (!isAlive)
+            if (!this.isAlive)
             {
                 return NULL_RUNNABLE;
             }
@@ -177,21 +177,21 @@ public class ThreadPool
             //this.wait();
         }
         */
-        return (Runnable) taskQueue.remove(0);
+        return (Runnable) this.taskQueue.remove(0);
     }
 
     public synchronized void clear() 
     {
-        taskQueue.clear();
+        this.taskQueue.clear();
     }
     
     public synchronized void close()
     {
-        if (isAlive)
+        if (this.isAlive)
         {
-            isAlive = false;
-            taskQueue.clear();
-            this.currentPriorityRunnable = threadObjectUtil.NULL_PRIORITY_RUNNABLE;
+            this.isAlive = false;
+            this.taskQueue.clear();
+            this.currentPriorityRunnable = this.threadObjectUtil.NULL_PRIORITY_RUNNABLE;
             //interrupt();
         }
     }
@@ -199,9 +199,9 @@ public class ThreadPool
     public void join()
     {
 
-            isAlive = false;
-            taskQueue.clear();
-            this.currentPriorityRunnable = threadObjectUtil.NULL_PRIORITY_RUNNABLE;
+            this.isAlive = false;
+            this.taskQueue.clear();
+            this.currentPriorityRunnable = this.threadObjectUtil.NULL_PRIORITY_RUNNABLE;
             //TWB - Playn Testing
             //notifyAll();
 
@@ -242,8 +242,8 @@ public class ThreadPool
         if (this.numThreads == 1)
         {
             this.isAlive = false;
-            taskQueue.clear();
-            this.currentPriorityRunnable = threadObjectUtil.NULL_PRIORITY_RUNNABLE;
+            this.taskQueue.clear();
+            this.currentPriorityRunnable = this.threadObjectUtil.NULL_PRIORITY_RUNNABLE;
         }
     }
 

@@ -36,7 +36,7 @@ public class AllBinaryVisualDebugVibration extends AllBinaryVibrationME
     
     public void paint(Graphics graphics)
     {
-        if (timeDelayHelper.isTime())
+        if (this.timeDelayHelper.isTime())
         {
             this.timeDelayHelper.delay = Integer.MAX_VALUE;
             
@@ -44,7 +44,7 @@ public class AllBinaryVisualDebugVibration extends AllBinaryVibrationME
                     DisplayInfoSingleton.getInstance();
             
             final MyFont myFont = MyFont.getInstance();
-            final int width = myFont.stringWidth(VIBRATING);
+            final int width = myFont.stringWidth(this.VIBRATING);
 
             graphics.drawString(VIBRATING, 
                     displayInfoSingleton.getLastHalfWidth() - (width >> 1), 0, anchor);

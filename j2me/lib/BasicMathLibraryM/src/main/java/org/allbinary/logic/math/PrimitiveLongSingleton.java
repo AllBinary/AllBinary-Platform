@@ -36,7 +36,7 @@ public class PrimitiveLongSingleton
     public byte getNumberFromChar(char numberAsChar) throws Exception {
         final int size = NUMBER_CHAR_ARRAY.length;
         for(int index = 0; index < size; index++) {
-            if(NUMBER_CHAR_ARRAY[index] == numberAsChar) {
+            if(this.NUMBER_CHAR_ARRAY[index] == numberAsChar) {
                 return this.NUMBER_ARRAY[index];
             }
         }

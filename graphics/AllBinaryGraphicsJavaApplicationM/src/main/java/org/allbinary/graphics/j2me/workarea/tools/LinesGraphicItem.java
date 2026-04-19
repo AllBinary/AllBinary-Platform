@@ -311,7 +311,7 @@ public class LinesGraphicItem implements GraphicItemInterface
          
       } catch (Exception e)
       {
-         this.logUtil.put(commonStrings.EXCEPTION, this, "mouseMoved", e);
+         this.logUtil.put(this.commonStrings.EXCEPTION, this, "mouseMoved", e);
       }
    }
 
@@ -366,7 +366,7 @@ public class LinesGraphicItem implements GraphicItemInterface
          this.currentMousePoint = mousePoint;
       } catch (Exception e)
       {
-         this.logUtil.put(commonStrings.EXCEPTION, this, "mouseMoved", e);
+         this.logUtil.put(this.commonStrings.EXCEPTION, this, "mouseMoved", e);
       }
    }
 
@@ -399,7 +399,7 @@ public class LinesGraphicItem implements GraphicItemInterface
          this.currentMousePoint = point;
       } catch (Exception e)
       {
-         this.logUtil.put(commonStrings.EXCEPTION, this, "mouseMoved", e);
+         this.logUtil.put(this.commonStrings.EXCEPTION, this, "mouseMoved", e);
       }
    }
 
@@ -436,7 +436,7 @@ public class LinesGraphicItem implements GraphicItemInterface
           }
       } catch (Exception e)
       {
-         this.logUtil.put(commonStrings.EXCEPTION, this, gameInputStrings.KEY_PRESSED, e);
+         this.logUtil.put(this.commonStrings.EXCEPTION, this, gameInputStrings.KEY_PRESSED, e);
       }
    }
 

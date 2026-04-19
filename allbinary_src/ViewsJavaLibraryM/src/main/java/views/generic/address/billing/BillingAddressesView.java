@@ -62,10 +62,10 @@ implements DomNodeInterface
       {
          Node billingAddressesNode = document.createElement(BillingAddressData.MULTIPLE);
          
-         int size = streetAddresses.size();
+         int size = this.streetAddresses.size();
          for (int index = 0; index < size; index++)
          {
-            StreetAddress streetAddress = (StreetAddress) streetAddresses.get(index);
+            StreetAddress streetAddress = (StreetAddress) this.streetAddresses.get(index);
             billingAddressesNode.appendChild(streetAddress.toXmlNode(document));
          }
          

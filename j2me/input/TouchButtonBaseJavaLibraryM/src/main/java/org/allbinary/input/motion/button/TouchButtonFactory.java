@@ -37,7 +37,7 @@ public class TouchButtonFactory
         
     public void defaultList()
     {
-        this.list = LIST;
+        this.list = this.LIST;
         this.toggle(false, LIST);
     }
 
@@ -68,7 +68,7 @@ public class TouchButtonFactory
                     this.saved = true;
                     
                     this.savedList = this.list;
-                    this.list = LIST;
+                    this.list = this.LIST;
                 }
                 else
                 {
@@ -84,7 +84,7 @@ public class TouchButtonFactory
                 this.saved = false;
                 
                 /*
-                if(saved)
+                if(this.saved)
                 {
                     
                 }

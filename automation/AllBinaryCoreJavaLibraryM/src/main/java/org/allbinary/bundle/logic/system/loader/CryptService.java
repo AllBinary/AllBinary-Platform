@@ -76,7 +76,7 @@ public class CryptService
    {
       try
       {
-         this.logUtil.put(commonStrings.EXCEPTION, this, this.commonStrings.INIT, e);
+         this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.INIT, e);
 
          final BasicTextJDialog basicTextJDialog = new BasicTextJDialog(e.getMessage());
 
@@ -93,14 +93,14 @@ public class CryptService
             }
          } catch (LicensingException e2)
          {
-            this.logUtil.put(commonStrings.EXCEPTION, this, this.commonStrings.INIT, e2);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.INIT, e2);
          }
 
          basicTextJDialog.addCloseListener(new ExitCloseListener());
          basicTextJDialog.setVisible(true);
       } catch (Exception e3)
       {
-         this.logUtil.put(commonStrings.EXCEPTION, this, this.commonStrings.INIT, e3);
+         this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.INIT, e3);
       }
    }
 }

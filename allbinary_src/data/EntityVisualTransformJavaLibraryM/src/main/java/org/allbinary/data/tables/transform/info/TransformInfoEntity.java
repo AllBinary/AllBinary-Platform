@@ -56,7 +56,7 @@ implements TransformInfoEntityInterface
     {
         super(new UserDbInitInfo());
 
-        this.setTableName(tableName);
+        this.setTableName(this.tableName);
 
         this.transformInfoObjectConfigGeneratorFactoryInterface = transformInfoObjectConfigGeneratorFactoryInterface;
         this.transformInfoObjectConfigAndManipulatorFactoryInterface = transformInfoObjectConfigAndManipulatorFactoryInterface;
@@ -182,7 +182,7 @@ implements TransformInfoEntityInterface
         StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.sqlStrings.CREATE_TABLE);
-        stringBuffer.append(tableName);
+        stringBuffer.append(this.tableName);
         stringBuffer.append(this.sqlStrings.START);
         stringBuffer.append(transformInfoData.NAME);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);

@@ -69,12 +69,12 @@ public class RTSLayerSelectedLogHelper extends RTSLayerLogHelper {
         stringBuffer.append(associatedAdvancedRTSGameLayer.getName());
         stringBuffer.append(this.commonSeps.SPACE);
         stringBuffer.append(StringUtil.getInstance().toString(nextUnvisitedPathGeographicMapCellPosition));
-        stringBuffer.append(positionStrings.DX_LABEL);
+        stringBuffer.append(this.positionStrings.DX_LABEL);
         stringBuffer.appendint(dx);
-        stringBuffer.append(commonSeps.SPACE);
-        stringBuffer.append(positionStrings.DY_LABEL);
+        stringBuffer.append(this.commonSeps.SPACE);
+        stringBuffer.append(this.positionStrings.DY_LABEL);
         stringBuffer.appendint(dy);
-        stringBuffer.append(commonSeps.SPACE);
+        stringBuffer.append(this.commonSeps.SPACE);
         stringBuffer.append(reason);
 
         this.logUtil.putF(stringBuffer.toString(), this, "selected: trackTo");
@@ -91,17 +91,17 @@ public class RTSLayerSelectedLogHelper extends RTSLayerLogHelper {
 //            stringBuffer.append(angleOfTarget);
 //            stringBuffer.append(commonSeps.FORWARD_SLASH);
 //            stringBuffer.append(angleOfTarget2);
-        stringBuffer.append(positionStrings.DX_LABEL);
+        stringBuffer.append(this.positionStrings.DX_LABEL);
         stringBuffer.appendint(dx);
-        stringBuffer.append(commonSeps.SPACE);
-        stringBuffer.append(positionStrings.DY_LABEL);
+        stringBuffer.append(this.commonSeps.SPACE);
+        stringBuffer.append(this.positionStrings.DY_LABEL);
         stringBuffer.appendint(dy);
 
         stringBuffer.append(" angle: ");
         stringBuffer.appendint(angle);
         stringBuffer.append(" movementAngle: ");
         stringBuffer.append(movementAngle.name);
-        stringBuffer.append(commonSeps.FORWARD_SLASH);
+        stringBuffer.append(this.commonSeps.FORWARD_SLASH);
         stringBuffer.appendshort(movementAngle.getValue());
         
         if(angleInfo != null) {

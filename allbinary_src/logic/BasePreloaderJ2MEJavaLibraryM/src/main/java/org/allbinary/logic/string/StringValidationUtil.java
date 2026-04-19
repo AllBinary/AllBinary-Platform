@@ -123,7 +123,7 @@ public class StringValidationUtil
     {
         if (value != null)
         {
-            if (value.compareTo(stringUtil.NULL_STRING) == 0 || value.length() < min || value.length() > max)
+            if (value.compareTo(this.stringUtil.NULL_STRING) == 0 || value.length() < min || value.length() > max)
             {
                 return false;
             }

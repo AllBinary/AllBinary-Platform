@@ -69,12 +69,12 @@ public class CustomTextAnimation extends TextAnimation
     {
         final Font existingFont = graphics.getFont();
         
-        fontDebugFactory.setFont(this.font, graphics);
+        this.fontDebugFactory.setFont(this.font, graphics);
         
         //super.paint(graphics, x + this.xtraWidth, y);
         super.paint(graphics, x, y);
         
-        fontDebugFactory.setFont(existingFont, graphics);
+        this.fontDebugFactory.setFont(existingFont, graphics);
     }
   
     @Override
@@ -85,7 +85,7 @@ public class CustomTextAnimation extends TextAnimation
 
         //this.logUtil.putF(new StringMaker().append("setScale font: ").append((fontSize * scaleX)).append(" text: ").append(this.getText()).toString(), this, commonStrings.PROCESS);
         this.hasChanged = true;
-        this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, (int) (fontSize * scaleX));
+        this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, (int) (this.fontSize * scaleX));
 //        if(this.getText().length > 0) {
 //            this.logUtil.putF(new StringMaker().append("setScale font: ").append(font.getSize()).append(" text: ").append(this.getText()[0]).toString(), this, commonStrings.PROCESS);
 //        }

@@ -58,7 +58,7 @@ public class FileJDialog extends javax.swing.JDialog
     // <editor-fold defaultstate="collapsed" desc=" Generated Code ">//GEN-BEGIN:initComponents
     private void initComponents()
     {
-        jFileChooser1 = new javax.swing.JFileChooser();
+        this.jFileChooser1 = new javax.swing.JFileChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         jFileChooser1.addActionListener(new java.awt.event.ActionListener()

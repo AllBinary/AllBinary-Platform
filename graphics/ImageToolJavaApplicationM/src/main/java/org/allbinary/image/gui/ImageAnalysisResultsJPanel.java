@@ -46,85 +46,85 @@ public class ImageAnalysisResultsJPanel extends javax.swing.JPanel
     // <editor-fold defaultstate="collapsed" desc=" Generated Code ">//GEN-BEGIN:initComponents
     private void initComponents()
     {
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        percentMatchingJTextField = new javax.swing.JTextField();
-        totalPixelsJTextField = new javax.swing.JTextField();
-        matchingPixelsJTextField = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        avgRedJTextField = new javax.swing.JTextField();
-        avgGreenJTextField = new javax.swing.JTextField();
-        avgBlueJTextField = new javax.swing.JTextField();
-        minGreenJTextField = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        minRedJTextField = new javax.swing.JTextField();
-        minBlueJTextField = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        maxRedJTextField = new javax.swing.JTextField();
-        maxGreenJTextField = new javax.swing.JTextField();
-        maxBlueJTextField = new javax.swing.JTextField();
+        this.jLabel1 = new javax.swing.JLabel();
+        this.jLabel2 = new javax.swing.JLabel();
+        this.jLabel3 = new javax.swing.JLabel();
+        this.percentMatchingJTextField = new javax.swing.JTextField();
+        this.totalPixelsJTextField = new javax.swing.JTextField();
+        this.matchingPixelsJTextField = new javax.swing.JTextField();
+        this.jComboBox1 = new javax.swing.JComboBox();
+        this.jLabel4 = new javax.swing.JLabel();
+        this.jLabel5 = new javax.swing.JLabel();
+        this.jLabel6 = new javax.swing.JLabel();
+        this.jLabel7 = new javax.swing.JLabel();
+        this.avgRedJTextField = new javax.swing.JTextField();
+        this.avgGreenJTextField = new javax.swing.JTextField();
+        this.avgBlueJTextField = new javax.swing.JTextField();
+        this.minGreenJTextField = new javax.swing.JTextField();
+        this.jLabel8 = new javax.swing.JLabel();
+        this.jLabel9 = new javax.swing.JLabel();
+        this.jLabel10 = new javax.swing.JLabel();
+        this.minRedJTextField = new javax.swing.JTextField();
+        this.minBlueJTextField = new javax.swing.JTextField();
+        this.jLabel11 = new javax.swing.JLabel();
+        this.jLabel12 = new javax.swing.JLabel();
+        this.jLabel13 = new javax.swing.JLabel();
+        this.maxRedJTextField = new javax.swing.JTextField();
+        this.maxGreenJTextField = new javax.swing.JTextField();
+        this.maxBlueJTextField = new javax.swing.JTextField();
 
-        jLabel1.setText("Matching Pixels:");
+        this.jLabel1.setText("Matching Pixels:");
 
-        jLabel2.setText("Total Pixels:");
+        this.jLabel2.setText("Total Pixels:");
 
-        jLabel3.setText("Percent Matching:");
+        this.jLabel3.setText("Percent Matching:");
 
-        percentMatchingJTextField.setEditable(false);
+        this.percentMatchingJTextField.setEditable(false);
 
-        totalPixelsJTextField.setEditable(false);
+        this.totalPixelsJTextField.setEditable(false);
 
-        matchingPixelsJTextField.setEditable(false);
+        this.matchingPixelsJTextField.setEditable(false);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { CommonPhoneStrings.getInstance().ONE }));
-        jComboBox1.setEnabled(false);
+        this.jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { CommonPhoneStrings.getInstance().ONE }));
+        this.jComboBox1.setEnabled(false);
 
-        jLabel4.setText("Image:");
+        this.jLabel4.setText("Image:");
 
-        jLabel5.setText("Average Red:");
+        this.jLabel5.setText("Average Red:");
 
-        jLabel6.setText("Average Green:");
+        this.jLabel6.setText("Average Green:");
 
-        jLabel7.setText("Average Blue:");
+        this.jLabel7.setText("Average Blue:");
 
-        avgRedJTextField.setEditable(false);
+        this.avgRedJTextField.setEditable(false);
 
-        avgGreenJTextField.setEditable(false);
+        this.avgGreenJTextField.setEditable(false);
 
-        avgBlueJTextField.setEditable(false);
+        this.avgBlueJTextField.setEditable(false);
 
-        minGreenJTextField.setEditable(false);
+        this.minGreenJTextField.setEditable(false);
 
-        jLabel8.setText("Min Red:");
+        this.jLabel8.setText("Min Red:");
 
-        jLabel9.setText("Min Green:");
+        this.jLabel9.setText("Min Green:");
 
-        jLabel10.setText("Min Blue:");
+        this.jLabel10.setText("Min Blue:");
 
-        minRedJTextField.setEditable(false);
+        this.minRedJTextField.setEditable(false);
 
-        minBlueJTextField.setEditable(false);
+        this.minBlueJTextField.setEditable(false);
 
-        jLabel11.setText("Max Red:");
+        this.jLabel11.setText("Max Red:");
 
-        jLabel12.setText("Max Green:");
+        this.jLabel12.setText("Max Green:");
 
-        jLabel13.setText("Max Blue:");
+        this.jLabel13.setText("Max Blue:");
 
-        maxRedJTextField.setEditable(false);
+        this.maxRedJTextField.setEditable(false);
 
-        maxGreenJTextField.setEditable(false);
+        this.maxGreenJTextField.setEditable(false);
 
-        maxBlueJTextField.setEditable(false);
+        this.maxBlueJTextField.setEditable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

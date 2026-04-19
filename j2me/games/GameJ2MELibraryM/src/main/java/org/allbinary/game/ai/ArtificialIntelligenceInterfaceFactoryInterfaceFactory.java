@@ -41,13 +41,13 @@ public class ArtificialIntelligenceInterfaceFactoryInterfaceFactory
       int type = typeInteger.intValue();
       
       ArtificialIntelligenceInterfaceFactoryInterface artificialIntelligenceInterfaceFactoryInterface = 
-            (ArtificialIntelligenceInterfaceFactoryInterface) list.objectArray[type - 1];
+            (ArtificialIntelligenceInterfaceFactoryInterface) this.list.objectArray[type - 1];
       
       return artificialIntelligenceInterfaceFactoryInterface;
    }
    
    public void add(ArtificialIntelligenceInterfaceFactoryInterface artificialIntelligenceInterfaceFactoryInterface)
    {
-       list.add(artificialIntelligenceInterfaceFactoryInterface);
+       this.list.add(artificialIntelligenceInterfaceFactoryInterface);
    }
 }

@@ -62,13 +62,13 @@ public class PrimitiveLongUtil
             return NUMBER_STRING_ARRAY[0];
         }
                             
-        if(value > maxValue)
+        if(value > this.maxValue)
         {
             return PrimitiveLongUtil.UNK;
         }
         
         stringBuffer.delete(0, stringBuffer.length());
-        int div = powerOfTen;
+        int div = this.powerOfTen;
         int lastValue = 0;
         while(div >= 1)
         {
@@ -99,14 +99,14 @@ public class PrimitiveLongUtil
             return this.primitiveLongSingleton.NUMBER_CHAR_ARRAYS[value];
         }
                             
-        if(value > maxValue)
+        if(value > this.maxValue)
         {
             this.setCurrentTotalDigits(3);
             return this.primitiveLongSingleton.UNK;
         }
         
         int index = 0;
-        int div = powerOfTen;
+        int div = this.powerOfTen;
         int lastValue = 0;
         while(div >= 1)
         {

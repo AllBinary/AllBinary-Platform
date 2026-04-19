@@ -35,7 +35,7 @@ public class StartIntermissionProcessor extends Processor
     @Override
     public void process() throws Exception
     {
-        if (this.gameCanvas.getStartIntermissionInterface().getTimeDelayHelper().isElapsed(WAIT))
+        if (this.gameCanvas.getStartIntermissionInterface().getTimeDelayHelper().isElapsed(this.WAIT))
         {
             this.logUtil.putF("Intermission End", this, commonStrings.PROCESS);
             this.gameCanvas.getStartIntermissionInterface().setEnabled(false);

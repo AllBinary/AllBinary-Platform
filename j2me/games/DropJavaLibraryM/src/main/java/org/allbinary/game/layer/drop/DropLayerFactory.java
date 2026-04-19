@@ -30,7 +30,7 @@ public class DropLayerFactory
 
    public void clear()
    {
-       list.clear();
+       this.list.clear();
    }
    
    public static DropLayerFactory getInstance()
@@ -46,7 +46,7 @@ public class DropLayerFactory
    /*
    private PickedUpLayerInterfaceFactoryInterface getInstance(int index)
    {
-      return (PickedUpLayerInterfaceFactoryInterface) list.get(index);
+      return (PickedUpLayerInterfaceFactoryInterface) this.list.get(index);
    }
    */
    
@@ -54,12 +54,12 @@ public class DropLayerFactory
    
    public PickedUpLayerInterfaceFactoryInterface getRandomInstance()
    {
-      return (PickedUpLayerInterfaceFactoryInterface) basicArrayListUtil.getRandom(list);
+      return (PickedUpLayerInterfaceFactoryInterface) this.basicArrayListUtil.getRandom(this.list);
    }
 
    public void add(PickedUpLayerInterfaceFactoryInterface layerInterfaceFactoryInterface)
    {
-      list.add(layerInterfaceFactoryInterface);
+      this.list.add(layerInterfaceFactoryInterface);
    }
    
    public BasicArrayList getList() {

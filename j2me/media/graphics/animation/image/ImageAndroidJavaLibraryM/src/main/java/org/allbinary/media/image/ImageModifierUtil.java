@@ -64,8 +64,8 @@ public class ImageModifierUtil {
     }
     
     public void setAlpha(final Image originalImage, final Image image, final int imageIndex, final int alphaInt) {
-        if(alphaInt != paint.getAlpha()) {
-            paint.setAlpha(alphaInt);
+        if(alphaInt != this.paint.getAlpha()) {
+            this.paint.setAlpha(alphaInt);
             //this.logUtil.putF(new StringBuilder().append(SET_ALPHA).append(alphaInt).append('/').append(255).toString(), this, commonStrings.PROCESS);
         }
     }

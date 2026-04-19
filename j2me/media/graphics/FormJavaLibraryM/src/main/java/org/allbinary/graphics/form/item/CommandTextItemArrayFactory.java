@@ -44,7 +44,7 @@ public class CommandTextItemArrayFactory
     {
         int size = vector.size();
 
-        list.clear();
+        this.list.clear();
         
         CommandTextItem textItem;
         
@@ -83,17 +83,17 @@ public class CommandTextItemArrayFactory
                             StringUtil.getInstance().EMPTY_STRING, 
                             backgroundBasicColor, foregroundBasicColor);
                     
-                    list.add(textItem);
+                    this.list.add(textItem);
                 }
             }
         }
 
-        CustomItem[] textItemArray = new CustomItem[list.size()];
+        CustomItem[] textItemArray = new CustomItem[this.list.size()];
         
         int size2 = textItemArray.length;
         for (int index = 0; index < size2; index++)
         {
-            textItemArray[index] = (CustomItem) list.objectArray[index];
+            textItemArray[index] = (CustomItem) this.list.objectArray[index];
         }
 
         return textItemArray;

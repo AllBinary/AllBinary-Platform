@@ -51,7 +51,7 @@ public class LocalPlayerInputIdFactory {
     public int getPlayerForDevice(int deviceId) {
         int index;
         
-        if(deviceId < MAX_FAST_DEVICEID)
+        if(deviceId < this.MAX_FAST_DEVICEID)
         {
             int playerInputId = this.deviceIdToplayerId[deviceId];
             if(playerInputId != -1)
@@ -62,7 +62,7 @@ public class LocalPlayerInputIdFactory {
         }
         else
         {
-            for (index = totalDevicesMapped - 1; index >= 0; index--) {
+            for (index = this.totalDevicesMapped - 1; index >= 0; index--) {
                 if (this.playerIdToDeviceId[index] == deviceId) {
                     //this.logUtil.putF("Found DeviceId: ").append(deviceId).append(" at playerInputId: ").append(index, this, "getPlayerForDevice");
                     return index;
@@ -73,7 +73,7 @@ public class LocalPlayerInputIdFactory {
         index = this.totalDevicesMapped;
         
         //Add New Player for device
-        if(deviceId < MAX_FAST_DEVICEID)
+        if(deviceId < this.MAX_FAST_DEVICEID)
         {        
             this.deviceIdToplayerId[deviceId] = index;
         }
@@ -84,7 +84,7 @@ public class LocalPlayerInputIdFactory {
 
         this.playerIdToDeviceId[index] = deviceId;
 
-        AnalogLocationInputFactory.getInstance().addPlayer(totalDevicesMapped);
+        AnalogLocationInputFactory.getInstance().addPlayer(this.totalDevicesMapped);
 
         totalDevicesMapped++;
 
@@ -100,7 +100,7 @@ public class LocalPlayerInputIdFactory {
     public int getTotalDevicesInPlay() {
 
         int total = 0;
-        for (int index = totalDevicesMapped - 1; index >= 0; index--) {
+        for (int index = this.totalDevicesMapped - 1; index >= 0; index--) {
             if (this.playersInPlay[index] == true) {
                 total++;
             }
@@ -119,14 +119,14 @@ public class LocalPlayerInputIdFactory {
     {
         int playerInputId = this.getPlayerForDevice(deviceId);
         this.logUtil.putF("Setting DeviceInPlay with DEVICE_ID_LABEL: ").append(deviceId).append(" playerInputId: ").append(playerInputId, this, "setDeviceInPlay");
-        playersInPlay[playerInputId] = true;
+        this.playersInPlay[playerInputId] = true;
     }
 
     public void setDeviceOutOfPlay(int deviceId)
     {
         int playerInputId = this.getPlayerForDevice(deviceId);
         this.logUtil.putF("Setting DeviceOutOfPlay with DEVICE_ID_LABEL: ").append(deviceId).append(" playerInputId: ").append(playerInputId, this, "setDeviceInPlay");
-        playersInPlay[playerInputId] = false;
+        this.playersInPlay[playerInputId] = false;
     }
     */
 
@@ -138,13 +138,13 @@ public class LocalPlayerInputIdFactory {
     public void setPlayerInPlay(int playerInputId)
     {
         this.logUtil.putF(new StringMaker().append("Setting PlayerInPlay with playerInputId: ").appendint(playerInputId).toString(), this, "setPlayerInPlay");
-        playersInPlay[playerInputId] = true;
+        this.playersInPlay[playerInputId] = true;
     }
 
     public void setPlayerOutOfPlay(int playerInputId)
     {
         this.logUtil.putF(new StringMaker().append("Setting PlayerOutOfPlay with playerInputId: ").appendint(playerInputId).toString(), this, "setPlayerOutOfPlay");
-        playersInPlay[playerInputId] = false;
+        this.playersInPlay[playerInputId] = false;
     }   
     
     /**

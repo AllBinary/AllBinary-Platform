@@ -117,7 +117,7 @@ public class AbPathUtilOld
 
    private boolean isValidStart(String path)
    {
-      if(path.charAt(0) == abPathData.SEPARATORCHAR)
+      if(path.charAt(0) == this.abPathData.SEPARATORCHAR)
       {
          return true;
       }
@@ -134,7 +134,7 @@ public class AbPathUtilOld
          return false;
       }
 
-      if(path.charAt(path.length()-1) == abPathData.SEPARATORCHAR)
+      if(path.charAt(path.length()-1) == this.abPathData.SEPARATORCHAR)
       {
          return true;
       }
@@ -148,7 +148,7 @@ public class AbPathUtilOld
    {
       if(!this.isValidStart(path))
       {
-         path = abPathData.SEPARATOR + path;
+         path = this.abPathData.SEPARATOR + path;
       }
       return path;
    }
@@ -157,7 +157,7 @@ public class AbPathUtilOld
    {
       if(!this.isValidEnd(path))
       {
-         path = path + abPathData.SEPARATOR;
+         path = path + this.abPathData.SEPARATOR;
       }
       return path;
    }
@@ -186,11 +186,11 @@ public class AbPathUtilOld
    
    public synchronized String getNameFromPath(String categoryPath)
    {
-      int endIndex = categoryPath.lastIndexOf(abPathData.SEPARATOR);
+      int endIndex = categoryPath.lastIndexOf(this.abPathData.SEPARATOR);
       
       if(endIndex < 0)
       {
-         endIndex = categoryPath.lastIndexOf(filePathData.SEPARATORCHAR);
+         endIndex = categoryPath.lastIndexOf(this.filePathData.SEPARATORCHAR);
       }
 
       if(endIndex < 0) return categoryPath;
@@ -210,11 +210,11 @@ public class AbPathUtilOld
 
    public synchronized AbPath removeNameFromPath(String categoryPath) throws Exception
    {   
-      int endIndex = categoryPath.lastIndexOf(abPathData.SEPARATOR);
+      int endIndex = categoryPath.lastIndexOf(this.abPathData.SEPARATOR);
 
       if(endIndex < 0)
       {
-         endIndex = categoryPath.lastIndexOf(filePathData.SEPARATORCHAR);
+         endIndex = categoryPath.lastIndexOf(this.filePathData.SEPARATORCHAR);
       }
 
       if(endIndex < 0)

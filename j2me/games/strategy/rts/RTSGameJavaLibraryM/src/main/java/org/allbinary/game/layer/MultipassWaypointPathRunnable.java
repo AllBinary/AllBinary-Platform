@@ -185,16 +185,16 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
 
     private void reset2() {
         multipassState.step = 0;
-        multipassState.iteration = 0;
-        multipassState.iteration2 = 0;
-        pathFindingInfo = NullUtil.getInstance().NULL_OBJECT;
+        this.multipassState.iteration = 0;
+        this.multipassState.iteration2 = 0;
+        this.pathFindingInfo = NullUtil.getInstance().NULL_OBJECT;
 //        first = true;
     }
     
     private void finish() {
         this.reset2();
-        currentPassRunnable = ALREADY_ENDED_RUNNABLE;
-        done = true;
+        this.currentPassRunnable = ALREADY_ENDED_RUNNABLE;
+        this.done = true;
     }
 
     @Override

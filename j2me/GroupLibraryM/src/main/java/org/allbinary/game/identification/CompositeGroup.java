@@ -56,7 +56,7 @@ public class CompositeGroup
     
     public boolean isInGroup(final Group groupInterface)
     {
-        if(list.contains(groupInterface))
+        if(this.list.contains(groupInterface))
         {
             return true;
         }

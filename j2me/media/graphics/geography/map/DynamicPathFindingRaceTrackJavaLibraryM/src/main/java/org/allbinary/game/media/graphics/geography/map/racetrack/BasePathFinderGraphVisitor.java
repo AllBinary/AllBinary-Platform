@@ -72,7 +72,7 @@ public class BasePathFinderGraphVisitor<V, E>
 
     public boolean isValid(GraphPath graphPath)
     {
-        if (graphPath.getEdgeList().size() > edgeMinimum &&
+        if (graphPath.getEdgeList().size() > this.edgeMinimum &&
             graphPath.getWeight() < maxPathWeight &&
             graphPath.getWeight() > minPathWeight)
         {
@@ -88,17 +88,17 @@ public class BasePathFinderGraphVisitor<V, E>
     {
         final StringMaker stringBuffer = new StringMaker();
         
-        if(graphPath.getEdgeList().size() < edgeMinimum)
+        if(graphPath.getEdgeList().size() < this.edgeMinimum)
         {
             stringBuffer.append("Ignoring Small: " + graphPath.getEdgeList().size());
         }
 
-        if(graphPath.getWeight() <= minPathWeight)
+        if(graphPath.getWeight() <= this.minPathWeight)
         {
             stringBuffer.append(" Low Weighted Path: " + graphPath.getWeight());
         }
 
-        if(graphPath.getWeight() >= maxPathWeight)
+        if(graphPath.getWeight() >= this.maxPathWeight)
         {
             stringBuffer.append(" To High Weighted Path: " + graphPath.getWeight());
         }

@@ -105,7 +105,7 @@ public class BasicWorkFlow
       try
       {
          //BasicWorkFlow
-         return "Name: " + workFlowName + "<br />Data: " + DomHelper.toString(this.workFlowDoc);
+         return "Name: " + this.workFlowName + "<br />Data: " + DomHelper.toString(this.workFlowDoc);
       }
       catch(Exception e)
       {
@@ -181,7 +181,7 @@ public class BasicWorkFlow
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "toXmlNode()", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "toXmlNode()", e);
          }
          return null;
       }
@@ -197,7 +197,7 @@ public class BasicWorkFlow
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            this.logUtil.put(commonStrings.EXCEPTION,this,"toXmlDoc()",e);
+            this.logUtil.put(this.commonStrings.EXCEPTION,this,"toXmlDoc()",e);
          }
          return null;
       }
@@ -215,7 +215,7 @@ public class BasicWorkFlow
          String error = "Failed to view WorkFlow";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
-            LogUtil.put(commonStrings.EXCEPTION,this,"view()",e);
+            LogUtil.put(this.commonStrings.EXCEPTION,this,"view()",e);
          }
          return error;
       }

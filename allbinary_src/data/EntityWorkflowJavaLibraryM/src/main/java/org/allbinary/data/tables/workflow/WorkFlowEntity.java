@@ -45,7 +45,7 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
     public WorkFlowEntity()
     {
         super(new UserDbInitInfo());
-        this.setTableName(tableName);
+        this.setTableName(this.tableName);
     }
 
     public void insert(final Vector values)

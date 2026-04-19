@@ -36,16 +36,16 @@ public class SmallBasicColorCacheFactory
 
     public void add(final BasicColor basicDefaultColor)
     {
-        BASIC_COLOR_ARRAY[colorIndex] = basicDefaultColor;
-        INDEX_TO_COLOR[colorIndex] = basicDefaultColor.intValue();
+        this.BASIC_COLOR_ARRAY[this.colorIndex] = basicDefaultColor;
+        this.INDEX_TO_COLOR[this.colorIndex] = basicDefaultColor.intValue();
         colorIndex++;
     }
 
     public BasicColor getInstance(final int colorAsInt)
     {
         BasicColor basicColor;
-        for(int index = 0; index < SIZE; index++) {
-            if(INDEX_TO_COLOR[index] == colorAsInt) {
+        for(int index = 0; index < this.SIZE; index++) {
+            if(this.INDEX_TO_COLOR[index] == colorAsInt) {
                 return this.BASIC_COLOR_ARRAY[index];
             }
         }

@@ -51,14 +51,14 @@ public class BasicRandomAI extends BasicAI
     {
         if (this.inputProbability.getTimeDelayHelper().isTime(GameTickTimeDelayHelperFactory.getInstance().startTime))
         {
-            i_random = myRandomFactory.getAbsoluteNextInt(this.inputProbability.getMax());
+            this.i_random = this.myRandomFactory.getAbsoluteNextInt(this.inputProbability.getMax());
 
             boolean repeat = false;
 
             Integer[] repeatLikelyhoodIntegerArray = this.inputProbability
                     .getRepeatLikelyhoodIntegerArray();
             
-            if (this.getLastKey() != -1 && repeatLikelyhoodIntegerArray[this.getLastKey()].intValue() >= i_random)
+            if (this.getLastKey() != -1 && repeatLikelyhoodIntegerArray[this.getLastKey()].intValue() >= this.i_random)
             {
                 repeat = true;
             }
@@ -68,7 +68,7 @@ public class BasicRandomAI extends BasicAI
                 Integer[][] likelyhoodIntegerArray = 
                     this.inputProbability.getLikelyhoodIntegerArray();
 
-                i_random = myRandomFactory.getAbsoluteNextInt(this.inputProbability.getMax());
+                this.i_random = this.myRandomFactory.getAbsoluteNextInt(this.inputProbability.getMax());
 
                 int size = keyArray.length;
                 Integer[] likelyhoodIntegerKeyArray;
@@ -82,7 +82,7 @@ public class BasicRandomAI extends BasicAI
                     if (likelyhoodIntegerArray.length >= key
                             && likelyhoodIntegerKeyArray[0] != null)
                     {
-                        if (i_random >= likelyhoodIntegerKeyArray[0].intValue()
+                        if (this.i_random >= likelyhoodIntegerKeyArray[0].intValue()
                                 && i_random < likelyhoodIntegerKeyArray[1].intValue())
                         {
                             this.setLastKey(key);

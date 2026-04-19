@@ -37,7 +37,7 @@ public class LogoImageFileUtil
         
     public void saveFiles(final FileItem fileItem) throws Exception
     {
-        if(fileName == null)
+        if(this.fileName == null)
         {
            throw new Exception("Image File Name Was Null");
         }
@@ -48,7 +48,7 @@ public class LogoImageFileUtil
         }
 
         final AbFile originalImageFile = new AbFile(
-            this.imageFileAbPath.toString() + fileName);
+            this.imageFileAbPath.toString() + this.fileName);
 
         originalImageFile.createNewFile();
 

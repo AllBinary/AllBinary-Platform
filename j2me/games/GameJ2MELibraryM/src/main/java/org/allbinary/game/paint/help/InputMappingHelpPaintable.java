@@ -88,7 +88,7 @@ public class InputMappingHelpPaintable extends HelpPaintable
         final PersistentInputMapping gameKeyMapping = 
             PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance();
         
-        final int size = gameInputMappingArray.length;
+        final int size = this.gameInputMappingArray.length;
         final String[] keyInfo = new String[size];
         final BasicArrayList[] keyMappingArray = new BasicArrayList[size];
         final BasicColor[] actionBasicColor = new BasicColor[size];
@@ -99,16 +99,16 @@ public class InputMappingHelpPaintable extends HelpPaintable
         BasicArrayList list;
         for(int index = 0; index < size; index++)
         {
-            gameInputMapping = gameInputMappingArray[index];
+            gameInputMapping = this.gameInputMappingArray[index];
             gameKey = gameInputMapping.getGameKey();
             list = gameKeyMapping.getInputMapping().getMappedInput(gameKey);
             
             int size2 = list.size();
-            inputBasicColorArray[index] = new BasicColor[size2];
+            this.inputBasicColorArray[index] = new BasicColor[size2];
             
             for(int index2 = 0; index2 < size2; index2++)
             {
-                inputBasicColorArray[index][index2] = this.basicColor;
+                this.inputBasicColorArray[index][index2] = this.basicColor;
             }
             
             if(gameKey == selectedGameKey)
@@ -121,7 +121,7 @@ public class InputMappingHelpPaintable extends HelpPaintable
                 {
                     stringMaker.delete(0, stringMaker.length());
                     this.logUtil.putF(stringMaker.append("Found: selected Input: ").append(this.stringUtil.toString(selectedInput)).toString(), this, commonStrings.UPDATE);
-                    inputBasicColorArray[index][indexOfSelectedInput] = this.selectedBasicColor; 
+                    this.inputBasicColorArray[index][indexOfSelectedInput] = this.selectedBasicColor; 
                 }
             }
             else

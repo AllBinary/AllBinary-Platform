@@ -37,7 +37,7 @@ public class Replace
    
    public Replace(final String key, final String value)
    {
-      hashMap = new HashMap();
+      this.hashMap = new HashMap();
       this.hashMap.put(new String[] {key}, new String[] {value});
       
 //      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
@@ -49,7 +49,7 @@ public class Replace
 
    public Replace(final String[] keys, final String[] values)
    {
-      hashMap = new HashMap();
+      this.hashMap = new HashMap();
       this.hashMap.put(keys, values);
       
 //      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
@@ -84,7 +84,7 @@ public class Replace
 
       int totalNumberOfReplaces = 0;
       
-      final Set keySet = hashMap.keySet();
+      final Set keySet = this.hashMap.keySet();
       String[] keys;
       String[] values;
       final Object[] keyArray = keySet.toArray();
@@ -92,7 +92,7 @@ public class Replace
       for(int index2 = 0; index2 < size; index2++)
       {
          keys = (String[]) keyArray[index2];
-         values = (String[]) hashMap.get(keys);
+         values = (String[]) this.hashMap.get(keys);
          
          //replace.replace(key, value);
 
@@ -105,7 +105,7 @@ public class Replace
             {
                 foundTotal++;
                 if(foundTotal % 100 == 0) {
-                    System.out.println(FOUND_KEY + foundTotal);
+                    System.out.println(this.FOUND_KEY + foundTotal);
                 }
                
                final int end = begin + keys[0].length();
@@ -175,7 +175,7 @@ public class Replace
 
       int totalNumberOfReplaces = 0;
       
-      final Set keySet = hashMap.keySet();
+      final Set keySet = this.hashMap.keySet();
       String key;
       String value;
       final Object[] keyArray = keySet.toArray();
@@ -183,7 +183,7 @@ public class Replace
       for(int index2 = 0; index2 < size; index2++)
       {
          key = (String) keyArray[index2];
-         value = (String) hashMap.get(key);
+         value = (String) this.hashMap.get(key);
          
          //replace.replace(key, value);
 
@@ -195,7 +195,7 @@ public class Replace
             final int begin = replace.indexOf(key, index);
             if(begin != -1)
             {
-                System.out.println(FOUND_KEY);
+                System.out.println(this.FOUND_KEY);
                final int end = replace.indexOf('\n', begin + key.length()) + 1;
 
                if(end >= 0) {

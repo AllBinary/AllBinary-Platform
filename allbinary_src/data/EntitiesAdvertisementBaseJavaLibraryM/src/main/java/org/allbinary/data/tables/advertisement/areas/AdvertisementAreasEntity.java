@@ -37,7 +37,7 @@ public class AdvertisementAreasEntity extends AbSqlBean implements Advertisement
     public AdvertisementAreasEntity()
     {
         super(new UserDbInitInfo());
-        this.setTableName(tableName);
+        this.setTableName(this.tableName);
     }
 
     /*

@@ -39,9 +39,9 @@ public class ViewPositionEventHandler extends BasicEventHandler
 
    public void addListener(AllBinaryLayer layerInterface)
    {
-       if(!list.contains(layerInterface))
+       if(!this.list.contains(layerInterface))
        {
-           list.add(layerInterface);
+           this.list.add(layerInterface);
        }
    }
 

@@ -114,9 +114,9 @@ public class FileAuthenticationTag extends CustomTagSupport
 
     public void nextAttempt()
     {
-        if (attemptsInteger != null && attemptsInteger.intValue() > 0)
+        if (this.attemptsInteger != null && this.attemptsInteger.intValue() > 0)
         {
-            this.weblisketSession.setAttempts(new Integer(attemptsInteger.intValue() + 1));
+            this.weblisketSession.setAttempts(new Integer(this.attemptsInteger.intValue() + 1));
         } else
         {
             this.weblisketSession.setAttempts(new Integer(1));
@@ -128,12 +128,12 @@ public class FileAuthenticationTag extends CustomTagSupport
         try
         {
             //BasicUserRole role = this.weblisketSession.getRole();
-            String userName = request.getParameter(WeblisketSessionData.REMOVABLEUSERNAME);
-            String password = request.getParameter(WeblisketSessionData.REMOVABLEPASSWORD);
-            String newPassword = request.getParameter(WeblisketSessionData.REMOVABLENEWPASSWORD);
+            String userName = this.request.getParameter(WeblisketSessionData.REMOVABLEUSERNAME);
+            String password = this.request.getParameter(WeblisketSessionData.REMOVABLEPASSWORD);
+            String newPassword = this.request.getParameter(WeblisketSessionData.REMOVABLENEWPASSWORD);
             //String sessionPassword = this.weblisketSession.getPassword();
 
-            String newReenteredPassword = request.getParameter(WeblisketSessionData.REMOVABLEREENTERNEWPASSWORD);
+            String newReenteredPassword = this.request.getParameter(WeblisketSessionData.REMOVABLEREENTERNEWPASSWORD);
 
             if (newPassword.compareTo(newReenteredPassword) != 0)
             {
@@ -239,7 +239,7 @@ public class FileAuthenticationTag extends CustomTagSupport
             long timeCreated = this.weblisketSession.getCreationTime();
             long lastAccess = this.weblisketSession.getLastAccessedTime();
 
-            long timePassed = role.getSessionInactivityTimeout();
+            long timePassed = this.role.getSessionInactivityTimeout();
 
             Calendar calendar = Calendar.getInstance();
 
@@ -355,14 +355,14 @@ public class FileAuthenticationTag extends CustomTagSupport
     {
         try
         {
-            if (BooleanUtil.getInstance().getFromString(authenticated))
+            if (BooleanUtil.getInstance().getFromString(this.authenticated))
             {
                 //Returning with existing authenticated session
-                final int size = roles.size();
+                final int size = this.roles.size();
                 for(int index = 0; index < size; index++)
                 {
-                    BasicUserRole mustBeOfRole = (BasicUserRole) roles.get(index);
-                    if (sessionUserName != null
+                    BasicUserRole mustBeOfRole = (BasicUserRole) this.roles.get(index);
+                    if (this.sessionUserName != null
                         && role.equals(mustBeOfRole))
                     {
                         return Boolean.TRUE.booleanValue();
@@ -391,14 +391,14 @@ public class FileAuthenticationTag extends CustomTagSupport
                 this.logUtil.putF("Starting for User: " + this.userName + " Attempt: " + this.weblisketSession.getAttempts(), this, "processIfNewLogin()");
             }
 
-            if (userName != null && userName.compareTo(StringUtil.getInstance().EMPTY_STRING) != 0 && password != null && password.compareTo(StringUtil.getInstance().EMPTY_STRING) != 0)
+            if (this.userName != null && this.userName.compareTo(StringUtil.getInstance().EMPTY_STRING) != 0 && this.password != null && this.password.compareTo(StringUtil.getInstance().EMPTY_STRING) != 0)
             {
                 String login;
 
                 //If client user is claiming to be an installer
                 //check file instead of db
                 InstallerInfo installerInfo = new InstallerInfo();
-                if (installerInfo.isValid(userName, password))
+                if (installerInfo.isValid(this.userName, this.password))
                 {
                     login = org.allbinary.globals.GLOBALS2.LOGINSUCCESS;
                 } else
@@ -433,7 +433,7 @@ public class FileAuthenticationTag extends CustomTagSupport
     {
         try
         {
-            if (BooleanUtil.getInstance().getFromString(timeout))
+            if (BooleanUtil.getInstance().getFromString(this.timeout))
             {
                 this.invalidateSession();
                 return Boolean.TRUE.booleanValue();
@@ -468,13 +468,13 @@ public class FileAuthenticationTag extends CustomTagSupport
                 this.logUtil.putF("Started", this, tagStrings.DO_START_TAG);
             }
 
-            if (command != null)
+            if (this.command != null)
             {
                 //Test Error Pages
                 //if(command!=null) throw new JspTagException(e2);
                 //if(command!=null) throw new LicensingException();
 
-                if (command.compareTo(org.allbinary.globals.GLOBALS2.CHANGEPASSWORD) == 0)
+                if (this.command.compareTo(org.allbinary.globals.GLOBALS2.CHANGEPASSWORD) == 0)
                 {
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
                     {
@@ -501,11 +501,11 @@ public class FileAuthenticationTag extends CustomTagSupport
                 } else
                 {
                     /*
-                    pageContext.getOut().print("UserName: " + userName + "<br>");
-                    pageContext.getOut().print("Password: " + password + "<br>");
-                    pageContext.getOut().print("UserName: " + sessionUserName + "<br>");
-                    pageContext.getOut().print("Role: " + role + "<br>");
-                    pageContext.getOut().print("Auth: " + authenticated + "<p>");
+                    pageContext.getOut().print("UserName: " + this.userName + "<br>");
+                    pageContext.getOut().print("Password: " + this.password + "<br>");
+                    pageContext.getOut().print("UserName: " + this.sessionUserName + "<br>");
+                    pageContext.getOut().print("Role: " + this.role + "<br>");
+                    pageContext.getOut().print("Auth: " + this.authenticated + "<p>");
                     this.outputSessionInfo(session);
                      */
 
@@ -525,7 +525,7 @@ public class FileAuthenticationTag extends CustomTagSupport
 
                             //invalidates session based on a timeout
                             pageContext.getOut().print("Please login again.<p>");
-                            if (command.compareTo(org.allbinary.globals.GLOBALS2.PROCESSBODYIFAUTHENTICATED) == 0)
+                            if (this.command.compareTo(org.allbinary.globals.GLOBALS2.PROCESSBODYIFAUTHENTICATED) == 0)
                             {
                                 return TagSupport.SKIP_BODY;
                             } else
@@ -540,7 +540,7 @@ public class FileAuthenticationTag extends CustomTagSupport
                             }
 
                             //prepares session for timeout
-                            if (command.compareTo(org.allbinary.globals.GLOBALS2.PROCESSBODYIFAUTHENTICATED) == 0)
+                            if (this.command.compareTo(org.allbinary.globals.GLOBALS2.PROCESSBODYIFAUTHENTICATED) == 0)
                             {
                                 return TagSupport.SKIP_BODY;
                             } else
@@ -551,21 +551,21 @@ public class FileAuthenticationTag extends CustomTagSupport
                     }
 
                     /*
-                    if(userName==null || userName.compareTo(stringUtil.EMPTY_STRING)==0)
+                    if(this.userName==null || this.userName.compareTo(stringUtil.EMPTY_STRING)==0)
                     pageContext.getOut().print("UserName Empty<br>");
-                    if(password==null  || password.compareTo(stringUtil.EMPTY_STRING)==0)
+                    if(this.password==null  || this.password.compareTo(stringUtil.EMPTY_STRING)==0)
                     pageContext.getOut().print("Password Empty<br>");
-                    if(sessionUserName==null || sessionUserName.compareTo(stringUtil.EMPTY_STRING)==0)
+                    if(this.sessionUserName==null || this.sessionUserName.compareTo(stringUtil.EMPTY_STRING)==0)
                     pageContext.getOut().print("Session UserName Null or Empty<br>");
-                    if(authenticated!=null)
+                    if(this.authenticated!=null)
                     {
                     pageContext.getOut().print("Auth Not Empty<br>");
-                    if(authenticated.compareTo("true")==0)
+                    if(this.authenticated.compareTo("true")==0)
                     pageContext.getOut().print("Auth==true<br>");
                     }
                      */
 
-                    if ((userName == null || userName.compareTo(stringUtil.EMPTY_STRING) == 0)
+                    if ((this.userName == null || this.userName.compareTo(stringUtil.EMPTY_STRING) == 0)
                         && (password == null || password.compareTo(stringUtil.EMPTY_STRING) == 0)
                         && this.roles != null && this.isAuthenticationSessionValid())
                     {
@@ -574,7 +574,7 @@ public class FileAuthenticationTag extends CustomTagSupport
                             this.logUtil.putF("Authenticated session is valid", this, tagStrings.DO_START_TAG);
                         }
 
-                        if (command.compareTo(org.allbinary.globals.GLOBALS2.PROCESSBODYIFAUTHENTICATED) == 0)
+                        if (this.command.compareTo(org.allbinary.globals.GLOBALS2.PROCESSBODYIFAUTHENTICATED) == 0)
                         {
                             return TagSupport.EVAL_BODY_INCLUDE;
                         } else
@@ -598,7 +598,7 @@ public class FileAuthenticationTag extends CustomTagSupport
                             }
 
                             pageContext.getOut().print(validRole());
-                            if (command.compareTo(org.allbinary.globals.GLOBALS2.PROCESSBODYIFAUTHENTICATED) == 0)
+                            if (this.command.compareTo(org.allbinary.globals.GLOBALS2.PROCESSBODYIFAUTHENTICATED) == 0)
                             {
                                 return EVAL_BODY_INCLUDE;
                             } else
@@ -613,7 +613,7 @@ public class FileAuthenticationTag extends CustomTagSupport
                             }
 
                             pageContext.getOut().print(invalidRole());
-                            if (command.compareTo(org.allbinary.globals.GLOBALS2.PROCESSBODYIFAUTHENTICATED) == 0)
+                            if (this.command.compareTo(org.allbinary.globals.GLOBALS2.PROCESSBODYIFAUTHENTICATED) == 0)
                             {
                                 return SKIP_BODY;
                             } else
@@ -628,8 +628,8 @@ public class FileAuthenticationTag extends CustomTagSupport
                             this.logUtil.putF("Invalid Login", this, tagStrings.DO_START_TAG);
                         }
 
-                        if (userName != null && userName.compareTo(StringUtil.getInstance().EMPTY_STRING) != 0
-                            && password != null && password.compareTo(StringUtil.getInstance().EMPTY_STRING) != 0)
+                        if (this.userName != null && this.userName.compareTo(StringUtil.getInstance().EMPTY_STRING) != 0
+                            && this.password != null && this.password.compareTo(StringUtil.getInstance().EMPTY_STRING) != 0)
                         {
                             pageContext.getOut().print("Sorry your username and/or password is invalid.<p>");
                         }
@@ -651,7 +651,7 @@ public class FileAuthenticationTag extends CustomTagSupport
 
                     //pageContext.getOut().print("Not a new attempt or previously authorized<p>");
                     //I hope this never occurs - I may add an exception for this case in the future
-                    if (command.compareTo(org.allbinary.globals.GLOBALS2.PROCESSBODYIFAUTHENTICATED) == 0)
+                    if (this.command.compareTo(org.allbinary.globals.GLOBALS2.PROCESSBODYIFAUTHENTICATED) == 0)
                     {
                         return TagSupport.SKIP_BODY;
                     } else

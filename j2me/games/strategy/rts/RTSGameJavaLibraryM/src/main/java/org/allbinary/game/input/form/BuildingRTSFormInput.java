@@ -415,7 +415,7 @@ public class BuildingRTSFormInput extends RTSFormInput
         final BasicArrayList occupyList =
             geographicMapCellPositionArea.getOccupyingGeographicMapCellPositionList();
 
-        if (dropCellPositionHistory.anyCellPositionWithDrop(occupyList))
+        if (this.dropCellPositionHistory.anyCellPositionWithDrop(occupyList))
         {
             rtsPlayerLayerInterface.add(ErrorSound.getInstance());
 
@@ -470,7 +470,7 @@ public class BuildingRTSFormInput extends RTSFormInput
         final BasicArrayList occupyList =
             geographicMapCellPositionArea.getOccupyingGeographicMapCellPositionList();
 
-        dropCellPositionHistory.add(occupyList, layerInterface);
+        this.dropCellPositionHistory.add(occupyList, layerInterface);
 
         final RTSPlayerGameInput rtsPlayerGameInput = (RTSPlayerGameInput)
             rtsPlayerLayerInterface.getPlayerGameInput();

@@ -143,11 +143,11 @@ public class SimpleFileUtil {
             return stringList;
         }
         
-        byte[] byteArray = nullUtil.NULL_BYTE_ARRAY;
+        byte[] byteArray = this.nullUtil.NULL_BYTE_ARRAY;
         try {
             final ByteArrayOutputStream outputStream2 = new ByteArrayOutputStream(max);
-            byteArray = streamUtil.getByteArray(inputStream, outputStream2, byteArray1);
-            streamUtil.close(inputStream);
+            byteArray = this.streamUtil.getByteArray(inputStream, outputStream2, byteArray1);
+            this.streamUtil.close(inputStream);
         } catch (Exception e) {
             streamUtil.close(inputStream);
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.ADD, e);

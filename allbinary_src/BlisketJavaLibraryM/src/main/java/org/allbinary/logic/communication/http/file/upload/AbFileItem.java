@@ -54,7 +54,7 @@ public class AbFileItem
 
     public InputStream getInputStream() throws IOException
     {
-        throw new IOException(commonStrings.NOT_IMPLEMENTED);
+        throw new IOException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     public String getContentType()
@@ -91,13 +91,13 @@ public class AbFileItem
     {
         try
         {
-            return FileItemUtil.getInstance().getString(byteArray);
+            return FileItemUtil.getInstance().getString(this.byteArray);
         }
         catch(Exception e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPERROR))
             {
-                this.logUtil.put(commonStrings.EXCEPTION, this, "getString", e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, "getString", e);
             }
             return StringUtil.getInstance().EMPTY_STRING;
         }
@@ -105,17 +105,17 @@ public class AbFileItem
 
     public void write(File file) throws Exception
     {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
+        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
     
     public void write(AbFile file) throws Exception
     {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
+        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     public void delete()
     {
-        ForcedLogUtil.log(commonStrings.NOT_IMPLEMENTED, "delete()");
+        ForcedLogUtil.log(this.commonStrings.NOT_IMPLEMENTED, "delete()");
     }
 
     public String getFieldName()
@@ -148,14 +148,14 @@ public class AbFileItem
     public OutputStream getOutputStream()
         throws IOException
     {
-        throw new IOException(commonStrings.NOT_IMPLEMENTED);
+        throw new IOException(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     public FileItemHeaders getHeaders() {
-        throw new RuntimeException(commonStrings.NOT_IMPLEMENTED);
+        throw new RuntimeException(this.commonStrings.NOT_IMPLEMENTED);
     }
     
     public void setHeaders(FileItemHeaders fih) {
-        throw new RuntimeException(commonStrings.NOT_IMPLEMENTED);
+        throw new RuntimeException(this.commonStrings.NOT_IMPLEMENTED);
     }
 }

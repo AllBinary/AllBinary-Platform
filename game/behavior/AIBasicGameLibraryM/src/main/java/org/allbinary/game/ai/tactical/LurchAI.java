@@ -35,13 +35,13 @@ public class LurchAI  extends BasicAI
    public void processAI(AllBinaryLayerManager allBinaryLayerManager) 
            throws Exception
    {
-      if(currentSpeed == -1)
+      if(this.currentSpeed == -1)
       {
-          currentSpeed = 5;
+          this.currentSpeed = 5;
       }
       else
       {
-         currentSpeed = -1;
+         this.currentSpeed = -1;
       }
       
       AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
@@ -50,30 +50,30 @@ public class LurchAI  extends BasicAI
       int x = ownerLayerInterface.getXP();
 
       //this.logUtil.putF("Angle: " + currentAngle + " X: " + x + " Y: " + y, this, commonStrings.PROCESS);
-      if (ownerLayerInterface.getXP() - currentSpeed <= 0)
+      if (ownerLayerInterface.getXP() - this.currentSpeed <= 0)
       {
          this.reverse();
          this.drop();
       }
 
-      if (ownerLayerInterface.getX2() + currentSpeed > DisplayInfoSingleton.getInstance().getLastWidth())
+      if (ownerLayerInterface.getX2() + this.currentSpeed > DisplayInfoSingleton.getInstance().getLastWidth())
       {
          this.reverse();
          this.accelerate();
          this.drop();
       }
 
-      if (currentRelativeAngle == 0)
+      if (this.currentRelativeAngle == 0)
       {
-         x += (currentSpeed);
+         x += (this.currentSpeed);
       } else if (currentRelativeAngle == 180)
       {
-         x -= (currentSpeed);
+         x -= (this.currentSpeed);
       }
 
       ownerLayerInterface.setPosition(x, ownerLayerInterface.getYP(), ownerLayerInterface.getZP());
 
-      if (currentRelativeAngle == 0)
+      if (this.currentRelativeAngle == 0)
       {
          super.processAI(Canvas.KEY_NUM0);
       } else if (currentRelativeAngle == 180)
@@ -84,18 +84,18 @@ public class LurchAI  extends BasicAI
    
    protected void reverse()
    {
-      if (currentRelativeAngle == 180)
+      if (this.currentRelativeAngle == 180)
       {
-         currentRelativeAngle = 0;
+         this.currentRelativeAngle = 0;
       } else if (currentRelativeAngle == 0)
       {
-         currentRelativeAngle = 180;
+         this.currentRelativeAngle = 180;
       }
    }
 
    private void accelerate()
    {
-      if (currentSpeed < 20)
+      if (this.currentSpeed < 20)
       {
          currentSpeed++;
       }

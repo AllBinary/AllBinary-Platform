@@ -48,7 +48,7 @@ public class WebCommandProcessor {
     public void process(final CommandListener midletCommandListener, final Command command, final Canvas canvas) {
         try {
             //HTML
-            PlayN.openURL((String) list.remove(0));
+            PlayN.openURL((String) this.list.remove(0));
 
         } catch(Exception e) {
             final CommonStrings commonStrings = CommonStrings.getInstance();

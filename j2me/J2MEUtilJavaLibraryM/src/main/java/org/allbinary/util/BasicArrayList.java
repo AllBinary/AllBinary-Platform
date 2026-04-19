@@ -23,7 +23,7 @@ public class BasicArrayList
             throw new IllegalArgumentException(new StringMaker().append("Init Size Exception: ").appendint(size).toString());
         }
 
-        objectArray = new Object[size];
+        this.objectArray = new Object[size];
     }
 
     public BasicArrayList(final Object[] objectArray) {
@@ -49,18 +49,18 @@ public class BasicArrayList
 
     public void add(final int index, final Object element)
     {
-        if (index > currentIndex || index < 0) {
+        if (index > this.currentIndex || index < 0) {
             StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append(CommonLabels.getInstance().INDEX_LABEL);
             stringBuffer.appendint(index);
             stringBuffer.append(SIZE);
-            stringBuffer.appendint(currentIndex);
+            stringBuffer.appendint(this.currentIndex);
 
             throw new IndexOutOfBoundsException(stringBuffer.toString());
         }
 
-        ensureCapacity(currentIndex + 1);
+        ensureCapacity(this.currentIndex + 1);
         System.arraycopy(objectArray, index, objectArray, index + 1, currentIndex - index);
         objectArray[index] = element;
         currentIndex++;
@@ -68,31 +68,31 @@ public class BasicArrayList
 
     public boolean add(final Object object)
     {
-        ensureCapacity(currentIndex + 1);
-        objectArray[currentIndex++] = object;
+        ensureCapacity(this.currentIndex + 1);
+        this.objectArray[currentIndex++] = object;
         return true;
     }
 
     public Object remove(final int index)
     {
-        if (index >= currentIndex) {
+        if (index >= this.currentIndex) {
             final StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append(CommonLabels.getInstance().INDEX_LABEL);
             stringBuffer.appendint(index);
             stringBuffer.append(SIZE);
-            stringBuffer.appendint(currentIndex);
+            stringBuffer.appendint(this.currentIndex);
 
             throw new IndexOutOfBoundsException(stringBuffer.toString());
         }
 
-        Object oldValue = objectArray[index];
+        Object oldValue = this.objectArray[index];
 
         final int numMoved = currentIndex - index - 1;
         if (numMoved > 0)
             System.arraycopy(objectArray, index + 1, objectArray, index, numMoved);
 
-        objectArray[--currentIndex] = null;
+        objectArray[--this.currentIndex] = null;
 
         return oldValue;
     }
@@ -100,22 +100,22 @@ public class BasicArrayList
     public boolean remove(final Object object)
     {
         if (object == null) {
-            for (int index = 0; index < currentIndex; index++) {
-                if (objectArray[index] == null) {
+            for (int index = 0; index < this.currentIndex; index++) {
+                if (this.objectArray[index] == null) {
                     final int numMoved = currentIndex - index - 1;
 
                     if (numMoved > 0) {
                         System.arraycopy(objectArray, index + 1, objectArray, index, numMoved);
                     }
 
-                    objectArray[--currentIndex] = null;
+                    objectArray[--this.currentIndex] = null;
                     return true;
                 }
             }
         }
         else
         {
-            for (int index = 0; index < currentIndex; index++) {
+            for (int index = 0; index < this.currentIndex; index++) {
                 //Handle cases like File where the equals does not check for the same object
                 if (object == objectArray[index] || object.equals(objectArray[index])) {
                     final int numMoved = currentIndex - index - 1;
@@ -124,7 +124,7 @@ public class BasicArrayList
                         System.arraycopy(objectArray, index + 1, objectArray, index, numMoved);
                     }
 
-                    objectArray[--currentIndex] = null;
+                    objectArray[--this.currentIndex] = null;
                     return true;
                 }
             }
@@ -149,12 +149,12 @@ public class BasicArrayList
     
     public boolean addAll2(final BasicArrayList list)
     {
-        ensureCapacity(currentIndex + list.currentIndex);
+        ensureCapacity(this.currentIndex + list.currentIndex);
 
         int listSize = list.currentIndex;
 
         for (int index = 0; index < listSize; index++) {
-            objectArray[currentIndex++] = list.objectArray[index];
+            this.objectArray[currentIndex++] = list.objectArray[index];
         }
 
         return true;
@@ -169,7 +169,7 @@ public class BasicArrayList
     public boolean addAll(final Object[] newObjectArray)
     {
         int numSize = newObjectArray.length;
-        ensureCapacity(currentIndex + numSize);
+        ensureCapacity(this.currentIndex + numSize);
         System.arraycopy(newObjectArray, 0, objectArray, currentIndex, numSize);
         currentIndex += numSize;
         return numSize != 0;
@@ -177,7 +177,7 @@ public class BasicArrayList
     
     public void ensureCapacity(final int minSize)
     {
-        final int oldCapacity = objectArray.length;
+        final int oldCapacity = this.objectArray.length;
 
         if (minSize > oldCapacity) {
             int newCapacity = ((oldCapacity * 3) >> 1) + 1;
@@ -185,30 +185,30 @@ public class BasicArrayList
             if (newCapacity < minSize)
                 newCapacity = minSize;
 
-            objectArray = arrayUtil.copyOf(objectArray, newCapacity);
+            this.objectArray = this.arrayUtil.copyOf(this.objectArray, newCapacity);
         }
     }
 
     public void trimToSize()
     {
-        final int oldCapacity = objectArray.length;
+        final int oldCapacity = this.objectArray.length;
 
-        if (currentIndex < oldCapacity)
-            objectArray = arrayUtil.copyOf(objectArray, currentIndex);
+        if (this.currentIndex < oldCapacity)
+            this.objectArray = this.arrayUtil.copyOf(this.objectArray, currentIndex);
     }
 
     public int indexOf(final Object object)
     {
         if (object == null) {
-            for (int i = 0; i < currentIndex; i++) {
-                if (objectArray[i] == null)
+            for (int i = 0; i < this.currentIndex; i++) {
+                if (this.objectArray[i] == null)
                     return i;
             }
         }
         else
         {
-            for (int i = 0; i < currentIndex; i++) {
-                if (object.equals(objectArray[i]))
+            for (int i = 0; i < this.currentIndex; i++) {
+                if (object.equals(this.objectArray[i]))
                     return i;
             }
         }
@@ -218,15 +218,15 @@ public class BasicArrayList
     public int lastIndexOf(final Object object)
     {
         if (object == null) {
-            for (int i = currentIndex - 1; i >= 0; i--) {
-                if (objectArray[i] == null)
+            for (int i = this.currentIndex - 1; i >= 0; i--) {
+                if (this.objectArray[i] == null)
                     return i;
             }
         }
         else
         {
-            for (int i = currentIndex - 1; i >= 0; i--) {
-                if (object.equals(objectArray[i]))
+            for (int i = this.currentIndex - 1; i >= 0; i--) {
+                if (object.equals(this.objectArray[i]))
                     return i;
             }
         }
@@ -235,13 +235,13 @@ public class BasicArrayList
 
     public Object get(final int index)
     {
-        if (index >= currentIndex) {
+        if (index >= this.currentIndex) {
             final StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append(CommonLabels.getInstance().INDEX_LABEL);
             stringBuffer.appendint(index);
             stringBuffer.append(SIZE);
-            stringBuffer.appendint(currentIndex);
+            stringBuffer.appendint(this.currentIndex);
 
             throw new IndexOutOfBoundsException(stringBuffer.toString());
         }
@@ -251,28 +251,28 @@ public class BasicArrayList
 
     public Object set(final int index, final Object element)
     {
-        if (index >= currentIndex) {
+        if (index >= this.currentIndex) {
             final StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append(CommonLabels.getInstance().INDEX_LABEL);
             stringBuffer.appendint(index);
             stringBuffer.append(SIZE);
-            stringBuffer.appendint(currentIndex);
+            stringBuffer.appendint(this.currentIndex);
 
             throw new IndexOutOfBoundsException(stringBuffer.toString());
         }
 
         final Object oldValue = objectArray[index];
-        objectArray[index] = element;
+        this.objectArray[index] = element;
         return oldValue;
     }
 
     public void clear()
     {
-        for (int i = 0; i < currentIndex; i++) 
-        {objectArray[i] = null;}
+        for (int i = 0; i < this.currentIndex; i++) 
+        {this.objectArray[i] = null;}
 
-        currentIndex = 0;
+        this.currentIndex = 0;
     }
 
     public int size()
@@ -292,12 +292,12 @@ public class BasicArrayList
 
     public Object[] toArray()
     {
-        return arrayUtil.copyOf(objectArray, currentIndex);
+        return arrayUtil.copyOf(this.objectArray, currentIndex);
     }
 
     public Object[] toArray(final Object[] objectArray)
     {
-        if (objectArray.length < currentIndex)
+        if (objectArray.length < this.currentIndex)
             return arrayUtil.copyOf(this.objectArray, currentIndex, objectArray.getClass());
 
         System.arraycopy(this.objectArray, 0, objectArray, 0, currentIndex);
@@ -328,8 +328,8 @@ public class BasicArrayList
         final String COMMA_SEP = CommonSeps.getInstance().COMMA_SEP;
         StringMaker stringBuffer = new StringMaker();
 
-        for (int index = 0; index < currentIndex; index++) {
-            stringBuffer.append(objectArray[index].toString());
+        for (int index = 0; index < this.currentIndex; index++) {
+            stringBuffer.append(this.objectArray[index].toString());
             stringBuffer.append(COMMA_SEP);
         }
         return stringBuffer.toString();

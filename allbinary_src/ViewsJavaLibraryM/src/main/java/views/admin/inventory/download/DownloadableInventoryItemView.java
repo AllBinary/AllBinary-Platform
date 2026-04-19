@@ -79,7 +79,7 @@ public class DownloadableInventoryItemView
 
     private void getFormData() throws Exception
     {
-        this.setRequestHashMap(new MultipartRequestParams(request).toHashMap());
+        this.setRequestHashMap(new MultipartRequestParams(this.request).toHashMap());
 
         this.id = (String) this.getRequestHashMap().get(BasicItemData.ID);
     }
@@ -93,7 +93,7 @@ public class DownloadableInventoryItemView
             vector.add(new DownloadableItemView(this.downloadableItem));
         }
 
-        this.addDomNodeInterface(new BasicItemView(itemInterface, vector));
+        this.addDomNodeInterface(new BasicItemView(this.itemInterface, vector));
     }
 
     public String view() throws Exception

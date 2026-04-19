@@ -35,7 +35,7 @@ public class DownloadItemsEntity extends AbSqlBean implements DownloadItemsEntit
     public DownloadItemsEntity()
     {
         super(new InventoryDbInitInfo());
-        this.setTableName(tableName);
+        this.setTableName(this.tableName);
     }
 
     public void insert(Vector values)

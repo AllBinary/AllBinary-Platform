@@ -46,7 +46,7 @@ public class GameCanvasPauseRunnable extends GameRunnable
                 final boolean isOpenGL = features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL);
 
                 if (isOpenGL) {
-                    allBinaryGameCanvas.processSleep();
+                    this.allBinaryGameCanvas.processSleep();
                 }
             } catch (Exception e) {
                 final CommonStrings commonStrings = CommonStrings.getInstance();

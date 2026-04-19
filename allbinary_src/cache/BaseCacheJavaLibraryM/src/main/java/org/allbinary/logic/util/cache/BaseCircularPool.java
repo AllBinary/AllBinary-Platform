@@ -23,7 +23,7 @@ public class BaseCircularPool
 
     public synchronized Object getNextInstance() throws Exception
     {
-        Object object = OBJECT_ARRAY[this.circularIndexUtil.getIndex()];
+        Object object = this.OBJECT_ARRAY[this.circularIndexUtil.getIndex()];
 
         this.circularIndexUtil.next();
 
@@ -37,12 +37,12 @@ public class BaseCircularPool
         int size = this.circularIndexUtil.getSize();
         for (int index = 0; index < size ; index++)
         {
-            OBJECT_ARRAY[index] = allBinaryObjectFactoryInterface.getInstance();
+            this.OBJECT_ARRAY[index] = allBinaryObjectFactoryInterface.getInstance();
         }
     }
     
     public Object getInstance(int index) throws Exception
     {
-        return OBJECT_ARRAY[index];
+        return this.OBJECT_ARRAY[index];
     }
 }

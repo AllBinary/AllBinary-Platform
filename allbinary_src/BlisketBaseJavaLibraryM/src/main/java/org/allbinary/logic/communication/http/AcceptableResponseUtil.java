@@ -34,12 +34,12 @@ public class AcceptableResponseUtil
 
     public String get(int index)
     {
-        return (String) candidateVector.get(index);
+        return (String) this.candidateVector.get(index);
     }
 
     public String getTagName(int index)
     {
-        return (String) tagNameVector.get(index);
+        return (String) this.tagNameVector.get(index);
     }
 
     public int size()

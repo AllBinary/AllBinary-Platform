@@ -32,11 +32,11 @@ public class BasicUserRoleFactory
     private final long CUSTOMERMAXSESSIONTIME = 360000000;
     private final long MAXSESSIONTIME = 360000000;
     public final BasicUserRole INSTALLER =
-        new BasicUserRole("Installer", 16, MAXSESSIONTIME, INACTIVITYTIMEOUT);
+        new BasicUserRole("Installer", 16, MAXSESSIONTIME, this.INACTIVITYTIMEOUT);
     //Administrators
     //new AdministratorUserFactory()
     public final BasicUserRole ADMINISTRATOR =
-        new BasicUserRole("Administrator", 0, MAXSESSIONTIME, INACTIVITYTIMEOUT);
+        new BasicUserRole("Administrator", 0, MAXSESSIONTIME, this.INACTIVITYTIMEOUT);
     //Users
     public final BasicUserRole CUSTOMER =
         new BasicUserRole(
@@ -72,11 +72,11 @@ public class BasicUserRoleFactory
         MAXSESSIONTIME, INACTIVITYTIMEOUT);
     //Order Manager Assistants
     public final BasicUserRole REVIEWER =
-        new BasicUserRole("Reviewer", 10, MAXSESSIONTIME, INACTIVITYTIMEOUT);
+        new BasicUserRole("Reviewer", 10, MAXSESSIONTIME, this.INACTIVITYTIMEOUT);
     public final BasicUserRole SHIPPING =
-        new BasicUserRole("Shipping", 11, MAXSESSIONTIME, INACTIVITYTIMEOUT);
+        new BasicUserRole("Shipping", 11, MAXSESSIONTIME, this.INACTIVITYTIMEOUT);
     public final BasicUserRole ADJUSTER =
-        new BasicUserRole("Adjuster", 12, MAXSESSIONTIME, INACTIVITYTIMEOUT);
+        new BasicUserRole("Adjuster", 12, MAXSESSIONTIME, this.INACTIVITYTIMEOUT);
     //Web Manager Assistants
     public final BasicUserRole WORKFLOWEDITOR =
         new BasicUserRole("WorkFlowEditor", "WorkFlow Editor", 13,

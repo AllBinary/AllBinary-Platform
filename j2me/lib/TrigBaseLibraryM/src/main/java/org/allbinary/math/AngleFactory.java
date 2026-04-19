@@ -46,38 +46,38 @@ public class AngleFactory
     {
         final CommonPhoneStrings commonPhoneStrings = CommonPhoneStrings.getInstance();
         
-        final short total = (short) angleArray.length;
+        final short total = (short) this.angleArray.length;
         
-        UP = new NamedAngle((short) 0, commonPhoneStrings.UP);
-        angleArray[0] = UP;
+        this.UP = new NamedAngle((short) 0, commonPhoneStrings.UP);
+        this.angleArray[0] = this.UP;
         
         for (int index = 1; index < 90; index++)
         {
-            angleArray[index] = new Angle((short) index);
+            this.angleArray[index] = new Angle((short) index);
         }
 
-        RIGHT = new NamedAngle((short) 90, commonPhoneStrings.RIGHT);
-        angleArray[90] = RIGHT;
+        this.RIGHT = new NamedAngle((short) 90, commonPhoneStrings.RIGHT);
+        this.angleArray[90] = this.RIGHT;
         
         for (int index = 91; index < 180; index++)
         {
-            angleArray[index] = new Angle((short) index);
+            this.angleArray[index] = new Angle((short) index);
         }
 
-        DOWN = new NamedAngle((short) 180, commonPhoneStrings.DOWN);
-        angleArray[180] = DOWN;
+        this.DOWN = new NamedAngle((short) 180, commonPhoneStrings.DOWN);
+        this.angleArray[180] = this.DOWN;
         
         for (int index = 181; index < 270; index++)
         {
-            angleArray[index] = new Angle((short) index);
+            this.angleArray[index] = new Angle((short) index);
         }
 
-        LEFT = new NamedAngle((short) 270, commonPhoneStrings.LEFT);
-        angleArray[270] = LEFT;
+        this.LEFT = new NamedAngle((short) 270, commonPhoneStrings.LEFT);
+        this.angleArray[270] = this.LEFT;
         
         for (int index = 271; index < total; index++)
         {
-            angleArray[index] = new Angle((short) index);
+            this.angleArray[index] = new Angle((short) index);
         }
         
     }
@@ -86,7 +86,7 @@ public class AngleFactory
     
     public Angle getInstance(final int index)
     {
-        final int adjustedIndex = (int) frameUtil.adjustAngleToFrameAngle(index);
+        final int adjustedIndex = (int) this.frameUtil.adjustAngleToFrameAngle(index);
         return angleArray[adjustedIndex];
     }
 

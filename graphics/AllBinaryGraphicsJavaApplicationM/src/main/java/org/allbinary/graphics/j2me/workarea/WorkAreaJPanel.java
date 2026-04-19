@@ -162,8 +162,8 @@ public class WorkAreaJPanel
         gridBagConstraints.weightx = 1;
         gridBagConstraints.weighty = 1;
 
-        gridBagLayout.setConstraints(canvasHolderJPanel, gridBagConstraints);
-        this.innerJPanel.add(canvasHolderJPanel);
+        gridBagLayout.setConstraints(this.canvasHolderJPanel, gridBagConstraints);
+        this.innerJPanel.add(this.canvasHolderJPanel);
 
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 8;
@@ -174,9 +174,9 @@ public class WorkAreaJPanel
         gridBagConstraints.weightx = .1;
         gridBagConstraints.weighty = .1;
 
-        propertiesJPanel = new PropertiesJPanel();//this);
-        gridBagLayout.setConstraints(propertiesJPanel, gridBagConstraints);
-        this.innerJPanel.add(propertiesJPanel);
+        this.propertiesJPanel = new PropertiesJPanel();//this);
+        gridBagLayout.setConstraints(this.propertiesJPanel, gridBagConstraints);
+        this.innerJPanel.add(this.propertiesJPanel);
 
         MyCanvasEventService.addListener((MyCanvasEventListener) this);
     }
@@ -196,12 +196,12 @@ public class WorkAreaJPanel
 
     public synchronized void play()
     {
-        isPlaying = true;
+        this.isPlaying = true;
     }
 
     public synchronized void stop()
     {
-        isPlaying = false;
+        this.isPlaying = false;
     }
 
     public synchronized boolean isPlaying()
@@ -250,10 +250,10 @@ public class WorkAreaJPanel
     //zoom all canvas/frame
     public void changeZoom(int factor)
     {
-        final int size = canvasJPanelList.size();
+        final int size = this.canvasJPanelList.size();
         for (int index = 0; index < size; index++)
         {
-            CanvasJPanel canvasJPanel = (CanvasJPanel) canvasJPanelList.get(index);
+            CanvasJPanel canvasJPanel = (CanvasJPanel) this.canvasJPanelList.get(index);
             canvasJPanel.getGrid().setZoom(canvasJPanel.getGrid().getZoom() + factor);
         }
     }
@@ -370,10 +370,10 @@ public class WorkAreaJPanel
 
         Node framesNode = document.createElement(WorkAreaDom.FRAMES);
 
-        final int size = canvasJPanelList.size();
+        final int size = this.canvasJPanelList.size();
         for (int index = 0; index < size; index++)
         {
-            CanvasJPanel canvasJPanel = (CanvasJPanel) canvasJPanelList.get(index);
+            CanvasJPanel canvasJPanel = (CanvasJPanel) this.canvasJPanelList.get(index);
             framesNode.appendChild(canvasJPanel.toDom());
         }
 
@@ -387,7 +387,7 @@ public class WorkAreaJPanel
 
    private void initComponents()//GEN-BEGIN:initComponents
    {
-      innerJPanel = new javax.swing.JPanel();
+      this.innerJPanel = new javax.swing.JPanel();
 
       setLayout(new java.awt.GridLayout(1, 1));
 
@@ -407,7 +407,7 @@ public class WorkAreaJPanel
          }
       });
 
-      add(innerJPanel);
+      add(this.innerJPanel);
 
    }//GEN-END:initComponents
 

@@ -62,20 +62,20 @@ public class HealthBarAnimation extends Animation
 
     public void onHealthChange(final int newX2)
     {
-        x2 = newX2;
+        this.x2 = newX2;
         
         int quarter = (this.allbinaryLayer.getWidth() >> 2);
-        if (x2 > quarter * 3)
+        if (this.x2 > quarter * 3)
         {
             this.basicColor = this.basicColorFactory.GREEN;
             this.colorP = this.basicColor.intValue();
         }
-        else if (x2 > quarter * 2)
+        else if (this.x2 > quarter * 2)
         {
             this.basicColor = this.basicColorFactory.YELLOW;
             this.colorP = this.basicColor.intValue();
         }
-        else if (x2 > quarter)
+        else if (this.x2 > quarter)
         {
             this.basicColor = this.basicColorFactory.ORANGE;
             this.colorP = this.basicColor.intValue();

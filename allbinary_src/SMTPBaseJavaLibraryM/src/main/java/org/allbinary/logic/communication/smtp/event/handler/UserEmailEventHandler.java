@@ -68,11 +68,11 @@ public class UserEmailEventHandler
    {
       EmailEvent emailEvent = new EmailEvent(this,
          this.userEmailEventNameData, this.emailInfo, 0);
-      final int size = emailVector.size();
+      final int size = this.emailVector.size();
       for(int index = 0; index < size; index++)
       {
          UserEmailEventListenerInterface emailEventListenerInterface =
-            (UserEmailEventListenerInterface) emailVector.get(index);
+            (UserEmailEventListenerInterface) this.emailVector.get(index);
          
          emailEventListenerInterface.onEmailSendRequest(emailEvent);
       }

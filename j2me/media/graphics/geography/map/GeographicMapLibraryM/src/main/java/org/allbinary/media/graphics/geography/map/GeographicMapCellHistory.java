@@ -90,7 +90,7 @@ public class GeographicMapCellHistory
       if (!this.list.contains(geographicMapCellPosition))
       {
          this.list.add(geographicMapCellPosition);
-         this.visitedList.add(booleanFactory.FALSE);
+         this.visitedList.add(this.booleanFactory.FALSE);
       }
    //this.logUtil.putF("Position: " + geographicMapCellPosition, this, "track");
    }
@@ -134,7 +134,7 @@ public class GeographicMapCellHistory
       for (int index = 0; index < size; index++)
       {
          value = (Boolean) this.visitedList.get(index);
-         if (value == booleanFactory.FALSE)
+         if (value == this.booleanFactory.FALSE)
          {
             return (GeographicMapCellPosition) localList.get(index);
          }
@@ -151,7 +151,7 @@ public class GeographicMapCellHistory
       for (int index = 0; index < size; index++)
       {
          value = (Boolean) this.visitedList.get(index);
-         if (value == booleanFactory.FALSE)
+         if (value == this.booleanFactory.FALSE)
          {
             return index;
          }
@@ -187,7 +187,7 @@ public class GeographicMapCellHistory
       if (index != -1)
       {
          Boolean value = (Boolean) this.visitedList.get(index);
-         if (value == booleanFactory.TRUE)
+         if (value == this.booleanFactory.TRUE)
          {
             return true;
          }
@@ -207,7 +207,7 @@ public class GeographicMapCellHistory
       {
          value = (Boolean) this.visitedList.get(index);
          
-         Boolean TRUE = booleanFactory.TRUE;
+         Boolean TRUE = this.booleanFactory.TRUE;
          if (value != TRUE)
          {
             this.visitedList.set(index, TRUE);
@@ -294,7 +294,7 @@ public class GeographicMapCellHistory
    public void reset() throws Exception
    {
       final BasicArrayList localVisitedList = this.visitedList;
-      final Boolean localFalseBoolean = booleanFactory.FALSE;
+      final Boolean localFalseBoolean = this.booleanFactory.FALSE;
       int size = localVisitedList.size();
       for (int index = size - 1; index >= 0; index--)
       {
@@ -310,9 +310,9 @@ public class GeographicMapCellHistory
       final int x = point.getX() - tiledLayer.getXP();
       final int y = point.getY() - tiledLayer.getYP();
       //graphics.fillArc(x, y, tiledLayer.getCellWidth(), tiledLayer.getCellHeight(), 0, Angle.THREE_SIXTY);
-      if(halfWidth == 0)
+      if(this.halfWidth == 0)
       {
-          this.halfWidth = (graphics.getFont().stringWidth(MISSED_INFO) >> 1);
+          this.halfWidth = (graphics.getFont().stringWidth(this.MISSED_INFO) >> 1);
       }
 
       final MyFont myFont = MyFont.getInstance();
@@ -338,7 +338,7 @@ public class GeographicMapCellHistory
    {
       try
       {
-         graphics.setColor(RED);
+         graphics.setColor(this.RED);
 
          final BasicArrayList localVisitedList = this.visitedList;
          //Boolean localFalseBoolean = this.falseBoolean;
@@ -350,7 +350,7 @@ public class GeographicMapCellHistory
          for (int index = size; --index >= 0;)
          {
              geographicMapCellPosition = 
-                 (GeographicMapCellPosition) list.get(index);
+                 (GeographicMapCellPosition) this.list.get(index);
 
              isCellVisitedBoolean = (Boolean) localVisitedList.get(index);
             //this.isVisited(geographicMapCellPosition);

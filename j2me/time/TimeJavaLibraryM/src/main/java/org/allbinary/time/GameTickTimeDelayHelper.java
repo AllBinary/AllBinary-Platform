@@ -25,7 +25,7 @@ public class GameTickTimeDelayHelper {
 
     public GameTickTimeDelayHelper() {
         this.startTime = System.currentTimeMillis();
-        this.lastStartTime = startTime;
+        this.lastStartTime = this.startTime;
     }
 
     public GameTickTimeDelayHelper(final long startTime) {

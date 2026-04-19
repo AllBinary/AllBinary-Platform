@@ -116,7 +116,7 @@ public class AllBinaryLayerManager extends LayerManager
     {
         //this.logUtil.putF("Remove: " + layerInterface, this, "remove");
         
-        deleteLayerManagerEvent.setLayerInterface(layerInterface);
+        this.deleteLayerManagerEvent.setLayerInterface(layerInterface);
         layerManagerEventHandler.fireDeleteEvent(this.deleteLayerManagerEvent);
 
         LayerProcessor layerProcessorInterface;

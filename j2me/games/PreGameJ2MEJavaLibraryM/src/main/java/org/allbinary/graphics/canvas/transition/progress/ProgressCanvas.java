@@ -87,7 +87,7 @@ public class ProgressCanvas extends RunnableCanvas
     ProgressCanvas(final String title, final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
     {
         this.backgroundBasicColor = backgroundBasicColor;
-        this.gauge = new CustomGaugeItem(StringUtil.getInstance().EMPTY_STRING, (int) maxValue, 0, 
+        this.gauge = new CustomGaugeItem(StringUtil.getInstance().EMPTY_STRING, (int) this.maxValue, 0, 
                 backgroundBasicColor, foregroundBasicColor);
     }
 
@@ -137,7 +137,7 @@ public class ProgressCanvas extends RunnableCanvas
         this.setBackground(true);
         this.gauge.setHeight(30);
         this.gauge.setLabel(commonStrings.PLEASE_WAIT);
-        this.setText(TEXT);
+        this.setText(this.TEXT);
         this.setValue(0);
         //this.setDisplayed(false);
         this.inGameProcessor = Processor.getInstance();
@@ -154,8 +154,8 @@ public class ProgressCanvas extends RunnableCanvas
         final MyFont myFont = MyFont.getInstance();
         this.setBackground(background);
         this.gauge.setHeight(myFont.DEFAULT_CHAR_HEIGHT + 2);
-        this.gauge.setLabel(backgroundLabel);
-        this.setText(TEXT);
+        this.gauge.setLabel(this.backgroundLabel);
+        this.setText(this.TEXT);
         this.setValue(0);
         this.inGameProcessor = Processor.getInstance();
         this.paintable = GAUGE_PAINTABLE;
@@ -250,10 +250,10 @@ public class ProgressCanvas extends RunnableCanvas
     public void paint2(Graphics graphics)
     {
         final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
-        graphics.setColor(backgroundBasicColor.intValue());
+        graphics.setColor(this.backgroundBasicColor.intValue());
         graphics.fillRect(0, 0, displayInfoSingleton.getLastWidth(), displayInfoSingleton.getLastHeight());
-        gauge.paint(graphics, 0, 0);
-        hasPainted = true;
+        this.gauge.paint(graphics, 0, 0);
+        this.hasPainted = true;
     }
 
     @Override

@@ -93,11 +93,11 @@ public class AbSqlTableUtil
     {
         try
         {
-            String fileName = tableName + EXTENSION;
+            String fileName = tableName + this.EXTENSION;
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                this.logUtil.putF(SAVING + tableName, this, this.METHOD_GET_OUTPUT_STREAM);
+                this.logUtil.putF(this.SAVING + tableName, this, this.METHOD_GET_OUTPUT_STREAM);
             }
 
             AbPath backupFilePath = new AbPath(backupPath, fileName);
@@ -136,7 +136,7 @@ public class AbSqlTableUtil
 
             final StringMaker stringBuffer = new StringMaker();
 
-            String fileName = tableName + EXTENSION;
+            String fileName = tableName + this.EXTENSION;
 
             stringBuffer.append(backupPath);
             stringBuffer.append(AbPathData.getInstance().SEPARATOR);
@@ -148,9 +148,9 @@ public class AbSqlTableUtil
             {
                 stringBuffer.delete(0, stringBuffer.length());
 
-                stringBuffer.append(SAVING_BACKUP_PATH);
+                stringBuffer.append(this.SAVING_BACKUP_PATH);
                 stringBuffer.append(backupAbPath.toFileSystemString());
-                stringBuffer.append(FILE_LABEL);
+                stringBuffer.append(this.FILE_LABEL);
                 stringBuffer.append(fileName);
 
                 this.logUtil.putF(stringBuffer.toString(), this, this.METHOD_BACKUP_FILE);
@@ -188,7 +188,7 @@ public class AbSqlTableUtil
             {
                 String nextLine = value.substring(lastIndex, index - 1);
                 stringBuffer.append(nextLine);
-                stringBuffer.append(NEW_LINE);
+                stringBuffer.append(this.NEW_LINE);
                 lastIndex = index + 1;
             } else
             {
@@ -257,13 +257,13 @@ public class AbSqlTableUtil
                     stringBuffer.append(this.sqlStrings.SINGLE_QUOTE_COMMA_SEP);
                 }
                 stringBuffer.append(rset.getString(colNum));
-                stringBuffer.append(END);
+                stringBuffer.append(this.END);
 
                 String sqlStatementLine = stringBuffer.toString();
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
                 {
-                    this.logUtil.putF(APPENDING + sqlStatementLine, this, this.METHOD_BACKUP_TABLE);
+                    this.logUtil.putF(this.APPENDING + sqlStatementLine, this, this.METHOD_BACKUP_TABLE);
                 }
 
                 outputStream.write(sqlStatementLine.getBytes());
@@ -271,14 +271,14 @@ public class AbSqlTableUtil
 
             StreamUtil.getInstance().close(outputStream);
 
-            return TABLE_LABEL + tableName + BACKUP_SUCCESS;
+            return this.TABLE_LABEL + tableName + this.BACKUP_SUCCESS;
         } catch (Exception e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
                 this.logUtil.put("Backup Table Failed\nSQL Statement", this, this.METHOD_BACKUP_TABLE, e);
             }
-            return TABLE_LABEL + tableName + " Backup Failed";
+            return this.TABLE_LABEL + tableName + " Backup Failed";
         }
     }
 
@@ -303,7 +303,7 @@ public class AbSqlTableUtil
                 }
             }
 
-            AbFile backupFile = new AbFile(path, tableName + EXTENSION);
+            AbFile backupFile = new AbFile(path, tableName + this.EXTENSION);
 
             BufferedLineReader bufferedLineReader = new BufferedLineReader(backupFile);
 
@@ -323,11 +323,11 @@ public class AbSqlTableUtil
 
             final StringMaker stringBuffer = new StringMaker();
             
-            stringBuffer.append(TOTAL_LABEL);
+            stringBuffer.append(this.TOTAL_LABEL);
             stringBuffer.append(size);
-            stringBuffer.append(SECTION_LABEL);
+            stringBuffer.append(this.SECTION_LABEL);
             stringBuffer.append(start);
-            stringBuffer.append(DASH);
+            stringBuffer.append(this.DASH);
             stringBuffer.append(end);
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
@@ -350,7 +350,7 @@ public class AbSqlTableUtil
             stringBuffer.append(this.commonSeps.SPACE);
             stringBuffer.append(this.TABLE_LABEL);
             stringBuffer.append(tableName);
-            stringBuffer.append(PORTION_RESTORED);
+            stringBuffer.append(this.PORTION_RESTORED);
 
             return stringBuffer.toString();
 
@@ -363,7 +363,7 @@ public class AbSqlTableUtil
 
             StringMaker stringBuffer = new StringMaker();
 
-            stringBuffer.append(TABLE_LABEL);
+            stringBuffer.append(this.TABLE_LABEL);
             stringBuffer.append(tableName);
             stringBuffer.append(" Restoration Failed");
 

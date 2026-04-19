@@ -54,14 +54,14 @@ public class SpecialItemsRequestHelper extends ModifyTable
    
    public void getFormData()
    {
-      this.id = request.getParameter(BasicItemData.ID);
-      this.number = request.getParameter(BasicItemData.NUMBER);
-      this.enabled = request.getParameter(EntryData.getInstance().ENABLE);
-      this.startTime = request.getParameter(SpecialItemData.START_TIME);
-      this.endTime = request.getParameter(SpecialItemData.END_TIME);
-      this.price = request.getParameter(BasicItemData.PRICE);         
-      this.timeEntered = request.getParameter(EntryData.getInstance().TIMECREATED);
-      this.lastModified = request.getParameter(EntryData.getInstance().LASTMODIFIED);
+      this.id = this.request.getParameter(BasicItemData.ID);
+      this.number = this.request.getParameter(BasicItemData.NUMBER);
+      this.enabled = this.request.getParameter(EntryData.getInstance().ENABLE);
+      this.startTime = this.request.getParameter(SpecialItemData.START_TIME);
+      this.endTime = this.request.getParameter(SpecialItemData.END_TIME);
+      this.price = this.request.getParameter(BasicItemData.PRICE);         
+      this.timeEntered = this.request.getParameter(EntryData.getInstance().TIMECREATED);
+      this.lastModified = this.request.getParameter(EntryData.getInstance().LASTMODIFIED);
    }
 
    private HashMap getHashMap()
@@ -105,7 +105,7 @@ public class SpecialItemsRequestHelper extends ModifyTable
          
          SpecialItemsEntityFactory.getInstance().getSpecialItemsEntityInstance().insert(values);
          
-         String success = "Successfully inserted " + id + " into items table";
+         String success = "Successfully inserted " + this.id + " into items table";
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
@@ -129,7 +129,7 @@ public class SpecialItemsRequestHelper extends ModifyTable
    {
       try
       {
-         SpecialItemsEntityFactory.getInstance().getSpecialItemsEntityInstance().delete(id);
+         SpecialItemsEntityFactory.getInstance().getSpecialItemsEntityInstance().delete(this.id);
          
          String success = "Successfully deleted";
          
@@ -162,7 +162,7 @@ public class SpecialItemsRequestHelper extends ModifyTable
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            this.logUtil.putF(new StringMaker().append(id).append(CommonSeps.getInstance().SPACE).append(success).toString(),this,"update()");
+            this.logUtil.putF(new StringMaker().append(this.id).append(CommonSeps.getInstance().SPACE).append(success).toString(),this,"update()");
          }
          return success;
       }

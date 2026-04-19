@@ -47,14 +47,14 @@ public class BasicInputMappingHelpPaintable extends HelpPaintable
         final String EQUAL = " = ";
         
         final StringMaker stringMaker = new StringMaker();
-        final int size = gameInputMappingArray.length;
+        final int size = this.gameInputMappingArray.length;
         final String[] keyInfo = new String[size];
         GameInputMapping gameInputMapping;
         GameKey gameKey;
         BasicArrayList list;
         for(int index = 0; index < size; index++)
         {
-            gameInputMapping = gameInputMappingArray[index];
+            gameInputMapping = this.gameInputMappingArray[index];
             gameKey = gameInputMapping.getGameKey();
             list = gameKeyMapping.getInputMapping().getMappedInput(gameKey);
             

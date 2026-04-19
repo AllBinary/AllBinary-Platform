@@ -59,9 +59,9 @@ public class AbBasicCrypt implements CryptInterface
          Provider sunJce = new com.sun.crypto.provider.SunJCE();
          Security.addProvider(sunJce);
          KeySpec keySpec = KeySpecFactory.getInstance().getInstance(this.algorithm, this.key);
-         SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(algorithm);
+         SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(this.algorithm);
          this.secretKey = keyFactory.generateSecret(keySpec);
-         this.cipher = Cipher.getInstance(algorithm);
+         this.cipher = Cipher.getInstance(this.algorithm);
       }
       catch(Exception e)
       {
@@ -77,10 +77,10 @@ public class AbBasicCrypt implements CryptInterface
    {
       try
       {         
-         cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+         this.cipher.init(Cipher.ENCRYPT_MODE, secretKey);
          
          byte[] ivArray = secretKey.getEncoded();
-         byte[] encrypted = cipher.doFinal(array);
+         byte[] encrypted = this.cipher.doFinal(array);
          byte[] result = new byte[ivArray.length + encrypted.length];
 
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CRYPT))
@@ -114,7 +114,7 @@ public class AbBasicCrypt implements CryptInterface
    {
       try
       {
-         cipher.init(Cipher.DECRYPT_MODE, secretKey);         
+         this.cipher.init(Cipher.DECRYPT_MODE, secretKey);         
 
          byte[] ivArray = new byte[8];
          
@@ -134,7 +134,7 @@ public class AbBasicCrypt implements CryptInterface
             result[index - ivArray.length] = array[index];
          }
 
-         byte[] decrypted = cipher.doFinal(result);
+         byte[] decrypted = this.cipher.doFinal(result);
          return result;         
       }
       catch(Exception e)

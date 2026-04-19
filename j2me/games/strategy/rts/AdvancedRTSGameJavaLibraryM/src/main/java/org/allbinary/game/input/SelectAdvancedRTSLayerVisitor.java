@@ -43,7 +43,7 @@ extends Visitor
         {
             final AdvancedRTSGameLayer rtsGameLayer = (AdvancedRTSGameLayer) selectedLayer;
             final AssignWaypointsUtil assignWaypointsUtil = AssignWaypointsUtil.getInstance();
-            final BasicArrayList list = selectedRTSLayersPlayerGameInput.getSelectedBasicArrayList();
+            final BasicArrayList list = this.selectedRTSLayersPlayerGameInput.getSelectedBasicArrayList();
 
             RTSLayer currentRTSLayer;
             UnitLayer unitLayer;

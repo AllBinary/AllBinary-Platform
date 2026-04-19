@@ -410,19 +410,19 @@ public class RTSLayer
     @Override
     public void downgrade()
     {
-        rtsLayerUtil.downgrade(this);
+        this.rtsLayerUtil.downgrade(this);
     }
 
     @Override
     public void upgrade()
     {
-        rtsLayerUtil.upgrade(this);
+        this.rtsLayerUtil.upgrade(this);
     }
 
     @Override
     public boolean isCompleted()
     {
-        if (this.hackVerticleBuild < BUILD_VALUE)
+        if (this.hackVerticleBuild < this.BUILD_VALUE)
         {
             return false;
         }
@@ -443,7 +443,7 @@ public class RTSLayer
             this.hackVerticleBuild++;
         }
 
-        this.percentCompleteP = 100 * this.hackVerticleBuild / BUILD_VALUE;
+        this.percentCompleteP = 100 * this.hackVerticleBuild / this.BUILD_VALUE;
 
         this.getHudPaintable().updateInfo();
     }
@@ -816,7 +816,7 @@ public class RTSLayer
      */
     public RotationAnimation getRotationAnimationInterface()
     {
-        return (RotationAnimation) indexedButShouldBeRotationAnimationInterface;
+        return (RotationAnimation) this.indexedButShouldBeRotationAnimationInterface;
     }
 
     public void setFrame(int index) {

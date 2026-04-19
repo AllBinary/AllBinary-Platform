@@ -34,12 +34,12 @@ public class InventorySearchLoopInfo
     {
             StringMaker stringBuffer = new StringMaker();
 
-            stringBuffer.append(CURRENT);
-            stringBuffer.appendint(currentPage);
-            stringBuffer.append(NUM);
-            stringBuffer.appendint(numberOfResults);
-            stringBuffer.append(LAST);
-            stringBuffer.appendint(lastPage);
+            stringBuffer.append(this.CURRENT);
+            stringBuffer.appendint(this.currentPage);
+            stringBuffer.append(this.NUM);
+            stringBuffer.appendint(this.numberOfResults);
+            stringBuffer.append(this.LAST);
+            stringBuffer.appendint(this.lastPage);
 
             return stringBuffer.toString();
     }

@@ -34,7 +34,7 @@ public class WebAppUrlGlobals extends UrlGlobalsInterface
    public synchronized void setWebappPath(String path)
    {
       path = path;
-      isWebappPathSet = true;
+      this.isWebappPathSet = true;
    }  
    
    public String getTestHtmlPath()
@@ -50,7 +50,7 @@ public class WebAppUrlGlobals extends UrlGlobalsInterface
          return mainPath;
       }
       else
-      if(isWebappPathSet)
+      if(this.isWebappPathSet)
       {
          return getWebappPath(); 
       }

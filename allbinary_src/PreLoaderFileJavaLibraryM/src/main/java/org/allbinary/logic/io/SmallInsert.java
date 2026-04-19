@@ -32,7 +32,7 @@ public class SmallInsert
    public SmallInsert(String fileName)
    {
        this.fileName = fileName;
-       string = FileUtil.getInstance().readAsString(fileName);
+       this.string = FileUtil.getInstance().readAsString(fileName);
    }
    
    public boolean atBeginning(String text)
@@ -49,7 +49,7 @@ public class SmallInsert
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().IDLOGGING))
          {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "insertAtBeginning", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "insertAtBeginning", e);
          }
          return false;
       }
@@ -87,7 +87,7 @@ public class SmallInsert
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().IDLOGGING))
          {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "after", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "after", e);
          }
          return false;
       }
@@ -106,7 +106,7 @@ public class SmallInsert
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().IDLOGGING))
          {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "insertAtEnd", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "insertAtEnd", e);
          }
          return false;
       }

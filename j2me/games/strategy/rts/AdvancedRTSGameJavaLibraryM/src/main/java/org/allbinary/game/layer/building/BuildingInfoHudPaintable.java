@@ -81,9 +81,9 @@ public class BuildingInfoHudPaintable extends SelectionHudPaintable {
                 0, this.getBasicColorP());
             index++;
 
-            int totalLength = HEALTH.length() + 1;
+            int totalLength = this.HEALTH.length() + 1;
             healthHud = new NumberStringHud(
-                HEALTH, 99999,
+                this.HEALTH, 99999,
                 basicHudFactory.ABSOLUTE,
                 basicHudFactory.HORIZONTAL,
                 this.textX, y + ((index + 1) * DEFAULT_CHAR_HEIGHT),
@@ -142,7 +142,7 @@ public class BuildingInfoHudPaintable extends SelectionHudPaintable {
         int health = buildingLayer.getHealthInterface().getHealth();
         this.healthHud.set(health);
 
-        int totalLength = HEALTH.length() + MathUtil.getInstance().getTotalDigits(health);
+        int totalLength = this.HEALTH.length() + MathUtil.getInstance().getTotalDigits(health);
         this.maxHealthHud.setX(this.textX + MyFont.getInstance().stringWidth(totalLength));
 
         this.maxHealthHud.set(

@@ -65,7 +65,7 @@ public class ThreadPool
             for (int i = 0; i < this.numThreads; i++)
             {
                 pooledThread = new PooledThread();
-                pooledThread.setPriority(priority);
+                pooledThread.setPriority(this.priority);
                 pooledThread.start();
             }
         }
@@ -97,7 +97,7 @@ public class ThreadPool
             //PreLogUtil.put("Add: ").append(task, this, this.threadPoolStrings.ADD_TASK);
             final int size = this.taskQueue.size();
             PriorityRunnable runnable;
-            PriorityRunnable lowerPriorityRunnable = threadObjectUtil.NULL_PRIORITY_RUNNABLE;
+            PriorityRunnable lowerPriorityRunnable = this.threadObjectUtil.NULL_PRIORITY_RUNNABLE;
             for(int index = 0; index < size; index++) {
                 runnable = (PriorityRunnable) this.taskQueue.get(index);
                 //this.logUtil.putF(new StringMaker().append(COMPARE_PRIORITY).append(task.getPriority()).toString(), this, this.threadPoolStrings.ADD_TASK);
@@ -107,7 +107,7 @@ public class ThreadPool
                 }
             }
             
-            if(lowerPriorityRunnable == threadObjectUtil.NULL_PRIORITY_RUNNABLE || lowerPriorityRunnable == NULL_RUNNABLE) {
+            if(lowerPriorityRunnable == this.threadObjectUtil.NULL_PRIORITY_RUNNABLE || lowerPriorityRunnable == this.NULL_RUNNABLE) {
                 this.taskQueue.add(task);
             } else {
                 //this.logUtil.putF(new StringMaker().append(ADD_PRIORITY).append(task.getPriority()).toString(), this, this.threadPoolStrings.ADD_TASK);
@@ -127,7 +127,7 @@ public class ThreadPool
     {
         synchronized (this) {
 
-        if (!isAlive)
+        if (!this.isAlive)
         {
             this.init();
             //throw new IllegalStateException();
@@ -242,7 +242,7 @@ public class ThreadPool
         if (this.numThreads == 1)
         {
             this.isAlive = false;
-            taskQueue.clear();
+            this.taskQueue.clear();
         }
     }
 

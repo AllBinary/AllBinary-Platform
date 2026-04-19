@@ -90,7 +90,7 @@ public class RecordStoreHighScores extends HighScores
     }
 
     private String getRecordId(final AbeClientInformationInterface abeClientInformation) {
-        return platformRecordIdUtil.getRecordId(abeClientInformation, new StringMaker().append(CommonSeps.getInstance().UNDERSCORE).append(this.getName()).append(RECORD_ID).toString());
+        return platformRecordIdUtil.getRecordId(abeClientInformation, new StringMaker().append(CommonSeps.getInstance().UNDERSCORE).append(this.getName()).append(this.RECORD_ID).toString());
     }
     
     @Override
@@ -109,7 +109,7 @@ public class RecordStoreHighScores extends HighScores
                 this.removeLowestHighScore();
             }
 
-            recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
+            recordStore = RecordStore.openRecordStore(this.getRecordId(this.abeClientInformation), true);
 
             final byte[] highScoreBytes = newHighScore.getAsBytes();
 
@@ -155,7 +155,7 @@ public class RecordStoreHighScores extends HighScores
         RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;
         try
         {
-            recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
+            recordStore = RecordStore.openRecordStore(this.getRecordId(this.abeClientInformation), true);
 
             final RecordEnumeration recordEnum = recordStore.enumerateRecords(NullRecordFilter.NULL_RECORD_FILTER, NullRecordComparator.NULL_RECORD_COMPARATOR, true);
 
@@ -220,7 +220,7 @@ public class RecordStoreHighScores extends HighScores
 
         try
         {
-            recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
+            recordStore = RecordStore.openRecordStore(this.getRecordId(this.abeClientInformation), true);
             //this.logUtil.putF(recordStore.getName(), this, commonStrings.LOAD);
 
             this.setList(new BasicArrayList());
@@ -346,7 +346,7 @@ public class RecordStoreHighScores extends HighScores
                 {
                     final HighScore highScore = (HighScore) list.objectArray[index];
 
-                    if (recordComparatorInterface.compare(newHighScore.getAsBytes(), highScore.getAsBytes()) == RecordComparator.FOLLOWS)
+                    if (this.recordComparatorInterface.compare(newHighScore.getAsBytes(), highScore.getAsBytes()) == RecordComparator.FOLLOWS)
                     // if(newHighScore.getScore() > highScore.getScore())
                     {
                         this.logUtil.putF("Obtained a High Score", this, "isBestScore");

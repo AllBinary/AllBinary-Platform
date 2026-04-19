@@ -73,8 +73,8 @@ extends ScrollSelectionForm
 
         if (this.formType == formTypeFactory.TEMP_HORIZONTAL_FORM)
         {
-            dx = x - 30 + (this.rectangle.getWidth() >> 1);
-            dy = y;
+            this.dx = x - 30 + (this.rectangle.getWidth() >> 1);
+            this.dy = y;
         } else if (this.formType == formTypeFactory.HORIZONTAL_FORM)
         {
             int size = this.size();
@@ -88,7 +88,7 @@ extends ScrollSelectionForm
                 totalWidth += item.getMinimumWidth() + border;
             }
 
-            dx = x + (this.rectangle.getWidth() >> 1) - (totalWidth >> 1);
+            this.dx = x + (this.rectangle.getWidth() >> 1) - (totalWidth >> 1);
 
             /*
             int maxHeight = 0;
@@ -104,16 +104,16 @@ extends ScrollSelectionForm
             }
             */
 
-            dy = y + (this.rectangle.getHeight() >> 1);
+            this.dy = y + (this.rectangle.getHeight() >> 1);
 
             // Special handling for small screens to keep menu out of title
             // animation
             if (this.moveForSmallScreen)
             {
                 int maxTitleHeight = 175;
-                if (dy < maxTitleHeight)
+                if (this.dy < maxTitleHeight)
                 {
-                    dy = maxTitleHeight;
+                    this.dy = maxTitleHeight;
                 }
             }
         } else if (this.formType == formTypeFactory.VERTICAL_CENTER_FORM)
@@ -123,15 +123,15 @@ extends ScrollSelectionForm
             for (int index = 0; index < size; index++)
             {
                 CustomItem item2 = this.get(index);
-                if (maxWidth < item2.getMinimumWidth())
+                if (this.maxWidth < item2.getMinimumWidth())
                 {
-                    maxWidth = item2.getMinimumWidth();
+                    this.maxWidth = item2.getMinimumWidth();
                 }
 
                 totalHeight += item2.getMinimumHeight() + border;
             }
 
-            dx = ((this.rectangle.getWidth() - maxWidth) / 2);
+            this.dx = ((this.rectangle.getWidth() - this.maxWidth) / 2);
             // dx = this.rectangle.getWidth() - maxWidth;
 
             if (this.size() > 0)
@@ -139,22 +139,22 @@ extends ScrollSelectionForm
                 // FormItemInterface item = (FormItemInterface) this.get(0);
                 // dy = y - 30 + ((this.rectangle.getHeight() -
                 // item.getMinimumHeight()) / 2);
-                dy = y + ((this.rectangle.getHeight() - totalHeight) / 2);
+                this.dy = y + ((this.rectangle.getHeight() - totalHeight) / 2);
 
                 // Special handling for small screens to keep menu out of title
                 // animation
                 if (this.moveForSmallScreen)
                 {
                     int maxTitleHeight = 175;
-                    if (dy < maxTitleHeight)
+                    if (this.dy < maxTitleHeight)
                     {
-                        dy = maxTitleHeight;
+                        this.dy = maxTitleHeight;
                     }
                 }
             } else
             {
                 // dy = y - 30 + ((this.rectangle.getHeight()) >> 1);
-                dy = y;
+                this.dy = y;
             }
         } else
         {
@@ -238,7 +238,7 @@ extends ScrollSelectionForm
     @Override
     protected int getDiffX(CustomItemInterface item)
     {
-        return ((maxWidth - item.getMinimumWidth()) >> 1);
+        return ((this.maxWidth - item.getMinimumWidth()) >> 1);
     }
 
     /**

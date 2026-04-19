@@ -61,50 +61,50 @@ public class BasicTouchInputFactory
     {
         int MAX = InputFactory.getInstance().MAX;
 
-        SPECIAL_BUTTON_SEVEN_TESTING_ONLY = new TouchButtonInput(MAX - 41,
+        this.SPECIAL_BUTTON_SEVEN_TESTING_ONLY = new TouchButtonInput(MAX - 41,
                 "Button 7 - Testing Only May Cross Over Key Values");
 
-        SPECIAL_BUTTON_EIGHT_TESTING_ONLY = new TouchButtonInput(MAX - 42,
+        this.SPECIAL_BUTTON_EIGHT_TESTING_ONLY = new TouchButtonInput(MAX - 42,
                 "Button 8 - Testing Only May Cross Over Key Values");
 
-        SPECIAL_BUTTON_SIX = new TouchButtonInput(MAX - 30, "Button 6");
+        this.SPECIAL_BUTTON_SIX = new TouchButtonInput(MAX - 30, "Button 6");
 
-        SPECIAL_BUTTON_FIVE = new TouchButtonInput(MAX - 31, "Button 5");
+        this.SPECIAL_BUTTON_FIVE = new TouchButtonInput(MAX - 31, "Button 5");
 
-        SPECIAL_BUTTON_FOUR = new TouchButtonInput(MAX - 32, "Button 4");
-        SPECIAL_BUTTON_THREE = new TouchButtonInput(MAX - 33, "Button 3");
+        this.SPECIAL_BUTTON_FOUR = new TouchButtonInput(MAX - 32, "Button 4");
+        this.SPECIAL_BUTTON_THREE = new TouchButtonInput(MAX - 33, "Button 3");
 
-        SPECIAL_BUTTON_TWO = new TouchButtonInput(MAX - 34, "Button 2");
-        SPECIAL_BUTTON_ONE = new TouchButtonInput(MAX - 35, "Button 1");
+        this.SPECIAL_BUTTON_TWO = new TouchButtonInput(MAX - 34, "Button 2");
+        this.SPECIAL_BUTTON_ONE = new TouchButtonInput(MAX - 35, "Button 1");
 
-        UP = new TouchButtonInput(MAX - 36, "Up Button");
-        LEFT = new TouchButtonInput(MAX - 37, "Left Button");
-        RIGHT = new TouchButtonInput(MAX - 38, "Right Button");
-        DOWN = new TouchButtonInput(MAX - 39, "Down Button");
+        this.UP = new TouchButtonInput(MAX - 36, "Up Button");
+        this.LEFT = new TouchButtonInput(MAX - 37, "Left Button");
+        this.RIGHT = new TouchButtonInput(MAX - 38, "Right Button");
+        this.DOWN = new TouchButtonInput(MAX - 39, "Down Button");
 
-        NONE = new TouchButtonInput(MAX - 40, "No Button");
+        this.NONE = new TouchButtonInput(MAX - 40, "No Button");
     }
 
     public synchronized void init(InputToGameKeyMapping inputToGameKeyMapping)
     {
-        if (!initialized)
+        if (!this.initialized)
         {
-            initialized = true;
+            this.initialized = true;
 
-            list.add(UP);
-            list.add(LEFT);
-            list.add(RIGHT);
-            list.add(DOWN);
-            list.add(SPECIAL_BUTTON_TWO);
-            list.add(SPECIAL_BUTTON_FOUR);
-            list.add(SPECIAL_BUTTON_THREE);
-            list.add(SPECIAL_BUTTON_ONE);
-            list.add(SPECIAL_BUTTON_FIVE);
-            list.add(SPECIAL_BUTTON_SIX);
-            list.add(SPECIAL_BUTTON_SIX);
-            list.add(SPECIAL_BUTTON_SEVEN_TESTING_ONLY);
-            list.add(SPECIAL_BUTTON_EIGHT_TESTING_ONLY);
-            this.updateAll(list, inputToGameKeyMapping);
+            this.list.add(this.UP);
+            this.list.add(this.LEFT);
+            this.list.add(this.RIGHT);
+            this.list.add(this.DOWN);
+            this.list.add(this.SPECIAL_BUTTON_TWO);
+            this.list.add(this.SPECIAL_BUTTON_FOUR);
+            this.list.add(this.SPECIAL_BUTTON_THREE);
+            this.list.add(this.SPECIAL_BUTTON_ONE);
+            this.list.add(this.SPECIAL_BUTTON_FIVE);
+            this.list.add(this.SPECIAL_BUTTON_SIX);
+            this.list.add(this.SPECIAL_BUTTON_SIX);
+            this.list.add(this.SPECIAL_BUTTON_SEVEN_TESTING_ONLY);
+            this.list.add(this.SPECIAL_BUTTON_EIGHT_TESTING_ONLY);
+            this.updateAll(this.list, inputToGameKeyMapping);
 
             CancelTouchButtonInputFactory.getInstance();
         }

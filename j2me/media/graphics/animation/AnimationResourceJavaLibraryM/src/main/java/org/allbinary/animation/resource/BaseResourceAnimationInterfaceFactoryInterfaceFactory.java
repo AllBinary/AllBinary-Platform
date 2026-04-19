@@ -65,7 +65,7 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
     public void init(final int level) throws Exception
     {
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        this.logUtil.putF(new StringMaker().append("Available List of Animations: ").append(hashtable.toString()).toString(), this, commonStrings.INIT);
+        this.logUtil.putF(new StringMaker().append("Available List of Animations: ").append(this.hashtable.toString()).toString(), this, commonStrings.INIT);
 
         this.setInitialized(true);
     }
@@ -81,18 +81,18 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
     {
         //PreLogUtil.put(resource, this, commonStrings.ADD);
 
-        if (hashtable.containsKey((Object) resource))
+        if (this.hashtable.containsKey((Object) resource))
         {
             throw new Exception(new StringMaker().append("Resource Already Created: ").append(resource).toString());
         }
 
-        hashtable.put(resource, animationInterfaceFactoryInterface);
+        this.hashtable.put(resource, animationInterfaceFactoryInterface);
     }
 
     @Override
     public BasicAnimationInterfaceFactoryInterface getBasicAnimationInterfaceFactoryInstance(final String resource) throws Exception
     {
-        final Object basicAnimationInterfaceFactoryInterfaceCanBeNull = hashtable.get(resource);
+        final Object basicAnimationInterfaceFactoryInterfaceCanBeNull = this.hashtable.get(resource);
         
         if(basicAnimationInterfaceFactoryInterfaceCanBeNull == null) {
             //this.logUtil.putF(new StringMaker().append("No Resource for: ").append(resource).toString(), this, "getBasicAnimationInterfaceFactoryInstance");
@@ -105,7 +105,7 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
     @Override
     public Rectangle getRectangle(final String resource) throws Exception
     {
-        final Object rectangleCanBeNull = rectangleHashtable.get(resource);
+        final Object rectangleCanBeNull = this.rectangleHashtable.get(resource);
         
         if(rectangleCanBeNull == null) {
             return RectangleFactory.SINGLETON;
@@ -116,18 +116,18 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
 
     public void addRectangle(final String resource, final Rectangle rectangle) throws Exception
     {
-        rectangleHashtable.put(resource, rectangle);
+        this.rectangleHashtable.put(resource, rectangle);
     }
 
     @Override
     public Rectangle[][] getRectangleArrayOfArrays(final String resource) throws Exception
     {
-        return (Rectangle[][]) rectangleArrayOfArraysHashtable.get(resource);
+        return (Rectangle[][]) this.rectangleArrayOfArraysHashtable.get(resource);
     }
 
     public void addRectangleArrayOfArrays(final String resource, final Rectangle[][] rectangleArrayOfArrays) throws Exception
     {
-        rectangleArrayOfArraysHashtable.put(resource, rectangleArrayOfArrays);
+        this.rectangleArrayOfArraysHashtable.put(resource, rectangleArrayOfArrays);
     }
 
     @Override    

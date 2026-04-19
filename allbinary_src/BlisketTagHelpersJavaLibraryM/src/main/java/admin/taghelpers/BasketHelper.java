@@ -43,7 +43,7 @@ public class BasketHelper
       this.propertiesHashMap = hashMap;
       this.pageContext = pageContext;
 
-      String storeName = (String) propertiesHashMap.get(StoreFrontData.getInstance().NAME);
+      String storeName = (String) this.propertiesHashMap.get(StoreFrontData.getInstance().NAME);
       
       if(storeName!=null)
       {       

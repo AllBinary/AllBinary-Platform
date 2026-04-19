@@ -35,12 +35,12 @@ public class MyRandomFactory
 
     private MyRandomFactory()
     {
-        rand = new Random(System.currentTimeMillis());
+        this.rand = new Random(System.currentTimeMillis());
     }
 
     public void setSeed(long seed)
     {
-        rand = new Random(seed);
+        this.rand = new Random(seed);
     }
 
     //Example: 3 would result in the possible results 0, 1, 2, -1, -2.

@@ -66,8 +66,8 @@ public class TouchButtonsMappingPaintable extends Paintable
 
     private Paintable[][] createPaintableTable() throws Exception
     {
-        int totalColumns = touchButtonLocationHelper.getTotalColumns();
-        int totalRows = touchButtonLocationHelper.getTotalRows();
+        int totalColumns = this.touchButtonLocationHelper.getTotalColumns();
+        int totalRows = this.touchButtonLocationHelper.getTotalRows();
 
         Paintable[][] paintableTable = new Paintable[totalColumns][totalRows];
 
@@ -79,7 +79,7 @@ public class TouchButtonsMappingPaintable extends Paintable
         {
             for (int rowIndex = totalRows - 1; rowIndex >= 0; rowIndex--)
             {
-                paintableTable[index][rowIndex] = new TouchButton(
+                this.paintableTable[index][rowIndex] = new TouchButton(
                         BasicTouchInputFactory.getInstance().NONE, TouchButtonBlankResource.getInstance(),
                         commonButtons.NORMAL_BUTTON, 
                         cellPositionFactory.getInstance(index, rowIndex),
@@ -94,14 +94,14 @@ public class TouchButtonsMappingPaintable extends Paintable
     @Override
     public void paint(Graphics graphics)
     {
-        int totalColumns = touchButtonLocationHelper.getTotalColumns();
-        int totalRows = touchButtonLocationHelper.getTotalRows();
+        int totalColumns = this.touchButtonLocationHelper.getTotalColumns();
+        int totalRows = this.touchButtonLocationHelper.getTotalRows();
 
         for (int index = totalColumns - 1; index >= 0; index--)
         {
             for (int rowIndex = totalRows - 1; rowIndex >= 0; rowIndex--)
             {
-                paintableTable[index][rowIndex].paint(graphics);
+                this.paintableTable[index][rowIndex].paint(graphics);
             }
         }
     }

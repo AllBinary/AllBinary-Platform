@@ -35,7 +35,7 @@ public class WaypointInfoHudPaintable extends SelectionHudPaintable
     //protected
     public WaypointInfoHudPaintable() 
     {
-        keyvalueDrawString = new KeyValueDrawString("Owner: ", this.textX);
+        this.keyvalueDrawString = new KeyValueDrawString("Owner: ", this.textX);
     }
 
     /**

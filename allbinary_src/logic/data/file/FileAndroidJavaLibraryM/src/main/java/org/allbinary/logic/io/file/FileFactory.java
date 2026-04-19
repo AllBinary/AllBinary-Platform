@@ -50,7 +50,7 @@ public class FileFactory {
 //                return true;
 //            } else {
 //                //Some early Android devices do not give true for File checking even when file does exist
-              context.openFileInput(path);
+              this.context.openFileInput(path);
 //            }
             return true;
         }
@@ -65,7 +65,7 @@ public class FileFactory {
     {
         try
         {
-            context.openFileInput(abPath.toFileSystemString());
+            this.context.openFileInput(abPath.toFileSystemString());
             return true;
         }
         catch (FileNotFoundException e)

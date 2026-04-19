@@ -85,32 +85,32 @@ public class BasicVelocityProperties implements BasicVelocityInterface
     @Override
     public void setVelocity(final BasicDecimal magnitudeBasicDecimal, final Direction direction, final Direction otherDirection)
     {
-        final Angle angle = directionUtil.getAngle(direction);
-        final Angle otherAngle = directionUtil.getAngle(otherDirection);
+        final Angle angle = this.directionUtil.getAngle(direction);
+        final Angle otherAngle = this.directionUtil.getAngle(otherDirection);
         this.setVelocity(magnitudeBasicDecimal, angle, otherAngle);
     }
 
     @Override
     public void setVelocity(final long magnitude, final Direction direction, final Direction otherDirection)
     {
-        final Angle angle = directionUtil.getAngle(direction);
-        final Angle otherAngle = directionUtil.getAngle(otherDirection);
+        final Angle angle = this.directionUtil.getAngle(direction);
+        final Angle otherAngle = this.directionUtil.getAngle(otherDirection);
         this.setVelocity(magnitude, angle, otherAngle);
     }
 
     @Override
     public void addVelocity(final BasicDecimal magnitudeBasicDecimal, final Direction direction, final Direction otherDirection)
     {
-        final Angle angle = directionUtil.getAngle(direction);
-        final Angle otherAngle = directionUtil.getAngle(otherDirection);
+        final Angle angle = this.directionUtil.getAngle(direction);
+        final Angle otherAngle = this.directionUtil.getAngle(otherDirection);
         this.addVelocity(magnitudeBasicDecimal, angle, otherAngle);
     }
     
     @Override
     public void addVelocity(final long magnitude, final Direction direction, final Direction otherDirection)
     {
-        final Angle angle = directionUtil.getAngle(direction);
-        final Angle otherAngle = directionUtil.getAngle(otherDirection);
+        final Angle angle = this.directionUtil.getAngle(direction);
+        final Angle otherAngle = this.directionUtil.getAngle(otherDirection);
         this.addVelocity(magnitude, angle, otherAngle);
     }
 

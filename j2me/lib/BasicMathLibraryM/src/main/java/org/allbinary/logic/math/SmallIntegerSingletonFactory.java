@@ -36,25 +36,25 @@ public class SmallIntegerSingletonFactory
 
     public void init(int value, int negativeValue)
     {
-        for (int index = value - 1; index >= lastMin; index--)
+        for (int index = value - 1; index >= this.lastMin; index--)
         {
-            INTEGER_ARRAY[index + NEGATIVE_MAX] = new Integer(index);
+            this.INTEGER_ARRAY[index + this.NEGATIVE_MAX] = new Integer(index);
         }
 
-        for (int index = negativeValue - 1; index >= lastNegativeMin; index--)
+        for (int index = negativeValue - 1; index >= this.lastNegativeMin; index--)
         {
-            INTEGER_ARRAY[index] = new Integer(-index);
+            this.INTEGER_ARRAY[index] = new Integer(-index);
         }
 
-        if (lastMin < value)
+        if (this.lastMin < value)
         {
-            lastMin = value;
-            MIN = value;
+            this.lastMin = value;
+            this.MIN = value;
         }
 
-        if (lastNegativeMin < negativeValue)
+        if (this.lastNegativeMin < negativeValue)
         {
-            lastNegativeMin = negativeValue;
+            this.lastNegativeMin = negativeValue;
             //MIN = negativeValue;
         }
         //this.logUtil.putF("? " + NEGATIVE_INTEGER_ARRAY[5], stringUtil.EMPTY_STRING, "?????????");
@@ -62,22 +62,22 @@ public class SmallIntegerSingletonFactory
 
     public void init()
     {
-        if (lastMin < POSITIVE_MAX || lastNegativeMin < NEGATIVE_MAX)
+        if (this.lastMin < this.POSITIVE_MAX || this.lastNegativeMin < this.NEGATIVE_MAX)
         {
-            for (int index = POSITIVE_MAX - 1; index >= lastMin; index--)
+            for (int index = this.POSITIVE_MAX - 1; index >= this.lastMin; index--)
             {
-                INTEGER_ARRAY[index + NEGATIVE_MAX] = new Integer(index);
+                this.INTEGER_ARRAY[index + this.NEGATIVE_MAX] = new Integer(index);
             }
 
-            for (int index = NEGATIVE_MAX - 1; index >= lastNegativeMin; index--)
+            for (int index = this.NEGATIVE_MAX - 1; index >= this.lastNegativeMin; index--)
             {
-                INTEGER_ARRAY[index] = new Integer(-index);
+                this.INTEGER_ARRAY[index] = new Integer(-index);
             }
 
             //this.logUtil.putF("? " + NEGATIVE_INTEGER_ARRAY[5], CommonPhoneStrings.getInstance().TWO, "?????????");
 
-            lastMin = POSITIVE_MAX;
-            lastNegativeMin = NEGATIVE_MAX;
+            this.lastMin = this.POSITIVE_MAX;
+            this.lastNegativeMin = this.NEGATIVE_MAX;
         }
     }
 
@@ -89,9 +89,9 @@ public class SmallIntegerSingletonFactory
     public int highest = 0;
     public void updateStats(int index)
     {
-            if(index > highest)
+            if(index > this.highest)
             {
-                highest = index;
+                this.highest = index;
             }
     }
     */
@@ -100,18 +100,18 @@ public class SmallIntegerSingletonFactory
     {
         //this.updateStats(index);
 
-        return this.INTEGER_ARRAY[index + NEGATIVE_MAX];
+        return this.INTEGER_ARRAY[index + this.NEGATIVE_MAX];
     }
 
     public Integer getInstanceNoThrow(int index)
     {
         //this.updateStats(index);
 
-        if(index + NEGATIVE_MAX > this.INTEGER_ARRAY.length - 1) {
-            return this.INTEGER_ARRAY[-1 + NEGATIVE_MAX];
+        if(index + this.NEGATIVE_MAX > this.INTEGER_ARRAY.length - 1) {
+            return this.INTEGER_ARRAY[-1 + this.NEGATIVE_MAX];
         }
         
-        return this.INTEGER_ARRAY[index + NEGATIVE_MAX];
+        return this.INTEGER_ARRAY[index + this.NEGATIVE_MAX];
     }
     
     public Integer createInstance(int index)
@@ -129,10 +129,10 @@ public class SmallIntegerSingletonFactory
     
     public String getString(int index) {
         final int i = index + NEGATIVE_MAX;
-        if(STRING_ARRAY[i] == null) {
-            STRING_ARRAY[i] = this.INTEGER_ARRAY[i].toString();
+        if(this.STRING_ARRAY[i] == null) {
+            this.STRING_ARRAY[i] = this.INTEGER_ARRAY[i].toString();
         }
-        return STRING_ARRAY[i];
+        return this.STRING_ARRAY[i];
     }
     
     /*

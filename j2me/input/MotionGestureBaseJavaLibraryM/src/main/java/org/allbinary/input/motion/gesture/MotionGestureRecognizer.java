@@ -79,19 +79,19 @@ public class MotionGestureRecognizer
         //this.logUtil.putF(commonStrings.START_LABEL + current.toString(), this, "processPressedMotionEvent");
         //PreLogUtil.put(commonStrings.START, this, "processPressedMotionEvent");
 
-        intermediate = origin;
-        previous = origin;
+        this.intermediate = this.origin;
+        this.previous = this.origin;
 
         final MotionGestureEvent event =
             this.motionEventCircularPool.getInstance(
                     TouchMotionGestureFactory.getInstance().PRESSED);
 
-        event.setPreviousPoint(previous);
+        event.setPreviousPoint(this.previous);
         event.setCurrentPoint(current);
 
         //this.logUtil.putF("Firing Event: " + event, this, "processReleasedMotionEvent");
         
-        motionGesturesHandler.fireEvent(event);
+        this.motionGesturesHandler.fireEvent(event);
 
         return true;
     }
@@ -111,12 +111,12 @@ public class MotionGestureRecognizer
             this.motionEventCircularPool.getInstance(
                     TouchMotionGestureFactory.getInstance().RELEASED);
 
-        event.setPreviousPoint(previous);
+        event.setPreviousPoint(this.previous);
         event.setCurrentPoint(current);
 
         //this.logUtil.putF("Firing Event: " + event, this, "processReleasedMotionEvent");
         
-        motionGesturesHandler.fireEvent(event);
+        this.motionGesturesHandler.fireEvent(event);
 
         return true;
     }
@@ -134,31 +134,31 @@ public class MotionGestureRecognizer
          */
 
         //TWB - GPoints are not cached so what is the deal here?
-        if (previous == origin || intermediate == origin)
+        if (this.previous == this.origin || this.intermediate == this.origin)
         {
-            previous = current;
-            intermediate = current;
+            this.previous = current;
+            this.intermediate = current;
             // return null;
             return;
         }
 
-        line.setP1(previous);
-        line.setP2(current);
+        this.line.setP1(this.previous);
+        this.line.setP2(current);
         // Line line = new Line(previous, current);
         // Line returnLine = new Line(intermediate, current);
 
         int minimumMotionGesture = MotionGestureConfigurationFactory
                 .getInstance().getMinimumMotionGesture();
-        if (j2seMath.abs((float) line.getDeltaX()) < minimumMotionGesture
+        if (this.j2seMath.abs((float) this.line.getDeltaX()) < minimumMotionGesture
                 && j2seMath.abs((float) line.getDeltaY()) < minimumMotionGesture)
         {
-            intermediate = current;
+            this.intermediate = current;
             return;
             // return returnLine;
         }
 
-        double gradient = line.getGradient();
-        double absGradient = (double) j2seMath.abs((float) gradient);
+        double gradient = this.line.getGradient();
+        double absGradient = (double) this.j2seMath.abs((float) gradient);
 
         final MotionGestureConfiguration conf = MotionGestureConfigurationFactory.getInstance();
 
@@ -177,7 +177,7 @@ public class MotionGestureRecognizer
         if (absGradient > Math.tan(Math.toRadians(diagonalToleranceHigher)))
         {
 
-            if (line.getDeltaY() > 0)
+            if (this.line.getDeltaY() > 0)
             {
                 newMotionGesture = touchMotionGestureFactory.UP;
             }
@@ -196,7 +196,7 @@ public class MotionGestureRecognizer
                 // this.logUtil.putF("Left Or Right: " +
                 // line.getDeltaX(), this, "processDraggedMotionEvent");
 
-                if (line.getDeltaX() > 0)
+                if (this.line.getDeltaX() > 0)
                 {
                     newMotionGesture = touchMotionGestureFactory.LEFT;
                 }
@@ -213,7 +213,7 @@ public class MotionGestureRecognizer
                 
                 if (gradient > 0)
                 {
-                    if (line.getDeltaX() > 0)
+                    if (this.line.getDeltaX() > 0)
                     {
                         //this.logUtil.putF("Diagonal Up Left", this, "processDraggedMotionEvent");
                         
@@ -228,7 +228,7 @@ public class MotionGestureRecognizer
                 }
                 else
                 {
-                    if (line.getDeltaX() > 0)
+                    if (this.line.getDeltaX() > 0)
                     {
                         //this.logUtil.putF("Diagonal Down Left", this, "processDraggedMotionEvent");
                         
@@ -246,16 +246,16 @@ public class MotionGestureRecognizer
 
         }
 
-        previous = current;
-        intermediate = current;
+        this.previous = current;
+        this.intermediate = current;
 
         final MotionGestureEvent event =
             this.motionEventCircularPool.getInstance(newMotionGesture);
 
-        event.setPreviousPoint(previous);
+        event.setPreviousPoint(this.previous);
         event.setCurrentPoint(current);
 
-        motionGesturesHandler.fireEvent(event);
+        this.motionGesturesHandler.fireEvent(event);
 
         // return returnLine;
         return;
@@ -271,12 +271,12 @@ public class MotionGestureRecognizer
             this.motionEventCircularPool.getInstance(
                     TouchMotionGestureFactory.getInstance().NO_MOTION);
 
-        event.setPreviousPoint(previous);
+        event.setPreviousPoint(this.previous);
         event.setCurrentPoint(current);
 
         //this.logUtil.putF("Firing Event: " + event, this, "processReleasedMotionEvent");
         
-        movedMotionGesturesHandler.fireEvent(event);
+        this.movedMotionGesturesHandler.fireEvent(event);
 
         return true;
     }

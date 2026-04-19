@@ -112,7 +112,7 @@ public class MotionRectanglesImageInputOutput implements ImageIOInterface
         this.logUtil.putF("Motion Image File Path 2: " + filePathStringBuffer3.toString(), this, commonStrings.SAVE);
         
         BufferedImageCacheable[] bufferedImageCacheables =
-            new BufferedImageCacheable[NUMBER_OF_IMAGES];
+            new BufferedImageCacheable[this.NUMBER_OF_IMAGES];
         
         ImageComparisonResult imageComparisonInfo =
             motionRectangles.getImageComparisonResult();
@@ -129,7 +129,7 @@ public class MotionRectanglesImageInputOutput implements ImageIOInterface
         PoolInterface poolInterface =
             BufferedImagePoolSingleton.getInstance();
         
-        for(int index = 0; index < NUMBER_OF_IMAGES; index++)
+        for(int index = 0; index < this.NUMBER_OF_IMAGES; index++)
         {
             bufferedImageCacheables[index] = (BufferedImageCacheable)
             poolInterface.remove(bufferedImageInfo);
@@ -138,7 +138,7 @@ public class MotionRectanglesImageInputOutput implements ImageIOInterface
         bufferedImageCacheables[0].getBufferedImage().setData(
             imageComparisonInfo.getBufferedImages()[1].getData());
         
-        if(NUMBER_OF_IMAGES > 1)
+        if(this.NUMBER_OF_IMAGES > 1)
         {
             bufferedImageCacheables[1].getBufferedImage().setData(
                 imageComparisonInfo.getBufferedImages()[1].getData());
@@ -153,7 +153,7 @@ public class MotionRectanglesImageInputOutput implements ImageIOInterface
              
                     bufferedImages[0].setRGB(widthIndex, heightIndex, rgb1);
              
-                    if(NUMBER_OF_IMAGES > 1)
+                    if(this.NUMBER_OF_IMAGES > 1)
                     {
                        int rgb2 = imageComparisonInfo.getBufferedImages()[0].getRGB(widthIndex, heightIndex);// & 0xFF; // assuming grayscale, so r==g==b
                        bufferedImages[1].setRGB(widthIndex, heightIndex, rgb2);
@@ -163,9 +163,9 @@ public class MotionRectanglesImageInputOutput implements ImageIOInterface
              */
         
         Graphics[] bufferedImageGraphicsArray;
-        bufferedImageGraphicsArray = new Graphics[NUMBER_OF_IMAGES];
+        bufferedImageGraphicsArray = new Graphics[this.NUMBER_OF_IMAGES];
         
-        for(int index = 0; index < NUMBER_OF_IMAGES; index++)
+        for(int index = 0; index < this.NUMBER_OF_IMAGES; index++)
         {
             bufferedImageGraphicsArray[index] =
                 bufferedImageCacheables[index].getBufferedImage().getGraphics();
@@ -180,7 +180,7 @@ public class MotionRectanglesImageInputOutput implements ImageIOInterface
             
             Rectangle rectangle = motionRectangle.getRectangle();
             
-            for(int index = 0; index < NUMBER_OF_IMAGES; index++)
+            for(int index = 0; index < this.NUMBER_OF_IMAGES; index++)
             {
                 bufferedImageGraphicsArray[index].setColor(Color.ORANGE);
                 bufferedImageGraphicsArray[index].drawRect(
@@ -198,7 +198,7 @@ public class MotionRectanglesImageInputOutput implements ImageIOInterface
         
         final ImagePersistanceUtil imagePersistanceUtil = ImagePersistanceUtil.getInstance();
         
-        if(NUMBER_OF_IMAGES > 1)
+        if(this.NUMBER_OF_IMAGES > 1)
         {
             imagePersistanceUtil.saveWithImageIO(
                     filePathStringBuffer1.toString(),
@@ -210,7 +210,7 @@ public class MotionRectanglesImageInputOutput implements ImageIOInterface
             filePathStringBuffer2.toString(),
             bufferedImageCacheables[0].getBufferedImage());
         
-        if(NUMBER_OF_IMAGES > 2)
+        if(this.NUMBER_OF_IMAGES > 2)
         {
             imagePersistanceUtil.saveWithImageIO(
                     filePathStringBuffer3.toString(),

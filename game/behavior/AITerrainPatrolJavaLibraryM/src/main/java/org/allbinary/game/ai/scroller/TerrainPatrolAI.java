@@ -73,7 +73,7 @@ public class TerrainPatrolAI extends PacePatrolAI
             final BasicTerrainInfo basicTerrainInfo = terrainEvent.getBasicTerrainInfo();
             final Angle angle = basicTerrainInfo.getAngle();
 
-            if (angle == DOWN)
+            if (angle == this.DOWN)
             {
                 // this.logUtil.putF("TerrainEvent: " + terrainEvent.getBasicTerrainInfo().getAngle().getValue(), this, commonStrings.PROCESS);
                 this.nextDirection();

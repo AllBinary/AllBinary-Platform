@@ -118,10 +118,10 @@ public class MiniMapLayer
 
         int layerIndex = -1;
 
-        int size = list.size();
+        int size = this.list.size();
         ColorCompositeInterface nextColorCompositeInterface;
         for (int index = 0; index < size; index++) {
-            nextColorCompositeInterface = (ColorCompositeInterface) list.get(index);
+            nextColorCompositeInterface = (ColorCompositeInterface) this.list.get(index);
             if (nextColorCompositeInterface == colorCompositeInterface) {
                 layerIndex = index;
                 break;

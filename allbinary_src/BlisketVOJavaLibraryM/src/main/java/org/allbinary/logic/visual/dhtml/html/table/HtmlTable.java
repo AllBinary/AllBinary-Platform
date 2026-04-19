@@ -66,10 +66,10 @@ public class HtmlTable extends HtmlTag
       //this.style = new String(style);  
       this.after = after;
       this.htmlRowsVector = new Vector();
-      addAttribute(BORDER,CommonPhoneStrings.getInstance().ZERO);
-      addAttribute(CELLPADDING,this.cellpadding);
-      addAttribute(CELLSPACING,this.cellspacing);      
-      addAttribute(STYLE,this.BORDERCOLLAPSE);
+      addAttribute(this.BORDER,CommonPhoneStrings.getInstance().ZERO);
+      addAttribute(this.CELLPADDING,this.cellpadding);
+      addAttribute(this.CELLSPACING,this.cellspacing);      
+      addAttribute(this.STYLE,this.BORDERCOLLAPSE);
    }      
       
    public void addRow(HtmlRow htmlRow)
@@ -86,8 +86,8 @@ public class HtmlTable extends HtmlTag
       final StringUtil stringUtil = StringUtil.getInstance();
       String result = stringUtil.EMPTY_STRING;
       Object[] attributeKeys = otherAttributes.keySet().toArray();
-      result = before;
-      result += START;
+      result = this.before;
+      result += this.START;
       result += " ";      
       
       for (int i = 0; i < attributeKeys.length; i++)
@@ -104,15 +104,15 @@ public class HtmlTable extends HtmlTag
       }
       result += this.END;
       
-      final int size = htmlRowsVector.size();
+      final int size = this.htmlRowsVector.size();
       for (int i = 0; i < size; i++)
       {
-         result += htmlRowsVector.get(i).toString();
+         result += this.htmlRowsVector.get(i).toString();
          result += " ";
       }
 
-      result += ENDTAG;
-      result += after;
+      result += this.ENDTAG;
+      result += this.after;
       return result;
    }
 }

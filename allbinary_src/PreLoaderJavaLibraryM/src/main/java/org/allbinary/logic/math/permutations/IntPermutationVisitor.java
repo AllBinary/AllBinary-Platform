@@ -16,7 +16,7 @@ public class IntPermutationVisitor extends Visitor {
 
     public Object visit(Object object) {
         stringBuilder.delete(0, stringBuilder.length());
-        this.print(data, stringBuilder);
+        this.print(this.data, stringBuilder);
         return null;
     }
     

@@ -53,10 +53,10 @@ public class MusicManager
 
     public MusicManager(final Class musicServiceClass, final BasicArrayList songList)
     {
-        PreLogUtil.put(commonStateStrings.CONTEXT + resourceUtil.getContext(), this, commonStrings.CONSTRUCTOR);
+        PreLogUtil.put(this.commonStateStrings.CONTEXT + this.resourceUtil.getContext(), this, commonStrings.CONSTRUCTOR);
         
         this.musicServiceClass = musicServiceClass;
-        currentIntent = new Intent(resourceUtil.getContext(), musicServiceClass);
+        this.currentIntent = new Intent(this.resourceUtil.getContext(), musicServiceClass);
 
         this.songList = songList;
     }
@@ -84,14 +84,14 @@ public class MusicManager
             return;
         }
         
-        if (this.timeDelayHelper.isTime(gameTickTimeDelayHelper.startTime))
+        if (this.timeDelayHelper.isTime(this.gameTickTimeDelayHelper.startTime))
         {
             this.startNewSong();
             return;
         }
         
-        if(timeDelayHelper2.isTime(this.gameTickTimeDelayHelper.startTime)) {
-            if (androidServicesUtil.isServiceRunning(this.musicServiceClass.getName())) {
+        if(this.timeDelayHelper2.isTime(this.gameTickTimeDelayHelper.startTime)) {
+            if (this.androidServicesUtil.isServiceRunning(this.musicServiceClass.getName())) {
 
             } else {
                 this.startNewSong();
@@ -107,7 +107,7 @@ public class MusicManager
 
             final long duration = (long) sound.getDuration();
 
-            PreLogUtil.put(new StringBuilder().append(PLAY).append(sound.getResource()).append(FOR).append(duration).toString(), this, commonStrings.PROCESS);
+            PreLogUtil.put(new StringBuilder().append(this.PLAY).append(sound.getResource()).append(this.FOR).append(duration).toString(), this, commonStrings.PROCESS);
         }
     }
 
@@ -121,7 +121,7 @@ public class MusicManager
             this.resourceUtil.getContext().stopService(this.currentIntent);
 
             if(this.nextSongSound == NoSound.getInstance()) {
-                this.currentSongSound = (Sound) basicArrayListUtil.getRandom(this.songList);
+                this.currentSongSound = (Sound) this.basicArrayListUtil.getRandom(this.songList);
             } else {
                 this.currentSongSound = this.nextSongSound;
                 this.nextSongSound = NoSound.getInstance();
@@ -130,22 +130,22 @@ public class MusicManager
             final long duration = (long) this.currentSongSound.getDuration();
 					//18000;
 
-            PreLogUtil.put(new StringBuilder().append(PLAY).append(this.currentSongSound.getResource()).append(FOR).append(duration).toString(), this, commonStrings.PROCESS);
+            PreLogUtil.put(new StringBuilder().append(this.PLAY).append(this.currentSongSound.getResource()).append(this.FOR).append(duration).toString(), this, commonStrings.PROCESS);
 
             this.timeDelayHelper.delay = (int) duration;
 
-            this.currentIntent.putExtra(musicStrings.SONG_EXTRA, this.resourceUtil.getResourceId(this.currentSongSound.getResource()).intValue());
-            this.currentIntent.putExtra(musicStrings.LEFT_VOLUME, leftVolume);
-            this.currentIntent.putExtra(musicStrings.RIGHT_VOLUME, rightVolume);
+            this.currentIntent.putExtra(this.musicStrings.SONG_EXTRA, this.resourceUtil.getResourceId(this.currentSongSound.getResource()).intValue());
+            this.currentIntent.putExtra(this.musicStrings.LEFT_VOLUME, leftVolume);
+            this.currentIntent.putExtra(this.musicStrings.RIGHT_VOLUME, rightVolume);
 
             //PreLogUtil.put("startNewSong - Start MusicService", this, commonStrings.PROCESS);
             this.resourceUtil.getContext().startService(this.currentIntent);
         } catch (Exception e)
         {
             String resource = StringUtil.getInstance().EMPTY_STRING;
-            if (currentSongSound != null)
+            if (this.currentSongSound != null)
             {
-                resource = currentSongSound.getResource();
+                resource = this.currentSongSound.getResource();
             }
 
             PreLogUtil.putOE(commonStrings.EXCEPTION_LABEL + resource, this, commonStrings.PROCESS, e);

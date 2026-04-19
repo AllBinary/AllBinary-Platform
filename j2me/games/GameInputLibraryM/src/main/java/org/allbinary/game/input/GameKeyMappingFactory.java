@@ -64,7 +64,7 @@ public class GameKeyMappingFactory
 
     private void set(GameKey gameKey)
     {
-        intKeyToGameKey[gameKey.getId()] = gameKey;
+        this.intKeyToGameKey[gameKey.getId()] = gameKey;
     }
     
     public static GameKeyMappingFactory getInstance()

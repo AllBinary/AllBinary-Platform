@@ -46,7 +46,7 @@ public class OpenGLESGL11VBOImage extends OpenGLESImage
         this.initVertices();
         
         this.regionRectangleVertexFloatBuffer.put(FloatBuffer.wrap(regionRectangleFloatArray));
-        this.regionTextureVertexFloatBuffer.put(FloatBuffer.wrap(regionTextureRectangleFloatArray));        
+        this.regionTextureVertexFloatBuffer.put(FloatBuffer.wrap(this.regionTextureRectangleFloatArray));        
     }
 
     /*
@@ -236,17 +236,17 @@ public class OpenGLESGL11VBOImage extends OpenGLESImage
         
         //regionTextureVertexFloatBuffer.rewind();
         
-        regionTextureRectangleFloatArray[0] = x_src / this.getWidth();
-        regionTextureRectangleFloatArray[1] = ((y_src + height)) / this.getHeight();
+        this.regionTextureRectangleFloatArray[0] = x_src / this.getWidth();
+        this.regionTextureRectangleFloatArray[1] = ((y_src + height)) / this.getHeight();
 
-        regionTextureRectangleFloatArray[2] = ((x_src + width)) / this.getWidth();
-        regionTextureRectangleFloatArray[3] = regionTextureRectangleFloatArray[1];
+        this.regionTextureRectangleFloatArray[2] = ((x_src + width)) / this.getWidth();
+        this.regionTextureRectangleFloatArray[3] = this.regionTextureRectangleFloatArray[1];
 
-        regionTextureRectangleFloatArray[4] = regionTextureRectangleFloatArray[0];
-        regionTextureRectangleFloatArray[5] = y_src / this.getHeight();
+        this.regionTextureRectangleFloatArray[4] = this.regionTextureRectangleFloatArray[0];
+        this.regionTextureRectangleFloatArray[5] = y_src / this.getHeight();
 
-        regionTextureRectangleFloatArray[6] = regionTextureRectangleFloatArray[2];
-        regionTextureRectangleFloatArray[7] = regionTextureRectangleFloatArray[5];
+        this.regionTextureRectangleFloatArray[6] = this.regionTextureRectangleFloatArray[2];
+        this.regionTextureRectangleFloatArray[7] = this.regionTextureRectangleFloatArray[5];
 
         //textureVertexFloatBuffer.put(textureArray);
 

@@ -65,7 +65,7 @@ public class FlagGameResources extends BasicGameResources
         stringBuffer.append(ROOT);
         stringBuffer.append(ICON);
         stringBuffer.append(string);
-        stringBuffer.append(ICON_SIZE);
+        stringBuffer.append(this.ICON_SIZE);
 
         this.RESOURCE_ICON = stringBuffer.toString();
 
@@ -73,7 +73,7 @@ public class FlagGameResources extends BasicGameResources
         stringBuffer.append(ROOT);
         stringBuffer.append(ICON_BUILD);
         stringBuffer.append(string);
-        stringBuffer.append(ICON_SIZE);
+        stringBuffer.append(this.ICON_SIZE);
 
         this.RESOURCE_ICON_BUILD = stringBuffer.toString();
 

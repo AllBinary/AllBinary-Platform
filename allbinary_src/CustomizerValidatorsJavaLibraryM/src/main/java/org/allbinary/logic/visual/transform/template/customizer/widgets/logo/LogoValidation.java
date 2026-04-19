@@ -130,7 +130,7 @@ public class LogoValidation extends Validation implements DomNodeInterface
                     return Boolean.FALSE;
                 }
 
-                if (this.logoFileItem.getSize() > fileData.MAXIMAGEFILESIZE || logoFileItem.getSize() < fileData.MINIMAGEFILESIZE)
+                if (this.logoFileItem.getSize() > fileData.MAXIMAGEFILESIZE || this.logoFileItem.getSize() < fileData.MINIMAGEFILESIZE)
                 {
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                     {

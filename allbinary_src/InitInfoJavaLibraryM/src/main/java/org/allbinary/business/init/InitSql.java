@@ -119,7 +119,7 @@ public class InitSql
 
     public boolean dropTable()
     {
-        String sqlStatement = sqlStrings.DROP_TABLE + tableName;
+        String sqlStatement = this.sqlStrings.DROP_TABLE + this.tableName;
         try
         {
             this.executeSQLStatement(sqlStatement);
@@ -140,7 +140,7 @@ public class InitSql
 
         stringBuffer.append(this.sqlStrings.SELECT_ALL_FROM);
         stringBuffer.append(this.tableName);
-        stringBuffer.append(sqlStrings.WHERE);
+        stringBuffer.append(this.sqlStrings.WHERE);
 
         try
         {
@@ -154,14 +154,14 @@ public class InitSql
                 String value = new String((String) keysAndValues.get(key));
 
                 stringBuffer.append(key);
-                stringBuffer.append(sqlStrings.EQUAL_QUOTE);
+                stringBuffer.append(this.sqlStrings.EQUAL_QUOTE);
 
                 stringBuffer.append(this.getValue(value));
-                stringBuffer.append(sqlStrings.CLOSE_QUOTE);
+                stringBuffer.append(this.sqlStrings.CLOSE_QUOTE);
 
                 if (i < size - 1)
                 {
-                    stringBuffer.append(sqlStrings.AND);
+                    stringBuffer.append(this.sqlStrings.AND);
                 }
             }
 
@@ -169,7 +169,7 @@ public class InitSql
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
-                PreLogUtil.put(sqlStrings.SQL_STATEMENT_LABEL + sqlStatement, this.INIT_SQL, this.METHOD_GET_ROW);
+                PreLogUtil.put(this.sqlStrings.SQL_STATEMENT_LABEL + sqlStatement, this.INIT_SQL, this.METHOD_GET_ROW);
             }
 
             ResultSet rset = this.executeSQLStatement(sqlStatement);
@@ -189,14 +189,14 @@ public class InitSql
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
                 {
-                    PreLogUtil.put(ROW_VALUE_LABEL + result.toString(), this.INIT_SQL, this.METHOD_GET_ROW);
+                    PreLogUtil.put(this.ROW_VALUE_LABEL + result.toString(), this.INIT_SQL, this.METHOD_GET_ROW);
                 }
                 return result;
             }
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
-                PreLogUtil.put(NO_RESULTS_IN_RESULT_SET, this.INIT_SQL, this.METHOD_GET_ROW);
+                PreLogUtil.put(this.NO_RESULTS_IN_RESULT_SET, this.INIT_SQL, this.METHOD_GET_ROW);
             }
 
             return null;
@@ -227,7 +227,7 @@ public class InitSql
                 String columnName = columnArray[i].toString();
                 stringBuffer.append(this.commonSeps.SPACE);
                 stringBuffer.append(columnName);
-                stringBuffer.append(EQUAL_QUOTE);
+                stringBuffer.append(this.EQUAL_QUOTE);
                 String columnValue = (String) updatedKeyValuePairs.get(columnName);
 
                 if (columnValue == null)
@@ -239,7 +239,7 @@ public class InitSql
                 }
 
                 stringBuffer.append(this.getValue(columnValue));
-                stringBuffer.append(sqlStrings.CLOSE_QUOTE);
+                stringBuffer.append(this.sqlStrings.CLOSE_QUOTE);
 
                 if (i < size - 1)
                 {
@@ -247,12 +247,12 @@ public class InitSql
                 }
             }
 
-            stringBuffer.append(sqlStrings.WHERE);
+            stringBuffer.append(this.sqlStrings.WHERE);
             stringBuffer.append(key);
-            stringBuffer.append(sqlStrings.EQUAL_QUOTE);
+            stringBuffer.append(this.sqlStrings.EQUAL_QUOTE);
 
             stringBuffer.append(this.getValue(value));
-            stringBuffer.append(sqlStrings.CLOSE_QUOTE);
+            stringBuffer.append(this.sqlStrings.CLOSE_QUOTE);
 
             String sqlStatement = stringBuffer.toString();
             this.executeSQLStatement(sqlStatement);
@@ -294,7 +294,7 @@ public class InitSql
             //value = new Replace(this.sqlStrings.ESCAPE, this.sqlStrings.DOUBLE_ESCAPE).all(value);
 
             stringBuffer.append(value);
-            stringBuffer.append(INSERT_END);
+            stringBuffer.append(this.INSERT_END);
 
             String sqlStatement = stringBuffer.toString();
             this.executeSQLStatement(sqlStatement);
@@ -327,11 +327,11 @@ public class InitSql
    {
       try
       {
-         if(conn == null)
+         if(this.conn == null)
          {
             initialize();
          }
-         Statement stmt = conn.createStatement();
+         Statement stmt = this.conn.createStatement();
          //ResultSet rset = stmt.executeQuery(statement);
          //TWB- Changes For GAE JIQL
          stmt.execute(statement);
@@ -362,14 +362,14 @@ public class InitSql
    {
       try
       {
-         if(useridAndPassword==true)
+         if(this.useridAndPassword==true)
          {
-            conn = DriverManager.getConnection(
+            this.conn = DriverManager.getConnection(
                this.databaseConnectionInfoInterface.getUrl(), userid, password);
          }
          else
          {
-            conn = DriverManager.getConnection(
+            this.conn = DriverManager.getConnection(
                this.databaseConnectionInfoInterface.getUrl());
          }
       }
@@ -402,9 +402,9 @@ public class InitSql
             }
             throw e;
          }         
-         if(userid == null && password == null)
+         if(this.userid == null && this.password == null)
          {
-            useridAndPassword=true;
+            this.useridAndPassword=true;
          }         
          this.createConnection();         
       }

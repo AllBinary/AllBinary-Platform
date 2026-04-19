@@ -31,13 +31,13 @@ public class AbstractArrayListPool implements PoolInterface {
     @Override
     public void clear()
             throws Exception {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
+        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     @Override
     public CacheableInterface remove(Object key)
             throws Exception {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
+        throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
     @Override
@@ -50,7 +50,7 @@ public class AbstractArrayListPool implements PoolInterface {
     public void add(CacheableInterface[] cacheableInterfaces) throws Exception {
         for (int index = 0; index < cacheableInterfaces.length; index++) {
             //buffers.set(++pos, cacheableInterfaces[index]);
-            buffers.add(cacheableInterfaces[index]);
+            this.buffers.add(cacheableInterfaces[index]);
         }
     }
 

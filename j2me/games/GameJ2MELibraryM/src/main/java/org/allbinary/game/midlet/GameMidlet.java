@@ -157,7 +157,7 @@ public class GameMidlet extends ProgressMidlet
         //This can be used for J2ME but not BB
         //SmallIntegerSingletonFactory.getInstance().init(0x101, 6);
         //This must load after SmallIntegerSingletonFactory init for InputFactory
-        loadGameForm = CommandForm.NULL_COMMAND_FORM;
+        this.loadGameForm = CommandForm.NULL_COMMAND_FORM;
 
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         progressCanvas.init(this);
@@ -200,7 +200,7 @@ public class GameMidlet extends ProgressMidlet
     {
         this.pauseAppBackground(true);
         
-        final GameAdState gameAdState = gameAdStateFactory.getCurrentInstance();
+        final GameAdState gameAdState = this.gameAdStateFactory.getCurrentInstance();
         
         gameAdState.getAdvertisements().stopAll();
     }
@@ -210,13 +210,13 @@ public class GameMidlet extends ProgressMidlet
         this.logUtil.putF(commonStrings.START, this, PAUSE_APP_BACKGROUND);
         //PreLogUtil.put(commonStrings.START, this, PAUSE_APP_BACKGROUND);
         
-        if (allbinaryGameCanvasRunnableInterface != NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE)
+        if (this.allbinaryGameCanvasRunnableInterface != NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE)
         {
-            allbinaryGameCanvasRunnableInterface.pause();
+            this.allbinaryGameCanvasRunnableInterface.pause();
             /*
-            if (!allbinaryGameCanvasRunnableInterface.isPaused())
+            if (!this.allbinaryGameCanvasRunnableInterface.isPaused())
             {
-                allbinaryGameCanvasRunnableInterface.pause();
+                this.allbinaryGameCanvasRunnableInterface.pause();
             }
              */
         }
@@ -232,7 +232,7 @@ public class GameMidlet extends ProgressMidlet
     {
         this.unPauseAppBackground(true);
         
-        final GameAdState gameAdState = gameAdStateFactory.getCurrentInstance();
+        final GameAdState gameAdState = this.gameAdStateFactory.getCurrentInstance();
         
         gameAdState.getAdvertisements().startAll();
     }
@@ -272,7 +272,7 @@ public class GameMidlet extends ProgressMidlet
         {
             progressCanvas.start();
 
-            this.commandAction(myCommandsFactory.SET_DISPLAYABLE, progressCanvas);
+            this.commandAction(this.myCommandsFactory.SET_DISPLAYABLE, progressCanvas);
 
             // progressCanvas.waitUntilDisplayed();
         }
@@ -294,7 +294,7 @@ public class GameMidlet extends ProgressMidlet
             PreLogUtil.put(GameStatisticsFactory.getInstance().toString(), this, METHOD_NAME);
             //this.logUtil.putF(commonStrings.START, this, METHOD_NAME);
 
-            final GameAdState gameAdState = gameAdStateFactory.getCurrentInstance();
+            final GameAdState gameAdState = this.gameAdStateFactory.getCurrentInstance();
             
             gameAdState.getAdvertisements().stopAll();
             
@@ -330,7 +330,7 @@ public class GameMidlet extends ProgressMidlet
     {
         try
         {
-            final GameAdState gameAdState = gameAdStateFactory.getCurrentInstance();
+            final GameAdState gameAdState = this.gameAdStateFactory.getCurrentInstance();
             
             gameAdState.getAdvertisements().startAll();
             
@@ -346,7 +346,7 @@ public class GameMidlet extends ProgressMidlet
             //thus start up only occurs one time ever otherwise this is just unpause
             if (gameCanvasRunnableInterface == NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE)
             {
-            	gameMidletStateFactory.setCurrentGameState(GameState.NO_GAME_STATE);
+            	this.gameMidletStateFactory.setCurrentGameState(GameState.NO_GAME_STATE);
                 this.setDemo();
             }
             else
@@ -385,13 +385,13 @@ public class GameMidlet extends ProgressMidlet
                  displayableAsString = displayable.toString();
             }
 
-            String label = NO_COMMAND;
+            String label = this.NO_COMMAND;
             if(command != null)
             {
                 label = command.getLabel();
             }
 
-            PreLogUtil.put(new StringMaker().append(COMMAND_NAME).append(label).append(DISPLAYABLE).append(displayableAsString).toString(), this, this.COMMAND_ACTION);
+            PreLogUtil.put(new StringMaker().append(this.COMMAND_NAME).append(label).append(this.DISPLAYABLE).append(displayableAsString).toString(), this, this.COMMAND_ACTION);
 
             final GameCommandsFactory gameCommandsFactory = 
                 GameCommandsFactory.getInstance();
@@ -434,7 +434,7 @@ public class GameMidlet extends ProgressMidlet
                 command == gameCommandsFactory.CONTINUE_COMMAND)
             {
                 // GameState gameState = GameStateFactory.getInstance(command);
-                if (gameMidletStateFactory.getCurrentGameState() != GameState.PLAYING_GAME_STATE || 
+                if (this.gameMidletStateFactory.getCurrentGameState() != GameState.PLAYING_GAME_STATE || 
                 		command == gameCommandsFactory.RESTART_COMMAND)
                 {
                     if (this.gameStartTimeHelper.isTime())
@@ -444,7 +444,7 @@ public class GameMidlet extends ProgressMidlet
                         } else {
                             this.startedBefore = true;
                             this.createGame();
-                            gameMidletStateFactory.setCurrentGameState(GameState.PLAYING_GAME_STATE);
+                            this.gameMidletStateFactory.setCurrentGameState(GameState.PLAYING_GAME_STATE);
                         }
                     }
                     else
@@ -486,19 +486,19 @@ public class GameMidlet extends ProgressMidlet
                     }
 
                     this.stopGameCanvasRunnableInterface();
-                    gameMidletStateFactory.setCurrentGameState(GameState.NO_GAME_STATE);
+                    this.gameMidletStateFactory.setCurrentGameState(GameState.NO_GAME_STATE);
                     this.setDemo();
                 }
             }
-            else if (command == myCommandsFactory.RESUME_COMMAND)
+            else if (command == this.myCommandsFactory.RESUME_COMMAND)
             {
                 this.unPauseAppBackground(false);
             }
-            else if (command == myCommandsFactory.PAUSE_COMMAND)
+            else if (command == this.myCommandsFactory.PAUSE_COMMAND)
             {
                 this.pauseAppBackground(false);
             }
-            else if (command == myCommandsFactory.SET_DISPLAYABLE)
+            else if (command == this.myCommandsFactory.SET_DISPLAYABLE)
             {
                 this.pauseAppBackground(false);
 
@@ -642,7 +642,7 @@ public class GameMidlet extends ProgressMidlet
                 final MainFeatureFactory mainFeatureFactory =
                     MainFeatureFactory.getInstance();
 
-                isFullScreen = features.isFeature(
+                this.isFullScreen = this.features.isFeature(
                     mainFeatureFactory.FULL_SCREEN);
                 
                 //PreLogUtil.put("Open isFullScreen: ").append(isFullScreen, this, midletStrings.COMMAND_ACTION);
@@ -667,7 +667,7 @@ public class GameMidlet extends ProgressMidlet
                 final StringMaker stringBuffer = new StringMaker();
                 stringBuffer.append("Close isFullScreen/change: ");
                 stringBuffer.appendboolean(isFullScreen);
-                stringBuffer.appendboolean(fullScreenUtil.isScreenChange(isFullScreen));
+                stringBuffer.appendboolean(this.fullScreenUtil.isScreenChange(isFullScreen));
                 stringBuffer.append(" isResized: ");
                 stringBuffer.appendboolean(this.isResized());
 
@@ -802,15 +802,15 @@ public class GameMidlet extends ProgressMidlet
                 final MainFeatureFactory mainFeatureFactory
                         = MainFeatureFactory.getInstance();
 
-                final boolean isFullScreen = features.isFeature(mainFeatureFactory.FULL_SCREEN);
+                final boolean isFullScreen = this.features.isFeature(mainFeatureFactory.FULL_SCREEN);
         
                 if(isFullScreen)
                 {
-                    features.removeDefault(mainFeatureFactory.FULL_SCREEN);
+                    this.features.removeDefault(mainFeatureFactory.FULL_SCREEN);
                 }
                 else
                 {
-                    features.addDefault(mainFeatureFactory.FULL_SCREEN);
+                    this.features.addDefault(mainFeatureFactory.FULL_SCREEN);
                 }
                 
                 this.updateFullScreen();
@@ -837,7 +837,7 @@ public class GameMidlet extends ProgressMidlet
     {
         final MainFeatureFactory mainFeatureFactory = MainFeatureFactory.getInstance();
 
-        final boolean isFullScreen = features.isFeature(mainFeatureFactory.FULL_SCREEN);
+        final boolean isFullScreen = this.features.isFeature(mainFeatureFactory.FULL_SCREEN);
         
         //fire should be called in Canvas setFullScreenMode
         //ScreenListenerHandler.getInstance().fire(isFullScreen);
@@ -917,16 +917,16 @@ public class GameMidlet extends ProgressMidlet
         final ThreadFactoryUtil threadFactoryUtil = ThreadFactoryUtil.getInstance();
 
         //thread = 
-            thread = threadFactoryUtil.getInstance(this.allbinaryGameCanvasRunnableInterface);
+            this.thread = threadFactoryUtil.getInstance(this.allbinaryGameCanvasRunnableInterface);
 
-        this.logUtil.putF(new StringMaker().append("Thread Priority: ").appendint(thread.getPriority()).toString(), this, "startGameCanvasRunnableInterface");
+        this.logUtil.putF(new StringMaker().append("Thread Priority: ").appendint(this.thread.getPriority()).toString(), this, "startGameCanvasRunnableInterface");
 
         // canvasThread.setPriority(Thread.NORM_PRIORITY).append(2);
         //thread.setPriority(Thread.MAX_PRIORITY);
 
-        this.allbinaryGameCanvasRunnableInterface.setThread(thread);
+        this.allbinaryGameCanvasRunnableInterface.setThread(this.thread);
 
-        threadFactoryUtil.start(thread);
+        threadFactoryUtil.start(this.thread);
     }
 
     protected void stopGameCanvasRunnableInterface() throws Exception
@@ -957,7 +957,7 @@ public class GameMidlet extends ProgressMidlet
         ThreadUtil.getInstance().join(this.thread);
         
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
-        if(features.isFeature(MainFeatureFactory.getInstance().LOAD_ALL))
+        if(this.features.isFeature(MainFeatureFactory.getInstance().LOAD_ALL))
         {
             progressCanvas.addPortion(50, "Stopped Game Runnable");
         }
@@ -993,8 +993,8 @@ public class GameMidlet extends ProgressMidlet
             GameMode.SERVER, 1, 1);
 
         return new AllBinaryGameLayerManager(
-                basicColorFactory.BLACK,
-                basicColorFactory.WHITE, 
+                this.basicColorFactory.BLACK,
+                this.basicColorFactory.WHITE, 
                 gameInfo);
     }
 
@@ -1028,7 +1028,7 @@ public class GameMidlet extends ProgressMidlet
         this.logUtil.putF(commonStrings.START, this, "getCurrentStateHashtable");
         final Hashtable hashtable = new Hashtable();
 
-        if (allbinaryGameCanvasRunnableInterface != NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE)
+        if (this.allbinaryGameCanvasRunnableInterface != NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE)
         {
             final Hashtable currentHashtable = this.allbinaryGameCanvasRunnableInterface.getCurrentStateHashtable();
             final Enumeration enumeration = currentHashtable.keys();
@@ -1050,7 +1050,7 @@ public class GameMidlet extends ProgressMidlet
 
     public LoadGameForm getLoadGameForm()
     {
-        return (LoadGameForm) loadGameForm;
+        return (LoadGameForm) this.loadGameForm;
     }
     
     public void setResized(final boolean resized)
@@ -1066,7 +1066,7 @@ public class GameMidlet extends ProgressMidlet
     private boolean startedBefore = false;
     public boolean isDemoLoading() {
         
-        if(startedBefore) {
+        if(this.startedBefore) {
             return false;
         }
         

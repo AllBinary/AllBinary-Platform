@@ -51,7 +51,7 @@ public class WebCommandProcessor {
         try {
             //J2SE
             if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
-                Desktop.getDesktop().browse(new URI((String) list.remove(0)));
+                Desktop.getDesktop().browse(new URI((String) this.list.remove(0)));
             }
 
         } catch(Exception e) {

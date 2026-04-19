@@ -52,8 +52,8 @@ public class ImageSwtRotationUtil {
 
     public org.eclipse.swt.graphics.Image getRotatedImage(final org.eclipse.swt.graphics.Image bufferedImage, final int totalAngle) {
 
-        if(!features.isFeature(gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
-            this.logUtil.putF(NO_COPY, this, commonStrings.CONSTRUCTOR);
+        if(!this.features.isFeature(this.gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
+            this.logUtil.putF(this.NO_COPY, this, commonStrings.CONSTRUCTOR);
             return bufferedImage;
         }
         
@@ -82,8 +82,8 @@ public class ImageSwtRotationUtil {
 
     private org.eclipse.swt.graphics.Image getRotatedImage2(final org.eclipse.swt.graphics.Image bufferedImage, final org.eclipse.swt.graphics.Image newBufferedImage, final GC gc, final float angle) {
         
-        if(!features.isFeature(gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
-            this.logUtil.putF(NO_COPY, this, commonStrings.CONSTRUCTOR);
+        if(!this.features.isFeature(this.gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
+            this.logUtil.putF(this.NO_COPY, this, commonStrings.CONSTRUCTOR);
             return bufferedImage;
         }
 

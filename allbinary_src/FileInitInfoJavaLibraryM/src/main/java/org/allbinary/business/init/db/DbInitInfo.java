@@ -107,9 +107,9 @@ public class DbInitInfo extends DbConnectionInfo
     public void write() throws Exception
     {
         
-        final AbPath PATH = new AbPath(URLGLOBALS.getWebappPath() + PACKAGE);
+        final AbPath PATH = new AbPath(URLGLOBALS.getWebappPath() + this.PACKAGE);
         this.directory.create(PATH);
-        final AbPath FILEABPATH = new AbPath(URLGLOBALS.getWebappPath() + PACKAGE, this.initFileName);
+        final AbPath FILEABPATH = new AbPath(URLGLOBALS.getWebappPath() + this.PACKAGE, this.initFileName);
         try
         {
             final AbFile newFile = new AbFile(FILEABPATH);
@@ -140,7 +140,7 @@ public class DbInitInfo extends DbConnectionInfo
                 dataOutputStream.writeUTF(DatabaseEncoder.encode(cryptedSchema));
                 dataOutputStream.writeUTF(DatabaseEncoder.encode(cryptedServer));
                 dataOutputStream.writeUTF(DatabaseEncoder.encode(cryptedPort));
-                hasRead = false;
+                this.hasRead = false;
 
             }finally
             {
@@ -158,7 +158,7 @@ public class DbInitInfo extends DbConnectionInfo
     private void load() throws Exception
     {
         final AbPath FILEABPATH
-                = new AbPath(URLGLOBALS.getWebappPath() + PACKAGE, this.initFileName);
+                = new AbPath(URLGLOBALS.getWebappPath() + this.PACKAGE, this.initFileName);
         try
         {
             final AbFile file = new AbFile(FILEABPATH);
@@ -203,7 +203,7 @@ public class DbInitInfo extends DbConnectionInfo
                 //PreLogUtil.put("Host: " + this.getHost(), this, commonStrings.LOAD);
             }else
             {
-                hasRead = false;
+                this.hasRead = false;
                 if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADER))
                 {
                     PreLogUtil.put("Not a File - Failed Loading: " + FILEABPATH.toString(), this, commonStrings.LOAD);
@@ -227,16 +227,16 @@ public class DbInitInfo extends DbConnectionInfo
     {
         try
         {
-            if(!hasRead)
+            if(!this.hasRead)
             {
-                hasRead = true;
+                this.hasRead = true;
                 this.load();
             }
         }catch(Exception e)
         {
             if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR))
             {
-                PreLogUtil.putOE(commonStrings.EXCEPTION, this, "updateIfNeeded", e);
+                PreLogUtil.putOE(this.commonStrings.EXCEPTION, this, "updateIfNeeded", e);
             }
         }
     }

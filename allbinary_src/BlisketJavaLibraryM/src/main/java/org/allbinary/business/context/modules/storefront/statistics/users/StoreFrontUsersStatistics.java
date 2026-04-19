@@ -44,13 +44,13 @@ public class StoreFrontUsersStatistics implements StoreFrontUsersStatisticsInter
          
          Long currentNumberOfUsersForRole = this.getNewTotal(nextUserRole);
 
-         totalUsersByRoleHashMap.put(nextUserRole, currentNumberOfUsersForRole);
+         this.totalUsersByRoleHashMap.put(nextUserRole, currentNumberOfUsersForRole);
       }
    }
 
    private Long getNewTotal(UserRole userRole)
    {
-       Long numberOfUsersForRoleLong = (Long) totalUsersByRoleHashMap.get(userRole);
+       Long numberOfUsersForRoleLong = (Long) this.totalUsersByRoleHashMap.get(userRole);
        
        if(numberOfUsersForRoleLong == null)
        {

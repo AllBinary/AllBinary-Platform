@@ -84,16 +84,16 @@ public class ActionScriptItemJPanel extends javax.swing.JPanel
     // <editor-fold defaultstate="collapsed" desc=" Generated Code ">//GEN-BEGIN:initComponents
     private void initComponents()
     {
-        newActionScriptInputJPanel = new javax.swing.JPanel();
-        childActionScriptConditionJPanel = new javax.swing.JPanel();
-        newActionScriptConditionJPanel = new javax.swing.JPanel();
-        scriptItemJPanel = new javax.swing.JPanel();
-        removeJPanel = new javax.swing.JPanel();
+        this.newActionScriptInputJPanel = new javax.swing.JPanel();
+        this.childActionScriptConditionJPanel = new javax.swing.JPanel();
+        this.newActionScriptConditionJPanel = new javax.swing.JPanel();
+        this.scriptItemJPanel = new javax.swing.JPanel();
+        this.removeJPanel = new javax.swing.JPanel();
 
-        newActionScriptInputJPanel.setLayout(new java.awt.GridLayout(1, 0));
+        this.newActionScriptInputJPanel.setLayout(new java.awt.GridLayout(1, 0));
 
-        javax.swing.GroupLayout childActionScriptConditionJPanelLayout = new javax.swing.GroupLayout(childActionScriptConditionJPanel);
-        childActionScriptConditionJPanel.setLayout(childActionScriptConditionJPanelLayout);
+        javax.swing.GroupLayout childActionScriptConditionJPanelLayout = new javax.swing.GroupLayout(this.childActionScriptConditionJPanel);
+        this.childActionScriptConditionJPanel.setLayout(childActionScriptConditionJPanelLayout);
         childActionScriptConditionJPanelLayout.setHorizontalGroup(
             childActionScriptConditionJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 229, Short.MAX_VALUE)
@@ -103,13 +103,13 @@ public class ActionScriptItemJPanel extends javax.swing.JPanel
             .addGap(0, 8, Short.MAX_VALUE)
         );
 
-        newActionScriptConditionJPanel.setLayout(new java.awt.GridLayout(1, 0));
+        this.newActionScriptConditionJPanel.setLayout(new java.awt.GridLayout(1, 0));
 
-        scriptItemJPanel.setLayout(new java.awt.GridLayout(1, 1));
+        this.scriptItemJPanel.setLayout(new java.awt.GridLayout(1, 1));
 
-        removeJPanel.setLayout(new java.awt.GridLayout(1, 1));
+        this.removeJPanel.setLayout(new java.awt.GridLayout(1, 1));
 
-        removeJPanel.setMinimumSize(new java.awt.Dimension(30, 20));
+        this.removeJPanel.setMinimumSize(new java.awt.Dimension(30, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

@@ -83,7 +83,7 @@ import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
 
          String adminEmailSubject = "Order " + this.orderHistory.getStatus() + " Attempt";
          String adminEmailTextBody = "Order attempt: " + this.orderHistory.getId() + 
-            " Preprocessing by: " + user.getUserName();
+            " Preprocessing by: " + this.user.getUserName();
 
          BasicEmailInfo adminBasicEmailInfo = (BasicEmailInfo)
             new AdminEmailInfo(adminEmailSubject, adminEmailTextBody);
@@ -132,7 +132,7 @@ import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
 
          String subject = "Order " + this.orderHistory.getStatus() + " Attempt";
          String textBody = "Order attempt: " + this.orderHistory.getId() + 
-            " Preprocessing by: " + user.getUserName();
+            " Preprocessing by: " + this.user.getUserName();
          
          BasicEmailInfo basicEmailInfo = (BasicEmailInfo)
             new StoreEmailInfo(this.storeFrontInterface, subject, textBody);

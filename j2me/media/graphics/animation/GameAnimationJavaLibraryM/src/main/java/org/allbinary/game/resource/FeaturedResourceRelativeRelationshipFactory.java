@@ -50,7 +50,7 @@ public class FeaturedResourceRelativeRelationshipFactory extends FeaturedResourc
          {
             BasicArrayList list = featureInterface.getResourceRelativeRelationshipList(resource);
 
-            if (list != basicArrayListUtil.getImmutableInstance())
+            if (list != this.basicArrayListUtil.getImmutableInstance())
             {
                return this.duplicate(list, layer);
             }

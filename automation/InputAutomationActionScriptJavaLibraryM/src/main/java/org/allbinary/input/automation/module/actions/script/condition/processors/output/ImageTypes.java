@@ -78,10 +78,10 @@ public class ImageTypes
         final Node newNode = document.createElement(
             ImageActionScriptOutputData.TYPES);
         
-        final int size = vector.size();
+        final int size = this.vector.size();
         for(int index = 0; index < size; index++)
         {
-            InputImageType imageType = (InputImageType) vector.get(index);
+            InputImageType imageType = (InputImageType) this.vector.get(index);
             
             newNode.appendChild(ModDomHelper.createTextNode(document,
                 ImageActionScriptOutputData.TYPE, imageType.getName()));
@@ -96,10 +96,10 @@ public class ImageTypes
         
         stringBuffer.append("ImageTypes: ");
         
-        final int size = vector.size();
+        final int size = this.vector.size();
         for(int index = 0; index < size; index++)
         {
-            InputImageType imageType = (InputImageType) vector.get(index);
+            InputImageType imageType = (InputImageType) this.vector.get(index);
             stringBuffer.append(imageType.getName());
             if(index < size - 1) stringBuffer.append(", ");
         }

@@ -52,7 +52,7 @@ public class LicenseInitInfoUtil
     public synchronized void write(LicenseInitInfo initData)
             throws Exception
     {
-        if (this.filePath == stringUtil.EMPTY_STRING)
+        if (this.filePath == this.stringUtil.EMPTY_STRING)
         {
             this.filePath = URLGLOBALS.getMainPath() + PATH_GLOBALS.getInstance().INIT_PATH;
         }
@@ -114,7 +114,7 @@ public class LicenseInitInfoUtil
     {
         final String METHOD_NAME = "readAgain";
 
-        if (this.filePath == stringUtil.EMPTY_STRING)
+        if (this.filePath == this.stringUtil.EMPTY_STRING)
         {
             this.filePath = URLGLOBALS.getMainPath() + PATH_GLOBALS.getInstance().INIT_PATH;
         }
@@ -126,7 +126,7 @@ public class LicenseInitInfoUtil
             // {
             // this.logUtil.put("LicenseInitInfo File: " +
             // FILEABPATH.toString(),
-            this.logUtil.putF("LicenseInitInfo File: " + INITFILENAME, this, METHOD_NAME);
+            this.logUtil.putF("LicenseInitInfo File: " + this.INITFILENAME, this, METHOD_NAME);
             // }
 
             final FileStreamFactory fileStreamFactory = FileStreamFactory.getInstance();

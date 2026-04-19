@@ -43,7 +43,7 @@ public class GameMotionGestureListener implements MotionGestureEventListener
     @Override
     public void onEvent(AllBinaryEventObject eventObject)
     {
-        ForcedLogUtil.log(commonStrings.NOT_IMPLEMENTED, this);
+        ForcedLogUtil.log(this.commonStrings.NOT_IMPLEMENTED, this);
     }
 
     @Override
@@ -97,7 +97,7 @@ public class GameMotionGestureListener implements MotionGestureEventListener
     @Override
     public void onPressedMotionGestureEvent(MotionGestureEvent ev)
     {
-        touchGestureCollection.add(ev.getMotionGesture());
+        this.touchGestureCollection.add(ev.getMotionGesture());
     }
     
     @Override
@@ -107,16 +107,16 @@ public class GameMotionGestureListener implements MotionGestureEventListener
         {
             //if(touchGestureCollection.size() == 1)
             //{
-               touchGestureCollection.add(ev.getMotionGesture());
-               signed.onMotionGestureCompleted(touchGestureCollection);
-               touchGestureCollection.clear();
+               this.touchGestureCollection.add(ev.getMotionGesture());
+               this.signed.onMotionGestureCompleted(this.touchGestureCollection);
+               this.touchGestureCollection.clear();
             //}
         }
         catch (Exception e)
         {
            final StringMaker stringBuffer = new StringMaker();
 
-           stringBuffer.append(commonStrings.EXCEPTION_LABEL);
+           stringBuffer.append(this.commonStrings.EXCEPTION_LABEL);
            stringBuffer.append(StringUtil.getInstance().toString(ev.getMotionGesture()));
 
            this.logUtil.put(stringBuffer.toString(), this, "release", e);
@@ -139,17 +139,17 @@ public class GameMotionGestureListener implements MotionGestureEventListener
             }
             else
             {
-                motionGestureCollection.add(motionGestureInput);
-                signed.onMotionGestureCompleted(motionGestureCollection);
-                motionGestureCollection.clear();
-                touchGestureCollection.clear();
+                this.motionGestureCollection.add(motionGestureInput);
+                this.signed.onMotionGestureCompleted(this.motionGestureCollection);
+                this.motionGestureCollection.clear();
+                this.touchGestureCollection.clear();
             }
         }
         catch (Exception e)
         {
            StringMaker stringBuffer = new StringMaker();
 
-           stringBuffer.append(commonStrings.EXCEPTION_LABEL);
+           stringBuffer.append(this.commonStrings.EXCEPTION_LABEL);
            stringBuffer.append(StringUtil.getInstance().toString(ev.getMotionGesture()));
 
             this.logUtil.put(stringBuffer.toString(), this, "onMotionGestureEvent", e);

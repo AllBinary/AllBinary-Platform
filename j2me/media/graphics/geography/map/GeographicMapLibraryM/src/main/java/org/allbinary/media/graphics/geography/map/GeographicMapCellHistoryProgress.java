@@ -37,11 +37,11 @@ public class GeographicMapCellHistoryProgress extends GeographicMapCellHistoryPr
     @Override
     public boolean isAnyProgress() {
         boolean isProgressing = false;
-        int size = geographicMapCellHistoryArray.length;
+        int size = this.geographicMapCellHistoryArray.length;
         int currentTotalVisited;
         int totalVisited;
         for (int index = 0; index < size; index++) {
-            totalVisited = geographicMapCellHistoryArray[index].getTotalVisited();
+            totalVisited = this.geographicMapCellHistoryArray[index].getTotalVisited();
             currentTotalVisited = this.totalVisitedArray[index];
             if (currentTotalVisited < totalVisited) {
                 isProgressing = true;

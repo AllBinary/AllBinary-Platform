@@ -32,7 +32,7 @@ public class ValidationViewHelper extends ViewHelper implements ValidationCompon
    {
       super(hashMap, pageContext);      
       
-      viewInterface = (ValidationComponentInterface) this.getViewObject();
+      this.viewInterface = (ValidationComponentInterface) this.getViewObject();
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
       {

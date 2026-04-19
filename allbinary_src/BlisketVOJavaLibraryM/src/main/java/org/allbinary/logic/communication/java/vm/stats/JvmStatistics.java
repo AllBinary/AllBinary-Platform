@@ -19,7 +19,7 @@ public class JvmStatistics
 
    public JvmStatistics()
    {
-      runtime = Runtime.getRuntime();
+      this.runtime = Runtime.getRuntime();
    }
 
    public long getFreeMemoryBytes()
@@ -174,6 +174,6 @@ public class JvmStatistics
 
    public void collectGarbage()
    {
-      runtime.gc();
+      this.runtime.gc();
    }
 }

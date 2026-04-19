@@ -78,14 +78,14 @@ public class BasicWorkFlow implements WorkFlowInterface
       
       if(this.validationDomNodeInterface.isValid().booleanValue())
       {
-         pageContext.getOut().print(this.validationDomNodeInterface.view());
+         this.pageContext.getOut().print(this.validationDomNodeInterface.view());
          return Integer.valueOf(TagSupport.EVAL_BODY_INCLUDE);
       }
       else
       {
          //TWB - convert valid text to dom node and remove validationInfo
          //super.doStartTag();
-         pageContext.getOut().print(this.validationDomNodeInterface.validationInfo());
+         this.pageContext.getOut().print(this.validationDomNodeInterface.validationInfo());
          return Integer.valueOf(TagSupport.SKIP_BODY);
       }
    }

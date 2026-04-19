@@ -164,8 +164,8 @@ public class TouchButtonRecognizer
         
         GameKeyEvent gameKeyEvent = touchButtonInput.getGameKeyEvent();
 
-        upGameKeyEventHandler.fireEvent(gameKeyEvent);
-        upGameKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
+        this.upGameKeyEventHandler.fireEvent(gameKeyEvent);
+        this.upGameKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
                     
         this.currentlyPressedTouchButtonSingleton.remove(touchButtonInput);
     }
@@ -178,11 +178,11 @@ public class TouchButtonRecognizer
         
         //TouchButtonInput touchButtonInput = BasicTouchInputFactory.getInstance().NONE;
         
-        TouchButtonInput touchButtonInput = lastPressedTouchButtonInput;
+        TouchButtonInput touchButtonInput = this.lastPressedTouchButtonInput;
         // if already pressed then cancel associated button and release
         if (currentlyPressedTouchButtonSingleton.contains(touchButtonInput))
         {
-            lastPressedTouchButtonInput = BasicTouchInputFactory.getInstance().NONE;
+            this.lastPressedTouchButtonInput = BasicTouchInputFactory.getInstance().NONE;
 
             this.processRelease(touchButtonInput, deviceId);
             //this.currentlyPressedTouchButtonSingleton.releaseAndFired(touchButtonInput);
@@ -205,7 +205,7 @@ public class TouchButtonRecognizer
                 rectangle = touchButton.getRectangle();
                 point = rectangle.getPoint();
 
-                if (rectangleCollisionUtil.isInside(
+                if (this.rectangleCollisionUtil.isInside(
                         point.getX(), point.getY(),
                         rectangle.getMaxX(), 
                         rectangle.getMaxY(), 
@@ -266,7 +266,7 @@ public class TouchButtonRecognizer
             rectangle = touchButton.getRectangle();
             point = rectangle.getPoint();
 
-            if (rectangleCollisionUtil.isInside(
+            if (this.rectangleCollisionUtil.isInside(
                     point.getX(), point.getY(),
                     rectangle.getMaxX(), 
                     rectangle.getMaxY(), 
@@ -282,7 +282,7 @@ public class TouchButtonRecognizer
                     //Release associated button if not released
                     this.releaseHelper.release(touchButtonInput, deviceId);
 
-                    lastPressedTouchButtonInput = touchButtonInput;
+                    this.lastPressedTouchButtonInput = touchButtonInput;
 
                     currentlyPressedTouchButtonSingleton.add(touchButtonInput);
 
@@ -294,8 +294,8 @@ public class TouchButtonRecognizer
 
                     GameKeyEvent gameKeyEvent = touchButtonInput.getGameKeyEvent();
 
-                    downGameKeyEventHandler.fireEvent(gameKeyEvent);
-                    downGameKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
+                    this.downGameKeyEventHandler.fireEvent(gameKeyEvent);
+                    this.downGameKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
 
                 }
               //TWB - Debugging

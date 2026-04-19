@@ -161,12 +161,12 @@ public class BasketTag extends CustomTagSupport
    {
       try
       {       
-         if(command!=null)
+         if(this.command!=null)
          {
             this.propertiesHashMap = new HashMap();
             this.propertiesHashMap.put(StoreFrontData.getInstance().NAME,this.storeName);
             
-            if (command.compareTo(BasketData.INSERT)==0)
+            if (this.command.compareTo(BasketData.INSERT)==0)
             {
                if(!this.addItemToBasket())
                {
@@ -174,17 +174,17 @@ public class BasketTag extends CustomTagSupport
                }
             }
             else
-               if (command.compareTo(BasketData.DELETE)==0)
+               if (this.command.compareTo(BasketData.DELETE)==0)
                {
                   this.removeItemFromBasket();
                }
                else
-                  if (command.compareTo(BasketData.ADJUST)==0)
+                  if (this.command.compareTo(BasketData.ADJUST)==0)
                   {
                      this.adjustBasket();
                   }
                else
-                  if (command.compareTo(BasketData.ISEMPTY)==0)
+                  if (this.command.compareTo(BasketData.ISEMPTY)==0)
                   {
                      if(this.isBasketEmpty())
                         return this.EVAL_BODY_INCLUDE;

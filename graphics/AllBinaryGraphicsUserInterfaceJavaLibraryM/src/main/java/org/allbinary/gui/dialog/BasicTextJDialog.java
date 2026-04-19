@@ -56,11 +56,11 @@ public class BasicTextJDialog extends javax.swing.JDialog
     // <editor-fold defaultstate="collapsed" desc=" Generated Code ">//GEN-BEGIN:initComponents
     private void initComponents()
     {
-        jButton1 = new javax.swing.JButton();
-        textJLabel = new javax.swing.JLabel();
+        this.jButton1 = new javax.swing.JButton();
+        this.textJLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        jButton1.setText("OK");
+        this.jButton1.setText("OK");
         jButton1.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -69,7 +69,7 @@ public class BasicTextJDialog extends javax.swing.JDialog
             }
         });
 
-        textJLabel.setText("No Text Set");
+        this.textJLabel.setText("No Text Set");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

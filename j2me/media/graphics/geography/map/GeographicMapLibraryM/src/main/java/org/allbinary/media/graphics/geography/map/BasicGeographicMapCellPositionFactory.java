@@ -43,7 +43,7 @@ public class BasicGeographicMapCellPositionFactory
         this.columns = this.tiledLayer.getColumns();
         this.rows = this.tiledLayer.getRows();
 
-        this.geographicMapCellPositionArray = new GeographicMapCellPosition[rows][columns];
+        this.geographicMapCellPositionArray = new GeographicMapCellPosition[this.rows][this.columns];
 
         this.init();
     }
@@ -117,8 +117,8 @@ public class BasicGeographicMapCellPositionFactory
         // return cellPosition;
 
         /*
-        if (i_column >= geographicMapCellPositionArray.length
-            || i_row >= geographicMapCellPositionArray[0].length)
+        if (i_column >= this.geographicMapCellPositionArray.length
+            || i_row >= this.geographicMapCellPositionArray[0].length)
         {
             StringMaker stringBuffer = new StringMaker();
 
@@ -156,7 +156,7 @@ public class BasicGeographicMapCellPositionFactory
         {
             cellPositionCanBeNull = this.geographicMapCellPositionFactoryInterface.getInstance(
                 this.geographicMapInterface, i_column, i_row, columns, rows, width, height);
-            geographicMapCellPositionArray[i_row][i_column] = (GeographicMapCellPosition) cellPositionCanBeNull;
+            this.geographicMapCellPositionArray[i_row][i_column] = (GeographicMapCellPosition) cellPositionCanBeNull;
         }
 
         return (GeographicMapCellPosition) cellPositionCanBeNull;

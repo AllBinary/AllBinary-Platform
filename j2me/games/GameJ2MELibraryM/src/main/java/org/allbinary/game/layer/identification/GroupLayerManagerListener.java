@@ -55,7 +55,7 @@ extends LayerManagerEventListener
     public void clear()
     {
         BasicArrayList groupList;
-        int size = list.size();
+        int size = this.list.size();
         for (int index = size - 1; index >= 0; index--)
         {
             groupList = (BasicArrayList) this.list.objectArray[index];
@@ -101,7 +101,7 @@ extends LayerManagerEventListener
     {
         final int id = (int) groupInterface.getGroupId();
 
-        final int size = list.size();
+        final int size = this.list.size();
         for (int index = size - 1; index >= 0; index--)
         {
             if (id != index)
@@ -148,7 +148,7 @@ extends LayerManagerEventListener
         
         //StringMaker stringBuffer = new StringMaker();
         
-        final int size = list.size();
+        final int size = this.list.size();
         for (int index = size - 1; index >= 0; index--)
         {
             if (!this.isIdInList(index, excludeGroupList))
@@ -321,7 +321,7 @@ extends LayerManagerEventListener
         final String SPACE = CommonSeps.getInstance().SPACE;
         final String TOTAL_LABEL = CommonLabels.getInstance().TOTAL_LABEL;
 
-        int size = list.size();
+        int size = this.list.size();
         for (int index = size - 1; index >= 0; index--)
         {
             final BasicArrayList groupList = (BasicArrayList) this.list.objectArray[index];

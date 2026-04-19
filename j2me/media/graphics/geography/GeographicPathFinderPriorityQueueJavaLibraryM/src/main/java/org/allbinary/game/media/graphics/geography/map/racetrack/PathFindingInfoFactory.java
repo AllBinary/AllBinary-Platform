@@ -76,7 +76,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
 
         this.pathFinder.init(geographicMapInterface);
 
-        pathFindingInfo.setPathFinder(pathFinder);
+        pathFindingInfo.setPathFinder(this.pathFinder);
 
         return pathFindingInfo;
 

@@ -56,12 +56,12 @@ public class ImageCopyUtil
     public Image createImage(final Image originalImage)
             throws Exception
     {
-        if(!features.isFeature(gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
-            this.logUtil.put(NO_COPY, this, commonStrings.CONSTRUCTOR, new Exception());
+        if(!this.features.isFeature(this.gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
+            this.logUtil.put(this.NO_COPY, this, commonStrings.CONSTRUCTOR, new Exception());
             return originalImage;
         }
         
-        final Image image = imageCreationUtil.getInstance(
+        final Image image = this.imageCreationUtil.getInstance(
                 originalImage.getWidth() , originalImage.getHeight());
 
         if (image.isMutable())
@@ -79,8 +79,8 @@ public class ImageCopyUtil
     public Image createImage(final Image originalImage, final float canvasScale, final boolean resize)
             throws Exception
     {
-        if(!features.isFeature(gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
-            this.logUtil.put(NO_COPY, this, commonStrings.CONSTRUCTOR, new Exception());
+        if(!this.features.isFeature(this.gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
+            this.logUtil.put(this.NO_COPY, this, commonStrings.CONSTRUCTOR, new Exception());
             return originalImage;
         }
         
@@ -102,7 +102,7 @@ public class ImageCopyUtil
         
         //this.logUtil.putF("newWidth: " + newWidth + " newHeight: " + newHeight, this, commonStrings.CONSTRUCTOR);
         
-        final Image image = imageCreationUtil.getInstance(newWidth, newHeight);
+        final Image image = this.imageCreationUtil.getInstance(newWidth, newHeight);
 
         if (image.isMutable())
         {

@@ -54,7 +54,7 @@ public class PickupBehavior implements PickupBehaviorInterface
             {
             	//PreLogUtil.put(commonStrings.PROCESS, this, "doPickup(PickupProcessorInterface)");
             	
-            	pickupProcessorInterface.process(ownerLayerInterface);
+            	pickupProcessorInterface.process(this.ownerLayerInterface);
             }
         }
         catch(Exception e)

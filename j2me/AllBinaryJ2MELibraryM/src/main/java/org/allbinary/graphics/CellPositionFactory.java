@@ -94,7 +94,7 @@ public class CellPositionFactory
       {
          cellPositionCanBeNull = new CellPosition(i_column, i_row, this.columns, this.rows);
 
-         cellPositionArray[i_column][i_row] = cellPositionCanBeNull;
+         this.cellPositionArray[i_column][i_row] = cellPositionCanBeNull;
       }
 
       return cellPositionCanBeNull;

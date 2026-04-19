@@ -39,7 +39,7 @@ public class TransactionResultEntity extends AbSqlBean
     public TransactionResultEntity()
     {
         super(new UserDbInitInfo());
-        this.setTableName(tableName);
+        this.setTableName(this.tableName);
     }
 
     public void remove(String userName, String orderNumber)

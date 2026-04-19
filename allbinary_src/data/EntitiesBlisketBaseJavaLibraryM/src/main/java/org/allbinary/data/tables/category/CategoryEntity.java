@@ -37,14 +37,14 @@ public class CategoryEntity extends AbSqlBean implements CategoryEntityInterface
       super(new InventoryDbInitInfo());
       //this.categoryFactoryInterface = categoryFactoryInterface;
       
-      this.setTableName(tableName);
+      this.setTableName(this.tableName);
       
    }
 
    public CategoryEntity()
    {
       super(new InventoryDbInitInfo());
-      this.setTableName(tableName);
+      this.setTableName(this.tableName);
    }
 
    /*
@@ -136,7 +136,7 @@ public class CategoryEntity extends AbSqlBean implements CategoryEntityInterface
 
         stringBuffer.append(this.sqlStrings.CREATE_TABLE);
 
-        stringBuffer.append(tableName);
+        stringBuffer.append(this.tableName);
         stringBuffer.append(this.sqlStrings.START);
 
         stringBuffer.append(CategoryData.getInstance().NAME);

@@ -69,8 +69,8 @@ public class MineCountedPickedUpLayerInterfaceFactory
     public AllBinaryLayer getInstance(final Hashtable hashtable, final int x, final int y, final int z)
             throws Exception
     {
-        final AllBinaryLayer sourceLayerInterface = (AllBinaryLayer) hashtable.get((Object) smallIntegerSingletonFactory.getInstance(0));
-        final Integer angle = (Integer) hashtable.get((Object) smallIntegerSingletonFactory.getInstance(1));
+        final AllBinaryLayer sourceLayerInterface = (AllBinaryLayer) hashtable.get((Object) this.smallIntegerSingletonFactory.getInstance(0));
+        final Integer angle = (Integer) hashtable.get((Object) this.smallIntegerSingletonFactory.getInstance(1));
 
         return this.weaponLayerCircularStaticPool.getInstance(
                 sourceLayerInterface, x, y, z, (int) angle.intValue(), 0,

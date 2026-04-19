@@ -55,14 +55,14 @@ public class BottomLimiter
             // PreLogUtil.put("Y: " + this.getY(), this, GameStrings.getInstance().PROCESS_TICK);
         	
         	//PreLogUtil.put("Ad Showing Bottom", this, GameStrings.getInstance().PROCESS_TICK);
-            deltaY = higher;
+            this.deltaY = this.higher;
         } else
         {
         	//PreLogUtil.put("No Ad Bottom", this, GameStrings.getInstance().PROCESS_TICK);
-            deltaY = lower;
+            this.deltaY = this.lower;
         }
 
-        bottom = displayInfo.getLastHeight() - deltaY;
+        this.bottom = displayInfo.getLastHeight() - this.deltaY;
     }
     
     public int getDeltaY()

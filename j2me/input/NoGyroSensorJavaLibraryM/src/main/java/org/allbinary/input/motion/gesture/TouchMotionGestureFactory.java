@@ -53,29 +53,29 @@ public class TouchMotionGestureFactory
     {
         int MAX = InputFactory.getInstance().MAX;
         
-        LEFT = new MotionGestureInput(MAX - 3, "Left Touch");
+        this.LEFT = new MotionGestureInput(MAX - 3, "Left Touch");
 
-        RIGHT = new MotionGestureInput(MAX - 4, "Right Touch");
+        this.RIGHT = new MotionGestureInput(MAX - 4, "Right Touch");
 
-        UP = new MotionGestureInput(MAX - 5, "Up Touch");
+        this.UP = new MotionGestureInput(MAX - 5, "Up Touch");
 
-        DOWN = new MotionGestureInput(MAX - 6, "Down Touch");
+        this.DOWN = new MotionGestureInput(MAX - 6, "Down Touch");
 
-        PRESSED = new MotionGestureInput(MAX - 7, "Screen Press");
-        RELEASED = new MotionGestureInput(MAX - 8, "Released");
+        this.PRESSED = new MotionGestureInput(MAX - 7, "Screen Press");
+        this.RELEASED = new MotionGestureInput(MAX - 8, "Released");
 
-        DIAGONAL_DOWN_RIGHT = new MotionGestureInput(MAX - 9, "Diagonal Dn R");
+        this.DIAGONAL_DOWN_RIGHT = new MotionGestureInput(MAX - 9, "Diagonal Dn R");
 
-        DIAGONAL_DOWN_LEFT = new MotionGestureInput(MAX - 10, "Diagonal Dn L");
+        this.DIAGONAL_DOWN_LEFT = new MotionGestureInput(MAX - 10, "Diagonal Dn L");
 
-        DIAGONAL_UP_RIGHT = new MotionGestureInput(MAX - 11, "Diagonal Up R");
+        this.DIAGONAL_UP_RIGHT = new MotionGestureInput(MAX - 11, "Diagonal Up R");
 
-        DIAGONAL_UP_LEFT = new MotionGestureInput(MAX - 12, "Diagonal Up L");
+        this.DIAGONAL_UP_LEFT = new MotionGestureInput(MAX - 12, "Diagonal Up L");
 
         //TOUCH = new MotionGestureInput(MAX - 12, "Touch");
 
-        NO_MOTION = new MotionGestureInput(MAX - 2, "No Motion");
+        this.NO_MOTION = new MotionGestureInput(MAX - 2, "No Motion");
 
-        LAST_MOTION = new MotionGestureInput(MAX - 19, "Last Motion");
+        this.LAST_MOTION = new MotionGestureInput(MAX - 19, "Last Motion");
     }
 }

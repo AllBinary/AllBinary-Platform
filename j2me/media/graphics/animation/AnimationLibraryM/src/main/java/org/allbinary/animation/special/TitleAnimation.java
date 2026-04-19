@@ -211,9 +211,9 @@ public class TitleAnimation extends SpecialAnimation
         for (int index = 0; index < this.sizeP; index++)
         {
             deltaX = this.dxArray[index] + x;
-            deltaY = this.dyArray[index] + y;
+            deltaY = this.dyArray[index] + this.y;
             
-            if (this.basicColorArray[index] != CLEAR_COLOR)
+            if (this.basicColorArray[index] != this.CLEAR_COLOR)
             {
                 this.basicSetColorUtil.setBasicColorP(graphics, this.basicColorArray[index]);
             }

@@ -37,7 +37,7 @@ public class InventoryEntity extends AbSqlBean implements InventoryEntityInterfa
     public InventoryEntity()
     {
         super(new InventoryDbInitInfo());
-        this.setTableName(tableName);
+        this.setTableName(this.tableName);
     }
 
     public void insert(Vector values)
@@ -156,7 +156,7 @@ public class InventoryEntity extends AbSqlBean implements InventoryEntityInterfa
         StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(this.sqlStrings.CREATE_TABLE);
-        stringBuffer.append(tableName);
+        stringBuffer.append(this.tableName);
         stringBuffer.append(this.sqlStrings.START);
 
         stringBuffer.append(BasicItemData.ID);

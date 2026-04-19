@@ -44,13 +44,13 @@ public class Tokenizer {
         int index = 0;
         int size = string.length();
         while (index < size) {
-            index = string.indexOf(sep, index);
+            index = string.indexOf(this.sep, index);
             if (index != -1) {
                 //found possible beginning of token
-                int end = string.indexOf(endSep, index + sep.length());
+                int end = string.indexOf(this.endSep, index + this.sep.length());
                 if (end != -1) {
-                    tokenList.add(string.substring(index + sep.length(), end - (endSep.length() - 1)));
-                    index = end + endSep.length();
+                    tokenList.add(string.substring(index + this.sep.length(), end - (this.endSep.length() - 1)));
+                    index = end + this.endSep.length();
                 } else {
                     //break;
                 }
@@ -67,11 +67,11 @@ public class Tokenizer {
         int index = 0;
         int end = 0;
         while (index < string.length()) {
-            end = string.indexOf(sep, index);
+            end = string.indexOf(this.sep, index);
             // found next token
             if (end != -1) {
                 tokenVector.add(string.substring(index, end));
-                index = end + sep.length();
+                index = end + this.sep.length();
             } else {
                 tokenVector.add(string.substring(index, string.length()));
                 break;
@@ -92,7 +92,7 @@ public class Tokenizer {
 
         for (int index = 0; index < size; index++) {
             string = (String) stringVector.objectArray[index];
-            end = string.indexOf(sep);
+            end = string.indexOf(this.sep);
 
             //found next token
             if (end >= 0) {

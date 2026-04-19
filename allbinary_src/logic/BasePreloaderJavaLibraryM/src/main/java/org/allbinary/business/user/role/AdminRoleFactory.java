@@ -42,54 +42,54 @@ public class AdminRoleFactory
         final BasicUserRoleFactory basicUserRoleFactory =
             BasicUserRoleFactory.getInstance();
 
-        adminRoles.add(basicUserRoleFactory.ADMINISTRATOR);
+        this.adminRoles.add(basicUserRoleFactory.ADMINISTRATOR);
 
-        storeAdminRoles.add(basicUserRoleFactory.ADMINISTRATOR);
-        storeAdminRoles.add(basicUserRoleFactory.STOREMANAGER);
+        this.storeAdminRoles.add(basicUserRoleFactory.ADMINISTRATOR);
+        this.storeAdminRoles.add(basicUserRoleFactory.STOREMANAGER);
 
-        storeManagementRoles.add(basicUserRoleFactory.ADMINISTRATOR);
-        storeManagementRoles.add(basicUserRoleFactory.STOREMANAGER);
-        storeManagementRoles.add(basicUserRoleFactory.CUSTOMERMANAGER);
-        storeManagementRoles.add(basicUserRoleFactory.ADJUSTER);
-        storeManagementRoles.add(basicUserRoleFactory.PRODUCTMANAGER);
-        storeManagementRoles.add(basicUserRoleFactory.REVIEWER);
-        storeManagementRoles.add(basicUserRoleFactory.SHIPPING);
+        this.storeManagementRoles.add(basicUserRoleFactory.ADMINISTRATOR);
+        this.storeManagementRoles.add(basicUserRoleFactory.STOREMANAGER);
+        this.storeManagementRoles.add(basicUserRoleFactory.CUSTOMERMANAGER);
+        this.storeManagementRoles.add(basicUserRoleFactory.ADJUSTER);
+        this.storeManagementRoles.add(basicUserRoleFactory.PRODUCTMANAGER);
+        this.storeManagementRoles.add(basicUserRoleFactory.REVIEWER);
+        this.storeManagementRoles.add(basicUserRoleFactory.SHIPPING);
         //storeManagementRoles.add(basicUserRoleFactory.ORDERMANAGER);
 
-        productManagementRoles.add(basicUserRoleFactory.ADMINISTRATOR);
-        productManagementRoles.add(basicUserRoleFactory.STOREMANAGER);
-        productManagementRoles.add(basicUserRoleFactory.PRODUCTMANAGER);
+        this.productManagementRoles.add(basicUserRoleFactory.ADMINISTRATOR);
+        this.productManagementRoles.add(basicUserRoleFactory.STOREMANAGER);
+        this.productManagementRoles.add(basicUserRoleFactory.PRODUCTMANAGER);
 
-        reviewManagementRoles.add(basicUserRoleFactory.ADMINISTRATOR);
-        reviewManagementRoles.add(basicUserRoleFactory.STOREMANAGER);
-        reviewManagementRoles.add(basicUserRoleFactory.REVIEWER);
+        this.reviewManagementRoles.add(basicUserRoleFactory.ADMINISTRATOR);
+        this.reviewManagementRoles.add(basicUserRoleFactory.STOREMANAGER);
+        this.reviewManagementRoles.add(basicUserRoleFactory.REVIEWER);
 
-        customerManagementRoles.add(basicUserRoleFactory.ADMINISTRATOR);
-        customerManagementRoles.add(basicUserRoleFactory.STOREMANAGER);
-        customerManagementRoles.add(basicUserRoleFactory.CUSTOMERMANAGER);
+        this.customerManagementRoles.add(basicUserRoleFactory.ADMINISTRATOR);
+        this.customerManagementRoles.add(basicUserRoleFactory.STOREMANAGER);
+        this.customerManagementRoles.add(basicUserRoleFactory.CUSTOMERMANAGER);
 
-        workflowManagementRoles.add(basicUserRoleFactory.ADMINISTRATOR);
-        workflowManagementRoles.add(basicUserRoleFactory.STOREMANAGER);
-        workflowManagementRoles.add(basicUserRoleFactory.WORKFLOWEDITOR);
+        this.workflowManagementRoles.add(basicUserRoleFactory.ADMINISTRATOR);
+        this.workflowManagementRoles.add(basicUserRoleFactory.STOREMANAGER);
+        this.workflowManagementRoles.add(basicUserRoleFactory.WORKFLOWEDITOR);
 
-        orderManagementRoles.add(basicUserRoleFactory.ADMINISTRATOR);
-        orderManagementRoles.add(basicUserRoleFactory.STOREMANAGER);
+        this.orderManagementRoles.add(basicUserRoleFactory.ADMINISTRATOR);
+        this.orderManagementRoles.add(basicUserRoleFactory.STOREMANAGER);
         //orderManagementRoles.add(basicUserRoleFactory.ORDERMANAGER);
 
-        adjusterManagementRoles.add(basicUserRoleFactory.ADMINISTRATOR);
-        adjusterManagementRoles.add(basicUserRoleFactory.STOREMANAGER);
-        adjusterManagementRoles.add(basicUserRoleFactory.ADJUSTER);
+        this.adjusterManagementRoles.add(basicUserRoleFactory.ADMINISTRATOR);
+        this.adjusterManagementRoles.add(basicUserRoleFactory.STOREMANAGER);
+        this.adjusterManagementRoles.add(basicUserRoleFactory.ADJUSTER);
 
-        shippingManagementRoles.add(basicUserRoleFactory.ADMINISTRATOR);
-        shippingManagementRoles.add(basicUserRoleFactory.STOREMANAGER);
-        shippingManagementRoles.add(basicUserRoleFactory.SHIPPING);
+        this.shippingManagementRoles.add(basicUserRoleFactory.ADMINISTRATOR);
+        this.shippingManagementRoles.add(basicUserRoleFactory.STOREMANAGER);
+        this.shippingManagementRoles.add(basicUserRoleFactory.SHIPPING);
 
-        webManagementRoles.add(basicUserRoleFactory.ADMINISTRATOR);
-        webManagementRoles.add(basicUserRoleFactory.STOREMANAGER);
-        webManagementRoles.add(basicUserRoleFactory.WEBMANAGER);
-        webManagementRoles.add(basicUserRoleFactory.WORKFLOWEDITOR);
+        this.webManagementRoles.add(basicUserRoleFactory.ADMINISTRATOR);
+        this.webManagementRoles.add(basicUserRoleFactory.STOREMANAGER);
+        this.webManagementRoles.add(basicUserRoleFactory.WEBMANAGER);
+        this.webManagementRoles.add(basicUserRoleFactory.WORKFLOWEDITOR);
 //webManagementRoles.add(basicUserRoleFactory.WIZARDEDITOR);
-        webManagementRoles.add(basicUserRoleFactory.VIEWEDITOR);
+        this.webManagementRoles.add(basicUserRoleFactory.VIEWEDITOR);
 
     }
 

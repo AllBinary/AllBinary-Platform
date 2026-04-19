@@ -66,7 +66,7 @@ public class PathCacheFactory
        Object listCanBeNull = this.hashtable.get(pathIdInteger);
        
        if(listCanBeNull == null) {
-           listCanBeNull = basicArrayListUtil.getImmutableInstance();
+           listCanBeNull = this.basicArrayListUtil.getImmutableInstance();
        }
 
        return (BasicArrayList) listCanBeNull;

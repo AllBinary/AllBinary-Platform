@@ -40,13 +40,13 @@ public class StoreRoleFactory {
         final BasicUserRoleFactory basicUserRoleFactory =
             BasicUserRoleFactory.getInstance();
 
-        roles.add(basicUserRoleFactory.CUSTOMER);
-        roles.add(basicUserRoleFactory.SUBSCRIBERCUSTOMER);
-        roles.add(basicUserRoleFactory.WHOLESALECUSTOMER);
+        this.roles.add(basicUserRoleFactory.CUSTOMER);
+        this.roles.add(basicUserRoleFactory.SUBSCRIBERCUSTOMER);
+        this.roles.add(basicUserRoleFactory.WHOLESALECUSTOMER);
 
-        subscriberRoles.add(basicUserRoleFactory.SUBSCRIBERCUSTOMER);
+        this.subscriberRoles.add(basicUserRoleFactory.SUBSCRIBERCUSTOMER);
 
-        wholesaleRoles.add(basicUserRoleFactory.WHOLESALECUSTOMER);
+        this.wholesaleRoles.add(basicUserRoleFactory.WHOLESALECUSTOMER);
     }
 
     /**

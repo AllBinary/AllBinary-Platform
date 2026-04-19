@@ -67,10 +67,10 @@ public class WorkFlowsView extends HttpStoreComponentView implements DomNodeInte
       {
          Node node = document.createElement(WorkFlowData.getInstance().WORKFLOWS);
          
-         final int size = workFlowsVector.size();
+         final int size = this.workFlowsVector.size();
          for(int index = 0; index < size; index++)
          {
-            WorkFlowInterface workFlowInterface = (WorkFlowInterface) workFlowsVector.get(index);
+            WorkFlowInterface workFlowInterface = (WorkFlowInterface) this.workFlowsVector.get(index);
             //node.appendChild(new WorkFlowView(workFlowInterface).toXmlNode(document));
          }
          return node;

@@ -37,10 +37,10 @@ public class MotionGestureConfiguration
     }
 
     public CompleteMotionGestureInputEvent getMotionGestureAction(int index) {
-        if (index >= activeCommands.size()) {
+        if (index >= this.activeCommands.size()) {
             return CompleteMotionGestureInputEvent.NULL_COMPLETE_MOTION_GESTURE_INPUT_EVENT;
         }
-        return (CompleteMotionGestureInputEvent) activeCommands.objectArray[index];
+        return (CompleteMotionGestureInputEvent) this.activeCommands.objectArray[index];
     }
     
     public void addMotionGestureAction(BasicArrayList list, CompleteMotionGestureInputEvent commandAction) {
@@ -53,7 +53,7 @@ public class MotionGestureConfiguration
 
     /*
     public Collection getMotionGestureActionsClone() {
-        return (Collection) activeCommands.clone();
+        return (Collection) this.activeCommands.clone();
     }
     */
     

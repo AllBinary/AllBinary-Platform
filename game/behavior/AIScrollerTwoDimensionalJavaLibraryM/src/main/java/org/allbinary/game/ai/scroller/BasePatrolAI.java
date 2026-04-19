@@ -56,7 +56,7 @@ public class BasePatrolAI extends BasicAI
 
         this.maxDistance = (Integer) hashtable.get(BasePatrolAI.MAX_DISTANCE);
 
-        this.currentDistance = maxDistance.intValue();
+        this.currentDistance = this.maxDistance.intValue();
 
         //this.directionArray = (Integer[]) hashtable
           //      .get(PacePatrolAI.DIRECTION_ARRAY);
@@ -80,7 +80,7 @@ public class BasePatrolAI extends BasicAI
         BasicVelocityProperties velocityProperties =
                 velocityInterfaceCompositeInterface.getVelocityProperties();
 
-        xTotalDistance += velocityProperties.getVelocityXBasicDecimalP().getScaled();
+        this.xTotalDistance += velocityProperties.getVelocityXBasicDecimalP().getScaled();
 
         //yTotalDistance += velocityProperties.getVelocityYBasicDecimalP()
           //      .getScaled();
@@ -90,7 +90,7 @@ public class BasePatrolAI extends BasicAI
     private void changeDirectionIfReachedPacingAreaMax()
     {
         final MathUtil mathUtil = MathUtil.getInstance();
-        int totalDistance = mathUtil.abs(xTotalDistance);
+        int totalDistance = mathUtil.abs(this.xTotalDistance);
 
         if (totalDistance > this.currentDistance)
         {
@@ -104,16 +104,16 @@ public class BasePatrolAI extends BasicAI
         // for(int index = 0; index < directionArray.length; index++)
         if (this.lastKeyDirection == Canvas.LEFT)
         {
-            keyDirection = Canvas.RIGHT;
+            this.keyDirection = Canvas.RIGHT;
             this.lastKeyDirection = this.keyDirection;
-            xTotalDistance = 0;
+            this.xTotalDistance = 0;
             //yTotalDistance = 0;
         }
         else if (this.lastKeyDirection == Canvas.RIGHT)
         {
-            keyDirection = Canvas.LEFT;
+            this.keyDirection = Canvas.LEFT;
             this.lastKeyDirection = this.keyDirection;
-            xTotalDistance = 0;
+            this.xTotalDistance = 0;
             //yTotalDistance = 0;
         }
     }

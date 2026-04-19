@@ -49,7 +49,7 @@ implements DomNodeInterface
    
    private void getFormData() throws Exception
    {
-      String id = request.getParameter(OrderData.ID);
+      String id = this.request.getParameter(OrderData.ID);
       if(id==null)
       {
          id = this.getWeblisketSession().getOrder().getId();
@@ -63,11 +63,11 @@ implements DomNodeInterface
    {
       try
       {
-         Node orderHistoryNode = orderHistory.toXmlNode(document);
+         Node orderHistoryNode = this.orderHistory.toXmlNode(document);
          
-         Node node = document.createElement(orderHistory.getPaymentMethod());
+         Node node = document.createElement(this.orderHistory.getPaymentMethod());
          
-         orderHistoryNode.appendChild(basketReview.toXmlNode(document));
+         orderHistoryNode.appendChild(this.basketReview.toXmlNode(document));
          
          node.appendChild(orderHistoryNode);
          

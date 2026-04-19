@@ -38,10 +38,10 @@ public class InGameOptionsFormFactory
     {
         try
         {
-            if (SINGLETON == CommandForm.NULL_COMMAND_FORM)
+            if (this.SINGLETON == CommandForm.NULL_COMMAND_FORM)
             {
                 initInterface.init();
-                SINGLETON = new InGameOptionsForm(commandListener, title, backgrounBasicColor, foregroundBasicColor);
+                this.SINGLETON = new InGameOptionsForm(commandListener, title, backgrounBasicColor, foregroundBasicColor);
             }
         } catch (Exception e)
         {

@@ -42,7 +42,7 @@ public class AngleInfo
    public void adjustAngle(int frame)
    {
       int newAngle = this.angleIncrementInfo.getAngleIncrement() * frame - 90;
-      this.setAngle((short) frameUtil.adjustAngleToFrameAngle(newAngle));
+      this.setAngle((short) this.frameUtil.adjustAngleToFrameAngle(newAngle));
    }
    
    public short getAngle()

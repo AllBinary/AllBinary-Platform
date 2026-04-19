@@ -30,7 +30,7 @@ public class CategoriesView implements DomNodeInterface
 
    public Node toXmlNode(Document document) throws Exception
    {
-      Node node = new CategoryView(categoryInterface).toXmlNode(document);
+      Node node = new CategoryView(this.categoryInterface).toXmlNode(document);
       
       Object[] childArray = this.categoryInterface.getChildNodes().toArray();
       int size = childArray.length;
