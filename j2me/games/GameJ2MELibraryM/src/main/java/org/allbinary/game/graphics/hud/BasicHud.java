@@ -126,14 +126,14 @@ public class BasicHud //implements DisplayChangeEventListener
       if(basicHudFactory.TOPLEFT == this.getLocation())
       {
          x = bufferZone + 2;
-         y = bufferZoneY;
+         y = this.bufferZoneY;
          anchor = Anchor.TOP_LEFT;
       }
       else
           if(basicHudFactory.TOPRIGHT == this.getLocation())
           {
              x = width - maxWidth;
-             y = bufferZoneY;
+             y = this.bufferZoneY;
              anchor = Graphics.TOP & Graphics.RIGHT;
           }
           else

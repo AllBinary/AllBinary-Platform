@@ -38,10 +38,10 @@ public class Tracking
    {
       /*
       this.trackingIndex = 0;
-      this.trackingX = new int[MAXTRACKING];
-      this.trackingY = new int[MAXTRACKING];
-      this.trackingWidth = new int[MAXTRACKING];
-      this.trackingHeight = new int[MAXTRACKING];
+      this.trackingX = new int[this.MAXTRACKING];
+      this.trackingY = new int[this.MAXTRACKING];
+      this.trackingWidth = new int[this.MAXTRACKING];
+      this.trackingHeight = new int[this.MAXTRACKING];
        */
       
    }
@@ -90,7 +90,7 @@ public class Tracking
       else
       if(tracking[this.trackingIndex] == RIGHT)
       {
-      arrowX = clipWidth - 4 - ARROWWIDTH;
+      arrowX = clipWidth - 4 - this.ARROWWIDTH;
       arrowY = (clipHeight >> 1) - (ARROWWIDTH >> 1);
       direction = 1;
       }

@@ -379,7 +379,7 @@ public class GameMidlet extends ProgressMidlet
     {
         try
         {
-            String displayableAsString = NO_DISPLAYABLE;
+            String displayableAsString = this.NO_DISPLAYABLE;
             if(displayable != null)
             {
                  displayableAsString = displayable.toString();

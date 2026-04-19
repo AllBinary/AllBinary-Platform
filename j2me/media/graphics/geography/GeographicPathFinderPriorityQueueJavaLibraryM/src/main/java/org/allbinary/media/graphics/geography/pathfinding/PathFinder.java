@@ -214,7 +214,7 @@ public class PathFinder extends GeographicPathFinderBase {
 
                     if(column > 0 && row > 0 && column < allBinaryTiledLayer.getColumns() && row < allBinaryTiledLayer.getRows() && 
                         geographicMapInterface.isOnMap(basicGeographicMapCellPositionFactory.getInstance(column, row))) {
-                        neighbor = costArray[column][row];
+                        neighbor = this.costArray[column][row];
 
                         if(closedSet.contains(neighbor)) {
                             continue;
@@ -312,7 +312,7 @@ public class PathFinder extends GeographicPathFinderBase {
 
                     if(column > 0 && row > 0 && column < allBinaryTiledLayer.getColumns() && row < allBinaryTiledLayer.getRows() && 
                         geographicMapInterface.isOnMap(basicGeographicMapCellPositionFactory.getInstance(column, row))) {
-                        neighbor = costArray[column][row];
+                        neighbor = this.costArray[column][row];
 
                         if(closedSet.contains(neighbor)) {
                             continue;

@@ -69,10 +69,10 @@ public class HtmlCell extends HtmlTag
             result += "\" ";
          }
       }
-      result += END;
+      result += this.END;
       result += body;
-      result += ENDTAG;
-      result += after;
+      result += this.ENDTAG;
+      result += this.after;
       return result;
    }
 }

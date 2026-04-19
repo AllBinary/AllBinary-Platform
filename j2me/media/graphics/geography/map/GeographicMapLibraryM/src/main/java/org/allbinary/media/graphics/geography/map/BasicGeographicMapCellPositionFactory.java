@@ -150,7 +150,7 @@ public class BasicGeographicMapCellPositionFactory
     {
         // String cellPositionKey = GeographicMapCellPosition.toString(i_column, i_row);
 
-        Object cellPositionCanBeNull = geographicMapCellPositionArray[i_row][i_column];
+        Object cellPositionCanBeNull = this.geographicMapCellPositionArray[i_row][i_column];
 
         if (cellPositionCanBeNull == null)
         {

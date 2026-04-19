@@ -101,10 +101,10 @@ public class HtmlSelect extends HtmlTag
          String value = (String) optionsArray[i];
          if(value!=null && value.compareTo(stringUtil.EMPTY_STRING)!=0)
          {
-            result += STARTOPTION;
-            result += END;
+            result += this.STARTOPTION;
+            result += this.END;
             result += value;
-            result += ENDOPTION;
+            result += this.ENDOPTION;
          }
       }
       return result;

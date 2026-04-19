@@ -102,7 +102,7 @@ public class HtmlTable extends HtmlTag
             result += "\" ";
          }
       }
-      result += END;
+      result += this.END;
       
       final int size = htmlRowsVector.size();
       for (int i = 0; i < size; i++)

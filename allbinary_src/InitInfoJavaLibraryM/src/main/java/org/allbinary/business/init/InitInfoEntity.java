@@ -156,7 +156,7 @@ public class InitInfoEntity extends InitSql
     {
         if (super.createTable(tableData))
         {
-            return tableName + CREATED_SUCCESS;
+            return this.tableName + this.CREATED_SUCCESS;
         } else
         {
             StringMaker stringBuffer = new StringMaker();

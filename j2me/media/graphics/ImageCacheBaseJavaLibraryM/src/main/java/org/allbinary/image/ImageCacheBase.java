@@ -102,7 +102,7 @@ public class ImageCacheBase
             if (availableListOfList[foundIndex].size() > 0)
             {
                 //.log("Returning Image From Cache");
-                BasicArrayList list = availableListOfList[foundIndex];
+                BasicArrayList list = this.availableListOfList[foundIndex];
                 return (Image) list.remove(list.size() - 1);
             }
         }

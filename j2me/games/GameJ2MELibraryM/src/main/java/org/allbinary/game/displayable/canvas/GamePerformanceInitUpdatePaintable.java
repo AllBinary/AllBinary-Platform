@@ -73,8 +73,8 @@ public class GamePerformanceInitUpdatePaintable extends InitUpdatePaintable
         final int size = baseRefreshHelperCharArray.length - 2;
         for(int index = size; index >= 0; index-=2)
         {
-            charArray = baseRefreshHelperCharArray[index];
-            charArray2 = baseRefreshHelperCharArray[index + 1];
+            charArray = this.baseRefreshHelperCharArray[index];
+            charArray2 = this.baseRefreshHelperCharArray[index + 1];
             size2 = charArray.length;
             size3 = charArray2.length;
 

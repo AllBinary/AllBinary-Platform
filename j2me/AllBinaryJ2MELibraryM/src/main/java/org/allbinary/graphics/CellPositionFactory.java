@@ -73,7 +73,7 @@ public class CellPositionFactory
    {
       try
       {
-         return cellPositionArray[i_column][i_row];
+         return this.cellPositionArray[i_column][i_row];
       }
       catch (Exception e)
       {
@@ -88,7 +88,7 @@ public class CellPositionFactory
       
    {
 
-      CellPosition cellPositionCanBeNull = cellPositionArray[i_column][i_row];
+      CellPosition cellPositionCanBeNull = this.cellPositionArray[i_column][i_row];
 
       if (cellPositionCanBeNull == null)
       {

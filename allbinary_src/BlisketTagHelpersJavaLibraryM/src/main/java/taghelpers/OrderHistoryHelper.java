@@ -91,22 +91,22 @@ public class OrderHistoryHelper extends TagHelper
          
          if(status.compareTo(OrderHistoryData.CANCELLED)==0)
          {
-            return "Order " + id + " Already Cancelled<br/>";
+            return "Order " + this.id + " Already Cancelled<br/>";
          }
          else
             if(status.compareTo(OrderHistoryData.SHIPPED)==0)
             {
-               return "Order " + id + " Already Shipped. You can't cancel a shipped order.<br/>";
+               return "Order " + this.id + " Already Shipped. You can't cancel a shipped order.<br/>";
             }
             else
                if(status.compareTo(OrderHistoryData.PREPROCESSING)==0)
                {
-                  return "Order " + id + " has been cancelled.<br/>";
+                  return "Order " + this.id + " has been cancelled.<br/>";
                }
                else
                   if(status.compareTo(OrderHistoryData.PARTIALLYSHIPPED)==0)
                   {
-                     return "Order " + id + " Partially Shipped. You can cancel unshipped items, but not the whole order.<br/>";
+                     return "Order " + this.id + " Partially Shipped. You can cancel unshipped items, but not the whole order.<br/>";
                   }
                   else
                      if(status.compareTo(OrderHistoryData.PROCESSING)==0)

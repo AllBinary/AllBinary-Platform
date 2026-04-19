@@ -48,7 +48,7 @@ public class PathFindingNodeCostInfo implements Comparable<PathFindingNodeCostIn
    
    public void setTotalCost() throws Exception
    {
-      this.totalCostP = costFromStartP + costToEndP;
+      this.totalCostP = this.costFromStartP + this.costToEndP;
       if(this.totalCostP > pathFindingNodeCostInfoData.MAX_NODE_COST)
       {
          throw new Exception("Max Cost Exceeded");

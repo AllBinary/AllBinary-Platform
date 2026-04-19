@@ -115,7 +115,7 @@ extends BasicAI
 
 				if (FIRE > MAX_FIRE) 
 				{
-					FIRE = MAX_FIRE;
+					FIRE = this.MAX_FIRE;
 				}
 
 				if (firedIndex > FIRE)

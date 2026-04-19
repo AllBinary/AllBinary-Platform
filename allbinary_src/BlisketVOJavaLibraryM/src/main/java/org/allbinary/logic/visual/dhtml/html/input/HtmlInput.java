@@ -65,9 +65,9 @@ public class HtmlInput extends HtmlTag
              result += "\" ";
           }
        }
-       result += END;
-       result += ENDINPUT;
-       result += after;
+       result += this.END;
+       result += this.ENDINPUT;
+       result += this.after;
        return result;
     }
 }

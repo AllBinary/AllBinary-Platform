@@ -53,7 +53,7 @@ public class LocalPlayerInputIdFactory {
         
         if(deviceId < MAX_FAST_DEVICEID)
         {
-            int playerInputId = deviceIdToplayerId[deviceId];
+            int playerInputId = this.deviceIdToplayerId[deviceId];
             if(playerInputId != -1)
             {
                 //this.logUtil.putF("Fast Find DeviceId: ").append(deviceId).append(" at playerInputId: ").append(playerInputId, this, "getPlayerForDevice");
@@ -70,7 +70,7 @@ public class LocalPlayerInputIdFactory {
             }
         }
 
-        index = totalDevicesMapped;
+        index = this.totalDevicesMapped;
         
         //Add New Player for device
         if(deviceId < MAX_FAST_DEVICEID)
@@ -132,7 +132,7 @@ public class LocalPlayerInputIdFactory {
 
     public boolean isPlayerInPlay(int playerInputId)
     {
-        return playersInPlay[playerInputId];
+        return this.playersInPlay[playerInputId];
     }    
 
     public void setPlayerInPlay(int playerInputId)

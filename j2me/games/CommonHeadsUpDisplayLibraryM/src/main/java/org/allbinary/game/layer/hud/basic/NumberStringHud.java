@@ -132,7 +132,7 @@ public class NumberStringHud extends BasicHud
    
    public void paint(Graphics graphics, int x , int y)
    {
-       char[] charArray = PREPEND_STRING;
+       char[] charArray = this.PREPEND_STRING;
        //int offset = 0;
        int len = PREPEND_STRING.length;
        char[] charArray2 = this.valueString;

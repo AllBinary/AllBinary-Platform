@@ -72,7 +72,7 @@ public class HtmlRow extends HtmlTag
             result += "\" ";
          }
       }
-      result += END;
+      result += this.END;
       
       for (int i = 0; i < cellSize; i++)
       {

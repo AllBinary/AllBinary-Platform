@@ -347,7 +347,7 @@ public class InventoryUploadMediaUtil
     //Is the uploaded File an image that ImageIO can resize
     if(isMediaResizable)
     {
-    String newImageFileName = fileName + SMALL +
+    String newImageFileName = fileName + this.SMALL +
     this.itemInterface.getId() + AbPathData.getInstance().EXTENSION_SEP +
     mediaData.getName();
     this.itemInterface.setSmallImage(newImageFileName);
@@ -398,7 +398,7 @@ public class InventoryUploadMediaUtil
 
     if(isConvertable)
     {
-    String newImageFileName = fileName + SMALL +
+    String newImageFileName = fileName + this.SMALL +
     this.itemInterface.getId() + AbPathData.getInstance().EXTENSION_SEP +
     defaultMediaData.getName();
     this.itemInterface.setSmallImage(newImageFileName);
@@ -434,7 +434,7 @@ public class InventoryUploadMediaUtil
     else
     {
     //Create Multiple files without resizing
-    String newImageFileName = fileName + SMALL +
+    String newImageFileName = fileName + this.SMALL +
     this.itemInterface.getId() + AbPathData.getInstance().EXTENSION_SEP +
     mediaData.getName();
     this.itemInterface.setSmallImage(newImageFileName);

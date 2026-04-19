@@ -88,7 +88,7 @@ public class SmallLongFactory
         //this.updateStats(index);
 
         if(index + NEGATIVE_MAX > this.INTEGER_ARRAY.length - 1) {
-            return INTEGER_ARRAY[-1 + NEGATIVE_MAX];
+            return this.INTEGER_ARRAY[-1 + NEGATIVE_MAX];
         }
         
         return INTEGER_ARRAY[((int) index) + NEGATIVE_MAX];

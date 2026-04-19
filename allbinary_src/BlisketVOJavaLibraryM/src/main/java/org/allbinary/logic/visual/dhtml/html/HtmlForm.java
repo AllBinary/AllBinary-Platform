@@ -43,12 +43,12 @@ public class HtmlForm
 
    public void setPost()
    {
-      method = POST;
+      method = this.POST;
    }
 
    public void setGet()
    {
-      method = GET;
+      method = this.GET;
    }
 
    public void addInput(HtmlInput htmlInput)

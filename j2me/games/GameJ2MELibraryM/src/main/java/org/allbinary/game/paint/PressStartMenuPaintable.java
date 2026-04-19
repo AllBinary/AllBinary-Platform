@@ -44,15 +44,15 @@ public class PressStartMenuPaintable extends Paintable
     {
         if (TouchScreenFactory.getInstance().isTouch())
         {
-            startString = PRESS_START;
+            startString = this.PRESS_START;
         }
         else if (AppletUtil.isAppletLoader(this))
         {
-            startString = KEY_START;
+            startString = this.KEY_START;
         }
         else
         {
-            startString = MENU_START;
+            startString = this.MENU_START;
         }
     }
 

@@ -46,7 +46,7 @@ public class SmallBasicColorCacheFactory
         BasicColor basicColor;
         for(int index = 0; index < SIZE; index++) {
             if(INDEX_TO_COLOR[index] == colorAsInt) {
-                return BASIC_COLOR_ARRAY[index];
+                return this.BASIC_COLOR_ARRAY[index];
             }
         }
         

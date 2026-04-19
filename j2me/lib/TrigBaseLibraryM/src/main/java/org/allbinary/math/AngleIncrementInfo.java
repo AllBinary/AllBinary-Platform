@@ -79,22 +79,22 @@ public class AngleIncrementInfo
 
         if (UP_FRAME.intValue() - angle < closestDirection.intValue() - angle)
         {
-            closestDirection = UP_FRAME;
+            closestDirection = this.UP_FRAME;
         }
 
         if (DOWN_FRAME.intValue() - angle < closestDirection.intValue() - angle)
         {
-            closestDirection = DOWN_FRAME;
+            closestDirection = this.DOWN_FRAME;
         }
 
         if (LEFT_FRAME.intValue() - angle < closestDirection.intValue() - angle)
         {
-            closestDirection = LEFT_FRAME;
+            closestDirection = this.LEFT_FRAME;
         }
 
         if (RIGHT_FRAME.intValue() - angle < closestDirection.intValue() - angle)
         {
-            closestDirection = RIGHT_FRAME;
+            closestDirection = this.RIGHT_FRAME;
         }
 
         return closestDirection.intValue();

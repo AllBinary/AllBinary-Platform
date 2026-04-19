@@ -152,7 +152,7 @@ public class BasicOptionItemsRequestHelper extends ModifyTable
       }
       catch(Exception e)
       {
-         String error = "Failed to insert " + id + " into items table";
+         String error = "Failed to insert " + this.id + " into items table";
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
@@ -205,7 +205,7 @@ public class BasicOptionItemsRequestHelper extends ModifyTable
       }
       catch(Exception e)
       {
-         String error = "Failed to update: " + id;
+         String error = "Failed to update: " + this.id;
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
