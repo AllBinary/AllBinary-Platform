@@ -65,10 +65,10 @@ public class LurchAI  extends BasicAI
 
       if (this.currentRelativeAngle == 0)
       {
-         x += (this.currentSpeed);
+         x += this.currentSpeed;
       } else if (currentRelativeAngle == 180)
       {
-         x -= (this.currentSpeed);
+         x -= this.currentSpeed;
       }
 
       ownerLayerInterface.setPosition(x, ownerLayerInterface.getYP(), ownerLayerInterface.getZP());

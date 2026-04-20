@@ -104,11 +104,11 @@ public class InputMappingHelpPaintable extends HelpPaintable
             list = gameKeyMapping.getInputMapping().getMappedInput(gameKey);
             
             int size2 = list.size();
-            this.inputBasicColorArray[index] = new BasicColor[size2];
+            inputBasicColorArray[index] = new BasicColor[size2];
             
             for(int index2 = 0; index2 < size2; index2++)
             {
-                this.inputBasicColorArray[index][index2] = this.basicColor;
+                inputBasicColorArray[index][index2] = this.basicColor;
             }
             
             if(gameKey == selectedGameKey)
@@ -121,7 +121,7 @@ public class InputMappingHelpPaintable extends HelpPaintable
                 {
                     stringMaker.delete(0, stringMaker.length());
                     this.logUtil.putF(stringMaker.append("Found: selected Input: ").append(this.stringUtil.toString(selectedInput)).toString(), this, commonStrings.UPDATE);
-                    this.inputBasicColorArray[index][indexOfSelectedInput] = this.selectedBasicColor; 
+                    inputBasicColorArray[index][indexOfSelectedInput] = this.selectedBasicColor; 
                 }
             }
             else

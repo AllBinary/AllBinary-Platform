@@ -266,7 +266,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         this.highScoresHelper = highScoresFactoryInterface.createHighScoresHelper();
         this.gameInitializationInterfaceFactoryInterface = gameInitializationInterfaceFactoryInterface;
-        this.init(this.gameLayerManager, buffered);
+        this.init(gameLayerManager, buffered);
 
         this.highScoresFactoryInterface = highScoresFactoryInterface;
 

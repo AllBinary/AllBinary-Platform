@@ -49,7 +49,8 @@ public class AndroidHardware implements HardwareInterface
     {
         this.init(this.DEVICES);
 
-        if (this.componentInterfaceVector.size() < this.MINHARDWARE)
+        final int size = this.componentInterfaceVector.size();
+        if (size < this.MINHARDWARE)
         {
             throw new Exception("Not Enough Data For A Valid License On Linux");
         }

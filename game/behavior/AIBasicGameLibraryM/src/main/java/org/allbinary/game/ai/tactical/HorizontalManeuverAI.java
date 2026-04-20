@@ -59,10 +59,10 @@ public class HorizontalManeuverAI extends BasicAI
 
       if (this.currentRelativeAngle == 0)
       {
-         x += (this.currentSpeed);
+         x += this.currentSpeed;
       } else if (currentRelativeAngle == 180)
       {
-         x -= (this.currentSpeed);
+         x -= this.currentSpeed;
       }
 
       //super.processAI(Canvas.UP);
