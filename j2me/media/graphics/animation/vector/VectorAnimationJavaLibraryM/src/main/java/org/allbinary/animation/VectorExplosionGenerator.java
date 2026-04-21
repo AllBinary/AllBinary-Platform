@@ -182,7 +182,7 @@ public class VectorExplosionGenerator
         for (int index = 0; index < points.length; index++)
         {
             firstPointBasicArrayList.add(PointFactory.getInstance()
-                    .getInstance(points[index][0], points[index][1]));
+                    .getInstance0(points[index][0], points[index][1]));
         }
         return firstPointBasicArrayList;
     }

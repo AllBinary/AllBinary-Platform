@@ -60,7 +60,7 @@ public class PixelDeltaFactory
     public static PixelDelta getInstance(int x, int y, int rgb1, int rgb2)
     throws Exception
     {
-        GPoint point = PointFactory.getInstance().getInstance(x, y);
+        GPoint point = PointFactory.getInstance().getInstance0(x, y);
         ColorDelta colorDelta = ColorDeltaFactory.getInstance(rgb1, rgb2);
 
         PixelDelta pixelDelta = (PixelDelta) 

@@ -37,9 +37,11 @@ public class FormUtil
         //final CommonStrings commonStrings = CommonStrings.getInstance();
         final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         
+        final PointFactory pointFactory = PointFactory.getInstance();
+        
         final Rectangle rectangle = new Rectangle(
         // PointFactory.getInstance(0, 30),
-                PointFactory.getInstance().getInstance(30, 10),
+                pointFactory.getInstance0(30, 10),
                 // displayInfo.getLastWidth(),
                 displayInfo.getLastWidth() - 30,
                 displayInfo.getLastHeight() - 35);
@@ -58,19 +60,21 @@ public class FormUtil
         // Popup Menu Tab Init
         Rectangle popupMenuRectangle = RectangleFactory.SINGLETON;
 
+        final PointFactory pointFactory = PointFactory.getInstance();
+        
         // Popup Menu Tab Init
         if (displayInfo.getLastHeight() < 320)
         {
             // Make a smaller button for QVGA and move it to the top
             popupMenuRectangle = new Rectangle(
-                    PointFactory.getInstance().getInstance(0, 25), myFont.stringWidth(3), (myFont.DEFAULT_CHAR_HEIGHT * 4) + 2);
+                    pointFactory.getInstance0(0, 25), myFont.stringWidth(3), (myFont.DEFAULT_CHAR_HEIGHT * 4) + 2);
             
             //this.logUtil.putF("popupMenuRectangle: " + popupMenuRectangle.toString(), this, commonStrings.PROCESS);
         }
         else
         {
             popupMenuRectangle = new Rectangle(
-                    PointFactory.getInstance().getInstance(
+                    pointFactory.getInstance0(
                     0, displayInfo.getLastHalfHeight() - 70), myFont.stringWidth(3), (myFont.DEFAULT_CHAR_HEIGHT * 5));
             
             //this.logUtil.putF("large popupMenuRectangle: " + popupMenuRectangle.toString(), this, commonStrings.PROCESS);

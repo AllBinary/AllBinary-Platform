@@ -25,15 +25,15 @@ public class PrimaryThreadPool extends ThreadPool
 {
 
     //Watch out for the Android/J2ME thread limit
-    private static final ThreadPool THREAD_POOL = new ThreadPool("Primary", 1);
+    private static final ThreadPool THREAD_POOL = new ThreadPool("Primary", 1, ThreadPool.NORMAL_PRIORITY);
 
     public static ThreadPool getInstance()
     {
         return THREAD_POOL;
     }
 
-    public PrimaryThreadPool(final String poolName, final int numThreads) {
-        super(poolName, numThreads);
+    public PrimaryThreadPool(final String poolName, final int numThreads, final int priority) {
+        super(poolName, numThreads, priority);
     }
 
     @Override

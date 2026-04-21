@@ -24,15 +24,15 @@ public class ImageThreadPool extends ThreadPool
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private static final ThreadPool instance = new ImageThreadPool("ImageLoader", 1);
+    private static final ThreadPool instance = new ImageThreadPool("ImageLoader", 1, ThreadPool.NORMAL_PRIORITY);
 
     public static ThreadPool getInstance()
     {
         return instance;
     }
 
-    public ImageThreadPool(final String poolName, final int numThreads) {
-        super(poolName, numThreads);
+    public ImageThreadPool(final String poolName, final int numThreads, final int priority) {
+        super(poolName, numThreads, priority);
     }
 
     public synchronized void runTask(Runnable task)

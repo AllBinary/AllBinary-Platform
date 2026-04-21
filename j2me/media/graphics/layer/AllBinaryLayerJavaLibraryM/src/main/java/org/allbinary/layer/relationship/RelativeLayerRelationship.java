@@ -25,12 +25,12 @@ public class RelativeLayerRelationship
 {
    private AllBinaryLayer layer = AllBinaryLayer.NULL_ALLBINARY_LAYER;
    
-   public RelativeLayerRelationship(AllBinaryLayer layer, int x, int y) throws Exception
+   public RelativeLayerRelationship(final AllBinaryLayer layer, final int x, final int y) throws Exception
    {
-       this(layer, PointFactory.getInstance().getInstance(x, y), BasicArrayListUtil.getInstance().getImmutableInstance());
+       this(layer, PointFactory.getInstance().getInstance0(x, y), BasicArrayListUtil.getInstance().getImmutableInstance());
    }
 	
-   public RelativeLayerRelationship(AllBinaryLayer layer, GPoint point, BasicArrayList typesAllowedList)
+   public RelativeLayerRelationship(final AllBinaryLayer layer, final GPoint point, final BasicArrayList typesAllowedList)
    {
       super(point, typesAllowedList);
       

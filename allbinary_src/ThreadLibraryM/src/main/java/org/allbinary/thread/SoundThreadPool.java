@@ -15,7 +15,7 @@ package org.allbinary.thread;
 
 public class SoundThreadPool
 {
-    private static final ThreadPool instance = new ThreadPool("Sound", 1);
+    private static final ThreadPool instance = new ThreadPool("Sound", 1, ThreadPool.NORMAL_PRIORITY);
 
     public static ThreadPool getInstance()
     {

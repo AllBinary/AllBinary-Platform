@@ -25,15 +25,15 @@ public class MusicThreadPool extends ThreadPool
 {
 
     //Watch out for the Android/J2ME thread limit
-    private static final ThreadPool THREAD_POOL = new ThreadPool("Music", 2);
+    private static final ThreadPool THREAD_POOL = new ThreadPool("Music", 2, ThreadPool.NORMAL_PRIORITY);
 
     public static ThreadPool getInstance()
     {
         return THREAD_POOL;
     }
 
-    public MusicThreadPool(final String poolName, final int numThreads) {
-        super(poolName, numThreads);
+    public MusicThreadPool(final String poolName, final int numThreads, final int priority) {
+        super(poolName, numThreads, priority);
     }
     
     @Override

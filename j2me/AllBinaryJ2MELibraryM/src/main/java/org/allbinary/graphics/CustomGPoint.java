@@ -17,19 +17,17 @@ public class CustomGPoint extends GPoint
 {
     public static final CustomGPoint NULL_CUSTOM_POINT = new CustomGPoint(0, 0, 0);
 
+    public static CustomGPoint getInstance(final GPoint point) {
+        return new CustomGPoint(point.getX(), point.getY(), point.getZ());
+    }
+
+    public static CustomGPoint getInstance3(final int x, final int y) {
+        return new CustomGPoint(x, y, 3);
+    }
+
     private int x;
     private int y;
     private int z;
-    
-    private CustomGPoint(GPoint point)
-    {
-        super(point);
-    }
-    
-    public CustomGPoint(int x, int y)
-    {
-        super(x, y);        
-    }
 
     public CustomGPoint(int x, int y, int z)
     {

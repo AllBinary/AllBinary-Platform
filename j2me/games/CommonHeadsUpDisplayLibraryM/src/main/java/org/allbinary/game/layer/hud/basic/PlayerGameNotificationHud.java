@@ -71,7 +71,7 @@ extends GameNotificationHud
     @Override
     protected GPoint getPoint(int x, int y)
     {
-        this.point = new CustomGPoint(0, 0);
+        this.point = CustomGPoint.getInstance3(0, 0);
         this.point.setX(x);
         this.point.setY(y);
         return point;

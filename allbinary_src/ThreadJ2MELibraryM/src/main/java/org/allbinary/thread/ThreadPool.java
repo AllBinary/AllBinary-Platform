@@ -23,6 +23,8 @@ import org.allbinary.util.BasicArrayListUtil;
 public class ThreadPool
 {
     private static final String ROOT_NAME = "-PooledThread-";
+
+    public static int NORMAL_PRIORITY = Thread.NORM_PRIORITY;
     
     protected final LogUtil logUtil = LogUtil.getInstance();
 
@@ -40,11 +42,6 @@ public class ThreadPool
     private int numThreads;
 
     //private static int threadPoolID;
-
-    public ThreadPool(final String poolName, final int numThreads)
-    {
-        this(poolName, numThreads, Thread.NORM_PRIORITY);
-    }
     
     public ThreadPool(final String poolName, final int numThreads, final int priority)
     {

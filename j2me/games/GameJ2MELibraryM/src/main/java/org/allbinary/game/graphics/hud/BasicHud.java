@@ -190,7 +190,7 @@ public class BasicHud //implements DisplayChangeEventListener
    
    protected GPoint getPoint(int x, int y)
    {
-       return PointFactory.getInstance().getInstance(x, y);
+       return PointFactory.getInstance().getInstance0(x, y);
    }
 
    public int getBufferZone()

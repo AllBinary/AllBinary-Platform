@@ -20,9 +20,9 @@ import org.allbinary.util.BasicArrayListUtil;
 public class MiddleRelativeLayerRelationship 
    extends RelativeLayerRelationship
 {
-   public MiddleRelativeLayerRelationship(AllBinaryLayer layer) throws Exception
+   public MiddleRelativeLayerRelationship(final AllBinaryLayer layer) throws Exception
    {
-      super(layer, PointFactory.getInstance().getInstance(
+      super(layer, PointFactory.getInstance().getInstance0(
          layer.getHalfWidth(), 
          layer.getHalfHeight()), 
           BasicArrayListUtil.getInstance().getImmutableInstance());

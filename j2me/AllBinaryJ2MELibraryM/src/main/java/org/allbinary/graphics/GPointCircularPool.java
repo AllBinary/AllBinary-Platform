@@ -25,7 +25,7 @@ public class GPointCircularPool extends BaseCircularPool
         
         for(int index = size - 1; index >= 0; index--)
         {
-            this.OBJECT_ARRAY[index] = new CustomGPoint(0, 0);
+            this.OBJECT_ARRAY[index] = CustomGPoint.getInstance3(0, 0);
         }
     }
 }

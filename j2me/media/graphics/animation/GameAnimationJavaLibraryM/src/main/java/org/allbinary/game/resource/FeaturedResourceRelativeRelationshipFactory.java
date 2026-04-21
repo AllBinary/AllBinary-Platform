@@ -61,17 +61,18 @@ public class FeaturedResourceRelativeRelationshipFactory extends FeaturedResourc
          new StringMaker().append("Not available for current feature selection or Resource: ").append(resource).toString());
    }
 
-   private BasicArrayList duplicate(BasicArrayList list, AllBinaryLayer layer)
+   private BasicArrayList duplicate(final BasicArrayList list, AllBinaryLayer layer)
       throws Exception
    {
-      BasicArrayList newList = new BasicArrayList();
+       final PointFactory pointFactory = PointFactory.getInstance();
+      final BasicArrayList newList = new BasicArrayList();
       
       final int size = list.size();
       for (int index = 0; index < size; index++)
       {
          RelativeRelationship relativeRelationship = (RelativeRelationship) list.objectArray[index];
          newList.add(new RelativeLayerRelationship(
-            layer, PointFactory.getInstance().getInstance(relativeRelationship.getX(), relativeRelationship.getY()), BasicArrayListUtil.getInstance().getImmutableInstance()));
+            layer, pointFactory.getInstance0(relativeRelationship.getX(), relativeRelationship.getY()), BasicArrayListUtil.getInstance().getImmutableInstance()));
       }
       return newList;
    }

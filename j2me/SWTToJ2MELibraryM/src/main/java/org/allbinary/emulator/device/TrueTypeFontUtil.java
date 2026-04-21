@@ -34,7 +34,6 @@ import org.allbinary.graphics.opengles.OpenGLCapabilities;
 import org.allbinary.image.PreResourceImageUtil;
 import org.allbinary.image.opengles.OpenGLESImage;
 import org.allbinary.logic.communication.log.PreLogUtil;
-import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 
@@ -160,7 +159,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
         //this.logUtil.putF("graphics: " + graphics, this, GET_FONT_BITMAP);
         
         int biggestHeight = 0;
-        final Rectangle bounds = new Rectangle(PointFactory.getInstance().getInstance(0, 0), cellSize, cellSize);
+        final Rectangle bounds = new Rectangle(PointFactory.getInstance().getInstance0(0, 0), cellSize, cellSize);
         int x;
         int y;
         for (int index = 0; index < size; index++)

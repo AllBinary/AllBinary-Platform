@@ -118,7 +118,7 @@ public class LinesGraphicItem implements GraphicItemInterface
       item++;
       this.points.init();
       this.pointTreeNodeVector = new Vector();
-      this.fulcrumPoint = PointFactory.getInstance().getInstance(0, 0);
+      this.fulcrumPoint = PointFactory.getInstance().getInstance0(0, 0);
    }
 
    public void translate(int x, int y) throws Exception
@@ -189,7 +189,7 @@ public class LinesGraphicItem implements GraphicItemInterface
        Node yTextNode = yNode.getFirstChild();
        Integer yInteger = new Integer(yTextNode.getNodeValue());
 
-       GPoint point = PointFactory.getInstance().getInstance(xInteger.intValue(), yInteger.intValue());
+       GPoint point = PointFactory.getInstance().getInstance0(xInteger.intValue(), yInteger.intValue());
 
        this.addPoint(point);
    }
@@ -246,7 +246,7 @@ public class LinesGraphicItem implements GraphicItemInterface
          GPoint point = (GPoint) list.get(index);
          if (point != null)
          {
-            this.points.getPoints().add(PointFactory.getInstance().getInstance(point.getX(), point.getY()));
+            this.points.getPoints().add(PointFactory.getInstance().getInstance0(point.getX(), point.getY()));
             this.pointTreeNodeVector.add(new DefaultMutableTreeNode(point.toString()));
             this.treeNode.add((DefaultMutableTreeNode) this.pointTreeNodeVector.get(this.pointTreeNodeVector.size()-1));
          }
@@ -287,7 +287,7 @@ public class LinesGraphicItem implements GraphicItemInterface
 
          BasicArrayList tempPointVector = PointsUtil.getInstance().doTransforms(
                  this.points.getPoints(),
-                 canvasAngle, PointFactory.getInstance().getInstance(dimension.getWidth(),
+                 canvasAngle, PointFactory.getInstance().getInstance0(dimension.getWidth(),
                  dimension.getHeight()));
 
          if (this.isActive() && this.currentMousePoint != null)
@@ -351,11 +351,11 @@ public class LinesGraphicItem implements GraphicItemInterface
    {
       try
       {
-         GPoint mousePoint = PointFactory.getInstance().getInstance(mouseEvent.getPoint().x, mouseEvent.getPoint().y);
+         GPoint mousePoint = PointFactory.getInstance().getInstance0(mouseEvent.getPoint().x, mouseEvent.getPoint().y);
 
          if ((mouseEvent.getModifiers() & mouseEvent.BUTTON1_MASK) == mouseEvent.BUTTON1_MASK)
          {
-            GPoint point = PointFactory.getInstance().getInstance(mousePoint.getX() / x, mousePoint.getY() / y);
+            GPoint point = PointFactory.getInstance().getInstance0(mousePoint.getX() / x, mousePoint.getY() / y);
             StatusFactory.getInstance().setStatus("Line Point Added: " + point.toString());
             this.addPoint(point);
          } else if ((mouseEvent.getModifiers() & mouseEvent.BUTTON3_MASK) == mouseEvent.BUTTON3_MASK)
@@ -394,8 +394,8 @@ public class LinesGraphicItem implements GraphicItemInterface
    {
       try
       {
-         GPoint mousePoint = PointFactory.getInstance().getInstance(mouseEvent.getPoint().x, mouseEvent.getPoint().y);
-         GPoint point = PointFactory.getInstance().getInstance(mousePoint.getX() / x, mousePoint.getY() / y);
+         GPoint mousePoint = PointFactory.getInstance().getInstance0(mouseEvent.getPoint().x, mouseEvent.getPoint().y);
+         GPoint point = PointFactory.getInstance().getInstance0(mousePoint.getX() / x, mousePoint.getY() / y);
          this.currentMousePoint = point;
       } catch (Exception e)
       {

@@ -51,6 +51,7 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
     public Rectangle getRectangle(final String resource, final int x, final int y)
             throws Exception
     {
+        final PointFactory pointFactory = PointFactory.getInstance();
         final BasicArrayList list = this.getList();
         final int scale = GameConfigurationCentral.getInstance().SCALE.getValue().intValue();
         final int size = getList().size();
@@ -65,7 +66,7 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
 
                 if (rectangle != RectangleFactory.SINGLETON)
                 {
-                    return new Rectangle(PointFactory.getInstance().getInstance(x, y),
+                    return new Rectangle(pointFactory.getInstance0(x, y),
                             ((rectangle.getWidth() * scale) >> 1), ((rectangle.getHeight() * scale) >> 1));
                 }
             }

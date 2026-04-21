@@ -40,7 +40,7 @@ public class RTSScrollSelectionFormFactory
         final int width = displayInfo.getLastWidth() - (menuX * 2);// - TouchButtonInput.STANDARD_BUTTON_SIZE;
 
         final Rectangle menuRectangle = new Rectangle(
-                PointFactory.getInstance().getInstance(menuX, 16), width, 
+                PointFactory.getInstance().getInstance0(menuX, 16), width,
                 CommonButtons.getInstance().STANDARD_BUTTON_SIZE);
 
         return

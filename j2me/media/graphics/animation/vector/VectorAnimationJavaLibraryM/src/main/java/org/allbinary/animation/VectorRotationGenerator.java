@@ -69,7 +69,7 @@ public class VectorRotationGenerator
             for (int index = 0; index < size; index++)
             {
                 pointBasicArrayList.add(
-                        pointFactory.getInstance(
+                        pointFactory.getInstance0(
                                 points[index][0], points[index][1]));
             }
 

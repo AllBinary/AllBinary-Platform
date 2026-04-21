@@ -21,15 +21,15 @@ import org.allbinary.logic.string.StringUtil;
 public class SecondaryThreadPool extends ThreadPool
 {
 
-    private static final ThreadPool instance = new SecondaryThreadPool("Secondary", 1);
+    private static final ThreadPool instance = new SecondaryThreadPool("Secondary", 1, ThreadPool.NORMAL_PRIORITY);
 
     public static ThreadPool getInstance()
     {
         return instance;
     }
 
-    public SecondaryThreadPool(final String poolName, final int numThreads) {
-        super(poolName, numThreads);
+    public SecondaryThreadPool(final String poolName, final int numThreads, final int priority) {
+        super(poolName, numThreads, priority);
     }
 
     @Override

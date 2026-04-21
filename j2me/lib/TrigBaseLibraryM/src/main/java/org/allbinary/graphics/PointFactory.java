@@ -43,7 +43,7 @@ public class PointFactory
     }
 
     //TWB - to be depricated
-    public GPoint getInstance(int x, int y)
+    public GPoint getInstance0(int x, int y)
     {
         return new GPoint(x, y, 0); 
     }

@@ -90,6 +90,7 @@ public class LayerPlacer
    public GPoint getPoint(final LayerPlacementInterface layerPlacementInterface)
       throws Exception
    {
+       final PointFactory pointFactory = PointFactory.getInstance();
       final LayerPlacementType layerPlacementType =
          layerPlacementInterface.getLayerType();
 
@@ -100,7 +101,7 @@ public class LayerPlacer
          final int x = ((this.dimension.getX() - width) / 2);
          final int y = ((this.dimension.getY() - height) / 2);
 
-         return PointFactory.getInstance().getInstance(x, y);
+         return pointFactory.getInstance0(x, y);
       } else if (layerPlacementType == LayerPlacementTypeFactory.getInstance().UP)
       {
          final int width = layerPlacementInterface.getWidth();
@@ -108,7 +109,7 @@ public class LayerPlacer
          final int x = ((this.dimension.getX() - width) / 2);
          final int y = -height;
 
-         return PointFactory.getInstance().getInstance(x, y);
+         return pointFactory.getInstance0(x, y);
       } else
       {
          throw new Exception("PlacementType Not Recognized");

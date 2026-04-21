@@ -27,7 +27,7 @@ public class PathFindingThreadPool extends ThreadPool
     }
 
     public PathFindingThreadPool(final String poolName, final int numThreads, final int priority) {
-        super(poolName, numThreads);
+        super(poolName, numThreads, ThreadPool.NORMAL_PRIORITY);
     }
 
     @Override

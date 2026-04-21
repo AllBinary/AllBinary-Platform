@@ -54,7 +54,7 @@ public class BasicGraphicsPipeline
          //Ignore end of lines
          if (secondPoint.getX() != 1000)
          {
-            newBasicArrayList.add(pointFactory.getInstance(secondPoint.getX() + x, secondPoint.getY() + y));
+            newBasicArrayList.add(pointFactory.getInstance0(secondPoint.getX() + x, secondPoint.getY() + y));
          } else
          {
             newBasicArrayList.add(secondPoint);
@@ -101,7 +101,7 @@ public class BasicGraphicsPipeline
 
             //LogUtil.put("Calculated: X: " + secondX + " Y: " + secondY, this, "rotate");
 
-             point = pointFactory.getInstance((int) secondX / 10000, (int) secondY / 10000);
+             point = pointFactory.getInstance0((int) secondX / 10000, (int) secondY / 10000);
 
             //LogUtil.put("New: " + point.toString(), this, "rotate");
             newBasicArrayList.add(point);
@@ -143,7 +143,7 @@ public class BasicGraphicsPipeline
                newX = halfWidth + (halfWidth - secondPoint.getX());
             }
 
-            point = pointFactory.getInstance(newX, secondPoint.getY());
+            point = pointFactory.getInstance0(newX, secondPoint.getY());
 
             //LogUtil.put("New: " + point.toString(), this, "rotate");
             newBasicArrayList.add(point);

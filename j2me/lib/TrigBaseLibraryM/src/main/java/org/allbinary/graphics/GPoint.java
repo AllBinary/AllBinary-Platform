@@ -19,25 +19,14 @@ import org.allbinary.string.CommonSeps;
 
 public class GPoint 
 {
+   public static GPoint getInstance(final GPoint point) {
+      return new GPoint(point.getX(), point.getY(), point.getZ());
+   }
+
    private final int x;
    private final int y;
    private final int z;
 
-   public GPoint(GPoint point)
-   {
-      this.x = point.getX();
-      this.y = point.getY();
-      this.z = point.getZ();
-   }
-
-   //protected
-   public GPoint(int x, int y)
-   {
-      this.x = x;
-      this.y = y;
-      this.z = 3;
-   }
-   
    //protected
    public GPoint(int x, int y, int z)
    {

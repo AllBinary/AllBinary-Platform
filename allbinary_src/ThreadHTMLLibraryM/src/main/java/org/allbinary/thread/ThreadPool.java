@@ -19,6 +19,8 @@ import org.allbinary.util.BasicArrayList;
 
 public class ThreadPool
 {
+    public static int NORMAL_PRIORITY = 5; //5 = Thread.NORM_PRIORITY
+    
     protected final LogUtil logUtil = LogUtil.getInstance();
     
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
@@ -36,12 +38,7 @@ public class ThreadPool
     //private static int threadPoolID;
 
     private boolean runningTask;
-    
-    public ThreadPool(final String poolName, final int numThreads)
-    {
-        this(poolName, numThreads, 5); //5 = Thread.NORM_PRIORITY
-    }
-    
+        
     public ThreadPool(final String poolName, final int numThreads, final int priority)
     {
 //        this.poolName = poolName;

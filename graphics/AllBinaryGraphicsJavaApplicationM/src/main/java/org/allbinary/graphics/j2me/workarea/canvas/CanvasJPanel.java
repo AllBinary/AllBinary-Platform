@@ -143,7 +143,7 @@ public class CanvasJPanel extends javax.swing.JPanel
         this.workAreaJTreeJPanel.add(this.getTreeNode());
 
         this.graphicItemHashMap = new HashMap();
-        this.grid.grid = PointFactory.getInstance().getInstance(0, 0);
+        this.grid.grid = PointFactory.getInstance().getInstance0(0, 0);
         this.setCanvasDimension(new IntegerDimension(0, 0));
         this.selectedTool = null;
 
@@ -213,7 +213,7 @@ public class CanvasJPanel extends javax.swing.JPanel
                 throw new GraphicsException("Y Size Error" + ySize + " WorkArea Y: " + getCanvasDimension().getHeight(), this, "setGrid");
             }
 
-            this.grid.grid = PointFactory.getInstance().getInstance(xSize, ySize);
+            this.grid.grid = PointFactory.getInstance().getInstance0(xSize, ySize);
             this.grid.isChanged = true;
         } catch (Exception e)
         {
@@ -292,8 +292,8 @@ public class CanvasJPanel extends javax.swing.JPanel
                             GraphicItemFactory.getInstance().getInstance(
                             graphicItem.getName()).getInstance(this);
 
-                    GPoint pointOne = new GPoint(graphicItem.removePoint());
-                    GPoint pointTwo = new GPoint(graphicItem.removePoint());
+                    GPoint pointOne = GPoint.getInstance(graphicItem.removePoint());
+                    GPoint pointTwo = GPoint.getInstance(graphicItem.removePoint());
                     //Point pointOne = new Point((Point) points.remove(points.size()-1));
                     //Point pointTwo = new Point((Point) points.remove(points.size()-1));
                     if (pointOne != null && pointTwo != null)

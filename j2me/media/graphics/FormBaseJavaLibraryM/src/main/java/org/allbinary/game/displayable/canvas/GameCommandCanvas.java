@@ -230,8 +230,10 @@ public class GameCommandCanvas
         final int height = size * MyFont.getInstance().DEFAULT_CHAR_HEIGHT;
         final int startY = (displayInfo.getLastHeight() * 2 / 3) - height;
 
+        final PointFactory pointFactory = PointFactory.getInstance();
+        
         final Rectangle rectangle = new Rectangle(
-            PointFactory.getInstance().getInstance(30, startY),
+            pointFactory.getInstance0(30, startY),
             displayInfo.getLastWidth() - 30,
             startY);
 

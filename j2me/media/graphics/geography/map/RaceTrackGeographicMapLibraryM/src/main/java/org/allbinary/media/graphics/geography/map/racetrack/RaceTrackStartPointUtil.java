@@ -37,7 +37,7 @@ public class RaceTrackStartPointUtil
 
         final GPoint point = geographicMapCellPosition.getPoint();
 
-        return PointFactory.getInstance().getInstance(
+        return PointFactory.getInstance().getInstance0(
                 point.getX(), 
                 point.getY() + geographicMapInterface.getAllBinaryTiledLayer().getHalfCellHeight());
     }

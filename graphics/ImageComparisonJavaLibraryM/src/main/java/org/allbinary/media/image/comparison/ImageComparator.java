@@ -98,7 +98,7 @@ public class ImageComparator
       {
          for (int indexX = 0; indexX < imageComparisonInfo.imageWidth; indexX++)
          {
-            this.process(imageComparisonInfo, PointFactory.getInstance().getInstance(indexX, indexY));
+            this.process(imageComparisonInfo, PointFactory.getInstance().getInstance0(indexX, indexY));
 
             if (imageComparisonInfo.getNonMatchingPixelVector().size() > this.imageComparatorConstraintsInterface.getMaxNonMatchingPixelDeltas())
             {
