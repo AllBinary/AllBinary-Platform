@@ -13,9 +13,15 @@
 */
 package org.allbinary.game.layer.pickup;
 
+import org.allbinary.animation.NullAnimationFactory;
+import org.allbinary.game.identification.BasicGroupFactory;
 import org.allbinary.game.layer.AllBinaryTiledLayer;
+import org.allbinary.game.multiplayer.layer.RemoteInfo;
 import org.allbinary.game.view.TileLayerPositionIntoViewPosition;
+import org.allbinary.graphics.PointFactory;
+import org.allbinary.graphics.Rectangle;
 import org.allbinary.layer.AllBinaryLayer;
+import org.allbinary.view.ViewPosition;
 import org.allbinary.view.event.ViewPositionEventHandler;
 
 public class RaceTrackPickupLayer extends PickupLayer
@@ -25,7 +31,7 @@ public class RaceTrackPickupLayer extends PickupLayer
    public RaceTrackPickupLayer()
       throws Exception
    {
-      super(NAME, new TileLayerPositionIntoViewPosition());
+       super(NAME, RemoteInfo.REMOTE_INFO, 0, CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY, NullAnimationFactory.getFactoryInstance().getInstance(0), new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0), new TileLayerPositionIntoViewPosition());
 
       //this.setVisible(false);
    }

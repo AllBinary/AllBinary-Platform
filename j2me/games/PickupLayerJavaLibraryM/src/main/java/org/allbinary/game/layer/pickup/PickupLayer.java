@@ -36,17 +36,6 @@ public class PickupLayer
    private boolean destroyed;
    private Animation animationInterface = NullAnimationFactory.getFactoryInstance().getInstance(0);
 
-   public PickupLayer(final String name, final RemoteInfo remoteInfo, final ViewPosition viewPosition) throws Exception
-   {
-      super(remoteInfo, BasicGroupFactory.getInstance().NONE_ARRAY, name, new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0), viewPosition);
-      
-      //this.setCollidableInferface(new CollidableAlwaysPickupNeverCollideBehavior(this, true));
-      this.setCollidableInferface(CollidableAlwaysPickupNeverCollideBehaviorFactory.getInstance());
-      
-      this.setLayerWidth(10);
-      this.setLayerHeight(10);
-   }
-
    public PickupLayer(
            final String name, final RemoteInfo remoteInfo, final int total,
            final PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface,
@@ -64,20 +53,6 @@ public class PickupLayer
       this.init(pickedUpLayerInterfaceFactoryInterface, animationInterface);
    }
 
-   public PickupLayer(final String name, final ViewPosition viewPosition) throws Exception
-   {
-      this(name, RemoteInfo.REMOTE_INFO, viewPosition);
-   }
-
-   public PickupLayer(final String name, final int total,
-           final PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface,
-           final Animation animationInterface, final Rectangle rectangle, final ViewPosition viewPosition) throws Exception
-   {
-      this(name, RemoteInfo.REMOTE_INFO,
-              total, pickedUpLayerInterfaceFactoryInterface, 
-              animationInterface, rectangle, viewPosition);
-   }
-   
    public void init(
       final PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface,
       final Animation animationInterface)

@@ -13,6 +13,7 @@
 */
 package org.allbinary.game.layer.pickup;
 
+import org.allbinary.game.multiplayer.layer.RemoteInfo;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerFactoryInterface;
 
@@ -23,6 +24,6 @@ public class FallingPickupLayerFactory
    public AllBinaryLayer getInstance() 
       throws Exception
    {
-       return new FallingPickupLayer();
+       return new FallingPickupLayer(RemoteInfo.REMOTE_INFO);
    }
 }
