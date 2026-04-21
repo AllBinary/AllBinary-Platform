@@ -19,6 +19,7 @@ import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class GameInput {
     
@@ -32,7 +33,7 @@ public class GameInput {
    protected final boolean isRemoveDuplicateKeyPresses;
    
    public GameInput(final BasicArrayList gameKeyEventList) {
-       this(gameKeyEventList, new BasicArrayList());
+       this(gameKeyEventList, new BasicArrayListD());
    }
    
    public GameInput(final BasicArrayList gameKeyEventList, final BasicArrayList removalGameKeyEventList) {

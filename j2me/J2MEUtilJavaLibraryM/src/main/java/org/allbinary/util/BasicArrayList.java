@@ -13,30 +13,10 @@ public class BasicArrayList
     public transient Object[] objectArray;
     private int currentIndex = 0;
 
-    public BasicArrayList(final int size)
-    {
-        super();
-
-        //currentIndex = 0;
-
-        if (size < 0) {
-            throw new IllegalArgumentException(new StringMaker().append("Init Size Exception: ").appendint(size).toString());
-        }
-
-        this.objectArray = new Object[size];
-    }
-
     public BasicArrayList(final Object[] objectArray) {
         this.objectArray = objectArray;
     }
     
-    public BasicArrayList()
-    {
-        this(7);
-        
-        //currentIndex = 0;
-    }
-
 //    protected Object[] getObjectArray()
 //    {
 //        return objectArray;
@@ -310,9 +290,9 @@ public class BasicArrayList
 
     public Object clone()
     {
-    	final BasicArrayList list = new BasicArrayList();
     	
     	final int size = this.size();
+        final BasicArrayList list = new BasicArrayListS(size);
         Object object;
     	for (int index = 0; index < size; index++)
     	{

@@ -29,7 +29,7 @@ public class LicenseClientAndServerTest
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private BasicArrayList vector = new BasicArrayList();
+    private BasicArrayList vector = new BasicArrayListD();
 
     public LicenseClientAndServerTest(String[] options) throws Exception
     {
@@ -72,7 +72,7 @@ public class LicenseClientAndServerTest
         StringMaker stringBuffer = new StringMaker();
         try
         {
-            BasicArrayList list = new BasicArrayList();
+            BasicArrayList list = new BasicArrayListD();
 
             final String TESTING = "Testing with new licence:<br/>";
             final String PROCESSING = "Processing: <br/>";

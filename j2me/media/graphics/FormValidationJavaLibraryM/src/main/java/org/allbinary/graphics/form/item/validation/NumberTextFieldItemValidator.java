@@ -21,6 +21,7 @@ import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class NumberTextFieldItemValidator extends ValidatorBase
 {
@@ -90,7 +91,7 @@ public class NumberTextFieldItemValidator extends ValidatorBase
     @Override
     public BasicArrayList toList()
     {
-        final BasicArrayList list = new BasicArrayList();        
+        final BasicArrayList list = new BasicArrayListD();        
         final String string = this.textFieldItem.getString();
         
         int textLength = string.length();

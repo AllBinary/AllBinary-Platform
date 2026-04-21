@@ -18,13 +18,14 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class CompositeGroup
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final Group groupInterface;
-    private final BasicArrayList list = new BasicArrayList();
+    private final BasicArrayList list = new BasicArrayListD();
 
     public CompositeGroup(final Group groupInterface)
     {

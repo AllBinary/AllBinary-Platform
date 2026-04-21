@@ -24,6 +24,7 @@ import org.allbinary.logic.io.AbFileLocalInputStream;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -89,7 +90,7 @@ public class LoggingInitInfo
             DomSearchHelper.getAllNodes(
                LogConfigData.getInstance().NAME, logConfigsNode.getChildNodes());
 	    
-         LoggingInitInfo.logConfigInfoList = new BasicArrayList();
+         LoggingInitInfo.logConfigInfoList = new BasicArrayListD();
 	    
          final int size = logConfigNodeVector.size();
          for (int i = 0; i < size; i++)
@@ -151,7 +152,7 @@ public class LoggingInitInfo
    {
       LoggingInitInfo.updateIfNeeded();
       
-      BasicArrayList allLogTypeVector = new BasicArrayList();
+      BasicArrayList allLogTypeVector = new BasicArrayListD();
       
       final int size = LoggingInitInfo.logConfigInfoList.size();
       for(int index = 0; index < size; index++)
@@ -171,7 +172,7 @@ public class LoggingInitInfo
    {
       LoggingInitInfo.updateIfNeeded();
       
-      final BasicArrayList allLogTypeVector = new BasicArrayList();
+      final BasicArrayList allLogTypeVector = new BasicArrayListD();
       
       final int size = LoggingInitInfo.logConfigInfoList.size();
       for(int index = 0; index < size; index++)

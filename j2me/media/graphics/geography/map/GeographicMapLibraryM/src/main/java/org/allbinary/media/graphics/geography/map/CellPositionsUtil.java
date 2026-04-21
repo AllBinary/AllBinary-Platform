@@ -12,12 +12,12 @@
 * 
 */
 package org.allbinary.media.graphics.geography.map;
-import org.allbinary.logic.string.StringMaker;
 
 
 import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.game.layer.AllBinaryTiledLayer;
+import org.allbinary.util.BasicArrayListS;
 
 /**
  *
@@ -79,7 +79,7 @@ public class CellPositionsUtil
     }
 
     private final BasicArrayList reusableSingleThreadedSurroundingList = 
-        new BasicArrayList(8);
+        new BasicArrayListS(8);
 
     public final BasicArrayList getAllSurrounding(
             final BasicGeographicMap geographicMapInterface,

@@ -18,6 +18,7 @@ import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.logic.java.bool.BooleanUtil;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.w3c.dom.Node;
 
 
@@ -136,7 +137,7 @@ public class LogConfig
 */
     public BasicArrayList getTypeVector() throws Exception
     {
-        BasicArrayList logKeyVector = new BasicArrayList();
+        BasicArrayList logKeyVector = new BasicArrayListD();
         /*
         Document document = this.getDoc();
 

@@ -21,6 +21,7 @@ import org.allbinary.logic.string.regex.replace.Replace;
 import org.allbinary.string.CommonPhoneStrings;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class UniqueTokens
 {
@@ -67,7 +68,7 @@ public class UniqueTokens
          {
             String keywords = (String) stringVector.elementAt(index);
             Tokenizer tokenizer = new Tokenizer(commonSeps.COMMA);
-            BasicArrayList keywordVector = tokenizer.getTokens(keywords, new BasicArrayList());
+            BasicArrayList keywordVector = tokenizer.getTokens(keywords, new BasicArrayListD());
                         
             for(int forIndex=0;forIndex<keywordVector.size();forIndex++)
             {
@@ -81,7 +82,7 @@ public class UniqueTokens
                if(cleanString.indexOf(' ')!=-1)
                {
                   Tokenizer spaceTokenizer = new Tokenizer(commonSeps.SPACE);
-                  BasicArrayList subKeywordVector = spaceTokenizer.getTokens(cleanString, new BasicArrayList());
+                  BasicArrayList subKeywordVector = spaceTokenizer.getTokens(cleanString, new BasicArrayListD());
                   for(int spaceIndex=0;spaceIndex<subKeywordVector.size();spaceIndex++)                  
                   {                     
                      String subCleanString = (String) subKeywordVector.get(spaceIndex);

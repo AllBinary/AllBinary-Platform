@@ -16,6 +16,7 @@ package org.allbinary.game.input;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class GameInputProcessorComposite extends PlayerGameInput
 {
@@ -26,7 +27,7 @@ public class GameInputProcessorComposite extends PlayerGameInput
     public GameInputProcessorComposite(String name,
             GameInputProcessorInterface gameInputProcessorInterface)
     {
-        super(new BasicArrayList(), -1);
+        super(new BasicArrayListD(), -1);
         
         this.name = name;
         this.gameInputProcessorInterface = gameInputProcessorInterface;

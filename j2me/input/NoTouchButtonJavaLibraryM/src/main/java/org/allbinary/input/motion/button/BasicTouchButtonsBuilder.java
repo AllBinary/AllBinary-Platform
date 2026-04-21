@@ -16,6 +16,7 @@ package org.allbinary.input.motion.button;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.util.BasicArrayListUtil;
 
 public class BasicTouchButtonsBuilder
@@ -38,7 +39,7 @@ public class BasicTouchButtonsBuilder
         {
             this.logUtil.putF(commonStrings.START, this, commonStrings.GET_LIST);
             
-            final BasicArrayList list = new BasicArrayList();
+            final BasicArrayList list = new BasicArrayListD();
             
             return list;
         }

@@ -21,6 +21,7 @@ import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.view.ViewPosition;
 
 public class HealLayer extends AllBinaryLayer
@@ -30,7 +31,7 @@ public class HealLayer extends AllBinaryLayer
    public HealLayer()
       throws Exception
    {
-      super(new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0), new ViewPosition());
+      super(StringUtil.getInstance().EMPTY_STRING, new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0), ViewPosition.getInstanceD());
    }
 
    @Override   

@@ -17,6 +17,7 @@ package org.allbinary.game.layer;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
@@ -28,7 +29,7 @@ public class MultiSelectPaintable
 extends SelectionHudPaintable
 {
     
-    private final BasicArrayList rootNameList = new BasicArrayList();
+    private final BasicArrayList rootNameList = new BasicArrayListD();
 
     private char[] totalCharArray = NullUtil.getInstance().NULL_CHAR_ARRAY;
     private String rootNamesString = StringUtil.getInstance().EMPTY_STRING;

@@ -22,6 +22,7 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class InputMapping
 {
@@ -31,7 +32,7 @@ public class InputMapping
 
    //TWB - Use MapList someday
     private final Hashtable hashtable = new Hashtable();
-    private final BasicArrayList mappedList = new BasicArrayList();
+    private final BasicArrayList mappedList = new BasicArrayListD();
 
     protected InputMapping()
     {
@@ -125,7 +126,7 @@ public class InputMapping
 
         if (mappingInputCanBeNullList == null)
         {
-            final BasicArrayList list = new BasicArrayList();
+            final BasicArrayList list = new BasicArrayListD();
             this.hashtable.put(id, list);
             return list;
         }

@@ -26,6 +26,7 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class InputToGameKeyMapping extends InputMapping
 {
@@ -133,7 +134,7 @@ public class InputToGameKeyMapping extends InputMapping
     public BasicArrayList getReverseInstance(int id)
     //throws Exception
     {
-        BasicArrayList list = new BasicArrayList();
+        BasicArrayList list = new BasicArrayListD();
 
         final InputFactory inputFactory = InputFactory.getInstance();
         

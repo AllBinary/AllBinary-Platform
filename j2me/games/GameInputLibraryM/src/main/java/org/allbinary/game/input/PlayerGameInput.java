@@ -22,6 +22,7 @@ import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class PlayerGameInput extends GameInput 
       implements GameKeyEventListenerInterface
@@ -32,7 +33,7 @@ public class PlayerGameInput extends GameInput
     private final int playerInputId;
     
     public PlayerGameInput(final BasicArrayList gameKeyEventList, final int playerInputId) {
-        this(gameKeyEventList, new BasicArrayList(), playerInputId);
+        this(gameKeyEventList, new BasicArrayListD(), playerInputId);
     }
     
    public PlayerGameInput(final BasicArrayList gameKeyEventList, final BasicArrayList removalGameKeyEventList, final int playerInputId)

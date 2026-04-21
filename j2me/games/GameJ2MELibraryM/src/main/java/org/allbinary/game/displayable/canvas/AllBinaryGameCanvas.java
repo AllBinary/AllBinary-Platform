@@ -135,6 +135,7 @@ import org.allbinary.time.GameTickTimeDelayHelper;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.util.BasicArrayListUtil;
 
 public class AllBinaryGameCanvas
@@ -187,7 +188,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     private Paintable highScoresPaintable = NullPaintable.getInstance();
 
     // TODO TWB hack around key event handling performance
-    private BasicArrayList localPlayerGameInputList = new BasicArrayList();
+    private BasicArrayList localPlayerGameInputList = new BasicArrayListD();
             //NoPlayerGameInput.getInstance();
     private boolean isCheating;
     private Hashtable hashtable = this.nullUtil.NULL_TABLE;
@@ -254,7 +255,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     private final BaseMenuBehavior menuBehavior;
 
     private PaintableInterface progressPaintable = ProgressCanvasFactory.getLazyInstance();
-    
+
     public AllBinaryGameCanvas(
             final CommandListener commandListener,
             final AllBinaryGameLayerManager gameLayerManager,
@@ -270,7 +271,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         this.highScoresFactoryInterface = highScoresFactoryInterface;
 
-        if (this.gameLayerManager.getGameInfo().getGameType() == this.gameTypeFactory.BOT) {
+        if (this.gameLayerManager.getGameInfo().getGameType() == this.gameTypeFactory.BOT || this.gameLayerManager.getGameInfo().getGameType() == this.gameTypeFactory.NONE) {
             this.gameBehavior = DemoGameBehavior.getInstance();
             this.menuBehavior = BaseMenuBehavior.getInstance();
         } else {
@@ -286,40 +287,6 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         DisplayChangeEventHandler.getInstance().addListener(this);
 
-    }
-
-    //Null GameCanvas
-    public AllBinaryGameCanvas(final AllBinaryGameLayerManager gameLayerManager)
-    {
-        this.highScoresHelper = NoHighScoresFactory.getInstance().createHighScoresHelper();
-
-        if (this.gameLayerManager.getGameInfo().getGameType() == this.gameTypeFactory.BOT) {
-            this.gameBehavior = DemoGameBehavior.getInstance();
-            this.menuBehavior = BaseMenuBehavior.getInstance();
-        } else {
-            this.gameBehavior = BaseGameBehavior.getInstance();
-            this.menuBehavior = this.getInGameMenuBehavior();
-        }
-
-        this.gameLayerManager = gameLayerManager;
-
-        this.highScoresFactoryInterface = NoHighScoresFactory.getInstance();
-    }
-
-    public AllBinaryGameCanvas()
-    {
-
-        this.highScoresHelper = NoHighScoresFactory.getInstance().createHighScoresHelper();
-
-//        if (this.gameLayerManager.getGameInfo().getGameType() == gameTypeFactory.BOT) {
-            this.gameBehavior = DemoGameBehavior.getInstance();
-            this.menuBehavior = BaseMenuBehavior.getInstance();
-//        } else {
-//            this.gameBehavior = BaseGameBehavior.getInstance();
-//            this.menuBehavior = this.getInGameMenuBehavior();
-//        }
-
-        this.highScoresFactoryInterface = NoHighScoresFactory.getInstance();
     }
 
     public BaseMenuBehavior getInGameMenuBehavior() {
@@ -438,7 +405,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                     this.gameLayerManager.getForegroundBasicColor()));
 
             this.setPopupMenuInputProcessor(new PopupMenuInputProcessor(
-                    new BasicArrayList(), -1, this, popupMenuRectangle));
+                    new BasicArrayListD(), -1, this, popupMenuRectangle));
         }
     }
 
@@ -484,7 +451,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                 this.gameLayerManager.getBackgroundBasicColor(),
                 this.gameLayerManager.getForegroundBasicColor()));
 
-        //this.setMenuInputProcessor( new DemoCanvasBasicStartInputProcessor( new BasicArrayList(), this));
+        //this.setMenuInputProcessor( new DemoCanvasBasicStartInputProcessor( new BasicArrayListD(), this));
         final ScrollSelectionForm scrollSelectionForm = this.getMenuForm();
 
         final Features features = Features.getInstance();
@@ -492,7 +459,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         if (features.isFeature(this.touchFeatureFactory.TOUCH_ENABLED)) {
             //this.logUtil.putF("initMenu - touch", this, commonStrings.PROCESS);
             this.mainMenuInputProcessor = new PopupCommandFormInputProcessor(
-                    new BasicArrayList(), -1, this, scrollSelectionForm,
+                    new BasicArrayListD(), -1, this, scrollSelectionForm,
                     (PopupMenuInputProcessor) this.getPopupMenuInputProcessor());
         } else {
             //this.logUtil.putF("initMenu - no touch", this, commonStrings.PROCESS);

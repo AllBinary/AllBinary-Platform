@@ -23,6 +23,7 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class BaseChangedGameFeatureListener implements GameFeatureListenerInterface
 {
@@ -30,7 +31,7 @@ public class BaseChangedGameFeatureListener implements GameFeatureListenerInterf
 
     protected final GameFeatureUtil gameFeatureUtil = GameFeatureUtil.getInstance();
 
-    protected final BasicArrayList list = new BasicArrayList();
+    protected final BasicArrayList list = new BasicArrayListD();
     private boolean changed = true;
 
     @Override

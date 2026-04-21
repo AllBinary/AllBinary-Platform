@@ -22,6 +22,7 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 import org.allbinary.persistance.PlatformRecordIdUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class BasicPersitance
 {
@@ -33,8 +34,8 @@ public class BasicPersitance
     
     private final String recordId;
     
-    protected final BasicArrayList valueList = new BasicArrayList();
-    protected final BasicArrayList idList = new BasicArrayList();
+    protected final BasicArrayList valueList = new BasicArrayListD();
+    protected final BasicArrayList idList = new BasicArrayListD();
     
     protected BasicPersitance(final String recordId)
     {

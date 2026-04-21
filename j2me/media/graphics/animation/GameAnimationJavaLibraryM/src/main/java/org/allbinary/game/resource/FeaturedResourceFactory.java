@@ -23,6 +23,7 @@ import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 /**
  * 
@@ -32,7 +33,7 @@ public class FeaturedResourceFactory
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private final BasicArrayList list = new BasicArrayList();
+    private final BasicArrayList list = new BasicArrayListD();
 
     public FeaturedResourceFactory()
     {

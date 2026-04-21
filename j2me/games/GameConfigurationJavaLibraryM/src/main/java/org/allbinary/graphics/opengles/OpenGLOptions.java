@@ -16,6 +16,7 @@ package org.allbinary.graphics.opengles;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.GameFeatureChoiceGroups;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class OpenGLOptions
 {
@@ -25,14 +26,14 @@ public class OpenGLOptions
         
         if (Features.getInstance().isFeature(openGLFeatureFactory.OPENGL_OPTIONS))
         {
-            BasicArrayList openGLMultipleList = new BasicArrayList();
+            BasicArrayList openGLMultipleList = new BasicArrayListD();
 
             openGLMultipleList.add(openGLFeatureFactory.OPENGL);
 
             GameFeatureChoiceGroups.getMultipleInstance().add(
                     "OpenGL (Complete Restart)", openGLMultipleList);
 
-            BasicArrayList openGLVersionSelectorMultipleList = new BasicArrayList();
+            BasicArrayList openGLVersionSelectorMultipleList = new BasicArrayListD();
 
             openGLVersionSelectorMultipleList.add(openGLFeatureFactory.OPENGL_AUTO_SELECT);
             openGLVersionSelectorMultipleList.add(openGLFeatureFactory.OPENGL_MINIMUM);
@@ -42,7 +43,7 @@ public class OpenGLOptions
                     openGLVersionSelectorMultipleList);
 
             /*
-             * BasicArrayList openGLTypeMultipleList = new BasicArrayList();
+             * BasicArrayList openGLTypeMultipleList = new BasicArrayListD();
              * 
              * openGLTypeMultipleList.add(OpenGLFeature.OPENGL_AS_GAME_THREAD);
              * openGLMultipleList
@@ -52,7 +53,7 @@ public class OpenGLOptions
              * openGLTypeMultipleList);
              */
 
-            BasicArrayList openGLImageColorMultipleList = new BasicArrayList();
+            BasicArrayList openGLImageColorMultipleList = new BasicArrayListD();
 
             openGLImageColorMultipleList.add(openGLFeatureFactory.IMAGE_COLOR_DEPTH_4444);
             // openGLImageColorMultipleList.add(OpenGLFeature.IMAGE_COLOR_DEPTH_565);
@@ -62,7 +63,7 @@ public class OpenGLOptions
                     "OpenGL Image Color RGBA", openGLImageColorMultipleList);
 
             /*
-             * BasicArrayList openGLColorMultipleList = new BasicArrayList();
+             * BasicArrayList openGLColorMultipleList = new BasicArrayListD();
              * 
              * 
              * openGLColorMultipleList.add(OpenGLFeature.OPENGL_COLOR_DEPTH_4444)

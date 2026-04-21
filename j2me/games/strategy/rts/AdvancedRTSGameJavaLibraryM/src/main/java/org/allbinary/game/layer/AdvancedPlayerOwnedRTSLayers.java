@@ -15,23 +15,24 @@ package org.allbinary.game.layer;
 
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class AdvancedPlayerOwnedRTSLayers
     extends PlayerOwnedRTSLayers
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private final BasicArrayList unitsList = new BasicArrayList();
+    private final BasicArrayList unitsList = new BasicArrayListD();
 
-    private final BasicArrayList waypointsList = new BasicArrayList();
+    private final BasicArrayList waypointsList = new BasicArrayListD();
 
-    private final BasicArrayList buildingList = new BasicArrayList();
+    private final BasicArrayList buildingList = new BasicArrayListD();
     
-    private final BasicArrayList baseList = new BasicArrayList();
-    private final BasicArrayList garrisonList = new BasicArrayList();
-    private final BasicArrayList houseList = new BasicArrayList();
-    private final BasicArrayList labList = new BasicArrayList();
-    private final BasicArrayList factoryList = new BasicArrayList();
+    private final BasicArrayList baseList = new BasicArrayListD();
+    private final BasicArrayList garrisonList = new BasicArrayListD();
+    private final BasicArrayList houseList = new BasicArrayListD();
+    private final BasicArrayList labList = new BasicArrayListD();
+    private final BasicArrayList factoryList = new BasicArrayListD();
 
     public void addUnit(RTSLayer rtsLayer)
     {

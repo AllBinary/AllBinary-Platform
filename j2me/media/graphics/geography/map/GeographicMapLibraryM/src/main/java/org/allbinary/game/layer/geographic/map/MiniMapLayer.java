@@ -15,7 +15,9 @@ package org.allbinary.game.layer.geographic.map;
 
 import javax.microedition.lcdui.Graphics;
 
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.animation.vector.CircleFilledAnimation;
@@ -56,7 +58,8 @@ public class MiniMapLayer
         //GeographicMapCellPositionFactory geographicMapCellPositionFactory,
         //ViewPosition can only be static or setPosition will need to be in paint
         ViewPosition viewPosition) throws Exception {
-        super(new Rectangle(PointFactory.getInstance().getInstance0(0, viewPosition.getY()),
+        super(StringUtil.getInstance().EMPTY_STRING,
+                new Rectangle(PointFactory.getInstance().getInstance0(0, viewPosition.getY()),
             geographicMapInterface.getAllBinaryTiledLayer().getWidth(),
             geographicMapInterface.getAllBinaryTiledLayer().getHeight()),
             viewPosition);
@@ -72,9 +75,9 @@ public class MiniMapLayer
 
         // allBinaryTiledLayer.setPosition(0, this.getYP());
         //this.logUtil.put("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Alpha: " + this.bufferedImage.getBitmap().getPixel(0,0), this, "updateBufferedImage");
-        this.list = new BasicArrayList();
-        this.basicColorList = new BasicArrayList();
-        this.positionList = new BasicArrayList();
+        this.list = new BasicArrayListD();
+        this.basicColorList = new BasicArrayListD();
+        this.positionList = new BasicArrayListD();
 
         //GeographicMapCellPositionFactory geographicMapCellPositionFactory =
         // geographicMapInterface.getGeographicMapCellPositionFactory();

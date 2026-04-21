@@ -21,6 +21,7 @@ import org.allbinary.logic.io.file.directory.SubDirectory;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class WeblisketFinder
 {
@@ -60,7 +61,7 @@ public class WeblisketFinder
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, "findAll", e);
             }
 
-            //return new BasicArrayList();
+            //return new BasicArrayListD();
             return null;
         }
     }

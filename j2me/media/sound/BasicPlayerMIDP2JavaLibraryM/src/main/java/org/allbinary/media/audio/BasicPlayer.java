@@ -21,6 +21,7 @@ import javax.microedition.media.TimeBase;
 import org.allbinary.logic.string.StringUtil;
 
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class BasicPlayer implements Player, TimeBaseInterface, Controllable2
 {
@@ -31,7 +32,7 @@ public class BasicPlayer implements Player, TimeBaseInterface, Controllable2
    private int loopCount;
    private TimeBase timeBase;
 
-   protected final BasicArrayList listenersList = new BasicArrayList();
+   protected final BasicArrayList listenersList = new BasicArrayListD();
 
    public BasicPlayer()
    {

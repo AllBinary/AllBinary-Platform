@@ -19,6 +19,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class BasicTouchInputFactory
 // extends BaseTouchInputFactory
@@ -55,7 +56,7 @@ public class BasicTouchInputFactory
 
     private boolean initialized = false;
 
-    private final BasicArrayList list = new BasicArrayList();
+    private final BasicArrayList list = new BasicArrayListD();
 
     private BasicTouchInputFactory()
     {

@@ -14,10 +14,11 @@
 package org.allbinary.logic.communication.log.config.type;
 
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class LogConfigTypes
 {
-   public static BasicArrayList LOGGING = new BasicArrayList();
+   public static BasicArrayList LOGGING = new BasicArrayListD();
    
    private LogConfigTypes()
    {

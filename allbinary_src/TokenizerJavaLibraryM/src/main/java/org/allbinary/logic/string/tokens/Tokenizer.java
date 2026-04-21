@@ -17,6 +17,7 @@ import java.util.Hashtable;
 
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class Tokenizer {
 
@@ -40,7 +41,7 @@ public class Tokenizer {
     }
 
     public BasicArrayList getInsideSep(String string) {
-        final BasicArrayList tokenList = new BasicArrayList();
+        final BasicArrayList tokenList = new BasicArrayListD();
         int index = 0;
         int size = string.length();
         while (index < size) {
@@ -62,7 +63,7 @@ public class Tokenizer {
         return tokenList;
     }
 
-    //BasicArrayList tokenVector = new BasicArrayList();
+    //BasicArrayList tokenVector = new BasicArrayListD();
     public BasicArrayList getTokens(String string, BasicArrayList tokenVector) {
         int index = 0;
         int end = 0;

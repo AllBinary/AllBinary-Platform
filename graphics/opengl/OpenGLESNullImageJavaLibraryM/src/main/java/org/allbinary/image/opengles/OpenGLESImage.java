@@ -23,6 +23,7 @@ import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
 import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class OpenGLESImage extends Image
 implements OpenGLSurfaceChangedInterface
@@ -30,7 +31,7 @@ implements OpenGLSurfaceChangedInterface
     public static final OpenGLESImage NULL_OPENGL_IMAGE = new OpenGLESImage(
         NullCanvas.NULL_IMAGE, PlatformBitmapBaseFactory.NULL_PLATFORM_BITMAP_BASE_FACTORY, PlatformTextureBaseFactory.NULL_PLATFORM_TEXTURE_BASE_FACTORY);
     
-    public static final BasicArrayList texture2dList = new BasicArrayList();
+    public static final BasicArrayList texture2dList = new BasicArrayListD();
     
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     

@@ -25,6 +25,7 @@ import org.allbinary.image.ImageCache;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.microemu.android.device.AndroidImageInterface;
 
 public class ImageScaleUtil
@@ -48,10 +49,10 @@ public class ImageScaleUtil
     
     private int anchor = Anchor.TOP_LEFT;
     
-    private final BasicArrayList imageBasicArrayList = new BasicArrayList();
-    private final BasicArrayList scaledImageBasicArrayList = new BasicArrayList();
-    private final BasicArrayList scaleXBasicArrayList = new BasicArrayList();
-    private final BasicArrayList scaleYBasicArrayList = new BasicArrayList();
+    private final BasicArrayList imageBasicArrayList = new BasicArrayListD();
+    private final BasicArrayList scaledImageBasicArrayList = new BasicArrayListD();
+    private final BasicArrayList scaleXBasicArrayList = new BasicArrayListD();
+    private final BasicArrayList scaleYBasicArrayList = new BasicArrayListD();
 
     public Image createImage(final ImageCache imageCache, final Image originalImage,
         final float scaleNominatorX, final float scaleDenominatorX,

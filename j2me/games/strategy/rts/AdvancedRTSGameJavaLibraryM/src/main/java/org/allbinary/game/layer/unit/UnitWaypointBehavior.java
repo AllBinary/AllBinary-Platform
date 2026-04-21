@@ -13,29 +13,30 @@
  */
 package org.allbinary.game.layer.unit;
 
-import org.allbinary.game.layer.SensorAction;
-import org.allbinary.game.layer.SensorActionFactory;
-import org.allbinary.logic.string.StringMaker;
 import org.allbinary.game.input.form.PrimaryWaypointHelper;
 import org.allbinary.game.layer.AdvancedRTSGameLayer;
 import org.allbinary.game.layer.RTSLayerEvent;
+import org.allbinary.game.layer.SensorAction;
+import org.allbinary.game.layer.SensorActionFactory;
 import org.allbinary.game.layer.WaypointBehaviorBase;
 import org.allbinary.game.layer.building.BuildingLayer;
 import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
 import org.allbinary.game.layer.waypoint.event.WaypointEventListenerInterface;
-import org.allbinary.util.BasicArrayList;
-import org.allbinary.util.BasicArrayListUtil;
-import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.layer.AllBinaryLayer;
-import org.allbinary.string.CommonSeps;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellHistory;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 import org.allbinary.media.graphics.geography.map.SimpleGeographicMapCellPositionFactory;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.time.TimeDelayHelper;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
+import org.allbinary.util.BasicArrayListUtil;
 
 public class UnitWaypointBehavior 
     extends WaypointBehaviorBase
@@ -82,9 +83,9 @@ public class UnitWaypointBehavior
                 
         this.completeTimeDelayHelper = new TimeDelayHelper(30000);
         
-        this.targetList = new BasicArrayList();
+        this.targetList = new BasicArrayListD();
 
-        this.possibleTargetList = new BasicArrayList();
+        this.possibleTargetList = new BasicArrayListD();
 
         this.setWaypointPathsList(BasicArrayListUtil.getInstance().getImmutableInstance());
 

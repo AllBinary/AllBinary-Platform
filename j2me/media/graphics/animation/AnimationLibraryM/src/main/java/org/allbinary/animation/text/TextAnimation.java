@@ -22,6 +22,7 @@ import org.allbinary.graphics.font.MyFont;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class TextAnimation extends IndexedAnimation
 {
@@ -70,7 +71,7 @@ public class TextAnimation extends IndexedAnimation
 
     public void setText(String text)
     {
-        final BasicArrayList list = new BasicArrayList();
+        final BasicArrayList list = new BasicArrayListD();
 
         if(text != null) {
             int index = 0;

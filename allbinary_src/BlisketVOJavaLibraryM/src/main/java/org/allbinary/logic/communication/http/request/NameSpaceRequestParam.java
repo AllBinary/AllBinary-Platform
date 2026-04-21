@@ -21,6 +21,7 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.tokens.Tokenizer;
 import org.allbinary.logic.visual.dhtml.html.name.HtmlNameMathData;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class NameSpaceRequestParam
 {
@@ -49,7 +50,7 @@ public class NameSpaceRequestParam
          NameSpaceRequestParamData.SEP.length());
 
       Tokenizer sepTokenizer = new Tokenizer(NameSpaceRequestParamData.SEP);
-      BasicArrayList nameSpaceWithPropertiesVector = sepTokenizer.getTokens(packages, new BasicArrayList());
+      BasicArrayList nameSpaceWithPropertiesVector = sepTokenizer.getTokens(packages, new BasicArrayListD());
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
@@ -63,7 +64,7 @@ public class NameSpaceRequestParam
 
       int packageIndex = 0;
 
-      final BasicArrayList list = new BasicArrayList();
+      final BasicArrayList list = new BasicArrayListD();
       
       int index = 0;
       
@@ -170,11 +171,11 @@ public class NameSpaceRequestParam
 
       HashMap packagePropertiesHashMap = new HashMap();
 
-      BasicArrayList propertyVector = propertiesTokenizer.getTokens(properties, new BasicArrayList());
+      BasicArrayList propertyVector = propertiesTokenizer.getTokens(properties, new BasicArrayListD());
 
       //First Item is Always the key the rest are Properties
       
-      final BasicArrayList list = new BasicArrayList();
+      final BasicArrayList list = new BasicArrayListD();
       
       final Tokenizer propertyTokenizer = new Tokenizer(HtmlNameMathData.getInstance().EQUALS);
       

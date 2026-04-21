@@ -17,11 +17,12 @@ import org.allbinary.debug.DebugFactory;
 import org.allbinary.debug.NoDebug;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class LicenseInitInfo
 {
     private String id = StringUtil.getInstance().EMPTY_STRING;
-    private BasicArrayList serverVector = new BasicArrayList();
+    private BasicArrayList serverVector = new BasicArrayListD();
 
     public LicenseInitInfo()
     {
@@ -49,7 +50,7 @@ public class LicenseInitInfo
 
     public void clearServers()
     {
-        this.serverVector = new BasicArrayList();
+        this.serverVector = new BasicArrayListD();
     }
 
     public void setServer(String value, int index)

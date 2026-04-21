@@ -27,6 +27,7 @@ import org.allbinary.logic.system.hardware.components.interfaces.HardwareCompone
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 /**
  *
@@ -39,7 +40,7 @@ public class AndroidHardware implements HardwareInterface
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
-    private BasicArrayList componentInterfaceVector = new BasicArrayList();
+    private BasicArrayList componentInterfaceVector = new BasicArrayListD();
     private final String PROC_BUS_INPUT_DIRECTORY = "/proc/bus/input/";
     private final String DEVICES = PROC_BUS_INPUT_DIRECTORY + "devices/";
     //private final String HANDLERS = PROC_BUS_INPUT_DIRECTORY + "handlers/";
@@ -82,7 +83,7 @@ public class AndroidHardware implements HardwareInterface
 
     private LineNumberReader get(final String filePath) throws Exception
     {
-        this.componentInterfaceVector = new BasicArrayList();
+        this.componentInterfaceVector = new BasicArrayListD();
 
         final FileReader pciFile = new FileReader(filePath);
         final LineNumberReader lineNumberReader = new LineNumberReader(pciFile);

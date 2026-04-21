@@ -14,6 +14,7 @@
 package org.allbinary.media.graphics.geography.map.event;
 
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.game.layer.geographic.map.MiniMapLayer;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventListenerInterface;
@@ -31,7 +32,7 @@ extends BasicEventHandler
         return GeographicMapCellPositionEventHandler.instance;
     }
 
-    private final BasicArrayList list = new BasicArrayList();
+    private final BasicArrayList list = new BasicArrayListD();
     
     private GeographicMapCellPositionEventHandler()
     {

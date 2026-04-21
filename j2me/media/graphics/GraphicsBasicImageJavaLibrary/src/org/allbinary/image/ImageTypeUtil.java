@@ -23,7 +23,7 @@ public class ImageTypeUtil
     public final String JPG = "jpg";
     public final String GIF = "gif";
     
-    private final BasicArrayList list = new BasicArrayList();
+    private final BasicArrayList list = new BasicArrayListD();
     
     private ImageTypeUtil()
     {

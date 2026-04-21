@@ -39,6 +39,7 @@ import org.allbinary.thread.BaseImageLoadingProcessor;
 import org.allbinary.thread.ConcurrentImageLoadingProcessor;
 import org.allbinary.thread.SynchObject;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class ImageCache extends ImageCacheBase {
     
@@ -55,11 +56,11 @@ public class ImageCache extends ImageCacheBase {
     private final GameGlobalsFactory gameGlobalsFactory = GameGlobalsFactory.getInstance();
     private final GDResources gdResources = GDResources.getInstance();
     
-    public final BasicArrayList loadNowList = new BasicArrayList();
-    public final BasicArrayList loadSoonList = new BasicArrayList();
-    public final BasicArrayList loadList = new BasicArrayList();
-    //public final BasicArrayList loadImageAfterList = new BasicArrayList();
-    public final BasicArrayList loadAfterList = new BasicArrayList();
+    public final BasicArrayList loadNowList = new BasicArrayListD();
+    public final BasicArrayList loadSoonList = new BasicArrayListD();
+    public final BasicArrayList loadList = new BasicArrayListD();
+    //public final BasicArrayList loadImageAfterList = new BasicArrayListD();
+    public final BasicArrayList loadAfterList = new BasicArrayListD();
 
     private final SynchObject lock = new SynchObject();
     
@@ -478,7 +479,7 @@ public class ImageCache extends ImageCacheBase {
     }
 
     public BasicArrayList getAssociated(final LazyImageRotationAnimation lazyImageRotationAnimation) {
-        final BasicArrayList list = new BasicArrayList();
+        final BasicArrayList list = new BasicArrayListD();
         
         synchronized (this.lock) {
 

@@ -22,6 +22,7 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class GameMotionGestureListener implements MotionGestureEventListener
 {
@@ -29,8 +30,8 @@ public class GameMotionGestureListener implements MotionGestureEventListener
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
-    private BasicArrayList motionGestureCollection = new BasicArrayList();
-    private BasicArrayList touchGestureCollection = new BasicArrayList();
+    private BasicArrayList motionGestureCollection = new BasicArrayListD();
+    private BasicArrayList touchGestureCollection = new BasicArrayListD();
     private CompleteMotionGestureListenerInterface signed;
 
     public GameMotionGestureListener(

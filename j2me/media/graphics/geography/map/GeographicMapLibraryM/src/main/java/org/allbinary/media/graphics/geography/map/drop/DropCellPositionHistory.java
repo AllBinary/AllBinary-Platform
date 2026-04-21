@@ -14,6 +14,7 @@
 package org.allbinary.media.graphics.geography.map.drop;
 
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.graphics.CellPosition;
 import org.allbinary.graphics.CellPositionFactory;
@@ -34,8 +35,8 @@ public class DropCellPositionHistory
     
     private final CellPositionFactory cellPositionFactory = CellPositionFactory.getInstance();
     
-    private BasicArrayList positionList = new BasicArrayList();
-    private BasicArrayList layerList = new BasicArrayList();
+    private BasicArrayList positionList = new BasicArrayListD();
+    private BasicArrayList layerList = new BasicArrayListD();
 
     public void add(CellPosition cellPosition, AllBinaryLayer layerInterface)
     {

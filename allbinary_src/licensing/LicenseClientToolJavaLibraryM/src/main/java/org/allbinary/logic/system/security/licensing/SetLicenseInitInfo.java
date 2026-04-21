@@ -31,7 +31,7 @@ public class SetLicenseInitInfo
 
     private static BufferedReader stdinput =
             new BufferedReader(new InputStreamReader(System.in));
-    private BasicArrayList vector = new BasicArrayList();
+    private BasicArrayList vector = new BasicArrayListD();
 
     public SetLicenseInitInfo(String[] options) throws Exception
     {
@@ -142,6 +142,6 @@ public class SetLicenseInitInfo
     public static void main(String[] args) throws Exception
     {
         SetLicenseInitInfo initInfo = new SetLicenseInitInfo(args);
-        initInfo.createNewLicenseInitInfo(new BasicArrayList());
+        initInfo.createNewLicenseInitInfo(new BasicArrayListD());
     }
 }

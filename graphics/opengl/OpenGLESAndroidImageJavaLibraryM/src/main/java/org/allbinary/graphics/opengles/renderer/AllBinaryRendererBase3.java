@@ -18,6 +18,7 @@ import javax.microedition.lcdui.Image;
 
 import org.allbinary.image.opengles.OpenGLESImage;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 /**
  *
@@ -25,7 +26,7 @@ import org.allbinary.util.BasicArrayList;
  */
 public class AllBinaryRendererBase3 {
     
-    public final BasicArrayList list = new BasicArrayList();
+    public final BasicArrayList list = new BasicArrayListD();
     
     protected void update(final GL10 gl) throws Exception
     {

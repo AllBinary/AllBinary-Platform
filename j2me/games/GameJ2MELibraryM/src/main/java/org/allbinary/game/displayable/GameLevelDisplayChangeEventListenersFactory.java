@@ -17,6 +17,7 @@ import org.allbinary.graphics.displayable.event.DisplayChangeEventHandler;
 import org.allbinary.graphics.displayable.event.DisplayChangeEventListener;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class GameLevelDisplayChangeEventListenersFactory
 {
@@ -29,7 +30,7 @@ public class GameLevelDisplayChangeEventListenersFactory
         return instance;
     }
 
-    private final BasicArrayList list = new BasicArrayList();
+    private final BasicArrayList list = new BasicArrayListD();
 
     public final void add(DisplayChangeEventListener displayChangeEventListener)
     {

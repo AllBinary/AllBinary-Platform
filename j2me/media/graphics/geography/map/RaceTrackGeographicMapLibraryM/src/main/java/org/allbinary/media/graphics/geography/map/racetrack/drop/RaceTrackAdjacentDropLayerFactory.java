@@ -14,6 +14,7 @@
 package org.allbinary.media.graphics.geography.map.racetrack.drop;
 
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.util.BasicArrayListUtil;
 
 import org.allbinary.layer.LayerInterfaceFactoryInterface;
@@ -23,7 +24,7 @@ public class RaceTrackAdjacentDropLayerFactory
 {
    private static RaceTrackAdjacentDropLayerFactory DROP_LAYER_FACTORY = new RaceTrackAdjacentDropLayerFactory();
    
-   private BasicArrayList list = new BasicArrayList();
+   private BasicArrayList list = new BasicArrayListD();
 
    private RaceTrackAdjacentDropLayerFactory()
    {

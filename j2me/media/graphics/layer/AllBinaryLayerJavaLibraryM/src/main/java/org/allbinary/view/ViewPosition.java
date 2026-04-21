@@ -20,19 +20,18 @@ import org.allbinary.layer.AllBinaryLayer;
 // tileLayer location
 public class ViewPosition extends GPoint
 {
-    public static final ViewPosition NULL_VIEW_POSITION = new ViewPosition();
+    public static ViewPosition getInstanceD() {
+        return new ViewPosition(0, 0, 0);
+    }
     
+    public static final ViewPosition NULL_VIEW_POSITION = ViewPosition.getInstanceD();
+        
     private AllBinaryLayer allbinaryLayer = AllBinaryLayer.NULL_ALLBINARY_LAYER;
 
-    public ViewPosition()
-    {
-        super(0, 0, 0);
-    }
-
-    protected ViewPosition(int x, int y)
-    {
-        super(x, y, 0);
-    }
+//    protected ViewPosition(int x, int y)
+//    {
+//        super(x, y, 0);
+//    }
 
     protected ViewPosition(int x, int y, int z)
     {

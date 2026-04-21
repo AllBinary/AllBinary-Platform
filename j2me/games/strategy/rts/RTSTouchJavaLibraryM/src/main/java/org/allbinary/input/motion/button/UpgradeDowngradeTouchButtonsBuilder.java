@@ -17,6 +17,7 @@ package org.allbinary.input.motion.button;
 import org.allbinary.game.input.resource.TouchButtonDowngradeResource;
 import org.allbinary.game.input.resource.TouchButtonUpgradeResource;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.util.BasicArrayListUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.graphics.CellPositionFactory;
@@ -33,7 +34,7 @@ extends BaseTouchInput
         {
             this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
-            final BasicArrayList list = new BasicArrayList();
+            final BasicArrayList list = new BasicArrayListD();
 
             final TouchButtonLocationHelper touchButtonLocationHelper = new TouchButtonLocationHelper();
 

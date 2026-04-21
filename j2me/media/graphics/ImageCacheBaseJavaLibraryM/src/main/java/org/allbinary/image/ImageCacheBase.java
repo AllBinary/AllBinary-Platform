@@ -24,6 +24,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class ImageCacheBase
 {
@@ -49,12 +50,12 @@ public class ImageCacheBase
 
         for (int index = this.listOfList.length - 1; index >= 0; index--)
         {
-            this.listOfList[index] = new BasicArrayList();
+            this.listOfList[index] = new BasicArrayListD();
         }
 
         for (int index = this.availableListOfList.length - 1; index >= 0; index--)
         {
-            this.availableListOfList[index] = new BasicArrayList();
+            this.availableListOfList[index] = new BasicArrayListD();
         }
     }
     

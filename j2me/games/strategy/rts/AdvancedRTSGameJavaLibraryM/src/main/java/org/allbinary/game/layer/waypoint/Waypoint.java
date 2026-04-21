@@ -36,6 +36,7 @@ import org.allbinary.media.graphics.geography.pathfinding.BasicGeographicMapExtr
 import org.allbinary.media.graphics.geography.pathfinding.PathFindingInfo;
 import org.allbinary.media.graphics.geography.pathfinding.PathGenerator;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.util.BasicArrayListUtil;
 
 /**
@@ -127,9 +128,9 @@ public class Waypoint extends WaypointBase
     private BasicArrayList createPaths(GeographicMapCellPosition geographicMapCellPosition)
     throws Exception
     {
-    BasicArrayList pathsList = new BasicArrayList();
+    BasicArrayList pathsList = new BasicArrayListD();
 
-    BasicArrayList pathList = new BasicArrayList();
+    BasicArrayList pathList = new BasicArrayListD();
 
     GeographicMapCellPosition endGeographicMapCellPosition =
     (GeographicMapCellPosition)
@@ -171,7 +172,7 @@ public class Waypoint extends WaypointBase
         throws Exception
     {
         if(this.endList.size() == 0) {
-            //return new BasicArrayList();
+            //return new BasicArrayListD();
             return basicArrayListUtil.getImmutableInstance();
         }
 
@@ -179,7 +180,7 @@ public class Waypoint extends WaypointBase
             this.getEndGeographicMapCellPosition(startGeographicMapCellPosition);
 
         if(endGeographicMapCellPosition == null) {
-            //return new BasicArrayList();
+            //return new BasicArrayListD();
             return basicArrayListUtil.getImmutableInstance();
         }
         
@@ -189,7 +190,7 @@ public class Waypoint extends WaypointBase
             if (this.ownerLayer.shouldHandleStartSameAsEnd())
             //if (this.endList.size() < 2)
             {
-                //return new BasicArrayList();
+                //return new BasicArrayListD();
                 return basicArrayListUtil.getImmutableInstance();
             }
             else

@@ -23,6 +23,7 @@ import org.allbinary.logic.string.tokens.Tokenizer;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class TransactionResult implements TransactionResultInterface
 {
@@ -39,7 +40,7 @@ public class TransactionResult implements TransactionResultInterface
       {
          this.result = result;
          Tokenizer tokenizer = new Tokenizer(CommonSeps.getInstance().AMPERSAND);
-         BasicArrayList tokens = tokenizer.getTokens(result, new BasicArrayList());
+         BasicArrayList tokens = tokenizer.getTokens(result, new BasicArrayListD());
          Tokenizer tokenizer2 = new Tokenizer(CommonSeps.getInstance().EQUALS);
          
          Hashtable hashtable = tokenizer2.getTokens(tokens);

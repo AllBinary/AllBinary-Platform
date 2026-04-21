@@ -14,6 +14,7 @@
 package org.allbinary.input.motion.button;
 
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class CurrentlyPressedTouchButtonSingleton
 {
@@ -25,7 +26,7 @@ public class CurrentlyPressedTouchButtonSingleton
         return instance;
     }
     
-    protected final BasicArrayList list = new BasicArrayList();
+    protected final BasicArrayList list = new BasicArrayListD();
     
     protected CurrentlyPressedTouchButtonSingleton()
     {

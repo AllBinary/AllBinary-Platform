@@ -14,6 +14,7 @@
 package org.allbinary.graphics.j2me.workarea.tools;
 
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 /**
  *
@@ -25,7 +26,7 @@ public class Points implements PointsInterface
 
     public Points()
     {
-        this.pointVector = new BasicArrayList();
+        this.pointVector = new BasicArrayListD();
     }
 
     public void init()

@@ -23,6 +23,7 @@ import org.allbinary.logic.system.os.OperatingSystemFactory;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class Features
 {
@@ -37,8 +38,8 @@ public class Features
 
     private Features()
     {
-        list = new BasicArrayList();
-        defaultList = new BasicArrayList();
+        list = new BasicArrayListD();
+        defaultList = new BasicArrayListD();
         
         this.init();
     }

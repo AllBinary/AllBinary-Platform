@@ -14,6 +14,7 @@
 package org.allbinary.logic.system.security.licensing;
 
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class LockableFeatureFactory {
     
@@ -26,7 +27,7 @@ public class LockableFeatureFactory {
         return instance;
     }
     
-    private final BasicArrayList list = new BasicArrayList();
+    private final BasicArrayList list = new BasicArrayListD();
 
     /**
      * @return the list

@@ -67,7 +67,7 @@ public class HashtableUtil
         //throw new IllegalArgumentException("Should not use - to much object creation");
         //return hashtable.keySet().toArray();
 
-        final BasicArrayList list = new BasicArrayList(hashtable.size());
+        final BasicArrayList list = new BasicArrayListS(hashtable.size());
         
         final Enumeration enumeration = hashtable.keys();
         while(enumeration.hasMoreElements())

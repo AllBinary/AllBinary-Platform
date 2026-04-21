@@ -24,12 +24,13 @@ import org.allbinary.graphics.form.ScreenInfo;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.visitor.Visitor;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class CommandTextItemArrayFactory
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
     
-    private final BasicArrayList list = new BasicArrayList();
+    private final BasicArrayList list = new BasicArrayListD();
  
     private final Visitor visitorInterface;
 

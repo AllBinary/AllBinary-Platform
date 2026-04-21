@@ -14,6 +14,7 @@
 package org.allbinary.game.layer.pickup;
 
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class CountedPickedUpLayerInterfaceFactoryPool
 {
@@ -23,7 +24,7 @@ public class CountedPickedUpLayerInterfaceFactoryPool
     
     private CountedPickedUpLayerInterfaceFactoryPool()
     {
-        list = new BasicArrayList();
+        list = new BasicArrayListD();
     }
     
     public BasicArrayList getList()

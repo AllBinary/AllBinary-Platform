@@ -14,6 +14,7 @@
 package org.allbinary.image;
 
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class ImageTypeUtil
 {
@@ -23,7 +24,7 @@ public class ImageTypeUtil
     public final String JPG = "jpg";
     public final String GIF = "gif";
     
-    private final BasicArrayList list = new BasicArrayList();
+    private final BasicArrayList list = new BasicArrayListD();
     
     private ImageTypeUtil()
     {

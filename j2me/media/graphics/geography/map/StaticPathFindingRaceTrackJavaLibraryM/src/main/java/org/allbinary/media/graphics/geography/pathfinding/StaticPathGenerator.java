@@ -14,6 +14,7 @@
 package org.allbinary.media.graphics.geography.pathfinding;
 
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
@@ -52,7 +53,7 @@ public class StaticPathGenerator {
         final BasicGeographicMapCellPositionFactory geographicMapCellPositionFactory,
         final BasicArrayList pathList)
         throws Exception {
-        final BasicArrayList list = new BasicArrayList();
+        final BasicArrayList list = new BasicArrayListD();
 
         final int size = pathList.size();
 
@@ -85,7 +86,7 @@ public class StaticPathGenerator {
             BasicArrayList list = pathCacheFactory.getInstance(mapIdInteger);
 
             if (list == this.basicArrayListUtil.getImmutableInstance()) {
-                list = new BasicArrayList();
+                list = new BasicArrayListD();
 
                 final SmallIntegerSingletonFactory smallIntegerSingletonFactory =
                     SmallIntegerSingletonFactory.getInstance();
@@ -118,7 +119,7 @@ public class StaticPathGenerator {
 
         } catch (Exception e) {
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
-            return new BasicArrayList();
+            return new BasicArrayListD();
         }
     }
 }

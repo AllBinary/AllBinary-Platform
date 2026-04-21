@@ -18,6 +18,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 /**
  *
@@ -40,12 +41,12 @@ public class RawKeyEventHandler {
 
     public RawKeyEventHandler()
     {
-        this.eventListenerInterfaceList = new BasicArrayList();
+        this.eventListenerInterfaceList = new BasicArrayListD();
     }
 
     public  void removeAllListeners()
     {
-        this.eventListenerInterfaceList = new BasicArrayList();
+        this.eventListenerInterfaceList = new BasicArrayListD();
     }
 
     public  void addListeners(final BasicArrayList vector)

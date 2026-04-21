@@ -64,6 +64,7 @@ import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class GameCommandCanvas
     extends MyCanvas
@@ -194,7 +195,7 @@ public class GameCommandCanvas
         {
             this.setMenuInputProcessor(
                     new ImmediateCommandFormInputProcessor(
-                    new BasicArrayList(), -1, this, form));
+                    new BasicArrayListD(), -1, this, form));
 
             this.menuPaintable = new FormPaintable(form);
         }

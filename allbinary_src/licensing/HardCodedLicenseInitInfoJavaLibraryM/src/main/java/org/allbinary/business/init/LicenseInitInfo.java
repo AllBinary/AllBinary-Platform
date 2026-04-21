@@ -17,11 +17,12 @@ import org.allbinary.debug.DebugFactory;
 import org.allbinary.debug.NoDebug;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class LicenseInitInfo
 {
     private String id = StringUtil.getInstance().EMPTY_STRING;
-    private BasicArrayList serverList = new BasicArrayList();
+    private BasicArrayList serverList = new BasicArrayListD();
 
     LicenseInitInfo()
     {

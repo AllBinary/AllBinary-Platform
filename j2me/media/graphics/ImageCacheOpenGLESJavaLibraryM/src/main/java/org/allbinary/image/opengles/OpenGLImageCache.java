@@ -22,6 +22,7 @@ import org.allbinary.device.NullGL10;
 
 import org.allbinary.graphics.opengles.renderer.AllBinaryRendererBase3;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.image.ImageCache;
 import org.allbinary.image.ImageCacheFactory;
 import org.allbinary.image.PreResourceImageUtil;
@@ -36,7 +37,7 @@ public class OpenGLImageCache extends ImageCache
     private GL10 gl = NullGL10.NULL_GL10;
     
     private final SynchObject lock = new SynchObject();
-    private final BasicArrayList list = new BasicArrayList();
+    private final BasicArrayList list = new BasicArrayListD();
     
     private AllBinaryRendererBase3 renderer = new AllBinaryRendererBase3();
     

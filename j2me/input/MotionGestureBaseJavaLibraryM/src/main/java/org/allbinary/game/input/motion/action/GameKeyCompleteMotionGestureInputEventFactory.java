@@ -17,6 +17,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class GameKeyCompleteMotionGestureInputEventFactory
 {
@@ -25,7 +26,7 @@ public class GameKeyCompleteMotionGestureInputEventFactory
     private static final GameKeyCompleteMotionGestureInputEventFactory SINGLETON = 
         new GameKeyCompleteMotionGestureInputEventFactory();
     
-    private final BasicArrayList eventList = new BasicArrayList();
+    private final BasicArrayList eventList = new BasicArrayListD();
     
     public static GameKeyCompleteMotionGestureInputEventFactory getInstance()
     {

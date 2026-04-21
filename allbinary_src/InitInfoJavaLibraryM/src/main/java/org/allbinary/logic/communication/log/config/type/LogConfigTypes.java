@@ -20,6 +20,7 @@ import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.communication.log.config.LoggingInitInfo;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.w3c.dom.Node;
 
 public class LogConfigTypes
@@ -28,7 +29,7 @@ public class LogConfigTypes
 
    public static final String JSP_ERROR_NO_FUNCTION = "in JSP Not In Function";
 
-   public static BasicArrayList LOGGING = new BasicArrayList();
+   public static BasicArrayList LOGGING = new BasicArrayListD();
 
    static
    {

@@ -18,10 +18,12 @@ package org.allbinary.game.layer;
 import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
 import org.allbinary.game.layer.waypoint.WaypointBase;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.game.tick.TickableInterface;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellHistory;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
+import org.allbinary.util.BasicArrayListS;
 
 public class WaypointBehaviorBase implements TickableInterface
 {
@@ -34,7 +36,7 @@ public class WaypointBehaviorBase implements TickableInterface
     public WaypointBehaviorBase()
     {
         //TWB - Currently 0ne but should change if that increases
-        this.ownedWaypointList = new BasicArrayList(1);
+        this.ownedWaypointList = new BasicArrayListS(1);
     }
 
     @Override
@@ -165,5 +167,5 @@ public class WaypointBehaviorBase implements TickableInterface
     }
     
     //If colliding with a game object then don't try to turn since in steering mode
-    private final BasicArrayList steeringVisitorList = new BasicArrayList();
+    private final BasicArrayList steeringVisitorList = new BasicArrayListD();
 }

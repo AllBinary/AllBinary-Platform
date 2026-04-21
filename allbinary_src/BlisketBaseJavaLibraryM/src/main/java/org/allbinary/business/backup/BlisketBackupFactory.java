@@ -29,6 +29,7 @@ import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class BlisketBackupFactory
 {
@@ -94,7 +95,7 @@ public class BlisketBackupFactory
 
             AbPath path = new AbPath(backupPath);
 
-            BasicArrayList fileBasicArrayList = new BasicArrayList();
+            BasicArrayList fileBasicArrayList = new BasicArrayListD();
 
             //Backup other customizable generated files
             StoreFrontsEntity storeFrontsEntity =
@@ -149,7 +150,7 @@ public class BlisketBackupFactory
 
             AbPath path = new AbPath(backupPath);
 
-            BasicArrayList fileBasicArrayList = new BasicArrayList();
+            BasicArrayList fileBasicArrayList = new BasicArrayListD();
 
             //Backup other customizable generated files
             StoreFrontsEntity storeFrontsEntity =
@@ -209,7 +210,7 @@ public class BlisketBackupFactory
 
             AbPath path = new AbPath(backupPath);
 
-            BasicArrayList fileBasicArrayList = new BasicArrayList();
+            BasicArrayList fileBasicArrayList = new BasicArrayListD();
 
             //Backup other customizable generated files
             StoreFrontsEntity storeFrontsEntity =

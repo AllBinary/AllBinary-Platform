@@ -14,6 +14,7 @@
 package org.allbinary.media.graphics.geography.map.drop;
 
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.layer.AllBinaryTiledLayer;
@@ -27,7 +28,7 @@ import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 public class AnyRandomDropCellPositionGenerator
 extends BaseDropCellPositionGenerator
 {
-    protected final BasicArrayList list = new BasicArrayList();
+    protected final BasicArrayList list = new BasicArrayListD();
     protected Object geographicMapInterface = NullUtil.getInstance().NULL_OBJECT;
     
     @Override

@@ -21,6 +21,7 @@ import org.allbinary.game.layer.MultipassWaypointPathRunnable;
 import org.allbinary.game.layer.RTSLayer;
 import org.allbinary.game.layer.WaypointPathRunnable;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -81,7 +82,7 @@ extends UnitWaypointBehavior
         
         this.progressTimeDelayHelper = new TimeDelayHelper(5000);
         
-        this.wanderPathsList = new BasicArrayList();
+        this.wanderPathsList = new BasicArrayListD();
         
         final Features features = Features.getInstance();
 
@@ -543,7 +544,7 @@ extends UnitWaypointBehavior
         return false;
     }
     
-    // private final BasicArrayList midWaypointlist = new BasicArrayList();
+    // private final BasicArrayList midWaypointlist = new BasicArrayListD();
     // Insert Mid waypoints to get around buildings or move out of build area
     // Use collide to keep away from units
     /*
@@ -745,7 +746,7 @@ extends UnitWaypointBehavior
             this.removeWaypoint(waypointLayer, this.unitWaypointStrings.ALREADY_THERE);
         }
     }
-    private static final BasicArrayList runningWaypointPathList = new BasicArrayList();
+    private static final BasicArrayList runningWaypointPathList = new BasicArrayListD();
 
     private void runWaypointPathTask(
         final AdvancedRTSGameLayer waypointLayer)
@@ -879,7 +880,7 @@ extends UnitWaypointBehavior
     
     private class BuildingSteeringVisitor extends SteeringVisitor
     {
-        private final BasicArrayList positionList = new BasicArrayList();
+        private final BasicArrayList positionList = new BasicArrayListD();
         
         @Override
         public Object visit(Object object)

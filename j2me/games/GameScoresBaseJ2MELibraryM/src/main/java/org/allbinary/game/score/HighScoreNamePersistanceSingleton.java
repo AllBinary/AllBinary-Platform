@@ -36,6 +36,7 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 import org.allbinary.persistance.PlatformRecordIdUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class HighScoreNamePersistanceSingleton
 {
@@ -54,9 +55,9 @@ public class HighScoreNamePersistanceSingleton
     //_Saved_Name
     private final String RECORD_ID = "_SN";
     private String name = StringUtil.getInstance().EMPTY_STRING;
-    private BasicArrayList nameBasicArrayList = new BasicArrayList();
+    private BasicArrayList nameBasicArrayList = new BasicArrayListD();
 
-    // private BasicArrayList list = new BasicArrayList();
+    // private BasicArrayList list = new BasicArrayListD();
 
     public void clear()
     {

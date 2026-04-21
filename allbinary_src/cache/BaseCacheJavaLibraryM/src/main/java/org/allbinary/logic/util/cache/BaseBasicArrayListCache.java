@@ -15,6 +15,7 @@ package org.allbinary.logic.util.cache;
 
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 /**
  *
@@ -22,7 +23,7 @@ import org.allbinary.util.BasicArrayList;
  */
 public class BaseBasicArrayListCache {
 
-    protected final BasicArrayList list = new BasicArrayList();
+    protected final BasicArrayList list = new BasicArrayListD();
 
     public String log()
     {

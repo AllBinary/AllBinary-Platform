@@ -42,6 +42,7 @@ import org.allbinary.time.GameTickTimeDelayHelper;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class DiveAndDirectionalTrackingAI extends BasicAI implements
         TrackingEventListenerInterface, DestroyedEventListenerInterface
@@ -50,7 +51,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
     private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(500);
     // private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(0);
 
-    private final BasicArrayList list = new BasicArrayList();
+    private final BasicArrayList list = new BasicArrayListD();
 
     // Yes really an interface oh the horror
     private final DirectionalInterface directionalInterface;

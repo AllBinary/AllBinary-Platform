@@ -27,12 +27,12 @@ implements TickableInterface
     public FallingPickupLayer(RemoteInfo remoteInfo)
             throws Exception
     {
-        super(NAME, remoteInfo, new ViewPosition());
+        super(NAME, remoteInfo, ViewPosition.getInstanceD());
     }
 
     public FallingPickupLayer() throws Exception
     {
-        super(NAME, new ViewPosition());
+        super(NAME, ViewPosition.getInstanceD());
     }
 
     /*
@@ -48,7 +48,7 @@ implements TickableInterface
      * pickedUpLayerInterfaceFactoryInterface, int x, int y) throws Exception {
      * super(total, pickedUpLayerInterfaceFactoryInterface,
      * pickedUpLayerInterfaceFactoryInterface.getAnimationInterface(), new
-     * Rectangle(PointFactory.getInstance(x, y), 10, 10), new ViewPosition()); }
+     * Rectangle(PointFactory.getInstance(x, y), 10, 10), ViewPosition.getInstanceD()); }
      */
 
     @Override

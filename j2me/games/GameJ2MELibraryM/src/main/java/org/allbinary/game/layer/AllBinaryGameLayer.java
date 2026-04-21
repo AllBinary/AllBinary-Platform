@@ -30,6 +30,7 @@ import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.view.ViewPosition;
 import org.allbinary.view.event.ViewPositionEvent;
 import org.allbinary.view.event.ViewPositionEventListenerInterface;
@@ -54,17 +55,7 @@ public class AllBinaryGameLayer extends AllBinaryLayer
         }
     } : NullPaintable.getInstance();
 
-    private final BasicArrayList gameKeyEventList = new BasicArrayList();
-
-    public AllBinaryGameLayer(final Rectangle layerInfo)
-    {
-        this(layerInfo, new ViewPosition());
-    }
-
-    public AllBinaryGameLayer(final Rectangle layerInfo, final ViewPosition viewPosition)
-    {
-        super(layerInfo, viewPosition);
-    }
+    private final BasicArrayList gameKeyEventList = new BasicArrayListD();
 
     public AllBinaryGameLayer(final String name, final Rectangle layerInfo, final ViewPosition viewPosition)
     {

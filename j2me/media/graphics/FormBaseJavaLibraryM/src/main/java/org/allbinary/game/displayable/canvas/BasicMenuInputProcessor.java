@@ -21,12 +21,13 @@ import org.allbinary.graphics.displayable.MyCanvas;
 import org.allbinary.input.motion.gesture.observer.BaseMotionGestureEventListener;
 import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class BasicMenuInputProcessor extends PlayerGameInput
     implements BaseMotionGestureEventListener
 {
 
-    public final BasicArrayList motionGestureEventList = new BasicArrayList();
+    public final BasicArrayList motionGestureEventList = new BasicArrayListD();
     private Canvas canvas = NullCanvas.NULL_CANVAS;
     
     protected BasicMenuInputProcessor(BasicArrayList gameKeyEventList, int playerInputId, Canvas gameCanvas)

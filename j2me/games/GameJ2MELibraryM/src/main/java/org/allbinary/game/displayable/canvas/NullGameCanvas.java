@@ -15,14 +15,25 @@ package org.allbinary.game.displayable.canvas;
 
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.NullCommandListener;
 
+import org.allbinary.game.init.BasicBuildGameInitializerFactory;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
+import org.allbinary.game.score.NoHighScoresFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
 
 public class NullGameCanvas extends AllBinaryGameCanvas
 {
-
-    private static final NullGameCanvas SINGLETON = new NullGameCanvas();
+    private static NullGameCanvas create() {
+        try {
+            return new NullGameCanvas(AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER);
+        } catch (Exception e) {
+            LogUtil.getInstance().put(CommonStrings.getInstance().EXCEPTION, "NullGameCanvas", CommonStrings.getInstance().GET_INSTANCE, e);
+            return null;
+        }
+    }
+    private static final NullGameCanvas SINGLETON = create();
     
     public static NullGameCanvas getInstance()
     {
@@ -30,7 +41,7 @@ public class NullGameCanvas extends AllBinaryGameCanvas
     }
 
     public static NullGameCanvas getInstance(
-            final AllBinaryGameLayerManager gameLayerManager)
+            final AllBinaryGameLayerManager gameLayerManager) throws Exception
     {
         final NullGameCanvas nullGameCanvas = new NullGameCanvas(gameLayerManager);
         
@@ -42,15 +53,15 @@ public class NullGameCanvas extends AllBinaryGameCanvas
     
     public static final String NO_GAME = "No Background Game";
     
-    protected NullGameCanvas(final AllBinaryGameLayerManager gameLayerManager)
+    protected NullGameCanvas(final AllBinaryGameLayerManager gameLayerManager) throws Exception
     {
-        super(gameLayerManager);
+        super(NullCommandListener.NULL_COMMAND_LISTENER,
+                gameLayerManager,
+                NoHighScoresFactory.getInstance(),
+                BasicBuildGameInitializerFactory.NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY
+                , false
+        );
 
-        super.setWait(1200);
-    }
-    
-    private NullGameCanvas()
-    {
         super.setWait(1200);
     }
 

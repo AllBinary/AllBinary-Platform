@@ -15,6 +15,7 @@ package org.allbinary.game.layer.drop;
 
 import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.util.BasicArrayListUtil;
 
 
@@ -22,7 +23,7 @@ public class DropLayerFactory
 {
    private static final DropLayerFactory DROP_LAYER_FACTORY = new DropLayerFactory();
    
-   private final BasicArrayList list = new BasicArrayList();
+   private final BasicArrayList list = new BasicArrayListD();
 
    private DropLayerFactory()
    {

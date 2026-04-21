@@ -14,6 +14,7 @@
 package org.allbinary.input;
 
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class AllBinarySensorManager
 {
@@ -37,7 +38,7 @@ public class AllBinarySensorManager
     {
     }
     
-    private final BasicArrayList list = new BasicArrayList();
+    private final BasicArrayList list = new BasicArrayListD();
     public BasicArrayList getSensorNamesList()
     {
         return list;

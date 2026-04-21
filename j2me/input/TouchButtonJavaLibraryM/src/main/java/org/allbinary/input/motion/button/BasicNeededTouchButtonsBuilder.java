@@ -17,6 +17,7 @@ import org.allbinary.animation.Animation;
 import org.allbinary.animation.NullAnimationFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.util.BasicArrayListUtil;
 
 public class BasicNeededTouchButtonsBuilder
@@ -31,7 +32,7 @@ public class BasicNeededTouchButtonsBuilder
         {
             this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
             
-            final BasicArrayList list = new BasicArrayList();
+            final BasicArrayList list = new BasicArrayListD();
             
             final TouchButtonLocationHelper touchButtonLocationHelper = new TouchButtonLocationHelper();
             

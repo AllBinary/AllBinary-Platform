@@ -98,7 +98,7 @@ public class BasicArrayListUtil
     
     public static void main(String args[]) {
         final CommonPhoneStrings commonPhoneStrings = CommonPhoneStrings.getInstance();
-        final BasicArrayList list = new BasicArrayList();
+        final BasicArrayList list = new BasicArrayListD();
         list.add(commonPhoneStrings.ONE);
         list.add(commonPhoneStrings.TWO);
         list.add(commonPhoneStrings.THREE);

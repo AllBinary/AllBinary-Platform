@@ -16,10 +16,11 @@ package org.allbinary.game.layer;
 
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class PlayerOwnedRTSLayers
 {
-    public final BasicArrayList rtsLayerList = new BasicArrayList();
+    public final BasicArrayList rtsLayerList = new BasicArrayListD();
 
     public String toString()
     {

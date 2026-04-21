@@ -21,6 +21,7 @@ import org.allbinary.game.configuration.feature.TouchFeatureFactory;
 import org.allbinary.init.Init;
 import org.allbinary.input.gyro.OrientationData;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class InGameFeatures extends Init
 {
@@ -62,7 +63,7 @@ public class InGameFeatures extends Init
             || features.isFeature(TouchFeatureFactory.getInstance().AUTO_HIDE_SHOW_SCREEN_BUTTONS)
             || features.isFeature(TouchFeatureFactory.getInstance().HIDE_SCREEN_BUTTONS))
         {
-            final BasicArrayList exclusiveScreenButtonsVector = new BasicArrayList();
+            final BasicArrayList exclusiveScreenButtonsVector = new BasicArrayListD();
 
             final TouchFeatureFactory touchFeatureFactory =
                 TouchFeatureFactory.getInstance();
@@ -83,7 +84,7 @@ public class InGameFeatures extends Init
         
         final OrientationData orientationData = OrientationData.getInstance();
         
-        final BasicArrayList inGameExclusiveOrientationSensorVector = new BasicArrayList();
+        final BasicArrayList inGameExclusiveOrientationSensorVector = new BasicArrayListD();
 
         inGameExclusiveOrientationSensorVector.add(
             SensorFeatureFactory.getInstance().ORIENTATION_SENSORS);

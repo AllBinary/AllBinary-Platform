@@ -28,6 +28,7 @@ import org.allbinary.graphics.j2me.workarea.tools.event.MyGraphicItemEventSource
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class WorkAreaJTreeJPanel extends javax.swing.JPanel
 {
@@ -46,7 +47,7 @@ public class WorkAreaJTreeJPanel extends javax.swing.JPanel
       this.workAreaPropertiesJPanel.removeAll();
       updateTree();
 
-      this.highlightedBasicArrayList = new BasicArrayList();
+      this.highlightedBasicArrayList = new BasicArrayListD();
    }
 
    public void add(MutableTreeNode treeNode)
@@ -72,7 +73,7 @@ public class WorkAreaJTreeJPanel extends javax.swing.JPanel
 
    public BasicArrayList getNode(TreePath[] treePathArray)
    {
-      BasicArrayList basicArrayList = new BasicArrayList();
+      BasicArrayList basicArrayList = new BasicArrayListD();
       if (treePathArray != null)
       {
          for (int index = 0; index < treePathArray.length; index++)

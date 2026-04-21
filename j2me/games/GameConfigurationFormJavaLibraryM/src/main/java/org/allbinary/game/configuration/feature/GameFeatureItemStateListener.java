@@ -25,6 +25,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class GameFeatureItemStateListener implements ItemStateListener
 {
@@ -32,7 +33,7 @@ public class GameFeatureItemStateListener implements ItemStateListener
 
     //private static final GameFeatureItemStateListener gameFeatureItemStateListener = new GameFeatureItemStateListener();
 
-    private static BasicArrayList toggleList = new BasicArrayList();
+    private static BasicArrayList toggleList = new BasicArrayListD();
 
     private GameOptionsForm gameOptionsForm;
     

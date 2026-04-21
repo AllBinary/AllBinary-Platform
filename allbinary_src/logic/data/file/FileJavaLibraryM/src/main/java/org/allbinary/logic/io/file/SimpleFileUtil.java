@@ -27,6 +27,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 /**
  *
@@ -137,7 +138,7 @@ public class SimpleFileUtil {
     
     public BasicArrayList loadFileAsList(final InputStream inputStream, final int max, final byte[] byteArray1, final int includeReturnLine) {
 
-        final BasicArrayList stringList = new BasicArrayList();
+        final BasicArrayList stringList = new BasicArrayListD();
         
         if(inputStream == null) {
             return stringList;

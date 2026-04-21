@@ -21,6 +21,7 @@ import org.allbinary.logic.string.StringUtil;
 
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class BasicPlayer implements Player, Controllable2
 {
@@ -33,8 +34,8 @@ public class BasicPlayer implements Player, Controllable2
    private int loopCount;
    //private TimeBase timeBase;
 
-   protected final BasicArrayList listenersList = new BasicArrayList();
-
+   protected final BasicArrayList listenersList = new BasicArrayListD();
+   
    public BasicPlayer()
    {
       this.setLoopCount(0);

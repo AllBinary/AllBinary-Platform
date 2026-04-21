@@ -36,6 +36,7 @@ import org.allbinary.string.CommonStrings;
 import org.allbinary.thread.RunnableInterface;
 import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class InputAutomationNewBundleRunnable
     implements RunnableInterface
@@ -59,7 +60,7 @@ public class InputAutomationNewBundleRunnable
         InputAutomationBundleActivator inputAutomationBundleActivator)
     {
         this.inputAutomationBundleActivator = inputAutomationBundleActivator;
-        this.fileBasicArrayList = new BasicArrayList();
+        this.fileBasicArrayList = new BasicArrayListD();
     }
     
     public void setThread(Thread thread)throws Exception
@@ -177,7 +178,7 @@ public class InputAutomationNewBundleRunnable
     {
         this.logUtil.putF(this.commonStrings.START, this, "getInstalledJarSymbolicNameBasicArrayList");
         
-        BasicArrayList vector = new BasicArrayList();
+        BasicArrayList vector = new BasicArrayListD();
         
         BundleContext bundleContext =
             InputAutomationBundleActivator.getBundleContext();
@@ -220,7 +221,7 @@ public class InputAutomationNewBundleRunnable
     {
         this.logUtil.putF(this.commonStrings.START, this, "findNewModules");
         
-        BasicArrayList vector = new BasicArrayList();
+        BasicArrayList vector = new BasicArrayListD();
         HashMap hashMap = this.getAllJarSymbolicNameHashMap();
         
         this.logUtil.putF("All: " + hashMap, this, "findNewModules");

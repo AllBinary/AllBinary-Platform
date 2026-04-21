@@ -20,6 +20,7 @@ import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.thread.SynchObject;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class OpenGLUtil {
     protected final LogUtil logUtil = LogUtil.getInstance();
@@ -40,9 +41,9 @@ public class OpenGLUtil {
 
     private final SynchObject lockObject = new SynchObject();
     private final SynchObject object = new SynchObject();
-    private final BasicArrayList list = new BasicArrayList();
+    private final BasicArrayList list = new BasicArrayListD();
     
-    public final BasicArrayList runnableList = new BasicArrayList();
+    public final BasicArrayList runnableList = new BasicArrayListD();
 
     private boolean created = false;
     

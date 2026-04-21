@@ -17,10 +17,11 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class HighScores implements HighScoresInterface
 {
-    private BasicArrayList orderedHighScoresList = new BasicArrayList();
+    private BasicArrayList orderedHighScoresList = new BasicArrayListD();
     
     private final String name;     // = "Score"
     

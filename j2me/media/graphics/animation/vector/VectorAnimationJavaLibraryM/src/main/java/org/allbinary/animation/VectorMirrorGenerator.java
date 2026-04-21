@@ -19,6 +19,7 @@ import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListS;
 
 public class VectorMirrorGenerator
 {
@@ -48,13 +49,13 @@ public class VectorMirrorGenerator
             int[][] nextPoints;
             int size2;
             final int size = points.length;
-            final BasicArrayList pointsBasicArrayList = new BasicArrayList(size);
+            final BasicArrayList pointsBasicArrayList = new BasicArrayListS(size);
             
             for (int frame = 0; frame < size; frame++)
             {
                 nextPoints = points[frame];
                 size2 = nextPoints.length;
-                pointBasicArrayList = new BasicArrayList(size2);
+                pointBasicArrayList = new BasicArrayListS(size2);
 
                 for (int index = 0; index < size2; index++)
                 {

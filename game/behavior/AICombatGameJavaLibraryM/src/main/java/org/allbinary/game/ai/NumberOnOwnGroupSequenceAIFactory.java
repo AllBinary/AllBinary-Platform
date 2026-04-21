@@ -22,6 +22,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class NumberOnOwnGroupSequenceAIFactory
 {
@@ -35,7 +36,7 @@ public class NumberOnOwnGroupSequenceAIFactory
    {
       final Integer[] integerArray = NumberInSameGroupSequence.getInstance().NUMBER_ON_SAME_TEAM_SEQUENCE;
 
-      final BasicArrayList list = new BasicArrayList();
+      final BasicArrayList list = new BasicArrayListD();
 
       for (int index = 0; index < integerArray.length; index++)
       {

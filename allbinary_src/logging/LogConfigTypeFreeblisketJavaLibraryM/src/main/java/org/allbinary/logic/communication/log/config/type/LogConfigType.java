@@ -15,6 +15,7 @@ package org.allbinary.logic.communication.log.config.type;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class LogConfigType
 {
@@ -23,7 +24,7 @@ public class LogConfigType
    private String name;
    private String description;
    
-   public static BasicArrayList availableLogConfigTypes = new BasicArrayList();
+   public static BasicArrayList availableLogConfigTypes = new BasicArrayListD();
       
    public LogConfigType(String name, String description)
    {

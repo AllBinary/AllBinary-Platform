@@ -16,6 +16,7 @@ package org.allbinary.media.graphics.geography.map;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 import org.allbinary.string.CommonStrings;
 
@@ -50,8 +51,8 @@ public class GeographicMapCellHistory
 
    public GeographicMapCellHistory()
    {
-      this.list = new BasicArrayList();
-      this.visitedList = new BasicArrayList();
+      this.list = new BasicArrayListD();
+      this.visitedList = new BasicArrayListD();
       this.init();
    }
 
@@ -162,7 +163,7 @@ public class GeographicMapCellHistory
 
    public BasicArrayList getInPathButNotTracked(BasicArrayList pathList)
    {
-      final BasicArrayList inPathButNotTrackedList = new BasicArrayList();
+      final BasicArrayList inPathButNotTrackedList = new BasicArrayListD();
 
       final BasicArrayList localList = this.list;
 

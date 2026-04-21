@@ -21,6 +21,7 @@ import org.allbinary.logic.util.event.EventListenerInterface;
 import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class TerrainEventHandler extends BasicEventHandler
 {
@@ -45,7 +46,7 @@ public class TerrainEventHandler extends BasicEventHandler
       return (TerrainEventHandler) eventHandlerCanBeNull;
    }
    
-   private final BasicArrayList list = new BasicArrayList();
+   private final BasicArrayList list = new BasicArrayListD();
    
    private TerrainEventHandler()
    {

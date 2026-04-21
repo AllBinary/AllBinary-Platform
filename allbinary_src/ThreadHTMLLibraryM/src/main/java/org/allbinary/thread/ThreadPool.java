@@ -16,6 +16,7 @@ package org.allbinary.thread;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class ThreadPool
 {
@@ -32,7 +33,7 @@ public class ThreadPool
     //private final int priority;
     
     private boolean isAlive;
-    private BasicArrayList taskQueue = new BasicArrayList();
+    private BasicArrayList taskQueue = new BasicArrayListD();
     //private int threadID;
     private int numThreads;
     //private static int threadPoolID;
@@ -90,7 +91,7 @@ public class ThreadPool
         {
             this.isAlive = true;
 
-            this.taskQueue = new BasicArrayList();
+            this.taskQueue = new BasicArrayListD();
             //for (int i = 0; i < numThreads; i++)
             //{
                 //new PooledThread().start();

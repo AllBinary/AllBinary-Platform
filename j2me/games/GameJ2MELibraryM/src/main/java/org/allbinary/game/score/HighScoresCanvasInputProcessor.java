@@ -19,6 +19,7 @@ import org.allbinary.game.input.PlayerGameInput;
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.score.displayable.HighScoresCanvas;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class HighScoresCanvasInputProcessor extends PlayerGameInput
 {
@@ -26,7 +27,7 @@ public class HighScoresCanvasInputProcessor extends PlayerGameInput
     
     public HighScoresCanvasInputProcessor(HighScoresCanvas highScoresCanvas)
     {
-        super(new BasicArrayList(), -1);
+        super(new BasicArrayListD(), -1);
 
         this.highScoresCanvas = highScoresCanvas;
     }

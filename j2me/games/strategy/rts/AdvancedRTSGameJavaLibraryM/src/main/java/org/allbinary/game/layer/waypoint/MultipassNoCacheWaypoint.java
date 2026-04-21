@@ -36,6 +36,7 @@ import org.allbinary.media.graphics.geography.pathfinding.MultipassState;
 import org.allbinary.media.graphics.geography.pathfinding.PathFindingInfo;
 import org.allbinary.media.graphics.geography.pathfinding.PathGenerator;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.util.BasicArrayListUtil;
 
 /**
@@ -86,7 +87,7 @@ public class MultipassNoCacheWaypoint extends WaypointBase
             this.getEndGeographicMapCellPosition(startGeographicMapCellPosition);
 
         if(endGeographicMapCellPosition == null) {
-            //return new BasicArrayList();
+            //return new BasicArrayListD();
             return PathFindingInfo.NULL_PATH_FINDING_INFO;
         }
         
@@ -96,7 +97,7 @@ public class MultipassNoCacheWaypoint extends WaypointBase
             if (this.ownerLayer.shouldHandleStartSameAsEnd())
             //if (this.endList.size() < 2)
             {
-                //return new BasicArrayList();
+                //return new BasicArrayListD();
                 return PathFindingInfo.NULL_PATH_FINDING_INFO;
             }
             else

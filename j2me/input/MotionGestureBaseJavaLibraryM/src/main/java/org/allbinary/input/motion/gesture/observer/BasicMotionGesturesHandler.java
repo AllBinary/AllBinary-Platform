@@ -30,7 +30,7 @@ public class BasicMotionGesturesHandler extends BasicEventHandler
         return SINGLETON;
     }
     
-    //private final BasicArrayList list = new BasicArrayList();
+    //private final BasicArrayList list = new BasicArrayListD();
     
     protected BasicMotionGesturesHandler()
     {

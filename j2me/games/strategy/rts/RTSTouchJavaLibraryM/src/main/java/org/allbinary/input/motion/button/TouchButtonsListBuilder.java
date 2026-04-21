@@ -15,11 +15,12 @@
 package org.allbinary.input.motion.button;
 
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class TouchButtonsListBuilder
 extends BaseTouchInput
 {
-    private final BasicArrayList baseTouchInputList = new BasicArrayList();
+    private final BasicArrayList baseTouchInputList = new BasicArrayListD();
     
     protected void add(final BasicArrayList list)
     {

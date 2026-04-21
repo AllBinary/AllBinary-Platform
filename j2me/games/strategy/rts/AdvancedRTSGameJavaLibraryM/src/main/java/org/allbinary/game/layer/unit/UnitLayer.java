@@ -122,6 +122,8 @@ import org.allbinary.media.graphics.geography.map.drop.DropCellPositionHistory;
 import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackGeographicMap;
 import org.allbinary.string.CommonPhoneStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
+import org.allbinary.util.BasicArrayListS;
 import org.allbinary.view.ViewPosition;
 import org.allbinary.weapon.media.audio.ExplosionBasicSound;
 
@@ -177,7 +179,7 @@ public class UnitLayer extends AdvancedRTSGameLayer implements
 
     private final LayerInterfaceFactoryInterface waypointLayerInterfaceFactoryInterface;
     
-    private static final BasicArrayList partialPositionList = new BasicArrayList(4);
+    private static final BasicArrayList partialPositionList = new BasicArrayListS(4);
 
     private int resourceLoad = 0;
     
@@ -463,8 +465,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
                 this.getUnitWaypointBehavior().getCurrentPathGeographicMapCellPosition());
     }
 
-    private final BasicArrayList sensorGeographicMapCellPositionList = 
-        new BasicArrayList();
+    private final BasicArrayList sensorGeographicMapCellPositionList = new BasicArrayListD();
 
     public void updateSensorGeographicMapCellPositionList()
     throws Exception

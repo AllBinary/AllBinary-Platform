@@ -27,6 +27,7 @@ import org.allbinary.media.image.ImageProcessorInputCompositeInterface;
 import org.allbinary.media.image.ImageUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 /**
  *
@@ -78,8 +79,8 @@ public class CreateIconImagesJPanel extends javax.swing.JPanel
                     final ImageProcessorInput imageProcessorInput = CreateIconImagesJPanel.this.getImageProcessorInput();
                     final File[] files = imageProcessorInput.getFiles();
                     
-                    final BasicArrayList iconWidthList = new BasicArrayList();
-                    final BasicArrayList iconHeightList = new BasicArrayList();
+                    final BasicArrayList iconWidthList = new BasicArrayListD();
+                    final BasicArrayList iconHeightList = new BasicArrayListD();
                                         
 //                    for(int index = 16; index <= 512; index+=16) {
 //                        iconWidthList.add(index);

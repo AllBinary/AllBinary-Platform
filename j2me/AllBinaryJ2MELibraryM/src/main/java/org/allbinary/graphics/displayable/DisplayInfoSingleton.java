@@ -29,6 +29,7 @@ import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class DisplayInfoSingleton
 {
@@ -252,7 +253,7 @@ public class DisplayInfoSingleton
     private final String REASON = "reason: ";
     private final String UPDATE_FROM_ORIENTATION_CHANGE = "Updating from Orientation Change ";
 
-    private final BasicArrayList list = new BasicArrayList();
+    private final BasicArrayList list = new BasicArrayListD();
 
     public void add(final String reason)
     {

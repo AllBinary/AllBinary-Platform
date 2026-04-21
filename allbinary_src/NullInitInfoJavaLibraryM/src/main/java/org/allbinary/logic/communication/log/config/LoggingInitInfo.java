@@ -14,6 +14,7 @@
 package org.allbinary.logic.communication.log.config;
 
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class LoggingInitInfo
 {      
@@ -122,7 +123,7 @@ public class LoggingInitInfo
    {
       LoggingInitInfo.updateIfNeeded();
       
-      BasicArrayList allLogTypeVector = new BasicArrayList();
+      BasicArrayList allLogTypeVector = new BasicArrayListD();
       iter = LoggingInitInfo.logConfigInfoVector;
       
       while(iter.hasNext())
@@ -143,7 +144,7 @@ public class LoggingInitInfo
    {
       LoggingInitInfo.updateIfNeeded();
       
-      final BasicArrayList allLogTypeVector = new BasicArrayList();
+      final BasicArrayList allLogTypeVector = new BasicArrayListD();
       
       final int size = LoggingInitInfo.logConfigInfoList.size();
       for(int index = 0; index < size; index++)

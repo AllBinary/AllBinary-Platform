@@ -21,6 +21,7 @@ import org.allbinary.logic.io.file.FileFactory;
 import org.allbinary.logic.io.file.FileWrapperUtil;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class Directory
 {
@@ -111,7 +112,7 @@ public class Directory
 
     public BasicArrayList search(FileFilter fileFilter, AbFile file, boolean isRecursiveSearch)
     {
-        final BasicArrayList fileList = new BasicArrayList();
+        final BasicArrayList fileList = new BasicArrayListD();
 
         BasicArrayList recursiveFileList;
         if (file.isDirectory())
@@ -154,7 +155,7 @@ public class Directory
     //Return the files in the given directory
     public BasicArrayList search(final AbFile file, final boolean isRecursiveSearch)
     {
-        final BasicArrayList fileList = new BasicArrayList();
+        final BasicArrayList fileList = new BasicArrayListD();
 
         BasicArrayList recursiveFileList;
         if (file.isDirectory())
@@ -191,7 +192,7 @@ public class Directory
     //Find the files matching the searchValue in the given directory
     public BasicArrayList search(final String searchValue, final AbFile file, final boolean isRecursiveSearch)
     {
-        final BasicArrayList fileList = new BasicArrayList();
+        final BasicArrayList fileList = new BasicArrayListD();
 
         BasicArrayList recursiveFileList;
         if (file.isDirectory())
@@ -231,7 +232,7 @@ public class Directory
 
     public BasicArrayList search(int level, AbFile file, boolean isRecursiveSearch)
     {
-        final BasicArrayList fileList = new BasicArrayList();
+        final BasicArrayList fileList = new BasicArrayListD();
 
         BasicArrayList recursiveFileList;
         if (file.isDirectory())

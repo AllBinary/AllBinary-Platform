@@ -27,6 +27,7 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellType;
 import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackGeographicMapCellType;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.util.BasicArrayListUtil;
 
 public class PathFinder extends GeographicPathFinderBase {
@@ -116,7 +117,7 @@ public class PathFinder extends GeographicPathFinderBase {
 //            return BasicArrayListUtil.getInstance().getImmutableInstance();
 //        }
         
-        final BasicArrayList pathList = new BasicArrayList();
+        final BasicArrayList pathList = new BasicArrayListD();
         pathList.add(list);
 
         //this.logUtil.putF(new StringMaker().append("finish A* ").append(list.size()).append(CommonSeps.getInstance().SPACE).append(pathList.size()).append(CommonSeps.getInstance().SPACE).append(list.toString()).toString(), this, "search");
@@ -147,7 +148,7 @@ public class PathFinder extends GeographicPathFinderBase {
             return basicArrayListUtil.getImmutableInstance();
         }
                 
-        final BasicArrayList pathList = new BasicArrayList();
+        final BasicArrayList pathList = new BasicArrayListD();
         pathList.add(list);
 
         //this.logUtil.putF(new StringMaker().append("finish A* ").append(list.size()).append(CommonSeps.getInstance().SPACE).append(pathList.size()).append(CommonSeps.getInstance().SPACE).append(list.toString()).toString(), this, "search");
@@ -239,7 +240,7 @@ public class PathFinder extends GeographicPathFinderBase {
             }
         } while(!this.openPriorityQueue.isEmpty());
 
-        //return new BasicArrayList()add(start);
+        //return new BasicArrayListD()add(start);
         throw new RuntimeException();
         //return null;
     }
@@ -343,13 +344,13 @@ public class PathFinder extends GeographicPathFinderBase {
             
         } while(!this.openPriorityQueue.isEmpty());
 
-        //return new BasicArrayList()add(start);
+        //return new BasicArrayListD()add(start);
         throw new RuntimeException();
         //return null;
     }
     
     private BasicArrayList extractPath(final GeographicMapCellPosition start, PathFindingNodeCost current) {
-        final BasicArrayList path = new BasicArrayList();
+        final BasicArrayList path = new BasicArrayListD();
         while(current.parent != NullUtil.getInstance().NULL_OBJECT) {
             path.add(current.geographicMapCellPosition);
             current = (PathFindingNodeCost) current.parent;

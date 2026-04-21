@@ -14,6 +14,7 @@
 package org.allbinary.media.graphics.geography.pathfinding;
 
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListS;
 import org.allbinary.util.BasicArrayListUtil;
 
 public class PathFindingInfo implements PathFindingInfoInterface
@@ -47,8 +48,8 @@ public class PathFindingInfo implements PathFindingInfoInterface
        this.pathFindingNodeCostInfoFactoryInterface =
            pathFindingNodeCostInfoFactoryInterface;
 
-       this.startPathFindingNodeList = new BasicArrayList(1);
-       this.endPathFindingNodeList = new BasicArrayList(1);
+       this.startPathFindingNodeList = new BasicArrayListS(1);
+       this.endPathFindingNodeList = new BasicArrayListS(1);
     }
 
     @Override

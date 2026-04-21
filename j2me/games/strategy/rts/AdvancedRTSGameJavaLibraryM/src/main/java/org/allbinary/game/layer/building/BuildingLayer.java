@@ -27,6 +27,7 @@ import org.allbinary.game.layer.RTSPlayerLayerInterface;
 import org.allbinary.game.layer.SelectionHudPaintable;
 import org.allbinary.game.layer.waypoint.Waypoint;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.ProceduralAnimationInterfaceFactoryInterface;
 import org.allbinary.animation.RotationAnimationInterfaceCompositeInterface;
@@ -57,6 +58,7 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 import org.allbinary.media.graphics.geography.map.GeographicMapDirectionUtil;
 import org.allbinary.media.graphics.geography.map.drop.DropCellPositionHistory;
 import org.allbinary.time.TimeDelayHelper;
+import org.allbinary.util.BasicArrayListS;
 import org.allbinary.weapon.media.audio.ExplosionBasicSound;
 import org.allbinary.game.multiplayer.layer.RemoteInfo;
 import org.allbinary.logic.NullUtil;
@@ -423,7 +425,7 @@ public class BuildingLayer
         BasicArrayList list;
         for (int index2 = occupyList.size() - 1; index2 >= 0; index2--)
         {
-            pathsList = new BasicArrayList();
+            pathsList = new BasicArrayListD();
 
             occupyGeographicMapCellPosition =
                 (GeographicMapCellPosition) occupyList.get(index2);
@@ -438,7 +440,7 @@ public class BuildingLayer
                     surroundGeographicMapCellPosition, 
                     occupyGeographicMapCellPosition) != NO_DIRECTION)
                 {
-                    list = new BasicArrayList(1);
+                    list = new BasicArrayListS(1);
                     //list.add(occupyGeographicMapCellPosition);
                     list.add(surroundGeographicMapCellPosition);
                     pathsList.add(list);

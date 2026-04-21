@@ -18,6 +18,7 @@ import org.allbinary.graphics.PointFactory;
 import org.allbinary.math.Angle;
 import org.allbinary.math.NoDecimalTrigTable;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class BasicGraphicsPipeline
 {
@@ -41,7 +42,7 @@ public class BasicGraphicsPipeline
 
    public void translate(int x, int y) throws Exception
    {
-      BasicArrayList newBasicArrayList = new BasicArrayList();
+      BasicArrayList newBasicArrayList = new BasicArrayListD();
       int size = this.pointBasicArrayList.size();
 
       PointFactory pointFactory = PointFactory.getInstance();
@@ -72,7 +73,7 @@ public class BasicGraphicsPipeline
    
    private void rotate(int angle) throws Exception
    {
-      BasicArrayList newBasicArrayList = new BasicArrayList();
+      BasicArrayList newBasicArrayList = new BasicArrayListD();
 
       GPoint secondPoint;
 
@@ -118,7 +119,7 @@ public class BasicGraphicsPipeline
    {
        final PointFactory pointFactory = PointFactory.getInstance();
       final int halfWidth = (width >> 1);
-      final BasicArrayList newBasicArrayList = new BasicArrayList();
+      final BasicArrayList newBasicArrayList = new BasicArrayListD();
 
       GPoint secondPoint;
       int newX;

@@ -20,6 +20,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.util.BasicArrayListUtil;
 
 public class LayerInterfaceFactory
@@ -38,7 +39,7 @@ public class LayerInterfaceFactory
    
    public void init()
    {
-       this.list = new BasicArrayList();
+       this.list = new BasicArrayListD();
    }
    
    private final String HASHTABLE_LABEL = "Hashtable: ";

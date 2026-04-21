@@ -16,11 +16,12 @@ package org.allbinary.business.advertisement;
 import org.allbinary.game.rand.MyRandomFactory;
 import org.allbinary.logic.system.security.licensing.LockedUtil;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class Advertisements
 {
-    private final BasicArrayList bannerList = new BasicArrayList();
-    private final BasicArrayList pageList = new BasicArrayList();
+    private final BasicArrayList bannerList = new BasicArrayListD();
+    private final BasicArrayList pageList = new BasicArrayListD();
     
     public void addPage(AdvertisementProcessorInterface advertisementProcessorInterface)
     {

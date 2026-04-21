@@ -29,6 +29,7 @@ import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
 import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class OpenGLESImage extends Image
 implements OpenGLSurfaceChangedInterface
@@ -38,7 +39,7 @@ implements OpenGLSurfaceChangedInterface
     
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    public static final BasicArrayList texture2dList = new BasicArrayList();
+    public static final BasicArrayList texture2dList = new BasicArrayListD();
     
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     

@@ -21,6 +21,7 @@ import javax.microedition.lcdui.CommandListener;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 /**
  *
@@ -42,7 +43,7 @@ public class WebCommandProcessor {
     private final AboutCommandProcessor aboutCommandProcessor = AboutCommandProcessor.getInstance();
 
     //Hack
-    public final BasicArrayList list = new BasicArrayList();
+    public final BasicArrayList list = new BasicArrayListD();
     
     public void process(final CommandListener midletCommandListener, final Command command, final Canvas canvas) {
         try {

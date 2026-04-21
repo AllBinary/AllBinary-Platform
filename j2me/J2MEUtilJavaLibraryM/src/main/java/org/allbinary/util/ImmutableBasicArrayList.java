@@ -15,7 +15,7 @@ package org.allbinary.util;
 
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 
-public class ImmutableBasicArrayList extends BasicArrayList
+public class ImmutableBasicArrayList extends BasicArrayListS
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 

@@ -27,6 +27,7 @@ import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 /*
@@ -81,7 +82,7 @@ public class CategoryProperties implements CategoryPropertiesInterface
    {
       final AbPathData abPathData = AbPathData.getInstance();
       final StringMaker pathStringBuffer = new StringMaker();
-      final BasicArrayList list = new BasicArrayList();
+      final BasicArrayList list = new BasicArrayListD();
       
       CategoryInterface nextParentCategoryInterface = 
          categoryHierarchyInterface.getParent();

@@ -6,6 +6,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.thread.SynchObject;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class LayerManager
 {
@@ -14,7 +15,7 @@ public class LayerManager
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final LayerManagerLoggingBase layerManagerLogging;
-    private final BasicArrayList list = new BasicArrayList();
+    private final BasicArrayList list = new BasicArrayListD();
     private final SynchObject object = new SynchObject();
 
     public LayerManager(final LayerManagerLogging layerManagerLogging)

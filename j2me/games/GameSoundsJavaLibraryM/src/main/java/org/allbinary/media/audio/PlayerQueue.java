@@ -18,6 +18,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class PlayerQueue
 {
@@ -25,7 +26,7 @@ public class PlayerQueue
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
-    private final BasicArrayList list = new BasicArrayList();
+    private final BasicArrayList list = new BasicArrayListD();
     private int max;
     private static final String TOTAL = "Sounds In Queue: ";
 

@@ -25,6 +25,7 @@ import javax.xml.transform.stream.StreamResult;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -141,7 +142,7 @@ public class DomHelper
 
     public BasicArrayList getChildrenWithoutTextNodes(String nodeName, NodeList nodeList) throws Exception
     {
-        BasicArrayList list = new BasicArrayList();
+        BasicArrayList list = new BasicArrayListD();
 
         NodeList childNodeList = getChildNodeList(nodeName, nodeList);
 
@@ -161,7 +162,7 @@ public class DomHelper
 
     public BasicArrayList getWithoutTextNodes(NodeList nodeList) throws Exception
     {
-        BasicArrayList list = new BasicArrayList();
+        BasicArrayList list = new BasicArrayListD();
 
         int numberOfChildren = nodeList.getLength();
 

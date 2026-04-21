@@ -25,6 +25,7 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 import org.allbinary.media.graphics.geography.pathfinding.MultipassState;
 import org.allbinary.media.graphics.geography.pathfinding.PathFindingInfo;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 /**
  *
@@ -36,7 +37,7 @@ public class WaypointBase
 
     public static WaypointBase NULL_WAYPOINT_BASE = new WaypointBase(NoSound.getInstance());
 
-    private final BasicArrayList connectedWaypointList = new BasicArrayList();
+    private final BasicArrayList connectedWaypointList = new BasicArrayListD();
     
     private final Sound sound;
     

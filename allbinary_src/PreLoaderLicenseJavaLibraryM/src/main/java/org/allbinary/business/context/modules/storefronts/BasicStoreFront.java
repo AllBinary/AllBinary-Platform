@@ -21,6 +21,7 @@ import org.allbinary.business.user.UserData;
 import org.allbinary.logic.string.tokens.Tokenizer;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class BasicStoreFront implements BasicStoreFrontInterface
 {   
@@ -240,7 +241,7 @@ public class BasicStoreFront implements BasicStoreFrontInterface
       try
       {
       Tokenizer tokenizer = new Tokenizer(CommonSeps.getInstance().SEMICOLON);
-      BasicArrayList subStoreVector = tokenizer.getTokens(this.subStores, new BasicArrayList());
+      BasicArrayList subStoreVector = tokenizer.getTokens(this.subStores, new BasicArrayListD());
       return subStoreVector;
       }catch(Exception e)
       {

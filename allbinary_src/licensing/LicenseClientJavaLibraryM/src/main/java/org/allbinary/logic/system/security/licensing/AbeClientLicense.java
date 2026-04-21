@@ -20,6 +20,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class AbeClientLicense implements AbeLicenseInterface
 {
@@ -61,7 +62,7 @@ public class AbeClientLicense implements AbeLicenseInterface
         Vector vector = (Vector)
             hashtable.get(abeClientInformationData.LICENSESERVERS);
         
-        this.servers = new BasicArrayList();
+        this.servers = new BasicArrayListD();
         
         int size = vector.size();
         for(int index = 0; index < size; index++)

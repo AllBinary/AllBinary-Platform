@@ -21,6 +21,7 @@ import org.allbinary.logic.string.tokens.Tokenizer;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class DatabaseEncoder
 {
@@ -65,8 +66,8 @@ public class DatabaseEncoder
       try
       {
          final Tokenizer tokenizer = new Tokenizer(CommonSeps.getInstance().SPACE);
-         final BasicArrayList vector = tokenizer.getTokens(value, new BasicArrayList());
-         final BasicArrayList byteVector = new BasicArrayList();
+         final BasicArrayList vector = tokenizer.getTokens(value, new BasicArrayListD());
+         final BasicArrayList byteVector = new BasicArrayListD();
          final int size = vector.size();
 
          String byteOfData;

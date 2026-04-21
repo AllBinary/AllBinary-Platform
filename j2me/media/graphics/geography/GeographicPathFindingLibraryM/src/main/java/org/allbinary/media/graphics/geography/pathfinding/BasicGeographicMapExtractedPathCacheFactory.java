@@ -2,6 +2,7 @@ package org.allbinary.media.graphics.geography.pathfinding;
 
 import org.allbinary.logic.util.cache.BaseBasicArrayListCache;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListS;
 
 public class BasicGeographicMapExtractedPathCacheFactory
     extends BaseBasicArrayListCache
@@ -37,7 +38,7 @@ public class BasicGeographicMapExtractedPathCacheFactory
         {
             for (int index = maxConcurrentPaths; index >= this.maxConcurrentPaths; index--)
             {
-                this.list.add(new BasicArrayList(maxPaths));
+                this.list.add(new BasicArrayListS(maxPaths));
             }
             this.maxConcurrentPaths = maxConcurrentPaths;
         }
@@ -52,9 +53,9 @@ public class BasicGeographicMapExtractedPathCacheFactory
         }
         else
         {
-            return new BasicArrayList(this.maxPaths);
+            return new BasicArrayListS(this.maxPaths);
         }
-        //return new BasicArrayList(this.maxPaths);
+        //return new BasicArrayListS(this.maxPaths);
     }
 
     public void release(BasicArrayList list)

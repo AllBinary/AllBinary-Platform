@@ -23,6 +23,7 @@ import org.allbinary.game.layer.special.SpecialGameInputInterface;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class CheatGameInputProcessor extends PlayerGameInput 
 {
@@ -33,7 +34,7 @@ public class CheatGameInputProcessor extends PlayerGameInput
 
     public CheatGameInputProcessor(AllBinaryGameCanvas gameCanvas)
     {
-        super(new BasicArrayList(), -1);
+        super(new BasicArrayListD(), -1);
 
         this.gameCanvas = gameCanvas;
     }

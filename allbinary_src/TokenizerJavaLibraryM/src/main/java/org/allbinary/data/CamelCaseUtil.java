@@ -19,6 +19,7 @@ import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.string.tokens.Tokenizer;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 /**
  *
@@ -49,7 +50,7 @@ public class CamelCaseUtil
         
         stringBuilder.delete(0, stringBuilder.length());
         
-        final BasicArrayList list = new BasicArrayList();
+        final BasicArrayList list = new BasicArrayListD();
         final Tokenizer tokenizer = new Tokenizer(this.commonSeps.UNDERSCORE);
         tokenizer.getTokens(string, list);
         //final String[] words = string.split(FORMAT);

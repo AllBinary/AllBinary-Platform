@@ -28,6 +28,7 @@ import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class GroupLayerManagerListener
 extends LayerManagerEventListener
@@ -45,7 +46,7 @@ extends LayerManagerEventListener
     
     //private final CommonStrings commonStrings = CommonStrings.getInstance();
 
-    private final BasicArrayList list = new BasicArrayList();
+    private final BasicArrayList list = new BasicArrayListD();
 
     private GroupLayerManagerListener()
     {
@@ -182,7 +183,7 @@ extends LayerManagerEventListener
     {
         while (this.list.size() <= total + 1)
         {
-            this.list.add(new BasicArrayList());
+            this.list.add(new BasicArrayListD());
         }
         
         //this.logUtil.putF("size: ").append(total, this, this.commonStrings.INIT);

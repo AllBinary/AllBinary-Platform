@@ -14,6 +14,7 @@
 package org.allbinary.media.graphics.geography.map.racetrack.drop;
 
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.util.BasicArrayListUtil;
 
 import org.allbinary.string.CommonStrings;
@@ -42,8 +43,8 @@ public class RaceTrackDropCellPositionGenerator
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-    protected final BasicArrayList list = new BasicArrayList();
-    // private BasicArrayList typeList = new BasicArrayList();
+    protected final BasicArrayList list = new BasicArrayListD();
+    // private BasicArrayList typeList = new BasicArrayListD();
     private final TimeDelayHelper timeDelayHelper;
     private final int STRAIGHTAWAY = 4;
     protected RaceTrackGeographicMapInterface raceTrackGeographicMap = NullRaceTrackGeographicMap.NULL_RACE_TRACK_GEOGRAPHIC_MAP;

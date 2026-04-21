@@ -18,7 +18,7 @@ public class LogConfigType
     private String name;
     private String description;
 
-    //public static BasicArrayList availableLogConfigTypes = new BasicArrayList();
+    //public static BasicArrayList availableLogConfigTypes = new BasicArrayListD();
     public LogConfigType(String name, String description)
     {
         this.name = name;

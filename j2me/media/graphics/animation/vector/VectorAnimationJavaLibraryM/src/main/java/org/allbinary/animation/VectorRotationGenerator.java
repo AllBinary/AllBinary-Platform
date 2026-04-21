@@ -21,6 +21,7 @@ import org.allbinary.math.Angle;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListS;
 import org.allbinary.vector.VectorInfo;
 
 public class VectorRotationGenerator
@@ -58,10 +59,10 @@ public class VectorRotationGenerator
             
             int angleIncrement = totalAngle / frames;
 
-            BasicArrayList pointsBasicArrayList = new BasicArrayList(
+            BasicArrayList pointsBasicArrayList = new BasicArrayListS(
                     totalAngle / angleIncrement);
 
-            BasicArrayList pointBasicArrayList = new BasicArrayList(points.length);
+            BasicArrayList pointBasicArrayList = new BasicArrayListS(points.length);
 
             PointFactory pointFactory = PointFactory.getInstance();
             

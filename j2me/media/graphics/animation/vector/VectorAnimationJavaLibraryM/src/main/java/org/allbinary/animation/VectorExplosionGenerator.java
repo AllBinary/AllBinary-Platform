@@ -18,6 +18,8 @@ import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.pipeline.RandomRotationFactory;
 import org.allbinary.graphics.pipeline.RandomTranslation;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
+import org.allbinary.util.BasicArrayListS;
 
 public class VectorExplosionGenerator
 {
@@ -73,7 +75,7 @@ public class VectorExplosionGenerator
     {
         try
         {
-            BasicArrayList pointsBasicArrayList = new BasicArrayList(howMuch);
+            BasicArrayList pointsBasicArrayList = new BasicArrayListS(howMuch);
 
             pointsBasicArrayList.add(createPointsBasicArrayList(points));
 
@@ -116,12 +118,12 @@ public class VectorExplosionGenerator
             throws Exception
     {
         int index = 0;
-        BasicArrayList pointBasicArrayList = new BasicArrayList();
+        BasicArrayList pointBasicArrayList = new BasicArrayListD();
 
         // && index < tempBasicArrayList.size()
         while (index < points.length)
         {
-            BasicArrayList sectionBasicArrayList = new BasicArrayList();
+            BasicArrayList sectionBasicArrayList = new BasicArrayListD();
 
             // && index < tempBasicArrayList.size()
             while (points[index][0] != 1000)
@@ -176,7 +178,7 @@ public class VectorExplosionGenerator
             throw new Exception("Not Points Provided");
         }
 
-        BasicArrayList firstPointBasicArrayList = new BasicArrayList(
+        BasicArrayList firstPointBasicArrayList = new BasicArrayListS(
                 points.length);
 
         for (int index = 0; index < points.length; index++)

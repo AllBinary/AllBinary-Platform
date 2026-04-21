@@ -98,6 +98,7 @@ import org.allbinary.media.audio.EarlySoundsFactory;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class StartCanvas extends RunnableCanvas 
         implements GameCanvasRunnableInterface,
@@ -254,7 +255,7 @@ public class StartCanvas extends RunnableCanvas
         }
         else
         {
-            final BasicArrayList commandList = new BasicArrayList();
+            final BasicArrayList commandList = new BasicArrayListD();
             
             commandList.add(gameCommandsFactory.START_COMMAND);
             
@@ -361,14 +362,14 @@ public class StartCanvas extends RunnableCanvas
         /*
         this.setMenuInputProcessor(
         new DemoCanvasBasicStartInputProcessor(
-        new BasicArrayList(), this));
+        new BasicArrayListD(), this));
          */
 
 //        if(this.getMenuForm() != ScrollSelectionFormNoneFactory.getInstance())
 //        {
 //            this.setMenuInputProcessor(
 //                    new CommandFormInputProcessor(
-//                    new BasicArrayList(), -1, this, this.getMenuForm()));
+//                    new BasicArrayListD(), -1, this, this.getMenuForm()));
 //        }
 
         this.open();

@@ -18,6 +18,7 @@ import org.allbinary.logic.util.event.EventListenerInterface;
 import org.allbinary.logic.util.event.NullEventListener;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class GameNotificationEventHandler extends BasicEventHandler
 {
@@ -26,7 +27,7 @@ public class GameNotificationEventHandler extends BasicEventHandler
    private static final GameNotificationEventHandler instance = 
       new GameNotificationEventHandler();
 
-   //private final BasicArrayList list = new BasicArrayList();
+   //private final BasicArrayList list = new BasicArrayListD();
    
    private GameNotificationEventHandler()
    {

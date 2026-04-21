@@ -20,6 +20,7 @@ import org.allbinary.logic.util.event.EventListenerInterface;
 import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class PressGameKeyEventHandler extends BasicEventHandler
 {
@@ -32,7 +33,7 @@ public class PressGameKeyEventHandler extends BasicEventHandler
       return PressGameKeyEventHandler.instance;
    }
 
-   private final BasicArrayList list = new BasicArrayList();
+   private final BasicArrayList list = new BasicArrayListD();
    
    private PressGameKeyEventHandler()
    {

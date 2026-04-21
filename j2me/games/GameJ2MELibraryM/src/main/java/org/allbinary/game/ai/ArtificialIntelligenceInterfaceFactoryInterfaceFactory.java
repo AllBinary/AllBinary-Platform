@@ -16,6 +16,7 @@ package org.allbinary.game.ai;
 import java.util.Hashtable;
 
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.util.BasicArrayListUtil;
 
 public class ArtificialIntelligenceInterfaceFactoryInterfaceFactory
@@ -26,7 +27,7 @@ public class ArtificialIntelligenceInterfaceFactoryInterfaceFactory
 
    public void clear()
    {
-       list = new BasicArrayList();
+       list = new BasicArrayListD();
    }
    
    public static ArtificialIntelligenceInterfaceFactoryInterfaceFactory getInstance()

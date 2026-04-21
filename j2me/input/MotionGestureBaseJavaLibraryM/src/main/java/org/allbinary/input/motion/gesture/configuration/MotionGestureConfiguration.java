@@ -19,6 +19,7 @@ import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.input.motion.gesture.MotionGestureToMotionGestureActionAssociation;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class MotionGestureConfiguration
 {
@@ -31,7 +32,7 @@ public class MotionGestureConfiguration
 
     private int mouseButtonMask = 0;
     
-    private BasicArrayList activeCommands = new BasicArrayList();
+    private BasicArrayList activeCommands = new BasicArrayListD();
     
     public MotionGestureConfiguration() {
     }

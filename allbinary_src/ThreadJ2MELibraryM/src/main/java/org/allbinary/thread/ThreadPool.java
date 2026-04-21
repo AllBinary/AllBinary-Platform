@@ -18,6 +18,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.util.BasicArrayListUtil;
 
 public class ThreadPool
@@ -57,7 +58,7 @@ public class ThreadPool
             //this.logUtil.putF(this.commonStrings.INIT, this, this.commonStrings.INIT);
             this.isAlive = true;
 
-            this.taskQueue = new BasicArrayList();
+            this.taskQueue = new BasicArrayListD();
             PooledThread pooledThread;
             for (int i = 0; i < this.numThreads; i++)
             {

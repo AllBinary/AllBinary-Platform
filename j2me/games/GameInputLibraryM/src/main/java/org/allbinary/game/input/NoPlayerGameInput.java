@@ -15,6 +15,7 @@ package org.allbinary.game.input;
 
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 /**
  *
@@ -31,7 +32,7 @@ public class NoPlayerGameInput extends PlayerGameInput
     
    private NoPlayerGameInput()
    {
-      super(new BasicArrayList(), -1);
+      super(new BasicArrayListD(), -1);
    }
 
    @Override

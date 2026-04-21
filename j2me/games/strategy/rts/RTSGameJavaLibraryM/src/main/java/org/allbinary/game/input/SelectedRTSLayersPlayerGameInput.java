@@ -24,6 +24,7 @@ import org.allbinary.game.layer.capital.Capital;
 import org.allbinary.media.audio.DowngradeSound;
 import org.allbinary.media.audio.UpgradeSound;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.util.BasicArrayListUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.java.bool.BooleanFactory;
@@ -57,8 +58,8 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
         Features.getInstance().isFeature(InputFeatureFactory.getInstance().SINGLE_KEY_REPEAT_PRESS)
             || Features.getInstance().isFeature(InputFeatureFactory.getInstance().SINGLE_KEY_PRESS);
     
-    private BasicArrayList selectedRTSLayersList = new BasicArrayList();
-    private BasicArrayList preSelectedRTSLayersList = new BasicArrayList();
+    private BasicArrayList selectedRTSLayersList = new BasicArrayListD();
+    private BasicArrayList preSelectedRTSLayersList = new BasicArrayListD();
     private BasicArrayList paintSelectedRTSLayersList = BasicArrayListUtil.getInstance().getImmutableInstance();
 
     private RTSPlayerLayerInterface rtsPlayerLayerInterface;

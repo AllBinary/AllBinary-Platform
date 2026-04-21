@@ -22,6 +22,7 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 /**
  * This MotionGestureEventListener creates a list of gestures from press 
@@ -39,7 +40,7 @@ public class ReleaseControlledMotionGestureListener implements MotionGestureEven
     private MotionGestureInput currentMotionGesture = TouchMotionGestureFactory.getInstance().NO_MOTION;
     private boolean isMouseGestureOccurring = false;
 
-    private BasicArrayList motionGestureCollection = new BasicArrayList();
+    private BasicArrayList motionGestureCollection = new BasicArrayListD();
     private CompleteMotionGestureListenerInterface signed;
 
     public ReleaseControlledMotionGestureListener(CompleteMotionGestureListenerInterface signed)

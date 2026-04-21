@@ -15,12 +15,13 @@ package org.allbinary.logic.util.cache;
 
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class AbstractArrayListPool implements PoolInterface {
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
-    protected BasicArrayList buffers = new BasicArrayList();
+    protected BasicArrayList buffers = new BasicArrayListD();
     //protected int pos = -1;
     protected CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface;
 

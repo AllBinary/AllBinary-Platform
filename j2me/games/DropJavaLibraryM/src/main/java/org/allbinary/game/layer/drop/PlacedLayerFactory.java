@@ -2,13 +2,14 @@ package org.allbinary.game.layer.drop;
 
 import org.allbinary.layer.AllBinaryLayerFactoryInterface;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.util.BasicArrayListUtil;
 
 public class PlacedLayerFactory
 {
     private static final PlacedLayerFactory instance = new PlacedLayerFactory();
 
-    private final BasicArrayList list = new BasicArrayList();
+    private final BasicArrayList list = new BasicArrayListD();
 
     private PlacedLayerFactory()
     {

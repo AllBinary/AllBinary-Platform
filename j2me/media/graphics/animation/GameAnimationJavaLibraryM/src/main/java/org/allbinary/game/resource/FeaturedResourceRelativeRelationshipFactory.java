@@ -19,6 +19,7 @@ import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.relationship.RelativeLayerRelationship;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.util.BasicArrayListUtil;
 
 public class FeaturedResourceRelativeRelationshipFactory extends FeaturedResourceFactory
@@ -65,7 +66,7 @@ public class FeaturedResourceRelativeRelationshipFactory extends FeaturedResourc
       throws Exception
    {
        final PointFactory pointFactory = PointFactory.getInstance();
-      final BasicArrayList newList = new BasicArrayList();
+      final BasicArrayList newList = new BasicArrayListD();
       
       final int size = list.size();
       for (int index = 0; index < size; index++)

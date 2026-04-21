@@ -16,13 +16,14 @@ package org.allbinary.logic.system.security.licensing;
 
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class AbeNoLicense
     implements AbeLicenseInterface
 {
     private static AbeNoLicense abeNoLicense = new AbeNoLicense();
     
-    public BasicArrayList serverVector = new BasicArrayList();
+    public BasicArrayList serverVector = new BasicArrayListD();
 
     private AbeNoLicense()
     {

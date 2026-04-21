@@ -34,7 +34,7 @@ public class AllBinaryLayer
 extends Layer 
 implements LayerInterface
 {
-    public static final AllBinaryLayer NULL_ALLBINARY_LAYER = new AllBinaryLayer(RectangleFactory.SINGLETON, ViewPosition.NULL_VIEW_POSITION);
+    public static final AllBinaryLayer NULL_ALLBINARY_LAYER = new AllBinaryLayer(StringUtil.getInstance().EMPTY_STRING, RectangleFactory.SINGLETON, ViewPosition.NULL_VIEW_POSITION);
 
     protected final ViewPositionEvent viewPositionEvent = new ViewPositionEvent(this);
 
@@ -44,11 +44,6 @@ implements LayerInterface
 
     private ViewPosition viewPosition = ViewPosition.NULL_VIEW_POSITION;
 
-    public AllBinaryLayer(final Rectangle rectangle, final ViewPosition viewPosition)
-    {
-        this(StringUtil.getInstance().EMPTY_STRING, rectangle, viewPosition);
-    }
-    
     public AllBinaryLayer(final String name, final Rectangle rectangle, final ViewPosition viewPosition)
     {
         super(rectangle.getWidth(), rectangle.getHeight());

@@ -22,6 +22,7 @@ import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.RectangleFactory;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.view.ViewPosition;
 
@@ -51,7 +52,7 @@ implements CollidableInterfaceCompositeInterface
             final Rectangle layerInfo, final ViewPosition viewPosition, 
             final CollidableBaseBehavior collidableInferface)
     {
-        super(layerInfo, viewPosition);
+        super(StringUtil.getInstance().EMPTY_STRING, layerInfo, viewPosition);
 
         this.collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance();
         this.setCollidableInferface(collidableInferface);
@@ -70,7 +71,7 @@ implements CollidableInterfaceCompositeInterface
     public CollidableCompositeLayer(
             final Rectangle layerInfo, final ViewPosition viewPosition)
     {
-        super(layerInfo, viewPosition);
+        super(StringUtil.getInstance().EMPTY_STRING, layerInfo, viewPosition);
         
         this.collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance();
         
@@ -86,7 +87,7 @@ implements CollidableInterfaceCompositeInterface
     
     public CollidableCompositeLayer(final Rectangle layerInfo)
     {
-        super(layerInfo);
+        super(StringUtil.getInstance().EMPTY_STRING, layerInfo, ViewPosition.getInstanceD());
         
         this.collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance();
     }

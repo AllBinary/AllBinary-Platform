@@ -20,6 +20,7 @@ import org.allbinary.logic.util.event.EventListenerInterface;
 import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class ViewPositionEventHandler extends BasicEventHandler
 {
@@ -31,7 +32,7 @@ public class ViewPositionEventHandler extends BasicEventHandler
       return ViewPositionEventHandler.SINGLETON;
    }
 
-   private final BasicArrayList list = new BasicArrayList();
+   private final BasicArrayList list = new BasicArrayListD();
    
    private ViewPositionEventHandler()
    {

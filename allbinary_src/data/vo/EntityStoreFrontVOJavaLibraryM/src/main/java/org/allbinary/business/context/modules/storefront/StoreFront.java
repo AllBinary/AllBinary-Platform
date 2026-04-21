@@ -45,6 +45,7 @@ import org.allbinary.logic.string.tokens.Tokenizer;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.w3c.dom.Document;
 
@@ -798,7 +799,7 @@ public class StoreFront implements StoreFrontInterface
         try
         {
             final Tokenizer tokenizer = new Tokenizer(CommonSeps.getInstance().SEMICOLON);
-            final BasicArrayList subStoreVector = tokenizer.getTokens(this.subStores, new BasicArrayList());
+            final BasicArrayList subStoreVector = tokenizer.getTokens(this.subStores, new BasicArrayListD());
             return subStoreVector;
         } catch (Exception e)
         {

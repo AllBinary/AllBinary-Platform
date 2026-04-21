@@ -16,6 +16,7 @@ package org.allbinary.graphics.pipeline;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class GraphicsPipeline extends BasicGraphicsPipeline
 {
@@ -31,7 +32,7 @@ public class GraphicsPipeline extends BasicGraphicsPipeline
    public void rotateTheta(double aTheta)
            throws Exception
    {  
-      BasicArrayList newVector = new BasicArrayList();
+      BasicArrayList newVector = new BasicArrayListD();
       int size = this.pointBasicArrayList.size();
       for(int index = 0; index < size; index++)
       {

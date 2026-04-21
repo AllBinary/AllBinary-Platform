@@ -21,6 +21,8 @@ import org.allbinary.logic.util.event.EventListenerInterface;
 import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
+
 
 public class BasicEventHandler implements BasicEventHandlerInterface
 {
@@ -33,7 +35,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
     // private Condition condition = reentrantLock.newCondition();
     public BasicEventHandler()
     {
-        this.eventListenerInterfaceList = new BasicArrayList();
+        this.eventListenerInterfaceList = new BasicArrayListD();
     }
 
     public String toString()
@@ -69,7 +71,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
 
     public synchronized void removeAllListeners()
     {
-        this.eventListenerInterfaceList = new BasicArrayList();
+        this.eventListenerInterfaceList = new BasicArrayListD();
     }
 
     /*

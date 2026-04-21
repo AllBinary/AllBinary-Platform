@@ -20,6 +20,7 @@ import org.allbinary.animation.NullAnimationFactory;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.layer.AllBinaryLayer;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.view.ViewPosition;
 
 public class IconLayer extends AllBinaryLayer
@@ -31,7 +32,7 @@ public class IconLayer extends AllBinaryLayer
     public IconLayer(Animation animationInterface, 
             int width, int height) 
     {
-        super(new Rectangle(PointFactory.getInstance().ZERO_ZERO, width, height), new ViewPosition());
+        super(StringUtil.getInstance().EMPTY_STRING, new Rectangle(PointFactory.getInstance().ZERO_ZERO, width, height), ViewPosition.getInstanceD());
 
         this.animationInterface = animationInterface;
     }

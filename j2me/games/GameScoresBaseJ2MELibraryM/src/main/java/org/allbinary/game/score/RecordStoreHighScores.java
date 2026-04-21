@@ -37,6 +37,7 @@ import org.allbinary.persistance.PlatformRecordIdUtil;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class RecordStoreHighScores extends HighScores
 {
@@ -223,7 +224,7 @@ public class RecordStoreHighScores extends HighScores
             recordStore = RecordStore.openRecordStore(this.getRecordId(this.abeClientInformation), true);
             //this.logUtil.putF(recordStore.getName(), this, commonStrings.LOAD);
 
-            this.setList(new BasicArrayList());
+            this.setList(new BasicArrayListD());
 
             final RecordEnumeration recordEnum = recordStore.enumerateRecords(NullRecordFilter.NULL_RECORD_FILTER, NullRecordComparator.NULL_RECORD_COMPARATOR, true);
             //this.logUtil.putF("first hasNextElement: " + recordEnum.hasNextElement(), this, commonStrings.LOAD);

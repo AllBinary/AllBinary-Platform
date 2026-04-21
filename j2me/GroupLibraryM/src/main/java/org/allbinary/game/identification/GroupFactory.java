@@ -17,6 +17,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class GroupFactory {
     protected final LogUtil logUtil = LogUtil.getInstance();
@@ -30,7 +31,7 @@ public class GroupFactory {
    }
    
    public final Group[] NULL_GROUP_ARRAY = new Group[0];
-   private final BasicArrayList list = new BasicArrayList();
+   private final BasicArrayList list = new BasicArrayListD();
    private int index = 0;
       
    public Group getNextGroup()

@@ -20,6 +20,7 @@ import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.CellPositionsUtil;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
+import org.allbinary.util.BasicArrayListS;
 import org.allbinary.util.BasicArrayListUtil;
 
 /**
@@ -34,9 +35,9 @@ public class GeographicMapCellPositionArea extends GeographicMapCellPositionArea
     private final LayerCoveringCellPositionsUtil layerCoveringCellPositionsUtil = LayerCoveringCellPositionsUtil.getInstance();
     
     private final BasicArrayList reusableOccupyingGeographicMapCellPositionList =
-        new BasicArrayList(4);
+        new BasicArrayListS(4);
     private final BasicArrayList reusableSurroundingGeographicMapCellPositionList =
-        new BasicArrayList(12);
+        new BasicArrayListS(12);
 
     private final CircularIndexUtil surroundingCircularIndexUtil =
         CircularIndexUtil.getInstance(0);

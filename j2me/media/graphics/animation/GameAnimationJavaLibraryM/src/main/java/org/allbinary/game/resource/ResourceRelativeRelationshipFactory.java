@@ -17,6 +17,7 @@ import java.util.Hashtable;
 
 import org.allbinary.graphics.RelativeRelationship;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.util.BasicArrayListUtil;
 
 public class ResourceRelativeRelationshipFactory 
@@ -52,7 +53,7 @@ public class ResourceRelativeRelationshipFactory
        
        if(list == this.basicArrayListUtil.getImmutableInstance())
        {
-           list = new BasicArrayList();
+           list = new BasicArrayListD();
        }
        list.add(hardPoint);
        this.hashtable.put(resource, list);

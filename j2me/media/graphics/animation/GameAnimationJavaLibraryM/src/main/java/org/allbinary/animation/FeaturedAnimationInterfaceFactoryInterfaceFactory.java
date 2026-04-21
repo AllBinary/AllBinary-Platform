@@ -23,6 +23,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class FeaturedAnimationInterfaceFactoryInterfaceFactory
         extends FeaturedResourceFactory
@@ -98,7 +99,7 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
     {
 
         final BasicArrayList list = this.getList();
-        final BasicArrayList resourceTypeAvailableList = new BasicArrayList();
+        final BasicArrayList resourceTypeAvailableList = new BasicArrayListD();
         int size = getList().size();
         FeatureResourceAnimationInterfaceFactoryInterface featureInterface;
         BasicAnimationInterfaceFactoryInterface animationInterfaceFactoryInterface;

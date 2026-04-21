@@ -22,7 +22,9 @@ import org.allbinary.graphics.RectangleFactory;
 import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.PaintableInterface;
 import org.allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.view.ViewPosition;
 
 public class TestingInputSingleton 
     extends AllBinaryGameLayer
@@ -41,7 +43,7 @@ public class TestingInputSingleton
     
     private TestingInputSingleton()
     {
-        super(RectangleFactory.SINGLETON);
+        super(StringUtil.getInstance().EMPTY_STRING, RectangleFactory.SINGLETON, ViewPosition.getInstanceD());
         
         GameInputProcessorUtil.init(this.inputProcessorArray);
     }

@@ -36,6 +36,7 @@ import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.thread.NullRunnable;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class CurrentDisplayableFactory
 {
@@ -60,7 +61,7 @@ public class CurrentDisplayableFactory
     private final String RUNNABLE = "Runnable: ";
     private final String RUNNABLE_WAS_ALREADY_IN_USE = "Runnable was already in use: ";
 
-    public final BasicArrayList DEFAULT_CHILD_NAME_LIST = new BasicArrayList();
+    public final BasicArrayList DEFAULT_CHILD_NAME_LIST = new BasicArrayListD();
 
     private Displayable displayable = NullDisplayable.getInstance();
     private Displayable openGlReadydisplayable = NullDisplayable.getInstance();

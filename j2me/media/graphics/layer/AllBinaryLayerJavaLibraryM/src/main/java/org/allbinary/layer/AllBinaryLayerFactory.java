@@ -14,6 +14,7 @@
 package org.allbinary.layer;
 
 import org.allbinary.graphics.Rectangle;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.view.ViewPosition;
 
 public class AllBinaryLayerFactory 
@@ -29,6 +30,6 @@ implements AllBinaryLayerFactoryInterface
     @Override
     public AllBinaryLayer getInstance()
     {
-        return new AllBinaryLayer(this.rectangle, new ViewPosition());
+        return new AllBinaryLayer(StringUtil.getInstance().EMPTY_STRING, this.rectangle, ViewPosition.getInstanceD());
     }
 }

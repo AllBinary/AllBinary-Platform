@@ -114,6 +114,7 @@ import org.allbinary.thread.ThreadFactoryUtil;
 import org.allbinary.thread.ThreadUtil;
 import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class DemoCanvas extends RunnableCanvas 
         implements GameCanvasRunnableInterface,
@@ -275,7 +276,7 @@ public class DemoCanvas extends RunnableCanvas
         }
         else
         {
-            final BasicArrayList commandList = new BasicArrayList();
+            final BasicArrayList commandList = new BasicArrayListD();
             
             commandList.add(gameCommandsFactory.START_COMMAND);
             
@@ -381,13 +382,13 @@ public class DemoCanvas extends RunnableCanvas
         final Rectangle rectangle2 = FormUtil.getInstance().createFormRectangle();
         scrollSelectionForm.init(rectangle2, formType2);
 
-        //this.setMenuInputProcessor(new DemoCanvasBasicStartInputProcessor(new BasicArrayList(), this));
+        //this.setMenuInputProcessor(new DemoCanvasBasicStartInputProcessor(new BasicArrayListD(), this));
 
         if(this.getMenuForm() != ScrollSelectionFormNoneFactory.getInstance())
         {
             this.setMenuInputProcessor(
                     new CommandFormInputProcessor(
-                    new BasicArrayList(), -1, this, this.getMenuForm()));
+                    new BasicArrayListD(), -1, this, this.getMenuForm()));
         }
 
         this.open();

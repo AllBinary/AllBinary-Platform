@@ -19,6 +19,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.util.BasicArrayListUtil;
 
 public class MakeCountedPartsSingletonArrayFactory
@@ -36,7 +37,7 @@ public class MakeCountedPartsSingletonArrayFactory
 
     public PartInterface[] getInstance(final PartInterface[] partInterfaceArray) throws Exception
     {
-        this.list = new BasicArrayList();
+        this.list = new BasicArrayListD();
 
         for (int index = 0; index < partInterfaceArray.length; index++)
         {

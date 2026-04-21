@@ -31,6 +31,7 @@ import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class PacePatrolAI extends BasePatrolAI
         implements TrackingEventListenerInterface
@@ -51,7 +52,7 @@ public class PacePatrolAI extends BasePatrolAI
 
         TrackingEventHandler.getInstance().addListener(this);
 
-        this.trackingList = new BasicArrayList();
+        this.trackingList = new BasicArrayListD();
     }
 
     @Override

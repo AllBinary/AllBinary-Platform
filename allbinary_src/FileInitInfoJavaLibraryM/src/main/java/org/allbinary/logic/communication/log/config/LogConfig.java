@@ -31,6 +31,7 @@ import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.java.bool.BooleanUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -163,7 +164,7 @@ public class LogConfig
 
     public BasicArrayList getTypeVector() throws Exception
     {
-        BasicArrayList logKeyVector = new BasicArrayList();
+        BasicArrayList logKeyVector = new BasicArrayListD();
         Document document = this.getDoc();
 
         NodeList logConfigTypesNodeList =

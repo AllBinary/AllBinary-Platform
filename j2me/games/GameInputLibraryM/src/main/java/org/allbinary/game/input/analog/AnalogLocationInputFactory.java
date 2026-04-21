@@ -1,6 +1,7 @@
 package org.allbinary.game.input.analog;
 
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 public class AnalogLocationInputFactory {
 
@@ -10,7 +11,7 @@ public class AnalogLocationInputFactory {
 		return instance;
 	}
 	
-	private final BasicArrayList list = new BasicArrayList();
+	private final BasicArrayList list = new BasicArrayListD();
 	
 	private AnalogLocationInputFactory()
 	{

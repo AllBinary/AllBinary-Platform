@@ -18,6 +18,7 @@ import org.allbinary.logic.io.file.directory.DirectoryOrIncludeFileExtensionBool
 import org.allbinary.logic.io.file.directory.SubDirectory;
 import org.allbinary.logic.io.file.filter.VisitorFileFilter;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 /**
  *
@@ -58,7 +59,7 @@ public class FileListFetcher
     {
         try
         {
-            final BasicArrayList includeExtensionBasicArrayList = new BasicArrayList();
+            final BasicArrayList includeExtensionBasicArrayList = new BasicArrayListD();
             final int size = includeExtensions.length;
             for(int index = 0; index < size; index++) {
                 includeExtensionBasicArrayList.add(includeExtensions[index]);
@@ -82,7 +83,7 @@ public class FileListFetcher
     {
         try
         {
-            final BasicArrayList includeExtensionBasicArrayList = new BasicArrayList();
+            final BasicArrayList includeExtensionBasicArrayList = new BasicArrayListD();
             includeExtensionBasicArrayList.add(includeExtension);
             final VisitorFileFilter visitorFileFilter = new VisitorFileFilter(
                     new DirectoryOrIncludeFileExtensionBooleanFileVisitor(
@@ -103,7 +104,7 @@ public class FileListFetcher
     {
         try
         {
-            final BasicArrayList includeExtensionBasicArrayList = new BasicArrayList();
+            final BasicArrayList includeExtensionBasicArrayList = new BasicArrayListD();
             includeExtensionBasicArrayList.add(includeExtension);
             final VisitorFileFilter visitorFileFilter = new VisitorFileFilter(
                     new DirectoryOrIncludeFileExtensionBooleanFileVisitor(

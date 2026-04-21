@@ -15,6 +15,7 @@ package org.allbinary.image.opengles;
 
 import javax.microedition.lcdui.Image;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 
 /**
  *
@@ -33,7 +34,7 @@ public class OpenGLESImageExclusionUtil {
     }
 
     private final String EXCLUSION = "font";
-    public final BasicArrayList list = new BasicArrayList();
+    public final BasicArrayList list = new BasicArrayListD();
     
     private OpenGLESImageExclusionUtil() {
     }

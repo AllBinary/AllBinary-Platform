@@ -22,6 +22,7 @@ import org.allbinary.game.layer.RTSLayer;
 import org.allbinary.game.layer.RTSLayerInfoPaintable;
 import org.allbinary.game.layer.RTSPlayerLayerInterface;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.InputFeatureFactory;
 import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
@@ -65,7 +66,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
         Features.getInstance().isFeature(InputFeatureFactory.getInstance().SINGLE_KEY_PRESS);
     
     private final AllBinaryGameCanvas gameCanvas;
-    private final BasicArrayList motionGestureInputList = new BasicArrayList();
+    private final BasicArrayList motionGestureInputList = new BasicArrayListD();
     private final ScrollMapPlayerGameInput scrollPlayerGameInput;
     private final SelectedRTSLayersPlayerGameInput selectedRTSLayerPlayerGameInput;
     private final RTSLayerInfoPaintable towerInfoPaintable;

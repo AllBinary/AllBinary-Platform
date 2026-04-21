@@ -76,7 +76,7 @@ implements TickableInterface
                movement,
                animationInterface,
                rectangle,
-               new ViewPosition(),
+               ViewPosition.getInstanceD(),
                angle, damage, scoreable);
     }
     */
@@ -115,7 +115,7 @@ implements TickableInterface
        this(movement,
                animationInterface,
                rectangle,
-               new ViewPosition());
+               ViewPosition.getInstanceD());
     }
     */
 
