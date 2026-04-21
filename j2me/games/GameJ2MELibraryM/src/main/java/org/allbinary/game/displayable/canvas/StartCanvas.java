@@ -165,7 +165,7 @@ public class StartCanvas extends RunnableCanvas
         final boolean isContinue)
         throws Exception
     {
-        super(commandListener, CurrentDisplayableFactory.getInstance().DEFAULT_CHILD_NAME_LIST);
+        super(commandListener, CurrentDisplayableFactory.getInstance().DEFAULT_CHILD_NAME_LIST, true);
 
         //Give time for initialization of demogame by default
         this.setWait(NullWaitGameRunnable.getInstance().WAIT);

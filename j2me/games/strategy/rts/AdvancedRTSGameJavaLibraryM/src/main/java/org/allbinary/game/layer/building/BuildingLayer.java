@@ -17,15 +17,23 @@ import java.util.Hashtable;
 
 import javax.microedition.lcdui.Graphics;
 
+import org.allbinary.animation.NullAnimationFactory;
+import org.allbinary.animation.NullIndexedAnimationFactory;
+import org.allbinary.game.identification.GroupFactory;
+import org.allbinary.game.input.form.NullRTSFormInputFactory;
 import org.allbinary.game.input.form.RTSFormInput;
 import org.allbinary.game.input.form.VisibleCellPositionsSingleton;
 import org.allbinary.game.layer.AdvancedRTSGameLayer;
 import org.allbinary.game.layer.AdvancedRTSPlayerLayerInterface;
+import org.allbinary.game.layer.AdvancedRTSProperties;
 import org.allbinary.game.layer.CollidableRTSBehavior;
 import org.allbinary.game.layer.RTSLayerUtil;
 import org.allbinary.game.layer.RTSPlayerLayerInterface;
 import org.allbinary.game.layer.SelectionHudPaintable;
 import org.allbinary.game.layer.waypoint.Waypoint;
+import org.allbinary.game.view.TileLayerPositionIntoViewPosition;
+import org.allbinary.graphics.RectangleFactory;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
@@ -34,13 +42,7 @@ import org.allbinary.animation.RotationAnimationInterfaceCompositeInterface;
 import org.allbinary.direction.Direction;
 import org.allbinary.direction.DirectionFactory;
 import org.allbinary.game.combat.damage.DamageFloaters;
-import org.allbinary.game.combat.damage.PtsDamageFloaters;
-import org.allbinary.game.configuration.feature.Features;
-import org.allbinary.game.configuration.feature.GameFeatureFactory;
-import org.allbinary.game.graphics.hud.BasicHudFactory;
 import org.allbinary.game.health.Health;
-import org.allbinary.game.health.HealthBar;
-import org.allbinary.game.health.HealthBarTwodAnimation;
 import org.allbinary.game.identification.Group;
 import org.allbinary.game.layer.GeographicMapCellPositionAreaBase;
 import org.allbinary.game.layer.NullPathFindingLayer;
@@ -48,9 +50,7 @@ import org.allbinary.game.tracking.TrackingEvent;
 import org.allbinary.game.tracking.TrackingEventHandler;
 import org.allbinary.game.tracking.TrackingEventListenerInterface;
 import org.allbinary.graphics.Rectangle;
-import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
-import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.media.audio.SecondaryPlayerQueueFactory;
 import org.allbinary.media.audio.SelectSound;
@@ -61,13 +61,37 @@ import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.util.BasicArrayListS;
 import org.allbinary.weapon.media.audio.ExplosionBasicSound;
 import org.allbinary.game.multiplayer.layer.RemoteInfo;
-import org.allbinary.logic.NullUtil;
 
 public class BuildingLayer
     extends AdvancedRTSGameLayer
     implements RotationAnimationInterfaceCompositeInterface,
     TrackingEventListenerInterface
 {
+    public static BuildingLayer createSimulated() throws Exception {
+        final AnimationInterfaceFactoryInterface nullAnimationInterfaceFactoryInterface = NullAnimationFactory.getFactoryInstance();
+        final AnimationInterfaceFactoryInterface nullIndexedAnimationInterfaceFactoryInterface = NullIndexedAnimationFactory.getFactoryInstance();
+
+        return new BuildingLayer(RemoteInfo.REMOTE_INFO,
+                SimulatedBuildingPropertiesFactory.getInstance(),
+                AdvancedRTSProperties.createSimulated(),
+                //NullPathFindingLayer.NULL_PATH_FINDING_LAYER,
+                GroupFactory.getInstance().NULL_GROUP_ARRAY,
+                StringUtil.getInstance().EMPTY_STRING,
+                StringUtil.getInstance().EMPTY_STRING,
+                Health.NULL_HEALTH,
+                NullRTSFormInputFactory.getInstance(),
+                nullAnimationInterfaceFactoryInterface,
+                nullIndexedAnimationInterfaceFactoryInterface,
+                nullAnimationInterfaceFactoryInterface,
+                nullAnimationInterfaceFactoryInterface,
+                nullIndexedAnimationInterfaceFactoryInterface,
+                NullIndexedAnimationFactory.getFactoryInstance(),
+                RectangleFactory.SINGLETON,
+                0, 0
+                //new TileLayerPositionIntoViewPosition()
+        );
+
+    }
 
     private int buildingLevelCost;
     private int productivity;
@@ -83,6 +107,8 @@ public class BuildingLayer
 
     public BuildingLayer(
             final RemoteInfo remoteInfo,
+            final BuildingPropertiesFactory buildingPropertiesFactory,
+            final AdvancedRTSProperties advancedRTSProperties,
         final Group[] groupInterface,
         final String rootName,
         final String name,
@@ -100,6 +126,7 @@ public class BuildingLayer
     {
         super(remoteInfo,
                 NullPathFindingLayer.NULL_PATH_FINDING_LAYER,
+                advancedRTSProperties,
             groupInterface, 
             rootName, name, 
             healthInterface,
@@ -111,70 +138,30 @@ public class BuildingLayer
             verticleBuildAnimationInterfaceFactoryInterface,
             proceduralAnimationInterfaceFactoryInterface,
             rectangle,
-            x, y);
+            x, y, new TileLayerPositionIntoViewPosition());
 
         this.setCollidableInferface(new CollidableRTSBehavior(this, true));
         
         this.getWaypointBehavior().setWaypoint(new Waypoint(this, SelectSound.getInstance()));
 
-        DamageFloaters damageFloaters = DamageFloaters.getInstance();
-        Paintable damageFloatersPaintableInterface = NullPaintable.getInstance();
-        if (Features.getInstance().isFeature(GameFeatureFactory.getInstance().DAMAGE_FLOATERS))
-        {
-            damageFloaters = new PtsDamageFloaters(this);
-            damageFloatersPaintableInterface = damageFloaters;
-        }
-        else
-        {
-            damageFloaters = new DamageFloaters();
-        }
-        this.damageFloaters = damageFloaters;
-        this.damageFloatersPaintableInterface = damageFloatersPaintableInterface;
+        this.damageFloaters = buildingPropertiesFactory.getDamageFloaters(this);
+        this.damageFloatersPaintableInterface = buildingPropertiesFactory.damageFloatersPaintableInterface;
 
-        Paintable healthBar = NullPaintable.getInstance();
-        if (Features.getInstance().isFeature(GameFeatureFactory.getInstance().HEALTH_BARS))
-        {
-            healthBar = new HealthBar(this, this.getHealthInterface(),
-                new HealthBarTwodAnimation((AllBinaryLayer) this, BasicHudFactory.getInstance().BOTTOMLEFT), -1);
-        }
-        this.healthBar = healthBar;
+        this.healthBar = buildingPropertiesFactory.getHealthBar(this);
 
-        this.pathsHashtable = new Hashtable();
+        this.pathsHashtable = buildingPropertiesFactory.getHashtable();
 
         this.setMaxLevel(30);
 
         this.setProductivity(1);
         this.setEfficiency(this.calculateEfficiency());
 
-        this.efficiencyPerLevel = 10000 / this.getMaxLevel() + 10000 % this.getMaxLevel();
+        this.efficiencyPerLevel = buildingPropertiesFactory.getEfficiencyPerLevel(this);
         this.efficiency = this.efficiencyPerLevel;
 
         this.generateMoveOutOfBuildAreaPaths();
 
-        this.trackingEvent = new TrackingEvent(this);
-    }
-
-    //used to simulate cost
-    public BuildingLayer()
-        throws Exception
-    {
-        super();
-
-        this.setCollidableInferface(new CollidableRTSBehavior(this, true));
-        
-        this.getWaypointBehavior().setWaypoint(new Waypoint(this, SelectSound.getInstance()));
-
-        this.efficiencyPerLevel = 0;
-        this.efficiency = 0;
-        
-        this.trackingEvent = new TrackingEvent();
-        this.damageFloaters = DamageFloaters.getInstance();
-
-        this.damageFloatersPaintableInterface = this.damageFloaters;
-
-        this.healthBar = NullPaintable.getInstance();
-
-        this.pathsHashtable = NullUtil.getInstance().NULL_TABLE;
+        this.trackingEvent = buildingPropertiesFactory.getTrackingEvent(this);
     }
 
     protected boolean local;

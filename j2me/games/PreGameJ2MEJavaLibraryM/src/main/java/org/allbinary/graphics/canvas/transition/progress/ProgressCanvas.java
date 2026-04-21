@@ -16,12 +16,14 @@ package org.allbinary.graphics.canvas.transition.progress;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.NullCanvas;
+import javax.microedition.lcdui.NullCommandListener;
 
 import org.allbinary.canvas.Processor;
 import org.allbinary.canvas.RunnableCanvas;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
+import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFont;
 import org.allbinary.graphics.form.item.CustomGaugeItem;
@@ -77,15 +79,18 @@ public class ProgressCanvas extends RunnableCanvas
 
     public Processor inGameProcessor = Processor.getInstance();
     
-    ProgressCanvas()
-    {
-        this.paintable = NullPaintable.getInstance();
-        this.backgroundBasicColor = BasicColorFactory.getInstance().WHITE;
-        this.gauge = CustomGaugeItem.NULL_GAUGE_ITEM;
-    }
+//    ProgressCanvas()
+//    {
+//        super(NullCommandListener.NULL_COMMAND_LISTENER, CanvasStrings.getInstance().EMPTY_CHILD_NAME_LIST, false);
+//        this.paintable = NullPaintable.getInstance();
+//        this.backgroundBasicColor = BasicColorFactory.getInstance().WHITE;
+//        this.gauge = CustomGaugeItem.NULL_GAUGE_ITEM;
+//    }
     
     ProgressCanvas(final String title, final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
     {
+        super(NullCommandListener.NULL_COMMAND_LISTENER, CanvasStrings.getInstance().EMPTY_CHILD_NAME_LIST, false);
+
         this.backgroundBasicColor = backgroundBasicColor;
         this.gauge = new CustomGaugeItem(StringUtil.getInstance().EMPTY_STRING, (int) this.maxValue, 0, 
                 backgroundBasicColor, foregroundBasicColor);

@@ -14,20 +14,17 @@
 package org.allbinary.game.collision;
 
 import org.allbinary.game.layer.CollidableCompositeLayer;
+import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.RectangleFactory;
+import org.allbinary.logic.string.StringUtil;
+import org.allbinary.view.ViewPosition;
 
 public class CollidableNeverCollideBehavior extends CollidableBaseBehavior
 {    
-    /*
-    public CollidableNeverCollideBehavior(CollidableCompositeLayer ownerLayer, boolean collidable)
-    {
-        super(ownerLayer, collidable);
-    }
-    */
 
     CollidableNeverCollideBehavior(boolean isCollidable)
     {
-        super(new CollidableCompositeLayer(RectangleFactory.SINGLETON), isCollidable);
+        super(new CollidableCompositeLayer(StringUtil.getInstance().EMPTY_STRING, RectangleFactory.SINGLETON, ViewPosition.getInstanceD(), CollidableNeverCollideBehaviorFactory.getInstance()), isCollidable);
     }
     
     @Override

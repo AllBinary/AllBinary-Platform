@@ -184,7 +184,7 @@ public class DemoCanvas extends RunnableCanvas
         final boolean isContinue)
         throws Exception
     {
-        super(commandListener, CurrentDisplayableFactory.getInstance().DEFAULT_CHILD_NAME_LIST);
+        super(commandListener, CurrentDisplayableFactory.getInstance().DEFAULT_CHILD_NAME_LIST, true);
     
         this.abeClientInformation = abeClientInformation;
 

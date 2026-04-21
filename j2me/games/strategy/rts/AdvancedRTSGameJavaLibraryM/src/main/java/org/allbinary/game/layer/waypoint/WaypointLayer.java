@@ -21,7 +21,9 @@ import org.allbinary.game.health.Health;
 import org.allbinary.game.identification.Group;
 import org.allbinary.game.input.form.NullRTSFormInputFactory;
 import org.allbinary.game.layer.AdvancedRTSGameLayer;
+import org.allbinary.game.layer.AdvancedRTSProperties;
 import org.allbinary.game.layer.PathFindingLayerInterface;
+import org.allbinary.game.view.TileLayerPositionIntoViewPosition;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.game.layer.RTSPlayerLayerInterface;
@@ -50,6 +52,7 @@ public class WaypointLayer extends AdvancedRTSGameLayer
         super(
             remoteInfo,
             parentLayer,
+            AdvancedRTSProperties.create(),
             groupInterface,
             rootName,
             name,
@@ -62,7 +65,7 @@ public class WaypointLayer extends AdvancedRTSGameLayer
             animationInterfaceFactoryInterface,
             proceduralAnimationInterfaceFactoryInterface,
             rectangle,
-            x, y);
+            x, y, new TileLayerPositionIntoViewPosition());
 
         //this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
         

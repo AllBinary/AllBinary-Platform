@@ -16,20 +16,21 @@ package org.allbinary.game.layer;
 import javax.microedition.lcdui.Canvas;
 
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
+import org.allbinary.animation.NullAnimationFactory;
+import org.allbinary.animation.NullIndexedAnimationFactory;
 import org.allbinary.animation.ProceduralAnimationInterfaceFactoryInterface;
-import org.allbinary.animation.transition.shake.NoShakeAnimationListener;
 import org.allbinary.animation.transition.shake.ShakeAnimationListener;
-import org.allbinary.animation.transition.shake.ShakeAnimationListenerFactory;
 import org.allbinary.direction.Direction;
 import org.allbinary.direction.DirectionFactory;
 import org.allbinary.game.GameTypeFactory;
 import org.allbinary.game.combat.destroy.event.DestroyedEvent;
 import org.allbinary.game.combat.destroy.event.DestroyedEventHandler;
 import org.allbinary.game.combat.destroy.event.DestroyedEventListenerInterface;
-import org.allbinary.game.configuration.GameConfigurationCentral;
 import org.allbinary.game.health.Health;
 import org.allbinary.game.identification.Group;
+import org.allbinary.game.identification.GroupFactory;
 import org.allbinary.game.input.event.GameKeyEventFactory;
+import org.allbinary.game.input.form.NullRTSFormInputFactory;
 import org.allbinary.game.input.form.RTSFormInput;
 import org.allbinary.game.layer.building.event.BuildingEventHandler;
 import org.allbinary.game.layer.unit.UnitLayer;
@@ -45,11 +46,11 @@ import org.allbinary.game.tick.NullTickable;
 import org.allbinary.game.tick.TickableInterface;
 import org.allbinary.game.view.TileLayerPositionIntoViewPosition;
 import org.allbinary.graphics.Rectangle;
+import org.allbinary.graphics.RectangleFactory;
 import org.allbinary.layer.AllBinaryLayer;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.math.AngleInfo;
 import org.allbinary.math.FrameUtil;
-import org.allbinary.media.AllBinaryNoVibration;
-import org.allbinary.media.AllBinaryVibration;
 import org.allbinary.media.AllBinaryVibrationME;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
@@ -65,6 +66,29 @@ import org.allbinary.view.ViewPosition;
 public class AdvancedRTSGameLayer extends RTSLayer
     implements DestroyedEventListenerInterface
 {
+    //used to simulate cost
+    public static AdvancedRTSGameLayer createSimulated() throws Exception {
+        final AnimationInterfaceFactoryInterface nullAnimationInterfaceFactoryInterface = NullAnimationFactory.getFactoryInstance();
+        final AnimationInterfaceFactoryInterface nullIndexedAnimationInterfaceFactoryInterface = NullIndexedAnimationFactory.getFactoryInstance();
+
+        return new AdvancedRTSGameLayer(RemoteInfo.REMOTE_INFO,
+                NullPathFindingLayer.NULL_PATH_FINDING_LAYER,
+                AdvancedRTSProperties.createSimulated(),
+                GroupFactory.getInstance().NULL_GROUP_ARRAY,
+                StringUtil.getInstance().EMPTY_STRING,
+                StringUtil.getInstance().EMPTY_STRING,
+                Health.NULL_HEALTH,
+                NullRTSFormInputFactory.getInstance(),
+                nullAnimationInterfaceFactoryInterface,
+                nullIndexedAnimationInterfaceFactoryInterface,
+                nullAnimationInterfaceFactoryInterface,
+                nullAnimationInterfaceFactoryInterface,
+                nullIndexedAnimationInterfaceFactoryInterface,
+                NullIndexedAnimationFactory.getFactoryInstance(),
+                RectangleFactory.SINGLETON,
+                0, 0,
+                new TileLayerPositionIntoViewPosition());
+    }
 
     protected final ShakeAnimationListener shakeListener;
     protected final AllBinaryVibrationME vibration;
@@ -73,46 +97,11 @@ public class AdvancedRTSGameLayer extends RTSLayer
     private PathFindingLayerInterface parentLayer = NullPathFindingLayer.NULL_PATH_FINDING_LAYER;
     //WaypointBehaviorBase
     protected TickableInterface waypointBehaviorBase = NullTickable.getInstance();
-        
-    public AdvancedRTSGameLayer(
-            final RemoteInfo remoteInfo,
-        final PathFindingLayerInterface parentLayer,
-        final Group[] groupInterface,
-        final String rootName,
-        final String name,
-        final Health healthInterface,
-        final RTSFormInput rtsFormInput,
-        final AnimationInterfaceFactoryInterface animationInterfaceFactoryInterface,
-        final AnimationInterfaceFactoryInterface emptyAnimationInterfaceFactoryInterface,
-        final AnimationInterfaceFactoryInterface baseAnimationInterfaceFactoryInterface,
-        final AnimationInterfaceFactoryInterface buildAnimationInterfaceFactoryInterface,
-        final AnimationInterfaceFactoryInterface verticleBuildAnimationInterfaceFactoryInterface,
-        final ProceduralAnimationInterfaceFactoryInterface proceduralAnimationInterfaceFactoryInterface,
-        final Rectangle rectangle,
-        final int x, final int y)
-        throws Exception
-    {
-        this(
-            remoteInfo,
-            parentLayer,
-                //StringUtil.getInstance().EMPTY_STRING, -1,
-            groupInterface, 
-            rootName, name,
-            healthInterface,
-            rtsFormInput,
-            animationInterfaceFactoryInterface,
-            emptyAnimationInterfaceFactoryInterface,
-            baseAnimationInterfaceFactoryInterface,
-            buildAnimationInterfaceFactoryInterface,
-            verticleBuildAnimationInterfaceFactoryInterface,
-            proceduralAnimationInterfaceFactoryInterface,
-            rectangle, x, y, new TileLayerPositionIntoViewPosition());
 
-    }
-        
     public AdvancedRTSGameLayer(
-            final RemoteInfo remoteInfo,
+        final RemoteInfo remoteInfo,
         final PathFindingLayerInterface parentLayer,
+        final AdvancedRTSProperties advancedRTSProperties,
         final Group[] groupInterface,
         final String rootName,
         final String name,
@@ -130,9 +119,9 @@ public class AdvancedRTSGameLayer extends RTSLayer
         throws Exception
     {
         super(
-                remoteInfo,
-                //StringUtil.getInstance().EMPTY_STRING, -1,
-                groupInterface, 
+            remoteInfo,
+            //StringUtil.getInstance().EMPTY_STRING, -1,
+            groupInterface, 
             rootName, name,
             healthInterface,
             rtsFormInput,
@@ -148,34 +137,31 @@ public class AdvancedRTSGameLayer extends RTSLayer
         
         this.setWaypointBehavior(new WaypointBehaviorBase());
 
-        this.shakeListener =
-            ShakeAnimationListenerFactory.getInstance();
+        this.shakeListener = advancedRTSProperties.shakeListener;
 
-        this.vibration = AllBinaryVibration.getInstance();
+        this.vibration = advancedRTSProperties.vibration;
 
-        this.duration =
-            GameConfigurationCentral.getInstance().VIBRATION.getValue().intValue() * 100;
+        this.duration = advancedRTSProperties.duration;
 
         this.setParentLayer(parentLayer);
     }
 
-    //used to simulate cost
-    public AdvancedRTSGameLayer()
-        throws Exception
-    {
-        super(RemoteInfo.REMOTE_INFO);
-
-        this.setWaypointBehavior(new WaypointBehaviorBase());
-        
-        this.shakeListener = NoShakeAnimationListener.NO_SHAKE_ANIMATION_LISTENER;
-
-        this.vibration = AllBinaryNoVibration.NO_VIBRATION;
-
-        this.duration = 0;
-
-        this.setParentLayer(NullPathFindingLayer.NULL_PATH_FINDING_LAYER);
-    }
-
+//    public AdvancedRTSGameLayer()
+//        throws Exception
+//    {
+//        );
+//
+//        this.setWaypointBehavior(new WaypointBehaviorBase());
+//
+//        this.shakeListener = NoShakeAnimationListener.NO_SHAKE_ANIMATION_LISTENER;
+//
+//        this.vibration = AllBinaryNoVibration.NO_VIBRATION;
+//
+//        this.duration = 0;
+//
+//        this.setParentLayer(NullPathFindingLayer.NULL_PATH_FINDING_LAYER);
+//    }
+    
     @Override
     public void updateWaypointBehavior(final BasicGeographicMap geographicMapInterface) throws Exception {
         super.updateWaypointBehavior(geographicMapInterface);

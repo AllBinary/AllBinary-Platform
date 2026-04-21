@@ -20,9 +20,9 @@ public class Orientation
     public static Orientation NONE = new Orientation(0, 0, 0);
     private static Orientation SINGLETON = new Orientation(0, 0, 0);
     
-    public BasicDecimal yaw = new BasicDecimal();
-    public BasicDecimal pitch = new BasicDecimal();
-    public BasicDecimal roll = new BasicDecimal();
+    public BasicDecimal yaw = new BasicDecimal(0);
+    public BasicDecimal pitch = new BasicDecimal(0);
+    public BasicDecimal roll = new BasicDecimal(0);
     
     public static final Orientation getInstance(int yaw, int pitch, int roll)
     {

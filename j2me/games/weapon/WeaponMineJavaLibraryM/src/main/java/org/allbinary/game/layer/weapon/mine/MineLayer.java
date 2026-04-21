@@ -15,6 +15,7 @@ package org.allbinary.game.layer.weapon.mine;
 
 import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
 import org.allbinary.game.layer.weapon.SimpleWeaponLayer;
+import org.allbinary.game.multiplayer.layer.RemoteInfo;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.layer.AllBinaryLayer;
@@ -33,13 +34,14 @@ public class MineLayer extends SimpleWeaponLayer
    public MineLayer(ViewPosition viewPosition)
            throws Exception
    {
-      super(NAME,
-    		  NoMovementFactory.getInstance().getMovmentInstance(),
+      super(NAME, RemoteInfo.REMOTE_INFO, -1,
+              NoMovementFactory.getInstance().getMovmentInstance(),
               //new BasicConstantVelocityMovement(SPEED),
               FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(
                       MineWeaponResources.getInstance().RESOURCE).getInstance(0),
          //new VectorRotationAnimation(MineVectorData.points, BasicColor.GREY),
-         new Rectangle(PointFactory.getInstance().ZERO_ZERO, 10, 10),
+              SimpleWeaponLayer.createDestroyed(),
+              new Rectangle(PointFactory.getInstance().ZERO_ZERO, 10, 10),
          viewPosition);
    }
    

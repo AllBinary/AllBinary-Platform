@@ -263,7 +263,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             final BasicBuildGameInitializerFactory gameInitializationInterfaceFactoryInterface,
             final boolean buffered) throws Exception
     {
-        super(commandListener, CanvasStrings.getInstance().EMPTY_CHILD_NAME_LIST);
+        super(commandListener, CanvasStrings.getInstance().EMPTY_CHILD_NAME_LIST, true);
 
         this.highScoresHelper = highScoresFactoryInterface.createHighScoresHelper();
         this.gameInitializationInterfaceFactoryInterface = gameInitializationInterfaceFactoryInterface;

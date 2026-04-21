@@ -17,12 +17,9 @@ import javax.microedition.khronos.opengles.GL;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.animation.Animation;
-import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
 import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.animation.NullAnimationFactory;
-import org.allbinary.animation.NullIndexedAnimationFactory;
 import org.allbinary.game.collision.CollidableBaseBehavior;
-import org.allbinary.game.combat.damage.ExplosionResources;
 import org.allbinary.game.combat.destroy.DestroyedLayerProcessor;
 import org.allbinary.game.combat.weapon.WeaponProperties;
 import org.allbinary.game.configuration.GameConfigurationUtil;
@@ -64,76 +61,56 @@ implements TickableInterface
 
     private final int multiPlayerType;
 
-    /*
-    public WeaponLayer(LayerInterface sourceLayerInterface,
-            Movement movement,
-            AnimationInterface animationInterface,
-            Rectangle rectangle,
-            short angle, int damage, ScoreableInterface scoreable)
-            throws Exception
-    {
-       this(sourceLayerInterface,
-               movement,
-               animationInterface,
-               rectangle,
-               ViewPosition.getInstanceD(),
-               angle, damage, scoreable);
-    }
-    */
+//    public WeaponLayer(LayerInterface sourceLayerInterface,
+//            Movement movement,
+//            AnimationInterface animationInterface,
+//            Rectangle rectangle,
+//            short angle, int damage, ScoreableInterface scoreable)
+//            throws Exception
+//    {
+//       this(sourceLayerInterface,
+//               movement,
+//               animationInterface,
+//               rectangle,
+//               ViewPosition.getInstanceD(),
+//               angle, damage, scoreable);
+//    }
 
-    /*
-    public WeaponLayer(LayerInterface sourceLayerInterface,
-            Movement movement,
-            AnimationInterface animationInterface,
-            Rectangle rectangle,
-            ViewPosition viewPosition,
-            short angle, int damage, ScoreableInterface scoreable)
-            throws Exception
-    {
-       super(Group.NONE, rectangle, viewPosition, true);
+//    public WeaponLayer(LayerInterface sourceLayerInterface,
+//            Movement movement,
+//            AnimationInterface animationInterface,
+//            Rectangle rectangle,
+//            ViewPosition viewPosition,
+//            short angle, int damage, ScoreableInterface scoreable)
+//            throws Exception
+//    {
+//       super(Group.NONE, rectangle, viewPosition, true);
+//
+//       this.initAnimationInterface = animationInterface;
+//       this.setAnimationInterface(animationInterface);
+//       this.collided = false;
+//
+//       this.destroyedAnimationInterface = FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().getProcedural(ExplosionResources.THIRD_EXPLOSION_RESOURCE).getInstance(null);
+//
+//       this.movement = movement;
+//
+//       this.collisionHelper = CollidableHelperFactory.getInstance();
+//
+//       this.init(sourceLayerInterface, angle, damage, 0, scoreable);
+//    }
 
-       this.initAnimationInterface = animationInterface;
-       this.setAnimationInterface(animationInterface);
-       this.collided = false;
-
-       this.destroyedAnimationInterface = FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().getProcedural(ExplosionResources.THIRD_EXPLOSION_RESOURCE).getInstance(null);
-
-       this.movement = movement;
-
-       this.collisionHelper = CollidableHelperFactory.getInstance();
-
-       this.init(sourceLayerInterface, angle, damage, 0, scoreable);
-    }
-
-    public WeaponLayer(
-            Movement movement,
-            AnimationInterface animationInterface,
-            Rectangle rectangle,
-            short angle, int damage, ScoreableInterface scoreable)
-            throws Exception
-    {
-       this(movement,
-               animationInterface,
-               rectangle,
-               ViewPosition.getInstanceD());
-    }
-    */
-
-    protected WeaponLayer(final String name, final Movement movement, final Animation animationInterface,
-            final Rectangle rectangle, final ViewPosition viewPosition) throws Exception
-    {
-        this(name, movement, animationInterface, 
-                FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance()
-                .getProcedural(ExplosionResources.getInstance().THIRD_EXPLOSION_RESOURCE)
-                .getInstance(NullIndexedAnimationFactory.getFactoryInstance().getInstance(0)), rectangle, viewPosition);
-    }
-
-    protected WeaponLayer(final String name, final Movement movement, final Animation animationInterface,
-            final Animation destroyedAnimationInterface, final Rectangle rectangle,
-            final ViewPosition viewPosition) throws Exception
-    {
-        this(name, RemoteInfo.REMOTE_INFO, -1, movement, animationInterface, destroyedAnimationInterface, rectangle, viewPosition);
-    }
+//    public WeaponLayer(
+//            Movement movement,
+//            AnimationInterface animationInterface,
+//            Rectangle rectangle,
+//            short angle, int damage, ScoreableInterface scoreable)
+//            throws Exception
+//    {
+//       this(movement,
+//               animationInterface,
+//               rectangle,
+//               ViewPosition.getInstanceD());
+//    }
 
     protected WeaponLayer(final String name, final RemoteInfo remoteInfo, final int multiPlayerType, 
         final Movement movement, final Animation animationInterface,

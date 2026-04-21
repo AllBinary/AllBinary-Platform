@@ -1,0 +1,64 @@
+/*
+ * AllBinary Open License Version 1
+ * Copyright (c) 2025 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ * 
+ */
+package org.allbinary.game.layer.building;
+
+import java.util.Hashtable;
+import org.allbinary.game.combat.damage.DamageFloaters;
+import org.allbinary.game.tracking.TrackingEvent;
+import org.allbinary.graphics.paint.NullPaintable;
+import org.allbinary.graphics.paint.Paintable;
+import org.allbinary.logic.NullUtil;
+
+/**
+ *
+ * @author User
+ */
+public class SimulatedBuildingPropertiesFactory extends BuildingPropertiesFactory {
+
+    private static final SimulatedBuildingPropertiesFactory instance = new SimulatedBuildingPropertiesFactory();
+    
+    /**
+     * @return the instance
+     */
+    public static SimulatedBuildingPropertiesFactory getInstance() {
+        return instance;
+    }
+    
+    public int getEfficiencyPerLevel() {
+        return 0;
+    }
+    
+    public DamageFloaters getDamageFloaters(final BuildingLayer buildingLayer) {
+        final DamageFloaters damageFloaters = DamageFloaters.getInstance();
+        this.damageFloatersPaintableInterface = damageFloaters;
+        return damageFloaters;
+    }
+
+    public Paintable getHealthBar(final BuildingLayer buildingLayer) throws Exception {
+        return NullPaintable.getInstance();
+    }
+    
+    public Hashtable getHashtable() {
+        return NullUtil.getInstance().NULL_TABLE;
+    }    
+    
+    public int getEfficiencyPerLevel(final BuildingLayer buildingLayer) {
+        return 0;
+    }
+    
+    public TrackingEvent getTrackingEvent(final BuildingLayer buildingLayer) {
+        return new TrackingEvent();
+    }
+    
+}

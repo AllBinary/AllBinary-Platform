@@ -20,22 +20,22 @@ import org.allbinary.string.CommonSeps;
 
 public class Vertex
 {
-   public BasicDecimal x = new BasicDecimal();
-   public BasicDecimal y = new BasicDecimal();
-   public BasicDecimal z = new BasicDecimal();
+   public BasicDecimal x = new BasicDecimal(0);
+   public BasicDecimal y = new BasicDecimal(0);
+   public BasicDecimal z = new BasicDecimal(0);
 
-   public Vertex(int x, int y, int z)
-   {
-      this.x.set(x);
-      this.y.set(y);
-      this.z.set(z);
-   }
+//   public Vertex(int x, int y, int z)
+//   {
+//      this.x.set(x);
+//      this.y.set(y);
+//      this.z.set(z);
+//   }
    
-   public Vertex(int x, int y)
-   {
-      this.x.set(x);
-      this.y.set(y);
-   }
+//   public Vertex(int x, int y)
+//   {
+//      this.x.set(x);
+//      this.y.set(y);
+//   }
    
    public Vertex()
    {

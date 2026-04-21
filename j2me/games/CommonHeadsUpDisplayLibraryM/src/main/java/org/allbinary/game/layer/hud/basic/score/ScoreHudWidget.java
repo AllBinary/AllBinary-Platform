@@ -20,20 +20,20 @@ import org.allbinary.graphics.font.MyFont;
 
 public class ScoreHudWidget extends NumberStringHud
 {
+    public static ScoreHudWidget getInstance(final int maxscore, final int location, final int direction) throws Exception {
+        return new ScoreHudWidget(maxscore, location, direction, 14, MyFont.getInstance().getSize() * 5, 2, BasicColorFactory.getInstance().GREY);
+    }
+
     public ScoreHudWidget(int maxscore, int location, int direction, int maxHeight, int maxWidth,
             int bufferZone, BasicColor basicColor) throws Exception
     {
         super("Pts ", maxscore, location, direction, maxHeight, maxWidth, bufferZone, basicColor);
     }
 
-    public ScoreHudWidget(int maxscore, int location, int direction, int maxWidth) 
-        throws Exception
-    {
-        this(maxscore, location, direction, 14, maxWidth, 2, BasicColorFactory.getInstance().GREY);
-    }
+//    public ScoreHudWidget(int maxscore, int location, int direction, int maxWidth)
+//        throws Exception
+//    {
+//        this(maxscore, location, direction, 14, maxWidth, 2, BasicColorFactory.getInstance().GREY);
+//    }
 
-    public ScoreHudWidget(int maxscore, int location, int direction) throws Exception
-    {
-        this(maxscore, location, direction, 14, MyFont.getInstance().getSize() * 5, 2, BasicColorFactory.getInstance().GREY);
-    }
 }

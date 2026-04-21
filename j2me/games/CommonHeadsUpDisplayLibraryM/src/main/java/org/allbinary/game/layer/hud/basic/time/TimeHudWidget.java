@@ -23,6 +23,12 @@ import org.allbinary.logic.math.PrimitiveLongSingleton;
 
 public class TimeHudWidget extends BasicHud
 {
+    public static TimeHudWidget getInstance(int location, int direction, BasicColor basicColor, Timer timer)
+            throws Exception
+    {
+        return new TimeHudWidget(location, direction, 14, MyFont.getInstance().getSize() * 5, 2, basicColor, timer);
+    }
+
     private final String TIME_STRING = "Time ";
     private final char[] TIME_CHAR_ARRAY = { 'T', 'i', 'm', 'e', ' ' };
 
@@ -52,17 +58,11 @@ public class TimeHudWidget extends BasicHud
         }
     }
 
-    public TimeHudWidget(int location, int direction, int maxWidth, BasicColor basicColor,
-            Timer timer) throws Exception
-    {
-        this(location, direction, 14, maxWidth, 2, basicColor, timer);
-    }
-
-    public TimeHudWidget(int location, int direction, BasicColor basicColor, Timer timer)
-            throws Exception
-    {
-        this(location, direction, 14, MyFont.getInstance().getSize() * 5, 2, basicColor, timer);
-    }
+//    public TimeHudWidget(int location, int direction, int maxWidth, BasicColor basicColor,
+//            Timer timer) throws Exception
+//    {
+//        this(location, direction, 14, maxWidth, 2, basicColor, timer);
+//    }
 
     public void update()
     {

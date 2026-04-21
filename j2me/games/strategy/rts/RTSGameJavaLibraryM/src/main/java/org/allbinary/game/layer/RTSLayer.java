@@ -75,6 +75,29 @@ public class RTSLayer
     PathFindingLayerInterface
 {
 
+    //used to simulate cost
+    public static RTSLayer createSimulatedInstance(final RemoteInfo remoteInfo) throws Exception {
+
+        final AnimationInterfaceFactoryInterface nullAnimationInterfaceFactoryInterface = NullAnimationFactory.getFactoryInstance();
+        final AnimationInterfaceFactoryInterface nullIndexedAnimationInterfaceFactoryInterface = NullIndexedAnimationFactory.getFactoryInstance();
+        return new RTSLayer(RemoteInfo.REMOTE_INFO,
+                GroupFactory.getInstance().NULL_GROUP_ARRAY,
+                StringUtil.getInstance().EMPTY_STRING,
+                StringUtil.getInstance().EMPTY_STRING,
+                Health.NULL_HEALTH,
+                NullRTSFormInputFactory.getInstance(),
+                nullAnimationInterfaceFactoryInterface,
+                nullIndexedAnimationInterfaceFactoryInterface,
+                nullAnimationInterfaceFactoryInterface,
+                nullAnimationInterfaceFactoryInterface,
+                nullIndexedAnimationInterfaceFactoryInterface,
+                NullIndexedAnimationFactory.getFactoryInstance(),
+                RectangleFactory.SINGLETON,
+                0, 0,
+                new TileLayerPositionIntoViewPosition()
+        );
+    }
+
     protected final boolean debug = true;
     public final boolean showMoreCaptionStates = debug;
     
@@ -131,50 +154,21 @@ public class RTSLayer
     private boolean selected = false;
 
     protected RTSLayer(
-        final RemoteInfo remoteInfo,
-        final Group[] groupInterface,
-        final String rootName,
-        final String name,
-        final Health healthInterface,
-        final RTSFormInput rtsFormInput,
-        final AnimationInterfaceFactoryInterface animationInterfaceFactoryInterface,
-        final AnimationInterfaceFactoryInterface emptyAnimationInterfaceFactoryInterface,
-        final AnimationInterfaceFactoryInterface baseAnimationInterfaceFactoryInterface,
-        final AnimationInterfaceFactoryInterface buildAnimationInterfaceFactoryInterface,
-        final AnimationInterfaceFactoryInterface verticleBuildAnimationInterfaceFactoryInterface,
-        final ProceduralAnimationInterfaceFactoryInterface proceduralAnimationInterfaceFactoryInterface,
-        final Rectangle rectangle,
-        final int x, final int y)
-        throws Exception
-    {
-        this(remoteInfo, groupInterface, rootName, name, 
-            healthInterface, rtsFormInput, 
-            animationInterfaceFactoryInterface,
-            emptyAnimationInterfaceFactoryInterface,
-            baseAnimationInterfaceFactoryInterface,
-            buildAnimationInterfaceFactoryInterface,
-            verticleBuildAnimationInterfaceFactoryInterface,
-            proceduralAnimationInterfaceFactoryInterface,
-            rectangle,
-            x, y, new TileLayerPositionIntoViewPosition());
-    }
-    
-    protected RTSLayer(
-        final RemoteInfo remoteInfo,
-        final Group[] groupInterface,
-        final String rootName,
-        final String name,
-        final Health healthInterface,
-        final RTSFormInput rtsFormInput,
-        final AnimationInterfaceFactoryInterface animationInterfaceFactoryInterface,
-        final AnimationInterfaceFactoryInterface emptyAnimationInterfaceFactoryInterface,
-        final AnimationInterfaceFactoryInterface baseAnimationInterfaceFactoryInterface,
-        final AnimationInterfaceFactoryInterface buildAnimationInterfaceFactoryInterface,
-        final AnimationInterfaceFactoryInterface verticleBuildAnimationInterfaceFactoryInterface,
-        final ProceduralAnimationInterfaceFactoryInterface proceduralAnimationInterfaceFactoryInterface,
-        final Rectangle rectangle,
-        final int x, final int y,
-        final ViewPosition viewPosition)
+            final RemoteInfo remoteInfo,
+            final Group[] groupInterface,
+            final String rootName,
+            final String name,
+            final Health healthInterface,
+            final RTSFormInput rtsFormInput,
+            final AnimationInterfaceFactoryInterface animationInterfaceFactoryInterface,
+            final AnimationInterfaceFactoryInterface emptyAnimationInterfaceFactoryInterface,
+            final AnimationInterfaceFactoryInterface baseAnimationInterfaceFactoryInterface,
+            final AnimationInterfaceFactoryInterface buildAnimationInterfaceFactoryInterface,
+            final AnimationInterfaceFactoryInterface verticleBuildAnimationInterfaceFactoryInterface,
+            final ProceduralAnimationInterfaceFactoryInterface proceduralAnimationInterfaceFactoryInterface,
+            final Rectangle rectangle,
+            final int x, final int y,
+            final ViewPosition viewPosition)
         throws Exception
     {
         super(remoteInfo, groupInterface, name, rectangle, viewPosition);
@@ -222,39 +216,6 @@ public class RTSLayer
 
         //this.setVisible(false);
         //ViewPositionEventHandler.getInstance().addListener(this);
-    }
-
-    //used to simulate cost
-    protected RTSLayer(final RemoteInfo remoteInfo)
-        throws Exception
-    {
-        super(remoteInfo, GroupFactory.getInstance().NULL_GROUP_ARRAY, RectangleFactory.SINGLETON, new TileLayerPositionIntoViewPosition());
-
-        this.initInputProcessors();
-        
-        this.rtsFormInput = NullRTSFormInputFactory.getInstance();
-
-        final Animation animation = NullAnimationFactory.getFactoryInstance().getInstance(0);
-        this.baseAnimationInterface = animation;
-        this.buildAnimationInterface = animation;
-
-        this.rangeAnimation = animation;
-        this.initRangeAnimation = animation;
-        this.sensorRangeAnimation = animation;
-        this.initSensorRangeAnimation = animation;
-        
-        this.animationInterface = animation;
-
-        final IndexedAnimation indexedAnimation = (IndexedAnimation) NullIndexedAnimationFactory.getFactoryInstance().getInstance(0);
-        this.indexedButShouldBeRotationAnimationInterface = indexedAnimation;
-        this.initAnimationInterface = indexedAnimation;
-        this.emptyAnimationInterface = indexedAnimation;
-        this.destroyAnimationInterface = indexedAnimation;
-        
-        this.verticleBuildAnimationInterface = indexedAnimation;
-
-        this.rootName = StringUtil.getInstance().EMPTY_STRING;
-        this.geographicMapCellPositionAreaBase = GeographicMapCellPositionAreaBase.NULL_GEOGRPAHIC_MAP_POSITION_AREA_BASE;
     }
 
     @Override

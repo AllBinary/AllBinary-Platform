@@ -16,6 +16,7 @@ package org.allbinary.game.layer.special;
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.lcdui.Graphics;
 
+import org.allbinary.game.collision.CollidableNeverCollideBehaviorFactory;
 import org.allbinary.game.combat.damage.DamageableInterface;
 import org.allbinary.game.combat.destroy.DestroyableInterface;
 import org.allbinary.game.combat.destroy.event.DestroyedEvent;
@@ -34,6 +35,7 @@ import org.allbinary.graphics.RectangleFactory;
 import org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.math.PositionStrings;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.view.ViewPosition;
@@ -55,7 +57,7 @@ implements DestroyableInterface, DamageableInterface,
 PickupCompositeInterface, SpecialGameInputInterface
 {
     public static final CollidableDestroyableDamageableLayer NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER = new CollidableDestroyableDamageableLayer(
-    BasicGroupFactory.getInstance().NONE_ARRAY, RectangleFactory.SINGLETON, ViewPosition.NULL_VIEW_POSITION);
+    BasicGroupFactory.getInstance().NONE_ARRAY, StringUtil.getInstance().EMPTY_STRING, RectangleFactory.SINGLETON, ViewPosition.NULL_VIEW_POSITION);
         
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
@@ -75,24 +77,11 @@ PickupCompositeInterface, SpecialGameInputInterface
     
     public boolean isDraggable = false;
     public boolean isDragged = false;
-    
-    public CollidableDestroyableDamageableLayer(
-            final Group[] groupInterface, final Rectangle layerInfo, final ViewPosition viewPosition)
-    {
-        super(layerInfo, viewPosition);
-
-        this.initWidth = layerInfo.getWidth();
-        this.initHeight = layerInfo.getHeight();
-        
-        this.groupInterface = groupInterface;
-        
-        this.pickupBehavior = PickupBehavior.NULL_PICKUP_BEHAVIOR;
-    }
 
     public CollidableDestroyableDamageableLayer(
             final Group[] groupInterface, final String name, final Rectangle layerInfo, final ViewPosition viewPosition)
     {
-        super(name, layerInfo, viewPosition);
+        super(name, layerInfo, viewPosition, CollidableNeverCollideBehaviorFactory.getInstance());
 
         this.initWidth = layerInfo.getWidth();
         this.initHeight = layerInfo.getHeight();

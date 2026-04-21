@@ -41,55 +41,21 @@ public class CollidableCompositeLayer
 extends AllBinaryGameLayer
 implements CollidableInterfaceCompositeInterface
 {
-    public static final CollidableCompositeLayer NULL_COLLIDABLE_COMPOSITE_LAYER = new CollidableCompositeLayer(
-        RectangleFactory.SINGLETON, ViewPosition.NULL_VIEW_POSITION, CollidableNeverCollideBehaviorFactory.getInstance());
+    public static final CollidableCompositeLayer NULL_COLLIDABLE_COMPOSITE_LAYER = new CollidableCompositeLayer(StringUtil.getInstance().EMPTY_STRING,
+            RectangleFactory.SINGLETON, ViewPosition.NULL_VIEW_POSITION, CollidableNeverCollideBehaviorFactory.getInstance());
     
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
     private CollidableBaseBehavior collidableInferface;
 
     public CollidableCompositeLayer(
-            final Rectangle layerInfo, final ViewPosition viewPosition, 
-            final CollidableBaseBehavior collidableInferface)
-    {
-        super(StringUtil.getInstance().EMPTY_STRING, layerInfo, viewPosition);
-
-        this.collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance();
-        this.setCollidableInferface(collidableInferface);
-    }
-
-    public CollidableCompositeLayer(
-            final String name, final Rectangle layerInfo, final ViewPosition viewPosition, 
+            final String name, final Rectangle layerInfo, final ViewPosition viewPosition,
             final CollidableBaseBehavior collidableInferface)
     {
         super(name, layerInfo, viewPosition);
 
-        this.collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance();
+        //this.collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance();
         this.setCollidableInferface(collidableInferface);
-    }
-    
-    public CollidableCompositeLayer(
-            final Rectangle layerInfo, final ViewPosition viewPosition)
-    {
-        super(StringUtil.getInstance().EMPTY_STRING, layerInfo, viewPosition);
-        
-        this.collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance();
-        
-    }
-
-    public CollidableCompositeLayer(
-            final String name, final Rectangle layerInfo, final ViewPosition viewPosition)
-    {
-        super(name, layerInfo, viewPosition);
-        
-        this.collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance();
-    }
-    
-    public CollidableCompositeLayer(final Rectangle layerInfo)
-    {
-        super(StringUtil.getInstance().EMPTY_STRING, layerInfo, ViewPosition.getInstanceD());
-        
-        this.collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance();
     }
 
     public ArtificialIntelligenceInterface getArtificialIntelligenceInterface()

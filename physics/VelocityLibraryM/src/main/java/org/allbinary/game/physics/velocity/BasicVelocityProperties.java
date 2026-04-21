@@ -36,9 +36,9 @@ public class BasicVelocityProperties implements BasicVelocityInterface
     
     public BasicVelocityProperties()
     {
-        this.velocityXBasicDecimal = new BasicDecimal();
-        this.velocityYBasicDecimal = new BasicDecimal();
-        this.velocityZBasicDecimal = new BasicDecimal();
+        this.velocityXBasicDecimal = new BasicDecimal(0);
+        this.velocityYBasicDecimal = new BasicDecimal(0);
+        this.velocityZBasicDecimal = new BasicDecimal(0);
     }
 
     @Override

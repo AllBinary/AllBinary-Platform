@@ -48,6 +48,7 @@ import org.allbinary.game.input.event.GameKeyEventUtil;
 import org.allbinary.game.input.form.VisibleCellPositionsSingleton;
 import org.allbinary.game.input.form.WaypointRTSFormInput;
 import org.allbinary.game.layer.AdvancedRTSGameLayer;
+import org.allbinary.game.layer.AdvancedRTSProperties;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.layer.AllBinaryTiledLayer;
 import org.allbinary.game.layer.CaptionResources;
@@ -196,106 +197,7 @@ public class UnitLayer extends AdvancedRTSGameLayer implements
     protected UnitLayer(
             final RemoteInfo remoteInfo,
             final PathFindingLayerInterface parentLayer,
-            final Group[] groupInterface,
-            final String rootName,
-            final String name,
-            final VehicleProperties vehicleProperties,
-            final Health healthInterface,
-            final Integer maxLoad,
-            final Sound moveSoundInterface,
-            final LayerInterfaceFactoryInterface waypointLayerInterfaceFactoryInterface,
-            final AnimationInterfaceFactoryInterface animationInterfaceFactoryInterface,
-            final AnimationInterfaceFactoryInterface emptyAnimationInterfaceFactoryInterface,
-            final AnimationInterfaceFactoryInterface baseAnimationInterfaceFactoryInterface,
-            final AnimationInterfaceFactoryInterface buildAnimationInterfaceFactoryInterface,
-            final AnimationInterfaceFactoryInterface verticleBuildAnimationInterfaceFactoryInterface,
-            final AnimationInterfaceFactoryInterface decalAnimationInterfaceFactoryInterface,
-            final ProceduralAnimationInterfaceFactoryInterface proceduralAnimationInterfaceFactoryInterface,            
-            final Rectangle rectangle, 
-            final Direction direction, 
-            final int x, final int y, final int z) throws Exception
-    {
-        this(remoteInfo, parentLayer, groupInterface, rootName, name, vehicleProperties, 
-                healthInterface, maxLoad, moveSoundInterface, waypointLayerInterfaceFactoryInterface, 
-                animationInterfaceFactoryInterface, emptyAnimationInterfaceFactoryInterface, 
-                baseAnimationInterfaceFactoryInterface, buildAnimationInterfaceFactoryInterface, 
-                verticleBuildAnimationInterfaceFactoryInterface, 
-                decalAnimationInterfaceFactoryInterface,
-                proceduralAnimationInterfaceFactoryInterface, 
-                rectangle, direction, x, y, z, new TileLayerPositionIntoViewPosition());
-    }
-    
-    protected UnitLayer(
-            final RemoteInfo remoteInfo,
-            final PathFindingLayerInterface parentLayer,
-            final Group[] groupInterface,
-            final String rootName,
-            final String name,
-            final VehicleProperties vehicleProperties,
-            final Health healthInterface,
-            final Integer maxLoad,
-            final Sound moveSoundInterface,
-            final LayerInterfaceFactoryInterface waypointLayerInterfaceFactoryInterface,
-            final AnimationInterfaceFactoryInterface animationInterfaceFactoryInterface,
-            final AnimationInterfaceFactoryInterface emptyAnimationInterfaceFactoryInterface,
-            final AnimationInterfaceFactoryInterface baseAnimationInterfaceFactoryInterface,
-            final AnimationInterfaceFactoryInterface buildAnimationInterfaceFactoryInterface,
-            final AnimationInterfaceFactoryInterface verticleBuildAnimationInterfaceFactoryInterface,
-            final AnimationInterfaceFactoryInterface decalAnimationInterfaceFactoryInterface,
-            final ProceduralAnimationInterfaceFactoryInterface proceduralAnimationInterfaceFactoryInterface,
-            final Rectangle rectangle, 
-            final Direction direction, 
-            final int x, final int y, final int z,
-            final ViewPosition viewPosition) throws Exception
-    {
-        this(remoteInfo, parentLayer, groupInterface, rootName, name, vehicleProperties, 
-                healthInterface, maxLoad, moveSoundInterface, waypointLayerInterfaceFactoryInterface, 
-                animationInterfaceFactoryInterface, emptyAnimationInterfaceFactoryInterface, 
-                baseAnimationInterfaceFactoryInterface, buildAnimationInterfaceFactoryInterface, 
-                verticleBuildAnimationInterfaceFactoryInterface, 
-                decalAnimationInterfaceFactoryInterface,
-                NullRotationAnimationFactory.getFactoryInstance(),
-                proceduralAnimationInterfaceFactoryInterface, 
-                rectangle, direction, x, y, z, viewPosition);
-    }
-    
-    protected UnitLayer(
-            final RemoteInfo remoteInfo,
-            final PathFindingLayerInterface parentLayer,
-            final Group[] groupInterface,
-            final String rootName,
-            final String name,
-            final VehicleProperties vehicleProperties,
-            final Health healthInterface,
-            final Integer maxLoad,
-            final Sound moveSoundInterface,
-            final LayerInterfaceFactoryInterface waypointLayerInterfaceFactoryInterface,
-            final AnimationInterfaceFactoryInterface animationInterfaceFactoryInterface,
-            final AnimationInterfaceFactoryInterface emptyAnimationInterfaceFactoryInterface,
-            final AnimationInterfaceFactoryInterface baseAnimationInterfaceFactoryInterface,
-            final AnimationInterfaceFactoryInterface buildAnimationInterfaceFactoryInterface,
-            final AnimationInterfaceFactoryInterface verticleBuildAnimationInterfaceFactoryInterface,
-            final AnimationInterfaceFactoryInterface decalAnimationInterfaceFactoryInterface,
-            final AnimationInterfaceFactoryInterface resourceAnimationInterfaceFactoryInterface,
-            final ProceduralAnimationInterfaceFactoryInterface proceduralAnimationInterfaceFactoryInterface,            
-            final Rectangle rectangle, 
-            final Direction direction, 
-            final int x, final int y, final int z) throws Exception
-    {
-        this(remoteInfo, parentLayer, groupInterface, rootName, name, vehicleProperties, 
-                healthInterface, maxLoad, moveSoundInterface, waypointLayerInterfaceFactoryInterface, 
-                animationInterfaceFactoryInterface, emptyAnimationInterfaceFactoryInterface, 
-                baseAnimationInterfaceFactoryInterface, buildAnimationInterfaceFactoryInterface, 
-                verticleBuildAnimationInterfaceFactoryInterface, 
-                decalAnimationInterfaceFactoryInterface,
-                resourceAnimationInterfaceFactoryInterface,
-                proceduralAnimationInterfaceFactoryInterface, 
-                rectangle, direction, x, y, z, new TileLayerPositionIntoViewPosition());
-    }
-    
-    protected UnitLayer(
-            final RemoteInfo remoteInfo,
-            final PathFindingLayerInterface parentLayer,
+            final AdvancedRTSProperties advancedRTSProperties,
             final Group[] groupInterface,
             final String rootName,
             final String name,
@@ -319,7 +221,8 @@ public class UnitLayer extends AdvancedRTSGameLayer implements
         {
 
         super(remoteInfo,
-                parentLayer, 
+                parentLayer,
+                advancedRTSProperties,
                 groupInterface, 
                 rootName, name, 
                 healthInterface,

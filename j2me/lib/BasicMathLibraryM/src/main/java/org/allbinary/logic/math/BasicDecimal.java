@@ -15,21 +15,12 @@ package org.allbinary.logic.math;
 
 public class BasicDecimal
 {  
-    public static final BasicDecimal ZERO_BIGDECIMAL = new BasicDecimal();
+    public static final BasicDecimal ZERO_BIGDECIMAL = new BasicDecimal(0);
 
+    public static BasicDecimal create(final BasicDecimal bigDecimal) {
+       return new BasicDecimal(bigDecimal.getUnscaled());
+    }
    private long units;
-
-   public BasicDecimal(BasicDecimal bigDecimal)
-   {        
-      this.units = bigDecimal.getUnscaled();
-      this.updateScaled();
-   }
-
-   public BasicDecimal()
-   {        
-      this.units = 0;
-      this.updateScaled();
-   }
 
    public BasicDecimal(long units)
    {

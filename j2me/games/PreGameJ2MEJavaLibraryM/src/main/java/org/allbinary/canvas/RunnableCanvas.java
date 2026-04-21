@@ -68,15 +68,6 @@ public class RunnableCanvas extends MyCanvas
         }
     }
 
-    public RunnableCanvas(final CommandListener commandListener, final BasicArrayList childNameList) {
-        this(commandListener, childNameList, true);
-    }
-    
-    public RunnableCanvas()
-    {   
-        this(NullCommandListener.NULL_COMMAND_LISTENER, CanvasStrings.getInstance().EMPTY_CHILD_NAME_LIST, false);
-    }
-
     //Empty method for overriding 
     public void initCommands(CommandListener cmdListener)
     {
