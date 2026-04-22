@@ -26,6 +26,26 @@ public class RotationAnimation
     extends IndexedAnimation 
     implements RotationAnimationInterface
 {
+
+//    ImageArrayBaseRotationAnimation
+//    public static RotationAnimation create360(final AngleInfo angleInfo, final AnimationBehavior animationBehavior)
+//    {
+//        return new RotationAnimation(angleInfo, CircularIndexUtil.getInstance(360 / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
+//    }
+
+//    ImageBaseRotationAnimation
+//    public static RotationAnimation createTotalAngle(final AngleInfo angleInfo, final short totalAngle, final AnimationBehavior animationBehavior)
+//    {
+//        return new RotationAnimation(angleInfo, CircularIndexUtil.getInstance(totalAngle / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
+//    }
+
+//    LazyImageRotationAnimation
+//    public static RotationAnimation createQuarter(final AnimationBehavior animationBehavior)
+//    {
+//        //AngleFactory.getInstance().TOTAL_ANGLE / angleInfo.getAngleIncrementInfo().getAngleIncrement() == 4
+//        return new RotationAnimation(AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.getInstance(4), animationBehavior);
+//    }
+
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final FrameUtil frameUtil = FrameUtil.getInstance();
@@ -35,33 +55,13 @@ public class RotationAnimation
     
     protected CircularIndexUtil circularIndexUtil;
 
-    protected RotationAnimation(final AngleInfo angleInfo, final AnimationBehavior animationBehavior)
+    protected RotationAnimation(final AngleInfo angleInfo, final CircularIndexUtil circularIndexUtil, final AnimationBehavior animationBehavior)
     {
         super(animationBehavior);
-        
-        this.angleInfo = angleInfo;
-        
-        //Is 360 okay?
-        this.circularIndexUtil = CircularIndexUtil.getInstance(
-                360 / angleInfo.getAngleIncrementInfo().getAngleIncrement());
-    }
-    
-    protected RotationAnimation(final AngleInfo angleInfo, final short totalAngle, final AnimationBehavior animationBehavior)
-    {
-        super(animationBehavior);
-        
-        this.angleInfo = angleInfo;
-        this.circularIndexUtil = CircularIndexUtil.getInstance(
-                totalAngle / angleInfo.getAngleIncrementInfo().getAngleIncrement());
-    }
 
-    protected RotationAnimation(final AnimationBehavior animationBehavior)
-    {
-        super(animationBehavior);
-        
-        this.angleInfo = AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE); //
-        //AngleFactory.getInstance().TOTAL_ANGLE / angleInfo.getAngleIncrementInfo().getAngleIncrement() == 4
-        this.circularIndexUtil = CircularIndexUtil.getInstance(4);
+        this.angleInfo = angleInfo;
+
+        this.circularIndexUtil = circularIndexUtil;
     }
 
     public void nextRotationX()

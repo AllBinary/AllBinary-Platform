@@ -22,6 +22,7 @@ import org.allbinary.animation.RotationAnimation;
 import org.allbinary.direction.Direction;
 import org.allbinary.logic.math.PrimitiveIntUtil;
 import org.allbinary.math.Angle;
+import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
 import org.allbinary.util.CircularIndexUtil;
 
@@ -37,7 +38,7 @@ public class AutoCompoundRotationAnimation extends RotationAnimation
 
     public AutoCompoundRotationAnimation(final RotationAnimation[] animationInterfaceArray, final AnimationBehavior animationBehavior)
     {
-        super(animationBehavior);
+        super(AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.getInstance(4), animationBehavior);
         
         this.animationInterfaceArray = animationInterfaceArray;
         this.circularIndexUtil = CircularIndexUtil.getInstance(this.animationInterfaceArray.length);

@@ -41,14 +41,14 @@ public class RotationAnimationFactory implements
     @Override
     public Animation getInstance(final int instanceId) throws Exception
     {
-        return new NullRotationAnimation(
+        return NullRotationAnimation.createTotalAngle(
                 AngleInfo.getInstance(this.angleIncrement), this.totalAngle, AnimationBehavior.getInstance());
     }
 
     @Override
     public Animation getInstance(Animation animationInterface) throws Exception
     {
-        return new NullRotationAnimation(
+        return NullRotationAnimation.createTotalAngle(
                 AngleInfo.getInstance(this.angleIncrement), this.totalAngle, AnimationBehavior.getInstance());
     }
      

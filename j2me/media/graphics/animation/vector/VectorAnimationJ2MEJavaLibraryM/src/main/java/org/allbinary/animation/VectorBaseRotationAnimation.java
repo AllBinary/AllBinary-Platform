@@ -33,27 +33,27 @@ public class VectorBaseRotationAnimation
    
     public VectorBaseRotationAnimation(final AngleInfo angleInfo, final int[][][] currentPoints, final BasicColor basicColor, final AnimationBehavior animationBehavior)
     {
-        super(angleInfo, animationBehavior);
+        super(angleInfo, CircularIndexUtil.getInstance(360 / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
         
         this.setPoints(currentPoints);
         this.setBasicColorP(basicColor);
     }
 
-    public VectorBaseRotationAnimation(final AngleInfo angleInfo, final int[][] currentPoints, final BasicColor basicColor, final AnimationBehavior animationBehavior)
-    {
-        super(angleInfo, animationBehavior);
-        
-        this.setPoints(new int[1][currentPoints.length][2]);
-
-        int size = currentPoints.length;
-        for (int index = 0; index < size; index++)
-        {
-            this.currentPoints[0][index][0] = currentPoints[index][0];
-            this.currentPoints[0][index][1] = currentPoints[index][1];
-        }
-        
-        this.setBasicColorP(basicColor);
-    }
+//    public VectorBaseRotationAnimation(final AngleInfo angleInfo, final int[][] currentPoints, final BasicColor basicColor, final AnimationBehavior animationBehavior)
+//    {
+//        super(angleInfo, animationBehavior);
+//
+//        this.setPoints(new int[1][currentPoints.length][2]);
+//
+//        int size = currentPoints.length;
+//        for (int index = 0; index < size; index++)
+//        {
+//            this.currentPoints[0][index][0] = currentPoints[index][0];
+//            this.currentPoints[0][index][1] = currentPoints[index][1];
+//        }
+//
+//        this.setBasicColorP(basicColor);
+//    }
 
     @Override
     public int getAnimationSize() throws Exception

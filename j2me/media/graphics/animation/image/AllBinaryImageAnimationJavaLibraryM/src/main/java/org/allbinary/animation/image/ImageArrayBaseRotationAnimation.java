@@ -42,7 +42,7 @@ public class ImageArrayBaseRotationAnimation extends RotationAnimation //impleme
     public ImageArrayBaseRotationAnimation(final Image[] originalImageArray, final AngleInfo angleInfo, final AnimationBehavior animationBehavior) 
         throws Exception {
         
-        super(angleInfo, animationBehavior);
+        super(angleInfo, CircularIndexUtil.getInstance(360 / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
 
         //this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 

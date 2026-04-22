@@ -21,10 +21,10 @@ public class XmlRpcClient implements XmlRpcHandler
         this(new URL(url));
     }
 
-    public XmlRpcClient(String hostname, int port) throws MalformedURLException
-    {
-        this(new URL("http://" + hostname + ':' + port + "/RPC2"));
-    }
+//    public XmlRpcClient(String hostname, int port) throws MalformedURLException
+//    {
+//        this(new URL("http://" + hostname + ':' + port + "/RPC2"));
+//    }
 
     public URL getURL()
     {

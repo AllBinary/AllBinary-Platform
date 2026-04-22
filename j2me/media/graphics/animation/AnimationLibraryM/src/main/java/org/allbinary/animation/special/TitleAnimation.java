@@ -47,19 +47,19 @@ public class TitleAnimation extends SpecialAnimation
 
     private final DisplayInfoSingleton displayInfoSingleton = 
             DisplayInfoSingleton.getInstance();
-    
-    public TitleAnimation(final IndexedAnimation[] animationInterfaceArray,
-            final BasicColor[] basicColorArray, final int[] dxArray, final int[] dyArray)
+
+//    public static TitleAnimation createMinimum(final IndexedAnimation[] animationInterfaceArray,
+//                                               final BasicColor[] basicColorArray, final int[] dxArray, final int[] dyArray)
+//    {
+//        return new TitleAnimation(animationInterfaceArray, basicColorArray, dxArray, dyArray, 0, Integer.MIN_VALUE, new IndexedAnimationBehavior(1, 250));
+//    }
+
+    public static TitleAnimation create(final IndexedAnimation[] animationInterfaceArray,
+                                        final BasicColor[] basicColorArray, final int[] dxArray, final int[] dyArray, final int y, final int width)
     {
-        this(animationInterfaceArray, basicColorArray, dxArray, dyArray, 0, Integer.MIN_VALUE, new IndexedAnimationBehavior(1, 250));
+        return new TitleAnimation(animationInterfaceArray, basicColorArray, dxArray, dyArray, y, width, new IndexedAnimationBehavior(1, 250));
     }
 
-    public TitleAnimation(final IndexedAnimation[] animationInterfaceArray,
-            final BasicColor[] basicColorArray, final int[] dxArray, final int[] dyArray, final int y, final int width)
-    {
-        this(animationInterfaceArray, basicColorArray, dxArray, dyArray, y, width, new IndexedAnimationBehavior(1, 250));
-    }
-    
     public TitleAnimation(final IndexedAnimation[] animationInterfaceArray,
             final BasicColor[] basicColorArray, final int[] dxArray, final int[] dyArray, final int y, final int width,
             final AnimationBehavior animationBehavior)

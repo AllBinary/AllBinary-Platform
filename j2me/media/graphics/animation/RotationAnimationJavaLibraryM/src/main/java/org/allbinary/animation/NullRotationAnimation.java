@@ -1,20 +1,26 @@
 package org.allbinary.animation;
 
+import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
+import org.allbinary.util.CircularIndexUtil;
 
 public class NullRotationAnimation
 extends RotationAnimation
 {
-    NullRotationAnimation(final AngleInfo angleInfo, final short totalAngle, final AnimationBehavior animationBehavior)
+    public static NullRotationAnimation createTotalAngle(final AngleInfo angleInfo, final short totalAngle, final AnimationBehavior animationBehavior)
     {
-        super(angleInfo, totalAngle, animationBehavior);
+        return new NullRotationAnimation(angleInfo, CircularIndexUtil.getInstance(totalAngle / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
     }
 
-    NullRotationAnimation(final AnimationBehavior animationBehavior)
+    public static NullRotationAnimation createQuarter(final AnimationBehavior animationBehavior)
     {
-        super(animationBehavior);
+        return new NullRotationAnimation(AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.getInstance(4), animationBehavior);
     }
-    
+
+    protected NullRotationAnimation(final AngleInfo angleInfo, final CircularIndexUtil circularIndexUtil, final AnimationBehavior animationBehavior) {
+        super(angleInfo, circularIndexUtil, animationBehavior);
+    }
+
     @Override
     public int getAnimationSize() throws Exception
     {

@@ -22,6 +22,7 @@ import org.allbinary.animation.RotationAnimation;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.logic.math.PrimitiveIntUtil;
 import org.allbinary.math.AngleInfo;
+import org.allbinary.util.CircularIndexUtil;
 
 public class ImageBaseRotationAnimation extends RotationAnimation //implements AutoCloseable
 {
@@ -32,7 +33,7 @@ public class ImageBaseRotationAnimation extends RotationAnimation //implements A
     public ImageBaseRotationAnimation(final Image image, final AngleInfo angleInfo, final short totalAngle, final AnimationBehavior animationBehavior)
         throws Exception
     {
-        super(angleInfo, totalAngle, animationBehavior);
+        super(angleInfo, CircularIndexUtil.getInstance(totalAngle / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
         
         this.image = image;
     }

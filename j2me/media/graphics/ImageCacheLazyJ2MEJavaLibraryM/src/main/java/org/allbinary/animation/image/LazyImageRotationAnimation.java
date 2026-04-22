@@ -25,10 +25,13 @@ import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.image.ImageCache;
 import org.allbinary.image.ImageCacheFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.math.AngleFactory;
+import org.allbinary.math.AngleInfo;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.ScaleProperties;
+import org.allbinary.util.CircularIndexUtil;
 
 /**
  *
@@ -52,7 +55,7 @@ public class LazyImageRotationAnimation extends RotationAnimation {
     //private float scaleY;
     
     public LazyImageRotationAnimation(final int layoutIndex, final int instanceId, final ScaleProperties scaleProperties, final BaseImageAnimationFactory animationInterfaceFactoryInterface, final AnimationBehavior animationBehavior) {
-        super(animationBehavior);
+        super(AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.getInstance(4), animationBehavior);
 
         this.layoutIndex = layoutIndex;
         this.instanceId = instanceId;
@@ -71,7 +74,7 @@ public class LazyImageRotationAnimation extends RotationAnimation {
 
         //this.logUtil.putF(this.NULL_INDEX_ANIMATION.toString(), this, this.commonStrings.PROCESS);
 
-        this.animation = new RotationAnimation(animationBehavior) {
+        this.animation = new RotationAnimation(AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.getInstance(4), animationBehavior) {
             
             private int index;
             

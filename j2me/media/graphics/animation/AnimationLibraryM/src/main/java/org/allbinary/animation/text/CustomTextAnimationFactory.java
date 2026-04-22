@@ -38,35 +38,29 @@ public class CustomTextAnimationFactory
 
     private int initScaleHeight;
 
-    private int dx = 0;
-    private int dy = 0;
+    //private int dx = 0;
+    //private int dy = 0;
 
     protected Font font;
     
     public ScaleProperties scaleProperties;
     
-    public CustomTextAnimationFactory(final String text, final int fontSize, final int dx, final int dy) {
-        
-        this(text, fontSize, AnimationBehaviorFactory.getInstance());
-        
-        this.dx = dx;
-        this.dy = dy;
-    }
+//    public CustomTextAnimationFactory(final String text, final int fontSize, final int dx, final int dy) {
+//
+//        this(text, fontSize, AnimationBehaviorFactory.getInstance());
+//
+//        this.dx = dx;
+//        this.dy = dy;
+//    }
     
-    public CustomTextAnimationFactory(final String text, final int fontSize, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory) {
-        
-        this(text, fontSize, animationBehaviorFactory);
-        
-        this.dx = dx;
-        this.dy = dy;
-    }
-        
-    public CustomTextAnimationFactory(final String text, final int fontSize) {
-        
-        this(text, fontSize, AnimationBehaviorFactory.getInstance());
-        
-    }
-    
+//    public CustomTextAnimationFactory(final String text, final int fontSize, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory) {
+//
+//        this(text, fontSize, animationBehaviorFactory);
+//
+//        this.dx = dx;
+//        this.dy = dy;
+//    }
+
     public CustomTextAnimationFactory(final String text, final int fontSize, final AnimationBehaviorFactory animationBehaviorFactory) {
         
         this.scaleProperties = new ScaleProperties();
@@ -82,11 +76,12 @@ public class CustomTextAnimationFactory
     public Animation getInstance(final int instanceId) throws Exception {
         
         CustomTextAnimation customTextAnimation;
-        if (this.dx != 0 || this.dy != 0) {
-            customTextAnimation = new AdjustCustomTextAnimation(this.text, this.scaleProperties.scaleHeight, this.dx, this.dy, this.animationBehaviorFactory.getOrCreateInstance());
-        } else {
+
+//        if (this.dx != 0 || this.dy != 0) {
+//            customTextAnimation = new AdjustCustomTextAnimation(this.text, this.scaleProperties.scaleHeight, this.dx, this.dy, this.animationBehaviorFactory.getOrCreateInstance());
+//        } else {
             customTextAnimation = new CustomTextAnimation(this.text, this.scaleProperties.scaleHeight, this.animationBehaviorFactory.getOrCreateInstance());
-        }
+//        }
 
         customTextAnimation.setBasicColorP(this.basicColor);
         return customTextAnimation;

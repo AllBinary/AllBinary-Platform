@@ -21,6 +21,7 @@ import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.RotationAnimation;
 import org.allbinary.logic.math.PrimitiveIntUtil;
 import org.allbinary.math.AngleInfo;
+import org.allbinary.util.CircularIndexUtil;
 
 public class HackRotationSpriteIndexedAnimation extends RotationAnimation
 {
@@ -29,7 +30,7 @@ public class HackRotationSpriteIndexedAnimation extends RotationAnimation
 
     public HackRotationSpriteIndexedAnimation(final Sprite sprite, final Image image, final AngleInfo angleInfo, final AnimationBehavior animationBehavior)
     {
-        super(angleInfo, animationBehavior);
+        super(angleInfo, CircularIndexUtil.getInstance(360 / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
         
         this.sprite = sprite;
         this.image = image;
