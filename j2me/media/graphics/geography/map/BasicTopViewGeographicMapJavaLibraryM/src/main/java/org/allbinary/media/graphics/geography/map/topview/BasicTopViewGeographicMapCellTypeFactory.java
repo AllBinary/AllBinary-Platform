@@ -49,8 +49,8 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
         
         //GeographicMapCellTypeFactory.getInstance().EMPTY_CELL_TYPE = 
         //new GeographicMapCellType(0);
-        new RaceTrackGeographicMapCellType(0, 999);
-        BasicTopViewGeographicMapCellType BLOCK_CELL_TYPE = new BasicTopViewGeographicMapCellType(basicTopViewGeographicMapStrings.DEFAULT, 1, 1);
+        new RaceTrackGeographicMapCellType(CommonStrings.getInstance().UNKNOWN, 0, 999, 0);
+        BasicTopViewGeographicMapCellType BLOCK_CELL_TYPE = BasicTopViewGeographicMapCellType.create(basicTopViewGeographicMapStrings.DEFAULT, 1, 1);
         BasicTopViewGeographicMapCellType OFF_MAP_CELL_TYPE = BLOCK_CELL_TYPE;
         BasicTopViewGeographicMapCellType FLOOR_CELL_TYPE = BLOCK_CELL_TYPE;
         BasicTopViewGeographicMapCellType DOOR_CELL_TYPE = BLOCK_CELL_TYPE;
@@ -85,12 +85,12 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
         
         int type = 0;
         if(geographicMapCellTypeArray[type] == null) {
-            new RaceTrackGeographicMapCellType(type, 999);
+            new RaceTrackGeographicMapCellType(CommonStrings.getInstance().UNKNOWN, type, 999, 0);
         } else {
             //this.logUtil.putF(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, commonStrings.CONSTRUCTOR);
         }
         
-        BasicTopViewGeographicMapCellType BLOCK_CELL_TYPE = new BasicTopViewGeographicMapCellType(basicTopViewGeographicMapStrings.DEFAULT, 1, 1);
+        BasicTopViewGeographicMapCellType BLOCK_CELL_TYPE = BasicTopViewGeographicMapCellType.create(basicTopViewGeographicMapStrings.DEFAULT, 1, 1);
         BasicTopViewGeographicMapCellType OFF_MAP_CELL_TYPE = BLOCK_CELL_TYPE;
         BasicTopViewGeographicMapCellType FLOOR_CELL_TYPE = BLOCK_CELL_TYPE;
         BasicTopViewGeographicMapCellType DOOR_CELL_TYPE = BLOCK_CELL_TYPE;
@@ -152,14 +152,14 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
         
         type = this.maxTileId - 1;
         if(geographicMapCellTypeArray[type] == null) {
-            new RaceTrackGeographicMapCellType(commonStrings.START, type, 1);
+            new RaceTrackGeographicMapCellType(commonStrings.START, type, 1, 0);
         } else {
             //this.logUtil.putF(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, commonStrings.CONSTRUCTOR);
         }
 
         type = this.maxTileId - 2;
         if(geographicMapCellTypeArray[type] == null) {
-            new RaceTrackGeographicMapCellType(commonStrings.START, type, 1);
+            new RaceTrackGeographicMapCellType(commonStrings.START, type, 1, 0);
         } else {
             //this.logUtil.putF(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, commonStrings.CONSTRUCTOR);
         }

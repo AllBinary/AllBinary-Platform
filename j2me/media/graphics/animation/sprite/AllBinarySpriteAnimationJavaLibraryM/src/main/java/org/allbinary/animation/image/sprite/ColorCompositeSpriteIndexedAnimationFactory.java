@@ -22,6 +22,7 @@ import org.allbinary.animation.ProceduralAnimationInterfaceFactoryInterface;
 import org.allbinary.animation.image.BaseImageAnimationFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.image.sprite.AnimationFactorySpriteScaleUtil;
+import org.allbinary.logic.math.PrimitiveIntUtil;
 
 public class ColorCompositeSpriteIndexedAnimationFactory
     extends BaseImageAnimationFactory
@@ -42,7 +43,7 @@ public class ColorCompositeSpriteIndexedAnimationFactory
         final Image image, final BasicColor[] basicColorArray, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception
     {
-        super(image, width, height, animationBehaviorFactory);
+        super(image, PrimitiveIntUtil.getArrayInstance(), width, height, 0,0, animationBehaviorFactory);
 
         this.basicColorArray = basicColorArray;
         //        this.dx = - (this.width >> 2);

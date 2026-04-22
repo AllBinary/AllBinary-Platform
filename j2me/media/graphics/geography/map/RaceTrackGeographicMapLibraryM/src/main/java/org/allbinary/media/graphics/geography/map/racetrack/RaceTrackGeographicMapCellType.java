@@ -117,20 +117,20 @@ public class RaceTrackGeographicMapCellType extends GeographicMapCellType
     public final String name;
     private final int travelCost;
 
-   public RaceTrackGeographicMapCellType(final int type, final int travelCost)
-   {
-      super(type);
-      this.travelCost = travelCost;
-      final CommonStrings commonStrings = CommonStrings.getInstance();
-      this.name = commonStrings.UNKNOWN;
-   }
+//   public RaceTrackGeographicMapCellType(final int type, final int travelCost)
+//   {
+//      super(type, 0);
+//      final CommonStrings commonStrings = CommonStrings.getInstance();
+//      this.name = commonStrings.UNKNOWN;
+//      this.travelCost = travelCost;
+//   }
 
-   public RaceTrackGeographicMapCellType(final String name, final int type, final int travelCost)
-   {
-      super(type);
-      this.name = name;
-      this.travelCost = travelCost;
-   }
+//   public RaceTrackGeographicMapCellType(final String name, final int type, final int travelCost)
+//   {
+//      super(type, 0);
+//      this.name = name;
+//      this.travelCost = travelCost;
+//   }
 
    public RaceTrackGeographicMapCellType(final String name, final int type, final int travelCost, final int reset)
    {

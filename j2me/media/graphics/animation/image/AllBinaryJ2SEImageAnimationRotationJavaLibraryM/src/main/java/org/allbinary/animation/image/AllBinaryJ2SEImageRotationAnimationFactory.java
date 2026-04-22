@@ -21,6 +21,7 @@ import org.allbinary.game.configuration.GameConfigurationCentral;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.graphics.opengles.OpenGLUtil;
+import org.allbinary.logic.math.PrimitiveIntUtil;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
 import org.allbinary.media.image.ImageCopyUtil;
@@ -31,117 +32,114 @@ public class AllBinaryJ2SEImageRotationAnimationFactory
     protected final short angleIncrementP;
     private final boolean resizeCanvasForRotation;
     
-    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image, final int dx, final int dy)
-    throws Exception
-    {
-        this(image, image.getWidth(), image.getHeight(), dx, dy, AnimationBehaviorFactory.getInstance());
-    }
+//    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image, final int dx, final int dy)
+//    throws Exception
+//    {
+//        this(image, image.getWidth(), image.getHeight(), dx, dy, AnimationBehaviorFactory.getInstance());
+//    }
     
-    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image, final int dx, final int dy, final Object unused, final AnimationBehaviorFactory animationBehaviorFactory)
-    throws Exception
-    {
-        this(image, image.getWidth(), image.getHeight(), dx, dy, animationBehaviorFactory);
-    }
+//    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image, final int dx, final int dy, final Object unused, final AnimationBehaviorFactory animationBehaviorFactory)
+//    throws Exception
+//    {
+//        this(image, image.getWidth(), image.getHeight(), dx, dy, animationBehaviorFactory);
+//    }
 
-    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image, final int dx, final int dy, final short angleIncrement, final Object unused) 
-    throws Exception
-    {
-        this(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, AnimationBehaviorFactory.getInstance());
-    }
+//    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image, final int dx, final int dy, final short angleIncrement, final Object unused)
+//    throws Exception
+//    {
+//        this(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, AnimationBehaviorFactory.getInstance());
+//    }
 
-    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image, final int dx, final int dy, final short angleIncrement, final Object unused, final AnimationBehaviorFactory animationBehaviorFactory) 
-    throws Exception
-    {
-        this(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, animationBehaviorFactory);
-    }
+//    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image, final int dx, final int dy, final short angleIncrement, final Object unused, final AnimationBehaviorFactory animationBehaviorFactory)
+//    throws Exception
+//    {
+//        this(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, animationBehaviorFactory);
+//    }
 
-    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image,
-            final int width, final int height, final int dx, final int dy, final short angleIncrement) throws Exception
-    {
-
-        this(image, width, height, dx, dy, angleIncrement, AnimationBehaviorFactory.getInstance());
-        
-    }
+//    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image,
+//            final int width, final int height, final int dx, final int dy, final short angleIncrement) throws Exception
+//    {
+//        this(image, width, height, dx, dy, angleIncrement, AnimationBehaviorFactory.getInstance());
+//    }
     
-    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image,
-            final int width, final int height, final int dx, final int dy, final short angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
-    {
+//    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image,
+//            final int width, final int height, final int dx, final int dy, final short angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
+//    {
+//
+//        this(image, width, height, angleIncrement, animationBehaviorFactory);
+//
+//        this.animationFactoryInitializationVisitor.dx = dx;
+//        this.animationFactoryInitializationVisitor.dy = dy;
+//        this.animationFactoryInitializationVisitor.originalDx = dx;
+//        this.animationFactoryInitializationVisitor.originalDy = dy;
+//
+//    }
 
-        this(image, width, height, angleIncrement, animationBehaviorFactory);
-
-        this.animationFactoryInitializationVisitor.dx = dx;
-        this.animationFactoryInitializationVisitor.dy = dy;
-        this.animationFactoryInitializationVisitor.originalDx = dx;
-        this.animationFactoryInitializationVisitor.originalDy = dy;
-        
-    }
-
-    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image,
-            final int width, final int height, final int dx, final int dy, final short angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory, final boolean resizeCanvasForRotation) throws Exception
-    {
-
-        this(image, width, height, angleIncrement, animationBehaviorFactory, resizeCanvasForRotation);
-
-        this.animationFactoryInitializationVisitor.dx = dx;
-        this.animationFactoryInitializationVisitor.dy = dy;
-        this.animationFactoryInitializationVisitor.originalDx = dx;
-        this.animationFactoryInitializationVisitor.originalDy = dy;
-
-    }
+//    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image,
+//            final int width, final int height, final int dx, final int dy, final short angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory, final boolean resizeCanvasForRotation) throws Exception
+//    {
+//
+//        this(image, width, height, angleIncrement, animationBehaviorFactory, resizeCanvasForRotation);
+//
+//        this.animationFactoryInitializationVisitor.dx = dx;
+//        this.animationFactoryInitializationVisitor.dy = dy;
+//        this.animationFactoryInitializationVisitor.originalDx = dx;
+//        this.animationFactoryInitializationVisitor.originalDy = dy;
+//
+//    }
     
-    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image,
-            final int width, final int height, final int dx, final int dy) throws Exception
-    {
-
-        this(image, width, height, dx, dy, AnimationBehaviorFactory.getInstance());
-    }
+//    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image,
+//            final int width, final int height, final int dx, final int dy) throws Exception
+//    {
+//
+//        this(image, width, height, dx, dy, AnimationBehaviorFactory.getInstance());
+//    }
     
-    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image,
-            final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
-    {
+//    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image,
+//            final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
+//    {
+//        this(image, width, height, animationBehaviorFactory);
+//
+//        this.animationFactoryInitializationVisitor.dx = dx;
+//        this.animationFactoryInitializationVisitor.dy = dy;
+//        this.animationFactoryInitializationVisitor.originalDx = dx;
+//        this.animationFactoryInitializationVisitor.originalDy = dy;
+//    }
 
-        this(image, width, height, animationBehaviorFactory);
-
-        this.animationFactoryInitializationVisitor.dx = dx;
-        this.animationFactoryInitializationVisitor.dy = dy;
-        this.animationFactoryInitializationVisitor.originalDx = dx;
-        this.animationFactoryInitializationVisitor.originalDy = dy;
-    }
-
-    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image)
-            throws Exception
-    {
-        this(image, image.getWidth(), image.getHeight(), AnimationBehaviorFactory.getInstance());
-    }
+//    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image)
+//            throws Exception
+//    {
+//        this(image, image.getWidth(), image.getHeight(), AnimationBehaviorFactory.getInstance());
+//    }
     
-    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image, final AnimationBehaviorFactory animationBehaviorFactory)
-            throws Exception
-    {
-        this(image, image.getWidth(), image.getHeight(), animationBehaviorFactory);
-    }
+//    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image, final AnimationBehaviorFactory animationBehaviorFactory)
+//            throws Exception
+//    {
+//        this(image, image.getWidth(), image.getHeight(), animationBehaviorFactory);
+//    }
     
-    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
-            throws Exception
-    {
-        super(image, width, height, animationBehaviorFactory);
+//    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
+//            throws Exception
+//    {
+//        super(image, PrimitiveIntUtil.getArrayInstance(), width, height, 0,0, animationBehaviorFactory);
+//
+//        this.angleIncrementP = (short) (AngleFactory.getInstance().TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity());
+//        this.resizeCanvasForRotation = false;
+//    }
 
-        this.angleIncrementP = (short) (AngleFactory.getInstance().TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity());
-        this.resizeCanvasForRotation = false;
-    }
-
-    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image, final int width, final int height,
-            final short angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
-    {
-        super(image, width, height, animationBehaviorFactory);
-
-        this.angleIncrementP = angleIncrement;
-        this.resizeCanvasForRotation = false;
-    }
+//    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image, final int width, final int height,
+//            final short angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
+//    {
+//        super(image, PrimitiveIntUtil.getArrayInstance(), width, height, 0,0, animationBehaviorFactory);
+//
+//        this.angleIncrementP = angleIncrement;
+//        this.resizeCanvasForRotation = false;
+//    }
 
     public AllBinaryJ2SEImageRotationAnimationFactory(final Image image, final int width, final int height,
             final short angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory, final boolean resizeCanvasForRotation) throws Exception
     {
-        super(image, width, height, animationBehaviorFactory);
+        super(image, PrimitiveIntUtil.getArrayInstance(), width, height, 0,0, animationBehaviorFactory);
 
         this.angleIncrementP = angleIncrement;
         this.resizeCanvasForRotation = resizeCanvasForRotation;

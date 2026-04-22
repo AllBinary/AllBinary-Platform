@@ -21,6 +21,7 @@ import org.allbinary.image.GameFeatureImageCacheFactory;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.graphics.displayable.ScreenRelationalUtil;
+import org.allbinary.logic.math.PrimitiveIntUtil;
 import org.allbinary.media.image.ImageScaleUtil;
 import org.microemu.android.device.AndroidImageInterface;
 
@@ -29,17 +30,11 @@ extends BaseImageAnimationFactory
 {
     private Image lastImage = NullCanvas.NULL_IMAGE;
 
-    public AllBinaryScreenRelationalImageAnimationInterfaceFactory(final Image image)
-        throws Exception
-    {
-        this(image, AnimationBehaviorFactory.getInstance());
-    }
-    
     public AllBinaryScreenRelationalImageAnimationInterfaceFactory(final Image image, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception
     {
     	//int width, int height
-        super(image, 0, 0, animationBehaviorFactory);
+        super(image, PrimitiveIntUtil.getArrayInstance(), 0, 0, 0,0, animationBehaviorFactory);
         
     	//Image image = this.getImage();
 

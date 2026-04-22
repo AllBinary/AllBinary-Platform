@@ -22,6 +22,7 @@ import org.allbinary.animation.VectorAnimation;
 import org.allbinary.game.configuration.GameConfigurationCentral;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.image.AnimationFrameToImageUtil;
+import org.allbinary.logic.math.PrimitiveIntUtil;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
 import org.allbinary.media.ScaleProperties;
@@ -35,27 +36,26 @@ public class VectorToImageArrayRotationAnimationFactory
 
     private int angleIncrement;
 
-    public VectorToImageArrayRotationAnimationFactory(final VectorInfo vectorInfo, 
-        final BasicColor basicColor, final int dx, final int dy)
-        throws Exception {
-        this(vectorInfo, basicColor, dx, dy, AnimationBehaviorFactory.getInstance());
-    }
+//    public VectorToImageArrayRotationAnimationFactory(final VectorInfo vectorInfo, final BasicColor basicColor, final int dx, final int dy)
+//        throws Exception {
+//        this(vectorInfo, basicColor, dx, dy, AnimationBehaviorFactory.getInstance());
+//    }
     
-    public VectorToImageArrayRotationAnimationFactory(final VectorInfo vectorInfo, 
-        final BasicColor basicColor, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
-        throws Exception {
+//    public VectorToImageArrayRotationAnimationFactory(final VectorInfo vectorInfo,
+//        final BasicColor basicColor, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
+//        throws Exception {
+//
+//        this(vectorInfo, basicColor, animationBehaviorFactory);
+//
+//        this.animationFactoryInitializationVisitor.dx = dx;
+//        this.animationFactoryInitializationVisitor.dy = dy;
+//    }
 
-        this(vectorInfo, basicColor, animationBehaviorFactory);
-
-        this.animationFactoryInitializationVisitor.dx = dx;
-        this.animationFactoryInitializationVisitor.dy = dy;
-    }
-
-    public VectorToImageArrayRotationAnimationFactory(
-        final VectorInfo vectorInfo, final BasicColor basicColor) throws Exception
-    {
-        this(vectorInfo, basicColor, AnimationBehaviorFactory.getInstance());
-    }
+//    public VectorToImageArrayRotationAnimationFactory(
+//        final VectorInfo vectorInfo, final BasicColor basicColor) throws Exception
+//    {
+//        this(vectorInfo, basicColor, AnimationBehaviorFactory.getInstance());
+//    }
     
     public VectorToImageArrayRotationAnimationFactory(
         final VectorInfo vectorInfo, final BasicColor basicColor, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
@@ -63,7 +63,8 @@ public class VectorToImageArrayRotationAnimationFactory
         super(AnimationFrameToImageUtil.getInstance().getInstanceTranslate(
                 vectorInfo.getWidth(), vectorInfo.getHeight(), 
                 new VectorAnimation(vectorInfo.getPoints(), basicColor, animationBehaviorFactory.getOrCreateInstance())),
-            0, 0, animationBehaviorFactory);
+                PrimitiveIntUtil.getArrayInstance(),
+                0, 0, 0,0, animationBehaviorFactory);
 
         this.init();
     }
@@ -87,7 +88,7 @@ public class VectorToImageArrayRotationAnimationFactory
                 (int) AngleFactory.getInstance().TOTAL_ANGLE, this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
         } else {
             //This still offsets.
-            return new AdjustedImageArrayRotationAnimation(
+            return AdjustedImageArrayRotationAnimation.create(
                 this.imageArray, AngleInfo.getInstance((short) this.angleIncrement),
                 (int) AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehaviorFactory.getOrCreateInstance());
         }

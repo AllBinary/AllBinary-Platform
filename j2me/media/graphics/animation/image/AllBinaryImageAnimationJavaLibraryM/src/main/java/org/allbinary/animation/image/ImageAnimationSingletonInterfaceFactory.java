@@ -23,22 +23,12 @@ import org.allbinary.image.AnimationFrameToImageUtil;
 public class ImageAnimationSingletonInterfaceFactory
 extends SingletonAnimationInterfaceFactory
 {
-    private ImageAnimationSingletonInterfaceFactory(Animation animationInterface)
-    {
-        super(animationInterface);
-    }
-
-    public ImageAnimationSingletonInterfaceFactory(Image image)
-        throws Exception
-    {
-        super(new ImageAnimation(image, AnimationBehavior.getInstance()));
-    }
 
     public ImageAnimationSingletonInterfaceFactory(
-            Animation animationInterface, int width, int height)
+            final Animation animationInterface, final int width, final int height)
         throws Exception
     {
-        this(new ImageAnimation(
+        super(new ImageAnimation(
                 AnimationFrameToImageUtil.getInstance().getInstance(
                         width, height, animationInterface), AnimationBehavior.getInstance()));
     }

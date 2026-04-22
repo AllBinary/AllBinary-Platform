@@ -20,6 +20,7 @@ import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.image.BaseImageAnimationFactory;
 import org.allbinary.image.sprite.AnimationFactorySpriteScaleUtil;
+import org.allbinary.logic.math.PrimitiveIntUtil;
 
 public class OneRowSpriteIndexedAnimationFactory
     extends BaseImageAnimationFactory {
@@ -28,10 +29,8 @@ public class OneRowSpriteIndexedAnimationFactory
 
     public OneRowSpriteIndexedAnimationFactory(final Image image, final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception {
-        super(image, width, height, animationBehaviorFactory);
+        super(image, PrimitiveIntUtil.getArrayInstance(), width, height, dx,dy, animationBehaviorFactory);
 
-        this.animationFactoryInitializationVisitor.dx = dx;
-        this.animationFactoryInitializationVisitor.dy = dy;
     }
     
     public OneRowSpriteIndexedAnimationFactory(final Image image, final int dx)
@@ -76,7 +75,7 @@ public class OneRowSpriteIndexedAnimationFactory
         throws Exception {
 
         //Future imp may include Control fidelity for non square frames
-        super(image, width, height, animationBehaviorFactory);
+        super(image, PrimitiveIntUtil.getArrayInstance(), width, height, 0,0, animationBehaviorFactory);
     }
 
     public OneRowSpriteIndexedAnimationFactory(final Image image)
@@ -89,7 +88,7 @@ public class OneRowSpriteIndexedAnimationFactory
         throws Exception {
 
         //Future imp may include Control fidelity for non square frames
-        super(image, image.getHeight(), image.getHeight(), animationBehaviorFactory);
+        super(image, PrimitiveIntUtil.getArrayInstance(), image.getHeight(), image.getHeight(), 0,0, animationBehaviorFactory);
     }
 
     @Override

@@ -35,19 +35,19 @@
                 <module>../../games/GameScoresLocalLibraryM</module>
                 <module>../../games/GameScoresRemoteAndLocalLibraryM</module>
         -->
-        <module>../../media/graphics/ImageCacheJ2MEJavaLibraryM</module>
+<!-- in GameJ2MELibraryPOM <module>../../media/graphics/ImageCacheJ2MEJavaLibraryM</module>-->
         <module>../../media/graphics/ImageCacheLazyJ2MEJavaLibraryM</module>
         <!--        <module>../../media/graphics/ImageCacheOpenGLESJavaLibraryM</module>-->
         <module>../../media/graphics/GameResourceNoneJavaLibraryM</module>
         <module>../../media/graphics/LazyGameResourceNoneJavaLibraryM</module>
 
-        <module>../../../graphics/opengl/OpenGLNoneJavaLibraryM</module>
+<!-- in GameJ2MELibraryPOM <module>../../../graphics/opengl/OpenGLNoneJavaLibraryM</module>-->
 
         <!--
                 <module>../../../graphics/opengl/OpenGLESJavaLibraryM</module>
         -->
 
-        <module>../../input/JSEGyroSensorJavaLibraryM</module>
+<!-- in GameJ2MELibraryPOM <module>../../input/JSEGyroSensorJavaLibraryM</module>-->
         <!--        
                 <module>../../ProgressJ2MEJavaLibraryM</module>
         -->

@@ -22,26 +22,19 @@ import org.allbinary.math.AngleInfo;
 public class ImageArrayRotationAnimation extends
         ImageArrayBaseRotationAnimation
 {
+    protected static ImageArrayRotationAnimation create(final Object object, final AnimationBehavior animationBehavior)
+            throws Exception
+    {
+        final ImageArrayRotationAnimationInfo imageRotationAnimationInfo = (ImageArrayRotationAnimationInfo) object;
+        return new ImageArrayRotationAnimation(imageRotationAnimationInfo.getImageArray(),
+                imageRotationAnimationInfo.getAngleInfoP(), imageRotationAnimationInfo.getTotalAngle(), animationBehavior);
+    }
+
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
     // , 10, AngleIncrementInfo.TOTAL_ANGLE, angleIncrement, AngleIncrementInfo.TOTAL_ANGLE
 
     private int expectedTotalFrames;
-
-    protected ImageArrayRotationAnimation(final Object object, final AnimationBehavior animationBehavior)
-            throws Exception
-    {
-        super(((ImageArrayRotationAnimationInfo) object).getImageArray(),
-                ((ImageArrayRotationAnimationInfo) object).getAngleInfoP(),
-                animationBehavior);
-
-        // this.logUtil.putF(commonStrings.CONSTRUCTOR, // this, "AllBinaryImageRotationAnimation");
-        ImageArrayRotationAnimationInfo allBinaryImageRotationAnimationInfo = (ImageArrayRotationAnimationInfo) object;
-
-        this.init(allBinaryImageRotationAnimationInfo.getImageArray(),
-                allBinaryImageRotationAnimationInfo.getAngleInfoP(),
-                allBinaryImageRotationAnimationInfo.getTotalAngle());
-    }
 
     public ImageArrayRotationAnimation(final Image[] imageArray,
             final AngleInfo angleInfo, final int totalAngle, final AnimationBehavior animationBehavior) throws Exception
@@ -53,17 +46,17 @@ public class ImageArrayRotationAnimation extends
         this.init(imageArray, angleInfo, totalAngle);
     }
     
-    public ImageArrayRotationAnimation(final Image[] imageArray, final AnimationBehavior animationBehavior)
-            throws Exception
-    {
-        this(imageArray, AngleInfo.getInstance((short) 10), (int) AngleFactory.getInstance().TOTAL_ANGLE, animationBehavior);
-    }
+//    public ImageArrayRotationAnimation(final Image[] imageArray, final AnimationBehavior animationBehavior)
+//            throws Exception
+//    {
+//        this(imageArray, AngleInfo.getInstance((short) 10), (int) AngleFactory.getInstance().TOTAL_ANGLE, animationBehavior);
+//    }
 
-    public ImageArrayRotationAnimation(final Image[] imageArray, final AngleInfo angleInfo,
-        final AnimationBehavior animationBehavior) throws Exception
-    {
-        this(imageArray, angleInfo, (int) AngleFactory.getInstance().TOTAL_ANGLE, animationBehavior);
-    }
+//    public ImageArrayRotationAnimation(final Image[] imageArray, final AngleInfo angleInfo,
+//        final AnimationBehavior animationBehavior) throws Exception
+//    {
+//        this(imageArray, angleInfo, (int) AngleFactory.getInstance().TOTAL_ANGLE, animationBehavior);
+//    }
 
     private void init(final Image[] imageArray, final AngleInfo angleInfo, final int totalAngle)
             throws Exception

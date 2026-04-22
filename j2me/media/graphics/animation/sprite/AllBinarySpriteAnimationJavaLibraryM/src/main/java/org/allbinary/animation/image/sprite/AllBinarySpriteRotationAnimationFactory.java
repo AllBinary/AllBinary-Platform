@@ -22,6 +22,7 @@ import org.allbinary.animation.ProceduralAnimationInterfaceFactoryInterface;
 import org.allbinary.animation.image.BaseImageAnimationFactory;
 import org.allbinary.image.sprite.AnimationFactorySpriteScaleUtil;
 import org.allbinary.logic.NullUtil;
+import org.allbinary.logic.math.PrimitiveIntUtil;
 
 public class AllBinarySpriteRotationAnimationFactory
     extends BaseImageAnimationFactory
@@ -61,7 +62,7 @@ public class AllBinarySpriteRotationAnimationFactory
         
     }
 
-    public AllBinarySpriteRotationAnimationFactory(final Image image, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
+    private AllBinarySpriteRotationAnimationFactory(final Image image, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception {
         
         this(image, animationBehaviorFactory);
@@ -81,7 +82,7 @@ public class AllBinarySpriteRotationAnimationFactory
         throws Exception {
         //Future imp may include Control fidelity for non square frames
         //4 rows
-        super(image, (image.getHeight() >> 2), (image.getHeight() >> 2), animationBehaviorFactory);
+        super(image, PrimitiveIntUtil.getArrayInstance(), (image.getHeight() >> 2), (image.getHeight() >> 2), 0,0, animationBehaviorFactory);
         //int frameSize = (image.getHeight() >> 2);
         //this.width = frameSize;
         //this.height = frameSize;
@@ -91,14 +92,14 @@ public class AllBinarySpriteRotationAnimationFactory
         throws Exception {
         
         //this(image, unused, AnimationBehaviorFactory.getInstance());
-        super(image, (image.getHeight() >> 2), (image.getHeight() >> 2), AnimationBehaviorFactory.getInstance());
+        super(image, PrimitiveIntUtil.getArrayInstance(), (image.getHeight() >> 2), (image.getHeight() >> 2), 0,0, AnimationBehaviorFactory.getInstance());
         
     }
 
     public AllBinarySpriteRotationAnimationFactory(final Image image, final Object unused, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception {
         //Future imp may include Control fidelity for non square frames
-        super(image, image.getHeight(), image.getHeight(), animationBehaviorFactory);
+        super(image, PrimitiveIntUtil.getArrayInstance(), image.getHeight(), image.getHeight(), 0,0, animationBehaviorFactory);
         //super(image, unused == null ? image.getHeight() : (image.getHeight() >> 2), unused == null ? image.getHeight() : (image.getHeight() >> 2), animationBehaviorFactory);
         //int frameSize = (image.getHeight() >> 2);
         //this.width = frameSize;

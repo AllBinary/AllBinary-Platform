@@ -28,6 +28,24 @@ import org.allbinary.media.image.ImageToRotationImageArrayUtil;
 public class PooledImageArrayRotationAnimationFactory implements
         AnimationInterfaceFactoryInterface
 {
+    public static PooledImageArrayRotationAnimationFactory create(final Image image, final AnimationBehaviorFactory animationBehaviorFactory)
+            throws Exception
+    {
+        final int totalAngle = (int) AngleFactory.getInstance().TOTAL_ANGLE;
+
+        final int angleIncrement = (totalAngle / GameConfigurationCentral.getInstance().getGameControlFidelity());
+
+        return new PooledImageArrayRotationAnimationFactory(image, image.getWidth(), image.getHeight(), -(image.getWidth() >> 2), -(image.getHeight() >> 2), angleIncrement, animationBehaviorFactory);
+    }
+
+    public static PooledImageArrayRotationAnimationFactory createDX(
+            final Image image, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
+    {
+        final int totalAngle = (int) AngleFactory.getInstance().TOTAL_ANGLE;
+        final int angleIncrement = (totalAngle / GameConfigurationCentral.getInstance().getGameControlFidelity());
+
+        return new PooledImageArrayRotationAnimationFactory(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, animationBehaviorFactory);
+    }
 
     // private int width;
     // private int height;
@@ -35,62 +53,26 @@ public class PooledImageArrayRotationAnimationFactory implements
     private Object allBinaryImageRotationAnimationInfo = NullUtil.getInstance().NULL_OBJECT;
     private final AnimationBehaviorFactory animationBehaviorFactory;
     
-    public PooledImageArrayRotationAnimationFactory(final Image image, final AnimationBehaviorFactory animationBehaviorFactory)
-            throws Exception
-    {
-        this.animationBehaviorFactory = animationBehaviorFactory;
-
-        // this(image, image.getWidth(), image.getHeight());
-        this.init(image, image.getWidth(), image.getHeight(),
-                -(image.getWidth() >> 2), -(image.getHeight() >> 2));
-    }
-
-    
 //    public PooledAllBinaryImageArrayRotationAnimationFactory(MEImage image, int width, int height) throws Exception {
 //
 //        this.init(image, width, height, -(width >> 2), -(height >> 2));
 //    }
 
-    public PooledImageArrayRotationAnimationFactory(final Image image,
-            final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
-    {
-        this.animationBehaviorFactory = animationBehaviorFactory;
-        
-        this.init(image, image.getWidth(), image.getHeight(), dx, dy);
-    }
-
-    public PooledImageArrayRotationAnimationFactory(final Image image,
-            final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
-    {
-        this.animationBehaviorFactory = animationBehaviorFactory;
-        
-        this.init(image, width, height, dx, dy);
-    }
+//    public PooledImageArrayRotationAnimationFactory(final Image image,
+//            final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
+//    {
+//        this.animationBehaviorFactory = animationBehaviorFactory;
+//
+//        this.init(image, width, height, dx, dy);
+//    }
 
     public PooledImageArrayRotationAnimationFactory(final Image image,
             final int width, final int height, final int dx, final int dy, final int angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
     {
         this.animationBehaviorFactory = animationBehaviorFactory;
-        
-        this.init(image, width, height, dx, dy, angleIncrement);
-    }
-    
-    private void init(final Image image, final int width, final int height, final int dx, final int dy)
-            throws Exception
-    {
-        final int totalAngle = (int) AngleFactory.getInstance().TOTAL_ANGLE;
-        
-        final int angleIncrement = (totalAngle / GameConfigurationCentral.getInstance().getGameControlFidelity());
-        
-        this.init(image, width, height, dx, dy, angleIncrement);
-    }
-    
-    private void init(final Image image, final int width, final int height, final int dx, final int dy, final int angleIncrement)
-            throws Exception
-    {
 
         final int totalAngle = (int) AngleFactory.getInstance().TOTAL_ANGLE;
-        
+
         // this.width = width;
         // this.height = height;
 
@@ -108,7 +90,7 @@ public class PooledImageArrayRotationAnimationFactory implements
         // return new AllBinaryImageRotationAnimation(this.imageArray,
         // AngleInfo.getInstance(angleIncrement), totalAngle, dx, dy);
 
-        return new AdjustedImageArrayRotationAnimation(this.allBinaryImageRotationAnimationInfo, this.animationBehaviorFactory.getOrCreateInstance());
+        return AdjustedImageArrayRotationAnimation.createAdjustedImageArrayRotationAnimationInfo(this.allBinaryImageRotationAnimationInfo, this.animationBehaviorFactory.getOrCreateInstance());
         //return (AnimationInterface) AllBinaryImageArrayRotationAnimationPool
           //      .getInstance().remove(allBinaryImageRotationAnimationInfo);
     }

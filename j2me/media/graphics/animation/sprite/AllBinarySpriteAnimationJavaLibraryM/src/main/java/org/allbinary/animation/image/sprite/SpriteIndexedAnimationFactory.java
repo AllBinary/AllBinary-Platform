@@ -24,6 +24,7 @@ import org.allbinary.animation.image.BaseImageAnimationFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorUtil;
 import org.allbinary.image.sprite.AnimationFactorySpriteScaleUtil;
+import org.allbinary.logic.math.PrimitiveIntUtil;
 
 public class SpriteIndexedAnimationFactory
     extends BaseImageAnimationFactory
@@ -34,18 +35,10 @@ public class SpriteIndexedAnimationFactory
     private BasicColor[] basicColorArray = BasicColorUtil.getInstance().ZERO_ARRAY;
 
     public SpriteIndexedAnimationFactory(
-        final Image image, final BasicColor[] basicColorArray, final int width, final int height, final int dx, final int dy)
-        throws Exception {
-        
-        this(image, basicColorArray, width, height, dx, dy, AnimationBehaviorFactory.getInstance());
-
-    }
-
-    public SpriteIndexedAnimationFactory(
         final Image image, final BasicColor[] basicColorArray, final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception {
         
-        super(image, width, height, animationBehaviorFactory);
+        super(image, PrimitiveIntUtil.getArrayInstance(), width, height, dx, dy, animationBehaviorFactory);
 
         this.basicColorArray = basicColorArray;
         ////this.dx = - (this.width >> 2);
@@ -55,17 +48,6 @@ public class SpriteIndexedAnimationFactory
         ////this.dy = - this.height / 12;
         //this.dx = - this.width / 20;
         //this.dy = - this.height / 10;
-        //J2ME
-        this.animationFactoryInitializationVisitor.dx = dx;
-        this.animationFactoryInitializationVisitor.dy = dy;
-    }
-
-    public SpriteIndexedAnimationFactory(
-        final Image image, final BasicColor[] basicColorArray, final int width, final int height)
-        throws Exception {
-        
-        this(image, basicColorArray, width, height, AnimationBehaviorFactory.getInstance());
-
     }
 
     public SpriteIndexedAnimationFactory(
@@ -92,13 +74,6 @@ public class SpriteIndexedAnimationFactory
     }
 
     public SpriteIndexedAnimationFactory(
-        final Image image, final int width, final int height, final int dx, final int dy)
-        throws Exception
-    {
-        this(image, width, height, dx, dy, AnimationBehaviorFactory.getInstance());
-    }
-    
-    public SpriteIndexedAnimationFactory(
         final Image image, final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception
     {
@@ -107,18 +82,11 @@ public class SpriteIndexedAnimationFactory
         this.animationFactoryInitializationVisitor.dx = dx;
         this.animationFactoryInitializationVisitor.dy = dy;
     }
-    
-    public SpriteIndexedAnimationFactory(final Image image, final int width, final int height)
-        throws Exception {
-        
-        this(image, width, height, AnimationBehaviorFactory.getInstance());
-        
-    }
 
     public SpriteIndexedAnimationFactory(final Image image, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception {
         
-        super(image, width, height, animationBehaviorFactory);
+        super(image, PrimitiveIntUtil.getArrayInstance(), width, height, 0,0, animationBehaviorFactory);
         
     }
 

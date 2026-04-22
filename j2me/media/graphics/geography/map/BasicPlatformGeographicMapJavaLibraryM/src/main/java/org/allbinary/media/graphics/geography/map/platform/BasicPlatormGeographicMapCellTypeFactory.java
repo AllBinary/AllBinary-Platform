@@ -42,9 +42,9 @@ public class BasicPlatormGeographicMapCellTypeFactory extends GeographicMapCellT
         this.maxTileId = maxTileId;
         
         //GeographicMapCellTypeFactory.getInstance().EMPTY_CELL_TYPE = 
-        new GeographicMapCellType(0);
+        new GeographicMapCellType(0, 0);
         //new GeographicMapCellType(1);
-        BasicPlatormGeographicMapCellType BLOCK_CELL_TYPE = new BasicPlatormGeographicMapCellType(1);
+        BasicPlatormGeographicMapCellType BLOCK_CELL_TYPE = BasicPlatormGeographicMapCellType.create(1);
         BasicPlatormGeographicMapCellType JUMP_THRU_CELL_TYPE = BLOCK_CELL_TYPE;
         BasicPlatormGeographicMapCellType LADDER_CELL_TYPE = BLOCK_CELL_TYPE;
         
@@ -81,8 +81,8 @@ public class BasicPlatormGeographicMapCellTypeFactory extends GeographicMapCellT
         this.JUMP_THRU_CELL_TYPE = JUMP_THRU_CELL_TYPE;
         this.LADDER_CELL_TYPE = LADDER_CELL_TYPE;
         
-        new GeographicMapCellType(this.maxTileId - 1);
-        new GeographicMapCellType(this.maxTileId - 2);
+        new GeographicMapCellType(this.maxTileId - 1, 0);
+        new GeographicMapCellType(this.maxTileId - 2, 0);
         
     }
 

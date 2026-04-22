@@ -27,7 +27,9 @@ public class ImageArrayRotationAnimationCacheable
 	public ImageArrayRotationAnimationCacheable(final Object object, final AnimationBehavior animationBehavior) 
 	throws Exception 
 	{
-		super(object, animationBehavior);
+		super(((ImageArrayRotationAnimationInfo) object).getImageArray(),
+				((ImageArrayRotationAnimationInfo) object).getAngleInfoP(), ((ImageArrayRotationAnimationInfo) object).getTotalAngle(), ((ImageArrayRotationAnimationInfo) object).getDx(), ((ImageArrayRotationAnimationInfo) object).getDy(), animationBehavior);
+
 		//this.key = key;
 	}
 	

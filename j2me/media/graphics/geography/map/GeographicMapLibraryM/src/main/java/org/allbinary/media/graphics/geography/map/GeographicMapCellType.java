@@ -19,16 +19,16 @@ import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 public class GeographicMapCellType
 {
     public static final GeographicMapCellType[] NULL_GEOGRAPHIC_MAP_CELL_TYPE_ARRAY = new GeographicMapCellType[0];
-    public static final GeographicMapCellType NULL_GEOGRAPHIC_MAP_CELL_TYPE = new GeographicMapCellType(Integer.MIN_VALUE);
+    public static final GeographicMapCellType NULL_GEOGRAPHIC_MAP_CELL_TYPE = new GeographicMapCellType(Integer.MIN_VALUE, 0);
     
     protected final LogUtil logUtil = LogUtil.getInstance();
    
    private final int type;
 
-   public GeographicMapCellType(final int type) 
-   {
-       this(type, 0);
-   }
+//   public GeographicMapCellType(final int type)
+//   {
+//       this(type, 0);
+//   }
    
    public GeographicMapCellType(final int type, final int reset)
    {

@@ -15,27 +15,32 @@ package org.allbinary.media.graphics.geography.map.platform;
 
 import org.allbinary.media.graphics.geography.map.GeographicMapCellType;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListS;
 
 public class BasicPlatormGeographicMapCellType //extends GeographicMapCellType
 {
     private final int[] types;
 
-    public BasicPlatormGeographicMapCellType(final int type) {
+    public static BasicPlatormGeographicMapCellType create(final int type) {
         //super(type);
-        new GeographicMapCellType(type);
-        this.types = new int[1];
-        this.types[0] = type;
+        final BasicArrayList types = new BasicArrayListS(1);
+        types.add(type);
+        final BasicPlatormGeographicMapCellType basicPlatormGeographicMapCellType = new BasicPlatormGeographicMapCellType(types);
+        new GeographicMapCellType(type, 0);
+        //this.types = new int[1];
+        //this.types[0] = type;
+        return basicPlatormGeographicMapCellType;
     }
     
-    public BasicPlatormGeographicMapCellType(final int[] types) {
-        //super(Integer.MIN_VALUE);
-        
-        final int size = types.length;
-        for(int index = 0; index < size; index++) {
-            new GeographicMapCellType(types[index]);
-        }
-        this.types = types;
-    }
+//    public BasicPlatormGeographicMapCellType(final int[] types) {
+//        //super(Integer.MIN_VALUE);
+//
+//        final int size = types.length;
+//        for(int index = 0; index < size; index++) {
+//            new GeographicMapCellType(types[index]);
+//        }
+//        this.types = types;
+//    }
 
     public BasicPlatormGeographicMapCellType(final BasicArrayList types) {
         //super(Integer.MIN_VALUE);
@@ -47,7 +52,7 @@ public class BasicPlatormGeographicMapCellType //extends GeographicMapCellType
         for(int index = 0; index < size; index++) {
             typeAsInteger = ((Integer) types.get(index));
             type = typeAsInteger.intValue();
-            new GeographicMapCellType(type);
+            new GeographicMapCellType(type, 0);
             typeArray[index] = type;
         }
         

@@ -24,20 +24,16 @@ import org.allbinary.image.IndexedAnimationToImageArrayUtil;
 public class ImageArraySingletonAnimationInterfaceFactory
 extends SingletonAnimationInterfaceFactory
 {
-    public ImageArraySingletonAnimationInterfaceFactory(final Animation animationInterface)
-    {
-        super(animationInterface);
-    }
-    
-    public ImageArraySingletonAnimationInterfaceFactory(final IndexedAnimation animationInterface, final int width, final int height)
-    throws Exception
-    {
-        this(new ImageArrayAnimation(IndexedAnimationToImageArrayUtil.getInstance(width, height, animationInterface), AnimationBehavior.getInstance()));
-    }    
+
+//    public ImageArraySingletonAnimationInterfaceFactory(final IndexedAnimation animationInterface, final int width, final int height)
+//    throws Exception
+//    {
+//        this(new ImageArrayAnimation(IndexedAnimationToImageArrayUtil.getInstance(width, height, animationInterface), AnimationBehavior.getInstance()));
+//    }
 
     public ImageArraySingletonAnimationInterfaceFactory(Image[] imageArray)
     throws Exception
     {
-        this(new ImageArrayAnimation(imageArray, AnimationBehavior.getInstance()));
+        super(new ImageArrayAnimation(imageArray, AnimationBehavior.getInstance()));
     }    
 }

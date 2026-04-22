@@ -29,6 +29,10 @@ import org.allbinary.string.CommonSeps;
 public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInterface {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
+    public static BaseImageAnimationFactory create(final Image image, final int[] sequenceArray, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
+            throws Exception {
+        return new BaseImageAnimationFactory(image, sequenceArray, width, height, 0, 0, animationBehaviorFactory);
+    }
 
     protected final AnimationFactoryImageScaleUtil animationFactoryImageScaleUtil = AnimationFactoryImageScaleUtil.getInstance();
         
@@ -42,43 +46,23 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
 
     protected ScaleProperties scaleProperties = ScaleProperties.instance;
 
-    public BaseImageAnimationFactory(final Image image, final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
-            throws Exception {
-        this(image, PrimitiveIntUtil.getArrayInstance(), width, height, animationBehaviorFactory);
-        
-        this.animationFactoryInitializationVisitor.dx = dx;
-        this.animationFactoryInitializationVisitor.dy = dy;
-        
-    }
-    
-    public BaseImageAnimationFactory(final Image image, final int[] sequenceArray, final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory) 
+    public BaseImageAnimationFactory(final Image image, final int[] sequenceArray, final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception {
-        this(image, sequenceArray, width, height, animationBehaviorFactory);
-        
-        this.animationFactoryInitializationVisitor.dx = dx;
-        this.animationFactoryInitializationVisitor.dy = dy;
-        
-    }
-    
-    public BaseImageAnimationFactory(final Image image, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
-            throws Exception {
-        this(image, PrimitiveIntUtil.getArrayInstance(), width, height, animationBehaviorFactory);
-    }
 
-    public BaseImageAnimationFactory(final Image image, final int[] sequenceArray, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
-            throws Exception {
-        
         this.animationFactoryInitializationVisitor = new AnimationFactoryInitializationVisitor();
-        
+
         this.image = image;
 
         this.animationFactoryInitializationVisitor.width = width;
         this.animationFactoryInitializationVisitor.height = height;
-        
+
         this.animationBehaviorFactory = animationBehaviorFactory;
 
         this.sequenceArray = sequenceArray;
-
+        
+        this.animationFactoryInitializationVisitor.dx = dx;
+        this.animationFactoryInitializationVisitor.dy = dy;
+        
     }
 
     @Override

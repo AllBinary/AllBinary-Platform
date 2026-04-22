@@ -19,6 +19,7 @@ import javax.microedition.lcdui.NullCanvas;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.game.configuration.GameConfigurationCentral;
+import org.allbinary.logic.math.PrimitiveIntUtil;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
 import org.allbinary.media.image.ImageToRotationImageArrayUtil;
@@ -30,82 +31,87 @@ public class AllBinaryArrayImageRotationAnimationFactory
 
     private int angleIncrement;
 
-    public AllBinaryArrayImageRotationAnimationFactory(final Image image, final int dx, final int dy) 
+    public static AllBinaryArrayImageRotationAnimationFactory create(final Image image, final int dx, final int dy)
     throws Exception
     {
-        this(image, image.getWidth(), image.getHeight(), dx, dy, AnimationBehaviorFactory.getInstance());
-    }
-    
-    public AllBinaryArrayImageRotationAnimationFactory(final Image image, final int dx, final int dy, final Object unused, final AnimationBehaviorFactory animationBehaviorFactory) 
-    throws Exception
-    {
-        this(image, image.getWidth(), image.getHeight(), dx, dy, animationBehaviorFactory);
+        final AllBinaryArrayImageRotationAnimationFactory arrayImageRotationAnimationFactory = new AllBinaryArrayImageRotationAnimationFactory(image, image.getWidth(), image.getHeight(), AngleFactory.getInstance().TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity(), AnimationBehaviorFactory.getInstance());
+        arrayImageRotationAnimationFactory.init(dx, dy);
+        return arrayImageRotationAnimationFactory;
     }
 
-    public AllBinaryArrayImageRotationAnimationFactory(final Image image, final int dx, final int dy, final int angleIncrement) 
-    throws Exception
-    {
-        this(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, AnimationBehaviorFactory.getInstance());
-    }
-    
-    public AllBinaryArrayImageRotationAnimationFactory(final Image image, final int dx, final int dy, final int angleIncrement, final Object unused, final AnimationBehaviorFactory animationBehaviorFactory) 
-    throws Exception
-    {
-        this(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, animationBehaviorFactory);
-    }
-
-    public AllBinaryArrayImageRotationAnimationFactory(final Image image,
-            final int width, final int height, final int dx, final int dy, final int angleIncrement) throws Exception
-    {
-
-        this(image, width, height, dx, dy, angleIncrement, AnimationBehaviorFactory.getInstance());
-    }
-    
-    public AllBinaryArrayImageRotationAnimationFactory(final Image image,
-            final int width, final int height, final int dx, final int dy, final int angleIncrement, 
-            final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
-    {
-
-        this(image, width, height, angleIncrement, animationBehaviorFactory);
-
-        this.animationFactoryInitializationVisitor.dx = dx;
-        this.animationFactoryInitializationVisitor.dy = dy;
-        this.animationFactoryInitializationVisitor.originalDx = dx;
-        this.animationFactoryInitializationVisitor.originalDy = dy;
-    }
-
-    public AllBinaryArrayImageRotationAnimationFactory(final Image image,
-            final int width, final int height, final int dx, final int dy) throws Exception
-    {
-        this(image, width, height, dx, dy, AnimationBehaviorFactory.getInstance());
-    }
-    
-    public AllBinaryArrayImageRotationAnimationFactory(final Image image,
-            final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
-    {
-
-        this(image, width, height, animationBehaviorFactory);
-
-        this.animationFactoryInitializationVisitor.dx = dx;
-        this.animationFactoryInitializationVisitor.dy = dy;
-        this.animationFactoryInitializationVisitor.originalDx = dx;
-        this.animationFactoryInitializationVisitor.originalDy = dy;
-    }
-
-    public AllBinaryArrayImageRotationAnimationFactory(final Image image, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
+    public static AllBinaryArrayImageRotationAnimationFactory createA(final Image image, final int dx, final int dy, final int angleIncrement)
             throws Exception
     {
-        super(image, width, height, animationBehaviorFactory);
-
-        this.angleIncrement = AngleFactory.getInstance().TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity();
-        
-        this.init();
+        final AllBinaryArrayImageRotationAnimationFactory arrayImageRotationAnimationFactory = new AllBinaryArrayImageRotationAnimationFactory(image, image.getWidth(), image.getHeight(), angleIncrement, AnimationBehaviorFactory.getInstance());
+        arrayImageRotationAnimationFactory.init(dx, dy);
+        return arrayImageRotationAnimationFactory;
     }
+
+//    public AllBinaryArrayImageRotationAnimationFactory(final Image image, final int dx, final int dy, final Object unused, final AnimationBehaviorFactory animationBehaviorFactory)
+//    throws Exception
+//    {
+//        this(image, image.getWidth(), image.getHeight(), dx, dy, animationBehaviorFactory);
+//    }
+
+//    public AllBinaryArrayImageRotationAnimationFactory(final Image image, final int dx, final int dy, final int angleIncrement, final Object unused, final AnimationBehaviorFactory animationBehaviorFactory)
+//    throws Exception
+//    {
+//        this(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, animationBehaviorFactory);
+//    }
+
+//    public AllBinaryArrayImageRotationAnimationFactory(final Image image,
+//            final int width, final int height, final int dx, final int dy, final int angleIncrement) throws Exception
+//    {
+//
+//        this(image, width, height, dx, dy, angleIncrement, AnimationBehaviorFactory.getInstance());
+//    }
+    
+//    public AllBinaryArrayImageRotationAnimationFactory(final Image image,
+//            final int width, final int height, final int dx, final int dy, final int angleIncrement,
+//            final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
+//    {
+//
+//        this(image, width, height, angleIncrement, animationBehaviorFactory);
+//
+//        this.animationFactoryInitializationVisitor.dx = dx;
+//        this.animationFactoryInitializationVisitor.dy = dy;
+//        this.animationFactoryInitializationVisitor.originalDx = dx;
+//        this.animationFactoryInitializationVisitor.originalDy = dy;
+//    }
+
+//    public AllBinaryArrayImageRotationAnimationFactory(final Image image,
+//            final int width, final int height, final int dx, final int dy) throws Exception
+//    {
+//        this(image, width, height, dx, dy, AnimationBehaviorFactory.getInstance());
+//    }
+    
+//    public AllBinaryArrayImageRotationAnimationFactory(final Image image,
+//            final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
+//    {
+//
+//        this(image, width, height, animationBehaviorFactory);
+//
+//        this.animationFactoryInitializationVisitor.dx = dx;
+//        this.animationFactoryInitializationVisitor.dy = dy;
+//        this.animationFactoryInitializationVisitor.originalDx = dx;
+//        this.animationFactoryInitializationVisitor.originalDy = dy;
+//
+//    }
+
+//    public AllBinaryArrayImageRotationAnimationFactory(final Image image, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
+//            throws Exception
+//    {
+//        super(image, PrimitiveIntUtil.getArrayInstance(), width, height, 0,0, animationBehaviorFactory);
+//
+//        this.angleIncrement = AngleFactory.getInstance().TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity();
+//
+//        this.init();
+//    }
 
     public AllBinaryArrayImageRotationAnimationFactory(final Image image, final int width, final int height, final int angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory) 
         throws Exception {
         
-        super(image, width, height, animationBehaviorFactory);
+        super(image, PrimitiveIntUtil.getArrayInstance(), width, height, 0,0, animationBehaviorFactory);
 
         this.angleIncrement = angleIncrement;
         
@@ -118,6 +124,14 @@ public class AllBinaryArrayImageRotationAnimationFactory
                 this.getImage(), this.getAngleIncrement(), (int) AngleFactory.getInstance().TOTAL_ANGLE));
     }
 
+    private void init(final int dx, final int dy)
+    {
+        this.animationFactoryInitializationVisitor.dx = dx;
+        this.animationFactoryInitializationVisitor.dy = dy;
+        this.animationFactoryInitializationVisitor.originalDx = dx;
+        this.animationFactoryInitializationVisitor.originalDy = dy;
+    }
+    
     @Override
     public Animation getInstance(final int instanceId) throws Exception
     {

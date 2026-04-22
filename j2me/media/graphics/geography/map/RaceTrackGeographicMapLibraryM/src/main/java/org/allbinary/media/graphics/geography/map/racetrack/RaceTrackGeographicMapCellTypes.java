@@ -36,22 +36,22 @@ public class RaceTrackGeographicMapCellTypes
     public RaceTrackGeographicMapCellTypes()
     {
         this.BOTTOM_LEFT_TURN_ROAD_CELL_TYPE = new RaceTrackGeographicMapCellType("Bottom Left Turn",
-                1, 1);
+                1, 1, 0);
         this.BOTTOM_RIGHT_TURN_ROAD_CELL_TYPE = new RaceTrackGeographicMapCellType("Bottom Right Turn",
-                2, 1);
+                2, 1, 0);
         this.TOP_LEFT_TURN_ROAD_CELL_TYPE = new RaceTrackGeographicMapCellType("Top Left Turn",
-                3, 1);
+                3, 1, 0);
         this.TOP_RIGHT_TURN_ROAD_CELL_TYPE = new RaceTrackGeographicMapCellType("Top Right Turne",
-                4, 1);
+                4, 1, 0);
         this.HORIZONTAL_STRAIGHT_ROAD_CELL_TYPE = new RaceTrackGeographicMapCellType("Horizontal Straight",
-                5, 1);
+                5, 1, 0);
         this.VERTICAL_STRAIGHT_ROAD_CELL_TYPE = new RaceTrackGeographicMapCellType("Vertical Straight",
-                6, 1);
+                6, 1, 0);
 
         this.START_LINE_ROAD_CELL_TYPE = new RaceTrackGeographicMapCellType("Start Line",
-                7, 1);
+                7, 1, 0);
 
         this.DEFAULT_FINISH_LINE_ROAD_CELL_TYPE = new RaceTrackGeographicMapCellType("Finish Line",
-                8, 1);
+                8, 1, 0);
     }
 }

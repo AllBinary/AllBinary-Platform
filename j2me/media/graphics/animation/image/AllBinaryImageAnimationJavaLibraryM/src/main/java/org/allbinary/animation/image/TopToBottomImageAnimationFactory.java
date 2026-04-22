@@ -32,7 +32,7 @@ public class TopToBottomImageAnimationFactory
 
     public TopToBottomImageAnimationFactory(final Image image, final int[] sequenceArray, final AnimationBehaviorFactory animationBehaviorFactory) //, int width, int height)
         throws Exception {
-        super(image, sequenceArray, image.getWidth(), image.getHeight(), animationBehaviorFactory); //, width, height);
+        super(image, sequenceArray, image.getWidth(), image.getHeight(), 0,0, animationBehaviorFactory); //, width, height);
     }
 
     @Override

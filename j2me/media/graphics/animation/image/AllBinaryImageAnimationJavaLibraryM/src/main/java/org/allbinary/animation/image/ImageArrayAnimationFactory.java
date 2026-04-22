@@ -31,33 +31,14 @@ implements AnimationInterfaceFactoryInterface
 
     private final AnimationBehaviorFactory animationBehaviorFactory;
 
-    public ImageArrayAnimationFactory(final Image[] imageArray, final int dx, final int dy) 
-        throws Exception {
-
-        this(imageArray, dx, dy, AnimationBehaviorFactory.getInstance());
-
-    }
-    
     public ImageArrayAnimationFactory(final Image[] imageArray, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory) 
         throws Exception {
         
-        this(imageArray, animationBehaviorFactory);
-        
+        this.imageArray = imageArray;
+        this.animationBehaviorFactory = animationBehaviorFactory;
+
     	this.dx = dx;
     	this.dy = dy;
-    }
-
-    public ImageArrayAnimationFactory(final Image[] imageArray)
-    throws Exception
-    {
-    	this(imageArray, AnimationBehaviorFactory.getInstance());
-    }
-    
-    public ImageArrayAnimationFactory(final Image[] imageArray, final AnimationBehaviorFactory animationBehaviorFactory)
-    throws Exception
-    {
-    	this.imageArray = imageArray;
-        this.animationBehaviorFactory = animationBehaviorFactory;
     }
 
     @Override

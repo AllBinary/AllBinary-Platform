@@ -25,25 +25,25 @@ import org.allbinary.animation.AnimationBehaviorFactory;
 public class LeftToRightImageAnimationFactory
         extends BaseImageAnimationFactory {
 
-    public LeftToRightImageAnimationFactory(final Image image, final int[] sequenceArray, final int dx, final int dy)
-        throws Exception {
-        this(image, sequenceArray, dx, dy, AnimationBehaviorFactory.getInstance());
-    }
+//    public LeftToRightImageAnimationFactory(final Image image, final int[] sequenceArray, final int dx, final int dy)
+//        throws Exception {
+//        this(image, sequenceArray, dx, dy, AnimationBehaviorFactory.getInstance());
+//    }
 
     public LeftToRightImageAnimationFactory(final Image image, final int[] sequenceArray, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory) //, int width, int height)
         throws Exception {
         super(image, sequenceArray, image.getWidth(), image.getHeight(), dx, dy, animationBehaviorFactory); //, width, height);
     }
 
-    public LeftToRightImageAnimationFactory(final Image image, final int[] sequenceArray)
-        throws Exception {
-        this(image, sequenceArray, AnimationBehaviorFactory.getInstance());
-    }
+//    public LeftToRightImageAnimationFactory(final Image image, final int[] sequenceArray)
+//        throws Exception {
+//        this(image, sequenceArray, AnimationBehaviorFactory.getInstance());
+//    }
 
-    public LeftToRightImageAnimationFactory(final Image image, final int[] sequenceArray, final AnimationBehaviorFactory animationBehaviorFactory) //, int width, int height)
-        throws Exception {
-        super(image, sequenceArray, image.getWidth(), image.getHeight(), animationBehaviorFactory); //, width, height);
-    }
+//    public LeftToRightImageAnimationFactory(final Image image, final int[] sequenceArray, final AnimationBehaviorFactory animationBehaviorFactory) //, int width, int height)
+//        throws Exception {
+//        super(image, sequenceArray, image.getWidth(), image.getHeight(), 0,0, animationBehaviorFactory); //, width, height);
+//    }
 
     @Override
     public Animation getInstance(final int instanceId) throws Exception {

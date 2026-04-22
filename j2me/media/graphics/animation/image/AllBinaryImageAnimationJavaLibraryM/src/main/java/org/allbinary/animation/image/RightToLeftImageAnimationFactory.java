@@ -17,6 +17,7 @@ import javax.microedition.lcdui.Image;
 
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
+import org.allbinary.logic.math.PrimitiveIntUtil;
 
 /**
  *
@@ -25,25 +26,25 @@ import org.allbinary.animation.AnimationBehaviorFactory;
 public class RightToLeftImageAnimationFactory
     extends BaseImageAnimationFactory {
 
-    public RightToLeftImageAnimationFactory(final Image image, final int dx, final int dy)
-        throws Exception {
-        this(image, dx, dy, AnimationBehaviorFactory.getInstance());
-    }
+//    public RightToLeftImageAnimationFactory(final Image image, final int dx, final int dy)
+//        throws Exception {
+//        this(image, dx, dy, AnimationBehaviorFactory.getInstance());
+//    }
 
     public RightToLeftImageAnimationFactory(final Image image, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory) //, int width, int height)
         throws Exception {
-        super(image, image.getWidth(), image.getHeight(), dx, dy, animationBehaviorFactory); //, width, height);        
+        super(image, PrimitiveIntUtil.getArrayInstance(), image.getWidth(), image.getHeight(), dx, dy, animationBehaviorFactory); //, width, height);
     }
 
-    public RightToLeftImageAnimationFactory(final Image image)
-        throws Exception {
-        this(image, AnimationBehaviorFactory.getInstance());
-    }
+//    public RightToLeftImageAnimationFactory(final Image image)
+//        throws Exception {
+//        this(image, AnimationBehaviorFactory.getInstance());
+//    }
 
-    public RightToLeftImageAnimationFactory(final Image image, final AnimationBehaviorFactory animationBehaviorFactory) //, int width, int height)
-        throws Exception {
-        super(image, image.getWidth(), image.getHeight(), animationBehaviorFactory); //, width, height);
-    }
+//    public RightToLeftImageAnimationFactory(final Image image, final AnimationBehaviorFactory animationBehaviorFactory) //, int width, int height)
+//        throws Exception {
+//        super(image, PrimitiveIntUtil.getArrayInstance(), image.getWidth(), image.getHeight(), 0,0, animationBehaviorFactory); //, width, height);
+//    }
 
     @Override    
     public Animation getInstance(final int instanceId) throws Exception {
