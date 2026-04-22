@@ -54,8 +54,9 @@ implements CollidableInterfaceCompositeInterface
     {
         super(name, layerInfo, viewPosition);
 
-        //this.collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance();
-        this.setCollidableInferface(collidableInferface);
+        if(collidableInferface != CollidableNeverCollideBehaviorFactory.getInstance()) {
+            this.setCollidableInferface(collidableInferface);
+        }
     }
 
     public ArtificialIntelligenceInterface getArtificialIntelligenceInterface()

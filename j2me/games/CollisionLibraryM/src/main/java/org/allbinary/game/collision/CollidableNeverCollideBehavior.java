@@ -14,7 +14,6 @@
 package org.allbinary.game.collision;
 
 import org.allbinary.game.layer.CollidableCompositeLayer;
-import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.RectangleFactory;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.view.ViewPosition;
