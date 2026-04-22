@@ -14,6 +14,7 @@
 package org.allbinary.game.layer.building;
 
 import java.util.Hashtable;
+
 import org.allbinary.game.combat.damage.DamageFloaters;
 import org.allbinary.game.tracking.TrackingEvent;
 import org.allbinary.graphics.paint.NullPaintable;
@@ -35,28 +36,29 @@ public class SimulatedBuildingPropertiesFactory extends BuildingPropertiesFactor
         return instance;
     }
     
-    public int getEfficiencyPerLevel() {
+    @Override
+    public int getEfficiencyPerLevel(final BuildingLayer buildingLayer) {
         return 0;
     }
-    
+        
+    @Override
     public DamageFloaters getDamageFloaters(final BuildingLayer buildingLayer) {
         final DamageFloaters damageFloaters = DamageFloaters.getInstance();
         this.damageFloatersPaintableInterface = damageFloaters;
         return damageFloaters;
     }
 
+    @Override
     public Paintable getHealthBar(final BuildingLayer buildingLayer) throws Exception {
         return NullPaintable.getInstance();
     }
     
+    @Override
     public Hashtable getHashtable() {
         return NullUtil.getInstance().NULL_TABLE;
     }    
-    
-    public int getEfficiencyPerLevel(final BuildingLayer buildingLayer) {
-        return 0;
-    }
-    
+        
+    @Override
     public TrackingEvent getTrackingEvent(final BuildingLayer buildingLayer) {
         return new TrackingEvent();
     }

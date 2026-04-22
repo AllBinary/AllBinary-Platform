@@ -46,7 +46,7 @@ implements CollidableInterfaceCompositeInterface
     
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private CollidableBaseBehavior collidableInferface;
+    private CollidableBaseBehavior collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance();
 
     public CollidableCompositeLayer(
             final String name, final Rectangle layerInfo, final ViewPosition viewPosition,

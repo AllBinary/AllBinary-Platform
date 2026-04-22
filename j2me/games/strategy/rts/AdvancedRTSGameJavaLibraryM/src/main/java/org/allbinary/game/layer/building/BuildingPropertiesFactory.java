@@ -14,6 +14,7 @@
 package org.allbinary.game.layer.building;
 
 import java.util.Hashtable;
+
 import org.allbinary.game.combat.damage.DamageFloaters;
 import org.allbinary.game.combat.damage.PtsDamageFloaters;
 import org.allbinary.game.configuration.feature.Features;
@@ -39,6 +40,10 @@ public class BuildingPropertiesFactory {
      */
     public static BuildingPropertiesFactory getInstance() {
         return instance;
+    }
+
+    public int getEfficiencyPerLevel(final BuildingLayer buildingLayer) {
+        return 10000 / buildingLayer.getMaxLevel() + 10000 % buildingLayer.getMaxLevel();
     }
     
     public Paintable damageFloatersPaintableInterface = NullPaintable.getInstance();
@@ -67,10 +72,6 @@ public class BuildingPropertiesFactory {
     public Hashtable getHashtable() {
         return new Hashtable();
     }    
-
-    public int getEfficiencyPerLevel(final BuildingLayer buildingLayer) {
-        return 10000 / buildingLayer.getMaxLevel() + 10000 % buildingLayer.getMaxLevel();
-    }
     
     public TrackingEvent getTrackingEvent(final BuildingLayer buildingLayer) {
         return new TrackingEvent(buildingLayer);
