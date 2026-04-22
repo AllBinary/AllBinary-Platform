@@ -13,8 +13,8 @@ Add the following nexus repos to the Maven Settings.xml:
 
 Nexus is not currently available so just use option 2.
 
-Now you have should have access to the AllBinary Game Plaform Client libraries from the nexus.  
-You may rely on the nexus builds of the AllBinary Game Plaform Client libraries if you want.
+Now you have should have access to the AllBinary Game Platform Client libraries from the nexus.  
+You may rely on the nexus builds of the AllBinary Game Platform Client libraries if you want.
 
 
 Option 2: Build locally

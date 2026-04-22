@@ -2,13 +2,13 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.allbinary</groupId>
-  <artifactId>AllBinaryPlaformPOM</artifactId>
+  <artifactId>AllBinaryPlatformPOM</artifactId>
   <packaging>pom</packaging>
   <!-- AllBinary Platform Version Start -->
   <version>1.0.0-SNAPSHOT</version>
   <!-- AllBinary Platform Version End -->
 
-  <name>AllBinaryPlaformPOM</name>
+  <name>AllBinaryPlatformPOM</name>
   <url>http://www.allbinary.com/</url>
     <distributionManagement>
         <snapshotRepository>
@@ -39,7 +39,7 @@
         <module>./automation/InputAutomationToolsP</module>
         <module>./graphics/GraphicsToolsP</module>
         <module>./allbinary_src/FreeblisketJavaLibraryP</module>
-        <module>./j2me/games/platform/AllBinaryOnAllPlaformsJavaLibraryP</module>
+        <module>./j2me/games/platform/AllBinaryOnAllPlatformsJavaLibraryP</module>
         
         <!--
         <module>./j2me/media/graphics/animation/image/AllBinaryHTMLImageAnimationRotationJavaLibraryM</module>

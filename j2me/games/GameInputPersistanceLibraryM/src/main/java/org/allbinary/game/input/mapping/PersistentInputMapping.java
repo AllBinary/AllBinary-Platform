@@ -172,7 +172,7 @@ public class PersistentInputMapping
         return inputMapping;
     }
     
-    //TWB - Hack Method for Plaform Independence - Maybe a better place for this
+    //TWB - Hack Method for Platform Independence - Maybe a better place for this
     public boolean isDelete(Input input) throws Exception
     {
         throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
