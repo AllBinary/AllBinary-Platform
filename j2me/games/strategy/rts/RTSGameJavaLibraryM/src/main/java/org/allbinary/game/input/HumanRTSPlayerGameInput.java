@@ -84,23 +84,6 @@ implements BaseMotionGestureEventListener
     private CollidableDestroyableDamageableLayer selectedRtsLayer = CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER;
 
     public HumanRTSPlayerGameInput(
-            final AllBinaryGameCanvas gameCanvas,
-            final BasicGeographicMap geographicMapInterface, 
-            final BasicArrayList inputList, final int playerInputId, 
-            final RTSLayerInfoPaintable towerInfoPaintable,
-            final RTSPlayerLayerInterface rtsPlayerLayerInterface,
-            final LayerPositionFinderInterface layerPositionFinderInterface,
-            final SelectRTSLayerVisitorFactoryInterface selectRTSLayerVisitorFactoryInterface
-        )
-    {
-        this(gameCanvas,
-                inputList, playerInputId, towerInfoPaintable, 
-                rtsPlayerLayerInterface, layerPositionFinderInterface, 
-                selectRTSLayerVisitorFactoryInterface, 
-                TouchButtonsBuilderFactory.NO_TOUCH_BUTTON_BUILDER_FACTORY);
-    }
-    
-    public HumanRTSPlayerGameInput(
         final AllBinaryGameCanvas gameCanvas,
         final BasicArrayList inputList, final int playerInputId, 
         final RTSLayerInfoPaintable towerInfoPaintable,

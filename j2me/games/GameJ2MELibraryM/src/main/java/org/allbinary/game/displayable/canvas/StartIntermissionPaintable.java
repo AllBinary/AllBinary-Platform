@@ -48,11 +48,7 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
     private boolean hasChanged = true;
 
     public final int[] lastWidth;
-    
-    public StartIntermissionPaintable(final AllBinaryGameCanvas gameCanvas, final String[] stringArray, final int[] lineArray, final BasicColor basicColor) {
-        this(gameCanvas, stringArray,  lineArray, basicColor, Font.getDefaultFont());
-    }
-    
+
     public StartIntermissionPaintable(final AllBinaryGameCanvas gameCanvas, final String[] stringArray, final int[] lineArray, final BasicColor basicColor, final Font font)
     {
         this.gameCanvas = gameCanvas;

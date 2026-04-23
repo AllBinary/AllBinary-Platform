@@ -29,12 +29,7 @@ public class MotionEventCircularPool {
     
     private AllBinaryEventCircularPool eventPool = 
         new AllBinaryEventCircularPool((InputFactory.getInstance().MAX - 1) - MIN);
-    
-    private MotionEventCircularPool()
-    {
-        //do not use
-    }
-    
+
     private MotionEventCircularPool(int id)
     {
         eventPool.init(new MotionEventFactory(eventPool, id));

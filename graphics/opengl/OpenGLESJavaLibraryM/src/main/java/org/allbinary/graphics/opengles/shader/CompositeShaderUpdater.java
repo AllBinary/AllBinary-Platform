@@ -16,6 +16,7 @@ package org.allbinary.graphics.opengles.shader;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonSeps;
 
@@ -28,7 +29,7 @@ public class CompositeShaderUpdater extends ShaderUpdater {
     protected final CommonSeps commonSeps = CommonSeps.getInstance();
     protected final ShaderStrings shaderStrings = ShaderStrings.getInstance();
     
-    private static final CompositeShaderUpdater instance = new CompositeShaderUpdater(StringUtil.getInstance().getArrayInstance(), StringUtil.getInstance().getArrayInstance(), StringUtil.getInstance().getArrayInstance());
+    private static final CompositeShaderUpdater instance = new CompositeShaderUpdater(StringUtil.getInstance().getArrayInstance(), StringUtil.getInstance().getArrayInstance(), StringUtil.getInstance().getArrayInstance(), NullUtil.getInstance().NULL_INT_ARRAY);
     
     /**
      * @return the instance
@@ -46,9 +47,9 @@ public class CompositeShaderUpdater extends ShaderUpdater {
     public final int[] attributeHandleArray;
     public final String[] attributeArray;
     
-    public CompositeShaderUpdater(final String[] uniformBlockArray, final String[] uniformArray, final String[] attributeArray) {
-        this(uniformBlockArray, uniformArray, attributeArray, new int[attributeArray.length]);
-    }
+//    public CompositeShaderUpdater(final String[] uniformBlockArray, final String[] uniformArray, final String[] attributeArray) {
+//        this(uniformBlockArray, uniformArray, attributeArray, new int[attributeArray.length]);
+//    }
     
     public CompositeShaderUpdater(final String[] uniformBlockArray, final String[] uniformArray, final String[] attributeArray, final int[] attributeHandleArray) {
 

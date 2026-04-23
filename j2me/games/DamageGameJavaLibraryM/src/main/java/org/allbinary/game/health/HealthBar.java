@@ -45,15 +45,6 @@ implements HealthListenerInterface
         this.onHealthChange();
     }
 
-    public HealthBar(AllBinaryLayer layerInterface,
-            Health healthInterface, 
-            int location,
-            int direction)
-            throws Exception
-    {
-        this(layerInterface, healthInterface, new HealthBarTwodAnimation(layerInterface, location), direction);
-    }
-    
     @Override
     public void onHealthChange()
     {

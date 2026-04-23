@@ -24,7 +24,7 @@ import org.allbinary.logic.string.StringUtil;
 
 public class HelpPaintable extends Paintable
 {
-    protected String TITLE = "Help Screen";
+    protected final String title;
     protected String[] inputInfo = StringUtil.getInstance().getArrayInstance();
 
     //protected ColorFillPaintable colorFillPaintable;
@@ -34,20 +34,14 @@ public class HelpPaintable extends Paintable
 
     public HelpPaintable(final String title, final BasicColor backgroundBasicColor, final BasicColor basicColor)
     {
-        this.TITLE = title;
+        this.title = title;
     
         //this.colorFillPaintable = new ColorFillPaintable(backgroundBasicColor);
         
         this.basicColor = basicColor;
         //this.color = basicColor.intValue();
     }
-    
-    public HelpPaintable(final BasicColor basicColor)
-    {
-        this.basicColor = basicColor;
-        //this.color = basicColor.intValue();
-    }
-    
+
     public void setInputInfoP(final String[] inputInfo)
     {
         this.inputInfo = inputInfo;
@@ -66,14 +60,14 @@ public class HelpPaintable extends Paintable
     {
         final MyFont myFont = MyFont.getInstance();
         final int halfWidth = DisplayInfoSingleton.getInstance().getLastHalfWidth();
-        int beginWidth = (graphics.getFont().stringWidth(this.TITLE) >> 1);
+        int beginWidth = (graphics.getFont().stringWidth(this.title) >> 1);
 
         //this.colorFillPaintable.paint(graphics);
         
         graphics.setColor(this.basicColor.intValue());
         
         final int charHeight = myFont.DEFAULT_CHAR_HEIGHT;
-        graphics.drawString(this.TITLE, halfWidth - beginWidth, charHeight, anchor);
+        graphics.drawString(this.title, halfWidth - beginWidth, charHeight, anchor);
 
         final int size = this.inputInfo.length;
         for (int index = 0; index < size; index++)

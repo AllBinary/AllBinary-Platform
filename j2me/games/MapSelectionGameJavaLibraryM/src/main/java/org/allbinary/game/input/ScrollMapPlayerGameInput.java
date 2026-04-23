@@ -27,6 +27,7 @@ import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.layer.event.ScrollMapEvent;
 import org.allbinary.layer.event.ScrollMapEventHandler;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
+import org.allbinary.util.BasicArrayListD;
 
 /**
  *
@@ -54,7 +55,7 @@ public class ScrollMapPlayerGameInput
     public ScrollMapPlayerGameInput(
        BasicGeographicMap geographicMapInterface, BasicArrayList list, int playerInputId)
     {
-        super(list, playerInputId);
+        super(list, new BasicArrayListD(), playerInputId);
 
         this.initInputProcessors();
         

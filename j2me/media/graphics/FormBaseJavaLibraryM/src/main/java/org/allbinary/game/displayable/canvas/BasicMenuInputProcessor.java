@@ -32,7 +32,7 @@ public class BasicMenuInputProcessor extends PlayerGameInput
     
     protected BasicMenuInputProcessor(BasicArrayList gameKeyEventList, int playerInputId, Canvas gameCanvas)
     {
-        super(gameKeyEventList, playerInputId);
+        super(gameKeyEventList, new BasicArrayListD(), playerInputId);
         
         this.canvas = gameCanvas;
     }

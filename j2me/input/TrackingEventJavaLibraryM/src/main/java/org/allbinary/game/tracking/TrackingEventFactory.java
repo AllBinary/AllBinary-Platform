@@ -26,7 +26,7 @@ implements AllBinaryEventObjectFactoryInterface
     @Override
     public AllBinaryEventObject getInstance()
     {
-        return new TrackingEvent();
+        return new TrackingEvent(TrackingEventHandler.getInstance());
     }
     
 }

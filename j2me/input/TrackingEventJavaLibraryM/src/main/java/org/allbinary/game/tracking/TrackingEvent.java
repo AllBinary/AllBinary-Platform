@@ -21,16 +21,13 @@ public class TrackingEvent extends AllBinaryEventObject
 {
     private AllBinaryLayer layerInterface = AllBinaryLayer.NULL_ALLBINARY_LAYER;
 
-    public TrackingEvent()
-    {
-        super(TrackingEventHandler.getInstance());
-    }
-
-    public TrackingEvent(AllBinaryLayer allBinaryLayerInterface)
+    public TrackingEvent(Object allBinaryLayerInterface)
     {
         super(allBinaryLayerInterface);
 
-        this.setLayerInterface(allBinaryLayerInterface);
+        if(allBinaryLayerInterface != TrackingEventHandler.getInstance()) {
+            this.setLayerInterface((AllBinaryLayer) allBinaryLayerInterface);
+        }
     }
 
     public void init(Object object)

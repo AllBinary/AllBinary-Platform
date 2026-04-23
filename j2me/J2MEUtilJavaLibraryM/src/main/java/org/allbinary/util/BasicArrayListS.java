@@ -34,12 +34,5 @@ public class BasicArrayListS extends BasicArrayList {
 
         this.objectArray = new Object[size];
     }
-    
-    public BasicArrayListS()
-    {
-        this(7);
-        
-        //currentIndex = 0;
-    }
-    
+
 }

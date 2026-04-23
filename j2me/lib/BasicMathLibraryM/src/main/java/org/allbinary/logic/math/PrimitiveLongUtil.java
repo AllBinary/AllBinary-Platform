@@ -13,15 +13,30 @@
 */
 package org.allbinary.logic.math;
 
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 
 public class PrimitiveLongUtil
 {
+    public static PrimitiveLongUtil create(int powerOfTen)
+    {
+        final PrimitiveLongUtil primitiveLongUtil = new PrimitiveLongUtil(powerOfTen, NullUtil.getInstance().NULL_OBJECT);
+
+        if(powerOfTen % 10 != 0)
+        {
+            final LogUtil logUtil = LogUtil.getInstance();
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            logUtil.put(commonStrings.EXCEPTION, primitiveLongUtil, commonStrings.CONSTRUCTOR, new Exception("Max must be power of 10"));
+        }
+
+        return primitiveLongUtil;
+    }
+
     protected final LogUtil logUtil = LogUtil.getInstance();
 
-    private final CommonStrings commonStrings = CommonStrings.getInstance();
-    
+    //private final CommonStrings commonStrings = CommonStrings.getInstance();
+
     private int powerOfTen;
     private int maxValue;
     
@@ -31,19 +46,8 @@ public class PrimitiveLongUtil
     private int currentTotalDigits;
 
     private final PrimitiveLongSingleton primitiveLongSingleton = PrimitiveLongSingleton.getInstance();
-    
-    public PrimitiveLongUtil(int powerOfTen)
-    {
-        this(powerOfTen, false);
-        
-        if(powerOfTen % 10 != 0)
-        {
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR,
-                    new Exception("Max must be power of 10"));
-        }
-    }
 
-    public PrimitiveLongUtil(int powerOfTen, boolean throwException)
+    public PrimitiveLongUtil(int powerOfTen, Object unused)
     {
         this.maxDigits = MathUtil.getInstance().getTotalDigits(powerOfTen);
         

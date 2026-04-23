@@ -34,7 +34,7 @@ public class CheatGameInputProcessor extends PlayerGameInput
 
     public CheatGameInputProcessor(AllBinaryGameCanvas gameCanvas)
     {
-        super(new BasicArrayListD(), -1);
+        super(new BasicArrayListD(), new BasicArrayListD(), -1);
 
         this.gameCanvas = gameCanvas;
     }

@@ -15,19 +15,19 @@ package org.allbinary.game.life;
 
 public class Life implements LifeInterface
 {
-    public static final Life NO_LIFE = new Life();
+    public static Life create() {
+        try {
+            return new Life((short) 0, (short) 0);
+        } catch (Exception e) {
+            throw new RuntimeException();
+        }
+    }
+    public static final Life NO_LIFE = Life.create();
     
     private short lives;
     private short startLives;
     private short maxlives;
 
-    public Life()
-    {
-        this.lives = 0;
-        this.startLives = 0;
-        this.maxlives = 0;
-    }
-    
     public Life(short lives, short maxlives) throws Exception
     {
         this.maxlives = maxlives;

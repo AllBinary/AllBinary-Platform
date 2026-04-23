@@ -61,7 +61,7 @@ public class MineCountedPickedUpLayerInterfaceFactory
         return 3;
     }
 
-    private final WeaponProperties weaponProperties = new WeaponProperties(0, 8000, (short) 10);
+    private final WeaponProperties weaponProperties = new WeaponProperties(-1L, -1L, 0, 8000, (short) 10);
     
     private final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
     

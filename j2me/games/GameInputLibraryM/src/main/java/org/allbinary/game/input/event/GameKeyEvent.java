@@ -19,6 +19,12 @@ import org.allbinary.logic.util.event.AllBinaryEventObject;
 
 public class GameKeyEvent extends AllBinaryEventObject
 {
+
+   public static GameKeyEvent create(Object object, int sourceId, int key)
+   {
+      return new GameKeyEvent(object, sourceId, 0, 0, key, false);
+   }
+
    public static final GameKeyEvent NONE = new GameKeyEvent(NullUtil.getInstance().NULL_OBJECT, -1, -1, -1, -1, false);
    
    private final int sourceId;
@@ -39,16 +45,6 @@ public class GameKeyEvent extends AllBinaryEventObject
       this.key = key;
       this.setGameActionKey(gameActionKey);
       this.setRepeatEvents(repeated);
-   }
-
-   public GameKeyEvent(Object object, int sourceId, int key)
-   {
-      super(object);
-
-      this.sourceId = sourceId;
-
-      this.key = key;      
-      this.setRepeatEvents(false);            
    }
 
    public void init(Object object)

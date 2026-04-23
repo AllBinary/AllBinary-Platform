@@ -31,14 +31,6 @@ import org.allbinary.string.CommonSeps;
 public class CustomTextBox extends GameCommandCanvas
 {    
     private final TextFieldItem textFieldItem;
-    
-    public CustomTextBox(final CommandListener cmdListener, final String label, final String text, 
-        final int maxSize, final int constraints,
-        final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor) 
-        throws Exception 
-    {
-        this(cmdListener, label, text, maxSize, constraints, Font.getDefaultFont(), backgroundBasicColor, foregroundBasicColor);
-    }
 
     public CustomTextBox(final CommandListener cmdListener, final String label, final String text, 
         final int maxSize, final int constraints,

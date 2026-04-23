@@ -41,7 +41,7 @@ public class CountedLayerInterfaceFactoryPart implements PartInterface
    public CountedLayerInterfaceFactoryPart(int total,
            CountedPickedUpLayerInterfaceFactory countedPickedUpLayerInterfaceFactory)
    {
-      this.primitiveLongUtil = new PrimitiveLongUtil(1000);
+      this.primitiveLongUtil = PrimitiveLongUtil.create(1000);
        
       this.init(total, countedPickedUpLayerInterfaceFactory);
    }

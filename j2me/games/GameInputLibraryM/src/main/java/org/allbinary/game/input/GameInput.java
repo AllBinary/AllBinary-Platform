@@ -32,10 +32,6 @@ public class GameInput {
 
    protected final boolean isRemoveDuplicateKeyPresses;
    
-   public GameInput(final BasicArrayList gameKeyEventList) {
-       this(gameKeyEventList, new BasicArrayListD());
-   }
-   
    public GameInput(final BasicArrayList gameKeyEventList, final BasicArrayList removalGameKeyEventList) {
       this.gameKeyEventList = gameKeyEventList;
       this.removalGameKeyEventList = removalGameKeyEventList;

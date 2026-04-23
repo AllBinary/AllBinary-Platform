@@ -28,12 +28,12 @@ public class ArcedMultiBeamWeaponPart extends BasicWeaponPart {
    private final WeaponLayerCircularPool weaponLayerCircularStaticPool;
    private final int total;
 
-   public ArcedMultiBeamWeaponPart(final Animation animationInterface,
-      final WeaponLayerCircularPool weaponLayerCircularStaticPool) {
-      super(animationInterface);
-      this.total = 2;
-      this.weaponLayerCircularStaticPool = weaponLayerCircularStaticPool;
-   }
+//   public ArcedMultiBeamWeaponPart(final Animation animationInterface,
+//      final WeaponLayerCircularPool weaponLayerCircularStaticPool) {
+//      super(animationInterface);
+//      this.total = 2;
+//      this.weaponLayerCircularStaticPool = weaponLayerCircularStaticPool;
+//   }
 
    public ArcedMultiBeamWeaponPart(
       final Animation animationInterface,

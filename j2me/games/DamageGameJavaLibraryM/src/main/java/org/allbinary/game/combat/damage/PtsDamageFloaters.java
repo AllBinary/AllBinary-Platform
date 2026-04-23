@@ -64,7 +64,7 @@ public class PtsDamageFloaters extends DamageFloaters
 
     public PtsDamageFloaters(AllBinaryLayer layerInterface)
     {
-        this.primitiveLongUtil = new PrimitiveLongUtil(100000);
+        this.primitiveLongUtil = PrimitiveLongUtil.create(100000);
         
         this.layerInterface = layerInterface;
         

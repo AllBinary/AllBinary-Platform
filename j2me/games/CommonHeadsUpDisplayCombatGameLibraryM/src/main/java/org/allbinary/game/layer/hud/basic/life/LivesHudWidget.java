@@ -18,6 +18,7 @@ import javax.microedition.lcdui.Graphics;
 import org.allbinary.animation.Animation;
 import org.allbinary.game.graphics.hud.BasicHud;
 import org.allbinary.game.life.Life;
+import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
 import org.allbinary.graphics.paint.PaintableInterface;
 
@@ -43,7 +44,7 @@ public class LivesHudWidget extends BasicHud
         int location, int direction) throws Exception
     {
     	//width = 16
-        super(location, direction, 16, lifeInterface.getMaxlives() * 16, 2);
+        super(location, direction, 16, lifeInterface.getMaxlives() * 16, 2, BasicColorFactory.getInstance().WHITE);
 
         this.lifeInterface = lifeInterface;
         

@@ -39,6 +39,7 @@ import org.allbinary.game.Intermission;
 import org.allbinary.game.IntermissionCompositeInterface;
 import org.allbinary.game.IntermissionEnableListenerInterface;
 import org.allbinary.game.IntermissionInterface;
+import org.allbinary.game.PlayerTypesFactory;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.configuration.InGameFeatures;
 import org.allbinary.game.configuration.InGameOptionsForm;
@@ -1784,7 +1785,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         final GameInfo gameInfo = this.gameLayerManager.getGameInfo();
 
         return new HighScore(0, "NONE", new GameInfo(gameInfo.getGameType(),
-                gameInfo.getGameMode(), 0, 0), score);
+                gameInfo.getGameMode(), PlayerTypesFactory.getInstance().PLAYER_TYPE_ONE, 0, 0), score);
     }
 
     // Game states

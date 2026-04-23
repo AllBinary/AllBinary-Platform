@@ -72,10 +72,10 @@ public class BasicHighScoresGameInfoFactory
     //public final GameInfo MULTI_PLAYER_CLIENT = 
       //  new GameInfo(GameType.MULTI_PLAYER, GameMode.CLIENT, 0, 0);
     public final GameInfo MULTI_PLAYER_SERVER = 
-        new GameInfo(GameTypeFactory.getInstance().MULTI_PLAYER, GameMode.SERVER, 0, 0);
+        new GameInfo(GameTypeFactory.getInstance().MULTI_PLAYER, GameMode.SERVER, PlayerTypesFactory.getInstance().PLAYER_TYPE_ONE, 0, 0);
 
     //public final GameInfo SINGLE_PLAYER_CLIENT = 
       //  new GameInfo(GameType.SINGLE_PLAYER, GameMode.CLIENT, 0, 0);
     public final GameInfo SINGLE_PLAYER_SERVER = 
-        new GameInfo(GameTypeFactory.getInstance().SINGLE_PLAYER, GameMode.SERVER, 0, 0);
+        new GameInfo(GameTypeFactory.getInstance().SINGLE_PLAYER, GameMode.SERVER, PlayerTypesFactory.getInstance().PLAYER_TYPE_ONE, 0, 0);
 }

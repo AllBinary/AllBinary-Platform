@@ -73,18 +73,6 @@ public class HighScoresCanvas extends GameCommandCanvas
 
     private Command currentCommand = highScoreCommandsFactory.HIGH_SCORE_COMMANDS[0];
 
-    public HighScoresCanvas(final CommandListener commandListener,
-            final AllBinaryGameLayerManager allBinaryGameLayerManager,
-            final HighScoresPaintable paintable,
-            final HighScoresFactoryInterface highScoresFactoryInterface)
-            throws Exception
-    {
-        this(commandListener, allBinaryGameLayerManager,
-                allBinaryGameLayerManager.getGameInfo(), paintable,
-                highScoresFactoryInterface,
-                new HighScoresCanvasNoInputProcessorFactory());
-    }
-
     public HighScoresCanvas(
             final CommandListener commandListener,
             final AllBinaryGameLayerManager allBinaryGameLayerManager,

@@ -32,7 +32,7 @@ public class NoPlayerGameInput extends PlayerGameInput
     
    private NoPlayerGameInput()
    {
-      super(new BasicArrayListD(), -1);
+      super(new BasicArrayListD(), new BasicArrayListD(), -1);
    }
 
    @Override

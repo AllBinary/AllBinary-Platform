@@ -17,6 +17,7 @@ import java.util.Hashtable;
 
 import org.allbinary.game.combat.damage.DamageFloaters;
 import org.allbinary.game.tracking.TrackingEvent;
+import org.allbinary.game.tracking.TrackingEventHandler;
 import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.logic.NullUtil;
@@ -60,7 +61,7 @@ public class SimulatedBuildingPropertiesFactory extends BuildingPropertiesFactor
         
     @Override
     public TrackingEvent getTrackingEvent(final BuildingLayer buildingLayer) {
-        return new TrackingEvent();
+        return new TrackingEvent(TrackingEventHandler.getInstance());
     }
     
 }

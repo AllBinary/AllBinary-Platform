@@ -37,15 +37,6 @@ public class BasicAIProcessor
    //private int numberOfInterationsOffPath;
 
    //private int MAX_SKIP;
-   
-   public BasicAIProcessor(final String name, 
-      final GeographicMapCellHistory geographicMapCellHistory,
-      final BasicArrayList chosenPathList,
-      final AngleInfo angleInfo, final int seed)
-       throws Exception
-   {
-       this(name, geographicMapCellHistory, new GeographicMapCellPathHistoryInfo(), chosenPathList, angleInfo, seed);
-   }
 
    public BasicAIProcessor(final String name, 
       final GeographicMapCellHistory geographicMapCellHistory,

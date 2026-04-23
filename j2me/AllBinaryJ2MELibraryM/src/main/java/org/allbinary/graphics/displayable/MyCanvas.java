@@ -50,10 +50,10 @@ public class MyCanvas extends Canvas
     //private boolean displayed;
     private boolean isPaused;
 
-    public MyCanvas()
-    {
-        this( CommonStrings.getInstance().UNKNOWN, new BasicArrayListD());
-    }
+//    public MyCanvas()
+//    {
+//        this( CommonStrings.getInstance().UNKNOWN, new BasicArrayListD());
+//    }
     
     public MyCanvas(final String name, final BasicArrayList childNameList)
     {

@@ -31,11 +31,7 @@ public class PlayerGameInput extends GameInput
     protected final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
     
     private final int playerInputId;
-    
-    public PlayerGameInput(final BasicArrayList gameKeyEventList, final int playerInputId) {
-        this(gameKeyEventList, new BasicArrayListD(), playerInputId);
-    }
-    
+
    public PlayerGameInput(final BasicArrayList gameKeyEventList, final BasicArrayList removalGameKeyEventList, final int playerInputId)
    {
       super(gameKeyEventList, removalGameKeyEventList);

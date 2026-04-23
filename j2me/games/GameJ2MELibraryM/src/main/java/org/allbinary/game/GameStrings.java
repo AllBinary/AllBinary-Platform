@@ -23,8 +23,12 @@ public class GameStrings
     }
     
     public final String PROCESS_TICK = "processTick";
+
+    //
     public final String ON_GAME_INITIALIZED = "onGameInitialized";
+    //
     public final String UPDATESURFACE = "updateSurface";
+    //
     public final String ON_SET_DISPLAYABLE = "onSetDisplayable";
     
     public final String UNPAUSE = "unPause";

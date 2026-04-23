@@ -37,7 +37,7 @@ public class WeaponProperties extends SimpleWeaponProperties
     
     private final long MAX = 10240L;
     private final short ZERO = 0;
-    
+
     public WeaponProperties(
             long reloadTime, long targetingTime, long speed, int damage, short dissipation)
     {
@@ -80,11 +80,6 @@ public class WeaponProperties extends SimpleWeaponProperties
             PreLogUtil.put(stringBuffer.toString(), this, commonStrings.CONSTRUCTOR);
             */
         }
-    }
-
-    public WeaponProperties(long speed, int damage, short dissipation)
-    {
-        this(-1L, -1L, speed, damage, dissipation);
     }
     
     private void setReloadTime(long reloadTime)

@@ -203,11 +203,11 @@ public class InputMappingHelpPaintable extends HelpPaintable
         final int charHeight = myFont.DEFAULT_CHAR_HEIGHT;
         final int halfWidth = DisplayInfoSingleton.getInstance().getLastHalfWidth();
 
-        int beginWidth = (font.stringWidth(this.TITLE) >> 1);
+        int beginWidth = (font.stringWidth(this.title) >> 1);
 
         graphics.setColor(this.basicColor.intValue());
         
-        graphics.drawString(this.TITLE, halfWidth - beginWidth, charHeight, anchor);
+        graphics.drawString(this.title, halfWidth - beginWidth, charHeight, anchor);
 
         final String[] inputInfo = this.inputInfo;
         int size = inputInfo.length;

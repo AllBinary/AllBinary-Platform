@@ -25,6 +25,11 @@ import org.allbinary.logic.math.PrimitiveLongUtil;
 public class LevelHudWidget extends BasicHud
    implements PaintableInterface
 {
+    public static LevelHudWidget create(int maxlevel, int location, int direction) throws Exception
+    {
+        return new LevelHudWidget(maxlevel, location, direction, MyFont.getInstance().getSize() * 4);
+    }
+
     //private final String LEVEL = "Lv ";
 
     private int level;
@@ -38,12 +43,6 @@ public class LevelHudWidget extends BasicHud
 
     private final PrimitiveLongUtil primitiveLongUtil;
 
-    public LevelHudWidget(int maxlevel, int location, int direction)
-            throws Exception
-    {
-        this(maxlevel, location, direction, MyFont.getInstance().getSize() * 4);
-    }
-    
     public LevelHudWidget(int maxlevel, int location, int direction, int maxWidth)
             throws Exception
     {
@@ -51,7 +50,7 @@ public class LevelHudWidget extends BasicHud
 
         final MyFont myFont = MyFont.getInstance();
         
-        this.primitiveLongUtil = new PrimitiveLongUtil(1000);
+        this.primitiveLongUtil = PrimitiveLongUtil.create(1000);
 
         final String LEVEL = "Lv ";
         this.levelString = LEVEL.toCharArray();

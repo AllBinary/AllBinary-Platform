@@ -27,11 +27,6 @@ public class IndexedAnimation extends Animation
     
     protected final AnimationBehavior animationBehaviorP;
     
-    private IndexedAnimation()
-    {
-        this.animationBehaviorP = AnimationBehavior.getInstance();
-    }
-
     protected IndexedAnimation(final AnimationBehavior animationBehavior)
     {
         this.animationBehaviorP = animationBehavior;

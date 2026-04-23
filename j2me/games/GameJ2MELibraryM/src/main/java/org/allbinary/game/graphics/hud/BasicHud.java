@@ -57,14 +57,6 @@ public class BasicHud //implements DisplayChangeEventListener
    private int color;
 
    public BasicHud(int location, int direction,
-       int maxHeight, int maxWidth, int bufferZone)
-       throws Exception
-   {
-       this(location, direction, maxHeight, maxWidth, bufferZone, 
-               BasicColorFactory.getInstance().WHITE);
-   }
-   
-   public BasicHud(int location, int direction,
            int maxHeight, int maxWidth, int bufferZone, BasicColor basicColor)
        {
       this.setLocation(location);

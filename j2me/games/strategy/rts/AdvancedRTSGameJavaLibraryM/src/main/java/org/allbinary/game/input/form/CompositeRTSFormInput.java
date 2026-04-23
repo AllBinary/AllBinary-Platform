@@ -40,16 +40,6 @@ public class CompositeRTSFormInput extends RTSFormInput
     private final boolean isPrimaryWaypointCreator;
 
     public CompositeRTSFormInput(
-        final Group[] groupInterface, 
-            final boolean isPrimaryWaypointCreator)
-    {
-        this(groupInterface, isPrimaryWaypointCreator, new int[]
-            {
-                0
-            });
-    }
-
-    public CompositeRTSFormInput(
         final Group[] groupInterface,
         final boolean isPrimaryWaypointCreator, 
         final int[] itemIndex)

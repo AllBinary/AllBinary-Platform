@@ -62,7 +62,7 @@ public class GameKeyEventFactory
         {
             for (int index2 = size; --index2 >= 0;)
             {
-                this.ARRAY[index][index2] = new GameKeyEvent(nullUtil.NULL_OBJECT, index, index2);
+                this.ARRAY[index][index2] = GameKeyEvent.create(nullUtil.NULL_OBJECT, index, index2);
             }
         }
     }

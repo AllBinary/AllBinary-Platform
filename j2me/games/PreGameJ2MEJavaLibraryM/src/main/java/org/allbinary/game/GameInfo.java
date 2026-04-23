@@ -22,7 +22,8 @@ import org.allbinary.string.CommonSeps;
 
 public class GameInfo 
 {
-    public static final GameInfo NONE = new GameInfo(GameTypeFactory.getInstance().NONE, GameMode.NONE, -1, -1);
+
+    public static final GameInfo NONE = new GameInfo(GameTypeFactory.getInstance().NONE, GameMode.NONE, PlayerTypesFactory.getInstance().PLAYER_TYPE_ONE, -1, -1);
     
     protected final LogUtil logUtil = LogUtil.getInstance();
 
@@ -37,17 +38,7 @@ public class GameInfo
    private int highestLevel;
    private int currentLevel;
    
-   public GameInfo(final GameType gameType, final GameMode gameMode, 
-           final int highestLevel, final int currentLevel)
-   {
-       this.gameType = gameType;
-       this.gameMode = gameMode;
-       this.setHighestLevel(highestLevel);
-       this.currentLevel = currentLevel;
-       this.playerType = PlayerTypesFactory.getInstance().PLAYER_TYPE_ONE;
-   }
-
-   public GameInfo(GameType gameType, GameMode gameMode, PlayerType playerType, 
+   public GameInfo(GameType gameType, GameMode gameMode, PlayerType playerType,
            int highestLevel, int currentLevel)
    {
        this.gameType = gameType;

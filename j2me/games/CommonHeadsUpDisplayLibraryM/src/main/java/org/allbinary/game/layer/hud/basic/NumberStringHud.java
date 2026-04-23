@@ -27,11 +27,18 @@ import org.allbinary.logic.string.StringUtil;
 
 public class NumberStringHud extends BasicHud
    implements PaintableInterface
-{   
-    public static final NumberStringHud NULL_NUMBER_STRING_HUD = new NumberStringHud(
-                StringUtil.getInstance().EMPTY_STRING, 9,
-                BasicHudFactory.getInstance().ABSOLUTE,
-                0, 0,0, BasicColorFactory.getInstance().NULL_COLOR);    
+{
+   public static NumberStringHud create() {
+      try {
+         return new NumberStringHud(
+                 StringUtil.getInstance().EMPTY_STRING, 9,
+                 BasicHudFactory.getInstance().ABSOLUTE, 1,
+                 0, 0,0, BasicColorFactory.getInstance().NULL_COLOR);
+      } catch (Exception e) {
+         throw new RuntimeException();
+      }
+   }
+    public static final NumberStringHud NULL_NUMBER_STRING_HUD = NumberStringHud.create();
 
    //private final String PREPEND_STRING;
     private final char[] PREPEND_STRING;
@@ -46,27 +53,6 @@ public class NumberStringHud extends BasicHud
 
    private final PrimitiveLongUtil primitiveLongUtil;
 
-   public NumberStringHud(String prependString, int max, int location,
-           int maxHeight, int maxWidth, int bufferZone, BasicColor basicColor)
-   {
-      super(location, 1, maxHeight, maxWidth, bufferZone, basicColor);
-
-      this.PREPEND_STRING = prependString.toCharArray();
-      //this.PREPEND_STRING = prependString;
-      final MyFont myFont = MyFont.getInstance();
-      this.offset = myFont.stringWidth(prependString) + myFont.charWidth();
-      
-      this.valueString = PrimitiveLongSingleton.getInstance().NUMBER_CHAR_ARRAYS[0];
-      //this.valueString = PrimitiveLongUtil.NUMBER_STRING_ARRAY[0];
-
-      //Note score must be (10 X 10^n) - 1
-      this.primitiveLongUtil = new PrimitiveLongUtil(max + 1);
-      
-      this.max = max;
-      this.value = 0;
-
-   }
-   
    public NumberStringHud(String prependString, int max, int location, int direction,
            int maxHeight, int maxWidth, int bufferZone, BasicColor basicColor)
            throws Exception
@@ -82,7 +68,7 @@ public class NumberStringHud extends BasicHud
       //this.valueString = PrimitiveLongUtil.NUMBER_STRING_ARRAY[0];
 
       //Note score must be (10 X 10^n) - 1
-      this.primitiveLongUtil = new PrimitiveLongUtil(max + 1);
+      this.primitiveLongUtil = PrimitiveLongUtil.create(max + 1);
       
       this.max = max;
       this.value = 0;

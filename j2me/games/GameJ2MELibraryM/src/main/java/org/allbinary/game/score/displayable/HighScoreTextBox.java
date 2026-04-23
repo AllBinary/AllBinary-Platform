@@ -14,6 +14,7 @@
 package org.allbinary.game.score.displayable;
 
 import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.TextField;
 
@@ -57,8 +58,8 @@ public class HighScoreTextBox extends CustomTextBox
         final CommandListener cmdListener, final String name, final HighScore highScore,
         final BasicColor backgrounBasicColor, final BasicColor foregroundBasicColor) throws Exception
     {
-        super(cmdListener, "New High Score Enter Name:", name, 12, TextField.ANY, 
-                backgrounBasicColor, foregroundBasicColor);
+        super(cmdListener, "New High Score Enter Name:", name, 12, TextField.ANY,
+                Font.getDefaultFont(), backgrounBasicColor, foregroundBasicColor);
 
         //this.highScoresResultsListener = highScoresHelper;
 

@@ -27,7 +27,7 @@ public class GameInputProcessorComposite extends PlayerGameInput
     public GameInputProcessorComposite(String name,
             GameInputProcessorInterface gameInputProcessorInterface)
     {
-        super(new BasicArrayListD(), -1);
+        super(new BasicArrayListD(), new BasicArrayListD(), -1);
         
         this.name = name;
         this.gameInputProcessorInterface = gameInputProcessorInterface;

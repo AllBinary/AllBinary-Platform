@@ -20,6 +20,7 @@ import org.allbinary.game.input.PlatformInputMappingFactory;
 import org.allbinary.game.input.mapping.GameInputMapping;
 import org.allbinary.game.input.mapping.PersistentInputMapping;
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.util.BasicArrayList;
@@ -32,7 +33,7 @@ public class BasicInputMappingHelpPaintable extends HelpPaintable
 
     protected BasicInputMappingHelpPaintable(final GameInputMapping[] gameInputMappingArray, final BasicColor basicColor)
     {
-        super(basicColor);
+        super("Help Screen", BasicColorFactory.getInstance().BLACK, basicColor);
     
         this.gameInputMappingArray = gameInputMappingArray;
         

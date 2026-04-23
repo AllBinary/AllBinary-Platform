@@ -31,7 +31,7 @@ import org.allbinary.util.BasicArrayList;
 
 public class PersistentInputMapping
 {
-    public static final PersistentInputMapping NULL_PERSISTENT_INPUT_MAPPING = new PersistentInputMapping();
+    public static final PersistentInputMapping NULL_PERSISTENT_INPUT_MAPPING = new PersistentInputMapping(GamePersistanceStrings.getInstance().SAVED_INPUT_CONFIGURATION_RECORD_ID);
     
     protected final LogUtil logUtil = LogUtil.getInstance();
 
@@ -43,11 +43,6 @@ public class PersistentInputMapping
         NullInputMappingEventListener.NULL_INPUT_MAPPING_EVENT_LISTENER;
     
     private final InputPersistance inputPersistance;
-
-    protected PersistentInputMapping()
-    {
-        inputPersistance = new InputPersistance(GamePersistanceStrings.getInstance().SAVED_INPUT_CONFIGURATION_RECORD_ID);
-    }
 
     protected PersistentInputMapping(String name)
     {

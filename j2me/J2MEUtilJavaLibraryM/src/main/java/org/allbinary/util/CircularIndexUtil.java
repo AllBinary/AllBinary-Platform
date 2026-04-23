@@ -18,7 +18,7 @@ import org.allbinary.string.CommonLabels;
 
 public class CircularIndexUtil
 {
-    public static final CircularIndexUtil NULL_CIRCULAR_INDEX_UTIL = new CircularIndexUtil(0);
+    public static final CircularIndexUtil NULL_CIRCULAR_INDEX_UTIL = new CircularIndexUtil(0, 0);
 
     private int index = 0;
     private int lastIndex = 0;
@@ -30,10 +30,10 @@ public class CircularIndexUtil
         this.setIndex(index);
     }
 
-    private CircularIndexUtil(int size)
-    {
-        this.setSize(size);
-    }
+//    private CircularIndexUtil(int size)
+//    {
+//        this.setSize(size);
+//    }
     
     public int next()
     {
@@ -78,7 +78,7 @@ public class CircularIndexUtil
     
     public static CircularIndexUtil getInstance(int max)
     {
-        return new CircularIndexUtil(max);
+        return new CircularIndexUtil(0, max);
     }
 
     public static CircularIndexUtil getInstance(int index, int max)

@@ -50,7 +50,7 @@ public class TechnologyRTSInterfaceImageItem extends CustomImageItem
             = CharArrayFactory.getInstance().getZeroCharArray();
     private int levelLength;
 
-    private final PrimitiveLongUtil primitiveLongUtil = new PrimitiveLongUtil(10000);
+    private final PrimitiveLongUtil primitiveLongUtil = PrimitiveLongUtil.create(10000);
 
     private final String LEVEL = "Level";
     private final String COST = "Cost";

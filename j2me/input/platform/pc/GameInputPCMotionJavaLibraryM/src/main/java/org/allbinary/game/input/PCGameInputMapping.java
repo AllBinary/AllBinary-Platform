@@ -15,6 +15,7 @@ package org.allbinary.game.input;
 
 //import org.allbinary.input.gyro.OrientationMotionGestureFactory;
 
+import org.allbinary.game.configuration.persistance.GamePersistanceStrings;
 import org.allbinary.game.input.mapping.PersistentInputMapping;
 import org.allbinary.input.motion.button.BasicTouchInputFactory;
 import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
@@ -24,6 +25,10 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 
 public class PCGameInputMapping extends PersistentInputMapping
 {
+    public PCGameInputMapping()
+    {
+        super(GamePersistanceStrings.getInstance().SAVED_INPUT_CONFIGURATION_RECORD_ID);
+    }
 
     @Override
     public void init(final AbeClientInformationInterface abeClientInformation)

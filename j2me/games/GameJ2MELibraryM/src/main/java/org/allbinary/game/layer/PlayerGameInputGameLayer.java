@@ -23,6 +23,7 @@ import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringUtil;
+import org.allbinary.util.BasicArrayListD;
 import org.allbinary.view.StaticViewPosition;
 
 public class PlayerGameInputGameLayer extends AllBinaryGameLayer
@@ -38,7 +39,7 @@ public class PlayerGameInputGameLayer extends AllBinaryGameLayer
                 new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0),
                 new StaticViewPosition(0, 0, 0));
 
-        this.playerGameInput = new PlayerGameInput(this.getGameKeyEventList(), playerInputId);
+        this.playerGameInput = new PlayerGameInput(this.getGameKeyEventList(), new BasicArrayListD(), playerInputId);
         
         final CanvasStrings canvasStrings = CanvasStrings.getInstance();
         this.logUtil.putF("Danger Danger Danger: Should Not Be Called Except For Testing Input", this, canvasStrings.PAINT);

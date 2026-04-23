@@ -17,6 +17,7 @@ import org.allbinary.animation.Animation;
 import org.allbinary.game.combat.weapon.WeaponProperties;
 import org.allbinary.game.layer.weapon.WeaponLayer;
 import org.allbinary.game.layer.weapon.WeaponLayerCircularPool;
+import org.allbinary.game.score.NoScoreable;
 import org.allbinary.game.score.ScoreableInterface;
 import org.allbinary.graphics.RelativeRelationship;
 import org.allbinary.layer.AllBinaryLayer;
@@ -25,17 +26,12 @@ import org.allbinary.math.NoDecimalTrigTable;
 
 public class StraightMultiProjectileWeaponPart extends BasicWeaponPart {
 
+   public static StraightMultiProjectileWeaponPart create(final Animation animationInterface, final WeaponLayerCircularPool weaponLayerCircularStaticPool) {
+      return new StraightMultiProjectileWeaponPart(animationInterface, AllBinaryLayer.NULL_ALLBINARY_LAYER, weaponLayerCircularStaticPool, 2, WeaponProperties.NULL_WEAPON_PROPERTIES, NoScoreable.getInstance(), RelativeRelationship.NULL_RELATIVE_RELATIONSHIP);
+   }
+
    private final WeaponLayerCircularPool weaponLayerCircularStaticPool;
    private final int total;
-
-   public StraightMultiProjectileWeaponPart(
-      final Animation animationInterface,
-      final WeaponLayerCircularPool weaponLayerCircularStaticPool) {
-      super(animationInterface);
-      
-      this.total = 2;
-      this.weaponLayerCircularStaticPool = weaponLayerCircularStaticPool;
-   }
 
    public StraightMultiProjectileWeaponPart(
            final Animation animationInterface,
