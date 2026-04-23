@@ -30,7 +30,7 @@ public class NullGameCanvas extends AllBinaryGameCanvas
             return new NullGameCanvas(AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER);
         } catch (Exception e) {
             LogUtil.getInstance().put(CommonStrings.getInstance().EXCEPTION, "NullGameCanvas", CommonStrings.getInstance().GET_INSTANCE, e);
-            throw new RuntimeException(e);
+            throw new RuntimeException();
         }
     }
     private static final NullGameCanvas SINGLETON = create();

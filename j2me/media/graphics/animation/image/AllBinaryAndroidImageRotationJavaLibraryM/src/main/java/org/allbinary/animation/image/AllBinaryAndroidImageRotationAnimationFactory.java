@@ -28,6 +28,18 @@ import org.allbinary.math.AngleInfo;
 public class AllBinaryAndroidImageRotationAnimationFactory 
     extends BaseImageAnimationFactory
 {
+    public static AllBinaryAndroidImageRotationAnimationFactory create(final Image image, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
+            throws Exception
+    {
+        return new AllBinaryAndroidImageRotationAnimationFactory(image, width, height, (short) (AngleFactory.getInstance().TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity()), animationBehaviorFactory, false);
+    }
+    
+    public static AllBinaryAndroidImageRotationAnimationFactory createA(final Image image, final int width, final int height, final short angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory)
+            throws Exception
+    {
+        return new AllBinaryAndroidImageRotationAnimationFactory(image, width, height, angleIncrement, animationBehaviorFactory, false);
+    }
+    
     private final short angleIncrement;
     private final boolean resizeCanvasForRotation;
 
@@ -101,24 +113,6 @@ public class AllBinaryAndroidImageRotationAnimationFactory
 //        this.animationFactoryInitializationVisitor.dy = dy;
 //        this.animationFactoryInitializationVisitor.originalDx = dx;
 //        this.animationFactoryInitializationVisitor.originalDy = dy;
-//    }
-
-//    public AllBinaryAndroidImageRotationAnimationFactory(final Image image, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
-//            throws Exception
-//    {
-//        super(image, width, height, animationBehaviorFactory);
-//
-//        this.angleIncrement = (short) (AngleFactory.getInstance().TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity());
-//        this.resizeCanvasForRotation = false;
-//    }
-
-//    public AllBinaryAndroidImageRotationAnimationFactory(final Image image, final int width, final int height,
-//            final short angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
-//    {
-//        super(image, width, height, animationBehaviorFactory);
-//
-//        this.angleIncrement = angleIncrement;
-//        this.resizeCanvasForRotation = false;
 //    }
 
     public AllBinaryAndroidImageRotationAnimationFactory(final Image image, final int width, final int height,
