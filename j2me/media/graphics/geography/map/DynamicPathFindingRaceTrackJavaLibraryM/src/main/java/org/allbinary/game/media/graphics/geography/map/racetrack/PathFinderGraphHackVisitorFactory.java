@@ -29,10 +29,10 @@ extends PathFinderGraphVisitorFactoryBase
     private final int minPathWeight;
     private final int maxPathWeight;
 
-    public PathFinderGraphHackVisitorFactory()
-    {
-        this(10, 8, 100000);
-    }
+//    public PathFinderGraphHackVisitorFactory()
+//    {
+//        this(10, 8, 100000);
+//    }
 
     public PathFinderGraphHackVisitorFactory(
        int edgeMinimum, int minPathWeight, int maxPathWeight)

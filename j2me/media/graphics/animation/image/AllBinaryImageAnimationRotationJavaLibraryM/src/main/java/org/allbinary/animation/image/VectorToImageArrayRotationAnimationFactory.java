@@ -61,8 +61,8 @@ public class VectorToImageArrayRotationAnimationFactory
         final VectorInfo vectorInfo, final BasicColor basicColor, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
     {
         super(AnimationFrameToImageUtil.getInstance().getInstanceTranslate(
-                vectorInfo.getWidth(), vectorInfo.getHeight(), 
-                new VectorAnimation(vectorInfo.getPoints(), basicColor, animationBehaviorFactory.getOrCreateInstance())),
+                vectorInfo.getWidth(), vectorInfo.getHeight(),
+                        VectorAnimation.create(vectorInfo.getPoints(), basicColor, animationBehaviorFactory.getOrCreateInstance())),
                 PrimitiveIntUtil.getArrayInstance(),
                 0, 0, 0,0, animationBehaviorFactory);
 

@@ -45,19 +45,6 @@ extends ScrollSelectionForm
         
         this.init();
     }
-    
-    public ScrollCurrentSelectionForm(final String title, final CustomItem[] items,
-            final Rectangle rectangle, final FormType formType, 
-            final int border, final boolean moveForSmallScreen,
-            final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor) 
-        throws Exception
-    {
-        super(title, items, rectangle, formType, border, backgroundBasicColor, foregroundBasicColor);
-
-        this.moveForSmallScreen = moveForSmallScreen;
-        
-        this.init();
-    }
 
     @Override
     public void init(final Rectangle rectangle, final FormType formType)

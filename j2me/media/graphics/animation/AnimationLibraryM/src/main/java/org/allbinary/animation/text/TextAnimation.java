@@ -34,12 +34,6 @@ public class TextAnimation extends IndexedAnimation
     protected String[] textArrayP = StringUtil.getInstance().ONE_EMPTY_STRING_ARRAY;
     
     private int anchor = Anchor.TOP_LEFT;
-    
-    public TextAnimation(final AnimationBehavior animationBehavior)
-    {
-        super(animationBehavior);
-    }
-
     public TextAnimation(final String text, final AnimationBehavior animationBehavior)
     {
         super(animationBehavior);
@@ -73,7 +67,7 @@ public class TextAnimation extends IndexedAnimation
     {
         final BasicArrayList list = new BasicArrayListD();
 
-        if(text != null) {
+        if(text != null && text.length() > 0) {
             int index = 0;
             int startIndex = 0;
             int endIndex = 0;

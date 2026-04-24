@@ -21,11 +21,6 @@ import org.allbinary.animation.IndexedAnimation;
 public class CompoundIndexedAnimationInterfaceFactory
     extends CompoundAnimationInterfaceFactory {
 
-    public CompoundIndexedAnimationInterfaceFactory(final AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray)
-    {
-        this(basicAnimationInterfaceFactoryInterfaceArray, AnimationBehaviorFactory.getInstance());
-    }
-
     public CompoundIndexedAnimationInterfaceFactory(final AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray,
         final AnimationBehaviorFactory animationBehaviorFactory)
     {

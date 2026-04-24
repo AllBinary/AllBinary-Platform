@@ -41,16 +41,6 @@ public class PathFindingInfo implements PathFindingInfoInterface
        this.startPathFindingNodeList = startPathFindingNodeList;
        this.endPathFindingNodeList = endPathFindingNodeList;
     }
-    
-    public PathFindingInfo(
-            final PathFindingNodeCostInfoFactoryBase pathFindingNodeCostInfoFactoryInterface)
-    {
-       this.pathFindingNodeCostInfoFactoryInterface =
-           pathFindingNodeCostInfoFactoryInterface;
-
-       this.startPathFindingNodeList = new BasicArrayListS(1);
-       this.endPathFindingNodeList = new BasicArrayListS(1);
-    }
 
     @Override
     public BasicArrayList getStartPathFindingNodeList()

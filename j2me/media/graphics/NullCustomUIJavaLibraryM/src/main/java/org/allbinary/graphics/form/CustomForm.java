@@ -14,11 +14,6 @@ public class CustomForm extends CustomScreen
     
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
 
-    public CustomForm(String title, BasicColor backgroundBasicColor,
-            BasicColor foregroundBasicColor)
-    {
-    }
-
     public CustomForm(String title, CustomItem[] items,
             BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
     {

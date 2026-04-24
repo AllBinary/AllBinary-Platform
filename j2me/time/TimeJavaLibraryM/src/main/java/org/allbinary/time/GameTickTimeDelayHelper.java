@@ -23,10 +23,10 @@ public class GameTickTimeDelayHelper {
     public long startTime;
     public long lastStartTime;
 
-    public GameTickTimeDelayHelper() {
-        this.startTime = System.currentTimeMillis();
-        this.lastStartTime = this.startTime;
-    }
+//    public GameTickTimeDelayHelper() {
+//        this.startTime = System.currentTimeMillis();
+//        this.lastStartTime = this.startTime;
+//    }
 
     public GameTickTimeDelayHelper(final long startTime) {
         this.startTime = startTime;

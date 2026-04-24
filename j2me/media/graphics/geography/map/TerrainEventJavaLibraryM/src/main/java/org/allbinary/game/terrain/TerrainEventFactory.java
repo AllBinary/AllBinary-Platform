@@ -13,6 +13,7 @@
 */
 package org.allbinary.game.terrain;
 
+import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.AllBinaryEventObjectFactoryInterface;
 
@@ -25,7 +26,7 @@ public class TerrainEventFactory implements AllBinaryEventObjectFactoryInterface
     @Override
     public AllBinaryEventObject getInstance()
     {
-        return new TerrainEvent();
+        return new TerrainEvent(NullUtil.getInstance().NULL_OBJECT);
     }
     
 }

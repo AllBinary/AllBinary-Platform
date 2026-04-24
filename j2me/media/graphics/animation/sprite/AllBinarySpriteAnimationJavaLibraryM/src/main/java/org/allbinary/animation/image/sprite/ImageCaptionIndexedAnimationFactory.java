@@ -23,6 +23,7 @@ import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.animation.caption.CaptionIndexedAnimation;
 import org.allbinary.animation.image.ImageAnimation;
+import org.allbinary.graphics.color.BasicColorUtil;
 import org.allbinary.image.AnimationFactoryImageScaleUtil;
 import org.allbinary.image.sprite.AnimationFactorySpriteScaleUtil;
 import org.allbinary.media.ScaleProperties;
@@ -58,14 +59,6 @@ public class ImageCaptionIndexedAnimationFactory
         final Image captionImage, final Image spriteMovieImage,
         final Sound soundInterface,
         final int frameWidth, final int frameHeight,
-        final int captionDx, final int captionDy, final int dx, final int dy, final int time) {
-        this(captionImage, spriteMovieImage, soundInterface, frameWidth, frameHeight, captionDx, captionDy, dx, dy, time, AnimationBehaviorFactory.getInstance());
-    }
-
-    public ImageCaptionIndexedAnimationFactory(
-        final Image captionImage, final Image spriteMovieImage,
-        final Sound soundInterface,
-        final int frameWidth, final int frameHeight,
         final int captionDx, final int captionDy, final int dx, final int dy, final int time,
         final AnimationBehaviorFactory animationBehaviorFactory) {
         this.captionImage = captionImage;
@@ -95,7 +88,7 @@ public class ImageCaptionIndexedAnimationFactory
 
         final Sprite sprite = this.animationFactorySpriteScaleUtil.createImage(this.spriteMovieImage, this.frameWidth, this.frameHeight, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
 
-        final IndexedAnimation movieIndexedAnimationInterface = new SpriteIndexedAnimation(sprite, this.spriteMovieImage, this.animationBehaviorFactory.getOrCreateInstance());
+        final IndexedAnimation movieIndexedAnimationInterface = new SpriteIndexedAnimation(sprite, this.spriteMovieImage, BasicColorUtil.getInstance().ZERO_ARRAY, this.animationBehaviorFactory.getOrCreateInstance());
 
         Player player = this.soundInterface.getPlayerP();
 

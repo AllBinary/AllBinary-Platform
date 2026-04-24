@@ -25,11 +25,6 @@ import org.allbinary.animation.AnimationBehaviorFactory;
 public class TopToBottomImageAnimationFactory
         extends BaseImageAnimationFactory {
 
-    public TopToBottomImageAnimationFactory(final Image image, final int[] sequenceArray)
-        throws Exception {
-        this(image, sequenceArray, AnimationBehaviorFactory.getInstance());
-    }
-
     public TopToBottomImageAnimationFactory(final Image image, final int[] sequenceArray, final AnimationBehaviorFactory animationBehaviorFactory) //, int width, int height)
         throws Exception {
         super(image, sequenceArray, image.getWidth(), image.getHeight(), 0,0, animationBehaviorFactory); //, width, height);

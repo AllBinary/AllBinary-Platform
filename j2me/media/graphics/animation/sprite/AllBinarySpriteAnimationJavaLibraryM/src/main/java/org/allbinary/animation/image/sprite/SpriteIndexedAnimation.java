@@ -36,13 +36,7 @@ public class SpriteIndexedAnimation extends IndexedAnimation
     protected final Image image;
     
     private final BasicColor[] basicColorArray;
-    
-    public SpriteIndexedAnimation(final Sprite sprite, final Image image, final AnimationBehavior animationBehavior)
-        throws Exception
-    {
-        this(sprite, image, BasicColorUtil.getInstance().ZERO_ARRAY, animationBehavior);
-    }
-    
+
     public SpriteIndexedAnimation(final Sprite sprite, final Image image, final BasicColor[] basicColorArray, final AnimationBehavior animationBehavior)
         throws Exception
     {

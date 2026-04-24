@@ -18,16 +18,11 @@ public class LayerManager
     private final BasicArrayList list = new BasicArrayListD();
     private final SynchObject object = new SynchObject();
 
-    public LayerManager(final LayerManagerLogging layerManagerLogging)
+    public LayerManager(final LayerManagerLoggingBase layerManagerLogging)
     {
         this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
         
         this.layerManagerLogging = layerManagerLogging;
-    }
-
-    public LayerManager()
-    {
-        this.layerManagerLogging = LayerManagerNoDebug.getInstance();
     }
     
     public boolean contains(final AllBinaryLayer layerInterface)

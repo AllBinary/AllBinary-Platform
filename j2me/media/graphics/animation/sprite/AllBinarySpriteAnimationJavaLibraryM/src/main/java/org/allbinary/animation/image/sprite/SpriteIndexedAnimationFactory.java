@@ -30,6 +30,13 @@ public class SpriteIndexedAnimationFactory
     extends BaseImageAnimationFactory
     implements ProceduralAnimationInterfaceFactoryInterface {
 
+    public static SpriteIndexedAnimationFactory create(final Image image, final BasicColor[] basicColorArray, final int width, final int height)
+        throws Exception {
+        
+        return new SpriteIndexedAnimationFactory(image, basicColorArray, width, height, AnimationBehaviorFactory.getInstance());
+
+    }
+
     private final AnimationFactorySpriteScaleUtil animationFactorySpriteScaleUtil = AnimationFactorySpriteScaleUtil.getInstance();
     
     private BasicColor[] basicColorArray = BasicColorUtil.getInstance().ZERO_ARRAY;

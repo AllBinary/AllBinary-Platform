@@ -31,6 +31,7 @@ public class AllBinaryLayerManager extends LayerManager
 
     protected AllBinaryLayerManager()
     {
+        super(LayerManagerNoDebug.getInstance());
         //super(LayerManagerLogging.getInstance());
     }
 

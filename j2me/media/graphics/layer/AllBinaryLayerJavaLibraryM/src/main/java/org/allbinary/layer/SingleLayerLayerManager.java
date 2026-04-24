@@ -19,5 +19,11 @@ package org.allbinary.layer;
  * @author User
  */
 public class SingleLayerLayerManager extends LayerManager {
-        
+
+    public SingleLayerLayerManager()
+    {
+        super(LayerManagerNoDebug.getInstance());
+        //super(LayerManagerLogging.getInstance());
+    }
+
 }

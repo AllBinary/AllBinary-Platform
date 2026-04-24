@@ -15,11 +15,17 @@
 package org.allbinary.game.input;
 
 import org.allbinary.layer.LayerManager;
+import org.allbinary.layer.LayerManagerNoDebug;
 
 /**
  *
  * @author User
  */
 public class GameInputLayerManager extends LayerManager {
+
+    public GameInputLayerManager() {
+        super(LayerManagerNoDebug.getInstance());
+        //super(LayerManagerLogging.getInstance());
+    }
 
 }

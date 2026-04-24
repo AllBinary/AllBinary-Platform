@@ -32,12 +32,6 @@ public class PlayerComposite implements Controllable, Player
     
     private final Player player;
     private final TimeDelayHelper timeElapsedHelper = new TimeDelayHelper(0);
-    
-    public PlayerComposite(final Player player)
-    {
-        this.player = player;
-        this.timeElapsedHelper.delay = 570;
-    }
 
     public PlayerComposite(final Player player, final int repeatTime)
     {

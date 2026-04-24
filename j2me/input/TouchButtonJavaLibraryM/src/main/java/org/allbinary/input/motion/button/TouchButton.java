@@ -30,6 +30,18 @@ import org.allbinary.string.CommonStrings;
 
 public class TouchButton extends Paintable
 {
+    public static TouchButton create(final TouchButtonInput touchButtonInput, final TouchButtonResource touchButtonResource,
+                                     final Rectangle rawRectangle, final CellPosition cellPosition, final int xBorder, final int yBorder)
+            throws Exception
+    {
+        return new TouchButton(touchButtonInput,
+                FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(
+                        touchButtonResource.RESOURCE).getInstance(0),
+                FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(
+                        touchButtonResource.HINT).getInstance(0),
+                rawRectangle, cellPosition, xBorder, yBorder);
+    }
+
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
@@ -49,24 +61,11 @@ public class TouchButton extends Paintable
     protected int animationX;
     protected int animationY;
     protected int hintAnimationY;
-    
-    public TouchButton(TouchButtonInput touchButtonInput, 
-            TouchButtonResource touchButtonResource,            
-            Rectangle rawRectangle, CellPosition cellPosition, int xBorder, int yBorder)
-            throws Exception
-    {            
-            this(touchButtonInput, 
-            FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(
-                             touchButtonResource.RESOURCE).getInstance(0),
-            FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(
-                             touchButtonResource.HINT).getInstance(0),
-            rawRectangle, cellPosition, xBorder, yBorder);
-    }
 
-    public TouchButton(TouchButtonInput touchButtonInput, 
-            Animation animationInterface, 
-            Animation hintAnimationInterface,
-            Rectangle rawRectangle, CellPosition cellPosition, int xBorder, int yBorder)
+    public TouchButton(final TouchButtonInput touchButtonInput,
+                       final Animation animationInterface,
+                       final Animation hintAnimationInterface,
+                       final Rectangle rawRectangle, final CellPosition cellPosition, final int xBorder, final int yBorder)
             throws Exception
     {
         this.touchButtonInput = touchButtonInput;

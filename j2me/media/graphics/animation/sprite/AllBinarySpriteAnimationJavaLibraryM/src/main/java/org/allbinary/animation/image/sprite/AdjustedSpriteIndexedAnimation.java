@@ -27,12 +27,6 @@ extends SpriteIndexedAnimation
     private int dx;
     private int dy;
 
-    public AdjustedSpriteIndexedAnimation(final Sprite sprite, final Image image, final int dx, final int dy, final AnimationBehavior animationBehavior)
-        throws Exception
-    {
-        this(sprite, image, BasicColorUtil.getInstance().ZERO_ARRAY, dx, dy, animationBehavior);
-    }    
-        
     public AdjustedSpriteIndexedAnimation(final Sprite sprite, final Image image, final BasicColor[] basicColorArray, final int dx, final int dy, final AnimationBehavior animationBehavior)
         throws Exception
     {

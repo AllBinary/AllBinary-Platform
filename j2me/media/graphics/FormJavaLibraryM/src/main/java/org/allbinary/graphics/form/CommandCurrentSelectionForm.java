@@ -39,8 +39,7 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
             final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
             throws Exception
     {
-        super(title, items, rectangle, formType, border, moveForSmallScreen,
-                backgroundBasicColor, foregroundBasicColor);
+        super(title, items, ItemPaintableFactory.getInstance(), rectangle, formType, border, moveForSmallScreen, backgroundBasicColor, foregroundBasicColor);
 
         this.initAnimations();
         this.update(items);

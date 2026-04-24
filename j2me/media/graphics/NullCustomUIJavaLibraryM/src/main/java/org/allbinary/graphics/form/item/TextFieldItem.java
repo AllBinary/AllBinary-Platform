@@ -10,12 +10,6 @@ import org.allbinary.logic.util.visitor.Visitor;
 public class TextFieldItem extends TextItem
 {
     public TextFieldItem(Canvas canvas, Visitor visitor, String label, String value, int maxSize, int layout, String altText, 
-            BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) {
-        this(canvas, visitor, label, value, maxSize, layout, altText, Font.getDefaultFont(),
-            backgroundBasicColor, foregroundBasicColor);
-    }
-
-    public TextFieldItem(Canvas canvas, Visitor visitor, String label, String value, int maxSize, int layout, String altText, 
             final Font font, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
     {
         super(label, layout, altText, backgroundBasicColor, foregroundBasicColor);

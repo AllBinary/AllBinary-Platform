@@ -20,18 +20,8 @@ import org.allbinary.logic.string.StringUtil;
 
 public class ScrollSelectionFormNoneFactory
 {
-    private static final ScrollSelectionForm instance = 
-        new ScrollSelectionForm(
-                StringUtil.getInstance().EMPTY_STRING, 
-                new CustomItem[0], 
-                RectangleFactory.SINGLETON, 
-                FormTypeFactory.getInstance().HORIZONTAL_FORM, 0, 
-                BasicColorFactory.getInstance().BLACK, 
-                BasicColorFactory.getInstance().WHITE
-                );
-
     public static ScrollSelectionForm getInstance()
     {
-        return instance;
+        return ScrollSelectionForm.NULL_SCROLL_SELECTION_HORIZONTAL_FORM;
     }
 }

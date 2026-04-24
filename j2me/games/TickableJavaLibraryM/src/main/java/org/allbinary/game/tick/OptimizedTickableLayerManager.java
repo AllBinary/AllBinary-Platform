@@ -15,11 +15,17 @@
 package org.allbinary.game.tick;
 
 import org.allbinary.layer.LayerManager;
+import org.allbinary.layer.LayerManagerNoDebug;
 
 /**
  *
  * @author User
  */
 public class OptimizedTickableLayerManager extends LayerManager {
+
+    public OptimizedTickableLayerManager() {
+        super(LayerManagerNoDebug.getInstance());
+        //super(LayerManagerLogging.getInstance());
+    }
 
 }

@@ -21,15 +21,10 @@ public class TerrainEvent extends AllBinaryEventObject
 {
     private BasicTerrainInfo basicTerrainInfo = BasicTerrainInfo.NULL_BASIC_TERRAIN_INFO;
 
-    public TerrainEvent()
-    {
-        super(NullUtil.getInstance().NULL_OBJECT);
-    }
-
-    public TerrainEvent(final BasicTerrainInfo basicTerrainInfo)
+    public TerrainEvent(final Object basicTerrainInfo)
     {
         super(basicTerrainInfo);
-        this.setBasicTerrainInfo(basicTerrainInfo);
+        this.setBasicTerrainInfo((BasicTerrainInfo) basicTerrainInfo);
     }
 
     public String toString()

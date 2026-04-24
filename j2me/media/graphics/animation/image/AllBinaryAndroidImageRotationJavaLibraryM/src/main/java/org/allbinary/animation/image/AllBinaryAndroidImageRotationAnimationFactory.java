@@ -39,6 +39,33 @@ public class AllBinaryAndroidImageRotationAnimationFactory
     {
         return new AllBinaryAndroidImageRotationAnimationFactory(image, width, height, angleIncrement, animationBehaviorFactory, false);
     }
+
+    //final Image image, final Object unused
+    public static AllBinaryAndroidImageRotationAnimationFactory createU(final Image image, final AnimationBehaviorFactory animationBehaviorFactory) 
+        throws Exception
+    {
+        final AllBinaryAndroidImageRotationAnimationFactory androidImageRotationAnimationFactory = new AllBinaryAndroidImageRotationAnimationFactory(image, image.getWidth(), image.getHeight(), (short) (AngleFactory.getInstance().TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity()), animationBehaviorFactory, false);
+        androidImageRotationAnimationFactory.init(-(image.getWidth() >> 2), -(image.getHeight() >> 2));
+        
+        return androidImageRotationAnimationFactory;
+    }
+        
+    //final Image image, final int dx, final int dy, final Object unused, final AnimationBehaviorFactory animationBehaviorFactory
+    public static AllBinaryAndroidImageRotationAnimationFactory createDXU(final Image image, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory) 
+        throws Exception
+    {
+        final AllBinaryAndroidImageRotationAnimationFactory androidImageRotationAnimationFactory = new AllBinaryAndroidImageRotationAnimationFactory(image, image.getWidth(), image.getHeight(), (short) (AngleFactory.getInstance().TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity()), animationBehaviorFactory, false);
+        androidImageRotationAnimationFactory.init(dx, dy);
+
+        return androidImageRotationAnimationFactory;
+    }
+    
+    public void init(final int dx, final int dy) {
+        this.animationFactoryInitializationVisitor.dx = dx;
+        this.animationFactoryInitializationVisitor.dy = dy;
+        this.animationFactoryInitializationVisitor.originalDx = dx;
+        this.animationFactoryInitializationVisitor.originalDy = dy;
+    }
     
     private final short angleIncrement;
     private final boolean resizeCanvasForRotation;
@@ -61,12 +88,6 @@ public class AllBinaryAndroidImageRotationAnimationFactory
 //        this(image, image.getWidth(), image.getHeight(), dx, dy, AnimationBehaviorFactory.getInstance());
 //    }
 
-//    public AllBinaryAndroidImageRotationAnimationFactory(final Image image, final int dx, final int dy, final Object unused, final AnimationBehaviorFactory animationBehaviorFactory)
-//    throws Exception
-//    {
-//        this(image, image.getWidth(), image.getHeight(), dx, dy, animationBehaviorFactory);
-//    }
-        
 //    public AllBinaryAndroidImageRotationAnimationFactory(final Image image, final int dx, final int dy, final Object unused, final short angleIncrement)
 //    throws Exception
 //    {
@@ -91,18 +112,6 @@ public class AllBinaryAndroidImageRotationAnimationFactory
 //        this.animationFactoryInitializationVisitor.originalDy = dy;
 //    }
     
-//    public AllBinaryAndroidImageRotationAnimationFactory(final Image image,
-//            final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
-//        throws Exception {
-//
-//        this(image, width, height, animationBehaviorFactory);
-//
-//        this.animationFactoryInitializationVisitor.dx = dx;
-//        this.animationFactoryInitializationVisitor.dy = dy;
-//        this.animationFactoryInitializationVisitor.originalDx = dx;
-//        this.animationFactoryInitializationVisitor.originalDy = dy;
-//    }
-
 //    public AllBinaryAndroidImageRotationAnimationFactory(final Image image,
 //            final int width, final int height, final int dx, final int dy, final short angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory, final boolean resizeCanvasForRotation) throws Exception
 //    {

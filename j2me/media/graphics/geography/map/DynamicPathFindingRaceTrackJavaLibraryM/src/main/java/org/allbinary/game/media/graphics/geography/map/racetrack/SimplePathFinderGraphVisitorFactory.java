@@ -28,10 +28,10 @@ public class SimplePathFinderGraphVisitorFactory
     private final int minPathWeight;
     private final int maxPathWeight;
 
-    public SimplePathFinderGraphVisitorFactory()
-    {
-        this(10, 8, 100000);
-    }
+//    public SimplePathFinderGraphVisitorFactory()
+//    {
+//        this(10, 8, 100000);
+//    }
 
     public SimplePathFinderGraphVisitorFactory(
        int edgeMinimum, int minPathWeight, int maxPathWeight)

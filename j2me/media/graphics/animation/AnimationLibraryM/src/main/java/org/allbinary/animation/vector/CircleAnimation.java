@@ -26,14 +26,6 @@ public class CircleAnimation extends Animation implements ColorCompositeInterfac
     
     protected int width;
     protected int height;
-    
-    public CircleAnimation(int widthAndHeight, BasicColor basicColor)
-    {
-        this.width = widthAndHeight;
-        this.height = widthAndHeight;
-
-        this.setBasicColorP(basicColor);
-    }
 
     public CircleAnimation(int width, int height, BasicColor basicColor)
     {

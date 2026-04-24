@@ -23,16 +23,12 @@ public class VectorRotationAnimationInterfaceFactory
 
 	private int currentPoints[][][] = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY_ARRAY;
 	private BasicColor basicColor = BasicColorFactory.getInstance().WHITE;
-        protected final AnimationBehaviorFactory animationBehaviorFactory;
+	protected final AnimationBehaviorFactory animationBehaviorFactory;
 
-        public VectorRotationAnimationInterfaceFactory(final int[][][] currentPoints, final BasicColor basicColor) {
-            this(currentPoints, basicColor, AnimationBehaviorFactory.getInstance());
-        }
-        
 	public VectorRotationAnimationInterfaceFactory(final int[][][] currentPoints, final BasicColor basicColor, final AnimationBehaviorFactory animationBehaviorFactory) {
 		this.currentPoints = currentPoints;
 		this.setBasicColorP(basicColor);
-                this.animationBehaviorFactory = animationBehaviorFactory;
+		this.animationBehaviorFactory = animationBehaviorFactory;
 	}
 
         @Override

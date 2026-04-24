@@ -35,11 +35,6 @@ public class RaceTrackData
     private CellPosition[] overPassGeographicMapCellPositionArray = NO_OVER_PASSES_ARRAY;
     private Integer id;
 
-    public RaceTrackData(final Integer id, final int cellWidth, final int cellHeight, final int miniCellWidth, final int miniCellHeight)
-    {
-        this(id, cellWidth, cellHeight, miniCellWidth, miniCellHeight, NullUtil.getInstance().NULL_INT_ARRAY, NullUtil.getInstance().NULL_INT_ARRAY_ARRAY);
-    }
-
     public RaceTrackData(final Integer id, final int cellWidth, final int cellHeight, final int miniCellWidth, final int miniCellHeight, final int[] cellTypeIdToGeographicMapCellTypeArray, final int[][] mapArray)
     {
         this.id = id;

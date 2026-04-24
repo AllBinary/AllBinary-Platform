@@ -49,7 +49,7 @@ extends BaseTouchInput
                 CommonButtons commonButtons = CommonButtons.getInstance();
                 
                 // Upgrade Button
-                TouchButton UP = new TouchButton(
+                TouchButton UP = TouchButton.create(
                         BasicTouchInputFactory.getInstance().SPECIAL_BUTTON_TWO,
                         TouchButtonUpgradeResource.getInstance(),
                         commonButtons.NORMAL_BUTTON, 
@@ -58,7 +58,7 @@ extends BaseTouchInput
                         touchButtonLocationHelper.getRowsRemainderHalf());
 
                 // Downgrade Button
-                TouchButton DOWN = new TouchButton(
+                TouchButton DOWN = TouchButton.create(
                         BasicTouchInputFactory.getInstance().SPECIAL_BUTTON_ONE,
                         TouchButtonDowngradeResource.getInstance(),
                         commonButtons.NORMAL_BUTTON, 

@@ -41,7 +41,7 @@ extends BaseTouchInput
                 new BasicTouchButtonCellPositionFactory();
             
     //Scroll Left Button
-            TouchButton LEFT = new TouchButton(BasicTouchInputFactory.getInstance().LEFT,
+            TouchButton LEFT = TouchButton.create(BasicTouchInputFactory.getInstance().LEFT,
                     TouchButtonStrafeLeftResource.getInstance(),
                     commonButtons.NORMAL_BUTTON,
                     basicTouchButtonCellPositionFactory.TOP_LEFT,
@@ -49,7 +49,7 @@ extends BaseTouchInput
                touchButtonLocationHelper.getRowsRemainderHalf());
 
     //Scroll Right Button
-            TouchButton RIGHT = new TouchButton(BasicTouchInputFactory.getInstance().RIGHT,
+            TouchButton RIGHT = TouchButton.create(BasicTouchInputFactory.getInstance().RIGHT,
                     TouchButtonStrafeRightResource.getInstance(),
                     commonButtons.NORMAL_BUTTON,
                     basicTouchButtonCellPositionFactory.TOP_RIGHT,

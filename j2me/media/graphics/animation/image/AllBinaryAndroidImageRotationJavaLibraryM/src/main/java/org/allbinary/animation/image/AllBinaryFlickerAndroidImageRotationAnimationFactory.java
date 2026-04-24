@@ -19,7 +19,6 @@ import javax.microedition.lcdui.NullCanvas;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
-import org.allbinary.game.configuration.GameConfigurationCentral;
 import org.allbinary.media.image.ImageCopyUtil;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
@@ -28,29 +27,17 @@ import org.allbinary.media.ScaleProperties;
 public class AllBinaryFlickerAndroidImageRotationAnimationFactory 
     implements AnimationInterfaceFactoryInterface
 {
+//    public static AllBinaryFlickerAndroidImageRotationAnimationFactory create(final Image image, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
+//            throws Exception
+//    {
+//        return new AllBinaryFlickerAndroidImageRotationAnimationFactory(image, width, height, (short) (AngleFactory.getInstance().TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity()), animationBehaviorFactory);
+//    }
+    
     private Image image = NullCanvas.NULL_IMAGE;
 
     private final short angleIncrement;
     protected final AnimationBehaviorFactory animationBehaviorFactory;
 
-//    public AllBinaryFlickerAndroidImageRotationAnimationFactory(final Image image, final int width, final int height)
-//            throws Exception
-//    {
-//        this(image, width, height, (short) (AngleFactory.getInstance().TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity()), AnimationBehaviorFactory.getInstance());
-//    }
-
-//    public AllBinaryFlickerAndroidImageRotationAnimationFactory(final Image image, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
-//            throws Exception
-//    {
-//        this(image, width, height, (short) (AngleFactory.getInstance().TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity()), animationBehaviorFactory);
-//    }
-
-//    public AllBinaryFlickerAndroidImageRotationAnimationFactory(final Image image, final int width, final int height,
-//            final short angleIncrement) throws Exception
-//    {
-//        this(image, width, height, angleIncrement, AnimationBehaviorFactory.getInstance());
-//    }
-    
     public AllBinaryFlickerAndroidImageRotationAnimationFactory(final Image image, final int width, final int height,
             final short angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
     {

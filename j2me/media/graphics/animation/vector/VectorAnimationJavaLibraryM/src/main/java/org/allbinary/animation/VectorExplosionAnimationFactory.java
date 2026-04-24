@@ -20,12 +20,8 @@ public class VectorExplosionAnimationFactory
     implements ProceduralAnimationInterfaceFactoryInterface{
 
 	private BasicColor basicColor = BasicColorFactory.getInstance().WHITE;
-        protected final AnimationBehaviorFactory animationBehaviorFactory;
-        
-        public VectorExplosionAnimationFactory(final BasicColor basicColor) {
-            this(basicColor, AnimationBehaviorFactory.getInstance());
-        }
-	
+	protected final AnimationBehaviorFactory animationBehaviorFactory;
+
 	public VectorExplosionAnimationFactory(final BasicColor basicColor, final AnimationBehaviorFactory animationBehaviorFactory) {
             
             this.animationBehaviorFactory = animationBehaviorFactory;

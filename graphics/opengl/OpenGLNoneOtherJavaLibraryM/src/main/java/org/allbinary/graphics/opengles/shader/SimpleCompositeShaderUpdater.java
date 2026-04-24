@@ -19,10 +19,6 @@ package org.allbinary.graphics.opengles.shader;
  */
 public class SimpleCompositeShaderUpdater extends CompositeShaderUpdater {
     
-//    public SimpleCompositeShaderUpdater(final String[] uniformBlockArray, final String[] uniformArray, final String[] attributeArray) {
-//        super(uniformBlockArray, uniformArray, attributeArray);
-//    }
-
     public SimpleCompositeShaderUpdater(final String[] uniformBlockArray, final String[] uniformArray, final String[] attributeArray, final int[] attributeHandleArray) {
         super(uniformBlockArray, uniformArray, attributeArray, attributeHandleArray);
     }

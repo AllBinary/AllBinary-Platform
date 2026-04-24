@@ -24,10 +24,10 @@ public class ColorLessVectorAnimation extends VectorAnimation
         super(currentPoints, BasicColorFactory.getInstance().WHITE, animationBehavior);
     }
 
-    public ColorLessVectorAnimation(final int[][] currentPoints, final AnimationBehavior animationBehavior)
-    {
-        super(currentPoints, BasicColorFactory.getInstance().WHITE, animationBehavior);
-    }
+//    public ColorLessVectorAnimation(final int[][] currentPoints, final AnimationBehavior animationBehavior)
+//    {
+//        super(currentPoints, BasicColorFactory.getInstance().WHITE, animationBehavior);
+//    }
 
     @Override
     public void paint(Graphics graphics, int x, int y)

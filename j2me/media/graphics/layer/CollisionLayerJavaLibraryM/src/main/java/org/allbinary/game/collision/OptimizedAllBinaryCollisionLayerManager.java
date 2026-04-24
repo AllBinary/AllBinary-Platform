@@ -15,11 +15,18 @@
 package org.allbinary.game.collision;
 
 import org.allbinary.layer.LayerManager;
+import org.allbinary.layer.LayerManagerNoDebug;
 
 /**
  *
  * @author User
  */
 public class OptimizedAllBinaryCollisionLayerManager extends LayerManager {
+
+    public OptimizedAllBinaryCollisionLayerManager()
+    {
+        super(LayerManagerNoDebug.getInstance());
+        //super(LayerManagerLogging.getInstance());
+    }
 
 }

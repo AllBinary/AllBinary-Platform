@@ -22,16 +22,12 @@ public class VectorAnimationInterfaceFactory
 {
 	private int currentPoints[][][];
 	private BasicColor basicColor = BasicColorFactory.getInstance().WHITE;
-        protected final AnimationBehaviorFactory animationBehaviorFactory;
-
-        public VectorAnimationInterfaceFactory(final int[][][] currentPoints, final BasicColor basicColor) {
-            this(currentPoints, basicColor, AnimationBehaviorFactory.getInstance());
-        }
+	protected final AnimationBehaviorFactory animationBehaviorFactory;
         
 	public VectorAnimationInterfaceFactory(final int[][][] currentPoints, final BasicColor basicColor, final AnimationBehaviorFactory animationBehaviorFactory) {
 		this.currentPoints = currentPoints;
 		this.setBasicColorP(basicColor);
-                this.animationBehaviorFactory = animationBehaviorFactory;
+		this.animationBehaviorFactory = animationBehaviorFactory;
 	}
 
         @Override

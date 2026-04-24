@@ -17,28 +17,28 @@ public class AndroidMediaPlayerWrapperListener {
 
     private AndroidMediaPlayerWrapper androidMediaPlayerWrapper = AndroidMediaPlayerWrapper.NULL_ANDROID_MEDIA_PLAYER_WRAPPER;
 
-    public AndroidMediaPlayerWrapperListener(
-        final AndroidMediaPlayerWrapper androidMediaPlayerWrapper, final int listeningLevel) {
-        try {
-            this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
-
-            this.androidMediaPlayerWrapper = androidMediaPlayerWrapper;
-
-            final MediaPlayer mediaPlayer = androidMediaPlayerWrapper.getMediaPlayer();
-
-            if (listeningLevel == 1) {
-                mediaPlayer.setOnCompletionListener(mOnCompletionListener);
-            } else {
-                throw new Exception("Unknow Listening Leve");
-            }
-            //mediaPlayer
-            //      .setOnBufferingUpdateListener(mOnBufferingUpdateListener);
-            //mediaPlayer.setOnPreparedListener(mOnPreparedListener);
-            //mediaPlayer.setOnErrorListener(mOnErrorListener);
-        } catch (Exception e) {
-            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
-        }
-    }
+//    public AndroidMediaPlayerWrapperListener(
+//        final AndroidMediaPlayerWrapper androidMediaPlayerWrapper, final int listeningLevel) {
+//        try {
+//            this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+//
+//            this.androidMediaPlayerWrapper = androidMediaPlayerWrapper;
+//
+//            final MediaPlayer mediaPlayer = androidMediaPlayerWrapper.getMediaPlayer();
+//
+//            if (listeningLevel == 1) {
+//                mediaPlayer.setOnCompletionListener(mOnCompletionListener);
+//            } else {
+//                throw new Exception("Unknow Listening Leve");
+//            }
+//            //mediaPlayer
+//            //      .setOnBufferingUpdateListener(mOnBufferingUpdateListener);
+//            //mediaPlayer.setOnPreparedListener(mOnPreparedListener);
+//            //mediaPlayer.setOnErrorListener(mOnErrorListener);
+//        } catch (Exception e) {
+//            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
+//        }
+//    }
 
     public AndroidMediaPlayerWrapperListener(final AndroidMediaPlayerWrapper androidMediaPlayerWrapper) {
         try {

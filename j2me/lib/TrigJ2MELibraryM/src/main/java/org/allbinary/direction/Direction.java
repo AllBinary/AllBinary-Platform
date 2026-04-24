@@ -34,16 +34,6 @@ public class Direction
         directionArray[value] = this;
     }
 
-    Direction(String name, String otherName, int value)
-    {
-        this.name = name;
-        this.otherName = otherName;
-        this.value = value;
-        this.frameFactor = 0;
-
-        directionArray[value] = this;
-    }
-
     public static Direction getInstance(int direction)
     {
         // return (GeographicMapDirectionData)

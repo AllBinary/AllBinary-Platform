@@ -43,23 +43,6 @@ public class RaceTrackGeographicMap extends BaseRaceTrackGeographicMap {
         this.customMapGenerator = customMapGeneratorBaseFactory.getInstance(this);
     }
 
-    public RaceTrackGeographicMap(
-        final RaceTrackInfo raceTrackInfo,
-        final RaceTrackData raceTrackData,
-        final AllBinaryTiledLayerFactoryInterface tiledLayerFactoryInterface,
-        final GeographicMapCellPositionFactoryInterface geographicMapCellPositionFactoryInterface,
-        final GeographicMapCellTypeFactory geographicMapCellTypeFactory,
-        final CustomMapGeneratorBaseFactory customMapGeneratorBaseFactory)
-        throws Exception {
-        this(raceTrackInfo, raceTrackData,
-            tiledLayerFactoryInterface,
-            geographicMapCellPositionFactoryInterface,
-            new GeographicMapCellPositionBaseFactory(),
-            geographicMapCellTypeFactory,
-            customMapGeneratorBaseFactory);
-
-    }
-
     public CustomMapGeneratorBase getCustomMapGenerator() {
         return customMapGenerator;
     }

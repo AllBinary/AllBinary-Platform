@@ -22,12 +22,6 @@ public class SimultaneousCompoundIndexedAnimationInterfaceFactory
     extends CompoundAnimationInterfaceFactory {
 
     public SimultaneousCompoundIndexedAnimationInterfaceFactory(
-            final AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray)
-    {
-        this(basicAnimationInterfaceFactoryInterfaceArray, AnimationBehaviorFactory.getInstance());
-    }
-    
-    public SimultaneousCompoundIndexedAnimationInterfaceFactory(
             final AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray, final AnimationBehaviorFactory animationBehaviorFactory)
     {
         super(basicAnimationInterfaceFactoryInterfaceArray, animationBehaviorFactory);

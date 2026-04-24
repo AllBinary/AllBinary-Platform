@@ -15,11 +15,17 @@
 package org.allbinary.game.collision.layer;
 
 import org.allbinary.layer.LayerManager;
+import org.allbinary.layer.LayerManagerNoDebug;
 
 /**
  *
  * @author User
  */
 public class CollidableInterfaceLayerManager extends LayerManager {
-        
+
+    public CollidableInterfaceLayerManager() {
+        super(LayerManagerNoDebug.getInstance());
+        //super(LayerManagerLogging.getInstance());
+    }
+
 }

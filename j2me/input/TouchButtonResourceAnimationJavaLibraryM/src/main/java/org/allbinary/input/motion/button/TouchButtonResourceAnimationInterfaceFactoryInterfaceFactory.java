@@ -13,6 +13,8 @@
  */
 package org.allbinary.input.motion.button;
 
+import java.util.Hashtable;
+
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.animation.NullAnimationFactory;
@@ -33,14 +35,14 @@ public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory
         extends BaseResourceAnimationInterfaceFactoryInterfaceFactory
 {
 
-    public TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory()
+    public static TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory create()
     {
-        super("TouchButton Animations");
+        return new TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory("TouchButton Animations");
     }
 
     public TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory(final String name)
     {
-        super(name);
+        super(name, new Hashtable(), new Hashtable(), new Hashtable());
     }
 
     @Override

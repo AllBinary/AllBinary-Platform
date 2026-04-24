@@ -33,13 +33,6 @@ public class ColorCompositeSpriteIndexedAnimationFactory
     private final BasicColor[] basicColorArray;
 
     public ColorCompositeSpriteIndexedAnimationFactory(
-        final Image image, final BasicColor[] basicColorArray, final int width, final int height)
-        throws Exception
-    {
-        this(image, basicColorArray, width, height, AnimationBehaviorFactory.getInstance());
-    }
-    
-    public ColorCompositeSpriteIndexedAnimationFactory(
         final Image image, final BasicColor[] basicColorArray, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception
     {

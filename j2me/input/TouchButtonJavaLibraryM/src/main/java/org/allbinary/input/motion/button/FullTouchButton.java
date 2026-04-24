@@ -14,27 +14,30 @@
 package org.allbinary.input.motion.button;
 
 import org.allbinary.animation.Animation;
+import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
 import org.allbinary.graphics.CellPosition;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;
-import org.allbinary.logic.communication.log.LogUtil;
 
 public class FullTouchButton extends TouchButton
 {
-
-    public FullTouchButton(TouchButtonInput touchButtonInput, TouchButtonResource touchButtonResource,
-            Rectangle rawRectangle, CellPosition cellPosition, int xBorder, int yBorder)
-            throws Exception
+    public static FullTouchButton create(final TouchButtonInput touchButtonInput, final TouchButtonResource touchButtonResource,
+                                         final Rectangle rawRectangle, final CellPosition cellPosition, final int xBorder, final int yBorder)
+                                         throws Exception
     {
-        super(touchButtonInput, touchButtonResource,
+        return new FullTouchButton(touchButtonInput,
+                FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(
+                        touchButtonResource.RESOURCE).getInstance(0),
+                FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(
+                        touchButtonResource.HINT).getInstance(0),
                 rawRectangle, cellPosition, xBorder, yBorder);
     }
 
-    public FullTouchButton(TouchButtonInput touchButtonInput, 
-            Animation animationInterface, 
-            Animation hintAnimationInterface,
-            Rectangle rawRectangle, CellPosition cellPosition, int xBorder, int yBorder)
+    public FullTouchButton(final TouchButtonInput touchButtonInput,
+                           final Animation animationInterface,
+                           final Animation hintAnimationInterface,
+                           final Rectangle rawRectangle, final CellPosition cellPosition, final int xBorder, final int yBorder)
             throws Exception
     {
         super(touchButtonInput, 

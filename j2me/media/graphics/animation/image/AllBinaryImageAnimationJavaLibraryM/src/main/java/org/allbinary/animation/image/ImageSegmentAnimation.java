@@ -41,12 +41,6 @@ public class ImageSegmentAnimation
 
     private int[] sequenceArray;
     
-    protected ImageSegmentAnimation(final Image image, final AnimationBehavior animationBehavior)
-        throws Exception
-    {
-        this(image, PrimitiveIntUtil.getArrayInstance(), animationBehavior);
-    }
-    
     protected ImageSegmentAnimation(final Image image, final int[] sequenceArray, final AnimationBehavior animationBehavior)
         throws Exception
     {

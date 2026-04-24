@@ -16,7 +16,6 @@ package org.allbinary.animation;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.color.BasicColor;
-import org.allbinary.graphics.color.BasicColorSetUtil;
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.PrimitiveIntUtil;
@@ -25,6 +24,20 @@ import org.allbinary.util.CircularIndexUtil;
 public class VectorAnimation extends IndexedAnimation
     implements VectorAnimationInterface
 {
+    public static VectorAnimation create(final int[][] currentPoints2, final BasicColor basicColor, final AnimationBehavior animationBehavior)
+    {
+        final int[][][] currentPoints = new int[1][currentPoints2.length][2];
+
+        int size = currentPoints2.length;
+        for (int index = 0; index < size; index++)
+        {
+            currentPoints[0][index][0] = currentPoints2[index][0];
+            currentPoints[0][index][1] = currentPoints2[index][1];
+        }
+
+        return new VectorAnimation(currentPoints, basicColor, animationBehavior);
+    }
+
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     private int[][][] currentPoints = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY_ARRAY;
@@ -37,22 +50,6 @@ public class VectorAnimation extends IndexedAnimation
         
         this.setPoints(currentPoints);
 
-        this.setBasicColorP(basicColor);
-    }
-
-    public VectorAnimation(final int[][] currentPoints, final BasicColor basicColor, final AnimationBehavior animationBehavior)
-    {
-        super(animationBehavior);
-        
-        this.setPoints(new int[1][currentPoints.length][2]);
-
-        int size = currentPoints.length;
-        for (int index = 0; index < size; index++)
-        {
-            this.currentPoints[0][index][0] = currentPoints[index][0];
-            this.currentPoints[0][index][1] = currentPoints[index][1];
-        }
-        
         this.setBasicColorP(basicColor);
     }
 

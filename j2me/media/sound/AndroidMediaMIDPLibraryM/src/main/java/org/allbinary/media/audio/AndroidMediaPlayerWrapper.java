@@ -23,48 +23,59 @@ import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 
 public class AndroidMediaPlayerWrapper extends BasicPlayer 
    //implements LineListener
 {
-    public static final AndroidMediaPlayerWrapper NULL_ANDROID_MEDIA_PLAYER_WRAPPER = new AndroidMediaPlayerWrapper();
+
+    public static AndroidMediaPlayerWrapper create() {
+        try {
+            return new AndroidMediaPlayerWrapper(StringUtil.getInstance().EMPTY_STRING);
+        } catch(Exception e) {
+            throw new RuntimeException();
+        }
+    }
+
+    public static final AndroidMediaPlayerWrapper NULL_ANDROID_MEDIA_PLAYER_WRAPPER = AndroidMediaPlayerWrapper.create();
     
     protected final LogUtil logUtil = LogUtil.getInstance();
     private MediaPlayer mediaPlayer = NullAndroidCanvas.NULL_MEDIA_PLAYER;
 
     //private AndroidMediaPlayerWrapperListener mediaPlayerHelper;
 
-    private AndroidMediaPlayerWrapper() {
-        
-    }
-    
     public AndroidMediaPlayerWrapper(String resource)
     throws Exception
     {
         try
         {
-            ResourceUtil resourceUtil = ResourceUtil.getInstance();
-            
-            final MediaPlayer mediaPlayer = MediaPlayer.create(resourceUtil.getContext(),resourceUtil.getResourceId(resource).intValue());
+            //TWB - replace with MediaPlayer create method to remove if
+            if(resource == StringUtil.getInstance().EMPTY_STRING) {
 
-            if(mediaPlayer == null)
-            {
-                throw new Exception(
-                        new StringMaker().append("Failed to create media player for: ")
-                            .append(resource).append(" with id: ")
-                            .append(resourceUtil.getResourceId(resource).toString()).toString());
+            } else {
+                final ResourceUtil resourceUtil = ResourceUtil.getInstance();
+
+                final MediaPlayer mediaPlayer = MediaPlayer.create(resourceUtil.getContext(),resourceUtil.getResourceId(resource).intValue());
+
+                if(mediaPlayer == null)
+                {
+                    throw new Exception(
+                            new StringMaker().append("Failed to create media player for: ")
+                                    .append(resource).append(" with id: ")
+                                    .append(resourceUtil.getResourceId(resource).toString()).toString());
+                }
+
+                this.setMediaPlayer(mediaPlayer);
+
+                this.mediaPlayer.setLooping(false);
+
+                // TWB- M5 does the prepare in the create method now
+                // this.mediaPlayer.prepare();
+
+                //this.setTimeBase((TimeBase) new PCTimeBase());
+
+                //mediaPlayerHelper = new AndroidMediaPlayerWrapperListener(this);
             }
-
-            this.setMediaPlayer(mediaPlayer);
-
-            this.mediaPlayer.setLooping(false);
-            
-            // TWB- M5 does the prepare in the create method now
-            // this.mediaPlayer.prepare();
-
-            //this.setTimeBase((TimeBase) new PCTimeBase());
-            
-            //mediaPlayerHelper = new AndroidMediaPlayerWrapperListener(this);
         }
         catch (Exception e)
         {

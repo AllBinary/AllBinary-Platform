@@ -13,6 +13,8 @@
 */
 package org.allbinary.input.motion.button;
 
+import java.util.Hashtable;
+
 import org.allbinary.animation.resource.BaseResourceAnimationInterfaceFactoryInterfaceFactory;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.resource.ResourceLoadingLevelFactory;
@@ -23,14 +25,14 @@ import org.allbinary.image.ImageCacheFactory;
 public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory 
     extends BaseResourceAnimationInterfaceFactoryInterfaceFactory
 {
-    public TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory()
+    public static TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory create()
     {
-        super("TouchButton Animations");
+        return new TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory("TouchButton Animations");
     }
 
     public TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory(String name)
     {
-        super(name);
+        super(name, new Hashtable(), new Hashtable(), new Hashtable());
     }
     
     @Override

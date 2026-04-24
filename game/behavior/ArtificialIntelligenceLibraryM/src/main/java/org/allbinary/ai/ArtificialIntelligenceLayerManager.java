@@ -15,11 +15,18 @@
 package org.allbinary.ai;
 
 import org.allbinary.layer.LayerManager;
+import org.allbinary.layer.LayerManagerNoDebug;
 
 /**
  *
  * @author User
  */
 public class ArtificialIntelligenceLayerManager extends LayerManager {
-        
+
+    public ArtificialIntelligenceLayerManager()
+    {
+        super(LayerManagerNoDebug.getInstance());
+        //super(LayerManagerLogging.getInstance());
+    }
+
 }

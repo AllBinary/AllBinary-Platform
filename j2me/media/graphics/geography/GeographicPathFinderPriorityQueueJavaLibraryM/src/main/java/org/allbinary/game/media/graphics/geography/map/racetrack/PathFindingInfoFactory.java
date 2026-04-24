@@ -22,6 +22,7 @@ import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackRoadsGeogra
 import org.allbinary.media.graphics.geography.pathfinding.PathFinder;
 import org.allbinary.media.graphics.geography.pathfinding.PathFindingInfo;
 import org.allbinary.media.graphics.geography.pathfinding.PathFindingNodeCostInfoFactory;
+import org.allbinary.util.BasicArrayListS;
 
 /**
  *
@@ -57,7 +58,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
     {
         //PreLogUtil.put("Using Dynamic Path Finding", this, commonStrings.GET_INSTANCE);
         
-        this.pathFindingInfo = new PathFindingInfo(new PathFindingNodeCostInfoFactory(MAX));
+        this.pathFindingInfo = new PathFindingInfo(new PathFindingNodeCostInfoFactory(MAX), new BasicArrayListS(1), new BasicArrayListS(1));
         
         this.pathFinder = new PathFinder();
     }
@@ -68,7 +69,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
         throws Exception
     {
         //TWB - find a way to cache this PathFindingInfo.
-        final PathFindingInfo pathFindingInfo = new PathFindingInfo(this.pathFindingInfo.getPathFindingNodeCostInfoFactoryInterface());
+        final PathFindingInfo pathFindingInfo = new PathFindingInfo(this.pathFindingInfo.getPathFindingNodeCostInfoFactoryInterface(), new BasicArrayListS(1), new BasicArrayListS(1));
 
         RaceTrackRoadsGeographicMapCellHistoryFactory.getInstance().init();
         

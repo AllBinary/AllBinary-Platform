@@ -32,11 +32,6 @@ public class GeographicMapCellPositionEvent extends AllBinaryEventObject
         this.geographicMapCellPosition = geographicMapCellPosition;
     }
 
-    public GeographicMapCellPositionEvent(Object object, int key)
-    {
-        super(object);
-    }
-
     public void init(Object object)
     {
         this.setSource(object);

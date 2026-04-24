@@ -24,7 +24,7 @@ public class ItemPaintableFactory extends ItemPaintable
         return instance;
     }
 
-    public static ItemPaintable getInstance()
+    public static ItemPaintableFactory getInstance()
     {
         return instance;
     }

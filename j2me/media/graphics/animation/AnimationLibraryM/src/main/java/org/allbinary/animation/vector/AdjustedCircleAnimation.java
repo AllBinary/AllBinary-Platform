@@ -25,43 +25,54 @@ import org.allbinary.graphics.color.BasicColor;
 public class AdjustedCircleAnimation 
     extends CircleAnimation
 {
+    public static AdjustedCircleAnimation create(
+            final int width, final int height,
+            final int xAdjustment, final int yAdjustment,
+            final BasicColor basicColor)
+    {
+        final AdjustedCircleAnimation adjustedCircleAnimation = new AdjustedCircleAnimation(width, height, basicColor);
+
+        adjustedCircleAnimation.init(xAdjustment, yAdjustment);
+
+        return adjustedCircleAnimation;
+    }
+
+    public static AdjustedCircleAnimation createW(
+            final int width, final int height, final int innerWidth, final BasicColor basicColor)
+    {
+        final AdjustedCircleAnimation adjustedCircleAnimation = new AdjustedCircleAnimation(width, height, basicColor);
+
+        adjustedCircleAnimation.init(innerWidth);
+
+        return adjustedCircleAnimation;
+    }
+
     private int xAdjustment;
     private int yAdjustment;
 
     public AdjustedCircleAnimation(
-            int width, int height,
-            int xAdjustment, int yAdjustment,
-            BasicColor basicColor)
+            final int width, final int height, final BasicColor basicColor)
     {
         super(width, height, basicColor);
+    }
 
+    private void init(final int xAdjustment, final int yAdjustment) {
         this.xAdjustment = xAdjustment;
         this.yAdjustment = yAdjustment;
     }
 
-    public AdjustedCircleAnimation(
-            int width, int height, int innerWidth,
-            BasicColor basicColor)
-    {
-        super(width, height, basicColor);
-
-        //this.xAdjustment = xAdjustment;
-        //this.yAdjustment = yAdjustment;
-
-        if (AndroidUtil.isAndroid())
-        {
+    private void init(final int innerWidth) {
+        if (AndroidUtil.isAndroid()) {
             int widthPortion = (((innerWidth / 3) * 10) / 7);
-            
+
             this.xAdjustment = -((width >> 1) - widthPortion);
             this.yAdjustment = this.xAdjustment;
-        }
-        else
-        {
+        } else {
             this.xAdjustment = -((width >> 1) - innerWidth);
             this.yAdjustment = this.xAdjustment;
         }
     }
-    
+
     @Override
    public void paint(Graphics graphics, int x, int y) {
       

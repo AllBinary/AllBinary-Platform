@@ -14,10 +14,16 @@
 package org.allbinary.physics.movement;
 
 import org.allbinary.game.layer.AllBinaryGameLayer;
+import org.allbinary.game.physics.velocity.BasicVelocityProperties;
+import org.allbinary.logic.math.BasicDecimal;
 
-public class NoBasicConstantVelocityMovement 
+public class NoBasicConstantVelocityMovement
 extends BasicConstantVelocityMovement
 {
+    public NoBasicConstantVelocityMovement() {
+        super(BasicDecimal.ZERO_BIGDECIMAL, new BasicVelocityProperties());
+    }
+
     @Override
     public void process(AllBinaryGameLayer layer) throws Exception
     {

@@ -19,6 +19,14 @@ import org.allbinary.logic.string.StringMaker;
 public class MultipleScrollSelectionHorizontalForm 
 extends ScrollSelectionForm
 {
+    public static MultipleScrollSelectionHorizontalForm create(final String title, final CustomItem[] items,
+                                                 final Rectangle rectangle, final FormType formType, final int border,
+                                                 final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
+            throws Exception
+    {
+        return new MultipleScrollSelectionHorizontalForm(title, items, ItemPaintableFactory.getInstance(), rectangle, formType, border, backgroundBasicColor, foregroundBasicColor);
+    }
+
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final int backgroundColor = BasicColorFactory.getInstance().TRANSPARENT_GREY.intValue();
@@ -32,14 +40,6 @@ extends ScrollSelectionForm
         super(title, items, formPaintableFactory, rectangle, formType, border, backgroundBasicColor, foregroundBasicColor);
     }
 
-    public MultipleScrollSelectionHorizontalForm(final String title, final CustomItem[] items, 
-            final Rectangle rectangle, final FormType formType, final int border, 
-            final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
-    throws Exception
-    {
-        super(title, items, rectangle, formType, border, backgroundBasicColor, foregroundBasicColor);
-    }
-    
     @Override
     public int getStartIndex()
     {

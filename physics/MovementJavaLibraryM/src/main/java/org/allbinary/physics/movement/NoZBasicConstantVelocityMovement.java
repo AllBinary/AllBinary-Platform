@@ -40,12 +40,6 @@ implements VelocityInterfaceCompositeInterface
         this.setSpeedBasicDecimal(basicDecimal);
         this.velocityProperties = velocityProperties;
     }
-    
-    public NoZBasicConstantVelocityMovement()
-    {
-        this.setSpeedBasicDecimal(BasicDecimal.ZERO_BIGDECIMAL);
-        this.velocityProperties = new BasicVelocityProperties();
-    }
 
     @Override
     public void init(BasicDecimal speedBasicDecimal, int angle, int otherAngle)

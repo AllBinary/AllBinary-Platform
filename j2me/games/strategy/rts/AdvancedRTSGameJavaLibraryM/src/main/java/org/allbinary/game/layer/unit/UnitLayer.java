@@ -620,13 +620,13 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         
         this.initRangeAnimation =
             //new CircleAnimation(
-            new AdjustedCircleAnimation(
+                AdjustedCircleAnimation.createW(
                     weaponRange, weaponRange, this.getWidth(), this.basicColorFactory.GREEN);
 
         final int sensorRange = weaponRange * SENSOR_RANGE_MULTIPLIER;
         
         this.initSensorRangeAnimation =
-            new AdjustedCircleAnimation(
+                AdjustedCircleAnimation.createW(
                     sensorRange, sensorRange, this.getWidth(), this.basicColorFactory.RED);
 
         this.getUnitWaypointBehavior().initRange(weaponRange);

@@ -29,6 +29,7 @@ import org.allbinary.string.CommonStrings;
 public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
         implements FeatureResourceAnimationInterfaceFactoryInterface
 {
+
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
@@ -40,14 +41,6 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
     private final String name;
 
     private boolean initialized;
-
-    public BaseResourceAnimationInterfaceFactoryInterfaceFactory(final String name)
-    {
-        this.hashtable = new Hashtable();
-        this.rectangleHashtable = new Hashtable();
-        this.rectangleArrayOfArraysHashtable = new Hashtable();
-        this.name = name;
-    }
 
     public BaseResourceAnimationInterfaceFactoryInterfaceFactory(final String name, final Hashtable hashtable, final Hashtable rectangleHashtable, final Hashtable rectangleArrayHashtable)
     {

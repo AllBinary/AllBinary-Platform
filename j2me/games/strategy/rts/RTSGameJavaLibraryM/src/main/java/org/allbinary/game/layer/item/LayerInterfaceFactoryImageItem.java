@@ -37,7 +37,7 @@ public class LayerInterfaceFactoryImageItem extends CustomImageItem
        LayerInterfaceFactoryInterface layerInterfaceFactoryInterface)
        throws Exception
     {
-        super(label, img, layout, altText, basicColor);
+        super(label, img, layout, altText, basicColor, 0);
 
         this.animationArray = animationArray;
         this.layerInterfaceFactoryInterface = layerInterfaceFactoryInterface;

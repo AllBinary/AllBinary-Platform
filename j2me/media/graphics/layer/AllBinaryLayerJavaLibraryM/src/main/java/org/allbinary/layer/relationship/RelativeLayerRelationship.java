@@ -25,11 +25,6 @@ public class RelativeLayerRelationship
 {
    private AllBinaryLayer layer = AllBinaryLayer.NULL_ALLBINARY_LAYER;
    
-   public RelativeLayerRelationship(final AllBinaryLayer layer, final int x, final int y) throws Exception
-   {
-       this(layer, PointFactory.getInstance().getInstance0(x, y), BasicArrayListUtil.getInstance().getImmutableInstance());
-   }
-	
    public RelativeLayerRelationship(final AllBinaryLayer layer, final GPoint point, final BasicArrayList typesAllowedList)
    {
       super(point, typesAllowedList);

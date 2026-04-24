@@ -40,33 +40,33 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
 
     private final int maxTileId;
     
-    private BasicTopViewGeographicMapCellTypeFactory() {
-
-        this.maxTileId = 9;
-
-        final BasicTopViewGeographicMapStrings basicTopViewGeographicMapStrings =
-            BasicTopViewGeographicMapStrings.getInstance();
-        
-        //GeographicMapCellTypeFactory.getInstance().EMPTY_CELL_TYPE = 
-        //new GeographicMapCellType(0);
-        new RaceTrackGeographicMapCellType(CommonStrings.getInstance().UNKNOWN, 0, 999, 0);
-        BasicTopViewGeographicMapCellType BLOCK_CELL_TYPE = BasicTopViewGeographicMapCellType.create(basicTopViewGeographicMapStrings.DEFAULT, 1, 1);
-        BasicTopViewGeographicMapCellType OFF_MAP_CELL_TYPE = BLOCK_CELL_TYPE;
-        BasicTopViewGeographicMapCellType FLOOR_CELL_TYPE = BLOCK_CELL_TYPE;
-        BasicTopViewGeographicMapCellType DOOR_CELL_TYPE = BLOCK_CELL_TYPE;
-        BasicTopViewGeographicMapCellType STAIRS_UP_CELL_TYPE = BLOCK_CELL_TYPE;
-        BasicTopViewGeographicMapCellType STAIRS_DOWN_CELL_TYPE = BLOCK_CELL_TYPE;
-        BasicTopViewGeographicMapCellType OTHER_CELL_TYPE = BLOCK_CELL_TYPE;
-
-        this.BLOCK_CELL_TYPE = BLOCK_CELL_TYPE;
-        this.OFF_MAP_CELL_TYPE = OFF_MAP_CELL_TYPE;
-        this.FLOOR_CELL_TYPE = FLOOR_CELL_TYPE;
-        this.DOOR_CELL_TYPE = DOOR_CELL_TYPE;
-        this.STAIRS_UP_CELL_TYPE = STAIRS_UP_CELL_TYPE;
-        this.STAIRS_DOWN_CELL_TYPE = STAIRS_DOWN_CELL_TYPE;
-        this.OTHER_CELL_TYPE = OTHER_CELL_TYPE;
-        
-    }
+//    private BasicTopViewGeographicMapCellTypeFactory() {
+//
+//        this.maxTileId = 9;
+//
+//        final BasicTopViewGeographicMapStrings basicTopViewGeographicMapStrings =
+//            BasicTopViewGeographicMapStrings.getInstance();
+//
+//        //GeographicMapCellTypeFactory.getInstance().EMPTY_CELL_TYPE =
+//        //new GeographicMapCellType(0);
+//        new RaceTrackGeographicMapCellType(CommonStrings.getInstance().UNKNOWN, 0, 999, 0);
+//        BasicTopViewGeographicMapCellType BLOCK_CELL_TYPE = BasicTopViewGeographicMapCellType.create(basicTopViewGeographicMapStrings.DEFAULT, 1, 1);
+//        BasicTopViewGeographicMapCellType OFF_MAP_CELL_TYPE = BLOCK_CELL_TYPE;
+//        BasicTopViewGeographicMapCellType FLOOR_CELL_TYPE = BLOCK_CELL_TYPE;
+//        BasicTopViewGeographicMapCellType DOOR_CELL_TYPE = BLOCK_CELL_TYPE;
+//        BasicTopViewGeographicMapCellType STAIRS_UP_CELL_TYPE = BLOCK_CELL_TYPE;
+//        BasicTopViewGeographicMapCellType STAIRS_DOWN_CELL_TYPE = BLOCK_CELL_TYPE;
+//        BasicTopViewGeographicMapCellType OTHER_CELL_TYPE = BLOCK_CELL_TYPE;
+//
+//        this.BLOCK_CELL_TYPE = BLOCK_CELL_TYPE;
+//        this.OFF_MAP_CELL_TYPE = OFF_MAP_CELL_TYPE;
+//        this.FLOOR_CELL_TYPE = FLOOR_CELL_TYPE;
+//        this.DOOR_CELL_TYPE = DOOR_CELL_TYPE;
+//        this.STAIRS_UP_CELL_TYPE = STAIRS_UP_CELL_TYPE;
+//        this.STAIRS_DOWN_CELL_TYPE = STAIRS_DOWN_CELL_TYPE;
+//        this.OTHER_CELL_TYPE = OTHER_CELL_TYPE;
+//
+//    }
     
     public BasicTopViewGeographicMapCellTypeFactory(final Hashtable tileTypeToTileIdsMap, final int maxTileId) {
         final CommonStrings commonStrings = CommonStrings.getInstance();

@@ -28,7 +28,7 @@ public class CompositeSound extends Sound
         //player = AllBinaryMediaManager.createPlayer(this.getResource());
         
         this.setPlayerP(new PlayerComposite(
-                AllBinaryMediaManager.createPlayer(this.getResource()))); 
+                AllBinaryMediaManager.createPlayer(this.getResource()), 570));
     }
     /*
     if(this.playerComposite.getMediaTime() == 0)

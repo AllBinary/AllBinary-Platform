@@ -30,10 +30,10 @@ public class TimedVectorAnimation extends VectorAnimation
        super(currentPoints, basicColor, animationBehavior);
     }
 
-    public TimedVectorAnimation(final int[][] currentPoints, final BasicColor basicColor, final AnimationBehavior animationBehavior)
-    {
-       super(currentPoints, basicColor, animationBehavior);
-    }
+//    public TimedVectorAnimation(final int[][] currentPoints, final BasicColor basicColor, final AnimationBehavior animationBehavior)
+//    {
+//       super(currentPoints, basicColor, animationBehavior);
+//    }
     
     @Override
     public void nextFrame()

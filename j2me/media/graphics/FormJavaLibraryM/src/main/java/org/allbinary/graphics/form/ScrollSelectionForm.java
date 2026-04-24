@@ -31,10 +31,37 @@ import org.allbinary.string.CommonSeps;
 
 public class ScrollSelectionForm extends PaintableForm
 {
-    public static final ScrollSelectionForm NULL_SCROLL_SELECTION_FORM = new ScrollSelectionForm(
-            StringUtil.getInstance().EMPTY_STRING, new CustomItem[0], RectangleFactory.SINGLETON, FormTypeFactory.getInstance().NULL_FORM_TYPE, 0,
+    private static ScrollSelectionForm create(final String title, final CustomItem[] items,
+                                             final ItemPaintableFactory formPaintableFactory,
+                                             final Rectangle rectangle, final FormType formType, final int border,
+                                             final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor) {
+        try {
+            if(formPaintableFactory == ItemPaintableFactory.getInstance()) {
+                return new ScrollSelectionForm(title, items, formPaintableFactory,rectangle, formType, border, backgroundBasicColor, foregroundBasicColor);
+            } else {
+                //This call should only work with ItemPaintableFactory.getInstance()
+                throw new RuntimeException();
+            }
+
+        } catch (Exception e) {
+            //LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().EXCEPTION_LABEL, e));
+            throw new RuntimeException();
+        }
+
+    }
+    public static final ScrollSelectionForm NULL_SCROLL_SELECTION_FORM = ScrollSelectionForm.create(
+            StringUtil.getInstance().EMPTY_STRING, new CustomItem[0], ItemPaintableFactory.getInstance(), RectangleFactory.SINGLETON, FormTypeFactory.getInstance().NULL_FORM_TYPE, 0,
             BasicColorFactory.getInstance().BLACK, BasicColorFactory.getInstance().WHITE);
-        
+    public static final ScrollSelectionForm NULL_SCROLL_SELECTION_HORIZONTAL_FORM = ScrollSelectionForm.create(
+            StringUtil.getInstance().EMPTY_STRING,
+            new CustomItem[0],
+            ItemPaintableFactory.getInstance(),
+            RectangleFactory.SINGLETON,
+            FormTypeFactory.getInstance().HORIZONTAL_FORM, 0,
+            BasicColorFactory.getInstance().BLACK,
+            BasicColorFactory.getInstance().WHITE
+    );
+
     private final RectangleCollisionUtil rectangleCollisionUtil = RectangleCollisionUtil.getInstance();
     
     protected final int border;
@@ -44,20 +71,11 @@ public class ScrollSelectionForm extends PaintableForm
     protected ItemPaintable paintable = ItemPaintableFactory.getInstance();
 
     public ScrollSelectionForm(
-            final String title, final CustomItem[] items, 
-            final ItemPaintableFactory formPaintableFactory, 
+            final String title, final CustomItem[] items,
+            final ItemPaintableFactory formPaintableFactory,
             final Rectangle rectangle, final FormType formType, final int border,
             final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
         throws Exception
-    {
-        this(title, items, rectangle, formType, border, backgroundBasicColor, foregroundBasicColor);
-        
-        this.paintable = formPaintableFactory.getInstance(this);
-    }
-    
-    public ScrollSelectionForm(
-            final String title, final CustomItem[] items, final Rectangle rectangle, final FormType formType, final int border,
-            final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
     {
         super(title, items, rectangle, formType, backgroundBasicColor, foregroundBasicColor);
 
@@ -71,6 +89,8 @@ public class ScrollSelectionForm extends PaintableForm
 //        }
         this.border = border;
         this.halfBorder = (border >> 1);
+
+        this.paintable = formPaintableFactory.getInstance(this);
     }
 
     @Override
