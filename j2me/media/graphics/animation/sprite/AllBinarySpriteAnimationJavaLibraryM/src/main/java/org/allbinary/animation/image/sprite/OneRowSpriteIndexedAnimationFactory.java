@@ -25,71 +25,71 @@ import org.allbinary.logic.math.PrimitiveIntUtil;
 
 public class OneRowSpriteIndexedAnimationFactory
     extends BaseImageAnimationFactory {
+    
+    public static OneRowSpriteIndexedAnimationFactory createDX(final Image image, final int dx, final AnimationBehaviorFactory animationBehaviorFactory)
+            throws Exception {
+
+        final OneRowSpriteIndexedAnimationFactory oneRowSpriteIndexedAnimationFactory = new OneRowSpriteIndexedAnimationFactory(image, PrimitiveIntUtil.getArrayInstance(), image.getHeight(), image.getHeight(), 0,0, animationBehaviorFactory);
+
+        oneRowSpriteIndexedAnimationFactory.initW(dx);
+
+        return oneRowSpriteIndexedAnimationFactory;
+    }
+
+//    public OneRowSpriteIndexedAnimationFactory(final Image image, final int dx, final int dy, final Object unused)
+//        throws Exception {
+//
+//        this(image, dx, dy);
+//
+//        this.animationFactoryInitializationVisitor.dx += -(this.animationFactoryInitializationVisitor.width >> 2);
+//        this.animationFactoryInitializationVisitor.dy += -(this.animationFactoryInitializationVisitor.height >> 2);
+//    }
+    
+    public static OneRowSpriteIndexedAnimationFactory createDXY(final Image image, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
+        throws Exception {
+
+        //this(image, dx, dy, AnimationBehaviorFactory.getInstance());
+        //this(image, AnimationBehaviorFactory.getInstance());
+        //Future imp may include Control fidelity for non square frames
+        final OneRowSpriteIndexedAnimationFactory oneRowSpriteIndexedAnimationFactory = new OneRowSpriteIndexedAnimationFactory(image, PrimitiveIntUtil.getArrayInstance(), image.getHeight(), image.getHeight(), 0,0, animationBehaviorFactory);
+
+        oneRowSpriteIndexedAnimationFactory.init(dx, dy);
+
+        return oneRowSpriteIndexedAnimationFactory;
+    }
+
+    public static OneRowSpriteIndexedAnimationFactory createWH(final Image image, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
+        throws Exception {
+        
+        //this(width, height, image, AnimationBehaviorFactory.getInstance());
+        //Future imp may include Control fidelity for non square frames
+        return new OneRowSpriteIndexedAnimationFactory(image, PrimitiveIntUtil.getArrayInstance(), width, height, 0,0, animationBehaviorFactory);
+    }
+
+    public static OneRowSpriteIndexedAnimationFactory create(final Image image, final AnimationBehaviorFactory animationBehaviorFactory)
+            throws Exception {
+
+        //this(image, AnimationBehaviorFactory.getInstance());
+        //Future imp may include Control fidelity for non square frames
+        return new OneRowSpriteIndexedAnimationFactory(image, PrimitiveIntUtil.getArrayInstance(), image.getHeight(), image.getHeight(), 0,0, animationBehaviorFactory);
+
+    }   
 
     private final AnimationFactorySpriteScaleUtil animationFactorySpriteScaleUtil = AnimationFactorySpriteScaleUtil.getInstance();
 
-//    public OneRowSpriteIndexedAnimationFactory(final Image image, final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
-//        throws Exception {
-//        super(image, PrimitiveIntUtil.getArrayInstance(), width, height, dx,dy, animationBehaviorFactory);
-//
-//    }
-    
-    public OneRowSpriteIndexedAnimationFactory(final Image image, final int dx)
-        throws Exception {
-
-        this(image, dx, 0);
-
-        this.animationFactoryInitializationVisitor.dx += -(this.animationFactoryInitializationVisitor.width >> 2);
+    public OneRowSpriteIndexedAnimationFactory(final Image image, final int[] sequenceArray, final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
+            throws Exception {
+        super(image, sequenceArray, width, height, dx, dy, animationBehaviorFactory);
     }
 
-    public OneRowSpriteIndexedAnimationFactory(final Image image, final int dx, final int dy, final Object unused)
-        throws Exception {
-
-        this(image, dx, dy);
-
-        this.animationFactoryInitializationVisitor.dx += -(this.animationFactoryInitializationVisitor.width >> 2);
-        this.animationFactoryInitializationVisitor.dy += -(this.animationFactoryInitializationVisitor.height >> 2);
-    }
-    
-    public OneRowSpriteIndexedAnimationFactory(final Image image, final int dx, final int dy)
-        throws Exception {
-        
-        this(image, dx, dy, AnimationBehaviorFactory.getInstance());
-    }
-   
-    public OneRowSpriteIndexedAnimationFactory(final Image image, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
-        throws Exception {
-
-        this(image, animationBehaviorFactory);
-
+    public void init(final int dx, final int dy) {
         this.animationFactoryInitializationVisitor.dx = dx;
         this.animationFactoryInitializationVisitor.dy = dy;
     }
-    
-    public OneRowSpriteIndexedAnimationFactory(final int width, final int height, final Image image)
-        throws Exception {
-        
-        this(width, height, image, AnimationBehaviorFactory.getInstance());
-    }
+    public void initW(final int dx) {
+        this.init(dx, 0);
 
-    public OneRowSpriteIndexedAnimationFactory(final int width, final int height, final Image image, final AnimationBehaviorFactory animationBehaviorFactory)
-        throws Exception {
-
-        //Future imp may include Control fidelity for non square frames
-        super(image, PrimitiveIntUtil.getArrayInstance(), width, height, 0,0, animationBehaviorFactory);
-    }
-
-    public OneRowSpriteIndexedAnimationFactory(final Image image)
-           throws Exception {
-        
-        this(image, AnimationBehaviorFactory.getInstance());
-    }   
-    
-    public OneRowSpriteIndexedAnimationFactory(final Image image, final AnimationBehaviorFactory animationBehaviorFactory)
-        throws Exception {
-
-        //Future imp may include Control fidelity for non square frames
-        super(image, PrimitiveIntUtil.getArrayInstance(), image.getHeight(), image.getHeight(), 0,0, animationBehaviorFactory);
+        this.animationFactoryInitializationVisitor.dx += -(this.animationFactoryInitializationVisitor.width >> 2);
     }
 
     @Override

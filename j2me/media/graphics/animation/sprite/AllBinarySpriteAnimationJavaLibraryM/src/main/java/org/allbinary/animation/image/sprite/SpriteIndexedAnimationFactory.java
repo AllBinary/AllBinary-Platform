@@ -30,40 +30,45 @@ public class SpriteIndexedAnimationFactory
     extends BaseImageAnimationFactory
     implements ProceduralAnimationInterfaceFactoryInterface {
 
-    public static SpriteIndexedAnimationFactory create(final Image image, final BasicColor[] basicColorArray, final int width, final int height)
-        throws Exception {
-        
-        return new SpriteIndexedAnimationFactory(image, basicColorArray, width, height, AnimationBehaviorFactory.getInstance());
+    public static SpriteIndexedAnimationFactory createCWHDXY(
+            final Image image, final BasicColor[] basicColorArray, final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
+            throws Exception {
 
+        return new SpriteIndexedAnimationFactory(image, basicColorArray, PrimitiveIntUtil.getArrayInstance(), width, height, dx, dy, animationBehaviorFactory);
+
+    }
+
+    public static SpriteIndexedAnimationFactory createCWH(
+        final Image image, final BasicColor[] basicColorArray, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
+        throws Exception {
+
+        final SpriteIndexedAnimationFactory spriteIndexedAnimationFactory = new SpriteIndexedAnimationFactory(image, basicColorArray, PrimitiveIntUtil.getArrayInstance(), width, height, 0,0, animationBehaviorFactory);
+
+        spriteIndexedAnimationFactory.initHWH();
+
+        return spriteIndexedAnimationFactory;
+    }
+
+    public static SpriteIndexedAnimationFactory createWH(final Image image, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
+        throws Exception {
+
+        return new SpriteIndexedAnimationFactory(image, BasicColorUtil.getInstance().ZERO_ARRAY, PrimitiveIntUtil.getArrayInstance(), width, height, 0,0, animationBehaviorFactory);
+        
     }
 
     private final AnimationFactorySpriteScaleUtil animationFactorySpriteScaleUtil = AnimationFactorySpriteScaleUtil.getInstance();
-    
+
     private BasicColor[] basicColorArray = BasicColorUtil.getInstance().ZERO_ARRAY;
 
-    public SpriteIndexedAnimationFactory(
-        final Image image, final BasicColor[] basicColorArray, final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
-        throws Exception {
-        
-        super(image, PrimitiveIntUtil.getArrayInstance(), width, height, dx, dy, animationBehaviorFactory);
+    private SpriteIndexedAnimationFactory(final Image image, final BasicColor[] basicColorArray, final int[] sequenceArray, final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
+            throws Exception
+    {
+        super(image, sequenceArray, width, height, dx, dy, animationBehaviorFactory);
 
         this.basicColorArray = basicColorArray;
-        ////this.dx = - (this.width >> 2);
-        ////this.dy = - (this.height >> 2);
-
-        ////this.dx = - this.width / 12;
-        ////this.dy = - this.height / 12;
-        //this.dx = - this.width / 20;
-        //this.dy = - this.height / 10;
     }
 
-    public SpriteIndexedAnimationFactory(
-        final Image image, final BasicColor[] basicColorArray, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
-        throws Exception {
-        
-        this(image, width, height, animationBehaviorFactory);
-
-        this.basicColorArray = basicColorArray;
+    private void initHWH() {
         ////this.dx = - (this.width >> 2);
         ////this.dy = - (this.height >> 2);
 
@@ -78,23 +83,6 @@ public class SpriteIndexedAnimationFactory
         if (AndroidUtil.isAndroid()) {
             this.animationFactoryInitializationVisitor.dx += 3;
         }
-    }
-
-    public SpriteIndexedAnimationFactory(
-        final Image image, final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
-        throws Exception
-    {
-        this(image, width, height, animationBehaviorFactory);
-
-        this.animationFactoryInitializationVisitor.dx = dx;
-        this.animationFactoryInitializationVisitor.dy = dy;
-    }
-
-    public SpriteIndexedAnimationFactory(final Image image, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
-        throws Exception {
-        
-        super(image, PrimitiveIntUtil.getArrayInstance(), width, height, 0,0, animationBehaviorFactory);
-        
     }
 
     @Override
