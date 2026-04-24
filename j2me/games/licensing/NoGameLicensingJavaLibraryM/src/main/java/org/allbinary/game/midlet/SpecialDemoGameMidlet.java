@@ -15,17 +15,13 @@ package org.allbinary.game.midlet;
 
 import org.allbinary.logic.system.security.licensing.ClientInformationFactory;
 import org.allbinary.logic.system.security.licensing.LicenseServerInitFileUtil;
-import org.allbinary.thread.RunnableInterface;
 
 public class SpecialDemoGameMidlet
 extends DemoGameMidlet
-{    
-    public SpecialDemoGameMidlet(final ClientInformationFactory clientInformationFactory, final LicenseLoadingType licenseLoadingType)
-    {
-        super(clientInformationFactory);
-    }
+{
 
-    public SpecialDemoGameMidlet(final ClientInformationFactory clientInformationFactory, final LicenseLoadingType licenseLoadingType, final DemoSetup demoSetup, final RunnableInterface licenseCheckRunnable)
+    public SpecialDemoGameMidlet(final ClientInformationFactory clientInformationFactory, final LicenseLoadingType licenseLoadingType,
+            final LicensedDemoSetupFactory demoSetupFactory, final LicenseCheckRunnableFactory licenseCheckRunnableFactory)
     {
         super(clientInformationFactory);
     }
