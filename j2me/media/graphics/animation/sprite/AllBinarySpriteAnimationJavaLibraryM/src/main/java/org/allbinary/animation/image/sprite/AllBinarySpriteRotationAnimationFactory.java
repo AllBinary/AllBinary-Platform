@@ -28,82 +28,82 @@ public class AllBinarySpriteRotationAnimationFactory
     extends BaseImageAnimationFactory
     implements ProceduralAnimationInterfaceFactoryInterface {
 
-    private final AnimationFactorySpriteScaleUtil animationFactorySpriteScaleUtil = AnimationFactorySpriteScaleUtil.getInstance();
+    //AnimationBehaviorFactory.getInstance()
+            //
+    public static AllBinarySpriteRotationAnimationFactory createWHDY(final Image image, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
+            throws Exception {
 
-    public AllBinarySpriteRotationAnimationFactory(final Image image, final int dx, final int dy, final Object unused)
-        throws Exception {
-        
-        this(image, dx, dy);
+        final AllBinarySpriteRotationAnimationFactory spriteRotationAnimationFactory = new AllBinarySpriteRotationAnimationFactory(image, PrimitiveIntUtil.getArrayInstance(), (image.getHeight() >> 2), (image.getHeight() >> 2), 0,0, animationBehaviorFactory);
 
-        this.animationFactoryInitializationVisitor.dx += -this.animationFactoryInitializationVisitor.width / 5;
-        this.animationFactoryInitializationVisitor.dy += -this.animationFactoryInitializationVisitor.height / 5;
+        spriteRotationAnimationFactory.initWH(dx, dy);
+
+        return spriteRotationAnimationFactory;
     }
 
-    public AllBinarySpriteRotationAnimationFactory(final Image image, final int dx, final int dy, final int unused)
-        throws Exception {
-        
-        this(image, NullUtil.getInstance().NULL_OBJECT, AnimationBehaviorFactory.getInstance());
-
-        this.animationFactoryInitializationVisitor.dx = dx;
-        this.animationFactoryInitializationVisitor.dy = dy;
-    }
-    
-    public AllBinarySpriteRotationAnimationFactory(final Image image, final Object unused, final Object unused2)
-        throws Exception {
-        
-        this(image, 0, 0, unused);
-        
+    public static AllBinarySpriteRotationAnimationFactory createWH(final Image image, final AnimationBehaviorFactory animationBehaviorFactory)
+            throws Exception {
+        return AllBinarySpriteRotationAnimationFactory.createWHDY(image, 0, 0, animationBehaviorFactory);
     }
 
-    public AllBinarySpriteRotationAnimationFactory(final Image image, final int dx, final int dy)
+    public static AllBinarySpriteRotationAnimationFactory createDXY(final Image image, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception {
-        
-        this(image, dx, dy, AnimationBehaviorFactory.getInstance());
-        
+
+        final AllBinarySpriteRotationAnimationFactory spriteRotationAnimationFactory = new AllBinarySpriteRotationAnimationFactory(image, PrimitiveIntUtil.getArrayInstance(), image.getHeight(), image.getHeight(), 0,0, animationBehaviorFactory);
+
+        spriteRotationAnimationFactory.init(dx, dy);
+
+        return spriteRotationAnimationFactory;
     }
 
-    private AllBinarySpriteRotationAnimationFactory(final Image image, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
+    public static AllBinarySpriteRotationAnimationFactory createDXYQ(final Image image, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception {
-        
-        this(image, animationBehaviorFactory);
 
-        this.animationFactoryInitializationVisitor.dx = dx;
-        this.animationFactoryInitializationVisitor.dy = dy;
-    }
+        final AllBinarySpriteRotationAnimationFactory spriteRotationAnimationFactory = new AllBinarySpriteRotationAnimationFactory(image, PrimitiveIntUtil.getArrayInstance(), (image.getHeight() >> 2), (image.getHeight() >> 2), 0,0, animationBehaviorFactory);
 
-    public AllBinarySpriteRotationAnimationFactory(final Image image)
-        throws Exception {
-        
-        this(image, AnimationBehaviorFactory.getInstance());
+        spriteRotationAnimationFactory.init(dx, dy);
+
+        return spriteRotationAnimationFactory;
         
     }
 
-    public AllBinarySpriteRotationAnimationFactory(final Image image, final AnimationBehaviorFactory animationBehaviorFactory)
+    public static AllBinarySpriteRotationAnimationFactory createQ(final Image image, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception {
+
         //Future imp may include Control fidelity for non square frames
         //4 rows
-        super(image, PrimitiveIntUtil.getArrayInstance(), (image.getHeight() >> 2), (image.getHeight() >> 2), 0,0, animationBehaviorFactory);
+        return new AllBinarySpriteRotationAnimationFactory(image, PrimitiveIntUtil.getArrayInstance(), (image.getHeight() >> 2), (image.getHeight() >> 2), 0,0, animationBehaviorFactory);
         //int frameSize = (image.getHeight() >> 2);
         //this.width = frameSize;
         //this.height = frameSize;
-    }
-    
-    public AllBinarySpriteRotationAnimationFactory(final Image image, final Object unused)
-        throws Exception {
-        
-        //this(image, unused, AnimationBehaviorFactory.getInstance());
-        super(image, PrimitiveIntUtil.getArrayInstance(), (image.getHeight() >> 2), (image.getHeight() >> 2), 0,0, AnimationBehaviorFactory.getInstance());
-        
+
     }
 
-    public AllBinarySpriteRotationAnimationFactory(final Image image, final Object unused, final AnimationBehaviorFactory animationBehaviorFactory)
-        throws Exception {
+    public static AllBinarySpriteRotationAnimationFactory createWHF(final Image image, final AnimationBehaviorFactory animationBehaviorFactory)
+            throws Exception {
         //Future imp may include Control fidelity for non square frames
-        super(image, PrimitiveIntUtil.getArrayInstance(), image.getHeight(), image.getHeight(), 0,0, animationBehaviorFactory);
+        return new AllBinarySpriteRotationAnimationFactory(image, PrimitiveIntUtil.getArrayInstance(), image.getHeight(), image.getHeight(), 0,0, animationBehaviorFactory);
         //super(image, unused == null ? image.getHeight() : (image.getHeight() >> 2), unused == null ? image.getHeight() : (image.getHeight() >> 2), animationBehaviorFactory);
         //int frameSize = (image.getHeight() >> 2);
         //this.width = frameSize;
         //this.height = frameSize;
+    }
+
+    private final AnimationFactorySpriteScaleUtil animationFactorySpriteScaleUtil = AnimationFactorySpriteScaleUtil.getInstance();
+
+    public AllBinarySpriteRotationAnimationFactory(final Image image, final int[] sequenceArray, final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
+            throws Exception {
+        super(image, sequenceArray, width, height, dx, dy, animationBehaviorFactory);
+    }
+
+    public void init(final int dx, final int dy) {
+        this.animationFactoryInitializationVisitor.dx = dx;
+        this.animationFactoryInitializationVisitor.dy = dy;
+    }
+
+    private void initWH(final int dx, final int dy) {
+        this.init(dx, dy);
+        this.animationFactoryInitializationVisitor.dx += -this.animationFactoryInitializationVisitor.width / 5;
+        this.animationFactoryInitializationVisitor.dy += -this.animationFactoryInitializationVisitor.height / 5;
     }
 
     @Override

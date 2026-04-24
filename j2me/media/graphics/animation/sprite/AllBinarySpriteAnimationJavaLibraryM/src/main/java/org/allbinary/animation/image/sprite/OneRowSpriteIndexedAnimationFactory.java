@@ -28,11 +28,11 @@ public class OneRowSpriteIndexedAnimationFactory
 
     private final AnimationFactorySpriteScaleUtil animationFactorySpriteScaleUtil = AnimationFactorySpriteScaleUtil.getInstance();
 
-    public OneRowSpriteIndexedAnimationFactory(final Image image, final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
-        throws Exception {
-        super(image, PrimitiveIntUtil.getArrayInstance(), width, height, dx,dy, animationBehaviorFactory);
-
-    }
+//    public OneRowSpriteIndexedAnimationFactory(final Image image, final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
+//        throws Exception {
+//        super(image, PrimitiveIntUtil.getArrayInstance(), width, height, dx,dy, animationBehaviorFactory);
+//
+//    }
     
     public OneRowSpriteIndexedAnimationFactory(final Image image, final int dx)
         throws Exception {

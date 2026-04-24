@@ -38,7 +38,7 @@ public class PooledImageArrayRotationAnimationFactory implements
         return new PooledImageArrayRotationAnimationFactory(image, image.getWidth(), image.getHeight(), -(image.getWidth() >> 2), -(image.getHeight() >> 2), angleIncrement, animationBehaviorFactory);
     }
 
-    public static PooledImageArrayRotationAnimationFactory createDX(
+    public static PooledImageArrayRotationAnimationFactory createDXY(
             final Image image, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
     {
         final int totalAngle = (int) AngleFactory.getInstance().TOTAL_ANGLE;

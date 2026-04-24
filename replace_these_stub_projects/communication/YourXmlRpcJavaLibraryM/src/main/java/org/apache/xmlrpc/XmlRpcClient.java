@@ -11,14 +11,15 @@ import org.allbinary.logic.NullUtil;
 public class XmlRpcClient implements XmlRpcHandler
 {
     private final URL url;
-    public XmlRpcClient(URL url)
-    {
-        this.url = url;
-    }
+//    public XmlRpcClient(URL url)
+//    {
+//        this.url = url;
+//    }
 
     public XmlRpcClient(String url) throws MalformedURLException
     {
-        this(new URL(url));
+        //this(new URL(url));
+        this.url = new URL(url);
     }
 
 //    public XmlRpcClient(String hostname, int port) throws MalformedURLException

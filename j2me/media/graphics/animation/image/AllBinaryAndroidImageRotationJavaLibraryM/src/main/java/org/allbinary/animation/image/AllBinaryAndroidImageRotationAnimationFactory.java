@@ -51,7 +51,7 @@ public class AllBinaryAndroidImageRotationAnimationFactory
     }
         
     //final Image image, final int dx, final int dy, final Object unused, final AnimationBehaviorFactory animationBehaviorFactory
-    public static AllBinaryAndroidImageRotationAnimationFactory createDXU(final Image image, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory) 
+    public static AllBinaryAndroidImageRotationAnimationFactory createDXYU(final Image image, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory) 
         throws Exception
     {
         final AllBinaryAndroidImageRotationAnimationFactory androidImageRotationAnimationFactory = new AllBinaryAndroidImageRotationAnimationFactory(image, image.getWidth(), image.getHeight(), (short) (AngleFactory.getInstance().TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity()), animationBehaviorFactory, false);
