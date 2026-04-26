@@ -37,18 +37,18 @@ public class PreGameLockablePaintable
         //ScrollCurrentSelectionForm paintableForm
         this.paintableForm = paintableForm;
                 
-        this.halfWidth = GameFeatureImageCacheFactory.getInstance().get(
+        this.halfWidth = GameFeatureImageCacheFactory.getInstance().getWithKey(
                 LockedResources.getInstance().LOCKED_DEMO_GAME_FEATURE_RESOURCE).getWidth()/2;
     }
   
     @Override
     public void paint(Graphics graphics, int currentIndex, int x, int y)
     {
-        if(LockedUtil.getInstance().isLockedFeature() && 
+        if(LockedUtil.getInstance().isLocked() &&
                 this.getPaintableForm().getSelectedIndex() >= this.getLockedIndex())
         {
             //98 - 64
-            this.getAnimation().paint(graphics, 
+            this.getAnimation().paintXY(graphics,
                     this.getPaintableForm().getDx() - this.halfWidth, 
                     this.getPaintableForm().getDy() + 34); //x, y);
         }

@@ -44,8 +44,8 @@ public class ConstantVelocityNotifyViewChangeMovement extends Movement
 
        AngleFactory angleFactory = AngleFactory.getInstance();
 
-       basicVelocityProperties.setVelocity(speedBasicDecimal, 
-               angleFactory.getInstance(angle), angleFactory.getInstance(otherAngle));
+       basicVelocityProperties.setVelocityWithBigDecimal(speedBasicDecimal,
+               angleFactory.getAt(angle), angleFactory.getAt(otherAngle));
    }
 
    public void moveOutsideRadius(AllBinaryLayer layer, long radius, int angle, int otherAngle)
@@ -56,7 +56,7 @@ public class ConstantVelocityNotifyViewChangeMovement extends Movement
       int yVector = (int) (this.axisMathVectorUtil.calculateY(radius, angle) / scaleFactorValue);
       int zVector = (int) (this.axisMathVectorUtil.calculateZ(radius, otherAngle) / scaleFactorValue);
 
-      layer.move(xVector, yVector, zVector);
+      layer.moveDXYZ(xVector, yVector, zVector);
    }
 
    @Override
@@ -67,7 +67,7 @@ public class ConstantVelocityNotifyViewChangeMovement extends Movement
        int y = this.basicVelocityProperties.getVelocityYBasicDecimalP().getScaled();
        int z = this.basicVelocityProperties.getVelocityZBasicDecimalP().getScaled();
        
-       layer.move(x, y, z);
+       layer.moveDXYZ(x, y, z);
        
        if(x != 0 || y != 0 || z != 0)
        {

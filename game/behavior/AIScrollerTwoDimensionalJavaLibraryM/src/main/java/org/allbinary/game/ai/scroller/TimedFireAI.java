@@ -25,7 +25,7 @@ import org.allbinary.time.TimeDelayHelper;
 
 public class TimedFireAI extends BasicAI
 {
-	public static final Integer TIME = SmallIntegerSingletonFactory.getInstance().getInstance(1);
+	public static final Integer TIME = SmallIntegerSingletonFactory.getInstance().getAt(1);
 
         protected final TimeDelayHelper maxFireDelayTimeHelper = new TimeDelayHelper(0);
 
@@ -52,7 +52,7 @@ public class TimedFireAI extends BasicAI
                 //Fire only if owner has not fired from a different behavoir/AI
                 timeFiredInterface.getLastFireTime() + this.maxFireDelayTimeHelper.delay < this.maxFireDelayTimeHelper.getStartTime())
         {
-            super.processAI(Canvas.KEY_NUM1);
+            super.processKeyAI(Canvas.KEY_NUM1);
 
             this.maxFireDelayTimeHelper.delay = this.delay;
         }

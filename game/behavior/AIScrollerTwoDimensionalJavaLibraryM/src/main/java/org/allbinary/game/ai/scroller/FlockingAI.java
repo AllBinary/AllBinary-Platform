@@ -83,22 +83,22 @@ public class FlockingAI extends BasicAI
                 
                 if (farAllbinaryLayer.getXP() < ownerLayerInterface.getXP())
                 {
-                    this.processAI(Canvas.LEFT);
+                    this.processKeyAI(Canvas.LEFT);
                 } 
                 else
                     if (farAllbinaryLayer.getXP() > ownerLayerInterface.getXP())
                     {
-                        this.processAI(Canvas.RIGHT);
+                        this.processKeyAI(Canvas.RIGHT);
                     }
                     else
                         if (farAllbinaryLayer.getYP() > ownerLayerInterface.getYP())
                         {
-                            this.processAI(Canvas.UP);
+                            this.processKeyAI(Canvas.UP);
                         }
                         else
                             if (farAllbinaryLayer.getYP() < ownerLayerInterface.getYP())
                             {
-                                this.processAI(Canvas.DOWN);
+                                this.processKeyAI(Canvas.DOWN);
                             }
             }
         }

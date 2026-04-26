@@ -67,7 +67,7 @@ public class TouchButton extends Paintable
     @Override
     public void paint(Graphics graphics)
     {
-        this.animationInterface.paint(graphics, animationX, animationY);
+        this.animationInterface.paintXY(graphics, animationX, animationY);
         //graphics.drawRect(point.getX() + 4, point.getY() + 4, 
           //      rectangle.getMaxX() - 4, rectangle.getMaxY() - 4);
     }
@@ -82,7 +82,7 @@ public class TouchButton extends Paintable
 
             final PointFactory pointFactory = PointFactory.getInstance();
             
-            this.rectangle = new Rectangle(pointFactory.getInstance0(x + this.xBorder, y + this.yBorder),
+            this.rectangle = new Rectangle(pointFactory.createXY(x + this.xBorder, y + this.yBorder),
                     this.rawRectangle.getWidth(), this.rawRectangle.getHeight());
             
             final GPoint point = this.rectangle.getPoint();

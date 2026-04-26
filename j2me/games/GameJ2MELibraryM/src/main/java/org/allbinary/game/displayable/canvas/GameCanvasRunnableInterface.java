@@ -33,7 +33,7 @@ public interface GameCanvasRunnableInterface
    void pause();
    boolean isHighScoreSubmitted();
    void setHighScoreSubmitted(boolean highScoreSubmitted) throws Exception;
-   void setGameOver() throws Exception;
+   void processGameOver() throws Exception;
    boolean isGameOver();
    void initCommands(CommandListener cmdListener);
    Hashtable getCurrentStateHashtable()throws Exception;

@@ -44,13 +44,13 @@ public class BasicDecimal
    }
    */
 
-   public void set(int value)
+   public void setint(int value)
    {
       this.units = (long) value;
       this.updateScaled();
    }
 
-   public void set(long value)
+   public void setlong(long value)
    {
       this.units = value;
       this.updateScaled();
@@ -62,13 +62,13 @@ public class BasicDecimal
       this.updateScaled();
    }
    
-   public void add(int value)
+   public void addint(int value)
    {
       this.units = this.units + value;
       this.updateScaled();
    }
 
-   public void add(long value)
+   public void addlong(long value)
    {
       this.units = this.units + value;
       this.updateScaled();
@@ -80,13 +80,13 @@ public class BasicDecimal
       this.updateScaled();
    }
 
-   public void subtract(int value)
+   public void subtractint(int value)
    {
       this.units = this.units - value;
       this.updateScaled();
    }
 
-   public void subtract(long value)
+   public void subtractlong(long value)
    {
       this.units = this.units - value;
       this.updateScaled();
@@ -98,13 +98,13 @@ public class BasicDecimal
       this.updateScaled();
    }
 
-   public void multiply(int value)
+   public void multiplyint(int value)
    {
       this.units = this.units * value;
       this.updateScaled();
    }
 
-   public void multiply(long value)
+   public void multiplylong(long value)
    {
       this.units = this.units * value;
       this.updateScaled();
@@ -116,13 +116,13 @@ public class BasicDecimal
       this.updateScaled();
    }
 
-   public void divide(int value)
+   public void divideint(int value)
    {
       this.units = this.units / value;
       this.updateScaled();
    }
 
-   public void divide(long value)
+   public void dividelong(long value)
    {
       this.units = this.units / value;
       this.updateScaled();

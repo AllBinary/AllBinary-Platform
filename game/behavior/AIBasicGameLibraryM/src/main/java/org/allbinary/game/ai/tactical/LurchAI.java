@@ -75,10 +75,10 @@ public class LurchAI  extends BasicAI
 
       if (this.currentRelativeAngle == 0)
       {
-         super.processAI(Canvas.KEY_NUM0);
+         super.processKeyAI(Canvas.KEY_NUM0);
       } else if (currentRelativeAngle == 180)
       {
-         super.processAI(Canvas.KEY_POUND);
+         super.processKeyAI(Canvas.KEY_POUND);
       }
    }
    

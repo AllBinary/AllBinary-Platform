@@ -33,8 +33,8 @@ public class DragVelocityBehavior extends VelocityBehaviorBase {
       if(velocityProperties.getVelocityXBasicDecimalP().getUnscaled() != 0L)
       {
          final BasicDecimal basicDecimal = velocityProperties.getVelocityXBasicDecimalP();
-         basicDecimal.multiply(nominator);
-         basicDecimal.divide(denominator);
+         basicDecimal.multiplyint(nominator);
+         basicDecimal.divideint(denominator);
          //this.setVelocityXBasicDecimal(basicDecimal);
          //this.logUtil.putF("After Friction VelocityX: " + this.getVelocityXBasicDecimalP().getUnscaled(), this, "friction");
       }
@@ -42,8 +42,8 @@ public class DragVelocityBehavior extends VelocityBehaviorBase {
       if (velocityProperties.getVelocityYBasicDecimalP().getUnscaled() != 0L)
       {
          final BasicDecimal basicDecimal = velocityProperties.getVelocityYBasicDecimalP();
-         basicDecimal.multiply(nominator);
-         basicDecimal.divide(denominator);
+         basicDecimal.multiplyint(nominator);
+         basicDecimal.divideint(denominator);
          //this.setVelocityYBasicDecimal(basicDecimal);
          //this.logUtil.putF("After Friction VelocityY: " + this.getVelocityYBasicDecimalP().getUnscaled(), this, "friction");
       }
@@ -55,8 +55,8 @@ public class DragVelocityBehavior extends VelocityBehaviorBase {
       final BasicDecimal basicDecimal = velocityProperties.getVelocityXBasicDecimalP();
       if(basicDecimal.getUnscaled() != 0L)
       {
-         basicDecimal.multiply(nominator);
-         basicDecimal.divide(denominator);
+         basicDecimal.multiplyint(nominator);
+         basicDecimal.divideint(denominator);
       }
    }
    
@@ -66,8 +66,8 @@ public class DragVelocityBehavior extends VelocityBehaviorBase {
       if (velocityProperties.getVelocityYBasicDecimalP().getUnscaled() != 0L)
       {
          final BasicDecimal basicDecimal = velocityProperties.getVelocityYBasicDecimalP();
-         basicDecimal.multiply(nominator);
-         basicDecimal.divide(denominator);
+         basicDecimal.multiplyint(nominator);
+         basicDecimal.divideint(denominator);
       }
    }
 }

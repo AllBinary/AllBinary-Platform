@@ -143,7 +143,7 @@ public class CanvasJPanel extends javax.swing.JPanel
         this.workAreaJTreeJPanel.add(this.getTreeNode());
 
         this.graphicItemHashMap = new HashMap();
-        this.grid.grid = PointFactory.getInstance().getInstance0(0, 0);
+        this.grid.grid = PointFactory.getInstance().createXY(0, 0);
         this.setCanvasDimension(new IntegerDimension(0, 0));
         this.selectedTool = null;
 
@@ -213,7 +213,7 @@ public class CanvasJPanel extends javax.swing.JPanel
                 throw new GraphicsException("Y Size Error" + ySize + " WorkArea Y: " + getCanvasDimension().getHeight(), this, "setGrid");
             }
 
-            this.grid.grid = PointFactory.getInstance().getInstance0(xSize, ySize);
+            this.grid.grid = PointFactory.getInstance().createXY(xSize, ySize);
             this.grid.isChanged = true;
         } catch (Exception e)
         {
@@ -328,7 +328,7 @@ public class CanvasJPanel extends javax.swing.JPanel
         for(int index = 0; index < size; index++)
         {
             GraphicItemInterface item = (GraphicItemInterface) this.getGraphicItemHashMap().get(graphicItemArray[index]);
-            BasicArrayList basicArrayList = VectorExplosionGenerator.getInstance().getInstance(item.getPointsInterface().getPoints(), howMuch, VectorExplosionGenerator.getInstance().RANDOM);
+            BasicArrayList basicArrayList = VectorExplosionGenerator.getInstance().createList(item.getPointsInterface().getPoints(), howMuch, VectorExplosionGenerator.getInstance().RANDOM);
 
             Points newPoints = new Points();
 

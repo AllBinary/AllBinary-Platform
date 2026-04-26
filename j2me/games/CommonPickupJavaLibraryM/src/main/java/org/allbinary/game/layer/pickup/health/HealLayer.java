@@ -20,7 +20,6 @@ import org.allbinary.game.health.HealthVisitorInterface;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.layer.AllBinaryLayer;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.view.ViewPosition;
 
@@ -45,7 +44,7 @@ public class HealLayer extends AllBinaryLayer
        //If not alive then heal should fail
       if(healthInterface.isAlive())
       {
-          healthInterface.heal();
+          healthInterface.healMax();
       }
       else
       {

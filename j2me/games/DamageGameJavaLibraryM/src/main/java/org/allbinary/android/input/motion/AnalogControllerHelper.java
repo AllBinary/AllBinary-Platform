@@ -36,7 +36,7 @@ public class AnalogControllerHelper {
             throws Exception {
         this.rightTimeElapsedHelper.delay = ((this.SCALE_VALUE - xAnalogValue) >> this.reduceTimeFactor);        
 
-        if (this.rightTimeElapsedHelper.isTime()) {
+        if (this.rightTimeElapsedHelper.isTimeTNT()) {
             collidableDestroyableDamageableLayer.right();
         }
     }
@@ -45,7 +45,7 @@ public class AnalogControllerHelper {
             throws Exception {
         this.leftTimeElapsedHelper.delay = ((this.SCALE_VALUE + xAnalogValue) >> this.reduceTimeFactor);
 
-        if (this.leftTimeElapsedHelper.isTime()) {
+        if (this.leftTimeElapsedHelper.isTimeTNT()) {
             collidableDestroyableDamageableLayer.left();
         }
     }
@@ -54,7 +54,7 @@ public class AnalogControllerHelper {
             throws Exception {
         this.upTimeElapsedHelper.delay = ((this.SCALE_VALUE - xAnalogValue) >> this.reduceTimeFactor);
 
-        if (this.upTimeElapsedHelper.isTime()) {
+        if (this.upTimeElapsedHelper.isTimeTNT()) {
             collidableDestroyableDamageableLayer.up();
         }
     }
@@ -63,7 +63,7 @@ public class AnalogControllerHelper {
             throws Exception {
         this.downTimeElapsedHelper.delay = ((this.SCALE_VALUE + xAnalogValue) >> this.reduceTimeFactor);
 
-        if (this.downTimeElapsedHelper.isTime()) {
+        if (this.downTimeElapsedHelper.isTimeTNT()) {
             collidableDestroyableDamageableLayer.down();
         }
     }

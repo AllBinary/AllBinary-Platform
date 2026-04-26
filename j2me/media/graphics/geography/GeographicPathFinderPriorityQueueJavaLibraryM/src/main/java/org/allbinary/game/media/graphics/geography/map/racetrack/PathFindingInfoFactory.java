@@ -44,7 +44,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
     }
 
     private static int MAX = 32768;
-    public static void init(int max)
+    public static void create(int max)
     {
         PathFindingInfoFactory.MAX = max;
     }
@@ -63,7 +63,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
         this.pathFinder = new PathFinder();
     }
 
-    public PathFindingInfo getInstance(
+    public PathFindingInfo getInstancePathFindingInfo(
         final BasicGeographicMap geographicMapInterface,
         final int[][] mapArray)
         throws Exception
@@ -111,7 +111,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
         // keys, this, commonStrings.INIT);
     }
 
-    private void buildPathFindingNodes(
+    private void buildPathFindingNodesForCellPosition(
         final BasicGeographicMap geographicMapInterface,
         final PathFindingInfo pathFindingInfo,
         final int[][] mapArray,
@@ -225,9 +225,9 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
         {
             for (int row = 0; row < totalRows; row++)
             {
-                this.buildPathFindingNodes(
+                this.buildPathFindingNodesForCellPosition(
                     geographicMapInterface, pathFindingInfo, mapArray, 
-                    geographicMapCellPositionFactory.getInstance(column, row));
+                    geographicMapCellPositionFactory.getAt(column, row));
             }
         }
     }

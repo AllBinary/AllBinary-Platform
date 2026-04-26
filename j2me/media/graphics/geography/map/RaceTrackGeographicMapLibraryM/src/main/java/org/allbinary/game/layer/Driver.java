@@ -21,11 +21,11 @@ import org.allbinary.logic.math.SmallIntegerSingletonFactory;
  */
 public class Driver {
 
-    public static final Driver NULL_DRIVER = new Driver(SmallIntegerSingletonFactory.getInstance().getInstance(0), SmallIntegerSingletonFactory.getInstance().getInstance(0), new Aggression(SmallIntegerSingletonFactory.getInstance().getInstance(0), SmallIntegerSingletonFactory.getInstance().getInstance(0), SmallIntegerSingletonFactory.getInstance().getInstance(0)));
+    public static final Driver NULL_DRIVER = new Driver(SmallIntegerSingletonFactory.getInstance().getAt(0), SmallIntegerSingletonFactory.getInstance().getAt(0), new Aggression(SmallIntegerSingletonFactory.getInstance().getAt(0), SmallIntegerSingletonFactory.getInstance().getAt(0), SmallIntegerSingletonFactory.getInstance().getAt(0)));
 
    //driver intelligence
-   private Integer turnSpeed = SmallIntegerSingletonFactory.getInstance().getInstance(0);
-   private Integer trackPathSelectionSkill = SmallIntegerSingletonFactory.getInstance().getInstance(0);
+   private Integer turnSpeed = SmallIntegerSingletonFactory.getInstance().getAt(0);
+   private Integer trackPathSelectionSkill = SmallIntegerSingletonFactory.getInstance().getAt(0);
 
    private Aggression aggression;
    

@@ -66,40 +66,40 @@ public class BasicTouchButtonCellPositionFactory
                 touchButtonLocationHelper.getTotalColumns(), 
                 touchButtonLocationHelper.getTotalRows());
 
-        this.TOP_LEFT = cellPositionFactory.getInstance(0, 0);
-        this.TOP_RIGHT = cellPositionFactory.getInstance(
+        this.TOP_LEFT = cellPositionFactory.getInstanceColRow(0, 0);
+        this.TOP_RIGHT = cellPositionFactory.getInstanceColRow(
                 touchButtonLocationHelper.getTotalColumns() - 1, 0);
         
-        this.BOTTOM_LEFT = cellPositionFactory.getInstance(
+        this.BOTTOM_LEFT = cellPositionFactory.getInstanceColRow(
                 0, touchButtonLocationHelper.getTotalRows() - 1);
-        this.BOTTOM_RIGHT = cellPositionFactory.getInstance(
+        this.BOTTOM_RIGHT = cellPositionFactory.getInstanceColRow(
                 touchButtonLocationHelper.getTotalColumns() - 1,
                 touchButtonLocationHelper.getTotalRows() - 1);
         
-        this.BOTTOM_SECOND_FROM_RIGHT = cellPositionFactory.getInstance(
+        this.BOTTOM_SECOND_FROM_RIGHT = cellPositionFactory.getInstanceColRow(
                 touchButtonLocationHelper.getTotalColumns() - 2,
                 touchButtonLocationHelper.getTotalRows() - 1);
-        this.SECOND_FROM_BOTTOM_RIGHT = cellPositionFactory.getInstance(
+        this.SECOND_FROM_BOTTOM_RIGHT = cellPositionFactory.getInstanceColRow(
                 touchButtonLocationHelper.getTotalColumns() - 1,
                 touchButtonLocationHelper.getTotalRows() - 2);
 
-        this.SECOND_FROM_BOTTOM_SECOND_FROM_RIGHT = cellPositionFactory.getInstance(
+        this.SECOND_FROM_BOTTOM_SECOND_FROM_RIGHT = cellPositionFactory.getInstanceColRow(
                 touchButtonLocationHelper.getTotalColumns() - 2,
                 touchButtonLocationHelper.getTotalRows() - 2);
         
-        this.BOTTOM_SECOND_FROM_LEFT = cellPositionFactory.getInstance(
+        this.BOTTOM_SECOND_FROM_LEFT = cellPositionFactory.getInstanceColRow(
                 1, touchButtonLocationHelper.getTotalRows() - 1);
-        this.SECOND_FROM_BOTTOM_LEFT = cellPositionFactory.getInstance(
+        this.SECOND_FROM_BOTTOM_LEFT = cellPositionFactory.getInstanceColRow(
                 0, touchButtonLocationHelper.getTotalRows() - 2);
         
-        this.SECOND_FROM_BOTTOM_SECOND_FROM_LEFT = cellPositionFactory.getInstance(
+        this.SECOND_FROM_BOTTOM_SECOND_FROM_LEFT = cellPositionFactory.getInstanceColRow(
                 1,
                 touchButtonLocationHelper.getTotalRows() - 2);
         
         if(touchButtonLocationHelper.getTotalRows() > 2)
         {
-            this.SECOND_FROM_TOP_LEFT = cellPositionFactory.getInstance(0, 1);
-            this.SECOND_FROM_TOP_RIGHT = cellPositionFactory.getInstance(
+            this.SECOND_FROM_TOP_LEFT = cellPositionFactory.getInstanceColRow(0, 1);
+            this.SECOND_FROM_TOP_RIGHT = cellPositionFactory.getInstanceColRow(
                 touchButtonLocationHelper.getTotalColumns() - 1, 1);
         }
         else
@@ -110,14 +110,14 @@ public class BasicTouchButtonCellPositionFactory
 
         if(touchButtonLocationHelper.getTotalRows() >= 4)
         {
-            this.THIRD_FROM_BOTTOM_RIGHT = cellPositionFactory.getInstance(
+            this.THIRD_FROM_BOTTOM_RIGHT = cellPositionFactory.getInstanceColRow(
                     touchButtonLocationHelper.getTotalColumns() - 1,
                     touchButtonLocationHelper.getTotalRows() - 3);
-            this.FOURTH_FROM_BOTTOM_RIGHT = cellPositionFactory.getInstance(
+            this.FOURTH_FROM_BOTTOM_RIGHT = cellPositionFactory.getInstanceColRow(
                     touchButtonLocationHelper.getTotalColumns() - 1,
                     touchButtonLocationHelper.getTotalRows() - 4);
 
-            this.THIRD_FROM_BOTTOM_LEFT = cellPositionFactory.getInstance(
+            this.THIRD_FROM_BOTTOM_LEFT = cellPositionFactory.getInstanceColRow(
                     0, touchButtonLocationHelper.getTotalRows() - 3);
         }
         else
@@ -131,26 +131,26 @@ public class BasicTouchButtonCellPositionFactory
         if(touchButtonLocationHelper.getTotalColumns() >= 4)
         {
             this.SECOND_FROM_BOTTOM_THIRD_FROM_RIGHT =
-                cellPositionFactory.getInstance(
+                cellPositionFactory.getInstanceColRow(
                         touchButtonLocationHelper.getTotalColumns() - 3,
                         touchButtonLocationHelper.getTotalRows() - 2);
 
             this.SECOND_FROM_BOTTOM_FOURTH_FROM_RIGHT = 
-                cellPositionFactory.getInstance(
+                cellPositionFactory.getInstanceColRow(
                     touchButtonLocationHelper.getTotalColumns() - 4,
                     touchButtonLocationHelper.getTotalRows() - 2);
             
             this.BOTTOM_THIRD_FROM_RIGHT = 
-                cellPositionFactory.getInstance(
+                cellPositionFactory.getInstanceColRow(
                         touchButtonLocationHelper.getTotalColumns() - 3,
                         touchButtonLocationHelper.getTotalRows() - 1);
             this.BOTTOM_FOURTH_FROM_RIGHT = 
-                cellPositionFactory.getInstance(
+                cellPositionFactory.getInstanceColRow(
                         touchButtonLocationHelper.getTotalColumns() - 4,
                         touchButtonLocationHelper.getTotalRows() - 1);
 
-            this.TOP_SECOND_FROM_LEFT = cellPositionFactory.getInstance(1, 0);
-            this.TOP_SECOND_FROM_RIGHT = cellPositionFactory.getInstance(
+            this.TOP_SECOND_FROM_LEFT = cellPositionFactory.getInstanceColRow(1, 0);
+            this.TOP_SECOND_FROM_RIGHT = cellPositionFactory.getInstanceColRow(
                     touchButtonLocationHelper.getTotalColumns() - 2, 0);
         }
         else

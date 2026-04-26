@@ -73,7 +73,7 @@ public class BottomToTopImageAnimation
     private int anchor = Anchor.TOP_LEFT;    
     
     @Override
-    public void paint(Graphics graphics, int x, int y)
+    public void paintXY(Graphics graphics, int x, int y)
     {
         //Image src, int x_src, int y_src, int width, int height, int transform,
         //  int x_dst, int y_dst, int anchor

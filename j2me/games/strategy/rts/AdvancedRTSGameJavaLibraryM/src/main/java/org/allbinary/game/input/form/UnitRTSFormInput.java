@@ -24,7 +24,6 @@ import org.allbinary.game.layer.unit.UnitLayer;
 import org.allbinary.game.layer.waypoint.WorkWaypoint;
 import org.allbinary.graphics.form.item.CustomItem;
 import org.allbinary.media.audio.BuildingSound;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.game.identification.Group;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
@@ -50,7 +49,7 @@ public class UnitRTSFormInput extends RTSFormInput
 {
 
     public static final Integer DECAL_ID = 
-        SmallIntegerSingletonFactory.getInstance().getInstance(23);
+        SmallIntegerSingletonFactory.getInstance().getAt(23);
 
     protected final GameNotificationEvent noMoneyGameNotificationEvent;
     protected final GameNotificationEvent newUnitGameNotificationEvent;
@@ -67,7 +66,7 @@ public class UnitRTSFormInput extends RTSFormInput
             new GameNotificationEvent(
                     this, 
                     RTSGameStrings.getInstance().NO_MONEY,
-                    smallIntegerSingletonFactory.getInstance(2),
+                    smallIntegerSingletonFactory.getAt(2),
                     basicColorFactory.WHITE,
                     BooleanFactory.getInstance().FALSE);
         
@@ -75,13 +74,13 @@ public class UnitRTSFormInput extends RTSFormInput
             new GameNotificationEvent(
                     this, 
                     RTSGameStrings.getInstance().NEW_UNIT,
-                    smallIntegerSingletonFactory.getInstance(2),
+                    smallIntegerSingletonFactory.getAt(2),
                     basicColorFactory.WHITE,
                     BooleanFactory.getInstance().FALSE);        
         
         //Sets the default working load
         this.getHashtable().put(WorkWaypoint.ID, 
-                smallIntegerSingletonFactory.getInstance(50));
+                smallIntegerSingletonFactory.getAt(50));
     }
 
     @Override
@@ -99,10 +98,10 @@ public class UnitRTSFormInput extends RTSFormInput
     }
     
     @Override
-    public void process(final CollidableDestroyableDamageableLayer associatedRtsLayer,
-            final RTSPlayerLayerInterface rtsPlayerLayerInterface, 
-            final AllBinaryLayerManager layerManager,
-            final CustomItem item, final int itemIndex) throws Exception
+    public void processGameSpecific(final CollidableDestroyableDamageableLayer associatedRtsLayer,
+                                    final RTSPlayerLayerInterface rtsPlayerLayerInterface,
+                                    final AllBinaryLayerManager layerManager,
+                                    final CustomItem item, final int itemIndex) throws Exception
     {   
         super.process(layerManager);
    
@@ -192,7 +191,7 @@ public class UnitRTSFormInput extends RTSFormInput
                     (AdvancedRTSGameLayer) associatedRtsLayer);
 
             // layerManager.append(layerInterface);
-            layerManager.append(layerInterface, PlayersSingletonFactory.total);
+            layerManager.appendAt(layerInterface, PlayersSingletonFactory.total);
 
             final AdvancedRTSPlayerLayerInterface advancedRTSPlayerLayerInterface = 
                 (AdvancedRTSPlayerLayerInterface) rtsPlayerLayerInterface;

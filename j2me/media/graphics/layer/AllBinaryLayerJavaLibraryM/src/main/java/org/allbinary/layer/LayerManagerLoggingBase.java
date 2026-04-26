@@ -25,7 +25,7 @@ public class LayerManagerLoggingBase {
         
     }
     
-    public void append(final AllBinaryLayer layerInterface, final int index) {
+    public void appendAt(final AllBinaryLayer layerInterface, final int index) {
         
     }
  
@@ -33,7 +33,7 @@ public class LayerManagerLoggingBase {
         
     }
     
-    public void remove(final LayerManager layerManager, final AllBinaryLayer layerInterface, final boolean result) {
+    public void removeResult(final LayerManager layerManager, final AllBinaryLayer layerInterface, final boolean result) {
         
     }
  

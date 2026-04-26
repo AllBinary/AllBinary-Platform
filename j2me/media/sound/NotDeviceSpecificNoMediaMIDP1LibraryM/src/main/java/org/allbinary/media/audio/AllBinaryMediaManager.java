@@ -54,7 +54,7 @@ public class AllBinaryMediaManager {
         final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonString = CommonStrings.getInstance();
         logUtil.putF(commonString.START, THIS, commonString.INIT);
-        ProgressCanvasFactory.getInstance().addPortion(50, "Media Manager");
+        ProgressCanvasFactory.getInstance().addNormalPortion(50, "Media Manager");
 
         new Sounds(soundsFactoryInterface).init();
     }
@@ -69,7 +69,7 @@ public class AllBinaryMediaManager {
         System.gc();
     }
 
-    public static Player createPlayer(InputStream stream, String type) 
+    public static Player createPlayerFromInputStream(InputStream stream, String type)
     {
         final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonString = CommonStrings.getInstance();

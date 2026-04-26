@@ -30,11 +30,11 @@ public class BasicHighScoresFactory extends HighScoresBase
     public void fetchHighScores(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener) {
         
         this.logUtil.putF("Getting Local HighScores", this, FETCH);
-        this.fetchHighScores(gameInfo, highScoresResultsListener, true);
+        this.fetchHighScoresPreload(gameInfo, highScoresResultsListener, true);
     }
     
     @Override
-    public void fetchHighScores(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener, final boolean preload)
+    public void fetchHighScoresPreload(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener, final boolean preload)
     {
         //System.gc();
 

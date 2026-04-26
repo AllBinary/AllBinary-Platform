@@ -33,7 +33,7 @@ public class PathFindingNodeCostInfo implements Comparable<PathFindingNodeCostIn
        this.costToEndP = costToGoal;
 
       //this.setTotalCost(totalCost);
-      this.setTotalCost();
+      this.setCalculatedTotalCost();
    }
       
    public void setCostToEnd(final long costToEnd)
@@ -46,7 +46,7 @@ public class PathFindingNodeCostInfo implements Comparable<PathFindingNodeCostIn
       this.totalCostP = totalCost;
    }
    
-   public void setTotalCost() throws Exception
+   public void setCalculatedTotalCost() throws Exception
    {
       this.totalCostP = this.costFromStartP + this.costToEndP;
       if(this.totalCostP > this.pathFindingNodeCostInfoData.MAX_NODE_COST)

@@ -59,10 +59,10 @@ public class ImageModifierUtil {
         final float alphaFloat = alphaF / 255;
         //final float alphaFloat = alpha / 100;
         //final int alphaInt = alpha * 100 / 255;
-        this.setAlpha(originalImage, image, imageIndex, alphaFloat);
+        this.setAlphaF(originalImage, image, imageIndex, alphaFloat);
     }
     
-    public void setAlpha(final Image originalImage, final Image image, final int imageIndex, final float alpha) {
+    public void setAlphaF(final Image originalImage, final Image image, final int imageIndex, final float alpha) {
         
         if(this.alphaArray[imageIndex]) {
             

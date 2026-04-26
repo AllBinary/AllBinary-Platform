@@ -19,7 +19,6 @@ import org.allbinary.game.input.GameKey;
 import org.allbinary.game.input.GameKeyFactory;
 import org.allbinary.game.input.Input;
 import org.allbinary.game.input.InputFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
@@ -69,7 +68,7 @@ public class InputToGameKeyMapping extends InputMapping
     }
     
     @Override
-    public void add(final InputToGameKeyMapping inputToGameKeyMapping)
+    public void addMapping(final InputToGameKeyMapping inputToGameKeyMapping)
     {
         //PreLogUtil.put(commonStrings.START, this, "InputToGameKeyMapping::add(InputToGameKeyMapping)");
         
@@ -142,7 +141,7 @@ public class InputToGameKeyMapping extends InputMapping
         {
             if(this.platformToGameKeyMapping[index].getId() == id)
             {
-                Input input = inputFactory.getInstance(index);
+                Input input = inputFactory.getInstanceById(index);
                 if(input != null)
                 {
                     list.add(input);
@@ -172,7 +171,7 @@ public class InputToGameKeyMapping extends InputMapping
     }
     */
 
-    private void init(Canvas canvas, GameKey gameKey) throws Exception
+    private void initGameKey(Canvas canvas, GameKey gameKey) throws Exception
     {
         int key = canvas.getKeyCode(gameKey.getId());
 
@@ -240,7 +239,7 @@ public class InputToGameKeyMapping extends InputMapping
 
             for (int index = mappedGameKeys.length; --index >= 0;)
             {
-                this.init(canvas, mappedGameKeys[index]);
+                this.initGameKey(canvas, mappedGameKeys[index]);
             }
 
             //PreLogUtil.put("Smallest GameKey: " + smallestKey, this, commonStrings.INIT);
@@ -251,7 +250,7 @@ public class InputToGameKeyMapping extends InputMapping
         }
     }
 
-    public GameKey getInstance(Canvas canvas, int id)
+    public GameKey getInstanceForCanvas(Canvas canvas, int id)
     {
         //Reduce method call by one for often used method
         //return this.getInstance(id);

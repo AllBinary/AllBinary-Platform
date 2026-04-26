@@ -54,11 +54,11 @@ public class CaptionAnimation extends Animation
     }
 
     @Override
-    public void paint(final Graphics graphics, final int x, final int y)
+    public void paintXY(final Graphics graphics, final int x, final int y)
     {
-        this.animationInterface.paint(graphics, x + this.captionDx, y
+        this.animationInterface.paintXY(graphics, x + this.captionDx, y
                 + this.captionDy);
-        this.overlayAnimationInterface.paint(graphics, x + this.captionDx
+        this.overlayAnimationInterface.paintXY(graphics, x + this.captionDx
                 + this.dx, y + this.captionDy + this.dy);
     }
 

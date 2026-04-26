@@ -43,7 +43,7 @@ public class GameAdState implements VirtualKeyboardEventListenerInterface
 
     }
     
-    public void init(Object object)
+    public void onStart(Object object)
     {
         this.init();
     }
@@ -52,15 +52,15 @@ public class GameAdState implements VirtualKeyboardEventListenerInterface
     {        
     }
 
+    public boolean isShowingAtLocation(int location)
+    {
+        return false;
+    }
     public boolean isShowingAt()
     {
         return false;
     }
 
-    public boolean isShowingAt(int location)
-    {
-        return false;
-    }
     
     public void show()
     {

@@ -77,7 +77,7 @@ public class CompoundContextTransformInfoObjectConfig
       TransformInfoHttpInterface httpTransformInfoInterface = 
            (TransformInfoHttpInterface) this.getTransformInfoInterface();
 
-      String templateNameOverride = StringUtil.getInstance().getInstance((String)
+      String templateNameOverride = StringUtil.getInstance().getNonNull((String)
             httpTransformInfoInterface.getPropertiesHashMap().get(
                TransformInfoData.getInstance().PARTIAL));
 

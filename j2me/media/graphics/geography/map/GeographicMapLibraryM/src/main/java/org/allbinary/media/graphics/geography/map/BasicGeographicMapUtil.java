@@ -14,8 +14,6 @@
 package org.allbinary.media.graphics.geography.map;
 
 import org.allbinary.layer.Layer;
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.string.StringMaker;
 
 import org.allbinary.logic.communication.log.LogUtil;
 
@@ -75,11 +73,11 @@ public class BasicGeographicMapUtil {
             final GeographicMapCellPosition toGeographicMapCellPosition)
             throws Exception
     {
-       int fromColumn = fromGeographicMapCellPosition.getColumn();
-       int fromRow = fromGeographicMapCellPosition.getRow();
+        final int fromColumn = fromGeographicMapCellPosition.getColumn();
+        final int fromRow = fromGeographicMapCellPosition.getRow();
 
-       int goColumn = toGeographicMapCellPosition.getColumn();
-       int goRow = toGeographicMapCellPosition.getRow();
+        final int goColumn = toGeographicMapCellPosition.getColumn();
+        final int goRow = toGeographicMapCellPosition.getRow();
 
        if(fromColumn == goColumn && fromRow == goRow)
        {
@@ -93,10 +91,10 @@ public class BasicGeographicMapUtil {
 
     public Layer[] createAllBinaryTiledLayerArray(final BasicGeographicMap[] geographicMapInterfaceArray) {
         final Layer[] tiledLayerArray = new Layer[geographicMapInterfaceArray.length];
-        return this.createAllBinaryTiledLayerArray(geographicMapInterfaceArray, tiledLayerArray, 0);
+        return this.getAllBinaryTiledLayerArray(geographicMapInterfaceArray, tiledLayerArray, 0);
     }
     
-    public Layer[] createAllBinaryTiledLayerArray(final BasicGeographicMap[] geographicMapInterfaceArray, final Layer[] tiledLayerArray, final int startIndex) {
+    public Layer[] getAllBinaryTiledLayerArray(final BasicGeographicMap[] geographicMapInterfaceArray, final Layer[] tiledLayerArray, final int startIndex) {
 
         BasicGeographicMap geographicMapInterface;
         final int size = geographicMapInterfaceArray.length;
@@ -116,7 +114,7 @@ public class BasicGeographicMapUtil {
         final int size = geographicMapInterfaceArray.length;
         for(int index = size; --index >= 0;) {
             geographicMapInterface = geographicMapInterfaceArray[index];
-            geographicMapInterface.getAllBinaryTiledLayer().move(dx, dy);
+            geographicMapInterface.getAllBinaryTiledLayer().moveDXY(dx, dy);
         }
     }
 

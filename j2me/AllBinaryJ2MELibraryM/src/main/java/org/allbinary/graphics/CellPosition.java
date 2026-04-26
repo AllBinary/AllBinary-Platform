@@ -60,15 +60,15 @@ extends V
 
    public String toString()
    {
-      return CellPosition.toString(this.getColumn(), this.getRow());
+      return CellPosition.toStringColRow(this.getColumn(), this.getRow());
    }
 
-   public static String toString(CellPosition basicGeographicMapCellPosition)
+   public static String toStringCellPosition(CellPosition basicGeographicMapCellPosition)
    {
-      return toString(basicGeographicMapCellPosition.getColumn(), basicGeographicMapCellPosition.getRow());
+      return toStringColRow(basicGeographicMapCellPosition.getColumn(), basicGeographicMapCellPosition.getRow());
    }
    
-   public static String toString(int i_column, int i_row)
+   public static String toStringColRow(int i_column, int i_row)
    {
       //return "Column: " + i_column + " Row: " + i_row;
       

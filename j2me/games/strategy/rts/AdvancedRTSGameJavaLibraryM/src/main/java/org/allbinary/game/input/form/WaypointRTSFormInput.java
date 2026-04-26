@@ -89,7 +89,7 @@ public class WaypointRTSFormInput extends RTSFormInput
             new GameNotificationEvent(
                     this, 
                     RTSGameStrings.getInstance().DRAG_TO_SPOT,
-                    smallIntegerSingletonFactory.getInstance(2),
+                    smallIntegerSingletonFactory.getAt(2),
                     basicColorFactory.WHITE,
                     BooleanFactory.getInstance().FALSE);
 
@@ -97,7 +97,7 @@ public class WaypointRTSFormInput extends RTSFormInput
             new GameNotificationEvent(
                     this, 
                     RTSGameStrings.getInstance().SPOT_TAKEN,
-                    smallIntegerSingletonFactory.getInstance(2),
+                    smallIntegerSingletonFactory.getAt(2),
                     basicColorFactory.WHITE,
                     BooleanFactory.getInstance().FALSE);
 
@@ -105,7 +105,7 @@ public class WaypointRTSFormInput extends RTSFormInput
             new GameNotificationEvent(
                     this, 
                     RTSGameStrings.getInstance().BUILDING_COLLISION,
-                    smallIntegerSingletonFactory.getInstance(2),
+                    smallIntegerSingletonFactory.getAt(2),
                     basicColorFactory.WHITE,
                     BooleanFactory.getInstance().FALSE);
 
@@ -113,7 +113,7 @@ public class WaypointRTSFormInput extends RTSFormInput
             new GameNotificationEvent(
                     this, 
                     RTSGameStrings.getInstance().ROAD_COLLISION, 
-                    smallIntegerSingletonFactory.getInstance(2),
+                    smallIntegerSingletonFactory.getAt(2),
                     basicColorFactory.WHITE,
                     BooleanFactory.getInstance().FALSE);
 
@@ -121,7 +121,7 @@ public class WaypointRTSFormInput extends RTSFormInput
             new GameNotificationEvent(
                     this, 
                     RTSGameStrings.getInstance().NEW_WAYPOINT,  
-                    smallIntegerSingletonFactory.getInstance(2),
+                    smallIntegerSingletonFactory.getAt(2),
                     basicColorFactory.WHITE,
                     BooleanFactory.getInstance().FALSE);
         
@@ -129,7 +129,7 @@ public class WaypointRTSFormInput extends RTSFormInput
             new GameNotificationEvent(
                     this, 
                     RTSGameStrings.getInstance().NO_MONEY,
-                    smallIntegerSingletonFactory.getInstance(2),
+                    smallIntegerSingletonFactory.getAt(2),
                     basicColorFactory.WHITE,
                     BooleanFactory.getInstance().FALSE);
         
@@ -154,7 +154,7 @@ public class WaypointRTSFormInput extends RTSFormInput
     }
     
     @Override
-    public void process(
+    public void processAtPoint(
         final CollidableDestroyableDamageableLayer associatedRtsLayer,
         final RTSPlayerLayerInterface rtsPlayerLayerInterface,
         final AllBinaryLayerManager layerManager, final GPoint point)
@@ -181,9 +181,9 @@ public class WaypointRTSFormInput extends RTSFormInput
                 int y = point.getY() + allBinaryTiledLayer.getYP();
 
                 final GeographicMapCellPosition geographicMapCellPosition =
-                    geographicMapInterface.getCellPositionAt(x, y);
+                    geographicMapInterface.getCellPositionAtXY(x, y);
 
-                this.process(
+                this.processCellPosition(
                     rtsPlayerLayerInterface,
                     layerManager,
                     geographicMapCellPosition);
@@ -208,7 +208,7 @@ public class WaypointRTSFormInput extends RTSFormInput
         }
     }
 
-    private void process(
+    private void processCellPosition(
         final RTSPlayerLayerInterface rtsPlayerLayerInterface,
         final AllBinaryLayerManager layerManager,
         final GeographicMapCellPosition geographicMapCellPosition)
@@ -243,7 +243,7 @@ public class WaypointRTSFormInput extends RTSFormInput
     }
 
     @Override
-    public void processSticky(
+    public void processStickyGameSpecific(
         final CollidableDestroyableDamageableLayer associatedRtsLayer,
         final RTSPlayerLayerInterface rtsPlayerLayerInterface,
         final AllBinaryLayerManager layerManager, CustomItem item, int index)
@@ -370,10 +370,10 @@ public class WaypointRTSFormInput extends RTSFormInput
 
             capital.removeMoney(cost);
 
-            WaypointCellPositionHistory.getInstance().add(list, layerInterface);
+            WaypointCellPositionHistory.getInstance().addList(list, layerInterface);
 
             final GeographicMapCellPosition geographicMapCellPosition =
-                geographicMapInterface.getCellPositionAt(
+                geographicMapInterface.getCellPositionAtXY(
                 layerInterface.getXP(), layerInterface.getYP());
 
             final WaypointLayer waypointLayer = (WaypointLayer) layerInterface;

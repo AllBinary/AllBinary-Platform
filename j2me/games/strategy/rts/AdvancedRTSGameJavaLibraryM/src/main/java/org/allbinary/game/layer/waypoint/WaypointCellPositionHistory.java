@@ -41,7 +41,7 @@ public class WaypointCellPositionHistory
         this.layerList.add(layerInterface);
     }
 
-    public void add(BasicArrayList list, AllBinaryLayer layerInterface)
+    public void addList(BasicArrayList list, AllBinaryLayer layerInterface)
     {
         for (int index = list.size() - 1; index >= 0; index--)
         {
@@ -54,12 +54,12 @@ public class WaypointCellPositionHistory
         int index = this.positionList.indexOf(cellPosition);
         if (index >= 0)
         {
-            this.positionList.remove(index);
-            this.layerList.remove(index);
+            this.positionList.removeAt(index);
+            this.layerList.removeAt(index);
         }
     }
 
-    public void remove(AllBinaryLayer layerInterface)
+    public void removeLayer(AllBinaryLayer layerInterface)
     {
         int index = 0;
 
@@ -68,8 +68,8 @@ public class WaypointCellPositionHistory
             index = this.layerList.indexOf(layerInterface);
             if (index >= 0)
             {
-                this.positionList.remove(index);
-                this.layerList.remove(index);
+                this.positionList.removeAt(index);
+                this.layerList.removeAt(index);
             }
         }
     }

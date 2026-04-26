@@ -40,7 +40,7 @@ public class IconLayer extends AllBinaryLayer
     @Override
     public void paint(Graphics graphics)
     {
-        this.animationInterface.paint(graphics, x, y);
+        this.animationInterface.paintXY(graphics, x, y);
     }
 
     @Override

@@ -241,7 +241,7 @@ public class BuildingLayer
 
                 //this.logUtil.putF("Explosion - Processing: " + currentFrame + "==" + size, this, "processTick");
 
-                if (currentFrame == size && !this.timeDelayHelper.isTime())
+                if (currentFrame == size && !this.timeDelayHelper.isTimeTNT())
                 {
                     //this.logUtil.putF("Explosion - End", this, "processTick");
 
@@ -271,7 +271,7 @@ public class BuildingLayer
                 this.shakeListener.onSmallShakeEvent();
                 vibration.vibrate(duration, 0, 0);
 
-                this.timeDelayHelper.setStartTime();
+                this.timeDelayHelper.setStartTimeTNT();
                 this.setReadyForExplosion(true);
             }
         }
@@ -524,7 +524,7 @@ public class BuildingLayer
 
         if (this.isDestroyed())
         {
-            DropCellPositionHistory.getInstance().remove(this);
+            DropCellPositionHistory.getInstance().removeAll(this);
             TrackingEventHandler.getInstance().removeListener(this);
             
             if (this.local)

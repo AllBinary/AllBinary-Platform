@@ -15,7 +15,6 @@ package org.allbinary.game.input.form;
 
 import org.allbinary.game.layer.RTSGameStrings;
 import org.allbinary.game.layer.RTSInterface;
-import org.allbinary.game.layer.RTSLayer;
 import org.allbinary.game.layer.RTSPlayerLayerInterface;
 import org.allbinary.game.layer.TechnologyRTSInterfaceImageItem;
 import org.allbinary.game.layer.capital.Capital;
@@ -61,7 +60,7 @@ public class TechRTSFormInput extends RTSFormInput
             new GameNotificationEvent(
                     this, 
                     RTSGameStrings.getInstance().NO_MONEY,
-                    SmallIntegerSingletonFactory.getInstance().getInstance(2),
+                    SmallIntegerSingletonFactory.getInstance().getAt(2),
                     basicColorFactory.WHITE,
                     BooleanFactory.getInstance().FALSE);                
         
@@ -81,7 +80,7 @@ public class TechRTSFormInput extends RTSFormInput
     }
      
     @Override
-    public void process(
+    public void processGameSpecific(
         final CollidableDestroyableDamageableLayer associatedRtsLayer,
         final RTSPlayerLayerInterface rtsPlayerLayerInterface,
         final AllBinaryLayerManager layerManager, 

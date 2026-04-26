@@ -14,7 +14,6 @@
 package org.allbinary.game.input.event;
 
 import org.allbinary.game.input.PlayerGameInput;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.event.EventListenerInterface;
 import org.allbinary.logic.util.event.EventStrings;
@@ -74,7 +73,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
             try {
                 //Add deviceId
                 PlayerGameInput playerGameInput = (PlayerGameInput) this.list.objectArray[index];
-                playerGameInput.onDownKeyEvent(eventObject);
+                playerGameInput.onDownKey(eventObject);
             } catch (Exception e) {
                 this.logUtil.put(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
             }
@@ -98,7 +97,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
 
     }
 
-    public void fireEvent(final GameKeyEvent eventObject) throws Exception {
+    public void fireEventForEvent(final GameKeyEvent eventObject) throws Exception {
         //ForcedLogUtil.log(this.toString(), EventStrings.getInstance().FIRE_EVENT);
 
         final int size = this.list.size();
@@ -119,7 +118,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
             try
             {
                 eventListenerInterface = (EventListenerInterface) this.eventListenerInterfaceList.get(index);
-                this.process(eventObject, eventListenerInterface);
+                this.processEvent(eventObject, eventListenerInterface);
             }
             catch (Exception e)
             {
@@ -132,10 +131,10 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
     
     protected void process(final Integer eventObject, final EventListenerInterface eventListenerInterface) throws Exception {
         final DownKeyEventListenerInterface downKeyEventListenerInterface = (DownKeyEventListenerInterface) eventListenerInterface;
-        downKeyEventListenerInterface.onDownKeyEvent(eventObject);
+        downKeyEventListenerInterface.onDownKey(eventObject);
     }
 
-    protected void process(final GameKeyEvent eventObject, final EventListenerInterface eventListenerInterface) throws Exception {
+    protected void processEvent(final GameKeyEvent eventObject, final EventListenerInterface eventListenerInterface) throws Exception {
         final DownKeyEventListenerInterface downKeyEventListenerInterface = (DownKeyEventListenerInterface) eventListenerInterface;
         downKeyEventListenerInterface.onDownKeyEvent(eventObject);
     }

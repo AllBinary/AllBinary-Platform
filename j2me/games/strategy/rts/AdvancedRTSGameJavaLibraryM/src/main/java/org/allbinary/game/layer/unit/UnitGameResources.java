@@ -43,9 +43,9 @@ public class UnitGameResources extends BasicGameResources
     private final String ICON_SIZE = "_64_by_64.png";
     
     @Override
-    protected void init(String ROOT, String sizeString) throws Exception
+    protected void append(String ROOT, String sizeString) throws Exception
     {
-        super.init(ROOT, sizeString);
+        super.append(ROOT, sizeString);
 
         String string = GameGraphicsResourceUtil.getInstance().getName();
 
@@ -103,7 +103,7 @@ public class UnitGameResources extends BasicGameResources
     {
         if (AndroidUtil.isAndroid())
         {
-            return GameGraphicsResourceUtil.getInstance().getString(
+            return GameGraphicsResourceUtil.getInstance().getStringForFeature(
                     GraphicsFeatureFactory.getInstance().SPRITE_QUARTER_ROTATION_GRAPHICS);
         } else
         {

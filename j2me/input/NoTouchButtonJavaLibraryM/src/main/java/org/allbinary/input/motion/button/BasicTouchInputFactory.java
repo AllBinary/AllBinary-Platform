@@ -76,7 +76,7 @@ public class BasicTouchInputFactory
             this.list.add(SPECIAL_BUTTON_ONE);
             this.list.add(SPECIAL_BUTTON_FIVE);
             this.list.add(SPECIAL_BUTTON_SIX);
-            this.updateAll(this.list, inputToGameKeyMapping);
+            this.updateAllList(this.list, inputToGameKeyMapping);
             
             CancelTouchButtonInputFactory.getInstance();
         }
@@ -84,10 +84,10 @@ public class BasicTouchInputFactory
 
     public void updateAll(InputToGameKeyMapping inputToGameKeyMapping)
     {
-        this.updateAll(this.getList(), inputToGameKeyMapping);
+        this.updateAllList(this.getList(), inputToGameKeyMapping);
     }
     
-    public void updateAll(BasicArrayList list, InputToGameKeyMapping inputToGameKeyMapping)
+    public void updateAllList(BasicArrayList list, InputToGameKeyMapping inputToGameKeyMapping)
     {
         this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START).appendint(list.size()).toString(), this, "updateAll");
 

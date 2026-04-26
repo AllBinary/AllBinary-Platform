@@ -38,11 +38,11 @@ public class LockablePaintable
     @Override
     public void paint(Graphics graphics, int currentIndex, int x, int y)
     {
-        if(LockedUtil.getInstance().isLockedFeature() && 
+        if(LockedUtil.getInstance().isLocked() &&
                 currentIndex >= this.getLockedIndex())
         {
             //- this.halfWidth
-            this.getAnimation().paint(graphics, x, y);
+            this.getAnimation().paintXY(graphics, x, y);
         }
     }
 

@@ -40,7 +40,7 @@ public class DemoCanvasBasicStartInputProcessor
      */
 
     @Override
-    public int processInput()
+    public int processInputList()
         throws Exception
     {
         BasicArrayList list = this.getGameKeyEventList();

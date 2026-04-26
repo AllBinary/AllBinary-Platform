@@ -19,7 +19,6 @@ import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.form.item.CustomItem;
 import org.allbinary.graphics.form.item.CustomItemInterface;
-import org.allbinary.logic.communication.log.LogUtil;
 
 public class ScrollCurrentSelectionForm 
 extends ScrollSelectionForm
@@ -43,7 +42,7 @@ extends ScrollSelectionForm
 
         this.moveForSmallScreen = moveForSmallScreen;
         
-        this.init();
+        this.initForm();
     }
 
     @Override
@@ -51,10 +50,10 @@ extends ScrollSelectionForm
     throws Exception
     {
         super.init(rectangle, formType);
-        this.init();
+        this.initForm();
     }
 
-    public void init()
+    public void initForm()
     {
         final FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
 
@@ -68,9 +67,10 @@ extends ScrollSelectionForm
 
             int totalWidth = 0;
 
+            CustomItemInterface item;
             for (int index = 0; index < size; index++)
             {
-                CustomItemInterface item = (CustomItemInterface) this.get(index);
+                item = (CustomItemInterface) this.get(index);
 
                 totalWidth += item.getMinimumWidth() + border;
             }
@@ -107,9 +107,10 @@ extends ScrollSelectionForm
         {
             int totalHeight = 0;
             int size = this.size();
+            CustomItem item2;
             for (int index = 0; index < size; index++)
             {
-                CustomItem item2 = this.get(index);
+                item2 = this.get(index);
                 if (this.maxWidth < item2.getMinimumWidth())
                 {
                     this.maxWidth = item2.getMinimumWidth();
@@ -160,10 +161,11 @@ extends ScrollSelectionForm
             int size = this.size();
             
             final FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
-            
+
+            CustomItemInterface item;
             for (int index = 0; index < size; index++)
             {
-                final CustomItemInterface item = (CustomItemInterface) this.get(index);
+                item = (CustomItemInterface) this.get(index);
 
                 int diffX = 0;
                 if (this.formType == formTypeFactory.TEMP_HORIZONTAL_FORM)

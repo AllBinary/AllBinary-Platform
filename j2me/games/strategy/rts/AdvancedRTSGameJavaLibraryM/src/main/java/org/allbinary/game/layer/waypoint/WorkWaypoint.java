@@ -32,7 +32,7 @@ public class WorkWaypoint extends Waypoint
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
     public static final Integer ID = 
-        SmallIntegerSingletonFactory.getInstance().getInstance(25);
+        SmallIntegerSingletonFactory.getInstance().getAt(25);
     
     public WorkWaypoint(final PathFindingLayerInterface ownerLayer)
         throws Exception

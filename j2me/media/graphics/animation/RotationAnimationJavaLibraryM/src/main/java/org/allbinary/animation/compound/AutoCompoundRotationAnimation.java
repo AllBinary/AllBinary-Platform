@@ -38,10 +38,10 @@ public class AutoCompoundRotationAnimation extends RotationAnimation
 
     public AutoCompoundRotationAnimation(final RotationAnimation[] animationInterfaceArray, final AnimationBehavior animationBehavior)
     {
-        super(AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.getInstance(4), animationBehavior);
+        super(AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.create(4), animationBehavior);
         
         this.animationInterfaceArray = animationInterfaceArray;
-        this.circularIndexUtil = CircularIndexUtil.getInstance(this.animationInterfaceArray.length);
+        this.circularIndexUtil = CircularIndexUtil.create(this.animationInterfaceArray.length);
     }
 
     @Override    
@@ -107,9 +107,9 @@ public class AutoCompoundRotationAnimation extends RotationAnimation
     }
 
     @Override
-    public void paint(final Graphics graphics, final int x, final int y)
+    public void paintXY(final Graphics graphics, final int x, final int y)
     {
-        this.animationInterfaceArray[this.circularIndexUtil.getIndex()].paint(graphics, x, y);
+        this.animationInterfaceArray[this.circularIndexUtil.getIndex()].paintXY(graphics, x, y);
     }
 
     @Override
@@ -153,19 +153,19 @@ public class AutoCompoundRotationAnimation extends RotationAnimation
     }
 
     @Override
-    public void setFrame(final Direction direction)
+    public void setFrameByDirection(final Direction direction)
     {
-        this.animationInterfaceArray[this.circularIndexUtil.getIndex()].setFrame(direction);
+        this.animationInterfaceArray[this.circularIndexUtil.getIndex()].setFrameByDirection(direction);
     }
 
     @Override
-    public void setFrame(final Angle angle)
+    public void setFrameToAngle(final Angle angle)
     {
-        this.animationInterfaceArray[this.circularIndexUtil.getIndex()].setFrame(angle);
+        this.animationInterfaceArray[this.circularIndexUtil.getIndex()].setFrameToAngle(angle);
     }
 
     @Override
-    public void adjustFrame(final Angle newAngle)
+    public void adjustFrameToAngle(final Angle newAngle)
     {
         this.adjustFrame(newAngle.getValue());
     }

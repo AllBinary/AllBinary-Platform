@@ -85,7 +85,7 @@ public class LineAnimation
     */
 
     @Override
-    public void paint(Graphics graphics, int x, int y)
+    public void paintXY(Graphics graphics, int x, int y)
     {
         final int[][] currentLine = this.line;
         

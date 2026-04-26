@@ -35,13 +35,13 @@ public class BaseChangedGameFeatureListener implements GameFeatureListenerInterf
     private boolean changed = true;
 
     @Override
-    public void onEvent(AllBinaryEventObject eventObject)
+    public void onEvent(final AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(CommonStrings.getInstance().NOT_IMPLEMENTED, this);
     }
 
     @Override
-    public void onGameFeatureChange(GameFeatureEvent gameFeatureEvent)
+    public void onGameFeatureChange(final GameFeatureEvent gameFeatureEvent)
     {
         this.logUtil.putF(new StringMaker().append(gameFeatureUtil.GAME_FEATURE_CHANGED).append(gameFeatureEvent.getWhatChanged()).toString(), this, gameFeatureUtil.ON_GAME_FEATURE_CHANGE);
 
@@ -50,17 +50,17 @@ public class BaseChangedGameFeatureListener implements GameFeatureListenerInterf
        setChanged(true);
     }
 
-    public void add(Feature gameFeature)
+    public void add(final Feature gameFeature)
     {
         this.list.add(gameFeature);
     }
 
-    public void remove(Feature gameFeature)
+    public void remove(final Feature gameFeature)
     {
         this.list.remove(gameFeature);
     }
     
-    public void setChanged(boolean initialized)
+    public void setChanged(final boolean initialized)
     {
         this.changed = initialized;
         
@@ -70,11 +70,11 @@ public class BaseChangedGameFeatureListener implements GameFeatureListenerInterf
         }
     }
 
-    public boolean isChanged(Feature gameFeature)
+    public boolean isChangedFeature(final Feature gameFeature)
     {
-        boolean isChanged = this.list.contains(gameFeature);
-        
-        StringMaker stringBuffer = new StringMaker();
+        final boolean isChanged = this.list.contains(gameFeature);
+
+        final StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append("GameFeature: ");
         stringBuffer.append(StringUtil.getInstance().toString(gameFeature));

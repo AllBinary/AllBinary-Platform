@@ -59,7 +59,7 @@ public class CountedLayerInterfaceFactoryPart implements PartInterface
       if (this.total > 0)
       {
          this.setTotal(this.total - 1);
-         return this.getCountedPickedUpLayerInterfaceFactory().getInstance(hashtable, x, y, z);
+         return this.getCountedPickedUpLayerInterfaceFactory().getNextInstance(hashtable, x, y, z);
       } else
       {
          throw new Exception(

@@ -121,7 +121,7 @@ extends CollidableRTSBehavior
         } else if (angle >= 90 || angle <= 270)   
         {
             ownerUnitLayer.getGameKeyEventList().add(
-                    GameKeyEventFactory.getInstance().getInstance(ownerUnitLayer, Canvas.RIGHT));
+                    GameKeyEventFactory.getInstance().getInstanceForKey(ownerUnitLayer, Canvas.RIGHT));
 
             return false;
         }
@@ -193,7 +193,7 @@ extends CollidableRTSBehavior
         {
             final int diff = this.ownerLayer.getWidth() + 1;
 
-            this.layerPartialCellPositionsUtil.getAll(
+            this.layerPartialCellPositionsUtil.getAllDXY(
                     basicGeographicMap, this.ownerLayer, -diff, 0, partialPositionList);
             
             if (!dropCellPositionHistory.anyCellPositionWithDrop(partialPositionList))
@@ -207,7 +207,7 @@ extends CollidableRTSBehavior
                 this.ownerLayer.setPosition(x, y, this.ownerLayer.getZP());
             }
 
-            this.layerPartialCellPositionsUtil.getAll(
+            this.layerPartialCellPositionsUtil.getAllDXY(
                     basicGeographicMap,
                 unitLayer, diff, 0,
                 partialPositionList);
@@ -229,7 +229,7 @@ extends CollidableRTSBehavior
         {
             int diff = this.ownerLayer.getHeight() + 1;
 
-            this.layerPartialCellPositionsUtil.getAll(
+            this.layerPartialCellPositionsUtil.getAllDXY(
                     basicGeographicMap,
                 this.ownerLayer, 0, -diff, partialPositionList);
 
@@ -244,7 +244,7 @@ extends CollidableRTSBehavior
                 this.ownerLayer.setPosition(x, y, this.ownerLayer.getZP());
             }
 
-            this.layerPartialCellPositionsUtil.getAll(
+            this.layerPartialCellPositionsUtil.getAllDXY(
                     basicGeographicMap, unitLayer, 0, diff, partialPositionList);
 
             if (!dropCellPositionHistory.anyCellPositionWithDrop(partialPositionList))

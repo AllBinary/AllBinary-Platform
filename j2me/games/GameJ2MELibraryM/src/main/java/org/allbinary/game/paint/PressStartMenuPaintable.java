@@ -61,7 +61,7 @@ public class PressStartMenuPaintable extends Paintable
     @Override
     public void paint(Graphics graphics)
     {
-        if (this.timeDelayHelper.isTime())
+        if (this.timeDelayHelper.isTimeTNT())
         {
             if (this.isFlash())
             {

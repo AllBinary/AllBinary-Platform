@@ -46,11 +46,11 @@ public class ResourceUtil
 
         if (inputStream == null)
         {
-            inputStream = this.getResourceAsStream(resource, 2);
+            inputStream = this.getResourceAsStreamAtStart(resource, 2);
 
             if (inputStream == null)
             {
-                inputStream = this.getResourceAsStream(resource, 1);
+                inputStream = this.getResourceAsStreamAtStart(resource, 1);
                 if (inputStream == null)
                 {
                     final StringMaker stringMaker = new StringMaker();
@@ -151,7 +151,7 @@ public class ResourceUtil
         return inputStream;
     }
 
-    private InputStream getResourceAsStream(String resource, int startIndex)
+    private InputStream getResourceAsStreamAtStart(String resource, int startIndex)
             //, Object emulatorObject)
             throws Exception
     {

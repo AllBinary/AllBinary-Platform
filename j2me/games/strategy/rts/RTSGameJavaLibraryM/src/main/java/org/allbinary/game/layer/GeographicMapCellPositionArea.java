@@ -40,7 +40,7 @@ public class GeographicMapCellPositionArea extends GeographicMapCellPositionArea
         new BasicArrayListS(12);
 
     private final CircularIndexUtil surroundingCircularIndexUtil =
-        CircularIndexUtil.getInstance(0);
+        CircularIndexUtil.create(0);
 
     private final AllBinaryLayer layerInterface;
     
@@ -63,7 +63,7 @@ public class GeographicMapCellPositionArea extends GeographicMapCellPositionArea
         //this.logUtil.putF(new StringMaker().append(layerInterface.getName()).append(" c: ").append(((PathFindingLayerInterface) layerInterface).getCurrentGeographicMapCellPosition()).append(CommonSeps.getInstance().SPACE).append(((PathFindingLayerInterface) layerInterface).getTopLeftGeographicMapCellPosition()).append(" topLeftGeographicMapCellPosition: ").append(topLeftGeographicMapCellPosition).toString(), this, "visit");
         
         this.occupyingGeographicMapCellPositionList =
-            layerCoveringCellPositionsUtil.getAll(
+            layerCoveringCellPositionsUtil.getAllXY(
             geographicMapInterface, layerInterface,
                 layerInterface.getXP(), layerInterface.getYP(),
                 reusableOccupyingGeographicMapCellPositionList);

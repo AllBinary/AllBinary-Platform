@@ -26,7 +26,6 @@ import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
-import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 
@@ -64,7 +63,7 @@ extends LayerManagerEventListener
         }
     }
 
-    public int getGroupSize(final GroupInterfaceCompositeInterface groupInterfaceCompositeInterface)
+    public int getGroupSizeFromInterface(final GroupInterfaceCompositeInterface groupInterfaceCompositeInterface)
     {
         final Group[] groupInterfaceArray = groupInterfaceCompositeInterface.getGroupInterface();
         return this.getGroupSize(groupInterfaceArray[0]);
@@ -73,22 +72,22 @@ extends LayerManagerEventListener
     public int getGroupSize(final Group groupInterface)
     {
         final int id = (int) groupInterface.getGroupId();
-        return this.getGroupSize(id);
+        return this.getGroupSizeById(id);
     }
 
     public BasicArrayList getList(final Group groupInterface)
     {
         final int id = (int) groupInterface.getGroupId();
-        return this.getList(id);
+        return this.getListById(id);
     }
 
-    private BasicArrayList getList(final int groupId)
+    private BasicArrayList getListById(final int groupId)
     {
         final BasicArrayList groupList = (BasicArrayList) this.list.objectArray[groupId];
         return groupList;
     }
 
-    private int getGroupSize(final int groupId)
+    private int getGroupSizeById(final int groupId)
     {
         final BasicArrayList groupList = (BasicArrayList) this.list.objectArray[groupId];
         //if(groupList == null) {
@@ -107,7 +106,7 @@ extends LayerManagerEventListener
         {
             if (id != index)
             {
-                int groupSize = this.getGroupSize(index);
+                int groupSize = this.getGroupSizeById(index);
 
                 if (groupSize != 0)
                 {
@@ -154,7 +153,7 @@ extends LayerManagerEventListener
         {
             if (!this.isIdInList(index, excludeGroupList))
             {
-                int groupSize = this.getGroupSize(index);
+                int groupSize = this.getGroupSizeById(index);
 
                 if (groupSize >= maxSize)
                 {

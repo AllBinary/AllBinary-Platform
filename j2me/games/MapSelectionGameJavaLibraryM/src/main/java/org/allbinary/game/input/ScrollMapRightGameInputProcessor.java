@@ -24,7 +24,7 @@ public class ScrollMapRightGameInputProcessor extends ScrollMapGameInputProcesso
     }
     
     @Override
-    public void process(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent)
+    public void processEvent(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent)
     throws Exception
     {
         this.scrollMapPlayerGameInput.right();

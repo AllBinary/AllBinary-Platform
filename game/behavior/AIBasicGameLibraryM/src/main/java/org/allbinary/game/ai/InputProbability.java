@@ -20,7 +20,7 @@ import org.allbinary.time.TimeDelayHelper;
 
 public class InputProbability
 {
-    public static Integer INPUT_PROBABILITY = SmallIntegerSingletonFactory.getInstance().getInstance(0);
+    public static Integer INPUT_PROBABILITY = SmallIntegerSingletonFactory.getInstance().getAt(0);
     
     private final Integer[][] likelyhoodIntegerArray;
     private final Integer[] repeatLikelyhoodIntegerArray;

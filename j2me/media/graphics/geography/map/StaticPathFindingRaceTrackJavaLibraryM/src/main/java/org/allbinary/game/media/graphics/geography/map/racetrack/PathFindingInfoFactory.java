@@ -46,7 +46,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
 
     }
 
-    public PathFindingInfo getInstance(
+    public PathFindingInfo getInstancePathFindingInfo(
             final BasicGeographicMap geographicMapInterface,
             final int[][] graphArray)
         throws Exception

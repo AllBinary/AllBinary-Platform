@@ -18,7 +18,6 @@ import javax.microedition.midlet.MIDlet;
 import org.allbinary.AppletUtil;
 import org.allbinary.J2MEUtil;
 import org.allbinary.canvas.Processor;
-import org.allbinary.midlet.MidletExitProcessor;
 
 public class MidletExitProcessorFactory
 {
@@ -33,7 +32,7 @@ public class MidletExitProcessorFactory
         return instance;
     }
 
-    public Processor getInstance(MIDlet midlet)
+    public Processor getExitInstance(MIDlet midlet)
     {
         if(AppletUtil.isAppletLoader(midlet) || J2MEUtil.isJ2ME())
         {

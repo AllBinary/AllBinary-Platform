@@ -13,7 +13,6 @@
 */
 package org.allbinary.media.image;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.GraphicsConfiguration;
 import java.awt.GraphicsDevice;
@@ -23,9 +22,7 @@ import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import javax.microedition.lcdui.Image;
 
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
-import org.allbinary.math.PositionStrings;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
@@ -87,7 +84,7 @@ public class ImageUtil
       return graphicsConfiguration.createCompatibleImage(width, height, Transparency.TRANSLUCENT);
    }
    
-   public BufferedImage[] createBufferedImage(final BufferedImage[] bufferedImageArray, final int percent, final boolean scale)
+   public BufferedImage[] createBufferedImageForResize(final BufferedImage[] bufferedImageArray, final int percent, final boolean scale)
       throws Exception
    {
        final int size = bufferedImageArray.length;
@@ -107,7 +104,7 @@ public class ImageUtil
       return scaledBufferedImageArray;
    }
 
-   public BufferedImage[] createBufferedImage(final BufferedImage[] bufferedImageArray, final float percent, final boolean scale)
+   public BufferedImage[] createBufferedImage2(final BufferedImage[] bufferedImageArray, final float percent, final boolean scale)
       throws Exception
    {
        final int size = bufferedImageArray.length;
@@ -127,7 +124,7 @@ public class ImageUtil
       return scaledBufferedImageArray;
    }
    
-   public BufferedImage[] createBufferedImage(final BufferedImage[] bufferedImageArray, final int width, final int height, final boolean scale)
+   public BufferedImage[] createBufferedImage3(final BufferedImage[] bufferedImageArray, final int width, final int height, final boolean scale)
       throws Exception
    {
        final int size = bufferedImageArray.length;
@@ -142,18 +139,18 @@ public class ImageUtil
       return scaledBufferedImageArray;
    }
 
-   public BufferedImage createBufferedImage(final BufferedImage bufferedImage, final int newWidth, int newHeight)
+   public BufferedImage createBufferedImageForSave(final BufferedImage bufferedImage, final int newWidth, int newHeight)
       throws Exception
    {
        return this.createBufferedImage(bufferedImage, newWidth, newHeight, true);
    }
    
    public BufferedImage createBufferedImage(final BufferedImage bufferedImage, final int newWidth, int newHeight, final boolean scale) throws Exception {
-       return this.createBufferedImage(bufferedImage, newWidth, newHeight, scale, false);
+       return this.createBufferedImageAllowTranslate(bufferedImage, newWidth, newHeight, scale, false);
    }
    
    //private final String TRANSLATE = "Translate ";
-   public BufferedImage createBufferedImage(final BufferedImage bufferedImage, final int newWidth, int newHeight, final boolean scale, final boolean allowTranslate)
+   public BufferedImage createBufferedImageAllowTranslate(final BufferedImage bufferedImage, final int newWidth, int newHeight, final boolean scale, final boolean allowTranslate)
       throws Exception
    {
       final double width = bufferedImage.getWidth();

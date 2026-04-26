@@ -36,7 +36,7 @@ public class BasicColorCacheFactory
         this.hashtable.put(new Integer(basicDefaultColor.intValue()),basicDefaultColor);
     }
 
-    public synchronized BasicColor getInstance(final Integer integer)
+    public synchronized BasicColor getAndOrCreate(final Integer integer)
     {
         BasicColor basicColor = (BasicColor) this.hashtable.get(integer);
 

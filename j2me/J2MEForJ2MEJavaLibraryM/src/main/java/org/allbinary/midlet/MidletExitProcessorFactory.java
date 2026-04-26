@@ -32,7 +32,7 @@ public class MidletExitProcessorFactory
         return instance;
     }
 
-    public Processor getInstance(MIDlet midlet)
+    public Processor getExitInstance(MIDlet midlet)
     {
         if(AppletUtil.isAppletLoader(midlet) || J2MEUtil.isJ2ME())
         {

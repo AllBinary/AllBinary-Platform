@@ -64,7 +64,7 @@ public class PlayerQueue
 
             if (this.list.size() > 0)
             {
-                sound = (Sound) this.list.remove(0);
+                sound = (Sound) this.list.removeAt(0);
 
                 //Should be possible, but it still happens?
                 if (sound != null)
@@ -79,7 +79,7 @@ public class PlayerQueue
 
                 while (this.list.size() > this.max)
                 {
-                    this.list.remove(0);
+                    this.list.removeAt(0);
                 }
 
                 played = true;

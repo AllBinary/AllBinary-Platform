@@ -36,7 +36,7 @@ public class ScreenRepaintProcessorFactory {
 
     }
 
-    public Processor getInstance(Displayable displayable)
+    public Processor create(final Displayable displayable)
     {
         if(!J2MEUtil.isJ2ME())
         {

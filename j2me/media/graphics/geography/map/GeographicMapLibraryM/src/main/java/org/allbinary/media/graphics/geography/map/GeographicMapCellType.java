@@ -56,6 +56,6 @@ public class GeographicMapCellType
    
    public String toString()
    {
-      return SmallIntegerSingletonFactory.getInstance().getInstance(this.type).toString();
+      return SmallIntegerSingletonFactory.getInstance().getAt(this.type).toString();
    }
 }

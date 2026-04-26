@@ -61,11 +61,11 @@ public class PathFinder extends GeographicPathFinderBase {
             for(int row = 0; row < sizeY; row++) {
                 
                 final GeographicMapCellType geographicMapCellType = 
-                    geographicMapInterface.getCellTypeAt(basicGeographicMapCellPositionFactory.getInstance(column, row));
+                    geographicMapInterface.getCellTypeAt(basicGeographicMapCellPositionFactory.getAt(column, row));
 
                 final RaceTrackGeographicMapCellType raceTrackGeographicMapCellType = (RaceTrackGeographicMapCellType) geographicMapCellType;
                 
-                node = new PathFindingNodeCost(NullUtil.getInstance().NULL_OBJECT, basicGeographicMapCellPositionFactory.getInstance(column, row), new PathFindingNodeCostInfo((long) raceTrackGeographicMapCellType.getTravelCost(), (long) -1));
+                node = new PathFindingNodeCost(NullUtil.getInstance().NULL_OBJECT, basicGeographicMapCellPositionFactory.getAt(column, row), new PathFindingNodeCostInfo((long) raceTrackGeographicMapCellType.getTravelCost(), (long) -1));
 
                 this.costArray[column][row] = node;
             }
@@ -74,7 +74,7 @@ public class PathFinder extends GeographicPathFinderBase {
     }
     
     @Override
-    public BasicArrayList search(
+    public BasicArrayList searchTotalPath(
         BasicArrayList startPathFindingNodeList,
         BasicArrayList endPathFindingNodeList, int totalPaths) {
         
@@ -88,7 +88,7 @@ public class PathFinder extends GeographicPathFinderBase {
     }
    
     @Override
-    public BasicArrayList searchN(
+    public BasicArrayList searchTotalPathN(
         BasicArrayList startPathFindingNodeList,
         BasicArrayList endPathFindingNodeList, int totalPaths, final MultipassState multipassState)
         throws Exception {
@@ -214,7 +214,7 @@ public class PathFinder extends GeographicPathFinderBase {
                 for(int row = current.geographicMapCellPosition.getRow() - 1; row < current.geographicMapCellPosition.getRow() + 2; row++) {
 
                     if(column > 0 && row > 0 && column < allBinaryTiledLayer.getColumns() && row < allBinaryTiledLayer.getRows() && 
-                        geographicMapInterface.isOnMap(basicGeographicMapCellPositionFactory.getInstance(column, row))) {
+                        geographicMapInterface.isOnMap(basicGeographicMapCellPositionFactory.getAt(column, row))) {
                         neighbor = this.costArray[column][row];
 
                         if(this.closedSet.contains(neighbor)) {
@@ -312,7 +312,7 @@ public class PathFinder extends GeographicPathFinderBase {
                 for(int row = current.geographicMapCellPosition.getRow() - 1; row < current.geographicMapCellPosition.getRow() + 2; row++) {
 
                     if(column > 0 && row > 0 && column < allBinaryTiledLayer.getColumns() && row < allBinaryTiledLayer.getRows() && 
-                        geographicMapInterface.isOnMap(basicGeographicMapCellPositionFactory.getInstance(column, row))) {
+                        geographicMapInterface.isOnMap(basicGeographicMapCellPositionFactory.getAt(column, row))) {
                         neighbor = this.costArray[column][row];
 
                         if(this.closedSet.contains(neighbor)) {

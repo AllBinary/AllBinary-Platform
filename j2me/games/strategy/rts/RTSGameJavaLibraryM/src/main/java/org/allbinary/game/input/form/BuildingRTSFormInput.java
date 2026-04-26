@@ -26,7 +26,6 @@ import org.allbinary.media.audio.BuildingSound;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.logic.system.security.licensing.LockedFeatureNotificationUtil;
 import org.allbinary.logic.system.security.licensing.LockedUtil;
@@ -86,7 +85,7 @@ public class BuildingRTSFormInput extends RTSFormInput
                 new GameNotificationEvent(
                 this,
                 RTSGameStrings.getInstance().BUILD_ON_PATH,
-                smallIntegerSingletonFactory.getInstance(2),
+                smallIntegerSingletonFactory.getAt(2),
                 basicColorFactory.PINK,
                 BooleanFactory.getInstance().FALSE);
 
@@ -94,7 +93,7 @@ public class BuildingRTSFormInput extends RTSFormInput
                 new GameNotificationEvent(
                 this,
                 RTSGameStrings.getInstance().SPOT_TAKEN,
-                smallIntegerSingletonFactory.getInstance(2),
+                smallIntegerSingletonFactory.getAt(2),
                 basicColorFactory.PINK,
                 BooleanFactory.getInstance().FALSE);
 
@@ -102,7 +101,7 @@ public class BuildingRTSFormInput extends RTSFormInput
                 new GameNotificationEvent(
                 this,
                 RTSGameStrings.getInstance().SELECT_BUILD_SPOT,
-                smallIntegerSingletonFactory.getInstance(2),
+                smallIntegerSingletonFactory.getAt(2),
                 basicColorFactory.PINK,
                 BooleanFactory.getInstance().FALSE);
 
@@ -110,7 +109,7 @@ public class BuildingRTSFormInput extends RTSFormInput
                 new GameNotificationEvent(
                 this,
                 RTSGameStrings.getInstance().ROAD_COLLISION,
-                smallIntegerSingletonFactory.getInstance(2),
+                smallIntegerSingletonFactory.getAt(2),
                 basicColorFactory.PINK,
                 BooleanFactory.getInstance().FALSE);
 
@@ -118,7 +117,7 @@ public class BuildingRTSFormInput extends RTSFormInput
                 new GameNotificationEvent(
                 this,
                 RTSGameStrings.getInstance().NO_MONEY,
-                smallIntegerSingletonFactory.getInstance(2),
+                smallIntegerSingletonFactory.getAt(2),
                 basicColorFactory.PINK,
                 BooleanFactory.getInstance().FALSE);
 
@@ -126,7 +125,7 @@ public class BuildingRTSFormInput extends RTSFormInput
                 new GameNotificationEvent(
                 this,
                 RTSGameStrings.getInstance().BUILDING_COLLISION,
-                smallIntegerSingletonFactory.getInstance(2),
+                smallIntegerSingletonFactory.getAt(2),
                 basicColorFactory.PINK,
                 BooleanFactory.getInstance().FALSE);
 
@@ -134,7 +133,7 @@ public class BuildingRTSFormInput extends RTSFormInput
                 new GameNotificationEvent(
                 this,
                 RTSGameStrings.getInstance().STRUCTURE_TO_CLOSE,
-                smallIntegerSingletonFactory.getInstance(2),
+                smallIntegerSingletonFactory.getAt(2),
                 basicColorFactory.PINK,
                 BooleanFactory.getInstance().FALSE);
 
@@ -142,7 +141,7 @@ public class BuildingRTSFormInput extends RTSFormInput
                 new GameNotificationEvent(
                 this,
                 RTSGameStrings.getInstance().BUILDING,
-                smallIntegerSingletonFactory.getInstance(2),
+                smallIntegerSingletonFactory.getAt(2),
                 basicColorFactory.PINK,
                 BooleanFactory.getInstance().FALSE);
 
@@ -150,7 +149,7 @@ public class BuildingRTSFormInput extends RTSFormInput
                 new GameNotificationEvent(
                 this,
                 RTSGameStrings.getInstance().MAP_EDGE,
-                smallIntegerSingletonFactory.getInstance(2),
+                smallIntegerSingletonFactory.getAt(2),
                 basicColorFactory.PINK,
                 BooleanFactory.getInstance().FALSE);
         
@@ -178,7 +177,7 @@ public class BuildingRTSFormInput extends RTSFormInput
     }
 
     @Override
-    public void process(
+    public void processGameSpecific(
         final CollidableDestroyableDamageableLayer associatedRtsLayer,
         final RTSPlayerLayerInterface rtsPlayerLayerInterface,
         final AllBinaryLayerManager layerManager, final CustomItem item, final int itemIndex)
@@ -205,7 +204,7 @@ public class BuildingRTSFormInput extends RTSFormInput
             (DemoLockedWithCostLayerInterfaceFactoryInterface) factoryItem
                 .getLayerInterfaceFactoryInterface();
 
-        if (LockedUtil.getInstance().isLockedFeature() &&
+        if (LockedUtil.getInstance().isLocked() &&
                 layerInterfaceFactoryInterface.isDemoLocked())
         {
             return true;
@@ -235,7 +234,7 @@ public class BuildingRTSFormInput extends RTSFormInput
         {
             rtsPlayerLayerInterface.add(ErrorSound.getInstance());
 
-            LockedFeatureNotificationUtil.getInstance().fire(
+            LockedFeatureNotificationUtil.getInstance().fireWithColor(
                     geographicMapInterface.getForegroundBasicColor());
 
             return;
@@ -470,7 +469,7 @@ public class BuildingRTSFormInput extends RTSFormInput
         final BasicArrayList occupyList =
             geographicMapCellPositionArea.getOccupyingGeographicMapCellPositionList();
 
-        this.dropCellPositionHistory.add(occupyList, layerInterface);
+        this.dropCellPositionHistory.addAll(occupyList, layerInterface);
 
         final RTSPlayerGameInput rtsPlayerGameInput = (RTSPlayerGameInput)
             rtsPlayerLayerInterface.getPlayerGameInput();

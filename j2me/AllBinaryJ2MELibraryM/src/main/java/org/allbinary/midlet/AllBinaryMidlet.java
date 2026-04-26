@@ -119,7 +119,7 @@ implements CommandListener
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
     
-    protected void destroyApp(boolean unconditional, boolean isProgress)
+    protected void destroyAppInRunnable(boolean unconditional, boolean isProgress)
     {
         
     }

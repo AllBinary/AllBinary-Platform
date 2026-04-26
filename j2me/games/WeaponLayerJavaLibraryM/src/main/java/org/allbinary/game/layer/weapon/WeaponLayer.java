@@ -140,7 +140,7 @@ implements TickableInterface
         this.collidableWeaponBehavior = (CollidableWeaponBehavior) this.getCollidableInferface();
     }
     
-    public void init(int x, int y, int z) throws Exception
+    public void initXYZ(int x, int y, int z) throws Exception
     {
         this.x = x;
         this.y = y;
@@ -418,7 +418,7 @@ implements TickableInterface
         // this.logUtil.putF("viewX: " + viewX + " viewY: " + viewY, this, canvasStrings.PAINT);
 
         //TWB - the offset does not make sense? is collision offset? 
-        this.animationInterface.paint(graphics, 
+        this.animationInterface.paintXY(graphics,
                 viewPosition.getX() - this.getHalfWidth(),
                 viewPosition.getY() - this.getHalfHeight());
 

@@ -37,7 +37,7 @@ public class ThrustAIVisitor extends Visitor
         {
             BasicAI basicAI = (BasicAI) object;
 
-            basicAI.processAI(Canvas.UP);
+            basicAI.processKeyAI(Canvas.UP);
         } 
         catch (Exception e)
         {

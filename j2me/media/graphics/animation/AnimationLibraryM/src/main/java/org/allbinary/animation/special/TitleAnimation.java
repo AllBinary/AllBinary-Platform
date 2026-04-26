@@ -186,16 +186,16 @@ public class TitleAnimation extends SpecialAnimation
         }
     }
 
-    public void paint(final Graphics graphics, final int frame, final int x, final int y)
+    public void paintFrameXY(final Graphics graphics, final int frame, final int x, final int y)
     {
         this.setFrame(frame);
-        this.paint(graphics, x, y);
+        this.paintXY(graphics, x, y);
     }
 
     protected final BasicColor CLEAR_COLOR = BasicColorFactory.getInstance().CLEAR_COLOR;
 
     @Override    
-    public void paint(final Graphics graphics, final int ax, final int ay)
+    public void paintXY(final Graphics graphics, final int ax, final int ay)
     {
         int x = 0;
         
@@ -218,7 +218,7 @@ public class TitleAnimation extends SpecialAnimation
                 this.basicSetColorUtil.setBasicColorP(graphics, this.basicColorArray[index]);
             }
             //this.logUtil.putF("deltaX: " + deltaX + " " + x, this, canvasStrings.PAINT);
-            this.animationInterfaceArray[index].paint(graphics, deltaX, deltaY);
+            this.animationInterfaceArray[index].paintXY(graphics, deltaX, deltaY);
         }
     }
 

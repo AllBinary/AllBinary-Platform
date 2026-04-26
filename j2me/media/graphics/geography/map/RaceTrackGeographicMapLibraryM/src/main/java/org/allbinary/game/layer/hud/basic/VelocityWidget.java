@@ -54,7 +54,7 @@ public class VelocityWidget extends BasicHud
         this.primitiveLongUtil = PrimitiveLongUtil.create(powerOfTenVelocity);
      
         final MyFont myFont = MyFont.getInstance();
-        this.offset = myFont.stringWidth(this.primitiveLongUtil.getMaxDigits()) + myFont.stringWidth(2);
+        this.offset = myFont.defaultStringWidth(this.primitiveLongUtil.getMaxDigits()) + myFont.defaultStringWidth(2);
     }
 
     public int get()
@@ -93,7 +93,7 @@ public class VelocityWidget extends BasicHud
             }
 
             final MyFont myFont = MyFont.getInstance();
-            this.offset2 = this.offset - myFont.stringWidth(this.totalDigits) - myFont.stringWidth(2);
+            this.offset2 = this.offset - myFont.defaultStringWidth(this.totalDigits) - myFont.defaultStringWidth(2);
         }
     }
 
@@ -105,7 +105,7 @@ public class VelocityWidget extends BasicHud
     public void paint(Graphics graphics)
     {
         //super.paint(graphics, string, KILOMETERS_PER_HOUR_STR, offset2, offset);
-        super.paint(graphics, 
+        super.paintDXY(graphics,
                 string, 0, this.totalDigits, 
                 KILOMETERS_PER_HOUR_STR, 0, this.totalChars, 
                 offset2, offset);

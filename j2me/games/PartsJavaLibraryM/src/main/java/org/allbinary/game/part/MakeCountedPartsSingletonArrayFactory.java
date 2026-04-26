@@ -35,7 +35,7 @@ public class MakeCountedPartsSingletonArrayFactory
     
     private BasicArrayList list = BasicArrayListUtil.getInstance().getImmutableInstance();
 
-    public PartInterface[] getInstance(final PartInterface[] partInterfaceArray) throws Exception
+    public PartInterface[] getUpdated(final PartInterface[] partInterfaceArray) throws Exception
     {
         this.list = new BasicArrayListD();
 

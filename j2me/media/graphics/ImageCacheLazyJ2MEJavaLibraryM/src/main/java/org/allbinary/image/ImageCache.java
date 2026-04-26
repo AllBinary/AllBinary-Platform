@@ -176,7 +176,7 @@ public class ImageCache extends ImageCacheBase {
                         } else if (gameGlobalsFactory.newCanvas) {
                         } else //if (randomFactory.getAbsoluteNextInt(180) == 5) 
                         {
-                            loadImage();
+                            loadNextImage();
                         }
 
                         return;
@@ -184,7 +184,7 @@ public class ImageCache extends ImageCacheBase {
                     } else {
                         lazyImageRotationAnimation = (LazyImageRotationAnimation) this.loadAfterList.get(0);
                         //this.logUtil.putF("loadAfterList: " + lazyImageRotationAnimation, this, commonStrings.RUN);
-                        if (this.loadImageForAnimation(lazyImageRotationAnimation)) {
+                        if (this.loadImageForLazyAnimation(lazyImageRotationAnimation)) {
                             //this.logUtil.putF("Loaded associated Animation for Game Layer that is painted", this, commonStrings.RUN);
                             this.loadAfterList.remove(lazyImageRotationAnimation);
                         }
@@ -193,7 +193,7 @@ public class ImageCache extends ImageCacheBase {
                 } else {
                     lazyImageRotationAnimation = (LazyImageRotationAnimation) this.loadSoonList.get(0);
                     //this.logUtil.putF("loadSoonList: " + lazyImageRotationAnimation, this, commonStrings.RUN);
-                    if (this.loadImageForAnimation(lazyImageRotationAnimation)) {
+                    if (this.loadImageForLazyAnimation(lazyImageRotationAnimation)) {
                         //this.logUtil.putF("Loaded associated Animation for Game Layer that is painted", this, commonStrings.RUN);
                         this.loadSoonList.remove(lazyImageRotationAnimation);
                     }
@@ -203,7 +203,7 @@ public class ImageCache extends ImageCacheBase {
             }
             lazyImageRotationAnimation = (LazyImageRotationAnimation) this.loadNowList.get(0);
         }
-        if(this.loadImageForAnimation(lazyImageRotationAnimation)) {
+        if(this.loadImageForLazyAnimation(lazyImageRotationAnimation)) {
             //this.logUtil.putF(new StringMaker().append("loadNowList loaded: ").append(this.totalLoaded).append(" i:").append(this.loadList.size()).toString(), this, commonStrings.RUN);
             //final Image image = lazyImageRotationAnimation.animationInterfaceFactoryInterface.getImage();
             //this.logUtil.putF("loadNowList loaded: " + image.getName(), this, commonStrings.RUN);
@@ -218,7 +218,7 @@ public class ImageCache extends ImageCacheBase {
                     final int size = list.size();
                     if(size > 0) {
                         //this.logUtil.putF("addAssociated: " + size, this, commonStrings.RUN);
-                        this.loadSoonList.addAll(list);
+                        this.loadSoonList.addAllList(list);
                     }
                 }
             }
@@ -231,7 +231,7 @@ public class ImageCache extends ImageCacheBase {
                 progressCanvas.endFromInitialLazyLoadingComplete();
             } else {
                 if(this.totalLoaded % 10 == 0) {
-                    progressCanvas.addPortion(1, LOAD_IMAGE_FOR_ANIMATION);
+                    progressCanvas.addNormalPortion(1, LOAD_IMAGE_FOR_ANIMATION);
                 }
             }
             
@@ -252,7 +252,7 @@ public class ImageCache extends ImageCacheBase {
 
             loadImageForAnimations();
             //this.logUtil.putF("load image", this, commonStrings.RUN);
-            loadImage();
+            loadNextImage();
         }
     }
     
@@ -276,16 +276,16 @@ public class ImageCache extends ImageCacheBase {
             synchronized (this.lock) {
                 if(!this.loadAfterList.isEmpty())
                 //this.loadImageAfterList.remove(0);
-                lazyImageRotationAnimation = (LazyImageRotationAnimation) this.loadAfterList.remove(0);
+                lazyImageRotationAnimation = (LazyImageRotationAnimation) this.loadAfterList.removeAt(0);
             }
 
             if(lazyImageRotationAnimation != null) {
-                this.loadImageForAnimation(lazyImageRotationAnimation);
+                this.loadImageForLazyAnimation(lazyImageRotationAnimation);
             }
         }
     }
     
-    private boolean loadImageForAnimation(final LazyImageRotationAnimation lazyImageRotationAnimation) throws Exception {
+    private boolean loadImageForLazyAnimation(final LazyImageRotationAnimation lazyImageRotationAnimation) throws Exception {
         final Image image = lazyImageRotationAnimation.animationInterfaceFactoryInterface.getImage();
         
         if(this.loadImage(image)) {
@@ -296,13 +296,13 @@ public class ImageCache extends ImageCacheBase {
         return false;
     }
 
-    private void loadImage() throws Exception {
+    private void loadNextImage() throws Exception {
         Image image = null;
         synchronized (this.lock) {
             if(this.loadList.size() == 0) {
                 return;
             }
-            image = (Image) this.loadList.remove(0);
+            image = (Image) this.loadList.removeAt(0);
         }
         this.loadImage(image);
     }
@@ -392,7 +392,7 @@ public class ImageCache extends ImageCacheBase {
         return image;
     }
 
-    public Image get(final Object key) throws Exception {
+    public Image getWithKey(final Object key) throws Exception {
         Image image = this.getImage(key);
 
         if (image == NullCanvas.NULL_IMAGE) {
@@ -405,7 +405,7 @@ public class ImageCache extends ImageCacheBase {
             //}
             try {
                 //this.logUtil.putF(Memory.getInfo(), this, commonStrings.GET);
-                image = this.createImage(key, inputStream);
+                image = this.createImageFromInputStream(key, inputStream);
             } catch (Exception e) {
                 this.logUtil.put("Exception: Trying Again After GC", this, commonStrings.GET, e);
 
@@ -414,7 +414,7 @@ public class ImageCache extends ImageCacheBase {
                 System.gc();
                 this.logUtil.putF(Memory.getInfo(), this, commonStrings.GET);
                 Thread.sleep(100);
-                image = this.createImage(key, inputStream);
+                image = this.createImageFromInputStream(key, inputStream);
             }
             //inputStream.close();
             //Put in the name is really only for debugging
@@ -444,7 +444,7 @@ public class ImageCache extends ImageCacheBase {
         throw new RuntimeException();
     }
 
-    protected Image createImage(final Object key, final InputStream inputStream)
+    protected Image createImageFromInputStream(final Object key, final InputStream inputStream)
         throws Exception {
 
         final GDLazyResources gdLazyResources = GDLazyResources.getInstance();        

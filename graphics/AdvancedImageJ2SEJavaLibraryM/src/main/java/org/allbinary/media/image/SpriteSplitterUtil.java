@@ -101,7 +101,7 @@ public class SpriteSplitterUtil {
                             x + widthReduction, y + heightReduction, 
                             cellWidth - (widthReduction * 2), cellHeight - (heightReduction * 2));
                         if(increaseWidth != 0 || increaseHeight != 0) {
-                        generatedBufferedImageArray[index2][index3] = imageUtil.createBufferedImage(
+                        generatedBufferedImageArray[index2][index3] = imageUtil.createBufferedImageAllowTranslate(
                             generatedBufferedImageArray[index2][index3], cellWidth + increaseWidth, cellHeight + increaseHeight, false, true);
                         }
                         nameEnding = new StringMaker().appendint(index2).append(this.commonSeps.UNDERSCORE).appendint(index3).toString();
@@ -219,7 +219,7 @@ public class SpriteSplitterUtil {
                             x + widthReduction, y + heightReduction, 
                             cellWidth - (widthReduction * 2), cellHeight - (heightReduction * 2));
                         if(increaseWidth != 0 || increaseHeight != 0) {
-                        generatedBufferedImageArray[index2][index3] = ImageUtil.getInstance().createBufferedImage(
+                        generatedBufferedImageArray[index2][index3] = ImageUtil.getInstance().createBufferedImageAllowTranslate(
                             generatedBufferedImageArray[index2][index3], cellWidth + increaseWidth, cellHeight + increaseHeight, false, true);
                         }
                         nameEnding = new StringMaker().append(this.commonStrings.DIRECTION_NAME[index2]).append(this.commonSeps.UNDERSCORE).appendint(index3).toString();

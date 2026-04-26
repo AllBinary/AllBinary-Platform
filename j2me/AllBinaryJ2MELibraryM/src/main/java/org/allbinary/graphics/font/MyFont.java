@@ -41,11 +41,11 @@ public class MyFont
        this.DEFAULT_CHAR_WIDTH = this.defaultFont.charWidth('C');
    }
    
-   public int charWidth() {
+   public int defaultCharWidth() {
        return DEFAULT_CHAR_WIDTH;
    }
    
-   public int stringWidth(final int size) {
+   public int defaultStringWidth(final int size) {
        return this.DEFAULT_CHAR_WIDTH * size;
    }
 

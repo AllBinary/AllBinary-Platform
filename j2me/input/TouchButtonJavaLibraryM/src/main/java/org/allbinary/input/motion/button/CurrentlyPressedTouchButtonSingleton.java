@@ -38,9 +38,9 @@ public class CurrentlyPressedTouchButtonSingleton
         return this.list.size();
     }
 
-    public TouchButtonInput remove(int index)
+    public TouchButtonInput removeAt(int index)
     {
-        return (TouchButtonInput) this.list.remove(index);
+        return (TouchButtonInput) this.list.removeAt(index);
     }
     
     public boolean remove(TouchButtonInput touchButtonInput)

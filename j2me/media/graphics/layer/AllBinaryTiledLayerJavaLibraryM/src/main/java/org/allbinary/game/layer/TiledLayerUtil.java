@@ -13,8 +13,6 @@
  */
 
 package org.allbinary.game.layer;
-import org.allbinary.logic.string.StringMaker;
-
 
 
 /**
@@ -114,7 +112,7 @@ public class TiledLayerUtil {
     }
     */
 
-    public int keepOnMapX(
+    public int keepOnBorderdMapX(
             AllBinaryTiledLayer terrainTiledLayer,
             int x, int width, int mapBorderBufferWidth)
     {
@@ -148,7 +146,7 @@ public class TiledLayerUtil {
         return newX;
     }
 
-    public int keepOnMapY(AllBinaryTiledLayer terrainTiledLayer, int y, int height, int mapBorderBufferHeight)
+    public int keepOnBorderdMapY(AllBinaryTiledLayer terrainTiledLayer, int y, int height, int mapBorderBufferHeight)
     {
         int newY = y;
 

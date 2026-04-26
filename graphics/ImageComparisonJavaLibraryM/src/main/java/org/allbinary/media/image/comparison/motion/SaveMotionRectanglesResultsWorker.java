@@ -78,7 +78,7 @@ public class SaveMotionRectanglesResultsWorker
             
             TimeDelayHelper timeHelper = new TimeDelayHelper(1000);
             
-            timeHelper.setStartTime();
+            timeHelper.setStartTimeTNT();
 
             MotionRectanglesResultsEvent motionRectanglesResultsEvent = 
                 (MotionRectanglesResultsEvent) 
@@ -93,7 +93,7 @@ public class SaveMotionRectanglesResultsWorker
             this.getMotionRectanglesVector().remove(motionRectangles);
             
             this.logUtil.putF(
-                CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN);
+                CommonLabels.getInstance().ELAPSED + timeHelper.getElapsedTNT(), this, this.commonStrings.RUN);
             
             this.logUtil.putF(this.commonStrings.END, this, this.commonStrings.RUN);
         }

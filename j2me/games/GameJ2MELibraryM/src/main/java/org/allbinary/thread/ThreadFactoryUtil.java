@@ -36,17 +36,17 @@ public class ThreadFactoryUtil
         return instance;
     }
 
-    public Thread getInstance(final GameCanvasRunnableInterface runnable)
+    public Thread getInstanceGameCanvasRunnable(final GameCanvasRunnableInterface runnable)
     {
-        return this.getInstance(runnable, runnable.getType());
+        return this.getInstanceType(runnable, runnable.getType());
     }
 
-    public Thread getInstance(final ABRunnable runnable)
+    public Thread getInstanceForRunnable(final ABRunnable runnable)
     {
-        return this.getInstance(runnable, runnable.getType());
+        return this.getInstanceType(runnable, runnable.getType());
     }
     
-    private Thread getInstance(final Runnable runnable, final int type)
+    private Thread getInstanceType(final Runnable runnable, final int type)
     {
         final CommonStrings commonStrings = CommonStrings.getInstance();
 

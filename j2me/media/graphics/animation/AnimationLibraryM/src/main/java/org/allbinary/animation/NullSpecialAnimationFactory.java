@@ -37,7 +37,7 @@ public class NullSpecialAnimationFactory implements
    }
    
    @Override
-   public Animation getInstance(final Animation animationInterface)
+   public Animation getInstanceAnimation(final Animation animationInterface)
        throws Exception
    {
        return SpecialAnimation.getInstance();

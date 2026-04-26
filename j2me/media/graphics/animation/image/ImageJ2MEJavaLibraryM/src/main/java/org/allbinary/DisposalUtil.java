@@ -32,11 +32,11 @@ public class DisposalUtil {
         return instance;
     }
 
-    public void dispose(final Image image) {
+    public void disposeImage(final Image image) {
         
     }
     
-    public void dispose(final Resource resource) {
+    public void disposeResource(final Resource resource) {
         if(!resource.isDisposed()) {
             resource.dispose();
         }

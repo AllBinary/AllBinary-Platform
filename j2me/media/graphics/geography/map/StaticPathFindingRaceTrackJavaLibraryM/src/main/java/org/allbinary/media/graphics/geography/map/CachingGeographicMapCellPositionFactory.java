@@ -31,7 +31,7 @@ public class CachingGeographicMapCellPositionFactory extends
     {
         final Hashtable hashtable = GeographicMapCellPositionFactory.getHashtable();
         
-        final String cellPositionKey = CellPosition.toString(i_column, i_row);
+        final String cellPositionKey = CellPosition.toStringColRow(i_column, i_row);
 
         Object cellPositionCanBeNull =  hashtable.get(cellPositionKey);
 

@@ -21,7 +21,6 @@ import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
-import org.allbinary.graphics.color.BasicColorUtil;
 import org.allbinary.graphics.color.ColorCompositeInterface;
 import org.allbinary.logic.math.PrimitiveIntUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -95,7 +94,7 @@ public class SpriteIndexedAnimation extends IndexedAnimation
      * this.setDx(dx); this.setDy(dy); }
      */
 
-    public void paint(final Graphics graphics, final int frame, final int x, final int y)
+    public void paintFrame(final Graphics graphics, final int frame, final int x, final int y)
     {
         this.setFrame(frame);
         this.sprite.setPosition(x, y);
@@ -103,7 +102,7 @@ public class SpriteIndexedAnimation extends IndexedAnimation
     }
 
     @Override
-    public void paint(final Graphics graphics, final int x, final int y)
+    public void paintXY(final Graphics graphics, final int x, final int y)
     {
         this.sprite.setPosition(x, y);
         this.sprite.paint(graphics);

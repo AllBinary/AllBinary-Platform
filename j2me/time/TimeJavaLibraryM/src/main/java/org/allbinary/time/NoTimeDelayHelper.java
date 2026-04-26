@@ -27,13 +27,13 @@ public class NoTimeDelayHelper extends TimeDelayHelper {
     }
 
     @Override
-    public boolean isTime()
+    public boolean isTimeTNT()
     {
         return true;
     }
     
     @Override
-    public boolean isTimeSince(int delay)
+    public boolean isTimeSinceTNT(int delay)
     {
         return true;
     }

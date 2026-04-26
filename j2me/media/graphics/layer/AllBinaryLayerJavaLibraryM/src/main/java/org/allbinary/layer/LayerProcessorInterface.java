@@ -18,8 +18,8 @@ extends BasicLayerProcessorInterface
 {
     LayerManager getLayerManager();
 
-    void process(AllBinaryLayerManager allBinaryLayerManager,
-            AllBinaryLayer layerInterface, int index) throws Exception;
+    void processAt(AllBinaryLayerManager allBinaryLayerManager,
+                   AllBinaryLayer layerInterface, int index) throws Exception;
 
     boolean isProcessorLayer(AllBinaryLayer layerInterface) throws Exception;
 }

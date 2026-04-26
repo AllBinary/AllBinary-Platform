@@ -16,8 +16,6 @@ package org.allbinary.media.image;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.string.StringMaker;
 import org.microemu.device.playn.PlaynImmutableImage;
 import org.microemu.device.playn.PlaynMutableImage;
 import playn.core.CanvasImage;
@@ -44,7 +42,7 @@ public class ImageJ2MEScaleUtil {
         
     }
     
-    public Image[] scale(Image[] images, int width, int height)
+    public Image[] scaleArray(Image[] images, int width, int height)
             throws Exception
     {
         Image[] scaledImages = new Image[images.length];

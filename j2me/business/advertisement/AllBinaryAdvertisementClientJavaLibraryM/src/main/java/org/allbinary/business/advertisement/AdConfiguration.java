@@ -22,7 +22,7 @@ public class AdConfiguration
     public final String LEADBOLT;
     public final String ADMOB;
     
-    public AdConfiguration(Object[] advertIdArray)
+    public AdConfiguration(final Object[] advertIdArray)
     {
         this.INNERACTIVE = (String) advertIdArray[0];
         this.ADMOB = (String) advertIdArray[1];
@@ -35,12 +35,12 @@ public class AdConfiguration
     }
     
     //Special in gamestate based processing
-    public void process(GameState gameState)
+    public void process(final GameState gameState)
     {
     }
     
     //Special Demo processing
-    public void process(int state)
+    public void processDemo(final int state)
     {
     }
 
@@ -48,7 +48,7 @@ public class AdConfiguration
     {
     }
     
-    public void setShowAds(boolean showAds)
+    public void setToggleAds(final boolean showAds)
     {
     }
 

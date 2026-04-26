@@ -136,7 +136,7 @@ public class AllBinaryAndroidImageRotationAnimationFactory
     private Image getCanvasImage() throws Exception {
         final Features features = Features.getInstance();
         if(this.resizeCanvasForRotation && !features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL)) {
-            return ImageCopyUtil.getInstance().createImage(this.getImage(), 1.44f, false);
+            return ImageCopyUtil.getInstance().createImageScale(this.getImage(), 1.44f, false);
         } else {
             return this.getImage();
         }

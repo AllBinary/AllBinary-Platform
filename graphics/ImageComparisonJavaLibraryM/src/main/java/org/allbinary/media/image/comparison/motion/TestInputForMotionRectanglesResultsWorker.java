@@ -88,7 +88,7 @@ public class TestInputForMotionRectanglesResultsWorker
          
          TimeDelayHelper timeHelper = new TimeDelayHelper(1000);
          
-         timeHelper.setStartTime();
+         timeHelper.setStartTimeTNT();
 
          MotionRectangles motionRectangles = (MotionRectangles)
             this.getMotionRectanglesVector().get(0);
@@ -154,7 +154,7 @@ public class TestInputForMotionRectanglesResultsWorker
          this.getMotionRectanglesVector().remove(motionRectangles);
 
          this.logUtil.putF(
-            CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN);
+            CommonLabels.getInstance().ELAPSED + timeHelper.getElapsedTNT(), this, this.commonStrings.RUN);
          
          this.logUtil.putF(this.commonStrings.END, this, this.commonStrings.RUN);
       }

@@ -19,7 +19,6 @@ import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
-import org.allbinary.util.BasicArrayListD;
 
 public class GameInput {
     
@@ -79,7 +78,7 @@ public class GameInput {
           gameKeyEvent = (GameKeyEvent) list.objectArray[index];
           //if (((GameKeyEventSourceInterface) gameKeyEvent.getSource()).getSourceId() != 1) {
           if (gameKeyEvent.getSourceId() != 1) {
-             list.remove(index);
+             list.removeAt(index);
           }
        }
        //System.out.println("List Size After: " + list.size());
@@ -107,7 +106,7 @@ public class GameInput {
          Object object = removeList.objectArray[index];
          for (int index2 = list.size(); --index2 >= 0;) {
             if (list.objectArray[index2] == object) {
-               list.remove(index2);
+               list.removeAt(index2);
             }
          }
       }

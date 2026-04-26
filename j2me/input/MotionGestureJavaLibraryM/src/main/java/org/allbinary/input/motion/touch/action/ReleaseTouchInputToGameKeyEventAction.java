@@ -19,7 +19,6 @@ import org.allbinary.game.input.PlatformInputMappingFactory;
 import org.allbinary.game.input.event.GameKeyEventFactory;
 import org.allbinary.game.input.motion.action.GameKeyCompleteMotionGestureInputEvent;
 import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 
 public class ReleaseTouchInputToGameKeyEventAction extends GameKeyCompleteMotionGestureInputEvent
@@ -42,7 +41,7 @@ public class ReleaseTouchInputToGameKeyEventAction extends GameKeyCompleteMotion
         try
         {
             this.setGameKey(this.NONE);
-            this.setGameKeyEvent(GameKeyEventFactory.getInstance().getInstance(this, NONE));
+            this.setGameKeyEvent(GameKeyEventFactory.getInstance().getInstanceForInput(this, NONE));
 
         }
         catch (Exception e)

@@ -81,7 +81,7 @@ public class ImageAnimation extends IndexedAnimation //implements AutoCloseable
     private int anchor = Anchor.TOP_LEFT;
     
     @Override
-    public void paint(Graphics graphics, int x, int y)
+    public void paintXY(Graphics graphics, int x, int y)
     {
         graphics.drawImage(this.image, x, y, anchor);
     }
@@ -104,12 +104,12 @@ public class ImageAnimation extends IndexedAnimation //implements AutoCloseable
     //java.lang.ref.WeakReference
     //java.lang.ref.PhantomReference
     public void close() throws Exception {
-        DisposalUtil.getInstance().dispose(this.image);
+        DisposalUtil.getInstance().disposeImage(this.image);
     }
     
     @Override
     protected void finalize() throws Throwable {
-        DisposalUtil.getInstance().dispose(this.image);
+        DisposalUtil.getInstance().disposeImage(this.image);
     }
     
 }

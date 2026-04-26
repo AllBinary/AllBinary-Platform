@@ -32,7 +32,7 @@ public class SingletonAnimationInterfaceFactory
     }
 
     @Override
-    public Animation getInstance(final Animation animationInterface)
+    public Animation getInstanceAnimation(final Animation animationInterface)
         throws Exception
     {
         return this.animationInterface;

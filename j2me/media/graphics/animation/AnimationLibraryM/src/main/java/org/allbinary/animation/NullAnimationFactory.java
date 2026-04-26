@@ -24,7 +24,7 @@ public class NullAnimationFactory implements
    private static NullAnimationFactory NULL_ANIMATION_FACTORY = new NullAnimationFactory();
    
    private final Animation NULL_ANIMATION = new Animation() {
-       public void paint(final Graphics graphics, final int x, final int y) {
+       public void paintXY(final Graphics graphics, final int x, final int y) {
        }
    };
    
@@ -46,7 +46,7 @@ public class NullAnimationFactory implements
    }
    
    @Override
-   public Animation getInstance(Animation animationInterface)
+   public Animation getInstanceAnimation(Animation animationInterface)
        throws Exception
    {
        return NULL_ANIMATION;

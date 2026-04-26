@@ -17,7 +17,6 @@ import javax.microedition.lcdui.Image;
 
 import org.allbinary.string.CommonStrings;
 import org.eclipse.swt.graphics.Resource;
-import org.microemu.device.swt.SwtImmutableImage;
 import org.microemu.device.swt.SwtMutableImage;
 
 /**
@@ -37,7 +36,7 @@ public class DisposalUtil {
     
     private final CommonStrings commonStrings = CommonStrings.getInstance();
 
-    public void dispose(final Image image) {
+    public void disposeImage(final Image image) {
         
         if(image == null) {
             return;
@@ -45,14 +44,14 @@ public class DisposalUtil {
 
         if (image.isMutable()) {
             final SwtMutableImage mutableImage = (SwtMutableImage) image;
-            this.dispose((Resource) mutableImage.getImage());
+            this.disposeResource((Resource) mutableImage.getImage());
         } else {
             //final SwtImmutableImage immutableImage = (SwtImmutableImage) image;
             //this.dispose(immutableImage.getImage());
         }
     }
     
-    public void dispose(final Resource resource) {
+    public void disposeResource(final Resource resource) {
         if(!resource.isDisposed()) {
             System.out.println(this.commonStrings.CLOSE);
             resource.dispose();

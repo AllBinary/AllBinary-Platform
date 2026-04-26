@@ -50,7 +50,7 @@ public class BasicGeographicMapExtractedPathsCacheFactory
     {
         if (this.list.size() > 0)
         {
-            return (BasicArrayList) this.list.remove(0);
+            return (BasicArrayList) this.list.removeAt(0);
         }
         else
         {

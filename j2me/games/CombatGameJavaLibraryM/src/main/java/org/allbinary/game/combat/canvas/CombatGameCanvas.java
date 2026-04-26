@@ -49,25 +49,25 @@ public class CombatGameCanvas extends AllBinaryGameCanvas
     private void CombatGameCanvas_init()
     {
         DestroyEventCircularStaticPool.getInstance().init(this);
-        ProgressCanvasFactory.getInstance().addPortion(50, "Destroy Events");
+        ProgressCanvasFactory.getInstance().addNormalPortion(50, "Destroy Events");
 
         // this.getLayerProcessorVector().insertElementAt(, 1);
         // this.getLayerProcessorVector().add(new TrackingLayerProcessor());
     }
 
     @Override
-    protected void init(final AbeClientInformationInterface abeClientInformation) throws Exception
+    protected void initApp(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
         this.CombatGameCanvas_init();
         
-        super.init(abeClientInformation);
+        super.initApp(abeClientInformation);
     }
     
     protected void initConfigurable(final int portion)
     {
         DestroyedLayerProcessor.init();
 
-        ProgressCanvasFactory.getInstance().addPortion(portion, "Basic Processors");
+        ProgressCanvasFactory.getInstance().addNormalPortion(portion, "Basic Processors");
 
         Features features = Features.getInstance();
         GameFeatureFactory gameFeatureFactory = GameFeatureFactory.getInstance();

@@ -214,7 +214,7 @@ public class DemoCanvas extends RunnableCanvas
             this.addCommand(GameCommandsFactory.getInstance().CONTINUE_COMMAND);
         }
 
-        if (ChangedGameFeatureListener.getInstance().isChanged(
+        if (ChangedGameFeatureListener.getInstance().isChangedFeature(
             GameFeatureFactory.getInstance().SOUND))
         {
             this.mediaInit();
@@ -419,30 +419,30 @@ public class DemoCanvas extends RunnableCanvas
     @Override
     public void keyPressed(int keyCode)
     {
-        this.keyPressed(keyCode, 0);
+        this.keyPressedByDevice(keyCode, 0);
     }
     
     @Override
     public void keyReleased(int keyCode)
     {
-        this.keyReleased(keyCode, 0);
+        this.keyReleasedByDevice(keyCode, 0);
     }
 
     @Override
     public void keyRepeated(int keyCode)
     {
-        this.keyRepeated(keyCode, 0);
+        this.keyRepeatedByDevice(keyCode, 0);
     }
     
     @Override
-    public void keyPressed(int keyCode, int deviceId)
+    public void keyPressedByDevice(int keyCode, int deviceId)
     {
         // this.logUtil.putF(commonStrings.START, this, gameInputStrings.KEY_PRESSED);
         this.addGameKeyEvent(keyCode, false);
     }
 
     @Override
-    public void keyReleased(int keyCode, int deviceId)
+    public void keyReleasedByDevice(int keyCode, int deviceId)
     {
         // this.logUtil.putF(commonStrings.START, this, gameInputStrings.KEY_RELEASED);
         this.removeGameKeyEvent(keyCode, false);
@@ -451,7 +451,7 @@ public class DemoCanvas extends RunnableCanvas
         Features.getInstance().isFeature(InputFeatureFactory.getInstance().SINGLE_KEY_REPEAT_PRESS);
 
     @Override
-    public void keyRepeated(int keyCode, int deviceId)
+    public void keyRepeatedByDevice(int keyCode, int deviceId)
     {
         // this.logUtil.putF("Key Repeated: " +
         // Integer.toHexString(keyCode), // this, gameInputStrings.KEY_REPEATED);
@@ -473,13 +473,13 @@ public class DemoCanvas extends RunnableCanvas
         {
             //this.logUtil.putF(new StringMaker().append("Key Code (Hex): ").append(Integer.toHexString(keyCode)).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
 
-            GameKey gameKey = this.inputToGameKeyMapping.getInstance(this, keyCode);
+            GameKey gameKey = this.inputToGameKeyMapping.getInstanceForCanvas(this, keyCode);
 
             //this.logUtil.putF(new StringMaker().append("GameKey: ").append(gameKey).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
 
             if (gameKey != this.NONE)
             {
-                GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstance(this, gameKey);
+                GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstanceForInput(this, gameKey);
                 /*
                  * //This is for key input debugging only GameKeyEvent
                  * gameKeyEvent = GameKeyEventFactory.getInstance(this, keyCode,
@@ -510,13 +510,13 @@ public class DemoCanvas extends RunnableCanvas
         {
             // this.logUtil.putF(new StringMaker().append("Key Code: " + Integer.toHexString(keyCode), this, this.gameInputStrings.REMOVE_KEY_EVENT);
 
-            GameKey gameKey = this.inputToGameKeyMapping.getInstance(this, keyCode);
+            GameKey gameKey = this.inputToGameKeyMapping.getInstanceForCanvas(this, keyCode);
 
             //this.logUtil.putF("GameKey: ").append(gameKey, this, this.gameInputStrings.REMOVE_KEY_EVENT);
 
             if (gameKey != this.NONE)
             {
-                GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstance(this, gameKey);
+                GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstanceForInput(this, gameKey);
 
                 /*
                  * //This is for key input debugging only GameKeyEvent
@@ -617,7 +617,7 @@ public class DemoCanvas extends RunnableCanvas
         this.paintableInterface.paint(graphics);
         
         // Draw title animation
-        this.paintedSpecialAnimationInterface.paint(graphics, 0, 0);
+        this.paintedSpecialAnimationInterface.paintXY(graphics, 0, 0);
         
         //paints the high scores when in that state
         this.highScoresPaintable.paint(graphics);
@@ -646,7 +646,7 @@ public class DemoCanvas extends RunnableCanvas
     }
     
     @Override
-    public synchronized void setGameOver()
+    public synchronized void processGameOver()
     {
         this.logUtil.putF("Not Implemented since not a game", this, "setGameOver");
     }
@@ -680,12 +680,12 @@ public class DemoCanvas extends RunnableCanvas
 
         this.setState(newState);
         
-        this.setState();
+        this.updateDemoState();
     }
 
     private final String SET_STATE = "setState";
     
-    protected void setState()
+    protected void updateDemoState()
     {
         PreLogUtil.put(SmallIntegerSingletonFactory.getInstance().createInstance(this.state).toString(), this, SET_STATE);
         //this.logUtil.putF("Current Demo State: ").append(this.getState(), this, SET_STATE);
@@ -778,7 +778,7 @@ public class DemoCanvas extends RunnableCanvas
 //        }
         
         
-        this.canvasThread = this.threadFactoryUtil.getInstance(gameCanvas);
+        this.canvasThread = this.threadFactoryUtil.getInstanceGameCanvasRunnable(gameCanvas);
         this.gameCanvas.setThread(this.canvasThread);
 
         //PreLogUtil.put("Game Thread Priority: ").append(
@@ -821,7 +821,7 @@ public class DemoCanvas extends RunnableCanvas
         
         super.process();
         
-        this.getMenuInputProcessor().processInput();
+        this.getMenuInputProcessor().processInputList();
 
         this.preDemoProcess();
 
@@ -831,7 +831,7 @@ public class DemoCanvas extends RunnableCanvas
             final IndexedAnimationBehavior indexedAnimationBehavior = ((IndexedAnimationBehavior) this.getSpecialAnimationInterface().getAnimationBehavior());
             if (indexedAnimationBehavior.loopIndex < 1)
             {
-                this.timeDelayHelper.setStartTime();
+                this.timeDelayHelper.setStartTimeTNT();
             }
 
             DemoGameMidlet demoGameMidlet =
@@ -868,7 +868,7 @@ public class DemoCanvas extends RunnableCanvas
                     this.startDemoGame();
                     
                     this.demoGameRunnable.setRunning(true);
-                    final Thread thread = this.threadFactoryUtil.getInstance(this.demoGameRunnable);
+                    final Thread thread = this.threadFactoryUtil.getInstanceForRunnable(this.demoGameRunnable);
                     this.demoGameRunnable.setThread(thread);
                     //I guess that setting a thread priority sets threads created by a thread to the same priority
                     //Don't un-remark thread.setPriority(Thread.MIN_PRIORITY);
@@ -950,7 +950,7 @@ public class DemoCanvas extends RunnableCanvas
 
         // || this.circularIndexUtil.getSize() > 0
         
-        if (this.timeDelayHelper.isTime() && this.isReadyForStateChange())
+        if (this.timeDelayHelper.isTimeTNT() && this.isReadyForStateChange())
         {
             this.demoStateChange();
         }
@@ -973,7 +973,7 @@ public class DemoCanvas extends RunnableCanvas
             final Features features = Features.getInstance();
             final OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
 
-            progressCanvas.addPortion(50, "Demo Thread");
+            progressCanvas.addNormalPortion(50, "Demo Thread");
 
             this.setCurrentThread();
             this.setRunning(true);
@@ -986,14 +986,14 @@ public class DemoCanvas extends RunnableCanvas
             }
             else
             {
-                progressCanvas.addPortion(50, "Demo Thread Running");
+                progressCanvas.addNormalPortion(50, "Demo Thread Running");
             }
 
-            this.fullScreenUtil.init(this, this.getCustomCommandListener());
+            this.fullScreenUtil.initOnRun(this, this.getCustomCommandListener());
 
             this.initMenu();
             this.initPostPaint();
-            this.setState();
+            this.updateDemoState();
 
             //final TimeDelayHelper runningTimeDelayHelper = new TimeDelayHelper(12000);
             
@@ -1031,7 +1031,7 @@ public class DemoCanvas extends RunnableCanvas
                 {
                     //PreLogUtil.put(commonStrings.START, this, "OPENGL_AS_GAME_THREAD2");
                     
-                    this.loopTimeHelper.setStartTime();
+                    this.loopTimeHelper.setStartTimeTNT();
 
                     this.processGame();
 
@@ -1085,7 +1085,7 @@ public class DemoCanvas extends RunnableCanvas
 
     public void run3() throws Exception {
         
-        this.loopTimeHelper.setStartTime();
+        this.loopTimeHelper.setStartTimeTNT();
 
         this.processGame();
 

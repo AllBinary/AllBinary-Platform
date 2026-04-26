@@ -40,7 +40,7 @@ public class RaceTrackGeographicMap extends BaseRaceTrackGeographicMap {
             geographicMapCellPositionBaseFactory,
             geographicMapCellTypeFactory);
 
-        this.customMapGenerator = customMapGeneratorBaseFactory.getInstance(this);
+        this.customMapGenerator = customMapGeneratorBaseFactory.create(this);
     }
 
     public CustomMapGeneratorBase getCustomMapGenerator() {

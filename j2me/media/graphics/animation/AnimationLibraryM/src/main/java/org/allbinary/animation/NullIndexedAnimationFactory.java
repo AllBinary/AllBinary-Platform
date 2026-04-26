@@ -25,7 +25,7 @@ public class NullIndexedAnimationFactory implements
    private final Animation NULL_ANIMATION = new NullIndexedAnimation(AnimationBehavior.getInstance()) {
        
        @Override
-       public void paint(final Graphics graphics, final int x, final int y) {
+       public void paintXY(final Graphics graphics, final int x, final int y) {
        }
    };
    
@@ -45,7 +45,7 @@ public class NullIndexedAnimationFactory implements
    }
    
    @Override
-   public Animation getInstance(final Animation animationInterface)
+   public Animation getInstanceAnimation(final Animation animationInterface)
        throws Exception
    {
        return NULL_ANIMATION;

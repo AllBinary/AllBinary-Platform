@@ -68,9 +68,9 @@ extends AllBinaryJ2SEImageRotationAnimation
     }    
 
     @Override
-    public void paint(final Graphics graphics, final int x, final int y)
+    public void paintXY(final Graphics graphics, final int x, final int y)
     {
-        super.paint(graphics, x + this.dx, y + this.dy);
+        super.paintXY(graphics, x + this.dx, y + this.dy);
     }
 
 }

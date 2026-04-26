@@ -97,10 +97,10 @@ public class AllBinaryCollisionManager
        
       if(collidableBase2.isCollidable())
       {
-         if(collidableBase.isCollision(collidableInterfaceCompositeInterface2))
+         if(collidableBase.isCollisionInterface(collidableInterfaceCompositeInterface2))
          {
-             collidableBase.collide(collidableInterfaceCompositeInterface2);
-             collidableBase2.collide(collidableInterfaceCompositeInterface);            
+             collidableBase.collideInterface(collidableInterfaceCompositeInterface2);
+             collidableBase2.collideInterface(collidableInterfaceCompositeInterface);
          }
       }
    }

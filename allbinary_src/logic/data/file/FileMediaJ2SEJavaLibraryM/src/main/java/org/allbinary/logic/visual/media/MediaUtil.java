@@ -54,7 +54,7 @@ public class MediaUtil
         imageFile.createNewFile();
 
         final ImageUtil imageUtil = ImageUtil.getInstance();
-        BufferedImage newBufferedImage = imageUtil.createBufferedImage(
+        BufferedImage newBufferedImage = imageUtil.createBufferedImageForSave(
             bufferedImage, newWidth, newHeight);
 
         boolean isWritten = ImageIOUtil.write(

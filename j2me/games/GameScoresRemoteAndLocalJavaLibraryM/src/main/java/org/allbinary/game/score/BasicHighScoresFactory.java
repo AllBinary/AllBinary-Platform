@@ -52,10 +52,10 @@ public class BasicHighScoresFactory extends HighScoresBase
     public void fetchHighScores(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener)
     {
         this.logUtil.putF("Getting Remote/Local HighScores", this, FETCH);
-        this.fetchHighScores(gameInfo, highScoresResultsListener, true);
+        this.fetchHighScoresPreload(gameInfo, highScoresResultsListener, true);
     }
     
-    public void fetchHighScores(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener, final boolean preload)
+    public void fetchHighScoresPreload(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener, final boolean preload)
     {
         //System.gc();
 
@@ -82,7 +82,7 @@ public class BasicHighScoresFactory extends HighScoresBase
 
                     highScoresArray[1]
                         = //RemoteErrorHighScoresSingletonFactory.getInstance();
-                        RemoteHighScores.getInstance(abeClientInformation,
+                        RemoteHighScores.getInstancePreload(abeClientInformation,
                             softwareInformation, gameInfo2,
                             WORLD_TOP_SCORES, SCORES, BooleanFactory.getInstance().FALSE, preload);
 

@@ -90,7 +90,7 @@ public class ScrollSelectionForm extends PaintableForm
         this.border = border;
         this.halfBorder = (border >> 1);
 
-        this.paintable = formPaintableFactory.getInstance(this);
+        this.paintable = formPaintableFactory.getInstanceItemPaintable(this);
     }
 
     @Override

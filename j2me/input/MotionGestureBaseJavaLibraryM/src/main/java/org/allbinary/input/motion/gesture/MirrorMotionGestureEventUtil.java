@@ -28,7 +28,7 @@ public class MirrorMotionGestureEventUtil
     private MirrorMotionGestureEventUtil()
     {
         this.motionEventCircularPool =
-            MotionEventCircularPool.getInstance(Integer.MAX_VALUE);
+            MotionEventCircularPool.create(Integer.MAX_VALUE);
     }
     
     public MotionGestureEvent mirrorVerticle(final MotionGestureEvent motionGestureEvent, final int halfWidth)
@@ -46,10 +46,10 @@ public class MirrorMotionGestureEventUtil
         
         final PointFactory pointFactory = PointFactory.getInstance();
         
-        final GPoint mirroredPreviousPoint = pointFactory.getInstance0(
+        final GPoint mirroredPreviousPoint = pointFactory.createXY(
                 previousNewX, motionGestureEvent.getPreviousPoint().getY());
 
-        final GPoint mirroredCurrentPoint = pointFactory.getInstance0(
+        final GPoint mirroredCurrentPoint = pointFactory.createXY(
                 currentNewX, motionGestureEvent.getCurrentPoint().getY());
         
         event.setPreviousPoint(mirroredPreviousPoint);

@@ -31,7 +31,7 @@ public class AllBinaryGameLayerManager extends AllBinaryLayerManager
     public static final AllBinaryGameLayerManager NULL_ALLBINARY_LAYER_MANAGER = new AllBinaryGameLayerManager(
         BasicColorFactory.getInstance().BLACK, BasicColorFactory.getInstance().WHITE, GameInfo.NONE);
     
-    public static final Integer ID = SmallIntegerSingletonFactory.getInstance().getInstance(22);
+    public static final Integer ID = SmallIntegerSingletonFactory.getInstance().getAt(22);
 
     private BasicColor backgroundBasicColor;
     private BasicColor foregroundBasicColor;

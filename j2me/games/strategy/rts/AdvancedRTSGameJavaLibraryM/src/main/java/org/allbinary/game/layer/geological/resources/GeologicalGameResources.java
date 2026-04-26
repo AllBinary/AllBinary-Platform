@@ -38,9 +38,9 @@ public class GeologicalGameResources extends BasicGameResources
     }
 
     @Override
-    protected void init(String ROOT, String sizeString) throws Exception
+    protected void append(String ROOT, String sizeString) throws Exception
     {
-        super.init(ROOT, sizeString);
+        super.append(ROOT, sizeString);
     }
 
     @Override
@@ -48,7 +48,7 @@ public class GeologicalGameResources extends BasicGameResources
     {
         if (AndroidUtil.isAndroid())
         {
-            return GameGraphicsResourceUtil.getInstance().getString(
+            return GameGraphicsResourceUtil.getInstance().getStringForFeature(
                     GraphicsFeatureFactory.getInstance().SPRITE_QUARTER_ROTATION_GRAPHICS);
         } else
         {

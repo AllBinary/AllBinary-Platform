@@ -44,7 +44,7 @@ extends BaseImageAnimationFactory
             androidImageInterface.getBitmap().recycle();
     	}
 
-    	float scale = ScreenRelationalUtil.getInstance().getScale(image);
+    	float scale = ScreenRelationalUtil.getInstance().getScaleImage(image);
 
     	this.lastImage = 
         		//Image.createImage(displayInfoSingleton.getLastWidth(), displayInfoSingleton.getLastHeight());

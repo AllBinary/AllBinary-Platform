@@ -37,7 +37,7 @@ extends SpriteIndexedAnimation
     }
 
     @Override
-    public void paint(final Graphics graphics, final int frame, final int x, final int y)
+    public void paintFrame(final Graphics graphics, final int frame, final int x, final int y)
     {
         this.setFrame(frame);
         this.sprite.setPosition(x + this.dx, y + this.dy);
@@ -45,7 +45,7 @@ extends SpriteIndexedAnimation
     }
     
     @Override
-    public void paint(final Graphics g, final int x, final int y)
+    public void paintXY(final Graphics g, final int x, final int y)
     {
         this.sprite.setPosition(x + this.dx, y + this.dy);
         super.paint(g);

@@ -26,7 +26,7 @@ public class Processor
     {
     }
 
-    public void process(final long timeDelta) throws Exception
+    public void processt(final long timeDelta) throws Exception
     {
     }
 }

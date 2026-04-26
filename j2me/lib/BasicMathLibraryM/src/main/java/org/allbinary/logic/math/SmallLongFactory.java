@@ -34,7 +34,7 @@ public class SmallLongFactory
     public int lastMin = 0;
     public int lastNegativeMin = 0;
 
-    public void init(int value, int negativeValue)
+    public void initWithRange(int value, int negativeValue)
     {
         for (int index = value - 1; index >= this.lastMin; index--)
         {

@@ -62,7 +62,7 @@ public class WaypointInfoHudPaintable extends SelectionHudPaintable
         final int textLine2Y = (y + myFont.DEFAULT_CHAR_HEIGHT);
         this.keyvalueDrawString.paint(graphics, textLine2Y);
         
-        this.getAnimationInterface().paint(graphics, this.imageX, y);
+        this.getAnimationInterface().paintXY(graphics, this.imageX, y);
     }
 
     public void setRtsLayer(RTSLayer rtsLayer)

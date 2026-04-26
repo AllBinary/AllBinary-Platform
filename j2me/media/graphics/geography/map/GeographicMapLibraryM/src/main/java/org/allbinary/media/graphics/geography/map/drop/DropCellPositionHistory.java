@@ -38,13 +38,13 @@ public class DropCellPositionHistory
     private BasicArrayList positionList = new BasicArrayListD();
     private BasicArrayList layerList = new BasicArrayListD();
 
-    public void add(CellPosition cellPosition, AllBinaryLayer layerInterface)
+    public void add(final CellPosition cellPosition, final AllBinaryLayer layerInterface)
     {
         this.positionList.add(cellPosition);
         this.layerList.add(layerInterface);
     }
 
-    public void add(BasicArrayList list, AllBinaryLayer layerInterface)
+    public void addAll(final BasicArrayList list, final AllBinaryLayer layerInterface)
     {
         for (int index = list.size() - 1; index >= 0; index--)
         {
@@ -52,17 +52,17 @@ public class DropCellPositionHistory
         }
     }
 
-    public void remove(CellPosition cellPosition)
+    public void remove(final CellPosition cellPosition)
     {
         int index = this.positionList.indexOf(cellPosition);
         if (index >= 0)
         {
-            this.positionList.remove(index);
-            this.layerList.remove(index);
+            this.positionList.removeAt(index);
+            this.layerList.removeAt(index);
         }
     }
 
-    public void remove(AllBinaryLayer layerInterface)
+    public void removeAll(final AllBinaryLayer layerInterface)
     {
         int index = 0;
 
@@ -71,8 +71,8 @@ public class DropCellPositionHistory
             index = this.layerList.indexOf(layerInterface);
             if (index >= 0)
             {
-                this.positionList.remove(index);
-                this.layerList.remove(index);
+                this.positionList.removeAt(index);
+                this.layerList.removeAt(index);
             }
         }
     }
@@ -83,12 +83,12 @@ public class DropCellPositionHistory
         this.layerList.clear();
     }
 
-    public boolean isCellPositionWithDrop(CellPosition cellPosition)
+    public boolean isCellPositionWithDrop(final CellPosition cellPosition)
     {
         return positionList.contains(cellPosition);
     }
 
-    public boolean anyCellPositionWithDrop(BasicArrayList list)
+    public boolean anyCellPositionWithDrop(final BasicArrayList list)
     {
         for (int index = list.size() - 1; index >= 0; index--)
         {
@@ -100,11 +100,12 @@ public class DropCellPositionHistory
         return false;
     }
 
-    public CellPosition getCellPositionWithDrop(BasicArrayList list)
+    public CellPosition getCellPositionWithDrop(final BasicArrayList list)
     {
+        CellPosition cellPosition;
         for (int index = list.size() - 1; index >= 0; index--)
         {
-            CellPosition cellPosition = (CellPosition) list.get(index);
+            cellPosition = (CellPosition) list.get(index);
             
             if (this.isCellPositionWithDrop(cellPosition))
             {
@@ -114,7 +115,7 @@ public class DropCellPositionHistory
         return this.cellPositionFactory.NONE;
     }
     
-    public AllBinaryLayer getLayerInterface(CellPosition cellPosition)
+    public AllBinaryLayer getLayerInterface(final CellPosition cellPosition)
     {
         int index = this.positionList.indexOf(cellPosition);
         if (index >= 0)

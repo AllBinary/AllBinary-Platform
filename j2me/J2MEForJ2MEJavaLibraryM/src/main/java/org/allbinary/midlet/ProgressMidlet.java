@@ -14,7 +14,6 @@
 package org.allbinary.midlet;
 
 import org.allbinary.canvas.Processor;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.ClientInformationFactory;
 import org.allbinary.thread.PrimaryThreadPool;
@@ -37,7 +36,7 @@ public class ProgressMidlet extends AllBinaryMidlet
     protected void exit(boolean isProgress)
     {
 
-        final Processor processor = MidletExitProcessorFactory.getInstance().getInstance(this);
+        final Processor processor = MidletExitProcessorFactory.getInstance().getExitInstance(this);
         
         try
         {

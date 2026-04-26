@@ -40,7 +40,7 @@ public class BasicGameResources
 
             if (scale > 1 && scale - 1 < SIZE.length)
             {
-                this.init(ROOT, SIZE[scale - 1]);
+                this.append(ROOT, SIZE[scale - 1]);
             } else
             {
                 throw new Exception(new StringMaker().append("Invalid Value: ").appendint(scale).toString());
@@ -53,19 +53,13 @@ public class BasicGameResources
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
         }
     }
-
-    protected String getString()
-        throws Exception
-    {
-        return GameGraphicsResourceUtil.getInstance().getName();
-    }
     
-    protected void init(String ROOT, String sizeString) 
+    protected void append(String ROOT, String sizeString)
         throws Exception
     {
         final String DESTROY = "_destroy";
 
-        String string = this.getString();
+        final String string = this.getString();
         
         stringBuffer.delete(0, stringBuffer.length());
         stringBuffer.append(ROOT);
@@ -82,4 +76,11 @@ public class BasicGameResources
         
         this.RESOURCE_DESTROY = stringBuffer.toString();
     }
+
+    protected String getString()
+            throws Exception
+    {
+        return GameGraphicsResourceUtil.getInstance().getName();
+    }
+
 }

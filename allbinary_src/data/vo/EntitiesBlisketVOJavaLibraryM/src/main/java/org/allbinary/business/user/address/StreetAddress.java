@@ -373,7 +373,7 @@ public class StreetAddress
       for (int i = 0; i < size; i++)
       {
          String name = (String) keyArray[i];
-         String value = stringUtil.getInstance((String) hashMap.get(name));
+         String value = stringUtil.getNonNull((String) hashMap.get(name));
          
          node.appendChild(ModDomHelper.createNameValueNodes(document, name, value));         
       }

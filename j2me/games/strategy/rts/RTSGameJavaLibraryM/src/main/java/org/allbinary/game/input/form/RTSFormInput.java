@@ -78,7 +78,7 @@ public class RTSFormInput
         
     }
         
-    public void process(
+    public void processAtPoint(
         final CollidableDestroyableDamageableLayer associatedRtsLayer,
         final RTSPlayerLayerInterface rtsPlayerLayerInterface,
         final AllBinaryLayerManager layerManager, final GPoint point)
@@ -101,7 +101,7 @@ public class RTSFormInput
             return;
         }
 
-        this.process(
+        this.processGameSpecific(
             associatedRtsLayer,
             rtsPlayerLayerInterface,
             layerManager, item, index);
@@ -112,7 +112,7 @@ public class RTSFormInput
         this.setAllBinaryGameLayerManager((AllBinaryGameLayerManager) layerManager);
     }
     
-    public void process(
+    public void processGameSpecific(
         final CollidableDestroyableDamageableLayer associatedRtsLayer,
         final RTSPlayerLayerInterface rtsPlayerLayerInterface,
         final AllBinaryLayerManager layerManager, final CustomItem item, final int index)
@@ -143,7 +143,7 @@ public class RTSFormInput
             return false;
         }
 
-        this.processSticky(
+        this.processStickyGameSpecific(
             associatedRtsLayer,
             rtsPlayerLayerInterface,
             layerManager, item, index);
@@ -151,7 +151,7 @@ public class RTSFormInput
         return true;
     }
 
-    public void processSticky(
+    public void processStickyGameSpecific(
         CollidableDestroyableDamageableLayer associatedRtsLayer,
         RTSPlayerLayerInterface rtsPlayerLayerInterface,
         AllBinaryLayerManager layerManager, CustomItem item, int index)
@@ -206,7 +206,7 @@ public class RTSFormInput
         if (layerInterfaceFactoryInterface != null)
         {
             this.hashtable.put(AllBinaryGameLayerManager.ID, layerManager);
-            return (RTSLayer) layerInterfaceFactoryInterface.getInstance(
+            return (RTSLayer) layerInterfaceFactoryInterface.getNextInstance(
                 getHashtable(), cellPoint.getX(), cellPoint.getY(), cellPoint.getZ());
             //lastLayerInterfaceFactoryInterface = layerInterfaceFactoryInterface;
         }

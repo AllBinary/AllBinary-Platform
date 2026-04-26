@@ -25,8 +25,8 @@ public class CollidableInterfaceLayerProcessor extends LayerProcessor {
     }
 
     @Override
-    public void process(AllBinaryLayerManager allBinaryLayerManager,
-        AllBinaryLayer layerInterface, int index)
+    public void processAt(AllBinaryLayerManager allBinaryLayerManager,
+                          AllBinaryLayer layerInterface, int index)
         throws Exception {
         //no physics here - just destroy them
         CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface =

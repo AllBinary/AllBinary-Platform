@@ -78,13 +78,13 @@ public class RaceTrackAdjacentDropCellPositionGenerator
             this.raceTrackGeographicMap.getGeographicMapCellPositionFactory();
 
         this.surroundingCellPositions[0] =
-            geographicMapCellPositionFactory.getInstance(column, row - 1);
+            geographicMapCellPositionFactory.getAt(column, row - 1);
         this.surroundingCellPositions[1] =
-            geographicMapCellPositionFactory.getInstance(column, row + 1);
+            geographicMapCellPositionFactory.getAt(column, row + 1);
         this.surroundingCellPositions[2] =
-            geographicMapCellPositionFactory.getInstance(column - 1, row);
+            geographicMapCellPositionFactory.getAt(column - 1, row);
         this.surroundingCellPositions[3] =
-            geographicMapCellPositionFactory.getInstance(column + 1, row);
+            geographicMapCellPositionFactory.getAt(column + 1, row);
 
         /*
         this.surroundingCellPositions[0] =
@@ -213,7 +213,7 @@ public class RaceTrackAdjacentDropCellPositionGenerator
             //this.logUtil.putF("Dropping: " + randomGeographicMapCellPosition.toString() + " = " + randomGeographicMapCellPosition.getPoint(), this, commonStrings.DROP);
 
             final AllBinaryLayer layerInterface =
-                RaceTrackAdjacentDropLayerFactory.getInstance().getRandomInstance().getInstance(
+                RaceTrackAdjacentDropLayerFactory.getInstance().getRandomInstance().getNextInstance(
                 hashtable, x, y, z);
 
             final BaseRaceTrackGeographicMap baseRaceTrackGeographicMap = (BaseRaceTrackGeographicMap) this.raceTrackGeographicMap;
@@ -245,7 +245,7 @@ public class RaceTrackAdjacentDropCellPositionGenerator
 
             //PreLogUtil.put("Dropping: " + layerInterface, this, commonStrings.DROP);
             
-            dropCellPositionHistory.add(list, layerInterface);
+            dropCellPositionHistory.addAll(list, layerInterface);
 
             allBinaryLayerManager.append(layerInterface);
 

@@ -61,11 +61,11 @@ public class BaseGameInitialization implements GameInitializationInterface
     
     protected void initKeyMapping(final AbeClientInformationInterface abeClientInformation, int portion) throws Exception
     {
-        if (ChangedGameFeatureListener.getInstance().isChanged(
+        if (ChangedGameFeatureListener.getInstance().isChangedFeature(
                 InputFeatureFactory.getInstance().INPUT_MAPPING))
         {
             PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().init(abeClientInformation);
-            ProgressCanvasFactory.getInstance().addPortion(50, "Game Keys");
+            ProgressCanvasFactory.getInstance().addNormalPortion(50, "Game Keys");
             ChangedGameFeatureListener.getInstance().remove(
                     InputFeatureFactory.getInstance().INPUT_MAPPING);
         }
@@ -100,20 +100,20 @@ public class BaseGameInitialization implements GameInitializationInterface
 
             final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
             
-            progressCanvas.addPortion(localPortion, "Game Key Events");
+            progressCanvas.addNormalPortion(localPortion, "Game Key Events");
 
             // TWB - This is not a good initialization process but it must
             // happen
             // after canvas start
             BasicTouchInputFactory.getInstance().init(
                     PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping());
-            progressCanvas.addPortion(localPortion, "Touch Input");
+            progressCanvas.addNormalPortion(localPortion, "Touch Input");
 
             CompleteMotionGestureInputToGameMotionGestureInput.getInstance().init();
-            progressCanvas.addPortion(localPortion, "Motion Input");
+            progressCanvas.addNormalPortion(localPortion, "Motion Input");
 
             GameFeatureImageCacheFactory.init();
-            progressCanvas.addPortion(localPortion, "Image Cache");
+            progressCanvas.addNormalPortion(localPortion, "Image Cache");
 
             //PreLogUtil.put("Early Resources", this, commonStrings.INIT);
             this.resourceInitializationArray[this.EARLY_RESOURCES].init();
@@ -168,7 +168,7 @@ public class BaseGameInitialization implements GameInitializationInterface
             return true;
         }
 
-        if (ChangedGameFeatureListener.getInstance().isChanged(
+        if (ChangedGameFeatureListener.getInstance().isChangedFeature(
                 MainFeatureFactory.getInstance().STATIC))
         {
             return true;

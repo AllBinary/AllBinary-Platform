@@ -86,7 +86,7 @@ public class ImageComparisonSearchWorker
             
             TimeDelayHelper timeHelper = new TimeDelayHelper(1000);
             
-            timeHelper.setStartTime();
+            timeHelper.setStartTimeTNT();
             
             ImageComparisonResult imageComparisonInfo =
                 (ImageComparisonResult) this.imageComparisonInfoVector.get(0);
@@ -110,7 +110,7 @@ public class ImageComparisonSearchWorker
             this.index++;
             
             this.logUtil.putF(
-                CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN);
+                CommonLabels.getInstance().ELAPSED + timeHelper.getElapsedTNT(), this, this.commonStrings.RUN);
             
             this.setRunning(false);
             

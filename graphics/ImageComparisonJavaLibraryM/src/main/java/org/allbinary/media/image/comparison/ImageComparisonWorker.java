@@ -88,7 +88,7 @@ public class ImageComparisonWorker
             this.setRunning(true);
             
             TimeDelayHelper timeHelper = new TimeDelayHelper(1000);
-            timeHelper.setStartTime();
+            timeHelper.setStartTimeTNT();
             
             if(this.imageComparatorConstraintsInterface.isFrameAllowed(this.index2))
             {
@@ -137,7 +137,7 @@ public class ImageComparisonWorker
             this.bufferedImageVector.remove(0);
             index2++;
             
-            final String message = new StringMaker().append("Frame: ").appendint(this.index2).append(CommonLabels.getInstance().ELAPSED).appendlong(timeHelper.getElapsed()).toString();
+            final String message = new StringMaker().append("Frame: ").appendint(this.index2).append(CommonLabels.getInstance().ELAPSED).appendlong(timeHelper.getElapsedTNT()).toString();
             this.logUtil.putF(message, this, this.commonStrings.RUN);
             
             this.setRunning(false);

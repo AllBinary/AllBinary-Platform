@@ -30,7 +30,7 @@ public class HackRotationSpriteIndexedAnimation extends RotationAnimation
 
     public HackRotationSpriteIndexedAnimation(final Sprite sprite, final Image image, final AngleInfo angleInfo, final AnimationBehavior animationBehavior)
     {
-        super(angleInfo, CircularIndexUtil.getInstance(360 / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
+        super(angleInfo, CircularIndexUtil.create(360 / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
         
         this.sprite = sprite;
         this.image = image;
@@ -50,14 +50,14 @@ public class HackRotationSpriteIndexedAnimation extends RotationAnimation
         return this.getSize();
     }
 
-    public void paint(final Graphics g, final int frame, final int x, final int y)
+    public void paintFrame(final Graphics g, final int frame, final int x, final int y)
     {
         this.setFrame(frame);
-        this.paint(g, x, y);
+        this.paintXY(g, x, y);
     }
 
     @Override
-    public void paint(final Graphics g, final int x, final int y)
+    public void paintXY(final Graphics g, final int x, final int y)
     {
         this.sprite.setPosition(x, y);
         this.paint(g);

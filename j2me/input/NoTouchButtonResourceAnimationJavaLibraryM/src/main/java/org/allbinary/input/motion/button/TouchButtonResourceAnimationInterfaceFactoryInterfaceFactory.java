@@ -38,11 +38,11 @@ public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory
     @Override
     public void init(int level) throws Exception
     {        
-        this.init(ImageCacheFactory.getInstance(), level);
+        this.initImageCache(ImageCacheFactory.getInstance(), level);
     }
 
     @Override
-    protected void init(ImageCache imageCache, int level) 
+    protected void initImageCache(ImageCache imageCache, int level)
         throws Exception
     {
         if(this.isInitialized())

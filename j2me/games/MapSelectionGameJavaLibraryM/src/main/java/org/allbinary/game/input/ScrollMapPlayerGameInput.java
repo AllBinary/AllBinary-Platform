@@ -71,7 +71,7 @@ public class ScrollMapPlayerGameInput
     {
         AllBinaryTiledLayer terrainTiledLayer = this.geographicMapInterface.getAllBinaryTiledLayer();
         
-        terrainTiledLayer.move(-dx, -dy);
+        terrainTiledLayer.moveDXY(-dx, -dy);
         
         this.scrollMapEvent.setDxDy(-dx, -dy);
         ScrollMapEventHandler.getInstance().fireEvent(this.scrollMapEvent);
@@ -182,10 +182,10 @@ public class ScrollMapPlayerGameInput
         GameInputProcessorUtil.init(this.inputProcessorArray);
     }
 
-    public void processInput(int key)
+    public void processInputKey(int key)
     throws Exception
     {
-        this.inputProcessorArray[key].process(AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER, GameKeyEvent.NONE);
+        this.inputProcessorArray[key].processEvent(AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER, GameKeyEvent.NONE);
     }
     
     public void processInput(AllBinaryLayerManager layerManager)
@@ -201,7 +201,7 @@ public class ScrollMapPlayerGameInput
                 GameKeyEvent gameKeyEvent = (GameKeyEvent) this.inputList.get(index);
                 key = gameKeyEvent.getKey();
 
-                this.processInput(key);
+                this.processInputKey(key);
             }
 
             if (isSingleKeyProcessing)

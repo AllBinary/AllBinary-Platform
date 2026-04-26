@@ -97,7 +97,7 @@ implements DisplayChangeEventListener
 
                 GameFeatureImageCacheFactory.init();
 
-                this.image = ImageCacheFactory.getInstance().get(RESOURCE);
+                this.image = ImageCacheFactory.getInstance().getWithKey(RESOURCE);
             }
         }
         catch (Exception e)
@@ -106,7 +106,7 @@ implements DisplayChangeEventListener
         }
     }
 
-    public void init(Activity activity)
+    public void initActivity(Activity activity)
     {
         try
         {
@@ -210,7 +210,7 @@ implements DisplayChangeEventListener
             int lastWidth = displayInfo.getLastWidth();
             int lastHeight = displayInfo.getLastHeight();
 
-            if (displayInfo.isPortrait(lastWidth, lastHeight))
+            if (displayInfo.isPortraitWH(lastWidth, lastHeight))
             {
                 this.setImages(0, lastWidth, lastHeight);
             }
@@ -316,13 +316,13 @@ implements DisplayChangeEventListener
     }
     
     @Override
-    public void addPortion(int value, String text)
+    public void addNormalPortion(int value, String text)
     {
         try
         {
             // this.logUtil.putF(commonStrings.START, this, ADD_PORTION);
             this.portion = value;
-            super.addPortion(value, text);
+            super.addNormalPortion(value, text);
 
             this.midletActivity.runOnUiThread(this.titleProgressDialogPortionSetProgressRunnable);
         }
@@ -367,7 +367,7 @@ implements DisplayChangeEventListener
             {
                 if (this.IMAGE[index] == NullCanvas.NULL_IMAGE)
                 {
-                    this.IMAGE[index] = ImageScaleUtil.getInstance().createImage(
+                    this.IMAGE[index] = ImageScaleUtil.getInstance().createImage2(
                             ImageCacheFactory.getInstance(), image,
                             (float) lastWidth, (float) image.getWidth(), (float) lastHeight - 20,
                             (float) image.getHeight(), false);
@@ -378,7 +378,7 @@ implements DisplayChangeEventListener
                 int nextIndex = index + 1;
                 if (this.IMAGE[nextIndex] == NullCanvas.NULL_IMAGE)
                 {
-                    this.IMAGE[nextIndex] = ImageScaleUtil.getInstance().createImage(
+                    this.IMAGE[nextIndex] = ImageScaleUtil.getInstance().createImage2(
                             ImageCacheFactory.getInstance(), image,
                             (float) lastWidth, (float) image.getWidth(), (float) lastHeight - 28,
                             (float) image.getHeight(), false);
@@ -391,7 +391,7 @@ implements DisplayChangeEventListener
     {
         this.logUtil.putF(commonStrings.START, this, commonStrings.INIT);
         
-        this.image = GameFeatureImageCacheFactory.getInstance().get(RESOURCE);
+        this.image = GameFeatureImageCacheFactory.getInstance().getWithKey(RESOURCE);
         
         PreResourceImageUtil preResourceImageUtil = PreResourceImageUtil.getInstance();
 
@@ -414,7 +414,7 @@ implements DisplayChangeEventListener
         
         this.initOpenGL(graphics);
         
-        this.image = GameFeatureImageCacheFactory.getInstance().get(RESOURCE);
+        this.image = GameFeatureImageCacheFactory.getInstance().getWithKey(RESOURCE);
         
         PreResourceImageUtil preResourceImageUtil = PreResourceImageUtil.getInstance();
         
@@ -452,7 +452,7 @@ implements DisplayChangeEventListener
             //this.logUtil.putF(StringUtil.getInstance().EMPTY_STRING, this, canvasStrings.PAINT);
             
             // Only show background when not loading in the background
-            this.animation.paint(graphics, 0, 20);
+            this.animation.paintXY(graphics, 0, 20);
 
             super.paint2(graphics);
         }
@@ -462,7 +462,7 @@ implements DisplayChangeEventListener
         }
     }
 
-    public static void setBackground(int background)
+    public static void setBackgroundResource(int background)
     {
         AndroidBasicTitleProgressBar.background = background;
     }

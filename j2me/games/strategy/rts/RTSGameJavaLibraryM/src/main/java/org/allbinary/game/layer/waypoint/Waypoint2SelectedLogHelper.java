@@ -94,7 +94,7 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
     }
 
     @Override
-    public void processPossibleTarget(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final WaypointBehaviorBase waypointBehaviorBase, final PathFindingLayerInterface layerInterface, final int anotherTargetDistance) {
+    public void processSetTarget(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final WaypointBehaviorBase waypointBehaviorBase, final PathFindingLayerInterface layerInterface, final int anotherTargetDistance) {
 
         final StringMaker stringBuffer = new StringMaker();
 
@@ -152,7 +152,7 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
     }
 
     @Override
-    public void setTargetPath(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final WaypointBehaviorBase waypointBehaviorBase) {
+    public void setTargetPathIgnoreNewPath(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final WaypointBehaviorBase waypointBehaviorBase) {
         
         final StringMaker stringBuffer = new StringMaker();
 
@@ -205,7 +205,7 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
     }
 
     @Override
-    public void processWaypointTracked(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final GeographicMapCellPosition geographicMapCellPosition) {
+    public void processWaypointTrackedVisit(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final GeographicMapCellPosition geographicMapCellPosition) {
         
         final StringMaker stringBuffer = new StringMaker();
 
@@ -284,7 +284,7 @@ public class Waypoint2SelectedLogHelper extends Waypoint2LogHelper {
     }
     
     @Override
-    public void removeWaypoint(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final WaypointBehaviorBase unitWaypointBehavior2, final BasicArrayList list) {
+    public void removeWaypointList(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final WaypointBehaviorBase unitWaypointBehavior2, final BasicArrayList list) {
         final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(associatedAdvancedRTSGameLayer.getName());

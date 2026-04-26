@@ -172,7 +172,7 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
 
     @Override
     public void setVolume(final int leftVolume, final int rightVolume) {
-        this.setVolume(((float) leftVolume) / 100.0f);
+        this.setVolumeF(((float) leftVolume) / 100.0f);
     }
 
     private float getVolume() {
@@ -180,7 +180,7 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
         return (float) Math.pow(10f, masterGainFloatControl.getValue() / 20f);
     }
 
-    private void setVolume(final float volume) {
+    private void setVolumeF(final float volume) {
         if (volume < 0f || volume > 1f) {
             throw new IllegalArgumentException("Volume: " + volume);
         }

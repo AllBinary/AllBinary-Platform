@@ -13,11 +13,9 @@
  */
 package org.allbinary.game.input.form;
 
-import org.allbinary.game.layer.RTSLayer;
 import org.allbinary.game.layer.RTSPlayerLayerInterface;
 import org.allbinary.graphics.form.item.CustomItem;
 import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.identification.Group;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
@@ -75,7 +73,7 @@ public class CompositeRTSFormInput extends RTSFormInput
     }
     
     @Override
-    public void process(
+    public void processAtPoint(
         final CollidableDestroyableDamageableLayer associatedRtsLayer,
         RTSPlayerLayerInterface rtsPlayerLayerInterface,
         AllBinaryLayerManager layerManager, GPoint point)
@@ -93,7 +91,7 @@ public class CompositeRTSFormInput extends RTSFormInput
             //Make sure your not drag and dropping units yet
             if(this.getSelectedStickyItemIndex() <= this.itemIndex[0])
             {
-            this.rtsFormInputArray[0].process(
+            this.rtsFormInputArray[0].processAtPoint(
                 associatedRtsLayer,
                 rtsPlayerLayerInterface,
                 layerManager, point);
@@ -101,7 +99,7 @@ public class CompositeRTSFormInput extends RTSFormInput
         }
         else if (index > this.itemIndex[0])
         {
-            this.rtsFormInputArray[1].process(
+            this.rtsFormInputArray[1].processAtPoint(
                 associatedRtsLayer,
                 rtsPlayerLayerInterface,
                 layerManager, point);
@@ -109,7 +107,7 @@ public class CompositeRTSFormInput extends RTSFormInput
     }
 
     @Override
-    public void process(
+    public void processGameSpecific(
         final CollidableDestroyableDamageableLayer associatedRtsLayer,
         RTSPlayerLayerInterface rtsPlayerLayerInterface,
         AllBinaryLayerManager layerManager, CustomItem item, int index)
@@ -126,7 +124,7 @@ public class CompositeRTSFormInput extends RTSFormInput
             //Make sure your not drag and dropping units yet
             if(this.getSelectedStickyItemIndex() <= this.itemIndex[0])
             {
-            this.rtsFormInputArray[0].process(
+            this.rtsFormInputArray[0].processGameSpecific(
                 associatedRtsLayer,
                 rtsPlayerLayerInterface,
                 layerManager, item, index);
@@ -134,7 +132,7 @@ public class CompositeRTSFormInput extends RTSFormInput
         }
         else if (index > this.itemIndex[0])
         {
-            this.rtsFormInputArray[1].process(
+            this.rtsFormInputArray[1].processGameSpecific(
                 associatedRtsLayer,
                 rtsPlayerLayerInterface,
                 layerManager, item, index);
@@ -156,13 +154,13 @@ public class CompositeRTSFormInput extends RTSFormInput
     }
 
     @Override
-    public void processSticky(
+    public void processStickyGameSpecific(
         final CollidableDestroyableDamageableLayer associatedRtsLayer,
         RTSPlayerLayerInterface rtsPlayerLayerInterface,
         AllBinaryLayerManager layerManager, CustomItem item, int index)
         throws Exception
     {
-        this.rtsFormInputArray[0].processSticky(
+        this.rtsFormInputArray[0].processStickyGameSpecific(
             associatedRtsLayer,
             rtsPlayerLayerInterface,
             layerManager, item, index);

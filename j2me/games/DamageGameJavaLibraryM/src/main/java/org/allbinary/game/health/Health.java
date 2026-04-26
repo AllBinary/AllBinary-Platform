@@ -52,7 +52,7 @@ public class Health implements HealthInterface
 	}
 
         @Override
-	public void heal()
+	public void healMax()
 	{
 	    this.setHealth(this.getMaxHealth());
 	}

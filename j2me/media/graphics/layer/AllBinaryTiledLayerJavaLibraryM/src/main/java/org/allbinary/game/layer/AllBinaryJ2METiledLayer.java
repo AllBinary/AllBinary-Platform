@@ -141,12 +141,12 @@ public class AllBinaryJ2METiledLayer extends AllBinaryTiledLayer
     }
     
     @Override
-    public void move(final int dx, final int dy)
+    public void moveDXY(final int dx, final int dy)
     {
         //this.logUtil.putF(new StringMaker().append("TiledLayer: ").append(PositionStrings.getInstance().X_LABEL).append(dx).append(PositionStrings.getInstance().Y_LABEL).append(dy).toString(), this, "move");
         this.tiledLayerP.move(dx, dy);
         //TWB LayerInterface to Layer
-        super.move(-dx, -dy);
+        super.moveDXY(-dx, -dy);
     }
 
     @Override

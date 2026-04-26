@@ -17,6 +17,6 @@ import java.util.Hashtable;
 
 public interface LayerInterfaceFactoryInterface {
 
-    AllBinaryLayer getInstance(Hashtable hashtable, int x, int y, int z)
+    AllBinaryLayer getNextInstance(Hashtable hashtable, int x, int y, int z)
            throws Exception;
 }

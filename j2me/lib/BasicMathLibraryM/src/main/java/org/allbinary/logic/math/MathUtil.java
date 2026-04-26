@@ -45,7 +45,7 @@ public class MathUtil
         return (value < 0) ? -value : value;
     }
 
-    public long abs(long value) {
+    public long abslong(long value) {
         return (value < 0) ? -value : value;
     }
     

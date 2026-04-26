@@ -40,25 +40,25 @@ public class NumberInSameGroupSequence
         final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
         
         this.NUMBER_ON_SAME_TEAM_SEQUENCE_ZERO =
-            smallIntegerSingletonFactory.getInstance(100);
+            smallIntegerSingletonFactory.getAt(100);
          this.NUMBER_ON_SAME_TEAM_SEQUENCE_ONE =
-            smallIntegerSingletonFactory.getInstance(101);
+            smallIntegerSingletonFactory.getAt(101);
          this.NUMBER_ON_SAME_TEAM_SEQUENCE_TWO =
-            smallIntegerSingletonFactory.getInstance(102);
+            smallIntegerSingletonFactory.getAt(102);
          this.NUMBER_ON_SAME_TEAM_SEQUENCE_THREE =
-            smallIntegerSingletonFactory.getInstance(103);
+            smallIntegerSingletonFactory.getAt(103);
          this.NUMBER_ON_SAME_TEAM_SEQUENCE_FOUR =
-            smallIntegerSingletonFactory.getInstance(104);
+            smallIntegerSingletonFactory.getAt(104);
          this.NUMBER_ON_SAME_TEAM_SEQUENCE_FIVE =
-            smallIntegerSingletonFactory.getInstance(105);
+            smallIntegerSingletonFactory.getAt(105);
          this.NUMBER_ON_SAME_TEAM_SEQUENCE_SIX =
-            smallIntegerSingletonFactory.getInstance(106);
+            smallIntegerSingletonFactory.getAt(106);
          this.NUMBER_ON_SAME_TEAM_SEQUENCE_SEVEN =
-            smallIntegerSingletonFactory.getInstance(107);
+            smallIntegerSingletonFactory.getAt(107);
          this.NUMBER_ON_SAME_TEAM_SEQUENCE_EIGHT =
-            smallIntegerSingletonFactory.getInstance(108);
+            smallIntegerSingletonFactory.getAt(108);
          this.NUMBER_ON_SAME_TEAM_SEQUENCE_NINE =
-            smallIntegerSingletonFactory.getInstance(109);
+            smallIntegerSingletonFactory.getAt(109);
          
          this.NUMBER_ON_SAME_TEAM_SEQUENCE = new Integer[]
             {this.NUMBER_ON_SAME_TEAM_SEQUENCE_ZERO,

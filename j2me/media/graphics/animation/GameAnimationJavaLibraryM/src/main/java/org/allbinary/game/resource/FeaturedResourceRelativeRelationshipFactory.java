@@ -73,7 +73,7 @@ public class FeaturedResourceRelativeRelationshipFactory extends FeaturedResourc
       {
          RelativeRelationship relativeRelationship = (RelativeRelationship) list.objectArray[index];
          newList.add(new RelativeLayerRelationship(
-            layer, pointFactory.getInstance0(relativeRelationship.getX(), relativeRelationship.getY()), BasicArrayListUtil.getInstance().getImmutableInstance()));
+            layer, pointFactory.createXY(relativeRelationship.getX(), relativeRelationship.getY()), BasicArrayListUtil.getInstance().getImmutableInstance()));
       }
       return newList;
    }

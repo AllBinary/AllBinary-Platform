@@ -28,7 +28,7 @@ public class PreGameLockableFormPaintableFactory extends ItemPaintableFactory
     }
     
     @Override
-    public ItemPaintable getInstance(PaintableForm paintableForm) 
+    public ItemPaintable getInstanceItemPaintable(PaintableForm paintableForm)
     throws Exception
     {
         return new PreGameLockablePaintable(

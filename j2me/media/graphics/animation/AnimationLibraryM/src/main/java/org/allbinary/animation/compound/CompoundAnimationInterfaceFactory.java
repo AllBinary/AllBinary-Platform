@@ -41,14 +41,14 @@ public class CompoundAnimationInterfaceFactory
             animationInterfaceArray[index] = this.basicAnimationInterfaceFactoryInterfaceArrayP[index].getInstance(instanceId);
         }
 
-        return this.getInstance(animationInterfaceArray);
+        return this.createAnimation(animationInterfaceArray);
     }
 
     protected Animation[] createArray(final int size) {
         return NullAnimationFactory.getFactoryInstance().EMPTY_ARRAY;
     }
     
-    protected Animation getInstance(final Animation[] animationInterfaceArray) {
+    protected Animation createAnimation(final Animation[] animationInterfaceArray) {
         return NullAnimationFactory.getFactoryInstance().getInstance(0);
     }
     

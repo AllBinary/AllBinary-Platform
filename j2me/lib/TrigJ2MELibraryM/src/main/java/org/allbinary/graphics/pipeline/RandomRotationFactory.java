@@ -31,12 +31,12 @@ public class RandomRotationFactory
 
     private final AngleFactory angleFactory = AngleFactory.getInstance();
 
-    public BasicArrayList getInstance(BasicArrayList vector, int howMuch)
+    public BasicArrayList getInstanceList(BasicArrayList vector, int howMuch)
             throws Exception
     {
-        BasicGraphicsPipeline graphicsPipe = new BasicGraphicsPipeline(vector);
+        final BasicGraphicsPipeline graphicsPipe = new BasicGraphicsPipeline(vector);
         graphicsPipe.createMatrix();
-        graphicsPipe.rotate(this.angleFactory.getInstance(getNextRandomAngle(howMuch)));
+        graphicsPipe.rotateToAngle(this.angleFactory.getAt(getNextRandomAngle(howMuch)));
 
         return graphicsPipe.getMatrix();
     }

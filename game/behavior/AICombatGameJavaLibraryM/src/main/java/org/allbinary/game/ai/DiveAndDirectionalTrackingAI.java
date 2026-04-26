@@ -140,7 +140,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
             return;
         }
 
-        TrackingEvent lastTrackingEvent = (TrackingEvent) this.list.remove(0);
+        TrackingEvent lastTrackingEvent = (TrackingEvent) this.list.removeAt(0);
 
         this.lastTrackingLayerInterface = lastTrackingEvent.getLayerInterface();
 
@@ -275,7 +275,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
     private void moveRight() throws Exception
     {
         this.setLastDirection(this.directionFactory.RIGHT);
-        this.directionalInterface.setFrame(this.lastDirection);
+        this.directionalInterface.setFrameByDirection(this.lastDirection);
 
         this.aiVistor.visit(this);
 
@@ -285,7 +285,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
     private void moveLeft() throws Exception
     {
         this.setLastDirection(this.directionFactory.LEFT);
-        this.directionalInterface.setFrame(this.lastDirection);
+        this.directionalInterface.setFrameByDirection(this.lastDirection);
 
         this.aiVistor.visit(this);
         // velocityInterface.setMaxXVelocity(-1);
@@ -294,7 +294,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
     private void moveDown() throws Exception
     {
         this.setLastDirection(this.directionFactory.DOWN);
-        this.directionalInterface.setFrame(this.lastDirection);
+        this.directionalInterface.setFrameByDirection(this.lastDirection);
 
         this.aiVistor.visit(this);
         // velocityInterface.setMaxYVelocity(1);
@@ -303,7 +303,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
     private void moveUp() throws Exception
     {
         this.setLastDirection(this.directionFactory.UP);
-        this.directionalInterface.setFrame(this.lastDirection);
+        this.directionalInterface.setFrameByDirection(this.lastDirection);
 
         this.aiVistor.visit(this);
         // velocityInterface.setMaxYVelocity(-1);
@@ -311,14 +311,14 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
 
     private void dive() throws Exception
     {
-        this.directionalInterface.setFrame(this.directionOfTarget);
+        this.directionalInterface.setFrameByDirection(this.directionOfTarget);
 
         this.aiVistor.visit(this);
     }
 
     private void attack() throws Exception
     {
-        super.processAI(Canvas.KEY_NUM1);
+        super.processKeyAI(Canvas.KEY_NUM1);
     }
 
     private void drop() throws Exception

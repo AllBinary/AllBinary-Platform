@@ -35,8 +35,8 @@ public class GeographicMapCellPosition extends CellPosition
       
       final PointFactory pointFactory = PointFactory.getInstance();
       
-      this.point = pointFactory.getInstance0(x, y);
-      this.midPoint = pointFactory.getInstance0(x + (width >> 1), y + (height >> 1));
+      this.point = pointFactory.createXY(x, y);
+      this.midPoint = pointFactory.createXY(x + (width >> 1), y + (height >> 1));
    }
 
    public GPoint getPoint()

@@ -59,7 +59,7 @@ public class SaveCapturedImageWorker extends BasicEventHandler
 	    this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.RUN);
 	    setRunning(true);
 	    TimeDelayHelper timeHelper = new TimeDelayHelper(1000);
-	    timeHelper.setStartTime();
+	    timeHelper.setStartTimeTNT();
 	    CapturedImageWorkerResultsEvent capturedImageWorkerResultsEvent
 		= ((CapturedImageWorkerResultsEvent)
 		   this.capturedImageWorkerResultsEventVector.get(0));
@@ -70,7 +70,7 @@ public class SaveCapturedImageWorker extends BasicEventHandler
 						    .getFrame());
 	    this.capturedImageWorkerResultsEventVector
 		.remove(capturedImageWorkerResultsEvent);
-	    this.logUtil.putF(CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN);
+	    this.logUtil.putF(CommonLabels.getInstance().ELAPSED + timeHelper.getElapsedTNT(), this, this.commonStrings.RUN);
 	    setRunning(false);
 	    this.logUtil.putF(this.commonStrings.END, this, this.commonStrings.RUN);
 	} catch (Exception e) {

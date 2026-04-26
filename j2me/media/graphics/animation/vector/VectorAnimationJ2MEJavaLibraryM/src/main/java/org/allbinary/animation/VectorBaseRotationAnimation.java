@@ -16,7 +16,6 @@ package org.allbinary.animation;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.color.BasicColor;
-import org.allbinary.graphics.color.BasicColorSetUtil;
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.PrimitiveIntUtil;
@@ -33,7 +32,7 @@ public class VectorBaseRotationAnimation
    
     public VectorBaseRotationAnimation(final AngleInfo angleInfo, final int[][][] currentPoints, final BasicColor basicColor, final AnimationBehavior animationBehavior)
     {
-        super(angleInfo, CircularIndexUtil.getInstance(360 / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
+        super(angleInfo, CircularIndexUtil.create(360 / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
         
         this.setPoints(currentPoints);
         this.setBasicColorP(basicColor);
@@ -104,7 +103,7 @@ public class VectorBaseRotationAnimation
     }
 
     @Override
-    public void paint(final Graphics graphics, final int x, final int y)
+    public void paintXY(final Graphics graphics, final int x, final int y)
     {
         this.basicSetColorUtil.setBasicColorP(graphics, basicColor);
 
@@ -162,7 +161,7 @@ public class VectorBaseRotationAnimation
     public void setPoints(final int[][][] currentPoints)
     {
         this.currentPoints = currentPoints;
-        this.circularIndexUtil = CircularIndexUtil.getInstance(this.currentPoints.length);
+        this.circularIndexUtil = CircularIndexUtil.create(this.currentPoints.length);
     }
     
 }

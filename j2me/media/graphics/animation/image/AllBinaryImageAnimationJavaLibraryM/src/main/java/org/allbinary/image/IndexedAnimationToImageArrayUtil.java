@@ -29,7 +29,7 @@ public class IndexedAnimationToImageArrayUtil
         {
             sequentialAnimationInterface.setFrame(index);
             imageArray[index] = AnimationFrameToImageUtil.getInstance()
-                    .getInstance(width, height, sequentialAnimationInterface);
+                    .getInstanceWH(width, height, sequentialAnimationInterface);
         }
 
         return imageArray;

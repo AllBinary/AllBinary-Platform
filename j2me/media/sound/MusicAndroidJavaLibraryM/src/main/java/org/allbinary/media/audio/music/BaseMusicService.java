@@ -95,7 +95,7 @@ public class BaseMusicService extends Service
     {
         //Toast.makeText(this, "Music Service Started", Toast.LENGTH_LONG).show();
 
-        onStartCommand(intent);
+        onStartCommandIntent(intent);
 
         //PrelogUtil.putF(commonStrings.START, this, "onStart");
         this.logUtil.putF(this.commonStrings.START, this, commonStateStrings.START);
@@ -104,11 +104,11 @@ public class BaseMusicService extends Service
     @Override
     public int onStartCommand(final Intent intent, final int flags, final int startId)
     {
-        onStartCommand(intent);
+        onStartCommandIntent(intent);
         return START_STICKY;
     }
 
-    public void onStartCommand(final Intent intent)
+    public void onStartCommandIntent(final Intent intent)
     {
         //PrelogUtil.putF(commonStrings.START, this, "onStartCommand");
         this.logUtil.putF(this.commonStrings.START, this, commonStateStrings.ON_START_COMMAND);
@@ -149,7 +149,7 @@ public class BaseMusicService extends Service
                                 logUtil.putF(WAITING_FOR_MUSIC_TO_END, this, commonStateStrings.ON_START_COMMAND);
                                 Thread.sleep(1200);
                             }
-                            onStartCommand(intent);
+                            onStartCommandIntent(intent);
                         } catch(Exception e) {
                             logUtil.put(commonStrings.EXCEPTION, this, commonStateStrings.ON_START_COMMAND, e);
                         }

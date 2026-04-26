@@ -22,7 +22,6 @@ import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.util.BasicArrayList;
-import org.allbinary.util.BasicArrayListD;
 
 public class PlayerGameInput extends GameInput 
       implements GameKeyEventListenerInterface
@@ -69,7 +68,7 @@ public class PlayerGameInput extends GameInput
        this.addForRemoval(gameKeyEvent);
    }
    
-   public synchronized void onDownKeyEvent(final Integer gameKeyEvent)
+   public synchronized void onDownKey(final Integer gameKeyEvent)
    {
        PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameKeyEvent.toString()).toString(), this, gameInputStrings.ON_DOWN_GAME_KEY);
    }

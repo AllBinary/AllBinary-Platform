@@ -41,21 +41,21 @@ public class LayerPartialCellPositionsUtil {
         reusableList.clear();
 
         GeographicMapCellPosition topLeftGeographicMapCellPosition =
-            geographicMapInterface.getCellPositionAtNoThrow(
+            geographicMapInterface.getCellPositionAtXYNoThrow(
             layerInterface.getXP(), layerInterface.getYP());
 
         GeographicMapCellPosition topRightGeographicMapCellPosition =
-            geographicMapInterface.getCellPositionAtNoThrow(
+            geographicMapInterface.getCellPositionAtXYNoThrow(
             layerInterface.getXP() + layerInterface.getWidth(),
             layerInterface.getYP());
 
         GeographicMapCellPosition bottomLeftGeographicMapCellPosition =
-            geographicMapInterface.getCellPositionAtNoThrow(
+            geographicMapInterface.getCellPositionAtXYNoThrow(
             layerInterface.getXP(),
             layerInterface.getYP() + layerInterface.getHeight());
 
         GeographicMapCellPosition bottomRightGeographicMapCellPosition =
-            geographicMapInterface.getCellPositionAtNoThrow(
+            geographicMapInterface.getCellPositionAtXYNoThrow(
             layerInterface.getXP() + layerInterface.getWidth(),
             layerInterface.getYP() + layerInterface.getHeight());
 
@@ -91,7 +91,7 @@ public class LayerPartialCellPositionsUtil {
             //layerInterface, reusableList);
     }
 
-    public final BasicArrayList getAll(
+    public final BasicArrayList getAllDXY(
             BasicGeographicMap geographicMapInterface,
             AllBinaryLayer layerInterface,
         int dx, int dy,
@@ -101,21 +101,21 @@ public class LayerPartialCellPositionsUtil {
         reusableList.clear();
 
         GeographicMapCellPosition topLeftGeographicMapCellPosition =
-            geographicMapInterface.getCellPositionAtNoThrow(
+            geographicMapInterface.getCellPositionAtXYNoThrow(
             layerInterface.getXP() + dx , layerInterface.getYP() + dy);
 
         GeographicMapCellPosition topRightGeographicMapCellPosition =
-            geographicMapInterface.getCellPositionAtNoThrow(
+            geographicMapInterface.getCellPositionAtXYNoThrow(
             layerInterface.getXP() + layerInterface.getWidth() + dx,
             layerInterface.getYP() + dy);
 
         GeographicMapCellPosition bottomLeftGeographicMapCellPosition =
-            geographicMapInterface.getCellPositionAtNoThrow(
+            geographicMapInterface.getCellPositionAtXYNoThrow(
             layerInterface.getXP() + dx,
             layerInterface.getYP() + layerInterface.getHeight() + dy);
 
         GeographicMapCellPosition bottomRightGeographicMapCellPosition =
-            geographicMapInterface.getCellPositionAtNoThrow(
+            geographicMapInterface.getCellPositionAtXYNoThrow(
             layerInterface.getXP() + layerInterface.getWidth() + dx,
             layerInterface.getYP() + layerInterface.getHeight() + dy);
 

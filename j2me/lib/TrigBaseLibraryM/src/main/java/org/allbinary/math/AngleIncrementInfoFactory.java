@@ -24,7 +24,7 @@ public class AngleIncrementInfoFactory
     
     private final AngleIncrementInfo[] angleIncrementInfo = new AngleIncrementInfo[(int) AngleFactory.getInstance().TOTAL_ANGLE];
     
-    public AngleIncrementInfo getInstance(short angleIncrement)
+    public AngleIncrementInfo getAt(short angleIncrement)
     {
        //Integer integer = SmallIntegerSingletonFactory.getInstance(angleIncrement);
         

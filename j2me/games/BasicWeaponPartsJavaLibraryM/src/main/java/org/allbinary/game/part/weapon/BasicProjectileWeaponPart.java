@@ -50,10 +50,10 @@ public class BasicProjectileWeaponPart extends BasicWeaponPart
    }
 
    @Override
-   public void process(final AllBinaryLayerManager allbinaryLayerManager,
-           final short angle, short otherAngle, 
-           final WeaponProperties weaponProperties, 
-           final ScoreableInterface scoreableInterface)
+   public void processScore(final AllBinaryLayerManager allbinaryLayerManager,
+                            final short angle, short otherAngle,
+                            final WeaponProperties weaponProperties,
+                            final ScoreableInterface scoreableInterface)
            throws Exception 
    {
       final WeaponLayer weaponLayer =

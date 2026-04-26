@@ -34,7 +34,7 @@ public class LayerPlacer
       this.dimension = dimension;
    }
 
-   public void process(final BasicArrayList list) throws Exception
+   public void processList(final BasicArrayList list) throws Exception
    {
       final int size = list.size();
       LayerPlacementInterface layerPlacementInterface;
@@ -81,7 +81,7 @@ public class LayerPlacer
          y = point.getY() + relativePoint.getY();
          z = point.getZ() + relativePoint.getZ();
 
-         layerInterface = layerInterfaceFactory.getInstance(layerHashtable, x, y, z);
+         layerInterface = layerInterfaceFactory.getNexInstance(layerHashtable, x, y, z);
 
          this.layerInterfaceVisitor.visit(layerInterface);
       }
@@ -101,7 +101,7 @@ public class LayerPlacer
          final int x = ((this.dimension.getX() - width) / 2);
          final int y = ((this.dimension.getY() - height) / 2);
 
-         return pointFactory.getInstance0(x, y);
+         return pointFactory.createXY(x, y);
       } else if (layerPlacementType == LayerPlacementTypeFactory.getInstance().UP)
       {
          final int width = layerPlacementInterface.getWidth();
@@ -109,7 +109,7 @@ public class LayerPlacer
          final int x = ((this.dimension.getX() - width) / 2);
          final int y = -height;
 
-         return pointFactory.getInstance0(x, y);
+         return pointFactory.createXY(x, y);
       } else
       {
          throw new Exception("PlacementType Not Recognized");

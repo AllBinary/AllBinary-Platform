@@ -201,7 +201,7 @@ public class RTSLayer
 
         this.initAnimationInterface = this.indexedButShouldBeRotationAnimationInterface;
 
-        this.destroyAnimationInterface = (IndexedAnimation) proceduralAnimationInterfaceFactoryInterface.getInstance(
+        this.destroyAnimationInterface = (IndexedAnimation) proceduralAnimationInterfaceFactoryInterface.getInstanceAnimation(
             this.indexedButShouldBeRotationAnimationInterface);
 
         final Animation animation = NullAnimationFactory.getFactoryInstance().getInstance(0);
@@ -348,7 +348,7 @@ public class RTSLayer
         int viewX = viewPosition.getX();
         int viewY = viewPosition.getY();
 
-        this.getAnimationInterface().paint(graphics, viewX, viewY);
+        this.getAnimationInterface().paintXY(graphics, viewX, viewY);
 
         //super.paint(graphics);
     }
@@ -395,7 +395,7 @@ public class RTSLayer
 
     private void build() throws Exception
     {
-        if (this.buildFrameTimeHelper.isTime())
+        if (this.buildFrameTimeHelper.isTimeTNT())
         {
             this.animationInterface = this.buildAnimationInterface;
 
@@ -507,7 +507,7 @@ public class RTSLayer
             (AllBinaryLayer) this, (AllBinaryLayer) targetGameLayer);
 
         final WaypointBehaviorBase waypointBehaviorBase = this.getWaypointBehavior();
-        waypointBehaviorBase.setTarget((PathFindingLayerInterface) targetGameLayer, anotherTargetDistance);
+        waypointBehaviorBase.setTargetWithDistance((PathFindingLayerInterface) targetGameLayer, anotherTargetDistance);
     }
     
     public SelectionHudPaintable createHudPaintable()
@@ -709,7 +709,7 @@ public class RTSLayer
     }
 
     @Override
-    public void trackTo(final int dx, final int dy) 
+    public void trackToDXY(final int dx, final int dy)
         throws Exception {
         
     }

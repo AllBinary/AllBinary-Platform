@@ -90,11 +90,11 @@ implements SpecialAnimationInterface
     }
 
     @Override
-    public void paint(final Graphics graphics, int x, int y)
+    public void paintXY(final Graphics graphics, int x, int y)
     {
         x = DisplayInfoSingleton.getInstance().getLastHalfWidth() - (this.getImage(this.circularIndexUtil.getIndex()).getWidth() >> 1);
         y = 5;
 
-        super.paint(graphics, x, y);
+        super.paintXY(graphics, x, y);
     }
 }

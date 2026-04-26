@@ -164,7 +164,7 @@ public class DisplayInfoSingleton
         }
 
         if (operatingSystemInterface.isScalable()) {
-            if (this.isPortrait(aLastWidth, aLastHeight)) {
+            if (this.isPortraitWH(aLastWidth, aLastHeight)) {
                 if (aLastHeight > this.scaleLargestTo) {
                     this.displayRatio = this.scaleLargestTo / aLastHeight;
                     this.ratio = aLastHeight / this.scaleLargestTo;
@@ -230,8 +230,7 @@ public class DisplayInfoSingleton
         this.add(SET_LAST_SIZE_METHOD_NAME);
     }
     
-    public boolean isPortrait(
-            int lastWidth, int lastHeight)
+    public boolean isPortraitWH(final int lastWidth, final int lastHeight)
     {
         if(lastHeight > lastWidth)
         {
@@ -244,7 +243,7 @@ public class DisplayInfoSingleton
 
     public boolean isPortrait()
     {
-        return this.isPortrait(this.last[this.WIDTH], this.last[this.HEIGHT]);
+        return this.isPortraitWH(this.last[this.WIDTH], this.last[this.HEIGHT]);
     }
 
     public final DisplayChangeEvent displayChangeEvent = new DisplayChangeEvent(this);
@@ -261,7 +260,7 @@ public class DisplayInfoSingleton
         final StringMaker stringMaker = new StringMaker();
         this.logUtil.putF(stringMaker.append(this.REASON).append(reason).toString(), this, FIRE_METHOD_NAME);
         stringMaker.delete(0, stringMaker.length());
-        this.logUtil.putF(this.toString(stringMaker), this, FIRE_METHOD_NAME);
+        this.logUtil.putF(this.toStringAppend(stringMaker), this, FIRE_METHOD_NAME);
         this.list.add(reason);
     }
 
@@ -333,7 +332,7 @@ public class DisplayInfoSingleton
                 {
                     //this.logUtil.putF("Found Scalable OS", this, commonStrings.UPDATE);
                     
-                    if(this.isPortrait(aLastWidth, aLastHeight))
+                    if(this.isPortraitWH(aLastWidth, aLastHeight))
                     {
                         //this.logUtil.putF("Found Portrait Orientation", this, commonStrings.UPDATE);
                         
@@ -424,10 +423,10 @@ public class DisplayInfoSingleton
     public String toString()
     {
         final StringMaker stringBuffer = new StringMaker();
-        return this.toString(stringBuffer);
+        return this.toStringAppend(stringBuffer);
     }
     
-    public String toString(final StringMaker stringBuffer)
+    public String toStringAppend(final StringMaker stringBuffer)
     {
         stringBuffer.append(this.DISPLAY_INFO);
         stringBuffer.append(this.FULL);

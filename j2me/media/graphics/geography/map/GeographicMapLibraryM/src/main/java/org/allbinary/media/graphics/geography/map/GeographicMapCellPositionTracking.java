@@ -13,7 +13,6 @@
 */
 package org.allbinary.media.graphics.geography.map;
 
-import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
 import org.allbinary.game.displayable.canvas.AllBinaryGameCanvasInterface;
 import org.allbinary.layer.AllBinaryLayer;
 
@@ -61,7 +60,7 @@ public class GeographicMapCellPositionTracking
                 geographicMapCompositeInterface.getGeographicMapInterface()[0];
 
             this.newGeographicMapCellPosition = 
-                geographicMapInterface.getCellPositionAt(
+                geographicMapInterface.getCellPositionAtXY(
                     layer.getXP() + layer.getHalfWidth(), 
                     layer.getYP() + layer.getHalfHeight());
 

@@ -49,7 +49,7 @@ extends BasicAI
     
     private final Sound sound;
     
-    public static final Integer SOUND = SmallIntegerSingletonFactory.getInstance().getInstance(433);
+    public static final Integer SOUND = SmallIntegerSingletonFactory.getInstance().getAt(433);
     
     public HorizontalScreenPatrolAI(Hashtable hashtable,
             AllBinaryLayer ownerLayerInterface, GameInput gameInput)
@@ -72,9 +72,9 @@ extends BasicAI
     {
         //this.logUtil.putF(commonStrings.START, this, commonStrings.PROCESS);
 
-        super.processAI(this.keyDirection);
+        super.processKeyAI(this.keyDirection);
 
-		if (this.timeDelayHelper.isTime())
+		if (this.timeDelayHelper.isTimeTNT())
 		{
 			AllBinaryLayer layerInterface = this.getOwnerLayerInterface();
 
@@ -106,7 +106,7 @@ extends BasicAI
 			// if (this.changedDirection)
 			{
 				// PreLogUtil.put("Fire: " + currentOwnerLayerX +"<" + this.firingX + " index: " + this.firedIndex, this, commonStrings.PROCESS);
-				super.processAI(Canvas.KEY_NUM1);
+				super.processKeyAI(Canvas.KEY_NUM1);
 
 				// this.changedDirection = false;
 

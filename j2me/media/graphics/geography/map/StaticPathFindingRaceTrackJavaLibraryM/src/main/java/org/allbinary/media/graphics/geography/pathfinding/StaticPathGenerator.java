@@ -33,7 +33,7 @@ import org.allbinary.util.BasicArrayListUtil;
  *
  * @author user
  */
-public class StaticPathGenerator {
+public class StaticPathGenerator implements PathGeneratorInterface {
 
     protected final LogUtil logUtil = LogUtil.getInstance();
 
@@ -63,7 +63,7 @@ public class StaticPathGenerator {
             basicGeographicMapCellPosition = (CellPosition) pathList.get(index);
 
             geographicMapCellPosition =
-                geographicMapCellPositionFactory.getInstance(
+                geographicMapCellPositionFactory.getAt(
                     basicGeographicMapCellPosition.getColumn(),
                     basicGeographicMapCellPosition.getRow());
 
@@ -72,7 +72,7 @@ public class StaticPathGenerator {
         return list;
     }
 
-    public BasicArrayList getInstance(
+    public BasicArrayList create(
         final BasicGeographicMap geographicMapInterface,
         final GeographicMapCellHistory geographicMapCellHistory,
         final PathFindingInfo pathFindingInfo,
@@ -83,7 +83,7 @@ public class StaticPathGenerator {
             final PathCacheFactory pathCacheFactory = PathCacheFactory.getInstance();
             final Integer mapIdInteger = geographicMapInterface.getAllBinaryTiledLayer().getDataId();
 
-            BasicArrayList list = pathCacheFactory.getInstance(mapIdInteger);
+            BasicArrayList list = pathCacheFactory.getOrCreate(mapIdInteger);
 
             if (list == this.basicArrayListUtil.getImmutableInstance()) {
                 list = new BasicArrayListD();
@@ -96,8 +96,8 @@ public class StaticPathGenerator {
 
                 final int id = PathData.getInstance().OFFSET + mapIdInteger.intValue();
 
-                final BasicArrayList basicList = pathCacheFactory.getInstance(
-                    smallIntegerSingletonFactory.getInstance(id));
+                final BasicArrayList basicList = pathCacheFactory.getOrCreate(
+                    smallIntegerSingletonFactory.getAt(id));
 
                 final int size = basicList.size();
 
@@ -110,7 +110,7 @@ public class StaticPathGenerator {
                 }
 
                 pathCacheFactory.add(mapIdInteger, list);
-                pathCacheFactory.remove(smallIntegerSingletonFactory.getInstance(id));
+                pathCacheFactory.remove(smallIntegerSingletonFactory.getAt(id));
             }
 
             this.logUtil.putF(new StringMaker().append("Using Cached Path(s): ").append(StringUtil.getInstance().toString(list)).toString(), this, commonStrings.GET_INSTANCE);

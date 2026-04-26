@@ -13,8 +13,6 @@
 */
 package org.allbinary.animation.image;
 
-import javax.microedition.lcdui.Image;
-
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.SingletonAnimationInterfaceFactory;
@@ -29,7 +27,7 @@ extends SingletonAnimationInterfaceFactory
         throws Exception
     {
         super(new ImageAnimation(
-                AnimationFrameToImageUtil.getInstance().getInstance(
+                AnimationFrameToImageUtil.getInstance().getInstanceWH(
                         width, height, animationInterface), AnimationBehavior.getInstance()));
     }
 }

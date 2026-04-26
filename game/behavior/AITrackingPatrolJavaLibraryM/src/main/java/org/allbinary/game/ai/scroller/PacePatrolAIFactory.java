@@ -29,7 +29,7 @@ public class PacePatrolAIFactory
           Hashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput)
           throws Exception
     {
-      hashtable.put(BasePatrolAI.MAX_DISTANCE, SmallIntegerSingletonFactory.getInstance().getInstance(220));
+      hashtable.put(BasePatrolAI.MAX_DISTANCE, SmallIntegerSingletonFactory.getInstance().getAt(220));
     	return new PacePatrolAI(hashtable, ownerLayerInterface, gameInput);
     }
 }

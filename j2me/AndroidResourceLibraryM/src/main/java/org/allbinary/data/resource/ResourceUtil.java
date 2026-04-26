@@ -62,7 +62,7 @@ public class ResourceUtil
     }
     */
     
-    public void setContext(Activity activity)
+    public void setContextFromActivity(Activity activity)
     {
         //this.activity = activity;
         this.context = activity;

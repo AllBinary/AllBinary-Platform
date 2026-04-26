@@ -30,21 +30,21 @@ public interface BasicVelocityInterface
 
     //void setVelocityYBasicDecimal(BasicDecimal velocityYBasicDecimal);
 
-    void setVelocity(BasicDecimal magnitudeBasicDecimal, Direction direction, Direction otherDirection);
+    void setVelocityWithBigDecimalAndDirection(BasicDecimal magnitudeBasicDecimal, Direction direction, Direction otherDirection);
 
-    void addVelocity(BasicDecimal magnitudeBasicDecimal, Direction direction, Direction otherDirection);
+    void addVelocityWithBigDecimalAndDirection(BasicDecimal magnitudeBasicDecimal, Direction direction, Direction otherDirection);
 
-    void setVelocity(long magnitude, Direction direction, Direction otherDirection);
+    void setVelocityWithDirection(long magnitude, Direction direction, Direction otherDirection);
 
-    void addVelocity(long magnitude, Direction direction, Direction otherDirection);
+    void addVelocityWithDirection(long magnitude, Direction direction, Direction otherDirection);
 
-    void setVelocity(BasicDecimal magnitudeBasicDecimal, Angle angle, Angle otherAngle);
+    void setVelocityWithBigDecimal(BasicDecimal magnitudeBasicDecimal, Angle angle, Angle otherAngle);
 
-    void addVelocity(BasicDecimal magnitudeBasicDecimal, Angle angle, Angle otherAngle);
+    void addVelocityWithBigDecimal(BasicDecimal magnitudeBasicDecimal, Angle angle, Angle otherAngle);
 
     void setVelocity(long magnitude, Angle angle, Angle otherAngle);
 
     void addVelocity(long magnitude, Angle angle, Angle otherAngle);
 
-    void addVelocity(long magnitude, int angle, int otherAngle);
+    void addVelocityi(long magnitude, int angle, int otherAngle);
 }

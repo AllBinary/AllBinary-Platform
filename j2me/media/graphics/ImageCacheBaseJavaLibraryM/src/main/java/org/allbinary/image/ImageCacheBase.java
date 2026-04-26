@@ -73,7 +73,7 @@ public class ImageCacheBase
         for (int index = this.listOfList.length - 1; index >= 0; index--)
         {
             this.availableListOfList[index].clear();
-            this.availableListOfList[index].addAll(this.listOfList[index]);            
+            this.availableListOfList[index].addAllList(this.listOfList[index]);
         }
         this.logUtil.putF(new StringMaker().append("ImageCache: ").append(this.toString()).toString(), this, "releaseAll");
     }
@@ -104,17 +104,17 @@ public class ImageCacheBase
             {
                 //.log("Returning Image From Cache");
                 BasicArrayList list = this.availableListOfList[foundIndex];
-                return (Image) list.remove(list.size() - 1);
+                return (Image) list.removeAt(list.size() - 1);
             }
         }
         return NullCanvas.NULL_IMAGE;
     }
     
-    public Image get(final Object object, final int width, final int height)
-    throws Exception
-    {
-        return this.get(object.getClass().getName(), width, height);
-    }
+//    public Image get(final Object object, final int width, final int height)
+//    throws Exception
+//    {
+//        return this.get(object.getClass().getName(), width, height);
+//    }
     
     public Image get(final String caller, final int width, final int height)
     throws Exception
@@ -122,7 +122,7 @@ public class ImageCacheBase
         throw new RuntimeException();
     }
 
-    public Image get(final Object key) throws Exception
+    public Image getWithKey(final Object key) throws Exception
     {
         throw new RuntimeException();
     }
@@ -133,7 +133,7 @@ public class ImageCacheBase
         return Image.createImage(width, height);
     }
     
-    protected Image createImage(final Object key, final InputStream inputStream)
+    protected Image createImageFromInputStream(final Object key, final InputStream inputStream)
     throws Exception
     {
         final Image image = Image.createImage(inputStream);

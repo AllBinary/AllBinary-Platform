@@ -51,7 +51,7 @@ public class Advertisements
     
     public void processRandomPage()
     {
-        if(LockedUtil.getInstance().isLockedFeature())
+        if(LockedUtil.getInstance().isLocked())
         {
             int size = this.pageList.size();
 

@@ -15,5 +15,5 @@ package org.allbinary.animation;
 
 public interface ProceduralAnimationInterfaceFactoryInterface 
 extends BasicAnimationInterfaceFactoryInterface{
-    Animation getInstance(Animation animationInterface) throws Exception;
+    Animation getInstanceAnimation(Animation animationInterface) throws Exception;
 }

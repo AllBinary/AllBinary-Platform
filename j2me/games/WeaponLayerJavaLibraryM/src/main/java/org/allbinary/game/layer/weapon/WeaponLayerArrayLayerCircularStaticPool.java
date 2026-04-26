@@ -28,7 +28,7 @@ public class WeaponLayerArrayLayerCircularStaticPool
     }
 
     private final int MAX = 5;
-    private CircularIndexUtil circularIndexUtil = CircularIndexUtil.getInstance(MAX);
+    private CircularIndexUtil circularIndexUtil = CircularIndexUtil.create(MAX);
 
     private Object[][][] ALL_WEAPONLAYER_ARRAY = new Object[4][][];
 
@@ -49,9 +49,9 @@ public class WeaponLayerArrayLayerCircularStaticPool
         this.ALL_WEAPONLAYER_ARRAY[3] = THREE_WEAPONLAYER_ARRAY;
     }
 
-    public synchronized WeaponLayer[] getInstance(int size) throws Exception
+    public synchronized WeaponLayer[] getInstanceArray(int size) throws Exception
     {
-        WeaponLayer[] weaponLayerArray = (WeaponLayer[]) this.ALL_WEAPONLAYER_ARRAY[size][this.circularIndexUtil.getIndex()];
+        final WeaponLayer[] weaponLayerArray = (WeaponLayer[]) this.ALL_WEAPONLAYER_ARRAY[size][this.circularIndexUtil.getIndex()];
         // Object[] objectArray = (Object[]) ALL_WEAPONLAYER_ARRAY[size];
         // WeaponLayer[] weaponLayerArray = (WeaponLayer[]) objectArray[index];
 

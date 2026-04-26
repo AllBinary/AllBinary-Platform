@@ -64,11 +64,11 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
     {        
         for(int index = items.length; --index >= 0;)
         {
-            this.update(index, items[index]);
+            this.updateAt(index, items[index]);
         }
     }
     
-    private void update(final int index, final CustomItem item)
+    private void updateAt(final int index, final CustomItem item)
     {
         final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
         
@@ -127,7 +127,7 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
     {
         int result = super.append(item);
 
-        this.update(result, item);
+        this.updateAt(result, item);
 
         return result;
     }
@@ -161,7 +161,7 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
     public int paintItem(final Graphics graphics, final int index, final CustomItemInterface item, final int x, final int y)
         throws Exception
     {
-        this.selectedAnimationArray[index].paint(graphics, x, y);
+        this.selectedAnimationArray[index].paintXY(graphics, x, y);
         return super.paintItem(graphics, index, item, x, y);
     }
 
@@ -169,7 +169,7 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
     public int paintUnselectedItem(final Graphics graphics, final int index, final CustomItemInterface item, final int x, final int y)
         throws Exception
     {
-        this.unSelectedAnimationArray[index].paint(graphics, x, y);
+        this.unSelectedAnimationArray[index].paintXY(graphics, x, y);
         return super.paintUnselectedItem(graphics, index, item, x, y);
     }
     

@@ -47,7 +47,7 @@ public class ImageCompleteUtil
             throws Exception
     {
         this.timeDelayHelper.setStartTime();
-        this.waitFor(image, name, this.timeDelayHelper);
+        this.waitForATime(image, name, this.timeDelayHelper);
     }
 
     public boolean isReady(Image image, String name, TimeDelayHelper timeDelayHelper)
@@ -80,7 +80,7 @@ public class ImageCompleteUtil
         return true;
     }
 
-    private void waitFor(Image image, String name, TimeDelayHelper timeDelayHelper)
+    private void waitForATime(Image image, String name, TimeDelayHelper timeDelayHelper)
             throws Exception
     {
         PlaynImage playnImage = (PlaynImage) image;
@@ -122,7 +122,7 @@ public class ImageCompleteUtil
         
         for (int index = 0; index < size; index++)
         {
-            this.waitFor((Image) hashtable.get(objectArray[index]), (String) objectArray[index], this.allTimeDelayHelper);
+            this.waitForATime((Image) hashtable.get(objectArray[index]), (String) objectArray[index], this.allTimeDelayHelper);
         }
     }
 }

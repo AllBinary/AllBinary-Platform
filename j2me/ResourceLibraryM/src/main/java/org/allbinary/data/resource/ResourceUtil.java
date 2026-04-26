@@ -47,10 +47,10 @@ public class ResourceUtil {
     public InputStream getResourceAsStream(final String resource)
             //, Object emulatorObject)
             throws Exception {
-        InputStream inputStream = this.getResourceAsStream(resource, 2);
+        InputStream inputStream = this.getResourceAsStreamAtStart(resource, 2);
 
         if (inputStream == null) {
-            inputStream = this.getResourceAsStream(resource, 1);
+            inputStream = this.getResourceAsStreamAtStart(resource, 1);
             if (inputStream == null) {
                 throw new Exception(new StringMaker().append("Unable to obtain: ").append(resource).toString());
             }
@@ -63,7 +63,7 @@ public class ResourceUtil {
     //private final String RESOURCE_FOUND_WITH_CONTEXT_CLASS_LOADER = "Resource Found with ContextClassLoader: ";
     //private final String METHOD_NAME = "getResourceAsStream";
 
-    private InputStream getResourceAsStream(final String resource, final int startIndex)
+    private InputStream getResourceAsStreamAtStart(final String resource, final int startIndex)
             //, Object emulatorObject)
             throws Exception {
         //final StringMaker stringMaker = new StringMaker();

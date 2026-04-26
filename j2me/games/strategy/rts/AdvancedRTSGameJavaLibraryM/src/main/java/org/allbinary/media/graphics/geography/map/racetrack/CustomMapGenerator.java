@@ -80,7 +80,7 @@ public class CustomMapGenerator extends CustomMapGeneratorBase
             this.raceTrackGeographicMap.getGeographicMapCellPositionFactory();
           //  this.getOwnerLayer().geographicMapInterface.getGeographicMapCellPositionFactory();
 
-        final CellPosition cellPosition = geographicMapCellPositionFactory.getInstance(column, row);
+        final CellPosition cellPosition = geographicMapCellPositionFactory.getAt(column, row);
 
         if (dropCellPositionHistory.isCellPositionWithDrop(cellPosition))
         {

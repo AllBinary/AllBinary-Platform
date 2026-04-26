@@ -84,7 +84,7 @@ public class PathFinderGraphHackVisitor<V, E> extends BasePathFinderGraphVisitor
             if (tiledLayer.isOnTileLayer(column, nextRow))
             {
                 GeographicMapCellPosition geographicMapCellPositionNeighbor =
-                   geographicMapCellPositionFactory.getInstance(
+                   geographicMapCellPositionFactory.getAt(
                    column, nextRow);
 
                 //this.logUtil.putF("geographicMapCellPositionNeighbor: " + geographicMapCellPositionNeighbor.toString() , this, "fixStart");
@@ -125,7 +125,7 @@ public class PathFinderGraphHackVisitor<V, E> extends BasePathFinderGraphVisitor
             if (tiledLayer.isOnTileLayer(column, nextRow))
             {
                 GeographicMapCellPosition geographicMapCellPositionNeighbor =
-                   geographicMapCellPositionFactory.getInstance(
+                   geographicMapCellPositionFactory.getAt(
                    column, nextRow);
 
                 graph.addEdge(
@@ -158,17 +158,17 @@ public class PathFinderGraphHackVisitor<V, E> extends BasePathFinderGraphVisitor
             this.logUtil.putF("Fixing Over Pass: " + overPassGeographicMapCellPosition.getColumn() + ", " + overPassGeographicMapCellPosition.getRow(), this, "fixOverPassEdges");
 
             GeographicMapCellPosition underPassGeographicMapCellPosition =
-               geographicMapCellPositionFactory.getInstance(
+               geographicMapCellPositionFactory.getAt(
                overPassGeographicMapCellPosition.getColumn(),
                overPassGeographicMapCellPosition.getRow());
 
             GeographicMapCellPosition rightUnderPassGeographicMapCellPosition =
-               geographicMapCellPositionFactory.getInstance(
+               geographicMapCellPositionFactory.getAt(
                overPassGeographicMapCellPosition.getColumn() + 1,
                overPassGeographicMapCellPosition.getRow());
 
             GeographicMapCellPosition leftUnderPassGeographicMapCellPosition =
-               geographicMapCellPositionFactory.getInstance(
+               geographicMapCellPositionFactory.getAt(
                overPassGeographicMapCellPosition.getColumn() - 1,
                overPassGeographicMapCellPosition.getRow());
 
@@ -209,7 +209,7 @@ public class PathFinderGraphHackVisitor<V, E> extends BasePathFinderGraphVisitor
                 if (pathList.remove(endPathFindingNode.geographicMapCellPosition))
                 {
                     pathList.remove(startPathFindingNode.geographicMapCellPosition);
-                    pathList.add(0, startPathFindingNode.geographicMapCellPosition);
+                    pathList.addAt(0, startPathFindingNode.geographicMapCellPosition);
                 }
             }
 
@@ -236,7 +236,7 @@ public class PathFinderGraphHackVisitor<V, E> extends BasePathFinderGraphVisitor
                CellPositionArray[index];
 
             GeographicMapCellPosition underPassGeographicMapCellPosition =
-               geographicMapCellPositionFactory.getInstance(
+               geographicMapCellPositionFactory.getAt(
                overPassGeographicMapCellPosition.getColumn(),
                overPassGeographicMapCellPosition.getRow());
 

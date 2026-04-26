@@ -75,7 +75,7 @@ public class PacePatrolAI extends BasePatrolAI
             if(this.lastKeyDirection != keyDirection 
                     || !this.isFollowLimitedByTerrain)
             {
-                super.processAI(Canvas.LEFT);
+                super.processKeyAI(Canvas.LEFT);
             }
                 
             keyDirection = Canvas.LEFT;
@@ -83,7 +83,7 @@ public class PacePatrolAI extends BasePatrolAI
             xTotalDistance = 0;
 
             //
-            super.processAI(Canvas.KEY_NUM1);
+            super.processKeyAI(Canvas.KEY_NUM1);
 
             //moveTimeDelayHelper.setStartTime();
         }
@@ -95,14 +95,14 @@ public class PacePatrolAI extends BasePatrolAI
             if(this.lastKeyDirection != keyDirection
                     || !this.isFollowLimitedByTerrain)
             {
-                super.processAI(Canvas.RIGHT);
+                super.processKeyAI(Canvas.RIGHT);
             }
             
             keyDirection = Canvas.RIGHT;
             this.lastKeyDirection = keyDirection;
             xTotalDistance = 0;
             
-            super.processAI(Canvas.KEY_NUM1);
+            super.processKeyAI(Canvas.KEY_NUM1);
 
             //moveTimeDelayHelper.setStartTime();
         }
@@ -110,7 +110,7 @@ public class PacePatrolAI extends BasePatrolAI
         //Move in the current direction regardless
         //if (moveTimeDelayHelper.isTime())
         {
-            super.processAI(this.keyDirection);
+            super.processKeyAI(this.keyDirection);
         }
     }
 

@@ -32,9 +32,9 @@ implements GameKeyEventSourceInterface
 {
     protected final LogUtil logUtil = LogUtil.getInstance();
     
-    public static final Integer AI_VISITOR = SmallIntegerSingletonFactory.getInstance().getInstance(2);
+    public static final Integer AI_VISITOR = SmallIntegerSingletonFactory.getInstance().getAt(2);
     
-    public static final Integer ID = SmallIntegerSingletonFactory.getInstance().getInstance(1);
+    public static final Integer ID = SmallIntegerSingletonFactory.getInstance().getAt(1);
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
@@ -66,11 +66,11 @@ implements GameKeyEventSourceInterface
         throw new Exception(this.commonStrings.NOT_IMPLEMENTED);
     }
 
-    public void processAI(int key) throws Exception
+    public void processKeyAI(int key) throws Exception
     {
         if (key != -1)
         {
-            this.gameInput.add(this.gameKeyEventFactory.getInstance(this, key));
+            this.gameInput.add(this.gameKeyEventFactory.getInstanceForKey(this, key));
         }
     }
 

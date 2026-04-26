@@ -35,18 +35,18 @@ public class ImageJ2SERotationUtil
     }
 
    public BufferedImage getRotatedImage(final Image bufferedImage, final int totalAngle) {
-       return this.getRotatedImage(bufferedImage, TWO_PIE * totalAngle / 360);
+       return this.getRotatedImageRadians(bufferedImage, TWO_PIE * totalAngle / 360);
    }
 
-   public BufferedImage getRotatedImage(final Image bufferedImage, final double radians)
+   public BufferedImage getRotatedImageRadians(final Image bufferedImage, final double radians)
    {
       final BufferedImage newBufferedImage = 
          this.imageUtil.create(bufferedImage.getWidth(null), bufferedImage.getHeight(null));
       
-      return this.getRotatedImage(bufferedImage, newBufferedImage, newBufferedImage.createGraphics(), radians);
+      return this.drawRotatedImageRadians(bufferedImage, newBufferedImage, newBufferedImage.createGraphics(), radians);
    }
    
-   private BufferedImage getRotatedImage(final Image bufferedImage, final BufferedImage newBufferedImage, final Graphics2D g, final double radians)
+   private BufferedImage drawRotatedImageRadians(final Image bufferedImage, final BufferedImage newBufferedImage, final Graphics2D g, final double radians)
    {
       //g.translate((neww-w)/2, (newh-h)/2);
 
@@ -70,13 +70,13 @@ public class ImageJ2SERotationUtil
        final Graphics2D g = newBufferedImage.createGraphics();
        g.setBackground(this.imageJ2SEUtil.TRANSPARENT_COLOR);
        g.clearRect(0, 0, newBufferedImage.getWidth(), newBufferedImage.getHeight());
-       return this.getRotatedImage(bufferedImage, newBufferedImage, g, TWO_PIE * totalAngle / 360);
+       return this.drawRotatedImageRadians(bufferedImage, newBufferedImage, g, TWO_PIE * totalAngle / 360);
    }
    
-   public BufferedImage getRotatedImage(final Image bufferedImage, final BufferedImage newBufferedImage, final int totalAngle)
+   public BufferedImage createRotatedImage(final Image bufferedImage, final BufferedImage newBufferedImage, final int totalAngle)
    {
        final Graphics2D g = newBufferedImage.createGraphics();
-       return this.getRotatedImage(bufferedImage, newBufferedImage, g, TWO_PIE * totalAngle / 360);
+       return this.drawRotatedImageRadians(bufferedImage, newBufferedImage, g, TWO_PIE * totalAngle / 360);
    }
    
    public BufferedImage[] getRotatedImages(final Image bufferedImage, final int numberOfFrames, final int totalAngle)
@@ -90,7 +90,7 @@ public class ImageJ2SERotationUtil
       {
          final double radians = (arc / size) * index;
          bufferedImageArray[index] =
-            this.getRotatedImage(bufferedImage, radians);
+            this.getRotatedImageRadians(bufferedImage, radians);
       }
       return bufferedImageArray;
    }

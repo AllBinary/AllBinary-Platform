@@ -112,7 +112,7 @@ public class ModDomHelper
          else
          if(object instanceof String)
          {
-            String value = stringUtil.getInstance((String) object);
+            String value = stringUtil.getNonNull((String) object);
             node.appendChild(ModDomHelper.createNameValueNodes(document, name, value));
          }
          else
@@ -148,7 +148,7 @@ public class ModDomHelper
       int size = valueVector.size();
       for (int i = 0; i < size; i++)
       {
-         String value = stringUtil.getInstance((String) valueVector.get(i));
+         String value = stringUtil.getNonNull((String) valueVector.get(i));
          //this.logUtil.putF("Adding: " + name + "=" + value , this, stringUtil.EMPTY_STRING);
          
          node.appendChild(
@@ -169,7 +169,7 @@ public class ModDomHelper
       int size = valueVector.size();
       for (int index = 0; index < size; index++)
       {
-         String value = stringUtil.getInstance((String) valueVector.get(index));
+         String value = stringUtil.getNonNull((String) valueVector.get(index));
          //this.logUtil.putF("Adding: " + name + "=" + value , this, stringUtil.EMPTY_STRING);
 
          node.appendChild(
@@ -199,7 +199,7 @@ public class ModDomHelper
          
          //this.logUtil.putF("Adding: " + name + "=" + value ,this,"toXmlNode(document)");
 
-         String value = stringUtil.getInstance((String) object);
+         String value = stringUtil.getNonNull((String) object);
          node.appendChild(ModDomHelper.createTextNode(document, name, value));
          
          /*

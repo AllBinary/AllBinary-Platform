@@ -25,11 +25,11 @@ public class PlatformImage {
         return NullCanvas.NULL_IMAGE;
     }
 
-    public int getWidth(final Object graphicsSurface2, final int width) {
+    public int getSurfaceWidth(final Object graphicsSurface2, final int width) {
         return width;
     }
 
-    public int getHeight(final Object graphicsSurface2, final int height) {
+    public int getSurfaceHeight(final Object graphicsSurface2, final int height) {
         return height;
     }
     

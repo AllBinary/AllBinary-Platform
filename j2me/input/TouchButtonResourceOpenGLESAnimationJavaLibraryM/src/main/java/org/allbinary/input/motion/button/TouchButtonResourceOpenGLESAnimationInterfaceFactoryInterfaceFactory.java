@@ -29,7 +29,7 @@ public class TouchButtonResourceOpenGLESAnimationInterfaceFactoryInterfaceFactor
     public void init(int level) 
     throws Exception
     {
-        super.init(OpenGLImageCacheFactory.getInstance(), level);
+        super.initImageCache(OpenGLImageCacheFactory.getInstance(), level);
         //throw new Exception("OpenGL Resource Loader Only");
     }
     

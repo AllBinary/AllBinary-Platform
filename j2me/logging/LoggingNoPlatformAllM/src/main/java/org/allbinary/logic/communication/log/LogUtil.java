@@ -23,7 +23,7 @@ public class LogUtil {
     private LogUtil() {
     }
 
-    public void put(Log log) {
+    public void putL(Log log) {
         final String specialMessage = log.getSpecialMessage();
         final Object object = log.getObject();
         final String functionName = log.getFunctionName();
@@ -32,7 +32,7 @@ public class LogUtil {
         throw new RuntimeException();
     }
 
-    public void put(
+    public void putF(
         final String specialMessage,
         final Object object,
         final String functionName) {

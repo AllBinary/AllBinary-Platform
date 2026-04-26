@@ -71,7 +71,6 @@ import org.allbinary.game.score.HighScore;
 import org.allbinary.game.score.HighScoresFactoryInterface;
 import org.allbinary.game.score.HighScoresHelperBase;
 import org.allbinary.game.score.HighScoresPaintable;
-import org.allbinary.game.score.NoHighScoresFactory;
 import org.allbinary.game.score.NullHighScoresSingletonFactory;
 import org.allbinary.game.score.displayable.HighScoreTextBox;
 import org.allbinary.game.state.GameState;
@@ -326,7 +325,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         }
     }
 
-    public void updateMenu(final DisplayChangeEvent displayChangeEvent) throws Exception {
+    public void updateMenuFromEvent(final DisplayChangeEvent displayChangeEvent) throws Exception {
 
         //MyFont.getInstance().update();
 
@@ -378,7 +377,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             }
         }
 
-        if (this.menuInputProcessor.processInput() != -1)
+        if (this.menuInputProcessor.processInputList() != -1)
         {
             // this.logUtil.putF("Menu Processing While Sleeping", this, PROCESS_SLEEP);
 
@@ -655,7 +654,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     private void init(AllBinaryGameLayerManager gameLayerManager,
             boolean buffered) throws Exception
     {
-        this.gameStateTimeHelper.setStartTime();
+        this.gameStateTimeHelper.setStartTimeTNT();
 
         this.setHighScoreSubmitted(false);
 
@@ -741,7 +740,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     protected synchronized void initConfigurable(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
-        progressCanvas.addPortion(50, "Setting Configurables");
+        progressCanvas.addNormalPortion(50, "Setting Configurables");
 
         GameInitializationUtil.getInstance().initGame(abeClientInformation, this,
                 gameInitializationInterfaceFactoryInterface);
@@ -751,7 +750,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         final ChangedGameFeatureListener changedGameFeatureListener =
             ChangedGameFeatureListener.getInstance();
 
-        if (changedGameFeatureListener.isChanged(gameFeatureFactory.SOUND))
+        if (changedGameFeatureListener.isChangedFeature(gameFeatureFactory.SOUND))
         {
             final Features features = Features.getInstance();
 
@@ -764,9 +763,9 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         final SensorFeatureFactory sensorFeatureFactory = SensorFeatureFactory.getInstance();
 
-        if (changedGameFeatureListener.isChanged(sensorFeatureFactory.ORIENTATION_SENSORS)
-                || changedGameFeatureListener.isChanged(sensorFeatureFactory.NO_ORIENTATION)
-                || changedGameFeatureListener.isChanged(sensorFeatureFactory.SIMULATED_ORIENTATION_SENSORS))
+        if (changedGameFeatureListener.isChangedFeature(sensorFeatureFactory.ORIENTATION_SENSORS)
+                || changedGameFeatureListener.isChangedFeature(sensorFeatureFactory.NO_ORIENTATION)
+                || changedGameFeatureListener.isChangedFeature(sensorFeatureFactory.SIMULATED_ORIENTATION_SENSORS))
         {
             // private final AllBinarySensor[] allBinarySensorArray = new
             // AllBinarySensor[1];
@@ -782,10 +781,10 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         final ResourceLoadingLevelFactory resourceLoadingLevelFactory =
             ResourceLoadingLevelFactory.getInstance();
 
-        this.loadResources(resourceLoadingLevelFactory.LOAD_GAME);
+        this.loadResourceLoadingLevel(resourceLoadingLevelFactory.LOAD_GAME);
     }
 
-    protected void init(final AbeClientInformationInterface abeClientInformation) throws Exception
+    protected void initApp(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
         this.initConfigurable(abeClientInformation);
 
@@ -915,7 +914,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
                 if (gameFeatureUtil.isExclusive(itemLabel))
                 {
-                    gameFeatureUtil.updateExclusive((ChoiceGroup) item);
+                    gameFeatureUtil.updateExclusiveForChoiceGroup((ChoiceGroup) item);
                 }
                 else
                 {
@@ -1001,7 +1000,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     }
 
     @Override
-    public void setGameOver() throws Exception
+    public void processGameOver() throws Exception
     {
         PreLogUtil.put(commonStrings.START, this, this.gameStrings.SET_GAME_OVER);
         // this.logUtil.putF(commonStrings.START, this, this.gameStrings.SET_GAME_OVER);
@@ -1057,7 +1056,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         // PreLogUtil.put("Game State: ").append(gameState, this, this.gameStrings.SET_GAME_STATE);
 
         this.gameState = gameState;
-        this.gameStateTimeHelper.setStartTime();
+        this.gameStateTimeHelper.setStartTimeTNT();
 
         this.updateEndGameProcessor();
         this.updateGameKeyEventProcessor();
@@ -1065,7 +1064,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         this.gameBehavior.setGameState(this);
     }
 
-    public void setGameState() throws Exception {
+    public void updateGameState() throws Exception {
         final GameAdState gameAdState = gameAdStateFactory.getCurrentInstance();
 
         gameAdState.processAdState(this.gameState, this.gameLayerManager.getGameInfo().getGameType());
@@ -1133,7 +1132,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         }
     }
 
-    public void buildGame(final boolean isPortion) throws Exception
+    public void buildGameInit(final boolean isPortion) throws Exception
     {
     }
 
@@ -1142,7 +1141,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         this.logUtil.putF(commonStrings.START, this, this.commonStrings.CLEANUP);
 
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
-        progressCanvas.addPortion(10, "Cleaning Up");
+        progressCanvas.addNormalPortion(10, "Cleaning Up");
 
         primaryPlayerQueue.clear();
         secondaryPlayerQueue.clear();
@@ -1150,7 +1149,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         GameLevelDisplayChangeEventListenersFactory.getInstance().clear();
     }
 
-    public void loadResources(final ResourceLoadingLevel resourceLoadingLevel) throws Exception
+    public void loadResourceLoadingLevel(final ResourceLoadingLevel resourceLoadingLevel) throws Exception
     {
         final GameInitializedEvent gameInitializedEvent = GameInitializationUtil.getInstance().EVENT;
 
@@ -1180,19 +1179,19 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         final Features features = Features.getInstance();
 
-        progressCanvas.addPortion(portion, "Generic Build");
+        progressCanvas.addNormalPortion(portion, "Generic Build");
 
         this.removeAllGameKeyInputListenersOnBuild();
 
         this.updateTouch();
 
-        progressCanvas.addPortion(portion, "High Scores");
+        progressCanvas.addNormalPortion(portion, "High Scores");
 
         this.highScoresFactoryInterface.fetchHighScores(this.gameLayerManager.getGameInfo(), this.highScoresHelper);
 
         this.setHighScoresPaintable(NullPaintable.getInstance());
 
-        progressCanvas.addPortion(portion, "Finishing.");
+        progressCanvas.addNormalPortion(portion, "Finishing.");
 
         this.getEndGameInfoP().update(this.getLayerManager().getGameInfo(), this);
 
@@ -1201,7 +1200,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         this.setGameOver(false);
 
-        progressCanvas.addPortion(portion, "Finishing..");
+        progressCanvas.addNormalPortion(portion, "Finishing..");
 
         // this.logUtil.putF("Game Color Change", this, BUILD_GAME);
 
@@ -1215,7 +1214,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             // If this is not the root window then it does not change the screen
         }
 
-        progressCanvas.addPortion(portion, "Finishing...");
+        progressCanvas.addNormalPortion(portion, "Finishing...");
 
         if (this.isMainCanvas() || !this.isInitialized())
         {
@@ -1272,7 +1271,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     }
 
     public void addKeyInputListener(final PlayerGameInput playerGameInput) {
-        GameKeyEventHandler.getInstance().addListener(playerGameInput, playerGameInput.getPlayerInputId());
+        GameKeyEventHandler.getInstance().addListenerForPlayer(playerGameInput, playerGameInput.getPlayerInputId());
     }
 
     private DemoPaintableInterface gameCanvasStartListener = NullDemoPaintable.NULL_DEMO_PAINTABLE;
@@ -1401,23 +1400,23 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     @Override
     public void keyPressed(int keyCode)
     {
-        this.keyPressed(keyCode, 0);
+        this.keyPressedByDevice(keyCode, 0);
     }
 
     @Override
     public void keyReleased(int keyCode)
     {
-        this.keyReleased(keyCode, 0);
+        this.keyReleasedByDevice(keyCode, 0);
     }
 
     @Override
     public void keyRepeated(int keyCode)
     {
-        this.keyRepeated(keyCode, 0);
+        this.keyRepeatedByDevice(keyCode, 0);
     }
 
     @Override
-    public void keyPressed(int keyCode, int deviceId)
+    public void keyPressedByDevice(int keyCode, int deviceId)
     {
         //this.logUtil.putF(new StringMaker().append(this.commonLabels.START_LABEL).append(this.inputProcessor.toString()).append(CommonSeps.getInstance().SPACE).append(keyCode).toString(), this, gameInputStrings.KEY_PRESSED);
         // ForcedLogUtil.log(commonStrings.START_LABEL +
@@ -1429,7 +1428,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     }
 
     @Override
-    public void keyRepeated(int keyCode, int deviceId)
+    public void keyRepeatedByDevice(int keyCode, int deviceId)
     {
         // this.logUtil.putF("Key Repeated: " +
         // Integer.toHexString(keyCode), // this, gameInputStrings.KEY_REPEATED);
@@ -1441,7 +1440,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     }
 
     @Override
-    public void keyReleased(final int keyCode, final int deviceId)
+    public void keyReleasedByDevice(final int keyCode, final int deviceId)
     {
         //this.logUtil.putF(new StringMaker().append(this.commonLabels.START_LABEL).append(this.inputProcessor.toString()).append(CommonSeps.getInstance().SPACE).append(keyCode).toString(), this, gameInputStrings.KEY_RELEASED);
         this.inputProcessor.keyReleased(this, keyCode, deviceId);
@@ -1527,7 +1526,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         }
 
         this.mainStateProcessor.process();
-        menuInputProcessor.processInput();
+        menuInputProcessor.processInputList();
         this.endGameProcessor.process();
 
         baseGameStatistics.nextFrame();
@@ -1574,7 +1573,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             this.logUtil.putF(commonStrings.START_RUNNABLE, this, commonStrings.RUN);
 
             final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
-            progressCanvas.addPortion(50, "Game Thread");
+            progressCanvas.addNormalPortion(50, "Game Thread");
 
             this.setCurrentThread();
 

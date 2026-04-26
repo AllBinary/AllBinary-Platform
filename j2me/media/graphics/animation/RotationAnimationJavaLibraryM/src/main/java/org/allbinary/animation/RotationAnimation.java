@@ -17,7 +17,6 @@ import org.allbinary.direction.Direction;
 import org.allbinary.direction.DirectionUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.math.Angle;
-import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
 import org.allbinary.math.FrameUtil;
 import org.allbinary.util.CircularIndexUtil;
@@ -107,7 +106,7 @@ public class RotationAnimation
     }
 
     @Override
-    public void setFrame(final Direction direction)
+    public void setFrameByDirection(final Direction direction)
     {
         //this.logUtil.putF(commonStrings.START, this, "setFrame");
 
@@ -138,17 +137,17 @@ public class RotationAnimation
         */
 
         final Angle angle = this.directionUtil.getFrameAngle(direction);
-        this.adjustFrame(angle);
+        this.adjustFrameToAngle(angle);
     }
 
     @Override
-    public void setFrame(final Angle angle)
+    public void setFrameToAngle(final Angle angle)
     {
-        this.adjustFrame(angle);
+        this.adjustFrameToAngle(angle);
     }
 
     @Override
-    public void adjustFrame(final Angle angle)
+    public void adjustFrameToAngle(final Angle angle)
     {
         this.adjustFrame(angle.getValue());
     }

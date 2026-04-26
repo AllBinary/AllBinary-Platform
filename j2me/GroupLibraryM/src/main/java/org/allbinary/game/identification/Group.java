@@ -19,7 +19,7 @@ import org.allbinary.logic.string.StringUtil;
 
 public class Group implements GroupInterface
 {
-    public static final Integer ID = SmallIntegerSingletonFactory.getInstance().getInstance(10);
+    public static final Integer ID = SmallIntegerSingletonFactory.getInstance().getAt(10);
    
    private String name = StringUtil.getInstance().EMPTY_STRING;
    private final short teamId;

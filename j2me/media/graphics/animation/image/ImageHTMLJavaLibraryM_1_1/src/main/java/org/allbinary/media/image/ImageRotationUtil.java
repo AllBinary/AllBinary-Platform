@@ -43,7 +43,7 @@ public class ImageRotationUtil
             final CanvasSurface canvasSurface = htmlImage.getCanvasSurface(canvasImage);
             
             canvasSurface.translate(originalImage.getWidth() / 2, originalImage.getHeight() / 2);
-            final Image image2 = this.rotateImage(originalImage, image, canvasSurface, totalAngle);      
+            final Image image2 = this.rotateImageCanvasSurface(originalImage, image, canvasSurface, totalAngle);
             this.drawImage(originalImage, image, canvasSurface);
             return image2;
         } else {
@@ -51,20 +51,20 @@ public class ImageRotationUtil
         }
     }
     
-    public Image rotateImageClear(final Image originalImage, final Image image, final CanvasSurface canvasSurface, final int totalAngle) {
+    public Image rotateImageCanvasSurfaceClear(final Image originalImage, final Image image, final CanvasSurface canvasSurface, final int totalAngle) {
         if (image.isMutable())
         {
             canvasSurface.translate(-originalImage.getWidth() / 2, -originalImage.getHeight() / 2);
             canvasSurface.clear();
             canvasSurface.translate(originalImage.getWidth() / 2, originalImage.getHeight() / 2);
             
-            return this.rotateImage(originalImage, image, canvasSurface, totalAngle);
+            return this.rotateImageCanvasSurface(originalImage, image, canvasSurface, totalAngle);
         } else {
             return null;
         }
     }
     
-    public Image rotateImage(final Image originalImage, final Image image, final CanvasSurface canvasSurface, final int totalAngle) {
+    public Image rotateImageCanvasSurface(final Image originalImage, final Image image, final CanvasSurface canvasSurface, final int totalAngle) {
         if (image.isMutable())
         {            
             canvasSurface.rotate((float) Math.toRadians(totalAngle));
@@ -98,7 +98,7 @@ public class ImageRotationUtil
             throws Exception
     {
         //PreLogUtil.put("originalImage: " + originalImage + " rotationInDegrees: " + rotationInDegrees, this, "createRotatedImage");
-        final Image image = ImageCreationUtil.getInstance().getInstance(
+        final Image image = ImageCreationUtil.getInstance().createImageWH(
                 originalImage.getWidth() , originalImage.getHeight());
         final Image rotatedImage = this.rotateImage(originalImage, image, rotationInDegrees);
         if(rotatedImage == null) {

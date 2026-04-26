@@ -66,7 +66,7 @@ public class NullGameCanvasRunnable implements GameCanvasRunnableInterface {
     }
 
     @Override
-    public void setGameOver() throws Exception {
+    public void processGameOver() throws Exception {
 
     }
 

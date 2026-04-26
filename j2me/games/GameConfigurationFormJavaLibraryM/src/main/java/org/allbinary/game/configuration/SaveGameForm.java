@@ -19,15 +19,14 @@ import javax.microedition.lcdui.TextField;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.screen.CommandForm;
-import org.allbinary.logic.communication.log.LogUtil;
 
 public class SaveGameForm extends CommandForm
 {
 
     private static CommandForm FORM = CommandForm.NULL_COMMAND_FORM;
 
-    public static CommandForm getInstance(CommandListener commandListener, String title,
-            BasicColor backgrounBasicColor, BasicColor foregroundBasicColor)
+    public static CommandForm create(CommandListener commandListener, String title,
+                                     BasicColor backgrounBasicColor, BasicColor foregroundBasicColor)
             throws Exception
     {
         FORM = new SaveGameForm(commandListener, title, backgrounBasicColor, foregroundBasicColor);

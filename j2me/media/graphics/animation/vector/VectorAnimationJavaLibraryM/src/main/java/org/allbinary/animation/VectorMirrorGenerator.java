@@ -60,7 +60,7 @@ public class VectorMirrorGenerator
                 for (int index = 0; index < size2; index++)
                 {
                     pointBasicArrayList.add(
-                            pointFactory.getInstance0(
+                            pointFactory.createXY(
                             nextPoints[index][0], nextPoints[index][1]));
                 }
 
@@ -73,7 +73,7 @@ public class VectorMirrorGenerator
                         (BasicArrayList) pointsBasicArrayList.objectArray[index], width));
             }
 
-            int[][][] newPoints = this.vectorAnimationUtil.toAnimationArrayFromBasicArrayListOfPointBasicArrayList(
+            int[][][] newPoints = this.vectorAnimationUtil.toAnimationArrayFromListOfPointList(
                     pointsBasicArrayList);
 
             // this.logUtil.putF(IntArrayUtil.toString(newPoints), this, commonStrings.GET_INSTANCE);

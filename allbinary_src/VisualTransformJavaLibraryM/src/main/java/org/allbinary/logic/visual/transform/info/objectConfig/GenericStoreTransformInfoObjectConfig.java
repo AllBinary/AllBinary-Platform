@@ -163,7 +163,7 @@ public class GenericStoreTransformInfoObjectConfig extends TransformInfoObjectCo
         //by itself unless it is using a objectconfig that specifies preview as the parent
         HashMap propertiesHashMap = transformInfoHttpStoreInterface.getPropertiesHashMap();
 
-        String templateNameOverride = StringUtil.getInstance().getInstance(
+        String templateNameOverride = StringUtil.getInstance().getNonNull(
             (String) propertiesHashMap.get(TransformInfoData.getInstance().PARTIAL));
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))

@@ -95,9 +95,9 @@ implements TechEventListenerInterface
     
     //-yOffset
     @Override
-    public void paint(Graphics graphics, int x, int y)
+    public void paintXY(Graphics graphics, int x, int y)
     {
-        super.paint(graphics, x, y);
+        super.paintXY(graphics, x, y);
 
         final int adjustedCostY = this.image.getHeight() - this.myFont.DEFAULT_CHAR_HEIGHT;
         

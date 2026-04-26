@@ -202,13 +202,13 @@ public class RTSPlayerGameInput extends PlayerGameInput
                     (GameKeyEvent) this.inputList.get(index);
                 key = gameKeyEvent.getKey();
 
-                this.getScrollPlayerGameInput().processInput(key);
-                this.getSelectedBuildingPlayerGameInput().processInput(key);
+                this.getScrollPlayerGameInput().processInputKey(key);
+                this.getSelectedBuildingPlayerGameInput().processInputKey(key);
                 // this.currentPlayerGameInput.processInput(key);
 
-                this.inputProcessorArray[key].process(layerManager, gameKeyEvent);
+                this.inputProcessorArray[key].processEvent(layerManager, gameKeyEvent);
 
-                this.removeInputProcessorArray[key].process(layerManager, gameKeyEvent);
+                this.removeInputProcessorArray[key].processEvent(layerManager, gameKeyEvent);
             }
 
             if (isIsSingleKeyProcessing())
@@ -252,7 +252,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
         //commonLabels).append(allBinaryTiledLayer.getHeight(), this, "select");
 
         GeographicMapCellPosition geographicMapCellPosition =
-            geographicMapInterface.getCellPositionAtNoThrow(x, y);
+            geographicMapInterface.getCellPositionAtXYNoThrow(x, y);
         
         if (geographicMapCellPosition != SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION)
         {
@@ -268,7 +268,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
             else
             {
                 geographicMapCellPosition =
-                    geographicMapInterface.getCellPositionAt(
+                    geographicMapInterface.getCellPositionAtXY(
                     layer.getXP(), layer.getYP());
             }            
             

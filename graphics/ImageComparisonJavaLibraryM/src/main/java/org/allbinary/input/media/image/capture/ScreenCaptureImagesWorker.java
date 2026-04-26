@@ -56,7 +56,7 @@ public class ScreenCaptureImagesWorker extends BasicEventHandler
             setRunning(true);
             TimeDelayHelper timeHelper = new TimeDelayHelper(1000);
             while (isRunning()) {
-                timeHelper.setStartTime();
+                timeHelper.setStartTimeTNT();
                 BufferedImage bufferedImage
                         = this.screenScavangerRobot.getScreenAsBufferedImages()[0];
                 Long frame = new Long(index);
@@ -67,7 +67,7 @@ public class ScreenCaptureImagesWorker extends BasicEventHandler
                         = new CapturedImageWorkerResultsEvent(this, frame,
                                 bufferedImage);
                 fireEvent(capturedImageEvent);
-                this.logUtil.putF(CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN);
+                this.logUtil.putF(CommonLabels.getInstance().ELAPSED + timeHelper.getElapsedTNT(), this, this.commonStrings.RUN);
                 setRunning(false);
             }
             this.logUtil.putF(this.commonStrings.END, this, this.commonStrings.RUN);

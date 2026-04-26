@@ -36,13 +36,13 @@ public class ImageJ2MEScaleUtil {
         
     }
 
-    public Image[] scale(Image[] images, int width, int height) throws Exception
+    public Image[] scaleArray(Image[] images, int width, int height) throws Exception
     {
         for(int index = 0; index < images.length; index++)
         {
             Image image = images[index];
             
-            images[index] = ImageScaleUtil.getInstance().createImage(
+            images[index] = ImageScaleUtil.getInstance().createImage2(
                     GameFeatureImageCacheFactory.getInstance(),
                     image,
                     (float) width / 2, (float) image.getWidth(),
@@ -53,7 +53,7 @@ public class ImageJ2MEScaleUtil {
 
     public Image scale(Image image, int width, int height) throws Exception
     {
-        return ImageScaleUtil.getInstance().createImage(
+        return ImageScaleUtil.getInstance().createImage2(
                 GameFeatureImageCacheFactory.getInstance(),
                 image,
                 (float) width, (float) image.getWidth(),

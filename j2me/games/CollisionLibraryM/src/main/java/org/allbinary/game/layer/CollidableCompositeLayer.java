@@ -83,11 +83,11 @@ implements CollidableInterfaceCompositeInterface
     }
     
     @Override
-    public void toString(final StringMaker stringBuffer)
+    public void toStringAppend(final StringMaker stringBuffer)
     {
         final CommonSeps commonSeps = CommonSeps.getInstance();
         
-        super.toString(stringBuffer);
+        super.toStringAppend(stringBuffer);
         stringBuffer.append(commonSeps.NEW_LINE);
         stringBuffer.append(this.getCollidableInferface().toString());
         //stringBuffer.append(commonSeps.NEW_LINE);
@@ -99,7 +99,7 @@ implements CollidableInterfaceCompositeInterface
     {
         final StringMaker stringBuffer = new StringMaker();
 
-        this.toString(stringBuffer);
+        this.toStringAppend(stringBuffer);
 
         return stringBuffer.toString();
     }

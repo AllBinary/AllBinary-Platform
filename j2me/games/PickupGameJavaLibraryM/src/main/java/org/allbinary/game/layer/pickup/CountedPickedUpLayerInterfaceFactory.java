@@ -45,7 +45,7 @@ public class CountedPickedUpLayerInterfaceFactory
     }
 
     @Override
-    public AllBinaryLayer getInstance(Hashtable hashtable, int x, int y, int z)
+    public AllBinaryLayer getNextInstance(Hashtable hashtable, int x, int y, int z)
     throws Exception
     {
         throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);

@@ -68,12 +68,12 @@ public class CaptionAnimationHelper extends CaptionAnimationHelperBase
         this.textAnimation.setBasicColorP(basicColor);
         this.textAnimation.setText(message);
         this.animation = this.captionAnimation;
-        this.timeHelper.setStartTime();
+        this.timeHelper.setStartTimeTNT();
     }
     
     @Override
-    public void paint(Graphics graphics, int x, int y)
+    public void paintXY(Graphics graphics, int x, int y)
     {
-        this.animation.paint(graphics, x, y);
+        this.animation.paintXY(graphics, x, y);
     }
 }

@@ -201,7 +201,7 @@ public class NameSpaceRequestParams extends RequestParams
       for (int index = 0; index < size; index++)
       {
          String nextPropertyName = (String) propertyNameSetArray[index];
-         String propertyValue = StringUtil.getInstance().getInstance((String)
+         String propertyValue = StringUtil.getInstance().getNonNull((String)
          nextPackagePropertiesHashMap.get(nextPropertyName));
 
          //Node name was already checked in previous search

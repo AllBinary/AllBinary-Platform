@@ -159,7 +159,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase
         //this.logUtil.putF("graphics: " + graphics, this, GET_FONT_BITMAP);
         
         int biggestHeight = 0;
-        final Rectangle bounds = new Rectangle(PointFactory.getInstance().getInstance0(0, 0), cellSize, cellSize);
+        final Rectangle bounds = new Rectangle(PointFactory.getInstance().createXY(0, 0), cellSize, cellSize);
         int x;
         int y;
         for (int index = 0; index < size; index++)

@@ -41,52 +41,51 @@ public class VectorExplosionGenerator
     {
     }
 
-    public BasicArrayList getInstance(BasicArrayList list, int howMuch,
-            VectorExplosionType type) throws Exception
+    public BasicArrayList createList(final BasicArrayList list, final int howMuch, final VectorExplosionType type) throws Exception
     {
-        int size = list.size();
-        int[][] points = new int[size][2];
+        GPoint point;
+        final int size = list.size();
+        final int[][] points = new int[size][2];
         for (int index = 0; index < size; index++)
         {
-            GPoint point = (GPoint) list.objectArray[index];
+            point = (GPoint) list.objectArray[index];
             points[index][0] = point.getX();
             points[index][1] = point.getY();
         }
-        return getInstance(list, points, howMuch, type);
+        return createListFromPoints(list, points, howMuch, type);
     }
 
-    public int[][][] getInstance(int[][] points, int howMuch,
-            VectorExplosionType type) throws Exception
+    public int[][][] getInstance(final int[][] points, final int howMuch, final VectorExplosionType type) throws Exception
     {
 
-        BasicArrayList pointsBasicArrayList = getInstance(points, howMuch, type, true);
+        final BasicArrayList pointsBasicArrayList = getInstanceStartFrame(points, howMuch, type, true);
 
-        BasicArrayList tempBasicArrayList = (BasicArrayList) pointsBasicArrayList.objectArray[0];
+        final BasicArrayList tempBasicArrayList = (BasicArrayList) pointsBasicArrayList.objectArray[0];
 
-        int[][][] newPoints = this.vectorAnimationUtil
-                .toAnimationArrayFromBasicArrayListOfPointBasicArrayList(
+        final int[][][] newPoints = this.vectorAnimationUtil
+                .toAnimationArrayFromListOfPointListWithPointsPerFrame(
                         pointsBasicArrayList, tempBasicArrayList.size());
 
         return newPoints;
     }
 
-    public BasicArrayList getInstance(int[][] points, int howMuch,
-            VectorExplosionType type, boolean startFrame) throws Exception
+    public BasicArrayList getInstanceStartFrame(final int[][] points, final int howMuch, final VectorExplosionType type, final boolean startFrame) throws Exception
     {
         try
         {
-            BasicArrayList pointsBasicArrayList = new BasicArrayListS(howMuch);
+            final BasicArrayList pointsBasicArrayList = new BasicArrayListS(howMuch);
 
             pointsBasicArrayList.add(createPointsBasicArrayList(points));
 
             int frameIndex = 0;
 
+            BasicArrayList tempBasicArrayList;
+            BasicArrayList pointBasicArrayList;
             while (frameIndex < howMuch)
             {
-                BasicArrayList tempBasicArrayList = (BasicArrayList) pointsBasicArrayList.objectArray[frameIndex];
+                tempBasicArrayList = (BasicArrayList) pointsBasicArrayList.objectArray[frameIndex];
 
-                BasicArrayList pointBasicArrayList = getInstance(
-                        tempBasicArrayList, points, howMuch, type);
+                pointBasicArrayList = createListFromPoints(tempBasicArrayList, points, howMuch, type);
                 // this.logUtil.putF("Adding Point BasicArrayList commonStrings.TOTAL_LABEL + pointBasicArrayList.size() + " should be == " + firstPointBasicArrayList.size(), this, commonStrings.GET_INSTANCE);
                 // this.logUtil.putF("Point BasicArrayList: " + pointBasicArrayList.toString(), this, commonStrings.GET_INSTANCE);
                 pointsBasicArrayList.add(pointBasicArrayList);
@@ -96,7 +95,7 @@ public class VectorExplosionGenerator
 
             if (!startFrame)
             {
-                pointsBasicArrayList.remove(0);
+                pointsBasicArrayList.removeAt(0);
             }
 
             // this.logUtil.putF(IntArrayUtil.toString(newPoints), this, commonStrings.GET_INSTANCE);
@@ -110,20 +109,19 @@ public class VectorExplosionGenerator
         }
     }
 
-    private final RandomRotationFactory randomRotationFactory = RandomRotationFactory
-            .getInstance();
+    private final RandomRotationFactory randomRotationFactory = RandomRotationFactory.getInstance();
 
-    private BasicArrayList getInstance(BasicArrayList tempBasicArrayList,
-            int[][] points, int howMuch, VectorExplosionType type)
+    private BasicArrayList createListFromPoints(final BasicArrayList tempBasicArrayList, final int[][] points, final int howMuch, final VectorExplosionType type)
             throws Exception
     {
         int index = 0;
-        BasicArrayList pointBasicArrayList = new BasicArrayListD();
+        final BasicArrayList pointBasicArrayList = new BasicArrayListD();
 
+        BasicArrayList sectionBasicArrayList;
         // && index < tempBasicArrayList.size()
         while (index < points.length)
         {
-            BasicArrayList sectionBasicArrayList = new BasicArrayListD();
+            sectionBasicArrayList = new BasicArrayListD();
 
             // && index < tempBasicArrayList.size()
             while (points[index][0] != 1000)
@@ -142,13 +140,11 @@ public class VectorExplosionGenerator
              * break; }
              */
 
-            sectionBasicArrayList = RandomTranslation.getInstance(
-                    sectionBasicArrayList, howMuch);
+            sectionBasicArrayList = RandomTranslation.getInstance(sectionBasicArrayList, howMuch);
 
             if (type == this.ROTATION)
             {
-                sectionBasicArrayList = randomRotationFactory.getInstance(
-                        sectionBasicArrayList, howMuch);
+                sectionBasicArrayList = randomRotationFactory.getInstanceList(sectionBasicArrayList, howMuch);
             }
 
             int size = sectionBasicArrayList.size();
@@ -170,7 +166,7 @@ public class VectorExplosionGenerator
         return pointBasicArrayList;
     }
 
-    private BasicArrayList createPointsBasicArrayList(int[][] points)
+    private BasicArrayList createPointsBasicArrayList(final int[][] points)
             throws Exception
     {
         if (points.length == 0)
@@ -178,13 +174,12 @@ public class VectorExplosionGenerator
             throw new Exception("Not Points Provided");
         }
 
-        BasicArrayList firstPointBasicArrayList = new BasicArrayListS(
-                points.length);
+        final BasicArrayList firstPointBasicArrayList = new BasicArrayListS(points.length);
 
+        final PointFactory pointFactory = PointFactory.getInstance();
         for (int index = 0; index < points.length; index++)
         {
-            firstPointBasicArrayList.add(PointFactory.getInstance()
-                    .getInstance0(points[index][0], points[index][1]));
+            firstPointBasicArrayList.add(pointFactory.createXY(points[index][0], points[index][1]));
         }
         return firstPointBasicArrayList;
     }

@@ -27,8 +27,8 @@ public class OptimizedGameInputLayerProcessorForCollidableLayer extends LayerPro
 	}
 
         @Override
-	public void process(final AllBinaryLayerManager allBinaryLayerManager,
-	        final AllBinaryLayer layerInterface, final int index) throws Exception {
+	public void processAt(final AllBinaryLayerManager allBinaryLayerManager,
+                          final AllBinaryLayer layerInterface, final int index) throws Exception {
 		final AllBinaryGameLayer gameInputInterface = (AllBinaryGameLayer) layerInterface;
                 //this.logUtil.putF(new StringMaker().append("processInput: ").append(layerInterface).toString(), this, gameInputStrings.PROCESS_INPUT);
 		gameInputInterface.processInput(allBinaryLayerManager);

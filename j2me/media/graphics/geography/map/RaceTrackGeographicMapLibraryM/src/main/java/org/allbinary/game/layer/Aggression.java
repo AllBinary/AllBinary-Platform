@@ -21,9 +21,9 @@ import org.allbinary.logic.math.SmallIntegerSingletonFactory;
  */
 public class Aggression {
 
-   private Integer ram = SmallIntegerSingletonFactory.getInstance().getInstance(0);
-   private Integer projectile = SmallIntegerSingletonFactory.getInstance().getInstance(0);
-   private Integer drops = SmallIntegerSingletonFactory.getInstance().getInstance(0);
+   private Integer ram = SmallIntegerSingletonFactory.getInstance().getAt(0);
+   private Integer projectile = SmallIntegerSingletonFactory.getInstance().getAt(0);
+   private Integer drops = SmallIntegerSingletonFactory.getInstance().getAt(0);
    
    public Aggression(Integer ram, Integer projectile, Integer drops)
    {

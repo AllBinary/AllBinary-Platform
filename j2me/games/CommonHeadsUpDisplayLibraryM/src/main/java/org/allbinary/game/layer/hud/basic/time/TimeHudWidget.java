@@ -50,7 +50,7 @@ public class TimeHudWidget extends BasicHud
         this.set();
 
         final MyFont myFont = MyFont.getInstance();
-        this.offset = myFont.stringWidth(this.TIME_STRING) + myFont.stringWidth(3);
+        this.offset = myFont.stringWidth(this.TIME_STRING) + myFont.defaultStringWidth(3);
 
         if (direction == 0)
         {
@@ -80,7 +80,7 @@ public class TimeHudWidget extends BasicHud
 
     public void paint(Graphics graphics)
     {
-        super.paint(graphics, TIME_CHAR_ARRAY, 0, TIME_CHAR_ARRAY.length, string, 0, totalDigits, offset);
+        super.paintDX(graphics, TIME_CHAR_ARRAY, 0, TIME_CHAR_ARRAY.length, string, 0, totalDigits, offset);
         // super.paint(graphics, TIME_STRING, string, offset);
     }
 

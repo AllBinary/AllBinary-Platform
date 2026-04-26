@@ -39,6 +39,7 @@ public class ImageCache extends ImageCacheBase
     {
     }
         
+    @Override
     public Image get(final String caller, final int width, final int height)
     throws Exception
     {        

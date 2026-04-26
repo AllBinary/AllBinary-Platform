@@ -36,7 +36,7 @@ public class AndroidImageUtil {
         return instance;
     }
 
-    public void paint(final Bitmap bitmap, final Bitmap originalBitmap, final Paint paint) {
+    public void paintBitmap(final Bitmap bitmap, final Bitmap originalBitmap, final Paint paint) {
         bitmap.eraseColor(Color.TRANSPARENT);
         final Canvas canvas = new android.graphics.Canvas();
         canvas.setBitmap(bitmap);

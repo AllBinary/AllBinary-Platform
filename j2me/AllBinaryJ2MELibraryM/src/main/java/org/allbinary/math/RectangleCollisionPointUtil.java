@@ -44,7 +44,7 @@ public class RectangleCollisionPointUtil
         return true;
     }
 
-    public static boolean allPointsInside(int rectX1, int rectY1, int rectX2, int rectY2, BasicArrayList list, int xCellSize, int yCellSize)
+    public static boolean allPointsInsideCell(int rectX1, int rectY1, int rectX2, int rectY2, BasicArrayList list, int xCellSize, int yCellSize)
     {
         final RectangleCollisionUtil rectangleCollisionUtil = RectangleCollisionUtil.getInstance();
         

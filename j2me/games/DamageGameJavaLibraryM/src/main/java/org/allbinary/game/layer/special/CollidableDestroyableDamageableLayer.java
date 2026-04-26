@@ -13,7 +13,6 @@
 */
 package org.allbinary.game.layer.special;
 
-import javax.microedition.khronos.opengles.GL;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.game.collision.CollidableNeverCollideBehaviorFactory;
@@ -32,7 +31,6 @@ import org.allbinary.game.part.PartInterface;
 import org.allbinary.game.part.PartInterfaceUtil;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.RectangleFactory;
-import org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
@@ -96,7 +94,7 @@ PickupCompositeInterface, SpecialGameInputInterface
         this.setPosition(this.initX, this.initY, this.initZ);
     }
 
-    public void initPosition(final int x, final int y, final int z) throws Exception
+    public void initPositionXYZ(final int x, final int y, final int z) throws Exception
     {        
         this.initX = x;
         this.initY = y;
@@ -257,23 +255,23 @@ PickupCompositeInterface, SpecialGameInputInterface
     {
     }
 
-    public void up(final int yAnalogValue)
+    public void upAnalog(final int yAnalogValue)
     throws Exception
     {
         
     }
     
-    public void down(final int yAnalogValue)
+    public void downAnalog(final int yAnalogValue)
     throws Exception
     {
     }
 
-    public void right(final int xAnalogValue)
+    public void rightAnalog(final int xAnalogValue)
     throws Exception
     {
     }
 
-    public void left(final int xAnalogValue)
+    public void leftAnalog(final int xAnalogValue)
     throws Exception
     {
     }
@@ -333,13 +331,13 @@ PickupCompositeInterface, SpecialGameInputInterface
     private static final String READYFOREXPLOSION = "ReadyForExplosion: ";
     
     @Override
-    public void toString(final StringMaker stringBuffer)
+    public void toStringAppend(final StringMaker stringBuffer)
     {
         final CommonSeps commonSeps = CommonSeps.getInstance();
         
         final PositionStrings positionStrings = PositionStrings.getInstance();
         
-        super.toString(stringBuffer);
+        super.toStringAppend(stringBuffer);
         stringBuffer.append(commonSeps.NEW_LINE);
         final Group[] groupInterfaceArray = this.getGroupInterface();
         final int size = groupInterfaceArray.length;
@@ -391,7 +389,7 @@ PickupCompositeInterface, SpecialGameInputInterface
     {
         final StringMaker stringBuffer = new StringMaker();
 
-        this.toString(stringBuffer);
+        this.toStringAppend(stringBuffer);
 
         return stringBuffer.toString();
     }

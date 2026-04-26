@@ -96,7 +96,7 @@ public class AndroidGameStatistics extends BaseGameStatistics
         {
             final StringMaker stringBuffer = new StringMaker();
 
-            stringBuffer.append(super.toString(totalTime));
+            stringBuffer.append(super.toStringAt(totalTime));
             
             if(this.totalOnDraws > 0)
             {

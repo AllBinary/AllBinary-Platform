@@ -37,7 +37,7 @@ public class HealthBarFactory
                     featuredAnimationInterfaceFactoryInterfaceFactory.get(Health.NAME);
 
             return new HealthBar(layerInterface, healthInterface, 
-                    healthBarAnimationInterfaceFactory.getInstance(layerInterface, location), 
+                    healthBarAnimationInterfaceFactory.getInstanceByLocation(layerInterface, location),
                     direction);
         }
         else

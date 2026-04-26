@@ -46,7 +46,7 @@ public class GraphicsPipeline extends BasicGraphicsPipeline
          
          //LogUtil.put("Calculated: X: " + secondX + " Y: " + secondY, this, "rotate");
          
-         GPoint point = PointFactory.getInstance().getInstance0(((int) secondX), ((int) secondY));
+         GPoint point = PointFactory.getInstance().createXY(((int) secondX), ((int) secondY));
          
          newVector.add(point);
       }

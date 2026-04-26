@@ -41,7 +41,7 @@ public class SmallBasicColorCacheFactory
         colorIndex++;
     }
 
-    public BasicColor getInstance(final int colorAsInt)
+    public BasicColor getAndOrCreate(final int colorAsInt)
     {
         BasicColor basicColor;
         for(int index = 0; index < this.SIZE; index++) {

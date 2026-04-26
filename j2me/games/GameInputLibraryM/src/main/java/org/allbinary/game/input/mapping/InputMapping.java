@@ -98,7 +98,7 @@ public class InputMapping
         }
     }
     
-    public void add(final InputToGameKeyMapping inputToGameKeyMapping)
+    public void addMapping(final InputToGameKeyMapping inputToGameKeyMapping)
     throws Exception
     {
         throw new Exception(this.commonStrings.NOT_IMPLEMENTED);

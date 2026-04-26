@@ -176,9 +176,9 @@ public class AllBinaryJ2SEImageRotationAnimation
     private void updateImage() {
 
         this.imageRotationUtil.rotateImage(this.originalImageArray[0], this.twoImages[this.bufferedImageIndex], this.angleInfo.getAngle() + 90);
-        this.alphaProcessor.update(this.imageModifierUtil, NullCanvas.NULL_IMAGE, this.twoImages[this.bufferedImageIndex], 0, this.alphaP);
-        this.setColorProcessor.update(this.imageModifierUtil, NullCanvas.NULL_IMAGE, this.twoImages[this.bufferedImageIndex], 0, this.basicColor);
-        this.changeColorProcessor.update(this.imageModifierUtil, NullCanvas.NULL_IMAGE, this.twoImages[this.bufferedImageIndex], 0, this.changeBasicColorP);
+        this.alphaProcessor.updateAlpha(this.imageModifierUtil, NullCanvas.NULL_IMAGE, this.twoImages[this.bufferedImageIndex], 0, this.alphaP);
+        this.setColorProcessor.updateColor(this.imageModifierUtil, NullCanvas.NULL_IMAGE, this.twoImages[this.bufferedImageIndex], 0, this.basicColor);
+        this.changeColorProcessor.updateColor(this.imageModifierUtil, NullCanvas.NULL_IMAGE, this.twoImages[this.bufferedImageIndex], 0, this.changeBasicColorP);
         this.swap();
     }
 
@@ -207,7 +207,7 @@ public class AllBinaryJ2SEImageRotationAnimation
     }
 
     @Override    
-    public void paint(final Graphics graphics, final int x, final int y)
+    public void paintXY(final Graphics graphics, final int x, final int y)
     {
         //graphics.drawString(this.toString(), x, y, anchor);
         graphics.drawImage(this.imageToShow, x, y, anchor);
@@ -221,16 +221,16 @@ public class AllBinaryJ2SEImageRotationAnimation
         
         final int size2 = this.twoImages.length;
         for(int index = 0; index < size2; index++) {
-            disposalUtil.dispose(this.twoImages[index]);
+            disposalUtil.disposeImage(this.twoImages[index]);
         }
 
         final int size = this.originalImageArray.length;
         for(int index = 0; index < size; index++) {
-            disposalUtil.dispose(this.originalImageArray[index]);
+            disposalUtil.disposeImage(this.originalImageArray[index]);
         }
         
-        disposalUtil.dispose(this.realOriginalImage);
-        disposalUtil.dispose(this.imageToShow);
+        disposalUtil.disposeImage(this.realOriginalImage);
+        disposalUtil.disposeImage(this.imageToShow);
     }
  
     @Override
@@ -241,16 +241,16 @@ public class AllBinaryJ2SEImageRotationAnimation
         
         final int size2 = this.twoImages.length;
         for(int index = 0; index < size2; index++) {
-            disposalUtil.dispose(this.twoImages[index]);
+            disposalUtil.disposeImage(this.twoImages[index]);
         }
 
         final int size = this.originalImageArray.length;
         for(int index = 0; index < size; index++) {
-            disposalUtil.dispose(this.originalImageArray[index]);
+            disposalUtil.disposeImage(this.originalImageArray[index]);
         }
         
-        disposalUtil.dispose(this.realOriginalImage);
-        disposalUtil.dispose(this.imageToShow);
+        disposalUtil.disposeImage(this.realOriginalImage);
+        disposalUtil.disposeImage(this.imageToShow);
     }
     
 }

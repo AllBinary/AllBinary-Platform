@@ -33,8 +33,8 @@ extends BaseTouchInput
 
             final BasicArrayList list = new BasicArrayListD();
 
-            list.addAll(new BasicTouchButtonsBuilder().getList());
-            list.addAll(new BuildingScrollTouchButtonsBuilder().getList());
+            list.addAllList(new BasicTouchButtonsBuilder().getList());
+            list.addAllList(new BuildingScrollTouchButtonsBuilder().getList());
             
             return list;
         }

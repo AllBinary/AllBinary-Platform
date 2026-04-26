@@ -36,7 +36,6 @@ import org.allbinary.media.graphics.geography.pathfinding.BasicGeographicMapExtr
 import org.allbinary.media.graphics.geography.pathfinding.PathFindingInfo;
 import org.allbinary.media.graphics.geography.pathfinding.PathGenerator;
 import org.allbinary.util.BasicArrayList;
-import org.allbinary.util.BasicArrayListD;
 import org.allbinary.util.BasicArrayListUtil;
 
 /**
@@ -109,7 +108,7 @@ public class Waypoint extends WaypointBase
     }
 
     @Override
-    public BasicArrayList getPathsList(final GeographicMapCellPosition geographicMapCellPosition)
+    public BasicArrayList getPathsListRunnable(final GeographicMapCellPosition geographicMapCellPosition)
         throws Exception
     {
         BasicArrayList pathsList = this.paths[geographicMapCellPosition.getColumn()][geographicMapCellPosition.getRow()];
@@ -229,7 +228,7 @@ public class Waypoint extends WaypointBase
             raceTrackGeographicMapCellTypeFactory.getEndType();
         
         final PathFindingInfo pathFindingInfo =
-            PathFindingInfoFactory.getInstance().getInstance(
+            PathFindingInfoFactory.getInstance().getInstancePathFindingInfo(
             raceTrackGeographicMap,
             customMapArray);
         

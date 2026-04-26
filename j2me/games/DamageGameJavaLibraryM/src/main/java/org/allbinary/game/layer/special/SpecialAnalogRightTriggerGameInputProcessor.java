@@ -25,8 +25,8 @@ extends SpecialGameInputProcessor
     }
 
     @Override
-    public void process(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent, 
-    		int yAnalogValue) 
+    public void processAnalog(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent,
+                              int yAnalogValue)
     throws Exception
     {
         this.collidableDestroyableDamageableLayer.rightTrigger(allbinaryLayerManager, gameKeyEvent, yAnalogValue);

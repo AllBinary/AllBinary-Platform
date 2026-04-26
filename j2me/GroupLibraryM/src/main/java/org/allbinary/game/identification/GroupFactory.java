@@ -42,7 +42,7 @@ public class GroupFactory {
       return group;
    }
 
-   public Group getNextGroup(final String name)
+   public Group getNextGroupByName(final String name)
    {
       final Group group = this.getNextGroup();
       //this.logUtil.putF(new StringMaker().append("group: ").append(group).append(" name: ").append(name).toString(), this, "getNextGroup");

@@ -12,7 +12,6 @@
  * 
  */
 package org.allbinary.media.image;
-import org.allbinary.logic.string.StringMaker;
 
 
 import javax.microedition.lcdui.Image;
@@ -222,10 +221,10 @@ public class ImageModifierUtil {
             }
         }
         
-        this.setAlpha(image, alphaInt);
+        this.setAlphaSWT(image, alphaInt);
     }
 
-    public void setAlpha(final Image image, final int alphaInt) {
+    public void setAlphaSWT(final Image image, final int alphaInt) {
         
         byte alpha = (byte) alphaInt;
         org.eclipse.swt.graphics.Image newBufferedImage;

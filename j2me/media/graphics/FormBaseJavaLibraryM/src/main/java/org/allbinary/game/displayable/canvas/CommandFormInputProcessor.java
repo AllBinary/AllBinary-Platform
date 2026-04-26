@@ -19,7 +19,6 @@ import javax.microedition.lcdui.Command;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.InputFeatureFactory;
-import org.allbinary.game.input.GameInputStrings;
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.input.event.GameKeyEventFactory;
 import org.allbinary.game.layer.SWTUtil;
@@ -31,7 +30,6 @@ import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.input.motion.gesture.MotionGestureInput;
 import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
 import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.audio.PrimaryPlayerQueueFactory;
 import org.allbinary.media.audio.SelectSound;
@@ -123,7 +121,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
    }
 
    @Override
-   public int processInput() throws Exception
+   public int processInputList() throws Exception
    {
       try
       {
@@ -228,7 +226,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
 
                if (index == this.form.getSelectedIndex())
                {
-                  if (this.clickTimeHelper.isTime())
+                  if (this.clickTimeHelper.isTimeTNT())
                   {
                      this.processCommand();
                   }
@@ -244,13 +242,13 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
          // this.logUtil.putF("No Double Press Time: ").append(this.doubleClickTimeHelper.getElapsed(), this, gameInputStrings.PROCESS_MOTION_INPUT);
 
          if(this.hasPressed) {
-             if (!this.doubleClickTimeHelper.isTime()) {
+             if (!this.doubleClickTimeHelper.isTimeTNT()) {
                  this.logUtil.putF("Double Press", this, gameInputStrings.PROCESS_MOTION_INPUT);
                  this.processCommand();
              }
 
              this.doubleClickTimeHelper.delay = this.DOUBLE_CLICK_DELAY;
-             this.doubleClickTimeHelper.setStartTime();
+             this.doubleClickTimeHelper.setStartTimeTNT();
          }
          this.hasPressed = false;
       } else if (motionGestureInput == touchMotionGestureFactory.PRESSED)

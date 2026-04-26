@@ -73,7 +73,7 @@ public class ImageRotationUtil
             throws Exception
     {
         //PreLogUtil.put("originalImage: " + originalImage + " rotationInDegrees: " + rotationInDegrees, this, "createRotatedImage");
-        final Image image = ImageCreationUtil.getInstance().getInstance(
+        final Image image = ImageCreationUtil.getInstance().createImageWH(
                 originalImage.getWidth() , originalImage.getHeight());
 
         if (image.isMutable())
@@ -97,7 +97,7 @@ public class ImageRotationUtil
             J2SEMutableImage j2seImage = (J2SEMutableImage) image;            
             BufferedImage newBufferedImage = (BufferedImage) j2seImage.getImage();
 
-            BufferedImage bufferedImage = this.imageJ2SERotationUtil.getRotatedImage(
+            BufferedImage bufferedImage = this.imageJ2SERotationUtil.createRotatedImage(
                 originalAwtImage, newBufferedImage, rotationInDegrees);
 
             return image;

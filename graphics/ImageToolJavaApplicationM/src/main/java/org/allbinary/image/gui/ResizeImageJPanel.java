@@ -81,17 +81,17 @@ public class ResizeImageJPanel extends javax.swing.JPanel
                     BufferedImage[] generatedBufferedImageArray = null;
                     if(percentAsFloat.intValue() != -1) {
                         generatedBufferedImageArray = 
-                                imageUtil.createBufferedImage(
+                                imageUtil.createBufferedImage2(
                                         imageProcessorInput.getBufferedImageArray(), percentAsFloat, true);
                     } else if(percent.intValue() != -1) {
                         generatedBufferedImageArray = 
-                                imageUtil.createBufferedImage(
+                                imageUtil.createBufferedImageForResize(
                                         imageProcessorInput.getBufferedImageArray(), percent, true);
                     } else {
                         final Integer width = Integer.valueOf((String) ResizeImageJPanel.this.jTextField1.getText());
                         final Integer height = Integer.valueOf((String) ResizeImageJPanel.this.jTextField2.getText());
                         generatedBufferedImageArray = 
-                                imageUtil.createBufferedImage(
+                                imageUtil.createBufferedImage3(
                                         imageProcessorInput.getBufferedImageArray(), width, height, true);
                     }
 

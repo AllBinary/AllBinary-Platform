@@ -280,13 +280,7 @@ public class ImageCopyUtil
         
     }
 
-    public Image createImage(final Image originalImage, final int width, final int height)
-            throws Exception
-    {
-        return this.createImage(originalImage, width, height, true);
-    }
-    
-    public Image createImage(final Image originalImage, final int width, final int height, final boolean mutable)
+    public Image createImageWH(final Image originalImage, final int width, final int height, final boolean mutable)
             throws Exception
     {
         Image originalImage2 = originalImage;
@@ -517,7 +511,7 @@ public class ImageCopyUtil
         
     }
 
-    public Image createImage(final Image originalImage, final float canvasScale, final boolean resize)
+    public Image createImageScale(final Image originalImage, final float canvasScale, final boolean resize)
             throws Exception
     {
         if(!this.features.isFeature(this.gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
@@ -544,7 +538,7 @@ public class ImageCopyUtil
         //this.logUtil.putF("newWidth: " + newWidth + " newHeight: " + newHeight, this, commonStrings.CONSTRUCTOR);
         
         //final Image image = imageCreationUtil.getInstance(newWidth, newHeight);
-        final Image image = this.createImage(originalImage, newWidth, newHeight);
+        final Image image = this.createImageWH(originalImage, newWidth, newHeight, true);
 
         if (image.isMutable())
         {

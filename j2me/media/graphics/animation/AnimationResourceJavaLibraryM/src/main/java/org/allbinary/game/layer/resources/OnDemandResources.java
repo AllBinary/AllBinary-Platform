@@ -35,7 +35,7 @@ public class OnDemandResources
     {
     }
 
-    public int init(
+    public int initAt(
             ImageCache imageCache,
             BaseResourceAnimationInterfaceFactoryInterfaceFactory 
             resourceAnimationInterfaceFactoryInterfaceFactory, 

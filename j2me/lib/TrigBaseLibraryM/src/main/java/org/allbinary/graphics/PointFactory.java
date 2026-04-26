@@ -22,7 +22,7 @@ public class PointFactory
         return instance;
     }
     
-    public GPoint ZERO_ZERO = this.getInstance(0, 0, 0);
+    public GPoint ZERO_ZERO = this.createXYZ(0, 0, 0);
             //SmallIntegerSingletonFactory.getInstance(0), SmallIntegerSingletonFactory.getInstance(0));
 
     //private static int total = 0;
@@ -43,7 +43,7 @@ public class PointFactory
     }
 
     //TWB - to be depricated
-    public GPoint getInstance0(int x, int y)
+    public GPoint createXY(int x, int y)
     {
         return new GPoint(x, y, 0); 
     }
@@ -52,7 +52,7 @@ public class PointFactory
     //Game Level points should use the cellPosition factory instead or simply arrays
     //MotionRecognizer should use a new point cache that is releasable and sets the x, y for each get from cache
     //The rest are mainly static or part of each game level as well
-    public GPoint getInstance(int x, int y, int z) //throws Exception
+    public GPoint createXYZ(int x, int y, int z) //throws Exception
     {
         return new GPoint(x, y, z); 
         //PointFactory.getInstance(

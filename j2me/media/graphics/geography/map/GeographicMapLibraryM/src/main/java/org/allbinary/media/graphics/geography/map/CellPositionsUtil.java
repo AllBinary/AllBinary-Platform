@@ -64,7 +64,7 @@ public class CellPositionsUtil
             for (int columnIndex = 0; columnIndex < columns; columnIndex++)
             {
                 GeographicMapCellPosition geographicMapCellPosition =
-                    geographicMapCellPositionFactory.getInstance(
+                    geographicMapCellPositionFactory.getAt(
                     topRightGeographicMapCellPosition.getColumn() + columnIndex,
                     topRightGeographicMapCellPosition.getRow() + rowIndex);
 
@@ -94,7 +94,7 @@ public class CellPositionsUtil
             final GeographicMapCellPosition layerGeographicMapCellPosition =
                 (GeographicMapCellPosition) occupyList.get(index);
 
-            final BasicArrayList surroundingGeographicMapCellPositionList = getAllSurrounding(
+            final BasicArrayList surroundingGeographicMapCellPositionList = getAllSurroundingAt(
                 geographicMapInterface, 
                 layerGeographicMapCellPosition,
                 reusableSingleThreadedSurroundingList);
@@ -146,7 +146,7 @@ public class CellPositionsUtil
     };
     //new int[4][2];
 
-    public final BasicArrayList getAllSurrounding(
+    public final BasicArrayList getAllSurroundingAt(
             final BasicGeographicMap geographicMapInterface,
             final GeographicMapCellPosition layerGeographicMapCellPosition,
             final BasicArrayList reusableSurroundingList)
@@ -171,7 +171,7 @@ public class CellPositionsUtil
             if (tiledLayer.isOnTileLayer(column, row))
             {
                 final GeographicMapCellPosition geographicMapCellPosition =
-                    geographicMapCellPositionFactory.getInstance(
+                    geographicMapCellPositionFactory.getAt(
                     column, row);
 
                 reusableSurroundingList.add(geographicMapCellPosition);

@@ -24,7 +24,7 @@ import org.allbinary.util.CircularIndexUtil;
 public class VectorAnimation extends IndexedAnimation
     implements VectorAnimationInterface
 {
-    public static VectorAnimation create(final int[][] currentPoints2, final BasicColor basicColor, final AnimationBehavior animationBehavior)
+    public static VectorAnimation createVectorAnimation(final int[][] currentPoints2, final BasicColor basicColor, final AnimationBehavior animationBehavior)
     {
         final int[][][] currentPoints = new int[1][currentPoints2.length][2];
 
@@ -42,7 +42,7 @@ public class VectorAnimation extends IndexedAnimation
 
     private int[][][] currentPoints = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY_ARRAY;
     
-    private CircularIndexUtil circularIndexUtil = CircularIndexUtil.getInstance(0);
+    private CircularIndexUtil circularIndexUtil = CircularIndexUtil.create(0);
     
     public VectorAnimation(final int[][][] currentPoints, final BasicColor basicColor, final AnimationBehavior animationBehavior)
     {
@@ -139,7 +139,7 @@ public class VectorAnimation extends IndexedAnimation
     }
 
     @Override
-    public void paint(Graphics graphics, int x, int y)
+    public void paintXY(Graphics graphics, int x, int y)
     {
         this.basicSetColorUtil.setBasicColorP(graphics, basicColor);
 
@@ -167,6 +167,6 @@ public class VectorAnimation extends IndexedAnimation
     public void setPoints(int[][][] currentPoints)
     {
         this.currentPoints = currentPoints;
-        this.circularIndexUtil = CircularIndexUtil.getInstance(currentPoints.length);
+        this.circularIndexUtil = CircularIndexUtil.create(currentPoints.length);
     }
 }

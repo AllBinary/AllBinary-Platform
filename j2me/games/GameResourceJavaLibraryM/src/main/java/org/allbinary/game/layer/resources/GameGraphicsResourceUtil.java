@@ -60,12 +60,12 @@ public class GameGraphicsResourceUtil
     private String getString()
     throws Exception
     {
-        GraphicsFeatureFactory graphicsFeatureFactory = 
+        final GraphicsFeatureFactory graphicsFeatureFactory =
             GraphicsFeatureFactory.getInstance();
 
         GraphicsFeature graphicsFeature = graphicsFeatureFactory.NONE;
-        
-        Features features = Features.getInstance();
+
+        final Features features = Features.getInstance();
                 
         if (features.isFeature(graphicsFeatureFactory.IMAGE_TO_ARRAY_GRAPHICS))
         {
@@ -86,20 +86,20 @@ public class GameGraphicsResourceUtil
         {
             graphicsFeature = graphicsFeatureFactory.IMAGE_ROTATION_ON_THE_FLY;
         }
-        return getString(graphicsFeature);
+        return getStringForFeature(graphicsFeature);
     }
 
-    public String getString(GraphicsFeature graphicsFeature)
+    public String getStringForFeature(final GraphicsFeature graphicsFeature)
     throws Exception
     {
         final StringMaker stringBuffer = new StringMaker();
-        
-        GraphicsFeatureFactory graphicsFeatureFactory = 
+
+        final GraphicsFeatureFactory graphicsFeatureFactory =
             GraphicsFeatureFactory.getInstance();
         
         stringBuffer.delete(0, stringBuffer.length());
-        
-        Features features = Features.getInstance();
+
+        final Features features = Features.getInstance();
                 
         if (features.isFeature(graphicsFeatureFactory.VECTOR_GRAPHICS))
         {

@@ -48,7 +48,7 @@ public final class TouchButtonInput extends Input
         try
         {
             GameKey gameKey = inputToGameKeyMapping.getInstance(this.getId());
-            this.gameKeyEvent = this.gameKeyEventFactory.getInstance(this, gameKey);
+            this.gameKeyEvent = this.gameKeyEventFactory.getInstanceForInput(this, gameKey);
         }
         catch (Exception e)
         {

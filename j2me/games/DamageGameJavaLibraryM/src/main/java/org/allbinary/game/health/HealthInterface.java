@@ -21,7 +21,7 @@ public interface HealthInterface
 
     void heal(int ahealth);
 
-    void heal();
+    void healMax();
 
     int getMaxHealth();
 

@@ -26,7 +26,6 @@ import org.allbinary.game.configuration.persistance.BasicPersitance;
 import org.allbinary.game.configuration.persistance.NullRecordComparator;
 import org.allbinary.game.configuration.persistance.NullRecordFilter;
 import org.allbinary.game.configuration.persistance.NullRecordStore;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.logic.string.StringMaker;
@@ -103,8 +102,8 @@ public class InputPersistance extends BasicPersitance
                     value = Integer.parseInt(inputStream.readUTF());
                     inputId = (long) value;
                     //PreLogUtil.put("inputId: " + inputId, this, METHOD_NAME);
-                    gameActionInput = gameKeyFactory.getInstance((int) gameActionInputId);
-                    input = inputFactory.getInstance((int) inputId);
+                    gameActionInput = gameKeyFactory.getGameKey((int) gameActionInputId);
+                    input = inputFactory.getInstanceById((int) inputId);
 
                     if (input == inputFactory.NO_INPUT || gameActionInput == null) {
                         stringBuffer.delete(0, stringBuffer.length());
@@ -140,7 +139,7 @@ public class InputPersistance extends BasicPersitance
 
                 //this.logUtil.putF("Add mapping for id", this, METHOD_NAME);
                 this.valueList.add(hashtable);
-                this.idList.add(smallIntegerSingletonFactory.getInstance(id));
+                this.idList.add(smallIntegerSingletonFactory.getAt(id));
             } else {
                 //this.logUtil.putF("No bytes for id", this, METHOD_NAME);
             }
@@ -192,13 +191,13 @@ public class InputPersistance extends BasicPersitance
             for (int index2 = 0; index2 < list.size(); index2++)
             {
                 
-                final String gameActionInputIdAsString = smallIntegerSingletonFactory.getInstance(gameActionInput.getId()).toString();
+                final String gameActionInputIdAsString = smallIntegerSingletonFactory.getAt(gameActionInput.getId()).toString();
                 //stringBuffer.append(gameActionInputIdAsString);
                 outputStream.writeUTF(gameActionInputIdAsString);
                 //stringBuffer.append(commonSeps.EQUALS);
                 outputStream.writeUTF(commonSeps.EQUALS);
                 input = (Input) list.objectArray[index2];
-                final String inputIdAsString = smallIntegerSingletonFactory.getInstance(input.getId()).toString();
+                final String inputIdAsString = smallIntegerSingletonFactory.getAt(input.getId()).toString();
                 //stringBuffer.append(inputIdAsString);
                 outputStream.writeUTF(inputIdAsString);
                 

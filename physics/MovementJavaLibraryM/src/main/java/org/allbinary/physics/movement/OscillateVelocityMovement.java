@@ -57,12 +57,12 @@ extends BasicConstantVelocityMovement
         if(this.oscillatePositive)
         {
             this.oscillate++;
-            this.getVelocityProperties().getVelocityXBasicDecimalP().add(2000);
+            this.getVelocityProperties().getVelocityXBasicDecimalP().addint(2000);
         }
         else
         {
             this.oscillate--;
-            this.getVelocityProperties().getVelocityXBasicDecimalP().subtract(2000);
+            this.getVelocityProperties().getVelocityXBasicDecimalP().subtractint(2000);
         }
     }
 }

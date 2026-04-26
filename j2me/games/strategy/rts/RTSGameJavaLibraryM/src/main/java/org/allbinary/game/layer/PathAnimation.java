@@ -58,7 +58,7 @@ public class PathAnimation extends Animation
     private final BasicColor endColor = BasicColorFactory.getInstance().GREEN;
     
     @Override
-    public void paint(final Graphics graphics, final int x, final int y)
+    public void paintXY(final Graphics graphics, final int x, final int y)
     {
         try
         {

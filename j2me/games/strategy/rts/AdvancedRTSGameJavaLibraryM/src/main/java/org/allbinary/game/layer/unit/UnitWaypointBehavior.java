@@ -149,7 +149,7 @@ public class UnitWaypointBehavior
 
                 this.targetList.add(advancedRTSGameLayer);
 
-                this.associatedAdvancedRTSGameLayer.waypointLogHelperP.addWaypointFromBuilding(this.associatedAdvancedRTSGameLayer, advancedRTSGameLayer, this.targetList);
+                this.associatedAdvancedRTSGameLayer.waypointLogHelperP.addWaypointFromBuildingList(this.associatedAdvancedRTSGameLayer, advancedRTSGameLayer, this.targetList);
             }
         }
     }
@@ -172,9 +172,9 @@ public class UnitWaypointBehavior
                 throw new Exception("Trying to add a dead: " + rtsLayer);
             }
             
-            this.targetList.add(index, rtsLayer);
+            this.targetList.addAt(index, rtsLayer);
 
-            this.associatedAdvancedRTSGameLayer.waypointLogHelperP.insertWaypoint(this.associatedAdvancedRTSGameLayer, index, rtsLayer, this.getName(), this.targetList);
+            this.associatedAdvancedRTSGameLayer.waypointLogHelperP.insertWaypointList(this.associatedAdvancedRTSGameLayer, index, rtsLayer, this.getName(), this.targetList);
 
             return true;
         }
@@ -197,7 +197,7 @@ public class UnitWaypointBehavior
     {
         final int size = pathsList.size();
         
-        this.associatedAdvancedRTSGameLayer.waypointLogHelperP.setRandomGeographicMapCellHistory(this.associatedAdvancedRTSGameLayer, pathsList);
+        this.associatedAdvancedRTSGameLayer.waypointLogHelperP.setRandomGeographicMapCellHistoryList(this.associatedAdvancedRTSGameLayer, pathsList);
 
         if (size > 0)
         {
@@ -226,7 +226,7 @@ public class UnitWaypointBehavior
                 geographicMapCellPositionBasicArrayList);
 
         this.setTrackingWaypoint(true);
-        this.getCompleteTimeDelayHelper().setStartTime();
+        this.getCompleteTimeDelayHelper().setStartTimeTNT();
     }
         
     protected boolean canInsertWaypoint(final int index, final CollidableDestroyableDamageableLayer rtsLayer)
@@ -297,11 +297,11 @@ public class UnitWaypointBehavior
                 this.getCurrentTargetDistance() >= this.longWeaponRange +
                 this.currentTargetLayerInterfaceP.getHalfHeight()))
         {
-            this.repeatedToLong.setStartTime();
+            this.repeatedToLong.setStartTimeTNT();
             return true;
         }
         
-        if(this.repeatedToLong.isTime())
+        if(this.repeatedToLong.isTimeTNT())
         {
             final String message = "Repeating too long: " + this.getMovementLogicAsString();
             ForcedLogUtil.log(message, this.associatedAdvancedRTSGameLayer);

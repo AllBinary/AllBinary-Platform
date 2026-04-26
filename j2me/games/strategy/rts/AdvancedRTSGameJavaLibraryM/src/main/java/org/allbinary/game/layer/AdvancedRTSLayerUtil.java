@@ -32,7 +32,7 @@ public class AdvancedRTSLayerUtil
         final Hashtable hashtable = RTSLayerUtil.getInstance().createFakeRTSLayerHashtable(baseRaceTrackGeographicMap);
         
         hashtable.put(WorkWaypoint.ID, 
-                SmallIntegerSingletonFactory.getInstance().getInstance(50));
+                SmallIntegerSingletonFactory.getInstance().getAt(50));
 
         return hashtable;
     }

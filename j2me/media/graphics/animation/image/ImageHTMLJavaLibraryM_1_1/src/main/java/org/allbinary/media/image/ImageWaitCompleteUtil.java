@@ -21,7 +21,6 @@ import org.allbinary.image.GameFeatureImageCacheFactory;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
-import org.allbinary.string.CommonStrings;
 import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.util.HashtableUtil;
 import org.microemu.device.playn.PlaynImage;
@@ -50,17 +49,17 @@ public class ImageWaitCompleteUtil extends ImageCompleteUtil {
     public void waitFor(final Image image, final String name)
             throws Exception
     {
-        this.timeDelayHelper.setStartTime();
-        this.waitFor(image, name, this.timeDelayHelper);
+        this.timeDelayHelper.setStartTimeTNT();
+        this.waitForATime(image, name, this.timeDelayHelper);
     }
 
     public void handleTimeout(final String name) throws Exception {
-        if (this.timeDelayHelper.isTime()) {
+        if (this.timeDelayHelper.isTimeTNT()) {
             throw new Exception("isReady: Timeout Waiting or GameHtmlHasLoadedResourcesProcessor does not have this Image: " + name);
         }
     }    
     
-    private void waitFor(final Image image, final String name, final TimeDelayHelper timeDelayHelper)
+    private void waitForATime(final Image image, final String name, final TimeDelayHelper timeDelayHelper)
             throws Exception
     {
         final PlaynImage playnImage = (PlaynImage) image;
@@ -82,7 +81,7 @@ public class ImageWaitCompleteUtil extends ImageCompleteUtil {
             }
             */
 
-            if(timeDelayHelper.isTime())
+            if(timeDelayHelper.isTimeTNT())
             {
                 throw new Exception("waitFor: Timeout Waiting or GameHtmlHasLoadedResourcesProcessor does not have this Image: " + name);
             }
@@ -97,7 +96,7 @@ public class ImageWaitCompleteUtil extends ImageCompleteUtil {
     public void waitForAll()
             throws Exception
     {
-        this.allTimeDelayHelper.setStartTime();
+        this.allTimeDelayHelper.setStartTimeTNT();
         
         final Hashtable hashtable = GameFeatureImageCacheFactory.getInstance().getHashtableP();
 
@@ -108,7 +107,7 @@ public class ImageWaitCompleteUtil extends ImageCompleteUtil {
         
         for (int index = 0; index < size; index++)
         {
-            this.waitFor((Image) hashtable.get(objectArray[index]), (String) objectArray[index], this.allTimeDelayHelper);
+            this.waitForATime((Image) hashtable.get(objectArray[index]), (String) objectArray[index], this.allTimeDelayHelper);
         }
     }
 

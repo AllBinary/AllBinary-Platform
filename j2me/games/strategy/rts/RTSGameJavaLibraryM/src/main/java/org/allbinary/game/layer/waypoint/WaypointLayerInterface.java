@@ -47,7 +47,7 @@ public interface WaypointLayerInterface {
     boolean isShowMoreCaptionStates();
     
     void trackTo(final String reason) throws Exception;
-    void trackTo(final int dx, final int dy) throws Exception;
+    void trackToDXY(final int dx, final int dy) throws Exception;
     
     boolean buildingChase(final AllBinaryLayer allbinaryLayer, final GeographicMapCellPosition cellPosition) throws Exception;
     

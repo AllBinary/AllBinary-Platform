@@ -39,7 +39,7 @@ public class LastKeyAIVisitor extends Visitor
 
             if(key != -1)
             {
-                basicAI.processAI(key);
+                basicAI.processKeyAI(key);
             }
         } 
         catch (Exception e)

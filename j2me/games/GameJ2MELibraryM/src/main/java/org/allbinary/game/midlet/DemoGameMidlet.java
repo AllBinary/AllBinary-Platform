@@ -55,7 +55,7 @@ public class DemoGameMidlet extends GameMidlet
         throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
 
-    protected GameCanvasRunnableInterface createGameCanvasRunnableInterface(
+    protected GameCanvasRunnableInterface createGameCanvasRunnable(
             AllBinaryGameLayerManager allBinaryGameLayerManager)
             throws Exception
     {
@@ -65,7 +65,7 @@ public class DemoGameMidlet extends GameMidlet
     protected GameCanvasRunnableInterface createGameCanvasRunnableInterface()
             throws Exception
     {
-        return this.createGameCanvasRunnableInterface(this.createGameLayerManager());
+        return this.createGameCanvasRunnable(this.createGameLayerManager());
     }
     
     /*

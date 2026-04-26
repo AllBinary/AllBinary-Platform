@@ -60,7 +60,7 @@ public class PathCacheFactory
        }
    }
 
-   public BasicArrayList getInstance(final Integer pathIdInteger)
+   public BasicArrayList getOrCreate(final Integer pathIdInteger)
       throws Exception
    {
        Object listCanBeNull = this.hashtable.get(pathIdInteger);

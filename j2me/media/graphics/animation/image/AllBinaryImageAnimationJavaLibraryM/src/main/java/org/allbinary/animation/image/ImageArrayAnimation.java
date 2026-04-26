@@ -105,13 +105,13 @@ public class ImageArrayAnimation extends IndexedAnimation
     {
         this.imageArray = imageArray;
         this.totalFrames = imageArray.length;
-        this.circularIndexUtil = CircularIndexUtil.getInstance(this.totalFrames);
+        this.circularIndexUtil = CircularIndexUtil.create(this.totalFrames);
     }
 
     private int anchor = Anchor.TOP_LEFT;
     
     @Override
-    public void paint(Graphics graphics, int x, int y)
+    public void paintXY(Graphics graphics, int x, int y)
     {
         graphics.drawImage(this.imageArray[this.circularIndexUtil.getIndex()], x, y, anchor);
 

@@ -140,7 +140,7 @@ public class Directory
                         files[index],
                         isRecursiveSearch);
 
-                    fileList.addAll(recursiveFileList);
+                    fileList.addAllList(recursiveFileList);
                 }
             }
         }
@@ -177,7 +177,7 @@ public class Directory
                 if (isRecursiveSearch)
                 {
                     recursiveFileList = this.search(files[index], isRecursiveSearch);
-                    fileList.addAll(recursiveFileList);
+                    fileList.addAllList(recursiveFileList);
                 }
             }
         }
@@ -218,7 +218,7 @@ public class Directory
                 if (isRecursiveSearch)
                 {
                     recursiveFileList = this.search(searchValue, files[index], isRecursiveSearch);
-                    fileList.addAll(recursiveFileList);
+                    fileList.addAllList(recursiveFileList);
                 }
             }
         }
@@ -258,7 +258,7 @@ public class Directory
                 }
 
                 recursiveFileList = this.search(level - 1, files[index], isRecursiveSearch);
-                fileList.addAll(recursiveFileList);
+                fileList.addAllList(recursiveFileList);
             }
         }
         return fileList;

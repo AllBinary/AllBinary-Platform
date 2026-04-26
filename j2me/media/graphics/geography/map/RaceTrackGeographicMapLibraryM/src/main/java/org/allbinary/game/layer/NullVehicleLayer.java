@@ -101,7 +101,7 @@ public class NullVehicleLayer implements VehicleLayerInterface {
     }
 
     @Override
-    public void move(int dx, int dy, int dz) {
+    public void moveDXYZ(int dx, int dy, int dz) {
         throw new RuntimeException();
     }
 

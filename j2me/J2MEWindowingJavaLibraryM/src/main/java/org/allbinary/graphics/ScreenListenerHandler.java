@@ -35,7 +35,7 @@ public class ScreenListenerHandler {
         this.screenListenerInterface = screenListenerInterface;
     }
 
-    public void fire(boolean isFullScreen)
+    public void fireWithState(boolean isFullScreen)
     {
         this.screenListenerInterface.onFullScreen(isFullScreen);
     }

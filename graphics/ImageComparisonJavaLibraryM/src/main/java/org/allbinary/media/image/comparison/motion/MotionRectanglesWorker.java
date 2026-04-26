@@ -78,7 +78,7 @@ public class MotionRectanglesWorker
             
             final TimeDelayHelper timeHelper = new TimeDelayHelper(1000);
             
-            timeHelper.setStartTime();
+            timeHelper.setStartTimeTNT();
             
             final ImageComparisonResultsEvent imageComparisonResultsEvent =
                 (ImageComparisonResultsEvent)
@@ -127,7 +127,7 @@ public class MotionRectanglesWorker
             
             this.index++;
             
-            this.logUtil.putF(CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN);
+            this.logUtil.putF(CommonLabels.getInstance().ELAPSED + timeHelper.getElapsedTNT(), this, this.commonStrings.RUN);
             
             this.setRunning(false);
             

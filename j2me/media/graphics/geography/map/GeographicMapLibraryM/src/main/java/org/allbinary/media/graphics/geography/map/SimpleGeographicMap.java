@@ -81,7 +81,7 @@ public class SimpleGeographicMap
             cellTypeId = this.tiledLayer.getAnimatedTile(cellTypeId);
         }
 
-        return this.geographicMapCellTypeFactory.getInstance(
+        return this.geographicMapCellTypeFactory.get(
                 this.cellTypeIdToGeographicMapCellType[cellTypeId]);
     }
 

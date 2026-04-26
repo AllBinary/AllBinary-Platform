@@ -124,7 +124,7 @@ public class BlisketBackupFactory
                 PreLogUtil.put(stringBuffer.toString(), this, "backupViews()");
 
                 //Views
-                fileBasicArrayList.addAll(this.getFileBasicArrayList(viewsPath));
+                fileBasicArrayList.addAllList(this.getFileBasicArrayList(viewsPath));
             }
 
             this.backup(fileBasicArrayList, path.toFileSystemString() + "backupViews.zip");
@@ -184,7 +184,7 @@ public class BlisketBackupFactory
                 PreLogUtil.put(stringBuffer.toString(), this, "backupResources()");
 
                 //Views
-                fileBasicArrayList.addAll(this.getFileBasicArrayList(resourcesPath));
+                fileBasicArrayList.addAllList(this.getFileBasicArrayList(resourcesPath));
             }
 
             this.backup(fileBasicArrayList, path.toFileSystemString() + "backupResources.zip");
@@ -231,7 +231,7 @@ public class BlisketBackupFactory
                 stringBuffer.append(URLGLOBALS.getWebappPath());
                 stringBuffer.append(nextStore);
 
-                fileBasicArrayList.addAll(this.getFileBasicArrayList(stringBuffer.toString()));
+                fileBasicArrayList.addAllList(this.getFileBasicArrayList(stringBuffer.toString()));
             }
 
             this.backup(fileBasicArrayList, path.toFileSystemString() + "backupJsps.zip");

@@ -57,7 +57,7 @@ public class BasicMenuInputProcessor extends PlayerGameInput
         return (MyCanvas) this.canvas;
     }
 
-    public int processInput()
+    public int processInputList()
         throws Exception
     {
         return -1;

@@ -23,7 +23,6 @@ import org.allbinary.game.combat.destroy.DestroyedLayerProcessor;
 import org.allbinary.game.identification.BasicGroupFactory;
 import org.allbinary.game.multiplayer.layer.MultiPlayerGameLayer;
 import org.allbinary.game.multiplayer.layer.RemoteInfo;
-import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
 import org.allbinary.view.ViewPosition;
@@ -62,7 +61,7 @@ public class PickupLayer
       this.setDestroyed(false);
    }
 
-   public void init(int x, int y, int z)
+   public void initXYZ(int x, int y, int z)
    {
       this.setPosition(x, y, z);
    }
@@ -74,7 +73,7 @@ public class PickupLayer
        int viewX = viewPosition.getX();
        int viewY = viewPosition.getY();
 
-       this.animationInterface.paint(graphics, viewX, viewY);
+       this.animationInterface.paintXY(graphics, viewX, viewY);
    }
 
    @Override

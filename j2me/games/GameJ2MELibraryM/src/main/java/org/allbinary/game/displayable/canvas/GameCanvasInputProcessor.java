@@ -67,12 +67,12 @@ extends InputProcessor
             //this.logUtil.putF(new StringMaker().append("Key Code: ").append(Integer.toHexString(keyCode)).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
             //PreLogUtil.put(new StringMaker().append(new StringMaker().append("Key Code: ").append(Integer.toHexString(keyCode)).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
             
-            final GameKey gameKey = this.inputToGameKeyMapping.getInstance(
+            final GameKey gameKey = this.inputToGameKeyMapping.getInstanceForCanvas(
                     this.allBinaryGameCanvas, keyCode);
 
             if (gameKey != this.NONE)
             {
-                final GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstance(
+                final GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstanceForInput(
                             this.allBinaryGameCanvas, gameKey);
 
                 /*
@@ -84,7 +84,7 @@ extends InputProcessor
                  */
 
                 downGameKeyEventHandler.fireEvent(gameKeyEvent);
-                downGameKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
+                downGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
                 // DownGameKeyEventHandler.getInstance().fireEvent(gameKey);
 
             }
@@ -93,9 +93,9 @@ extends InputProcessor
                 this.logUtil.putF(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
             }
 
-            final Integer keyCodeAsInteger = smallIntegerSingletonFactory.getInstanceNoThrow(keyCode);
+            final Integer keyCodeAsInteger = smallIntegerSingletonFactory.getAtNoThrow(keyCode);
             downKeyEventHandler.fireEvent(keyCodeAsInteger);
-            downKeyEventHandler.getInstance(deviceId).fireEvent(keyCodeAsInteger);
+            downKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(keyCodeAsInteger);
 
         }
         catch (Exception e)
@@ -115,11 +115,11 @@ extends InputProcessor
         {
             //this.logUtil.putF(new StringMaker().append("Key Code: " + Integer.toHexString(keyCode), this, REMOVE_KEY_EVENT);
 
-            final GameKey gameKey = this.inputToGameKeyMapping.getInstance(canvas, keyCode);
+            final GameKey gameKey = this.inputToGameKeyMapping.getInstanceForCanvas(canvas, keyCode);
 
             if (gameKey != this.NONE)
             {
-                final GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstance((GameKeyEventSourceInterface) canvas, gameKey);
+                final GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstanceForInput((GameKeyEventSourceInterface) canvas, gameKey);
 
                 /*
                  * //This is for key input debugging only GameKeyEvent
@@ -129,7 +129,7 @@ extends InputProcessor
 
                 // TODO TWB - Remove or improve key input event handling
                 this.upGameKeyEventHandler.fireEvent(gameKeyEvent);
-                this.upGameKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
+                this.upGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
                 // UpGameKeyEventHandler.getInstance().fireEvent(gameKey);
                 // getPlayerGameInput().onUpGameKeyEvent(gameKeyEvent);
             }

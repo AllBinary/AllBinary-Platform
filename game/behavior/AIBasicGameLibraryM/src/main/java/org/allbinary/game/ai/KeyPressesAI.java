@@ -44,7 +44,7 @@ public class KeyPressesAI extends BasicAI {
       if (this.on) {
          //this.logUtil.putF(commonStrings.START, this, commonStrings.PROCESS);
          for (int index = 0; index < this.keys.length; index++) {
-            super.processAI(this.keys[index].intValue());
+            super.processKeyAI(this.keys[index].intValue());
          }
       }
    }

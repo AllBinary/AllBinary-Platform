@@ -30,7 +30,7 @@ public class FullScreenUtil
         return instance;
     }
     
-    public final void init(final Canvas fullScreenInterface, final CommandListener commandListener)
+    public final void initOnRun(final Canvas fullScreenInterface, final CommandListener commandListener)
         throws Exception
     {
         if (commandListener != null)
@@ -57,7 +57,7 @@ public class FullScreenUtil
         return false;
     }
 
-    public final boolean isScreenChange(final Canvas fullScreenInterface)
+    public final boolean isScreenChangeCanvas(final Canvas fullScreenInterface)
     {
         return isScreenChange(false);
     }

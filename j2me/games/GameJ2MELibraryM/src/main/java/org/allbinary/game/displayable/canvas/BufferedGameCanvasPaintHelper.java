@@ -33,9 +33,9 @@ public class BufferedGameCanvasPaintHelper extends ProcessPaintable
     private Image previousImage = NullCanvas.NULL_IMAGE;
 
     private final CircularIndexUtil circularIndexUtil = 
-        CircularIndexUtil.getInstance(MAX_IMAGES);
+        CircularIndexUtil.create(MAX_IMAGES);
     private final CircularIndexUtil drawCircularIndexUtil = 
-        CircularIndexUtil.getInstance(MAX_IMAGES - 1, MAX_IMAGES);
+        CircularIndexUtil.createAt(MAX_IMAGES - 1, MAX_IMAGES);
     
     public BufferedGameCanvasPaintHelper(AllBinaryGameCanvas gameCanvas)
     throws Exception

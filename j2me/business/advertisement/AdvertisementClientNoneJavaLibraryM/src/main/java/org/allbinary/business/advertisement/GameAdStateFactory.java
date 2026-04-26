@@ -23,7 +23,7 @@ public class GameAdStateFactory
         return this.gameAdState;
     }
     
-    public GameAdState getInstance(final SoftwareInformation softwareInformation)
+    public GameAdState getInstanceForApp(final SoftwareInformation softwareInformation)
     throws Exception
     {
         //if(softwareInformation == TestSoftwareInfo.getInstance())

@@ -36,7 +36,7 @@ extends BasicConstantVelocityMovement
     	this.accumulatedY = (int) (this.accumulatedY + velocityProperties.getVelocityYBasicDecimalP().getUnscaled());
     	this.accumulatedZ = (int) (this.accumulatedZ + velocityProperties.getVelocityZBasicDecimalP().getUnscaled());
     	
-        layer.move(
+        layer.moveDXYZ(
         		this.accumulatedX / this.factorValue,
         		this.accumulatedY / this.factorValue,
         		this.accumulatedZ / this.factorValue

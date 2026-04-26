@@ -52,7 +52,7 @@ public class LayerDistanceUtil
         return (int) this.mathUtil.sqrt((dx * dx) + (dy * dy) + (dz * dz));
     }
     
-    public int getDistance(final AllBinaryLayer layerInterface, final GPoint point)
+    public int getDistanceAt(final AllBinaryLayer layerInterface, final GPoint point)
     {
         final int dx = layerInterface.getXP() - point.getX();
         final int dy = layerInterface.getYP() - point.getY();

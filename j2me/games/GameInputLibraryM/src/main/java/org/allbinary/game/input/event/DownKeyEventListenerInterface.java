@@ -19,5 +19,5 @@ public interface DownKeyEventListenerInterface
    extends EventListenerInterface
 {
     void onDownKeyEvent(final GameKeyEvent keyInteger) throws Exception;
-    void onDownKeyEvent(final Integer keyInteger) throws Exception;
+    void onDownKey(final Integer keyInteger) throws Exception;
 }

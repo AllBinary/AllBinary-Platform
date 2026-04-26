@@ -17,9 +17,6 @@ import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.graphics.Anchor;
-import org.allbinary.graphics.color.BasicColorFactory;
-import org.allbinary.graphics.color.BasicColorSetUtil;
-import org.allbinary.string.CommonStrings;
 
 import org.allbinary.logic.communication.log.LogUtil;
 
@@ -53,7 +50,7 @@ public class ImageCopyUtil
     public Image createImage(final Image originalImage)
             throws Exception
     {
-        final Image image = this.imageCreationUtil.getInstance(
+        final Image image = this.imageCreationUtil.createImageWH(
                 originalImage.getWidth() , originalImage.getHeight());
 
         if (image.isMutable())
@@ -68,7 +65,7 @@ public class ImageCopyUtil
         }
     }
 
-    public Image createImage(final Image originalImage, final float canvasScale, final boolean resize)
+    public Image createImageScale(final Image originalImage, final float canvasScale, final boolean resize)
             throws Exception
     {
         //final CommonLabels commonLabels = CommonLabels.getInstance();        
@@ -89,7 +86,7 @@ public class ImageCopyUtil
         
         //this.logUtil.putF("newWidth: " + newWidth + " newHeight: " + newHeight, this, commonStrings.CONSTRUCTOR);
         
-        final Image image = this.imageCreationUtil.getInstance(newWidth, newHeight);
+        final Image image = this.imageCreationUtil.createImageWH(newWidth, newHeight);
 
         if (image.isMutable())
         {

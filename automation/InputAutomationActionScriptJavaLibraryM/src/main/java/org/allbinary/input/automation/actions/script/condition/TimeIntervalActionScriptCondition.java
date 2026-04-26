@@ -132,9 +132,9 @@ public class TimeIntervalActionScriptCondition
     throws Exception
     {
         final TimeDelayHelper timeHelper = this.getTimeDelayHelper();
-        if(timeHelper.isTime())
+        if(timeHelper.isTimeTNT())
         {
-            timeHelper.setStartTime();
+            timeHelper.setStartTimeTNT();
             return super.shouldProcess(frame);
         }
         return false;

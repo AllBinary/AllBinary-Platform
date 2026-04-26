@@ -60,10 +60,10 @@ public class RemoteHighScores extends HighScores {
         final AbeClientInformationInterface abeClientInformation, 
         final SoftwareInformation softwareInformation, final GameInfo gameInfo,
         final String heading, final String columnTwoHeading, final Boolean isAscending) {
-        return RemoteHighScores.getInstance(abeClientInformation, softwareInformation, gameInfo, heading, columnTwoHeading, isAscending, true);
+        return RemoteHighScores.getInstancePreload(abeClientInformation, softwareInformation, gameInfo, heading, columnTwoHeading, isAscending, true);
     }
     
-    public static synchronized HighScores getInstance(
+    public static synchronized HighScores getInstancePreload(
         final AbeClientInformationInterface abeClientInformation, 
         final SoftwareInformation softwareInformation, final GameInfo gameInfo,
         final String heading, final String columnTwoHeading, final Boolean isAscending, final boolean preload) {

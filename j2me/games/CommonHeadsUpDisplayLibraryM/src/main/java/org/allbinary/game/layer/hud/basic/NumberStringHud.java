@@ -62,7 +62,7 @@ public class NumberStringHud extends BasicHud
       this.PREPEND_STRING = prependString.toCharArray();
       //this.PREPEND_STRING = prependString;
       final MyFont myFont = MyFont.getInstance();
-      this.offset = myFont.stringWidth(prependString) + myFont.charWidth();
+      this.offset = myFont.stringWidth(prependString) + myFont.defaultCharWidth();
       
       this.valueString = PrimitiveLongSingleton.getInstance().NUMBER_CHAR_ARRAYS[0];
       //this.valueString = PrimitiveLongUtil.NUMBER_STRING_ARRAY[0];
@@ -109,14 +109,14 @@ public class NumberStringHud extends BasicHud
    @Override
    public void paint(Graphics graphics)
    {
-       super.paint(graphics, 
+       super.paintDX(graphics,
                PREPEND_STRING, 0, PREPEND_STRING.length, 
                this.valueString, 0, this.valueTotalDigits, 
                offset);
       //super.paint(graphics, PREPEND_STRING, valueString, offset);
    }
    
-   public void paint(Graphics graphics, int x , int y)
+   public void paintXY(Graphics graphics, int x , int y)
    {
        char[] charArray = this.PREPEND_STRING;
        //int offset = 0;

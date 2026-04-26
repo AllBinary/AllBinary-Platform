@@ -22,10 +22,6 @@ import org.allbinary.logic.system.security.licensing.LockedUtil;
 import org.allbinary.canvas.Processor;
 import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
 import org.allbinary.game.displayable.canvas.PreGameSelectorPaintable;
-import org.allbinary.game.input.GameInputProcessorComposite;
-import org.allbinary.game.input.GameInputProcessorInterface;
-import org.allbinary.game.input.PlayerGameInput;
-import org.allbinary.game.input.PlayerGameInputCompositeInterface;
 import org.allbinary.game.input.event.GameKeyEventHandler;
 import org.allbinary.game.input.event.GameKeyEventUtil;
 import org.allbinary.game.state.GameState;
@@ -36,8 +32,6 @@ import org.allbinary.string.CommonStrings;
 import org.allbinary.media.audio.SecondaryPlayerQueueFactory;
 import org.allbinary.media.audio.SelectSound;
 import org.allbinary.thread.ABRunnable;
-import org.allbinary.thread.SecondaryThreadPool;
-import org.allbinary.thread.SoundThreadPool;
 import org.allbinary.time.TimeDelayHelper;
 
 public class PreGameSelectionGameInputProcessor extends Processor implements
@@ -114,7 +108,7 @@ public class PreGameSelectionGameInputProcessor extends Processor implements
 
             if (key == Canvas.LEFT || key == Canvas.RIGHT || key == Canvas.UP || key == Canvas.DOWN)
             {
-                if (this.inputTimeHelper.isTime())
+                if (this.inputTimeHelper.isTimeTNT())
                 {
 
                     SecondaryPlayerQueueFactory.getInstance().add(SelectSound.getInstance());
@@ -129,7 +123,7 @@ public class PreGameSelectionGameInputProcessor extends Processor implements
             {
                 int selectedIndex = this.preGameSelectorPaintable.getPreGameSelectionForm().getSelectedIndex();
                 
-                if(selectedIndex < this.lockedIndex || !LockedUtil.getInstance().isLockedFeature())
+                if(selectedIndex < this.lockedIndex || !LockedUtil.getInstance().isLocked())
                 {
                     //PreLogUtil.put("selectedIndex: " + selectedIndex + " LockedUtil.getInstance().isLockedFeature(): " + LockedUtil.getInstance().isLockedFeature(), this, "onInput");
 

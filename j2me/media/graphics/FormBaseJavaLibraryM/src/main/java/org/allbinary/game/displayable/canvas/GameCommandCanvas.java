@@ -63,7 +63,6 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.string.CommonSeps;
-import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListD;
 
 public class GameCommandCanvas
@@ -72,7 +71,7 @@ public class GameCommandCanvas
 {
 
     private final Processor repaintProcessor =
-            ScreenRepaintProcessorFactory.getInstance().getInstance(this);
+            ScreenRepaintProcessorFactory.getInstance().create(this);
     
     protected final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
     
@@ -234,7 +233,7 @@ public class GameCommandCanvas
         final PointFactory pointFactory = PointFactory.getInstance();
         
         final Rectangle rectangle = new Rectangle(
-            pointFactory.getInstance0(30, startY),
+            pointFactory.createXY(30, startY),
             displayInfo.getLastWidth() - 30,
             startY);
 
@@ -277,37 +276,37 @@ public class GameCommandCanvas
     @Override
     public void keyPressed(final int keyCode)
     {
-        this.keyPressed(keyCode, 0);
+        this.keyPressedByDevice(keyCode, 0);
     }
     
     @Override
     public void keyReleased(final int keyCode)
     {
-        this.keyReleased(keyCode, 0);
+        this.keyReleasedByDevice(keyCode, 0);
     }
 
     @Override
     public void keyRepeated(final int keyCode)
     {
-        this.keyRepeated(keyCode, 0);
+        this.keyRepeatedByDevice(keyCode, 0);
     }
     
     @Override
-    public void keyPressed(final int keyCode, final int deviceId)
+    public void keyPressedByDevice(final int keyCode, final int deviceId)
     {
         this.logUtil.putF(new StringMaker().append(CommonSeps.getInstance().SPACE).appendint(keyCode).toString(), this, gameInputStrings.KEY_PRESSED);
         this.addGameKeyEvent(keyCode, 0, false);
     }
 
     @Override
-    public void keyReleased(final int keyCode, final int deviceId)
+    public void keyReleasedByDevice(final int keyCode, final int deviceId)
     {
         //this.logUtil.putF(commonStrings.START, this, gameInputStrings.KEY_RELEASED);
         this.removeGameKeyEvent(keyCode, deviceId, false);
     }
 
     @Override
-    public void keyRepeated(final int keyCode, final int deviceId)
+    public void keyRepeatedByDevice(final int keyCode, final int deviceId)
     {
         // this.logUtil.putF("Key Repeated: ").append(Integer.toHexString(keyCode), this, gameInputStrings.KEY_REPEATED);
         if (this.isSingleKeyRepeatableProcessing)
@@ -322,13 +321,13 @@ public class GameCommandCanvas
         {
             //this.logUtil.putF(new StringMaker().append("Key Code (Hex): ").append(Integer.toHexString(keyCode)).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
 
-            final GameKey gameKey = this.inputToGameKeyMapping.getInstance(this, keyCode);
+            final GameKey gameKey = this.inputToGameKeyMapping.getInstanceForCanvas(this, keyCode);
 
             //this.logUtil.putF(new StringMaker().append("GameKey: ").append(gameKey).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
 
             if (gameKey != this.gameKeyFactory.NONE)
             {
-                final GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstance(this, gameKey);
+                final GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstanceForInput(this, gameKey);
 
                 /*
                  * //This is for key input debugging only GameKeyEvent
@@ -337,7 +336,7 @@ public class GameCommandCanvas
                  */
 
                 this.downGameKeyEventHandler.fireEvent(gameKeyEvent);
-                this.downGameKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
+                this.downGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
 
                 //getPlayerGameInput().onDownGameKeyEvent(gameKeyEvent);
 
@@ -360,13 +359,13 @@ public class GameCommandCanvas
         {
             //this.logUtil.putF(new StringMaker().append("Key Code: " + Integer.toHexString(keyCode), this, this.gameInputStrings.REMOVE_KEY_EVENT);
 
-            final GameKey gameKey = this.inputToGameKeyMapping.getInstance(this, keyCode);
+            final GameKey gameKey = this.inputToGameKeyMapping.getInstanceForCanvas(this, keyCode);
 
             //this.logUtil.putF(new StringMaker().append("GameKey: ").append(gameKey, this, this.gameInputStrings.REMOVE_KEY_EVENT);
 
             if (gameKey != this.gameKeyFactory.NONE)
             {
-                final GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstance(this, gameKey);
+                final GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstanceForInput(this, gameKey);
 
                 /*
                  * //This is for key input debugging only GameKeyEvent
@@ -376,7 +375,7 @@ public class GameCommandCanvas
 
                 // TODO TWB - Remove or improve key input event handling
                 this.upGameKeyEventHandler.fireEvent(gameKeyEvent);
-                this.upGameKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
+                this.upGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
 
                 //getPlayerGameInput().onUpGameKeyEvent(gameKeyEvent);
             }

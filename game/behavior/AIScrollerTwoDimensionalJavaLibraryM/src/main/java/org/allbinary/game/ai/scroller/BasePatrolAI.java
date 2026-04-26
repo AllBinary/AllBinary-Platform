@@ -28,16 +28,16 @@ import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 public class BasePatrolAI extends BasicAI
 {
     public final static Integer MAX_DISTANCE = 
-        SmallIntegerSingletonFactory.getInstance().getInstance(2);
+        SmallIntegerSingletonFactory.getInstance().getAt(2);
 
     public final static Integer DIRECTION_ARRAY = 
-        SmallIntegerSingletonFactory.getInstance().getInstance(3);
+        SmallIntegerSingletonFactory.getInstance().getAt(3);
     
     public final static Integer FIRING_DISTANCE = 
-        SmallIntegerSingletonFactory.getInstance().getInstance(4);
+        SmallIntegerSingletonFactory.getInstance().getAt(4);
 
     public static Integer SPEED = 
-        SmallIntegerSingletonFactory.getInstance().getInstance(5);
+        SmallIntegerSingletonFactory.getInstance().getAt(5);
 
     protected Integer maxDistance;
     protected int currentDistance;

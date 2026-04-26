@@ -86,7 +86,7 @@ public class WaypointSelectedLogHelper extends WaypointLogHelper {
     }
 
     @Override
-    public void addWaypointFromBuilding(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final PathFindingLayerInterface advancedRTSGameLayer, final BasicArrayList list) {
+    public void addWaypointFromBuildingList(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final PathFindingLayerInterface advancedRTSGameLayer, final BasicArrayList list) {
         
         final StringMaker stringBuffer = new StringMaker();
 
@@ -115,7 +115,7 @@ public class WaypointSelectedLogHelper extends WaypointLogHelper {
     }
     
     @Override
-    public void insertWaypoint(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final int index, final CollidableDestroyableDamageableLayer rtsLayer, final String waypointName, final BasicArrayList list) {
+    public void insertWaypointList(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final int index, final CollidableDestroyableDamageableLayer rtsLayer, final String waypointName, final BasicArrayList list) {
         final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(associatedAdvancedRTSGameLayer.getName());
@@ -130,7 +130,7 @@ public class WaypointSelectedLogHelper extends WaypointLogHelper {
     }
     
     @Override
-    public void setRandomGeographicMapCellHistory(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final BasicArrayList pathsList) {
+    public void setRandomGeographicMapCellHistoryList(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final BasicArrayList pathsList) {
 
         final int size = pathsList.size();
         final StringMaker stringBuffer = new StringMaker();

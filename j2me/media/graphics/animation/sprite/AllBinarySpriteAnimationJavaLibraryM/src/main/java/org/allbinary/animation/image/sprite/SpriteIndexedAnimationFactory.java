@@ -101,7 +101,7 @@ public class SpriteIndexedAnimationFactory
     }
 
     @Override
-    public Animation getInstance(final Animation animationInterface) throws Exception {
+    public Animation getInstanceAnimation(final Animation animationInterface) throws Exception {
         return this.getInstance(0);
     }
 

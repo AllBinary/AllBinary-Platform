@@ -59,7 +59,7 @@ public class MultiKeyPressesAI extends KeyPressesAI
                 int key = keys[index].intValue();
                 if (key != -1)
                 {
-                    gameInput.add(this.gameKeyEventFactory.getInstance(this, key));
+                    gameInput.add(this.gameKeyEventFactory.getInstanceForKey(this, key));
                 }
             }
             // this.logUtil.putF(, this, "update");
@@ -71,7 +71,7 @@ public class MultiKeyPressesAI extends KeyPressesAI
                 int key = keys[index].intValue();
                 if (key != -1)
                 {
-                    gameInput.addForRemoval(this.gameKeyEventFactory.getInstance(this, key));
+                    gameInput.addForRemoval(this.gameKeyEventFactory.getInstanceForKey(this, key));
                 }
             }
             // this.logUtil.putF("remove", this, commonStrings.PROCESS);

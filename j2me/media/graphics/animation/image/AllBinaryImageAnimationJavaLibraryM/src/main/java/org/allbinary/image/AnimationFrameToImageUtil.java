@@ -43,15 +43,15 @@ public class AnimationFrameToImageUtil
 
         graphics.translate(tranlateX, tranlateY);
 
-        animationInterface.paint(graphics, 0, 0);
+        animationInterface.paintXY(graphics, 0, 0);
 
         graphics.translate(-tranlateX, -tranlateY);
 
         return image;
     }
 
-    public Image getInstance(int width, int height,
-            Animation animationInterface) throws Exception
+    public Image getInstanceWH(int width, int height,
+                               Animation animationInterface) throws Exception
     {
 
         Image image = GameFeatureImageCacheFactory.getInstance().get(
@@ -59,7 +59,7 @@ public class AnimationFrameToImageUtil
 
         Graphics graphics = image.getGraphics();
 
-        animationInterface.paint(graphics, 0, 0);
+        animationInterface.paintXY(graphics, 0, 0);
 
         return image;
     }

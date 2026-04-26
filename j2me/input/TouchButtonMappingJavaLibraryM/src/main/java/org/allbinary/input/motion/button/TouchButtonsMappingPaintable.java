@@ -82,7 +82,7 @@ public class TouchButtonsMappingPaintable extends Paintable
                 this.paintableTable[index][rowIndex] = TouchButton.create(
                         BasicTouchInputFactory.getInstance().NONE, TouchButtonBlankResource.getInstance(),
                         commonButtons.NORMAL_BUTTON, 
-                        cellPositionFactory.getInstance(index, rowIndex),
+                        cellPositionFactory.getInstanceColRow(index, rowIndex),
                         this.touchButtonLocationHelper.getColumnsRemainderHalf(), 
                         this.touchButtonLocationHelper.getRowsRemainderHalf());
             }

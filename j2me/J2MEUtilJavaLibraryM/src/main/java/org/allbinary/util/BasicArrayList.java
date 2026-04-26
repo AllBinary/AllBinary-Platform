@@ -27,7 +27,7 @@ public class BasicArrayList
 //        this.objectArray = objectArray;
 //    }
 
-    public void add(final int index, final Object element)
+    public void addAt(final int index, final Object element)
     {
         if (index > this.currentIndex || index < 0) {
             StringMaker stringBuffer = new StringMaker();
@@ -53,7 +53,7 @@ public class BasicArrayList
         return true;
     }
 
-    public Object remove(final int index)
+    public Object removeAt(final int index)
     {
         if (index >= this.currentIndex) {
             final StringMaker stringBuffer = new StringMaker();
@@ -140,7 +140,7 @@ public class BasicArrayList
         return true;
     }
 
-    public boolean addAll(final BasicArrayList list)
+    public boolean addAllList(final BasicArrayList list)
     {
         final Object[] newObjectArray = list.toArray();
         return this.addAll(newObjectArray);
@@ -275,10 +275,10 @@ public class BasicArrayList
         return arrayUtil.copyOf(this.objectArray, currentIndex);
     }
 
-    public Object[] toArray(final Object[] objectArray)
+    public Object[] toArrayType(final Object[] objectArray)
     {
         if (objectArray.length < this.currentIndex)
-            return arrayUtil.copyOf(this.objectArray, currentIndex, objectArray.getClass());
+            return arrayUtil.copyOfType(this.objectArray, currentIndex, objectArray.getClass());
 
         System.arraycopy(this.objectArray, 0, objectArray, 0, currentIndex);
 

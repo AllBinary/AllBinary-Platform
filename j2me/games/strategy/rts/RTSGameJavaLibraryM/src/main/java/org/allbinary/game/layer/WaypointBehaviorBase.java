@@ -152,7 +152,7 @@ public class WaypointBehaviorBase implements TickableInterface
         throw new RuntimeException();
     }
     
-    public void setTarget(final PathFindingLayerInterface layerInterface, final int anotherTargetDistance)
+    public void setTargetWithDistance(final PathFindingLayerInterface layerInterface, final int anotherTargetDistance)
         throws Exception
     {
         throw new RuntimeException();

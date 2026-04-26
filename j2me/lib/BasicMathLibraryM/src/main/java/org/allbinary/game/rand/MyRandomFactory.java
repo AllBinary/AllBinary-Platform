@@ -68,10 +68,10 @@ public class MyRandomFactory
     }
     
     public void shuffle(final int[] intArray) {
-        this.shuffle(intArray, intArray.length * 7);
+        this.shuffleTotal(intArray, intArray.length * 7);
     }
     
-    public void shuffle(final int[] intArray, final int shuffleTotal) {
+    public void shuffleTotal(final int[] intArray, final int shuffleTotal) {
         final int size = intArray.length;
         int randomIndex;
         int randomIndex2;
@@ -85,11 +85,11 @@ public class MyRandomFactory
         }
     }
 
-    public void shuffle(final int[] intArray, final int[] intArray2) {
-        this.shuffle(intArray, intArray2, intArray.length * 7);
+    public void shuffle2(final int[] intArray, final int[] intArray2) {
+        this.shuffle2Total(intArray, intArray2, intArray.length * 7);
     }
     
-    public void shuffle(final int[] intArray, final int[] intArray2, final int shuffleTotal) {
+    public void shuffle2Total(final int[] intArray, final int[] intArray2, final int shuffleTotal) {
         final int size = intArray.length;
         int randomIndex;
         int randomIndex2;
@@ -129,7 +129,7 @@ public class MyRandomFactory
             intArray[index] = index;
             intArray2[index] = index;
         }
-        randomFactory.shuffle(intArray, intArray2);
+        randomFactory.shuffle2(intArray, intArray2);
         
         for(int index = 0; index < size; index++) {
             stringBuilder.appendint(intArray[index]).append(commonSeps.COMMA);

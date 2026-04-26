@@ -35,7 +35,7 @@ public class UpDownVectorAI extends BasicAI
 
       this.velocityInterface =
          velocityInterfaceCompositeInterface.getVelocityProperties();
-      this.velocityInterface.getVelocityYBasicDecimalP().set(0);
+      this.velocityInterface.getVelocityYBasicDecimalP().setint(0);
    }
 
    @Override
@@ -49,16 +49,16 @@ public class UpDownVectorAI extends BasicAI
       {
           BasicDecimal basicDecimal = this.velocityInterface.getVelocityYBasicDecimalP();
           
-          basicDecimal.set(0);
-          basicDecimal.add(y);
+          basicDecimal.setint(0);
+          basicDecimal.addint(y);
 
          this.index++;
       } else if (this.index < 10)
       {
           BasicDecimal basicDecimal = this.velocityInterface.getVelocityYBasicDecimalP();
           
-          basicDecimal.set(0);
-          basicDecimal.subtract(y);
+          basicDecimal.setint(0);
+          basicDecimal.subtractint(y);
 
          this.index++;
       } else

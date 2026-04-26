@@ -13,7 +13,6 @@
  */
 package org.allbinary.media.image;
 
-import javax.microedition.lcdui.Image;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.GameFeatureFactory;
 
@@ -22,9 +21,6 @@ import org.allbinary.string.CommonStrings;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.ImageData;
-import org.eclipse.swt.graphics.Transform;
-import org.microemu.device.swt.SwtImmutableImage;
-import org.microemu.device.swt.SwtMutableImage;
 
 public class ImageSwtRotationUtil {
     protected final LogUtil logUtil = LogUtil.getInstance();
@@ -118,7 +114,7 @@ return bufferedImage;
         return this.getRotatedImage2(originalSwtImage, newSwtImage, gc, totalAngle);
     }
 
-    public org.eclipse.swt.graphics.Image getRotatedImage(final org.eclipse.swt.graphics.Image bufferedImage, final org.eclipse.swt.graphics.Image newSwtImage, final GC gc, final int totalAngle) {
+    public org.eclipse.swt.graphics.Image getRotatedImageSWT(final org.eclipse.swt.graphics.Image bufferedImage, final org.eclipse.swt.graphics.Image newSwtImage, final GC gc, final int totalAngle) {
         return this.getRotatedImage2(bufferedImage, newSwtImage, gc, totalAngle);
     }
 

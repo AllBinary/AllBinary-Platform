@@ -242,7 +242,7 @@ public class Order implements OrderInterface, Serializable
          String name = (String) keyArray[i];
          String value = (String) hashMap.get(name);
 
-         value = StringUtil.getInstance().getInstance(value);
+         value = StringUtil.getInstance().getNonNull(value);
          
          node.appendChild(ModDomHelper.createNameValueNodes(document, name, value));
       }

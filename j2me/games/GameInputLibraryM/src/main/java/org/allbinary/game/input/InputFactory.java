@@ -58,7 +58,7 @@ public class InputFactory
         this.inputIntegerArray[id] = input;
     }
     
-    public Input getInstance(int id)
+    public Input getInstanceById(int id)
     {
         if(id < 0)
         {

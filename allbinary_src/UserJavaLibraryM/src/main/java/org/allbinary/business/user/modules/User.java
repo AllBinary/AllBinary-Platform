@@ -110,53 +110,53 @@ public class User implements UserInterface
       
       final StringUtil stringUtil = StringUtil.getInstance();
       
-      String passwordString = stringUtil.getInstance((String) userHashMap.get(UserData.PASSWORD));
+      String passwordString = stringUtil.getNonNull((String) userHashMap.get(UserData.PASSWORD));
       
       final StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
       
       if(stringValidationUtil.isEmpty(this.userName) && 
          stringValidationUtil.isEmpty(passwordString))
       {
-         this.userName = stringUtil.getInstance((String) userHashMap.get(WeblisketSessionData.REMOVABLEUSERNAME));
-         passwordString = stringUtil.getInstance((String) userHashMap.get(WeblisketSessionData.REMOVABLEPASSWORD));
+         this.userName = stringUtil.getNonNull((String) userHashMap.get(WeblisketSessionData.REMOVABLEUSERNAME));
+         passwordString = stringUtil.getNonNull((String) userHashMap.get(WeblisketSessionData.REMOVABLEPASSWORD));
       }
 
-      String encryption = stringUtil.getInstance((String) userHashMap.get(EntryData.getInstance().ENCRYPTION));
-      String secret = stringUtil.getInstance((String) userHashMap.get(UserData.SECRET));
+      String encryption = stringUtil.getNonNull((String) userHashMap.get(EntryData.getInstance().ENCRYPTION));
+      String secret = stringUtil.getNonNull((String) userHashMap.get(UserData.SECRET));
 
       this.password = new Password(passwordString);
       
-      this.prefixName = stringUtil.getInstance((String) userHashMap.get(UserData.PREFIXNAME));
-      this.firstName = stringUtil.getInstance((String) userHashMap.get(UserData.FIRSTNAME));
-      this.lastName = stringUtil.getInstance((String) userHashMap.get(UserData.LASTNAME));
-      this.middleName = stringUtil.getInstance((String) userHashMap.get(UserData.MIDDLENAME));
-      this.suffixName = stringUtil.getInstance((String) userHashMap.get(UserData.SUFFIXNAME));
-      this.company = stringUtil.getInstance((String) userHashMap.get(UserData.COMPANY));
-      this.positionAtCompany = stringUtil.getInstance((String) userHashMap.get(UserData.POSITIONATCOMPANY));
-      this.mainEmail = stringUtil.getInstance((String) userHashMap.get(UserData.MAINEMAIL));
-      this.secondaryEmail = stringUtil.getInstance((String) userHashMap.get(UserData.SECONDARYEMAIL));
-      this.homePhone = stringUtil.getInstance((String) userHashMap.get(UserData.HOMEPHONE));
-      this.cellPhone = stringUtil.getInstance((String) userHashMap.get(UserData.CELLPHONE));
-      this.workPhone = stringUtil.getInstance((String) userHashMap.get(UserData.WORKPHONE));
-      this.otherContact = stringUtil.getInstance((String) userHashMap.get(UserData.OTHERCONTACT));
-      this.electronicDevice = stringUtil.getInstance((String) userHashMap.get(UserData.ELECTRONICDEVICE));
-      this.fax = stringUtil.getInstance((String) userHashMap.get(UserData.FAX));
+      this.prefixName = stringUtil.getNonNull((String) userHashMap.get(UserData.PREFIXNAME));
+      this.firstName = stringUtil.getNonNull((String) userHashMap.get(UserData.FIRSTNAME));
+      this.lastName = stringUtil.getNonNull((String) userHashMap.get(UserData.LASTNAME));
+      this.middleName = stringUtil.getNonNull((String) userHashMap.get(UserData.MIDDLENAME));
+      this.suffixName = stringUtil.getNonNull((String) userHashMap.get(UserData.SUFFIXNAME));
+      this.company = stringUtil.getNonNull((String) userHashMap.get(UserData.COMPANY));
+      this.positionAtCompany = stringUtil.getNonNull((String) userHashMap.get(UserData.POSITIONATCOMPANY));
+      this.mainEmail = stringUtil.getNonNull((String) userHashMap.get(UserData.MAINEMAIL));
+      this.secondaryEmail = stringUtil.getNonNull((String) userHashMap.get(UserData.SECONDARYEMAIL));
+      this.homePhone = stringUtil.getNonNull((String) userHashMap.get(UserData.HOMEPHONE));
+      this.cellPhone = stringUtil.getNonNull((String) userHashMap.get(UserData.CELLPHONE));
+      this.workPhone = stringUtil.getNonNull((String) userHashMap.get(UserData.WORKPHONE));
+      this.otherContact = stringUtil.getNonNull((String) userHashMap.get(UserData.OTHERCONTACT));
+      this.electronicDevice = stringUtil.getNonNull((String) userHashMap.get(UserData.ELECTRONICDEVICE));
+      this.fax = stringUtil.getNonNull((String) userHashMap.get(UserData.FAX));
       this.role =
          UserRoleB.getRole((String) userHashMap.get(UserRoleData.NAME.toString()));
       
-      this.permissions = stringUtil.getInstance((String) userHashMap.get(UserData.PERMISSIONS));
+      this.permissions = stringUtil.getNonNull((String) userHashMap.get(UserData.PERMISSIONS));
       
       //TWB Temporary for store manager permissions
       if(!stringValidationUtil.isEmpty(this.permissions) && 
          this.permissions.compareTo(StoreFrontData.getInstance().NAME)==0)
-         this.permissions = stringUtil.getInstance((String) userHashMap.get(StoreFrontData.getInstance().NAME));
+         this.permissions = stringUtil.getNonNull((String) userHashMap.get(StoreFrontData.getInstance().NAME));
       else
          if(this.permissions==null)
          {
             this.permissions = "No Permissions";
          }
 
-      this.enable = stringUtil.getInstance((String) userHashMap.get(EntryData.getInstance().ENABLE));
+      this.enable = stringUtil.getNonNull((String) userHashMap.get(EntryData.getInstance().ENABLE));
    }
 
    public Boolean isValid()

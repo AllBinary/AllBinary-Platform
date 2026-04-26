@@ -18,7 +18,6 @@ import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.math.Angle;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
-import org.allbinary.math.FrameUtil;
 
 public class VectorRotationAnimation 
     extends VectorBaseRotationAnimation 
@@ -37,16 +36,16 @@ public class VectorRotationAnimation
    }
    
    @Override
-   public void setFrame(final Direction direction)
+   public void setFrameByDirection(final Direction direction)
    {
       Angle angle = directionUtil.getFrameAngle(direction);
-      this.adjustFrame(angle);
+      this.adjustFrameToAngle(angle);
    }
 
    @Override
-   public void setFrame(final Angle angle)
+   public void setFrameToAngle(final Angle angle)
    {
-      this.adjustFrame(angle);
+      this.adjustFrameToAngle(angle);
    }
   
    @Override
@@ -63,7 +62,7 @@ public class VectorRotationAnimation
    }
 
    @Override
-   public void adjustFrame(final Angle newAngle)
+   public void adjustFrameToAngle(final Angle newAngle)
    {
       this.adjustFrame(newAngle.getValue());
    }

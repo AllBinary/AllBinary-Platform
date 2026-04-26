@@ -22,7 +22,6 @@ import org.allbinary.game.terrain.TerrainEventCircularStaticPool;
 import org.allbinary.game.terrain.TerrainEventHandler;
 import org.allbinary.game.terrain.TerrainEventListener;
 import org.allbinary.layer.AllBinaryLayer;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.math.Angle;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.util.BasicArrayList;
@@ -50,7 +49,7 @@ public class TerrainPatrolAI extends PacePatrolAI
                 this.terrainEventListener);
 
         this.terrainEventListener.onTerrainEvent(
-                TerrainEventCircularStaticPool.getInstance().getInstance(this.CLIFF));
+                TerrainEventCircularStaticPool.getInstance().getNext(this.CLIFF));
     }
 
     @Override
@@ -69,7 +68,7 @@ public class TerrainPatrolAI extends PacePatrolAI
         final int size = list.size();
         for (int index = 0; index < size; index++)
         {
-            final TerrainEvent terrainEvent = (TerrainEvent) list.remove(index);
+            final TerrainEvent terrainEvent = (TerrainEvent) list.removeAt(index);
             final BasicTerrainInfo basicTerrainInfo = terrainEvent.getBasicTerrainInfo();
             final Angle angle = basicTerrainInfo.getAngle();
 

@@ -100,10 +100,10 @@ public class OpenGLImageCache extends ImageCache
     }
 
     @Override
-    protected Image createImage(final Object key, final InputStream inputStream)
+    protected Image createImageFromInputStream(final Object key, final InputStream inputStream)
     throws Exception
     {
-        final Image cachedImage = this.imageCache.get(key);
+        final Image cachedImage = this.imageCache.getWithKey(key);
 
         //...
         //Use fake images

@@ -36,7 +36,7 @@ public class LockedFeatureNotificationUtil
         new GameNotificationEvent(
                 this, 
                 LicenseStrings.getInstance().LOCKED,
-                SmallIntegerSingletonFactory.getInstance().getInstance(3),
+                SmallIntegerSingletonFactory.getInstance().getAt(3),
                 BasicColorFactory.getInstance().RED,
                 BooleanFactory.getInstance().FALSE);
     
@@ -49,7 +49,7 @@ public class LockedFeatureNotificationUtil
                 gameNotificationEvent);
     }
 
-    public void fire(BasicColor basicColor) throws Exception
+    public void fireWithColor(BasicColor basicColor) throws Exception
     {
         PrimaryPlayerQueueFactory.getInstance().add(
                 ErrorSound.getInstance());

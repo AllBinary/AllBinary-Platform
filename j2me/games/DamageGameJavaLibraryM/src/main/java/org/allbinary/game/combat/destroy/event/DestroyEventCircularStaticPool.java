@@ -40,7 +40,7 @@ public class DestroyEventCircularStaticPool {
         EVENT_POOL.init(new DestroyEventFactory(combatGameCanvas));
     }
     
-    public DestroyedEvent getInstance(AllBinaryLayer layerInterface)
+    public DestroyedEvent getInstanceForLayer(AllBinaryLayer layerInterface)
           throws Exception
     {
     	DestroyedEvent destroyedEvent = 

@@ -25,7 +25,6 @@ import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory
 import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.animation.NullAnimationFactory;
 import org.allbinary.animation.NullIndexedAnimationFactory;
-import org.allbinary.animation.NullRotationAnimationFactory;
 import org.allbinary.animation.ProceduralAnimationInterfaceFactoryInterface;
 import org.allbinary.animation.RotationAnimation;
 import org.allbinary.animation.caption.CaptionAnimationHelper;
@@ -91,7 +90,6 @@ import org.allbinary.game.physics.velocity.VelocityProperties;
 import org.allbinary.game.tracking.TrackingEvent;
 import org.allbinary.game.tracking.TrackingEventHandler;
 import org.allbinary.game.tracking.TrackingEventListenerInterface;
-import org.allbinary.game.view.TileLayerPositionIntoViewPosition;
 import org.allbinary.graphics.CellPositionFactory;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.Rectangle;
@@ -274,12 +272,12 @@ public class UnitLayer extends AdvancedRTSGameLayer implements
         this.initResourceAnimation = (RotationAnimation)
             resourceAnimationInterfaceFactoryInterface.getInstance(0);
 
-        this.initResourceAnimation.setFrame(direction);
-        this.decalAnimation.setFrame(direction);
+        this.initResourceAnimation.setFrameByDirection(direction);
+        this.decalAnimation.setFrameByDirection(direction);
         this.rotationAnimationInterfaceP = (RotationAnimation)
                 this.indexedButShouldBeRotationAnimationInterface;
 
-        this.rotationAnimationInterfaceP.setFrame(direction);
+        this.rotationAnimationInterfaceP.setFrameByDirection(direction);
 
         this.setMaxLevel(12);
 
@@ -332,7 +330,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
                 new UnitWaypointBehavior2(
                         this, 
                         (AdvancedRTSGameLayer) 
-                        waypointLayerInterfaceFactoryInterface.getInstance(
+                        waypointLayerInterfaceFactoryInterface.getNextInstance(
                                 hashtable, x, y, z))
                 );
 
@@ -454,7 +452,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
                 for(int index2 = lastRow - 1; index2 >= firstRow; index2--)
                 {
                     final GeographicMapCellPosition geographicMapCellPosition = 
-                        geographicMapCellPositionFactory.getInstance(index, index2);
+                        geographicMapCellPositionFactory.getAt(index, index2);
 
                     if(!this.sensorGeographicMapCellPositionList.contains(geographicMapCellPosition))
                     {
@@ -523,7 +521,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
                 geographicMapCellPositionBasicArrayList.get(
                 geographicMapCellPositionBasicArrayList.size() - 1);
 
-            currentDistance = this.layerDistanceUtil.getDistance(this, geographicMapCellPosition.getMidPoint());
+            currentDistance = this.layerDistanceUtil.getDistanceAt(this, geographicMapCellPosition.getMidPoint());
 
             if (currentDistance < shortestDistance)
             {
@@ -554,7 +552,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
 
         // this.logUtil.putF("Adding " + size + " path nodes for Tracking", this, commonStrings.INIT);
 
-        geographicMapCellHistory.track(geographicMapCellPositionBasicArrayList);
+        geographicMapCellHistory.trackAll(geographicMapCellPositionBasicArrayList);
 
         //this.logUtil.putF("geographicMapCellHistory: " + geographicMapCellHistory.getTracked().toString(), this, commonStrings.INIT);
     }
@@ -716,7 +714,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         final BasicGeographicMap geographicMapInterface = geographicMapCompositeInterface.getGeographicMapInterface()[0];
         
         final GeographicMapCellPosition geographicMapCellPosition =
-            geographicMapInterface.getCellPositionAt(
+            geographicMapInterface.getCellPositionAtXY(
             this.x + this.getHalfWidth(),
             this.y + this.getHalfHeight());
 
@@ -738,7 +736,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
     {
         //this.logUtil.putF("fireAll", this, "fire");
 
-        if (this.fireTimeHelper.isTime())
+        if (this.fireTimeHelper.isTimeTNT())
         {
             //this.logUtil.putF("fire", this, gameInputStrings.PROCESS_INPUT);
 
@@ -825,7 +823,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
             Object object = list.get(index);
             int key = GameKeyEventUtil.getKey(object);
 
-            this.inputProcessorArray[key].process(layerManager, GameKeyEvent.NONE);
+            this.inputProcessorArray[key].processEvent(layerManager, GameKeyEvent.NONE);
         }
         list.clear();
 
@@ -836,7 +834,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
 
     public void accelerate(final BasicDecimal accelerate)
     {
-        this.getVehicleProperties().getVelocityProperties().addVelocity(accelerate.getUnscaled(), (int) this.rotationAnimationInterfaceP.getAngleInfoP().getAngle(), 90);
+        this.getVehicleProperties().getVelocityProperties().addVelocityi(accelerate.getUnscaled(), (int) this.rotationAnimationInterfaceP.getAngleInfoP().getAngle(), 90);
     }
 
     protected void fireAll(final AllBinaryLayerManager layerManager) throws Exception
@@ -844,8 +842,8 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         final AngleInfo angleInfo = this.rotationAnimationInterfaceP.getAngleInfoP();
         final int angle = (int) (angleInfo.getAngle() + this.slightAngle);
 
-        hashtable.put(SmallIntegerSingletonFactory.getInstance().getInstance(1), 
-                SmallIntegerSingletonFactory.getInstance().getInstance((int) AngleFactory.getInstance().getInstance(angle).getValue()));
+        hashtable.put(SmallIntegerSingletonFactory.getInstance().getAt(1),
+                SmallIntegerSingletonFactory.getInstance().getAt((int) AngleFactory.getInstance().getAt(angle).getValue()));
 
         final SalvoInterface salvoInterface = (SalvoInterface) this.getPartInterfaceArray()[0];
         salvoInterface.process(layerManager, (short) angle, (short) 90);
@@ -898,13 +896,13 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
 
         this.rtsLogHelper.trackTo(this, nextUnvisitedPathGeographicMapCellPosition, dx, dy, reason);
         
-        this.trackTo(dx, dy);
+        this.trackToDXY(dx, dy);
     }
     
     //private final NoDecimalTrigTable noDecimalTrigTable = NoDecimalTrigTable.getInstance();
     
     @Override
-    public void trackTo(final int dx, final int dy)
+    public void trackToDXY(final int dx, final int dy)
     throws Exception
     {
         //Change from real target to fake location to deal with
@@ -958,7 +956,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         //final int angleOfTarget = 270 - noDecimalTrigTable.antiTan(dx, dy);
         //final int angleOfTarget = -90 - noDecimalTrigTable.antiTan(dx, dy);
         final int angleOfTarget = 0;
-        this.trackTo(dx, dy, angleOfTarget);
+        this.trackToDXYTargetAngle(dx, dy, angleOfTarget);
     }
 
     private boolean turnTo(final int dx, final int dy, int targetAngle)
@@ -1119,10 +1117,10 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
                 int deltaAngle2 = this.movementAngle.getValue() - angle;
                 if (deltaAngle2 > 0) {
                     this.rtsLogHelper.rotateRight(this);
-                    this.getGameKeyEventList().add(gameKeyEventFactory.getInstance(this, Canvas.RIGHT));
+                    this.getGameKeyEventList().add(gameKeyEventFactory.getInstanceForKey(this, Canvas.RIGHT));
                 } else {
                     this.rtsLogHelper.rotateLeft(this);
-                    this.getGameKeyEventList().add(gameKeyEventFactory.getInstance(this, Canvas.LEFT));
+                    this.getGameKeyEventList().add(gameKeyEventFactory.getInstanceForKey(this, Canvas.LEFT));
                 }
                 
                 return true;
@@ -1168,7 +1166,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         this.rtsLogHelper.handle(this, this.movementAngle);
     }
 
-    private void trackTo(final int dx, final int dy, final int targetAngle)
+    private void trackToDXYTargetAngle(final int dx, final int dy, final int targetAngle)
         throws Exception
     {
         //If colliding with a game object then don't try to turn since in chase mode
@@ -1186,7 +1184,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
                 
                 if(object == null)
                 {
-                    list.remove(index);
+                    list.removeAt(index);
                 }
             }
 
@@ -1217,7 +1215,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
                 this.captionAnimationHelper.update(MOVE, this.basicColorFactory.GREEN);
             }
 
-            this.getGameKeyEventList().add(gameKeyEventFactory.getInstance(this, Canvas.UP));
+            this.getGameKeyEventList().add(gameKeyEventFactory.getInstanceForKey(this, Canvas.UP));
         }
         else
         {
@@ -1243,7 +1241,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
             // this.currentTargetLayerInterface.getName() + " at Range: " +
             // this.currentTargetDistance + ">=" + this.longWeaponRange, // this, "processTargeting");
             this.allStop();
-            this.getGameKeyEventList().add(gameKeyEventFactory.getInstance(this, Canvas.KEY_NUM0));
+            this.getGameKeyEventList().add(gameKeyEventFactory.getInstanceForKey(this, Canvas.KEY_NUM0));
             TrackingEventHandler.getInstance().fireEvent(this.getTrackingEvent());
         }
     }
@@ -1268,7 +1266,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
                     = (GeographicMapCompositeInterface) this.allBinaryGameLayerManagerP;
                 final BasicGeographicMap geographicMapInterface = geographicMapCompositeInterface.getGeographicMapInterface()[0];
                 
-                layerPartialCellPositionsUtil.getAll(
+                layerPartialCellPositionsUtil.getAllDXY(
                         geographicMapInterface,
                         this, (int) velocityXScaled, (int) velocityYScaled,
                         getPartialpositionlist());
@@ -1322,8 +1320,8 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         final VelocityProperties velocityProperties = 
             this.getVehicleProperties().getVelocityProperties();
 
-        velocityProperties.getVelocityXBasicDecimalP().set(0);
-        velocityProperties.getVelocityYBasicDecimalP().set(0);
+        velocityProperties.getVelocityXBasicDecimalP().setint(0);
+        velocityProperties.getVelocityYBasicDecimalP().setint(0);
     }
 
     @Override
@@ -1339,19 +1337,19 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
             int viewX = viewPosition.getX();
             int viewY = viewPosition.getY();
 
-            this.decalAnimation.paint(graphics, viewX, viewY);
+            this.decalAnimation.paintXY(graphics, viewX, viewY);
             
-            this.rangeAnimation.paint(graphics, viewX, viewY);
-            this.sensorRangeAnimation.paint(graphics, viewX, viewY);
+            this.rangeAnimation.paintXY(graphics, viewX, viewY);
+            this.sensorRangeAnimation.paintXY(graphics, viewX, viewY);
 
             this.damageFloatersPaintableInterface.paint(graphics);
             this.healthBar.paint(graphics);
 
-            this.captionAnimationHelper.paint(graphics, viewX, viewY);
+            this.captionAnimationHelper.paintXY(graphics, viewX, viewY);
 
-            this.pathAnimation.paint(graphics, viewX, viewY);
+            this.pathAnimation.paintXY(graphics, viewX, viewY);
 
-            this.resourceAnimation.paint(graphics, viewX, viewY);
+            this.resourceAnimation.paintXY(graphics, viewX, viewY);
         }
     }
 

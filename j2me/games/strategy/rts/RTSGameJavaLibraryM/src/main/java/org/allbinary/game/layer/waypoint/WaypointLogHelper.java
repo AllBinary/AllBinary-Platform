@@ -42,7 +42,7 @@ public class WaypointLogHelper {
     
     }    
 
-    public void addWaypointFromBuilding(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final PathFindingLayerInterface advancedRTSGameLayer, final BasicArrayList list) {
+    public void addWaypointFromBuildingList(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final PathFindingLayerInterface advancedRTSGameLayer, final BasicArrayList list) {
         
     }
     
@@ -50,11 +50,11 @@ public class WaypointLogHelper {
         
     }
 
-    public void insertWaypoint(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final int index, final CollidableDestroyableDamageableLayer rtsLayer, final String waypointName, final BasicArrayList list) {
+    public void insertWaypointList(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final int index, final CollidableDestroyableDamageableLayer rtsLayer, final String waypointName, final BasicArrayList list) {
         
     }
     
-    public void setRandomGeographicMapCellHistory(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final BasicArrayList pathsList) {
+    public void setRandomGeographicMapCellHistoryList(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final BasicArrayList pathsList) {
         
     }
     

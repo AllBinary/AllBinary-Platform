@@ -266,7 +266,7 @@ public class RecordStoreHighScores extends HighScores
                         }
 
                         //this.logUtil.putF(new StringMaker().append("Loading HighScore: ").append(newHighScore.getScore()).append(" for: ").append(this.getName()).toString(), this, commonStrings.LOAD);
-                        list.add(lastIndex, newHighScore);
+                        list.addAt(lastIndex, newHighScore);
 
                         //this.logUtil.putF(new StringMaker().append("Loaded HighScores Ordered: ").append(this.toString()).toString(), this, commonStrings.LOAD);
                     } catch (EOFException e) {

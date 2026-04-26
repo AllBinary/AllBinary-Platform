@@ -97,7 +97,7 @@ implements CompleteMotionGestureInputEventListenerInterface
                 
             //When a motionGesture is repeated quickly change is never painted
             //if(previousMotionGestureInput == motionGestureInput && !this.timeHelper.isTime())
-            if(motionGestureInput == TouchMotionGestureFactory.getInstance().NO_MOTION && !this.timeHelper.isTime())
+            if(motionGestureInput == TouchMotionGestureFactory.getInstance().NO_MOTION && !this.timeHelper.isTimeTNT())
             {
                 this.logUtil.putF(this.FAST_REPEAT, this, METHOD_NAME);
                 return;

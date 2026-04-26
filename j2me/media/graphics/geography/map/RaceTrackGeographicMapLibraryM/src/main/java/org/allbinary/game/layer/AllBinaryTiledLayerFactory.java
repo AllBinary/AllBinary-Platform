@@ -56,7 +56,7 @@ public class AllBinaryTiledLayerFactory implements AllBinaryTiledLayerFactoryInt
         final TiledLayer tiledLayer = new TiledLayerFactory().getMiniInstance(raceTrackData);
 
         final AllBinaryTiledLayer allbinaryTiledLayer = new AllBinaryJ2METiledLayer(
-                smallIntegerSingletonFactory.getInstance(raceTrackData.getId().intValue() + 100 + 1),
+                smallIntegerSingletonFactory.getAt(raceTrackData.getId().intValue() + 100 + 1),
                 tiledLayer, raceTrackData.getMapArray(),
                 BasicColorFactory.getInstance().RED.intValue());
 

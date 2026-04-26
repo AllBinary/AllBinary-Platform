@@ -62,7 +62,7 @@ public class ReverseVelocityBoundsVisitor implements BoundsVisitorInterface
       //this.logUtil.putF(commonStrings.START, this, "minX");
       //this.refract();
       if(this.velocityInterface.getVelocityXBasicDecimalP().getUnscaled() < 0)
-      this.velocityInterface.getVelocityXBasicDecimalP().multiply(-1);
+      this.velocityInterface.getVelocityXBasicDecimalP().multiplyint(-1);
       //this.logUtil.putF("End: " + this.velocityInterface.toString(), this, "minX");
    }
 
@@ -72,7 +72,7 @@ public class ReverseVelocityBoundsVisitor implements BoundsVisitorInterface
       //this.logUtil.putF(commonStrings.START, this, "maxX");
       //this.refract();
       if(this.velocityInterface.getVelocityXBasicDecimalP().getUnscaled() > 0)
-      this.velocityInterface.getVelocityXBasicDecimalP().multiply(-1);
+      this.velocityInterface.getVelocityXBasicDecimalP().multiplyint(-1);
       //this.logUtil.putF("End: " + this.velocityInterface.toString(), this, "maxX");
    }
 
@@ -82,7 +82,7 @@ public class ReverseVelocityBoundsVisitor implements BoundsVisitorInterface
       //this.logUtil.putF(commonStrings.START, this, "minY");
       //this.refract();
       if(this.velocityInterface.getVelocityYBasicDecimalP().getUnscaled() < 0)
-      this.velocityInterface.getVelocityYBasicDecimalP().multiply(-1);
+      this.velocityInterface.getVelocityYBasicDecimalP().multiplyint(-1);
       
       //this.logUtil.putF("End: " + this.velocityInterface.toString(), this, "minY");
    }
@@ -93,7 +93,7 @@ public class ReverseVelocityBoundsVisitor implements BoundsVisitorInterface
       //this.logUtil.putF(commonStrings.START, this, "maxY");
       //this.refract();
       if(this.velocityInterface.getVelocityYBasicDecimalP().getUnscaled() > 0)
-      this.velocityInterface.getVelocityYBasicDecimalP().multiply(-1);
+      this.velocityInterface.getVelocityYBasicDecimalP().multiplyint(-1);
       //this.logUtil.putF("End: " + this.velocityInterface.toString(), this, "maxY");
    }
 

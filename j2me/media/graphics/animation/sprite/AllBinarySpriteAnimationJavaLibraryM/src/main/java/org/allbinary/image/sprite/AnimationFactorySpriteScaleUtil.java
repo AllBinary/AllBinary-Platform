@@ -117,7 +117,7 @@ public class AnimationFactorySpriteScaleUtil {
 //                       .append(" scale set to 1 - scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS);
                }
 
-               scaledImage = this.imageScaleUtil.createImage(this.imageCache, image, scaleX, 1.0f, scaleY, 1.0f, true);
+               scaledImage = this.imageScaleUtil.createImage2(this.imageCache, image, scaleX, 1.0f, scaleY, 1.0f, true);
 //               stringMaker.delete(0, stringMaker.length());
 //               this.logUtil.putF(stringMaker.append("scaledImage.getHeight(): ").append(scaledImage.getHeight()).append(" height * scaleY: ").append(height * scaleY).toString(), this, commonStrings.PROCESS);
                sprite = spriteFactory.create(scaledImage, (int) (width * scaleX), (int) (height * scaleY));

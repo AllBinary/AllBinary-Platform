@@ -37,7 +37,7 @@ extends RotationAnimation
 
     public SimultaneousCompoundRotationAnimation(final RotationAnimation[] animationInterfaceArray, final AnimationBehavior animationBehavior)
     {
-        super(AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.getInstance(4), animationBehavior);
+        super(AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.create(4), animationBehavior);
         
         this.animationInterfaceArray = animationInterfaceArray;
     }
@@ -118,11 +118,11 @@ extends RotationAnimation
     }
 
     @Override
-    public void paint(final Graphics graphics, final int x, final int y)
+    public void paintXY(final Graphics graphics, final int x, final int y)
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
         {        
-            this.animationInterfaceArray[index].paint(graphics, x, y);
+            this.animationInterfaceArray[index].paintXY(graphics, x, y);
         }
     }
 
@@ -136,25 +136,25 @@ extends RotationAnimation
     }
 
     @Override
-    public void setFrame(final Direction direction)
+    public void setFrameByDirection(final Direction direction)
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
         {
-            this.animationInterfaceArray[index].setFrame(direction);
+            this.animationInterfaceArray[index].setFrameByDirection(direction);
         }
     }
 
     @Override
-    public void setFrame(final Angle angle)
+    public void setFrameToAngle(final Angle angle)
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
         {
-            this.animationInterfaceArray[index].setFrame(angle);
+            this.animationInterfaceArray[index].setFrameToAngle(angle);
         }
     }
 
     @Override
-    public void adjustFrame(final Angle newAngle)
+    public void adjustFrameToAngle(final Angle newAngle)
     {
         this.adjustFrame(newAngle.getValue());
     }

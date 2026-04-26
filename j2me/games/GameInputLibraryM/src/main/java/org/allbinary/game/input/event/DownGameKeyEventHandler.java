@@ -37,7 +37,7 @@ public class DownGameKeyEventHandler extends DownGameKeyEventHandlerBase
     
     private final LocalPlayerInputIdFactory playerInputIdFactory = LocalPlayerInputIdFactory.getInstance();
     
-   public DownGameKeyEventHandlerBase getInstance(int deviceId)
+   public DownGameKeyEventHandlerBase getInstanceForDevice(int deviceId)
    {
        final int playerInputId = this.playerInputIdFactory.getPlayerForDevice(deviceId);
        return instanceArray[playerInputId];

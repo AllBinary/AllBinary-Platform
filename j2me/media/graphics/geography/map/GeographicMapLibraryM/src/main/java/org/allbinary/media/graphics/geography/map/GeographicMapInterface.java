@@ -32,10 +32,10 @@ public interface GeographicMapInterface
       GeographicMapCellPosition[][] cellPositionArray)
       throws Exception;
          
-   GeographicMapCellPosition getCellPositionAt(int x, int y)
+   GeographicMapCellPosition getCellPositionAtXY(int x, int y)
       throws Exception;
 
-   GeographicMapCellPosition getCellPositionAtNoThrow(int x, int y)
+   GeographicMapCellPosition getCellPositionAtXYNoThrow(int x, int y)
        throws Exception;
 
    //GPoint getPointAt(GeographicMapCellPosition geographicMapCellPosition)
@@ -43,7 +43,7 @@ public interface GeographicMapInterface
 
    int getCellTypeFromMapCellTypeInt(int cellTypeId);
 
-   GeographicMapCellType getCellTypeAt(int x, int y) 
+   GeographicMapCellType getCellTypeAtXY(int x, int y)
       throws Exception;
    GeographicMapCellType getCellTypeAt(GeographicMapCellPosition geographicMapCellPosition) 
       throws Exception;

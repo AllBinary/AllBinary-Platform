@@ -30,14 +30,12 @@ public class PickupLayerCircularStaticPool
       return SINGLETON;
    }
    
-   public PickedUpLayerInterface getInstance(
-      PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface, int x, int y, int z) 
+   public PickedUpLayerInterface getInstanceXYZ(final PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface, final int x, final int y, final int z)
       throws Exception
    {
-      PickupLayer pickupLayer = 
-         (PickupLayer) this.getNextInstance();
+      final PickupLayer pickupLayer = (PickupLayer) this.getNextInstance();
       
-      pickupLayer.init(x, y, z);
+      pickupLayer.initXYZ(x, y, z);
       pickupLayer.init( 
               pickedUpLayerInterfaceFactoryInterface, 
               pickedUpLayerInterfaceFactoryInterface.getAnimationInterface());

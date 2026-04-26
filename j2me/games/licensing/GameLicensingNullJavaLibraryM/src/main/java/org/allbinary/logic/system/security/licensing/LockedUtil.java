@@ -13,7 +13,7 @@
 */
 package org.allbinary.logic.system.security.licensing;
 
-public class LockedUtil
+public class LockedUtil implements LockedUtilInterface
 {
     private static final LockedUtil instance = new LockedUtil();
 
@@ -22,7 +22,7 @@ public class LockedUtil
         return instance;
     }
  
-    public boolean isLockedFeature()
+    public boolean isLocked()
     {
         //Demo
         return true;

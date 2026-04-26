@@ -59,7 +59,7 @@ public class MiniMapLayer
         //ViewPosition can only be static or setPosition will need to be in paint
         ViewPosition viewPosition) throws Exception {
         super(StringUtil.getInstance().EMPTY_STRING,
-                new Rectangle(PointFactory.getInstance().getInstance0(0, viewPosition.getY()),
+                new Rectangle(PointFactory.getInstance().createXY(0, viewPosition.getY()),
             geographicMapInterface.getAllBinaryTiledLayer().getWidth(),
             geographicMapInterface.getAllBinaryTiledLayer().getHeight()),
             viewPosition);
@@ -105,9 +105,9 @@ public class MiniMapLayer
         final int index = this.list.indexOf(colorCompositeInterface);
 
         if (index >= 0) {
-            this.list.remove(index);
-            this.basicColorList.remove(index);
-            this.positionList.remove(index);
+            this.list.removeAt(index);
+            this.basicColorList.removeAt(index);
+            this.positionList.removeAt(index);
         }
     }
 
@@ -171,7 +171,7 @@ public class MiniMapLayer
             //localX = point.getX();
             //localY = point.getYP();
             this.animationInterface.setBasicColorP(basicColor);
-            this.animationInterface.paint(graphics,
+            this.animationInterface.paintXY(graphics,
                 //localX 
                 point.getX() + this.x,
                 //localY 

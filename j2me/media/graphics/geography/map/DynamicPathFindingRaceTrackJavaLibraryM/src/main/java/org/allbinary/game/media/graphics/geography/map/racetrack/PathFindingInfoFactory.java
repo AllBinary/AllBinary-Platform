@@ -51,7 +51,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
         return instance;
     }
 
-    public static void init(int max)
+    public static void create(int max)
     {
         instance = new PathFindingInfoFactory(
             new SimplePathFinderGraphVisitorFactory(1, 1, Integer.MAX_VALUE), max);
@@ -85,7 +85,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
         this.pathFinderGraphVisitorFactoryInterface = pathFinderGraphVisitorFactoryInterface;
     }
 
-    public PathFindingInfo getInstance(
+    public PathFindingInfo getInstancePathFindingInfo(
         final BasicGeographicMap geographicMapInterface,
         final int[][] mapArray)
         throws Exception
@@ -135,7 +135,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
         // keys, this, commonStrings.INIT);
     }
 
-    private void buildPathFindingNodes(
+    private void buildPathFindingNodesForCellPosition(
         final BasicGeographicMap geographicMapInterface,
         final PathFindingInfo pathFindingInfo,
         final int[][] mapArray,
@@ -148,7 +148,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
         final int cellTypeId = mapArray[cellPosition.getRow()][cellPosition.getColumn()];
 
         final GeographicMapCellType geographicMapCellType =
-            GeographicMapCellTypeFactory.getInstance().getInstance(
+            GeographicMapCellTypeFactory.getInstance().get(
            geographicMapInterface.getCellTypeFromMapCellTypeInt(cellTypeId));
 
         final RaceTrackGeographicMapCellType raceTrackGeographicMapCellType =
@@ -180,7 +180,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
                 row >= 0 && column >= 0)
             {
                 goingToGeographicMapCellPosition =
-                   geographicMapCellPositionFactory.getInstance(column, row);
+                   geographicMapCellPositionFactory.getAt(column, row);
 
                  //RaceTrackGeographicMapCellType
                  //nextBorderingRaceGameGeographicMapCellType =
@@ -246,9 +246,9 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
         {
             for (int row = 0; row < totalRows; row++)
             {
-                this.buildPathFindingNodes(
+                this.buildPathFindingNodesForCellPosition(
                     geographicMapInterface, pathFindingInfo, mapArray, 
-                    geographicMapCellPositionFactory.getInstance(column, row));
+                    geographicMapCellPositionFactory.getAt(column, row));
             }
         }
     }

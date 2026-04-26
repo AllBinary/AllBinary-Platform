@@ -154,7 +154,7 @@ public class LoggingInitInfo
 
          if(logConfigInfo.isEnabled())
          {
-            allLogTypeVector.addAll(logTypeVector);
+            allLogTypeVector.addAllList(logTypeVector);
          }
       }
       return allLogTypeVector;

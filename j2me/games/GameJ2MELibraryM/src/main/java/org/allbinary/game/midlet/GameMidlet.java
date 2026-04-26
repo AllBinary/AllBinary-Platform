@@ -154,7 +154,7 @@ public class GameMidlet extends ProgressMidlet
         //this.logUtil.putF("GameMidlet::GameMidlet", this, commonStrings.CONSTRUCTOR);
         
         //For BB can be used for J2ME as well
-        SmallIntegerSingletonFactory.getInstance().init(0x291, 6);
+        SmallIntegerSingletonFactory.getInstance().initWithRange(0x291, 6);
         //This can be used for J2ME but not BB
         //SmallIntegerSingletonFactory.getInstance().init(0x101, 6);
         //This must load after SmallIntegerSingletonFactory init for InputFactory
@@ -265,7 +265,7 @@ public class GameMidlet extends ProgressMidlet
     }
     
     @Override
-    protected void destroyApp(boolean unconditional, boolean isProgress)
+    protected void destroyAppInRunnable(boolean unconditional, boolean isProgress)
     {
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
 
@@ -438,7 +438,7 @@ public class GameMidlet extends ProgressMidlet
                 if (this.gameMidletStateFactory.getCurrentGameState() != GameState.PLAYING_GAME_STATE || 
                 		command == gameCommandsFactory.RESTART_COMMAND)
                 {
-                    if (this.gameStartTimeHelper.isTime())
+                    if (this.gameStartTimeHelper.isTimeTNT())
                     {
                         if(command == gameCommandsFactory.START_COMMAND && this.isDemoLoading()) {
                             this.logUtil.putF("Trying to Start Game Before Loading Complete", this, midletStrings.COMMAND_ACTION);
@@ -478,7 +478,7 @@ public class GameMidlet extends ProgressMidlet
             }
             else if (command == gameCommandsFactory.QUIT_COMMAND)
             {
-                if (this.gameStartTimeHelper.isTime())
+                if (this.gameStartTimeHelper.isTimeTNT())
                 {
                     //Close on quit for HighScoresTextBox.
                     if (displayable instanceof HighScoreTextBox) {
@@ -607,7 +607,7 @@ public class GameMidlet extends ProgressMidlet
 
                 final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
 
-                progressCanvas.addPortion(50, "In Game Options");
+                progressCanvas.addNormalPortion(50, "In Game Options");
 
                 final AllBinaryGameLayerManager layerManager = this.createGameLayerManager();
                 
@@ -747,7 +747,7 @@ public class GameMidlet extends ProgressMidlet
                     
                     keyValuePersistance.delete(abeClientInformation, index);
                     keyValuePersistance.clear();
-                    keyValuePersistance.loadAll(abeClientInformation, 1);
+                    keyValuePersistance.loadAllSize(abeClientInformation, 1);
                     this.getLoadGameForm().update();
                 }
             }
@@ -918,7 +918,7 @@ public class GameMidlet extends ProgressMidlet
         final ThreadFactoryUtil threadFactoryUtil = ThreadFactoryUtil.getInstance();
 
         //thread = 
-            this.thread = threadFactoryUtil.getInstance(this.allbinaryGameCanvasRunnableInterface);
+            this.thread = threadFactoryUtil.getInstanceGameCanvasRunnable(this.allbinaryGameCanvasRunnableInterface);
 
         this.logUtil.putF(new StringMaker().append("Thread Priority: ").appendint(this.thread.getPriority()).toString(), this, "startGameCanvasRunnableInterface");
 
@@ -960,11 +960,11 @@ public class GameMidlet extends ProgressMidlet
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         if(this.features.isFeature(MainFeatureFactory.getInstance().LOAD_ALL))
         {
-            progressCanvas.addPortion(50, "Stopped Game Runnable");
+            progressCanvas.addNormalPortion(50, "Stopped Game Runnable");
         }
         else
         {
-            progressCanvas.addPortion(50, "Stopped Main Runnable");
+            progressCanvas.addNormalPortion(50, "Stopped Main Runnable");
         }
         
 

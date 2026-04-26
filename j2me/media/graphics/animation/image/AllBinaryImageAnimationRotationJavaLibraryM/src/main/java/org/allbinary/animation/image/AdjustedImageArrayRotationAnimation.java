@@ -17,7 +17,6 @@ import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.animation.AnimationBehavior;
-import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
 
 //TWB - Adjustments should be done in the resource creation and not at the animation level
@@ -81,9 +80,9 @@ public class AdjustedImageArrayRotationAnimation extends
     }
 
     @Override
-    public void paint(final Graphics graphics, final int x, final int y)
+    public void paintXY(final Graphics graphics, final int x, final int y)
     {
-        super.paint(graphics, x + this.dx, y + this.dy);
+        super.paintXY(graphics, x + this.dx, y + this.dy);
     }
 
     @Override

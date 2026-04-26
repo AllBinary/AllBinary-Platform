@@ -41,7 +41,7 @@ public class CommandForm extends Form
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final Processor repaintProcessor =
-            ScreenRepaintProcessorFactory.getInstance().getInstance(this);
+            ScreenRepaintProcessorFactory.getInstance().create(this);
     
    private Stack<Object> commandStack;
    

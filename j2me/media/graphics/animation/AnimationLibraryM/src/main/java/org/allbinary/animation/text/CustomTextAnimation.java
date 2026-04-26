@@ -65,14 +65,14 @@ public class CustomTextAnimation extends TextAnimation
 //    }
     
     @Override
-    public void paint(final Graphics graphics, final int x, final int y)
+    public void paintXY(final Graphics graphics, final int x, final int y)
     {
         final Font existingFont = graphics.getFont();
         
         this.fontDebugFactory.setFont(this.font, graphics);
         
         //super.paint(graphics, x + this.xtraWidth, y);
-        super.paint(graphics, x, y);
+        super.paintXY(graphics, x, y);
         
         this.fontDebugFactory.setFont(existingFont, graphics);
     }

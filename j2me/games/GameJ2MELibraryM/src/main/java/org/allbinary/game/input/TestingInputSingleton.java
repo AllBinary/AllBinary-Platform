@@ -56,14 +56,14 @@ public class TestingInputSingleton
         
     }
     
-    public void initInputProcessors(TestInputInterface aTestInputInterface)
+    public void initInputProcessorsForTestInput(TestInputInterface aTestInputInterface)
     {
         final TestInputInterface testInputInterface = aTestInputInterface;
         this.paintable = testInputInterface;
         
         this.inputProcessorArray[Canvas.UP] = new GameInputProcessor()
         {
-            public void process(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent)
+            public void processEvent(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent)
             throws Exception
             {
                 testInputInterface.up();
@@ -72,7 +72,7 @@ public class TestingInputSingleton
 
         this.inputProcessorArray[Canvas.DOWN] = new GameInputProcessor()
         {
-            public void process(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent)
+            public void processEvent(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent)
             throws Exception
             {
                 testInputInterface.down();
@@ -81,7 +81,7 @@ public class TestingInputSingleton
 
         this.inputProcessorArray[Canvas.LEFT] = new GameInputProcessor()
         {
-            public void process(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent)
+            public void processEvent(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent)
             throws Exception
             {
                 testInputInterface.left();
@@ -90,7 +90,7 @@ public class TestingInputSingleton
 
         this.inputProcessorArray[Canvas.RIGHT] = new GameInputProcessor()
         {
-            public void process(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent)
+            public void processEvent(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent)
             throws Exception
             {
                 testInputInterface.right();
@@ -99,7 +99,7 @@ public class TestingInputSingleton
 
         this.inputProcessorArray[Canvas.KEY_NUM7] = new GameInputProcessor()
         {
-            public void process(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent)
+            public void processEvent(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent)
             throws Exception
             {
                 testInputInterface.strafeLeft();
@@ -108,7 +108,7 @@ public class TestingInputSingleton
 
         this.inputProcessorArray[Canvas.KEY_NUM9] = new GameInputProcessor()
         {
-            public void process(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent)
+            public void processEvent(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent)
             throws Exception
             {
                 testInputInterface.strafeRight();
@@ -118,7 +118,7 @@ public class TestingInputSingleton
         GameInputProcessorUtil.init(this.inputProcessorArray);
     }
 
-    public synchronized void processInput(
+    public synchronized void processInputList(
             final AllBinaryLayerManager allbinaryLayerManager, 
             final BasicArrayList list)
         throws Exception
@@ -132,7 +132,7 @@ public class TestingInputSingleton
             gameKeyEvent = ((GameKeyEvent) list.objectArray[index]);
             key = gameKeyEvent.getKey();
 
-            inputProcessorArray[key].process(allbinaryLayerManager, GameKeyEvent.NONE);
+            inputProcessorArray[key].processEvent(allbinaryLayerManager, GameKeyEvent.NONE);
         }
     }
     
@@ -140,7 +140,7 @@ public class TestingInputSingleton
     public synchronized void processInput(AllBinaryLayerManager allbinaryLayerManager)
     throws Exception
     {
-        this.processInput(allbinaryLayerManager, this.getGameKeyEventList());
+        this.processInputList(allbinaryLayerManager, this.getGameKeyEventList());
         this.getGameKeyEventList().clear();
     }
     

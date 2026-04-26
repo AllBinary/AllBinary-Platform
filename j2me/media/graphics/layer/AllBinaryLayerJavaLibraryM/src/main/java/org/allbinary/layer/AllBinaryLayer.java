@@ -189,7 +189,7 @@ implements LayerInterface
     private static final String TYPE = "Type: ";
 
     @Override
-    public void toString(final StringMaker stringBuffer)
+    public void toStringAppend(final StringMaker stringBuffer)
     {
         final CommonSeps commonSeps = CommonSeps.getInstance();
 
@@ -223,7 +223,7 @@ implements LayerInterface
     {
         final StringMaker stringBuffer = new StringMaker();
 
-        this.toString(stringBuffer);
+        this.toStringAppend(stringBuffer);
 
         return stringBuffer.toString();
     }

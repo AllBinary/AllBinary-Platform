@@ -191,7 +191,7 @@ public class VisibleCellPositionsSingleton
 
     public void move(int dx, int dy)
     {
-        this.getSimpleTiledLayer().move(dx, dy);
+        this.getSimpleTiledLayer().moveDXY(dx, dy);
     }
     
     public void paint(Graphics graphics)

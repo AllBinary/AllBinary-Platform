@@ -131,7 +131,7 @@ public class ThreadPool
                 //this.logUtil.putF(new StringMaker().append(ADD_PRIORITY).append(task.getPriority()).toString(), this, this.threadPoolStrings.ADD_TASK);
                 final int index = this.taskQueue.indexOf(lowerPriorityRunnable);
                 //this.logUtil.putF(new StringMaker().append(ADD_PRIORITY).append(index).append(CommonSeps.getInstance().SPACE).append(this.taskQueue.size()).toString(), this, this.threadPoolStrings.ADD_TASK);
-                this.taskQueue.add(index, task);
+                this.taskQueue.addAt(index, task);
             }
             
 
@@ -175,7 +175,7 @@ public class ThreadPool
             //this.wait();
         }
         */
-        return (Runnable) this.taskQueue.remove(0);
+        return (Runnable) this.taskQueue.removeAt(0);
     }
 
     public synchronized void clear() 

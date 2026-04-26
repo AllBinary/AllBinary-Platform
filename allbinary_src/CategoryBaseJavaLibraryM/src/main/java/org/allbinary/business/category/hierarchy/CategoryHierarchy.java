@@ -51,7 +51,7 @@ public class CategoryHierarchy implements CategoryHierarchyInterface
    public CategoryHierarchy(CategoryInterface rootCategoryInterface, CategoryInterface parentCategoryInterface, HashMap categoryPropertiesHashMap)
    {
       String levelString = 
-         StringUtil.getInstance().getInstance((String) categoryPropertiesHashMap.get(CategoryData.getInstance().LEVEL));
+         StringUtil.getInstance().getNonNull((String) categoryPropertiesHashMap.get(CategoryData.getInstance().LEVEL));
 
       this.level = Integer.valueOf(levelString).intValue();
 

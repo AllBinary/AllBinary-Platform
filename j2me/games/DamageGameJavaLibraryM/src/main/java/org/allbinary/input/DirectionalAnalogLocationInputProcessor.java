@@ -47,13 +47,13 @@ public class DirectionalAnalogLocationInputProcessor
         this.inputProcessorArray = inputProcessorArray;
 
         try {
-            this.leftGameKeyEvent = GameKeyEventFactory.getInstance().getInstance(this, gameKeyFactory.LEFT);
-            this.rightGameKeyEvent = GameKeyEventFactory.getInstance().getInstance(this, gameKeyFactory.RIGHT);
-            this.upGameKeyEvent = GameKeyEventFactory.getInstance().getInstance(this, gameKeyFactory.UP);
-            this.downGameKeyEvent = GameKeyEventFactory.getInstance().getInstance(this, gameKeyFactory.DOWN);
+            this.leftGameKeyEvent = GameKeyEventFactory.getInstance().getInstanceForInput(this, gameKeyFactory.LEFT);
+            this.rightGameKeyEvent = GameKeyEventFactory.getInstance().getInstanceForInput(this, gameKeyFactory.RIGHT);
+            this.upGameKeyEvent = GameKeyEventFactory.getInstance().getInstanceForInput(this, gameKeyFactory.UP);
+            this.downGameKeyEvent = GameKeyEventFactory.getInstance().getInstanceForInput(this, gameKeyFactory.DOWN);
             
-            this.leftTriggerGameKeyEvent = GameKeyEventFactory.getInstance().getInstance(this, gameKeyFactory.KEY_NUM0);
-            this.rightTriggerGameKeyEvent = GameKeyEventFactory.getInstance().getInstance(this, gameKeyFactory.KEY_NUM5);
+            this.leftTriggerGameKeyEvent = GameKeyEventFactory.getInstance().getInstanceForInput(this, gameKeyFactory.KEY_NUM0);
+            this.rightTriggerGameKeyEvent = GameKeyEventFactory.getInstance().getInstanceForInput(this, gameKeyFactory.KEY_NUM5);
         } catch (Exception e) {
             final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
@@ -76,26 +76,26 @@ public class DirectionalAnalogLocationInputProcessor
             int rightTrigger = analogLocationInput.getRightTrigger();
 
             if (x < 0) {
-                this.inputProcessorArray[this.leftGameKeyEvent.getKey()].process(allbinaryLayerManager, this.leftGameKeyEvent, x);
+                this.inputProcessorArray[this.leftGameKeyEvent.getKey()].processAnalog(allbinaryLayerManager, this.leftGameKeyEvent, x);
             } else if (x > 0) {
-                inputProcessorArray[this.rightGameKeyEvent.getKey()].process(allbinaryLayerManager, this.rightGameKeyEvent, x);
+                inputProcessorArray[this.rightGameKeyEvent.getKey()].processAnalog(allbinaryLayerManager, this.rightGameKeyEvent, x);
             }
 
             if (y < 0) {
-                this.inputProcessorArray[this.downGameKeyEvent.getKey()].process(allbinaryLayerManager, this.downGameKeyEvent, y);
+                this.inputProcessorArray[this.downGameKeyEvent.getKey()].processAnalog(allbinaryLayerManager, this.downGameKeyEvent, y);
             } else if (y > 0) {
-                inputProcessorArray[this.upGameKeyEvent.getKey()].process(allbinaryLayerManager, this.upGameKeyEvent, y);
+                inputProcessorArray[this.upGameKeyEvent.getKey()].processAnalog(allbinaryLayerManager, this.upGameKeyEvent, y);
             }
             
             //this.logUtil.putF(RIGHT_TRIGGER_VALUE + rightTrigger, this, commonStrings.PROCESS);
             //this.logUtil.putF(LEFT_TRIGGER_VALUE + leftTrigger, this, commonStrings.PROCESS);
             
             if (leftTrigger > 0) {
-                this.inputProcessorArray[this.leftTriggerGameKeyEvent.getKey()].process(allbinaryLayerManager, this.leftTriggerGameKeyEvent, leftTrigger);
+                this.inputProcessorArray[this.leftTriggerGameKeyEvent.getKey()].processAnalog(allbinaryLayerManager, this.leftTriggerGameKeyEvent, leftTrigger);
             }            
 
             if (rightTrigger > 0) {
-                this.inputProcessorArray[this.rightTriggerGameKeyEvent.getKey()].process(allbinaryLayerManager, this.rightTriggerGameKeyEvent, rightTrigger);
+                this.inputProcessorArray[this.rightTriggerGameKeyEvent.getKey()].processAnalog(allbinaryLayerManager, this.rightTriggerGameKeyEvent, rightTrigger);
             }            
             
         } catch (Exception e) {

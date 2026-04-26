@@ -184,8 +184,8 @@ public class GeographicMapDirectionUtil
             return directionFactory.DOWN;
         }
         final StringMaker stringMaker = new StringMaker();
-        final String string = stringMaker.append(CellPosition.toString(fromGeographicMapCellPosition)
-               ).append(" == ").append(CellPosition.toString(toGeographicMapCellPosition)).toString();
+        final String string = stringMaker.append(CellPosition.toStringCellPosition(fromGeographicMapCellPosition)
+               ).append(" == ").append(CellPosition.toStringCellPosition(toGeographicMapCellPosition)).toString();
         stringMaker.delete(0, stringMaker.length());
         throw new Exception(stringMaker.append("Error: ").append(string).toString());
     }
@@ -256,9 +256,9 @@ public class GeographicMapDirectionUtil
         StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append(this.ERROR);
-        stringBuffer.append(CellPosition.toString(fromGeographicMapCellPosition));
+        stringBuffer.append(CellPosition.toStringCellPosition(fromGeographicMapCellPosition));
         stringBuffer.append(this.EQUAL);
-        stringBuffer.append(CellPosition.toString(toGeographicMapCellPosition));
+        stringBuffer.append(CellPosition.toStringCellPosition(toGeographicMapCellPosition));
 
         throw new Exception(stringBuffer.toString());
     }

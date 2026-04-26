@@ -56,12 +56,12 @@ public class NonPlayerTopViewCharacterBehavior extends TopViewCharacterBehavior 
 
             if (direction == DirectionFactory.getInstance().LEFT) {
                 nextTerrainGeographicMapCellPosition
-                        = geographicMapCellPositionFactory.getInstance(
+                        = geographicMapCellPositionFactory.getAt(
                                 geographicMapCellPosition.getColumn() - 1,
                                 geographicMapCellPosition.getRow());
             } else if (direction == DirectionFactory.getInstance().RIGHT) {
                 nextTerrainGeographicMapCellPosition
-                        = geographicMapCellPositionFactory.getInstance(
+                        = geographicMapCellPositionFactory.getAt(
                                 geographicMapCellPosition.getColumn() + 1,
                                 geographicMapCellPosition.getRow());
             }
@@ -72,7 +72,7 @@ public class NonPlayerTopViewCharacterBehavior extends TopViewCharacterBehavior 
             if (!hasSolidBlock) {
                 // this.logUtil.putF("Cliff Found: " +
                 // nextTerrainGeographicMapCellPosition, this, "terrainEvent");
-                final TerrainEvent terrainEvent = TerrainEventCircularStaticPool.getInstance().getInstance(this.CLIFF);
+                final TerrainEvent terrainEvent = TerrainEventCircularStaticPool.getInstance().getNext(this.CLIFF);
                 TerrainEventHandler.getInstance(layer).fireEvent(terrainEvent);
             }
         }
@@ -80,7 +80,7 @@ public class NonPlayerTopViewCharacterBehavior extends TopViewCharacterBehavior 
     }
     
     public void terrainMove(final AllBinaryLayer layer, final BasicGeographicMap[] geographicMapInterfaceArray, final int x, final int y) {
-        layer.move(x, y);
+        layer.moveDXY(x, y);
     }
         
 }

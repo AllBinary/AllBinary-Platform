@@ -33,7 +33,7 @@ public class ImageBaseRotationAnimation extends RotationAnimation //implements A
     public ImageBaseRotationAnimation(final Image image, final AngleInfo angleInfo, final short totalAngle, final AnimationBehavior animationBehavior)
         throws Exception
     {
-        super(angleInfo, CircularIndexUtil.getInstance(totalAngle / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
+        super(angleInfo, CircularIndexUtil.create(totalAngle / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
         
         this.image = image;
     }
@@ -58,7 +58,7 @@ public class ImageBaseRotationAnimation extends RotationAnimation //implements A
     protected int anchor = Anchor.TOP_LEFT;
     
     @Override
-    public void paint(final Graphics graphics, final int x, final int y)
+    public void paintXY(final Graphics graphics, final int x, final int y)
     {
         graphics.drawImage(this.image, x, y, anchor);
     }
@@ -83,12 +83,12 @@ public class ImageBaseRotationAnimation extends RotationAnimation //implements A
      */
     
     public void close() throws Exception {
-        DisposalUtil.getInstance().dispose(this.image);
+        DisposalUtil.getInstance().disposeImage(this.image);
     }
     
     @Override
     protected void finalize() throws Throwable {
-        DisposalUtil.getInstance().dispose(this.image);
+        DisposalUtil.getInstance().disposeImage(this.image);
     }
     
 }

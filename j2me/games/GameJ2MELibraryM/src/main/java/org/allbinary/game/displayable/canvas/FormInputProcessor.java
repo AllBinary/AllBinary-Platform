@@ -15,7 +15,6 @@ package org.allbinary.game.displayable.canvas;
 
 import javax.microedition.lcdui.Canvas;
 
-import org.allbinary.game.input.GameInputStrings;
 import org.allbinary.game.input.GameKey;
 import org.allbinary.game.input.GameKeyEventSourceInterface;
 import org.allbinary.game.input.GameKeyFactory;
@@ -71,10 +70,10 @@ extends InputProcessor
                             .toString()
                     , this, this.gameInputStrings.KEY_PRESSED);
 
-            final Input input = this.inputFactory.getInstance(keyCode);
+            final Input input = this.inputFactory.getInstanceById(keyCode);
 
-            final GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstance(this.allBinaryGameCanvas, input);
-            this.downKeyEventHandler.fireEvent(gameKeyEvent);
+            final GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstanceForInput(this.allBinaryGameCanvas, input);
+            this.downKeyEventHandler.fireEventForEvent(gameKeyEvent);
             //downKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
 
         }
@@ -99,7 +98,7 @@ extends InputProcessor
 //                        .toString(),
 //                     this, gameInputStrings.KEY_RELEASED);
 
-            final Input input = this.inputFactory.getInstance(keyCode);
+            final Input input = this.inputFactory.getInstanceById(keyCode);
             if (this.platformKeyFactory.isEnter(input)) {
                 
                 PreLogUtil.put(
@@ -113,9 +112,9 @@ extends InputProcessor
                      this, gameInputStrings.KEY_RELEASED);
           
                 final GameKey gameKey = GameKeyFactory.getInstance().KEY_NUM0;
-                final GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstance((GameKeyEventSourceInterface) canvas, gameKey);
+                final GameKeyEvent gameKeyEvent = this.gameKeyEventFactory.getInstanceForInput((GameKeyEventSourceInterface) canvas, gameKey);
                 this.upGameKeyEventHandler.fireEvent(gameKeyEvent);
-                this.upGameKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
+                this.upGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
             }
 
         }

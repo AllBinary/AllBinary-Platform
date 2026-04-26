@@ -20,7 +20,7 @@ package org.allbinary.media.graphics.geography.map.racetrack;
 public class CustomMapGeneratorFactory extends CustomMapGeneratorBaseFactory {
     
     @Override
-    public CustomMapGeneratorBase getInstance(final RaceTrackGeographicMap raceTrackGeographicMap) throws Exception {
+    public CustomMapGeneratorBase create(final RaceTrackGeographicMap raceTrackGeographicMap) throws Exception {
         return new CustomMapGenerator(raceTrackGeographicMap);
     }
 

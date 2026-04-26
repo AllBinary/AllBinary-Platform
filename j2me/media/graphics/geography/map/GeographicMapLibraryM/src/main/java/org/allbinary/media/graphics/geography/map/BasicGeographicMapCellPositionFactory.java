@@ -91,7 +91,7 @@ public class BasicGeographicMapCellPositionFactory
             for (int row = 0; row < rows; row++)
             {
                 // this.logUtil.putF("Initializing Row: ").append(row, this, commonStrings.INIT);
-                cellPosition = this.getInstance(column, row);
+                cellPosition = this.getAt(column, row);
                 geographicMapCelPositionFactoryInitVisitorInterface.visit(tiledLayer, cellPosition);
             }
         }
@@ -105,7 +105,7 @@ public class BasicGeographicMapCellPositionFactory
         }
     }
 
-    public GeographicMapCellPosition getInstance(final int i_column, final int i_row) throws Exception
+    public GeographicMapCellPosition getAt(final int i_column, final int i_row) throws Exception
     {
         //final GeographicMapCellPosition cellPosition = geographicMapCellPositionArray[i_column][i_row];
 
@@ -141,7 +141,7 @@ public class BasicGeographicMapCellPositionFactory
     public GeographicMapCellPosition getInstance(
         final GeographicMapCellPosition anotherMapGeographicMapCellPosition) throws Exception
     {
-        return this.getInstance(anotherMapGeographicMapCellPosition.getColumn(),
+        return this.getAt(anotherMapGeographicMapCellPosition.getColumn(),
             anotherMapGeographicMapCellPosition.getRow());
     }
 

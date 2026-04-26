@@ -30,7 +30,6 @@ import org.allbinary.media.audio.SecondaryPlayerQueueFactory;
 import org.allbinary.media.audio.SelectSound;
 import org.allbinary.media.graphics.geography.map.racetrack.MultiLevelRaceTrackGeographicMapInterfaceFactoryInterface;
 import org.allbinary.thread.ABRunnable;
-import org.allbinary.thread.SoundThreadPool;
 import org.allbinary.time.TimeDelayHelper;
 
 public class MapSelectionGameInputProcessor extends Processor 
@@ -64,7 +63,7 @@ public class MapSelectionGameInputProcessor extends Processor
                 final int wave = raceTrackGeographicMapInterfaceFactoryInterface.getFirstWaveWithTrack(track);
                 gameCanvas.getLayerManager().getGameInfo().setCurrentLevel(wave);
 
-                gameCanvas.buildGame(false);
+                gameCanvas.buildGameInit(false);
 
                 GameKeyEventHandler.getInstance().removeListener(getPlayerGameInput());
                 
@@ -112,7 +111,7 @@ public class MapSelectionGameInputProcessor extends Processor
 
             if (key == Canvas.LEFT || key == Canvas.RIGHT || key == Canvas.UP || key == Canvas.DOWN)
             {
-                if (this.inputTimeHelper.isTime())
+                if (this.inputTimeHelper.isTimeTNT())
                 {
 
                     SecondaryPlayerQueueFactory.getInstance().add(SelectSound.getInstance());
@@ -127,7 +126,7 @@ public class MapSelectionGameInputProcessor extends Processor
             {
                 int selectedIndex = this.preGameSelectorPaintable.getPreGameSelectionForm().getSelectedIndex();
                 
-                if(selectedIndex < this.lockedIndex || !LockedUtil.getInstance().isLockedFeature())
+                if(selectedIndex < this.lockedIndex || !LockedUtil.getInstance().isLocked())
                 {
                     //PreLogUtil.put("selectedIndex: " + selectedIndex + " LockedUtil.getInstance().isLockedFeature(): " + LockedUtil.getInstance().isLockedFeature(), this, "onInput");
 

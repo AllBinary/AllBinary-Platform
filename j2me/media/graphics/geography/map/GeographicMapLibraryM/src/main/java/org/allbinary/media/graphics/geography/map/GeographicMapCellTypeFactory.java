@@ -14,7 +14,6 @@
 package org.allbinary.media.graphics.geography.map;
 
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.string.CommonStrings;
 
 public class GeographicMapCellTypeFactory
 {
@@ -29,7 +28,7 @@ public class GeographicMapCellTypeFactory
 
     private final GeographicMapCellType[] geographicMapCellTypeArray = new GeographicMapCellType[512];  //512 should be the max tileid
         
-    public GeographicMapCellType getInstance(int type)
+    public GeographicMapCellType get(int type)
     {
         //final CommonStrings commonStrings = CommonStrings.getInstance();
         //this.logUtil.putF("type: " + Integer.toString(type), this, commonStrings.CONSTRUCTOR);

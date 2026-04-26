@@ -68,7 +68,7 @@ public class AllBinaryMediaManager
 
         AllBinaryMediaManager.shutdown(soundsFactoryInterface);
 
-        ProgressCanvasFactory.getInstance().addPortion(50, "Media Manager");
+        ProgressCanvasFactory.getInstance().addNormalPortion(50, "Media Manager");
 
         System.gc();
 

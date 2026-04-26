@@ -27,7 +27,7 @@ public class SimpleWeaponLayer extends WeaponLayer
     public static Animation createDestroyed() throws Exception {
         return FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance()
                 .getProcedural(ExplosionResources.getInstance().THIRD_EXPLOSION_RESOURCE)
-                .getInstance(NullIndexedAnimationFactory.getFactoryInstance().getInstance(0));
+                .getInstanceAnimation(NullIndexedAnimationFactory.getFactoryInstance().getInstance(0));
     }
 
     public SimpleWeaponLayer(final String name, final RemoteInfo remoteInfo, final int multiPlayerType, 

@@ -29,8 +29,8 @@ public class StringUtil {
     private StringUtil() {
     }
 
-    //Could Make a NulString
-    public String getInstance(String string) {
+    //TWB - Could return a NULL_STRING
+    public String getNonNull(String string) {
         if (string == null) {
             return this.EMPTY_STRING;
         } else {

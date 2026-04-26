@@ -22,7 +22,7 @@ extends BaseCircularPool
     public AllBinaryEventCircularPool(int max)
     {
         this.OBJECT_ARRAY = new Object[max];
-        this.circularIndexUtil = CircularIndexUtil.getInstance(max);
+        this.circularIndexUtil = CircularIndexUtil.create(max);
     }
     
     public void init(

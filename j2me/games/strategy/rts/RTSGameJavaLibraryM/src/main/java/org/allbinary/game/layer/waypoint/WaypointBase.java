@@ -82,7 +82,7 @@ public class WaypointBase
         throw new RuntimeException();
     }
 
-    public BasicArrayList getPathsList(final GeographicMapCellPosition geographicMapCellPosition)
+    public BasicArrayList getPathsListRunnable(final GeographicMapCellPosition geographicMapCellPosition)
         throws Exception {
         throw new RuntimeException();
     }

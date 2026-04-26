@@ -41,7 +41,7 @@ public class PCGameKey extends Input
         
     public static String getString(int keyCode)
     {
-        Input input = InputFactory.getInstance().getInstance(keyCode);
+        Input input = InputFactory.getInstance().getInstanceById(keyCode);
 
         if(input != null)
         {

@@ -34,7 +34,7 @@ public class AnimationCompositePaintable extends InitUpdatePaintable
     @Override
     public void paint(Graphics graphics)
     {
-        this.animationInterface.paint(graphics, 0, 0);
+        this.animationInterface.paintXY(graphics, 0, 0);
     }
 
     @Override

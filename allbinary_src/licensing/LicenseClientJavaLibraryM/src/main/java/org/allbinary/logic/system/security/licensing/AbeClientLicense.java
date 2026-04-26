@@ -72,11 +72,11 @@ public class AbeClientLicense implements AbeLicenseInterface
         
         final StringUtil stringUtil = StringUtil.getInstance();
         
-        this.setSpecial(stringUtil.getInstance((String) hashtable
+        this.setSpecial(stringUtil.getNonNull((String) hashtable
                 .get(abeClientInformationData.SPECIAL)));
 
         String licenseTypeString = 
-            stringUtil.getInstance((String) hashtable
+            stringUtil.getNonNull((String) hashtable
                 .get(abeClientInformationData.LICENSE_TYPE));
         this.licenseType = LicenseTypeFactory.getInstance().getInstance(licenseTypeString);
     }

@@ -38,7 +38,7 @@ public class CompoundIndexedAnimation extends IndexedAnimation
         super(animationBehavior);
 
         this.animationInterfaceArray = animationInterfaceArray;
-        this.circularIndexUtil = CircularIndexUtil.getInstance(this.animationInterfaceArray.length);
+        this.circularIndexUtil = CircularIndexUtil.create(this.animationInterfaceArray.length);
     }
     
     @Override
@@ -88,9 +88,9 @@ public class CompoundIndexedAnimation extends IndexedAnimation
     }
 
     @Override
-    public void paint(final Graphics graphics, final int x, final int y)
+    public void paintXY(final Graphics graphics, final int x, final int y)
     {
-        this.animationInterfaceArray[this.circularIndexUtil.getIndex()].paint(graphics, x, y);
+        this.animationInterfaceArray[this.circularIndexUtil.getIndex()].paintXY(graphics, x, y);
     }
 
     @Override

@@ -36,7 +36,7 @@ public class GameInitializationUtil
     {
         final MainFeatureFactory mainFeatureFactory = MainFeatureFactory.getInstance();
         
-        if (ChangedGameFeatureListener.getInstance().isChanged(mainFeatureFactory.STATIC))
+        if (ChangedGameFeatureListener.getInstance().isChangedFeature(mainFeatureFactory.STATIC))
         {
             GameInitializationInterface gameInitializationInterface = 
                 gameInitializationInterfaceFactoryInterface.getInstance();
@@ -76,7 +76,7 @@ public class GameInitializationUtil
         final BasicBuildGameInitializerFactory gameInitializationInterfaceFactoryInterface)
     throws Exception
     {
-        if (ChangedGameFeatureListener.getInstance().isChanged(MainFeatureFactory.getInstance().STATIC))
+        if (ChangedGameFeatureListener.getInstance().isChangedFeature(MainFeatureFactory.getInstance().STATIC))
         {
             GameInitializationInterface gameInitializationInterface = 
                 gameInitializationInterfaceFactoryInterface.getInstance();

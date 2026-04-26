@@ -62,7 +62,7 @@ public class VectorToImageArrayRotationAnimationFactory
     {
         super(AnimationFrameToImageUtil.getInstance().getInstanceTranslate(
                 vectorInfo.getWidth(), vectorInfo.getHeight(),
-                        VectorAnimation.create(vectorInfo.getPoints(), basicColor, animationBehaviorFactory.getOrCreateInstance())),
+                        VectorAnimation.createVectorAnimation(vectorInfo.getPoints(), basicColor, animationBehaviorFactory.getOrCreateInstance())),
                 PrimitiveIntUtil.getArrayInstance(),
                 0, 0, 0,0, animationBehaviorFactory);
 

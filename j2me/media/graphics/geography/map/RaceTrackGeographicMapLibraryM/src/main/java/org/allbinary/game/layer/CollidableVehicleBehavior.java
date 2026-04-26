@@ -47,7 +47,7 @@ extends CollidableDestroyableDamageableBehavior
         if (collisionType == collisionTypeFactory.PICKUP)
         {
             final CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer = ((CollidableDestroyableDamageableLayer) this.ownerLayer);
-            collidableDestroyableDamageableLayer.getPickupBehavior().doPickup((PickedUpLayerInterface) collidableInterfaceCompositeInterface);
+            collidableDestroyableDamageableLayer.getPickupBehavior().doPickupLayer((PickedUpLayerInterface) collidableInterfaceCompositeInterface);
         }
         else if (collisionType == collisionTypeFactory.COLLISION)
         {
@@ -55,12 +55,12 @@ extends CollidableDestroyableDamageableBehavior
         }
         else
         {
-            this.collide((VehiclePropertiesCompositeInterface) collidableInterfaceCompositeInterface);
+            this.collideVehicle((VehiclePropertiesCompositeInterface) collidableInterfaceCompositeInterface);
         }
     }
 
     @Override
-    public void collide(final CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
+    public void collideInterface(final CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
     {
         ForcedLogUtil.log("Don't Use Interface Version It Is Slower", this);
         //this.collide((VehicleLayer) collidableInterfaceCompositeInterface);
@@ -69,7 +69,7 @@ extends CollidableDestroyableDamageableBehavior
     private long halfImpactVelocityX;
     private long halfImpactVelocityY;
 
-    protected void collide(final VehiclePropertiesCompositeInterface vehiclePropertiesCompositeInterface)
+    protected void collideVehicle(final VehiclePropertiesCompositeInterface vehiclePropertiesCompositeInterface)
     {
         final VehiclePropertiesCompositeInterface ownerVehicleLayerInterface = 
             ((VehiclePropertiesCompositeInterface) this.ownerLayer);
@@ -95,8 +95,8 @@ extends CollidableDestroyableDamageableBehavior
             // this.logUtil.putF("Transfering X Velocity: " +
             // impactVelocityX, this, damageUtil.COLLIDE);
             this.halfImpactVelocityX = (impactVelocityX >> 1);
-            ownerVehicleProperties.getVelocityProperties().getVelocityXBasicDecimalP().add(this.halfImpactVelocityX);
-            vehicleProperties.getVelocityProperties().getVelocityXBasicDecimalP().add(this.halfImpactVelocityX);
+            ownerVehicleProperties.getVelocityProperties().getVelocityXBasicDecimalP().addlong(this.halfImpactVelocityX);
+            vehicleProperties.getVelocityProperties().getVelocityXBasicDecimalP().addlong(this.halfImpactVelocityX);
 
             // vehicleLayer.move((int)
             // this.getVehicleProperties().getVelocityProperties().getVelocityXBasicDecimalP().getScaled(),
@@ -116,8 +116,8 @@ extends CollidableDestroyableDamageableBehavior
             // this.logUtil.putF("Transfering Y Velocity: " +
             // impactVelocityY, this, damageUtil.COLLIDE);
             this.halfImpactVelocityY = (impactVelocityY >> 1);
-            ownerVehicleProperties.getVelocityProperties().getVelocityYBasicDecimalP().add(this.halfImpactVelocityY);
-            vehicleProperties.getVelocityProperties().getVelocityXBasicDecimalP().add(this.halfImpactVelocityY);
+            ownerVehicleProperties.getVelocityProperties().getVelocityYBasicDecimalP().addlong(this.halfImpactVelocityY);
+            vehicleProperties.getVelocityProperties().getVelocityXBasicDecimalP().addlong(this.halfImpactVelocityY);
 
             // vehicleLayer.move((int)
             // this.getVehicleProperties().getVelocityProperties().getVelocityYBasicDecimalP().getScaled(),

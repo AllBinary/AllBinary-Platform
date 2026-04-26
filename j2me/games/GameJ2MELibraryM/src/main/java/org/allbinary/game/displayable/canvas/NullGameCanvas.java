@@ -25,7 +25,7 @@ import org.allbinary.string.CommonStrings;
 
 public class NullGameCanvas extends AllBinaryGameCanvas
 {
-    private static NullGameCanvas create() {
+    private static NullGameCanvas createNull() {
         try {
             return new NullGameCanvas(AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER);
         } catch (Exception e) {
@@ -33,14 +33,14 @@ public class NullGameCanvas extends AllBinaryGameCanvas
             throw new RuntimeException();
         }
     }
-    private static final NullGameCanvas SINGLETON = create();
+    private static final NullGameCanvas SINGLETON = createNull();
     
     public static NullGameCanvas getInstance()
     {
         return SINGLETON;
     }
 
-    public static NullGameCanvas getInstance(
+    public static NullGameCanvas create(
             final AllBinaryGameLayerManager gameLayerManager) throws Exception
     {
         final NullGameCanvas nullGameCanvas = new NullGameCanvas(gameLayerManager);
@@ -108,7 +108,7 @@ public class NullGameCanvas extends AllBinaryGameCanvas
     }
 
     @Override
-    public void buildGame(final boolean isProgress) throws Exception
+    public void buildGameInit(final boolean isProgress) throws Exception
     {
         //this.getLayerManager().cleanup();
 

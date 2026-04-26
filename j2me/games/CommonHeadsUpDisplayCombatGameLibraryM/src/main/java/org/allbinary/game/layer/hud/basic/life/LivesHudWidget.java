@@ -86,7 +86,7 @@ public class LivesHudWidget extends BasicHud
     {
         for (int index = (int) this.getLifeInterface().get(); --index >= 0;)
         {
-            this.animationInterface.paint(graphics, xArray[index], this.getY());
+            this.animationInterface.paintXY(graphics, xArray[index], this.getY());
         }
     }
 

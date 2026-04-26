@@ -69,7 +69,7 @@ public class PersistentInputMapping
     throws Exception
     {
         this.getInputMapping().removeAll();
-        this.getInputMapping().add(this.getDefault());
+        this.getInputMapping().addMapping(this.getDefault());
         //this.save(inputToGameKeyMapping);
         this.save(abeClientInformation);
     }

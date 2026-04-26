@@ -13,8 +13,6 @@
 */
 package org.allbinary.midlet;
 
-import org.allbinary.string.CommonStrings;
-
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.canvas.Processor;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
@@ -40,7 +38,7 @@ public class ProgressMidlet extends AllBinaryMidlet
     protected void exit(boolean isProgress)
     {
 
-        final Processor processor = MidletExitProcessorFactory.getInstance().getInstance(this);
+        final Processor processor = MidletExitProcessorFactory.getInstance().getExitInstance(this);
         
         try
         {

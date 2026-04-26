@@ -33,11 +33,11 @@ public class ModifierBaseProcessor {
         return instance;
     }
     
-    public void update(final ImageModifierUtil imageModifierUtil, final Image originalImage, final Image imageToShow, final int index, final BasicColor basicColor) {
+    public void updateColor(final ImageModifierUtil imageModifierUtil, final Image originalImage, final Image imageToShow, final int index, final BasicColor basicColor) {
         
     }
     
-    public void update(final ImageModifierUtil imageModifierUtil, final Image originalImage, final Image imageToShow, final int index, final int alpha) {    
+    public void updateAlpha(final ImageModifierUtil imageModifierUtil, final Image originalImage, final Image imageToShow, final int index, final int alpha) {
         
     }
 }

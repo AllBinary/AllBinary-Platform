@@ -46,19 +46,19 @@ public class ImageScaleUtil {
     private ImageScaleUtil() {
     }
 
-    public Image createImage(final ImageCache imageCache, final Image originalImage,
-        final float scaleNominatorX, final float scaleDenominatorX,
-        final float scaleNominatorY, final float scaleDenominatorY, final boolean cached)
+    public Image createImage2(final ImageCache imageCache, final Image originalImage,
+                              final float scaleNominatorX, final float scaleDenominatorX,
+                              final float scaleNominatorY, final float scaleDenominatorY, final boolean cached)
         throws Exception {
 
-        return this.createImage(imageCache, originalImage, scaleNominatorX, scaleDenominatorX, scaleNominatorY, scaleDenominatorY, cached, true);
+        return this.createImage3(imageCache, originalImage, scaleNominatorX, scaleDenominatorX, scaleNominatorY, scaleDenominatorY, cached, true);
 
     }
     
     //private int anchor = Anchor.TOP_LEFT;
-    public Image createImage(final ImageCache imageCache, final Image originalImage,
-        final float scaleNominatorX, final float scaleDenominatorX,
-        final float scaleNominatorY, final float scaleDenominatorY, final boolean cached, final boolean mutable)
+    public Image createImage3(final ImageCache imageCache, final Image originalImage,
+                              final float scaleNominatorX, final float scaleDenominatorX,
+                              final float scaleNominatorY, final float scaleDenominatorY, final boolean cached, final boolean mutable)
         throws Exception {
         
         if(!this.features.isFeature(this.gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
@@ -83,13 +83,13 @@ public class ImageScaleUtil {
 //
 //        this.scale(originalImage, image, scaleX, scaleY);
 
-        final Image scaledImage = this.imageCopyUtil.createImage(originalImage, (int) (scaleX * width), (int) (scaleY * height), mutable);
+        final Image scaledImage = this.imageCopyUtil.createImageWH(originalImage, (int) (scaleX * width), (int) (scaleY * height), mutable);
 
         return scaledImage;
         //throw new RuntimeException("Image Scaling is not supported by J2SE with this call yet");
     }
 
-    public void scale(final Image originalImage, final Image[] originalImageArray, final Image[] ximageToShowArray, final int unused, final float scaleX, final float scaleY, final float maxScaleX, final float maxScaleY) throws Exception {
+    public void scale2(final Image originalImage, final Image[] originalImageArray, final Image[] ximageToShowArray, final int unused, final float scaleX, final float scaleY, final float maxScaleX, final float maxScaleY) throws Exception {
         this.scale(originalImage, originalImageArray, ximageToShowArray, unused, scaleX, scaleY, maxScaleX, maxScaleY, true);
     }
     
@@ -99,7 +99,7 @@ public class ImageScaleUtil {
         final int height = originalImage.getHeight();
         
         //final Image scaledImage = this.imageCopyUtil.createImage(originalImage, (int) (scaleX * width), (int) (scaleY * height), mutable);
-        final Image scaledImage = this.imageCopyUtil.createImage(originalImage, (int) scaleX, (int) scaleY, mutable);
+        final Image scaledImage = this.imageCopyUtil.createImageWH(originalImage, (int) scaleX, (int) scaleY, mutable);
         originalImageArray[0] = scaledImage;
     }    
 

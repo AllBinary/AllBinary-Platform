@@ -18,7 +18,7 @@ import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 public class Scoreable implements ScoreableInterface
 {
 
-   public static Integer ID = SmallIntegerSingletonFactory.getInstance().getInstance(3);
+   public static Integer ID = SmallIntegerSingletonFactory.getInstance().getAt(3);
 
    private int points;
    

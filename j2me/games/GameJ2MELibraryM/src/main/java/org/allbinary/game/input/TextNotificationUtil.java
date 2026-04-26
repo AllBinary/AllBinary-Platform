@@ -53,7 +53,7 @@ public class TextNotificationUtil
         this.fire(message);
     }
 
-    private final Integer TWO = SmallIntegerSingletonFactory.getInstance().getInstance(2);
+    private final Integer TWO = SmallIntegerSingletonFactory.getInstance().getAt(2);
     private final Boolean FALSE = BooleanFactory.getInstance().FALSE;
     private final GameNotificationEventHandler gameNotificationEventHandler = 
         GameNotificationEventHandler.getInstance();

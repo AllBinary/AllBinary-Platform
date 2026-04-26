@@ -144,11 +144,11 @@ public class CaptionIndexedAnimation extends IndexedAnimation
     }
 
     @Override
-    public void paint(final Graphics graphics, final int x, final int y)
+    public void paintXY(final Graphics graphics, final int x, final int y)
     {
-        this.animationInterface.paint(graphics, 
+        this.animationInterface.paintXY(graphics,
                 x + this.captionDx, y + this.captionDy);
-        this.movieIndexedAnimationInterface.paint(graphics, 
+        this.movieIndexedAnimationInterface.paintXY(graphics,
                 x + this.captionDx + this.dx, y + this.captionDy + this.dy);
     }
 

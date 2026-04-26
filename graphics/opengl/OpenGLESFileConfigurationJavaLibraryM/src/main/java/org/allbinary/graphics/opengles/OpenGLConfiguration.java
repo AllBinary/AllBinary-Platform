@@ -236,7 +236,7 @@ public class OpenGLConfiguration
     {
         final Features features = Features.getInstance();
         
-        if (ChangedGameFeatureListener.getInstance().isChanged(
+        if (ChangedGameFeatureListener.getInstance().isChangedFeature(
                 MainFeatureFactory.getInstance().STATIC))
         {
             if (this.isOpenGL())

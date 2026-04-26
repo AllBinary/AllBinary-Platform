@@ -16,7 +16,6 @@ package org.allbinary.game.displayable.canvas;
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.graphics.form.ScrollSelectionForm;
 import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.util.BasicArrayList;
 
@@ -49,9 +48,9 @@ public class ImmediateCommandFormInputProcessor
 
             super.onPressGameKeyEvent(gameKeyEvent);
 
-            if (this.timeHelper.isTime())
+            if (this.timeHelper.isTimeTNT())
             {
-                this.processInput();
+                this.processInputList();
                 this.gameCommandCanvas.repaintBehavior.onChangeRepaint(this.getCanvas());
             }
         }
@@ -71,9 +70,9 @@ public class ImmediateCommandFormInputProcessor
 
             super.onDownGameKeyEvent(gameKeyEvent);
 
-            if (this.timeHelper.isTime())
+            if (this.timeHelper.isTimeTNT())
             {
-                this.processInput();
+                this.processInputList();
                 this.gameCommandCanvas.repaintBehavior.onChangeRepaint(this.getCanvas());
             }
         }
@@ -93,9 +92,9 @@ public class ImmediateCommandFormInputProcessor
             
             super.onUpGameKeyEvent(gameKeyEvent);
 
-            if (this.timeHelper.isTime())
+            if (this.timeHelper.isTimeTNT())
             {
-                this.processInput();
+                this.processInputList();
                 this.gameCommandCanvas.repaintBehavior.onChangeRepaint(this.getCanvas());
             }
         }
@@ -114,9 +113,9 @@ public class ImmediateCommandFormInputProcessor
             //PreLogUtil.put(commonStrings.START, this, "onMotionGestureEvent");
             
             super.onMotionGestureEvent(motionGestureEvent);
-            if (this.timeHelper.isTime())
+            if (this.timeHelper.isTimeTNT())
             {
-                this.processInput();
+                this.processInputList();
                 this.gameCommandCanvas.repaintBehavior.onChangeRepaint(this.getCanvas());
             }
         }

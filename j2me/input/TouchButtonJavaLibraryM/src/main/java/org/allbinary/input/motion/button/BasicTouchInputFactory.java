@@ -86,7 +86,7 @@ public class BasicTouchInputFactory
         this.NONE = new TouchButtonInput(MAX - 40, "No Button");
     }
 
-    public synchronized void init(InputToGameKeyMapping inputToGameKeyMapping)
+    public synchronized void init(final InputToGameKeyMapping inputToGameKeyMapping)
     {
         if (!this.initialized)
         {
@@ -105,22 +105,20 @@ public class BasicTouchInputFactory
             this.list.add(this.SPECIAL_BUTTON_SIX);
             this.list.add(this.SPECIAL_BUTTON_SEVEN_TESTING_ONLY);
             this.list.add(this.SPECIAL_BUTTON_EIGHT_TESTING_ONLY);
-            this.updateAll(this.list, inputToGameKeyMapping);
+            this.updateAllFromList(this.list, inputToGameKeyMapping);
 
             CancelTouchButtonInputFactory.getInstance();
         }
     }
 
-    public void updateAll(InputToGameKeyMapping inputToGameKeyMapping)
+    public void updateAll(final InputToGameKeyMapping inputToGameKeyMapping)
     {
-        this.updateAll(this.list, inputToGameKeyMapping);
+        this.updateAllFromList(this.list, inputToGameKeyMapping);
     }
 
-    public void updateAll(BasicArrayList list,
-            InputToGameKeyMapping inputToGameKeyMapping)
+    public void updateAllFromList(final BasicArrayList list, final InputToGameKeyMapping inputToGameKeyMapping)
     {
-        this.logUtil.putF(
-                new StringMaker().append(CommonLabels.getInstance().START_LABEL).appendint(list.size()).toString(), this, "updateAll");
+        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).appendint(list.size()).toString(), this, "updateAll");
 
         TouchButtonInput touchButtonInput;
 

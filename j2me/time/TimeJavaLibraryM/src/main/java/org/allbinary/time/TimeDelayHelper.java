@@ -26,10 +26,10 @@ public class TimeDelayHelper
     public TimeDelayHelper(final int delay)
     {
         this.delay = delay;
-        this.setStartTime();
+        this.setStartTimeTNT();
     }
     
-    public boolean isTime()
+    public boolean isTimeTNT()
     {
         long currentTime = System.currentTimeMillis();
         if (currentTime - this.startTime > this.delay)
@@ -41,7 +41,7 @@ public class TimeDelayHelper
         return false;
     }
 
-    public boolean isTimeSince(int delay)
+    public boolean isTimeSinceTNT(int delay)
     {
         long currentTime = System.currentTimeMillis();
         if (currentTime - this.startTime > delay)
@@ -81,7 +81,7 @@ public class TimeDelayHelper
         return false;
     }
     
-    public long getElapsed()
+    public long getElapsedTNT()
     {
         return System.currentTimeMillis() - this.startTime;
     }
@@ -103,9 +103,9 @@ public class TimeDelayHelper
         }
     }
 
-    public boolean isElapsed(long time)
+    public boolean isElapsedTNT(long time)
     {
-        if (this.getElapsed() > time)
+        if (this.getElapsedTNT() > time)
         {
             return true;
         }
@@ -125,13 +125,13 @@ public class TimeDelayHelper
         return this.startTime;
     }
 
-    public void setStartTime()
+    public void setStartTimeTNT()
     {
         this.startTime = System.currentTimeMillis();
     }
     
     public void pause() {
-        this.elapsedTimeAtPause = this.getElapsed();
+        this.elapsedTimeAtPause = this.getElapsedTNT();
         this.startTime = Long.MAX_VALUE;
     }
 
@@ -139,13 +139,13 @@ public class TimeDelayHelper
         if(this.elapsedTimeAtPause != Long.MIN_VALUE) {
             this.startTime = System.currentTimeMillis() + this.elapsedTimeAtPause;
             this.elapsedTimeAtPause = Long.MIN_VALUE;
-            this.setStartTime();
+            this.setStartTimeTNT();
             return true;
         }
         return false;
     }
     
-    public String toString(long currentTime)
+    public String toStringAt(long currentTime)
     {
         long elapsed = this.getElapsed(currentTime);
 

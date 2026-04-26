@@ -87,7 +87,7 @@ public class SavedCaptureImagesWorker
             
             while(this.isRunning())
             {
-                timeHelper.setStartTime();
+                timeHelper.setStartTimeTNT();
                 
                 Long frame = new Long(index);
                 
@@ -125,7 +125,7 @@ public class SavedCaptureImagesWorker
                 }
                 
                 this.logUtil.putF(
-                    CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN);
+                    CommonLabels.getInstance().ELAPSED + timeHelper.getElapsedTNT(), this, this.commonStrings.RUN);
                 
                 this.setRunning(false);
             }

@@ -36,7 +36,7 @@ public class GameConfigurationSingleton
         this.hashtable = new Hashtable();
     }
     
-    public GameConfiguration getInstance(String name)
+    public GameConfiguration getInstanceByName(String name)
     {
         return (GameConfiguration) this.hashtable.get(name);
     }

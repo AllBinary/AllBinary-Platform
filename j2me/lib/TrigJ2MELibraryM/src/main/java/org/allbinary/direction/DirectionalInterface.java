@@ -17,9 +17,9 @@ import org.allbinary.math.Angle;
 
 public interface DirectionalInterface
 {
-    void setFrame(Direction direction);
-    void setFrame(Angle angle);
+    void setFrameByDirection(Direction direction);
+    void setFrameToAngle(Angle angle);
 
-    void adjustFrame(Angle newAngle);
+    void adjustFrameToAngle(Angle newAngle);
     void adjustFrame(short angle);
 }

@@ -15,7 +15,7 @@ package org.allbinary.game;
 
 public class GameInfoCopyFactory
 {
-    public static final GameInfo getInstance(GameInfo gameInfo, int maxLevel)
+    public static final GameInfo getInstanceMaxLevel(final GameInfo gameInfo, final int maxLevel)
     {
         return new GameInfo(
                 gameInfo.getGameType(), 
@@ -26,7 +26,7 @@ public class GameInfoCopyFactory
                 ); 
     }
 
-    public static final GameInfo getInstance(GameInfo gameInfo)
+    public static final GameInfo getInstance(final GameInfo gameInfo)
     {
         return new GameInfo(
                 gameInfo.getGameType(), 

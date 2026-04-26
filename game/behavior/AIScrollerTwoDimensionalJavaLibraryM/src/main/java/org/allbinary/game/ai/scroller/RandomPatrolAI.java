@@ -48,13 +48,13 @@ public class RandomPatrolAI extends BasePatrolAI
 
         super.update();
 
-        super.processAI(this.keyDirection);
+        super.processKeyAI(this.keyDirection);
 
         if (this.changedDirection)
         {
             // this.logUtil.putF("Fire", this, commonStrings.PROCESS);
             // PreLogUtil.put("Fire", this, commonStrings.PROCESS);
-            super.processAI(Canvas.KEY_NUM1);
+            super.processKeyAI(Canvas.KEY_NUM1);
 
             this.updateRandomDistance();
             this.changedDirection = false;

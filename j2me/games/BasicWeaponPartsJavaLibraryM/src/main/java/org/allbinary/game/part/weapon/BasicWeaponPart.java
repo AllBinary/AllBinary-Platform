@@ -79,11 +79,11 @@ public class BasicWeaponPart
    @Override
    public void process(final AllBinaryLayerManager allbinaryLayerManager, final short angle, final short otherAngle)
            throws Exception {
-       this.process(allbinaryLayerManager, angle, otherAngle, this.getWeaponProperties(), this.scoreableInterface);
+       this.processScore(allbinaryLayerManager, angle, otherAngle, this.getWeaponProperties(), this.scoreableInterface);
    }
 
    @Override
-   public void process(final AllBinaryLayerManager allbinaryLayerManager, final short angle, final short otherAngle, final WeaponProperties weaponProperties, final ScoreableInterface scoreableInterface)
+   public void processScore(final AllBinaryLayerManager allbinaryLayerManager, final short angle, final short otherAngle, final WeaponProperties weaponProperties, final ScoreableInterface scoreableInterface)
            throws Exception {
       throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
    }
@@ -112,7 +112,7 @@ public class BasicWeaponPart
        final int viewX = viewPosition.getX();
        final int viewY = viewPosition.getY();
       
-       this.animationInterface.paint(graphics, viewX, viewY);
+       this.animationInterface.paintXY(graphics, viewX, viewY);
          //this.relativeRelationship.getX(), this.relativeRelationship.getY());
    }
 

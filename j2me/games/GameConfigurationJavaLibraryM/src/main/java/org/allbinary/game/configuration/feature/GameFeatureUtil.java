@@ -131,7 +131,7 @@ public class GameFeatureUtil
         }
     }
 
-    public void updateExclusive(ChoiceGroup choiceGroup)
+    public void updateExclusiveForChoiceGroup(ChoiceGroup choiceGroup)
             throws Exception
     {
         StringMaker stringBuffer = new StringMaker();
@@ -203,7 +203,7 @@ public class GameFeatureUtil
         {
             object = (Object) objectArray[index];
             basicArrayList = (BasicArrayList) hashtable.get(object);
-            updateExclusive(gameFeature, basicArrayList);
+            updateExclusiveList(gameFeature, basicArrayList);
         }
 
         /*
@@ -218,7 +218,7 @@ public class GameFeatureUtil
          */
     }
 
-    public void updateExclusive(Feature gameFeature, BasicArrayList list)
+    public void updateExclusiveList(Feature gameFeature, BasicArrayList list)
     throws Exception
     {
         if (list.contains(gameFeature))

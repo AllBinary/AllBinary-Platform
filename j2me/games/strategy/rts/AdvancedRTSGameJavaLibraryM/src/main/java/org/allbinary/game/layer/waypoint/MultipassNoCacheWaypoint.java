@@ -36,7 +36,6 @@ import org.allbinary.media.graphics.geography.pathfinding.MultipassState;
 import org.allbinary.media.graphics.geography.pathfinding.PathFindingInfo;
 import org.allbinary.media.graphics.geography.pathfinding.PathGenerator;
 import org.allbinary.util.BasicArrayList;
-import org.allbinary.util.BasicArrayListD;
 import org.allbinary.util.BasicArrayListUtil;
 
 /**
@@ -136,7 +135,7 @@ public class MultipassNoCacheWaypoint extends WaypointBase
             raceTrackGeographicMapCellTypeFactory.getEndType();
         
         final PathFindingInfo pathFindingInfo =
-            PathFindingInfoFactory.getInstance().getInstance(
+            PathFindingInfoFactory.getInstance().getInstancePathFindingInfo(
             raceTrackGeographicMap,
             customMapArray);
         

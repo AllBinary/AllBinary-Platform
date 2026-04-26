@@ -140,7 +140,7 @@ implements VelocityInterface
    {
        if (this.velocityYBasicDecimal.getUnscaled() > maxVelocity)
        {
-          this.velocityYBasicDecimal.set(maxVelocity);
+          this.velocityYBasicDecimal.setint(maxVelocity);
        }
    }
 
@@ -148,7 +148,7 @@ implements VelocityInterface
    {
        if (this.velocityYBasicDecimal.getUnscaled() < -maxVelocity)
        {
-          this.velocityYBasicDecimal.set(-maxVelocity);
+          this.velocityYBasicDecimal.setint(-maxVelocity);
        }
    }
    
@@ -162,12 +162,12 @@ implements VelocityInterface
    {
       if (this.velocityXBasicDecimal.getUnscaled() > maxVelocity)
       {
-         this.velocityXBasicDecimal.set(maxVelocity);
+         this.velocityXBasicDecimal.setint(maxVelocity);
       }
 
       if (this.velocityXBasicDecimal.getUnscaled() < -maxVelocity)
       {
-         this.velocityXBasicDecimal.set(-maxVelocity);
+         this.velocityXBasicDecimal.setint(-maxVelocity);
       }
    }
    
@@ -196,16 +196,16 @@ implements VelocityInterface
    }
 
    @Override
-   public void setVelocity(long magnitude, int angle, int otherAngle)
+   public void setVelocityi(long magnitude, int angle, int otherAngle)
    {  
-      super.setVelocity(magnitude, angle, otherAngle);
+      super.setVelocityi(magnitude, angle, otherAngle);
       this.limitXYToForwardAndReverseMaxVelocity();
    }
 
    @Override
-   public void addVelocity(long magnitude, int angle, int otherAngle)
+   public void addVelocityi(long magnitude, int angle, int otherAngle)
    {  
-      super.addVelocity(magnitude, angle, otherAngle);
+      super.addVelocityi(magnitude, angle, otherAngle);
       this.limitXYToForwardAndReverseMaxVelocity();
    }
 }

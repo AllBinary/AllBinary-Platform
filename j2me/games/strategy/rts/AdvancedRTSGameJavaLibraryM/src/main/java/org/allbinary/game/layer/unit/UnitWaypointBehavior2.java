@@ -240,7 +240,7 @@ extends UnitWaypointBehavior
                 // and Change Target if Target Dead
                         isCurrentTargetDestroyed))
         {
-            this.associatedAdvancedRTSGameLayer.waypoint2LogHelperP.processPossibleTarget(this.associatedAdvancedRTSGameLayer,this, layerInterface, anotherTargetDistance);
+            this.associatedAdvancedRTSGameLayer.waypoint2LogHelperP.processSetTarget(this.associatedAdvancedRTSGameLayer,this, layerInterface, anotherTargetDistance);
 
             this.setTarget(layerInterface, anotherTargetDistance);
         }
@@ -271,7 +271,7 @@ extends UnitWaypointBehavior
                 this.associatedAdvancedRTSGameLayer.getParentLayer().isDestroyed())
         {
             //If not progressing move to next position
-            if (this.progressTimeDelayHelper.isTime() && 
+            if (this.progressTimeDelayHelper.isTimeTNT() &&
                     this.nextUnvisitedPathGeographicMapCellPosition != SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION)
             {
                 this.associatedAdvancedRTSGameLayer.teleportTo(
@@ -279,7 +279,7 @@ extends UnitWaypointBehavior
             }
 
             //If path taking a long time then
-            if (this.getCompleteTimeDelayHelper().isTime())
+            if (this.getCompleteTimeDelayHelper().isTimeTNT())
             {
                 final GeographicMapCellPosition geographicMapCellPosition =
                     (GeographicMapCellPosition) this.currentGeographicMapCellHistoryP.getTracked().get(
@@ -358,7 +358,7 @@ extends UnitWaypointBehavior
             // Ignore new path if target changed - this shouldn't happen but?
             if (this.currentTargetLayerInterfaceP == this.waypointPathRunnable.getTargetLayer())
             {
-                this.associatedAdvancedRTSGameLayer.waypoint2LogHelperP.setTargetPath(this.associatedAdvancedRTSGameLayer, this);
+                this.associatedAdvancedRTSGameLayer.waypoint2LogHelperP.setTargetPathIgnoreNewPath(this.associatedAdvancedRTSGameLayer, this);
                 
                 this.insertWaypoint(0, this.currentTargetLayerInterfaceP);
                 this.setRandomGeographicMapCellHistory(this.waypointPathsListP);
@@ -414,7 +414,7 @@ extends UnitWaypointBehavior
 
                     if (this.visitIfAtMidPoint(geographicMapCellPosition))
                     {
-                        this.associatedAdvancedRTSGameLayer.waypoint2LogHelperP.processWaypointTracked(this.associatedAdvancedRTSGameLayer, geographicMapCellPosition);
+                        this.associatedAdvancedRTSGameLayer.waypoint2LogHelperP.processWaypointTrackedVisit(this.associatedAdvancedRTSGameLayer, geographicMapCellPosition);
                     }
 
                     if (this.currentGeographicMapCellHistoryP.isAllVisited2() &&
@@ -686,7 +686,7 @@ extends UnitWaypointBehavior
                     this.currentTargetLayerInterfaceP.getHalfHeight());
             }
 
-            this.associatedAdvancedRTSGameLayer.trackTo(dx, dy);
+            this.associatedAdvancedRTSGameLayer.trackToDXY(dx, dy);
         }
         else
         {
@@ -720,7 +720,7 @@ extends UnitWaypointBehavior
 
         if (this.getCurrentPathGeographicMapCellPosition() != this.nextUnvisitedPathGeographicMapCellPosition)
         {
-            this.progressTimeDelayHelper.setStartTime();
+            this.progressTimeDelayHelper.setStartTimeTNT();
         }
     }
     
@@ -772,7 +772,7 @@ extends UnitWaypointBehavior
 
         this.targetList.remove(waypointLayer);
 
-        this.associatedAdvancedRTSGameLayer.waypoint2LogHelperP.removeWaypoint(this.associatedAdvancedRTSGameLayer, this, this.targetList);
+        this.associatedAdvancedRTSGameLayer.waypoint2LogHelperP.removeWaypointList(this.associatedAdvancedRTSGameLayer, this, this.targetList);
         
         if (this.currentTargetLayerInterfaceP == waypointLayer)
         {

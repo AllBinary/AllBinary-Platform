@@ -63,7 +63,7 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
         this.setInitialized(true);
     }
 
-    protected void init(final ImageCache imageCache, final int level) throws Exception
+    protected void initImageCache(final ImageCache imageCache, final int level) throws Exception
     {
     }
 

@@ -36,6 +36,7 @@ public class GameKeyEventHandler
             UpGameKeyEventHandler.getInstance();
     private final DownGameKeyEventHandler downGameKeyEventHandler = 
             DownGameKeyEventHandler.getInstance();
+
     public synchronized void removeAllListeners()
     {
         this.pressGameKeyEventHandler.removeAllListeners();
@@ -53,7 +54,7 @@ public class GameKeyEventHandler
     */
 
     //synchronized 
-    public void addListener(
+    public void addListenerForPlayer(
             EventListenerInterface eventListenerInterface, int playerInputId)
     {
         this.logUtil.putF(eventListenerInterface.toString(), this, commonStrings.ADD_LISTENER);

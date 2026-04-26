@@ -76,7 +76,7 @@ public class DestroyedLayerProcessor extends BasicLayerProcessor
 
                 //stringBuilder.delete(0, stringBuilder.length());
                 //this.logUtil.putF(stringBuilder.append("After: ").append(allBinaryLayerManager.getSize()).toString(), this, commonStrings.PROCESS);
-                destroyedEvent = destroyEventCircularStaticPool.getInstance(layerInterface);
+                destroyedEvent = destroyEventCircularStaticPool.getInstanceForLayer(layerInterface);
 
                 // Notify Listeners of Destroyed Layer
                 destroyedEventHandler.fireEvent(destroyedEvent);

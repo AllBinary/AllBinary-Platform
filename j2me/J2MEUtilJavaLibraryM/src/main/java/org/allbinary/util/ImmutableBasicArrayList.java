@@ -36,7 +36,7 @@ public class ImmutableBasicArrayList extends BasicArrayListS
     }
 
     @Override
-    public void add(int index, Object element)
+    public void addAt(int index, Object element)
     {
         ForcedLogUtil.log(this.name, this);
     }

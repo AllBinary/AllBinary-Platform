@@ -27,11 +27,11 @@ public class LogUtil {
     }
 
     //ActualPlatform
-    public void put(Log log) {
+    public void putP(Log log) {
     }
 
     //ActualPlatform
-    public void put(
+    public void putF(
         final String specialMessage,
         final Object object,
         final String functionName) {

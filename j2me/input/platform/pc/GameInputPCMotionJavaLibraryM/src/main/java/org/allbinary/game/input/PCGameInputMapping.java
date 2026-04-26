@@ -20,7 +20,6 @@ import org.allbinary.game.input.mapping.PersistentInputMapping;
 import org.allbinary.input.motion.button.BasicTouchInputFactory;
 import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
 import org.allbinary.input.motion.gesture.TrackballMotionGestureFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class PCGameInputMapping extends PersistentInputMapping
@@ -46,7 +45,7 @@ public class PCGameInputMapping extends PersistentInputMapping
 
         if(this.getTotalMapped() == 0 || this.isDefaultNew())
         {
-            this.getInputMapping().add(this.getDefault());
+            this.getInputMapping().addMapping(this.getDefault());
             this.save(abeClientInformation);
         }
     }

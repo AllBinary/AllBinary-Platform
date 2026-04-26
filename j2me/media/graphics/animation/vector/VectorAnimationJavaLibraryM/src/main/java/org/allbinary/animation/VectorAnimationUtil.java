@@ -29,36 +29,38 @@ public class VectorAnimationUtil
     {
     }
     
-    public int[][][] toAnimationArrayFromBasicArrayListOfPointBasicArrayList(
-            BasicArrayList vector, int pointsPerFrame)
+    public int[][][] toAnimationArrayFromListOfPointListWithPointsPerFrame(final BasicArrayList vector, final int pointsPerFrame)
     {
-        int size = vector.size();
-        int[][][] points = new int[size][pointsPerFrame][2];
+        final int size = vector.size();
+        final int[][][] points = new int[size][pointsPerFrame][2];
 
+        BasicArrayList nextBasicArrayList;
+        int[][] framePoints;
         for (int index = 0; index < size; index++)
         {
-            BasicArrayList nextBasicArrayList = (BasicArrayList) vector.objectArray[index];
-            int[][] frame = toFrameArrayFromPointBasicArrayList(nextBasicArrayList);
+            nextBasicArrayList = (BasicArrayList) vector.objectArray[index];
+            framePoints = toFrameArrayFromPointBasicArrayList(nextBasicArrayList);
 
-            for (int pointIndex = 0; pointIndex < frame.length; pointIndex++)
+            for (int pointIndex = 0; pointIndex < framePoints.length; pointIndex++)
             {
-                points[index][pointIndex][0] = frame[pointIndex][0];
-                points[index][pointIndex][1] = frame[pointIndex][1];
+                points[index][pointIndex][0] = framePoints[pointIndex][0];
+                points[index][pointIndex][1] = framePoints[pointIndex][1];
             }
         }
         return points;
     }
 
-    public int[][][] toAnimationArrayFromBasicArrayListOfPointBasicArrayList(
-            BasicArrayList vector)
+    public int[][][] toAnimationArrayFromListOfPointList(final BasicArrayList vector)
     {
-        int size = vector.size();
-        int[][][] points = new int[size][0][0];
+        final int size = vector.size();
+        final int[][][] points = new int[size][0][0];
 
+        BasicArrayList nextBasicArrayList;
+        int[][] framePoints;
         for (int index = 0; index < size; index++)
         {
-            BasicArrayList nextBasicArrayList = (BasicArrayList) vector.objectArray[index];
-            int[][] framePoints = toFrameArrayFromPointBasicArrayList(nextBasicArrayList);
+            nextBasicArrayList = (BasicArrayList) vector.objectArray[index];
+            framePoints = toFrameArrayFromPointBasicArrayList(nextBasicArrayList);
             points[index] = new int[framePoints.length][2];
             for (int pointIndex = 0; pointIndex < framePoints.length; pointIndex++)
             {

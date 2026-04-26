@@ -17,7 +17,6 @@ import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.animation.AnimationBehavior;
-import org.allbinary.logic.math.PrimitiveIntUtil;
 import org.allbinary.util.CircularIndexUtil;
 
 /**
@@ -55,7 +54,7 @@ public class ImageSegmentAnimation
         //this.max = this.getImage().getHeight();
         //this.diff = this.max - this.min;
         //this.circularIndexUtil = CircularIndexUtil.getInstance(this.diff);
-        this.circularIndexUtil = CircularIndexUtil.getInstance(this.drawHeight);
+        this.circularIndexUtil = CircularIndexUtil.create(this.drawHeight);
 
         this.sequenceArray = sequenceArray;
     }
@@ -103,7 +102,7 @@ public class ImageSegmentAnimation
     }
 
     @Override
-    public void paint(Graphics graphics, int x, int y)
+    public void paintXY(Graphics graphics, int x, int y)
     {
     }
 

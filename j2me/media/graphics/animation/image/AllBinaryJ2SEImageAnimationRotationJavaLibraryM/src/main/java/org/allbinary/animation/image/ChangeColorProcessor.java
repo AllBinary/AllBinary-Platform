@@ -34,7 +34,7 @@ public class ChangeColorProcessor extends ModifierBaseProcessor {
     }
    
     @Override
-    public void update(final ImageModifierUtil imageModifierUtil, final Image originalImage, final Image imageToShow, final int index, final BasicColor basicColor) {        
+    public void updateColor(final ImageModifierUtil imageModifierUtil, final Image originalImage, final Image imageToShow, final int index, final BasicColor basicColor) {
         imageModifierUtil.changeColor(originalImage, imageToShow, index, basicColor);
     }
     

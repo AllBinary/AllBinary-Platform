@@ -18,59 +18,59 @@ public class ArrayUtil
     
     public Object[] copyOf(final Object[] original, final int newLength)
     {
-        return copyOf(original, newLength, original.getClass());
+        return copyOfType(original, newLength, original.getClass());
     }
 
-    public Object[] copyOf(final Object[] original, final int newLength, final Class newType)
+    public Object[] copyOfType(final Object[] original, final int newLength, final Class newType)
     {
         final Object[] copy = new Object[newLength];
         System.arraycopy(original, 0, copy, 0, mathUtil.min(original.length, newLength));
         return copy;
     }
 
-    public byte[] copyOf(final byte[] original, final int newLength) {
+    public byte[] copyOfbyte(final byte[] original, final int newLength) {
         final byte[] copy = new byte[newLength];
         System.arraycopy(original, 0, copy, 0,mathUtil.min(original.length, newLength));
         return copy;
     }
 
-    public short[] copyOf(short[] original, int newLength) {
+    public short[] copyOfshort(short[] original, int newLength) {
         final short[] copy = new short[newLength];
         System.arraycopy(original, 0, copy, 0,mathUtil.min(original.length, newLength));
         return copy;
     }
 
-    public int[] copyOf(final int[] original, final int newLength) {
+    public int[] copyOfint(final int[] original, final int newLength) {
         final int[] copy = new int[newLength];
         System.arraycopy(original, 0, copy, 0,mathUtil.min(original.length, newLength));
         return copy;
     }
 
-    public long[] copyOf(final long[] original, final int newLength) {
+    public long[] copyOflong(final long[] original, final int newLength) {
         final long[] copy = new long[newLength];
         System.arraycopy(original, 0, copy, 0,mathUtil.min(original.length, newLength));
         return copy;
     }
 
-    public char[] copyOf(final char[] original, final int newLength) {
+    public char[] copyOfchar(final char[] original, final int newLength) {
         final char[] copy = new char[newLength];
         System.arraycopy(original, 0, copy, 0,mathUtil.min(original.length, newLength));
         return copy;
     }
 
-    public float[] copyOf(final float[] original, final int newLength) {
+    public float[] copyOffloat(final float[] original, final int newLength) {
         final float[] copy = new float[newLength];
         System.arraycopy(original, 0, copy, 0,mathUtil.min(original.length, newLength));
         return copy;
     }
 
-    public double[] copyOf(final double[] original, final int newLength) {
+    public double[] copyOfdouble(final double[] original, final int newLength) {
         final double[] copy = new double[newLength];
         System.arraycopy(original, 0, copy, 0,mathUtil.min(original.length, newLength));
         return copy;
     }
 
-    public boolean[] copyOf(final boolean[] original, final int newLength) {
+    public boolean[] copyOfboolean(final boolean[] original, final int newLength) {
         final boolean[] copy = new boolean[newLength];
         System.arraycopy(original, 0, copy, 0,mathUtil.min(original.length, newLength));
         return copy;
@@ -126,7 +126,7 @@ public class ArrayUtil
         return stringBuffer.toString();
     }
     
-    public String toString(final Object[] objectArray)
+    public String toStringFromObjectArray(final Object[] objectArray)
     {
         final StringMaker stringBuffer = new StringMaker();
 
@@ -141,7 +141,7 @@ public class ArrayUtil
         return stringBuffer.toString();
     }
     
-    public String toString(final byte[] byteArray)
+    public String toStringFromByteArray(final byte[] byteArray)
     {
         final StringMaker stringBuffer = new StringMaker();
 

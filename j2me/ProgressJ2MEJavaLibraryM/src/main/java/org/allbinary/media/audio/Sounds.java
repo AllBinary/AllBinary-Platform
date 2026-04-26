@@ -60,7 +60,7 @@ public class Sounds
 
             if (soundInterface != null)
             {
-                indexInteger = smallIntegerSingletonFactory.getInstance(i);
+                indexInteger = smallIntegerSingletonFactory.getAt(i);
                 indexString = indexInteger.toString();
                 
                 stringBuffer.delete(0, stringBuffer.length());
@@ -73,7 +73,7 @@ public class Sounds
                 
                 soundInterface.init();
                 
-                progressCanvas.addPortion(100, new StringMaker().append(this.soundStrings.INIT_SOUND).append(indexString).toString());
+                progressCanvas.addNormalPortion(100, new StringMaker().append(this.soundStrings.INIT_SOUND).append(indexString).toString());
             }
         }
 

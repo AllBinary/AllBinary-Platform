@@ -16,5 +16,5 @@ package org.allbinary.game.layer.pickup;
 public interface PickupBehaviorInterface
 {
     void doPickup(PickupProcessorInterface pickupProcessorInterface) throws Exception;
-    void doPickup(PickedUpLayerInterface pickupLayerInterface);
+    void doPickupLayer(PickedUpLayerInterface pickupLayerInterface);
 }

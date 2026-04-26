@@ -20,7 +20,7 @@ public class GPointCircularPool extends BaseCircularPool
 {
     public GPointCircularPool(int size)
     {
-        this.circularIndexUtil = CircularIndexUtil.getInstance(size);
+        this.circularIndexUtil = CircularIndexUtil.create(size);
         this.OBJECT_ARRAY = new Object[size];
         
         for(int index = size - 1; index >= 0; index--)

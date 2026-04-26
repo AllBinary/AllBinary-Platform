@@ -31,13 +31,8 @@ public class GravityUtil
     public final int GAME_GRAVITY_VELOCITY = 1800; //6900; // 800;
     public final int MAX_GAME_VELOCITY = 18000; //9600;
 
-    public final void process(BasicVelocityProperties velocityProperties)
-    {
-        velocityProperties.getVelocityYBasicDecimalP().add(this.GAME_GRAVITY_VELOCITY);
-    }
-
     public final void process(BasicVelocityProperties velocityProperties, int customGravity)
     {
-        velocityProperties.getVelocityYBasicDecimalP().add(customGravity);
+        velocityProperties.getVelocityYBasicDecimalP().addint(customGravity);
     }
 }

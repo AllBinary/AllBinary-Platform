@@ -63,9 +63,9 @@ extends AllBinaryHTMLImageRotationAnimation
         return this.dy;
     }    
     
-    public void paint(Graphics graphics, int x, int y)
+    public void paintXY(Graphics graphics, int x, int y)
     {
-        super.paint(graphics, x + this.dx, y + this.dy);
+        super.paintXY(graphics, x + this.dx, y + this.dy);
     }
 
 }

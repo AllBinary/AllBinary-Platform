@@ -59,13 +59,13 @@ public class NullRaceTrackGeographicMap implements RaceTrackGeographicMapInterfa
     }
 
     @Override
-    public GeographicMapCellPosition getCellPositionAt(int x, int y)
+    public GeographicMapCellPosition getCellPositionAtXY(int x, int y)
         throws Exception {
         throw new RuntimeException();
     }
 
     @Override
-    public GeographicMapCellPosition getCellPositionAtNoThrow(int x, int y)
+    public GeographicMapCellPosition getCellPositionAtXYNoThrow(int x, int y)
         throws Exception {
         throw new RuntimeException();
     }
@@ -76,7 +76,7 @@ public class NullRaceTrackGeographicMap implements RaceTrackGeographicMapInterfa
     }
 
     @Override
-    public GeographicMapCellType getCellTypeAt(int x, int y)
+    public GeographicMapCellType getCellTypeAtXY(int x, int y)
         throws Exception {
         throw new RuntimeException();
     }

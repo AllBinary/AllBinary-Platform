@@ -58,7 +58,7 @@ public class LayerManagerLogging extends LayerManagerLoggingBase {
     }
     
     @Override
-    public void append(final AllBinaryLayer layerInterface, final int index) {
+    public void appendAt(final AllBinaryLayer layerInterface, final int index) {
         stringBuilder.delete(0, stringBuilder.length());
         this.logUtil.putF(stringBuilder.appendint(TsUtil.getInstance().hashCode(this)).append(this.APPEND_).append(layerInterface.getName()).append(this._AT_).appendint(index).toString(), this, APPEND);
     }
@@ -76,7 +76,7 @@ public class LayerManagerLogging extends LayerManagerLoggingBase {
     }
 
     @Override
-    public void remove(final LayerManager layerManager, final AllBinaryLayer layerInterface, final boolean result) {
+    public void removeResult(final LayerManager layerManager, final AllBinaryLayer layerInterface, final boolean result) {
         
         if(layerInterface == null) {
             stringBuilder.delete(0, stringBuilder.length());

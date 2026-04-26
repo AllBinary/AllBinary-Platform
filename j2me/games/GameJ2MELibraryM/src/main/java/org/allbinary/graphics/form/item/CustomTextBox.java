@@ -65,29 +65,29 @@ public class CustomTextBox extends GameCommandCanvas
 
     public void onEvent(final int keyCode, final int deviceId, final boolean repeated) {
         this.logUtil.putF(new StringMaker().append(commonStrings.START).appendint(keyCode).toString(), this, "onEvent");
-        this.keyPressed(keyCode, deviceId);
+        this.keyPressedByDevice(keyCode, deviceId);
     }
     
     @Override
     public void keyPressed(final int keyCode)
     {
-        this.keyPressed(keyCode, 0);
+        this.keyPressedByDevice(keyCode, 0);
     }
     
     @Override
     public void keyReleased(final int keyCode)
     {
-        this.keyReleased(keyCode, 0);
+        this.keyReleasedByDevice(keyCode, 0);
     }
 
     @Override
     public void keyRepeated(final int keyCode)
     {
-        this.keyRepeated(keyCode, 0);
+        this.keyRepeatedByDevice(keyCode, 0);
     }
     
     @Override
-    public void keyPressed(final int keyCode, final int deviceId)
+    public void keyPressedByDevice(final int keyCode, final int deviceId)
     {
         try {
 
@@ -95,7 +95,7 @@ public class CustomTextBox extends GameCommandCanvas
 
             final PlatformKeyFactory platformKeyFactory = PlatformKeyFactory.getInstance();
 
-            final Input input = this.inputFactory.getInstance(keyCode);
+            final Input input = this.inputFactory.getInstanceById(keyCode);
 
             if (platformKeyFactory.isSubmission(input)) {
                 this.submit();
@@ -115,7 +115,7 @@ public class CustomTextBox extends GameCommandCanvas
     }
 
     @Override
-    public void keyReleased(final int keyCode, final int deviceId)
+    public void keyReleasedByDevice(final int keyCode, final int deviceId)
     {
         // this.logUtil.putF(commonStrings.START, this, gameInputStrings.KEY_RELEASED);
     }
@@ -140,12 +140,12 @@ public class CustomTextBox extends GameCommandCanvas
         //g.setClip(3, 3, getWidth() - 6, viewPortHeight - 6);
         //g.translate(3, 3);
         //g.translate(0, -viewPortY);
-        this.paint(graphics, 8, graphics.getFont().getHeight() + 2);
+        this.paintXY(graphics, 8, graphics.getFont().getHeight() + 2);
         
         super.paint(graphics);
     }
     
-    public void paint(final Graphics graphics, final int x, final int y)
+    public void paintXY(final Graphics graphics, final int x, final int y)
     {   
         this.textFieldItem.paint(graphics, x, y);
     }

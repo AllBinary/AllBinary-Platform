@@ -34,7 +34,7 @@ public class AutoCompoundRotationAnimationInterfaceFactory
     }
     
     @Override
-    protected Animation getInstance(final Animation[] animationInterfaceArray) {
+    protected Animation createAnimation(final Animation[] animationInterfaceArray) {
         return new AutoCompoundRotationAnimation((RotationAnimation[]) animationInterfaceArray, this.animationBehaviorFactory.getOrCreateInstance());
     }
         

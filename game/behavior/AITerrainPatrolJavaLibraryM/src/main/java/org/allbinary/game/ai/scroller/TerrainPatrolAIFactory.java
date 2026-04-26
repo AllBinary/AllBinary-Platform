@@ -29,7 +29,7 @@ public class TerrainPatrolAIFactory
           final Hashtable hashtable, final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
           throws Exception
     {
-        hashtable.put(BasePatrolAI.MAX_DISTANCE, SmallIntegerSingletonFactory.getInstance().getInstance(220));
+        hashtable.put(BasePatrolAI.MAX_DISTANCE, SmallIntegerSingletonFactory.getInstance().getAt(220));
     	return new TerrainPatrolAI(hashtable, ownerLayerInterface, gameInput);
     }
 }

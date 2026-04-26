@@ -68,7 +68,7 @@ public class SaveImageComparisonWorker
             
             final TimeDelayHelper timeHelper = new TimeDelayHelper(1000);
             
-            timeHelper.setStartTime();
+            timeHelper.setStartTimeTNT();
             
             final ImageComparisonResultsEvent imageComparisonResultsEvent = 
                     (ImageComparisonResultsEvent) this.imageComparisonInfoVector.get(0);
@@ -82,7 +82,7 @@ public class SaveImageComparisonWorker
 
             this.imageComparisonInfoVector.remove(imageComparisonInfo);
 
-            this.logUtil.putF(CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN);
+            this.logUtil.putF(CommonLabels.getInstance().ELAPSED + timeHelper.getElapsedTNT(), this, this.commonStrings.RUN);
             
             this.logUtil.putF(this.commonStrings.END, this, this.commonStrings.RUN);
         }

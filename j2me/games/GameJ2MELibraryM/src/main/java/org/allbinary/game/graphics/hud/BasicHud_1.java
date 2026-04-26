@@ -90,7 +90,7 @@ public class BasicHud_1 //implements DisplayChangeEventListener
    }
    */
 
-   protected HudGraphicsPosition getHudGraphicsPosition(int width, int height)
+   protected HudGraphicsPosition getHudGraphicsPositionWH(int width, int height)
            throws Exception
    {
       int x = 0;
@@ -164,7 +164,7 @@ public class BasicHud_1 //implements DisplayChangeEventListener
            
            final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
 
-           this.hudGraphicsPosition = this.getHudGraphicsPosition(
+           this.hudGraphicsPosition = this.getHudGraphicsPositionWH(
                    displayInfo.getLastWidth(), displayInfo.getLastHeight());
            
            this.x = this.hudGraphicsPosition.getPoint().getX();
@@ -179,7 +179,7 @@ public class BasicHud_1 //implements DisplayChangeEventListener
    
    protected GPoint getPoint(final int x, final int y)
    {
-       return PointFactory.getInstance().getInstance0(x, y);
+       return PointFactory.getInstance().createXY(x, y);
    }
 
    public int getBufferZone()
@@ -222,7 +222,7 @@ public class BasicHud_1 //implements DisplayChangeEventListener
       this.direction = direction;
    }
 
-   public void paint(final Graphics graphics, final String string, final String string2, final int offset)
+   public void paintSSO(final Graphics graphics, final String string, final String string2, final int offset)
    {
        this.basicSetColorUtil.setBasicColorP(graphics, getBasicColorP());
 
@@ -236,7 +236,7 @@ public class BasicHud_1 //implements DisplayChangeEventListener
               hudGraphicsPosition.getAnchor());
    }
 
-   public void paint(Graphics graphics, String string, String string2, int offset, int offset2)
+   public void paintSSOO(Graphics graphics, String string, String string2, int offset, int offset2)
    {
       graphics.setColor(this.getColor());
       graphics.drawString(string,
@@ -249,10 +249,10 @@ public class BasicHud_1 //implements DisplayChangeEventListener
               hudGraphicsPosition.getAnchor());
    }
 
-   public void paint(Graphics graphics, 
-           char[] charArray, int offset, int len, 
-           char[] charArray2, int offset2, int len2, 
-           int xOffset, int xOffset2)
+   public void paintDXY(Graphics graphics,
+                        char[] charArray, int offset, int len,
+                        char[] charArray2, int offset2, int len2,
+                        int xOffset, int xOffset2)
    {
        this.basicSetColorUtil.setBasicColorP(graphics, getBasicColorP());
        
@@ -271,10 +271,10 @@ public class BasicHud_1 //implements DisplayChangeEventListener
           hudGraphicsPosition.getAnchor());
    }
    
-   public void paint(Graphics graphics, 
-           char[] charArray, int offset, int len, 
-           char[] charArray2, int offset2, int len2, 
-           int xOffset)
+   public void paintDX(Graphics graphics,
+                       char[] charArray, int offset, int len,
+                       char[] charArray2, int offset2, int len2,
+                       int xOffset)
    {
        this.basicSetColorUtil.setBasicColorP(graphics, getBasicColorP());
 
@@ -293,7 +293,7 @@ public class BasicHud_1 //implements DisplayChangeEventListener
           hudGraphicsPosition.getAnchor());
    }
    
-   public void paint(Graphics graphics, char[] charArray, int offset, int len)
+   public void paintOffsetAndLength(Graphics graphics, char[] charArray, int offset, int len)
    {
        this.basicSetColorUtil.setBasicColorP(graphics, getBasicColorP());
 

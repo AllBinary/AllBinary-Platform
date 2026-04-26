@@ -22,10 +22,10 @@ public class DemoCanvasProgressUtil
 {
     public static void showProgress(DemoCanvas demoCanvas)
     {
-        DemoCanvasProgressUtil.showProgress(demoCanvas, false);
+        DemoCanvasProgressUtil.showProgressOptionallyInTheBackground(demoCanvas, false);
     }
     
-    public static void showProgress(DemoCanvas demoCanvas, boolean background)
+    public static void showProgressOptionallyInTheBackground(DemoCanvas demoCanvas, boolean background)
     {
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
 

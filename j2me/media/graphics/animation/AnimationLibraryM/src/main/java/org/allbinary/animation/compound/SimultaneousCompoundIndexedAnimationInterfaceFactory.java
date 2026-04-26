@@ -33,7 +33,7 @@ public class SimultaneousCompoundIndexedAnimationInterfaceFactory
     }
     
     @Override
-    protected Animation getInstance(final Animation[] animationArray) {
+    protected Animation createAnimation(final Animation[] animationArray) {
         return new SimultaneousCompoundIndexedAnimation(animationArray, this.animationBehaviorFactory.getOrCreateInstance());
     }
     

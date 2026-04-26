@@ -129,7 +129,7 @@ public class NullPathFindingLayer implements PathFindingLayerInterface {
     }
     
     @Override
-    public void trackTo(final int dx, final int dy) throws Exception {
+    public void trackToDXY(final int dx, final int dy) throws Exception {
         throw new RuntimeException();
     }
     

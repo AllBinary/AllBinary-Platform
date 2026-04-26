@@ -20,7 +20,6 @@ import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.input.event.GameKeyEventFactory;
 import org.allbinary.game.input.mapping.InputToGameKeyMapping;
 import org.allbinary.input.motion.gesture.MotionGestureInput;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 
 public class GameKeyCompleteMotionGestureInputEvent extends
@@ -61,7 +60,7 @@ public class GameKeyCompleteMotionGestureInputEvent extends
             this.setGameKey(inputToGameKeyMapping.getInstance(
                     this.getMotionGestureInput().getId()));
 
-            this.setGameKeyEvent(this.gameKeyEventFactory.getInstance(this, getGameKey()));
+            this.setGameKeyEvent(this.gameKeyEventFactory.getInstanceForInput(this, getGameKey()));
         }
         catch (Exception e)
         {

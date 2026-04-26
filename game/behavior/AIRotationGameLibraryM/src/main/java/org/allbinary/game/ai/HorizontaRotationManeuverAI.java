@@ -32,7 +32,7 @@ import org.allbinary.util.CircularIndexUtil;
 public class HorizontaRotationManeuverAI extends BasicAI
 implements ArtificialIntelligenceTransitionInterface
 {
-    private final CircularIndexUtil circularIndexUtil = CircularIndexUtil.getInstance(10, Integer.MAX_VALUE);
+    private final CircularIndexUtil circularIndexUtil = CircularIndexUtil.createAt(10, Integer.MAX_VALUE);
     
     private int currentSpeedDivisor = 5;
 
@@ -117,7 +117,7 @@ implements ArtificialIntelligenceTransitionInterface
         final int index = this.circularIndexUtil.getIndex();
         if (index % this.currentSpeedDivisor == 0 && index % 2 == 0)
         {
-            super.processAI(Canvas.UP);
+            super.processKeyAI(Canvas.UP);
 
             velocityInterface.limitMaxXYVelocity(
                     this.velocityInterface.getMaxForwardVelocity() / this.currentSpeedDivisor);
@@ -127,11 +127,11 @@ implements ArtificialIntelligenceTransitionInterface
 
         if (frame == angleIncrementInfo.LEFT_FRAME.intValue())
         {
-            super.processAI(Canvas.KEY_NUM0);
+            super.processKeyAI(Canvas.KEY_NUM0);
         }
         else if (frame == angleIncrementInfo.RIGHT_FRAME.intValue())
         {
-            super.processAI(Canvas.KEY_POUND);
+            super.processKeyAI(Canvas.KEY_POUND);
         }
     }
 

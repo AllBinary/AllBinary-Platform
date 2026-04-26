@@ -103,12 +103,12 @@ public class CategoryProperties implements CategoryPropertiesInterface
             //if a root that is also not the real root bu an offset then add the path
             if(nextParentCategoryInterface.getProperties().isRoot())
             {
-               list.add(0, nextParentCategoryInterface.getPath().toString());
+               list.addAt(0, nextParentCategoryInterface.getPath().toString());
             }
             else
             {
                pathStringBuffer.delete(0, pathStringBuffer.length());
-               list.add(0, pathStringBuffer.append(abPathData.SEPARATOR).append(nextParentCategoryInterface.getProperties().getValue()).toString());
+               list.addAt(0, pathStringBuffer.append(abPathData.SEPARATOR).append(nextParentCategoryInterface.getProperties().getValue()).toString());
             }
 
             //at root

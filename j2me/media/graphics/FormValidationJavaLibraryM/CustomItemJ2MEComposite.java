@@ -135,7 +135,7 @@ public class CustomItemJ2MEComposite extends CustomItem implements CustomItemInt
         this.item.setOwner(owner);
     }
     
-    public void paint(Graphics graphics, int x, int y)
+    public void paintXY(Graphics graphics, int x, int y)
     {
         ((CustomItemInterface) getItem()).paint(graphics, x, y);
     }

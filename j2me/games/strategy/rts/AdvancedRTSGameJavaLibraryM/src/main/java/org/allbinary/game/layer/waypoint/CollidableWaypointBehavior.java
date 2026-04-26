@@ -41,13 +41,13 @@ extends CollidableRTSBehavior
     }
 
     @Override
-    public boolean isCollision(CollidableInterfaceCompositeInterface collidableInterface)
+    public boolean isCollisionInterface(CollidableInterfaceCompositeInterface collidableInterface)
     {
         return false;
     }
 
     @Override
-    public void collide(CollidableInterfaceCompositeInterface collidableInterface)
+    public void collideInterface(CollidableInterfaceCompositeInterface collidableInterface)
             throws Exception
     {
     }

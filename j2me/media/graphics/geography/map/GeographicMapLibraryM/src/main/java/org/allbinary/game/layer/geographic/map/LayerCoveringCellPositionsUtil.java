@@ -12,7 +12,6 @@
 * 
 */
 package org.allbinary.game.layer.geographic.map;
-import org.allbinary.logic.string.StringMaker;
 
 
 import org.allbinary.util.BasicArrayList;
@@ -41,7 +40,7 @@ public class LayerCoveringCellPositionsUtil {
     
     private final CellPositionsUtil cellPositionsUtil = CellPositionsUtil.getInstance();
     
-    public final BasicArrayList getAll(
+    public final BasicArrayList getAllXY(
             final BasicGeographicMap geographicMapInterface,
             final AllBinaryLayer layerInterface,
             final int x, final int y,
@@ -49,7 +48,7 @@ public class LayerCoveringCellPositionsUtil {
         throws Exception
     {
         final GeographicMapCellPosition topLeftGeographicMapCellPosition =
-            geographicMapInterface.getCellPositionAt(x, y);
+            geographicMapInterface.getCellPositionAtXY(x, y);
         
         return this.getAll(
             geographicMapInterface,

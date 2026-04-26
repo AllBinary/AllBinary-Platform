@@ -20,7 +20,7 @@ import org.allbinary.logic.util.event.AllBinaryEventCircularPool;
 
 public class MotionEventCircularPool {
 
-    public static MotionEventCircularPool getInstance(int id)
+    public static MotionEventCircularPool create(int id)
     {
         return new MotionEventCircularPool(id);
     }

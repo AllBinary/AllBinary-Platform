@@ -75,7 +75,7 @@ implements HealthListenerInterface
     @Override
     public void paint(Graphics graphics)
     {
-        this.animationInterface.paint(graphics, 0, 0);
+        this.animationInterface.paintXY(graphics, 0, 0);
         
         // this.animationInterface.paint(graphics, this.layerInterface.getX() +
         // numOfHealth * 10, this.layerInterface.getY2() + 5);

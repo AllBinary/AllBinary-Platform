@@ -41,16 +41,16 @@ public class VectorRotationGenerator
     {
     }
 
-    public int[][][] getInstance(VectorInfo vectorRotationInfo)
+    public int[][][] getInstance(final VectorInfo vectorRotationInfo)
     // throws Exception
     {
-        return getInstance(vectorRotationInfo.getWidth(), vectorRotationInfo.getHeight(),
+        return getInstanceFrames(vectorRotationInfo.getWidth(), vectorRotationInfo.getHeight(),
                 vectorRotationInfo.getPoints(), vectorRotationInfo.getTotalFrames());
     }
 
     private final AngleFactory angleFactory = AngleFactory.getInstance();
     
-    public int[][][] getInstance(int width, int height, int[][] points, int frames)
+    public int[][][] getInstanceFrames(final int width, final int height, final int[][] points, final int frames)
     // throws Exception
     {
         try
@@ -70,19 +70,19 @@ public class VectorRotationGenerator
             for (int index = 0; index < size; index++)
             {
                 pointBasicArrayList.add(
-                        pointFactory.getInstance0(
+                        pointFactory.createXY(
                                 points[index][0], points[index][1]));
             }
 
             int index = 0;
             while (index < totalAngle)
             {
-                pointsBasicArrayList.add(getInstance(width, height, pointBasicArrayList, this.angleFactory.getInstance(index)));
+                pointsBasicArrayList.add(getListAtAngle(width, height, pointBasicArrayList, this.angleFactory.getAt(index)));
                 index += angleIncrement;
             }
 
             int[][][] newPoints = this.vectorAnimationUtil
-                    .toAnimationArrayFromBasicArrayListOfPointBasicArrayList(pointsBasicArrayList,
+                    .toAnimationArrayFromListOfPointListWithPointsPerFrame(pointsBasicArrayList,
                             pointBasicArrayList.size());
             // this.logUtil.putF(IntArrayUtil.toString(newPoints), this, commonStrings.GET_INSTANCE);
             return newPoints;
@@ -95,15 +95,14 @@ public class VectorRotationGenerator
         }
     }
 
-    public BasicArrayList getInstance(int width, int height, BasicArrayList pointBasicArrayList,
-            Angle angle) throws Exception
+    public BasicArrayList getListAtAngle(final int width, final int height, final BasicArrayList pointBasicArrayList, final Angle angle) throws Exception
     {
         BasicGraphicsPipeline graphicsPipe = new BasicGraphicsPipeline(pointBasicArrayList);
         graphicsPipe.createMatrix();
 
         graphicsPipe.translate(-(width >> 1), -(height >> 1));
         //graphicsPipe.rotate(Angle.getInstance(angle.getValue()));
-        graphicsPipe.rotate(angle);
+        graphicsPipe.rotateToAngle(angle);
         graphicsPipe.translate((width >> 1), (height >> 1));
 
         return graphicsPipe.getMatrix();

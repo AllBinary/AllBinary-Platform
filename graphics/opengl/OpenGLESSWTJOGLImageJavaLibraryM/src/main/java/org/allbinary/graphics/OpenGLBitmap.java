@@ -57,6 +57,6 @@ public class OpenGLBitmap extends PlatformBitmapBase {
     }
     
     public void recycle() {
-        DisposalUtil.getInstance().dispose(image);
+        DisposalUtil.getInstance().disposeImage(image);
     }
 }

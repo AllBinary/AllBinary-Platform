@@ -17,7 +17,6 @@ import javax.microedition.lcdui.Image;
 
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
-import org.allbinary.game.configuration.GameConfigurationCentral;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.graphics.opengles.OpenGLUtil;
@@ -148,7 +147,7 @@ public class AllBinaryJ2SEImageRotationAnimationFactory
     private Image getCanvasImage() throws Exception {
         final Features features = Features.getInstance();
         if(this.resizeCanvasForRotation && !features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL)) {
-            return ImageCopyUtil.getInstance().createImage(this.getImage(), 1.44f, false);
+            return ImageCopyUtil.getInstance().createImageScale(this.getImage(), 1.44f, false);
         } else {
             return this.getImage();
         }

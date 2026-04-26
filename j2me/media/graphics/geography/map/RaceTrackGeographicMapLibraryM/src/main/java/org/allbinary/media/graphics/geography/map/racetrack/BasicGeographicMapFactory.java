@@ -35,7 +35,7 @@ public class BasicGeographicMapFactory
             throws Exception
     {
         return new BasicGeographicMap(
-                SmallIntegerSingletonFactory.getInstance().getInstance(raceTrackInfo.getId().intValue() + 100 + 1),
+                SmallIntegerSingletonFactory.getInstance().getAt(raceTrackInfo.getId().intValue() + 100 + 1),
                 raceTrackInfo.getName(),
                 raceTrackData.getCellTypeIdToGeographicMapCellTypeArray(),
                 tiledLayerFactoryInterface.getMiniInstance(raceTrackData),

@@ -14,18 +14,19 @@
 package org.allbinary.graphics.form;
 
 public class ItemPaintableFactory extends ItemPaintable
-{   
-    private static final ItemPaintableFactory instance = 
-        new ItemPaintableFactory();
-    
-    public ItemPaintable getInstance(PaintableForm paintableForm)
-    throws Exception
-    {
-        return instance;
-    }
+{
+
+    private static final ItemPaintableFactory instance = new ItemPaintableFactory();
 
     public static ItemPaintableFactory getInstance()
     {
         return instance;
     }
+
+    public ItemPaintable getInstanceItemPaintable(final PaintableForm paintableForm)
+            throws Exception
+    {
+        return instance;
+    }
+
 }

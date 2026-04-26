@@ -39,7 +39,7 @@ implements ColorCompositeInterface
    }
    
    @Override
-   public void paint(final Graphics graphics, final int x, final int y) {
+   public void paintXY(final Graphics graphics, final int x, final int y) {
        this.basicSetColorUtil.setBasicColorP3(
                graphics, this.getBasicColorP(), this.getColor());
       //graphics.fillArc(x, y, width, height, 0, TOTAL_ANGLE);

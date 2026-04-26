@@ -12,7 +12,6 @@
  * 
  */
 package org.allbinary.game.displayable.canvas;
-import org.allbinary.thread.ARunnable;
 
 
 import org.allbinary.business.advertisement.GameAdStateFactory;
@@ -138,7 +137,7 @@ public class BaseGameBehavior extends DemoGameBehavior {
     
     @Override
     public void setGameState(final AllBinaryGameCanvas allBinaryGameCanvas) throws Exception {
-        allBinaryGameCanvas.setGameState();
+        allBinaryGameCanvas.updateGameState();
     }
 
     @Override

@@ -15,9 +15,7 @@ package org.allbinary.media.image;
 
 import javax.microedition.lcdui.Image;
 
-import org.allbinary.graphics.Anchor;
 import org.allbinary.image.ImageCache;
-import org.allbinary.logic.communication.log.PreLogUtil;
 import org.microemu.device.playn.PlaynImmutableImage;
 import org.microemu.device.playn.PlaynMutableImage;
 import playn.core.CanvasImage;
@@ -42,19 +40,19 @@ public class ImageScaleUtil
     {
     }
 
-    public Image createImage(final ImageCache imageCache, final Image originalImage,
-        final float scaleNominatorX, final float scaleDenominatorX,
-        final float scaleNominatorY, final float scaleDenominatorY, final boolean cached)
+    public Image createImage2(final ImageCache imageCache, final Image originalImage,
+                              final float scaleNominatorX, final float scaleDenominatorX,
+                              final float scaleNominatorY, final float scaleDenominatorY, final boolean cached)
         throws Exception {
 
-        return this.createImage(imageCache, originalImage, scaleNominatorX, scaleDenominatorX, scaleNominatorY, scaleDenominatorY, cached, true);
+        return this.createImage3(imageCache, originalImage, scaleNominatorX, scaleDenominatorX, scaleNominatorY, scaleDenominatorY, cached, true);
 
     }
     
     //private int anchor = Anchor.TOP_LEFT;
-    public Image createImage(final ImageCache imageCache, final Image originalImage,
-        final float scaleNominatorX, final float scaleDenominatorX,
-        final float scaleNominatorY, final float scaleDenominatorY, final boolean cached, final boolean mutable)
+    public Image createImage3(final ImageCache imageCache, final Image originalImage,
+                              final float scaleNominatorX, final float scaleDenominatorX,
+                              final float scaleNominatorY, final float scaleDenominatorY, final boolean cached, final boolean mutable)
         throws Exception {
 
         final float scaleX = scaleNominatorX / scaleDenominatorX;
@@ -67,15 +65,15 @@ public class ImageScaleUtil
             final float scaleX, final float scaleY, final boolean cached) 
     throws Exception
     {
-        return this.createImage(originalImage, scaleX, scaleY);
+        return this.createImageInternal(originalImage, scaleX, scaleY);
     }    
 
-    public Image createImage(final Image originalImage, final float scaleX, final float scaleY) 
+    public Image createImageInternal(final Image originalImage, final float scaleX, final float scaleY)
     throws Exception
     {
         //PreLogUtil.put("originalImage: " + originalImage + " scaleX: " + scaleX + " scaleY: " + scaleY, this, "createImage");
         //PreLogUtil.put("originalImage: " + originalImage.getWidth() + " " + originalImage.getHeight(), this, "createImage");
-        final Image image = ImageCreationUtil.getInstance().getInstance(
+        final Image image = ImageCreationUtil.getInstance().createImageWH(
                 (int) (originalImage.getWidth() * scaleX), (int) (originalImage.getHeight() * scaleY));
         
         //PreLogUtil.put("Image: " + image.getWidth() + " " + image.getHeight(), this, "createImage");

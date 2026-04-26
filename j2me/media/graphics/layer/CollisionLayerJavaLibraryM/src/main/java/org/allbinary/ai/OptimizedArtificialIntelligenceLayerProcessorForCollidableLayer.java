@@ -26,8 +26,8 @@ public class OptimizedArtificialIntelligenceLayerProcessorForCollidableLayer ext
 	}
 
         @Override
-	public void process(AllBinaryLayerManager allBinaryLayerManager,
-	        AllBinaryLayer layerInterface, int index) throws Exception {
+	public void processAt(AllBinaryLayerManager allBinaryLayerManager,
+                          AllBinaryLayer layerInterface, int index) throws Exception {
 	    CollidableCompositeLayer artificialIntelligenceCompositeInterface = 
 			(CollidableCompositeLayer) layerInterface;
 

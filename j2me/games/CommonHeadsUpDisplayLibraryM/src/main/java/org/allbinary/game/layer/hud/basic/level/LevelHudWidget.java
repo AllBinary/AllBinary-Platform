@@ -110,7 +110,7 @@ public class LevelHudWidget extends BasicHud
     @Override
     public void paint(Graphics graphics)
     {
-        super.paint(graphics, 
+        super.paintDX(graphics,
                 levelString, 0, levelString.length, 
                 levelNumberCharArray, 0, levelNumberTotalDigits, 
                 this.offset);

@@ -36,10 +36,10 @@ public class AngleIncrementInfo
       
       final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
       
-      this.DOWN_FRAME = smallIntegerSingletonFactory.getInstance(angleFactory.DOWN.getValue() / this.angleIncrement);
-      this.UP_FRAME = smallIntegerSingletonFactory.getInstance((int) angleFactory.UP.getValue());
-      this.LEFT_FRAME = smallIntegerSingletonFactory.getInstance(angleFactory.LEFT.getValue() / this.angleIncrement);
-      this.RIGHT_FRAME = smallIntegerSingletonFactory.getInstance(angleFactory.RIGHT.getValue() / this.angleIncrement);
+      this.DOWN_FRAME = smallIntegerSingletonFactory.getAt(angleFactory.DOWN.getValue() / this.angleIncrement);
+      this.UP_FRAME = smallIntegerSingletonFactory.getAt((int) angleFactory.UP.getValue());
+      this.LEFT_FRAME = smallIntegerSingletonFactory.getAt(angleFactory.LEFT.getValue() / this.angleIncrement);
+      this.RIGHT_FRAME = smallIntegerSingletonFactory.getAt(angleFactory.RIGHT.getValue() / this.angleIncrement);
 
       /*
       String message = "DOWN_FRAME = " + this.DOWN_FRAME + " Angle: " + this.getFrameAngle(this.DOWN_FRAME);
@@ -75,7 +75,7 @@ public class AngleIncrementInfo
    
    public int getClosestGeneralDirection(short angle)
    {
-        Integer closestDirection = SmallIntegerSingletonFactory.getInstance().getInstance(360);
+        Integer closestDirection = SmallIntegerSingletonFactory.getInstance().getAt(360);
 
         if (this.UP_FRAME.intValue() - angle < closestDirection.intValue() - angle)
         {

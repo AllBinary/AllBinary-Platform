@@ -48,7 +48,7 @@ public class StupidTimer
                 this.threadObjectUtil.waitObject(this, 1800);
             }
 
-            if (timeDelayHelper.isTime())
+            if (timeDelayHelper.isTimeTNT())
             {
                 tookTooLong = true;
                 break;

@@ -96,7 +96,7 @@ public class GameFeatureItemStateListener implements ItemStateListener
                 
                 if (gameFeatureUtil.isExclusive(itemLabel))
                 {
-                    gameFeatureUtil.updateExclusive((ChoiceGroup) item);
+                    gameFeatureUtil.updateExclusiveForChoiceGroup((ChoiceGroup) item);
                 }
                 else
                 {

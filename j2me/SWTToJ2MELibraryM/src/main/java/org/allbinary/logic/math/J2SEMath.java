@@ -36,7 +36,7 @@ public class J2SEMath {
         return (value < 0) ? -value : value;
     }
     
-    public double abs(double value) {
+    public double absdouble(double value) {
         return (value < 0) ? -value : value;
     }
     

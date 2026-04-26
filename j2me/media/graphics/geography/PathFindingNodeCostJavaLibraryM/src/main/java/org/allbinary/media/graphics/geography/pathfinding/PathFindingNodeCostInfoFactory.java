@@ -58,13 +58,13 @@ public class PathFindingNodeCostInfoFactory
             //PathFindingNodeCostInfo pathFindingNodeCostInfo =
             pathFindingNodeCostInfo = new PathFindingNodeCostInfo(costFromStart, costToEnd);
 
-            pathFindingNodeCostInfo.setTotalCost();
+            pathFindingNodeCostInfo.setCalculatedTotalCost();
 
             this.pathFindingNodeCostInfoAdjacencyList[geographicMapCellPosition.getId()][goingToGeographicMapCellPosition.getId()] = pathFindingNodeCostInfo;
         } else {
             pathFindingNodeCostInfo.setCostFromStart(costFromStart);
             pathFindingNodeCostInfo.setCostToEnd(costToEnd);
-            pathFindingNodeCostInfo.setTotalCost();
+            pathFindingNodeCostInfo.setCalculatedTotalCost();
 
             //throw new Exception("This is for creating all PathFindingNodeCostInfo");
         }

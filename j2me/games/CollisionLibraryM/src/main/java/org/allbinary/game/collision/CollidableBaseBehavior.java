@@ -91,7 +91,7 @@ implements CollidableInterface
         */
     }
 
-    public boolean isCollision(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
+    public boolean isCollisionInterface(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
     {
         return layerCollisionUtil.isCollision(this.ownerLayer, (AllBinaryLayer) collidableInterfaceCompositeInterface);
         /*
@@ -103,7 +103,7 @@ implements CollidableInterface
         */
     }
 
-    public void collide(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
+    public void collideInterface(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
             throws Exception
     {
         throw new Exception(this.commonStrings.NOT_IMPLEMENTED);

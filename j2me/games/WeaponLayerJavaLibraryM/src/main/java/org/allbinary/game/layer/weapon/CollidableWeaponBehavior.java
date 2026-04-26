@@ -81,7 +81,7 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
     private final LayerCollisionUtil layerCollisionUtil = LayerCollisionUtil.getInstance();
     
     @Override
-    public boolean isCollision(
+    public boolean isCollisionInterface(
             CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
     {
         if (this.collisionHelper.isCollidable((CollidableCompositeLayer) collidableInterfaceCompositeInterface))
@@ -103,7 +103,7 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
     }
 
     @Override
-    public void collide(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
+    public void collideInterface(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
             throws Exception
     {
         // this.logUtil.putF(commonStrings.START, this, damageUtil.COLLIDE);

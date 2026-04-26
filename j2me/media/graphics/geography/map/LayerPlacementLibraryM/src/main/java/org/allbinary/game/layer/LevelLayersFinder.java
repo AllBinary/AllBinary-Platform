@@ -49,7 +49,7 @@ public class LevelLayersFinder {
 
             Integer integer = (Integer) layerHashtable.get((Object) Layer.ID);
 
-            Integer cachedInteger = smallIntegerSingletonFactory.getInstance(integer.intValue());
+            Integer cachedInteger = smallIntegerSingletonFactory.getAt(integer.intValue());
 
             if(!list.contains(cachedInteger))
             {

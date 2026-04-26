@@ -47,7 +47,7 @@ public class IndependentVectorExplosionRotationAnimationFactory implements
     private final VectorExplosionGenerator vectorExplosionGenerator = VectorExplosionGenerator.getInstance();
 
     @Override    
-    public Animation getInstance(Animation animationInterface)
+    public Animation getInstanceAnimation(Animation animationInterface)
             throws Exception
     {
         int frame = 0;

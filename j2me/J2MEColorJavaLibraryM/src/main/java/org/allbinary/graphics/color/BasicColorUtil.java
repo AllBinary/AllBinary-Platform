@@ -27,7 +27,7 @@ public class BasicColorUtil
     public final boolean isAlpha = true;
     public final boolean ffOpaque = true;
     
-    public int get(int red, int green, int blue)
+    public int getRGB(int red, int green, int blue)
     {
         int value = 0;
 
@@ -46,7 +46,7 @@ public class BasicColorUtil
         return value;
     }
     
-    public int get(final int alphaValue, final int r, final int g, final int b)
+    public int getARGB(final int alphaValue, final int r, final int g, final int b)
     {
         return ((alphaValue << 24) & this.ALPHA) + ((r << 16) & 0x00FF0000) + ((g << 8) & 0x0000FF00) + (b & 0x000000FF);
     }

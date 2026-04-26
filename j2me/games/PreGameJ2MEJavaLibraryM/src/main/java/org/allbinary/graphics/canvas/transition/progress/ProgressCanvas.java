@@ -22,7 +22,6 @@ import org.allbinary.canvas.Processor;
 import org.allbinary.canvas.RunnableCanvas;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.graphics.color.BasicColor;
-import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFont;
@@ -204,14 +203,14 @@ public class ProgressCanvas extends RunnableCanvas
         //this.logUtil.putF(this.text, this, ADD_EARLY_PORTION);
         //PreLogUtil.put(this.text, this, ADD_PORTION);
         
-        this.setText(new StringMaker().append(text).append(SmallIntegerSingletonFactory.getInstance().getInstance(index).toString()).toString());
+        this.setText(new StringMaker().append(text).append(SmallIntegerSingletonFactory.getInstance().getAt(index).toString()).toString());
 
         this.gauge.setValue(this.gauge.getValue() + this.getMaxValue() / value);
     }
     
     public void addPortion(int value, String text, int index)
     {
-        this.setText(new StringMaker().append(text).append(SmallIntegerSingletonFactory.getInstance().getInstance(index).toString()).toString());
+        this.setText(new StringMaker().append(text).append(SmallIntegerSingletonFactory.getInstance().getAt(index).toString()).toString());
         
         //commonStrings.START_LABEL).append(
         //this.logUtil.putF(this.text, this, ADD_PORTION);
@@ -223,7 +222,7 @@ public class ProgressCanvas extends RunnableCanvas
         //BaseRefreshHelper.process();
     }
     
-    public void addPortion(int value, String text)
+    public void addNormalPortion(int value, String text)
     {   
         //commonStrings.START_LABEL).append(
         //this.logUtil.putF(text, this, ADD_PORTION);

@@ -31,7 +31,7 @@ public class VectorExplosionAnimationFactory
 	private final VectorExplosionGenerator vectorExplosionGenerator = VectorExplosionGenerator.getInstance();
 
         @Override
-	public Animation getInstance(final Animation animationInterface)
+	public Animation getInstanceAnimation(final Animation animationInterface)
 	throws Exception 
 	{
 	    final VectorAnimationInterface vectorRotationAnimationInterface = 

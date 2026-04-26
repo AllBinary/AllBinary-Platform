@@ -23,7 +23,7 @@ public class LockableFormPaintableFactory extends ItemPaintableFactory
     }
 
     @Override    
-    public ItemPaintable getInstance(PaintableForm paintableForm) 
+    public ItemPaintable getInstanceItemPaintable(PaintableForm paintableForm)
     throws Exception
     {
         return new LockablePaintable(this.lockedIndex);

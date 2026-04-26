@@ -55,7 +55,7 @@ public class LicenseInitInfo
 
     public void setServer(String value, int index)
     {
-        this.serverList.add(index, value);
+        this.serverList.addAt(index, value);
     }
 
     public void addServer(String value)

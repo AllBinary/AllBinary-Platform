@@ -46,7 +46,7 @@ public class BaseGameStatistics
 
     public void init()
     {
-        this.timeDelayHelper.setStartTime();
+        this.timeDelayHelper.setStartTimeTNT();
         this.totalRefreshes = 0;
         this.totalFrames = 0;
     }
@@ -196,7 +196,7 @@ public class BaseGameStatistics
         return STRING_ARRAY;
     }
 
-    public String toString(long totalTime)
+    public String toStringAt(long totalTime)
     {
         StringMaker stringBuffer = new StringMaker();
 
@@ -226,7 +226,7 @@ public class BaseGameStatistics
 
         if (totalTime > 0)
         {
-        	return this.toString(totalTime);
+        	return this.toStringAt(totalTime);
         } else
         {
             return NOT;

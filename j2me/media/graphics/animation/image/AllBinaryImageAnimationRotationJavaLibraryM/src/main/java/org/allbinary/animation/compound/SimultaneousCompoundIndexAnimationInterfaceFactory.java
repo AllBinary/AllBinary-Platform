@@ -43,10 +43,10 @@ public class SimultaneousCompoundIndexAnimationInterfaceFactory
             animationInterfaceArray[index] = (IndexedAnimation) this.basicAnimationInterfaceFactoryInterfaceArray[index].getInstance(instanceId);
         }
 
-        return this.getInstance(animationInterfaceArray);
+        return this.getOrCreate(animationInterfaceArray);
     }
 
-    protected Animation getInstance(final IndexedAnimation[] animationInterfaceArray) {
+    protected Animation getOrCreate(final IndexedAnimation[] animationInterfaceArray) {
         return new SimultaneousCompoundIndexAnimation(animationInterfaceArray, this.animationBehaviorFactory.getOrCreateInstance());
     }
 

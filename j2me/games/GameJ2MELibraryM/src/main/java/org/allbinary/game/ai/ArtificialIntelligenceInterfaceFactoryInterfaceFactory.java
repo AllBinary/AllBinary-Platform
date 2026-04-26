@@ -35,7 +35,7 @@ public class ArtificialIntelligenceInterfaceFactoryInterfaceFactory
        return SINGLETON;
    }
    
-   public ArtificialIntelligenceInterfaceFactoryInterface getInstance(Hashtable hashtable)
+   public ArtificialIntelligenceInterfaceFactoryInterface getInstanceFromCollection(final Hashtable hashtable)
    {
       Integer typeInteger = (Integer) hashtable.get((Object) BasicAI.ID);
        
@@ -47,7 +47,7 @@ public class ArtificialIntelligenceInterfaceFactoryInterfaceFactory
       return artificialIntelligenceInterfaceFactoryInterface;
    }
    
-   public void add(ArtificialIntelligenceInterfaceFactoryInterface artificialIntelligenceInterfaceFactoryInterface)
+   public void add(final ArtificialIntelligenceInterfaceFactoryInterface artificialIntelligenceInterfaceFactoryInterface)
    {
        this.list.add(artificialIntelligenceInterfaceFactoryInterface);
    }

@@ -36,7 +36,7 @@ public class PointsUtil {
 
    public BasicArrayList doTransforms(BasicArrayList pointVector, Double angle, GPoint fulcrumPoint) throws Exception
    {
-      return VectorRotationGenerator.getInstance().getInstance(fulcrumPoint.getX(), fulcrumPoint.getY(), pointVector, AngleFactory.getInstance().getInstance(angle.intValue()));
+      return VectorRotationGenerator.getInstance().getListAtAngle(fulcrumPoint.getX(), fulcrumPoint.getY(), pointVector, AngleFactory.getInstance().getAt(angle.intValue()));
 
       //rotate points for canvas rotation
       //i would have used the transform in graphics2d but I need to export the

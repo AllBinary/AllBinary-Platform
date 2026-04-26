@@ -44,12 +44,12 @@ public class RTSLayerInfoPaintable extends InitUpdatePaintable
         this.initUpdatePaintable.paint(graphics);
     }
 
-    public void updateRTSLayerInfo(InitUpdatePaintable hudPaintable)
+    public void updateRTSLayerInfoInit(InitUpdatePaintable hudPaintable)
     {
         this.initUpdatePaintable = hudPaintable;
     }
     
-    public void updateRTSLayerInfo(SelectionHudPaintable hudPaintable)
+    public void updateRTSLayerInfoSelection(SelectionHudPaintable hudPaintable)
     {
         hudPaintable.updateSelectionInfo();
         this.initUpdatePaintable = hudPaintable;

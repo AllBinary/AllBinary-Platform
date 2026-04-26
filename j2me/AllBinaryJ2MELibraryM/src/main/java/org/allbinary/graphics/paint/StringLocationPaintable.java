@@ -26,7 +26,7 @@ public class StringLocationPaintable extends LocationPaintable
     }
     
     @Override
-    public void paint(final Graphics graphics, final int x, final int y)
+    public void paintXY(final Graphics graphics, final int x, final int y)
     {
         graphics.drawString(this.value, x, y, 0);
     }

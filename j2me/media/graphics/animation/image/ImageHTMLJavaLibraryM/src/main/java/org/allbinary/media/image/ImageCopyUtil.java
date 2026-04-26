@@ -68,7 +68,7 @@ public class ImageCopyUtil
         }
     }
 
-    public Image createImage(final Image originalImage, final float canvasScale, final boolean resize)
+    public Image createImageScale(final Image originalImage, final float canvasScale, final boolean resize)
             throws Exception
     {
         //final CommonLabels commonLabels = CommonLabels.getInstance();

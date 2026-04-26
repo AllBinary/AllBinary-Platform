@@ -23,8 +23,6 @@ import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.string.CommonStrings;
-import org.microemu.device.j2se.J2SEImmutableImage;
-import org.microemu.device.j2se.J2SEMutableImage;
 
 /**
  *
@@ -192,7 +190,7 @@ public class ImageModifierUtil {
             for (int index = 0; index < size; index++) {
                 originalImage = originalImageArray[index];
 
-                final Image image = ImageCreationUtil.getInstance().getInstance(
+                final Image image = ImageCreationUtil.getInstance().createImageWH(
                         originalImage.getWidth(), originalImage.getHeight());
 
                 image.getGraphics().drawImage(originalImage, 0, 0, Anchor.TOP_LEFT);

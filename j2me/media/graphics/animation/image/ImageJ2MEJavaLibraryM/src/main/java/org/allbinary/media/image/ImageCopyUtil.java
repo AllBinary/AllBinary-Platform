@@ -61,7 +61,7 @@ public class ImageCopyUtil
             return originalImage;
         }
         
-        final Image image = this.imageCreationUtil.getInstance(
+        final Image image = this.imageCreationUtil.createImageWH(
                 originalImage.getWidth() , originalImage.getHeight());
 
         if (image.isMutable())
@@ -76,7 +76,7 @@ public class ImageCopyUtil
         }
     }
 
-    public Image createImage(final Image originalImage, final float canvasScale, final boolean resize)
+    public Image createImageScale(final Image originalImage, final float canvasScale, final boolean resize)
             throws Exception
     {
         if(!this.features.isFeature(this.gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
@@ -102,7 +102,7 @@ public class ImageCopyUtil
         
         //this.logUtil.putF("newWidth: " + newWidth + " newHeight: " + newHeight, this, commonStrings.CONSTRUCTOR);
         
-        final Image image = this.imageCreationUtil.getInstance(newWidth, newHeight);
+        final Image image = this.imageCreationUtil.createImageWH(newWidth, newHeight);
 
         if (image.isMutable())
         {

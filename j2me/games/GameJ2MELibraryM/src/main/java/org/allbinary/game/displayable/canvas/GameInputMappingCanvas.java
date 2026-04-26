@@ -32,7 +32,6 @@ import org.allbinary.game.paint.ColorFillPaintableFactory;
 import org.allbinary.game.paint.help.HelpPaintable;
 import org.allbinary.game.paint.help.InputMappingHelpPaintable;
 import org.allbinary.graphics.paint.ProcessPaintable;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.util.BasicArrayList;
@@ -132,44 +131,44 @@ implements InputMappingInterface
     }
 
     @Override
-    public void keyPressed(int keyCode)
+    public void keyPressed(final int keyCode)
     {
-        this.keyPressed(keyCode, 0);
+        this.keyPressedByDevice(keyCode, 0);
     }
     
     @Override
-    public void keyReleased(int keyCode)
+    public void keyReleased(final int keyCode)
     {
-        this.keyReleased(keyCode, 0);
+        this.keyReleasedByDevice(keyCode, 0);
     }
 
     @Override
-    public void keyRepeated(int keyCode)
+    public void keyRepeated(final int keyCode)
     {
-        this.keyRepeated(keyCode, 0);
+        this.keyRepeatedByDevice(keyCode, 0);
     }
     
     @Override
-    public void keyPressed(int keyCode, int deviceId)
+    public void keyPressedByDevice(final int keyCode, final int deviceId)
     {
         // this.logUtil.putF(commonStrings.START, this, gameInputStrings.KEY_PRESSED);        
         this.addGameKeyEvent(keyCode, false);
 
-        super.keyPressed(keyCode, 0);
+        super.keyPressedByDevice(keyCode, 0);
     }
 
     private final InputFactory inputFactory = InputFactory.getInstance();
     
-    private void addGameKeyEvent(int keyCode, boolean repeated)
+    private void addGameKeyEvent(final int keyCode, final boolean repeated)
     {
         try
         {
             this.logUtil.putF(new StringMaker().append("Raw Device Key Code: ").append(Integer.toHexString(keyCode)).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
 
-            GameKey gameKey = this.inputToGameKeyMapping.getInstance(this, keyCode);
+            GameKey gameKey = this.inputToGameKeyMapping.getInstanceForCanvas(this, keyCode);
 
             //TWB - Hack for MicroEmulator negative values on directional controls
-            Input input = this.inputFactory.getInstance(keyCode);
+            Input input = this.inputFactory.getInstanceById(keyCode);
 
             this.process(gameKey, input);
         }
@@ -201,7 +200,7 @@ implements InputMappingInterface
         }
     }
 
-    private void setSelectedAction(GameKey gameKey)
+    private void setSelectedAction(final GameKey gameKey)
     {
         this.logUtil.putF(new StringMaker().append("Selected GameKey: ").append(this.stringUtil.toString(gameKey)).toString(), this, "setSelectedAction");
         
@@ -332,7 +331,7 @@ implements InputMappingInterface
     }
 
     @Override
-    public void paint(Graphics graphics)
+    public void paint(final Graphics graphics)
     {
         this.colorFillPaintable.paint(graphics);
         

@@ -40,13 +40,13 @@ public class CollidableNeverCollideBehavior extends CollidableBaseBehavior
     }
 
     @Override
-    public void collide(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
+    public void collideInterface(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
     {
        // this.setPickedUp();
     }
     
     @Override
-    public boolean isCollision(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
+    public boolean isCollisionInterface(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
     {
        return false;
     }

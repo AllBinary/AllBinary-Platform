@@ -27,8 +27,8 @@ public class OptimizedTickableLayerProcessor extends LayerProcessor
     }
 
     @Override
-    public void process(AllBinaryLayerManager allBinaryLayerManager,
-            AllBinaryLayer layerInterface, int index) throws Exception
+    public void processAt(AllBinaryLayerManager allBinaryLayerManager,
+                          AllBinaryLayer layerInterface, int index) throws Exception
     {
         // no physics here - just destroy them
         AllBinaryGameLayer tickableInterface = (AllBinaryGameLayer) layerInterface;

@@ -26,14 +26,14 @@ public class GeographicPathFinderBase {
     
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
-   public BasicArrayList search(
+   public BasicArrayList searchTotalPath(
       BasicArrayList startPathFindingNodeList, 
       BasicArrayList endPathFindingNodeList, int totalPaths)
       throws Exception {
        throw new RuntimeException();
    }
 
-   public BasicArrayList searchN(
+   public BasicArrayList searchTotalPathN(
       BasicArrayList startPathFindingNodeList, 
       BasicArrayList endPathFindingNodeList, int totalPaths, final MultipassState multipassState)
       throws Exception {

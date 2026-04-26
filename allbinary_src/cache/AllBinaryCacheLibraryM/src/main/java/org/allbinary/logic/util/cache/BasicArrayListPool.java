@@ -33,7 +33,7 @@ public class BasicArrayListPool extends AbstractArrayListPool
       int size = this.buffers.size();
       if(size > 0)
       {
-          return (CacheableInterface) buffers.remove(size - 1);
+          return (CacheableInterface) buffers.removeAt(size - 1);
       }
       else
       {
@@ -67,7 +67,7 @@ public class BasicArrayListPool extends AbstractArrayListPool
           BasicArrayListCacheable list = (BasicArrayListCacheable) usedList.objectArray[index];
           if(list.size() == 0)
           {
-              usedList.remove(index);
+              usedList.removeAt(index);
               this.add(list);
           }
       }

@@ -91,22 +91,22 @@ public class PaymentGateway implements PaymentGatewayInterface
       //if(this.gatewayName==null) this.gatewayName = empty;
 
       this.enable = 
-         stringUtil.getInstance((String) hashMap.get(EntryData.getInstance().ENABLE.toString()));
+         stringUtil.getNonNull((String) hashMap.get(EntryData.getInstance().ENABLE.toString()));
 
       this.paymentMethod = 
-         stringUtil.getInstance((String) hashMap.get(PaymentData.METHOD.toString()));
+         stringUtil.getNonNull((String) hashMap.get(PaymentData.METHOD.toString()));
 
       this.mode = 
-         stringUtil.getInstance((String) hashMap.get(PaymentGatewayData.MODE.toString()));
+         stringUtil.getNonNull((String) hashMap.get(PaymentGatewayData.MODE.toString()));
 
       this.testProtocol = 
-         stringUtil.getInstance((String) hashMap.get(PaymentGatewayData.TESTPROTOCOL.toString()));
+         stringUtil.getNonNull((String) hashMap.get(PaymentGatewayData.TESTPROTOCOL.toString()));
 
       this.testServer = 
-         stringUtil.getInstance((String) hashMap.get(PaymentGatewayData.TESTSERVER.toString()));
+         stringUtil.getNonNull((String) hashMap.get(PaymentGatewayData.TESTSERVER.toString()));
 
       this.testPort = 
-         stringUtil.getInstance((String) hashMap.get(PaymentGatewayData.TESTPORT.toString()));
+         stringUtil.getNonNull((String) hashMap.get(PaymentGatewayData.TESTPORT.toString()));
 
       this.testPath = (String) hashMap.get(PaymentGatewayData.TESTPATH.toString());
       if(this.testPath==null) this.testPath = empty;

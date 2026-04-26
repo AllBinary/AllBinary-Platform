@@ -25,7 +25,6 @@ import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFont;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.string.CommonStrings;
@@ -61,7 +60,7 @@ extends GameNotificationHud
     {
         super(location, direction, maxHeight, maxWidth, bufferZone, basicColor);
 
-        this.circularIndexUtil = CircularIndexUtil.getInstance(0);
+        this.circularIndexUtil = CircularIndexUtil.create(0);
 
         final GameNotificationEventHandler gameNotificationEventHandler  = GameNotificationEventHandler.getInstance();
         gameNotificationEventHandler.removeAllListeners();
@@ -113,7 +112,7 @@ extends GameNotificationHud
         {
             final GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
             
-            if(gameAdState.isShowingAt(this.getLocation()))
+            if(gameAdState.isShowingAtLocation(this.getLocation()))
             {
                 //PreLogUtil.put("Y: ").append(this.getY(), this, GameStrings.getInstance().PROCESS_TICK);
                 this.offsetY = -54;
@@ -142,7 +141,7 @@ extends GameNotificationHud
     private void setAndRemove()
         throws Exception
     {
-        this.string = (String) this.gameNotification.stringList.remove(0);
+        this.string = (String) this.gameNotification.stringList.removeAt(0);
 
         final int width = MyFont.getInstance().stringWidth2(this.string);
         this.setX((this.displayInfo.getLastWidth() - width) >> 1);
@@ -150,7 +149,7 @@ extends GameNotificationHud
         this.point.setX(this.getX());
         this.point.setY(this.getY());
 
-        final Integer time = (Integer) this.gameNotification.timeList.remove(0);
+        final Integer time = (Integer) this.gameNotification.timeList.removeAt(0);
         
         int iTime = time.intValue() * 1000;
         
@@ -161,7 +160,7 @@ extends GameNotificationHud
         
         this.timeDelayHelper.delay = iTime;
 
-        this.setBasicColorP((BasicColor) this.gameNotification.colorList.remove(0));
+        this.setBasicColorP((BasicColor) this.gameNotification.colorList.removeAt(0));
     }
 
     private void setNextUnremoveable()

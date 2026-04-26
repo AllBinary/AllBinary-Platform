@@ -31,7 +31,7 @@ public class GeographicMapTopViewLayerBehavior extends TopViewGameLayerBehavior 
         super(maxGravityActionIndex);
     }
 
-    public GeographicMapCellPosition getGeographicMapCellPositionIfNotSolidBlockOrOffMap(final BasicGeographicMap[] geographicMapInterfaceArray, final GeographicMapCellType[] geographicMapCellTypeArray, final VelocityProperties velocityProperties, final AllBinaryLayer layer, final int x, int y) throws Exception {
+    public GeographicMapCellPosition getGeographicMapCellPositionIfNotSolidBlockOrOffMapLocation(final BasicGeographicMap[] geographicMapInterfaceArray, final GeographicMapCellType[] geographicMapCellTypeArray, final VelocityProperties velocityProperties, final AllBinaryLayer layer, final int x, int y) throws Exception {
         return null;
     }
 
@@ -39,7 +39,7 @@ public class GeographicMapTopViewLayerBehavior extends TopViewGameLayerBehavior 
         return null;
     }
 
-    public GeographicMapCellPosition getGeographicMapCellPositionIfNotSolidBlockOrOffMap(final BasicGeographicMap[] geographicMapInterfaceArray, final GeographicMapCellType[] geographicMapCellTypeArray, final BasicArrayList geographicMapCellPositionList, final VelocityProperties velocityProperties, final AllBinaryLayer layer) throws Exception {
+    public GeographicMapCellPosition getGeographicMapCellPositionFromListIfNotSolidBlockOrOffMap(final BasicGeographicMap[] geographicMapInterfaceArray, final GeographicMapCellType[] geographicMapCellTypeArray, final BasicArrayList geographicMapCellPositionList, final VelocityProperties velocityProperties, final AllBinaryLayer layer) throws Exception {
         return null;
     }
             

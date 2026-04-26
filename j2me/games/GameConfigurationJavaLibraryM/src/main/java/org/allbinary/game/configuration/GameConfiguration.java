@@ -23,7 +23,7 @@ import org.allbinary.logic.string.StringUtil;
 public class GameConfiguration
 {
     private String name = StringUtil.getInstance().EMPTY_STRING;
-    private Integer defaultValue = SmallIntegerSingletonFactory.getInstance().getInstance(0);
+    private Integer defaultValue = SmallIntegerSingletonFactory.getInstance().getAt(0);
     private Integer value;
     private Integer minValue = defaultValue;
     private Integer maxValue = defaultValue;

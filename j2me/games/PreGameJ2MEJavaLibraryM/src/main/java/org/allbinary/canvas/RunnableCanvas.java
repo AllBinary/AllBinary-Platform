@@ -14,10 +14,8 @@
 package org.allbinary.canvas;
 
 import javax.microedition.lcdui.CommandListener;
-import javax.microedition.lcdui.NullCommandListener;
 
 import org.allbinary.game.displayable.canvas.NullWaitGameRunnable;
-import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.graphics.displayable.MyCanvas;
 import org.allbinary.logic.NullUtil;
 import org.allbinary.logic.string.StringMaker;
@@ -292,7 +290,7 @@ public class RunnableCanvas extends MyCanvas
         }
 
         //Note that if you used the game timer then elapsed would always be 0 so don't change
-        long elapsedTime = this.loopTimeHelper.getElapsed();
+        long elapsedTime = this.loopTimeHelper.getElapsedTNT();
 
         /*
         long refreshRate = GameStatisticsFactory.getInstance().getRefreshRate();

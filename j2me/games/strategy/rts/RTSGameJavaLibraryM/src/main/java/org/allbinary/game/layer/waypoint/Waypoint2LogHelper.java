@@ -42,7 +42,7 @@ public class Waypoint2LogHelper {
         
     }
 
-    public void processPossibleTarget(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final WaypointBehaviorBase unitWaypointBehavior2, final PathFindingLayerInterface layerInterface, final int anotherTargetDistance) {
+    public void processSetTarget(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final WaypointBehaviorBase unitWaypointBehavior2, final PathFindingLayerInterface layerInterface, final int anotherTargetDistance) {
         
     }
     
@@ -58,7 +58,7 @@ public class Waypoint2LogHelper {
         
     }
     
-    public void setTargetPath(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final WaypointBehaviorBase unitWaypointBehavior2) {
+    public void setTargetPathIgnoreNewPath(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final WaypointBehaviorBase unitWaypointBehavior2) {
         
     }
     
@@ -70,7 +70,7 @@ public class Waypoint2LogHelper {
     
     }
     
-    public void processWaypointTracked(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final GeographicMapCellPosition geographicMapCellPosition) {
+    public void processWaypointTrackedVisit(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final GeographicMapCellPosition geographicMapCellPosition) {
         
     }
     
@@ -98,7 +98,7 @@ public class Waypoint2LogHelper {
         
     }
 
-    public void removeWaypoint(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final WaypointBehaviorBase unitWaypointBehavior2, final BasicArrayList list) {
+    public void removeWaypointList(final PathFindingLayerInterface associatedAdvancedRTSGameLayer, final WaypointBehaviorBase unitWaypointBehavior2, final BasicArrayList list) {
     
     }
     

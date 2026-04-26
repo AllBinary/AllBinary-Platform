@@ -15,7 +15,6 @@ package org.allbinary.game.layer.building;
 
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.game.layer.RTSLayer;
 import org.allbinary.game.layer.SelectionHudPaintable;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -124,7 +123,7 @@ public class BuildingInfoHudPaintable extends SelectionHudPaintable {
         this.healthHud.paint(graphics);
         this.maxHealthHud.paint(graphics);
 
-        this.getAnimationInterface().paint(graphics, this.imageX, y);
+        this.getAnimationInterface().paintXY(graphics, this.imageX, y);
     }
 
     @Override
@@ -143,7 +142,7 @@ public class BuildingInfoHudPaintable extends SelectionHudPaintable {
         this.healthHud.set(health);
 
         int totalLength = this.HEALTH.length() + MathUtil.getInstance().getTotalDigits(health);
-        this.maxHealthHud.setX(this.textX + MyFont.getInstance().stringWidth(totalLength));
+        this.maxHealthHud.setX(this.textX + MyFont.getInstance().defaultStringWidth(totalLength));
 
         this.maxHealthHud.set(
             buildingLayer.getHealthInterface().getMaxHealth());

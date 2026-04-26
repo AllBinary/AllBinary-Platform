@@ -67,7 +67,7 @@ public class AllBinaryMediaManager {
         final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonString = CommonStrings.getInstance();
         logUtil.putF(commonString.START, THIS, commonString.INIT);
-        ProgressCanvasFactory.getInstance().addPortion(50, "Media Manager");
+        ProgressCanvasFactory.getInstance().addNormalPortion(50, "Media Manager");
 
         new Sounds(soundsFactoryInterface).init();
     }
@@ -86,7 +86,7 @@ public class AllBinaryMediaManager {
     
     public static Player createPlayer(final String resource) throws Exception {
         if (resource.startsWith(Manager.TONE_DEVICE_LOCATOR)) {
-            return createPlayer(new ByteArrayInputStream(NullUtil.getInstance().NULL_BYTE_ARRAY), AudioContentTypeDataFactory.getInstance().MIME_AUDIO_TONE.getName());
+            return createPlayerFromInputStream(new ByteArrayInputStream(NullUtil.getInstance().NULL_BYTE_ARRAY), AudioContentTypeDataFactory.getInstance().MIME_AUDIO_TONE.getName());
         } else
         if (Features.getInstance().isFeature(GameFeatureFactory.getInstance().SOUND))
         {
@@ -116,7 +116,7 @@ public class AllBinaryMediaManager {
         }
     }
 
-    public static Player createPlayer(final InputStream stream, final String type)
+    public static Player createPlayerFromInputStream(final InputStream stream, final String type)
             throws IOException, MediaException {
        
        throw new MediaException("No Impl");

@@ -32,7 +32,7 @@ public class InGameMenuBehavior extends BaseMenuBehavior {
     
     @Override
     public void onDisplayChangeEvent(final AllBinaryGameCanvas allBinaryGameCanvas, final DisplayChangeEvent displayChangeEvent) throws Exception {
-        allBinaryGameCanvas.updateMenu(displayChangeEvent);
+        allBinaryGameCanvas.updateMenuFromEvent(displayChangeEvent);
     }
 
     @Override

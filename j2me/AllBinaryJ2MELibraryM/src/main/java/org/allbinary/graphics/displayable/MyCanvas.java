@@ -29,7 +29,6 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.media.audio.Sound;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
-import org.allbinary.util.BasicArrayListD;
 
 public class MyCanvas extends Canvas 
     implements DisplayableInterface, MyCommandInterface
@@ -217,15 +216,15 @@ public class MyCanvas extends Canvas
         this.isPaused = isPaused;
     }
 
-    public void keyPressed(int keyCode, int deviceId)
+    public void keyPressedByDevice(int keyCode, int deviceId)
     {
     }
 
-    public void keyRepeated(int keyCode, int deviceId)
+    public void keyRepeatedByDevice(int keyCode, int deviceId)
     {
     }
 
-    public void keyReleased(int keyCode, int deviceId)
+    public void keyReleasedByDevice(int keyCode, int deviceId)
     {
     }
     

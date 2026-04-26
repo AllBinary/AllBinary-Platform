@@ -46,7 +46,7 @@ public class TopUBoundBounceAIFactory
       int halfHeight = ownerLayerInterface.getHeight() * 2 + maxDistancePerTick + 1;// / 2;
 
       // + 90 is for DoNotLoseYourBalls
-      GPoint point = PointFactory.getInstance().getInstance0(halfWidth, halfHeight + 60);
+      GPoint point = PointFactory.getInstance().createXY(halfWidth, halfHeight + 60);
 
       DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
 

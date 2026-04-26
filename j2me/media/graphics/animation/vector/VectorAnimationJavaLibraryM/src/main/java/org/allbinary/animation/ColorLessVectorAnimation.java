@@ -30,7 +30,7 @@ public class ColorLessVectorAnimation extends VectorAnimation
 //    }
 
     @Override
-    public void paint(Graphics graphics, int x, int y)
+    public void paintXY(Graphics graphics, int x, int y)
     {
         this.paintVectors(graphics, x, y);
     }

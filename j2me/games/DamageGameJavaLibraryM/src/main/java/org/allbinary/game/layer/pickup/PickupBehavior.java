@@ -65,7 +65,7 @@ public class PickupBehavior implements PickupBehaviorInterface
     }
     
     @Override
-    public void doPickup(PickedUpLayerInterface pickupLayerInterface)
+    public void doPickupLayer(PickedUpLayerInterface pickupLayerInterface)
     {
         try
         {
@@ -108,10 +108,10 @@ public class PickupBehavior implements PickupBehaviorInterface
             CountedPickedUpLayerInterfaceFactoryInterface countedPickedUpLayerInterfaceFactoryInterface)
     {
         final int partIndex = countedPickedUpLayerInterfaceFactoryInterface.getId() + this.countedIndex;
-        this.add(countedPickedUpLayerInterfaceFactoryInterface, partIndex);
+        this.addAt(countedPickedUpLayerInterfaceFactoryInterface, partIndex);
     }
 
-    protected void add(
+    protected void addAt(
             final CountedPickedUpLayerInterfaceFactoryInterface countedPickedUpLayerInterfaceFactoryInterface,
             final int partIndex)
     {

@@ -42,19 +42,19 @@ public class ImageScaleUtil
     {
     }
 
-    public Image createImage(final ImageCache imageCache, final Image originalImage,
-        final float scaleNominatorX, final float scaleDenominatorX,
-        final float scaleNominatorY, final float scaleDenominatorY, final boolean cached)
+    public Image createImage2(final ImageCache imageCache, final Image originalImage,
+                              final float scaleNominatorX, final float scaleDenominatorX,
+                              final float scaleNominatorY, final float scaleDenominatorY, final boolean cached)
         throws Exception {
 
-        return this.createImage(imageCache, originalImage, scaleNominatorX, scaleDenominatorX, scaleNominatorY, scaleDenominatorY, cached, true);
+        return this.createImage3(imageCache, originalImage, scaleNominatorX, scaleDenominatorX, scaleNominatorY, scaleDenominatorY, cached, true);
 
     }
     
     //private int anchor = Anchor.TOP_LEFT;
-    public Image createImage(final ImageCache imageCache, final Image originalImage,
-        final float scaleNominatorX, final float scaleDenominatorX,
-        final float scaleNominatorY, final float scaleDenominatorY, final boolean cached, final boolean mutable)
+    public Image createImage3(final ImageCache imageCache, final Image originalImage,
+                              final float scaleNominatorX, final float scaleDenominatorX,
+                              final float scaleNominatorY, final float scaleDenominatorY, final boolean cached, final boolean mutable)
         throws Exception {
 
         float scaleX = scaleNominatorX / scaleDenominatorX;
@@ -67,11 +67,11 @@ public class ImageScaleUtil
             float scaleX, float scaleY, boolean cached) 
     throws Exception
     {
-        return this.createImage(originalImage, scaleX, scaleY);
+        return this.createImageInternal(originalImage, scaleX, scaleY);
     }    
 
-    public Image createImage(Image originalImage, 
-            float scaleX, float scaleY) 
+    public Image createImageInternal(Image originalImage,
+                                     float scaleX, float scaleY)
     throws Exception
     {
         //PreLogUtil.put("originalImage: " + originalImage + " scaleX: " + scaleX + " scaleY: " + scaleY, this, "createImage");

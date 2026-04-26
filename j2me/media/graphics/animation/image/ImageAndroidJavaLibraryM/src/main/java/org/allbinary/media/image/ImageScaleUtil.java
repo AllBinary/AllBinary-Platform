@@ -54,19 +54,19 @@ public class ImageScaleUtil
     private final BasicArrayList scaleXBasicArrayList = new BasicArrayListD();
     private final BasicArrayList scaleYBasicArrayList = new BasicArrayListD();
 
-    public Image createImage(final ImageCache imageCache, final Image originalImage,
-        final float scaleNominatorX, final float scaleDenominatorX,
-        final float scaleNominatorY, final float scaleDenominatorY, final boolean cached)
+    public Image createImage2(final ImageCache imageCache, final Image originalImage,
+                              final float scaleNominatorX, final float scaleDenominatorX,
+                              final float scaleNominatorY, final float scaleDenominatorY, final boolean cached)
         throws Exception {
 
-        return this.createImage(imageCache, originalImage, scaleNominatorX, scaleDenominatorX, scaleNominatorY, scaleDenominatorY, cached, true);
+        return this.createImage3(imageCache, originalImage, scaleNominatorX, scaleDenominatorX, scaleNominatorY, scaleDenominatorY, cached, true);
 
     }
     
     //private int anchor = Anchor.TOP_LEFT;
-    public Image createImage(final ImageCache imageCache, final Image originalImage,
-        final float scaleNominatorX, final float scaleDenominatorX,
-        final float scaleNominatorY, final float scaleDenominatorY, final boolean cached, final boolean mutable)
+    public Image createImage3(final ImageCache imageCache, final Image originalImage,
+                              final float scaleNominatorX, final float scaleDenominatorX,
+                              final float scaleNominatorY, final float scaleDenominatorY, final boolean cached, final boolean mutable)
         throws Exception {
         
         float scaleX = scaleNominatorX / scaleDenominatorX;

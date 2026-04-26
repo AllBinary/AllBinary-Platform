@@ -22,7 +22,6 @@ import java.util.Hashtable;
 import javax.microedition.rms.RecordEnumeration;
 import javax.microedition.rms.RecordStore;
 
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.logic.string.StringMaker;
@@ -41,10 +40,10 @@ public class KeyValuePersistance extends BasicPersitance
         
     public void loadAll(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
-        this.loadAll(abeClientInformation, 1);
+        this.loadAllSize(abeClientInformation, 1);
     }
     
-    public void loadAll(final AbeClientInformationInterface abeClientInformation, int size) throws Exception
+    public void loadAllSize(final AbeClientInformationInterface abeClientInformation, int size) throws Exception
     {
         RecordStore recordStore = NullRecordStore.NULL_RECORD_STORE;
 
@@ -85,7 +84,7 @@ public class KeyValuePersistance extends BasicPersitance
                 }
 
                 this.valueList.add(hashtable);
-                this.idList.add(smallIntegerSingletonFactory.getInstance(id));
+                this.idList.add(smallIntegerSingletonFactory.getAt(id));
             }
         }
 

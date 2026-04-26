@@ -21,7 +21,7 @@ import org.allbinary.util.BasicArrayList;
  *
  * @author user
  */
-public class PathGenerator
+public class PathGenerator implements PathGeneratorInterface
 {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
@@ -61,7 +61,7 @@ public class PathGenerator
         return geographicMapCellPositionBasicArrayList;
     }
 
-    public BasicArrayList getInstance(
+    public BasicArrayList create(
         final BasicGeographicMap geographicMapInterface,
         final GeographicMapCellHistory geographicMapCellHistory,
         final PathFindingInfo pathFindingInfo,
@@ -84,7 +84,7 @@ public class PathGenerator
             pathFindingInfo.getPathFinder();
 
         final BasicArrayList geographicMapCellPositionBasicArrayList =
-            geographicPathFinderInterface.search(startPathFindingNodeList, endPathFindingNodeList, totalPaths);
+            geographicPathFinderInterface.searchTotalPath(startPathFindingNodeList, endPathFindingNodeList, totalPaths);
 
         return geographicMapCellPositionBasicArrayList;
     }
@@ -108,7 +108,7 @@ public class PathGenerator
             pathFindingInfo.getPathFinder();
 
         final BasicArrayList geographicMapCellPositionBasicArrayList =
-            geographicPathFinderInterface.searchN(startPathFindingNodeList, endPathFindingNodeList, totalPaths, multipassState);
+            geographicPathFinderInterface.searchTotalPathN(startPathFindingNodeList, endPathFindingNodeList, totalPaths, multipassState);
         //, totalPaths, minSize);
 
 //        if(geographicMapCellPositionBasicArrayList != null) {

@@ -21,7 +21,6 @@ import org.allbinary.direction.Direction;
 import org.allbinary.math.Angle;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
-import org.allbinary.math.FrameUtil;
 
 public class AllBinarySpriteRotationAnimation extends HackRotationSpriteIndexedAnimation
 {
@@ -69,17 +68,17 @@ public class AllBinarySpriteRotationAnimation extends HackRotationSpriteIndexedA
     }
 
     @Override
-    public void setFrame(Direction direction)
+    public void setFrameByDirection(Direction direction)
     {
         //this.logUtil.putF(commonStrings.START, this, "setFrame");
         Angle angle = directionUtil.getFrameAngle(direction);
-        this.adjustFrame(angle);
+        this.adjustFrameToAngle(angle);
     }
 
     @Override
-    public void setFrame(Angle angle)
+    public void setFrameToAngle(Angle angle)
     {
-        this.adjustFrame(angle);
+        this.adjustFrameToAngle(angle);
     }
 
     @Override
@@ -90,7 +89,7 @@ public class AllBinarySpriteRotationAnimation extends HackRotationSpriteIndexedA
     }
 
     @Override
-    public void adjustFrame(Angle angle)
+    public void adjustFrameToAngle(Angle angle)
     {
         this.adjustFrame(angle.getValue());
     }

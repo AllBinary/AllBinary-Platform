@@ -49,7 +49,7 @@ public class AnimationDamageFloaters extends DamageFloaters
         //this.lastDamage = new int[animationInterfaceArray.length];
         this.layerInterface = layerInterface;
 
-        this.circularIndexUtil = CircularIndexUtil.getInstance(this.animationInterfaceArray.length);
+        this.circularIndexUtil = CircularIndexUtil.create(this.animationInterfaceArray.length);
 
         this.dx = dx;
         this.dy = dy;
@@ -89,7 +89,7 @@ public class AnimationDamageFloaters extends DamageFloaters
                 if (animationInterface.getFrame() < animationInterface.getAnimationSize() - 1)
                 {
                     int delta = animationInterface.getFrame() * 20;
-                    animationInterface.paint(graphics, x + this.dx, y - delta + this.dy);
+                    animationInterface.paintXY(graphics, x + this.dx, y - delta + this.dy);
                     /*
                     for(int index2 = 0; index2 < this.lastDamage[index2]; index2++)
                     {

@@ -22,7 +22,7 @@ public class MiddleRelativeLayerRelationship
 {
    public MiddleRelativeLayerRelationship(final AllBinaryLayer layer) throws Exception
    {
-      super(layer, PointFactory.getInstance().getInstance0(
+      super(layer, PointFactory.getInstance().createXY(
          layer.getHalfWidth(), 
          layer.getHalfHeight()), 
           BasicArrayListUtil.getInstance().getImmutableInstance());

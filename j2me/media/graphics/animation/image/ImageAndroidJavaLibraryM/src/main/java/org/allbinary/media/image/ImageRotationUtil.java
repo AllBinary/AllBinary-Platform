@@ -43,7 +43,7 @@ public class ImageRotationUtil
     public Image createRotatedImage(Image originalImage, int rotationInDegrees)
             throws Exception
     {
-        final Image image = ImageCreationUtil.getInstance().getInstance(
+        final Image image = ImageCreationUtil.getInstance().createImageWH(
                 originalImage.getWidth() , originalImage.getHeight());
 
         if (image.isMutable())

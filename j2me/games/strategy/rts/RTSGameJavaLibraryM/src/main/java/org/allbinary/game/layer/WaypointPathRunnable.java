@@ -51,7 +51,7 @@ public class WaypointPathRunnable extends WaypointPathRunnableBase
             }
             
             waypointBehavior.setWaypointPathsList(
-                this.targetPathFindingLayer.getWaypointBehavior().getWaypoint().getPathsList(
+                this.targetPathFindingLayer.getWaypointBehavior().getWaypoint().getPathsListRunnable(
                     geographicMapCellPosition)
                 );
 

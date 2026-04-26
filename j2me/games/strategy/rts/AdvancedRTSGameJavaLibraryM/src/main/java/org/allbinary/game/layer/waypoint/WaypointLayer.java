@@ -134,7 +134,7 @@ public class WaypointLayer extends AdvancedRTSGameLayer
 
         if (this.isDestroyed())
         {
-            WaypointCellPositionHistory.getInstance().remove(this);
+            WaypointCellPositionHistory.getInstance().removeLayer(this);
         }
     }
    

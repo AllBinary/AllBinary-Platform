@@ -30,9 +30,9 @@ public class DecalAnimationInterfaceFactory
         return instance;
     }
 
-    public AnimationInterfaceFactoryInterface getInstance(
-            BasicGameResources basicGameResources,
-            BasicColor basicColor)
+    public AnimationInterfaceFactoryInterface getAnimationFactory(
+            final BasicGameResources basicGameResources,
+            final BasicColor basicColor)
         throws Exception
     {
         AnimationInterfaceFactoryInterface animationInterfaceFactoryInterface;

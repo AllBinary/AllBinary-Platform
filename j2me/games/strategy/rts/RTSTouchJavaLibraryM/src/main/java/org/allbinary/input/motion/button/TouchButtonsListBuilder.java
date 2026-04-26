@@ -22,14 +22,14 @@ extends BaseTouchInput
 {
     private final BasicArrayList baseTouchInputList = new BasicArrayListD();
     
-    protected void add(final BasicArrayList list)
+    protected void addList(final BasicArrayList list)
     {
         final int size = this.baseTouchInputList.size();
         BaseTouchInput baseTouchInput;
         for(int index = 0; index < size; index++)
         {
             baseTouchInput = (BaseTouchInput) this.baseTouchInputList.get(index);
-            list.addAll(baseTouchInput.getList());
+            list.addAllList(baseTouchInput.getList());
         }
     }
 

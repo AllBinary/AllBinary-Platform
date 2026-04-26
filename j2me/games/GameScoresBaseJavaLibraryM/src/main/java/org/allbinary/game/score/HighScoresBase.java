@@ -32,7 +32,7 @@ public class HighScoresBase implements HighScoresFactoryInterface
     }
     
     @Override
-    public void fetchHighScores(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener, final boolean preload)
+    public void fetchHighScoresPreload(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener, final boolean preload)
     {
         throw new RuntimeException();
     }

@@ -24,7 +24,6 @@ import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.game.identification.Group;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.layer.NullPathFindingLayer;
-import org.allbinary.game.layer.NullRTSLayer;
 import org.allbinary.game.layer.hud.event.GameNotificationEvent;
 import org.allbinary.game.layer.hud.event.GameNotificationEventHandler;
 import org.allbinary.graphics.color.BasicColorFactory;
@@ -58,7 +57,7 @@ public class BuildingAdvancedRTSFormInput
             new GameNotificationEvent(
                     this, 
                     "Build At Least One House First",
-                    SmallIntegerSingletonFactory.getInstance().getInstance(2),
+                    SmallIntegerSingletonFactory.getInstance().getAt(2),
                     basicColorFactory.WHITE,
                     BooleanFactory.getInstance().FALSE);
     }

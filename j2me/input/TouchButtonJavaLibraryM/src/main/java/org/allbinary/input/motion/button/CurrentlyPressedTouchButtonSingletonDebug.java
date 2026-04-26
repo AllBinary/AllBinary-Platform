@@ -41,7 +41,7 @@ public class CurrentlyPressedTouchButtonSingletonDebug
     private final String RELEASED_AND_FIRED_2 = "rel & fired 2";
     private final String RELEASED_AND_NOT_FIRED = "rel & not fired";
     
-    private void append(String append, TouchButtonInput touchButtonInput)
+    private void appendTouchButtonInput(String append, TouchButtonInput touchButtonInput)
     {
         StringMaker stringBuffer = new StringMaker();
         
@@ -73,33 +73,33 @@ public class CurrentlyPressedTouchButtonSingletonDebug
 
     public void releaseAndFired(TouchButtonInput touchButtonInput)
     {
-        this.append(this.RELEASED_AND_FIRED, touchButtonInput);
+        this.appendTouchButtonInput(this.RELEASED_AND_FIRED, touchButtonInput);
     }
 
     public void releaseAndFired2(TouchButtonInput touchButtonInput)
     {
-        this.append(this.RELEASED_AND_FIRED_2, touchButtonInput);
+        this.appendTouchButtonInput(this.RELEASED_AND_FIRED_2, touchButtonInput);
     }
     
     public void releaseAndFiredAssociated(TouchButtonInput touchButtonInput)
     {
-        this.append(this.ASSOCIATED_RELEASED_AND_FIRED, touchButtonInput);
+        this.appendTouchButtonInput(this.ASSOCIATED_RELEASED_AND_FIRED, touchButtonInput);
     }
     
     public void pressedAndFired(TouchButtonInput touchButtonInput)
     {
-        this.append(this.PRESSED_AND_FIRED, touchButtonInput);
+        this.appendTouchButtonInput(this.PRESSED_AND_FIRED, touchButtonInput);
     }
     
     public void pressedAndNotFired(TouchButtonInput touchButtonInput)
     {
-        this.append(this.PRESSED_AND_NOT_FIRED, touchButtonInput);
+        this.appendTouchButtonInput(this.PRESSED_AND_NOT_FIRED, touchButtonInput);
     }
     
     @Override
-    public TouchButtonInput remove(int index)
+    public TouchButtonInput removeAt(int index)
     {
-        TouchButtonInput touchButtonInput = super.remove(index);
+        TouchButtonInput touchButtonInput = super.removeAt(index);
 
         this.listString = list.toString();
         this.string = new StringMaker().append(this.listString).append(this.append).toString();

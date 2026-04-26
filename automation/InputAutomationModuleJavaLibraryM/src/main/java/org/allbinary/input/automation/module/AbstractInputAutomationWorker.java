@@ -148,14 +148,14 @@ public class AbstractInputAutomationWorker
             
             while(this.isRunning())
             {
-                timeHelper.setStartTime();
+                timeHelper.setStartTimeTNT();
                 
                 this.process();
                 
                 this.index++;
 
                 this.logUtil.putF(
-                    CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed() + " Index: " + this.index, this, this.commonStrings.RUN);
+                    CommonLabels.getInstance().ELAPSED + timeHelper.getElapsedTNT() + " Index: " + this.index, this, this.commonStrings.RUN);
             }
             
             this.stopDataWorkers();

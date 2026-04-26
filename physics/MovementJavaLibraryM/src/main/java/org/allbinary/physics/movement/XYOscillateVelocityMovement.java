@@ -47,25 +47,25 @@ extends BasicConstantVelocityMovement
         if(this.oscillate < this.oscillateMin)
         {
             this.oscillatePositive = true;
-            this.getVelocityProperties().getVelocityYBasicDecimalP().add(3000);
+            this.getVelocityProperties().getVelocityYBasicDecimalP().addint(3000);
         }
         else
         if(this.oscillate > this.oscillateMax)
         {
             this.oscillatePositive = false;
-            this.getVelocityProperties().getVelocityYBasicDecimalP().subtract(3000);
+            this.getVelocityProperties().getVelocityYBasicDecimalP().subtractint(3000);
         }
 
         if(this.oscillatePositive)
         {
             this.oscillate++;
-            this.getVelocityProperties().getVelocityXBasicDecimalP().add(5000);
+            this.getVelocityProperties().getVelocityXBasicDecimalP().addint(5000);
             
         }
         else
         {
             this.oscillate--;
-            this.getVelocityProperties().getVelocityXBasicDecimalP().subtract(5000);
+            this.getVelocityProperties().getVelocityXBasicDecimalP().subtractint(5000);
         }
     }
 }

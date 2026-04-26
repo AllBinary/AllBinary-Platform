@@ -25,10 +25,10 @@ extends SpecialGameInputProcessor
     }
 
     @Override
-    public void process(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent, 
-    		int xAnalogValue) 
+    public void processAnalog(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent,
+                              int xAnalogValue)
     throws Exception
     {
-    	this.collidableDestroyableDamageableLayer.right(xAnalogValue);
+    	this.collidableDestroyableDamageableLayer.rightAnalog(xAnalogValue);
     }    
 }

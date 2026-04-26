@@ -50,26 +50,26 @@ public class StopAtEdgeAI extends BasicAI
       {
           ownerLayerInterface.setPosition(displayInfo.getLastWidth() - width, y, ownerLayerInterface.getZP());
          //ownerLayerInterface.setPosition(width + 1, y);
-          velocityProperties.getVelocityYBasicDecimalP().set(0);
+          velocityProperties.getVelocityYBasicDecimalP().setint(0);
       }
 
       if (y2 + velocityProperties.getVelocityYBasicDecimalP().getScaled() > displayInfo.getLastHeight())
       {
          //ownerLayerInterface.setPosition(x, height + 1);
           ownerLayerInterface.setPosition(x, displayInfo.getLastHeight() - height, ownerLayerInterface.getZP());
-          velocityProperties.getVelocityXBasicDecimalP().set(0);
+          velocityProperties.getVelocityXBasicDecimalP().setint(0);
       }
 
       if (x + velocityProperties.getVelocityXBasicDecimalP().getScaled() < 0)
       {
          ownerLayerInterface.setPosition(0, y, ownerLayerInterface.getZP());
-         velocityProperties.getVelocityYBasicDecimalP().set(0);
+         velocityProperties.getVelocityYBasicDecimalP().setint(0);
       }
 
       if (y + velocityProperties.getVelocityYBasicDecimalP().getScaled() < 0)
       {
          ownerLayerInterface.setPosition(x, 0, ownerLayerInterface.getZP());
-         velocityProperties.getVelocityXBasicDecimalP().set(0);
+         velocityProperties.getVelocityXBasicDecimalP().setint(0);
       }
    }
 }

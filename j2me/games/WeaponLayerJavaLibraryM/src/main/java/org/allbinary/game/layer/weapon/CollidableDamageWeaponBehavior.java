@@ -78,7 +78,7 @@ extends CollidableDestroyableDamageableBehavior
     private final LayerCollisionUtil layerCollisionUtil = LayerCollisionUtil.getInstance();
     
     @Override
-    public boolean isCollision(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
+    public boolean isCollisionInterface(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
     {
        if (this.collisionHelper.isCollidable((CollidableCompositeLayer) collidableInterfaceCompositeInterface))
        {
@@ -97,7 +97,7 @@ extends CollidableDestroyableDamageableBehavior
     }
 
     @Override
-    public void collide(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
+    public void collideInterface(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
             throws Exception
     {
        //this.logUtil.putF(commonStrings.START, this, damageUtil.COLLIDE);

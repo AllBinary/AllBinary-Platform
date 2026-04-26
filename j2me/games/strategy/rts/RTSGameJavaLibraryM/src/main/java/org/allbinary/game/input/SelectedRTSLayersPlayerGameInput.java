@@ -84,7 +84,7 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
         this.list = list;
 
         this.selectRTSLayerVisitorInterface = 
-            selectRTSLayerVisitorFactoryInterface.getInstance(this);
+            selectRTSLayerVisitorFactoryInterface.create(this);
 
         final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
         
@@ -94,7 +94,7 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
         new GameNotificationEvent(
             this,
             RTSGameStrings.getInstance().UPGRADE,
-            smallIntegerSingletonFactory.getInstance(2),
+            smallIntegerSingletonFactory.getAt(2),
             basicColorFactory.PINK,
             BooleanFactory.getInstance().FALSE);
         
@@ -102,7 +102,7 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
         new GameNotificationEvent(
             this,
             RTSGameStrings.getInstance().NO_MONEY,
-            smallIntegerSingletonFactory.getInstance(2),
+            smallIntegerSingletonFactory.getAt(2),
             basicColorFactory.PINK,
             BooleanFactory.getInstance().FALSE);
 
@@ -110,7 +110,7 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
         new GameNotificationEvent(
             this,
             RTSGameStrings.getInstance().DOWNGRADE,
-            smallIntegerSingletonFactory.getInstance(2),
+            smallIntegerSingletonFactory.getAt(2),
             basicColorFactory.PINK,
             BooleanFactory.getInstance().FALSE);
     }
@@ -244,12 +244,12 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
         GameInputProcessorUtil.init(this.inputProcessorArray);
     }
 
-    public void processInput(int key)
+    public void processInputKey(int key)
     throws Exception
     {
         if (this.selectedRTSLayersList != null)
         {
-            this.inputProcessorArray[key].process(AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER, GameKeyEvent.NONE);
+            this.inputProcessorArray[key].processEvent(AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER, GameKeyEvent.NONE);
         }
     }
     
@@ -266,7 +266,7 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
                 GameKeyEvent gameKeyEvent = (GameKeyEvent) this.list.get(index);
                 key = gameKeyEvent.getKey();
 
-                this.processInput(key);
+                this.processInputKey(key);
             }
 
             if (isSingleKeyProcessing)

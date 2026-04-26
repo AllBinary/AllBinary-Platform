@@ -95,7 +95,7 @@ public class Password
 
    public Vector toVector(String secret)
    {
-      this.password = StringUtil.getInstance().getInstance(this.password);
+      this.password = StringUtil.getInstance().getNonNull(this.password);
 
       int random = new Random().nextInt(SuperCrypt.KEYMAX);
       Vector vector = new Vector();
@@ -107,7 +107,7 @@ public class Password
 
    public HashMap toHashMap(String secret)
    {
-      this.password = StringUtil.getInstance().getInstance(this.password);
+      this.password = StringUtil.getInstance().getNonNull(this.password);
 
       HashMap values = new HashMap();
       int random = new Random().nextInt(SuperCrypt.KEYMAX);

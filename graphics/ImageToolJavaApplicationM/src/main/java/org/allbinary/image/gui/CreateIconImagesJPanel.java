@@ -143,7 +143,7 @@ public class CreateIconImagesJPanel extends javax.swing.JPanel
                         height = ((Integer) iconHeightList.get(index2)).intValue();
                         
                         BufferedImage[] generatedBufferedImageArray =
-                            imageUtil.createBufferedImage(imageProcessorInput.getBufferedImageArray(), width, height, true);
+                            imageUtil.createBufferedImage3(imageProcessorInput.getBufferedImageArray(), width, height, true);
 
                         final ImagePersistanceUtil imagePersistanceUtil = ImagePersistanceUtil.getInstance();
 

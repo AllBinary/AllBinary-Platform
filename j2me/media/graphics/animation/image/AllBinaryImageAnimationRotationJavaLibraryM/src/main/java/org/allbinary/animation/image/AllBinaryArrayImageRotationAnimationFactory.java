@@ -35,7 +35,7 @@ public class AllBinaryArrayImageRotationAnimationFactory
     throws Exception
     {
         final AllBinaryArrayImageRotationAnimationFactory arrayImageRotationAnimationFactory = new AllBinaryArrayImageRotationAnimationFactory(image, image.getWidth(), image.getHeight(), AngleFactory.getInstance().TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity(), AnimationBehaviorFactory.getInstance());
-        arrayImageRotationAnimationFactory.init(dx, dy);
+        arrayImageRotationAnimationFactory.initDXY(dx, dy);
         return arrayImageRotationAnimationFactory;
     }
 
@@ -43,7 +43,7 @@ public class AllBinaryArrayImageRotationAnimationFactory
             throws Exception
     {
         final AllBinaryArrayImageRotationAnimationFactory arrayImageRotationAnimationFactory = new AllBinaryArrayImageRotationAnimationFactory(image, image.getWidth(), image.getHeight(), angleIncrement, AnimationBehaviorFactory.getInstance());
-        arrayImageRotationAnimationFactory.init(dx, dy);
+        arrayImageRotationAnimationFactory.initDXY(dx, dy);
         return arrayImageRotationAnimationFactory;
     }
 
@@ -124,7 +124,7 @@ public class AllBinaryArrayImageRotationAnimationFactory
                 this.getImage(), this.getAngleIncrement(), (int) AngleFactory.getInstance().TOTAL_ANGLE));
     }
 
-    private void init(final int dx, final int dy)
+    private void initDXY(final int dx, final int dy)
     {
         this.animationFactoryInitializationVisitor.dx = dx;
         this.animationFactoryInitializationVisitor.dy = dy;

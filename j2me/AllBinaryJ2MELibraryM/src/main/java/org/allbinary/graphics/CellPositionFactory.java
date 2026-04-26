@@ -69,7 +69,7 @@ public class CellPositionFactory
       }
    }
 
-   public CellPosition getInstance(int i_column, int i_row)
+   public CellPosition getInstanceColRow(int i_column, int i_row)
    {
       try
       {

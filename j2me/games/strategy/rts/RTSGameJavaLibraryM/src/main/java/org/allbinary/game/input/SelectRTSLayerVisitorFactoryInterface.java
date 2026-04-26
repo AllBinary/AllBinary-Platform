@@ -18,6 +18,5 @@ import org.allbinary.logic.util.visitor.Visitor;
 
 public interface SelectRTSLayerVisitorFactoryInterface
 {
-    Visitor getInstance(
-            SelectedRTSLayersPlayerGameInput selectedRTSLayersPlayerGameInput);
+    Visitor create(final SelectedRTSLayersPlayerGameInput selectedRTSLayersPlayerGameInput);
 }

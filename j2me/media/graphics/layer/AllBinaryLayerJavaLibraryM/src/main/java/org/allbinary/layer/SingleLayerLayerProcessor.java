@@ -28,7 +28,7 @@ extends LayerProcessor
         LayerManager layerManager = 
             this.getLayerManager();
 
-        this.process(allBinaryLayerManager, 
+        this.processAt(allBinaryLayerManager,
                 (AllBinaryLayer) layerManager.getLayerAt(0), 0);
     }
 }

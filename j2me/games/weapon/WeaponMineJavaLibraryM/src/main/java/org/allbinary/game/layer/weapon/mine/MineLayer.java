@@ -64,7 +64,7 @@ public class MineLayer extends SimpleWeaponLayer
        ViewPositionEventHandler.getInstance();
   
    @Override
-   public void init(int x, int y, int z)
+   public void initXYZ(int x, int y, int z)
    {
       this.setPosition(x + 5, y + 5, z);
 

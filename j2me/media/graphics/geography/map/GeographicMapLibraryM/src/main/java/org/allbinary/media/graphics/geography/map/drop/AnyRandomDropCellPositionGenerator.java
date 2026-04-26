@@ -58,7 +58,7 @@ extends BaseDropCellPositionGenerator
             randomRow = randomFactory.getAbsoluteNextInt(tiledLayer.getRows());
             
             geographicMapCellPosition = 
-                    basicGeographicMapCellPositionFactory.getInstance(
+                    basicGeographicMapCellPositionFactory.getAt(
                             randomColumn, randomRow);
 
             //!this.list.contains(geographicMapCellPosition)

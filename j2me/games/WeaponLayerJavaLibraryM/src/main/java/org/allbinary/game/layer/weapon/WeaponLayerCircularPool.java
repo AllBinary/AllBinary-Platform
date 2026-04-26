@@ -45,7 +45,7 @@ public class WeaponLayerCircularPool extends AllBinaryLayerCircularPool
         }
         */
 
-        weaponLayer.init(x, y, z);
+        weaponLayer.initXYZ(x, y, z);
         weaponLayer.init(sourceLayerInterface, angle, otherAngle, weaponProperties, scoreable);
 
         return weaponLayer;

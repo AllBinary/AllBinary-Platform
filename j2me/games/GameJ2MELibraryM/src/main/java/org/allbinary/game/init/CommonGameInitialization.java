@@ -56,13 +56,13 @@ extends BaseGameInitialization
                 ProgressCanvasFactory.getInstance();
 
             SmallIntegerSingletonFactory.getInstance().init();
-            progressCanvas.addPortion(50, "Integers");
+            progressCanvas.addNormalPortion(50, "Integers");
 
             PointFactory.getInstance().init();
-            progressCanvas.addPortion(50, "Points");
+            progressCanvas.addNormalPortion(50, "Points");
 
             AngleFactory.getInstance();
-            progressCanvas.addPortion(50, "Angles");
+            progressCanvas.addNormalPortion(50, "Angles");
 
             this.initGame();
 

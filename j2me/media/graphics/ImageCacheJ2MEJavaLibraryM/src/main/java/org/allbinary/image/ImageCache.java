@@ -98,7 +98,7 @@ public class ImageCache extends ImageCacheBase
     }
     
     @Override    
-    public Image get(final Object key) throws Exception
+    public Image getWithKey(final Object key) throws Exception
     {
         Image image = this.getImage(key);
 
@@ -114,7 +114,7 @@ public class ImageCache extends ImageCacheBase
             try
             {
                 //this.logUtil.putF(Memory.getInfo(), this, commonStrings.GET);
-                image = this.createImage(key, inputStream);
+                image = this.createImageFromInputStream(key, inputStream);
             }
             catch(Exception e)
             {
@@ -125,7 +125,7 @@ public class ImageCache extends ImageCacheBase
                 System.gc();
                 this.logUtil.putF(Memory.getInfo(), this, commonStrings.GET);
                 Thread.sleep(100);
-                image = this.createImage(key, inputStream);
+                image = this.createImageFromInputStream(key, inputStream);
             }
             inputStream.close();
             //Put in the name is really only for debugging

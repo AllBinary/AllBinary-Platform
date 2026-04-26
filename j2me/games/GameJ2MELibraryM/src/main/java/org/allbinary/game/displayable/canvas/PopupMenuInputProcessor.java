@@ -23,7 +23,6 @@ import org.allbinary.graphics.displayable.MyCanvas;
 import org.allbinary.input.motion.gesture.MotionGestureInput;
 import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
 import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.math.RectangleCollisionUtil;
 import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.util.BasicArrayList;
@@ -73,7 +72,7 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
     }
 
     @Override
-    public int processInput()
+    public int processInputList()
         throws Exception
     {
         try
@@ -169,7 +168,7 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
                 rectangle.getMaxX() + 20, rectangle.getMaxY(),
                 point.getX(), point.getY()))
             {
-                if (this.clickTimeHelper.isTime())
+                if (this.clickTimeHelper.isTimeTNT())
                 {
                     //PreLogUtil.put("Toggle Menu: ").append(motionGestureInput.toString(), this, gameInputStrings.PROCESS_MOTION_INPUT);
 

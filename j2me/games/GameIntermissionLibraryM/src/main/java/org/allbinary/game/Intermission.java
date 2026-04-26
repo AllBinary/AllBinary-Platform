@@ -46,7 +46,7 @@ public class Intermission implements IntermissionInterface
 
         if (this.isEnabled())
         {
-            this.getTimeDelayHelper().setStartTime();
+            this.getTimeDelayHelper().setStartTimeTNT();
         }
         
         this.intermissionEnableListener.notifyIntermission(enabled);

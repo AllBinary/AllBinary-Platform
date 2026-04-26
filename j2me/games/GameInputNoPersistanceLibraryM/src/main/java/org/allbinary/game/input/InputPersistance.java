@@ -132,7 +132,7 @@ public class InputPersistance extends BasicPersitance
             */
 
             this.valueList.add(hashtable);
-            this.idList.add(smallIntegerSingletonFactory.getInstance(id));
+            this.idList.add(smallIntegerSingletonFactory.getAt(id));
         }
 
         recordStore.closeRecordStore();

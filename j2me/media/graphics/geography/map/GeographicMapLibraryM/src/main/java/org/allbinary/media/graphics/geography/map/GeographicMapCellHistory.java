@@ -71,7 +71,7 @@ public class GeographicMapCellHistory
       return this.list.size();
    }
 
-   public void track(final BasicArrayList list)
+   public void trackAll(final BasicArrayList list)
    {
       final int size = list.size();
       this.list.ensureCapacity(size);
@@ -265,7 +265,7 @@ public class GeographicMapCellHistory
       }
    }
 
-   public boolean isVisited(final BasicDecimal basicDecimal)
+   public boolean isPortionVisited(final BasicDecimal basicDecimal)
       throws Exception
    {
       final int size = this.getSize();
@@ -305,8 +305,7 @@ public class GeographicMapCellHistory
       this.totalVisited = 0;
    }
    
-   private void paintNotVisited(
-      final Graphics graphics, final AllBinaryTiledLayer tiledLayer, final GPoint point)
+   private void paintNotVisitedRelativeToPoint(final Graphics graphics, final AllBinaryTiledLayer tiledLayer, final GPoint point)
    {
       final int x = point.getX() - tiledLayer.getXP();
       final int y = point.getY() - tiledLayer.getYP();
@@ -319,7 +318,7 @@ public class GeographicMapCellHistory
       final MyFont myFont = MyFont.getInstance();
       final int height = 2 * myFont.DEFAULT_CHAR_HEIGHT;
       
-      this.animation.paint(graphics, x + halfWidth,
+      this.animation.paintXY(graphics, x + halfWidth,
             //(tiledLayer.getCellHeight() >> 1)
               y + (height));
 
@@ -358,7 +357,7 @@ public class GeographicMapCellHistory
 
             if (!isCellVisitedBoolean.booleanValue())
             {
-               this.paintNotVisited(
+               this.paintNotVisitedRelativeToPoint(
                   graphics,
                   geographicMapInterface.getAllBinaryTiledLayer(),
                   geographicMapCellPosition.getPoint());

@@ -24,8 +24,8 @@ public class GameInputLayerProcessor extends LayerProcessor {
 	}
 
         @Override
-	public void process(final AllBinaryLayerManager allBinaryLayerManager,
-	        final AllBinaryLayer layerInterface, final int index) throws Exception {
+	public void processAt(final AllBinaryLayerManager allBinaryLayerManager,
+                          final AllBinaryLayer layerInterface, final int index) throws Exception {
 		final GameInputInterface gameInputInterface = (GameInputInterface) layerInterface;
 		gameInputInterface.processInput(allBinaryLayerManager);
 	}

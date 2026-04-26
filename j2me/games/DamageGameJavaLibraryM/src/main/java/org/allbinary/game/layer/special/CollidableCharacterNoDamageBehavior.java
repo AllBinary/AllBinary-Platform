@@ -41,7 +41,7 @@ extends CollidableDestroyableDamageableBehavior
         if (collisionType == collisionTypeFactory.PICKUP)
         {
             final CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer = (CollidableDestroyableDamageableLayer) this.ownerLayer;
-            collidableDestroyableDamageableLayer.getPickupBehavior().doPickup((PickedUpLayerInterface) collidableInterfaceCompositeInterface);
+            collidableDestroyableDamageableLayer.getPickupBehavior().doPickupLayer((PickedUpLayerInterface) collidableInterfaceCompositeInterface);
         }
         else
         {
@@ -51,7 +51,7 @@ extends CollidableDestroyableDamageableBehavior
     }
 
     @Override
-    public void collide(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
+    public void collideInterface(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
         throws Exception
     {
         //this.logUtil.putF("collideInterface", this, damageUtil.COLLIDE);

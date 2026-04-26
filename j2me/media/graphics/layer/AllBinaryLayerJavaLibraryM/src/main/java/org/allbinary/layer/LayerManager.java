@@ -37,7 +37,7 @@ public class LayerManager
         for(int index = 0; index < size; index++) {
             nextLayerInterface = (AllBinaryLayer) this.list.get(index);
             if(layerInterface.getZP() > nextLayerInterface.getZP()) {
-                this.append(layerInterface, index);
+                this.appendAt(layerInterface, index);
                 return;
             }
         }
@@ -51,12 +51,12 @@ public class LayerManager
         this.list.add(layerInterface);
     }
 
-    public void append(final AllBinaryLayer layerInterface, final int index)
+    public void appendAt(final AllBinaryLayer layerInterface, final int index)
             throws Exception
     {
-        this.layerManagerLogging.append(layerInterface, index);
+        this.layerManagerLogging.appendAt(layerInterface, index);
 
-        this.list.add(index, layerInterface);
+        this.list.addAt(index, layerInterface);
     }
     
     public void remove(final AllBinaryLayer layerInterface)
@@ -67,7 +67,7 @@ public class LayerManager
             this.layerManagerLogging.remove(layerInterface);
     	    final boolean result = 
                     this.list.remove(layerInterface);
-            this.layerManagerLogging.remove(this, layerInterface, result);
+            this.layerManagerLogging.removeResult(this, layerInterface, result);
     	}
     }
 

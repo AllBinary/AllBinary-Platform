@@ -31,8 +31,8 @@ public class OptimizedAllBinaryCollisionLayerProcessorForCollidableLayer
     }
 
     @Override
-    public void process(AllBinaryLayerManager allBinaryLayerManager,
-            AllBinaryLayer layerInterface, int startIndex) throws Exception
+    public void processAt(AllBinaryLayerManager allBinaryLayerManager,
+                          AllBinaryLayer layerInterface, int startIndex) throws Exception
     {
         // no physics here - just destroy them
         CollidableCompositeLayer collidableInterfaceCompositeInterface = (CollidableCompositeLayer) layerInterface;

@@ -32,7 +32,7 @@ public class CustomMapGeneratorBaseFactory {
         
     }
     
-    public CustomMapGeneratorBase getInstance(final RaceTrackGeographicMap raceTrackGeographicMap) throws Exception {
+    public CustomMapGeneratorBase create(final RaceTrackGeographicMap raceTrackGeographicMap) throws Exception {
         return new CustomMapGeneratorBase();
     }
 

@@ -93,7 +93,7 @@ public class DownloadableItemView implements DomNodeInterface
             String name = (String) nameArray[index];
             String value = (String) hashMap.get(name);
             
-            value = stringUtil.getInstance(value);
+            value = stringUtil.getNonNull(value);
             
             node.appendChild(ModDomHelper.createNameValueNodes(document, name, value));
          }

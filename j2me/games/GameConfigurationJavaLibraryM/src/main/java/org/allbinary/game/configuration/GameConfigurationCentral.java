@@ -82,77 +82,77 @@ public class GameConfigurationCentral
         final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
         
         this.SCALE = new GameConfiguration("Scale",
-                smallIntegerSingletonFactory.getInstance(2),
-                smallIntegerSingletonFactory.getInstance(2),
-                smallIntegerSingletonFactory.getInstance(3));
+                smallIntegerSingletonFactory.getAt(2),
+                smallIntegerSingletonFactory.getAt(2),
+                smallIntegerSingletonFactory.getAt(3));
         this.ORIENTATION = new GameConfiguration("Orientation",
-                smallIntegerSingletonFactory.getInstance(0),
-                smallIntegerSingletonFactory.getInstance(0),
-                smallIntegerSingletonFactory.getInstance(8));
+                smallIntegerSingletonFactory.getAt(0),
+                smallIntegerSingletonFactory.getAt(0),
+                smallIntegerSingletonFactory.getAt(8));
         this.SENSOR_UPDATE_RATE = new GameConfiguration("Sensor Update Rate",
-                smallIntegerSingletonFactory.getInstance(0),
-                smallIntegerSingletonFactory.getInstance(0),
-                smallIntegerSingletonFactory.getInstance(3));
+                smallIntegerSingletonFactory.getAt(0),
+                smallIntegerSingletonFactory.getAt(0),
+                smallIntegerSingletonFactory.getAt(3));
         this.VIBRATION = new GameConfiguration("Vibration",
-                smallIntegerSingletonFactory.getInstance(0),
-                smallIntegerSingletonFactory.getInstance(0),
-                smallIntegerSingletonFactory.getInstance(3));
+                smallIntegerSingletonFactory.getAt(0),
+                smallIntegerSingletonFactory.getAt(0),
+                smallIntegerSingletonFactory.getAt(3));
         this.CHALLENGE_LEVEL = new GameConfiguration("Global Challenge Level",
-                smallIntegerSingletonFactory.getInstance(3),
-                smallIntegerSingletonFactory.getInstance(1),
-                smallIntegerSingletonFactory.getInstance(10));
+                smallIntegerSingletonFactory.getAt(3),
+                smallIntegerSingletonFactory.getAt(1),
+                smallIntegerSingletonFactory.getAt(10));
         this.COLLIDE_DAMAGE = new GameConfiguration(
                 "Collide Damage Challenge Level",
-                smallIntegerSingletonFactory.getInstance(3),
-                smallIntegerSingletonFactory.getInstance(1),
-                smallIntegerSingletonFactory.getInstance(10));
+                smallIntegerSingletonFactory.getAt(3),
+                smallIntegerSingletonFactory.getAt(1),
+                smallIntegerSingletonFactory.getAt(10));
         this.DURABILITY_CHALLENGE_LEVEL = new GameConfiguration(
                 "Enemy Durability Challenge Level",
-                smallIntegerSingletonFactory.getInstance(3),
-                smallIntegerSingletonFactory.getInstance(1),
-                smallIntegerSingletonFactory.getInstance(10));
+                smallIntegerSingletonFactory.getAt(3),
+                smallIntegerSingletonFactory.getAt(1),
+                smallIntegerSingletonFactory.getAt(10));
         this.SPEED_CHALLENGE_LEVEL = new GameConfiguration(
                 "Enemy Speed Challenge Level",
-                smallIntegerSingletonFactory.getInstance(3),
-                smallIntegerSingletonFactory.getInstance(1),
-                smallIntegerSingletonFactory.getInstance(10));
+                smallIntegerSingletonFactory.getAt(3),
+                smallIntegerSingletonFactory.getAt(1),
+                smallIntegerSingletonFactory.getAt(10));
         this.ATTACK_CHALLENGE_LEVEL = new GameConfiguration(
                 "Enemy Attack Challenge Level",
-                smallIntegerSingletonFactory.getInstance(3),
-                smallIntegerSingletonFactory.getInstance(1),
-                smallIntegerSingletonFactory.getInstance(10));
+                smallIntegerSingletonFactory.getAt(3),
+                smallIntegerSingletonFactory.getAt(1),
+                smallIntegerSingletonFactory.getAt(10));
 
         this.CONTROL_LEVEL = new GameConfiguration("Control Fidelity",
-                smallIntegerSingletonFactory.getInstance(5),
-                smallIntegerSingletonFactory.getInstance(1),
-                smallIntegerSingletonFactory.getInstance(10));
+                smallIntegerSingletonFactory.getAt(5),
+                smallIntegerSingletonFactory.getAt(1),
+                smallIntegerSingletonFactory.getAt(10));
 
         this.PLAYER_INPUT_WAIT = new GameConfiguration("Input Wait",
-                smallIntegerSingletonFactory.getInstance(5),
-                smallIntegerSingletonFactory.getInstance(1),
-                smallIntegerSingletonFactory.getInstance(10));
+                smallIntegerSingletonFactory.getAt(5),
+                smallIntegerSingletonFactory.getAt(1),
+                smallIntegerSingletonFactory.getAt(10));
 
         // More is slower - tie too frame processing like a ship firing rate or
         // enemy activity level
         this.SPEED = new GameConfiguration("Game Speed (Device Specific)",
-                smallIntegerSingletonFactory.getInstance(5),
-                smallIntegerSingletonFactory.getInstance(1),
-                smallIntegerSingletonFactory.getInstance(10));
+                smallIntegerSingletonFactory.getAt(5),
+                smallIntegerSingletonFactory.getAt(1),
+                smallIntegerSingletonFactory.getAt(10));
 
         // public GameConfiguration GRAPHICS = new
         // GameConfiguration(smallIntegerSingletonFactory.getInstance(0));
         this.SOUND_VOLUME = new GameConfiguration("Sound Volume",
-                smallIntegerSingletonFactory.getInstance(6),
-                smallIntegerSingletonFactory.getInstance(0),
-                smallIntegerSingletonFactory.getInstance(10));
+                smallIntegerSingletonFactory.getAt(6),
+                smallIntegerSingletonFactory.getAt(0),
+                smallIntegerSingletonFactory.getAt(10));
         this.MAX_GAME_OBJECTS = new GameConfiguration("Max Game Objects",
-                smallIntegerSingletonFactory.getInstance(20),
-                smallIntegerSingletonFactory.getInstance(1),
-                smallIntegerSingletonFactory.getInstance(50));
+                smallIntegerSingletonFactory.getAt(20),
+                smallIntegerSingletonFactory.getAt(1),
+                smallIntegerSingletonFactory.getAt(50));
         this.MAX_LAYERS = new GameConfiguration("Max Layers",
-                smallIntegerSingletonFactory.getInstance(20),
-                smallIntegerSingletonFactory.getInstance(1),
-                smallIntegerSingletonFactory.getInstance(50));
+                smallIntegerSingletonFactory.getAt(20),
+                smallIntegerSingletonFactory.getAt(1),
+                smallIntegerSingletonFactory.getAt(50));
     }
     
     public void load(final AbeClientInformationInterface abeClientInformation)
@@ -176,7 +176,7 @@ public class GameConfigurationCentral
                 final Object object = (Object) this.SCALE.getName();
                 final String value = (String) hashtable.get(object);
 
-                this.SCALE.setValue(smallIntegerSingletonFactory.getInstance(Integer.valueOf(value).intValue()));
+                this.SCALE.setValue(smallIntegerSingletonFactory.getAt(Integer.valueOf(value).intValue()));
             } else
             {
                 this.logUtil.putF("No Game Configuration To Load", this, commonStrings.LOAD);

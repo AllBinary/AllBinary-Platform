@@ -46,10 +46,10 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
     public Rectangle getRectangle(String resource)
             throws Exception
     {
-        return getRectangle(resource, 0, 0);
+        return getRectangleXY(resource, 0, 0);
     }
 
-    public Rectangle getRectangle(final String resource, final int x, final int y)
+    public Rectangle getRectangleXY(final String resource, final int x, final int y)
             throws Exception
     {
         final PointFactory pointFactory = PointFactory.getInstance();
@@ -67,7 +67,7 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
 
                 if (rectangle != RectangleFactory.SINGLETON)
                 {
-                    return new Rectangle(pointFactory.getInstance0(x, y),
+                    return new Rectangle(pointFactory.createXY(x, y),
                             ((rectangle.getWidth() * scale) >> 1), ((rectangle.getHeight() * scale) >> 1));
                 }
             }

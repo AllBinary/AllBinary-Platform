@@ -16,7 +16,6 @@ package org.allbinary.game.behavior.topview;
 import org.allbinary.game.layer.behavior.GameLayerBehavior;
 import org.allbinary.game.physics.acceleration.BasicAccelerationProperties;
 import org.allbinary.game.physics.velocity.VelocityProperties;
-import org.allbinary.string.CommonStrings;
 
 /**
  *
@@ -49,13 +48,13 @@ public class TopViewGameLayerBehavior extends GameLayerBehavior {
 
     public void land(final VelocityProperties velocityProperties) {
         //this.logUtil.putF(commonStrings.START, this, "land");
-        velocityProperties.getVelocityYBasicDecimalP().set(0);
-        this.land();
+        velocityProperties.getVelocityYBasicDecimalP().setint(0);
+        this.landReset();
         // Takes a long time - unknown
         // jumpPlayer.stop();
     }
     
-    public void land() {
+    public void landReset() {
         this.gravityActionIndex = 0;
         this.isFallingWithoutJumpAttempt = false;
         this.isJumpAction = true;
@@ -69,7 +68,7 @@ public class TopViewGameLayerBehavior extends GameLayerBehavior {
                 final int acceleration2 = -acceleration.getForward() * accelerationMultiplier;
                 //this.logUtil.putF("Jump: " + velocityProperties.getVelocityYBasicDecimalP().getUnscaled(), this, commonStrings.UP);
                 //this.logUtil.putF("Acceleration: " + acceleration2, this, commonStrings.UP);
-                velocityProperties.getVelocityYBasicDecimalP().add(acceleration2);
+                velocityProperties.getVelocityYBasicDecimalP().addint(acceleration2);
                 //this.logUtil.putF("Jumping: " + velocityProperties.getVelocityYBasicDecimalP().getUnscaled(), this, commonStrings.UP);
                 velocityProperties.limitXYToForwardAndReverseMaxVelocity();
 

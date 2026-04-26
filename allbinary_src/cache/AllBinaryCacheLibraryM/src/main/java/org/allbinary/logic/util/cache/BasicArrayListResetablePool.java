@@ -33,7 +33,7 @@ public class BasicArrayListResetablePool extends AbstractArrayListPool
       int size = this.buffers.size();
       if(size > 0)
       {
-          return (CacheableInterface) buffers.remove(size - 1);
+          return (CacheableInterface) buffers.removeAt(size - 1);
       }
       else
       {

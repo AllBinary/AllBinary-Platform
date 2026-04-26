@@ -26,7 +26,7 @@ public class Layer
     protected final LogUtil logUtil = LogUtil.getInstance();
     
     //- These methods are for optimizing to concrete classes
-    public static final Integer ID = SmallIntegerSingletonFactory.getInstance().getInstance(0);
+    public static final Integer ID = SmallIntegerSingletonFactory.getInstance().getAt(0);
 
     protected int x;
 
@@ -62,7 +62,7 @@ public class Layer
 
     //private static final String MOVE = "move";
     
-    public void move(final int dx, final int dy)
+    public void moveDXY(final int dx, final int dy)
     {
         //final PositionStrings positionStrings = PositionStrings.getInstance();
         //final StringMaker stringMaker = new StringMaker();
@@ -80,7 +80,7 @@ public class Layer
         //this.logUtil.putF(stringMaker.toString(), this, MOVE);
     }
     
-    public void move(int dx, int dy, int dz)
+    public void moveDXYZ(int dx, int dy, int dz)
     {
         //final PositionStrings positionStrings = PositionStrings.getInstance();
         //final StringMaker stringMaker = new StringMaker();
@@ -161,7 +161,7 @@ public class Layer
         this.height = height;
     }
     
-    public void toString(final StringMaker stringBuffer) {
+    public void toStringAppend(final StringMaker stringBuffer) {
         
     }    
     

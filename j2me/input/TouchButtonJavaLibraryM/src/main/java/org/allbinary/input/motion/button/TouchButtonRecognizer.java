@@ -59,9 +59,9 @@ public class TouchButtonRecognizer
                 GameKeyEvent gameKeyEvent = nextTouchButtonInput.getGameKeyEvent();
                 
                 upGameKeyEventHandler.fireEvent(gameKeyEvent);
-                upGameKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
+                upGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
 
-                this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.remove(index);
+                this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.removeAt(index);
 
               //TWB - Debugging
                 //this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton
@@ -100,9 +100,9 @@ public class TouchButtonRecognizer
                     GameKeyEvent gameKeyEvent = nextTouchButtonInput.getGameKeyEvent();
                     
                     upGameKeyEventHandler.fireEvent(gameKeyEvent);
-                    upGameKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
+                    upGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
 
-                    this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.remove(index);
+                    this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.removeAt(index);
 
                   //TWB - Debugging
                     //this.touchButtonRecognizer.currentlyPressedTouchButtonSingleton
@@ -165,7 +165,7 @@ public class TouchButtonRecognizer
         GameKeyEvent gameKeyEvent = touchButtonInput.getGameKeyEvent();
 
         this.upGameKeyEventHandler.fireEvent(gameKeyEvent);
-        this.upGameKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
+        this.upGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
                     
         this.currentlyPressedTouchButtonSingleton.remove(touchButtonInput);
     }
@@ -295,7 +295,7 @@ public class TouchButtonRecognizer
                     GameKeyEvent gameKeyEvent = touchButtonInput.getGameKeyEvent();
 
                     this.downGameKeyEventHandler.fireEvent(gameKeyEvent);
-                    this.downGameKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
+                    this.downGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
 
                 }
               //TWB - Debugging

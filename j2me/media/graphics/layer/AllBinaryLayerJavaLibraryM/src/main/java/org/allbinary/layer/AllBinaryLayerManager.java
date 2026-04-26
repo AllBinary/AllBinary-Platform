@@ -15,7 +15,6 @@ package org.allbinary.layer;
 
 import org.allbinary.layer.event.LayerManagerEvent;
 import org.allbinary.layer.event.LayerManagerEventHandler;
-import org.allbinary.logic.communication.log.LogUtil;
 
 public class AllBinaryLayerManager extends LayerManager
 {
@@ -77,13 +76,13 @@ public class AllBinaryLayerManager extends LayerManager
     }
 
     @Override
-    public void append(final AllBinaryLayer layerInterface, final int index) throws Exception
+    public void appendAt(final AllBinaryLayer layerInterface, final int index) throws Exception
     {
         if(!this.contains(layerInterface))
         {
             this.appendProcessors(layerInterface);
 
-            super.append(layerInterface, index);
+            super.appendAt(layerInterface, index);
         }
     }
 

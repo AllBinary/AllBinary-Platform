@@ -83,7 +83,7 @@ public class OnDemandLoader
 
             if (onDemandResources != OnDemandResources.NULL_ON_DEMAND_RESOURCES)
             {
-                index = onDemandResources.init(imageCache,
+                index = onDemandResources.initAt(imageCache,
                         this.resourceAnimationInterfaceFactoryInterfaceFactory,
                         portion, loadingString, index);
             }
@@ -113,7 +113,7 @@ public class OnDemandLoader
             //if null then it is already loaded
             if (onDemandResources != OnDemandResources.NULL_ON_DEMAND_RESOURCES)
             {
-                index = onDemandResources.init(imageCache,
+                index = onDemandResources.initAt(imageCache,
                         this.resourceAnimationInterfaceFactoryInterfaceFactory,
                         portion, loadingString, index);
             }

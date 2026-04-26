@@ -43,7 +43,7 @@ public class ExitRunnable implements Runnable
         {
             this.logUtil.putF(commonStrings.START_RUNNABLE, this, commonStrings.RUN);
 
-            this.midlet.destroyApp(false, this.isProgress);
+            this.midlet.destroyAppInRunnable(false, this.isProgress);
 
             // Why set to null
             this.midlet.setDisplay(NullCanvas.NULL_CANVAS);

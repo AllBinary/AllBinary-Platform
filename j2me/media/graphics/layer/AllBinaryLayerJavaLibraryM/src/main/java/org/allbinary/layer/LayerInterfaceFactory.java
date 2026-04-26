@@ -44,7 +44,7 @@ public class LayerInterfaceFactory
    
    private final String HASHTABLE_LABEL = "Hashtable: ";
 
-   public AllBinaryLayer getInstance(final Hashtable hashtable, final int x, final int y, int z)
+   public AllBinaryLayer getNexInstance(final Hashtable hashtable, final int x, final int y, int z)
            throws Exception
    {
        final CommonStrings commonStrings = CommonStrings.getInstance();
@@ -69,7 +69,7 @@ public class LayerInterfaceFactory
       }
       */
 
-      return layerInterfaceFactoryInterface.getInstance(hashtable, x, y, z);
+      return layerInterfaceFactoryInterface.getNextInstance(hashtable, x, y, z);
    }
    
    public void add(final LayerInterfaceFactoryInterface layerInterfaceFactoryInterface)

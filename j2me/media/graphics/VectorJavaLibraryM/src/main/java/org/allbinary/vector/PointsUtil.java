@@ -25,7 +25,7 @@ public class PointsUtil
         return instance;
     }
     
-    public int[][][] adjust(final int[][][] points, final int x, final int y)
+    public int[][][] adjustXY(final int[][][] points, final int x, final int y)
     {
         // StringMaker stringBuffer = new StringMaker();
         final int size = points.length;

@@ -36,7 +36,7 @@ public class AllBinaryVisualDebugVibration extends AllBinaryVibrationME
     
     public void paint(Graphics graphics)
     {
-        if (this.timeDelayHelper.isTime())
+        if (this.timeDelayHelper.isTimeTNT())
         {
             this.timeDelayHelper.delay = Integer.MAX_VALUE;
             

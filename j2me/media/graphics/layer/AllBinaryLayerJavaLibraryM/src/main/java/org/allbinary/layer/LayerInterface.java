@@ -41,7 +41,7 @@ public interface LayerInterface
 
    boolean isVisible();
 
-   void move(int dx, int dy, int dz);
+   void moveDXYZ(int dx, int dy, int dz);
 
    void setVisible(boolean visible);
 

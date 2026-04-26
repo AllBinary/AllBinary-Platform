@@ -109,7 +109,7 @@ implements BaseMotionGestureEventListener
             new GameNotificationEvent(
                     this, 
                     RTSGameStrings.getInstance().NOT_YOURS,
-                    SmallIntegerSingletonFactory.getInstance().getInstance(2),
+                    SmallIntegerSingletonFactory.getInstance().getAt(2),
                     basicColorFactory.PINK,
                     BooleanFactory.getInstance().FALSE);            
         
@@ -155,7 +155,7 @@ implements BaseMotionGestureEventListener
 
             if (this.getRtsPlayerLayerInterface().getCurrentScrollSelectionForm().isInForm(point))
             {
-                rtsFormInput.process(
+                rtsFormInput.processAtPoint(
                         this.getSelectedRtsLayer(),
                         this.getRtsPlayerLayerInterface(),
                         layerManager, point);
@@ -168,7 +168,7 @@ implements BaseMotionGestureEventListener
 
                 this.getSelectedBuildingPlayerGameInput().selectAllPreselected();
 
-                previousRtsFormInput.process(
+                previousRtsFormInput.processAtPoint(
                         this.getSelectedRtsLayer(),
                         this.getRtsPlayerLayerInterface(), 
                         layerManager, point);
@@ -362,7 +362,7 @@ implements BaseMotionGestureEventListener
         this.setSelectedRtsLayer(CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER);
     }
 
-    private void updateForm(final RTSLayer rtsLayer)
+    private void updateFormForLayer(final RTSLayer rtsLayer)
     {
         final ScrollSelectionForm scrollSelectionForm = rtsLayer.getScrollSelectionForm();
 
@@ -425,7 +425,7 @@ implements BaseMotionGestureEventListener
             final RTSLayer rtsLayer = (RTSLayer) rtSLayer;
             rtsLayer.select();
 
-            this.updateForm(rtsLayer);
+            this.updateFormForLayer(rtsLayer);
 
             if (gameCanvas.getGameState() == GameState.PLAYING_GAME_STATE)
             {
@@ -512,7 +512,7 @@ implements BaseMotionGestureEventListener
                     geographicMapInterface.getForegroundBasicColor());
             this.multiSelectPaintable.update(list);
 
-            this.getRTSLayerInfoPaintable().updateRTSLayerInfo(
+            this.getRTSLayerInfoPaintable().updateRTSLayerInfoSelection(
                     multiSelectPaintable);
         }
         else
@@ -520,12 +520,12 @@ implements BaseMotionGestureEventListener
             {
                 RTSLayer rtsLayer = (RTSLayer) list.get(0);
                 
-                this.getRTSLayerInfoPaintable().updateRTSLayerInfo(
+                this.getRTSLayerInfoPaintable().updateRTSLayerInfoSelection(
                         rtsLayer.createHudPaintable());
             }
             else
         {
-            this.getRTSLayerInfoPaintable().updateRTSLayerInfo(
+            this.getRTSLayerInfoPaintable().updateRTSLayerInfoInit(
                     NullInitUpdatePaintable.getInstance());
         }
     }

@@ -37,16 +37,15 @@ public class AndroidTitleProgressBar extends ProgressCanvas
 
     private int portion = 0;
 
-    protected AndroidTitleProgressBar(String title, 
-            BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
+    protected AndroidTitleProgressBar(final String title, final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
     {
         super(title, backgroundBasicColor, foregroundBasicColor);
     }
 
-    public void init(SimpleProgressActivityInterface activity)
-    {
-      //  this.midletActivity = activity;
-    }
+//    public void init(SimpleProgressActivityInterface activity)
+//    {
+//      //  this.midletActivity = activity;
+//    }
 
     public void init(ProgressActivityInterface activity)
     {
@@ -114,13 +113,13 @@ public class AndroidTitleProgressBar extends ProgressCanvas
     }
     
     @Override
-    public void addPortion(int value, String text)
+    public void addNormalPortion(int value, String text)
     {
         try
         {
             //this.logUtil.putF(commonStrings.START, this, ADD_PORTION);
 
-            super.addPortion(value, text);
+            super.addNormalPortion(value, text);
             this.portion = value;
             this.progressActivity.runOnUiThread(this.progressDialogPortionSetProgressRunnable);
         }

@@ -81,11 +81,11 @@ public class BasicPopupMenuPaintable extends Paintable
 
         int BORDER = 0;
         if(J2MEUtil.isHTML() || (AndroidUtil.isAndroid() && isOpenGL)) {
-            BORDER = MyFont.getInstance().charWidth() / 2;
+            BORDER = MyFont.getInstance().defaultCharWidth() / 2;
         } else if(AndroidUtil.isAndroid() || J2MEUtil.isJ2SE() || SWTUtil.isSWT) {
-            BORDER = MyFont.getInstance().charWidth();
+            BORDER = MyFont.getInstance().defaultCharWidth();
         } else {
-            BORDER = MyFont.getInstance().charWidth() * 2;
+            BORDER = MyFont.getInstance().defaultCharWidth() * 2;
         }
         this.BORDER = BORDER;
 
@@ -158,7 +158,7 @@ public class BasicPopupMenuPaintable extends Paintable
        final int width = this.rectangle.getWidth();
        int height = this.rectangle.getHeight();
 
-       this.animationInterface.paint(graphics, x, y);
+       this.animationInterface.paintXY(graphics, x, y);
 
        this.basicSetColorUtil.setBasicColorP(graphics, this.foregroundBasicColor);
        

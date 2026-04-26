@@ -1169,7 +1169,7 @@ public class NoDecimalTrigTable
             if(dx <= 0 && dy < 0)
             {
             	//PreLogUtil.put("How is dx or dy not negative? " + PositionStrings + dx + PositionStrings + dy, this, ANTITAN);
-            	ratio = this.mathUtil.abs(ratio);
+            	ratio = this.mathUtil.abslong(ratio);
             }
 
             //this.logUtil.putF("ratioUnscaled: " + ratioUnscaled, this, ANTITAN);
@@ -1291,7 +1291,7 @@ public class NoDecimalTrigTable
 			for(int index2 = 0; index2 < dy.length; index2++)
 			{
 				angleOfTarget = this.antiTan(dx[index], dy[index2]);
-				angle = angleFactory.getInstance((int) angleOfTarget);
+				angle = angleFactory.getAt((int) angleOfTarget);
                                 stringMaker.delete(0, stringMaker.length());
 				PreLogUtil.put(stringMaker.append(CommonLabels.getInstance().INDEX_LABEL).appendint(index).append(" index2: ").appendint(index2).append(PositionStrings.getInstance().DX_LABEL).appendint(dx[index]).append(PositionStrings.getInstance().DY_LABEL).appendint(dy[index2]).append(TARGET_ANGLE).appendshort(angleOfTarget).append(CommonSeps.getInstance().EQUALS).appendshort(angle.getValue()).toString(), this, METHOD_NAME);
 			}

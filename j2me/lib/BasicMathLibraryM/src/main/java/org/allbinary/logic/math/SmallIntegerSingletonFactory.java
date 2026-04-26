@@ -34,7 +34,7 @@ public class SmallIntegerSingletonFactory
     public int lastMin = 0;
     public int lastNegativeMin = 0;
 
-    public void init(int value, int negativeValue)
+    public void initWithRange(int value, int negativeValue)
     {
         for (int index = value - 1; index >= this.lastMin; index--)
         {
@@ -96,14 +96,14 @@ public class SmallIntegerSingletonFactory
     }
     */
 
-    public Integer getInstance(int index)
+    public Integer getAt(int index)
     {
         //this.updateStats(index);
 
         return this.INTEGER_ARRAY[index + this.NEGATIVE_MAX];
     }
 
-    public Integer getInstanceNoThrow(int index)
+    public Integer getAtNoThrow(int index)
     {
         //this.updateStats(index);
 
@@ -118,7 +118,7 @@ public class SmallIntegerSingletonFactory
     {
         //this.updateStats(index);
 
-        Integer integer = getInstance(index);
+        Integer integer = getAt(index);
         
         if(integer == null)
         {

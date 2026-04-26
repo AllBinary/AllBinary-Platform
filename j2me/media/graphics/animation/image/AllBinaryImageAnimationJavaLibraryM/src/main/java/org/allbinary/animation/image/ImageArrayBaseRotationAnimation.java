@@ -42,7 +42,7 @@ public class ImageArrayBaseRotationAnimation extends RotationAnimation //impleme
     public ImageArrayBaseRotationAnimation(final Image[] originalImageArray, final AngleInfo angleInfo, final AnimationBehavior animationBehavior) 
         throws Exception {
         
-        super(angleInfo, CircularIndexUtil.getInstance(360 / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
+        super(angleInfo, CircularIndexUtil.create(360 / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
 
         //this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
@@ -117,13 +117,13 @@ public class ImageArrayBaseRotationAnimation extends RotationAnimation //impleme
     {
         this.imageArray = imageArray;
         this.totalFrames = imageArray.length;
-        this.circularIndexUtil = CircularIndexUtil.getInstance(this.totalFrames);
+        this.circularIndexUtil = CircularIndexUtil.create(this.totalFrames);
     }
 
     private int anchor = Anchor.TOP_LEFT;
 
     @Override    
-    public void paint(final Graphics graphics, final int x, final int y)
+    public void paintXY(final Graphics graphics, final int x, final int y)
     {
         graphics.drawImage(this.currentImage, x, y, anchor);
     }
@@ -134,15 +134,15 @@ public class ImageArrayBaseRotationAnimation extends RotationAnimation //impleme
         
         final int size2 = this.imageArray.length;
         for(int index = 0; index < size2; index++) {
-            disposalUtil.dispose(this.imageArray[index]);
+            disposalUtil.disposeImage(this.imageArray[index]);
         }
 
         final int size = this.originalImageArray.length;
         for(int index = 0; index < size; index++) {
-            disposalUtil.dispose(this.originalImageArray[index]);
+            disposalUtil.disposeImage(this.originalImageArray[index]);
         }
         
-        disposalUtil.dispose(this.currentImage);
+        disposalUtil.disposeImage(this.currentImage);
     }
  
     @Override
@@ -152,15 +152,15 @@ public class ImageArrayBaseRotationAnimation extends RotationAnimation //impleme
         
         final int size2 = this.imageArray.length;
         for(int index = 0; index < size2; index++) {
-            disposalUtil.dispose(this.imageArray[index]);
+            disposalUtil.disposeImage(this.imageArray[index]);
         }
 
         final int size = this.originalImageArray.length;
         for(int index = 0; index < size; index++) {
-            disposalUtil.dispose(this.originalImageArray[index]);
+            disposalUtil.disposeImage(this.originalImageArray[index]);
         }
         
-        disposalUtil.dispose(this.currentImage);
+        disposalUtil.disposeImage(this.currentImage);
     }
     
 }

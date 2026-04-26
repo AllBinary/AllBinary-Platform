@@ -41,7 +41,7 @@ public class PtsDamageFloaters extends DamageFloaters
     private int[] lastDamageStringSizeArray = new int[5];
     
     private CircularIndexUtil circularIndexUtil = 
-        CircularIndexUtil.getInstance(5);
+        CircularIndexUtil.create(5);
 
     private final PrimitiveLongUtil primitiveLongUtil;
     

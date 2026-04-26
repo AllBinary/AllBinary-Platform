@@ -63,15 +63,14 @@ implements ItemArraySingletonFactoryInterface
         {
             name = name.substring(index);
         }
-        return this.createFlagItem(flagResources, name, layerInterfaceFactoryInterface);
+        return this.createNamedFlagItem(flagResources, name, layerInterfaceFactoryInterface);
     }
 
-    protected CustomItem createFlagItem(final FlagGameResources flagResources, final String name,
-        final LayerInterfaceFactoryInterface layerInterfaceFactoryInterface) throws Exception
+    protected CustomItem createNamedFlagItem(final FlagGameResources flagResources, final String name, final LayerInterfaceFactoryInterface layerInterfaceFactoryInterface) throws Exception
     {
         final ImageCache IMAGE_CACHE = GameFeatureImageCacheFactory.getInstance();
         
-        final Image image = IMAGE_CACHE.get(flagResources.RESOURCE_ICON);
+        final Image image = IMAGE_CACHE.getWithKey(flagResources.RESOURCE_ICON);
         
         final CustomItem item = new LayerInterfaceFactoryImageItem(
                 name, image,

@@ -32,7 +32,7 @@ public class AdjustedCircleAnimation
     {
         final AdjustedCircleAnimation adjustedCircleAnimation = new AdjustedCircleAnimation(width, height, basicColor);
 
-        adjustedCircleAnimation.init(xAdjustment, yAdjustment);
+        adjustedCircleAnimation.initXY(xAdjustment, yAdjustment);
 
         return adjustedCircleAnimation;
     }
@@ -56,7 +56,7 @@ public class AdjustedCircleAnimation
         super(width, height, basicColor);
     }
 
-    private void init(final int xAdjustment, final int yAdjustment) {
+    private void initXY(final int xAdjustment, final int yAdjustment) {
         this.xAdjustment = xAdjustment;
         this.yAdjustment = yAdjustment;
     }
@@ -74,7 +74,7 @@ public class AdjustedCircleAnimation
     }
 
     @Override
-   public void paint(Graphics graphics, int x, int y) {
+   public void paintXY(Graphics graphics, int x, int y) {
       
        this.basicSetColorUtil.setBasicColorP3(
                graphics, this.getBasicColorP(), this.getColor());

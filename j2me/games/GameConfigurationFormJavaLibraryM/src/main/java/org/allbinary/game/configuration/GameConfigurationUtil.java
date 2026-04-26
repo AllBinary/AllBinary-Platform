@@ -44,7 +44,7 @@ public class GameConfigurationUtil
             GameConfigurationSingleton.getInstance();
         
         GameConfiguration gameConfiguration = gameConfigurationSingleton
-                .getInstance(gauge.getLabel());
+                .getInstanceByName(gauge.getLabel());
         
         this.updateChallange(gameOptionsForm, gameConfiguration);
     }
@@ -59,11 +59,11 @@ public class GameConfigurationUtil
             GameConfigurationSingleton.getInstance();
 
         GameConfiguration gameConfiguration = gameConfigurationSingleton
-                .getInstance(gauge.getLabel());
+                .getInstanceByName(gauge.getLabel());
 
         final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
         
-        Integer value = smallIntegerSingletonFactory.getInstance(
+        Integer value = smallIntegerSingletonFactory.getAt(
                 gauge.getValue() + gameConfiguration.getMinValue().intValue());
 
         StringMaker stringBuffer = new StringMaker();
@@ -87,7 +87,7 @@ public class GameConfigurationUtil
             GameConfigurationSingleton.getInstance();
         
         GameConfiguration gameConfiguration = gameConfigurationSingleton
-                .getInstance(gauge.getLabel());
+                .getInstanceByName(gauge.getLabel());
 
         StringMaker stringBuffer = new StringMaker();
         
@@ -136,7 +136,7 @@ public class GameConfigurationUtil
                     GameConfigurationGauge gauge = (GameConfigurationGauge) item;
                     String name = item.getLabel();
                     
-                    GameConfiguration nextGameConfiguration = gameConfigurationSingleton.getInstance(name);
+                    GameConfiguration nextGameConfiguration = gameConfigurationSingleton.getInstanceByName(name);
                     
                     if (nextGameConfiguration == gameConfigurationCentral.COLLIDE_DAMAGE)
                     {

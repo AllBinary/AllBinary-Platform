@@ -48,8 +48,8 @@ implements VelocityInterfaceCompositeInterface
         
         AngleFactory angleFactory = AngleFactory.getInstance();
         
-        this.velocityProperties.setVelocity(speedBasicDecimal, 
-                angleFactory.getInstance(angle), angleFactory.getInstance(otherAngle));
+        this.velocityProperties.setVelocityWithBigDecimal(speedBasicDecimal,
+                angleFactory.getAt(angle), angleFactory.getAt(otherAngle));
     }
 
     public void moveOutsideRadius(AllBinaryLayer layer, long radius, int angle, int otherAngle)
@@ -60,13 +60,13 @@ implements VelocityInterfaceCompositeInterface
         int yVector = (int) (this.axisMathVectorUtil.calculateY(radius, angle) / scaleFactorValue);
         int zVector = (int) (this.axisMathVectorUtil.calculateZ(radius, otherAngle) / scaleFactorValue);
 
-        layer.move(xVector, yVector, zVector);
+        layer.moveDXYZ(xVector, yVector, zVector);
     }
 
     @Override
     public void process(AllBinaryGameLayer layer) throws Exception
     {
-        layer.move(
+        layer.moveDXYZ(
                 this.velocityProperties.getVelocityXBasicDecimalP().getScaled(),
                 this.velocityProperties.getVelocityYBasicDecimalP().getScaled(),
                 this.velocityProperties.getVelocityZBasicDecimalP().getScaled()

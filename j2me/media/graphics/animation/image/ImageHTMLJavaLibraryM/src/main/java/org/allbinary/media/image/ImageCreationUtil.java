@@ -33,7 +33,7 @@ public class ImageCreationUtil
         
     }
     
-    public Image getInstance(final int width, final int height) throws Exception
+    public Image createImageWH(final int width, final int height) throws Exception
     {
         final Image image = GameFeatureImageCacheFactory.getInstance().get(this.getClass().getName(), width, height);
         return image;

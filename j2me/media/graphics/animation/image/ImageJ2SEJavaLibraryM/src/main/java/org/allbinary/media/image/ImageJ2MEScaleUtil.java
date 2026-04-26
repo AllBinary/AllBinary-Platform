@@ -34,7 +34,7 @@ public class ImageJ2MEScaleUtil {
         
     }
     
-    public Image[] scale(final Image[] images, final int width, final int height)
+    public Image[] scaleArray(final Image[] images, final int width, final int height)
             throws Exception
     {
         final Image[] scaledImages = new Image[images.length];

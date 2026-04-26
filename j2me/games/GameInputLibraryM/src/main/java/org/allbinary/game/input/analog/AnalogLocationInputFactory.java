@@ -35,7 +35,7 @@ public class AnalogLocationInputFactory {
 
 	}
 	
-	public AnalogLocationInput getInstance(int playerInputId)
+	public AnalogLocationInput getInstanceForPlayer(int playerInputId)
 	{
 		return (AnalogLocationInput) this.list.get(playerInputId);
     }

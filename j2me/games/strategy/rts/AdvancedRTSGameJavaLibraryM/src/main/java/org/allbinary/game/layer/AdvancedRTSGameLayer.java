@@ -304,7 +304,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
             {
                 this.rtsLayer2LogHelper.buildingChaseLeft(this, angle);
                 
-                this.getGameKeyEventList().add(gameKeyEventFactory.getInstance(this, Canvas.LEFT));
+                this.getGameKeyEventList().add(gameKeyEventFactory.getInstanceForKey(this, Canvas.LEFT));
                 
                 //if(angle < 225)
                 if(angle <= 190)
@@ -317,7 +317,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
             {
                 this.rtsLayer2LogHelper.buildingChaseRight(this, angle);
                 
-                this.getGameKeyEventList().add(gameKeyEventFactory.getInstance(this, Canvas.RIGHT));
+                this.getGameKeyEventList().add(gameKeyEventFactory.getInstanceForKey(this, Canvas.RIGHT));
                 
                 //if(angle > 135)
                 if(angle >= 170)
@@ -337,7 +337,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
                 {
                     this.rtsLayer2LogHelper.buildingChaseLeft(this, angle);
                     
-                    this.getGameKeyEventList().add(gameKeyEventFactory.getInstance(this, Canvas.RIGHT));
+                    this.getGameKeyEventList().add(gameKeyEventFactory.getInstanceForKey(this, Canvas.RIGHT));
                     
                     if(angle > 315)
                     //if(angle >= 350)
@@ -350,7 +350,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
                 {
                     this.rtsLayer2LogHelper.buildingChaseRight(this, angle);
                     
-                    this.getGameKeyEventList().add(gameKeyEventFactory.getInstance(this, Canvas.LEFT));
+                    this.getGameKeyEventList().add(gameKeyEventFactory.getInstanceForKey(this, Canvas.LEFT));
                     
                     if(angle < 45)
                     //if(angle <= 10)
@@ -371,7 +371,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
                     {
                         this.rtsLayer2LogHelper.buildingChaseDown(this, angle);
                         
-                        this.getGameKeyEventList().add(gameKeyEventFactory.getInstance(this, Canvas.LEFT));
+                        this.getGameKeyEventList().add(gameKeyEventFactory.getInstanceForKey(this, Canvas.LEFT));
                         
                         if(angle < 135)
                         //if(angle <= 100)
@@ -384,7 +384,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
                     {
                         this.rtsLayer2LogHelper.buildingChaseUp(this, angle);
                         
-                        this.getGameKeyEventList().add(gameKeyEventFactory.getInstance(this, Canvas.RIGHT));
+                        this.getGameKeyEventList().add(gameKeyEventFactory.getInstanceForKey(this, Canvas.RIGHT));
                         
                         if(angle > 45)
                         //if(angle >= 80)
@@ -405,7 +405,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
                         {
                             this.rtsLayer2LogHelper.buildingChaseDown(this, angle);
                             
-                            this.getGameKeyEventList().add(gameKeyEventFactory.getInstance(this, Canvas.RIGHT));
+                            this.getGameKeyEventList().add(gameKeyEventFactory.getInstanceForKey(this, Canvas.RIGHT));
 
                             if(angle > 225)
                             //if(angle >= 260)
@@ -419,7 +419,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
                         {
                             this.rtsLayer2LogHelper.buildingChaseUp(this, angle);
                             
-                            this.getGameKeyEventList().add(gameKeyEventFactory.getInstance(this, Canvas.LEFT));
+                            this.getGameKeyEventList().add(gameKeyEventFactory.getInstanceForKey(this, Canvas.LEFT));
                             
                             if(angle < 315 && angle > 180)
                             //if(angle <= 280 && angle > 180)

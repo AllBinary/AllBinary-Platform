@@ -133,7 +133,7 @@ public class SelectionTool implements GraphicItemInterface
 
             if (item.getName() == LinesGraphicItem.getStaticName())
             {
-                if (RectangleCollisionPointUtil.allPointsInside(
+                if (RectangleCollisionPointUtil.allPointsInsideCell(
                         xRect, yRect, xRect2, yRect2,
                         item.getPointsInterface().getPoints(),
                         this.canvasJPanel.getXPixelsPerWorkAreaPixel(),
@@ -246,7 +246,7 @@ public class SelectionTool implements GraphicItemInterface
     {
         this.logUtil.putF(this.commonStrings.START, this, MouseStrings.getInstance().MOUSE_PRESSED);
 
-        this.startPoint = PointFactory.getInstance().getInstance0(mouseEvent.getX(), mouseEvent.getY());
+        this.startPoint = PointFactory.getInstance().createXY(mouseEvent.getX(), mouseEvent.getY());
         this.endPoint = this.startPoint;
     }
 
@@ -254,7 +254,7 @@ public class SelectionTool implements GraphicItemInterface
     {
         this.logUtil.putF(this.commonStrings.START, this, MouseStrings.getInstance().MOUSE_RELEASED);
 
-        this.endPoint = PointFactory.getInstance().getInstance0(mouseEvent.getX(), mouseEvent.getY());
+        this.endPoint = PointFactory.getInstance().createXY(mouseEvent.getX(), mouseEvent.getY());
         this.active = false;
         this.makeSelection();
     }
@@ -263,7 +263,7 @@ public class SelectionTool implements GraphicItemInterface
     {
         //this.logUtil.putF(commonStrings.START, this, MouseStrings.getInstance().MOUSE_DRAGGED);
 
-        this.endPoint = PointFactory.getInstance().getInstance0(mouseEvent.getX(), mouseEvent.getY());
+        this.endPoint = PointFactory.getInstance().createXY(mouseEvent.getX(), mouseEvent.getY());
     }
 
     public void keyPressed(java.awt.event.KeyEvent keyEvent)

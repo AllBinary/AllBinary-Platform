@@ -26,7 +26,7 @@ public class HealthBarAnimationInterfaceFactory
     {
     }
 
-    public HealthBarAnimation getInstance(AllBinaryLayer layerInterface, int location) throws Exception
+    public HealthBarAnimation getInstanceByLocation(AllBinaryLayer layerInterface, int location) throws Exception
     {
         return new HealthBarThreedAnimation(layerInterface, location);
     }
@@ -36,7 +36,7 @@ public class HealthBarAnimationInterfaceFactory
         return null;
     }
 
-    public Animation getInstance(Animation animationInterface)
+    public Animation getInstanceAnimation(Animation animationInterface)
         throws Exception
     {
         return null;

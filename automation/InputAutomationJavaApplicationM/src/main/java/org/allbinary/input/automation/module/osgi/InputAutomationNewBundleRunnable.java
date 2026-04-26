@@ -263,10 +263,10 @@ public class InputAutomationNewBundleRunnable
             
             while(this.isRunning())
             {
-                timeHelper.setStartTime();
+                timeHelper.setStartTimeTNT();
                 
                 this.logUtil.putF(
-                    CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN);
+                    CommonLabels.getInstance().ELAPSED + timeHelper.getElapsedTNT(), this, this.commonStrings.RUN);
                 
                 this.updateModules();
                 //Thread.sleep(10000);

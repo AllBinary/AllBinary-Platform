@@ -17,5 +17,5 @@ import javax.microedition.lcdui.Graphics;
 
 public interface LocationPaintableInterface 
 {
-    void paint(Graphics graphics, int x, int y);
+    void paintXY(Graphics graphics, int x, int y);
 }

@@ -88,7 +88,7 @@ public class LeftToRightImageAnimation
     private int anchor = Anchor.TOP_LEFT;
     
     @Override
-    public void paint(final Graphics graphics, final int x, final int y)
+    public void paintXY(final Graphics graphics, final int x, final int y)
     {
         //Image src, int x_src, int y_src, int width, int height, int transform,
         //  int x_dst, int y_dst, int anchor
