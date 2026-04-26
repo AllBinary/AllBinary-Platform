@@ -16,8 +16,8 @@ package org.allbinary.media.graphics.geography.map;
 import java.util.Hashtable;
 
 import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.layer.AllBinaryTiledLayer;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 
 public class GeographicMapCellPositionFactory extends GeographicMapCellPositionBaseFactory

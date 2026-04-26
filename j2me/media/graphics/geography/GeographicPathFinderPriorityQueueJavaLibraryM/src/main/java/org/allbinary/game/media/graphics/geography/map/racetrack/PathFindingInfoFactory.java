@@ -63,6 +63,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
         this.pathFinder = new PathFinder();
     }
 
+    @Override
     public PathFindingInfo getInstancePathFindingInfo(
         final BasicGeographicMap geographicMapInterface,
         final int[][] mapArray)

@@ -46,6 +46,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
 
     }
 
+    @Override
     public PathFindingInfo getInstancePathFindingInfo(
             final BasicGeographicMap geographicMapInterface,
             final int[][] graphArray)
@@ -54,7 +55,9 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
         final CommonStrings commonStrings = CommonStrings.getInstance();
         PreLogUtil.put(commonStrings.START, this, commonStrings.GET_INSTANCE);
 
-        final PathFindingInfo pathFindingInfo = new PathFindingInfo(new PathFindingNodeCostInfoFactoryBase(), new BasicArrayListS(1), new BasicArrayListS(1));
+        final PathFindingInfo pathFindingInfo = new PathFindingInfo(
+            new PathFindingNodeCostInfoFactoryBase(), 
+            new BasicArrayListS(1), new BasicArrayListS(1));
 
         RaceTrackRoadsGeographicMapCellHistoryFactory.getInstance().init();
         

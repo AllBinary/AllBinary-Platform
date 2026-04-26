@@ -182,4 +182,10 @@ public class BasePathFindingInfoFactory {
         // End Setup Start Node
     }
 
+    public PathFindingInfo getInstancePathFindingInfo(
+            final BasicGeographicMap geographicMapInterface,
+            final int[][] graphArray) 
+        throws Exception {
+        throw new RuntimeException();
+    }    
 }
