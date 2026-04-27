@@ -19,7 +19,7 @@ public class ScaleFactorFactory
 
     public static ScaleFactorFactory getInstance()
     {
-        return instance;
+        return ScaleFactorFactory.instance;
     }
     
     public int DEFAULT_SCALE_FACTOR = 10;

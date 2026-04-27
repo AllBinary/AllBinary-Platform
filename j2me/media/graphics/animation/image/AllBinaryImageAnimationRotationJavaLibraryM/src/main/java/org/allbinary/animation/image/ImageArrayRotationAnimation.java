@@ -16,13 +16,12 @@ package org.allbinary.animation.image;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.animation.AnimationBehavior;
-import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
 
 public class ImageArrayRotationAnimation extends
         ImageArrayBaseRotationAnimation
 {
-    protected static ImageArrayRotationAnimation create(final Object object, final AnimationBehavior animationBehavior)
+    protected static ImageArrayRotationAnimation createAnimation(final Object object, final AnimationBehavior animationBehavior)
             throws Exception
     {
         final ImageArrayRotationAnimationInfo imageRotationAnimationInfo = (ImageArrayRotationAnimationInfo) object;

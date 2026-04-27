@@ -21,14 +21,14 @@ public class SmallIntegerSingletonFactory
 
     public static SmallIntegerSingletonFactory getInstance()
     {
-        return instance;
+        return SmallIntegerSingletonFactory.instance;
     }
     
     public final int NEGATIVE_MAX = 500;
     public final int POSITIVE_MAX = 0x2D1; //500;
 
-    private final Integer[] INTEGER_ARRAY = new Integer[NEGATIVE_MAX + POSITIVE_MAX];
-    private final String[] STRING_ARRAY = new String[NEGATIVE_MAX + POSITIVE_MAX];
+    private final Integer[] INTEGER_ARRAY = new Integer[this.NEGATIVE_MAX + this.POSITIVE_MAX];
+    private final String[] STRING_ARRAY = new String[this.NEGATIVE_MAX + this.POSITIVE_MAX];
 
     public int MIN = 0;
     public int lastMin = 0;
@@ -128,11 +128,11 @@ public class SmallIntegerSingletonFactory
     }
     
     public String getString(int index) {
-        final int i = index + NEGATIVE_MAX;
-        if(this.STRING_ARRAY[i] == null) {
-            this.STRING_ARRAY[i] = this.INTEGER_ARRAY[i].toString();
-        }
-        return this.STRING_ARRAY[i];
+         final int i = index + this.NEGATIVE_MAX;
+         if(this.STRING_ARRAY[i] == null) {
+             this.STRING_ARRAY[i] = this.INTEGER_ARRAY[i].toString();
+         }
+         return this.STRING_ARRAY[i];
     }
     
     /*

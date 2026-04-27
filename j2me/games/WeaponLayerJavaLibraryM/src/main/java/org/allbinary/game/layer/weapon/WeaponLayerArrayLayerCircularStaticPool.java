@@ -28,7 +28,7 @@ public class WeaponLayerArrayLayerCircularStaticPool
     }
 
     private final int MAX = 5;
-    private CircularIndexUtil circularIndexUtil = CircularIndexUtil.create(MAX);
+    private CircularIndexUtil circularIndexUtil = CircularIndexUtil.createInstance(MAX);
 
     private Object[][][] ALL_WEAPONLAYER_ARRAY = new Object[4][][];
 

@@ -31,7 +31,7 @@ public class AllBinaryArrayImageRotationAnimationFactory
 
     private int angleIncrement;
 
-    public static AllBinaryArrayImageRotationAnimationFactory create(final Image image, final int dx, final int dy)
+    public static AllBinaryArrayImageRotationAnimationFactory createFactory(final Image image, final int dx, final int dy)
     throws Exception
     {
         final AllBinaryArrayImageRotationAnimationFactory arrayImageRotationAnimationFactory = new AllBinaryArrayImageRotationAnimationFactory(image, image.getWidth(), image.getHeight(), AngleFactory.getInstance().TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity(), AnimationBehaviorFactory.getInstance());
@@ -39,7 +39,7 @@ public class AllBinaryArrayImageRotationAnimationFactory
         return arrayImageRotationAnimationFactory;
     }
 
-    public static AllBinaryArrayImageRotationAnimationFactory createA(final Image image, final int dx, final int dy, final int angleIncrement)
+    public static AllBinaryArrayImageRotationAnimationFactory createFactoryA(final Image image, final int dx, final int dy, final int angleIncrement)
             throws Exception
     {
         final AllBinaryArrayImageRotationAnimationFactory arrayImageRotationAnimationFactory = new AllBinaryArrayImageRotationAnimationFactory(image, image.getWidth(), image.getHeight(), angleIncrement, AnimationBehaviorFactory.getInstance());

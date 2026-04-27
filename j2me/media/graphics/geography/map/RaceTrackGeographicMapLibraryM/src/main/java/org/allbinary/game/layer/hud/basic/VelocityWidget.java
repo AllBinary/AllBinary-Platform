@@ -51,7 +51,7 @@ public class VelocityWidget extends BasicHud
         this.maxVelocity = powerOfTenVelocity;
         this.velocity = 0;
 
-        this.primitiveLongUtil = PrimitiveLongUtil.create(powerOfTenVelocity);
+        this.primitiveLongUtil = PrimitiveLongUtil.createPowerOfTen(powerOfTenVelocity);
      
         final MyFont myFont = MyFont.getInstance();
         this.offset = myFont.defaultStringWidth(this.primitiveLongUtil.getMaxDigits()) + myFont.defaultStringWidth(2);

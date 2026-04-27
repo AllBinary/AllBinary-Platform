@@ -39,10 +39,10 @@ public class CompoundRotationAnimation extends RotationAnimation
 
     public CompoundRotationAnimation(final RotationAnimation[] animationInterfaceArray, final AnimationBehavior animationBehavior)
     {
-        super(AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.create(4), animationBehavior);
+        super(AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.createInstance(4), animationBehavior);
         
         this.animationInterfaceArray = animationInterfaceArray;
-        this.circularIndexUtil = CircularIndexUtil.create(this.animationInterfaceArray.length);
+        this.circularIndexUtil = CircularIndexUtil.createInstance(this.animationInterfaceArray.length);
     }
     
     @Override

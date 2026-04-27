@@ -22,7 +22,7 @@ public class RotationAnimationFactory implements
         AnimationInterfaceFactoryInterface,
         ProceduralAnimationInterfaceFactoryInterface
 {
-    public static RotationAnimationFactory create()
+    public static RotationAnimationFactory createFactory()
     {
         final short totalAngle = AngleFactory.getInstance().TOTAL_ANGLE;
         return new RotationAnimationFactory(totalAngle, (short) (totalAngle / GameConfigurationCentral.getInstance().getGameControlFidelity()));

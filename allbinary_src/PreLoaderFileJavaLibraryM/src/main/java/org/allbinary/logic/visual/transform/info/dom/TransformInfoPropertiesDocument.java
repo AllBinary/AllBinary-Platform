@@ -38,7 +38,7 @@ public class TransformInfoPropertiesDocument
    public TransformInfoPropertiesDocument(final String filePath) throws Exception
    {
       final AbFile xmlFile = new AbFile(filePath);
-      this.document = DomDocumentFileHelper.create(xmlFile);
+      this.document = DomDocumentFileHelper.createDocument(xmlFile);
    }
    
    public HashMap toTransformInfoPropertiesHashMap()

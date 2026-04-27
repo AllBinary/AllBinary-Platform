@@ -25,7 +25,7 @@ public class BasicColorArrayIndexer {
    {
       this.basicColorArray = basicColorArray;
       
-      this.circularIndexUtil = CircularIndexUtil.create(this.basicColorArray.length);
+      this.circularIndexUtil = CircularIndexUtil.createInstance(this.basicColorArray.length);
    }
    
    public void next()

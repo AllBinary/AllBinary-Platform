@@ -33,7 +33,7 @@ public class ImageBaseRotationAnimation extends RotationAnimation //implements A
     public ImageBaseRotationAnimation(final Image image, final AngleInfo angleInfo, final short totalAngle, final AnimationBehavior animationBehavior)
         throws Exception
     {
-        super(angleInfo, CircularIndexUtil.create(totalAngle / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
+        super(angleInfo, CircularIndexUtil.createInstance(totalAngle / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
         
         this.image = image;
     }

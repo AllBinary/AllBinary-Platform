@@ -19,7 +19,7 @@ import org.allbinary.string.CommonStrings;
 
 public class PrimitiveLongUtil
 {
-    public static PrimitiveLongUtil create(int powerOfTen)
+    public static PrimitiveLongUtil createPowerOfTen(int powerOfTen)
     {
         final PrimitiveLongUtil primitiveLongUtil = new PrimitiveLongUtil(powerOfTen, NullUtil.getInstance().NULL_OBJECT);
 
@@ -150,11 +150,11 @@ public class PrimitiveLongUtil
 
     public int getCurrentTotalDigits()
     {
-        return currentTotalDigits;
+        return this.currentTotalDigits;
     }
     
     public int getMaxDigits()
     {
-        return maxDigits;
+        return this.maxDigits;
     }
 }

@@ -42,7 +42,7 @@ public class VectorAnimation extends IndexedAnimation
 
     private int[][][] currentPoints = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY_ARRAY;
     
-    private CircularIndexUtil circularIndexUtil = CircularIndexUtil.create(0);
+    private CircularIndexUtil circularIndexUtil = CircularIndexUtil.createInstance(0);
     
     public VectorAnimation(final int[][][] currentPoints, final BasicColor basicColor, final AnimationBehavior animationBehavior)
     {
@@ -167,6 +167,6 @@ public class VectorAnimation extends IndexedAnimation
     public void setPoints(int[][][] currentPoints)
     {
         this.currentPoints = currentPoints;
-        this.circularIndexUtil = CircularIndexUtil.create(currentPoints.length);
+        this.circularIndexUtil = CircularIndexUtil.createInstance(currentPoints.length);
     }
 }

@@ -32,7 +32,7 @@ import org.allbinary.util.CircularIndexUtil;
 public class HorizontaRotationManeuverAI extends BasicAI
 implements ArtificialIntelligenceTransitionInterface
 {
-    private final CircularIndexUtil circularIndexUtil = CircularIndexUtil.createAt(10, Integer.MAX_VALUE);
+    private final CircularIndexUtil circularIndexUtil = CircularIndexUtil.createInstanceAt(10, Integer.MAX_VALUE);
     
     private int currentSpeedDivisor = 5;
 

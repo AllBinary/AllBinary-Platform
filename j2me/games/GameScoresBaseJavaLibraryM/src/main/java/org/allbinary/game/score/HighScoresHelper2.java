@@ -18,7 +18,7 @@ import org.allbinary.util.CircularIndexUtil;
 public class HighScoresHelper2 extends HighScoresHelperBase
 {
     private final CircularIndexUtil circularIndexUtil = 
-        CircularIndexUtil.createAt(0, 0);
+        CircularIndexUtil.createInstanceAt(0, 0);
     
     private HighScores selectedHighScores = NullHighScoresSingletonFactory.getInstance();
     

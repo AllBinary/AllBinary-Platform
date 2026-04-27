@@ -28,7 +28,7 @@ import org.allbinary.logic.string.StringUtil;
 public class NumberStringHud extends BasicHud
    implements PaintableInterface
 {
-   public static NumberStringHud create() {
+   public static NumberStringHud createHud() {
       try {
          return new NumberStringHud(
                  StringUtil.getInstance().EMPTY_STRING, 9,
@@ -38,7 +38,7 @@ public class NumberStringHud extends BasicHud
          throw new RuntimeException();
       }
    }
-    public static final NumberStringHud NULL_NUMBER_STRING_HUD = NumberStringHud.create();
+    public static final NumberStringHud NULL_NUMBER_STRING_HUD = NumberStringHud.createHud();
 
    //private final String PREPEND_STRING;
     private final char[] PREPEND_STRING;
@@ -68,7 +68,7 @@ public class NumberStringHud extends BasicHud
       //this.valueString = PrimitiveLongUtil.NUMBER_STRING_ARRAY[0];
 
       //Note score must be (10 X 10^n) - 1
-      this.primitiveLongUtil = PrimitiveLongUtil.create(max + 1);
+      this.primitiveLongUtil = PrimitiveLongUtil.createPowerOfTen(max + 1);
       
       this.max = max;
       this.value = 0;

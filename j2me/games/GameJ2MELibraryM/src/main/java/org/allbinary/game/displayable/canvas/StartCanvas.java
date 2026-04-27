@@ -707,7 +707,7 @@ public class StartCanvas extends RunnableCanvas
         throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
 
-    protected void create() throws Exception
+    protected void createCanvas() throws Exception
     {
         //PreLogUtil.put(commonStrings.START, this, "create");
 

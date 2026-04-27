@@ -21,14 +21,14 @@ public class SmallLongFactory
 
     public static SmallLongFactory getInstance()
     {
-        return instance;
+        return SmallLongFactory.instance;
     }
     
     public final int NEGATIVE_MAX = 500;
     public final int POSITIVE_MAX = 0x2D1; //500;
 
-    private final Long[] INTEGER_ARRAY = new Long[NEGATIVE_MAX + POSITIVE_MAX];
-    private final String[] STRING_ARRAY = new String[NEGATIVE_MAX + POSITIVE_MAX];
+    private final Long[] INTEGER_ARRAY = new Long[this.NEGATIVE_MAX + this.POSITIVE_MAX];
+    private final String[] STRING_ARRAY = new String[this.NEGATIVE_MAX + this.POSITIVE_MAX];
 
     public int MIN = 0;
     public int lastMin = 0;
@@ -95,11 +95,11 @@ public class SmallLongFactory
     }
         
     public String getString(int index) {
-        final int i = index + NEGATIVE_MAX;
-        if(this.STRING_ARRAY[i] == null) {
-            this.STRING_ARRAY[i] = this.INTEGER_ARRAY[i].toString();
-        }
-        return this.STRING_ARRAY[i];
+         final int i = index + this.NEGATIVE_MAX;
+         if(this.STRING_ARRAY[i] == null) {
+             this.STRING_ARRAY[i] = this.INTEGER_ARRAY[i].toString();
+         }
+         return this.STRING_ARRAY[i];
     }
     
 }

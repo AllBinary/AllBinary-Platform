@@ -26,7 +26,7 @@ public class MyRandomFactory
 
     public static MyRandomFactory getInstance()
     {
-        return instance;
+        return MyRandomFactory.instance;
     }
 
     private final MathUtil mathUtil = MathUtil.getInstance();
@@ -47,12 +47,12 @@ public class MyRandomFactory
     public int getNextInt(int range)
     {
         int div = (Integer.MAX_VALUE / range) + 1;
-        return rand.nextInt() / div;
+        return this.rand.nextInt() / div;
     }
 
     public int getAbsoluteNextInt(int range)
     {
-        return mathUtil.abs(this.getNextInt(range));
+        return this.mathUtil.abs(this.getNextInt(range));
     }
 
     public int getAbsoluteNextIntAllowZero(int range)
@@ -63,7 +63,7 @@ public class MyRandomFactory
         }
         else
         {
-            return mathUtil.abs(this.getNextInt(range));
+            return this.mathUtil.abs(this.getNextInt(range));
         }
     }
     

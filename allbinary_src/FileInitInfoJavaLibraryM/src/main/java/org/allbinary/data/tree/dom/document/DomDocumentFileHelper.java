@@ -41,7 +41,7 @@ public class DomDocumentFileHelper
    }
    */
    
-   public static Document create(AbFile xmlFile) throws Exception
+   public static Document createDocument(AbFile xmlFile) throws Exception
    {
       try
       {

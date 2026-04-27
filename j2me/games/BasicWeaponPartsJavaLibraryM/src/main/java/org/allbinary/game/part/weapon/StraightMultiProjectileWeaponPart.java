@@ -26,7 +26,7 @@ import org.allbinary.math.NoDecimalTrigTable;
 
 public class StraightMultiProjectileWeaponPart extends BasicWeaponPart {
 
-   public static StraightMultiProjectileWeaponPart create(final Animation animationInterface, final WeaponLayerCircularPool weaponLayerCircularStaticPool) {
+   public static StraightMultiProjectileWeaponPart createPart(final Animation animationInterface, final WeaponLayerCircularPool weaponLayerCircularStaticPool) {
       return new StraightMultiProjectileWeaponPart(animationInterface, AllBinaryLayer.NULL_ALLBINARY_LAYER, weaponLayerCircularStaticPool, 2, WeaponProperties.NULL_WEAPON_PROPERTIES, NoScoreable.getInstance(), RelativeRelationship.NULL_RELATIVE_RELATIONSHIP);
    }
 

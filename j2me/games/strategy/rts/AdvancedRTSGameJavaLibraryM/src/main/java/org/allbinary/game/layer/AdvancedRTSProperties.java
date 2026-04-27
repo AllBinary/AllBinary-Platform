@@ -28,11 +28,11 @@ import org.allbinary.media.AllBinaryVibrationME;
  */
 public class AdvancedRTSProperties {
     
-    public static AdvancedRTSProperties createSimulated() {
+    public static AdvancedRTSProperties createPropertiesSimulated() {
         return new AdvancedRTSProperties(NoShakeAnimationListener.NO_SHAKE_ANIMATION_LISTENER, AllBinaryNoVibration.NO_VIBRATION, 0, new WaypointBehaviorBase());
     }
 
-    public static AdvancedRTSProperties create() {
+    public static AdvancedRTSProperties createProperties() {
         return new AdvancedRTSProperties(ShakeAnimationListenerFactory.getInstance(), AllBinaryVibration.getInstance(), GameConfigurationCentral.getInstance().VIBRATION.getValue().intValue() * 100, new WaypointBehaviorBase());
     }
     

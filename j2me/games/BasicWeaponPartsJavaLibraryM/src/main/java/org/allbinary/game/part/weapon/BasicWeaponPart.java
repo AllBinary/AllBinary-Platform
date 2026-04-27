@@ -30,11 +30,11 @@ import org.allbinary.view.ViewPosition;
 public class BasicWeaponPart 
     implements PartInterface, SalvoInterface 
 {
-    public static BasicWeaponPart create(final Animation animationInterface) {
+    public static BasicWeaponPart createPart(final Animation animationInterface) {
         return new BasicWeaponPart(animationInterface, AllBinaryLayer.NULL_ALLBINARY_LAYER, WeaponProperties.NULL_WEAPON_PROPERTIES, NoScoreable.getInstance(), RelativeRelationship.NULL_RELATIVE_RELATIONSHIP);
     }
 
-    public static final BasicWeaponPart NULL_BASIC_WEAPON_PART = BasicWeaponPart.create(NullAnimationFactory.getFactoryInstance().getInstance(0));
+    public static final BasicWeaponPart NULL_BASIC_WEAPON_PART = BasicWeaponPart.createPart(NullAnimationFactory.getFactoryInstance().getInstance(0));
     
    private Animation animationInterface = NullAnimationFactory.getFactoryInstance().getInstance(0);
    

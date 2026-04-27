@@ -62,7 +62,7 @@ public class BasicTopViewGeographicMapCellType //extends GeographicMapCellType
 //        this.types = typeArray;
 //    }
 
-    public static BasicTopViewGeographicMapCellType create(final String name, final int type, final int cost) {
+    public static BasicTopViewGeographicMapCellType createType(final String name, final int type, final int cost) {
         //super(type);
 
 //        if(GeographicMapCellTypeFactory.getInstance().getGeographicMapCellTypeArray()[type] == null) {

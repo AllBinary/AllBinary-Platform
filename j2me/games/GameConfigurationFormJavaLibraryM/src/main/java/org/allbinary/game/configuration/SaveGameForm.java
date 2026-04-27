@@ -25,8 +25,8 @@ public class SaveGameForm extends CommandForm
 
     private static CommandForm FORM = CommandForm.NULL_COMMAND_FORM;
 
-    public static CommandForm create(CommandListener commandListener, String title,
-                                     BasicColor backgrounBasicColor, BasicColor foregroundBasicColor)
+    public static CommandForm createForm(CommandListener commandListener, String title,
+                                         BasicColor backgrounBasicColor, BasicColor foregroundBasicColor)
             throws Exception
     {
         FORM = new SaveGameForm(commandListener, title, backgrounBasicColor, foregroundBasicColor);

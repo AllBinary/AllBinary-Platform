@@ -10,7 +10,7 @@ public class MathUtil
     
     public static MathUtil getInstance()
     {
-        return instance;
+        return MathUtil.instance;
     }        
     
     public int getTotalDigits(int digits)

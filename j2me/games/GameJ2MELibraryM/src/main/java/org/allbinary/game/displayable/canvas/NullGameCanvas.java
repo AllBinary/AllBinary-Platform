@@ -40,7 +40,7 @@ public class NullGameCanvas extends AllBinaryGameCanvas
         return SINGLETON;
     }
 
-    public static NullGameCanvas create(
+    public static NullGameCanvas createCanvas(
             final AllBinaryGameLayerManager gameLayerManager) throws Exception
     {
         final NullGameCanvas nullGameCanvas = new NullGameCanvas(gameLayerManager);

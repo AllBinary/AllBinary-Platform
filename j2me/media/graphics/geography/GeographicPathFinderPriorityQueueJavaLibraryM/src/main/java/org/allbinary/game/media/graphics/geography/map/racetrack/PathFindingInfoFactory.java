@@ -44,7 +44,8 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
     }
 
     private static int MAX = 32768;
-    public static void create(int max)
+
+    public static void initMax(int max)
     {
         PathFindingInfoFactory.MAX = max;
     }

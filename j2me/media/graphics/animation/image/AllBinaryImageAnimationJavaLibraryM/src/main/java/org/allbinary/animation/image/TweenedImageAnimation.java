@@ -48,7 +48,7 @@ public class TweenedImageAnimation extends IndexedAnimation //implements AutoClo
         
         this.totalFrames = totalFrames;
         
-        this.circularIndexUtil = CircularIndexUtil.create(this.totalFrames);
+        this.circularIndexUtil = CircularIndexUtil.createInstance(this.totalFrames);
         
         // this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
     }

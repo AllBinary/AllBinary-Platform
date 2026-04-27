@@ -49,7 +49,7 @@ public class AnimationDamageFloaters extends DamageFloaters
         //this.lastDamage = new int[animationInterfaceArray.length];
         this.layerInterface = layerInterface;
 
-        this.circularIndexUtil = CircularIndexUtil.create(this.animationInterfaceArray.length);
+        this.circularIndexUtil = CircularIndexUtil.createInstance(this.animationInterfaceArray.length);
 
         this.dx = dx;
         this.dy = dy;

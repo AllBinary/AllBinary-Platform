@@ -41,7 +41,7 @@ public class Timer
 
     public Timer(int maxTime)
     {
-        this.primitiveLongUtil = PrimitiveLongUtil.create(maxTime);
+        this.primitiveLongUtil = PrimitiveLongUtil.createPowerOfTen(maxTime);
         this.maxTime = (long) maxTime;
     }
 

@@ -32,7 +32,7 @@ public class VectorBaseRotationAnimation
    
     public VectorBaseRotationAnimation(final AngleInfo angleInfo, final int[][][] currentPoints, final BasicColor basicColor, final AnimationBehavior animationBehavior)
     {
-        super(angleInfo, CircularIndexUtil.create(360 / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
+        super(angleInfo, CircularIndexUtil.createInstance(360 / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
         
         this.setPoints(currentPoints);
         this.setBasicColorP(basicColor);
@@ -161,7 +161,7 @@ public class VectorBaseRotationAnimation
     public void setPoints(final int[][][] currentPoints)
     {
         this.currentPoints = currentPoints;
-        this.circularIndexUtil = CircularIndexUtil.create(this.currentPoints.length);
+        this.circularIndexUtil = CircularIndexUtil.createInstance(this.currentPoints.length);
     }
     
 }

@@ -30,7 +30,7 @@ public class HackRotationSpriteIndexedAnimation extends RotationAnimation
 
     public HackRotationSpriteIndexedAnimation(final Sprite sprite, final Image image, final AngleInfo angleInfo, final AnimationBehavior animationBehavior)
     {
-        super(angleInfo, CircularIndexUtil.create(360 / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
+        super(angleInfo, CircularIndexUtil.createInstance(360 / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
         
         this.sprite = sprite;
         this.image = image;

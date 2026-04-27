@@ -26,7 +26,7 @@ import org.allbinary.logic.math.PrimitiveIntUtil;
 public class OneRowSpriteIndexedAnimationFactory
     extends BaseImageAnimationFactory {
     
-    public static OneRowSpriteIndexedAnimationFactory createDX(final Image image, final int dx, final AnimationBehaviorFactory animationBehaviorFactory)
+    public static OneRowSpriteIndexedAnimationFactory createFactoryDX(final Image image, final int dx, final AnimationBehaviorFactory animationBehaviorFactory)
             throws Exception {
 
         final OneRowSpriteIndexedAnimationFactory oneRowSpriteIndexedAnimationFactory = new OneRowSpriteIndexedAnimationFactory(image, PrimitiveIntUtil.getArrayInstance(), image.getHeight(), image.getHeight(), 0,0, animationBehaviorFactory);
@@ -45,7 +45,7 @@ public class OneRowSpriteIndexedAnimationFactory
 //        this.animationFactoryInitializationVisitor.dy += -(this.animationFactoryInitializationVisitor.height >> 2);
 //    }
     
-    public static OneRowSpriteIndexedAnimationFactory createDXY(final Image image, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
+    public static OneRowSpriteIndexedAnimationFactory createFactoryDXY(final Image image, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception {
 
         //this(image, dx, dy, AnimationBehaviorFactory.getInstance());
@@ -58,7 +58,7 @@ public class OneRowSpriteIndexedAnimationFactory
         return oneRowSpriteIndexedAnimationFactory;
     }
 
-    public static OneRowSpriteIndexedAnimationFactory createWH(final Image image, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
+    public static OneRowSpriteIndexedAnimationFactory createFactoryWH(final Image image, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception {
         
         //this(width, height, image, AnimationBehaviorFactory.getInstance());
@@ -66,7 +66,7 @@ public class OneRowSpriteIndexedAnimationFactory
         return new OneRowSpriteIndexedAnimationFactory(image, PrimitiveIntUtil.getArrayInstance(), width, height, 0,0, animationBehaviorFactory);
     }
 
-    public static OneRowSpriteIndexedAnimationFactory create(final Image image, final AnimationBehaviorFactory animationBehaviorFactory)
+    public static OneRowSpriteIndexedAnimationFactory createFactory(final Image image, final AnimationBehaviorFactory animationBehaviorFactory)
             throws Exception {
 
         //this(image, AnimationBehaviorFactory.getInstance());

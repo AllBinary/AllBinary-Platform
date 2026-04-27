@@ -9,12 +9,12 @@ extends RotationAnimation
 {
     public static NullRotationAnimation createTotalAngle(final AngleInfo angleInfo, final short totalAngle, final AnimationBehavior animationBehavior)
     {
-        return new NullRotationAnimation(angleInfo, CircularIndexUtil.create(totalAngle / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
+        return new NullRotationAnimation(angleInfo, CircularIndexUtil.createInstance(totalAngle / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
     }
 
     public static NullRotationAnimation createQuarter(final AnimationBehavior animationBehavior)
     {
-        return new NullRotationAnimation(AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.create(4), animationBehavior);
+        return new NullRotationAnimation(AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.createInstance(4), animationBehavior);
     }
 
     protected NullRotationAnimation(final AngleInfo angleInfo, final CircularIndexUtil circularIndexUtil, final AnimationBehavior animationBehavior) {

@@ -60,7 +60,7 @@ extends GameNotificationHud
     {
         super(location, direction, maxHeight, maxWidth, bufferZone, basicColor);
 
-        this.circularIndexUtil = CircularIndexUtil.create(0);
+        this.circularIndexUtil = CircularIndexUtil.createInstance(0);
 
         final GameNotificationEventHandler gameNotificationEventHandler  = GameNotificationEventHandler.getInstance();
         gameNotificationEventHandler.removeAllListeners();

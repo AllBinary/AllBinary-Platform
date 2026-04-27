@@ -17,7 +17,7 @@ public class BasicDecimal
 {  
     public static final BasicDecimal ZERO_BIGDECIMAL = new BasicDecimal(0);
 
-    public static BasicDecimal create(final BasicDecimal bigDecimal) {
+    public static BasicDecimal createBigDecimal(final BasicDecimal bigDecimal) {
        return new BasicDecimal(bigDecimal.getUnscaled());
     }
    private long units;
@@ -210,11 +210,11 @@ public class BasicDecimal
 
    public int getScaledFactor()
    {
-      return factor;
+      return this.factor;
    }
 
    public int getScaledFactorValue()
    {
-      return factorValue;
+      return this.factorValue;
    }
 }

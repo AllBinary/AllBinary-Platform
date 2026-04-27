@@ -28,7 +28,7 @@ import org.allbinary.media.image.ImageToRotationImageArrayUtil;
 public class PooledImageArrayRotationAnimationFactory implements
         AnimationInterfaceFactoryInterface
 {
-    public static PooledImageArrayRotationAnimationFactory create(final Image image, final AnimationBehaviorFactory animationBehaviorFactory)
+    public static PooledImageArrayRotationAnimationFactory createFactory(final Image image, final AnimationBehaviorFactory animationBehaviorFactory)
             throws Exception
     {
         final int totalAngle = (int) AngleFactory.getInstance().TOTAL_ANGLE;

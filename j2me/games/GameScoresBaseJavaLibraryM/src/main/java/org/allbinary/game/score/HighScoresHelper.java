@@ -20,7 +20,7 @@ public class HighScoresHelper extends HighScoresHelperBase
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
     private final CircularIndexUtil circularIndexUtil = 
-        CircularIndexUtil.createAt(0, 0);
+        CircularIndexUtil.createInstanceAt(0, 0);
 
     @Override
     public void setHighScoresArray(final HighScores[] highScoresArrayP)

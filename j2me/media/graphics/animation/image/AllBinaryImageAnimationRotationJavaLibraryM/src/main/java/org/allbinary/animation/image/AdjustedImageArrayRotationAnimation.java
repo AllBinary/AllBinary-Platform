@@ -32,7 +32,7 @@ public class AdjustedImageArrayRotationAnimation extends
                 imageRotationAnimationInfo.getAngleInfoP(), imageRotationAnimationInfo.getTotalAngle(), imageRotationAnimationInfo.getDx(), imageRotationAnimationInfo.getDy(), animationBehavior);
     }
 
-    public static AdjustedImageArrayRotationAnimation create(
+    public static AdjustedImageArrayRotationAnimation createAnimation(
             final Image[] imageArray, final AngleInfo angleInfo, final int totalAngle, final AnimationBehavior animationBehavior) throws Exception
     {
         return new AdjustedImageArrayRotationAnimation(imageArray, angleInfo, totalAngle, -(imageArray[0].getWidth() >> 2), -(imageArray[0].getHeight() >> 2), animationBehavior);

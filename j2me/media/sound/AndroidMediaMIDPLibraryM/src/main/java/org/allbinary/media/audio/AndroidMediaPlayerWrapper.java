@@ -29,7 +29,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
    //implements LineListener
 {
 
-    public static AndroidMediaPlayerWrapper create() {
+    public static AndroidMediaPlayerWrapper createPlayerWrapper() {
         try {
             return new AndroidMediaPlayerWrapper(StringUtil.getInstance().EMPTY_STRING);
         } catch(Exception e) {
@@ -37,7 +37,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
         }
     }
 
-    public static final AndroidMediaPlayerWrapper NULL_ANDROID_MEDIA_PLAYER_WRAPPER = AndroidMediaPlayerWrapper.create();
+    public static final AndroidMediaPlayerWrapper NULL_ANDROID_MEDIA_PLAYER_WRAPPER = AndroidMediaPlayerWrapper.createPlayerWrapper();
     
     protected final LogUtil logUtil = LogUtil.getInstance();
     private MediaPlayer mediaPlayer = NullAndroidCanvas.NULL_MEDIA_PLAYER;

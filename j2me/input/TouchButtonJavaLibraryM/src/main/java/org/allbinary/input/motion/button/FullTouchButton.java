@@ -22,8 +22,8 @@ import org.allbinary.graphics.Rectangle;
 
 public class FullTouchButton extends TouchButton
 {
-    public static FullTouchButton create(final TouchButtonInput touchButtonInput, final TouchButtonResource touchButtonResource,
-                                         final Rectangle rawRectangle, final CellPosition cellPosition, final int xBorder, final int yBorder)
+    public static FullTouchButton createButton(final TouchButtonInput touchButtonInput, final TouchButtonResource touchButtonResource,
+                                               final Rectangle rawRectangle, final CellPosition cellPosition, final int xBorder, final int yBorder)
                                          throws Exception
     {
         return new FullTouchButton(touchButtonInput,

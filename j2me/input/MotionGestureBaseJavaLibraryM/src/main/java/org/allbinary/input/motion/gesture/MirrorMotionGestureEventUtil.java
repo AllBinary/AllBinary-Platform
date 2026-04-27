@@ -28,7 +28,7 @@ public class MirrorMotionGestureEventUtil
     private MirrorMotionGestureEventUtil()
     {
         this.motionEventCircularPool =
-            MotionEventCircularPool.create(Integer.MAX_VALUE);
+            MotionEventCircularPool.createPool(Integer.MAX_VALUE);
     }
     
     public MotionGestureEvent mirrorVerticle(final MotionGestureEvent motionGestureEvent, final int halfWidth)

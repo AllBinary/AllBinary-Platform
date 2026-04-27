@@ -76,12 +76,12 @@ public class CircularIndexUtil
         return this.index;
     }
     
-    public static CircularIndexUtil create(int max)
+    public static CircularIndexUtil createInstance(int max)
     {
         return new CircularIndexUtil(0, max);
     }
 
-    public static CircularIndexUtil createAt(int index, int max)
+    public static CircularIndexUtil createInstanceAt(int index, int max)
     {
         return new CircularIndexUtil(index, max);
     }

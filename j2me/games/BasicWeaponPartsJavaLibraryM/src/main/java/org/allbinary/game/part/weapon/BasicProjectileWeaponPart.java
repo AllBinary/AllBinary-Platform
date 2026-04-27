@@ -25,7 +25,7 @@ import org.allbinary.layer.AllBinaryLayerManager;
 
 public class BasicProjectileWeaponPart extends BasicWeaponPart  
 {
-   public static BasicProjectileWeaponPart create(final Animation animationInterface, final WeaponLayerCircularPool weaponLayerCircularStaticPool) {
+   public static BasicProjectileWeaponPart createPart(final Animation animationInterface, final WeaponLayerCircularPool weaponLayerCircularStaticPool) {
       return new BasicProjectileWeaponPart(animationInterface, AllBinaryLayer.NULL_ALLBINARY_LAYER, weaponLayerCircularStaticPool, WeaponProperties.NULL_WEAPON_PROPERTIES, NoScoreable.getInstance(), RelativeRelationship.NULL_RELATIVE_RELATIONSHIP);
    }
 

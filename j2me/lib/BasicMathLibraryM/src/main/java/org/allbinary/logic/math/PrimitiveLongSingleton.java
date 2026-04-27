@@ -21,7 +21,7 @@ public class PrimitiveLongSingleton
 
     public static PrimitiveLongSingleton getInstance()
     {
-        return instance;
+        return PrimitiveLongSingleton.instance;
     }
     
     public final char[] UNK = {'U', 'n', 'k'};
@@ -34,7 +34,7 @@ public class PrimitiveLongSingleton
     public final char[] ZERO = new char[]{this.NUMBER_CHAR_ARRAY[0]};
 
     public byte getNumberFromChar(char numberAsChar) throws Exception {
-        final int size = NUMBER_CHAR_ARRAY.length;
+        final int size = this.NUMBER_CHAR_ARRAY.length;
         for(int index = 0; index < size; index++) {
             if(this.NUMBER_CHAR_ARRAY[index] == numberAsChar) {
                 return this.NUMBER_ARRAY[index];

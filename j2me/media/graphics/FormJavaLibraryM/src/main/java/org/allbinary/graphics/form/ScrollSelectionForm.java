@@ -31,10 +31,10 @@ import org.allbinary.string.CommonSeps;
 
 public class ScrollSelectionForm extends PaintableForm
 {
-    private static ScrollSelectionForm create(final String title, final CustomItem[] items,
-                                             final ItemPaintableFactory formPaintableFactory,
-                                             final Rectangle rectangle, final FormType formType, final int border,
-                                             final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor) {
+    private static ScrollSelectionForm createForm(final String title, final CustomItem[] items,
+                                                  final ItemPaintableFactory formPaintableFactory,
+                                                  final Rectangle rectangle, final FormType formType, final int border,
+                                                  final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor) {
         try {
             if(formPaintableFactory == ItemPaintableFactory.getInstance()) {
                 return new ScrollSelectionForm(title, items, formPaintableFactory,rectangle, formType, border, backgroundBasicColor, foregroundBasicColor);
@@ -49,10 +49,10 @@ public class ScrollSelectionForm extends PaintableForm
         }
 
     }
-    public static final ScrollSelectionForm NULL_SCROLL_SELECTION_FORM = ScrollSelectionForm.create(
+    public static final ScrollSelectionForm NULL_SCROLL_SELECTION_FORM = ScrollSelectionForm.createForm(
             StringUtil.getInstance().EMPTY_STRING, new CustomItem[0], ItemPaintableFactory.getInstance(), RectangleFactory.SINGLETON, FormTypeFactory.getInstance().NULL_FORM_TYPE, 0,
             BasicColorFactory.getInstance().BLACK, BasicColorFactory.getInstance().WHITE);
-    public static final ScrollSelectionForm NULL_SCROLL_SELECTION_HORIZONTAL_FORM = ScrollSelectionForm.create(
+    public static final ScrollSelectionForm NULL_SCROLL_SELECTION_HORIZONTAL_FORM = ScrollSelectionForm.createForm(
             StringUtil.getInstance().EMPTY_STRING,
             new CustomItem[0],
             ItemPaintableFactory.getInstance(),

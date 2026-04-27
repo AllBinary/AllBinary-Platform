@@ -30,8 +30,8 @@ import org.allbinary.string.CommonStrings;
 
 public class TouchButton extends Paintable
 {
-    public static TouchButton create(final TouchButtonInput touchButtonInput, final TouchButtonResource touchButtonResource,
-                                     final Rectangle rawRectangle, final CellPosition cellPosition, final int xBorder, final int yBorder)
+    public static TouchButton createButton(final TouchButtonInput touchButtonInput, final TouchButtonResource touchButtonResource,
+                                           final Rectangle rawRectangle, final CellPosition cellPosition, final int xBorder, final int yBorder)
             throws Exception
     {
         return new TouchButton(touchButtonInput,

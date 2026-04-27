@@ -79,7 +79,7 @@ public class TouchButtonsMappingPaintable extends Paintable
         {
             for (int rowIndex = totalRows - 1; rowIndex >= 0; rowIndex--)
             {
-                this.paintableTable[index][rowIndex] = TouchButton.create(
+                this.paintableTable[index][rowIndex] = TouchButton.createButton(
                         BasicTouchInputFactory.getInstance().NONE, TouchButtonBlankResource.getInstance(),
                         commonButtons.NORMAL_BUTTON, 
                         cellPositionFactory.getInstanceColRow(index, rowIndex),

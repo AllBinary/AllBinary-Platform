@@ -88,7 +88,7 @@ public class VectorToImageArrayRotationAnimationFactory
                 (int) AngleFactory.getInstance().TOTAL_ANGLE, this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
         } else {
             //This still offsets.
-            return AdjustedImageArrayRotationAnimation.create(
+            return AdjustedImageArrayRotationAnimation.createAnimation(
                 this.imageArray, AngleInfo.getInstance((short) this.angleIncrement),
                 (int) AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehaviorFactory.getOrCreateInstance());
         }

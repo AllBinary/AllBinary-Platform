@@ -20,7 +20,7 @@ import org.allbinary.logic.util.event.AllBinaryEventObject;
 public class GameKeyEvent extends AllBinaryEventObject
 {
 
-   public static GameKeyEvent create(Object object, int sourceId, int key)
+   public static GameKeyEvent createEvent(Object object, int sourceId, int key)
    {
       return new GameKeyEvent(object, sourceId, 0, 0, key, false);
    }

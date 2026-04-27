@@ -42,7 +42,7 @@ public class ImageArrayBaseRotationAnimation extends RotationAnimation //impleme
     public ImageArrayBaseRotationAnimation(final Image[] originalImageArray, final AngleInfo angleInfo, final AnimationBehavior animationBehavior) 
         throws Exception {
         
-        super(angleInfo, CircularIndexUtil.create(360 / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
+        super(angleInfo, CircularIndexUtil.createInstance(360 / angleInfo.getAngleIncrementInfo().getAngleIncrement()), animationBehavior);
 
         //this.logUtil.putF(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
@@ -117,7 +117,7 @@ public class ImageArrayBaseRotationAnimation extends RotationAnimation //impleme
     {
         this.imageArray = imageArray;
         this.totalFrames = imageArray.length;
-        this.circularIndexUtil = CircularIndexUtil.create(this.totalFrames);
+        this.circularIndexUtil = CircularIndexUtil.createInstance(this.totalFrames);
     }
 
     private int anchor = Anchor.TOP_LEFT;

@@ -25,7 +25,7 @@ import org.allbinary.graphics.color.BasicColor;
 public class AdjustedCircleAnimation 
     extends CircleAnimation
 {
-    public static AdjustedCircleAnimation create(
+    public static AdjustedCircleAnimation createAnimation(
             final int width, final int height,
             final int xAdjustment, final int yAdjustment,
             final BasicColor basicColor)

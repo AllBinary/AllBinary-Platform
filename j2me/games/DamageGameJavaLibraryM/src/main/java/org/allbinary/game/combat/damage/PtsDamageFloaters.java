@@ -41,7 +41,7 @@ public class PtsDamageFloaters extends DamageFloaters
     private int[] lastDamageStringSizeArray = new int[5];
     
     private CircularIndexUtil circularIndexUtil = 
-        CircularIndexUtil.create(5);
+        CircularIndexUtil.createInstance(5);
 
     private final PrimitiveLongUtil primitiveLongUtil;
     
@@ -64,7 +64,7 @@ public class PtsDamageFloaters extends DamageFloaters
 
     public PtsDamageFloaters(AllBinaryLayer layerInterface)
     {
-        this.primitiveLongUtil = PrimitiveLongUtil.create(100000);
+        this.primitiveLongUtil = PrimitiveLongUtil.createPowerOfTen(100000);
         
         this.layerInterface = layerInterface;
         

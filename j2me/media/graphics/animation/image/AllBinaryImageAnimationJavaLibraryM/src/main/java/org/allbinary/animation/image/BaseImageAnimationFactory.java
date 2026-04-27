@@ -20,7 +20,6 @@ import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.NullAnimationFactory;
 import org.allbinary.image.AnimationFactoryImageScaleUtil;
-import org.allbinary.logic.math.PrimitiveIntUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.ScaleProperties;
 import org.allbinary.string.CommonLabels;
@@ -29,7 +28,7 @@ import org.allbinary.string.CommonSeps;
 public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInterface {
     //protected final LogUtil logUtil = LogUtil.getInstance();
 
-    public static BaseImageAnimationFactory create(final Image image, final int[] sequenceArray, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
+    public static BaseImageAnimationFactory createFactory(final Image image, final int[] sequenceArray, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
             throws Exception {
         return new BaseImageAnimationFactory(image, sequenceArray, width, height, 0, 0, animationBehaviorFactory);
     }

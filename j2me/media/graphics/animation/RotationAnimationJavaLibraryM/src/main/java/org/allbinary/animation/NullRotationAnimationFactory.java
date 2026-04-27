@@ -26,7 +26,7 @@ ProceduralAnimationInterfaceFactoryInterface
 {
    private static NullRotationAnimationFactory NULL_ROTATION_ANIMATION_FACTORY = new NullRotationAnimationFactory();
    public final RotationAnimation[] NULL_ROTATION_ANIMATION_ARRAY = new RotationAnimation[0];
-   private final Animation NULL_ANIMATION = new NullRotationAnimation(AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.create(4), AnimationBehavior.getInstance()) {
+   private final Animation NULL_ANIMATION = new NullRotationAnimation(AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.createInstance(4), AnimationBehavior.getInstance()) {
        
        @Override
        public void paintXY(final Graphics graphics, final int x, final int y) {

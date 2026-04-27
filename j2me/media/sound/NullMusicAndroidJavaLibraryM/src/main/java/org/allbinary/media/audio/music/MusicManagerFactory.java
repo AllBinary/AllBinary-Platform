@@ -13,7 +13,6 @@
  */
 package org.allbinary.media.audio.music;
 
-import org.allbinary.media.audio.music.MusicManager;
 import org.allbinary.util.BasicArrayList;
 
 /**
@@ -22,7 +21,7 @@ import org.allbinary.util.BasicArrayList;
  */
 public class MusicManagerFactory {
     
-    public static MusicManager create(final BasicArrayList soundList) {
+    public static MusicManager createMusicManager(final BasicArrayList soundList) {
         return new MusicManager(MusicService.class, soundList);
         //return new MusicManager(soundList);
     }

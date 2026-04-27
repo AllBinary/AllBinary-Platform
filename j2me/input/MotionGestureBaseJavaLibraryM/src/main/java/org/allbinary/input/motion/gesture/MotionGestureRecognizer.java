@@ -53,7 +53,7 @@ public class MotionGestureRecognizer
         //this.id = id;
 
         this.motionEventCircularPool =
-            MotionEventCircularPool.create(id);
+            MotionEventCircularPool.createPool(id);
         
         
         BasicEventHandler motionGesturesHandler = new BasicEventHandler();

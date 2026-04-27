@@ -51,7 +51,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
         return instance;
     }
 
-    public static void create(int max)
+    public static void initMax(int max)
     {
         instance = new PathFindingInfoFactory(
             new SimplePathFinderGraphVisitorFactory(1, 1, Integer.MAX_VALUE), max);

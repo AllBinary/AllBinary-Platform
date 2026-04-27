@@ -46,7 +46,7 @@ TouchButtonStrafeLeftResource.RESOURCE).getInstance();
 TouchButtonStrafeRightResource.RESOURCE).getInstance();
             */
             
-            TouchButton UP = TouchButton.create(BasicTouchInputFactory.getInstance().UP,
+            TouchButton UP = TouchButton.createButton(BasicTouchInputFactory.getInstance().UP,
                     TouchButtonUpResource.getInstance(),
                     commonButtons.NORMAL_BUTTON, 
                     basicTouchButtonCellPositionFactory.SECOND_FROM_BOTTOM_LEFT,
@@ -54,7 +54,7 @@ TouchButtonStrafeRightResource.RESOURCE).getInstance();
                     touchButtonLocationHelper.getRowsRemainderHalf()
                     );
 
-            TouchButton DOWN = TouchButton.create(BasicTouchInputFactory.getInstance().DOWN,
+            TouchButton DOWN = TouchButton.createButton(BasicTouchInputFactory.getInstance().DOWN,
                     TouchButtonDownResource.getInstance(),
                     commonButtons.NORMAL_BUTTON, 
                     basicTouchButtonCellPositionFactory.BOTTOM_LEFT,
@@ -63,7 +63,7 @@ TouchButtonStrafeRightResource.RESOURCE).getInstance();
                     );
             
             //SPECIAL_BUTTON_FOUR
-            TouchButton LEFT = TouchButton.create(BasicTouchInputFactory.getInstance().SPECIAL_BUTTON_FOUR,
+            TouchButton LEFT = TouchButton.createButton(BasicTouchInputFactory.getInstance().SPECIAL_BUTTON_FOUR,
                     TouchButtonTurnLeftResource.getInstance(),
                     commonButtons.NORMAL_BUTTON, 
                     basicTouchButtonCellPositionFactory.BOTTOM_SECOND_FROM_RIGHT,
@@ -71,7 +71,7 @@ TouchButtonStrafeRightResource.RESOURCE).getInstance();
                     touchButtonLocationHelper.getRowsRemainderHalf()
                     );
 
-            TouchButton RIGHT = TouchButton.create(BasicTouchInputFactory.getInstance().SPECIAL_BUTTON_THREE,
+            TouchButton RIGHT = TouchButton.createButton(BasicTouchInputFactory.getInstance().SPECIAL_BUTTON_THREE,
                     TouchButtonTurnRightResource.getInstance(),
                     commonButtons.NORMAL_BUTTON, 
                     basicTouchButtonCellPositionFactory.BOTTOM_RIGHT,

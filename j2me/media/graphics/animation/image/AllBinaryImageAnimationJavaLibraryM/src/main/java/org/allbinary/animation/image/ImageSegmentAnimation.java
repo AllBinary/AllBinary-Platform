@@ -54,7 +54,7 @@ public class ImageSegmentAnimation
         //this.max = this.getImage().getHeight();
         //this.diff = this.max - this.min;
         //this.circularIndexUtil = CircularIndexUtil.getInstance(this.diff);
-        this.circularIndexUtil = CircularIndexUtil.create(this.drawHeight);
+        this.circularIndexUtil = CircularIndexUtil.createInstance(this.drawHeight);
 
         this.sequenceArray = sequenceArray;
     }

@@ -105,7 +105,7 @@ public class ImageArrayAnimation extends IndexedAnimation
     {
         this.imageArray = imageArray;
         this.totalFrames = imageArray.length;
-        this.circularIndexUtil = CircularIndexUtil.create(this.totalFrames);
+        this.circularIndexUtil = CircularIndexUtil.createInstance(this.totalFrames);
     }
 
     private int anchor = Anchor.TOP_LEFT;

@@ -15,14 +15,14 @@ package org.allbinary.game.life;
 
 public class Life implements LifeInterface
 {
-    public static Life create() {
+    public static Life createLife() {
         try {
             return new Life((short) 0, (short) 0);
         } catch (Exception e) {
             throw new RuntimeException();
         }
     }
-    public static final Life NO_LIFE = Life.create();
+    public static final Life NO_LIFE = Life.createLife();
     
     private short lives;
     private short startLives;

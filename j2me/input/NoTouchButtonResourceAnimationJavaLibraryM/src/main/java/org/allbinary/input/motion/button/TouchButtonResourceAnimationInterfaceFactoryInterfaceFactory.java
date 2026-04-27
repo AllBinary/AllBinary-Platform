@@ -25,7 +25,7 @@ import org.allbinary.image.ImageCacheFactory;
 public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory 
     extends BaseResourceAnimationInterfaceFactoryInterfaceFactory
 {
-    public static TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory create()
+    public static TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory createFactory()
     {
         return new TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory("TouchButton Animations");
     }

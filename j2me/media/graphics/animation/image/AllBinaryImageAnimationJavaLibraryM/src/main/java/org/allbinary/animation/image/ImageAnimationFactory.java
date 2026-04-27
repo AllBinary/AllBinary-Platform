@@ -19,7 +19,6 @@ import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.graphics.opengles.OpenGLUtil;
 import org.allbinary.logic.math.PrimitiveIntUtil;
-import org.allbinary.media.image.ImageCopyUtil;
 
 /**
  *
@@ -27,7 +26,7 @@ import org.allbinary.media.image.ImageCopyUtil;
  */
 public class ImageAnimationFactory extends BaseImageAnimationFactory {
 
-    public static ImageAnimationFactory create(final Image image)
+    public static ImageAnimationFactory createFactory(final Image image)
     throws Exception
     {
         return new ImageAnimationFactory(image, image.getWidth(), image.getHeight(), 0, 0, AnimationBehaviorFactory.getInstance());
