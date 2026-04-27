@@ -38,7 +38,7 @@
         <module>../../sound/J2SEMediaMIDPJorbisJavaLibraryM</module>        
         -->
 
-<!--        <module>../../sound/NotDeviceSpecificMIDP2JavaLibraryM</module>-->
+        <module>../../sound/NotDeviceSpecificMIDP2JavaLibraryM</module>
 <!--        <module>../../sound/J2SEMediaMIDPMinimalJavaLibraryM</module>-->
 <!--        <module>../../sound/MediaMIDP2ForHTMLJavaLibraryM</module>-->
         <module>../../sound/AndroidMediaMIDPLibraryM</module>

@@ -38,7 +38,6 @@
 <!-- in GameJ2MELibraryPOM <module>../../media/graphics/ImageCacheJ2MEJavaLibraryM</module>-->
         <module>../../media/graphics/ImageCacheLazyJ2MEJavaLibraryM</module>
         <!--        <module>../../media/graphics/ImageCacheOpenGLESJavaLibraryM</module>-->
-        <module>../../media/graphics/GameResourceNoneJavaLibraryM</module>
         <module>../../media/graphics/LazyGameResourceNoneJavaLibraryM</module>
 
 <!-- in GameJ2MELibraryPOM <module>../../../graphics/opengl/OpenGLNoneJavaLibraryM</module>-->
@@ -65,7 +64,7 @@
         -->
 
         <module>../../media/sound/J2SEMediaMIDPMinimalJavaLibraryM</module>
-        <module>../../media/sound/NotDeviceSpecificMIDP2JavaLibraryM</module>
+<!--        <module>../../media/sound/NotDeviceSpecificMIDP2JavaLibraryM</module>-->
         <module>../../media/sound/MediaMIDP2ForHTMLJavaLibraryM</module>
 
         <!--
