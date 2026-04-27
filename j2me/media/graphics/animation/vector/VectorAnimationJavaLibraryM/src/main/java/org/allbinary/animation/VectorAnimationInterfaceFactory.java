@@ -10,42 +10,42 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.animation;
 
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.media.ScaleProperties;
 
-public class VectorAnimationInterfaceFactory 
-   implements AnimationInterfaceFactoryInterface
-{
-	private int currentPoints[][][];
-	private BasicColor basicColor = BasicColorFactory.getInstance().WHITE;
-	protected final AnimationBehaviorFactory animationBehaviorFactory;
-        
-	public VectorAnimationInterfaceFactory(final int[][][] currentPoints, final BasicColor basicColor, final AnimationBehaviorFactory animationBehaviorFactory) {
-		this.currentPoints = currentPoints;
-		this.setBasicColorP(basicColor);
-		this.animationBehaviorFactory = animationBehaviorFactory;
-	}
+public class VectorAnimationInterfaceFactory
+    implements AnimationInterfaceFactoryInterface {
 
-        @Override
-	public Animation getInstance(final int instanceId) throws Exception {
-		return new VectorAnimation(this.currentPoints, this.getBasicColorP(), this.animationBehaviorFactory.getOrCreateInstance());
-	}
+    private int currentPoints[][][];
+    private BasicColor basicColor = BasicColorFactory.getInstance().WHITE;
+    protected final AnimationBehaviorFactory animationBehaviorFactory;
 
-	protected void setBasicColorP(BasicColor basicColor) {
-		this.basicColor = basicColor;
-	}
+    public VectorAnimationInterfaceFactory(final int[][][] currentPoints, final BasicColor basicColor, final AnimationBehaviorFactory animationBehaviorFactory) {
+        this.currentPoints = currentPoints;
+        this.setBasicColorP(basicColor);
+        this.animationBehaviorFactory = animationBehaviorFactory;
+    }
 
-	protected BasicColor getBasicColorP() {
-		return basicColor;
-	}
+    @Override
+    public Animation getInstance(final int instanceId) throws Exception {
+        return new VectorAnimation(this.currentPoints, this.getBasicColorP(), this.animationBehaviorFactory.getOrCreateInstance());
+    }
 
-        @Override
-   public void setInitialScale(final ScaleProperties scaleProperties) {
-       
-   }
-        
+    protected void setBasicColorP(BasicColor basicColor) {
+        this.basicColor = basicColor;
+    }
+
+    protected BasicColor getBasicColorP() {
+        return this.basicColor;
+    }
+
+    @Override
+    public void setInitialScale(final ScaleProperties scaleProperties) {
+
+    }
+
 }

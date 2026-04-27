@@ -133,7 +133,7 @@ public class VectorAnimation extends IndexedAnimation
         }
         catch (Exception e)
         {
-            this.logUtil.put(commonStrings.EXCEPTION, this, "paintVectors", e);
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "paintVectors", e);
         }
 
     }
@@ -141,7 +141,7 @@ public class VectorAnimation extends IndexedAnimation
     @Override
     public void paintXY(Graphics graphics, int x, int y)
     {
-        this.basicSetColorUtil.setBasicColorP(graphics, basicColor);
+        this.basicSetColorUtil.setBasicColorP(graphics, this.basicColor);
 
         this.paintVectors(graphics, x, y);
     }
@@ -161,7 +161,7 @@ public class VectorAnimation extends IndexedAnimation
     @Override
     public int[][] getPoints(int frame)
     {
-        return currentPoints[frame];
+        return this.currentPoints[frame];
     }
 
     public void setPoints(int[][][] currentPoints)
