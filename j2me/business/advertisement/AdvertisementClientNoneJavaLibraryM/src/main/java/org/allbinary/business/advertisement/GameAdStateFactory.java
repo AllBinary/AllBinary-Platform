@@ -3,7 +3,7 @@ package org.allbinary.business.advertisement;
 import org.allbinary.game.GameAdState;
 import org.allbinary.logic.system.SoftwareInformation;
 
-public class GameAdStateFactory
+public class GameAdStateFactory implements GameAdStateFactoryInterface
 {
     private static final GameAdStateFactory instance = new GameAdStateFactory();
 
@@ -23,6 +23,7 @@ public class GameAdStateFactory
         return this.gameAdState;
     }
     
+    @Override
     public GameAdState getInstanceForApp(final SoftwareInformation softwareInformation)
     throws Exception
     {
