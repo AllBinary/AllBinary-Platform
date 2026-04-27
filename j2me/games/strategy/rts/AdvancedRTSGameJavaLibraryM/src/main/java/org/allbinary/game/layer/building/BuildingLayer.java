@@ -73,7 +73,7 @@ public class BuildingLayer
 
         return new BuildingLayer(RemoteInfo.REMOTE_INFO,
                 SimulatedBuildingPropertiesFactory.getInstance(),
-                AdvancedRTSProperties.createSimulated(),
+                AdvancedRTSProperties.createPropertiesSimulated(),
                 //NullPathFindingLayer.NULL_PATH_FINDING_LAYER,
                 GroupFactory.getInstance().NULL_GROUP_ARRAY,
                 StringUtil.getInstance().EMPTY_STRING,

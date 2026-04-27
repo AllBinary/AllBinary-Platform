@@ -55,7 +55,7 @@ public class LazyImageRotationAnimation extends RotationAnimation {
     //private float scaleY;
     
     public LazyImageRotationAnimation(final int layoutIndex, final int instanceId, final ScaleProperties scaleProperties, final BaseImageAnimationFactory animationInterfaceFactoryInterface, final AnimationBehavior animationBehavior) {
-        super(AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.create(4), animationBehavior);
+        super(AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.createInstance(4), animationBehavior);
 
         this.layoutIndex = layoutIndex;
         this.instanceId = instanceId;
@@ -74,7 +74,7 @@ public class LazyImageRotationAnimation extends RotationAnimation {
 
         //this.logUtil.putF(this.NULL_INDEX_ANIMATION.toString(), this, this.commonStrings.PROCESS);
 
-        this.animation = new RotationAnimation(AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.create(4), animationBehavior) {
+        this.animation = new RotationAnimation(AngleInfo.getInstance(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.createInstance(4), animationBehavior) {
             
             private int index;
             

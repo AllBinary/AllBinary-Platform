@@ -39,7 +39,7 @@ implements TechEventListenerInterface
 
     private final MyFont myFont = MyFont.getInstance();
     
-    private final PrimitiveLongUtil primitiveLongUtil = PrimitiveLongUtil.create(10000);
+    private final PrimitiveLongUtil primitiveLongUtil = PrimitiveLongUtil.createPowerOfTen(10000);
 
     private final Image image;
     

@@ -73,7 +73,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
 
         return new AdvancedRTSGameLayer(RemoteInfo.REMOTE_INFO,
                 NullPathFindingLayer.NULL_PATH_FINDING_LAYER,
-                AdvancedRTSProperties.createSimulated(),
+                AdvancedRTSProperties.createPropertiesSimulated(),
                 GroupFactory.getInstance().NULL_GROUP_ARRAY,
                 StringUtil.getInstance().EMPTY_STRING,
                 StringUtil.getInstance().EMPTY_STRING,

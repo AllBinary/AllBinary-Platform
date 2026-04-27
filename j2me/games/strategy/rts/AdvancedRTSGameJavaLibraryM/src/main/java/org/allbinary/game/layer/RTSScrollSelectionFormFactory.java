@@ -44,7 +44,7 @@ public class RTSScrollSelectionFormFactory
                 CommonButtons.getInstance().STANDARD_BUTTON_SIZE);
 
         return
-            MultipleScrollSelectionHorizontalForm.create(
+            MultipleScrollSelectionHorizontalForm.createForm(
                     formLabel, items, menuRectangle, FormTypeFactory.getInstance().HORIZONTAL_FORM, 0,
                     basicColorFactory.BLACK, basicColorFactory.WHITE);
     }

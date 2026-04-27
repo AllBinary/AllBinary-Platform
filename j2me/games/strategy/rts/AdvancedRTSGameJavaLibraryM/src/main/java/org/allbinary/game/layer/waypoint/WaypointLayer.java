@@ -52,7 +52,7 @@ public class WaypointLayer extends AdvancedRTSGameLayer
         super(
             remoteInfo,
             parentLayer,
-            AdvancedRTSProperties.create(),
+            AdvancedRTSProperties.createProperties(),
             groupInterface,
             rootName,
             name,

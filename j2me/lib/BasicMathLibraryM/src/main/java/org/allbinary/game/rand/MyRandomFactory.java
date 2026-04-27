@@ -47,7 +47,7 @@ public class MyRandomFactory
     public int getNextInt(int range)
     {
         int div = (Integer.MAX_VALUE / range) + 1;
-        return this.rand.nextInt() / div;
+        return (int) (this.rand.nextInt() / div);
     }
 
     public int getAbsoluteNextInt(int range)

@@ -19,7 +19,7 @@ public class NullRunnable extends ARunnable
     
     public static NullRunnable getInstance()
     {
-        return instance;
+        return NullRunnable.instance;
     }
 
     private NullRunnable()

@@ -40,7 +40,7 @@ public class GeographicMapCellPositionArea extends GeographicMapCellPositionArea
         new BasicArrayListS(12);
 
     private final CircularIndexUtil surroundingCircularIndexUtil =
-        CircularIndexUtil.create(0);
+        CircularIndexUtil.createInstance(0);
 
     private final AllBinaryLayer layerInterface;
     

@@ -95,7 +95,7 @@ public class CircularIndexUtil
 
     public int getSize()
     {
-        return size;
+        return this.size;
     }
     
     public String toString() {

@@ -118,7 +118,7 @@ public class SmallIntegerSingletonFactory
     {
         //this.updateStats(index);
 
-        Integer integer = getAt(index);
+        Integer integer = this.getAt(index);
         
         if(integer == null)
         {
