@@ -60,6 +60,7 @@
         <module>../../../graphics/opengl/OpenGLJ2MENoneJavaLibraryM</module>
         <module>../../../graphics/opengl/OpenGLNoneJavaLibraryM</module>
         <module>../../../graphics/opengl/OpenGLNoneOtherJavaLibraryM</module>
+        <module>../../../graphics/opengl/OpenGLNoneOther2JavaLibraryM</module>
         <module>../../../graphics/opengl/OpenGLESBaseJ2MEJavaLibraryM</module>
 
         <module>../../media/graphics/animation/AnimationLibraryM</module>

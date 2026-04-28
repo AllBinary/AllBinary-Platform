@@ -22,7 +22,7 @@ import org.allbinary.logic.communication.log.LogUtil;
  *
  * @author User
  */
-public class SpriteFactory {
+public class SpriteFactory implements SpriteFactoryInterface {
     protected final LogUtil logUtil = LogUtil.getInstance();
 
     
