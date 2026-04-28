@@ -22,6 +22,7 @@ public class LockedUtil implements LockedUtilInterface
         return instance;
     }
  
+    @Override
     public boolean isLocked()
     {
         //Demo
@@ -30,6 +31,7 @@ public class LockedUtil implements LockedUtilInterface
         //return false;
     }
     
+    @Override
     public boolean isLockedFeature(LockableFeature lockableFeatrue)
     {
         //Demo

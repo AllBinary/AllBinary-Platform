@@ -23,7 +23,7 @@ import org.allbinary.util.BasicArrayList;
  */
 public interface PathGeneratorInterface {
  
-    BasicArrayList create(
+    BasicArrayList createList(
         final BasicGeographicMap geographicMapInterface,
         final GeographicMapCellHistory geographicMapCellHistory,
         final PathFindingInfo pathFindingInfo,

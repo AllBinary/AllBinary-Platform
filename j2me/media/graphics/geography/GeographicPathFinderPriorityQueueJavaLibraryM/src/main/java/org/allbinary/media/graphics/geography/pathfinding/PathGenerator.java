@@ -61,7 +61,8 @@ public class PathGenerator implements PathGeneratorInterface
         return geographicMapCellPositionBasicArrayList;
     }
 
-    public BasicArrayList create(
+    @Override
+    public BasicArrayList createList(
         final BasicGeographicMap geographicMapInterface,
         final GeographicMapCellHistory geographicMapCellHistory,
         final PathFindingInfo pathFindingInfo,

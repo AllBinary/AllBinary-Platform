@@ -39,6 +39,7 @@ public class SpriteFactory implements SpriteFactoryInterface {
     //private final CommonStrings commonStrings = CommonStrings.getInstance();
     //private final CommonSeps commonSeps = CommonSeps.getInstance();
     
+    @Override
     public Sprite createSprite(final Image image, final int frameWidth, final int frameHeight) {
         
         //this.logUtil.putF(new StringMaker().append(image.getWidth()).append(commonSeps.COLON).append(image.getHeight()).append(commonSeps.FORWARD_SLASH).append(frameWidth).append(commonSeps.COLON).append(frameHeight).toString(), this, commonStrings.PROCESS);

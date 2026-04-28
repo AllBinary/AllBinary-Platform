@@ -72,7 +72,8 @@ public class StaticPathGenerator implements PathGeneratorInterface {
         return list;
     }
 
-    public BasicArrayList create(
+    @Override
+    public BasicArrayList createList(
         final BasicGeographicMap geographicMapInterface,
         final GeographicMapCellHistory geographicMapCellHistory,
         final PathFindingInfo pathFindingInfo,
