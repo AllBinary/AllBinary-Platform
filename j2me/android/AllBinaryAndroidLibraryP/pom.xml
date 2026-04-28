@@ -34,7 +34,6 @@
         <!--
         <module>../AndroidToJ2MELibraryM</module>
         -->
-        <module>../../android/AndroidUtilJavaLibraryM</module>
         <!--
         <module>../../OpenGLAndroidJavaLibraryM</module>
         <module>../../AndroidBaseJavaLibraryM</module>

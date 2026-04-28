@@ -26,12 +26,12 @@ import org.allbinary.logic.util.event.EventStrings;
 public class GameAdStateBase {
 
     //protected final LogUtil logUtil = LogUtil.getInstance();
-    protected final AdConfiguration adConfiguration;
-    protected final Advertisements advertisements = new Advertisements();
-    protected boolean okayToShowAds;
+    protected final AdConfiguration adConfigurationP;
+    protected final Advertisements advertisementsP = new Advertisements();
+    protected boolean okayToShowAdsP;
 
     public GameAdStateBase(final AdConfiguration adConfiguration) {
-        this.adConfiguration = adConfiguration;
+        this.adConfigurationP = adConfiguration;
     }
 
     public void initViewArray(Object[] viewArray) {
@@ -87,11 +87,11 @@ public class GameAdStateBase {
     }
 
     public Advertisements getAdvertisements() {
-        return advertisements;
+        return advertisementsP;
     }
 
     public AdConfiguration getAdConfiguration() {
-        return adConfiguration;
+        return adConfigurationP;
     }
 
     public boolean isOkayToShowPageAd() {
@@ -99,11 +99,11 @@ public class GameAdStateBase {
     }
 
     public void setOkayToShowAds(boolean okayToShowAds) {
-        this.okayToShowAds = okayToShowAds;
+        this.okayToShowAdsP = okayToShowAds;
     }
 
     public boolean isOkayToShowAds() {
-        return okayToShowAds;
+        return okayToShowAdsP;
     }
 
     public boolean isEnabled() {
