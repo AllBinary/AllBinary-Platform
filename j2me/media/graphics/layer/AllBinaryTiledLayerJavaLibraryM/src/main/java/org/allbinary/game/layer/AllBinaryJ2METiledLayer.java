@@ -168,7 +168,7 @@ public class AllBinaryJ2METiledLayer extends AllBinaryTiledLayer
 
     public TiledLayer getTiledLayer()
     {
-        return tiledLayerP;
+        return this.tiledLayerP;
     }
 
     @Override

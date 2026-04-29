@@ -67,12 +67,12 @@ public class BottomLimiter
     
     public int getDeltaY()
     {
-        return deltaY;
+        return this.deltaY;
     }
     
     public int getBottom()
     {
-        return bottom;
+        return this.bottom;
     }
 
 }

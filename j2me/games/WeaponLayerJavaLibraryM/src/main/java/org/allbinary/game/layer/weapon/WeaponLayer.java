@@ -361,7 +361,7 @@ implements TickableInterface
 
     protected int getInitDamage()
     {
-        return initDamage;
+        return this.initDamage;
     }
 
     protected void setAnimationInterface(Animation animationInterface)
@@ -371,12 +371,12 @@ implements TickableInterface
 
     protected Animation getAnimationInterface()
     {
-        return animationInterface;
+        return this.animationInterface;
     }
 
     public Animation getInitAnimationInterfaceP()
     {
-        return initAnimationInterface;
+        return this.initAnimationInterface;
     }
 
     public void setInitAnimationInterfaceP(Animation initAnimationInterface)
@@ -386,7 +386,7 @@ implements TickableInterface
 
     public Animation getDestroyedAnimationInterface()
     {
-        return destroyedAnimationInterface;
+        return this.destroyedAnimationInterface;
     }
 
     /**
@@ -394,7 +394,7 @@ implements TickableInterface
      */
     public AllBinaryLayer getOwnerLayerInterface()
     {
-        return sourceLayerInterface;
+        return this.sourceLayerInterface;
     }
 
     /**
@@ -441,7 +441,7 @@ implements TickableInterface
      */
     public Movement getMovement()
     {
-        return movement;
+        return this.movement;
     }
 
     /**
@@ -467,7 +467,7 @@ implements TickableInterface
     @Override
     public int getMultiPlayerType()
     {
-        return multiPlayerType;
+        return this.multiPlayerType;
     }
 
     public void setWeaponPropertiesP(WeaponProperties weaponProperties)
@@ -477,7 +477,7 @@ implements TickableInterface
 
     public WeaponProperties getWeaponPropertiesP()
     {
-        return weaponProperties;
+        return this.weaponProperties;
     }
 
     @Override

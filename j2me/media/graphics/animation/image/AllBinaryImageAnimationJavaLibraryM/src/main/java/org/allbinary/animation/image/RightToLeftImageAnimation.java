@@ -78,6 +78,6 @@ public class RightToLeftImageAnimation
         //  int x_dst, int y_dst, int anchor
         graphics.drawRegion(this.getImage(), this.startWidth, this.getStartY(),
           this.currentWidth,  this.getDrawHeight(),
-          Sprite.TRANS_NONE, x + this.startWidth, y, anchor);
+          Sprite.TRANS_NONE, x + this.startWidth, y, this.anchor);
     }
 }

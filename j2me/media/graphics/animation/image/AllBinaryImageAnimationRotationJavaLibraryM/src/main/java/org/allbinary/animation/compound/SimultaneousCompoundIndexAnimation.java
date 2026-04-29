@@ -126,7 +126,7 @@ extends IndexedAnimation
      */
     public IndexedAnimation[] getAnimationInterfaceArray()
     {
-        return animationInterfaceArray;
+        return this.animationInterfaceArray;
     }
 
     /**

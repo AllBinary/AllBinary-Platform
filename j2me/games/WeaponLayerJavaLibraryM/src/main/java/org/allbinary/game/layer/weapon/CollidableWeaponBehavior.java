@@ -148,7 +148,7 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
      */
     public boolean isCollided()
     {
-        return collided;
+        return this.collided;
     }
 
     /**

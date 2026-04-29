@@ -345,7 +345,7 @@ public class BuildingLayer
      */
     private int getBuildingLevelCost()
     {
-        return buildingLevelCost;
+        return this.buildingLevelCost;
     }
 
     /**
@@ -361,7 +361,7 @@ public class BuildingLayer
      */
     public int getProductivity()
     {
-        return productivity;
+        return this.productivity;
     }
 
     /**
@@ -377,7 +377,7 @@ public class BuildingLayer
      */
     public int getEfficiency()
     {
-        return efficiency;
+        return this.efficiency;
     }
 
     /**

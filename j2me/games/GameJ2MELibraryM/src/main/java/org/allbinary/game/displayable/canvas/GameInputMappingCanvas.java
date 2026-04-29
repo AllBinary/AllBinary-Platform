@@ -61,8 +61,8 @@ implements InputMappingInterface
     
     private final AbeClientInformationInterface abeClientInformation;
     
-    private GameKey selectedGameKey = NONE;
-    private Input selectedInput = NONE;
+    private GameKey selectedGameKey = this.NONE;
+    private Input selectedInput = this.NONE;
     
     public GameInputMappingCanvas(final AbeClientInformationInterface abeClientInformation,
         final CommandListener commandListener,

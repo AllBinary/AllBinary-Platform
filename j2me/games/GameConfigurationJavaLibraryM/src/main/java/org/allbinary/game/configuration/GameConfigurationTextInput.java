@@ -53,7 +53,7 @@ public class GameConfigurationTextInput
 
     public String getText()
     {
-        return text;
+        return this.text;
     }
 
     public void setLabel(String label)
@@ -63,7 +63,7 @@ public class GameConfigurationTextInput
 
     public String getLabel()
     {
-        return label;
+        return this.label;
     }
 
     public static Hashtable getHashtable()

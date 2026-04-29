@@ -100,10 +100,10 @@ public class PCKeyFactory
     public final PCGameKey DPAD_DOWN = new PCGameKey(40, CommonPhoneStrings.getInstance().DOWN);
     public final PCGameKey DPAD_LEFT = new PCGameKey(37, CommonPhoneStrings.getInstance().LEFT);
     public final PCGameKey DPAD_RIGHT = new PCGameKey(39, CommonPhoneStrings.getInstance().RIGHT);
-    public final PCGameKey DPAD_UP2 = DPAD_UP;
-    public final PCGameKey DPAD_DOWN2 = DPAD_DOWN;
-    public final PCGameKey DPAD_LEFT2 = DPAD_LEFT;
-    public final PCGameKey DPAD_RIGHT2 = DPAD_RIGHT;
+    public final PCGameKey DPAD_UP2 = this.DPAD_UP;
+    public final PCGameKey DPAD_DOWN2 = this.DPAD_DOWN;
+    public final PCGameKey DPAD_LEFT2 = this.DPAD_LEFT;
+    public final PCGameKey DPAD_RIGHT2 = this.DPAD_RIGHT;
 //    public final PCGameKey DPAD_UP2 = new PCGameKey(SWT.ARROW_UP, "UP");
 //    public final PCGameKey DPAD_DOWN2 = new PCGameKey(SWT.ARROW_DOWN, "DOWN");
 //    public final PCGameKey DPAD_LEFT2 = new PCGameKey(SWT.ARROW_LEFT, "LEFT");

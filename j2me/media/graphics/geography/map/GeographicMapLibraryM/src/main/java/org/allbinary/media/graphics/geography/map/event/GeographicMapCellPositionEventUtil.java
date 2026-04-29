@@ -30,20 +30,20 @@ public class GeographicMapCellPositionEventUtil
     public void update(GeographicMapCellPositionTracking geographicMapCellPositionTracking)
     throws Exception
     {
-        geographicMapCellPositionEvent.setGeographicMapCellPosition(
+        this.geographicMapCellPositionEvent.setGeographicMapCellPosition(
                 geographicMapCellPositionTracking.getCurrentGeographicMapCellPosition());
 
-        geographicMapCellPositionEventHandler.fireEvent(
-                geographicMapCellPositionEvent);
+        this.geographicMapCellPositionEventHandler.fireEvent(
+                this.geographicMapCellPositionEvent);
     }
 
     public void remove(GeographicMapCellPositionTracking geographicMapCellPositionTracking)
     throws Exception
     {
-        geographicMapCellPositionEvent.setGeographicMapCellPosition(
+        this.geographicMapCellPositionEvent.setGeographicMapCellPosition(
                 geographicMapCellPositionTracking.getCurrentGeographicMapCellPosition());
 
-        geographicMapCellPositionEventHandler.fireRemoveEvent(
-                geographicMapCellPositionEvent);
+        this.geographicMapCellPositionEventHandler.fireRemoveEvent(
+                this.geographicMapCellPositionEvent);
     }
 }

@@ -53,7 +53,7 @@ public class MakeCountedPartsSingletonArrayFactory
             layerInterfaceFactoryInterface = 
                     (CountedPickedUpLayerInterfaceFactory) countedBasicArrayList.objectArray[index];
 
-            list.add(new CountedLayerInterfaceFactoryPart(0,
+            this.list.add(new CountedLayerInterfaceFactoryPart(0,
                     layerInterfaceFactoryInterface));
         }
 

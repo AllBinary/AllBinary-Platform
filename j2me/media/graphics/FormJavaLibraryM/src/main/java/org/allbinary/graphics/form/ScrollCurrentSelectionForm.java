@@ -156,8 +156,8 @@ extends ScrollSelectionForm
         try
         {
             int delta = 0;
-            int deltaX = getDx();
-            int deltaY = getDy();
+            int deltaX = this.getDx();
+            int deltaY = this.getDy();
             int size = this.size();
             
             final FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
@@ -236,7 +236,7 @@ extends ScrollSelectionForm
     @Override
     public int getDx()
     {
-        return dx;
+        return this.dx;
     }
 
     /**
@@ -245,6 +245,6 @@ extends ScrollSelectionForm
     @Override
     public int getDy()
     {
-        return dy;
+        return this.dy;
     }
 }

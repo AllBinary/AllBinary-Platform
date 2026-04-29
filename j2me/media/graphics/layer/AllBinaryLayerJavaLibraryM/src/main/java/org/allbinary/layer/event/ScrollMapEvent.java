@@ -32,7 +32,7 @@ public class ScrollMapEvent extends AllBinaryEventObject
 
     public int getDx()
     {
-        return dx;
+        return this.dx;
     }
 
     public void setDy(int dy)
@@ -42,7 +42,7 @@ public class ScrollMapEvent extends AllBinaryEventObject
 
     public int getDy()
     {
-        return dy;
+        return this.dy;
     }
     
     public void setDxDy(int dx, int dy)

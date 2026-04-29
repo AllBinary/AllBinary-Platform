@@ -71,7 +71,7 @@ public class FeaturedResourceFactory
                             .append(CommonSeps.getInstance().COLON_SEP)
                             .appendboolean(isLoadingLevel)
                             .append(this.IS_FEATURE)
-                            .appendboolean(isFeature).toString(), this, commonStrings.INIT);
+                            .appendboolean(isFeature).toString(), this, this.commonStrings.INIT);
 
             if (isLoadingLevel && isFeature)
             {
@@ -129,6 +129,6 @@ public class FeaturedResourceFactory
 
     public BasicArrayList getList()
     {
-        return list;
+        return this.list;
     }
 }

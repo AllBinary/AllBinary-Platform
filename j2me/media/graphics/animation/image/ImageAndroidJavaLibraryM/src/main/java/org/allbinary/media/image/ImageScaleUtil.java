@@ -137,7 +137,7 @@ public class ImageScaleUtil
             final Matrix matrix = new Matrix();
             this.scale(image, matrix, scaleX, scaleY);
 
-            image.getGraphics().drawImage(originalImage, 0, 0, anchor);
+            image.getGraphics().drawImage(originalImage, 0, 0, this.anchor);
 
             return image;
         }

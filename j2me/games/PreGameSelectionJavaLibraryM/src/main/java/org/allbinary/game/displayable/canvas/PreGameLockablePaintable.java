@@ -56,7 +56,7 @@ public class PreGameLockablePaintable
     
     protected ScrollCurrentSelectionForm getPaintableForm()
     {
-        return paintableForm;
+        return this.paintableForm;
     }
 
 }

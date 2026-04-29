@@ -83,7 +83,7 @@ public class PressStartMenuPaintable extends Paintable
             final MyFont myFont = MyFont.getInstance();            
             final int line = (4 * myFont.DEFAULT_CHAR_HEIGHT) + (myFont.DEFAULT_CHAR_HEIGHT >> 1);
             graphics.drawString(startString, displayInfo.getLastHalfWidth()
-                    - beginWidth, displayInfo.getLastHeight() - line, anchor);
+                    - beginWidth, displayInfo.getLastHeight() - line, this.anchor);
         }
     }
 
@@ -94,7 +94,7 @@ public class PressStartMenuPaintable extends Paintable
 
     private boolean isFlash()
     {
-        return flash;
+        return this.flash;
     }
 
 }

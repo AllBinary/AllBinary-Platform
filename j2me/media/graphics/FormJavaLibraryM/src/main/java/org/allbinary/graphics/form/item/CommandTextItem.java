@@ -40,6 +40,6 @@ public class CommandTextItem extends TextItem {
      */
     public Command getCommand()
     {
-        return command;
+        return this.command;
     }
 }

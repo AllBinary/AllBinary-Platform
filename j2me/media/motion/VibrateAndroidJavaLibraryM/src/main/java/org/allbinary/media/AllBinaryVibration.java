@@ -50,6 +50,6 @@ public class AllBinaryVibration extends AllBinaryVibrationME
    @Override
    public void vibrate(int duration, int type, int volume)
    {
-       vibrator.vibrate((long) duration);
+       this.vibrator.vibrate((long) duration);
    }
 }

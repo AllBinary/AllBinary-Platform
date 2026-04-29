@@ -34,17 +34,17 @@ public class CombatBaseBehavior
 
     public DamageableBaseBehavior getDamageableBaseBehavior()
     {
-        return damageableBaseBehavior;
+        return this.damageableBaseBehavior;
     }
 
     public DestroyableBaseBehavior getDestroyableBaseBehavior()
     {
-        return destroyableBaseBehavior;
+        return this.destroyableBaseBehavior;
     }
     
     public final boolean isReadyForExplosion()
     {
-        return readyForExplosion;
+        return this.readyForExplosion;
     }
 
     public final void setReadyForExplosion(boolean readyForExplosion)

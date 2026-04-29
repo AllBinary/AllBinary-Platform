@@ -69,7 +69,7 @@ public class CountedLayerInterfaceFactoryPart implements PartInterface
 
    public int getTotal()
    {
-      return total;
+      return this.total;
    }
 
    public void setTotal(int total)
@@ -98,7 +98,7 @@ public class CountedLayerInterfaceFactoryPart implements PartInterface
    @Override
    public Animation getAnimationInterface()
    {
-      return animationInterface;
+      return this.animationInterface;
    }
 
    public void setAnimationInterface(Animation animationInterface)
@@ -111,7 +111,7 @@ public class CountedLayerInterfaceFactoryPart implements PartInterface
     */
    public int getXOffset()
    {
-      return xOffset;
+      return this.xOffset;
    }
 
    /**
@@ -133,7 +133,7 @@ public class CountedLayerInterfaceFactoryPart implements PartInterface
    */
    public char[] getTotalString()
    {
-      return totalString;
+      return this.totalString;
    }
 
     /**
@@ -141,7 +141,7 @@ public class CountedLayerInterfaceFactoryPart implements PartInterface
      */
     public CountedPickedUpLayerInterfaceFactory getCountedPickedUpLayerInterfaceFactory()
     {
-        return countedPickedUpLayerInterfaceFactory;
+        return this.countedPickedUpLayerInterfaceFactory;
     }
 
     /**

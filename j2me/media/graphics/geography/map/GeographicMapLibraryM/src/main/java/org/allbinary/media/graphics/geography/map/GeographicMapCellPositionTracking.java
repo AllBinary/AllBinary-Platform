@@ -88,11 +88,11 @@ public class GeographicMapCellPositionTracking
 
     public GeographicMapCellPosition getPreviousGeographicMapCellPosition()
     {
-        return previousGeographicMapCellPosition;
+        return this.previousGeographicMapCellPosition;
     }
     
     public GeographicMapCellPosition getCurrentGeographicMapCellPosition()
     {
-        return currentGeographicMapCellPosition;
+        return this.currentGeographicMapCellPosition;
     }
 }

@@ -91,15 +91,15 @@ public class ChoiceGroupImageFactory {
         -126
     };
 
-    private final Image imgMultiOffO = Image.createImage(multiOff, 0, multiOff.length);
-    private final Image imgMultiOnO = Image.createImage(multiOn, 0, multiOn.length);
-    private final Image imgRadioOffO = Image.createImage(radioOff, 0, radioOff.length);
-    private final Image imgRadioOnO = Image.createImage(radioOn, 0, radioOn.length);
+    private final Image imgMultiOffO = Image.createImage(this.multiOff, 0, this.multiOff.length);
+    private final Image imgMultiOnO = Image.createImage(this.multiOn, 0, this.multiOn.length);
+    private final Image imgRadioOffO = Image.createImage(this.radioOff, 0, this.radioOff.length);
+    private final Image imgRadioOnO = Image.createImage(this.radioOn, 0, this.radioOn.length);
     
-    public Image imgMultiOff = imgMultiOffO;
-    public Image imgMultiOn = imgMultiOnO;
-    public Image imgRadioOff = imgRadioOffO;
-    public Image imgRadioOn = imgRadioOnO;
+    public Image imgMultiOff = this.imgMultiOffO;
+    public Image imgMultiOn = this.imgMultiOnO;
+    public Image imgRadioOff = this.imgRadioOffO;
+    public Image imgRadioOn = this.imgRadioOnO;
 
     private final Image[] imageArray = {
         this.imgMultiOff,

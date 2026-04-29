@@ -72,7 +72,7 @@ public class Features
 //                ForcedLogUtil.log("here it is: ").append(this.getClass().getClassLoader().getClass().getName()).append(TsUtil.getInstance().hashCode(this.getClass().getClassLoader()) , this);
 //            }
             this.logUtil.putF(
-                    new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameFeature.toString()).toString(), this, commonStrings.ADD);
+                    new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameFeature.toString()).toString(), this, this.commonStrings.ADD);
 
             this.list.add(gameFeature);
 
@@ -159,7 +159,7 @@ public class Features
   //For default or reload required features
     public boolean isDefault(Feature gameFeature)
     {
-        return defaultList.contains(gameFeature);
+        return this.defaultList.contains(gameFeature);
     }
 
     public boolean isFeature(Feature gameFeature)

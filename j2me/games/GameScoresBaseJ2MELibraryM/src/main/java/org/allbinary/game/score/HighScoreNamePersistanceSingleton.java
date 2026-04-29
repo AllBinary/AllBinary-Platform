@@ -77,7 +77,7 @@ public class HighScoreNamePersistanceSingleton
     }
     
     private String getRecordId(final AbeClientInformationInterface abeClientInformation) {
-        return platformRecordIdUtil.getRecordId(abeClientInformation, RECORD_ID);
+        return this.platformRecordIdUtil.getRecordId(abeClientInformation, RECORD_ID);
     }
     
     public void delete(final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo, final int deleteId) throws Exception

@@ -173,10 +173,10 @@ public class ImageCache extends ImageCacheBase {
                     if(this.loadAfterList.isEmpty()) {
                         
                         if (this.firstTime) {
-                        } else if (gameGlobalsFactory.newCanvas) {
+                        } else if (this.gameGlobalsFactory.newCanvas) {
                         } else //if (randomFactory.getAbsoluteNextInt(180) == 5) 
                         {
-                            loadNextImage();
+                            this.loadNextImage();
                         }
 
                         return;
@@ -250,16 +250,16 @@ public class ImageCache extends ImageCacheBase {
     public void loadImages() throws Exception {
         while (!this.loadList.isEmpty() || !this.loadNowList.isEmpty()) {
 
-            loadImageForAnimations();
+            this.loadImageForAnimations();
             //this.logUtil.putF("load image", this, commonStrings.RUN);
-            loadNextImage();
+            this.loadNextImage();
         }
     }
     
     public void loadImageForAnimations() throws Exception {
         while (!this.loadNowList.isEmpty()) {
             //this.logUtil.putF("load lazy animation image", this, commonStrings.RUN);
-            loadImageForAnimation();
+            this.loadImageForAnimation();
         }
     }
     
@@ -269,7 +269,7 @@ public class ImageCache extends ImageCacheBase {
             
             while (!this.loadNowList.isEmpty()) {
                 //this.logUtil.putF("load lazy animation image", this, commonStrings.RUN);
-                loadImageForAnimation();
+                this.loadImageForAnimation();
             }
 
             LazyImageRotationAnimation lazyImageRotationAnimation = null;

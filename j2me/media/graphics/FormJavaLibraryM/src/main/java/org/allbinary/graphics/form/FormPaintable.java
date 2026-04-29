@@ -34,6 +34,6 @@ public class FormPaintable extends Paintable
 
     public PaintableForm getForm()
     {
-        return form;
+        return this.form;
     }
 }

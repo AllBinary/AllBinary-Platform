@@ -39,7 +39,7 @@ public class CollisionHelper {
     */
    public AllBinaryLayer getOwnerLayerInterface()
    {
-      return sourceLayerInterface;
+      return this.sourceLayerInterface;
    }
 
    /**

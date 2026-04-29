@@ -47,8 +47,8 @@ public class VisibleCellPositionsSingleton
     private short[][] currentlyVisibleCellPositions = NullUtil.getInstance().NULL_SHORT_ARRAY_ARRAY;
 
     public final SimpleTiledLayer ALL_VISIBLE_TILEDLAYER = new SimpleTiledLayer(0, 0, 0, 0);
-    private SimpleTiledLayer simpleTiledLayer = ALL_VISIBLE_TILEDLAYER;
-    private SimpleTiledLayer paintSimpleTiledLayer = ALL_VISIBLE_TILEDLAYER;
+    private SimpleTiledLayer simpleTiledLayer = this.ALL_VISIBLE_TILEDLAYER;
+    private SimpleTiledLayer paintSimpleTiledLayer = this.ALL_VISIBLE_TILEDLAYER;
 
     private int currentIndex;
 
@@ -206,6 +206,6 @@ public class VisibleCellPositionsSingleton
 
     public SimpleTiledLayer getSimpleTiledLayer()
     {
-        return simpleTiledLayer;
+        return this.simpleTiledLayer;
     }
 }

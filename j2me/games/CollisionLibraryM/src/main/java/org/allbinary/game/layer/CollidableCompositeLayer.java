@@ -68,7 +68,7 @@ implements CollidableInterfaceCompositeInterface
     @Override
     public CollidableBaseBehavior getCollidableInferface()
     {
-        return collidableInferface;
+        return this.collidableInferface;
     }
 
     public void setCollidableInferface(final CollidableBaseBehavior collidableInferface)

@@ -52,6 +52,6 @@ public class RegistrationConfiguration
 
     public String getRegistrationCode()
     {
-        return registrationCode;
+        return this.registrationCode;
     }
 }

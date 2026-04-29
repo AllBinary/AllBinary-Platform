@@ -73,7 +73,7 @@ extends GameNotificationHud
         this.point = CustomGPoint.getInstance3(0, 0);
         this.point.setX(x);
         this.point.setY(y);
-        return point;
+        return this.point;
     }
     
     private final String PERMANENT_GAME_NOTIFICATION = "Permanent Game Notification: ";

@@ -139,17 +139,17 @@ public class TouchButton extends Paintable
 
     public CellPosition getCellPosition()
     {
-        return cellPositionP;
+        return this.cellPositionP;
     }
 
     public Rectangle getRectangle()
     {
-        return rectangleP;
+        return this.rectangleP;
     }
 
     public TouchButtonInput getTouchButtonInput()
     {
-        return touchButtonInput;
+        return this.touchButtonInput;
     }
 
     public String toString()

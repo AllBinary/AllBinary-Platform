@@ -187,7 +187,7 @@ public class BasicHud //implements DisplayChangeEventListener
 
    public int getBufferZone()
    {
-      return bufferZone;
+      return this.bufferZone;
    }
 
    public void setBufferZone(int bufferZone)
@@ -205,7 +205,7 @@ public class BasicHud //implements DisplayChangeEventListener
 
    public int getMaxWidth()
    {
-      return maxWidth;
+      return this.maxWidth;
    }
 
    public void setMaxWidth(int maxWidth)
@@ -215,7 +215,7 @@ public class BasicHud //implements DisplayChangeEventListener
 
    public int getMaxHeight()
    {
-      return maxHeight;
+      return this.maxHeight;
    }
 
    public void setMaxHeight(int maxHeight)
@@ -238,26 +238,26 @@ public class BasicHud //implements DisplayChangeEventListener
        this.basicSetColorUtil.setBasicColorP(graphics, getBasicColorP());
 
       graphics.drawString(string,
-              x, //getHudGraphicsPosition().getPoint().getX().intValue(),
+              this.x, //getHudGraphicsPosition().getPoint().getX().intValue(),
               getY(), //getHudGraphicsPosition().getPoint().getY().intValue(),
-              hudGraphicsPosition.getAnchor());
+              this.hudGraphicsPosition.getAnchor());
       graphics.drawString(string2,
-              x + offset, //getHudGraphicsPosition().getPoint().getX().intValue() + offset,
+              this.x + offset, //getHudGraphicsPosition().getPoint().getX().intValue() + offset,
               getY(), //getHudGraphicsPosition().getPoint().getY().intValue(),
-              hudGraphicsPosition.getAnchor());
+              this.hudGraphicsPosition.getAnchor());
    }
 
    public void paintSSOO(Graphics graphics, String string, String string2, int offset, int offset2)
    {
       graphics.setColor(this.getColor());
       graphics.drawString(string,
-              x + offset, //getHudGraphicsPosition().getPoint().getX().intValue() + offset,
+              this.x + offset, //getHudGraphicsPosition().getPoint().getX().intValue() + offset,
               getY(), //getHudGraphicsPosition().getPoint().getY().intValue(),
-              hudGraphicsPosition.getAnchor());
+              this.hudGraphicsPosition.getAnchor());
       graphics.drawString(string2,
-              x + offset2, //getHudGraphicsPosition().getPoint().getX().intValue() + offset,
+              this.x + offset2, //getHudGraphicsPosition().getPoint().getX().intValue() + offset,
               getY(), //getHudGraphicsPosition().getPoint().getY().intValue(),
-              hudGraphicsPosition.getAnchor());
+              this.hudGraphicsPosition.getAnchor());
    }
 
    public void paintDXY(Graphics graphics,
@@ -267,19 +267,19 @@ public class BasicHud //implements DisplayChangeEventListener
    {
        this.basicSetColorUtil.setBasicColorP(graphics, getBasicColorP());
        
-       int y = getY();
+       int y = this.getY();
        
        graphics.drawChars(charArray,
                offset, len,
-          x + xOffset, //getHudGraphicsPosition().getPoint().getX().intValue(),
+          this.x + xOffset, //getHudGraphicsPosition().getPoint().getX().intValue(),
           y, //getHudGraphicsPosition().getPoint().getY().intValue(),
-          hudGraphicsPosition.getAnchor());
+          this.hudGraphicsPosition.getAnchor());
 
        graphics.drawChars(charArray2,
                offset2, len2,
-          x + xOffset2, //getHudGraphicsPosition().getPoint().getX().intValue(),
+          this.x + xOffset2, //getHudGraphicsPosition().getPoint().getX().intValue(),
           y, //getHudGraphicsPosition().getPoint().getY().intValue(),
-          hudGraphicsPosition.getAnchor());
+          this.hudGraphicsPosition.getAnchor());
    }
    
    public void paintDX(Graphics graphics,
@@ -289,32 +289,32 @@ public class BasicHud //implements DisplayChangeEventListener
    {
        this.basicSetColorUtil.setBasicColorP(graphics, getBasicColorP());
 
-       int y = getY();
+       int y = this.getY();
        
        graphics.drawChars(charArray,
                offset, len,
-          x, //getHudGraphicsPosition().getPoint().getX().intValue(),
+          this.x, //getHudGraphicsPosition().getPoint().getX().intValue(),
           y, //getHudGraphicsPosition().getPoint().getY().intValue(),
-          hudGraphicsPosition.getAnchor());
+          this.hudGraphicsPosition.getAnchor());
 
        graphics.drawChars(charArray2,
                offset2, len2,
-          x + xOffset, //getHudGraphicsPosition().getPoint().getX().intValue(),
+          this.x + xOffset, //getHudGraphicsPosition().getPoint().getX().intValue(),
           y, //getHudGraphicsPosition().getPoint().getY().intValue(),
-          hudGraphicsPosition.getAnchor());
+          this.hudGraphicsPosition.getAnchor());
    }
    
    public void paintOffsetAndLength(Graphics graphics, char[] charArray, int offset, int len)
    {
        this.basicSetColorUtil.setBasicColorP(graphics, getBasicColorP());
 
-       int y = getY();
+       int y = this.getY();
        
       graphics.drawChars(charArray,
               offset, len,
-         x, //getHudGraphicsPosition().getPoint().getX().intValue(),
+         this.x, //getHudGraphicsPosition().getPoint().getX().intValue(),
          y, //getHudGraphicsPosition().getPoint().getY().intValue(),
-         hudGraphicsPosition.getAnchor());
+         this.hudGraphicsPosition.getAnchor());
    }
    
    protected int offsetY;
@@ -323,17 +323,17 @@ public class BasicHud //implements DisplayChangeEventListener
    {
        this.basicSetColorUtil.setBasicColorP(graphics, getBasicColorP());
 
-       int y = getY() + this.offsetY;
+       int y = this.getY() + this.offsetY;
        
       graphics.drawString(string,
-         x, //getHudGraphicsPosition().getPoint().getX().intValue(),
+         this.x, //getHudGraphicsPosition().getPoint().getX().intValue(),
          y, //getHudGraphicsPosition().getPoint().getY().intValue(),
-         hudGraphicsPosition.getAnchor());
+         this.hudGraphicsPosition.getAnchor());
    }
 
    protected HudGraphicsPosition getHudGraphicsPosition()
    {
-      return hudGraphicsPosition;
+      return this.hudGraphicsPosition;
    }
 
     /**
@@ -341,7 +341,7 @@ public class BasicHud //implements DisplayChangeEventListener
      */
     public int getColor()
     {
-        return color;
+        return this.color;
     }
 
     /**
@@ -349,7 +349,7 @@ public class BasicHud //implements DisplayChangeEventListener
      */
     public int getX()
     {
-        return x;
+        return this.x;
     }
 
     /**
@@ -367,7 +367,7 @@ public class BasicHud //implements DisplayChangeEventListener
 
     public BasicColor getBasicColorP()
     {
-        return basicColor;
+        return this.basicColor;
     }
 
     protected void setY(int y)
@@ -377,7 +377,7 @@ public class BasicHud //implements DisplayChangeEventListener
 
     protected int getY()
     {
-        return y;
+        return this.y;
     }
    
 }

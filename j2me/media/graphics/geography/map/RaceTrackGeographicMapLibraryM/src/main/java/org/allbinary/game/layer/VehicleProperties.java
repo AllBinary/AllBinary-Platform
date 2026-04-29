@@ -31,7 +31,7 @@ public class VehicleProperties
 
    public VehicleFrictionProperties getVehicleFrictionProperties()
    {
-      return vehicleFrictionProperties;
+      return this.vehicleFrictionProperties;
    }
 
    public void setVehicleFrictionProperties(VehicleFrictionProperties vehicleFrictionProperties)
@@ -41,6 +41,6 @@ public class VehicleProperties
 
    public VelocityProperties getVelocityProperties()
    {
-      return velocityProperties;
+      return this.velocityProperties;
    }
 }

@@ -27,7 +27,7 @@ public class PlacedLayerFactory
 
     public int getSize()
     {
-        return list.size();
+        return this.list.size();
     }
 
     private final BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();

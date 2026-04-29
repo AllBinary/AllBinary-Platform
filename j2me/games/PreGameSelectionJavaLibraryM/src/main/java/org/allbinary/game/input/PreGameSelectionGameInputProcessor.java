@@ -151,7 +151,7 @@ public class PreGameSelectionGameInputProcessor extends Processor implements
      */
     public PreGameSelectorPaintable getPreGameSelectorPaintable()
     {
-        return preGameSelectorPaintable;
+        return this.preGameSelectorPaintable;
     }
 
     @Override
@@ -175,6 +175,6 @@ public class PreGameSelectionGameInputProcessor extends Processor implements
     @Override
     public PlayerGameInput getPlayerGameInput()
     {
-        return playerGameInput;
+        return this.playerGameInput;
     }
 }

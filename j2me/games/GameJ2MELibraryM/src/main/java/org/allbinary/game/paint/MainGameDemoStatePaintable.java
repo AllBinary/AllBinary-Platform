@@ -44,7 +44,7 @@ public class MainGameDemoStatePaintable extends Paintable
      */
     public Paintable getOwnershipPaintableInterface()
     {
-        return ownershipPaintableInterface;
+        return this.ownershipPaintableInterface;
     }
 
     /**
@@ -52,7 +52,7 @@ public class MainGameDemoStatePaintable extends Paintable
      */
     public Paintable getMenuPaintableInterface()
     {
-        return menuPaintableInterface;
+        return this.menuPaintableInterface;
     }
 
 }

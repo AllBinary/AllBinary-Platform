@@ -66,6 +66,6 @@ public class PreGameSelectorPaintable extends InitUpdatePaintable
      */
     public PreGameScrollSelectionForm getPreGameSelectionForm()
     {
-        return preGameScrollSelectionForm;
+        return this.preGameScrollSelectionForm;
     }
 }

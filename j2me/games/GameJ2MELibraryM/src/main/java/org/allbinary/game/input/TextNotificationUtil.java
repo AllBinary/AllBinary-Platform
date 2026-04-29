@@ -61,8 +61,8 @@ public class TextNotificationUtil
     public void fire(String message) throws Exception
     {
         GameNotificationEvent gameNotificationEvent = new GameNotificationEvent(
-                    this, message, TWO, BasicColorFactory.getInstance().RED, FALSE);
+                    this, message, this.TWO, BasicColorFactory.getInstance().RED, this.FALSE);
 
-        gameNotificationEventHandler.fireEvent(gameNotificationEvent);
+        this.gameNotificationEventHandler.fireEvent(gameNotificationEvent);
     }
 }

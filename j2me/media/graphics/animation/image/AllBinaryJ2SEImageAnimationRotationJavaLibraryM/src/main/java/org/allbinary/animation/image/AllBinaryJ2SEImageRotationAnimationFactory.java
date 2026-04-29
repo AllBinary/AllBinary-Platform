@@ -186,7 +186,7 @@ public class AllBinaryJ2SEImageRotationAnimationFactory
 
     protected short getAngleIncrement()
     {
-        return angleIncrementP;
+        return this.angleIncrementP;
     }
         
 }

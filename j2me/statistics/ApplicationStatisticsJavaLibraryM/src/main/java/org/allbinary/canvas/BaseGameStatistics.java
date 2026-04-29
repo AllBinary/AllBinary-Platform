@@ -108,8 +108,8 @@ public class BaseGameStatistics
     
     private final String EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
     private final String[] STRING_ARRAY =
-    { " Total Time: ", EMPTY_STRING, " Total Frames: ", EMPTY_STRING,
-            " Frames/10 Sec: ", EMPTY_STRING, " Total Paints: ",
+    { " Total Time: ", this.EMPTY_STRING, " Total Frames: ", this.EMPTY_STRING,
+            " Frames/10 Sec: ", this.EMPTY_STRING, " Total Paints: ",
             this.EMPTY_STRING, " Paints/10 Sec: ", this.EMPTY_STRING };
 
     private final char SPACE_CHAR = ' ';
@@ -136,39 +136,39 @@ public class BaseGameStatistics
 
             if (framesPerSec < 10)
             {
-                CHAR_ARRAY[1][0] = this.SPACE_CHAR;
-                CHAR_ARRAY[1][1] = this.primitiveLongSingleton.NUMBER_CHAR_ARRAY[framesPerSec];
+                this.CHAR_ARRAY[1][0] = this.SPACE_CHAR;
+                this.CHAR_ARRAY[1][1] = this.primitiveLongSingleton.NUMBER_CHAR_ARRAY[framesPerSec];
             } else if (framesPerSec < 100)
             {
                 int tens = framesPerSec / 10;
                 int removeTens = tens * 10;
-                CHAR_ARRAY[1][0] = this.primitiveLongSingleton.NUMBER_CHAR_ARRAY[tens];
-                CHAR_ARRAY[1][1] = this.primitiveLongSingleton.NUMBER_CHAR_ARRAY[framesPerSec - removeTens];                
+                this.CHAR_ARRAY[1][0] = this.primitiveLongSingleton.NUMBER_CHAR_ARRAY[tens];
+                this.CHAR_ARRAY[1][1] = this.primitiveLongSingleton.NUMBER_CHAR_ARRAY[framesPerSec - removeTens];                
             } else
             {
-                CHAR_ARRAY[1][0] = this.PLUS_CHAR;
-                CHAR_ARRAY[1][1] = this.PLUS_CHAR;
+                this.CHAR_ARRAY[1][0] = this.PLUS_CHAR;
+                this.CHAR_ARRAY[1][1] = this.PLUS_CHAR;
             }
 
             int refreshesPerSec = (int) (this.totalRefreshes / totalTime);
 
             if (refreshesPerSec < 10)
             {
-                CHAR_ARRAY[3][0] = this.X_CHAR;
-                CHAR_ARRAY[3][1] = this.primitiveLongSingleton.NUMBER_CHAR_ARRAY[refreshesPerSec];
+                this.CHAR_ARRAY[3][0] = this.X_CHAR;
+                this.CHAR_ARRAY[3][1] = this.primitiveLongSingleton.NUMBER_CHAR_ARRAY[refreshesPerSec];
             } else if (refreshesPerSec < 100)
             {
                 int tens = refreshesPerSec / 10;
                 int removeTens = tens * 10;
-                CHAR_ARRAY[3][0] = this.primitiveLongSingleton.NUMBER_CHAR_ARRAY[refreshesPerSec / 10];
-                CHAR_ARRAY[3][1] = this.primitiveLongSingleton.NUMBER_CHAR_ARRAY[refreshesPerSec - removeTens];
+                this.CHAR_ARRAY[3][0] = this.primitiveLongSingleton.NUMBER_CHAR_ARRAY[refreshesPerSec / 10];
+                this.CHAR_ARRAY[3][1] = this.primitiveLongSingleton.NUMBER_CHAR_ARRAY[refreshesPerSec - removeTens];
             } else
             {
-                CHAR_ARRAY[3][0] = this.PLUS_CHAR;
-                CHAR_ARRAY[3][1] = this.PLUS_CHAR;
+                this.CHAR_ARRAY[3][0] = this.PLUS_CHAR;
+                this.CHAR_ARRAY[3][1] = this.PLUS_CHAR;
             }
         }
-        return CHAR_ARRAY;
+        return this.CHAR_ARRAY;
     }
 
     public String[] toStringArray()
@@ -178,22 +178,22 @@ public class BaseGameStatistics
 
         if (totalTime > 0)
         {
-            STRING_ARRAY[1] = Long.toString(totalTime);
-            STRING_ARRAY[3] = Long.toString(this.totalFrames);
-            STRING_ARRAY[5] = Long.toString(this.totalFrames / totalTime);
-            STRING_ARRAY[7] = Long.toString(this.totalRefreshes);
-            STRING_ARRAY[9] = Long.toString(this.totalRefreshes / totalTime);
+            this.STRING_ARRAY[1] = Long.toString(totalTime);
+            this.STRING_ARRAY[3] = Long.toString(this.totalFrames);
+            this.STRING_ARRAY[5] = Long.toString(this.totalFrames / totalTime);
+            this.STRING_ARRAY[7] = Long.toString(this.totalRefreshes);
+            this.STRING_ARRAY[9] = Long.toString(this.totalRefreshes / totalTime);
         } else
         {
             String string = this.EMPTY_STRING;
-            STRING_ARRAY[1] = string;
-            STRING_ARRAY[3] = string;
-            STRING_ARRAY[5] = string;
-            STRING_ARRAY[7] = string;
-            STRING_ARRAY[9] = string;
+            this.STRING_ARRAY[1] = string;
+            this.STRING_ARRAY[3] = string;
+            this.STRING_ARRAY[5] = string;
+            this.STRING_ARRAY[7] = string;
+            this.STRING_ARRAY[9] = string;
         }
 
-        return STRING_ARRAY;
+        return this.STRING_ARRAY;
     }
 
     public String toStringAt(long totalTime)
@@ -229,7 +229,7 @@ public class BaseGameStatistics
         	return this.toStringAt(totalTime);
         } else
         {
-            return NOT;
+            return this.NOT;
         }
     }
 }

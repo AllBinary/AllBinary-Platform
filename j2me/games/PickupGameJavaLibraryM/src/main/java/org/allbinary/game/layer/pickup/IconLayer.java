@@ -51,7 +51,7 @@ public class IconLayer extends AllBinaryLayer
     
     public Animation getAnimationInterface()
     {
-        return animationInterface;
+        return this.animationInterface;
     }
 
     /*

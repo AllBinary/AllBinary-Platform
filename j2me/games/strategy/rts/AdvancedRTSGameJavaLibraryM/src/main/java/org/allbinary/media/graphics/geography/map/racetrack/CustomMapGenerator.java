@@ -82,7 +82,7 @@ public class CustomMapGenerator extends CustomMapGeneratorBase
 
         final CellPosition cellPosition = geographicMapCellPositionFactory.getAt(column, row);
 
-        if (dropCellPositionHistory.isCellPositionWithDrop(cellPosition))
+        if (this.dropCellPositionHistory.isCellPositionWithDrop(cellPosition))
         {
             final AllBinaryLayer layer = dropCellPositionHistory.getLayerInterface(cellPosition);
             
@@ -103,7 +103,7 @@ public class CustomMapGenerator extends CustomMapGeneratorBase
     @Override
     public int[][] getCustomMapArray()
     {
-        return customMapArray;
+        return this.customMapArray;
     }
     
 }

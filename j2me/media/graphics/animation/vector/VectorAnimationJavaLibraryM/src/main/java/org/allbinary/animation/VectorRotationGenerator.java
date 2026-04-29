@@ -44,7 +44,7 @@ public class VectorRotationGenerator
     public int[][][] getInstance(final VectorInfo vectorRotationInfo)
     // throws Exception
     {
-        return getInstanceFrames(vectorRotationInfo.getWidth(), vectorRotationInfo.getHeight(),
+        return this.getInstanceFrames(vectorRotationInfo.getWidth(), vectorRotationInfo.getHeight(),
                 vectorRotationInfo.getPoints(), vectorRotationInfo.getTotalFrames());
     }
 

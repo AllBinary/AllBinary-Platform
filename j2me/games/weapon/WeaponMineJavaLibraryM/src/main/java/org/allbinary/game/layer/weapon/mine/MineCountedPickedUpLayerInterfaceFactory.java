@@ -74,7 +74,7 @@ public class MineCountedPickedUpLayerInterfaceFactory
 
         return this.weaponLayerCircularStaticPool.getInstance(
                 sourceLayerInterface, x, y, z, (int) angle.intValue(), 0,
-                weaponProperties,
+                this.weaponProperties,
                 (ScoreableInterface) sourceLayerInterface);
     }
 }

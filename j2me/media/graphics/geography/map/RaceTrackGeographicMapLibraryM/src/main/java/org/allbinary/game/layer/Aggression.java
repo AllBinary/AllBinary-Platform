@@ -34,7 +34,7 @@ public class Aggression {
    
    public Integer getRam()
    {
-      return ram;
+      return this.ram;
    }
 
    public void setRam(Integer ram)
@@ -44,7 +44,7 @@ public class Aggression {
 
    public Integer getProjectile()
    {
-      return projectile;
+      return this.projectile;
    }
 
    public void setProjectile(Integer projectile)
@@ -54,7 +54,7 @@ public class Aggression {
 
    public Integer getDrops()
    {
-      return drops;
+      return this.drops;
    }
 
    public void setDrops(Integer drops)

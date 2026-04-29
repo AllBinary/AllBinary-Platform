@@ -35,7 +35,7 @@ public class GestureOnlyMotionRecognizer extends MotionRecognizer
     {
         this.id = index++;
         
-        this.motionGestureRecognizer = new MotionGestureRecognizer(id);
+        this.motionGestureRecognizer = new MotionGestureRecognizer(this.id);
     }
    
     @Override

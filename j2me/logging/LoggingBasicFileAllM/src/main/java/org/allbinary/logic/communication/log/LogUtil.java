@@ -42,7 +42,7 @@ public class LogUtil
         String functionName = log.getFunctionName();
         Object exception = log.getThrowable();
 
-        put(specialMessage, object, functionName, exception);
+        this.put(specialMessage, object, functionName, exception);
     }
 
     //ActualPlatform

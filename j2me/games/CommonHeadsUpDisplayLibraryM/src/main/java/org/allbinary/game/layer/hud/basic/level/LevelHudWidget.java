@@ -111,8 +111,8 @@ public class LevelHudWidget extends BasicHud
     public void paint(Graphics graphics)
     {
         super.paintDX(graphics,
-                levelString, 0, levelString.length, 
-                levelNumberCharArray, 0, levelNumberTotalDigits, 
+                this.levelString, 0, this.levelString.length, 
+                this.levelNumberCharArray, 0, this.levelNumberTotalDigits, 
                 this.offset);
         
         //super.paint(graphics, levelString);

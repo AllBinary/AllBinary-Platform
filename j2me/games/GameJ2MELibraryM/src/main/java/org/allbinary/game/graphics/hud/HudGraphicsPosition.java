@@ -31,7 +31,7 @@ public class HudGraphicsPosition
 
     public int getAnchor()
     {
-       return anchor;
+       return this.anchor;
     }
 
     private void setAnchor(int anchor)
@@ -41,7 +41,7 @@ public class HudGraphicsPosition
 
     public GPoint getPoint()
     {
-        return point;
+        return this.point;
     }
 
     public void setPoint(GPoint point)

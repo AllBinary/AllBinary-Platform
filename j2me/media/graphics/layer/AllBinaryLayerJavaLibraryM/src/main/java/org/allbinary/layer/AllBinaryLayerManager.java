@@ -37,7 +37,7 @@ public class AllBinaryLayerManager extends LayerManager
     // private int damageIndex = -1;
     protected LayerProcessor[] getLayerProcessorArray()
     {
-        return basicLayerProcessorArray;
+        return this.basicLayerProcessorArray;
     }
 
     // , int damageIndex
@@ -91,7 +91,7 @@ public class AllBinaryLayerManager extends LayerManager
     {
         //this.logUtil.putF("Append: " + layerInterface, this, "appendProcessors");
         this.createLayerManagerEvent.setLayerInterface(layerInterface);
-        layerManagerEventHandler.fireEvent(this.createLayerManagerEvent);
+        this.layerManagerEventHandler.fireEvent(this.createLayerManagerEvent);
 
         LayerProcessor layerProcessorInterface;
 
@@ -117,7 +117,7 @@ public class AllBinaryLayerManager extends LayerManager
         //this.logUtil.putF("Remove: " + layerInterface, this, "remove");
         
         this.deleteLayerManagerEvent.setLayerInterface(layerInterface);
-        layerManagerEventHandler.fireDeleteEvent(this.deleteLayerManagerEvent);
+        this.layerManagerEventHandler.fireDeleteEvent(this.deleteLayerManagerEvent);
 
         LayerProcessor layerProcessorInterface;
 

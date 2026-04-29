@@ -89,7 +89,7 @@ public class DrawStringUtil
                 string, offset, length,
                 x - width,
                 y,
-                anchor);
+                this.anchor);
         }
         catch(Exception e)
         {

@@ -41,7 +41,7 @@ public class VectorRotationAnimationInterfaceFactory
 	}
 
 	protected BasicColor getBasicColorP() {
-		return basicColor;
+		return this.basicColor;
 	}
 
         @Override

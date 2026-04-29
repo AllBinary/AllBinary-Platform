@@ -82,7 +82,7 @@ public class WaypointCellPositionHistory
 
     public boolean isCellPositionWithDrop(CellPosition cellPosition)
     {
-        return positionList.contains(cellPosition);
+        return this.positionList.contains(cellPosition);
     }
 
     public boolean anyCellPositionWithDrop(BasicArrayList list)

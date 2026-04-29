@@ -82,7 +82,7 @@ extends SelectionHudPaintable
     }
     
     private final String TOTAL = "Total Selected: ";
-    private final int totalWidth = MyFont.getInstance().stringWidth(TOTAL);
+    private final int totalWidth = MyFont.getInstance().stringWidth(this.TOTAL);
     
     private final int backgroundColor = BasicColorFactory.getInstance().GREY.intValue();
         //BasicColor.TRANSPARENT_GREY.intValue();

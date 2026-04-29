@@ -155,7 +155,7 @@ public class ImageUtil {
 
         this.logUtil.putF(new StringMaker().appendfloat(width).append(this.commonSeps.FORWARD_SLASH).appendfloat(height)
             .append(this.commonSeps.COLON).appendint(newWidth).append(this.commonSeps.FORWARD_SLASH).appendint(newHeight).append(this.commonSeps.COLON)
-            .appendfloat(widthRatio).append(this.commonSeps.FORWARD_SLASH).appendfloat(heightRatio).toString(), this, CREATE_BUFFERED_IMAGE);
+            .appendfloat(widthRatio).append(this.commonSeps.FORWARD_SLASH).appendfloat(heightRatio).toString(), this, this.CREATE_BUFFERED_IMAGE);
 
         float dx = 0;
         float dy = 0;

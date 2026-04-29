@@ -40,7 +40,7 @@ public class BasicColorArrayIndexer {
    
    public BasicColor[] getBasicColorArray()
    {
-      return basicColorArray;
+      return this.basicColorArray;
    }
    
 }

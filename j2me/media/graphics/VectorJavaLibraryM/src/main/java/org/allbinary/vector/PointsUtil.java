@@ -64,7 +64,7 @@ public class PointsUtil
 
     public int[][] adjust(int[][] points, int both)
     {
-        return adjust(points, both, both);
+        return this.adjust(points, both, both);
     }
 
     public int[][] adjust(int[][] points, int x, int y)

@@ -39,7 +39,7 @@ public class AnalogControllerConfigurationFactory {
     }
 
     public boolean isAvailable() {
-        return available;
+        return this.available;
     }
 
     public void setAvailable(boolean available)
@@ -48,6 +48,6 @@ public class AnalogControllerConfigurationFactory {
 
         this.available = available;
 
-        AnalogControllerConfigurationEventHandler.getInstance().fireEvent(analogControllerConfigurationEvent);
+        AnalogControllerConfigurationEventHandler.getInstance().fireEvent(this.analogControllerConfigurationEvent);
     }
 }

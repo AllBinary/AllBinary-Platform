@@ -41,7 +41,7 @@ public class DropLayerFactory
    
    public int getSize()
    {
-      return list.size();
+      return this.list.size();
    }
    
    /*
@@ -64,6 +64,6 @@ public class DropLayerFactory
    }
    
    public BasicArrayList getList() {
-       return list;
+       return this.list;
        }   
 }

@@ -39,7 +39,7 @@ public class BasicLayerPlacement {
 
    public LayerPlacementType getLayerType()
    {
-      return layerType;
+      return this.layerType;
    }
 
    protected void setLayerType(LayerPlacementType layerType)

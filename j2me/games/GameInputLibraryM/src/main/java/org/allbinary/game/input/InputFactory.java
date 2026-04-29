@@ -42,7 +42,7 @@ public class InputFactory
     //protected final Input[] negativeInputIntegerArray = new Input[6];
     protected final Input[] inputIntegerArray = new Input[this.MAX];
 
-    public final Input NO_INPUT = new Input(0, commonStrings.UNKNOWN);
+    public final Input NO_INPUT = new Input(0, this.commonStrings.UNKNOWN);
     
     private InputFactory() {
         
@@ -69,10 +69,10 @@ public class InputFactory
             //Using the Exception for HTML5 build causes the game to hang.
             //this.logUtil.put(new StringMaker().append("id: ").append(id).toString(), this, commonStrings.GET_INSTANCE, new Exception());
             this.logUtil.putF(new StringMaker().append("Warning id: ").appendint(id).toString(), this, commonStrings.GET_INSTANCE);
-            return NO_INPUT;
+            return this.NO_INPUT;
         }
 
-        return inputIntegerArray[id];
+        return this.inputIntegerArray[id];
         /*
         if(id >= 0)
         {

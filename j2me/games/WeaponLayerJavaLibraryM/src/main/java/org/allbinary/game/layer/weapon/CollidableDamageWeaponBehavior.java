@@ -118,7 +118,7 @@ extends CollidableDestroyableDamageableBehavior
      */
     public boolean isCollided()
     {
-        return collided;
+        return this.collided;
     }
 
     /**

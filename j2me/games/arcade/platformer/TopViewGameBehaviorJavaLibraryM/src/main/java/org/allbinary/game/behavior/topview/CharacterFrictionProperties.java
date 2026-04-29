@@ -32,14 +32,14 @@ public class CharacterFrictionProperties extends FrictionProperties
    }
 
    public int getWATER_FRICTION_NOMINATOR() {
-      return WATER_FRICTION_NOMINATOR;
+      return this.WATER_FRICTION_NOMINATOR;
    }
 
    public int getAIR_FRICTION_NOMINATOR() {
-      return AIR_FRICTION_NOMINATOR;
+      return this.AIR_FRICTION_NOMINATOR;
    }
 
    public int getCOLLISION_FRICTION_NOMINATOR() {
-      return COLLISION_FRICTION_NOMINATOR;
+      return this.COLLISION_FRICTION_NOMINATOR;
    }
 }

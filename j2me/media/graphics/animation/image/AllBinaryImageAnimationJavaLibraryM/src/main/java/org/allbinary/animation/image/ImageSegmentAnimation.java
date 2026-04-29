@@ -111,7 +111,7 @@ public class ImageSegmentAnimation
      */
     public int getStartX()
     {
-        return startX;
+        return this.startX;
     }
 
     /**
@@ -127,7 +127,7 @@ public class ImageSegmentAnimation
      */
     public int getStartY()
     {
-        return startY;
+        return this.startY;
     }
 
     /**
@@ -143,7 +143,7 @@ public class ImageSegmentAnimation
      */
     public int getDrawWidth()
     {
-        return drawWidth;
+        return this.drawWidth;
     }
 
     /**
@@ -159,7 +159,7 @@ public class ImageSegmentAnimation
      */
     public int getDrawHeight()
     {
-        return drawHeight;
+        return this.drawHeight;
     }
 
     /**

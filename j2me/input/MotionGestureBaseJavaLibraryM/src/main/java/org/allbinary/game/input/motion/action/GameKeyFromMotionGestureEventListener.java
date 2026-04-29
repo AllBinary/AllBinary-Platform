@@ -64,7 +64,7 @@ extends CompleteMotionGestureInputEventListener
                     //this.logUtil.putF("Up: " + previousGameKeyEvent.toString(), this, "onCompleteMotionGestureInputEvent");
 
                     UpGameKeyEventHandler.getInstance().fireEvent(
-                            previousGameKeyEvent);
+                            this.previousGameKeyEvent);
                 }
                 /*
                 else

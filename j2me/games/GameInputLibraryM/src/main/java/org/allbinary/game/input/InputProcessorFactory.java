@@ -26,7 +26,7 @@ public class InputProcessorFactory
     
     public InputProcessor getInputProcessor()
     {
-        return inputProcessor;
+        return this.inputProcessor;
     }
     
 }

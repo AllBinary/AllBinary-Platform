@@ -152,12 +152,12 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
     @Override
     public Hashtable getHashtable()
     {
-        return hashtable;
+        return this.hashtable;
     }
 
     public Hashtable getRectangleHashtable()
     {
-        return rectangleHashtable;
+        return this.rectangleHashtable;
     }
 
     public Hashtable getRectangleArrayOfArraysHashtable()
@@ -172,6 +172,6 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
 
     public boolean isInitialized()
     {
-        return initialized;
+        return this.initialized;
     }
 }

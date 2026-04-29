@@ -34,7 +34,7 @@ public class GameInputMapping
 
     public GameKey getGameKey()
     {
-        return gameKey;
+        return this.gameKey;
     }
 
     private void setName(String name)
@@ -44,6 +44,6 @@ public class GameInputMapping
 
     public String getName()
     {
-        return name;
+        return this.name;
     }
 }

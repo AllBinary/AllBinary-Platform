@@ -84,7 +84,7 @@ public class BasicColorFactory
     public final BasicColor TRANSPARENT_BLACK = this.createInstanceAN(0x52000000, 0x000000, StringUtil.getInstance().EMPTY_STRING);
     public final BasicColor TRANSPARENT_RED = this.createInstanceAN(0x52000000, 0xFF0000, StringUtil.getInstance().EMPTY_STRING);
 
-    public final BasicColor CLEAR_COLOR = BLACK;
-    public final BasicColor BORDER_COLOR = WHITE;
+    public final BasicColor CLEAR_COLOR = this.BLACK;
+    public final BasicColor BORDER_COLOR = this.WHITE;
     
 }

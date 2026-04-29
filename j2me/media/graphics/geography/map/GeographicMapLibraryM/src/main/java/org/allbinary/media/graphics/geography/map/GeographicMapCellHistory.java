@@ -43,7 +43,7 @@ public class GeographicMapCellHistory
    private final BasicArrayList visitedList;
    private final String MISSED_INFO = "Missed";
    
-   private final Animation animation = new TextAnimation(MISSED_INFO, AnimationBehavior.getInstance());
+   private final Animation animation = new TextAnimation(this.MISSED_INFO, AnimationBehavior.getInstance());
 
    private int totalVisited;
 

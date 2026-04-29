@@ -137,17 +137,17 @@ public class CustomItemJ2MEComposite extends CustomItem implements CustomItemInt
     
     public void paintXY(Graphics graphics, int x, int y)
     {
-        ((CustomItemInterface) getItem()).paint(graphics, x, y);
+        ((CustomItemInterface) this.getItem()).paint(graphics, x, y);
     }
     
     public void paintUnselected(Graphics graphics, int x, int y)
     {
-        ((CustomItemInterface) getItem()).paintUnselected(graphics, x, y);
+        ((CustomItemInterface) this.getItem()).paintUnselected(graphics, x, y);
     }
 
     public Item getItem()
     {
-        return item;
+        return this.item;
     }
     
 }

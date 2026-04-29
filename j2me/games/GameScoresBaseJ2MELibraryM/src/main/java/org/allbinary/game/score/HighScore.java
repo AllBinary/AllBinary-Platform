@@ -70,12 +70,12 @@ public class HighScore
 
     public GameInfo getGameInfo()
     {
-        return gameInfo;
+        return this.gameInfo;
     }
 
     public String getScoreString()
     {
-        return scoreString;
+        return this.scoreString;
     }
 
     public void setName(String name)

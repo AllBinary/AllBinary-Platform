@@ -74,7 +74,7 @@ public class GameKeyEvent extends AllBinaryEventObject
 
    public int getKey()
    {
-      return key;
+      return this.key;
    }
       
    public String toString()
@@ -121,7 +121,7 @@ public class GameKeyEvent extends AllBinaryEventObject
 
    public int getOriginalKey()
    {
-      return originalKey;
+      return this.originalKey;
    }
 
    public void setOriginalKey(int originalKey)
@@ -131,7 +131,7 @@ public class GameKeyEvent extends AllBinaryEventObject
 
    public int getGameActionKey()
    {
-      return gameActionKey;
+      return this.gameActionKey;
    }
 
    public void setGameActionKey(int gameActionKey)
@@ -141,6 +141,6 @@ public class GameKeyEvent extends AllBinaryEventObject
 
    public int getSourceId()
    {
-       return sourceId;
+       return this.sourceId;
    }
 }

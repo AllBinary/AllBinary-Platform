@@ -79,6 +79,6 @@ public class RTSLayerHudPaintable extends SelectionHudPaintable {
     }
 
     private CollidableDestroyableDamageableLayer getRtsLayer() {
-        return rtsLayer;
+        return this.rtsLayer;
     }
 }

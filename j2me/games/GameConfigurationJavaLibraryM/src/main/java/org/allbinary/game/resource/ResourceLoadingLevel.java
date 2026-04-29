@@ -26,11 +26,11 @@ public class ResourceLoadingLevel
 
     public int getLevel()
     {
-        return level;
+        return this.level;
     }
 
     public String getName()
     {
-        return name;
+        return this.name;
     }
 }

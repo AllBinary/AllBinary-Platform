@@ -53,6 +53,6 @@ public class MathVector implements MathVectorInterface
 
    public BasicDecimal getResult()
    {
-      return resultBasicDecimal;
+      return this.resultBasicDecimal;
    }
 }

@@ -85,7 +85,7 @@ public class DropCellPositionHistory
 
     public boolean isCellPositionWithDrop(final CellPosition cellPosition)
     {
-        return positionList.contains(cellPosition);
+        return this.positionList.contains(cellPosition);
     }
 
     public boolean anyCellPositionWithDrop(final BasicArrayList list)

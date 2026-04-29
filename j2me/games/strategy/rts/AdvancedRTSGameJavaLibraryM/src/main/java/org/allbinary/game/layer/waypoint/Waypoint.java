@@ -51,8 +51,8 @@ public class Waypoint extends WaypointBase
 
     protected final PathFindingLayerInterface ownerLayer;
     
-    private BasicArrayList endList = basicArrayListUtil.getImmutableInstance();
-    private BasicArrayList[][] paths = basicArrayListUtil.NULL_ARRAY_OF_ARRAY;
+    private BasicArrayList endList = this.basicArrayListUtil.getImmutableInstance();
+    private BasicArrayList[][] paths = this.basicArrayListUtil.NULL_ARRAY_OF_ARRAY;
     
     //, BasicArrayList endList
     public Waypoint(final PathFindingLayerInterface ownerLayer, final Sound sound)
@@ -172,7 +172,7 @@ public class Waypoint extends WaypointBase
     {
         if(this.endList.size() == 0) {
             //return new BasicArrayListD();
-            return basicArrayListUtil.getImmutableInstance();
+            return this.basicArrayListUtil.getImmutableInstance();
         }
 
         final GeographicMapCellPosition endGeographicMapCellPosition =
@@ -180,7 +180,7 @@ public class Waypoint extends WaypointBase
 
         if(endGeographicMapCellPosition == null) {
             //return new BasicArrayListD();
-            return basicArrayListUtil.getImmutableInstance();
+            return this.basicArrayListUtil.getImmutableInstance();
         }
         
         //Most likely not a building
@@ -190,7 +190,7 @@ public class Waypoint extends WaypointBase
             //if (this.endList.size() < 2)
             {
                 //return new BasicArrayListD();
-                return basicArrayListUtil.getImmutableInstance();
+                return this.basicArrayListUtil.getImmutableInstance();
             }
             else
             {

@@ -43,6 +43,6 @@ public class ScoreableAddOnlyForHud extends Scoreable
 
     public ScoreHudWidget getScoreHudWidget()
     {
-        return scoreHudWidget;
+        return this.scoreHudWidget;
     }
 }

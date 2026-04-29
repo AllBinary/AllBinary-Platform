@@ -81,7 +81,7 @@ public class NullGameCanvas extends AllBinaryGameCanvas
     @Override
     public synchronized boolean isRunning()
     {
-        return running;
+        return this.running;
     }
     
     @Override

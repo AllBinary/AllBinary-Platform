@@ -19,15 +19,15 @@ public class AnalogLocationInput {
 	}
 
 	public int getPlayerId() {
-		return playerId;
+		return this.playerId;
 	}
 
 	public CustomGPoint getCustomGPoint() {
-		return customGPoint;
+		return this.customGPoint;
 	}
 
 	public int getRz() {
-		return rz;
+		return this.rz;
 	}
 
 	public void setRz(int rz) {
@@ -38,7 +38,7 @@ public class AnalogLocationInput {
      * @return the rightTrigger
      */
     public int getRightTrigger() {
-        return rightTrigger;
+        return this.rightTrigger;
     }
 
     /**
@@ -52,7 +52,7 @@ public class AnalogLocationInput {
      * @return the leftTrigger
      */
     public int getLeftTrigger() {
-        return leftTrigger;
+        return this.leftTrigger;
     }
 
     /**

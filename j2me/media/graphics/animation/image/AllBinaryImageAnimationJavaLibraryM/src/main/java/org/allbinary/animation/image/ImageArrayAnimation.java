@@ -93,12 +93,12 @@ public class ImageArrayAnimation extends IndexedAnimation
 
     public Image getImage(int index)
     {
-        return imageArray[index];
+        return this.imageArray[index];
     }
 
     public Image[] getImageArray()
     {
-        return imageArray;
+        return this.imageArray;
     }
 
     protected void setImageArray(Image[] imageArray)

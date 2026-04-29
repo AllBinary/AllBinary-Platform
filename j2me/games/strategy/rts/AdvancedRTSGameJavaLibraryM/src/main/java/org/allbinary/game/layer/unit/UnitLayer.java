@@ -330,7 +330,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
                 new UnitWaypointBehavior2(
                         this, 
                         (AdvancedRTSGameLayer) 
-                        waypointLayerInterfaceFactoryInterface.getNextInstance(
+                        this.waypointLayerInterfaceFactoryInterface.getNextInstance(
                                 hashtable, x, y, z))
                 );
 
@@ -619,7 +619,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
         this.initRangeAnimation =
             //new CircleAnimation(
                 AdjustedCircleAnimation.createW(
-                    weaponRange, weaponRange, this.getWidth(), this.basicColorFactory.GREEN);
+                    this.weaponRange, this.weaponRange, this.getWidth(), this.basicColorFactory.GREEN);
 
         final int sensorRange = weaponRange * SENSOR_RANGE_MULTIPLIER;
         
@@ -1266,7 +1266,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
                     = (GeographicMapCompositeInterface) this.allBinaryGameLayerManagerP;
                 final BasicGeographicMap geographicMapInterface = geographicMapCompositeInterface.getGeographicMapInterface()[0];
                 
-                layerPartialCellPositionsUtil.getAllDXY(
+                this.layerPartialCellPositionsUtil.getAllDXY(
                         geographicMapInterface,
                         this, (int) velocityXScaled, (int) velocityYScaled,
                         getPartialpositionlist());
@@ -1367,7 +1367,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
      */
     public VehicleProperties getVehicleProperties()
     {
-        return vehicleProperties;
+        return this.vehicleProperties;
     }
 
     @Override
@@ -1437,7 +1437,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
      */
     public int getLoad()
     {
-        return resourceLoad;
+        return this.resourceLoad;
     }
 
     public void clearResourceAnimation()
@@ -1484,7 +1484,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
             //Add Capital
             this.CAPITAL_EVENT.setValue(this.getLoad());
             CapitalEventHandlerFactory.getInstance(
-                ownerLayer.getGroupInterface()[0]).fireEvent(CAPITAL_EVENT);
+                ownerLayer.getGroupInterface()[0]).fireEvent(this.CAPITAL_EVENT);
             this.setLoad(0);
         }
     }
@@ -1529,13 +1529,13 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
     @Override
     public TrackingEvent getTrackingEvent()
     {
-        return trackingEvent;
+        return this.trackingEvent;
     }
 
     @Override
     public CaptionAnimationHelperBase getCaptionAnimationHelper()
     {
-        return captionAnimationHelper;
+        return this.captionAnimationHelper;
     }
     
     @Override
@@ -1546,7 +1546,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
 
     public short getMaxResourceLoad()
     {
-        return maxResourceLoad;
+        return this.maxResourceLoad;
     }
 
     public static BasicArrayList getPartialpositionlist()

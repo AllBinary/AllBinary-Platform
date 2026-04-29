@@ -31,7 +31,7 @@ public class TrackingEventCircularStaticPool
     
     public void init()
     {
-        EVENT_POOL.init(new TrackingEventFactory());
+        this.EVENT_POOL.init(new TrackingEventFactory());
     }
     
     public synchronized TrackingEvent getNextInstance(AllBinaryLayer layerInterface)

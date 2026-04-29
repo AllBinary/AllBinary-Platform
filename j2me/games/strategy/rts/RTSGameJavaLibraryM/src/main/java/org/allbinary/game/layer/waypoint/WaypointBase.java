@@ -52,7 +52,7 @@ public class WaypointBase
      */
     public Sound getSound()
     {
-        return sound;
+        return this.sound;
     }
     
     public void setAllBinaryGameLayerManager(final AllBinaryGameLayerManager allBinaryGameLayerManager) throws Exception {
@@ -64,7 +64,7 @@ public class WaypointBase
      */
     public BasicArrayList getConnectedWaypointList()
     {
-        return connectedWaypointList;
+        return this.connectedWaypointList;
     }
  
     @Override

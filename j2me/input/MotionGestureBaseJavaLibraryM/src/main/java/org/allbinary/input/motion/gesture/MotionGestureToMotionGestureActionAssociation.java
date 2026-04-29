@@ -32,7 +32,7 @@ public class MotionGestureToMotionGestureActionAssociation
 
     public BasicArrayList getMotionGesture()
     {
-        return list;
+        return this.list;
     }
 
     public void setMotionGestures(BasicArrayList list)
@@ -42,7 +42,7 @@ public class MotionGestureToMotionGestureActionAssociation
 
     public CompleteMotionGestureInputEvent getCommandAction()
     {
-        return motionGestureAction;
+        return this.motionGestureAction;
     }
 
     public void setMotionGestureAction(CompleteMotionGestureInputEvent commandAction)

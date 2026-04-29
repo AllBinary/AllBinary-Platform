@@ -78,6 +78,6 @@ public class ResourceRelativeRelationshipFactory
 
     public boolean isInitialized()
     {
-        return initialized;
+        return this.initialized;
     }
 }

@@ -151,12 +151,12 @@ public class AllBinaryTiledLayer extends Layer
 
     public int getCellWidth()
     {
-        return cellWidth;
+        return this.cellWidth;
     }
 
     public int getCellHeight()
     {
-        return cellHeight;
+        return this.cellHeight;
     }
 
     public int getCell(final int col, final int row)
@@ -181,27 +181,27 @@ public class AllBinaryTiledLayer extends Layer
 
     public int getHalfWidth()
     {
-        return halfWidth;
+        return this.halfWidth;
     }
 
     public int getHalfHeight()
     {
-        return halfHeight;
+        return this.halfHeight;
     }
 
     public Integer getDataId()
     {
-        return dataId;
+        return this.dataId;
     }
 
     public int getHalfCellWidth()
     {
-        return halfCellWidth;
+        return this.halfCellWidth;
     }
 
     public int getHalfCellHeight()
     {
-        return halfCellHeight;
+        return this.halfCellHeight;
     }
 
     public boolean isOnTileLayer(final int column, final int row)

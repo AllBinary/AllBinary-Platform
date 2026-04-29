@@ -68,7 +68,7 @@ public class RTSLayerCompositePaintable extends Paintable
 
     protected String getUpgradeCost()
     {
-        return upgradeCost;
+        return this.upgradeCost;
     }
 
     protected void setDownGradeCost(String downGradeCost)
@@ -78,7 +78,7 @@ public class RTSLayerCompositePaintable extends Paintable
 
     protected String getDownGradeCost()
     {
-        return downGradeCost;
+        return this.downGradeCost;
     }    
     
 }

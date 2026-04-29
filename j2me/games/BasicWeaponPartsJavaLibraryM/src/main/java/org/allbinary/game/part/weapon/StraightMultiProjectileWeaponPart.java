@@ -78,7 +78,7 @@ public class StraightMultiProjectileWeaponPart extends BasicWeaponPart {
          beamY = -(int) (cosine / this.noDecimalTrigTable.SCALE);
 
          weaponLayer =
-                 weaponLayerCircularStaticPool.getInstance(
+                 this.weaponLayerCircularStaticPool.getInstance(
                  sourceLayerInterface, x + beamX, y + beamY, 0, 
                  (int) angle, (int) otherAngle,  
                  weaponProperties, scoreableInterface);

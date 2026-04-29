@@ -33,7 +33,7 @@ public class PlayerType
 
     public int getId()
     {
-        return id;
+        return this.id;
     }
 
 //    private void setName(String name)
@@ -43,7 +43,7 @@ public class PlayerType
 
     public String getName()
     {
-        return name;
+        return this.name;
     }
     
     public String toString()

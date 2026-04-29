@@ -152,7 +152,7 @@ public class CustomTextBox extends GameCommandCanvas
     
     public TextFieldItem getTextFieldItem()
     {
-        return textFieldItem;
+        return this.textFieldItem;
     }
 
 }

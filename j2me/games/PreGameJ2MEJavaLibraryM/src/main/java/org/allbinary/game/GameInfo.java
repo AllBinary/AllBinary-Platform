@@ -50,22 +50,22 @@ public class GameInfo
    
    public GameType getGameType()
    {
-      return gameType;
+      return this.gameType;
    }
 
    public GameMode getGameMode()
    {
-      return gameMode;
+      return this.gameMode;
    }
 
    public PlayerType getPlayerType()
    {
-       return playerType;
+       return this.playerType;
    }
    
    public int getHighestLevel()
    {
-      return highestLevel;
+      return this.highestLevel;
    }
 
    public void setHighestLevel(final int highestLevel)
@@ -75,7 +75,7 @@ public class GameInfo
    
    public int getCurrentLevel()
    {
-      return currentLevel;
+      return this.currentLevel;
    }
 
    private final String NEW_LEVEL = "New Level: ";

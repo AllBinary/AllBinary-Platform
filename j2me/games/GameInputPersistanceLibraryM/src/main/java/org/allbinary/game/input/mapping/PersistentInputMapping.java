@@ -159,12 +159,12 @@ public class PersistentInputMapping
 
     private InputMappingEventListenerInterface getInputMappingEventListenerInterface()
     {
-        return inputMappingEventListenerInterface;
+        return this.inputMappingEventListenerInterface;
     }
 
     public InputToGameKeyMapping getInputMapping()
     {
-        return inputMapping;
+        return this.inputMapping;
     }
     
     //TWB - Hack Method for Platform Independence - Maybe a better place for this

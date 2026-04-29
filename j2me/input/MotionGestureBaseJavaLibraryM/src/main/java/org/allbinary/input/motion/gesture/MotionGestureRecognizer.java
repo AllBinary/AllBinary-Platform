@@ -35,10 +35,10 @@ public class MotionGestureRecognizer
 
     private final GPoint origin = PointFactory.getInstance().ZERO_ZERO;
 
-    private GPoint previous = origin;
-    private GPoint intermediate = origin;
+    private GPoint previous = this.origin;
+    private GPoint intermediate = this.origin;
 
-    private final Line line = new Line(origin, origin);
+    private final Line line = new Line(this.origin, this.origin);
 
     //TWB - should be treated like the KeyEventHandlers per player for deviceId
     private final BasicMotionGesturesHandler motionGesturesHandler;
@@ -150,7 +150,7 @@ public class MotionGestureRecognizer
         int minimumMotionGesture = MotionGestureConfigurationFactory
                 .getInstance().getMinimumMotionGesture();
         if (this.j2seMath.abs((float) this.line.getDeltaX()) < minimumMotionGesture
-                && j2seMath.abs((float) line.getDeltaY()) < minimumMotionGesture)
+                && this.j2seMath.abs((float) line.getDeltaY()) < minimumMotionGesture)
         {
             this.intermediate = current;
             return;
@@ -283,7 +283,7 @@ public class MotionGestureRecognizer
     
     public BasicMotionGesturesHandler getMotionGesturesHandler()
     {
-        return motionGesturesHandler;
+        return this.motionGesturesHandler;
     }
 
 }

@@ -114,7 +114,7 @@ public class BuildingAdvancedRTSFormInput
             if(!rtsPlayerLayerInterface.implmentsArtificialIntelligenceCompositeInterface())
             {
                 GameNotificationEventHandler.getInstance().fireEvent(
-                        atLeastOneHouseGameNotificationEvent);
+                        this.atLeastOneHouseGameNotificationEvent);
             }
 
             return false;

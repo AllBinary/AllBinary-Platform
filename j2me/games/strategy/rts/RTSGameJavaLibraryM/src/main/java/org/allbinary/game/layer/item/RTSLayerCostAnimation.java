@@ -48,7 +48,7 @@ implements TechEventListenerInterface
 
     private final String DOLLAR = "$";
 
-    private final int adjustedCostX = myFont.stringWidth(DOLLAR);
+    private final int adjustedCostX = this.myFont.stringWidth(this.DOLLAR);
     
     private final CostLayerInterfaceFactoryInterface layerInterfaceFactoryInterface;
     

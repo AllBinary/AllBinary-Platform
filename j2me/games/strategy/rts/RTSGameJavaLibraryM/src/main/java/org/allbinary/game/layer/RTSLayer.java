@@ -99,7 +99,7 @@ public class RTSLayer
     }
 
     protected final boolean debug = true;
-    public final boolean showMoreCaptionStates = debug;
+    public final boolean showMoreCaptionStates = this.debug;
     
     protected final GameInputProcessor[] inputProcessorArray = 
         new GameInputProcessor[InputFactory.getInstance().MAX];
@@ -143,7 +143,7 @@ public class RTSLayer
     private int level = 1;
     private int maxLevel = 1;
     //Could change to health
-    private int hackVerticleBuild = BUILD_VALUE;
+    private int hackVerticleBuild = this.BUILD_VALUE;
     //private int hackBuild = 0;
     protected int slightAngle = 0;
     protected static final int MAIN_INDEX = 0;
@@ -418,19 +418,19 @@ public class RTSLayer
     @Override
     public int getCost()
     {
-        return rtsLayerUtil.getCost(this);
+        return this.rtsLayerUtil.getCost(this);
     }
 
     @Override
     public int getDowngradeCost()
     {
-        return rtsLayerUtil.getDowngradeCost(this);
+        return this.rtsLayerUtil.getDowngradeCost(this);
     }
 
     @Override
     public int getUpgradeCost()
     {
-        return rtsLayerUtil.getUpgradeCost(this);
+        return this.rtsLayerUtil.getUpgradeCost(this);
     }
 
     @Override
@@ -465,7 +465,7 @@ public class RTSLayer
     @Override
     public int getLevel()
     {
-        return level;
+        return this.level;
     }
 
     /**
@@ -481,7 +481,7 @@ public class RTSLayer
      */
     public Animation getVerticleBuildAnimationInterface()
     {
-        return verticleBuildAnimationInterface;
+        return this.verticleBuildAnimationInterface;
     }
 
     /**
@@ -489,7 +489,7 @@ public class RTSLayer
      */
     public Animation getAnimationInterface()
     {
-        return animationInterface;
+        return this.animationInterface;
     }
 
     /**
@@ -527,7 +527,7 @@ public class RTSLayer
     @Override
     public int getMaxLevel()
     {
-        return maxLevel;
+        return this.maxLevel;
     }
 
     /**
@@ -543,7 +543,7 @@ public class RTSLayer
      */
     public Health getHealthInterface()
     {
-        return healthInterface;
+        return this.healthInterface;
     }
 
     /**
@@ -597,7 +597,7 @@ public class RTSLayer
 
     @Override
     public GeographicMapCellPositionAreaBase getGeographicMapCellPositionArea() {
-        return geographicMapCellPositionAreaBase;
+        return this.geographicMapCellPositionAreaBase;
     }
 
     @Override
@@ -769,7 +769,7 @@ public class RTSLayer
 
     public String getRootName()
     {
-        return rootName;
+        return this.rootName;
     }    
 
     /**

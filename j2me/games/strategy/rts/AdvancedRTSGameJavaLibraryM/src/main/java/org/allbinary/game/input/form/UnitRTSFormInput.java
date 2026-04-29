@@ -204,7 +204,7 @@ public class UnitRTSFormInput extends RTSFormInput
             if(!rtsPlayerLayerInterface.implmentsArtificialIntelligenceCompositeInterface())
             {
                 GameNotificationEventHandler.getInstance().fireEvent(
-                        newUnitGameNotificationEvent);
+                        this.newUnitGameNotificationEvent);
             }
 
         } else
@@ -217,7 +217,7 @@ public class UnitRTSFormInput extends RTSFormInput
             if(!rtsPlayerLayerInterface.implmentsArtificialIntelligenceCompositeInterface())
             {
                 GameNotificationEventHandler.getInstance().fireEvent(
-                        noMoneyGameNotificationEvent);
+                        this.noMoneyGameNotificationEvent);
             }
         }
     }

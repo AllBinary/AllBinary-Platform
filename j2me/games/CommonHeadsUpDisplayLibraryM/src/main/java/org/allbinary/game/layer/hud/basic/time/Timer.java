@@ -53,7 +53,7 @@ public class Timer
 
     public long get()
     {
-        return hundredthTime;
+        return this.hundredthTime;
     }
 
     /*
@@ -76,7 +76,7 @@ public class Timer
         {
             if (this.startTime > 0)
             {
-                this.hundrethsString = MAX;
+                this.hundrethsString = this.MAX;
             }
         }
         else if (lastLowerTime != this.hundredthTime)
@@ -109,6 +109,6 @@ public class Timer
 
     public int getCurrentTotalDigits()
     {
-        return totalDigits;
+        return this.totalDigits;
     }
 }

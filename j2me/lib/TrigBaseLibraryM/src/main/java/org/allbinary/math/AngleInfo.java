@@ -47,7 +47,7 @@ public class AngleInfo
    
    public short getAngle()
    {
-      return angle;
+      return this.angle;
    }
    
    public void setAngle(short angle)

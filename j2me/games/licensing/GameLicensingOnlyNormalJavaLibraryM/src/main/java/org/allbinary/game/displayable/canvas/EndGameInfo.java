@@ -42,7 +42,7 @@ public class EndGameInfo {
      */
     public String getGameOverStr()
     {
-        return gameOverStr;
+        return this.gameOverStr;
     }
 
     /**
@@ -58,7 +58,7 @@ public class EndGameInfo {
      */
     public String getWinStr()
     {
-        return winStr;
+        return this.winStr;
     }
 
     /**

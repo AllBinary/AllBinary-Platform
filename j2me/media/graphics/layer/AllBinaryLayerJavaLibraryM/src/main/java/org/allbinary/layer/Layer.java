@@ -42,8 +42,8 @@ public class Layer
 
     public Layer(int width, int height)
     {
-        setLayerWidth(width);
-        setLayerHeight(height);
+        this.setLayerWidth(width);
+        this.setLayerHeight(height);
     }
 
     public void setPosition(int x, int y, int z)
@@ -92,27 +92,27 @@ public class Layer
     
     public final int getXP()
     {
-        return x;
+        return this.x;
     }
 
     public final int getYP()
     {
-        return y;
+        return this.y;
     }
 
     public final int getZP()
     {
-        return z;
+        return this.z;
     }
     
     public final int getWidth()
     {
-        return width;
+        return this.width;
     }
 
     public final int getHeight()
     {
-        return height;
+        return this.height;
     }
 
     //3d games need to overide this now for correct screen to world mapping.
@@ -128,7 +128,7 @@ public class Layer
 
     public final boolean isVisible()
     {
-        return visible;
+        return this.visible;
     }
     
     //Should be overridden

@@ -26,6 +26,6 @@ public class NullDisplayable extends Canvas
     @Override
     public void paint(Graphics graphics)
     {
-        baseGameStatistics.nextRefresh();
+        this.baseGameStatistics.nextRefresh();
     }
 }

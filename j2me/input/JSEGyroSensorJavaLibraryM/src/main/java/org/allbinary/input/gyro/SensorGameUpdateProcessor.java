@@ -29,7 +29,7 @@ public class SensorGameUpdateProcessor
 
     public AllBinarySensor getInputSensor()
     {
-        return inputSensor;
+        return this.inputSensor;
     }
     
     //public void process(AllBinaryGameLayerManager layerManager) throws Exception

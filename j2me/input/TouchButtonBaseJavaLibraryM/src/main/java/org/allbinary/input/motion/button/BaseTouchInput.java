@@ -36,7 +36,7 @@ public class BaseTouchInput
      */
     public BasicArrayList getList()
     {
-        return basicArrayListUtil.getImmutableInstance();
+        return this.basicArrayListUtil.getImmutableInstance();
     }
     
     public String toString()

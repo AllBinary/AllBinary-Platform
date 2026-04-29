@@ -58,7 +58,7 @@ public class PlayerStateUtil {
             return this.CLOSED;
         }
         
-        return commonStrings.UNKNOWN;
+        return this.commonStrings.UNKNOWN;
     }
     
 }

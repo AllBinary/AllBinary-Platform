@@ -29,7 +29,7 @@ public class VelocityWidget extends BasicHud
     
     //private final String KILOMETERS_PER_HOUR_STR = " km/h";
     private final char[] KILOMETERS_PER_HOUR_STR = {' ', 'k', 'm', '/', 'h'};
-    private final int totalChars = KILOMETERS_PER_HOUR_STR.length;
+    private final int totalChars = this.KILOMETERS_PER_HOUR_STR.length;
 
     private int velocity;
     private int maxVelocity;
@@ -106,8 +106,8 @@ public class VelocityWidget extends BasicHud
     {
         //super.paint(graphics, string, KILOMETERS_PER_HOUR_STR, offset2, offset);
         super.paintDXY(graphics,
-                string, 0, this.totalDigits, 
-                KILOMETERS_PER_HOUR_STR, 0, this.totalChars, 
-                offset2, offset);
+                this.string, 0, this.totalDigits, 
+                this.KILOMETERS_PER_HOUR_STR, 0, this.totalChars, 
+                this.offset2, this.offset);
     }
 }

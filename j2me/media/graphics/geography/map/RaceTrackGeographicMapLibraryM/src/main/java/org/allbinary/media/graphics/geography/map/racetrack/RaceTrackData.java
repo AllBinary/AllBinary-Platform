@@ -32,7 +32,7 @@ public class RaceTrackData
     private int[][] mapArray = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY;
     private int[] cellTypeIdToGeographicMapCellTypeArray = NullUtil.getInstance().NULL_INT_ARRAY;
     private CellPosition[] NO_OVER_PASSES_ARRAY = new CellPosition[0];
-    private CellPosition[] overPassGeographicMapCellPositionArray = NO_OVER_PASSES_ARRAY;
+    private CellPosition[] overPassGeographicMapCellPositionArray = this.NO_OVER_PASSES_ARRAY;
     private Integer id;
 
     public RaceTrackData(final Integer id, final int cellWidth, final int cellHeight, final int miniCellWidth, final int miniCellHeight, final int[] cellTypeIdToGeographicMapCellTypeArray, final int[][] mapArray)
@@ -58,7 +58,7 @@ public class RaceTrackData
 
     public int[][] getMapArray()
     {
-        return mapArray;
+        return this.mapArray;
     }
 
     protected void setCellTypeIdToGeographicMapCellTypeArray(
@@ -69,7 +69,7 @@ public class RaceTrackData
 
     public int[] getCellTypeIdToGeographicMapCellTypeArray()
     {
-        return cellTypeIdToGeographicMapCellTypeArray;
+        return this.cellTypeIdToGeographicMapCellTypeArray;
     }
 
     private void setCellWidth(int cellWidth)
@@ -79,7 +79,7 @@ public class RaceTrackData
 
     public int getCellWidth()
     {
-        return cellWidth;
+        return this.cellWidth;
     }
 
     private void setCellHeight(int cellHeight)
@@ -89,12 +89,12 @@ public class RaceTrackData
 
     public int getCellHeight()
     {
-        return cellHeight;
+        return this.cellHeight;
     }
 
     public CellPosition[] getOverPassGeographicMapCellPositionArray()
     {
-        return overPassGeographicMapCellPositionArray;
+        return this.overPassGeographicMapCellPositionArray;
     }
 
     public void setOverPassGeographicMapCellPositionArray(CellPosition[] overPassGeographicMapCellPositionArray)
@@ -104,7 +104,7 @@ public class RaceTrackData
 
     public Image getTileSetImage()
     {
-        return tileSetImage;
+        return this.tileSetImage;
     }
 
     public void setTileSetImage(Image tileSetImage)
@@ -114,7 +114,7 @@ public class RaceTrackData
 
     public Image getMiniTileSetImage()
     {
-        return miniTileSetImage;
+        return this.miniTileSetImage;
     }
 
     public void setMiniTileSetImage(Image miniTileSetImage)
@@ -124,7 +124,7 @@ public class RaceTrackData
 
     public int getMiniCellWidth()
     {
-        return miniCellWidth;
+        return this.miniCellWidth;
     }
 
     public void setMiniCellWidth(int miniCellWidth)
@@ -134,7 +134,7 @@ public class RaceTrackData
 
     public int getMiniCellHeight()
     {
-        return miniCellHeight;
+        return this.miniCellHeight;
     }
 
     public void setMiniCellHeight(int miniCellHeight)
@@ -149,6 +149,6 @@ public class RaceTrackData
 
     public Integer getId()
     {
-        return id;
+        return this.id;
     }
 }

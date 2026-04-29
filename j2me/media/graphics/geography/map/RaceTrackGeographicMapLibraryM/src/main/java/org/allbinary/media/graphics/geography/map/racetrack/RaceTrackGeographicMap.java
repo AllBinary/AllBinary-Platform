@@ -44,7 +44,7 @@ public class RaceTrackGeographicMap extends BaseRaceTrackGeographicMap {
     }
 
     public CustomMapGeneratorBase getCustomMapGenerator() {
-        return customMapGenerator;
+        return this.customMapGenerator;
     }
 
     //This should never happen remove when bug is found

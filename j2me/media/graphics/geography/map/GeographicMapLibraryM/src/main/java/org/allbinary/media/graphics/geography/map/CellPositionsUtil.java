@@ -94,10 +94,10 @@ public class CellPositionsUtil
             final GeographicMapCellPosition layerGeographicMapCellPosition =
                 (GeographicMapCellPosition) occupyList.get(index);
 
-            final BasicArrayList surroundingGeographicMapCellPositionList = getAllSurroundingAt(
+            final BasicArrayList surroundingGeographicMapCellPositionList = this.getAllSurroundingAt(
                 geographicMapInterface, 
                 layerGeographicMapCellPosition,
-                reusableSingleThreadedSurroundingList);
+                this.reusableSingleThreadedSurroundingList);
 
             for (int index2 = surroundingGeographicMapCellPositionList.size() - 1; index2 >= 0; index2--)
             {

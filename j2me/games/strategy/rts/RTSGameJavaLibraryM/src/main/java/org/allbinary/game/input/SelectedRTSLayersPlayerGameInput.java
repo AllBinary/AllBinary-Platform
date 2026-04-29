@@ -168,7 +168,7 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
                     if(!this.rtsPlayerLayerInterface.implmentsArtificialIntelligenceCompositeInterface())
                     {
                         GameNotificationEventHandler.getInstance().fireEvent(
-                                upgradeGameNotificationEvent);
+                                this.upgradeGameNotificationEvent);
                     }
                     
                 } else
@@ -179,7 +179,7 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
                     {
                         //Not enough money
                         GameNotificationEventHandler.getInstance().fireEvent(
-                                noMoneyGameNotificationEvent);
+                                this.noMoneyGameNotificationEvent);
                     }
                 }
             }
@@ -221,7 +221,7 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
                 if(!this.rtsPlayerLayerInterface.implmentsArtificialIntelligenceCompositeInterface())
                 {
                     GameNotificationEventHandler.getInstance().fireEvent(
-                            downgradeGameNotificationEvent);
+                            this.downgradeGameNotificationEvent);
                 }
             }
         }
@@ -269,7 +269,7 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
                 this.processInputKey(key);
             }
 
-            if (isSingleKeyProcessing)
+            if (this.isSingleKeyProcessing)
             {
                 this.clear();
             } else
@@ -288,7 +288,7 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
      */
     public BasicArrayList getSelectedBasicArrayList()
     {
-        return selectedRTSLayersList;
+        return this.selectedRTSLayersList;
     }
 
     /**
@@ -424,11 +424,11 @@ public class SelectedRTSLayersPlayerGameInput extends PlayerGameInput
 
     public BasicArrayList getPaintSelectedRTSLayersList()
     {
-        return paintSelectedRTSLayersList;
+        return this.paintSelectedRTSLayersList;
     }
 
     public BasicArrayList getPreSelectedRTSLayersList()
     {
-        return preSelectedRTSLayersList;
+        return this.preSelectedRTSLayersList;
     }
 }

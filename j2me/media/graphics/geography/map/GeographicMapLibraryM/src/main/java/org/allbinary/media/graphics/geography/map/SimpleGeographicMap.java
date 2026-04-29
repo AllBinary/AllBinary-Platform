@@ -48,12 +48,12 @@ public class SimpleGeographicMap
 
     public Integer getId()
     {
-        return id;
+        return this.id;
     }
 
     public String getName()
     {
-        return name;
+        return this.name;
     }
 
     public void reset()
@@ -63,7 +63,7 @@ public class SimpleGeographicMap
 
     public AllBinaryTiledLayer getAllBinaryTiledLayer()
     {
-        return tiledLayer;
+        return this.tiledLayer;
     }
 
     private final GeographicMapCellTypeFactory geographicMapCellTypeFactory = 
@@ -92,7 +92,7 @@ public class SimpleGeographicMap
 
     public BasicColor getForegroundBasicColor()
     {
-        return foregroundBasicColor;
+        return this.foregroundBasicColor;
     }
 
     private void setForegroundBasicColor(final BasicColor foregroundBasicColor)
@@ -102,7 +102,7 @@ public class SimpleGeographicMap
 
     public BasicColor getBackgroundBasicColor()
     {
-        return backgroundBasicColor;
+        return this.backgroundBasicColor;
     }
 
     private void setBackgroundBasicColor(final BasicColor backgroundBasicColor)

@@ -47,6 +47,6 @@ public class CancelTouchButtonInputFactory
     
     public TouchButtonInput getCancel(TouchButtonInput touchButtonInput)
     {
-        return cancelInputArray[touchButtonInput.getSourceId()];
+        return this.cancelInputArray[touchButtonInput.getSourceId()];
     }
 }

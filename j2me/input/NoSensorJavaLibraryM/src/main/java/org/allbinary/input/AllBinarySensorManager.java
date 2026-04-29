@@ -57,7 +57,7 @@ public class AllBinarySensorManager
     private final BasicArrayList list = new BasicArrayListD();
     public BasicArrayList getSensorNamesList()
     {
-        return list;
+        return this.list;
     }
 
     public void shutdown()

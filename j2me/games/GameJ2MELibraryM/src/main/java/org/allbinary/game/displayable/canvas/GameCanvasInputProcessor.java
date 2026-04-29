@@ -83,8 +83,8 @@ extends InputProcessor
                  * .put(LogFactory.getInstance(gameKeyEvent.toString(), this, this.gameInputStrings.ADD_KEY_EVENT));
                  */
 
-                downGameKeyEventHandler.fireEvent(gameKeyEvent);
-                downGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
+                this.downGameKeyEventHandler.fireEvent(gameKeyEvent);
+                this.downGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
                 // DownGameKeyEventHandler.getInstance().fireEvent(gameKey);
 
             }
@@ -94,8 +94,8 @@ extends InputProcessor
             }
 
             final Integer keyCodeAsInteger = smallIntegerSingletonFactory.getAtNoThrow(keyCode);
-            downKeyEventHandler.fireEvent(keyCodeAsInteger);
-            downKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(keyCodeAsInteger);
+            this.downKeyEventHandler.fireEvent(keyCodeAsInteger);
+            this.downKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(keyCodeAsInteger);
 
         }
         catch (Exception e)

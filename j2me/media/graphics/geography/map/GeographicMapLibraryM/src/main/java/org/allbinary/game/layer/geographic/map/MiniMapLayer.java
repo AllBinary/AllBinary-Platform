@@ -87,7 +87,7 @@ public class MiniMapLayer
     }
 
     protected void init() throws Exception {
-        allBinaryTiledLayer.setPosition(this.x, this.y, this.z);
+        this.allBinaryTiledLayer.setPosition(this.x, this.y, this.z);
     }
 
     @Override
@@ -132,7 +132,7 @@ public class MiniMapLayer
         }
 
         final GeographicMapCellPosition geographicMapCellPosition =
-            geographicMapCellPositionFactory.getInstance(
+            this.geographicMapCellPositionFactory.getInstance(
                 geographicMapCellPositionEvent.getGeographicMapCellPosition());
 
         GPoint point = geographicMapCellPosition.getPoint();
@@ -184,7 +184,7 @@ public class MiniMapLayer
 
     @Override
     public void paint(final Graphics graphics) {
-        allBinaryTiledLayer.paint(graphics);
+        this.allBinaryTiledLayer.paint(graphics);
         this.paintDots(graphics);
     }
 }

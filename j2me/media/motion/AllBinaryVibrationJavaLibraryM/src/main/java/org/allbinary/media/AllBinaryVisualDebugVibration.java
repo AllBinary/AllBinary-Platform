@@ -47,7 +47,7 @@ public class AllBinaryVisualDebugVibration extends AllBinaryVibrationME
             final int width = myFont.stringWidth(this.VIBRATING);
 
             graphics.drawString(VIBRATING, 
-                    displayInfoSingleton.getLastHalfWidth() - (width >> 1), 0, anchor);
+                    displayInfoSingleton.getLastHalfWidth() - (width >> 1), 0, this.anchor);
         }
     }
 }

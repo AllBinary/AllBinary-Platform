@@ -75,7 +75,7 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
         
         final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         
-        basicSetColorUtil.setBasicColorP3(graphics, this.basicColor, this.color);
+        this.basicSetColorUtil.setBasicColorP3(graphics, this.basicColor, this.color);
 
         int beginWidth;
         for(int index = this.stringArray.length - 1; index >= 0; index--)
@@ -87,7 +87,7 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
             
             graphics.drawString(this.stringArray[index], 
                     displayInfo.getLastHalfWidth() - beginWidth, 
-                    displayInfo.getLastHalfHeight() - lineArray[index], anchor);
+                    displayInfo.getLastHalfHeight() - this.lineArray[index], this.anchor);
         }
         
         this.hasChanged = false;
@@ -118,7 +118,7 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
 
     public BasicColor getBasicColorP()
     {
-        return basicColor;
+        return this.basicColor;
     }
 
 }

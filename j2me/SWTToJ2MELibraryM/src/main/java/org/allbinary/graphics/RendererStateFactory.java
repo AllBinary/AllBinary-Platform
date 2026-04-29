@@ -32,7 +32,7 @@ public class RendererStateFactory
 
     public boolean isLoaded()
     {
-        return loaded;
+        return this.loaded;
     }
     
     public void setSurfaceChanged(boolean initialized)
@@ -42,6 +42,6 @@ public class RendererStateFactory
 
     public boolean isSurfaceChanged()
     {
-        return surfaceChanged;
+        return this.surfaceChanged;
     }
 }

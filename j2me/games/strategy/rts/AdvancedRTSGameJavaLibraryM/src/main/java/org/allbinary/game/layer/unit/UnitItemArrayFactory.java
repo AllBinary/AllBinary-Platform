@@ -74,7 +74,7 @@ implements ItemArraySingletonFactoryInterface
         
         final CustomItem item = new LayerInterfaceFactoryImageItem(
                 name, image,
-            ImageItem.LAYOUT_DEFAULT, flagResources.NAME, basicColor,
+            ImageItem.LAYOUT_DEFAULT, flagResources.NAME, this.basicColor,
             new Animation[] {new RTSLayerTextAnimation(RTSGameStrings.getInstance().DRAGGABLE, image)},
             layerInterfaceFactoryInterface);
         
@@ -122,7 +122,7 @@ implements ItemArraySingletonFactoryInterface
 
     public BasicGameResources[] getResources()
     {
-        return resources;
+        return this.resources;
     }
 
     public int indexOf(final BasicGameResources basicGameResources)

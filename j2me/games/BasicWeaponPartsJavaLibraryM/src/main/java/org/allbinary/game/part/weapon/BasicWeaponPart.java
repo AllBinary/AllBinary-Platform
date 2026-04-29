@@ -89,7 +89,7 @@ public class BasicWeaponPart
    }
 
    public AllBinaryLayer getOwnerLayerInterface() {
-      return ownerLayerInterface;
+      return this.ownerLayerInterface;
    }
 
    public void setOwnerLayerInterface(final AllBinaryLayer ownerLayerInterface) {
@@ -98,7 +98,7 @@ public class BasicWeaponPart
    
    @Override
    public Animation getAnimationInterface() {
-      return animationInterface;
+      return this.animationInterface;
    }
 
    public void setAnimationInterface(final Animation animationInterface) {
@@ -126,7 +126,7 @@ public class BasicWeaponPart
      */
     public WeaponProperties getWeaponProperties()
     {
-        return weaponProperties;
+        return this.weaponProperties;
     }
 
     /**

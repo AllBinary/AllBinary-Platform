@@ -94,7 +94,7 @@ public class AdjustedImageArrayRotationAnimation extends
     @Override
     public int getDx()
     {
-        return dx;
+        return this.dx;
     }
 
     @Override
@@ -106,6 +106,6 @@ public class AdjustedImageArrayRotationAnimation extends
     @Override
     public int getDy()
     {
-        return dy;
+        return this.dy;
     }
 }

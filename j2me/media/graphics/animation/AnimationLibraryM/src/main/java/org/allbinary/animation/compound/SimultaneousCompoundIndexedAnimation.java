@@ -119,7 +119,7 @@ public class SimultaneousCompoundIndexedAnimation
      */
     public Animation[] getAnimationInterfaceArray()
     {
-        return animationInterfaceArray;
+        return this.animationInterfaceArray;
     }
 
     /**

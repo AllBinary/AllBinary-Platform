@@ -182,7 +182,7 @@ public class RaceTrackGeographicMapCellType extends GeographicMapCellType
    
    public int getTravelCost()
    {
-      return travelCost;
+      return this.travelCost;
    }
    
    /*

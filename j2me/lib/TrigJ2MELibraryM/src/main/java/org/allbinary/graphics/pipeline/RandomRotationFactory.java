@@ -43,6 +43,6 @@ public class RandomRotationFactory
 
     public int getNextRandomAngle(int howMuch)
     {
-        return myRandomFactory.getNextInt(howMuch * 10);// / (Integer.MAX_VALUE / ());
+        return this.myRandomFactory.getNextInt(howMuch * 10);// / (Integer.MAX_VALUE / ());
     }
 }

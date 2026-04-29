@@ -128,10 +128,10 @@ public class RemoteHighScores extends HighScores {
     }
 
     public Boolean getAscending() {
-        return ascending;
+        return this.ascending;
     }
 
     public SoftwareInformation getSoftwareInformation() {
-        return softwareInformation;
+        return this.softwareInformation;
     }
 }

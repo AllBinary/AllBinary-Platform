@@ -109,7 +109,7 @@ public class SelectionHudPaintable extends InitUpdatePaintable
 
     protected PrimitiveLongUtil getPrimitiveLongUtil()
     {
-        return primitiveLongUtil;
+        return this.primitiveLongUtil;
     }
 
     protected void setAnimationInterface(Animation animationInterface)
@@ -119,7 +119,7 @@ public class SelectionHudPaintable extends InitUpdatePaintable
     
     protected Animation getAnimationInterface()
     {
-        return animationInterface;
+        return this.animationInterface;
     }
 
     protected void setName(String name)
@@ -129,7 +129,7 @@ public class SelectionHudPaintable extends InitUpdatePaintable
 
     protected String getName()
     {
-        return name;
+        return this.name;
     }
 
     @Override
@@ -141,7 +141,7 @@ public class SelectionHudPaintable extends InitUpdatePaintable
     
     protected BasicColor getBasicColorP()
     {
-        return basicColor;
+        return this.basicColor;
     }
 
     public void setColor(int color)
@@ -151,12 +151,12 @@ public class SelectionHudPaintable extends InitUpdatePaintable
 
     public int getColor()
     {
-        return color;
+        return this.color;
     }
 
     protected int getWidth()
     {
-        return width;
+        return this.width;
     }
 
     protected void setHeight(int height)
@@ -166,11 +166,11 @@ public class SelectionHudPaintable extends InitUpdatePaintable
 
     protected int getHeight()
     {
-        return height;
+        return this.height;
     }
 
     protected int getX()
     {
-        return x;
+        return this.x;
     }
 }

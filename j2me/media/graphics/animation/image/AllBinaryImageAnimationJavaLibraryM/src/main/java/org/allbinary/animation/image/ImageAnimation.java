@@ -91,7 +91,7 @@ public class ImageAnimation extends IndexedAnimation //implements AutoCloseable
      */
     protected Image getImage()
     {
-        return image;
+        return this.image;
     }
 
 //    public void paint(Graphics graphics) {

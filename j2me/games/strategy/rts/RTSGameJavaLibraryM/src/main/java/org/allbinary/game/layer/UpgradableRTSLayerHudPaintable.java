@@ -112,7 +112,7 @@ public class UpgradableRTSLayerHudPaintable
         if (this.percentComplete < 10)
         {
             this.percentCompleteX = 32;
-        } else if (percentComplete < 100)
+        } else if (this.percentComplete < 100)
         {
             this.percentCompleteX = 24;
         } else
@@ -136,8 +136,8 @@ public class UpgradableRTSLayerHudPaintable
         this.rtsLayerCompositePaintableLateInit.paint(graphics);
         
         graphics.drawChars(
-                percentCompleteArray, 0, this.currentTotalDigits, 
-                this.imageX + this.percentCompleteX, costY, 0);
+                this.percentCompleteArray, 0, this.currentTotalDigits, 
+                this.imageX + this.percentCompleteX, this.costY, 0);
 
         //37
         //(myFont.DEFAULT_CHAR_WIDTH * 4)
@@ -175,6 +175,6 @@ public class UpgradableRTSLayerHudPaintable
 
     protected CollidableDestroyableDamageableLayer getRtsLayer()
     {
-        return rtsLayer;
+        return this.rtsLayer;
     }
 }

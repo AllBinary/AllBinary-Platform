@@ -28,8 +28,8 @@ public class TouchButtonFactory
     }
 
     private BasicArrayList LIST = BasicArrayListUtil.getInstance().getImmutableInstance();
-    private BasicArrayList list = LIST;
-    private BasicArrayList savedList = LIST;
+    private BasicArrayList list = this.LIST;
+    private BasicArrayList savedList = this.LIST;
 
     private TouchButtonFactory()
     {
@@ -114,6 +114,6 @@ public class TouchButtonFactory
      */
     protected BasicArrayList getList()
     {
-        return list;
+        return this.list;
     }
 }

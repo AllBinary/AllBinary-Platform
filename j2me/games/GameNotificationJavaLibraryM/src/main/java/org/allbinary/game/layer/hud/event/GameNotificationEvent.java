@@ -42,22 +42,22 @@ public class GameNotificationEvent extends AllBinaryEventObject
 
     public String getString()
     {
-        return string;
+        return this.string;
     }
 
     public Integer getSeconds()
     {
-        return seconds;
+        return this.seconds;
     }
 
     public BasicColor getBasicColorP()
     {
-        return basicColor;
+        return this.basicColor;
     }
 
     public Boolean getPermanent()
     {
-        return removeable;
+        return this.removeable;
     }
 
     public void setString(String string)

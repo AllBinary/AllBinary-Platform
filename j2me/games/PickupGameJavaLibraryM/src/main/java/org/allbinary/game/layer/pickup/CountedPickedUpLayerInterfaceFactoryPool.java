@@ -29,7 +29,7 @@ public class CountedPickedUpLayerInterfaceFactoryPool
     
     public BasicArrayList getList()
     {
-            return list;
+            return this.list;
     }
     
     public static CountedPickedUpLayerInterfaceFactoryPool getInstance()

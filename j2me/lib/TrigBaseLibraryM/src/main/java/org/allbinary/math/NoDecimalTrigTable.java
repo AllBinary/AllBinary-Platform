@@ -1142,12 +1142,12 @@ public class NoDecimalTrigTable
 
     public long cos(int angle)
     {
-        return noDecimalCos[angle];
+        return this.noDecimalCos[angle];
     }
 
     public long tan(int angle)
     {
-        return noDecimalTan[angle];
+        return this.noDecimalTan[angle];
     }
     
     public int SCALE = 10000;

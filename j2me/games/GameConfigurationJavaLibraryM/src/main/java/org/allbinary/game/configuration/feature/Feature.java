@@ -43,11 +43,11 @@ public class Feature
     
     public String toString()
     {
-        return getName();
+        return this.getName();
     }
 
     public String getName()
     {
-        return name;
+        return this.name;
     }
 }

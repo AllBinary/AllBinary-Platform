@@ -73,8 +73,8 @@ public class BasePathFinderGraphVisitor<V, E>
     public boolean isValid(GraphPath graphPath)
     {
         if (graphPath.getEdgeList().size() > this.edgeMinimum &&
-            graphPath.getWeight() < maxPathWeight &&
-            graphPath.getWeight() > minPathWeight)
+            graphPath.getWeight() < this.maxPathWeight &&
+            graphPath.getWeight() > this.minPathWeight)
         {
             return true;
         }

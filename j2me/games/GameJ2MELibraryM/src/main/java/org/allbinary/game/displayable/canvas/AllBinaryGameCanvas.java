@@ -230,7 +230,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected ColorFillBasePaintable colorFillPaintable =
         ColorFillPaintableFactory.getInstance().getInstance(
-                basicColorFactory.BLACK, true);
+                this.basicColorFactory.BLACK, true);
 
     private final BaseGameStatistics baseGameStatistics =
             GameStatisticsFactory.getInstance();
@@ -371,9 +371,9 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         if (AllBinaryMediaManager.update())
         {
-            if (!primaryPlayerQueue.process())
+            if (!this.primaryPlayerQueue.process())
             {
-                secondaryPlayerQueue.process();
+                this.secondaryPlayerQueue.process();
             }
         }
 
@@ -576,7 +576,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     {
         //this.logUtil.putF(commonStrings.START, this, "popupMenu");
 
-        primaryPlayerQueue.add(SelectSound.getInstance());
+        this.primaryPlayerQueue.add(SelectSound.getInstance());
 
         this.setMenuPaintable(this.getFormPaintable());
         this.setMenuInputProcessor(this.mainMenuInputProcessor);
@@ -599,7 +599,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         else
             if (this.getMenuPaintable() == this.getFormPaintable())
         {
-                primaryPlayerQueue.add(SelectSound.getInstance());
+                this.primaryPlayerQueue.add(SelectSound.getInstance());
 
                 this.unPause();
         }
@@ -636,8 +636,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         this.basicMotionGesturesHandler.removeListener(this.menuInputProcessor);
         this.gameKeyEventHandler.removeListener(this.menuInputProcessor);
 
-        primaryPlayerQueue.clear();
-        secondaryPlayerQueue.clear();
+        this.primaryPlayerQueue.clear();
+        this.secondaryPlayerQueue.clear();
     }
 
     protected void processorInit() throws Exception
@@ -743,7 +743,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         progressCanvas.addNormalPortion(50, "Setting Configurables");
 
         GameInitializationUtil.getInstance().initGame(abeClientInformation, this,
-                gameInitializationInterfaceFactoryInterface);
+                this.gameInitializationInterfaceFactoryInterface);
 
         final GameFeatureFactory gameFeatureFactory = GameFeatureFactory.getInstance();
 
@@ -825,7 +825,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             // this.logUtil.putF(this.currentTouchInputFactory, this, this.gameInputStrings.UDPATE_CURRENT_TOUCH_INPUT_FACTORY);
             PreLogUtil.put(this.currentTouchInputFactory.toString(), this, this.gameInputStrings.UDPATE_CURRENT_TOUCH_INPUT_FACTORY);
 
-            touchButtonFactory.toggle(this.isPaused(),
+            this.touchButtonFactory.toggle(this.isPaused(),
                     this.currentTouchInputFactory.getList());
         }
     }
@@ -980,7 +980,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     @Override
     public AllBinaryGameLayerManager getLayerManager()
     {
-        return gameLayerManager;
+        return this.gameLayerManager;
     }
 
     public void setLayerManager(AllBinaryGameLayerManager layerManager)
@@ -1028,7 +1028,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     @Override
     public boolean isHighScoreSubmitted()
     {
-        return highScoreSubmitted;
+        return this.highScoreSubmitted;
     }
 
     @Override
@@ -1046,7 +1046,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     @Override
     public GameState getGameState()
     {
-        return gameState;
+        return this.gameState;
     }
 
     @Override
@@ -1143,8 +1143,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         progressCanvas.addNormalPortion(10, "Cleaning Up");
 
-        primaryPlayerQueue.clear();
-        secondaryPlayerQueue.clear();
+        this.primaryPlayerQueue.clear();
+        this.secondaryPlayerQueue.clear();
 
         GameLevelDisplayChangeEventListenersFactory.getInstance().clear();
     }
@@ -1284,7 +1284,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     public void loadState() throws Exception
     {
         this.logUtil.putF(commonStrings.START, this, commonStrings.LOAD);
-        Hashtable hashtable = getLoadStateHashtable();
+        Hashtable hashtable = this.getLoadStateHashtable();
 
         if (hashtable != null && hashtable.size() > 0)
         {
@@ -1351,7 +1351,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         //PreLogUtil.put("AllBinaryGameCanvas", this, canvasStrings.PAINT);
 
         //TWB - was in MyCanvas paint -- super.paint(graphics);
-        baseGameStatistics.nextRefresh();
+        this.baseGameStatistics.nextRefresh();
 
         //// Disabled buffering
         //// this.processPaintable.paint(graphics);
@@ -1395,7 +1395,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     private final InputProcessor rawGameInputProcessor = new GameCanvasInputProcessor(this);
     private final InputProcessor rawInputProcessor = new FormInputProcessor(this);
-    private InputProcessor inputProcessor = getRawGameInputProcessor();
+    private InputProcessor inputProcessor = this.getRawGameInputProcessor();
 
     @Override
     public void keyPressed(int keyCode)
@@ -1519,17 +1519,17 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         if (AllBinaryMediaManager.update())
         {
-            if (!primaryPlayerQueue.process())
+            if (!this.primaryPlayerQueue.process())
             {
-                secondaryPlayerQueue.process();
+                this.secondaryPlayerQueue.process();
             }
         }
 
         this.mainStateProcessor.process();
-        menuInputProcessor.processInputList();
+        this.menuInputProcessor.processInputList();
         this.endGameProcessor.process();
 
-        baseGameStatistics.nextFrame();
+        this.baseGameStatistics.nextFrame();
 
         // soundQueue = PrimaryPlayerQueueFactory.getInstance().toString();
 
@@ -1552,7 +1552,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     public void shouldWait() throws Exception {
         final Features features = Features.getInstance();
         if(AndroidUtil.isAndroid()) {
-        } else if(features.isFeature(openGLFeatureFactory.OPENGL_2D)) {
+        } else if(features.isFeature(this.openGLFeatureFactory.OPENGL_2D)) {
         } else {
             if (features.isDefault(this.openGLFeatureFactory.OPENGL)) {
                 final OpenGLImageSpecificFactory openGLImageSpecificFactory = OpenGLImageSpecificFactory.getInstance();
@@ -1654,7 +1654,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             currentDisplayableFactory.setDisplayable(this);
 
             OpenGLThreadUtil.getInstance().onResume();
-        } else if (features.isDefault(openGLFeatureFactory.OPENGL_AND_GAME_HAVE_DIFFERENT_THREADS)) {
+        } else if (features.isDefault(this.openGLFeatureFactory.OPENGL_AND_GAME_HAVE_DIFFERENT_THREADS)) {
 
             this.logUtil.putF(openGLFeatureFactory.OPENGL_AND_GAME_HAVE_DIFFERENT_THREADS.getName(), this, commonStrings.RUN);
 
@@ -1756,8 +1756,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     {
         this.screenCapture.endRecording();
 
-        baseGameStatistics.add(new StringMaker().append(baseGameStatistics.toString()).append(CommonSeps.getInstance().NEW_LINE).toString());
-        baseGameStatistics.init();
+        this.baseGameStatistics.add(new StringMaker().append(baseGameStatistics.toString()).append(CommonSeps.getInstance().NEW_LINE).toString());
+        this.baseGameStatistics.init();
 
         this.gameKeyEventHandler.removeListener(this.cheatProcessor);
         this.close();
@@ -1840,7 +1840,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                         }
                     } catch (Exception e) {
                         logUtil.put(commonStrings.EXCEPTION, this, "run", e);
-                        progressCanvas.end();
+                        this.progressCanvas.end();
                     }
                 }
             }
@@ -1857,7 +1857,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected TimeDelayHelper getGameStateTimeHelper()
     {
-        return gameStateTimeHelper;
+        return this.gameStateTimeHelper;
     }
 
     protected void setInitialized(boolean initialized)
@@ -1868,7 +1868,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     @Override
     public boolean isInitialized()
     {
-        return initialized;
+        return this.initialized;
     }
 
     @Override
@@ -1890,7 +1890,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     @Override
     public IntermissionInterface getEndLevelIntermissionInterface()
     {
-        return endLevelIntermissionInterface;
+        return this.endLevelIntermissionInterface;
     }
 
     protected void setTouchPaintableP(Paintable paintable)
@@ -1901,7 +1901,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public Paintable getTouchPaintableP()
     {
-        return touchPaintable;
+        return this.touchPaintable;
     }
 
     protected void setEndGamePaintable(Paintable endGamePaintable)
@@ -1911,7 +1911,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public Paintable getEndGamePaintable()
     {
-        return endGamePaintable;
+        return this.endGamePaintable;
     }
 
     protected void setIntermissionPaintable(Paintable intermissionPaintable)
@@ -1921,7 +1921,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public Paintable getIntermissionPaintable()
     {
-        return intermissionPaintable;
+        return this.intermissionPaintable;
     }
 
     /**
@@ -1929,7 +1929,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
      */
     public EndGameInfo getEndGameInfoP()
     {
-        return endGameInfo;
+        return this.endGameInfo;
     }
 
     public void setHighScoresPaintable(final Paintable highScoresPaintable)
@@ -1939,12 +1939,12 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public Paintable getHighScoresPaintable()
     {
-        return highScoresPaintable;
+        return this.highScoresPaintable;
     }
 
     protected HighScoresPaintable getRealHighScoresPaintable()
     {
-        return realHighScoresPaintable;
+        return this.realHighScoresPaintable;
     }
 
     protected void clearPlayerGameInputList()
@@ -1973,7 +1973,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected BasicMenuInputProcessor getMenuInputProcessor()
     {
-        return menuInputProcessor;
+        return this.menuInputProcessor;
     }
 
     /**
@@ -1981,7 +1981,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
      */
     public ScrollSelectionForm getMenuForm()
     {
-        return menuForm;
+        return this.menuForm;
     }
 
     /**
@@ -1998,7 +1998,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
      */
     public int getStartLevel()
     {
-        return startLevel;
+        return this.startLevel;
     }
 
     /**
@@ -2017,7 +2017,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected Paintable getTouchButtonsPaintable()
     {
-        return touchButtonsPaintable;
+        return this.touchButtonsPaintable;
     }
 
   //TWB - multiplayer needed it to be public
@@ -2028,7 +2028,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected Processor getGameInputProcessor()
     {
-        return gameInputProcessor;
+        return this.gameInputProcessor;
     }
 
     protected void setEndGameProcessor(final Processor endGameProcessor)
@@ -2038,7 +2038,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected Processor getEndGameProcessor()
     {
-        return endGameProcessor;
+        return this.endGameProcessor;
     }
 
     protected void setEndGameStatePaintable(final Paintable endGameStatePaintable)
@@ -2048,7 +2048,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected Paintable getEndGameStatePaintable()
     {
-        return endGameStatePaintable;
+        return this.endGameStatePaintable;
     }
 
     protected void setNonBotPaintableP(final Paintable nonBotPaintable)
@@ -2058,7 +2058,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected Paintable getNonBotPaintableP()
     {
-        return nonBotPaintable;
+        return this.nonBotPaintable;
     }
 
     protected void setStartIntermissionPaintable(final InitUpdatePaintable startIntermissionPaintable)
@@ -2068,7 +2068,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected InitUpdatePaintable getStartIntermissionPaintable()
     {
-        return startIntermissionPaintable;
+        return this.startIntermissionPaintable;
     }
 
   //TWB - multiplayer needed it to be public
@@ -2079,7 +2079,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected Processor getMainStateProcessor()
     {
-        return mainStateProcessor;
+        return this.mainStateProcessor;
     }
 
     protected void setProcessGameProcessor(final Processor processGameProcessor)
@@ -2090,7 +2090,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
   //TWB - multiplayer needed it to be public
     public Processor getProcessGameProcessor()
     {
-        return processGameProcessor;
+        return this.processGameProcessor;
     }
 
     protected void setOpenMenuPaintable(final Paintable openMenuPaintable)
@@ -2100,7 +2100,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected Paintable getOpenMenuPaintable()
     {
-        return openMenuPaintable;
+        return this.openMenuPaintable;
     }
 
     protected void setPopupMenuInputProcessor(
@@ -2111,24 +2111,24 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected BasicMenuInputProcessor getPopupMenuInputProcessor()
     {
-        return popupMenuInputProcessor;
+        return this.popupMenuInputProcessor;
     }
 
     public SensorGameUpdateProcessor getSensorGameUpdateProcessor()
     {
-        return sensorGameUpdateProcessor;
+        return this.sensorGameUpdateProcessor;
     }
 
   //TWB - multiplayer needed it to be public
     public InputProcessor getRawGameInputProcessor()
     {
-        return rawGameInputProcessor;
+        return this.rawGameInputProcessor;
     }
 
   //TWB - multiplayer needed it to be public
     public InputProcessor getRawInputProcessor()
     {
-        return rawInputProcessor;
+        return this.rawInputProcessor;
     }
 
   //TWB - multiplayer needed it to be public
@@ -2141,7 +2141,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected InputProcessor getInputProcessor()
     {
-        return inputProcessor;
+        return this.inputProcessor;
     }
 
     protected void setMenuPaintable(final Paintable menuPaintable)
@@ -2151,7 +2151,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected Paintable getMenuPaintable()
     {
-        return menuPaintable;
+        return this.menuPaintable;
     }
 
     private void setFormPaintable(final Paintable formPaintable)
@@ -2161,7 +2161,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected Paintable getFormPaintable()
     {
-        return formPaintable;
+        return this.formPaintable;
     }
 
   //TWB - multiplayer needed it to be public
@@ -2172,7 +2172,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected Paintable getGameSpecificPaintableP()
     {
-        return gameSpecificPaintable;
+        return this.gameSpecificPaintable;
     }
 
     @Override

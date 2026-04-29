@@ -107,7 +107,7 @@ extends UnitWaypointBehavior
 
     @Override
     public GeographicMapCellPosition getNextUnvisitedPathGeographicMapCellPosition() {
-        return nextUnvisitedPathGeographicMapCellPosition;
+        return this.nextUnvisitedPathGeographicMapCellPosition;
     }
     
     @Override
@@ -918,7 +918,7 @@ extends UnitWaypointBehavior
 
         public BasicArrayList getPositionList()
         {
-            return positionList;
+            return this.positionList;
         }
     }
     

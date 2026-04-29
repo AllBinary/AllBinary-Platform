@@ -128,7 +128,7 @@ public class GameCommandCanvas
             try {
                 this.initMenu();
 
-                repaintProcessor.process();
+                this.repaintProcessor.process();
             } catch (Exception e) {
                 throw new RuntimeException();
             }
@@ -404,7 +404,7 @@ public class GameCommandCanvas
 
     protected BasicMenuInputProcessor getMenuInputProcessor()
     {
-        return menuInputProcessor;
+        return this.menuInputProcessor;
     }
 
 }

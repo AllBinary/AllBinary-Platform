@@ -40,7 +40,7 @@ public class ImageArrayRotationAnimationInfo {
 	}
 
 	public Image[] getImageArray() {
-		return imageArray;
+		return this.imageArray;
 	}
 
 	public AngleInfo getAngleInfoP() {
@@ -52,7 +52,7 @@ public class ImageArrayRotationAnimationInfo {
 	}
 
 	public int getTotalAngle() {
-		return totalAngle;
+		return this.totalAngle;
 	}
 
 	public void setDx(int dx) {
@@ -60,7 +60,7 @@ public class ImageArrayRotationAnimationInfo {
 	}
 
 	public int getDx() {
-		return dx;
+		return this.dx;
 	}
 
 	public void setDy(int dy) {
@@ -68,6 +68,6 @@ public class ImageArrayRotationAnimationInfo {
 	}
 
 	public int getDy() {
-		return dy;
+		return this.dy;
 	}
 }

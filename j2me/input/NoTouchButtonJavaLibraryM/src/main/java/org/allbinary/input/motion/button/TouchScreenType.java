@@ -24,7 +24,7 @@ public class TouchScreenType
 
     public String getName()
     {
-        return name;
+        return this.name;
     }
     
     public String toString()

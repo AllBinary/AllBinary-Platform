@@ -39,6 +39,6 @@ public class DemoGameMidletEvent extends AllBinaryEventObject
 
     public DemoGameMidletState getDemoGameMidletState()
     {
-        return demoGameMidletState;
+        return this.demoGameMidletState;
     }
 }

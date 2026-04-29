@@ -102,6 +102,6 @@ public class PlayerGameInput extends GameInput
      * @return the playerInputId
      */
     public int getPlayerInputId() {
-        return playerInputId;
+        return this.playerInputId;
     }
 }

@@ -77,6 +77,6 @@ public class PathFindingInfo implements PathFindingInfoInterface
 
    public PathFindingNodeCostInfoFactoryBase getPathFindingNodeCostInfoFactoryInterface()
    {
-      return pathFindingNodeCostInfoFactoryInterface;
+      return this.pathFindingNodeCostInfoFactoryInterface;
    }
 }

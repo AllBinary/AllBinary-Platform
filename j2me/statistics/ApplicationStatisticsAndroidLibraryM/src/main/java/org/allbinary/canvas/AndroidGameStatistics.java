@@ -84,7 +84,7 @@ public class AndroidGameStatistics extends BaseGameStatistics
         this.STRING_ARRAY[12] = this.ONDRAWS_RATE;
         this.STRING_ARRAY[13] = Long.toString(this.totalOnDraws / totalTime);
 
-        return STRING_ARRAY;
+        return this.STRING_ARRAY;
     }
 
     public String toString()

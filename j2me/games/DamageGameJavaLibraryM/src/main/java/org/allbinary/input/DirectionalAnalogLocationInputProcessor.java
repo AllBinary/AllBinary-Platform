@@ -47,13 +47,13 @@ public class DirectionalAnalogLocationInputProcessor
         this.inputProcessorArray = inputProcessorArray;
 
         try {
-            this.leftGameKeyEvent = GameKeyEventFactory.getInstance().getInstanceForInput(this, gameKeyFactory.LEFT);
-            this.rightGameKeyEvent = GameKeyEventFactory.getInstance().getInstanceForInput(this, gameKeyFactory.RIGHT);
-            this.upGameKeyEvent = GameKeyEventFactory.getInstance().getInstanceForInput(this, gameKeyFactory.UP);
-            this.downGameKeyEvent = GameKeyEventFactory.getInstance().getInstanceForInput(this, gameKeyFactory.DOWN);
+            this.leftGameKeyEvent = GameKeyEventFactory.getInstance().getInstanceForInput(this, this.gameKeyFactory.LEFT);
+            this.rightGameKeyEvent = GameKeyEventFactory.getInstance().getInstanceForInput(this, this.gameKeyFactory.RIGHT);
+            this.upGameKeyEvent = GameKeyEventFactory.getInstance().getInstanceForInput(this, this.gameKeyFactory.UP);
+            this.downGameKeyEvent = GameKeyEventFactory.getInstance().getInstanceForInput(this, this.gameKeyFactory.DOWN);
             
-            this.leftTriggerGameKeyEvent = GameKeyEventFactory.getInstance().getInstanceForInput(this, gameKeyFactory.KEY_NUM0);
-            this.rightTriggerGameKeyEvent = GameKeyEventFactory.getInstance().getInstanceForInput(this, gameKeyFactory.KEY_NUM5);
+            this.leftTriggerGameKeyEvent = GameKeyEventFactory.getInstance().getInstanceForInput(this, this.gameKeyFactory.KEY_NUM0);
+            this.rightTriggerGameKeyEvent = GameKeyEventFactory.getInstance().getInstanceForInput(this, this.gameKeyFactory.KEY_NUM5);
         } catch (Exception e) {
             final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
@@ -78,13 +78,13 @@ public class DirectionalAnalogLocationInputProcessor
             if (x < 0) {
                 this.inputProcessorArray[this.leftGameKeyEvent.getKey()].processAnalog(allbinaryLayerManager, this.leftGameKeyEvent, x);
             } else if (x > 0) {
-                inputProcessorArray[this.rightGameKeyEvent.getKey()].processAnalog(allbinaryLayerManager, this.rightGameKeyEvent, x);
+                this.inputProcessorArray[this.rightGameKeyEvent.getKey()].processAnalog(allbinaryLayerManager, this.rightGameKeyEvent, x);
             }
 
             if (y < 0) {
                 this.inputProcessorArray[this.downGameKeyEvent.getKey()].processAnalog(allbinaryLayerManager, this.downGameKeyEvent, y);
             } else if (y > 0) {
-                inputProcessorArray[this.upGameKeyEvent.getKey()].processAnalog(allbinaryLayerManager, this.upGameKeyEvent, y);
+                this.inputProcessorArray[this.upGameKeyEvent.getKey()].processAnalog(allbinaryLayerManager, this.upGameKeyEvent, y);
             }
             
             //this.logUtil.putF(RIGHT_TRIGGER_VALUE + rightTrigger, this, commonStrings.PROCESS);

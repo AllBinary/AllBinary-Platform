@@ -57,7 +57,7 @@ public class ImageCopyUtil
 
         if (image.isMutable())
         {
-            image.getGraphics().drawImage(originalImage, 0, 0, anchor);
+            image.getGraphics().drawImage(originalImage, 0, 0, this.anchor);
             
             return image;
         }

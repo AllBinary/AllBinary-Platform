@@ -64,7 +64,7 @@ public class GeologicalResource {
      */
     public int getTotal()
     {
-        return total;
+        return this.total;
     }
 
     /**

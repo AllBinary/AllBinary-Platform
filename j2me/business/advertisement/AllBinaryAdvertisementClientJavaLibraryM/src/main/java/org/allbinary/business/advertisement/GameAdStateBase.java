@@ -87,11 +87,11 @@ public class GameAdStateBase {
     }
 
     public Advertisements getAdvertisements() {
-        return advertisementsP;
+        return this.advertisementsP;
     }
 
     public AdConfiguration getAdConfiguration() {
-        return adConfigurationP;
+        return this.adConfigurationP;
     }
 
     public boolean isOkayToShowPageAd() {
@@ -103,7 +103,7 @@ public class GameAdStateBase {
     }
 
     public boolean isOkayToShowAds() {
-        return okayToShowAdsP;
+        return this.okayToShowAdsP;
     }
 
     public boolean isEnabled() {

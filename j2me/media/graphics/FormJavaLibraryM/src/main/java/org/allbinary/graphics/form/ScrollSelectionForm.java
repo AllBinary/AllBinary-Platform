@@ -413,7 +413,7 @@ public class ScrollSelectionForm extends PaintableForm
 
     private BasicColor getButtonBasicColor()
     {
-        return buttonBasicColor;
+        return this.buttonBasicColor;
     }
 
 }

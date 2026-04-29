@@ -149,7 +149,7 @@ public class DemoCanvas extends RunnableCanvas
     private Thread canvasThread = NullThread.NULL_THREAD;
     private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(6000);
     
-    private BasicColor basicColor = basicColorFactory.RED;
+    private BasicColor basicColor = this.basicColorFactory.RED;
 
     protected final AbeClientInformationInterface abeClientInformation;
     
@@ -322,7 +322,7 @@ public class DemoCanvas extends RunnableCanvas
     {
         this.removeAllCommands();
 
-        Object[] commandArray = getCustomCommands();
+        Object[] commandArray = this.getCustomCommands();
 
         int size = commandArray.length;
         for (int index = 0; index < size; index++)
@@ -364,7 +364,7 @@ public class DemoCanvas extends RunnableCanvas
         
         final CustomItem[] items = commandTextItemArrayFactory.getInstance(
             (Vector<Object>) this.getCommandStack(), 
-            basicColorFactory.BLACK, basicColorFactory.WHITE);
+            this.basicColorFactory.BLACK, this.basicColorFactory.WHITE);
 
         final FormType formType = FormTypeFactory.getInstance().getFormType();
         
@@ -375,7 +375,7 @@ public class DemoCanvas extends RunnableCanvas
         final ScrollSelectionForm scrollSelectionForm = CommandCurrentSelectionFormFactory.getInstance(
                     StringUtil.getInstance().EMPTY_STRING, 
                     items, rectangle, formType, 15, true,
-                    basicColorFactory.BLACK, basicColorFactory.WHITE);
+                    this.basicColorFactory.BLACK, this.basicColorFactory.WHITE);
         this.setMenuForm(scrollSelectionForm);
         
         final FormType formType2 = FormTypeFactory.getInstance().getFormType();
@@ -799,7 +799,7 @@ public class DemoCanvas extends RunnableCanvas
     public void preDemoProcess()
     {
         if (!this.gameCanvas.isInitialized() ||
-                gameCanvas.getTitle() == NullGameCanvas.NO_GAME)
+                this.gameCanvas.getTitle() == NullGameCanvas.NO_GAME)
         {
             if (AllBinaryMediaManager.update())
             {
@@ -1135,8 +1135,8 @@ public class DemoCanvas extends RunnableCanvas
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         final Features features = Features.getInstance();
         
-        baseGameStatistics.add(new StringMaker().append(BOT_GAME_STATS).append(baseGameStatistics.toString()).append(CommonSeps.getInstance().NEW_LINE).toString());
-        baseGameStatistics.init();
+        this.baseGameStatistics.add(new StringMaker().append(BOT_GAME_STATS).append(baseGameStatistics.toString()).append(CommonSeps.getInstance().NEW_LINE).toString());
+        this.baseGameStatistics.init();
         
         if (features.isFeature(MainFeatureFactory.getInstance().LOAD_ONDEMAND))
         {
@@ -1165,7 +1165,7 @@ public class DemoCanvas extends RunnableCanvas
 
     public AllBinaryGameCanvas getGameCanvasRunnableInterface()
     {
-        return gameCanvas;
+        return this.gameCanvas;
     }
 
     public boolean isDemoLoading() {
@@ -1181,7 +1181,7 @@ public class DemoCanvas extends RunnableCanvas
     
     protected int getState()
     {
-        return state;
+        return this.state;
     }
 
     protected void setState(int state)
@@ -1205,7 +1205,7 @@ public class DemoCanvas extends RunnableCanvas
      */
     public HighScoresPaintable getRealHighScoresPaintable()
     {
-        return realHighScoresPaintable;
+        return this.realHighScoresPaintable;
     }
 
     protected void setSpecialAnimationInterface(
@@ -1217,7 +1217,7 @@ public class DemoCanvas extends RunnableCanvas
 
     protected SpecialAnimation getSpecialAnimationInterface()
     {
-        return specialAnimationInterface;
+        return this.specialAnimationInterface;
     }
 
     protected void setPaintableInterface(PaintableInterface paintableInterface)
@@ -1227,7 +1227,7 @@ public class DemoCanvas extends RunnableCanvas
 
     protected PaintableInterface getPaintableInterface()
     {
-        return paintableInterface;
+        return this.paintableInterface;
     }
 
     protected void setDefaultPaintableInterface(
@@ -1238,12 +1238,12 @@ public class DemoCanvas extends RunnableCanvas
 
     protected Paintable getDefaultPaintableInterface()
     {
-        return defaultPaintableInterface;
+        return this.defaultPaintableInterface;
     }
 
     public HighScoresFactoryInterface getHighScoresFactoryInterface()
     {
-        return highScoresFactoryInterface;
+        return this.highScoresFactoryInterface;
     }
 
     protected void setMenuInputProcessor(BasicMenuInputProcessor menuInputProcessor)
@@ -1253,7 +1253,7 @@ public class DemoCanvas extends RunnableCanvas
 
     protected BasicMenuInputProcessor getMenuInputProcessor()
     {
-        return menuInputProcessor;
+        return this.menuInputProcessor;
     }
 
     /**
@@ -1261,7 +1261,7 @@ public class DemoCanvas extends RunnableCanvas
      */
     public ScrollSelectionForm getMenuForm()
     {
-        return menuForm;
+        return this.menuForm;
     }
 
     /**
@@ -1281,12 +1281,12 @@ public class DemoCanvas extends RunnableCanvas
     @Override
     public boolean isInitialized()
     {
-        return initialized;
+        return this.initialized;
     }
 
     protected Paintable getOverlayPaintable()
     {
-        return overlayPaintable;
+        return this.overlayPaintable;
     }
 
     protected void setBasicGameDemoPaintable(StatePaintable basicGameDemoPaintable)
@@ -1296,7 +1296,7 @@ public class DemoCanvas extends RunnableCanvas
 
     protected StatePaintable getBasicGameDemoPaintable()
     {
-        return basicGameDemoPaintable;
+        return this.basicGameDemoPaintable;
     }
 
     public void setTempWait(int tempWait)
@@ -1306,7 +1306,7 @@ public class DemoCanvas extends RunnableCanvas
 
     public int getTempWait()
     {
-        return tempWait;
+        return this.tempWait;
     }
 
     @Override
@@ -1330,7 +1330,7 @@ public class DemoCanvas extends RunnableCanvas
     */
    public BasicBuildGameInitializerFactory getGameInitializationInterfaceFactoryInterface()
    {
-      return gameInitializationInterfaceFactoryInterface;
+      return this.gameInitializationInterfaceFactoryInterface;
    }
 
     public static final int TYPE = 3;

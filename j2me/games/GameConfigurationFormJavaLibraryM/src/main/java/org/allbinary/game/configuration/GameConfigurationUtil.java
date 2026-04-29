@@ -184,6 +184,6 @@ public class GameConfigurationUtil
 
     public int getCompetitionValue()
     {
-        return COMPETITION_VALUE;
+        return this.COMPETITION_VALUE;
     }
 }

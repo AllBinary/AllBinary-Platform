@@ -28,7 +28,7 @@ public class Angle
 
     public short getValue()
     {
-        return value;
+        return this.value;
     }
 
 }

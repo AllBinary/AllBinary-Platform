@@ -46,7 +46,7 @@ public class LockedFeatureNotificationUtil
                 ErrorSound.getInstance());
 
         GameNotificationEventHandler.getInstance().fireEvent(
-                gameNotificationEvent);
+                this.gameNotificationEvent);
     }
 
     public void fireWithColor(BasicColor basicColor) throws Exception
@@ -54,9 +54,9 @@ public class LockedFeatureNotificationUtil
         PrimaryPlayerQueueFactory.getInstance().add(
                 ErrorSound.getInstance());
 
-        gameNotificationEvent.setBasicColorP(basicColor);
+        this.gameNotificationEvent.setBasicColorP(basicColor);
         
         GameNotificationEventHandler.getInstance().fireEvent(
-                gameNotificationEvent);
+                this.gameNotificationEvent);
     }
 }

@@ -46,7 +46,7 @@ public class PrimaryWaypointHelper {
      */
     public PathFindingLayerInterface getWaypointLayer()
     {
-        return waypointLayer;
+        return this.waypointLayer;
     }
 
     /**

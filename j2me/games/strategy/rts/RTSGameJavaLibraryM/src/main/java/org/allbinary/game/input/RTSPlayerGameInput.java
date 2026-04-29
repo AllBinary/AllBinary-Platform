@@ -344,7 +344,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
 
     public SelectedRTSLayersPlayerGameInput getSelectedBuildingPlayerGameInput()
     {
-        return selectedRTSLayerPlayerGameInput;
+        return this.selectedRTSLayerPlayerGameInput;
     }
 
     /**
@@ -369,7 +369,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
      */
     public RTSPlayerLayerInterface getRtsPlayerLayerInterface()
     {
-        return rtsPlayerLayerInterface;
+        return this.rtsPlayerLayerInterface;
     }
 
     /**
@@ -377,7 +377,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
      */
     public RTSLayerInfoPaintable getRTSLayerInfoPaintable()
     {
-        return towerInfoPaintable;
+        return this.towerInfoPaintable;
     }
 
     /**
@@ -385,7 +385,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
      */
     public BasicArrayList getMotionGestureInputList()
     {
-        return motionGestureInputList;
+        return this.motionGestureInputList;
     }
 
     /**
@@ -393,7 +393,7 @@ public class RTSPlayerGameInput extends PlayerGameInput
      */
     protected AllBinaryGameCanvas getGameCanvas()
     {
-        return gameCanvas;
+        return this.gameCanvas;
     }
 
     /**
@@ -401,11 +401,11 @@ public class RTSPlayerGameInput extends PlayerGameInput
      */
     public boolean isIsSingleKeyProcessing()
     {
-        return isSingleKeyProcessing;
+        return this.isSingleKeyProcessing;
     }
 
     public ScrollMapPlayerGameInput getScrollPlayerGameInput()
     {
-        return scrollPlayerGameInput;
+        return this.scrollPlayerGameInput;
     }
 }

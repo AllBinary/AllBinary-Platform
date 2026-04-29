@@ -30,7 +30,7 @@ public class VectorInfo
 
    public int getWidth()
    {
-      return width;
+      return this.width;
    }
 
    private void setWidth(int width)
@@ -40,7 +40,7 @@ public class VectorInfo
 
    public int getHeight()
    {
-      return height;
+      return this.height;
    }
 
    private void setHeight(int height)
@@ -50,7 +50,7 @@ public class VectorInfo
 
    public int[][] getPoints()
    {
-      return points;
+      return this.points;
    }
 
    private void setPoints(int[][] points)
@@ -60,7 +60,7 @@ public class VectorInfo
 
    public int getTotalFrames()
    {
-      return totalFrames;
+      return this.totalFrames;
    }
 
    private void setTotalFrames(int totalFrames)

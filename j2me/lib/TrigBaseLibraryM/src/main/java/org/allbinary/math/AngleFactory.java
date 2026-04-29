@@ -33,10 +33,10 @@ public class AngleFactory
     public final short TOTAL_ANGLE = 360;
     public final short QUARTER_TOTAL_ANGLE = 90;
 
-    private final Angle[] angleArray = new Angle[(int) TOTAL_ANGLE];
+    private final Angle[] angleArray = new Angle[(int) this.TOTAL_ANGLE];
 
     private final short NEGATIVE_ONE = -1;
-    public final NamedAngle NOT_ANGLE = new NamedAngle(NEGATIVE_ONE, CommonStrings.getInstance().EMPTY);
+    public final NamedAngle NOT_ANGLE = new NamedAngle(this.NEGATIVE_ONE, CommonStrings.getInstance().EMPTY);
     public final NamedAngle DOWN;
     public final NamedAngle UP;
     public final NamedAngle LEFT;
@@ -87,7 +87,7 @@ public class AngleFactory
     public Angle getAt(final int index)
     {
         final int adjustedIndex = (int) this.frameUtil.adjustAngleToFrameAngle(index);
-        return angleArray[adjustedIndex];
+        return this.angleArray[adjustedIndex];
     }
 
     public Angle getClosestDirection(int angle)
@@ -106,7 +106,7 @@ public class AngleFactory
 
     public Angle getGeneralDirection()
     {
-        return NOT_ANGLE;
+        return this.NOT_ANGLE;
     }
     
 //    public String toString(final int angle) {

@@ -66,13 +66,13 @@ public class BasicGeographicMap
         throws Exception {
         switch (direction) {
             case 0:
-                return geographicMapCellPositionFactory.getAt(oldGeographicMapCellPosition.getColumn() - 1, oldGeographicMapCellPosition.getRow());
+                return this.geographicMapCellPositionFactory.getAt(oldGeographicMapCellPosition.getColumn() - 1, oldGeographicMapCellPosition.getRow());
             case 1:
-                return geographicMapCellPositionFactory.getAt(oldGeographicMapCellPosition.getColumn() + 1, oldGeographicMapCellPosition.getRow());
+                return this.geographicMapCellPositionFactory.getAt(oldGeographicMapCellPosition.getColumn() + 1, oldGeographicMapCellPosition.getRow());
             case 2:
-                return geographicMapCellPositionFactory.getAt(oldGeographicMapCellPosition.getColumn(), oldGeographicMapCellPosition.getRow() - 1);
+                return this.geographicMapCellPositionFactory.getAt(oldGeographicMapCellPosition.getColumn(), oldGeographicMapCellPosition.getRow() - 1);
             case 3:
-                return geographicMapCellPositionFactory.getAt(oldGeographicMapCellPosition.getColumn(), oldGeographicMapCellPosition.getRow() + 1);
+                return this.geographicMapCellPositionFactory.getAt(oldGeographicMapCellPosition.getColumn(), oldGeographicMapCellPosition.getRow() + 1);
             default:
                 throw new Exception("Only Four Directions");
         }
@@ -84,25 +84,25 @@ public class BasicGeographicMap
         switch (direction) {
             case 0:
                 if(oldGeographicMapCellPosition.getColumn() - 1 >= 0) {
-                    return geographicMapCellPositionFactory.getAt(oldGeographicMapCellPosition.getColumn() - 1, oldGeographicMapCellPosition.getRow());
+                    return this.geographicMapCellPositionFactory.getAt(oldGeographicMapCellPosition.getColumn() - 1, oldGeographicMapCellPosition.getRow());
                 } else {
                     return SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
                 }
             case 1:
                 if(oldGeographicMapCellPosition.getColumn() + 1 < this.getAllBinaryTiledLayer().getColumns()) {
-                    return geographicMapCellPositionFactory.getAt(oldGeographicMapCellPosition.getColumn() + 1, oldGeographicMapCellPosition.getRow());
+                    return this.geographicMapCellPositionFactory.getAt(oldGeographicMapCellPosition.getColumn() + 1, oldGeographicMapCellPosition.getRow());
                 } else {
                     return SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
                 }
             case 2:
                 if(oldGeographicMapCellPosition.getRow() - 1 >= 0) {
-                    return geographicMapCellPositionFactory.getAt(oldGeographicMapCellPosition.getColumn(), oldGeographicMapCellPosition.getRow() - 1);
+                    return this.geographicMapCellPositionFactory.getAt(oldGeographicMapCellPosition.getColumn(), oldGeographicMapCellPosition.getRow() - 1);
                 } else {
                     return SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
                 }
             case 3:
                 if(oldGeographicMapCellPosition.getRow() + 1 < this.getAllBinaryTiledLayer().getRows()) {
-                    return geographicMapCellPositionFactory.getAt(oldGeographicMapCellPosition.getColumn(), oldGeographicMapCellPosition.getRow() + 1);
+                    return this.geographicMapCellPositionFactory.getAt(oldGeographicMapCellPosition.getColumn(), oldGeographicMapCellPosition.getRow() + 1);
                 } else {
                     return SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
                 }
@@ -128,7 +128,7 @@ public class BasicGeographicMap
         final int i_column = this.mathUtil.abs(x / allBinaryTiledLayer.getCellHeight());
         final int i_row = this.mathUtil.abs(y / allBinaryTiledLayer.getCellWidth());
 
-        return geographicMapCellPositionFactory.getAt(i_column, i_row);
+        return this.geographicMapCellPositionFactory.getAt(i_column, i_row);
     }
 
     @Override
@@ -139,7 +139,7 @@ public class BasicGeographicMap
 
         if (allBinaryTiledLayer.getColumns() > i_column && allBinaryTiledLayer.getRows() > i_row) {
             try {
-                return geographicMapCellPositionFactory.getAt(i_column, i_row);
+                return this.geographicMapCellPositionFactory.getAt(i_column, i_row);
             } catch(Exception e) {
                 return SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
             }
@@ -219,7 +219,7 @@ public class BasicGeographicMap
 
     @Override
     public BasicGeographicMapCellPositionFactory getGeographicMapCellPositionFactory() {
-        return geographicMapCellPositionFactory;
+        return this.geographicMapCellPositionFactory;
     }
 
     /**
@@ -227,7 +227,7 @@ public class BasicGeographicMap
      */
     @Override
     public GeographicMapCellPositionFactoryInterface getGeographicMapCellPositionFactoryInterface() {
-        return geographicMapCellPositionFactoryInterface;
+        return this.geographicMapCellPositionFactoryInterface;
     }
 
     public GeographicMapCellTypeFactory getGeographicMapCellTypeFactory() {

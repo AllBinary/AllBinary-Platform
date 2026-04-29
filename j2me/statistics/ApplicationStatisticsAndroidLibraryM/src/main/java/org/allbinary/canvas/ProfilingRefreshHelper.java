@@ -76,7 +76,7 @@ public class ProfilingRefreshHelper extends AndroidGameStatistics
     public String toString()
     {
         return new StringMaker().append(super.toString())
-            .append(" Worst: ").appendint(worstFrameProcessingTime)
-            .append(" Best: ").appendint(bestFrameProcessingTime).toString();
+            .append(" Worst: ").appendint(this.worstFrameProcessingTime)
+            .append(" Best: ").appendint(this.bestFrameProcessingTime).toString();
     }
 }

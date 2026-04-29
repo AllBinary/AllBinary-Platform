@@ -44,7 +44,7 @@ implements ColorCompositeInterface
     @Override
     public BasicColor getBasicColorP()
     {
-        return basicColor;
+        return this.basicColor;
     }
          
     /**
@@ -52,7 +52,7 @@ implements ColorCompositeInterface
      */
     protected int getColor()
     {
-        return colorP;
+        return this.colorP;
     }
 
     /**

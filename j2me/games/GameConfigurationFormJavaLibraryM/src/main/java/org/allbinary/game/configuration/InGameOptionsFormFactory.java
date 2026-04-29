@@ -52,6 +52,6 @@ public class InGameOptionsFormFactory
     
     public CommandForm get()
     {
-        return SINGLETON;
+        return this.SINGLETON;
     }
 }

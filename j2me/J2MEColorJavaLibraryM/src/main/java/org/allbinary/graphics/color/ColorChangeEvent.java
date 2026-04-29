@@ -31,6 +31,6 @@ public class ColorChangeEvent extends AllBinaryEventObject
 
     public BasicColor getBasicColorP()
     {
-        return basicColor;
+        return this.basicColor;
     }
 }

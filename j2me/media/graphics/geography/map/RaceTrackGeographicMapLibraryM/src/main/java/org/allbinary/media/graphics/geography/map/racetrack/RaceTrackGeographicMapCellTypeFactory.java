@@ -26,7 +26,7 @@ public class RaceTrackGeographicMapCellTypeFactory extends GeographicMapCellType
     }
 
     public GeographicMapCellType EMPTY_CELL_TYPE = new GeographicMapCellType(0, -1);
-    public GeographicMapCellType EASY_CELL_TYPE = EMPTY_CELL_TYPE;
+    public GeographicMapCellType EASY_CELL_TYPE = this.EMPTY_CELL_TYPE;
     
     public final RaceTrackGeographicMapCellType BOTTOM_LEFT_TURN_ROAD_CELL_TYPE;
     public final RaceTrackGeographicMapCellType BOTTOM_RIGHT_TURN_ROAD_CELL_TYPE;

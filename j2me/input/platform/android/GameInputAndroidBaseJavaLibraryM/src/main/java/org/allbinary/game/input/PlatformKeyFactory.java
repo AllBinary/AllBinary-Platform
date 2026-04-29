@@ -22,41 +22,41 @@ public class PlatformKeyFactory {
 
     public boolean isSubmission(Input input)
     {
-        return androidKeyFactory.isSubmission(input);
+        return this.androidKeyFactory.isSubmission(input);
     }
 
     public boolean isDelete(Input input)
     {
-        return androidKeyFactory.isDelete(input);
+        return this.androidKeyFactory.isDelete(input);
     }
 
     public boolean isBackSpace(Input input)
     {
-        return androidKeyFactory.isBackSpace(input);
+        return this.androidKeyFactory.isBackSpace(input);
     }
 
     public boolean isLeft(Input input)
     {
-        return androidKeyFactory.isLeft(input);
+        return this.androidKeyFactory.isLeft(input);
     }
 
     public boolean isRight(Input input)
     {
-        return androidKeyFactory.isRight(input);
+        return this.androidKeyFactory.isRight(input);
     }
 
     public boolean isUp(Input input)
     {
-        return androidKeyFactory.isUp(input);
+        return this.androidKeyFactory.isUp(input);
     }
 
     public boolean isDown(Input input)
     {
-        return androidKeyFactory.isDown(input);
+        return this.androidKeyFactory.isDown(input);
     }
     
     public boolean isEnter(Input input)
     {
-        return androidKeyFactory.isEnter(input);
+        return this.androidKeyFactory.isEnter(input);
     }
 }

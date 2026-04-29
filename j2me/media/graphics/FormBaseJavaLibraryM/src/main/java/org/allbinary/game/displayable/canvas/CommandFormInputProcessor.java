@@ -44,9 +44,9 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
    private final int MOTION_GESTURE_SOURCE_ID = GameKeyEventFactory.getInstance().MOTION_GESTURE_SOURCE_ID;
     
    private final int CLICK_DELAY = 150;
-   private final TimeDelayHelper clickTimeHelper = new TimeDelayHelper(CLICK_DELAY);
+   private final TimeDelayHelper clickTimeHelper = new TimeDelayHelper(this.CLICK_DELAY);
    private final int DOUBLE_CLICK_DELAY = 1200;
-   private final TimeDelayHelper doubleClickTimeHelper = new TimeDelayHelper(DOUBLE_CLICK_DELAY);
+   private final TimeDelayHelper doubleClickTimeHelper = new TimeDelayHelper(this.DOUBLE_CLICK_DELAY);
 
    protected final boolean isSingleKeyProcessing = 
        InputFeatureFactory.getInstance().isSingleKeyProcessing();

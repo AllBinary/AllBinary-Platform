@@ -73,6 +73,6 @@ public class HighScoresCanvasInputProcessor extends PlayerGameInput
 
     public HighScoresCanvas getHighScoresCanvas()
     {
-        return highScoresCanvas;
+        return this.highScoresCanvas;
     }
 }

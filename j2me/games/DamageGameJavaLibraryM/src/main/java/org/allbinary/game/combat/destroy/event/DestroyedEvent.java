@@ -33,11 +33,11 @@ public class DestroyedEvent extends AllBinaryEventObject {
 	}
 
 	public AllBinaryGameCanvas getAllBinaryGameCanvas() {
-		return allBinaryGameCanvas;
+		return this.allBinaryGameCanvas;
 	}
 
 	public AllBinaryLayer getLayerInterface() {
-		return allBinaryLayerInterface;
+		return this.allBinaryLayerInterface;
 	}
 
 	private void setAllBinaryGameCanvas(AllBinaryGameCanvas allBinaryGameCanvas) {

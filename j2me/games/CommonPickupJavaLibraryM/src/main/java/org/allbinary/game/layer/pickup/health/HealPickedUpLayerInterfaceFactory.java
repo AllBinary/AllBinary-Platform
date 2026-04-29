@@ -61,6 +61,6 @@ public class HealPickedUpLayerInterfaceFactory extends PickedUpLayerInterfaceFac
    @Override
    public void process(AllBinaryLayer sourceLayerInterface) throws Exception
    {
-      pool.visit(sourceLayerInterface);
+      this.pool.visit(sourceLayerInterface);
    }
 }

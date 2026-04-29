@@ -56,7 +56,7 @@ public class ArcedMultiBeamWeaponPart extends BasicWeaponPart {
       //WeaponLayer[] weaponLayerArray = WeaponLayerArrayLayerCircularStaticPool.getInstance(total);
 
       final short increment = (short) (
-              (this.total - 1) / TOTAL_ANGLE
+              (this.total - 1) / this.TOTAL_ANGLE
               );
       final short minAngle = (short) (
               angle - ((increment * total) >> 1)
@@ -67,7 +67,7 @@ public class ArcedMultiBeamWeaponPart extends BasicWeaponPart {
       for (int index = 0; index < this.total; index++) {
 
          weaponLayer =
-                 weaponLayerCircularStaticPool.getInstance(
+                 this.weaponLayerCircularStaticPool.getInstance(
                  this.getOwnerLayerInterface(), 
                  this.relativeRelationship.getX(), 
                  this.relativeRelationship.getY(),

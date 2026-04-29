@@ -135,7 +135,7 @@ public class UnitWaypointBehavior
     throws Exception
     {
         if (advancedRTSGameLayer == PrimaryWaypointHelper.getInstance().getWaypointLayer()
-                || advancedRTSGameLayer.getParentLayer() == associatedAdvancedRTSGameLayer
+                || advancedRTSGameLayer.getParentLayer() == this.associatedAdvancedRTSGameLayer
                         .getParentLayer())
         {
             if (!this.targetList.contains(advancedRTSGameLayer))
@@ -354,7 +354,7 @@ public class UnitWaypointBehavior
     @Override
     public BasicArrayList getWaypointPathsList()
     {
-        return waypointPathsListP;
+        return this.waypointPathsListP;
     }
 
     /**
@@ -362,7 +362,7 @@ public class UnitWaypointBehavior
      */
     protected boolean isMoving()
     {
-        return moving;
+        return this.moving;
     }
 
     /**
@@ -379,12 +379,12 @@ public class UnitWaypointBehavior
     @Override
     public boolean isTrackingWaypoint()
     {
-        return trackingWaypoint;
+        return this.trackingWaypoint;
     }
     
     protected BasicArrayList getPossibleTargetList()
     {
-        return possibleTargetList;
+        return this.possibleTargetList;
     }
 
     protected void setLastPathGeographicMapCellPosition(GeographicMapCellPosition lastPathGeographicMapCellPosition)
@@ -394,7 +394,7 @@ public class UnitWaypointBehavior
 
     protected GeographicMapCellPosition getLastPathGeographicMapCellPosition()
     {
-        return lastPathGeographicMapCellPosition;
+        return this.lastPathGeographicMapCellPosition;
     }
 
     
@@ -407,7 +407,7 @@ public class UnitWaypointBehavior
     @Override
     public GeographicMapCellPosition getCurrentPathGeographicMapCellPosition()
     {
-        return currentPathGeographicMapCellPosition;
+        return this.currentPathGeographicMapCellPosition;
     }
     
     protected void setSensorAction(SensorAction sensorAction)
@@ -417,7 +417,7 @@ public class UnitWaypointBehavior
 
     protected SensorAction getSensorAction()
     {
-        return sensorAction;
+        return this.sensorAction;
     }
     
     /**
@@ -436,7 +436,7 @@ public class UnitWaypointBehavior
     @Override
     public CollidableDestroyableDamageableLayer getCurrentTargetLayerInterface()
     {
-        return currentTargetLayerInterfaceP;
+        return this.currentTargetLayerInterfaceP;
     }
 
     protected void setCurrentTargetDistance(int currentTargetDistance)
@@ -446,18 +446,18 @@ public class UnitWaypointBehavior
 
     protected int getCurrentTargetDistance()
     {
-        return currentTargetDistance;
+        return this.currentTargetDistance;
     }
 
     protected TimeDelayHelper getCompleteTimeDelayHelper()
     {
-        return completeTimeDelayHelper;
+        return this.completeTimeDelayHelper;
     }
 
     @Override
     public GeographicMapCellHistory getCurrentGeographicMapCellHistory()
     {
-        return currentGeographicMapCellHistoryP;
+        return this.currentGeographicMapCellHistoryP;
     }
 
     protected void setTrackingWaypoint(boolean trackingWaypoint)

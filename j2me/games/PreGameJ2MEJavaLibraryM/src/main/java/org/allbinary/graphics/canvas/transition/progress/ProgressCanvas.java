@@ -59,7 +59,7 @@ public class ProgressCanvas extends RunnableCanvas
     protected final CustomGaugeItem gauge;
 
     private final String TEXT = commonStrings.LOADING;
-    private String text = TEXT;
+    private String text = this.TEXT;
 
     private boolean background = true;
     
@@ -292,7 +292,7 @@ public class ProgressCanvas extends RunnableCanvas
 
     protected float getValue()
     {
-        return value;
+        return this.value;
     }
 
     public void setText(String text)
@@ -302,7 +302,7 @@ public class ProgressCanvas extends RunnableCanvas
 
     public String getText()
     {
-        return text;
+        return this.text;
     }
     
     protected void setBackground(boolean background)
@@ -312,7 +312,7 @@ public class ProgressCanvas extends RunnableCanvas
 
     protected boolean isBackground()
     {
-        return background;
+        return this.background;
     }
         
 }

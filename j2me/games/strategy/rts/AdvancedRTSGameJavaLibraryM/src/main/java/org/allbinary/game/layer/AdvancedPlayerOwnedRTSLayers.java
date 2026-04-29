@@ -137,7 +137,7 @@ public class AdvancedPlayerOwnedRTSLayers
      */
     public BasicArrayList getUnitsList()
     {
-        return unitsList;
+        return this.unitsList;
     }
     
 
@@ -146,7 +146,7 @@ public class AdvancedPlayerOwnedRTSLayers
      */
     public BasicArrayList getWaypointsList()
     {
-        return waypointsList;
+        return this.waypointsList;
     }
     
     /**
@@ -154,7 +154,7 @@ public class AdvancedPlayerOwnedRTSLayers
      */
     public BasicArrayList getBaseList()
     {
-        return baseList;
+        return this.baseList;
     }
 
     /**
@@ -162,7 +162,7 @@ public class AdvancedPlayerOwnedRTSLayers
      */
     public BasicArrayList getGarrisonList()
     {
-        return garrisonList;
+        return this.garrisonList;
     }
 
     /**
@@ -170,7 +170,7 @@ public class AdvancedPlayerOwnedRTSLayers
      */
     public BasicArrayList getHouseList()
     {
-        return houseList;
+        return this.houseList;
     }
 
     /**
@@ -178,7 +178,7 @@ public class AdvancedPlayerOwnedRTSLayers
      */
     public BasicArrayList getLabList()
     {
-        return labList;
+        return this.labList;
     }
 
     /**
@@ -186,12 +186,12 @@ public class AdvancedPlayerOwnedRTSLayers
      */
     public BasicArrayList getFactoryList()
     {
-        return factoryList;
+        return this.factoryList;
     }
 
     public int getTotalBuildings()
     {
-        return baseList.size() + this.garrisonList.size() +
+        return this.baseList.size() + this.garrisonList.size() +
             this.houseList.size() + this.labList.size() + this.factoryList.size();
     }
     
@@ -259,7 +259,7 @@ public class AdvancedPlayerOwnedRTSLayers
 
     public BasicArrayList getBuildingList()
     {
-        return buildingList;
+        return this.buildingList;
     }
     
 }

@@ -75,7 +75,7 @@ implements CollidableInterface
     @Override
     public boolean isCollision(CollidableCompositeLayer collisionLayer)
     {
-        return layerCollisionUtil.isCollision(this.ownerLayer, collisionLayer);
+        return this.layerCollisionUtil.isCollision(this.ownerLayer, collisionLayer);
         /*
         if ()
         {
@@ -93,7 +93,7 @@ implements CollidableInterface
 
     public boolean isCollisionInterface(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
     {
-        return layerCollisionUtil.isCollision(this.ownerLayer, (AllBinaryLayer) collidableInterfaceCompositeInterface);
+        return this.layerCollisionUtil.isCollision(this.ownerLayer, (AllBinaryLayer) collidableInterfaceCompositeInterface);
         /*
         if ()
         {

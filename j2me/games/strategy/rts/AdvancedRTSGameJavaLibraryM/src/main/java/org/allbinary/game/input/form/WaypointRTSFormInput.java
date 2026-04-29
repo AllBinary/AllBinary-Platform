@@ -193,7 +193,7 @@ public class WaypointRTSFormInput extends RTSFormInput
                 if(!rtsPlayerLayerInterface.implmentsArtificialIntelligenceCompositeInterface())
                 {
                     GameNotificationEventHandler.getInstance().fireEvent(
-                            dragToSpotGameNotificationEvent);
+                            this.dragToSpotGameNotificationEvent);
                 }                
             }
 
@@ -203,7 +203,7 @@ public class WaypointRTSFormInput extends RTSFormInput
             if(!rtsPlayerLayerInterface.implmentsArtificialIntelligenceCompositeInterface())
             {
                 GameNotificationEventHandler.getInstance().fireEvent(
-                        spotTakenGameNotificationEvent);
+                        this.spotTakenGameNotificationEvent);
             }
         }
     }
@@ -286,7 +286,7 @@ public class WaypointRTSFormInput extends RTSFormInput
             if(!rtsPlayerLayerInterface.implmentsArtificialIntelligenceCompositeInterface())
             {
                 GameNotificationEventHandler.getInstance().fireEvent(
-                        buildingCollisionGameNotificationEvent);
+                        this.buildingCollisionGameNotificationEvent);
             }
 
             return false;
@@ -339,7 +339,7 @@ public class WaypointRTSFormInput extends RTSFormInput
                 if(!rtsPlayerLayerInterface.implmentsArtificialIntelligenceCompositeInterface())
                 {
                     GameNotificationEventHandler.getInstance().fireEvent(
-                            roadCollisionGameNotificationEvent);
+                            this.roadCollisionGameNotificationEvent);
                 }
 
                 return false;
@@ -401,7 +401,7 @@ public class WaypointRTSFormInput extends RTSFormInput
             if(!rtsPlayerLayerInterface.implmentsArtificialIntelligenceCompositeInterface())
             {
                 GameNotificationEventHandler.getInstance().fireEvent(
-                        newWaypointGameNotificationEvent);
+                        this.newWaypointGameNotificationEvent);
             }
 
             return true;
@@ -413,7 +413,7 @@ public class WaypointRTSFormInput extends RTSFormInput
             if(!rtsPlayerLayerInterface.implmentsArtificialIntelligenceCompositeInterface())
             {
                 GameNotificationEventHandler.getInstance().fireEvent(
-                        noMoneyGameNotificationEvent);
+                        this.noMoneyGameNotificationEvent);
             }
 
             return false;

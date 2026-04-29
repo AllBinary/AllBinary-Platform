@@ -43,7 +43,7 @@ public class GeographicMapCellTypeFactory
 
     public GeographicMapCellType[] getGeographicMapCellTypeArray()
     {
-        return geographicMapCellTypeArray;
+        return this.geographicMapCellTypeArray;
     }
 
     public int getStartType() {

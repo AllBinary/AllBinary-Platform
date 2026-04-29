@@ -301,7 +301,7 @@ public class StartCanvas extends RunnableCanvas
     {
         this.removeAllCommands();
 
-        Object[] commandArray = getCustomCommands();
+        Object[] commandArray = this.getCustomCommands();
 
         int size = commandArray.length;
         for (int index = 0; index < size; index++)
@@ -1038,8 +1038,8 @@ public class StartCanvas extends RunnableCanvas
     {
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         
-        baseGameStatistics.add(new StringMaker().append(BOT_GAME_STATS).append(baseGameStatistics.toString()).append(CommonSeps.getInstance().NEW_LINE).toString());    
-        baseGameStatistics.init();
+        this.baseGameStatistics.add(new StringMaker().append(BOT_GAME_STATS).append(baseGameStatistics.toString()).append(CommonSeps.getInstance().NEW_LINE).toString());    
+        this.baseGameStatistics.init();
         
         if (this.features.isFeature(MainFeatureFactory.getInstance().LOAD_ONDEMAND))
         {
@@ -1073,7 +1073,7 @@ public class StartCanvas extends RunnableCanvas
 
     protected int getState()
     {
-        return state;
+        return this.state;
     }
 
     protected void setState(int state)
@@ -1097,7 +1097,7 @@ public class StartCanvas extends RunnableCanvas
      */
     public HighScoresPaintable getRealHighScoresPaintable()
     {
-        return realHighScoresPaintable;
+        return this.realHighScoresPaintable;
     }
 
     protected void setSpecialAnimationInterface(SpecialAnimation specialAnimationInterface)
@@ -1109,7 +1109,7 @@ public class StartCanvas extends RunnableCanvas
 
     protected SpecialAnimation getSpecialAnimationInterface()
     {
-        return specialAnimationInterface;
+        return this.specialAnimationInterface;
     }
 
     protected void setPaintableInterface(PaintableInterface paintableInterface)
@@ -1119,7 +1119,7 @@ public class StartCanvas extends RunnableCanvas
 
     protected PaintableInterface getPaintableInterface()
     {
-        return paintableInterface;
+        return this.paintableInterface;
     }
 
     protected void setDefaultPaintableInterface(
@@ -1130,12 +1130,12 @@ public class StartCanvas extends RunnableCanvas
 
     protected Paintable getDefaultPaintableInterface()
     {
-        return defaultPaintableInterface;
+        return this.defaultPaintableInterface;
     }
 
     public HighScoresFactoryInterface getHighScoresFactoryInterface()
     {
-        return highScoresFactoryInterface;
+        return this.highScoresFactoryInterface;
     }
 
     protected void setMenuInputProcessor(BasicMenuInputProcessor menuInputProcessor)
@@ -1145,7 +1145,7 @@ public class StartCanvas extends RunnableCanvas
 
     protected BasicMenuInputProcessor getMenuInputProcessor()
     {
-        return menuInputProcessor;
+        return this.menuInputProcessor;
     }
 
     /**
@@ -1153,7 +1153,7 @@ public class StartCanvas extends RunnableCanvas
      */
     public ScrollSelectionForm getMenuForm()
     {
-        return menuForm;
+        return this.menuForm;
     }
 
     /**
@@ -1173,12 +1173,12 @@ public class StartCanvas extends RunnableCanvas
     @Override
     public boolean isInitialized()
     {
-        return initialized;
+        return this.initialized;
     }
 
     protected Paintable getOverlayPaintable()
     {
-        return overlayPaintable;
+        return this.overlayPaintable;
     }
 
     protected void setBasicGameDemoPaintable(StatePaintable basicGameDemoPaintable)
@@ -1188,7 +1188,7 @@ public class StartCanvas extends RunnableCanvas
 
     protected StatePaintable getBasicGameDemoPaintable()
     {
-        return basicGameDemoPaintable;
+        return this.basicGameDemoPaintable;
     }
 
     public void setTempWait(int tempWait)
@@ -1198,7 +1198,7 @@ public class StartCanvas extends RunnableCanvas
 
     public int getTempWait()
     {
-        return tempWait;
+        return this.tempWait;
     }
 
     @Override
@@ -1222,7 +1222,7 @@ public class StartCanvas extends RunnableCanvas
     */
    public BasicBuildGameInitializerFactory getGameInitializationInterfaceFactoryInterface()
    {
-      return gameInitializationInterfaceFactoryInterface;
+      return this.gameInitializationInterfaceFactoryInterface;
    }
 
 }

@@ -16,7 +16,7 @@ public class InitEmulatorFactory
 
     public boolean isInitEmulator()
     {
-        return initEmulator;
+        return this.initEmulator;
     }
 
     private boolean initEmulator = false;

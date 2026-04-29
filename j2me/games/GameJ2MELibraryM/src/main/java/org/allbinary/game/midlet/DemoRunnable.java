@@ -45,7 +45,7 @@ public class DemoRunnable implements Runnable
         try
         {
             this.logUtil.putF(
-                    new StringMaker().append(CommonLabels.getInstance().START_LABEL).append("GameCanvasRunnableInterface").toString(), this, commonStrings.RUN);
+                    new StringMaker().append(CommonLabels.getInstance().START_LABEL).append("GameCanvasRunnableInterface").toString(), this, this.commonStrings.RUN);
 
             this.demoGameMidlet.commandAction(
                     MyCommandsFactory.getInstance().SET_DISPLAYABLE,

@@ -32,12 +32,12 @@ public class MotionEventCircularPool {
 
     private MotionEventCircularPool(int id)
     {
-        eventPool.init(new MotionEventFactory(eventPool, id));
+        this.eventPool.init(new MotionEventFactory(eventPool, id));
     }
     
     public synchronized MotionGestureEvent getInstance(MotionGestureInput motionGestureInput)
           throws Exception
     {
-        return (MotionGestureEvent) eventPool.getInstance(motionGestureInput.getId() - MIN);
+        return (MotionGestureEvent) this.eventPool.getInstance(motionGestureInput.getId() - MIN);
     }
 }

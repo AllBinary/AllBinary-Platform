@@ -482,6 +482,6 @@ implements DisplayChangeEventListener
 
     protected int getPortion()
     {
-        return portion;
+        return this.portion;
     }
 }

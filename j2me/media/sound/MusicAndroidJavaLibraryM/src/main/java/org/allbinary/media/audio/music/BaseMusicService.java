@@ -95,7 +95,7 @@ public class BaseMusicService extends Service
     {
         //Toast.makeText(this, "Music Service Started", Toast.LENGTH_LONG).show();
 
-        onStartCommandIntent(intent);
+        this.onStartCommandIntent(intent);
 
         //PrelogUtil.putF(commonStrings.START, this, "onStart");
         this.logUtil.putF(this.commonStrings.START, this, commonStateStrings.START);
@@ -104,7 +104,7 @@ public class BaseMusicService extends Service
     @Override
     public int onStartCommand(final Intent intent, final int flags, final int startId)
     {
-        onStartCommandIntent(intent);
+        this.onStartCommandIntent(intent);
         return START_STICKY;
     }
 

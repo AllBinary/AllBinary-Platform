@@ -61,7 +61,7 @@ public class AdjustedImageAnimation extends ImageAnimation {
     @Override
     public int getDx()
     {
-        return dx;
+        return this.dx;
     }
 
     @Override
@@ -73,7 +73,7 @@ public class AdjustedImageAnimation extends ImageAnimation {
     @Override
     public int getDy()
     {
-        return dy;
+        return this.dy;
     }
 
 }

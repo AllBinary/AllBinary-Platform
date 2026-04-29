@@ -80,7 +80,7 @@ public class ImageRotationUtil
             
             canvas.concat(this.matrix);
 
-            image.getGraphics().drawImage(originalImage, 0, 0, anchor);
+            image.getGraphics().drawImage(originalImage, 0, 0, this.anchor);
 
             //canvas.restore();
             

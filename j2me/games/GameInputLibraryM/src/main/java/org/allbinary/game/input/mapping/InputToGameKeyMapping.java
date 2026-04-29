@@ -125,7 +125,7 @@ public class InputToGameKeyMapping extends InputMapping
 
     public int getMaxMappable()
     {
-        return platformToGameKeyMapping.length;
+        return this.platformToGameKeyMapping.length;
     }
 
     //This is slow but that is okay for options screen
@@ -197,7 +197,7 @@ public class InputToGameKeyMapping extends InputMapping
     {
         int nextKey = 0;
         int smallestKey = 0;
-        for(int index = mappedGameKeys.length; --index >= 0;)
+        for(int index = this.mappedGameKeys.length; --index >= 0;)
         {
             nextKey = canvas.getKeyCode(mappedGameKeys[index].getId());
 
@@ -257,7 +257,7 @@ public class InputToGameKeyMapping extends InputMapping
 
         if(id >= 0 && id < this.platformToGameKeyMapping.length)
         {
-            return platformToGameKeyMapping[id];
+            return this.platformToGameKeyMapping[id];
         }
         else
         if (id < 0 && -id < this.negativePlatformToGameKeyMapping.length)
@@ -266,7 +266,7 @@ public class InputToGameKeyMapping extends InputMapping
         }
         else
         {
-            return gameKeyFactory.NONE;
+            return this.gameKeyFactory.NONE;
         }
     }
     
@@ -274,7 +274,7 @@ public class InputToGameKeyMapping extends InputMapping
     {
         if(id >= 0 && id < this.platformToGameKeyMapping.length)
         {
-            return platformToGameKeyMapping[id];
+            return this.platformToGameKeyMapping[id];
         }
         else
         if (id < 0 && -id < this.negativePlatformToGameKeyMapping.length)
@@ -283,7 +283,7 @@ public class InputToGameKeyMapping extends InputMapping
         }
         else
         {
-            return gameKeyFactory.NONE;
+            return this.gameKeyFactory.NONE;
         }
     }
 }

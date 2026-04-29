@@ -96,7 +96,7 @@ public class VectorToImageArrayRotationAnimationFactory
 
     protected int getAngleIncrement()
     {
-        return angleIncrement;
+        return this.angleIncrement;
     }
     
     @Override

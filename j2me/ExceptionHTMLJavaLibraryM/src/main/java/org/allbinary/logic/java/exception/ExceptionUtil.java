@@ -41,6 +41,6 @@ public class ExceptionUtil
     {
         e.printStackTrace();
 
-        return NONE;
+        return this.NONE;
     }
 }

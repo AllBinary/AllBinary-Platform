@@ -34,6 +34,6 @@ public class NullTickable implements TickableInterface
     @Override
     public String getName()
     {
-        return NAME;
+        return this.NAME;
     }
 }

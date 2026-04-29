@@ -58,7 +58,7 @@ public class StupidTimer
         if (tookTooLong)
         {
             this.logUtil.put(
-                    commonStrings.EXCEPTION, this, commonStrings.VISIT, 
+                    this.commonStrings.EXCEPTION, this, this.commonStrings.VISIT, 
                     new Exception(new StringMaker().append("Took Too Long: ").append(StringUtil.getInstance().toString(visitorInterface)).toString()));
         }
         else

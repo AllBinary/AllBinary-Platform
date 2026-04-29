@@ -171,7 +171,7 @@ public class AllBinaryHTMLImageRotationAnimationFactory
 
     protected short getAngleIncrement()
     {
-        return angleIncrement;
+        return this.angleIncrement;
     }
 
 }

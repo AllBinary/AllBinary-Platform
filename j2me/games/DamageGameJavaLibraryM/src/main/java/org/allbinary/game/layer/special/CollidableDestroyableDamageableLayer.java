@@ -138,7 +138,7 @@ PickupCompositeInterface, SpecialGameInputInterface
     @Override
     public Group[] getGroupInterface()
     {
-        return groupInterface;
+        return this.groupInterface;
     }
 
     public void setGroupInterface(final Group[] teamInterface)
@@ -156,7 +156,7 @@ PickupCompositeInterface, SpecialGameInputInterface
     
     public final boolean isReadyForExplosion()
     {
-        return readyForExplosion;
+        return this.readyForExplosion;
     }
 
     protected final void setReadyForExplosion(final boolean isReadyForExplosion)
@@ -176,12 +176,12 @@ PickupCompositeInterface, SpecialGameInputInterface
     
     public int getInitX()
     {
-        return initX;
+        return this.initX;
     }
 
     public int getInitY()
     {
-        return initY;
+        return this.initY;
     }
     
     @Override
@@ -300,7 +300,7 @@ PickupCompositeInterface, SpecialGameInputInterface
     @Override
     public PickupBehavior getPickupBehavior()
     {
-        return pickupBehavior;
+        return this.pickupBehavior;
     }
 
     @Override
@@ -323,7 +323,7 @@ PickupCompositeInterface, SpecialGameInputInterface
 
     public PartInterface[] getPartInterfaceArray()
     {
-        return partInterfaceArrayP;
+        return this.partInterfaceArrayP;
     }
         
     //private static final String PARTS_LABEL = "Parts: ";

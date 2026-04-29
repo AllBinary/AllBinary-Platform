@@ -87,7 +87,7 @@ public class BaseRaceTrackGeographicMap extends BasicGeographicMap
     @Override
     public RaceTrackInfo getRaceTrackInfo()
     {
-        return raceTrackInfo;
+        return this.raceTrackInfo;
     }
 
     @Override
@@ -103,13 +103,13 @@ public class BaseRaceTrackGeographicMap extends BasicGeographicMap
 
     public BasicGeographicMap getMiniBasicGeographicMap()
     {
-        return miniGeographicMap;
+        return this.miniGeographicMap;
     }
 
     @Override
     public RaceTrackData getRaceTrackData()
     {
-        return raceTrackData;
+        return this.raceTrackData;
     }
 
     @Override

@@ -193,6 +193,6 @@ public class PickupBehavior implements PickupBehaviorInterface
 
     public int getCountedIndex()
     {
-        return countedIndex;
+        return this.countedIndex;
     }
 }

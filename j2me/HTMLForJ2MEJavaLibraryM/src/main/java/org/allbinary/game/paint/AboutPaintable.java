@@ -50,7 +50,7 @@ public class AboutPaintable extends Paintable
 
     public Paintable[] getPaintableArrayInstance()
     {
-        return paintableArray;
+        return this.paintableArray;
     }
 
     private int anchor = Anchor.TOP_LEFT;
@@ -72,7 +72,7 @@ public class AboutPaintable extends Paintable
             beginWidth = (font.stringWidth(this.info[index]) >> 1);
         
             graphics.drawString(this.info[index], halfWidth - beginWidth,
-                    (4 + index) * charHeight, anchor);
+                    (4 + index) * charHeight, this.anchor);
         }
         
         int size = this.developers.length;
@@ -81,7 +81,7 @@ public class AboutPaintable extends Paintable
             beginWidth = (font.stringWidth(this.developers[index]) >> 1);
 
             graphics.drawString(this.developers[index], halfWidth - beginWidth,
-                    (5 + infoSize + index) * charHeight, anchor);
+                    (5 + infoSize + index) * charHeight, this.anchor);
         }
     }
 }

@@ -52,12 +52,12 @@ public class DirectionUtil
 
     public Angle getAngle(Direction direction)
     {
-        return directionArray2[direction.getValue()];
+        return this.directionArray2[direction.getValue()];
     }
 
     public Angle getFrameAngle(Direction direction)
     {
-        return directionArray[direction.getValue()];
+        return this.directionArray[direction.getValue()];
     }
 
 }

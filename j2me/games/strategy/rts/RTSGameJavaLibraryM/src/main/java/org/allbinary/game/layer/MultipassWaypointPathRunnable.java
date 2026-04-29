@@ -35,7 +35,7 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
     private final MultipassState multipassState = new MultipassState();
     
     private boolean done = false;
-    private BasicArrayList list = basicArrayListUtil.getImmutableInstance();
+    private BasicArrayList list = this.basicArrayListUtil.getImmutableInstance();
     private Object pathFindingInfo = NullUtil.getInstance().NULL_OBJECT;
     
     private final Runnable FIRST_RUNNABLE = new ARunnable() {
@@ -184,7 +184,7 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
     }
 
     private void reset2() {
-        multipassState.step = 0;
+        this.multipassState.step = 0;
         this.multipassState.iteration = 0;
         this.multipassState.iteration2 = 0;
         this.pathFindingInfo = NullUtil.getInstance().NULL_OBJECT;
@@ -199,7 +199,7 @@ public class MultipassWaypointPathRunnable extends WaypointPathRunnableBase
 
     @Override
     public boolean isDone() {
-        return done;
+        return this.done;
     }
     
     @Override

@@ -80,7 +80,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
         this.basicGeographicMapGraph =
             new BasicGeographicMapGraph(
             (PathFindingNodeCostInfoFactory)
-            pathFindingInfo.getPathFindingNodeCostInfoFactoryInterface());
+            this.pathFindingInfo.getPathFindingNodeCostInfoFactoryInterface());
         
         this.pathFinderGraphVisitorFactoryInterface = pathFinderGraphVisitorFactoryInterface;
     }
@@ -99,8 +99,8 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
         this.init(geographicMapInterface, pathFindingInfo, mapArray);
 
         this.basicGeographicMapPathFinder.init(
-            geographicMapInterface, basicGeographicMapGraph, 
-            pathFinderGraphVisitorFactoryInterface.getInstance(
+            geographicMapInterface, this.basicGeographicMapGraph, 
+            this.pathFinderGraphVisitorFactoryInterface.getInstance(
                     geographicMapInterface));
 
         pathFindingInfo.setPathFinder(this.basicGeographicMapPathFinder);

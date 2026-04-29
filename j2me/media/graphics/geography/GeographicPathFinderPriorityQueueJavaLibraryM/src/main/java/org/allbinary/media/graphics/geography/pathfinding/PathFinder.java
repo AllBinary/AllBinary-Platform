@@ -83,7 +83,7 @@ public class PathFinder extends GeographicPathFinderBase {
         } catch(Exception e) {
             final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, "search", e);            
-            return basicArrayListUtil.getImmutableInstance();
+            return this.basicArrayListUtil.getImmutableInstance();
         }
     }
    
@@ -103,7 +103,7 @@ public class PathFinder extends GeographicPathFinderBase {
             //this.logUtil.putF("step 2", this, "search");
             return this.searchN((PathFindingNode) startPathFindingNodeList.get(0), (PathFindingNode) endPathFindingNodeList.get(0), multipassState);
         }
-        return basicArrayListUtil.getImmutableInstance();
+        return this.basicArrayListUtil.getImmutableInstance();
     }
 
     public BasicArrayList search(
@@ -145,7 +145,7 @@ public class PathFinder extends GeographicPathFinderBase {
         final BasicArrayList list = this.findPathEnd(startPathFindingNode.geographicMapCellPosition, endPathFindingNode.geographicMapCellPosition, multipassState);
 
         if(list == null) { 
-            return basicArrayListUtil.getImmutableInstance();
+            return this.basicArrayListUtil.getImmutableInstance();
         }
                 
         final BasicArrayList pathList = new BasicArrayListD();
@@ -339,7 +339,7 @@ public class PathFinder extends GeographicPathFinderBase {
           
             total++;
             if(total > 10) {
-                return basicArrayListUtil.getImmutableInstance();
+                return this.basicArrayListUtil.getImmutableInstance();
             }
             
         } while(!this.openPriorityQueue.isEmpty());

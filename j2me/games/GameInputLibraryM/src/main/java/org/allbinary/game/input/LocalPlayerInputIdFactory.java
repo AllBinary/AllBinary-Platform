@@ -25,9 +25,9 @@ public class LocalPlayerInputIdFactory {
 
     public final int MAX_NUMBER_OF_PLAYERS = 6;
     private final int MAX_FAST_DEVICEID = 65;
-    private final int[] deviceIdToplayerId = new int[MAX_FAST_DEVICEID];
-    private final int[] playerIdToDeviceId = new int[MAX_NUMBER_OF_PLAYERS];
-    private final boolean[] playersInPlay = new boolean[MAX_NUMBER_OF_PLAYERS];
+    private final int[] deviceIdToplayerId = new int[this.MAX_FAST_DEVICEID];
+    private final int[] playerIdToDeviceId = new int[this.MAX_NUMBER_OF_PLAYERS];
+    private final boolean[] playersInPlay = new boolean[this.MAX_NUMBER_OF_PLAYERS];
 
     private int totalDevicesMapped = 0;
 
@@ -151,7 +151,7 @@ public class LocalPlayerInputIdFactory {
      * @return the inPlayToDeviceId
      */
     public boolean[] getPlayersInPlay() {
-        return playersInPlay;
+        return this.playersInPlay;
     }
 
     /**

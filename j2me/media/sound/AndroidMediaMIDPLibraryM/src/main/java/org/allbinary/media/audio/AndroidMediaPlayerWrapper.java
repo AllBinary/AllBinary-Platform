@@ -223,6 +223,6 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
 
     public MediaPlayer getMediaPlayer()
     {
-        return mediaPlayer;
+        return this.mediaPlayer;
     }
 }

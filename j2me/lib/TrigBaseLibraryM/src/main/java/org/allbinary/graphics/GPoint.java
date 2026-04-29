@@ -37,32 +37,32 @@ public class GPoint
    
    public int getX()
    {
-      return x;
+      return this.x;
    }
    
    public int getY()
    {
-      return y;
+      return this.y;
    }
 
    public int getZ()
    {
-      return z;
+      return this.z;
    }
 
    public int getRawX()
    {
-      return x;
+      return this.x;
    }
    
    public int getRawY()
    {
-      return y;
+      return this.y;
    }
 
    public int getRawZ()
    {
-      return z;
+      return this.z;
    }
    
    public String toString()

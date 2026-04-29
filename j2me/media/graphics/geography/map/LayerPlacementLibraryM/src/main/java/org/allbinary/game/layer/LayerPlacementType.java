@@ -26,7 +26,7 @@ public class LayerPlacementType
 
    public int getType()
    {
-      return type;
+      return this.type;
    }
 
    protected void setType(int type)

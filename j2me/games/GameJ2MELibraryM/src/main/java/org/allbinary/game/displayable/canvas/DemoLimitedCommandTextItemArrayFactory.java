@@ -31,6 +31,6 @@ public class DemoLimitedCommandTextItemArrayFactory
 
     public CommandTextItemArrayFactory getCommandTextItemArrayFactory()
     {
-        return commandTextItemArrayFactory;
+        return this.commandTextItemArrayFactory;
     }
 }

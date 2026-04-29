@@ -39,7 +39,7 @@ public class Group implements GroupInterface
    @Override
    public String getGroupName()
    {
-      return name;
+      return this.name;
    }
 
    public void setName(final String name)
@@ -59,11 +59,11 @@ public class Group implements GroupInterface
    @Override
    public short getGroupId()
    {
-      return teamId;
+      return this.teamId;
    }
 
    public String toString()
    {
-       return string;
+       return this.string;
    }
 }

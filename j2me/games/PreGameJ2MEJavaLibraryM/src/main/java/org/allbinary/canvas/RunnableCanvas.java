@@ -128,7 +128,7 @@ public class RunnableCanvas extends MyCanvas
             /*
              * if (!running) { this.logUtil.putF(NOT_RUNNING, * this, IS_RUNNING); }
              */
-            return running;
+            return this.running;
         } else
         {
             final StringMaker stringBuffer = new StringMaker();
@@ -152,7 +152,7 @@ public class RunnableCanvas extends MyCanvas
 
     public TimeDelayHelper getLoopTimeHelperP()
     {
-        return loopTimeHelper;
+        return this.loopTimeHelper;
     }
     
     private long pauseWait = 0;
@@ -332,7 +332,7 @@ public class RunnableCanvas extends MyCanvas
         }
         else
         {
-            processGameSleep(wait - elapsedTime);
+            this.processGameSleep(wait - elapsedTime);
         }
     }
 

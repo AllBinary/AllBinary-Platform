@@ -54,7 +54,7 @@ implements CompleteMotionGestureInputInterface
     @Override
     public String getName()
     {
-        return name;
+        return this.name;
     }
     
     public void setMotionGestureInput(MotionGestureInput motionGestureInput)
@@ -64,7 +64,7 @@ implements CompleteMotionGestureInputInterface
 
     public MotionGestureInput getMotionGestureInput()
     {
-        return motionGestureInput;
+        return this.motionGestureInput;
     }
     
 }

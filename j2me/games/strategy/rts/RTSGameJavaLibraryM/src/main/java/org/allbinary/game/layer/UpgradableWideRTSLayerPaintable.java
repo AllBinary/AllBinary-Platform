@@ -50,7 +50,7 @@ public class UpgradableWideRTSLayerPaintable extends RTSLayerCompositePaintable
 
     protected String getCost()
     {
-        return cost;
+        return this.cost;
     }
 
 }

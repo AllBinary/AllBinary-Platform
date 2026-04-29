@@ -106,7 +106,7 @@ public class GameInputMappingInstructionsCanvas extends GameCommandCanvas
 
         //int startIndex = this.helpPaintable.getInputInfo().length + 5;
 
-        drawStringUtil.drawCenterStrings(graphics, instructions,
+        this.drawStringUtil.drawCenterStrings(graphics, instructions,
                 displayInfo.getLastWidth(), halfWidth, 3 * charHeight);
 
         super.paint(graphics);

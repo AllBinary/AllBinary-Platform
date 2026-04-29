@@ -32,6 +32,6 @@ public class GameDifficultyFactory
 
     public int getLevel()
     {
-        return level;
+        return this.level;
     }    
 }

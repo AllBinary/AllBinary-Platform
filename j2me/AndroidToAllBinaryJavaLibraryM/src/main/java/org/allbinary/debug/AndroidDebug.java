@@ -29,7 +29,7 @@ public class AndroidDebug implements DebugInterface
         //To get the trace log Use: adb pull /sdcard/trace.trace ./tmp
         //traceview G:\mnt\tmp\trace
         Debug.startMethodTracing("trace", bufferSize);
-        setRunning(true);
+        this.setRunning(true);
     }
 
     @Override
@@ -37,7 +37,7 @@ public class AndroidDebug implements DebugInterface
     {
         this.startTime = Long.MAX_VALUE;
         Debug.stopMethodTracing();
-        setRunning(false);
+        this.setRunning(false);
     }
 
     @Override
@@ -54,7 +54,7 @@ public class AndroidDebug implements DebugInterface
     @Override
     public long getStartTime()
     {
-        return startTime;
+        return this.startTime;
     }
 
     private void setRunning(boolean running)
@@ -65,6 +65,6 @@ public class AndroidDebug implements DebugInterface
     @Override
     public boolean isRunning()
     {
-        return running;
+        return this.running;
     }
 }

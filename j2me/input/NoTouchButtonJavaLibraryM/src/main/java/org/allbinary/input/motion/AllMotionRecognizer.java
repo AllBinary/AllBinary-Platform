@@ -50,6 +50,6 @@ public class AllMotionRecognizer
     
     public int getId()
     {
-        return id;
+        return this.id;
     }
 }

@@ -40,7 +40,7 @@ public class RTSLayerEvent extends AllBinaryEventObject
      */
     public PathFindingLayerInterface getRtsLayer()
     {
-        return rtsLayer;
+        return this.rtsLayer;
     }
 
     /**

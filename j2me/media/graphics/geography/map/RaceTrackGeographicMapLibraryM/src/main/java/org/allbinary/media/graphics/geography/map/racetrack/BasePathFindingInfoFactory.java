@@ -77,7 +77,7 @@ public class BasePathFindingInfoFactory {
 
                 final int geographicCellType = geographicMapInterface.getCellTypeFromMapCellTypeInt(cellTypeId);
 
-                if (geographicCellType == startLineId)
+                if (geographicCellType == this.startLineId)
                 {
                     BasePathFindingInfoFactory.this.addStartPathFindingNode(
                        pathFindingInfo,
@@ -85,9 +85,9 @@ public class BasePathFindingInfoFactory {
                 }
 
 
-                if (geographicCellType == finishLineId)
+                if (geographicCellType == this.finishLineId)
                 {
-                    if (geographicCellType == startLineId)
+                    if (geographicCellType == this.startLineId)
                     {
                         BasePathFindingInfoFactory.this.addEndPathFindingNode(
                            pathFindingInfo,

@@ -128,6 +128,6 @@ public class CurrentlyPressedTouchButtonSingletonDebug
     
     public String toString()
     {
-        return string;
+        return this.string;
     }    
 }

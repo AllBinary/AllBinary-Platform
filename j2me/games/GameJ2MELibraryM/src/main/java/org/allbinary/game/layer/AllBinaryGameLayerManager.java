@@ -63,7 +63,7 @@ public class AllBinaryGameLayerManager extends AllBinaryLayerManager
 
     public BasicColor getBackgroundBasicColor()
     {
-        return backgroundBasicColor;
+        return this.backgroundBasicColor;
     }
 
     public void setBackgroundBasicColor(final BasicColor backgroundBasicColor)
@@ -75,7 +75,7 @@ public class AllBinaryGameLayerManager extends AllBinaryLayerManager
 
     public BasicColor getForegroundBasicColor()
     {
-        return foregroundBasicColor;
+        return this.foregroundBasicColor;
     }
 
     public void setForegroundBasicColor(final BasicColor foregroundBasicColor)
@@ -87,7 +87,7 @@ public class AllBinaryGameLayerManager extends AllBinaryLayerManager
 
     public GameInfo getGameInfo()
     {
-        return gameInfo;
+        return this.gameInfo;
     }
 
     public void setGameInfo(final GameInfo gameInfo)
@@ -116,6 +116,6 @@ public class AllBinaryGameLayerManager extends AllBinaryLayerManager
 
     public PlayerGameInputCompositeInterface getPlayerGameInputCompositeInterface()
     {
-        return playerGameInputCompositeInterface;
+        return this.playerGameInputCompositeInterface;
     }
 }

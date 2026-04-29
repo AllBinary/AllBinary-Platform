@@ -40,7 +40,7 @@ public class BasicHighScoresFactory extends HighScoresBase
 
         try {
             this.highScoresArray[0] = RecordStoreHighScores.getInstance(this.abeClientInformation, gameInfo,
-                this.TOP, PERSONAL_HIGH_SCORES, SCORES, new ScoreComparator(true));
+                this.TOP, this.PERSONAL_HIGH_SCORES, this.SCORES, new ScoreComparator(true));
 
             highScoresResultsListener.setHighScoresArray(this.highScoresArray);
         } catch (Exception e) {

@@ -74,8 +74,8 @@ implements BaseMotionGestureEventListener
     private final RectangleCollisionUtil rectangleCollisionUtil = RectangleCollisionUtil.getInstance();
 
     private final TouchMotionGestureFactory touchMotionGestureFactory = TouchMotionGestureFactory.getInstance();
-    private final MotionGestureInput PRESSED = touchMotionGestureFactory.PRESSED;
-    private final MotionGestureInput RELEASED = touchMotionGestureFactory.RELEASED;
+    private final MotionGestureInput PRESSED = this.touchMotionGestureFactory.PRESSED;
+    private final MotionGestureInput RELEASED = this.touchMotionGestureFactory.RELEASED;
 
     private final TouchButtonsBuilderFactory touchButtonsBuilderFactory;
 
@@ -149,7 +149,7 @@ implements BaseMotionGestureEventListener
                         this.getSelectedRtsLayer(), this.getRtsPlayerLayerInterface(),
                         layerManager, point);                
             }
-        } else if (motionGestureInput == RELEASED)
+        } else if (motionGestureInput == this.RELEASED)
         {
             final GPoint point = motionGestureEvent.getCurrentPoint();
 
@@ -409,7 +409,7 @@ implements BaseMotionGestureEventListener
             this.getRtsPlayerLayerInterface().add(ErrorSound.getInstance());
 
             GameNotificationEventHandler.getInstance().fireEvent(
-                    notYoursGameNotificationEvent);
+                    this.notYoursGameNotificationEvent);
 
             return;
         }
@@ -508,12 +508,12 @@ implements BaseMotionGestureEventListener
                 = (GeographicMapCompositeInterface) this.getGameCanvas();
             final BasicGeographicMap geographicMapInterface = geographicMapCompositeInterface.getGeographicMapInterface()[0];
             
-            multiSelectPaintable.setBasicColorP(
+            this.multiSelectPaintable.setBasicColorP(
                     geographicMapInterface.getForegroundBasicColor());
             this.multiSelectPaintable.update(list);
 
             this.getRTSLayerInfoPaintable().updateRTSLayerInfoSelection(
-                    multiSelectPaintable);
+                    this.multiSelectPaintable);
         }
         else
             if(list.size() == 1)
@@ -575,7 +575,7 @@ implements BaseMotionGestureEventListener
      */
     private CollidableDestroyableDamageableLayer getSelectedRtsLayer()
     {
-        return selectedRtsLayer;
+        return this.selectedRtsLayer;
     }
 
     /**

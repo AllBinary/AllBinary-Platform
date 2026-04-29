@@ -61,7 +61,7 @@ public class AllBinaryFlickerAndroidImageRotationAnimationFactory
 
     protected short getAngleIncrement()
     {
-        return angleIncrement;
+        return this.angleIncrement;
     }
 
     protected void setImage(Image image)
@@ -71,7 +71,7 @@ public class AllBinaryFlickerAndroidImageRotationAnimationFactory
 
     protected Image getImage()
     {
-        return image;
+        return this.image;
     }
     
     @Override

@@ -35,7 +35,7 @@ public class OwnershipPaintable extends Paintable
     //private final String COMPANY = "AllBinary";
     
     private BasicColor basicColor = BasicColorFactory.getInstance().WHITE;
-    private int color = basicColor.intValue();
+    private int color = this.basicColor.intValue();
     
     public static OwnershipPaintable getInstance()
     {
@@ -88,6 +88,6 @@ public class OwnershipPaintable extends Paintable
 
     public BasicColor getBasicColorP()
     {
-        return basicColor;
+        return this.basicColor;
     }
 }

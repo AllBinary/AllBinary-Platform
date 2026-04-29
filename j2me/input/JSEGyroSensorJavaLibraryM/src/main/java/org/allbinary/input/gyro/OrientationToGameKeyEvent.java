@@ -46,7 +46,7 @@ public class OrientationToGameKeyEvent
 
     public AllBinaryOrientationSensor getAllBinaryGyroSensor()
     {
-        return allBinaryGyroSensor;
+        return this.allBinaryGyroSensor;
     }
         
     public void process() throws Exception

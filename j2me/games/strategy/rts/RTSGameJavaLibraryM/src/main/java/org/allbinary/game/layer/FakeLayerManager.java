@@ -30,7 +30,7 @@ public class FakeLayerManager extends AllBinaryGameLayerManager
 
     @Override
     public BasicGeographicMap[] getGeographicMapInterface() {
-        return geographicMapInterfaceArray;
+        return this.geographicMapInterfaceArray;
     }
 
     @Override

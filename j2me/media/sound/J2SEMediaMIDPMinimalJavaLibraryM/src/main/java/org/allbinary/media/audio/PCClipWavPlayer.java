@@ -151,7 +151,7 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
 
     private void stop2() throws Exception {
         //clip.drain();
-        clip.stop();
+        this.clip.stop();
         //clip.flush();
 
         ////clip.close();

@@ -37,7 +37,7 @@ public class TrackingEvent extends AllBinaryEventObject
 
     public AllBinaryLayer getLayerInterface()
     {
-        return layerInterface;
+        return this.layerInterface;
     }
 
     private void setLayerInterface(AllBinaryLayer layerInterface)

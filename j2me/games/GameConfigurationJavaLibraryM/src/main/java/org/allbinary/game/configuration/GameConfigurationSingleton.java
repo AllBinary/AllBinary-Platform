@@ -43,7 +43,7 @@ public class GameConfigurationSingleton
 
     public BasicArrayList getOptionsBasicArrayList()
     {
-        return list;
+        return this.list;
     }
 
     public void add(GameConfiguration gameConfiguration)

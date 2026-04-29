@@ -41,7 +41,7 @@ public class Driver {
 
    public Integer getTurnSpeed()
    {
-      return turnSpeed;
+      return this.turnSpeed;
    }
 
    public void setTurnSpeed(Integer turnSpeed)
@@ -51,7 +51,7 @@ public class Driver {
 
    public Integer getTrackPathSelectionSkill()
    {
-      return trackPathSelectionSkill;
+      return this.trackPathSelectionSkill;
    }
 
    public void setTrackPathSelectionSkill(Integer trackPathSelectionSkill)
@@ -61,7 +61,7 @@ public class Driver {
 
    public Aggression getAggression()
    {
-      return aggression;
+      return this.aggression;
    }
 
    public void setAggression(Aggression aggression)

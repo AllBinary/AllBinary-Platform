@@ -74,6 +74,6 @@ public class FullScreenUtil
 
     public final boolean isScreenChangeCanvas(final Canvas fullScreenInterface)
     {
-        return isScreenChange(fullScreenInterface.isFullScreenMode());
+        return this.isScreenChange(fullScreenInterface.isFullScreenMode());
     }
 }

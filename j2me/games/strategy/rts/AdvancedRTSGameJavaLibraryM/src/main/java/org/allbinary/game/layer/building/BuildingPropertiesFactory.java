@@ -52,7 +52,7 @@ public class BuildingPropertiesFactory {
         DamageFloaters damageFloaters = DamageFloaters.getInstance();
         if (Features.getInstance().isFeature(GameFeatureFactory.getInstance().DAMAGE_FLOATERS)) {
             damageFloaters = new PtsDamageFloaters(buildingLayer);
-            damageFloatersPaintableInterface = damageFloaters;
+            this.damageFloatersPaintableInterface = damageFloaters;
         } else {
             damageFloaters = new DamageFloaters();
         }

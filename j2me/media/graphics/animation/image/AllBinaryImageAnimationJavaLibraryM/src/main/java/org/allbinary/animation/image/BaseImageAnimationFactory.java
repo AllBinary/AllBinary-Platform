@@ -73,14 +73,14 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
      * @return the image
      */
     public Image getImage() {
-        return image;
+        return this.image;
     }
 
     /**
      * @return the sequenceArray
      */
     public int[] getSequenceArray() {
-        return sequenceArray;
+        return this.sequenceArray;
     }
 
     public String toString() {

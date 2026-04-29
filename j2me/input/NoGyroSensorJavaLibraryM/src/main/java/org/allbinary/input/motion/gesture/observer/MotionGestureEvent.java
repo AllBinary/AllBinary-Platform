@@ -41,7 +41,7 @@ public class MotionGestureEvent extends AllBinaryEventObject {
     }
 
     public MotionGestureInput getMotionGesture() {
-        return motionGesture;
+        return this.motionGesture;
     }
 
     public void setMotionGesture(MotionGestureInput motionGesture) {
@@ -53,7 +53,7 @@ public class MotionGestureEvent extends AllBinaryEventObject {
      */
     public GPoint getPreviousPoint()
     {
-        return previousPoint;
+        return this.previousPoint;
     }
 
     /**
@@ -69,7 +69,7 @@ public class MotionGestureEvent extends AllBinaryEventObject {
      */
     public GPoint getCurrentPoint()
     {
-        return currentPoint;
+        return this.currentPoint;
     }
 
     /**
@@ -101,6 +101,6 @@ public class MotionGestureEvent extends AllBinaryEventObject {
 
     public int getId()
     {
-        return id;
+        return this.id;
     }
 }

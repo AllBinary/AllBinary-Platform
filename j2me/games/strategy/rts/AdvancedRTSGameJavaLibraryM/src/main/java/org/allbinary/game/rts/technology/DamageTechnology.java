@@ -45,7 +45,7 @@ implements RTSInterface
     @Override
     public int getLevel()
     {
-        return level;
+        return this.level;
     }
 
     @Override

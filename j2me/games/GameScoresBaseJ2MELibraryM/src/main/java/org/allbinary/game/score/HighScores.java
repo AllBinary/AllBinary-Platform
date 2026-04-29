@@ -45,12 +45,12 @@ public class HighScores implements HighScoresInterface
     @Override
     public BasicArrayList getList()
     {
-        return orderedHighScoresList;
+        return this.orderedHighScoresList;
     }
     
     public String getName()
     {
-        return name;
+        return this.name;
     }
     
     @Override
@@ -67,17 +67,17 @@ public class HighScores implements HighScoresInterface
 
     public String getHeading()
     {
-        return heading;
+        return this.heading;
     }
 
     public String getColumnOneHeading()
     {
-        return columnOneHeading;
+        return this.columnOneHeading;
     }
 
     public String getColumnTwoHeading()
     {
-        return columnTwoHeading;
+        return this.columnTwoHeading;
     }
     
     @Override

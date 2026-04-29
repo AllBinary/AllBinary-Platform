@@ -92,7 +92,7 @@ public class Life implements LifeInterface
     @Override
     public short getMaxlives()
     {
-        return maxlives;
+        return this.maxlives;
     }
 
     private boolean reachedLimit()
@@ -127,7 +127,7 @@ public class Life implements LifeInterface
      * @return the startLives
      */
     public short getStartLives() {
-        return startLives;
+        return this.startLives;
     }
 
     /**

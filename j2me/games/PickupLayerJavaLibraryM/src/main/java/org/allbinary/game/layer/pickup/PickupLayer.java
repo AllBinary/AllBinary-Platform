@@ -101,7 +101,7 @@ public class PickupLayer
    @Override
    public boolean isDestroyed()
    {
-      return destroyed;
+      return this.destroyed;
    }
 
    public void setDestroyed(boolean destroyed)

@@ -31,7 +31,7 @@ public class HighScoresHelper2 extends HighScoresHelperBase
     @Override
     public HighScores getSelectedHighScores()
     {
-        return selectedHighScores;
+        return this.selectedHighScores;
     }
 
     @Override

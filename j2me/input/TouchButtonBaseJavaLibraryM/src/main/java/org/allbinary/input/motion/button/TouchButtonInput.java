@@ -60,11 +60,11 @@ public final class TouchButtonInput extends Input
     @Override
     public int getSourceId()
     {
-        return TOUCH_BUTTON_SOURCE_ID;
+        return this.TOUCH_BUTTON_SOURCE_ID;
     }
 
     public GameKeyEvent getGameKeyEvent()
     {
-        return gameKeyEvent;
+        return this.gameKeyEvent;
     }
 }

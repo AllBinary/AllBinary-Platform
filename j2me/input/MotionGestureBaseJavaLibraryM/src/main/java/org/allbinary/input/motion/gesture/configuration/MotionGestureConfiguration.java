@@ -45,11 +45,11 @@ public class MotionGestureConfiguration
     }
     
     public void addMotionGestureAction(BasicArrayList list, CompleteMotionGestureInputEvent commandAction) {
-        activeCommands.add(new MotionGestureToMotionGestureActionAssociation(list, commandAction));
+        this.activeCommands.add(new MotionGestureToMotionGestureActionAssociation(list, commandAction));
     }
 
     public void clearMotionGestureAction() {
-        activeCommands.clear();
+        this.activeCommands.clear();
     }
 
     /*
@@ -65,15 +65,15 @@ public class MotionGestureConfiguration
     */
     
     public BasicArrayList getAssociateCommandActionsList() {
-        return activeCommands;
+        return this.activeCommands;
     }
     
     public boolean isDiagonalMotionGestureAllowed() {
-        return diagonalMotionGestureAllowed;
+        return this.diagonalMotionGestureAllowed;
     }
 
     public boolean isExecutingActionsAllowed() {
-        return executingActions;
+        return this.executingActions;
     }
     
     public void setExecutingActionsAllowed(boolean executingActionAllowed) {
@@ -85,7 +85,7 @@ public class MotionGestureConfiguration
     }
 
     public int getDiagonalTolerance() {
-        return diagonalTolerance;
+        return this.diagonalTolerance;
     }
 
     public void setDiagonalTolerance(int diagonalTolerance) {
@@ -93,7 +93,7 @@ public class MotionGestureConfiguration
     }
 
     public int getMinimumMotionGesture() {
-        return minimumMotionGesture;
+        return this.minimumMotionGesture;
     }
 
     public void setMinimumMotionGesture(int minimumMotionGesture) {
@@ -101,7 +101,7 @@ public class MotionGestureConfiguration
     }
 
     public String getButton() {
-        return button;
+        return this.button;
     }
 
     public void setButton(String button) {
@@ -109,7 +109,7 @@ public class MotionGestureConfiguration
     }
 
     public BasicColor getColor() {
-        return color;
+        return this.color;
     }
 
     public void setColor(BasicColor color) {
@@ -117,7 +117,7 @@ public class MotionGestureConfiguration
     }
 
     public int getMouseButtonMask() {
-        return mouseButtonMask;
+        return this.mouseButtonMask;
     }
 
     public void setMouseButtonMask(int mouseButtonMask) {

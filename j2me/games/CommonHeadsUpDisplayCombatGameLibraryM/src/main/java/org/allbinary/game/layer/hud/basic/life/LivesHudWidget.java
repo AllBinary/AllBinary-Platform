@@ -97,6 +97,6 @@ public class LivesHudWidget extends BasicHud
     
     public Life getLifeInterface()
     {
-        return lifeInterface;
+        return this.lifeInterface;
     }
 }

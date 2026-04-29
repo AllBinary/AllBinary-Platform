@@ -96,7 +96,7 @@ public class TechnologyRTSInterfaceImageItem extends CustomImageItem
      */
     public RTSInterface getRtsInterface()
     {
-        return rtsInterface;
+        return this.rtsInterface;
     }
 
     public void update()

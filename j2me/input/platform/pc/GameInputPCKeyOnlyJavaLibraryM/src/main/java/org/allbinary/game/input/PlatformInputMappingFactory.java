@@ -44,7 +44,7 @@ public class PlatformInputMappingFactory
             final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
         }
-        return SINGLETON;
+        return this.SINGLETON;
     }
 
 }

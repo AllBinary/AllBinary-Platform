@@ -40,7 +40,7 @@ implements SpecialAnimationInterface
     
     public int getLoopCount()
     {
-        return loopCount;
+        return this.loopCount;
     }
     
     @Override
@@ -68,7 +68,7 @@ implements SpecialAnimationInterface
                     
                     if(this.getFrame() == 0)
                     {
-                        loopCount++;
+                        this.loopCount++;
                     }                    
                 }
             }

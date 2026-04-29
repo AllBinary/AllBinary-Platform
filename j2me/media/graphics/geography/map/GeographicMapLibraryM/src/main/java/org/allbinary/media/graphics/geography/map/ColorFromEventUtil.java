@@ -27,7 +27,7 @@ public class ColorFromEventUtil
     }
     
     private final BasicColor YELLOW = BasicColorFactory.getInstance().YELLOW;
-    public final int COLOR_INT = YELLOW.intValue();
+    public final int COLOR_INT = this.YELLOW.intValue();
      
     public BasicColor getForegroundColor(final AllBinaryGameCanvas gameCanvasInterface)
     {

@@ -48,32 +48,32 @@ public class TouchButtonLocationHelper
     
     public int getTotalColumns()
     {
-        return totalColumns;
+        return this.totalColumns;
     }
 
     public int getTotalRows()
     {
-        return totalRows;
+        return this.totalRows;
     }
 
     public int getColumnsRemainder()
     {
-        return columnsRemainder;
+        return this.columnsRemainder;
     }
 
     public int getRowsRemainder()
     {
-        return rowsRemainder;
+        return this.rowsRemainder;
     }
 
     public int getColumnsRemainderHalf()
     {
-        return columnsRemainderHalf;
+        return this.columnsRemainderHalf;
     }
 
     public int getRowsRemainderHalf()
     {
-        return rowsRemainderHalf;
+        return this.rowsRemainderHalf;
     }
     
     public String toString()

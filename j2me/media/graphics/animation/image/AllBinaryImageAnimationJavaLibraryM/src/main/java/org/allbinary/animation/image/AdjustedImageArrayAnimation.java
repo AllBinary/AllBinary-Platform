@@ -58,7 +58,7 @@ extends ImageArrayAnimation
     @Override
     public int getDx()
     {
-        return dx;
+        return this.dx;
     }
 
     @Override
@@ -70,7 +70,7 @@ extends ImageArrayAnimation
     @Override
     public int getDy()
     {
-        return dy;
+        return this.dy;
     }
 
 }

@@ -30,7 +30,7 @@ public class GeographicMapCellPathHistoryInfo {
 
    public GeographicMapCellPosition getPreviousGeographicMapCellPosition()
    {
-      return previousGeographicMapCellPosition;
+      return this.previousGeographicMapCellPosition;
    }
 
    public void setPreviousGeographicMapCellPosition(GeographicMapCellPosition previousGeographicMapCellPosition)
@@ -40,7 +40,7 @@ public class GeographicMapCellPathHistoryInfo {
 
    public GeographicMapCellPosition getPreviousOnPathGeographicMapCellPosition()
    {
-      return previousOnPathGeographicMapCellPosition;
+      return this.previousOnPathGeographicMapCellPosition;
    }
 
    public void setPreviousOnPathGeographicMapCellPosition(GeographicMapCellPosition previousOnPathGeographicMapCellPosition)
@@ -50,7 +50,7 @@ public class GeographicMapCellPathHistoryInfo {
 
    public GeographicMapCellPosition getNextUnvisitedOnPathGeographicMapCellPosition()
    {
-      return nextUnvisitedOnPathGeographicMapCellPosition;
+      return this.nextUnvisitedOnPathGeographicMapCellPosition;
    }
 
    public void setNextUnvisitedOnPathGeographicMapCellPosition(GeographicMapCellPosition nextUnvisitedOnPathGeographicMapCellPosition)
@@ -60,7 +60,7 @@ public class GeographicMapCellPathHistoryInfo {
 
    public GeographicMapCellPosition getNextOnPathGeographicMapCellPosition()
    {
-      return nextOnPathGeographicMapCellPosition;
+      return this.nextOnPathGeographicMapCellPosition;
    }
 
    public void setNextOnPathGeographicMapCellPosition(GeographicMapCellPosition nextOnPathGeographicMapCellPosition)
@@ -70,7 +70,7 @@ public class GeographicMapCellPathHistoryInfo {
 
    public GeographicMapCellPosition getNextChosenOnPathGeographicMapCellPosition()
    {
-      return nextChosenOnPathGeographicMapCellPosition;
+      return this.nextChosenOnPathGeographicMapCellPosition;
    }
 
    public void setNextChosenOnPathGeographicMapCellPosition(GeographicMapCellPosition nextChosenOnPathGeographicMapCellPosition)

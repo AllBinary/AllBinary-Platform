@@ -140,7 +140,7 @@ public class ImageRotationAnimationFactory
 
     protected short getAngleIncrementP()
     {
-        return angleIncrement;
+        return this.angleIncrement;
     }
     
 }

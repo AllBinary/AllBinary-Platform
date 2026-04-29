@@ -50,6 +50,6 @@ public class ExceptionUtil
             return new String(output);
         }
         
-        return NONE;
+        return this.NONE;
     }
 }

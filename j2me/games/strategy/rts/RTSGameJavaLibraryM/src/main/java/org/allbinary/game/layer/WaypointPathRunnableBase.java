@@ -85,7 +85,7 @@ public class WaypointPathRunnableBase implements RunnableInterface, PriorityRunn
     
     public PathFindingLayerInterface getTargetLayer()
     {
-        return targetPathFindingLayer;
+        return this.targetPathFindingLayer;
     }
 
     /**

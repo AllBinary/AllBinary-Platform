@@ -100,7 +100,7 @@ implements LayerInterface
     @Override
     public String getName()
     {
-        return name;
+        return this.name;
     }
 
     protected void setHalfWidth(final int halfWidth)
@@ -111,7 +111,7 @@ implements LayerInterface
     @Override
     public int getHalfWidth()
     {
-        return halfWidth;
+        return this.halfWidth;
     }
 
     protected void setHalfHeight(final int halfHeight)
@@ -122,7 +122,7 @@ implements LayerInterface
     @Override
     public int getHalfHeight()
     {
-        return halfHeight;
+        return this.halfHeight;
     }
 
     public int getHalfDepth()
@@ -132,7 +132,7 @@ implements LayerInterface
 
     public ViewPosition getViewPosition()
     {
-        return viewPosition;
+        return this.viewPosition;
     }
 
     public void setViewPosition(final ViewPosition viewPosition)

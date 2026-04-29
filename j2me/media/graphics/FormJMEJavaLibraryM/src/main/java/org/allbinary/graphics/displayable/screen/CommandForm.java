@@ -54,7 +54,7 @@ public class CommandForm extends Form
       
        try {
 
-           repaintProcessor.process();
+           this.repaintProcessor.process();
 
        } catch (Exception e) {
            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);

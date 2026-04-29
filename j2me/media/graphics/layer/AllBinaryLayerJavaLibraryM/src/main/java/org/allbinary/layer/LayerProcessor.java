@@ -52,7 +52,7 @@ public class LayerProcessor implements LayerProcessorInterface
     @Override
     public LayerManager getLayerManager()
     {
-        return layerManager;
+        return this.layerManager;
     }
 
     @Override

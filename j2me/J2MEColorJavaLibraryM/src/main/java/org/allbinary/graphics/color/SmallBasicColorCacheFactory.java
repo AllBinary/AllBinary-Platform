@@ -25,8 +25,8 @@ public class SmallBasicColorCacheFactory
     }
 
     private final int SIZE = 255;
-    private final int[] INDEX_TO_COLOR = new int[SIZE];
-    private final BasicColor[] BASIC_COLOR_ARRAY = new BasicColor[SIZE];
+    private final int[] INDEX_TO_COLOR = new int[this.SIZE];
+    private final BasicColor[] BASIC_COLOR_ARRAY = new BasicColor[this.SIZE];
     
     private int colorIndex = 0;
 
@@ -38,7 +38,7 @@ public class SmallBasicColorCacheFactory
     {
         this.BASIC_COLOR_ARRAY[this.colorIndex] = basicDefaultColor;
         this.INDEX_TO_COLOR[this.colorIndex] = basicDefaultColor.intValue();
-        colorIndex++;
+        this.colorIndex++;
     }
 
     public BasicColor getAndOrCreate(final int colorAsInt)

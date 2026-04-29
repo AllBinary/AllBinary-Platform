@@ -191,7 +191,7 @@ public class BuildingRTSFormInput extends RTSFormInput
 
     public boolean isPositionBlocked()
     {
-        return dropCellPositionHistory.isCellPositionWithDrop(
+        return this.dropCellPositionHistory.isCellPositionWithDrop(
                 this.getSelectedGeographicCellPosition());
     }
 
@@ -284,7 +284,7 @@ public class BuildingRTSFormInput extends RTSFormInput
                     if(!rtsPlayerLayerInterface.implmentsArtificialIntelligenceCompositeInterface())
                     {
                         GameNotificationEventHandler.getInstance().fireEvent(
-                                buildOnPathGameNotificationEvent);
+                                this.buildOnPathGameNotificationEvent);
                     }
                 }
 
@@ -296,7 +296,7 @@ public class BuildingRTSFormInput extends RTSFormInput
                 if(!rtsPlayerLayerInterface.implmentsArtificialIntelligenceCompositeInterface())
                 {
                     GameNotificationEventHandler.getInstance().fireEvent(
-                            spotTakenGameNotificationEvent);
+                            this.spotTakenGameNotificationEvent);
                 }
             }
         }
@@ -307,7 +307,7 @@ public class BuildingRTSFormInput extends RTSFormInput
             if(!rtsPlayerLayerInterface.implmentsArtificialIntelligenceCompositeInterface())
             {
                 GameNotificationEventHandler.getInstance().fireEvent(
-                        selectBuildSpotGameNotificationEvent);
+                        this.selectBuildSpotGameNotificationEvent);
             }
         }
     }
@@ -353,7 +353,7 @@ public class BuildingRTSFormInput extends RTSFormInput
                 if(!rtsPlayerLayerInterface.implmentsArtificialIntelligenceCompositeInterface())
                 {
                     GameNotificationEventHandler.getInstance().fireEvent(
-                            roadCollisionGameNotificationEvent);
+                            this.roadCollisionGameNotificationEvent);
                 }
 
                 return false;
@@ -397,7 +397,7 @@ public class BuildingRTSFormInput extends RTSFormInput
             if(!rtsPlayerLayerInterface.implmentsArtificialIntelligenceCompositeInterface())
             {
                 GameNotificationEventHandler.getInstance().fireEvent(
-                        noMoneyGameNotificationEvent);
+                        this.noMoneyGameNotificationEvent);
             }
 
             return false;
@@ -421,7 +421,7 @@ public class BuildingRTSFormInput extends RTSFormInput
             if(!rtsPlayerLayerInterface.implmentsArtificialIntelligenceCompositeInterface())
             {
                 GameNotificationEventHandler.getInstance().fireEvent(
-                        buildingCollisionGameNotificationEvent);
+                        this.buildingCollisionGameNotificationEvent);
             }
 
             return false;
@@ -435,7 +435,7 @@ public class BuildingRTSFormInput extends RTSFormInput
             if(!rtsPlayerLayerInterface.implmentsArtificialIntelligenceCompositeInterface())
             {
                 GameNotificationEventHandler.getInstance().fireEvent(
-                        structureToCloseCollisionGameNotificationEvent);
+                        this.structureToCloseCollisionGameNotificationEvent);
             }
 
             return false;
@@ -449,7 +449,7 @@ public class BuildingRTSFormInput extends RTSFormInput
                 if(!rtsPlayerLayerInterface.implmentsArtificialIntelligenceCompositeInterface())
                 {
                     GameNotificationEventHandler.getInstance().fireEvent(
-                            mapEdgeGameNotificationEvent);
+                            this.mapEdgeGameNotificationEvent);
                 }
 
                 return false;
@@ -484,7 +484,7 @@ public class BuildingRTSFormInput extends RTSFormInput
         if(!rtsPlayerLayerInterface.implmentsArtificialIntelligenceCompositeInterface())
         {
             GameNotificationEventHandler.getInstance().fireEvent(
-                    buildingGameNotificationEvent);
+                    this.buildingGameNotificationEvent);
         }
     }
 

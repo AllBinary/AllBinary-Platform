@@ -170,6 +170,6 @@ public class MapSelectionGameInputProcessor extends Processor
     @Override
     public PlayerGameInput getPlayerGameInput()
     {
-        return playerGameInput;
+        return this.playerGameInput;
     }
 }

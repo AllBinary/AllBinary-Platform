@@ -52,7 +52,7 @@ public class PathFindingNodeCost extends PathFindingNode implements Comparable<P
     }
 
     public PathFindingNodeCostInfo getPathFindingNodeCostInfo() {
-        return pathFindingNodeCostInfoP;
+        return this.pathFindingNodeCostInfoP;
     }
 
     public void setPathFindingNodeCostInfo(PathFindingNodeCostInfo pathFindingNodeCostInfo) {

@@ -33,6 +33,6 @@ public class InputMappingEvent extends AllBinaryEventObject
 
     public InputToGameKeyMapping getInputToGameKeyMapping()
     {
-        return inputToGameKeyMapping;
+        return this.inputToGameKeyMapping;
     }
 }

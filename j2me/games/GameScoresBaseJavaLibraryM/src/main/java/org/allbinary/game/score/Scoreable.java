@@ -47,7 +47,7 @@ protected void setPoints(int points)
 @Override
 public int getPoints()
 {
-    return points;
+    return this.points;
 }
    
 }

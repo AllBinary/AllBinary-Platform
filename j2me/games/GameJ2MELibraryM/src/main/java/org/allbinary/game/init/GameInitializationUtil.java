@@ -66,7 +66,7 @@ public class GameInitializationUtil
                     throw new Exception("No Loading Feature Available");
                 }
             
-            GameInitializedEventHandler.getInstance().fireEvent(EVENT);
+            GameInitializedEventHandler.getInstance().fireEvent(this.EVENT);
         }
     }
 

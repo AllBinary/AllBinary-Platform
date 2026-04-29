@@ -16,7 +16,7 @@ public class GameAdStateFactory implements GameAdStateFactoryInterface
             new GameAdState(new AppNameLicensingAdConfiguration())
             };
 
-    private GameAdState gameAdState = gameAdStateArray[0];
+    private GameAdState gameAdState = this.gameAdStateArray[0];
 
     public GameAdState getCurrentInstance()
     {
@@ -29,9 +29,9 @@ public class GameAdStateFactory implements GameAdStateFactoryInterface
     {
         //if(softwareInformation == TestSoftwareInfo.getInstance())
         //{
-            this.gameAdState = gameAdStateArray[0];
+            this.gameAdState = this.gameAdStateArray[0];
             
-            return gameAdStateArray[0];
+            return this.gameAdStateArray[0];
         //}
         //else
         //{

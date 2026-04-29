@@ -34,7 +34,7 @@ public class LayerBounds implements BoundsChangeEventListener
    
    public Rectangle getRectangleP()
    {
-      return rectangle;
+      return this.rectangle;
    }
    
    public void visit(BoundsVisitorInterface boundsVisitorInterface)

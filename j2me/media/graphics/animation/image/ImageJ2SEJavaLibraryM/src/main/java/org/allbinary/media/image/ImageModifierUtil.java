@@ -148,7 +148,7 @@ public class ImageModifierUtil {
         for (int index = 0; index < width; index++) {
             for (int index2 = 0; index2 < height; index2++) {
                 raster.getPixel(index, index2, colorArray);
-                colorArray[0] = alpha & colorArray[0];
+                this.colorArray[0] = alpha & this.colorArray[0];
                 raster.setPixel(index, index2, colorArray);
                 //alphaArray[index * index2] = alpha & alphaArray[index * index2];
             }

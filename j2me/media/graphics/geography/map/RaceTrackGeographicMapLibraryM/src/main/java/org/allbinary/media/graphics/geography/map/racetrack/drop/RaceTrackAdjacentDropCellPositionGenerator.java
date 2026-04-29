@@ -182,7 +182,7 @@ public class RaceTrackAdjacentDropCellPositionGenerator
         if (!dropCellPositionHistory.isCellPositionWithDrop(geographicMapCellPosition))
         {
             final Direction direction =
-                geographicMapDirectionUtil.getDirectionFromCellPositionToAdjacentCellPosition(
+                this.geographicMapDirectionUtil.getDirectionFromCellPositionToAdjacentCellPosition(
                 randomGeographicMapCellPosition,
                 geographicMapCellPosition);
 

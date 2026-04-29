@@ -41,7 +41,7 @@ public class AnalogLocationInputFactory {
     }
 
 	public BasicArrayList getList() {
-		return list;
+		return this.list;
 	}
 
 }

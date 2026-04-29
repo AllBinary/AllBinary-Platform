@@ -33,7 +33,7 @@ public class SimpleWeaponProperties
     
     public int getDamage()
     {
-        return damage;
+        return this.damage;
     }
     
     public void setDissipation(short dissipation)
@@ -43,7 +43,7 @@ public class SimpleWeaponProperties
     
     public short getDissipation()
     {
-        return dissipation;
+        return this.dissipation;
     }
 
     /**
@@ -51,7 +51,7 @@ public class SimpleWeaponProperties
      */
     public int getRange()
     {
-        return range;
+        return this.range;
     }
 
     public void setRange(int range)

@@ -130,6 +130,6 @@ public class GameInput {
      */
     protected BasicArrayList getGameKeyEventList()
     {
-        return gameKeyEventList;
+        return this.gameKeyEventList;
     }
 }

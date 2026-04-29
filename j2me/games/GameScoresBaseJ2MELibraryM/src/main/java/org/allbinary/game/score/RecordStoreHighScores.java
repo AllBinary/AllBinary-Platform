@@ -91,7 +91,7 @@ public class RecordStoreHighScores extends HighScores
     }
 
     private String getRecordId(final AbeClientInformationInterface abeClientInformation) {
-        return platformRecordIdUtil.getRecordId(abeClientInformation, new StringMaker().append(CommonSeps.getInstance().UNDERSCORE).append(this.getName()).append(this.RECORD_ID).toString());
+        return this.platformRecordIdUtil.getRecordId(abeClientInformation, new StringMaker().append(CommonSeps.getInstance().UNDERSCORE).append(this.getName()).append(this.RECORD_ID).toString());
     }
     
     @Override
@@ -311,7 +311,7 @@ public class RecordStoreHighScores extends HighScores
     private boolean isTooManyHighScores()
     {
         if (this.getList() != null
-                && this.getList().size() < MAXHIGHSCORES)
+                && this.getList().size() < this.MAXHIGHSCORES)
         // if(this.highScoresHashTable != null &&
         // this.highScoresHashTable.size() < MAXHIGHSCORES)
         {

@@ -45,7 +45,7 @@ public class RaceTrackRandomDropCellPositionGenerator
     private final MyRandomFactory myRandomFactory = MyRandomFactory.getInstance();
 
     private final int cellsPerRowOrColumn = 3;
-    private final int totalCells = cellsPerRowOrColumn * cellsPerRowOrColumn;
+    private final int totalCells = this.cellsPerRowOrColumn * this.cellsPerRowOrColumn;
 
     private final int[] rowArray =
     { 0, 1, 2, 0, 1, 2, 0, 1, 2 };

@@ -49,6 +49,6 @@ public class BasicLayerProcessor
 
     public BasicArrayList getList()
     {
-        return list;
+        return this.list;
     }
 }

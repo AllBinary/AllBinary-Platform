@@ -47,7 +47,7 @@ public class BaseChangedGameFeatureListener implements GameFeatureListenerInterf
 
        this.list.add(gameFeatureEvent.getGameOption());
 
-       setChanged(true);
+       this.setChanged(true);
     }
 
     public void add(final Feature gameFeature)

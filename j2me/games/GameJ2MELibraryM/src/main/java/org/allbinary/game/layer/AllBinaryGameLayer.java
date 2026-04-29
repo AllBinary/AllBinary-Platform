@@ -75,7 +75,7 @@ public class AllBinaryGameLayer extends AllBinaryLayer
 
     public BasicArrayList getGameKeyEventList()
     {
-        return gameKeyEventList;
+        return this.gameKeyEventList;
     }
 
     public void processInput(final AllBinaryLayerManager allBinaryLayerManager) throws Exception

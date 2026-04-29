@@ -36,7 +36,7 @@ public class Intermission implements IntermissionInterface
     @Override
     public TimeDelayHelper getTimeDelayHelper()
     {
-        return timeElapsedHelper;
+        return this.timeElapsedHelper;
     }
 
     @Override
@@ -55,7 +55,7 @@ public class Intermission implements IntermissionInterface
     @Override
     public boolean isEnabled()
     {
-        return enabled;
+        return this.enabled;
     }
 
 }

@@ -93,6 +93,6 @@ public class TimeHudWidget extends BasicHud
 
     public Timer getTimer()
     {
-        return timer;
+        return this.timer;
     }
 }

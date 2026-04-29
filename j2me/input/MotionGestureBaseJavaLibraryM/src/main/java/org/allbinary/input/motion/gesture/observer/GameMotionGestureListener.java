@@ -50,49 +50,49 @@ public class GameMotionGestureListener implements MotionGestureEventListener
     @Override
     public void onUpMotionGestureEvent(MotionGestureEvent ev)
     {
-        onMotionGestureEvent(ev);
+        this.onMotionGestureEvent(ev);
     }
 
     @Override
     public void onDownMotionGestureEvent(MotionGestureEvent ev)
     {
-        onMotionGestureEvent(ev);
+        this.onMotionGestureEvent(ev);
     }
 
     @Override
     public void onLeftMotionGestureEvent(MotionGestureEvent ev)
     {
-        onMotionGestureEvent(ev);
+        this.onMotionGestureEvent(ev);
     }
 
     @Override
     public void onRightMotionGestureEvent(MotionGestureEvent ev)
     {
-        onMotionGestureEvent(ev);
+        this.onMotionGestureEvent(ev);
     }
 
     @Override
     public void onDiagonalDownRightMotionGestureEvent(MotionGestureEvent ev)
     {
-        onMotionGestureEvent(ev);
+        this.onMotionGestureEvent(ev);
     }
 
     @Override
     public void onDiagonalDownLeftMotionGestureEvent(MotionGestureEvent ev)
     {
-        onMotionGestureEvent(ev);
+        this.onMotionGestureEvent(ev);
     }
 
     @Override
     public void onDiagonalUpRightMotionGestureEvent(MotionGestureEvent ev)
     {
-        onMotionGestureEvent(ev);
+        this.onMotionGestureEvent(ev);
     }
 
     @Override
     public void onDiagonalUpLeftMotionGestureEvent(MotionGestureEvent ev)
     {
-        onMotionGestureEvent(ev);
+        this.onMotionGestureEvent(ev);
     }
 
     @Override

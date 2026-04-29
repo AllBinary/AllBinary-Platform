@@ -35,7 +35,7 @@ public class LayerManagerEvent extends AllBinaryEventObject
      */
     public AllBinaryLayer getLayerInterface()
     {
-        return layerInterface;
+        return this.layerInterface;
     }
 
     /**

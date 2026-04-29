@@ -57,13 +57,13 @@ public class AngleIncrementInfo
    
    public int getFrameAngle(int frame)
    {
-      return frameUtil.getFrameAngle(frame, (int) this.angleIncrement);
+      return this.frameUtil.getFrameAngle(frame, (int) this.angleIncrement);
    }
       
    //public Integer getAngleIncrement()
    public short getAngleIncrement()
    {
-      return angleIncrement;
+      return this.angleIncrement;
    }
 
    private static final String INCREMENT = "Inc: ";

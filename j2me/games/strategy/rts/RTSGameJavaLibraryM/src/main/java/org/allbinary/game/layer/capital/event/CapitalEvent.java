@@ -39,7 +39,7 @@ public class CapitalEvent extends AllBinaryEventObject
      */
     public int getValue()
     {
-        return value;
+        return this.value;
     }
 
     /**

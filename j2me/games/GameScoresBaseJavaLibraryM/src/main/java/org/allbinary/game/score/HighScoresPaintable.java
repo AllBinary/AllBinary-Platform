@@ -127,7 +127,7 @@ implements ColorChangeListener
 
     public BasicColor getBasicColorP()
     {
-        return basicColor;
+        return this.basicColor;
     }
 
     public void setHighScores(HighScores highScores)

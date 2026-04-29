@@ -78,7 +78,7 @@ public class BasicGameDemoPaintable
      */
     public Paintable getHelpPaintableInterface()
     {
-        return helpPaintableInterface;
+        return this.helpPaintableInterface;
     }
 
     protected void setCurrentStatePaintable(Paintable currentStatePaintable)
@@ -88,11 +88,11 @@ public class BasicGameDemoPaintable
 
     protected Paintable getCurrentStatePaintable()
     {
-        return currentStatePaintable;
+        return this.currentStatePaintable;
     }
 
     protected Paintable getMainDemoStatePaintable()
     {
-        return mainDemoStatePaintable;
+        return this.mainDemoStatePaintable;
     }
 }

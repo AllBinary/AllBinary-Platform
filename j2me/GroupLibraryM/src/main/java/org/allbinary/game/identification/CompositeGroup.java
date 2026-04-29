@@ -69,6 +69,6 @@ public class CompositeGroup
 
     public Group getGroup()
     {
-        return groupInterface;
+        return this.groupInterface;
     }
 }

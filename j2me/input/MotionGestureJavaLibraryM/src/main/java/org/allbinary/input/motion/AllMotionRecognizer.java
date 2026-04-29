@@ -149,6 +149,6 @@ public class AllMotionRecognizer extends MotionRecognizer
     
     public final MotionGestureRecognizer getMotionGestureRecognizer()
     {
-        return motionGestureRecognizer;
+        return this.motionGestureRecognizer;
     }
 }

@@ -49,7 +49,7 @@ public class RaceTrackInfo
 
    public Integer getId()
    {
-      return id;
+      return this.id;
    }
 
    private void setId(Integer id)
@@ -59,7 +59,7 @@ public class RaceTrackInfo
 
    public String getName()
    {
-      return name;
+      return this.name;
    }
 
    public void setName(String name)
@@ -69,7 +69,7 @@ public class RaceTrackInfo
 
    public int getQualifyTime()
    {
-      return qualifyTime;
+      return this.qualifyTime;
    }
 
    public void setQualifyTime(int qualifyTime)
@@ -79,7 +79,7 @@ public class RaceTrackInfo
 
    public int getWorstContinuePosition()
    {
-      return worstContinuePosition;
+      return this.worstContinuePosition;
    }
 
    public void setWorstContinuePosition(int worstContinuePosition)
@@ -89,7 +89,7 @@ public class RaceTrackInfo
 
    public int getTotalLaps()
    {
-      return totalLaps;
+      return this.totalLaps;
    }
 
    public void setTotalLaps(int totalLaps)
@@ -99,7 +99,7 @@ public class RaceTrackInfo
 
    public BasicColor getForegroundBasicColor()
    {
-      return foregroundBasicColor;
+      return this.foregroundBasicColor;
    }
 
    public void setForegroundBasicColor(BasicColor foregroundBasicColor)
@@ -109,7 +109,7 @@ public class RaceTrackInfo
 
    public BasicColor getBackgroundBasicColor()
    {
-      return backgroundBasicColor;
+      return this.backgroundBasicColor;
    }
 
    public void setBackgroundBasicColor(BasicColor backgroundBasicColor)
@@ -119,7 +119,7 @@ public class RaceTrackInfo
 
    public RaceTrackFrictionProperties getRaceTrackFrictionProperties()
    {
-      return raceTrackFrictionProperties;
+      return this.raceTrackFrictionProperties;
    }
 
    public void setRaceTrackFrictionProperties(RaceTrackFrictionProperties raceTrackFrictionProperties)

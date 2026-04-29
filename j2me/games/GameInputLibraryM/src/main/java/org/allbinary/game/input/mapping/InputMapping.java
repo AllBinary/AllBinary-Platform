@@ -136,6 +136,6 @@ public class InputMapping
 
     public Hashtable getHashtable()
     {
-        return hashtable;
+        return this.hashtable;
     }
 }

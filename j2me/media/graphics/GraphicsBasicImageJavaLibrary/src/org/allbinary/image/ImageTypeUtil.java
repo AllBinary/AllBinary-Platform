@@ -27,9 +27,9 @@ public class ImageTypeUtil
     
     private ImageTypeUtil()
     {
-        list.add(JPG);
-        list.add(GIF);
-        list.add(PNG);
+        this.list.add(JPG);
+        this.list.add(GIF);
+        this.list.add(PNG);
     }
     
     //MPEG4, H.264, MP3, AAC, AMR, JPG, PNG, GIF

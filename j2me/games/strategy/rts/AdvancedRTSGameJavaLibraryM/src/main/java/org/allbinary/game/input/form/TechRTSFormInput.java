@@ -119,7 +119,7 @@ public class TechRTSFormInput extends RTSFormInput
                 technologyRTSInterfaceImageItem.update();
                 
                 //Items must be updated for changes including but not limited to cost
-                TechEventHandler.getInstance().fireEvent(EVENT);
+                TechEventHandler.getInstance().fireEvent(this.EVENT);
             }
             else
             {
@@ -128,7 +128,7 @@ public class TechRTSFormInput extends RTSFormInput
                 if(!rtsPlayerLayerInterface.implmentsArtificialIntelligenceCompositeInterface())
                 {
                     GameNotificationEventHandler.getInstance().fireEvent(
-                            noMoneyGameNotificationEvent);
+                            this.noMoneyGameNotificationEvent);
                 }
             }
 

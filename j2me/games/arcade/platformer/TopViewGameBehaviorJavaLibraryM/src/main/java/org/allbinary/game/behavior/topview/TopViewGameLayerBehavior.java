@@ -73,7 +73,7 @@ public class TopViewGameLayerBehavior extends GameLayerBehavior {
                 velocityProperties.limitXYToForwardAndReverseMaxVelocity();
 
                 // this.getVelocityProperties().addVelocity(this.acceleration.getForward(), angle);
-                gravityActionIndex++;
+                this.gravityActionIndex++;
             } else {
                 //this.logUtil.putF("Jump peaked", this, commonStrings.UP);
             }

@@ -27,7 +27,7 @@ public class GameKeyCompleteMotionGestureInputEvent extends
 {
 
     private final GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
-    private final int SOURCE_ID = gameKeyEventFactory.MOTION_GESTURE_SOURCE_ID;
+    private final int SOURCE_ID = this.gameKeyEventFactory.MOTION_GESTURE_SOURCE_ID;
     
     private GameKey gameKey = GameKey.NULL_GAME_KEY;
     private GameKeyEvent gameKeyEvent = GameKeyEvent.NONE;
@@ -76,7 +76,7 @@ public class GameKeyCompleteMotionGestureInputEvent extends
 
     public GameKeyEvent getGameKeyEvent()
     {
-        return gameKeyEvent;
+        return this.gameKeyEvent;
     }
 
     protected void setGameKey(GameKey gameKey)
@@ -86,6 +86,6 @@ public class GameKeyCompleteMotionGestureInputEvent extends
 
     public GameKey getGameKey()
     {
-        return gameKey;
+        return this.gameKey;
     }
 }

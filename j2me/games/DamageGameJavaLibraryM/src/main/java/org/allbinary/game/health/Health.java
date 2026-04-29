@@ -104,7 +104,7 @@ public class Health implements HealthInterface
 	
         @Override
 	public int getMaxHealth() {
-		return maxHealth;
+		return this.maxHealth;
 	}
 
         @Override
@@ -136,7 +136,7 @@ public class Health implements HealthInterface
 
         @Override
 	public int getHealth() {
-		return health;
+		return this.health;
 	}
 
         @Override

@@ -41,7 +41,7 @@ public class GeographicMapCellPosition extends CellPosition
 
    public GPoint getPoint()
    {
-      return point;
+      return this.point;
    }
 
     /**
@@ -49,7 +49,7 @@ public class GeographicMapCellPosition extends CellPosition
      */
     public GPoint getMidPoint()
     {
-        return midPoint;
+        return this.midPoint;
     }
 
     /**

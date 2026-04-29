@@ -28,7 +28,7 @@ public class AllBinaryEventObject
 
    public Object getSource()
    {
-      return source;
+      return this.source;
    }
 
    protected void setSource(Object source)

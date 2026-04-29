@@ -45,8 +45,8 @@ public class GeographicMapCellPositionArea extends GeographicMapCellPositionArea
     private final AllBinaryLayer layerInterface;
     
     private BasicArrayList LIST = BasicArrayListUtil.getInstance().getImmutableInstance();
-    private BasicArrayList occupyingGeographicMapCellPositionList = LIST;
-    private BasicArrayList surroundingGeographicMapCellPositionList = LIST;
+    private BasicArrayList occupyingGeographicMapCellPositionList = this.LIST;
+    private BasicArrayList surroundingGeographicMapCellPositionList = this.LIST;
 
     public GeographicMapCellPositionArea(final AllBinaryLayer layerInterface)
         throws Exception
@@ -63,16 +63,16 @@ public class GeographicMapCellPositionArea extends GeographicMapCellPositionArea
         //this.logUtil.putF(new StringMaker().append(layerInterface.getName()).append(" c: ").append(((PathFindingLayerInterface) layerInterface).getCurrentGeographicMapCellPosition()).append(CommonSeps.getInstance().SPACE).append(((PathFindingLayerInterface) layerInterface).getTopLeftGeographicMapCellPosition()).append(" topLeftGeographicMapCellPosition: ").append(topLeftGeographicMapCellPosition).toString(), this, "visit");
         
         this.occupyingGeographicMapCellPositionList =
-            layerCoveringCellPositionsUtil.getAllXY(
-            geographicMapInterface, layerInterface,
-                layerInterface.getXP(), layerInterface.getYP(),
-                reusableOccupyingGeographicMapCellPositionList);
+            this.layerCoveringCellPositionsUtil.getAllXY(
+            geographicMapInterface, this.layerInterface,
+                this.layerInterface.getXP(), this.layerInterface.getYP(),
+                this.reusableOccupyingGeographicMapCellPositionList);
 
         this.surroundingGeographicMapCellPositionList =
-            cellPositionsUtil.getAllSurrounding(
+            this.cellPositionsUtil.getAllSurrounding(
             geographicMapInterface,
-            occupyingGeographicMapCellPositionList,
-            reusableSurroundingGeographicMapCellPositionList);
+            this.occupyingGeographicMapCellPositionList,
+            this.reusableSurroundingGeographicMapCellPositionList);
 
         this.surroundingCircularIndexUtil.setSize(
             this.surroundingGeographicMapCellPositionList.size());
@@ -84,7 +84,7 @@ public class GeographicMapCellPositionArea extends GeographicMapCellPositionArea
     @Override
     public BasicArrayList getOccupyingGeographicMapCellPositionList()
     {
-        return occupyingGeographicMapCellPositionList;
+        return this.occupyingGeographicMapCellPositionList;
     }
 
     /**
@@ -93,7 +93,7 @@ public class GeographicMapCellPositionArea extends GeographicMapCellPositionArea
     @Override
     public BasicArrayList getSurroundingGeographicMapCellPositionList()
     {
-        return surroundingGeographicMapCellPositionList;
+        return this.surroundingGeographicMapCellPositionList;
     }
 
     @Override

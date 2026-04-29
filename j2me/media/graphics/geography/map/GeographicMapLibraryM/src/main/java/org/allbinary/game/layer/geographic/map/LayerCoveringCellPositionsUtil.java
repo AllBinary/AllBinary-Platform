@@ -78,7 +78,7 @@ public class LayerCoveringCellPositionsUtil {
         if(rows == 0)
             rows = 1;
 
-        return cellPositionsUtil.getAll(
+        return this.cellPositionsUtil.getAll(
             geographicMapInterface,
             topLeftGeographicMapCellPosition,
             columns, rows, reusableList);

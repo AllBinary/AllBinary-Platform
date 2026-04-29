@@ -131,7 +131,7 @@ extends ImageBaseRotationAnimation
 
     private void updateImage() {
 
-        androidImageUtil.rotate(this.getImage(), originalImage, matrix, imageModifierUtil.paint);
+        this.androidImageUtil.rotate(this.getImage(), originalImage, matrix, imageModifierUtil.paint);
     }
     
     @Override

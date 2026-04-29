@@ -24,7 +24,7 @@ public class Capital
 
     public int getTotalMoney()
     {
-        return value;
+        return this.value;
     }
 
     public void removeMoney(int points)

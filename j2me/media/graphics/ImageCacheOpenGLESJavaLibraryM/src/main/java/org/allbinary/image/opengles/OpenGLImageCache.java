@@ -125,7 +125,7 @@ public class OpenGLImageCache extends ImageCache
 
     public GL10 getGlP()
     {
-        return gl;
+        return this.gl;
     }
     
     @Override

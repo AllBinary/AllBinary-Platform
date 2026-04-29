@@ -122,7 +122,7 @@ public class RawKeyEventHandler {
 
     public BasicArrayList getEventListenerInterfaceListP()
     {
-        return eventListenerInterfaceList;
+        return this.eventListenerInterfaceList;
     }
     
     private static final String TOTAL_LISTENERS = "Total Listeners: ";

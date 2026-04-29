@@ -61,7 +61,7 @@ public class WaypointBehaviorBase implements TickableInterface
      */
     public BasicArrayList getOwnedWaypointList()
     {
-        return ownedWaypointList;
+        return this.ownedWaypointList;
     }
     
     /**
@@ -69,7 +69,7 @@ public class WaypointBehaviorBase implements TickableInterface
      */
     public WaypointBase getWaypoint()
     {
-        return waypoint;
+        return this.waypoint;
     }
     
     /**
@@ -82,7 +82,7 @@ public class WaypointBehaviorBase implements TickableInterface
     
     public BasicArrayList getSteeringVisitorList()
     {
-        return steeringVisitorList;
+        return this.steeringVisitorList;
     }
 
     public String getMovementLogicAsString() {
@@ -124,7 +124,7 @@ public class WaypointBehaviorBase implements TickableInterface
     }
     
     public boolean isWaypointOverridesAttacking() {
-        return waypointOverridesAttacking;
+        return this.waypointOverridesAttacking;
     }
 
     

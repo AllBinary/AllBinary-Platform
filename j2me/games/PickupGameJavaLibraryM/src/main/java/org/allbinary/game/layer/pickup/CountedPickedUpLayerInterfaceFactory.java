@@ -60,6 +60,6 @@ public class CountedPickedUpLayerInterfaceFactory
     @Override
     public int getId()
     {
-        return id;
+        return this.id;
     }
 }

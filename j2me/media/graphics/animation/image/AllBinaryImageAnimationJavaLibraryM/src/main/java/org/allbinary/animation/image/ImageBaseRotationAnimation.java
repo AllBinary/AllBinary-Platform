@@ -68,7 +68,7 @@ public class ImageBaseRotationAnimation extends RotationAnimation //implements A
      */
     protected Image getImage()
     {
-        return image;
+        return this.image;
     }
 
     @Override

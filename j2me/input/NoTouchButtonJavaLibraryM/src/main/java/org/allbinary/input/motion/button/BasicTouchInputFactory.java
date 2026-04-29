@@ -101,6 +101,6 @@ public class BasicTouchInputFactory
     
     public BasicArrayList getList()
     {
-        return list;
+        return this.list;
     }
 }

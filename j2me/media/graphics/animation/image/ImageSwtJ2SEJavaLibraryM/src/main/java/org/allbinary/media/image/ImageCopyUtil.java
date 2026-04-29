@@ -453,7 +453,7 @@ public class ImageCopyUtil
                     
                     if (
                         //image.getName().startsWith(this.GREEN_BUTTON) || 
-                        image.getName().startsWith(LEADERBOARD)) {
+                        image.getName().startsWith(this.LEADERBOARD)) {
                     } else {
                         openGLESImageProperties.scaleX = 1.0f;
                         openGLESImageProperties.scaleY = 1.0f;

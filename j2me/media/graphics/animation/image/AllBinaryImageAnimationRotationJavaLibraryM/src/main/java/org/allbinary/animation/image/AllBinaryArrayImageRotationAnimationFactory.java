@@ -176,7 +176,7 @@ public class AllBinaryArrayImageRotationAnimationFactory
 
     protected int getAngleIncrement()
     {
-        return angleIncrement;
+        return this.angleIncrement;
     }
     
 }

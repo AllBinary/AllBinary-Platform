@@ -180,7 +180,7 @@ public class TouchButtonRecognizer
         
         TouchButtonInput touchButtonInput = this.lastPressedTouchButtonInput;
         // if already pressed then cancel associated button and release
-        if (currentlyPressedTouchButtonSingleton.contains(touchButtonInput))
+        if (this.currentlyPressedTouchButtonSingleton.contains(touchButtonInput))
         {
             this.lastPressedTouchButtonInput = BasicTouchInputFactory.getInstance().NONE;
 
@@ -277,14 +277,14 @@ public class TouchButtonRecognizer
                 // Process new button press
                 
                 //if not already pressed then cancel associated button and press
-                if (!currentlyPressedTouchButtonSingleton.contains(touchButtonInput))
+                if (!this.currentlyPressedTouchButtonSingleton.contains(touchButtonInput))
                 {
                     //Release associated button if not released
                     this.releaseHelper.release(touchButtonInput, deviceId);
 
                     this.lastPressedTouchButtonInput = touchButtonInput;
 
-                    currentlyPressedTouchButtonSingleton.add(touchButtonInput);
+                    this.currentlyPressedTouchButtonSingleton.add(touchButtonInput);
 
                   //TWB - Debugging
                     //currentlyPressedTouchButtonSingleton.pressedAndFired(touchButtonInput);

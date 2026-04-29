@@ -54,7 +54,7 @@ public class UnitTechnologySingletonFactory {
      */
     public int getDamage()
     {
-        return damage;
+        return this.damage;
     }
 
     /**
@@ -70,7 +70,7 @@ public class UnitTechnologySingletonFactory {
      */
     public int getHealth()
     {
-        return health;
+        return this.health;
     }
 
     /**
@@ -86,7 +86,7 @@ public class UnitTechnologySingletonFactory {
      */
     public int getReload()
     {
-        return reload;
+        return this.reload;
     }
 
     /**
@@ -102,7 +102,7 @@ public class UnitTechnologySingletonFactory {
      */
     public int getRepair()
     {
-        return repair;
+        return this.repair;
     }
 
     /**
@@ -118,7 +118,7 @@ public class UnitTechnologySingletonFactory {
      */
     public int getSpeed()
     {
-        return speed;
+        return this.speed;
     }
 
     /**

@@ -39,6 +39,6 @@ implements SoundsFactoryInterface
     @Override
     public boolean isInitialized()
     {
-        return initialized;
+        return this.initialized;
     }
 }

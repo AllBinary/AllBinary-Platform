@@ -86,7 +86,7 @@ public class GameGraphicsResourceUtil
         {
             graphicsFeature = graphicsFeatureFactory.IMAGE_ROTATION_ON_THE_FLY;
         }
-        return getStringForFeature(graphicsFeature);
+        return this.getStringForFeature(graphicsFeature);
     }
 
     public String getStringForFeature(final GraphicsFeature graphicsFeature)
@@ -138,6 +138,6 @@ public class GameGraphicsResourceUtil
 
     public String getName()
     {
-        return name;
+        return this.name;
     }
 }

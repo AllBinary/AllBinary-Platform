@@ -36,6 +36,6 @@ public class GeologicalGeographicMapCellPosition extends GeographicMapCellPositi
      */
     public GeologicalResource getGeologicalResource()
     {
-        return geologicalResource;
+        return this.geologicalResource;
     }
 }

@@ -31,6 +31,6 @@ public class GameLimitedCommandTextItemArrayFactory
 
     public CommandTextItemArrayFactory getCommandTextItemArrayFactory()
     {
-        return commandTextItemArrayFactory;
+        return this.commandTextItemArrayFactory;
     }
 }

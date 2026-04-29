@@ -40,7 +40,7 @@ public class TerrainEvent extends AllBinaryEventObject
 
     public BasicTerrainInfo getBasicTerrainInfo()
     {
-        return basicTerrainInfo;
+        return this.basicTerrainInfo;
     }
 
     public void setBasicTerrainInfo(BasicTerrainInfo basicTerrainInfo)

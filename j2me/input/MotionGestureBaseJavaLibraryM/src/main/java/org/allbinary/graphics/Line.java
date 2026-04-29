@@ -33,33 +33,33 @@ public class Line
 
     public double getGradient()
     {
-        return getDeltaY() / getDeltaX();
+        return this.getDeltaY() / this.getDeltaX();
     }
 
     private void update()
     {
-        this.deltaX = (double) getP1().getX() - getP2().getX();
-        this.deltaY = (double) getP1().getY() - getP2().getY();
+        this.deltaX = (double) this.getP1().getX() - this.getP2().getX();
+        this.deltaY = (double) this.getP1().getY() - this.getP2().getY();
     }
     
     public double getDeltaX()
     {
-        return deltaX;
+        return this.deltaX;
     }
 
     public double getDeltaY()
     {
-        return deltaY;
+        return this.deltaY;
     }
 
     public GPoint getP1()
     {
-        return p1;
+        return this.p1;
     }
 
     public GPoint getP2()
     {
-        return p2;
+        return this.p2;
     }
 
     public void setP1(GPoint p1)

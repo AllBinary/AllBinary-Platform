@@ -37,7 +37,7 @@ public class GameKeyEventFactory
     private final int MAX_SOURCES = 4;
 
     //private final String SOURCE_ID = "sourceId";    
-    private GameKeyEvent[][] ARRAY = new GameKeyEvent[MAX_SOURCES][InputFactory.getInstance().MAX];
+    private GameKeyEvent[][] ARRAY = new GameKeyEvent[this.MAX_SOURCES][InputFactory.getInstance().MAX];
     //private GameKeyEvent[] ARRAY = new GameKeyEvent[MAX];
 
     private GameKeyEventFactory()

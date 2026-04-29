@@ -200,13 +200,13 @@ public class BaseGameInitialization implements GameInitializationInterface
 
     protected boolean isGameInitialized()
     {
-        return gameInitialized;
+        return this.gameInitialized;
     }
 //
     
     protected int getPortion()
     {
-        return portion;
+        return this.portion;
     }
 
     public void setInitialized(boolean initialized)
@@ -216,6 +216,6 @@ public class BaseGameInitialization implements GameInitializationInterface
 
     public boolean isInitialized()
     {
-        return initialized;
+        return this.initialized;
     }
 }

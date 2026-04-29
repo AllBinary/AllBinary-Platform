@@ -28,7 +28,7 @@ public class BasicTerrainInfo {
    }
    
    public Angle getAngle() {
-      return angle;
+      return this.angle;
    }
 
    public void setAngle(Angle angle) {

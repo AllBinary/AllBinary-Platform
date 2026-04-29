@@ -46,7 +46,7 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
     public Rectangle getRectangle(String resource)
             throws Exception
     {
-        return getRectangleXY(resource, 0, 0);
+        return this.getRectangleXY(resource, 0, 0);
     }
 
     public Rectangle getRectangleXY(final String resource, final int x, final int y)
@@ -85,14 +85,14 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
             String resource) throws Exception
     {
 
-        return (ProceduralAnimationInterfaceFactoryInterface) getBasicAnimationInterfaceFactoryInstance(resource);
+        return (ProceduralAnimationInterfaceFactoryInterface) this.getBasicAnimationInterfaceFactoryInstance(resource);
 
     }
 
     public AnimationInterfaceFactoryInterface get(String resource)
             throws Exception
     {
-        return (AnimationInterfaceFactoryInterface) getBasicAnimationInterfaceFactoryInstance(resource);
+        return (AnimationInterfaceFactoryInterface) this.getBasicAnimationInterfaceFactoryInstance(resource);
     }
 
     private BasicAnimationInterfaceFactoryInterface getBasicAnimationInterfaceFactoryInstance(final String resource) throws Exception

@@ -64,7 +64,7 @@ public class AlwaysRepaintBehavior extends RepaintBehavior {
                         logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
                     }
                 }
-            }, NAME);
+            }, this.NAME);
             thread.start();
         }
         

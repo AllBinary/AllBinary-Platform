@@ -25,8 +25,8 @@ public class GameConfiguration
     private String name = StringUtil.getInstance().EMPTY_STRING;
     private Integer defaultValue = SmallIntegerSingletonFactory.getInstance().getAt(0);
     private Integer value;
-    private Integer minValue = defaultValue;
-    private Integer maxValue = defaultValue;
+    private Integer minValue = this.defaultValue;
+    private Integer maxValue = this.defaultValue;
 
     private Boolean modifiable = BooleanFactory.getInstance().TRUE;
 
@@ -56,7 +56,7 @@ public class GameConfiguration
 
     public Integer getValue()
     {
-        return value;
+        return this.value;
     }
 
     public void setMaxValue(final Integer maxValue)
@@ -66,7 +66,7 @@ public class GameConfiguration
 
     public Integer getMaxValue()
     {
-        return maxValue;
+        return this.maxValue;
     }
 
     public void setMinValue(final Integer minValue)
@@ -76,7 +76,7 @@ public class GameConfiguration
 
     public Integer getMinValue()
     {
-        return minValue;
+        return this.minValue;
     }
 
     public void setName(final String name)
@@ -86,7 +86,7 @@ public class GameConfiguration
 
     public String getName()
     {
-        return name;
+        return this.name;
     }
 
     public void setDefaultValue(final Integer defaultValue)
@@ -96,7 +96,7 @@ public class GameConfiguration
 
     protected Integer getDefaultValue()
     {
-        return defaultValue;
+        return this.defaultValue;
     }
 
     public void setDefault() throws Exception
@@ -131,7 +131,7 @@ public class GameConfiguration
 
     public Boolean isModifiable()
     {
-        return modifiable;
+        return this.modifiable;
     }
 
 }

@@ -164,7 +164,7 @@ public class GameFeatureUtil
             if (isSelected)
             {
                 String selectedChoiceLabel = choiceGroup.getString(index);
-                updateExclusive(selectedChoiceLabel);
+                this.updateExclusive(selectedChoiceLabel);
             }
         }
     }
@@ -203,7 +203,7 @@ public class GameFeatureUtil
         {
             object = (Object) objectArray[index];
             basicArrayList = (BasicArrayList) hashtable.get(object);
-            updateExclusiveList(gameFeature, basicArrayList);
+            this.updateExclusiveList(gameFeature, basicArrayList);
         }
 
         /*

@@ -48,12 +48,12 @@ public class LockablePaintable
 
     protected int getLockedIndex()
     {
-        return lockedIndex;
+        return this.lockedIndex;
     }
 
     protected Animation getAnimation()
     {
-        return animation;
+        return this.animation;
     }
 
 }

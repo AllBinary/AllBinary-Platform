@@ -81,12 +81,12 @@ implements GameKeyEventSourceInterface
 
     public int getLastKey()
     {
-        return lastKey;
+        return this.lastKey;
     }
 
     public AllBinaryLayer getOwnerLayerInterface()
     {
-        return ownerLayerInterface;
+        return this.ownerLayerInterface;
     }
 
     /*
@@ -103,7 +103,7 @@ implements GameKeyEventSourceInterface
     
     public GameInput getGameInput()
     {
-        return gameInput;
+        return this.gameInput;
     }
  
     public String getName()

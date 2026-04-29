@@ -155,7 +155,7 @@ public class VectorBaseRotationAnimation
     @Override
     public int[][] getPoints(final int frame)
     {
-        return currentPoints[frame];
+        return this.currentPoints[frame];
     }
 
     public void setPoints(final int[][][] currentPoints)

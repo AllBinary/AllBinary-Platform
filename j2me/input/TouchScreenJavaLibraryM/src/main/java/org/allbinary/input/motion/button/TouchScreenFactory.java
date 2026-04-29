@@ -84,7 +84,7 @@ public class TouchScreenFactory
 
     public boolean isMultiTouch()
     {
-        return multiTouch;
+        return this.multiTouch;
     }
 
     public void setTouch(boolean touch)
@@ -94,7 +94,7 @@ public class TouchScreenFactory
 
     public boolean isTouch()
     {
-        return touch;
+        return this.touch;
     }
 
     public void setMultiTouchDistinct(boolean multiTouchDistinct)
@@ -104,7 +104,7 @@ public class TouchScreenFactory
 
     public boolean isMultiTouchDistinct()
     {
-        return multiTouchDistinct;
+        return this.multiTouchDistinct;
     }
 
     public void setTouchScreenType(TouchScreenType touchScreenType)
@@ -114,7 +114,7 @@ public class TouchScreenFactory
 
     public TouchScreenType getTouchScreenType()
     {
-        return touchScreenType;
+        return this.touchScreenType;
     }
     
     public String toString()

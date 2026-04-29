@@ -71,7 +71,7 @@ public class HighScoresCanvas extends GameCommandCanvas
 
     private final HighScoresCanvasInputProcessor highScoresCanvasInputProcessor;
 
-    private Command currentCommand = highScoreCommandsFactory.HIGH_SCORE_COMMANDS[0];
+    private Command currentCommand = this.highScoreCommandsFactory.HIGH_SCORE_COMMANDS[0];
 
     public HighScoresCanvas(
             final CommandListener commandListener,
@@ -207,7 +207,7 @@ public class HighScoresCanvas extends GameCommandCanvas
 
     private HighScoresPaintable getHighScoresPaintable()
     {
-        return highScoresPaintable;
+        return this.highScoresPaintable;
     }
 
     @Override
@@ -237,7 +237,7 @@ public class HighScoresCanvas extends GameCommandCanvas
         final GameCommandsFactory gameCommandsFactory = 
             GameCommandsFactory.getInstance();
                 
-        if (highScoreCommandsFactory.isHighScoreCommand(command))
+        if (this.highScoreCommandsFactory.isHighScoreCommand(command))
         {
             final int index = highScoreCommandsFactory.getIndex(command);
             
@@ -277,7 +277,7 @@ public class HighScoresCanvas extends GameCommandCanvas
 
     public GameInfo getGameInfo()
     {
-        return gameInfo;
+        return this.gameInfo;
     }
 
     private void setPaintable(Paintable paintable)

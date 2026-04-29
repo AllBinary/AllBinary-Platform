@@ -33,11 +33,11 @@ public class ImageCacheBase
     protected final Hashtable hashtable = new Hashtable();
 
     protected final int SIZE = 128;
-    protected final int[] widths = new int[SIZE];
-    protected final int[] heights = new int[SIZE];
+    protected final int[] widths = new int[this.SIZE];
+    protected final int[] heights = new int[this.SIZE];
     
-    protected final BasicArrayList[] listOfList = new BasicArrayList[SIZE];
-    protected final BasicArrayList[] availableListOfList = new BasicArrayList[SIZE];
+    protected final BasicArrayList[] listOfList = new BasicArrayList[this.SIZE];
+    protected final BasicArrayList[] availableListOfList = new BasicArrayList[this.SIZE];
 
     protected int volume = 0;
     protected int nextIndex = 0;
@@ -170,7 +170,7 @@ public class ImageCacheBase
 
     public Hashtable getHashtableP()
     {
-        return hashtable;
+        return this.hashtable;
     }
 
     //OpenGL

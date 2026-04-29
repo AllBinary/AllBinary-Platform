@@ -46,7 +46,7 @@ public class RaceTrackPickupLayer extends PickupLayer
 
       viewPosition.setTiledLayer(tiledLayer);
       
-      viewPositionEventHandler.addListener((AllBinaryLayer) this);
+      this.viewPositionEventHandler.addListener((AllBinaryLayer) this);
    }
    
    @Override
@@ -56,7 +56,7 @@ public class RaceTrackPickupLayer extends PickupLayer
        
        if(this.isDestroyed())
        {
-           viewPositionEventHandler.removeListener(this);
+           this.viewPositionEventHandler.removeListener(this);
        }
    }
    

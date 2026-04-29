@@ -52,6 +52,6 @@ public class NoGameNotificationHudSingleton
 
     public GameNotificationHud getGameNotificationHud()
     {
-        return gameNotificationHud;
+        return this.gameNotificationHud;
     }
 }

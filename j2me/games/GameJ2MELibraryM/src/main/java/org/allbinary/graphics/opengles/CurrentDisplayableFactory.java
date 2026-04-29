@@ -108,7 +108,7 @@ public class CurrentDisplayableFactory
 
     public Displayable getOpenGlReadydisplayable()
     {
-        return openGlReadydisplayable;
+        return this.openGlReadydisplayable;
     }
 
     public void setRunnable(final GameRunnable runnable)
@@ -147,8 +147,8 @@ public class CurrentDisplayableFactory
             {
                 PreLogUtil.put(stringMaker.append(commonSeps.SPACE).append(GraphicsStrings.getInstance().HTML).append(commonSeps.SPACE).append(this.RUNNABLE).append(this.stringUtil.toString(this.runnable)).toString(), this, commonStrings.UPDATE);
                 this.setUsedRunnable(this.runnable);
-            } else if (openGlReadydisplayable instanceof DemoCanvas || 
-                    openGlReadydisplayable instanceof AllBinaryGameCanvas ||
+            } else if (this.openGlReadydisplayable instanceof DemoCanvas || 
+                    this.openGlReadydisplayable instanceof AllBinaryGameCanvas ||
                 features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL))
             {
                 PreLogUtil.put(stringMaker.append(commonSeps.SPACE).append(OpenGLFeatureFactory.getInstance().OPENGL.toString()).append(commonSeps.SPACE).append(this.RUNNABLE).append(this.stringUtil.toString(this.runnable)).toString(), this, commonStrings.UPDATE);
@@ -183,12 +183,12 @@ public class CurrentDisplayableFactory
 
     public Displayable getDisplayable()
     {
-        return displayable;
+        return this.displayable;
     }
 
     public GameRunnable getUsedRunnable()
     {
-        return usedRunnable;
+        return this.usedRunnable;
     }
 
     /**

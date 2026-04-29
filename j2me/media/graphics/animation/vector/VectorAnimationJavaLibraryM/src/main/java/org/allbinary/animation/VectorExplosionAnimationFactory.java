@@ -50,6 +50,6 @@ public class VectorExplosionAnimationFactory
 	}
 
 	private BasicColor getBasicColorP() {
-		return basicColor;
+		return this.basicColor;
 	}
 }

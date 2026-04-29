@@ -221,7 +221,7 @@ public class AdvancedRTSGameLayer extends RTSLayer
     @Override
     public PathFindingLayerInterface getParentLayer()
     {
-        return parentLayer;
+        return this.parentLayer;
     }
 
     public void setParentLayer(PathFindingLayerInterface parentLayer)

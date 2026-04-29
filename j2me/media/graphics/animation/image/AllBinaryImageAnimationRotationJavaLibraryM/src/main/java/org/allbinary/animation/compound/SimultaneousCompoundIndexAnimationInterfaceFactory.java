@@ -51,7 +51,7 @@ public class SimultaneousCompoundIndexAnimationInterfaceFactory
     }
 
     public AnimationInterfaceFactoryInterface[] getBasicAnimationInterfaceFactoryInterfaceArray() {
-        return basicAnimationInterfaceFactoryInterfaceArray;
+        return this.basicAnimationInterfaceFactoryInterfaceArray;
     }
 
     @Override

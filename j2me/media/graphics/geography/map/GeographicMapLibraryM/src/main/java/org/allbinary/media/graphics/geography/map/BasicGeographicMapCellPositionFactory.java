@@ -135,7 +135,7 @@ public class BasicGeographicMapCellPositionFactory
         }
         */
 
-        return geographicMapCellPositionArray[i_row][i_column];
+        return this.geographicMapCellPositionArray[i_row][i_column];
     }
 
     public GeographicMapCellPosition getInstance(
@@ -155,7 +155,7 @@ public class BasicGeographicMapCellPositionFactory
         if (cellPositionCanBeNull == null)
         {
             cellPositionCanBeNull = this.geographicMapCellPositionFactoryInterface.getInstance(
-                this.geographicMapInterface, i_column, i_row, columns, rows, width, height);
+                this.geographicMapInterface, i_column, i_row, this.columns, this.rows, width, height);
             this.geographicMapCellPositionArray[i_row][i_column] = (GeographicMapCellPosition) cellPositionCanBeNull;
         }
 
@@ -164,11 +164,11 @@ public class BasicGeographicMapCellPositionFactory
 
     public int getColumns()
     {
-        return columns;
+        return this.columns;
     }
 
     public int getRows()
     {
-        return rows;
+        return this.rows;
     }
 }

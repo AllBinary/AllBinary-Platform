@@ -57,7 +57,7 @@ public class BasicProjectileWeaponPart extends BasicWeaponPart
            throws Exception 
    {
       final WeaponLayer weaponLayer =
-              weaponLayerCircularStaticPool.getInstance(
+              this.weaponLayerCircularStaticPool.getInstance(
               this.getOwnerLayerInterface(), 
               this.relativeRelationship.getX(), 
               this.relativeRelationship.getY(),

@@ -20,7 +20,7 @@ public class GameRunnable implements Runnable
 
     public final int WAIT = 240;
     public final int FAST = 60;
-    public long wait = (long) WAIT;
+    public long wait = (long) this.WAIT;
     
     public GameRunnable() {
         

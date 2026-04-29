@@ -24,6 +24,6 @@ public class SteeringVisitor extends Visitor
     
     public BasicArrayList getList()
     {
-        return list;
+        return this.list;
     }
 }

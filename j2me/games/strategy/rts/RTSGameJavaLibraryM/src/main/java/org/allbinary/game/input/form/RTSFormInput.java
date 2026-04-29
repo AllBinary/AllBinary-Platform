@@ -218,7 +218,7 @@ public class RTSFormInput
      */
     public GeographicMapCellPosition getSelectedGeographicCellPosition()
     {
-        return selectedGeographicCellPosition;
+        return this.selectedGeographicCellPosition;
     }
 
     /**
@@ -240,7 +240,7 @@ public class RTSFormInput
      */
     public boolean isStickyItemSelected()
     {
-        return stickyItemSelected;
+        return this.stickyItemSelected;
     }
 
     /**
@@ -256,7 +256,7 @@ public class RTSFormInput
      */
     public CustomItem getSelectedStickyItem()
     {
-        return selectedStickyItem;
+        return this.selectedStickyItem;
     }
 
     /**
@@ -272,7 +272,7 @@ public class RTSFormInput
      */
     public int getSelectedStickyItemIndex()
     {
-        return selectedStickyItemIndex;
+        return this.selectedStickyItemIndex;
     }
 
     /**
@@ -285,6 +285,6 @@ public class RTSFormInput
 
     public Hashtable getHashtable()
     {
-        return hashtable;
+        return this.hashtable;
     }
 }

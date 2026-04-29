@@ -110,9 +110,9 @@ public class NumberStringHud extends BasicHud
    public void paint(Graphics graphics)
    {
        super.paintDX(graphics,
-               PREPEND_STRING, 0, PREPEND_STRING.length, 
+               this.PREPEND_STRING, 0, this.PREPEND_STRING.length, 
                this.valueString, 0, this.valueTotalDigits, 
-               offset);
+               this.offset);
       //super.paint(graphics, PREPEND_STRING, valueString, offset);
    }
    

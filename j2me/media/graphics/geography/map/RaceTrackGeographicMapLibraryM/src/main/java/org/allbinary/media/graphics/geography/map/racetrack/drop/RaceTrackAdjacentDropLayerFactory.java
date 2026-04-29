@@ -42,7 +42,7 @@ public class RaceTrackAdjacentDropLayerFactory
    
    public int getSize()
    {
-      return list.size();
+      return this.list.size();
    }
    
    /*

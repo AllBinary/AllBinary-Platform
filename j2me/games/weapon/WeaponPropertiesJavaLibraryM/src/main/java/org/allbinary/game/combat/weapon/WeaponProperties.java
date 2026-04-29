@@ -41,7 +41,7 @@ public class WeaponProperties extends SimpleWeaponProperties
     public WeaponProperties(
             long reloadTime, long targetingTime, long speed, int damage, short dissipation)
     {
-    	if(speed < MAX && speed != 0L && !messageSent)
+    	if(speed < this.MAX && speed != 0L && !messageSent)
     	{
     	    final String MESSAGE = "Danger Danger Danger: Speed probably to slow if using 1 degree calculations as velocity for a single axis could be below 1024: ";
 
@@ -58,7 +58,7 @@ public class WeaponProperties extends SimpleWeaponProperties
         this.setDissipation(dissipation);
         this.setSpeed(new BasicDecimal(speed));
 
-        if(dissipation != ZERO)
+        if(dissipation != this.ZERO)
         {
             final long unscaledDamage = this.speed.getUnscaled() * damage;
             final int scaledDissipation = dissipation * this.speed.getScaledFactorValue();
@@ -89,7 +89,7 @@ public class WeaponProperties extends SimpleWeaponProperties
     
     public long getReloadTime()
     {
-        return reloadTime;
+        return this.reloadTime;
     }
     
     private void setTargetingTime(long targetingTime)
@@ -99,7 +99,7 @@ public class WeaponProperties extends SimpleWeaponProperties
     
     public long getTargetingTime()
     {
-        return targetingTime;
+        return this.targetingTime;
     }
     
     /**
@@ -117,7 +117,7 @@ public class WeaponProperties extends SimpleWeaponProperties
      */
     public BasicDecimal getSpeed()
     {
-        return speed;
+        return this.speed;
     }
 
     /**

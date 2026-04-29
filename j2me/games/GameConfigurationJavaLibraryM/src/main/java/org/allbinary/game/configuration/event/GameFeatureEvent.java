@@ -28,7 +28,7 @@ public class GameFeatureEvent extends AllBinaryEventObject
 
     public String getWhatChanged()
     {
-        return whatChanged;
+        return this.whatChanged;
     }
 
     public Object getGameOption()

@@ -72,6 +72,6 @@ public class WaypointInfoHudPaintable extends SelectionHudPaintable
 
     public PathFindingLayerInterface getRtsLayer()
     {
-        return rtsLayerP;
+        return this.rtsLayerP;
     }
 }

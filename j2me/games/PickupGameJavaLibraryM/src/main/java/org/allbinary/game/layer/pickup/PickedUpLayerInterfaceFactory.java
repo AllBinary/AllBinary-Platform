@@ -35,16 +35,16 @@ public class PickedUpLayerInterfaceFactory extends PickedUpLayerInterfaceFactory
 
     @Override
     public AllBinaryLayer getIconLayer() {
-        return iconLayer;
+        return this.iconLayer;
     }
 
     @Override
     public Animation getAnimationInterface() {
-        return animationInterface;
+        return this.animationInterface;
     }
 
     @Override
     public PickedUpLayerType getPickedUpLayerType() {
-        return pickedUpLayerType;
+        return this.pickedUpLayerType;
     }
 }

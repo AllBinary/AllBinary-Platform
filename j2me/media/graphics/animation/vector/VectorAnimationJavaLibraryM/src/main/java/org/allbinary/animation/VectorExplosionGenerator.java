@@ -58,7 +58,7 @@ public class VectorExplosionGenerator
     public int[][][] getInstance(final int[][] points, final int howMuch, final VectorExplosionType type) throws Exception
     {
 
-        final BasicArrayList pointsBasicArrayList = getInstanceStartFrame(points, howMuch, type, true);
+        final BasicArrayList pointsBasicArrayList = this.getInstanceStartFrame(points, howMuch, type, true);
 
         final BasicArrayList tempBasicArrayList = (BasicArrayList) pointsBasicArrayList.objectArray[0];
 
@@ -85,7 +85,7 @@ public class VectorExplosionGenerator
             {
                 tempBasicArrayList = (BasicArrayList) pointsBasicArrayList.objectArray[frameIndex];
 
-                pointBasicArrayList = createListFromPoints(tempBasicArrayList, points, howMuch, type);
+                pointBasicArrayList = this.createListFromPoints(tempBasicArrayList, points, howMuch, type);
                 // this.logUtil.putF("Adding Point BasicArrayList commonStrings.TOTAL_LABEL + pointBasicArrayList.size() + " should be == " + firstPointBasicArrayList.size(), this, commonStrings.GET_INSTANCE);
                 // this.logUtil.putF("Point BasicArrayList: " + pointBasicArrayList.toString(), this, commonStrings.GET_INSTANCE);
                 pointsBasicArrayList.add(pointBasicArrayList);

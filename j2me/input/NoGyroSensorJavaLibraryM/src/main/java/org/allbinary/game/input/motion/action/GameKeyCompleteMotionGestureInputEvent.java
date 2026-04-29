@@ -49,7 +49,7 @@ public class GameKeyCompleteMotionGestureInputEvent extends
 
     public GameKeyEvent getGameKeyEvent()
     {
-        return gameKeyEvent;
+        return this.gameKeyEvent;
     }
 
     protected void setGameKey(GameKey gameKey)
@@ -59,6 +59,6 @@ public class GameKeyCompleteMotionGestureInputEvent extends
 
     public GameKey getGameKey()
     {
-        return gameKey;
+        return this.gameKey;
     }
 }

@@ -24,6 +24,6 @@ public class AudioContentTypeData
 
     public String getName()
     {
-        return name;
+        return this.name;
     }
 }

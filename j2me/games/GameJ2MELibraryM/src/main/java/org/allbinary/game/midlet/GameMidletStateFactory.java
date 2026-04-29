@@ -24,7 +24,7 @@ public class GameMidletStateFactory {
 	}
 
 	public GameState getCurrentGameState() {
-		return currentGameState;
+		return this.currentGameState;
 	}
 
 	public void setCurrentGameState(GameState currentGameState) {

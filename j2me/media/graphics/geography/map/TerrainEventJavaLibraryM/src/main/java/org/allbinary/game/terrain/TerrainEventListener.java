@@ -30,6 +30,6 @@ implements TerrainEventListenerInterface
 
     public BasicArrayList getList()
     {
-        return list;
+        return this.list;
     }
 }

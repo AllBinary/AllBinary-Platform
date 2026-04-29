@@ -55,6 +55,6 @@ public class BasicWeaponPartCircularPool
 
       //this.circularIndexUtil.next();
 
-      return basicWeaponPart;
+      return this.basicWeaponPart;
    }
 }

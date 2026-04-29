@@ -41,7 +41,7 @@ public class InGameFeatureChoiceGroups
 
     public Hashtable get()
     {
-        return hashtable;
+        return this.hashtable;
     }
 
     public void add(String name, BasicArrayList list)

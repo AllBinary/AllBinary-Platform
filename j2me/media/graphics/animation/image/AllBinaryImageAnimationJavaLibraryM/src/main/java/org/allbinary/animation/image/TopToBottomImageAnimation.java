@@ -94,6 +94,6 @@ public class TopToBottomImageAnimation
         //  int x_dst, int y_dst, int anchor
       graphics.drawRegion(this.getImage(), this.getStartX(), this.getStartY(),
           this.getDrawWidth(), this.currentHeight,
-          Sprite.TRANS_NONE, x, y, anchor);
+          Sprite.TRANS_NONE, x, y, this.anchor);
     }
 }

@@ -35,7 +35,7 @@ public class Input
     
     public int getId()
     {
-        return id;
+        return this.id;
     }
 
     private void setId(int key)
@@ -45,7 +45,7 @@ public class Input
 
     public String getName()
     {
-        return name;
+        return this.name;
     }
 
     private void setName(String keyName)

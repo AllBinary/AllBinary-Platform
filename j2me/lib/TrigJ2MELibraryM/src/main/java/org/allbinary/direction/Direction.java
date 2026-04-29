@@ -53,12 +53,12 @@ public class Direction
 
     public String getOtherName()
     {
-        return otherName;
+        return this.otherName;
     }
 
     public String getName()
     {
-        return name;
+        return this.name;
     }
 
     public String toString()

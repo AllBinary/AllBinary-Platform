@@ -125,7 +125,7 @@ public class GameMidlet extends ProgressMidlet
     private final String COMMAND_NAME = "command Name/Label: ";
     private final String NO_COMMAND = "No Command";
     private final String NO_DISPLAYABLE = "No Displayable";
-    private final String COMMAND_ACTION = new StringMaker().append("GameMidlet::").append(midletStrings.COMMAND_ACTION).toString();
+    private final String COMMAND_ACTION = new StringMaker().append("GameMidlet::").append(this.midletStrings.COMMAND_ACTION).toString();
     private final String PAUSE_APP_BACKGROUND = "pauseAppBackground";
     private final String UN_PAUSE_APP_BACKGROUND = "unPauseAppBackground";
 
@@ -369,7 +369,7 @@ public class GameMidlet extends ProgressMidlet
         catch (Exception e)
         {
             this.logUtil.put(commonStrings.EXCEPTION, this, "startApp", e);
-            destroyApp(false);
+            this.destroyApp(false);
             //TWB - Only remove from context when multiple midlets share the same emulator
             notifyDestroyed();
         }
@@ -676,7 +676,7 @@ public class GameMidlet extends ProgressMidlet
 
                 //Restart canvas if screen change
                 if(this.isResized() ||
-                   fullScreenUtil.isScreenChange(isFullScreen))
+                   this.fullScreenUtil.isScreenChange(isFullScreen))
                 {
                     //PreLogUtil.put("Resized/Changed", this, midletStrings.COMMAND_ACTION);
 
@@ -728,12 +728,12 @@ public class GameMidlet extends ProgressMidlet
                     menuListener.close();
 
                     PreLogUtil.put(
-                            BasicMotionGesturesHandler.getInstance().toString(), this, COMMAND_ACTION);
+                            BasicMotionGesturesHandler.getInstance().toString(), this, this.COMMAND_ACTION);
                     
                     this.commandAction(gameCommandsFactory.START_COMMAND, NullCanvas.NULL_CANVAS);
 
                     PreLogUtil.put(
-                            BasicMotionGesturesHandler.getInstance().toString(), this, COMMAND_ACTION);
+                            BasicMotionGesturesHandler.getInstance().toString(), this, this.COMMAND_ACTION);
                 }
             }
             else if (command == gameCommandsFactory.DELETE_FILE)
@@ -973,7 +973,7 @@ public class GameMidlet extends ProgressMidlet
 
     public GameCanvasRunnableInterface getGameCanvasRunnableInterface()
     {
-        return allbinaryGameCanvasRunnableInterface;
+        return this.allbinaryGameCanvasRunnableInterface;
     }
 
     public void setGameCanvasRunnableInterface(
@@ -1061,7 +1061,7 @@ public class GameMidlet extends ProgressMidlet
 
     public boolean isResized()
     {
-        return resized;
+        return this.resized;
     }
 
     private boolean startedBefore = false;
