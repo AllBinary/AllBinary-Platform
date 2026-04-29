@@ -40,16 +40,16 @@ public class BasicArrayList
             throw new IndexOutOfBoundsException(stringBuffer.toString());
         }
 
-        ensureCapacity(this.currentIndex + 1);
-        System.arraycopy(objectArray, index, objectArray, index + 1, currentIndex - index);
-        objectArray[index] = element;
-        currentIndex++;
+        this.ensureCapacity(this.currentIndex + 1);
+        System.arraycopy(this.objectArray, index, this.objectArray, index + 1, this.currentIndex - index);
+        this.objectArray[index] = element;
+        this.currentIndex++;
     }
 
     public boolean add(final Object object)
     {
-        ensureCapacity(this.currentIndex + 1);
-        this.objectArray[currentIndex++] = object;
+        this.ensureCapacity(this.currentIndex + 1);
+        this.objectArray[this.currentIndex++] = object;
         return true;
     }
 
@@ -68,11 +68,11 @@ public class BasicArrayList
 
         Object oldValue = this.objectArray[index];
 
-        final int numMoved = currentIndex - index - 1;
+        final int numMoved = this.currentIndex - index - 1;
         if (numMoved > 0)
-            System.arraycopy(objectArray, index + 1, objectArray, index, numMoved);
+            System.arraycopy(this.objectArray, index + 1, this.objectArray, index, numMoved);
 
-        objectArray[--this.currentIndex] = null;
+        this.objectArray[--this.currentIndex] = null;
 
         return oldValue;
     }
@@ -82,13 +82,13 @@ public class BasicArrayList
         if (object == null) {
             for (int index = 0; index < this.currentIndex; index++) {
                 if (this.objectArray[index] == null) {
-                    final int numMoved = currentIndex - index - 1;
+                    final int numMoved = this.currentIndex - index - 1;
 
                     if (numMoved > 0) {
-                        System.arraycopy(objectArray, index + 1, objectArray, index, numMoved);
+                        System.arraycopy(this.objectArray, index + 1, this.objectArray, index, numMoved);
                     }
 
-                    objectArray[--this.currentIndex] = null;
+                    this.objectArray[--this.currentIndex] = null;
                     return true;
                 }
             }
@@ -97,14 +97,14 @@ public class BasicArrayList
         {
             for (int index = 0; index < this.currentIndex; index++) {
                 //Handle cases like File where the equals does not check for the same object
-                if (object == objectArray[index] || object.equals(objectArray[index])) {
-                    final int numMoved = currentIndex - index - 1;
+                if (object == this.objectArray[index] || object.equals(this.objectArray[index])) {
+                    final int numMoved = this.currentIndex - index - 1;
 
                     if (numMoved > 0) {
-                        System.arraycopy(objectArray, index + 1, objectArray, index, numMoved);
+                        System.arraycopy(this.objectArray, index + 1, this.objectArray, index, numMoved);
                     }
 
-                    objectArray[--this.currentIndex] = null;
+                    this.objectArray[--this.currentIndex] = null;
                     return true;
                 }
             }
@@ -129,12 +129,12 @@ public class BasicArrayList
     
     public boolean addAll2(final BasicArrayList list)
     {
-        ensureCapacity(this.currentIndex + list.currentIndex);
+        this.ensureCapacity(this.currentIndex + list.currentIndex);
 
         int listSize = list.currentIndex;
 
         for (int index = 0; index < listSize; index++) {
-            this.objectArray[currentIndex++] = list.objectArray[index];
+            this.objectArray[this.currentIndex++] = list.objectArray[index];
         }
 
         return true;
@@ -148,10 +148,10 @@ public class BasicArrayList
 
     public boolean addAll(final Object[] newObjectArray)
     {
-        int numSize = newObjectArray.length;
-        ensureCapacity(this.currentIndex + numSize);
-        System.arraycopy(newObjectArray, 0, objectArray, currentIndex, numSize);
-        currentIndex += numSize;
+        final int numSize = newObjectArray.length;
+        this.ensureCapacity(this.currentIndex + numSize);
+        System.arraycopy(newObjectArray, 0, this.objectArray, this.currentIndex, numSize);
+        this.currentIndex += numSize;
         return numSize != 0;
     }
     
@@ -162,8 +162,9 @@ public class BasicArrayList
         if (minSize > oldCapacity) {
             int newCapacity = ((oldCapacity * 3) >> 1) + 1;
 
-            if (newCapacity < minSize)
+            if (newCapacity < minSize) {
                 newCapacity = minSize;
+            }
 
             this.objectArray = this.arrayUtil.copyOf(this.objectArray, newCapacity);
         }
@@ -173,23 +174,26 @@ public class BasicArrayList
     {
         final int oldCapacity = this.objectArray.length;
 
-        if (this.currentIndex < oldCapacity)
-            this.objectArray = this.arrayUtil.copyOf(this.objectArray, currentIndex);
+        if (this.currentIndex < oldCapacity) {
+            this.objectArray = this.arrayUtil.copyOf(this.objectArray, this.currentIndex);
+        }
     }
 
     public int indexOf(final Object object)
     {
         if (object == null) {
             for (int i = 0; i < this.currentIndex; i++) {
-                if (this.objectArray[i] == null)
+                if (this.objectArray[i] == null) {
                     return i;
+                }
             }
         }
         else
         {
             for (int i = 0; i < this.currentIndex; i++) {
-                if (object.equals(this.objectArray[i]))
+                if (object.equals(this.objectArray[i])) {
                     return i;
+                }
             }
         }
         return -1;
@@ -226,7 +230,7 @@ public class BasicArrayList
             throw new IndexOutOfBoundsException(stringBuffer.toString());
         }
 
-        return objectArray[index];
+        return this.objectArray[index];
     }
 
     public Object set(final int index, final Object element)
@@ -242,7 +246,7 @@ public class BasicArrayList
             throw new IndexOutOfBoundsException(stringBuffer.toString());
         }
 
-        final Object oldValue = objectArray[index];
+        final Object oldValue = this.objectArray[index];
         this.objectArray[index] = element;
         return oldValue;
     }
@@ -257,33 +261,35 @@ public class BasicArrayList
 
     public int size()
     {
-        return currentIndex;
+        return this.currentIndex;
     }
 
     public boolean isEmpty()
     {
-        return currentIndex == 0;
+        return this.currentIndex == 0;
     }
 
     public boolean contains(final Object object)
     {
-        return indexOf(object) >= 0;
+        return this.indexOf(object) >= 0;
     }
 
     public Object[] toArray()
     {
-        return arrayUtil.copyOf(this.objectArray, currentIndex);
+        return this.arrayUtil.copyOf(this.objectArray, this.currentIndex);
     }
 
     public Object[] toArrayType(final Object[] objectArray)
     {
-        if (objectArray.length < this.currentIndex)
-            return arrayUtil.copyOfType(this.objectArray, currentIndex, objectArray.getClass());
+        if (objectArray.length < this.currentIndex) {
+            return this.arrayUtil.copyOfType(this.objectArray, this.currentIndex, objectArray.getClass());
+        }
 
-        System.arraycopy(this.objectArray, 0, objectArray, 0, currentIndex);
+        System.arraycopy(this.objectArray, 0, objectArray, 0, this.currentIndex);
 
-        if (objectArray.length > currentIndex)
-            objectArray[currentIndex] = null;
+        if (objectArray.length > this.currentIndex) {
+            objectArray[this.currentIndex] = null;
+        }
 
         return objectArray;
     }

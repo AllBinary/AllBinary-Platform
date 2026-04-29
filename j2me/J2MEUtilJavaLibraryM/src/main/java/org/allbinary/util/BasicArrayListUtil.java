@@ -51,7 +51,7 @@ public class BasicArrayListUtil
 
     public int getRandomIndex(BasicArrayList list)
     {
-        return myRandomFactory.getAbsoluteNextInt(list.size());
+        return this.myRandomFactory.getAbsoluteNextInt(list.size());
     }
 
     public void reverse(final BasicArrayList list) {
@@ -93,7 +93,7 @@ public class BasicArrayListUtil
      */
     public BasicArrayList getImmutableInstance()
     {
-        return immutableInstance;
+        return this.immutableInstance;
     }
     
     public static void main(String args[]) {
