@@ -33,7 +33,7 @@ public class GestureOnlyMotionRecognizer extends MotionRecognizer
 
     public GestureOnlyMotionRecognizer()
     {
-        this.id = index++;
+        this.id = GestureOnlyMotionRecognizer.index++;
         
         this.motionGestureRecognizer = new MotionGestureRecognizer(this.id);
     }

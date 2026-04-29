@@ -65,7 +65,7 @@ extends V
 
    public static String toStringCellPosition(CellPosition basicGeographicMapCellPosition)
    {
-      return toStringColRow(basicGeographicMapCellPosition.getColumn(), basicGeographicMapCellPosition.getRow());
+      return CellPosition.toStringColRow(basicGeographicMapCellPosition.getColumn(), basicGeographicMapCellPosition.getRow());
    }
    
    public static String toStringColRow(int i_column, int i_row)

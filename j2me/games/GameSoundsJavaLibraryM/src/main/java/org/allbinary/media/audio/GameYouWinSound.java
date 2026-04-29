@@ -26,6 +26,6 @@ public class GameYouWinSound extends CompositeSound
 
     public static Sound getInstance()
     {
-        return soundInterface;
+        return GameYouWinSound.soundInterface;
     }
 }

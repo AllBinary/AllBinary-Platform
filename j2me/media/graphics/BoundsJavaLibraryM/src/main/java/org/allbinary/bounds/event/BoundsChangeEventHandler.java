@@ -28,7 +28,7 @@ public class BoundsChangeEventHandler extends BasicEventHandler
 
    public static BasicEventHandler getInstance()
    {
-      return SINGLETON;
+      return BoundsChangeEventHandler.SINGLETON;
    }
    
    @Override

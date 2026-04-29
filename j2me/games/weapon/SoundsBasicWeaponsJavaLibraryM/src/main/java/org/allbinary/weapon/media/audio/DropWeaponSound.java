@@ -27,6 +27,6 @@ public class DropWeaponSound extends CompositeSound
    
    public static Sound getInstance()
    {
-      return soundInterface;
+      return DropWeaponSound.soundInterface;
    }
 }

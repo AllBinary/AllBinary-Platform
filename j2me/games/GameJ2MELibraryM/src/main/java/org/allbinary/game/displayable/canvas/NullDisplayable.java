@@ -12,7 +12,7 @@ public class NullDisplayable extends Canvas
     
     public static final NullDisplayable getInstance()
     {
-        return SINGLETON;
+        return NullDisplayable.SINGLETON;
     }
     
     private NullDisplayable()

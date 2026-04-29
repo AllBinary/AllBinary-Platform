@@ -75,16 +75,16 @@ public class CombatGameCanvas extends AllBinaryGameCanvas
         if (features.isFeature(gameFeatureFactory.DROPPED_ITEMS)
                 && features.isFeature(gameFeatureFactory.DROPPED_ITEMS_FROM_DEATH))
         {
-            basicLayerProcessor = new BasicLayerProcessor[2];
+            CombatGameCanvas.basicLayerProcessor = new BasicLayerProcessor[2];
 
-            basicLayerProcessor[0] = DestroyedLayerProcessor.getInstance();
-            basicLayerProcessor[1] = DropLayerProcessor.getInstance();
+            CombatGameCanvas.basicLayerProcessor[0] = DestroyedLayerProcessor.getInstance();
+            CombatGameCanvas.basicLayerProcessor[1] = DropLayerProcessor.getInstance();
         }
         else
         {
-            basicLayerProcessor = new BasicLayerProcessor[1];
+            CombatGameCanvas.basicLayerProcessor = new BasicLayerProcessor[1];
 
-            basicLayerProcessor[0] = DestroyedLayerProcessor.getInstance();
+            CombatGameCanvas.basicLayerProcessor[0] = DestroyedLayerProcessor.getInstance();
         }
     }
 
@@ -93,9 +93,9 @@ public class CombatGameCanvas extends AllBinaryGameCanvas
     {
         super.processPlayingGame();
 
-        for (int index = basicLayerProcessor.length; --index >= 0;)
+        for (int index = CombatGameCanvas.basicLayerProcessor.length; --index >= 0;)
         {
-            basicLayerProcessor[index].process(this.gameLayerManager);
+            CombatGameCanvas.basicLayerProcessor[index].process(this.gameLayerManager);
         }
     }
     
@@ -104,9 +104,9 @@ public class CombatGameCanvas extends AllBinaryGameCanvas
     {
         super.cleanupGame();
 
-        for (int index = basicLayerProcessor.length; --index >= 0;)
+        for (int index = CombatGameCanvas.basicLayerProcessor.length; --index >= 0;)
         {
-            basicLayerProcessor[index].getList().clear();
+            CombatGameCanvas.basicLayerProcessor[index].getList().clear();
         }
         
         GroupLayerManagerListener.getInstance().clear();

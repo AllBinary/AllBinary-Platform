@@ -30,16 +30,16 @@ public class VirtualKeyboardFactory
         //VERSION_CODES.BASE_1_1
         if(SDK_VERSION <= 2)
         {
-            virtualKeyboard = new VirtualKeyboardAPI1(activity);
+            VirtualKeyboardFactory.virtualKeyboard = new VirtualKeyboardAPI1(activity);
         }
         else
         {
-            virtualKeyboard = new VirtualKeyboardAPI3(activity);
+            VirtualKeyboardFactory.virtualKeyboard = new VirtualKeyboardAPI3(activity);
         }
     }
 
     public static final VirtualKeyboard getInstance()
     {
-        return virtualKeyboard;
+        return VirtualKeyboardFactory.virtualKeyboard;
     }
 }

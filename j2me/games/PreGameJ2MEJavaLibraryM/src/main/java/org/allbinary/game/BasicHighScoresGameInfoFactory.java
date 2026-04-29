@@ -19,7 +19,7 @@ public class BasicHighScoresGameInfoFactory
     
     public static BasicHighScoresGameInfoFactory getInstance()
     {
-        return SINGLETON;
+        return BasicHighScoresGameInfoFactory.SINGLETON;
     }
     
     /*

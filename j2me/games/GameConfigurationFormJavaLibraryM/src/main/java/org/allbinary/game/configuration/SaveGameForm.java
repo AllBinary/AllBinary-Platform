@@ -35,7 +35,7 @@ public class SaveGameForm extends CommandForm
 
     public static CommandForm getInstance()
     {
-        return FORM;
+        return SaveGameForm.FORM;
     }
 
     private SaveGameForm(CommandListener commandListener, String title,

@@ -394,7 +394,7 @@ public class StartCanvas extends RunnableCanvas
     @Override
     public int getSourceId()
     {
-        return id;
+        return StartCanvas.id;
     }
 
     @Override

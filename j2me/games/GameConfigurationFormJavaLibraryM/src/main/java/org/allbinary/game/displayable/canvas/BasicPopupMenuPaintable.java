@@ -72,7 +72,7 @@ public class BasicPopupMenuPaintable extends Paintable
             this.label = NAME + " *";
         }
  */
-        this.label = NAME;
+        this.label = BasicPopupMenuPaintable.NAME;
 
         this.rectangle = rectangle;
         

@@ -36,7 +36,7 @@ public class GeologicalResourceInfoHudPaintable
     //protected
     public GeologicalResourceInfoHudPaintable()
     {
-        this.keyvalueDrawString = new KeyValueDrawCharArray(RESOURCES, this.textX);
+        this.keyvalueDrawString = new KeyValueDrawCharArray(GeologicalResourceInfoHudPaintable.RESOURCES, this.textX);
     }
 
     @Override

@@ -27,7 +27,7 @@ public class NoPlayerGameInput extends PlayerGameInput
 
     public static NoPlayerGameInput getInstance()
     {
-        return SINGLETON;
+        return NoPlayerGameInput.SINGLETON;
     }
     
    private NoPlayerGameInput()

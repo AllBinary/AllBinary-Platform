@@ -30,6 +30,6 @@ public class HealthResources {
 
     public static HealthResources getInstance()
     {
-        return SINGLETON;
+        return HealthResources.SINGLETON;
     }
 }

@@ -38,7 +38,7 @@ public class Direction
     {
         // return (GeographicMapDirectionData)
         // hashtable.get(Integer.valueOf(direction));
-        return directionArray[direction];
+        return Direction.directionArray[direction];
     }
 
     public int getValue()

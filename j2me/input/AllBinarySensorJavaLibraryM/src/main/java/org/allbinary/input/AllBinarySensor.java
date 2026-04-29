@@ -51,7 +51,7 @@ implements AllBinarySensorListener
     
     public static int getMax()
     {
-        return max;
+        return AllBinarySensor.max;
     }
     
     public int getId()

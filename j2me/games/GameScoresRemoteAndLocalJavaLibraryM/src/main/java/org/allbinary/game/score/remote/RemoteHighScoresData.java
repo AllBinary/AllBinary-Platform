@@ -19,7 +19,7 @@ public class RemoteHighScoresData
     
     public static final RemoteHighScoresData getInstance()
     {
-        return SINGLETON;
+        return RemoteHighScoresData.SINGLETON;
     }
     
     public final String HIGH_SCORES = "HIGH_SCORES";

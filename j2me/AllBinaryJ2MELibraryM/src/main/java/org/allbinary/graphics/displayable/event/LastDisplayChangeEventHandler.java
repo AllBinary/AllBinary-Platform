@@ -26,7 +26,7 @@ public class LastDisplayChangeEventHandler extends BasicEventHandler {
     private static final LastDisplayChangeEventHandler SINGLETON = new LastDisplayChangeEventHandler();
 
     public static LastDisplayChangeEventHandler getInstance() {
-        return SINGLETON;
+        return LastDisplayChangeEventHandler.SINGLETON;
     }
     
     private LastDisplayChangeEventHandler() {

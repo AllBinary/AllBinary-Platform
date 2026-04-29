@@ -29,6 +29,6 @@ public class CollisionTypeFactory {
     
     public static CollisionTypeFactory getInstance()
     {
-        return SINGLETON;
+        return CollisionTypeFactory.SINGLETON;
     }
 }

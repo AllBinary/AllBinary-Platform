@@ -40,7 +40,7 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
 
     public static FeaturedAnimationInterfaceFactoryInterfaceFactory getInstance()
     {
-        return INSTANCE;
+        return FeaturedAnimationInterfaceFactoryInterfaceFactory.INSTANCE;
     }
 
     public Rectangle getRectangle(String resource)

@@ -35,7 +35,7 @@ public class LogFactory
             String functionName,
             Object exception)
     {
-        return LOG;
+        return LogFactory.LOG;
     }
 
     //ActualPlatform
@@ -44,6 +44,6 @@ public class LogFactory
             Object object,
             String functionName)
     {
-        return LOG;
+        return LogFactory.LOG;
     }
 }

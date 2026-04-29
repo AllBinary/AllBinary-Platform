@@ -26,6 +26,6 @@ public class DowngradeSound extends CompositeSound
    
    public static Sound getInstance()
    {
-      return soundInterface;
+      return DowngradeSound.soundInterface;
    }
 }

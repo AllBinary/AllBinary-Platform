@@ -40,12 +40,12 @@ public class DownGameKeyEventHandler extends DownGameKeyEventHandlerBase
    public DownGameKeyEventHandlerBase getInstanceForDevice(int deviceId)
    {
        final int playerInputId = this.playerInputIdFactory.getPlayerForDevice(deviceId);
-       return instanceArray[playerInputId];
+       return DownGameKeyEventHandler.instanceArray[playerInputId];
    }
    
    public DownGameKeyEventHandlerBase getInstanceForPlayer(int playerInputId)
    {
-       return instanceArray[playerInputId];
+       return DownGameKeyEventHandler.instanceArray[playerInputId];
    }
    
     private DownGameKeyEventHandler()
@@ -57,9 +57,9 @@ public class DownGameKeyEventHandler extends DownGameKeyEventHandlerBase
     {
         super.removeAllListeners();
 
-        for(int index = instanceArray.length - 1; index >= 0; index--)
+        for(int index = DownGameKeyEventHandler.instanceArray.length - 1; index >= 0; index--)
         {
-            instanceArray[index].removeAllListeners();
+            DownGameKeyEventHandler.instanceArray[index].removeAllListeners();
         }
     }
 
@@ -68,9 +68,9 @@ public class DownGameKeyEventHandler extends DownGameKeyEventHandlerBase
     {
         super.removeListenerSingleThreaded(eventListenerInterface);
 
-        for(int index = instanceArray.length - 1; index >= 0; index--)
+        for(int index = DownGameKeyEventHandler.instanceArray.length - 1; index >= 0; index--)
         {
-            instanceArray[index].removeListenerSingleThreaded(eventListenerInterface);
+            DownGameKeyEventHandler.instanceArray[index].removeListenerSingleThreaded(eventListenerInterface);
         }
     }
     
@@ -79,9 +79,9 @@ public class DownGameKeyEventHandler extends DownGameKeyEventHandlerBase
     {
         super.removeListener(eventListenerInterface);
 
-        for(int index = instanceArray.length - 1; index >= 0; index--)
+        for(int index = DownGameKeyEventHandler.instanceArray.length - 1; index >= 0; index--)
         {
-            instanceArray[index].removeListener(eventListenerInterface);
+            DownGameKeyEventHandler.instanceArray[index].removeListener(eventListenerInterface);
         }
     }
 }

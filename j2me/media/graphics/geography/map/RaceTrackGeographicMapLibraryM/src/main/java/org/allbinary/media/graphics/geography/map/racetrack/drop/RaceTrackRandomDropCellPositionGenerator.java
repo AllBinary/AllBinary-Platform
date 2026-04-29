@@ -39,7 +39,7 @@ public class RaceTrackRandomDropCellPositionGenerator
 
     public static RaceTrackRandomDropCellPositionGenerator getInstance()
     {
-        return SINGLETON;
+        return RaceTrackRandomDropCellPositionGenerator.SINGLETON;
     }
 
     private final MyRandomFactory myRandomFactory = MyRandomFactory.getInstance();

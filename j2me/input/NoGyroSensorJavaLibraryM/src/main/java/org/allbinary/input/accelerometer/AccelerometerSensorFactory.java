@@ -47,7 +47,7 @@ public class AccelerometerSensorFactory
         else if (features.isFeature(
                 sensorFeatureFactory.NO_ORIENTATION))
         {
-            allBinaryAccelerometerSensor = new NoAccelerometerSensor();
+            AccelerometerSensorFactory.allBinaryAccelerometerSensor = new NoAccelerometerSensor();
         }
         else
         {
@@ -57,7 +57,7 @@ public class AccelerometerSensorFactory
     
     public static AllBinaryOrientationSensor getInstance()
     {
-        return allBinaryAccelerometerSensor;
+        return AccelerometerSensorFactory.allBinaryAccelerometerSensor;
     }
 
 }

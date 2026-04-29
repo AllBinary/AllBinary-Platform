@@ -37,7 +37,7 @@ public class RaceTrackAdjacentDropLayerFactory
    
    public static RaceTrackAdjacentDropLayerFactory getInstance()
    {
-      return DROP_LAYER_FACTORY;
+      return RaceTrackAdjacentDropLayerFactory.DROP_LAYER_FACTORY;
    }
    
    public int getSize()

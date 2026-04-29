@@ -413,7 +413,7 @@ public class DemoCanvas extends RunnableCanvas
     @Override
     public int getSourceId()
     {
-        return id;
+        return DemoCanvas.id;
     }
 
     @Override
@@ -1336,7 +1336,7 @@ public class DemoCanvas extends RunnableCanvas
     public static final int TYPE = 3;
     @Override
     public int getType() {
-        return TYPE;
+        return DemoCanvas.TYPE;
     }
 
 }

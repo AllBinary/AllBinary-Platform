@@ -24,6 +24,6 @@ public class NullInitUpdatePaintable extends InitUpdatePaintable
    
    public static InitUpdatePaintable getInstance()
    {
-      return SINGLETON;
+      return NullInitUpdatePaintable.SINGLETON;
    }
 }

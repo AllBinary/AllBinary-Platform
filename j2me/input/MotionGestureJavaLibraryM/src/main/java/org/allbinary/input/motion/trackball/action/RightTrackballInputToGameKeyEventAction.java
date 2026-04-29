@@ -23,7 +23,7 @@ public class RightTrackballInputToGameKeyEventAction extends GameKeyCompleteMoti
     
     public static GameKeyCompleteMotionGestureInputEvent getInstance()
     {
-        return SINGLETON;
+        return RightTrackballInputToGameKeyEventAction.SINGLETON;
     }
 
     private RightTrackballInputToGameKeyEventAction()

@@ -54,7 +54,7 @@ public class LifePickedUpLayerInterfaceFactory extends PickedUpLayerInterfaceFac
    
    public static PickedUpLayerInterfaceFactoryInterface getInstance()
    {
-      return pickedUpLayerInterfaceFactoryInterface;
+      return LifePickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface;
    }
 
    @Override

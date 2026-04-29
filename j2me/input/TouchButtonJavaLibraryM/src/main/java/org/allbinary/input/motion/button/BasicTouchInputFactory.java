@@ -30,7 +30,7 @@ public class BasicTouchInputFactory
 
     public static BasicTouchInputFactory getInstance()
     {
-        return SINGLETON;
+        return BasicTouchInputFactory.SINGLETON;
     }
 
     public final TouchButtonInput SPECIAL_BUTTON_SEVEN_TESTING_ONLY;

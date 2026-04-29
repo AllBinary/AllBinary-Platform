@@ -20,7 +20,7 @@ public class GameMidletStateFactory {
 	
 	public static final GameMidletStateFactory getInstance()
 	{
-		return INSTANCE;
+		return GameMidletStateFactory.INSTANCE;
 	}
 
 	public GameState getCurrentGameState() {

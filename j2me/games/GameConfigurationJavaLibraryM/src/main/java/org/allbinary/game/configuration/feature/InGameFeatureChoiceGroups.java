@@ -31,12 +31,12 @@ public class InGameFeatureChoiceGroups
 
     public static InGameFeatureChoiceGroups getExclusiveInstance()
     {
-        return gameFeatureChoiceGroupsExclusive;
+        return InGameFeatureChoiceGroups.gameFeatureChoiceGroupsExclusive;
     }
 
     public static InGameFeatureChoiceGroups getMultipleInstance()
     {
-        return gameFeatureChoiceGroupsMultiple;
+        return InGameFeatureChoiceGroups.gameFeatureChoiceGroupsMultiple;
     }
 
     public Hashtable get()

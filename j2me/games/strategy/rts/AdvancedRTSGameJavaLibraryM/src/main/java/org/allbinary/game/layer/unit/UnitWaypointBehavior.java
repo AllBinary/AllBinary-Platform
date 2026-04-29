@@ -217,7 +217,7 @@ public class UnitWaypointBehavior
         if(this.associatedAdvancedRTSGameLayer.showMoreCaptionStates)
         {
             this.associatedAdvancedRTSGameLayer.getCaptionAnimationHelper().update(
-                    PATHING, BasicColorFactory.getInstance().GREEN);
+                    UnitWaypointBehavior.PATHING, BasicColorFactory.getInstance().GREEN);
         }
         
         this.currentGeographicMapCellHistoryP.init();

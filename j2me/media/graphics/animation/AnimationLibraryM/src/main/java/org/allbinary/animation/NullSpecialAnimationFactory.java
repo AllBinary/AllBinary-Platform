@@ -27,7 +27,7 @@ public class NullSpecialAnimationFactory implements
 
    public static NullSpecialAnimationFactory getFactoryInstance()
    {
-       return NULL_SPECIAL_ANIMATION_FACTORY;
+       return NullSpecialAnimationFactory.NULL_SPECIAL_ANIMATION_FACTORY;
    }
 
    @Override

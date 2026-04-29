@@ -21,7 +21,7 @@ public class ChangedGameFeatureListener extends BaseChangedGameFeatureListener
     
     public static ChangedGameFeatureListener getInstance()
     {
-        return gameFeatureListener;
+        return ChangedGameFeatureListener.gameFeatureListener;
     }
 
     public boolean isChanged(GameConfiguration gameConfiguration)

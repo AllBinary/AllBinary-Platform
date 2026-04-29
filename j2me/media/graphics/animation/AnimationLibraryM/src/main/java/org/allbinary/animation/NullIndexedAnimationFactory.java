@@ -35,7 +35,7 @@ public class NullIndexedAnimationFactory implements
 
    public static NullIndexedAnimationFactory getFactoryInstance()
    {
-       return NULL_INDEXED_ANIMATION_FACTORY;
+       return NullIndexedAnimationFactory.NULL_INDEXED_ANIMATION_FACTORY;
    }
 
    @Override

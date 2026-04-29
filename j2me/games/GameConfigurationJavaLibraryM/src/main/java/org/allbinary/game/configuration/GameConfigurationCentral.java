@@ -33,7 +33,7 @@ public class GameConfigurationCentral
 
     public static GameConfigurationCentral getInstance()
     {
-        return SINGLETON;
+        return GameConfigurationCentral.SINGLETON;
     }
 
     //private static String[] ORIENTATIONS = {"Vertical", CommonPhoneStrings.getInstance().UP, CommonPhoneStrings.getInstance().DOWN, CommonPhoneStrings.getInstance().LEFT, CommonPhoneStrings.getInstance().RIGHT};

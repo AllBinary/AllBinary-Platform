@@ -23,7 +23,7 @@ public class RightTouchInputToGameKeyEventAction extends GameKeyCompleteMotionGe
     
     public static GameKeyCompleteMotionGestureInputEvent getInstance()
     {
-        return SINGLETON;
+        return RightTouchInputToGameKeyEventAction.SINGLETON;
     }
 
     private RightTouchInputToGameKeyEventAction()

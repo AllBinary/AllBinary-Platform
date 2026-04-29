@@ -26,6 +26,6 @@ public class BuildingSound extends CompositeSound
    
    public static Sound getInstance()
    {
-      return soundInterface;
+      return BuildingSound.soundInterface;
    }
 }

@@ -24,7 +24,7 @@ public class TouchButtonFactory
 
     public static TouchButtonFactory getInstance()
     {
-        return SINGLETON;
+        return TouchButtonFactory.SINGLETON;
     }
 
     private BasicArrayList LIST = BasicArrayListUtil.getInstance().getImmutableInstance();

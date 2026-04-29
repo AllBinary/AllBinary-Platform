@@ -36,7 +36,7 @@ public class UnitGameResources extends BasicGameResources
     private final static String ICON = "_icon";
     private final static String BUILD = "_build";
     private final static String DESTROY = "_destroy";
-    private final static String ICON_BUILD = "_icon" + BUILD;
+    private final static String ICON_BUILD = "_icon" + UnitGameResources.BUILD;
     //private final static String BASE = "_base";
     //private final static String EMPTY = "_empty";
 

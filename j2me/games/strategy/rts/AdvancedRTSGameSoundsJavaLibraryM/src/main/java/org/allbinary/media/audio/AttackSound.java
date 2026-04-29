@@ -23,6 +23,6 @@ public class AttackSound extends CompositeSound
    
    public static Sound getInstance()
    {
-      return soundInterface;
+      return AttackSound.soundInterface;
    }
 }

@@ -19,6 +19,6 @@ public class SecondaryPlayerQueueFactory
     
     public static PlayerQueue getInstance()
     {
-        return SINGLETON;
+        return SecondaryPlayerQueueFactory.SINGLETON;
     }
 }

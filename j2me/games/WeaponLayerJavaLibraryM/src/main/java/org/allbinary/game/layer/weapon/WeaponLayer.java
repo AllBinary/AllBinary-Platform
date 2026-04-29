@@ -456,7 +456,7 @@ implements TickableInterface
     @Override
     public int getType()
     {
-        return getStaticType();
+        return WeaponLayer.getStaticType();
     }
 
     public static int getStaticType()

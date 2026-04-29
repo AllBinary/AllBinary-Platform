@@ -61,20 +61,20 @@ public class BasicGameResources
 
         final String string = this.getString();
         
-        stringBuffer.delete(0, stringBuffer.length());
-        stringBuffer.append(ROOT);
-        stringBuffer.append(string);
-        stringBuffer.append(sizeString);
+        BasicGameResources.stringBuffer.delete(0, stringBuffer.length());
+        BasicGameResources.stringBuffer.append(ROOT);
+        BasicGameResources.stringBuffer.append(string);
+        BasicGameResources.stringBuffer.append(sizeString);
 
-        this.RESOURCE = stringBuffer.toString();
+        this.RESOURCE = BasicGameResources.stringBuffer.toString();
         
-        stringBuffer.delete(0, stringBuffer.length());
-        stringBuffer.append(ROOT);
-        stringBuffer.append(DESTROY);
-        stringBuffer.append(string);
-        stringBuffer.append(sizeString);
+        BasicGameResources.stringBuffer.delete(0, stringBuffer.length());
+        BasicGameResources.stringBuffer.append(ROOT);
+        BasicGameResources.stringBuffer.append(DESTROY);
+        BasicGameResources.stringBuffer.append(string);
+        BasicGameResources.stringBuffer.append(sizeString);
         
-        this.RESOURCE_DESTROY = stringBuffer.toString();
+        this.RESOURCE_DESTROY = BasicGameResources.stringBuffer.toString();
     }
 
     protected String getString()

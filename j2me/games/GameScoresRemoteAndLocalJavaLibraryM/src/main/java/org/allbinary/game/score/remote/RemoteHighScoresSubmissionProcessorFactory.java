@@ -20,6 +20,6 @@ public class RemoteHighScoresSubmissionProcessorFactory
     
     public static final RemoteHighScoresSubmissionProcessorInterface getInstance()
     {
-        return SINGLETON;
+        return RemoteHighScoresSubmissionProcessorFactory.SINGLETON;
     }
 }

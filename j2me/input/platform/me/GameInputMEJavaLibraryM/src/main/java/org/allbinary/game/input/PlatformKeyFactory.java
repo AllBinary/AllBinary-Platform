@@ -23,7 +23,7 @@ public class PlatformKeyFactory {
 
     public static PlatformKeyFactory getInstance()
     {
-        return SINGLETON;
+        return PlatformKeyFactory.SINGLETON;
     }
     
     public String getString(int keyCode)

@@ -28,7 +28,7 @@ public class OpenGLImageCacheFactory
 
     public static ImageCache getInstance()
     {
-        return IMAGE_CACHE;
+        return OpenGLImageCacheFactory.IMAGE_CACHE;
     }
     
     //While the image cache really can't be cleared currently 

@@ -27,7 +27,7 @@ extends BasicGameResources
     
     public static MineWeaponResources getInstance()
     {
-    	return SINGLETON;
+    	return MineWeaponResources.SINGLETON;
     }
 
     public final String DROP_TEXT_RESOURCE = "/mine_drop_text_20_by_20.png";

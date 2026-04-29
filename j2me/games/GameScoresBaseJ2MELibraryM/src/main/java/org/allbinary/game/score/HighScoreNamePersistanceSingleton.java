@@ -46,7 +46,7 @@ public class HighScoreNamePersistanceSingleton
 
     public static HighScoreNamePersistanceSingleton getInstance()
     {
-        return SINGLETON;
+        return HighScoreNamePersistanceSingleton.SINGLETON;
     }
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();

@@ -33,7 +33,7 @@ public class PlatformFormInputMappingFactory
     {
         try
         {
-            if (SINGLETON == InputToGameKeyMapping.NULL_INPUT_TO_GAME_KEY_MAPPING)
+            if (PlatformFormInputMappingFactory.SINGLETON == InputToGameKeyMapping.NULL_INPUT_TO_GAME_KEY_MAPPING)
             {
                 InputToGameKeyMapping inputToGameKeyMapping = new InputToGameKeyMapping();
 
@@ -56,7 +56,7 @@ public class PlatformFormInputMappingFactory
 
                 inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM1, gameKeyFactory.GAME_A);
 
-                SINGLETON = inputToGameKeyMapping;
+                PlatformFormInputMappingFactory.SINGLETON = inputToGameKeyMapping;
             }
         }
         catch (Exception e)
@@ -64,7 +64,7 @@ public class PlatformFormInputMappingFactory
             final CommonStrings commonStrings = CommonStrings.getInstance();
             this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
         }
-        return SINGLETON;
+        return PlatformFormInputMappingFactory.SINGLETON;
     }
 
 }

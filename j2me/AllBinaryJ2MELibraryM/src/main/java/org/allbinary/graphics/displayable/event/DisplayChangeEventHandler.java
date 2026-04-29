@@ -22,7 +22,7 @@ public class DisplayChangeEventHandler extends BasicEventHandler
     private static final DisplayChangeEventHandler SINGLETON = new DisplayChangeEventHandler();
 
     public static DisplayChangeEventHandler getInstance() {
-        return SINGLETON;
+        return DisplayChangeEventHandler.SINGLETON;
     }
     
     private DisplayChangeEventHandler() {

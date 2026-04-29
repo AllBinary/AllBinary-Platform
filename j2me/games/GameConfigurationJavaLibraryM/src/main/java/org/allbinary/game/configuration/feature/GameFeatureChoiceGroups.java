@@ -33,12 +33,12 @@ public class GameFeatureChoiceGroups {
 	
 	public static GameFeatureChoiceGroups getExclusiveInstance()
 	{
-		return gameFeatureChoiceGroupsExclusive;
+		return GameFeatureChoiceGroups.gameFeatureChoiceGroupsExclusive;
 	}
 
 	public static GameFeatureChoiceGroups getMultipleInstance()
 	{
-		return gameFeatureChoiceGroupsMultiple;
+		return GameFeatureChoiceGroups.gameFeatureChoiceGroupsMultiple;
 	}
 	
 	public Hashtable get()

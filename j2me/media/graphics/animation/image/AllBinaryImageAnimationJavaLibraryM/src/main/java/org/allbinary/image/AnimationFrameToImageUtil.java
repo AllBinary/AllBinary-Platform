@@ -33,7 +33,7 @@ public class AnimationFrameToImageUtil
     {
 
         Image image = GameFeatureImageCacheFactory.getInstance().get(
-                instance.getClass().getName(), ((width * 3) >> 1),
+                AnimationFrameToImageUtil.instance.getClass().getName(), ((width * 3) >> 1),
                 ((height * 3) >> 1));
 
         Graphics graphics = image.getGraphics();
@@ -55,7 +55,7 @@ public class AnimationFrameToImageUtil
     {
 
         Image image = GameFeatureImageCacheFactory.getInstance().get(
-                instance.getClass().getName(), width, height);
+                AnimationFrameToImageUtil.instance.getClass().getName(), width, height);
 
         Graphics graphics = image.getGraphics();
 

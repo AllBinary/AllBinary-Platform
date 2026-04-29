@@ -23,7 +23,7 @@ public class SpecialAnimation extends IndexedAnimation implements SpecialAnimati
 
     public static SpecialAnimation getInstance()
     {
-        return NULL_SPECIAL_ANIMATION;
+        return SpecialAnimation.NULL_SPECIAL_ANIMATION;
     }
     
     public SpecialAnimation(final AnimationBehavior animationBehavior) {

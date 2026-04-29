@@ -1513,7 +1513,7 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
     @Override
     public int getType()
     {
-        return getStaticType();
+        return UnitLayer.getStaticType();
     }
 
     public static int getStaticType()
@@ -1551,6 +1551,6 @@ this.setCollidableInferface(new CollidableUnitBehavior(this, true));
 
     public static BasicArrayList getPartialpositionlist()
     {
-        return partialPositionList;
+        return UnitLayer.partialPositionList;
     }
 }

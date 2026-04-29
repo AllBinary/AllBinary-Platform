@@ -10,6 +10,6 @@ public class E
     
     public E newInstance()
     {
-        return e;
+        return E.e;
     }    
 }

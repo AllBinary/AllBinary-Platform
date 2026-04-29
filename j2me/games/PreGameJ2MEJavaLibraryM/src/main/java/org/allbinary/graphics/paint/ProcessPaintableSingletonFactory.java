@@ -23,6 +23,6 @@ public class ProcessPaintableSingletonFactory
 
     public static ProcessPaintable getInstance()
     {
-        return SINGLETON;
+        return ProcessPaintableSingletonFactory.SINGLETON;
     }
 }

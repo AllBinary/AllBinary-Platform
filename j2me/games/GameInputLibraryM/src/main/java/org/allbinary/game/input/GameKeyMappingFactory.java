@@ -69,6 +69,6 @@ public class GameKeyMappingFactory
     
     public static GameKeyMappingFactory getInstance()
     {
-        return SINGLETON;
+        return GameKeyMappingFactory.SINGLETON;
     }
 }

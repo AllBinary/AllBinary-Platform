@@ -54,7 +54,7 @@ public class BasicTouchInputFactory
     
     public static BasicTouchInputFactory getInstance()
     {
-        return SINGLETON;
+        return BasicTouchInputFactory.SINGLETON;
     }
 
     private boolean initialized = false;

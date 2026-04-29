@@ -23,7 +23,7 @@ public class LeftTouchInputToGameKeyEventAction extends GameKeyCompleteMotionGes
     
     public static GameKeyCompleteMotionGestureInputEvent getInstance()
     {
-        return SINGLETON;
+        return LeftTouchInputToGameKeyEventAction.SINGLETON;
     }
     
     private LeftTouchInputToGameKeyEventAction()

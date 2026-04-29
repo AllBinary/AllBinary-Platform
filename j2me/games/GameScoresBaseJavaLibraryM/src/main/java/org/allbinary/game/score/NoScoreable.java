@@ -19,7 +19,7 @@ public class NoScoreable extends Scoreable
    
    public static NoScoreable getInstance()
    {
-       return SINGLETON;
+       return NoScoreable.SINGLETON;
    }
    
    private NoScoreable()

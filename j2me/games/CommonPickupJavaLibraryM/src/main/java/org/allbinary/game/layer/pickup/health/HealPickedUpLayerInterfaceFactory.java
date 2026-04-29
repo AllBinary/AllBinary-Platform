@@ -55,7 +55,7 @@ public class HealPickedUpLayerInterfaceFactory extends PickedUpLayerInterfaceFac
 
    public static PickedUpLayerInterfaceFactoryInterface getInstance()
    {
-      return pickedUpLayerInterfaceFactoryInterface;
+      return HealPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface;
    }
 
    @Override

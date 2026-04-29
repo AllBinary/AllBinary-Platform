@@ -37,7 +37,7 @@ public class DestroyedLayerProcessor extends BasicLayerProcessor
 
     public static BasicLayerProcessor getInstance()
     {
-        return DESTROYED_LAYER_PROCESSOR;
+        return DestroyedLayerProcessor.DESTROYED_LAYER_PROCESSOR;
     }
 
     //private final String LAYER_LABEL = "layerInterface: ";

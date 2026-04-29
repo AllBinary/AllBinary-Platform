@@ -12,7 +12,7 @@ public class AndroidAPI1KeyFactory extends AndroidKeyFactory
     
     public static final AndroidAPI1KeyFactory getInstance()
     {
-        return SINGLETON;
+        return AndroidAPI1KeyFactory.SINGLETON;
     }
 
 }

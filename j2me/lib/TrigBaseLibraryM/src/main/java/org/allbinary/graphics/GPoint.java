@@ -67,7 +67,7 @@ public class GPoint
    
    public String toString()
    {
-       return toStringStatic(this.getX(), this.getY(), this.getZ());
+       return GPoint.toStringStatic(this.getX(), this.getY(), this.getZ());
    }
    
    private static final String POINT_LABEL = "Point: ";

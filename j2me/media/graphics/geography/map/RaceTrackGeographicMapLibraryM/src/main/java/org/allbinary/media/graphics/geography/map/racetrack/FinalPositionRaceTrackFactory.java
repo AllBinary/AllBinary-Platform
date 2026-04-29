@@ -17,7 +17,7 @@ public class FinalPositionRaceTrackFactory
 {
    public static final int FIRST_POSITION = 1;
 
-   private static int index = FIRST_POSITION;
+   private static int index = FinalPositionRaceTrackFactory.FIRST_POSITION;
       
    private FinalPositionRaceTrackFactory()
    {
@@ -25,7 +25,7 @@ public class FinalPositionRaceTrackFactory
    
    public synchronized static int getInstance()
    {
-      return index++;
+      return FinalPositionRaceTrackFactory.index++;
    }
 
    public synchronized static void reset()

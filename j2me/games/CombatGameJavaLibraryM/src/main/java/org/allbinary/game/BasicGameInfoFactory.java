@@ -19,7 +19,7 @@ public class BasicGameInfoFactory
 
     public static BasicGameInfoFactory getInstance()
     {
-        return SINGLETON;
+        return BasicGameInfoFactory.SINGLETON;
     }
 
     public int currentReleaseIndex;

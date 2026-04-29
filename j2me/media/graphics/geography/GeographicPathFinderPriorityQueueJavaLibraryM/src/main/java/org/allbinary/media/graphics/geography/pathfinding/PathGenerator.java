@@ -29,7 +29,7 @@ public class PathGenerator implements PathGeneratorInterface
 
     public static PathGenerator getInstance()
     {
-        return SINGLETON;
+        return PathGenerator.SINGLETON;
     }
 
     private PathGenerator()

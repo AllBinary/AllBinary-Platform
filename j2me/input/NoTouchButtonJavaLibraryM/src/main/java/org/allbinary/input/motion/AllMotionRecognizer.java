@@ -25,7 +25,7 @@ public class AllMotionRecognizer
 
     public AllMotionRecognizer()
     {
-        this.id = index++;
+        this.id = AllMotionRecognizer.index++;
     }
     
     public void processStartMotionEvent(int x, int y, int deviceId, int modifiers)

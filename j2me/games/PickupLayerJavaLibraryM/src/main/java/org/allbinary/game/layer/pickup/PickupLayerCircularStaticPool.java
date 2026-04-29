@@ -27,7 +27,7 @@ public class PickupLayerCircularStaticPool
       
    public static PickupLayerCircularStaticPool getInstance()
    {
-      return SINGLETON;
+      return PickupLayerCircularStaticPool.SINGLETON;
    }
    
    public PickedUpLayerInterface getInstanceXYZ(final PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface, final int x, final int y, final int z)

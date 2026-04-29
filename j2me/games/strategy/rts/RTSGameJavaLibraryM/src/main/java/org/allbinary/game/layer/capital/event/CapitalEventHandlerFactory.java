@@ -37,14 +37,14 @@ public class CapitalEventHandlerFactory {
 
     public static CapitalEventHandler getInstance(Group groupInterface)
     {
-        return capitalEventHandlerArray[(int) groupInterface.getGroupId()];
+        return CapitalEventHandlerFactory.capitalEventHandlerArray[(int) groupInterface.getGroupId()];
     }
 
     public static void removeAll()
     {
-        for(int index = capitalEventHandlerArray.length - 1; index >= 0; index--)
+        for(int index = CapitalEventHandlerFactory.capitalEventHandlerArray.length - 1; index >= 0; index--)
         {
-            capitalEventHandlerArray[index].removeAllListeners();
+            CapitalEventHandlerFactory.capitalEventHandlerArray[index].removeAllListeners();
         }
     }
 }

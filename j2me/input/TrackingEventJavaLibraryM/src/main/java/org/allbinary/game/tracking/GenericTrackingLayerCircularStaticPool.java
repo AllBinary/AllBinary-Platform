@@ -27,6 +27,6 @@ public class GenericTrackingLayerCircularStaticPool
       
    public static GenericTrackingLayerCircularStaticPool getInstance()
    {
-      return SINGLETON;
+      return GenericTrackingLayerCircularStaticPool.SINGLETON;
    }
 }

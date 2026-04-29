@@ -22,6 +22,6 @@ public class RemoteErrorHighScoresSingletonFactory
     
     public static final HighScores getInstance()
     {
-        return SINGLETON;
+        return RemoteErrorHighScoresSingletonFactory.SINGLETON;
     }
 }

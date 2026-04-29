@@ -34,7 +34,7 @@ public class LayerInterfaceFactory
 
    public static LayerInterfaceFactory getInstance()
    {
-       return SINGLETON;
+       return LayerInterfaceFactory.SINGLETON;
    }
    
    public void init()

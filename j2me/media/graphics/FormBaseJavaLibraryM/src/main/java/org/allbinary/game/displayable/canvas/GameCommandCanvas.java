@@ -270,7 +270,7 @@ public class GameCommandCanvas
     @Override
     public int getSourceId()
     {
-        return id;
+        return GameCommandCanvas.id;
     }
 
     @Override

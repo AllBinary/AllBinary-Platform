@@ -27,11 +27,11 @@ public class ProgressCanvasFactory {
     
     public static ProgressCanvas getInstance()
     {
-        return PROGRESS_FORM_SCREEN;
+        return ProgressCanvasFactory.PROGRESS_FORM_SCREEN;
     }
     
     public static PaintableInterface getLazyInstance() {
-        return getInstance();
+        return ProgressCanvasFactory.getInstance();
     }
     
 }

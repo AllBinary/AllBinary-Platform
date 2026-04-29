@@ -38,7 +38,7 @@ extends LayerManagerEventListener
 
     public static GroupLayerManagerListener getInstance()
     {
-        return SINGLETON;
+        return GroupLayerManagerListener.SINGLETON;
     }
 
     protected final LogUtil logUtil = LogUtil.getInstance();

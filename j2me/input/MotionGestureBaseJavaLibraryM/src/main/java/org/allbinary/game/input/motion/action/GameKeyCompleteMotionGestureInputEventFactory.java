@@ -30,7 +30,7 @@ public class GameKeyCompleteMotionGestureInputEventFactory
     
     public static GameKeyCompleteMotionGestureInputEventFactory getInstance()
     {
-        return SINGLETON;
+        return GameKeyCompleteMotionGestureInputEventFactory.SINGLETON;
     }
     
     public void add(GameKeyCompleteMotionGestureInputEvent gameKeyCompleteMotionGestureInputEvent)

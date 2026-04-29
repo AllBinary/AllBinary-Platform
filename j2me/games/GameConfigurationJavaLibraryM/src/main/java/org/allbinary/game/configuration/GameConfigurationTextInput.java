@@ -34,14 +34,14 @@ public class GameConfigurationTextInput
     {
         this.setText(text);
         this.setLabel(label);
-        hashtable.put(this.getLabel(), this);
+        GameConfigurationTextInput.hashtable.put(this.getLabel(), this);
     }
 
     public static void update(TextField textField)
     {
         final Object object = (Object) textField.getLabel();
         GameConfigurationTextInput gameConfigurationTextInput =
-            (GameConfigurationTextInput) hashtable.get(object);
+            (GameConfigurationTextInput) GameConfigurationTextInput.hashtable.get(object);
         
         gameConfigurationTextInput.setText(textField.getString());
     }
@@ -68,6 +68,6 @@ public class GameConfigurationTextInput
 
     public static Hashtable getHashtable()
     {
-        return hashtable;
+        return GameConfigurationTextInput.hashtable;
     }
 }

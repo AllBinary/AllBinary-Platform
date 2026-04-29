@@ -39,12 +39,12 @@ public class UpGameKeyEventHandler extends UpGameKeyEventHandlerBase
    public UpGameKeyEventHandlerBase getInstanceForDevice(int deviceId)
    {
        final int playerInputId = this.playerInputIdFactory.getPlayerForDevice(deviceId);
-       return instanceArray[playerInputId];
+       return UpGameKeyEventHandler.instanceArray[playerInputId];
    }
 
    public UpGameKeyEventHandlerBase getInstanceForPlayer(int playerInputId)
    {
-       return instanceArray[playerInputId];
+       return UpGameKeyEventHandler.instanceArray[playerInputId];
    }
    
    private UpGameKeyEventHandler()
@@ -56,9 +56,9 @@ public class UpGameKeyEventHandler extends UpGameKeyEventHandlerBase
     {
         super.removeAllListeners();
 
-        for(int index = instanceArray.length - 1; index >= 0; index--)
+        for(int index = UpGameKeyEventHandler.instanceArray.length - 1; index >= 0; index--)
         {
-            instanceArray[index].removeAllListeners();
+            UpGameKeyEventHandler.instanceArray[index].removeAllListeners();
         }
     }
 
@@ -67,9 +67,9 @@ public class UpGameKeyEventHandler extends UpGameKeyEventHandlerBase
     {
         super.removeListenerSingleThreaded(eventListenerInterface);
 
-        for(int index = instanceArray.length - 1; index >= 0; index--)
+        for(int index = UpGameKeyEventHandler.instanceArray.length - 1; index >= 0; index--)
         {
-            instanceArray[index].removeListenerSingleThreaded(eventListenerInterface);
+            UpGameKeyEventHandler.instanceArray[index].removeListenerSingleThreaded(eventListenerInterface);
         }
     }
     
@@ -78,9 +78,9 @@ public class UpGameKeyEventHandler extends UpGameKeyEventHandlerBase
     {
         super.removeListener(eventListenerInterface);
 
-        for(int index = instanceArray.length - 1; index >= 0; index--)
+        for(int index = UpGameKeyEventHandler.instanceArray.length - 1; index >= 0; index--)
         {
-            instanceArray[index].removeListener(eventListenerInterface);
+            UpGameKeyEventHandler.instanceArray[index].removeListener(eventListenerInterface);
         }
     }
 }

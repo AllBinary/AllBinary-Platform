@@ -26,7 +26,7 @@ public class PaintableToImageUtil
     throws Exception
     {
         Image image = GameFeatureImageCacheFactory.getInstance().get(
-                instance.getClass().getName(), width, height);
+                PaintableToImageUtil.instance.getClass().getName(), width, height);
 
         Graphics graphics = image.getGraphics();
 

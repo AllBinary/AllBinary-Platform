@@ -28,7 +28,7 @@ public class ReleaseTouchInputToGameKeyEventAction extends GameKeyCompleteMotion
     
     public static GameKeyCompleteMotionGestureInputEvent getInstance()
     {
-        return SINGLETON;
+        return ReleaseTouchInputToGameKeyEventAction.SINGLETON;
     }
     
     private final GameKey NONE = GameKeyFactory.getInstance().NONE;

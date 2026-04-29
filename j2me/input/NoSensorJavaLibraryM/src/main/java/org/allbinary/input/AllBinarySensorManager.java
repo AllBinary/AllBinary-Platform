@@ -45,7 +45,7 @@ public class AllBinarySensorManager
 
     public static AllBinarySensorManager getInstance()
     {
-        return SINGLETON;
+        return AllBinarySensorManager.SINGLETON;
     }
 
     //private final AllBinarySensor[] allBinarySensorArray = new AllBinarySensor[0];

@@ -29,7 +29,7 @@ public class TestRemoteLogUtil {
     
     public TestRemoteLogUtil()
     {
-        Globals.getInstance().init(this.getClass().getClassLoader(), PATH);
+        Globals.getInstance().init(this.getClass().getClassLoader(), TestRemoteLogUtil.PATH);
         
         final LogUtil logUtil = LogUtil.getInstance();
         final CommonStrings commonStrings = CommonStrings.getInstance();

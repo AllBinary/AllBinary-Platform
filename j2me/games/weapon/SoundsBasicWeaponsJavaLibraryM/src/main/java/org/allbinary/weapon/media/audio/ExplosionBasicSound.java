@@ -27,6 +27,6 @@ public class ExplosionBasicSound extends CompositeSound
    
    public static Sound getInstance()
    {
-      return soundInterface;
+      return ExplosionBasicSound.soundInterface;
    }
 }

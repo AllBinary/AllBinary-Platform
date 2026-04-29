@@ -46,7 +46,7 @@ public class AndroidAPI12KeyFactory extends AndroidAPI9KeyFactory
     
     public static final AndroidAPI12KeyFactory getAPI12Instance()
     {
-        return SINGLETON;
+        return AndroidAPI12KeyFactory.SINGLETON;
     }
 
 }

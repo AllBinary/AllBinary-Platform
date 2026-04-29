@@ -37,7 +37,7 @@ public class SpecialMessageUtil
     
     public static final SpecialMessageUtil getInstance()
     {
-        return SINGLETON;
+        return SpecialMessageUtil.SINGLETON;
     }
     
     public String get()

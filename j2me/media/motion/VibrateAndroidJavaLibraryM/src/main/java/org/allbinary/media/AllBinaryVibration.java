@@ -31,18 +31,18 @@ public class AllBinaryVibration extends AllBinaryVibrationME
       
    public static AllBinaryVibrationME getInstance()
    {
-       return VIBRATION;
+       return AllBinaryVibration.VIBRATION;
    }
    
    public static void init()
    {
         if (GameConfigurationCentral.getInstance().VIBRATION.getValue().intValue() == 0)
         {
-            VIBRATION = AllBinaryNoVibration.NO_VIBRATION;
+            AllBinaryVibration.VIBRATION = AllBinaryNoVibration.NO_VIBRATION;
         }
         else
         {
-            VIBRATION = new AllBinaryVibration();
+            AllBinaryVibration.VIBRATION = new AllBinaryVibration();
             //VIBRATION = new AllBinaryVisualDebugVibration();
         }
     }

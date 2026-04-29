@@ -29,7 +29,7 @@ public class CountedLayersHudPaintable implements PaintableInterface
 {
 
    private static final String XXString = "XX";
-   private static final int XXStringWidth = MyFont.getInstance().stringWidth(XXString);
+   private static final int XXStringWidth = MyFont.getInstance().stringWidth(CountedLayersHudPaintable.XXString);
 
    private final MyFont myFont = MyFont.getInstance();
    
@@ -108,7 +108,7 @@ public class CountedLayersHudPaintable implements PaintableInterface
          graphics.setColor(this.countedPartsBorder);
 
          graphics.drawRect(lastWidth - (XXStringWidth + this.dropSize),
-                 40, XXStringWidth + this.dropSize, (count * height) + 3);
+                 40, CountedLayersHudPaintable.XXStringWidth + this.dropSize, (count * height) + 3);
       }
    }
    

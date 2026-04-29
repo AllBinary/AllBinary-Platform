@@ -41,7 +41,7 @@ public class WeaponProperties extends SimpleWeaponProperties
     public WeaponProperties(
             long reloadTime, long targetingTime, long speed, int damage, short dissipation)
     {
-    	if(speed < this.MAX && speed != 0L && !messageSent)
+    	if(speed < this.MAX && speed != 0L && !WeaponProperties.messageSent)
     	{
     	    final String MESSAGE = "Danger Danger Danger: Speed probably to slow if using 1 degree calculations as velocity for a single axis could be below 1024: ";
 
@@ -49,7 +49,7 @@ public class WeaponProperties extends SimpleWeaponProperties
     	    PreLogUtil.put(new StringMaker().append(MESSAGE).appendlong(speed).toString(), this, commonStrings.CONSTRUCTOR);
     	    //throw new Exception(MESSAGE + speed);
     	    
-    	    messageSent = true;
+    	    WeaponProperties.messageSent = true;
     	}
     	
         this.setReloadTime(reloadTime);

@@ -22,6 +22,6 @@ public class NullHighScoresSingletonFactory
     
     public static final HighScores getInstance()
     {
-        return SINGLETON;
+        return NullHighScoresSingletonFactory.SINGLETON;
     }
 }

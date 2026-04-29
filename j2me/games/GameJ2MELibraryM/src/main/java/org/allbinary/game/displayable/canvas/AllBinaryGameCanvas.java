@@ -1124,8 +1124,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected void updateEndGameProcessor2() throws Exception
     {
-        if (this.getGameState() == SHOW_END_RESULT_GAME_STATE
-                || this.getGameState() == SHOW_HIGH_SCORE_GAME_STATE) {
+        if (this.getGameState() == AllBinaryGameCanvas.SHOW_END_RESULT_GAME_STATE
+                || this.getGameState() == AllBinaryGameCanvas.SHOW_HIGH_SCORE_GAME_STATE) {
             this.setEndGameProcessor(this.realEndGameProcessor);
         } else {
             this.setEndGameProcessor(Processor.getInstance());
@@ -1874,7 +1874,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     @Override
     public int getSourceId()
     {
-        return id;
+        return AllBinaryGameCanvas.id;
     }
 
     public void setProgressPaintable(final PaintableInterface paintable) {
@@ -2194,7 +2194,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     public static final int TYPE = 2;
     @Override
     public int getType() {
-        return TYPE;
+        return AllBinaryGameCanvas.TYPE;
     }
 
 }

@@ -25,7 +25,7 @@ public class NoMenuInputProcessor extends BasicMenuInputProcessor
 
     public static final NoMenuInputProcessor getInstance()
     {
-        return SINGLETON;
+        return NoMenuInputProcessor.SINGLETON;
     }
 
     private NoMenuInputProcessor()

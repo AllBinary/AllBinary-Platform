@@ -40,12 +40,12 @@ public class DownKeyEventHandler extends DownKeyEventHandlerBase
    public DownKeyEventHandlerBase getInstanceForDevice(int deviceId)
    {
        final int playerInputId = this.playerInputIdFactory.getPlayerForDevice(deviceId);
-       return instanceArray[playerInputId];
+       return DownKeyEventHandler.instanceArray[playerInputId];
    }
    
    public DownKeyEventHandlerBase getInstanceForPlayer(int playerInputId)
    {
-       return instanceArray[playerInputId];
+       return DownKeyEventHandler.instanceArray[playerInputId];
    }
    
     private DownKeyEventHandler()
@@ -57,9 +57,9 @@ public class DownKeyEventHandler extends DownKeyEventHandlerBase
     {
         super.removeAllListeners();
 
-        for(int index = instanceArray.length - 1; index >= 0; index--)
+        for(int index = DownKeyEventHandler.instanceArray.length - 1; index >= 0; index--)
         {
-            instanceArray[index].removeAllListeners();
+            DownKeyEventHandler.instanceArray[index].removeAllListeners();
         }
     }
 
@@ -68,9 +68,9 @@ public class DownKeyEventHandler extends DownKeyEventHandlerBase
     {
         super.removeListenerSingleThreaded(eventListenerInterface);
 
-        for(int index = instanceArray.length - 1; index >= 0; index--)
+        for(int index = DownKeyEventHandler.instanceArray.length - 1; index >= 0; index--)
         {
-            instanceArray[index].removeListenerSingleThreaded(eventListenerInterface);
+            DownKeyEventHandler.instanceArray[index].removeListenerSingleThreaded(eventListenerInterface);
         }
     }
     
@@ -79,9 +79,9 @@ public class DownKeyEventHandler extends DownKeyEventHandlerBase
     {
         super.removeListener(eventListenerInterface);
 
-        for(int index = instanceArray.length - 1; index >= 0; index--)
+        for(int index = DownKeyEventHandler.instanceArray.length - 1; index >= 0; index--)
         {
-            instanceArray[index].removeListener(eventListenerInterface);
+            DownKeyEventHandler.instanceArray[index].removeListener(eventListenerInterface);
         }
     }
 }

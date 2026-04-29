@@ -21,7 +21,7 @@ public class TrackballMotionGestureFactory
 
     public static final TrackballMotionGestureFactory getInstance()
     {
-        return MOTION;
+        return TrackballMotionGestureFactory.MOTION;
     }
     
     public final MotionGestureInput LEFT;

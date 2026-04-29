@@ -83,7 +83,7 @@ public class RecordStoreHighScores extends HighScores
         if (highScoresCanBeNull == null)
         {
             final HighScores highScores = new RecordStoreHighScores(abeClientInformation, gameInfo, highScoreName, heading, columnTwoHeading, recordComparatorInterface);
-            hashTable.put(highScores.getName(), highScores);
+            RecordStoreHighScores.hashTable.put(highScores.getName(), highScores);
             return highScores;
         }
 

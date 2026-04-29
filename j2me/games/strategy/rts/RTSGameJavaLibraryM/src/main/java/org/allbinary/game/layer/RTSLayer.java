@@ -363,7 +363,7 @@ public class RTSLayer
     @Override
     public int getSourceId()
     {
-        return id;
+        return RTSLayer.id;
     }
 
     private final RTSLayerUtil rtsLayerUtil = RTSLayerUtil.getInstance();

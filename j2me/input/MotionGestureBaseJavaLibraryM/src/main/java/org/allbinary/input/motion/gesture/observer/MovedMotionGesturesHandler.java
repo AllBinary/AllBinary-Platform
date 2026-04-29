@@ -27,7 +27,7 @@ public class MovedMotionGesturesHandler extends BasicEventHandler
 
     public static final MovedMotionGesturesHandler getInstance()
     {
-        return SINGLETON;
+        return MovedMotionGesturesHandler.SINGLETON;
     }
     
     //private final BasicArrayList list = new BasicArrayListD();

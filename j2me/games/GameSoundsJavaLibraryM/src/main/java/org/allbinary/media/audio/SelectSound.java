@@ -26,6 +26,6 @@ public class SelectSound extends CompositeSound
    
    public static Sound getInstance()
    {
-      return soundInterface;
+      return SelectSound.soundInterface;
    }
 }

@@ -26,11 +26,11 @@ public class Orientation
     
     public static final Orientation getInstance(int yaw, int pitch, int roll)
     {
-        SINGLETON.yaw.setint(yaw);
-        SINGLETON.pitch.setint(pitch);
-        SINGLETON.roll.setint(roll);
+        Orientation.SINGLETON.yaw.setint(yaw);
+        Orientation.SINGLETON.pitch.setint(pitch);
+        Orientation.SINGLETON.roll.setint(roll);
         
-        return SINGLETON;
+        return Orientation.SINGLETON;
     }
     
     private Orientation(int yaw, int pitch, int roll)

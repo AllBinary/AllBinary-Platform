@@ -27,7 +27,7 @@ public class GameConfigurationSingleton
         
     public static GameConfigurationSingleton getInstance()
     {
-        return SINGLETON;
+        return GameConfigurationSingleton.SINGLETON;
     }
         
     private GameConfigurationSingleton()

@@ -10,7 +10,7 @@ public class PlatformKeyFactory {
 
     public static PlatformKeyFactory getInstance()
     {
-        return SINGLETON;
+        return PlatformKeyFactory.SINGLETON;
     }
     
     private final AndroidKeyFactory androidKeyFactory = ActivityFractureControllerUtilFactory.getInstance();

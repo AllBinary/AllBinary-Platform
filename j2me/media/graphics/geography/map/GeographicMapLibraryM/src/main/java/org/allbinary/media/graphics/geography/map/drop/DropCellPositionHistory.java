@@ -30,7 +30,7 @@ public class DropCellPositionHistory
 
     public static DropCellPositionHistory getInstance()
     {
-        return SINGLETON;
+        return DropCellPositionHistory.SINGLETON;
     }
     
     private final CellPositionFactory cellPositionFactory = CellPositionFactory.getInstance();

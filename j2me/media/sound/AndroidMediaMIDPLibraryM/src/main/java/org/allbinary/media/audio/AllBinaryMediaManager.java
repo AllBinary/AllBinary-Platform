@@ -129,14 +129,14 @@ public class AllBinaryMediaManager
             System.gc();
 
             soundsFactoryInterface.setInitialized(false);
-            mostUsedTotal = 0;
+            AllBinaryMediaManager.mostUsedTotal = 0;
         }
         logUtil.putF(commonString.START, THIS, "shutdown");
     }
 
     public static Player createPlayer(String resource) throws Exception
     {
-        mostUsedTotal++;
+        AllBinaryMediaManager.mostUsedTotal++;
         final LogUtil logUtil = LogUtil.getInstance();
         if (Features.getInstance().isFeature(GameFeatureFactory.getInstance().SOUND))
         {
@@ -149,7 +149,7 @@ public class AllBinaryMediaManager
                 logUtil.put(
                         "Could not create AndroidMediaPlayerWrapper using NoPlayer at " + 
                         CommonLabels.getInstance().TOTAL_LABEL
-                                + mostUsedTotal, THIS, "createPlayer", e);
+                                + AllBinaryMediaManager.mostUsedTotal, AllBinaryMediaManager.THIS, "createPlayer", e);
                 return NoPlayer.NO_PLAYER;
             }
         }

@@ -26,6 +26,6 @@ public class RaceTrackRoadsGeographicMapCellHistoryFactory
 
    public static GeographicMapCellHistory getInstance()
    {
-      return geographicMapCellHistory;
+      return RaceTrackRoadsGeographicMapCellHistoryFactory.geographicMapCellHistory;
    }
 }

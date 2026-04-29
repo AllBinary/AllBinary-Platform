@@ -37,7 +37,7 @@ public class LogFactory
             Object object,
             String functionName)
     {
-        return LOG;
+        return LogFactory.LOG;
         //return new Log(specialMessage, object, functionName);
     }
 }

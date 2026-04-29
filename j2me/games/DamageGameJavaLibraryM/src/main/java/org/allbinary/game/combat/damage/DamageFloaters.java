@@ -21,7 +21,7 @@ public class DamageFloaters extends Paintable
     
     public static DamageFloaters getInstance()
     {
-        return SINGLETON;
+        return DamageFloaters.SINGLETON;
     }
     
     public void add(int damage)

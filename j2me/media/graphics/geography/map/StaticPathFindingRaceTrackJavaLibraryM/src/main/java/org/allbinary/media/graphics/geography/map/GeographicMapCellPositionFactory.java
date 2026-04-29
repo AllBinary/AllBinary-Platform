@@ -43,7 +43,7 @@ public class GeographicMapCellPositionFactory extends GeographicMapCellPositionB
 
             geographicMapCellPositionFactoryCanBeNull = new BasicGeographicMapCellPositionFactory(geographicMapInterface);
 
-            hashtable.put(allBinaryTiledLayer.getDataId(), geographicMapCellPositionFactoryCanBeNull);
+            GeographicMapCellPositionFactory.hashtable.put(allBinaryTiledLayer.getDataId(), geographicMapCellPositionFactoryCanBeNull);
             return (BasicGeographicMapCellPositionFactory) geographicMapCellPositionFactoryCanBeNull;
         }
         else
@@ -57,6 +57,6 @@ public class GeographicMapCellPositionFactory extends GeographicMapCellPositionB
 
     public static Hashtable getHashtable()
     {
-        return hashtable;
+        return GeographicMapCellPositionFactory.hashtable;
     }
 }

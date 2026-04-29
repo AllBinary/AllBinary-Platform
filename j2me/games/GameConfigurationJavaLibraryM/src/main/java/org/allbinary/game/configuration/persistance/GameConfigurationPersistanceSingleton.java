@@ -21,7 +21,7 @@ public class GameConfigurationPersistanceSingleton extends KeyValuePersistance
 
     public static GameConfigurationPersistanceSingleton getInstance()
     {
-        return GAME_PERSISTANCE;
+        return GameConfigurationPersistanceSingleton.GAME_PERSISTANCE;
     }
 
     private GameConfigurationPersistanceSingleton()

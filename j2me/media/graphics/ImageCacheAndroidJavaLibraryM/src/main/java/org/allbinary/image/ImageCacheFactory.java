@@ -19,7 +19,7 @@ public class ImageCacheFactory
 
     public static ImageCache getInstance()
     {
-        return IMAGE_CACHE;
+        return ImageCacheFactory.IMAGE_CACHE;
     }
 
     //While the image cache really can't be cleared currently 

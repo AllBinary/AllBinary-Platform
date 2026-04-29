@@ -23,6 +23,6 @@ public class WorkSound extends CompositeSound
    
    public static Sound getInstance()
    {
-      return soundInterface;
+      return WorkSound.soundInterface;
    }
 }

@@ -28,6 +28,6 @@ public class DemoGameMidletStateFactory
     
     public static DemoGameMidletStateFactory getInstance()
     {
-        return STATE; 
+        return DemoGameMidletStateFactory.STATE; 
     }
 }

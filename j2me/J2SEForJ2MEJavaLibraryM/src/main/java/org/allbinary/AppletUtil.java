@@ -54,6 +54,6 @@ public class AppletUtil
         // return false;
       //}
 
-       return applet;
+       return AppletUtil.applet;
    }
 }

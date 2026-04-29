@@ -36,7 +36,7 @@ public class DropLayerFactory
    
    public static DropLayerFactory getInstance()
    {
-      return DROP_LAYER_FACTORY;
+      return DropLayerFactory.DROP_LAYER_FACTORY;
    }
    
    public int getSize()

@@ -29,7 +29,7 @@ public class TouchScreenFactory
 
     public static final TouchScreenFactory getInstance()
     {
-        return SINGLETON;
+        return TouchScreenFactory.SINGLETON;
     }
 
     /*

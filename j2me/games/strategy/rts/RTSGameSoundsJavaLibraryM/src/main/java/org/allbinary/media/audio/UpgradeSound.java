@@ -26,6 +26,6 @@ public class UpgradeSound extends CompositeSound
    
    public static Sound getInstance()
    {
-      return soundInterface;
+      return UpgradeSound.soundInterface;
    }   
 }

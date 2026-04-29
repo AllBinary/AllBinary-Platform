@@ -76,7 +76,7 @@ public class RemoteHighScores extends HighScores {
                     abeClientInformation, softwareInformation, gameInfo,
                     heading, columnTwoHeading, isAscending, preload);
 
-                hashTable.put(gameInfo, highScores);
+                RemoteHighScores.hashTable.put(gameInfo, highScores);
             }
 
             return highScores;

@@ -37,7 +37,7 @@ public class AndroidNumberKeyToJ2MECanvasNumberKey
         // "== " + KeyEvent.KEYCODE_DPAD_LEFT + "==" +
         // KeyEvent.KEYCODE_SOFT_LEFT + " key: " + key, "AndroidToJ2MEKey", // "getKey");
 
-        if (key < androidtoJavaMicroEditionKeyMap.length)
+        if (key < AndroidNumberKeyToJ2MECanvasNumberKey.androidtoJavaMicroEditionKeyMap.length)
         {
             int value = androidtoJavaMicroEditionKeyMap[key];
             if (value != 0)

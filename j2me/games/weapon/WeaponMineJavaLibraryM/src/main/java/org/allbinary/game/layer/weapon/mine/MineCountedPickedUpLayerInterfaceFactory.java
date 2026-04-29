@@ -52,7 +52,7 @@ public class MineCountedPickedUpLayerInterfaceFactory
     
     public static PickedUpLayerInterfaceFactoryInterface getInstance()
     {
-        return pickedUpLayerInterfaceFactoryInterface;
+        return MineCountedPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface;
     }
 
     @Override

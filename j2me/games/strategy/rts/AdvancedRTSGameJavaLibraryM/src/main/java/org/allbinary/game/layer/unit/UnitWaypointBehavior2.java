@@ -128,7 +128,7 @@ extends UnitWaypointBehavior
         if (this.waypointPathRunnable.isRunning())
         {
             //thread is done
-            if (waypointPathsListP != runningWaypointPathList)
+            if (waypointPathsListP != UnitWaypointBehavior2.runningWaypointPathList)
             {
                 this.waypointPathRunnable.setRunning(false);
 

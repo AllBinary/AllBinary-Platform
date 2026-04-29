@@ -109,13 +109,13 @@ public class PtsDamageFloaters extends DamageFloaters
                 int delta = 10 * (index + 2);
                 
                 this.basicSetColorUtil.setBasicColorP(
-                        graphics, basicColorArrayIndexer.get());
+                        graphics, PtsDamageFloaters.basicColorArrayIndexer.get());
                 
                 //graphics.drawString(this.lastDamageString[index],
                 graphics.drawChars(this.lastDamageString[index], 
                         0, this.lastDamageStringSizeArray[index], 
                         x - myRandomFactory.getNextInt(delta), y - delta, 0);
-                basicColorArrayIndexer.next();
+                PtsDamageFloaters.basicColorArrayIndexer.next();
             }
             this.lastDamage[index] = 0;
         }

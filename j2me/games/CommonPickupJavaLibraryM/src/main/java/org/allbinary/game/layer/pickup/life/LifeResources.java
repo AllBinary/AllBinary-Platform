@@ -30,6 +30,6 @@ public class LifeResources {
 
     public static LifeResources getInstance()
     {
-        return SINGLETON;
+        return LifeResources.SINGLETON;
     }
 }

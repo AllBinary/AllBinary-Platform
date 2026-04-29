@@ -46,7 +46,7 @@ public class Features
 
     public static Features getInstance()
     {
-        return SINGLETON;
+        return Features.SINGLETON;
     }
 
     //For default or reload required features

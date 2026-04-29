@@ -33,6 +33,6 @@ public class PointsResources {
 
     public static PointsResources getInstance()
     {
-        return SINGLETON;
+        return PointsResources.SINGLETON;
     }
 }

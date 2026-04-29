@@ -117,7 +117,7 @@ implements ItemArraySingletonFactoryInterface
     @Override
     public CustomItem[] getItems() throws Exception
     {
-        return ITEMS;
+        return UnitItemArrayFactory.ITEMS;
     }
 
     public BasicGameResources[] getResources()

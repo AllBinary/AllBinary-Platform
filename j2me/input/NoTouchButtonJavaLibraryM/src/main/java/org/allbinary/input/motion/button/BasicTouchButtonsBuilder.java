@@ -27,7 +27,7 @@ public class BasicTouchButtonsBuilder
 
     public static final BaseTouchInput getInstance()
     {
-        return SINGLETON;
+        return BasicTouchButtonsBuilder.SINGLETON;
     }
 
     protected final LogUtil logUtil = LogUtil.getInstance();

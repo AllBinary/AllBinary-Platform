@@ -29,7 +29,7 @@ public class BufferedGameCanvasPaintHelper extends ProcessPaintable
 
     // Buffering Magic
     private final static int MAX_IMAGES = 4;
-    private final Image offScreenImage[] = new Image[MAX_IMAGES];
+    private final Image offScreenImage[] = new Image[BufferedGameCanvasPaintHelper.MAX_IMAGES];
     private Image previousImage = NullCanvas.NULL_IMAGE;
 
     private final CircularIndexUtil circularIndexUtil = 

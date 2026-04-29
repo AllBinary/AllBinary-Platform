@@ -130,6 +130,6 @@ public class PlayerQueue
 
     public String toString()
     {
-        return new StringMaker().append(TOTAL).appendint(this.list.size()).toString();
+        return new StringMaker().append(PlayerQueue.TOTAL).appendint(this.list.size()).toString();
     }
 }

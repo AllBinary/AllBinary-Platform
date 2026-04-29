@@ -32,7 +32,7 @@ public class PathCacheFactory
 
    public static PathCacheFactory getInstance()
    {
-      return pathFactory;
+      return PathCacheFactory.pathFactory;
    }
 
    public int getSize()

@@ -24,7 +24,7 @@ public class PCKeyFactory
 
     public static final PCKeyFactory getInstance()
     {
-        return SINGLETON;
+        return PCKeyFactory.SINGLETON;
     }
 
     public final PCGameKey UNKNOWN = new PCGameKey(KeyEvent.VK_UNDEFINED, "UNKNOWN");

@@ -39,12 +39,12 @@ public class UpKeyEventHandler extends UpKeyEventHandlerBase
    public UpKeyEventHandlerBase getInstanceForDevice(int deviceId)
    {
        final int playerInputId = this.playerInputIdFactory.getPlayerForDevice(deviceId);
-       return instanceArray[playerInputId];
+       return UpKeyEventHandler.instanceArray[playerInputId];
    }
 
    public UpKeyEventHandlerBase getInstanceForPlayer(int playerInputId)
    {
-       return instanceArray[playerInputId];
+       return UpKeyEventHandler.instanceArray[playerInputId];
    }
    
    private UpKeyEventHandler()
@@ -56,9 +56,9 @@ public class UpKeyEventHandler extends UpKeyEventHandlerBase
     {
         super.removeAllListeners();
 
-        for(int index = instanceArray.length - 1; index >= 0; index--)
+        for(int index = UpKeyEventHandler.instanceArray.length - 1; index >= 0; index--)
         {
-            instanceArray[index].removeAllListeners();
+            UpKeyEventHandler.instanceArray[index].removeAllListeners();
         }
     }
 
@@ -67,9 +67,9 @@ public class UpKeyEventHandler extends UpKeyEventHandlerBase
     {
         super.removeListenerSingleThreaded(eventListenerInterface);
 
-        for(int index = instanceArray.length - 1; index >= 0; index--)
+        for(int index = UpKeyEventHandler.instanceArray.length - 1; index >= 0; index--)
         {
-            instanceArray[index].removeListenerSingleThreaded(eventListenerInterface);
+            UpKeyEventHandler.instanceArray[index].removeListenerSingleThreaded(eventListenerInterface);
         }
     }
     
@@ -78,9 +78,9 @@ public class UpKeyEventHandler extends UpKeyEventHandlerBase
     {
         super.removeListener(eventListenerInterface);
 
-        for(int index = instanceArray.length - 1; index >= 0; index--)
+        for(int index = UpKeyEventHandler.instanceArray.length - 1; index >= 0; index--)
         {
-            instanceArray[index].removeListener(eventListenerInterface);
+            UpKeyEventHandler.instanceArray[index].removeListener(eventListenerInterface);
         }
     }
 }

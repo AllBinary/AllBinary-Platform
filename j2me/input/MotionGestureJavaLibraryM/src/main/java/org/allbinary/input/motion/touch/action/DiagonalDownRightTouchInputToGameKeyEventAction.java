@@ -23,7 +23,7 @@ public class DiagonalDownRightTouchInputToGameKeyEventAction extends GameKeyComp
     
     public static GameKeyCompleteMotionGestureInputEvent getInstance()
     {
-        return SINGLETON;
+        return DiagonalDownRightTouchInputToGameKeyEventAction.SINGLETON;
     }
 
     private DiagonalDownRightTouchInputToGameKeyEventAction()

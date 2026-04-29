@@ -29,7 +29,7 @@ public class CompleteMotionGestureInputEventHandler extends BasicEventHandler
     
     public static CompleteMotionGestureInputEventHandler getInstance()
     {
-        return SINGLETON;
+        return CompleteMotionGestureInputEventHandler.SINGLETON;
     }
     
     private final BasicArrayList list = new BasicArrayListD();

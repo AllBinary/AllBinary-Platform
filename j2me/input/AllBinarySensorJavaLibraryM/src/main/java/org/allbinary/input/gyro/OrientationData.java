@@ -24,7 +24,7 @@ public class OrientationData
     
     public static final OrientationData getInstance()
     {
-        return SINGLETON;
+        return OrientationData.SINGLETON;
     }
     
     public final String ORIENTATION_SENSOR_INPUT = "Orientation Sensor Input";

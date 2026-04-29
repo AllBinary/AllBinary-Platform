@@ -141,7 +141,7 @@ public class WaypointLayer extends AdvancedRTSGameLayer
     @Override
     public int getType()
     {
-        return getStaticType();
+        return WaypointLayer.getStaticType();
     }
 
     public static int getStaticType()

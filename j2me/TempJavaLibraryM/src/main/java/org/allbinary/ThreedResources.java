@@ -25,7 +25,7 @@ public class ThreedResources {
      * @return the threedResources
      */
     public static ThreedResources getThreedResources() {
-        return threedResources;
+        return ThreedResources.threedResources;
     }
 
     public void add() {

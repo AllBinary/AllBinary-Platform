@@ -19,7 +19,7 @@ public class NoDebug implements DebugInterface
    
    public static DebugInterface getInstance()
    {
-      return SINGLETON;
+      return NoDebug.SINGLETON;
    }
    
    @Override

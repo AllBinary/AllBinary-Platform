@@ -51,6 +51,6 @@ public class ImageTypeUtil
     
     public static ImageTypeUtil getInstance()
     {
-        return SINGLETON;
+        return ImageTypeUtil.SINGLETON;
     }
 }

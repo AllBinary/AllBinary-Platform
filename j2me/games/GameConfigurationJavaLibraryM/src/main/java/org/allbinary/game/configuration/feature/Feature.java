@@ -26,19 +26,19 @@ public class Feature
     public Feature(String name)
     {
         this.name = name;
-        add(name, this);
+        Feature.add(name, this);
         
         ChangedGameFeatureListener.getInstance().add(this);
     }
     
     public static Feature getInstance(String name)
     {
-        return (Feature) hashtable.get(name);
+        return (Feature) Feature.hashtable.get(name);
     }
 
     private static void add(String name, Feature gameFeature)
     {
-        hashtable.put(name, gameFeature);
+        Feature.hashtable.put(name, gameFeature);
     }
     
     public String toString()

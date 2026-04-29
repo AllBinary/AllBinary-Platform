@@ -29,7 +29,7 @@ public class GameLayerUtil
        DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
        ViewPosition viewPosition = layer.getViewPosition();
        
-      return isInside(viewPosition.getX(), viewPosition.getY(),
+      return GameLayerUtil.isInside(viewPosition.getX(), viewPosition.getY(),
               viewPosition.getX2(), viewPosition.getY2(), 0, 0,
               displayInfo.getLastWidth(), displayInfo.getLastHeight());
    }

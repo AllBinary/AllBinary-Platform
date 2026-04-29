@@ -34,7 +34,7 @@ public class FeaturedResourceRelativeRelationshipFactory extends FeaturedResourc
 
    public static FeaturedResourceRelativeRelationshipFactory getInstance()
    {
-      return INSTANCE;
+      return FeaturedResourceRelativeRelationshipFactory.INSTANCE;
    }
 
    private final BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();

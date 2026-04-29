@@ -39,7 +39,7 @@ ProceduralAnimationInterfaceFactoryInterface
 
    public static NullRotationAnimationFactory getFactoryInstance()
    {
-       return NULL_ROTATION_ANIMATION_FACTORY;
+       return NullRotationAnimationFactory.NULL_ROTATION_ANIMATION_FACTORY;
    }
    
    @Override

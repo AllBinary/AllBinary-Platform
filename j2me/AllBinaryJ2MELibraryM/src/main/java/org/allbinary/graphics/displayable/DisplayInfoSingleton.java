@@ -40,7 +40,7 @@ public class DisplayInfoSingleton
     
     public static final DisplayInfoSingleton getInstance()
     {
-        return SINGLETON;
+        return DisplayInfoSingleton.SINGLETON;
     }
 
     private final CommonLabels commonLabels = CommonLabels.getInstance();

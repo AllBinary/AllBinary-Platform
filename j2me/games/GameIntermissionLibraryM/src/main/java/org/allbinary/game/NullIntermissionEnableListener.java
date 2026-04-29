@@ -20,7 +20,7 @@ implements IntermissionEnableListenerInterface
     
     public static final IntermissionEnableListenerInterface getInstance()
     {
-        return SINGLETON;
+        return NullIntermissionEnableListener.SINGLETON;
     }
     
     private NullIntermissionEnableListener()

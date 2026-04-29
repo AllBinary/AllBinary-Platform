@@ -92,12 +92,12 @@ implements DisplayChangeEventListener
         {
             if (AndroidBasicTitleProgressBar.background != 0)
             {
-                ResourceUtil.getInstance().addResource(RESOURCE,
+                ResourceUtil.getInstance().addResource(AndroidBasicTitleProgressBar.RESOURCE,
                         new Integer(AndroidBasicTitleProgressBar.background));
 
                 GameFeatureImageCacheFactory.init();
 
-                this.image = ImageCacheFactory.getInstance().getWithKey(RESOURCE);
+                this.image = ImageCacheFactory.getInstance().getWithKey(AndroidBasicTitleProgressBar.RESOURCE);
             }
         }
         catch (Exception e)
@@ -391,7 +391,7 @@ implements DisplayChangeEventListener
     {
         this.logUtil.putF(commonStrings.START, this, commonStrings.INIT);
         
-        this.image = GameFeatureImageCacheFactory.getInstance().getWithKey(RESOURCE);
+        this.image = GameFeatureImageCacheFactory.getInstance().getWithKey(AndroidBasicTitleProgressBar.RESOURCE);
         
         PreResourceImageUtil preResourceImageUtil = PreResourceImageUtil.getInstance();
 
@@ -414,7 +414,7 @@ implements DisplayChangeEventListener
         
         this.initOpenGL(graphics);
         
-        this.image = GameFeatureImageCacheFactory.getInstance().getWithKey(RESOURCE);
+        this.image = GameFeatureImageCacheFactory.getInstance().getWithKey(AndroidBasicTitleProgressBar.RESOURCE);
         
         PreResourceImageUtil preResourceImageUtil = PreResourceImageUtil.getInstance();
         

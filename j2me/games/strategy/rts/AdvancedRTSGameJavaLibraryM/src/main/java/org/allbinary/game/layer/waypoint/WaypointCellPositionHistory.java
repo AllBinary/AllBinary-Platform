@@ -30,7 +30,7 @@ public class WaypointCellPositionHistory
 
     public static WaypointCellPositionHistory getInstance()
     {
-        return SINGLETON;
+        return WaypointCellPositionHistory.SINGLETON;
     }
     private BasicArrayList positionList = new BasicArrayListD();
     private BasicArrayList layerList = new BasicArrayListD();

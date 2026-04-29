@@ -22,6 +22,6 @@ public class MotionGestureConfigurationFactory {
         
     public static MotionGestureConfiguration getInstance() 
     {
-        return config;
+        return MotionGestureConfigurationFactory.config;
     }
 }

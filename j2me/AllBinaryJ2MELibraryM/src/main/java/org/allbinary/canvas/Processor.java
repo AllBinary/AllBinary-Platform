@@ -19,7 +19,7 @@ public class Processor
     
     public static Processor getInstance()
     {
-        return SINGLETON;
+        return Processor.SINGLETON;
     }
     
     public void process() throws Exception

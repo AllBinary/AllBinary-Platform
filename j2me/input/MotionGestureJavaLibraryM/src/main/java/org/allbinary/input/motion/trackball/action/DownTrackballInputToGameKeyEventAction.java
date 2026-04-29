@@ -23,7 +23,7 @@ public class DownTrackballInputToGameKeyEventAction extends GameKeyCompleteMotio
     
     public static GameKeyCompleteMotionGestureInputEvent getInstance()
     {
-        return SINGLETON;
+        return DownTrackballInputToGameKeyEventAction.SINGLETON;
     }
     
     private DownTrackballInputToGameKeyEventAction()

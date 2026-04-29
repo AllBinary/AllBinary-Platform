@@ -28,7 +28,7 @@ public class DropLayerProcessor extends BasicLayerProcessor
 
     public static BasicLayerProcessor getInstance()
     {
-        return LAYER_PROCESSOR;
+        return DropLayerProcessor.LAYER_PROCESSOR;
     }
 
     @Override

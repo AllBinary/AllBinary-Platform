@@ -39,7 +39,7 @@ public class AndroidAPI9KeyFactory extends AndroidKeyFactory
     
     public static final AndroidAPI9KeyFactory getInstance()
     {
-        return SINGLETON;
+        return AndroidAPI9KeyFactory.SINGLETON;
     }
 
 }

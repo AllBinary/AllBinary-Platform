@@ -26,6 +26,6 @@ public class FireworksSound extends CompositeSound
    
    public static Sound getInstance()
    {
-      return soundInterface;
+      return FireworksSound.soundInterface;
    }
 }

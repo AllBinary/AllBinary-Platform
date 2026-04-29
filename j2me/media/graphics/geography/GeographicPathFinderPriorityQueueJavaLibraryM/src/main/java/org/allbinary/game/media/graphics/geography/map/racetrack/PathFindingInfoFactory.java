@@ -59,7 +59,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
     {
         //PreLogUtil.put("Using Dynamic Path Finding", this, commonStrings.GET_INSTANCE);
         
-        this.pathFindingInfo = new PathFindingInfo(new PathFindingNodeCostInfoFactory(MAX), new BasicArrayListS(1), new BasicArrayListS(1));
+        this.pathFindingInfo = new PathFindingInfo(new PathFindingNodeCostInfoFactory(PathFindingInfoFactory.MAX), new BasicArrayListS(1), new BasicArrayListS(1));
         
         this.pathFinder = new PathFinder();
     }

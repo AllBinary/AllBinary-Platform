@@ -33,11 +33,11 @@ public class NullGameCanvas extends AllBinaryGameCanvas
             throw new RuntimeException();
         }
     }
-    private static final NullGameCanvas SINGLETON = createNull();
+    private static final NullGameCanvas SINGLETON = NullGameCanvas.createNull();
     
     public static NullGameCanvas getInstance()
     {
-        return SINGLETON;
+        return NullGameCanvas.SINGLETON;
     }
 
     public static NullGameCanvas createCanvas(
@@ -144,7 +144,7 @@ public class NullGameCanvas extends AllBinaryGameCanvas
     public static final int TYPE = 1;
     @Override
     public int getType() {
-        return TYPE;
+        return NullGameCanvas.TYPE;
     }
     
 }

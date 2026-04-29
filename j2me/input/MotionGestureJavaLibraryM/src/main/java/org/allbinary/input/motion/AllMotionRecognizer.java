@@ -40,7 +40,7 @@ public class AllMotionRecognizer extends MotionRecognizer
 
     public AllMotionRecognizer()
     {
-        this.id = index++;
+        this.id = AllMotionRecognizer.index++;
 
         this.motionGestureRecognizer = new MotionGestureRecognizer(this.id);
         this.touchButtonRecognizer = new TouchButtonRecognizer();

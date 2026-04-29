@@ -24,7 +24,7 @@ public class GameStatisticsFactory extends AndroidGameStatistics
     //ActualPlatform
     public static final AndroidGameStatistics getInstance()
     {
-        return SINGLETON;
+        return GameStatisticsFactory.SINGLETON;
     }
     
     private StringMaker stringBuffer = new StringMaker();

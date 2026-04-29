@@ -24,6 +24,6 @@ public class ErrorSound extends CompositeSound
    
    public static Sound getInstance()
    {
-      return soundInterface;
+      return ErrorSound.soundInterface;
    }
 }

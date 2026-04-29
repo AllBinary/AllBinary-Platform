@@ -23,7 +23,7 @@ public class DownTouchInputToGameKeyEventAction extends GameKeyCompleteMotionGes
     
     public static GameKeyCompleteMotionGestureInputEvent getInstance()
     {
-        return SINGLETON;
+        return DownTouchInputToGameKeyEventAction.SINGLETON;
     }
     
     private DownTouchInputToGameKeyEventAction()

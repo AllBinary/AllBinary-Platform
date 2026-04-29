@@ -21,7 +21,7 @@ public class NullTickable implements TickableInterface
     
     public static final NullTickable getInstance()
     {
-        return SINGLETON;
+        return NullTickable.SINGLETON;
     }
     
     @Override

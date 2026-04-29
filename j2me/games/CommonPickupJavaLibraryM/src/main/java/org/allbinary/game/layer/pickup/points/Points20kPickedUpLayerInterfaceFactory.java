@@ -55,7 +55,7 @@ public class Points20kPickedUpLayerInterfaceFactory extends PickedUpLayerInterfa
    
    public static PickedUpLayerInterfaceFactoryInterface getInstance()
    {
-      return pickedUpLayerInterfaceFactoryInterface;
+      return Points20kPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface;
    }
 
    @Override

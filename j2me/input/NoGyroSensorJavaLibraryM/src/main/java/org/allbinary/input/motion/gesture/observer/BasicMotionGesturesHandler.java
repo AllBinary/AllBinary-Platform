@@ -24,7 +24,7 @@ public class BasicMotionGesturesHandler extends BasicEventHandler
 
     public static final BasicMotionGesturesHandler getInstance()
     {
-        return SINGLETON;
+        return BasicMotionGesturesHandler.SINGLETON;
     }
     
     protected BasicMotionGesturesHandler()

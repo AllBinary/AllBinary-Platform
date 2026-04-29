@@ -24,6 +24,6 @@ public class NullPaintable extends Paintable
    
    public static Paintable getInstance()
    {
-      return SINGLETON;
+      return NullPaintable.SINGLETON;
    }
 }

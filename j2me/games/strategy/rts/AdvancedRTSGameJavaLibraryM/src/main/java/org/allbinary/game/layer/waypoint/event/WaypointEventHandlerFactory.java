@@ -38,14 +38,14 @@ public class WaypointEventHandlerFactory {
 
     public static WaypointEventHandler getInstance(final Group groupInterface)
     {
-        return eventHandlerArray[(int) groupInterface.getGroupId()];
+        return WaypointEventHandlerFactory.eventHandlerArray[(int) groupInterface.getGroupId()];
     }
 
     public static void removeAll()
     {
-        for(int index = eventHandlerArray.length - 1; index >= 0; index--)
+        for(int index = WaypointEventHandlerFactory.eventHandlerArray.length - 1; index >= 0; index--)
         {
-            eventHandlerArray[index].removeAllListeners();
+            WaypointEventHandlerFactory.eventHandlerArray[index].removeAllListeners();
         }
     }
 }

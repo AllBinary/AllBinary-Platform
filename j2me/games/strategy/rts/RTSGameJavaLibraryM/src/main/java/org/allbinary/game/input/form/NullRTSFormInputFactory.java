@@ -27,6 +27,6 @@ public class NullRTSFormInputFactory
 
     public static final RTSFormInput getInstance()
     {
-        return SINGLETON;
+        return NullRTSFormInputFactory.SINGLETON;
     }
 }

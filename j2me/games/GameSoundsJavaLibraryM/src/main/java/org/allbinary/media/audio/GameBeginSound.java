@@ -26,6 +26,6 @@ public class GameBeginSound extends CompositeSound
    
    public static Sound getInstance()
    {
-      return soundInterface;
+      return GameBeginSound.soundInterface;
    }
 }

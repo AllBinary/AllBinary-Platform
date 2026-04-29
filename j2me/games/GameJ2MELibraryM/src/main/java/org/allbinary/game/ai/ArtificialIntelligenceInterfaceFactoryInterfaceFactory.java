@@ -32,7 +32,7 @@ public class ArtificialIntelligenceInterfaceFactoryInterfaceFactory
    
    public static ArtificialIntelligenceInterfaceFactoryInterfaceFactory getInstance()
    {
-       return SINGLETON;
+       return ArtificialIntelligenceInterfaceFactoryInterfaceFactory.SINGLETON;
    }
    
    public ArtificialIntelligenceInterfaceFactoryInterface getInstanceFromCollection(final Hashtable hashtable)

@@ -12,9 +12,9 @@ public class ViewSwapper
     private final Activity activity;
 
     private int currentMainViewId = -1;
-    private View[] mainViewArray = NULL_VIEW_ARRAY;
+    private View[] mainViewArray = ViewSwapper.NULL_VIEW_ARRAY;
     
-    private View[] topViewArray = NULL_VIEW_ARRAY;
+    private View[] topViewArray = ViewSwapper.NULL_VIEW_ARRAY;
 
     public ViewSwapper(Activity activity, int rootViewId)
     {

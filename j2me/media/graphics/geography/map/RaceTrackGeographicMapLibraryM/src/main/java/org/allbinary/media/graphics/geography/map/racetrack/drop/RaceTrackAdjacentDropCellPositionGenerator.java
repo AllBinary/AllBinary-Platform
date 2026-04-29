@@ -52,7 +52,7 @@ public class RaceTrackAdjacentDropCellPositionGenerator
 
     public static DropCellPositionGeneratorInterface getInstance()
     {
-        return SINGLETON;
+        return RaceTrackAdjacentDropCellPositionGenerator.SINGLETON;
     }
 
     private final LayerCoveringCellPositionsUtil layerCoveringCellPositionsUtil = LayerCoveringCellPositionsUtil.getInstance();

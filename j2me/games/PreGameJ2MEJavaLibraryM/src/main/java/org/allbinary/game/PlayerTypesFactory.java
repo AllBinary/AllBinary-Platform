@@ -23,6 +23,6 @@ public class PlayerTypesFactory
     
     public static final PlayerTypesFactory getInstance()
     {
-        return SINGLETON;
+        return PlayerTypesFactory.SINGLETON;
     }
 }
