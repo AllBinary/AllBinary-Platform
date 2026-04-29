@@ -43,7 +43,7 @@ public class ShippingHelper
    
    public ShippingHelper(HashMap hashMap, PageContext pageContext)
    {
-      this.propertiesHashMap = propertiesHashMap;
+      //this.propertiesHashMap = propertiesHashMap;
       this.pageContext = pageContext;
 
       this.request = (HttpServletRequest) pageContext.getRequest();
