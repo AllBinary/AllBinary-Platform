@@ -34,7 +34,7 @@ public class BasicArrayList
 
             stringBuffer.append(CommonLabels.getInstance().INDEX_LABEL);
             stringBuffer.appendint(index);
-            stringBuffer.append(SIZE);
+            stringBuffer.append(BasicArrayList.SIZE);
             stringBuffer.appendint(this.currentIndex);
 
             throw new IndexOutOfBoundsException(stringBuffer.toString());
